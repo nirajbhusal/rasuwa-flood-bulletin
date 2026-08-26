@@ -587,7 +587,6 @@ footer .foot-contact a:hover{text-decoration:underline}
     <a href="#gov">सरकारी पहल</a>
     <a href="#photos">तस्बिर</a>
     <a href="#history">अपडेट</a>
-    <a href="#path">कहाँ पुग्यो</a>
     <a href="#event">सरोकारवालाको भनाइ</a>
     <a href="#damage">क्षति</a>
     <a href="#power">विद्युत्</a>
@@ -697,7 +696,8 @@ footer .foot-contact a:hover{text-decoration:underline}
       <li><b>पूर्वाधार</b> — विद्युत् ७ / २७६ MW — प्राधिकरण। पुल २२, बेली ५ — कान्तिपुर / सडक विभाग ~१७:४७; अघिल्लो १९+ यो २२+५ बाट अद्यावधिक। सडक ४० किमि — सडक विभाग (यथावत्)। टावर ७ — नेपाल टेलिकम।</li>
     </ul>
 <section id="map" class="hero-map">
-  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>नक्सा · आजको बाटो</h2></div>
+  <span id="path" hidden></span>
+  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>नक्सा</h2></div>
   <div class="card teal map-wrap">
     <div id="flood-map" role="img" aria-label="टिमुरेदेखि देवघाट–सुस्तासम्मको बाढी बाटो"></div>
     <div class="map-legend">
@@ -708,6 +708,32 @@ footer .foot-contact a:hover{text-decoration:underline}
       <span><i class="pin risk"></i>अनुमान</span>
     </div>
     <p class="map-note">बिन्दुहरू बजार/पुलका अनुमानित स्थान हुन्, नदीको ठीक बीच होइन। चितवन देवघाट: महाशाखा १५:२० हाई अलर्ट — बाढी पुग्यो, सतह बढ्दो। सुस्ता सारिँदै (करिब ७०%), बाढी पुगेको पुष्टि छैन। नुवाकोट देवीघाट ≠ चितवन देवघाट। © OpenStreetMap</p>
+  </div>
+<p class="path-ask"><strong>नदी वरपरका बासिन्दाहरूलाई अनुरोध।</strong> तटीय क्षेत्रबाट सुरक्षित स्थानमा सर्नुहोस् र उच्च सतर्कता अपनाउनुहोस्।</p>
+  <div class="wl" id="wl-rivers" data-src="./dhm-rivers.json">
+    <div class="wl-top">
+      <h3>DHM नदी सतह <small>बाढीको बाटो · स्वचालित गेज</small></h3>
+    </div>
+    <div class="wl-list" id="wl-list"></div>
+    <p class="wl-src" id="wl-src">DHM नेटवर्कमा अहिले खतरा तहमा फुर्के मात्र (गेज बगेको, लाइभ होइन)। बाटोका अरू गेज सतर्कतामुनि। स्रोत: <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a></p>
+  </div>
+  <div class="card teal">
+    <div class="path" role="list">
+      <div class="step" role="listitem"><span class="t">~९:१५</span><i class="rail" aria-hidden="true"></i><div><b>टिमुरे</b><span>तिब्बतबाट नेपाल प्रवेश</span></div></div>
+      <div class="step" role="listitem"><span class="t">बिहान</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेसी</b><span>बजार र पूर्वाधार क्षति</span></div></div>
+      <div class="step" role="listitem"><span class="t">~९:००</span><i class="rail" aria-hidden="true"></i><div><b>विदुर / नुवाकोट</b><span>बेत्रावती, त्रिशूली, देवीघाट, जेल</span></div></div>
+      <div class="step" role="listitem"><span class="t">१०:२८</span><i class="rail" aria-hidden="true"></i><div><b>गल्छी</b><span>धादिङ · महाशाखा पुष्टि, झोलुङ्गे पुल बग्यो</span></div></div>
+      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>गजुरी</b><span>धादिङ · मुग्लिन प्रहरी, सडक रोकियो</span></div></div>
+      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>आदमघाट</b><span>धादिङ · सशस्त्र प्रहरी: बाढी पार</span></div></div>
+      <div class="step" role="listitem"><span class="t">११:५०</span><i class="rail" aria-hidden="true"></i><div><b>फुर्के / मलेखु</b><span>१०.८ मिटर · स्टेसन र झोलुंगे बगे</span></div></div>
+      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>बैरेनी</b><span>धादिङ · बजारमा घर, टहरा, झोलुंगे क्षति</span></div></div>
+      <div class="step" role="listitem"><span class="t">~१३:४२</span><i class="rail" aria-hidden="true"></i><div><b>मुग्लिन</b><span>बाढी पुग्यो · पृथ्वी र मुग्लिन–नारायणगढ अझै बन्द</span></div></div>
+      <div class="step" role="listitem"><span class="t">११:२१</span><i class="rail" aria-hidden="true"></i><div><b>चितवन</b><span>प्रवेश गर्दै · केबलकार ११:३० बन्द</span></div></div>
+      <div class="step" role="listitem"><span class="t">~१२:५८</span><i class="rail" aria-hidden="true"></i><div><b>फिस्लिङअघि</b><span>चितवन · प्रजिअ अर्याल</span></div></div>
+      <div class="step" role="listitem"><span class="t">~१५:२०</span><i class="rail" aria-hidden="true"></i><div><b>चितवन देवघाट</b><span>महाशाखा: पुग्यो · सतह बढ्दो</span></div></div>
+      <div class="step" role="listitem"><span class="t">~१५:४५</span><i class="rail" aria-hidden="true"></i><div><b>सुस्ता</b><span>करिब ७०% सारिए · बाढी पुगेको होइन</span></div></div>
+    </div>
+    <p>बाढी लेन्दे खोला/भोटेकोशी हुँदै त्रिशूलीमा मिसिएको छ। गल्छी र गजुरीपछि सशस्त्र प्रहरीका अनुसार धादिङको <strong>आदमघाट</strong> पार भएको छ। नुवाकोटमा विदुर मेयर राजन श्रेष्ठ: बेत्रावती बजार सबैभन्दा बढी क्षति, त्रिशूली बजार क्षति, सेन्ट्रल जेल डुबान, देवीघाट बजार डुबेको। कारागार प्रमुख भेषबहादुर कुँवर: कैदीबन्दी करिब <strong>१०००</strong> सुरक्षित (विदुर–३ खम्पाक्याम्प)।</p>
   </div>
 </section>
   </div>
@@ -1508,37 +1534,6 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
 </section>
 
-
-
-<section id="path">
-  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>कहाँ पुग्यो</h2></div>
-  <p class="path-ask"><strong>नदी वरपरका बासिन्दाहरूलाई अनुरोध।</strong> तटीय क्षेत्रबाट सुरक्षित स्थानमा सर्नुहोस् र उच्च सतर्कता अपनाउनुहोस्।</p>
-  <div class="wl" id="wl-rivers" data-src="./dhm-rivers.json">
-    <div class="wl-top">
-      <h3>DHM नदी सतह <small>बाढीको बाटो · स्वचालित गेज</small></h3>
-    </div>
-    <div class="wl-list" id="wl-list"></div>
-    <p class="wl-src" id="wl-src">DHM नेटवर्कमा अहिले खतरा तहमा फुर्के मात्र (गेज बगेको, लाइभ होइन)। बाटोका अरू गेज सतर्कतामुनि। स्रोत: <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a></p>
-  </div>
-  <div class="card teal">
-    <div class="path" role="list">
-      <div class="step" role="listitem"><span class="t">~९:१५</span><i class="rail" aria-hidden="true"></i><div><b>टिमुरे</b><span>तिब्बतबाट नेपाल प्रवेश</span></div></div>
-      <div class="step" role="listitem"><span class="t">बिहान</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेसी</b><span>बजार र पूर्वाधार क्षति</span></div></div>
-      <div class="step" role="listitem"><span class="t">~९:००</span><i class="rail" aria-hidden="true"></i><div><b>विदुर / नुवाकोट</b><span>बेत्रावती, त्रिशूली, देवीघाट, जेल</span></div></div>
-      <div class="step" role="listitem"><span class="t">१०:२८</span><i class="rail" aria-hidden="true"></i><div><b>गल्छी</b><span>धादिङ · महाशाखा पुष्टि, झोलुङ्गे पुल बग्यो</span></div></div>
-      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>गजुरी</b><span>धादिङ · मुग्लिन प्रहरी, सडक रोकियो</span></div></div>
-      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>आदमघाट</b><span>धादिङ · सशस्त्र प्रहरी: बाढी पार</span></div></div>
-      <div class="step" role="listitem"><span class="t">११:५०</span><i class="rail" aria-hidden="true"></i><div><b>फुर्के / मलेखु</b><span>१०.८ मिटर · स्टेसन र झोलुंगे बगे</span></div></div>
-      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>बैरेनी</b><span>धादिङ · बजारमा घर, टहरा, झोलुंगे क्षति</span></div></div>
-      <div class="step" role="listitem"><span class="t">~१३:४२</span><i class="rail" aria-hidden="true"></i><div><b>मुग्लिन</b><span>बाढी पुग्यो · पृथ्वी र मुग्लिन–नारायणगढ अझै बन्द</span></div></div>
-      <div class="step" role="listitem"><span class="t">११:२१</span><i class="rail" aria-hidden="true"></i><div><b>चितवन</b><span>प्रवेश गर्दै · केबलकार ११:३० बन्द</span></div></div>
-      <div class="step" role="listitem"><span class="t">~१२:५८</span><i class="rail" aria-hidden="true"></i><div><b>फिस्लिङअघि</b><span>चितवन · प्रजिअ अर्याल</span></div></div>
-      <div class="step" role="listitem"><span class="t">~१५:२०</span><i class="rail" aria-hidden="true"></i><div><b>चितवन देवघाट</b><span>महाशाखा: पुग्यो · सतह बढ्दो</span></div></div>
-      <div class="step" role="listitem"><span class="t">~१५:४५</span><i class="rail" aria-hidden="true"></i><div><b>सुस्ता</b><span>करिब ७०% सारिए · बाढी पुगेको होइन</span></div></div>
-    </div>
-    <p>बाढी लेन्दे खोला/भोटेकोशी हुँदै त्रिशूलीमा मिसिएको छ। गल्छी र गजुरीपछि सशस्त्र प्रहरीका अनुसार धादिङको <strong>आदमघाट</strong> पार भएको छ। नुवाकोटमा विदुर मेयर राजन श्रेष्ठ: बेत्रावती बजार सबैभन्दा बढी क्षति, त्रिशूली बजार क्षति, सेन्ट्रल जेल डुबान, देवीघाट बजार डुबेको। कारागार प्रमुख भेषबहादुर कुँवर: कैदीबन्दी करिब <strong>१०००</strong> सुरक्षित (विदुर–३ खम्पाक्याम्प)।</p>
-  </div>
-</section>
 
 <section id="event">
   <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>सरोकारवालाको भनाइ</h2></div>
@@ -2486,8 +2481,8 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   setTimeout(fix, 0);
   setTimeout(fix, 400);
   window.addEventListener("resize", fix);
-  window.addEventListener("hashchange", function(){ if (location.hash === "#map") setTimeout(fix, 300); });
-  if (location.hash === "#map") setTimeout(fix, 300);
+  window.addEventListener("hashchange", function(){ if (location.hash === "#map" || location.hash === "#path") setTimeout(fix, 300); });
+  if (location.hash === "#map" || location.hash === "#path") setTimeout(fix, 300);
   document.querySelectorAll('a[href="#map"]').forEach(function(a){
     a.addEventListener("click", function(){ setTimeout(fix, 350); });
   });
