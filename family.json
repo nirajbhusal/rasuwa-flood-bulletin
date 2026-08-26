@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T19:07:26+00:00",
+  "updated_at": "2026-08-26T19:15:40+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,28 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-005953-pemba-sherpa",
+      "name": "Pemba Sherpa",
+      "age": "38",
+      "place": "Kathmandu · Nepal China Boarder",
+      "phone": "9702707883",
+      "note": "फारम ००:५९ · Mansarovar group (Indian and Nepali)"
+    },
+    {
+      "id": "sheet-20260827-005616-sankhar-gurung",
+      "name": "Sankhar Gurung",
+      "place": "Gorkha · Upper Trishuli 1",
+      "note": "फारम ००:५६"
+    },
+    {
+      "id": "sheet-20260827-005158-dawa-dhakpa-lama",
+      "name": "Dawa Dhakpa Lama",
+      "age": "45",
+      "place": "Bridim, Rasuwa · Rasuwagadhi, Rasuwa",
+      "phone": "9841317209",
+      "note": "फारम ००:५१"
+    },
     {
       "id": "sheet-20260827-004955-choenyi-tamang",
       "name": "Choenyi Tamang",
