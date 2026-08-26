@@ -224,6 +224,15 @@ img{max-width:100%;display:block}
   margin:18px 0 6px;
 }
 .stats-note{margin:8px 0 0;font-size:13px;color:var(--muted)}
+.stats-src{
+  list-style:none;margin:10px 0 0;padding:12px 14px;
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  font-size:13px;color:var(--muted);line-height:1.55;text-align:left;
+}
+.stats-src li{margin:0 0 6px}
+.stats-src li:last-child{margin:0}
+.stats-src b{color:var(--ink);font-weight:800}
+
 .log{display:flex;flex-direction:column;gap:12px}
 .log-item{
   background:#fff;border:1px solid var(--line);border-radius:14px;
@@ -528,15 +537,15 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="stat">
         <b>शव</b>
         <ul class="mini">
-          <li>डिआईजी <strong>८</strong> · नुवाकोट <strong>४</strong> · धादिङ <strong>४</strong></li>
-          <li>धादिङ जिल्ला प्रहरी <strong>६</strong> · राष्ट्रिय जम्मा होइन</li>
+          <li>जम्मा <strong>८</strong> · नुवाकोट <strong>४</strong> · धादिङ <strong>४</strong></li>
+          <li>धादिङ <strong>६</strong></li>
         </ul>
       </div>
       <div class="stat">
         <b>घाइते</b>
         <ul class="mini">
-          <li>रसुवा अस्पताल <strong>२४</strong> · रेफर <strong>६</strong> · उपचारमा मृत्यु <strong>१</strong></li>
-          <li>टिचिङ <strong>१३</strong> · ट्रमा <strong>३</strong> · सेना हवाई <strong>२९</strong></li>
+          <li>रसुवा <strong>२४</strong> · रेफर <strong>६</strong> · मृत्यु <strong>१</strong></li>
+          <li>टिचिङ <strong>१३</strong> · ट्रमा <strong>३</strong> · हवाई <strong>२९</strong></li>
         </ul>
       </div>
       <div class="stat">
@@ -550,7 +559,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         <b>टिमुरे भन्सार</b>
         <ul class="mini">
           <li>स्थायी <strong>३६</strong> · सम्पर्क <strong>२५</strong> · खोजी <strong>११</strong></li>
-          <li>गाडी बगे <strong>३००+</strong> (भन्सार प्रमुख)</li>
+          <li>गाडी <strong>३००+</strong></li>
         </ul>
       </div>
       <div class="stat">
@@ -563,19 +572,27 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="stat">
         <b>उद्धार</b>
         <ul class="mini">
-          <li>जना <strong>२९</strong> · सेना हवाई घाइते</li>
-          <li>हेलि सेना <strong>६</strong> (+२) · निजी <strong>८</strong> · ड्रोन <strong>३</strong></li>
+          <li>घाइते <strong>२९</strong></li>
+          <li>हेलि <strong>६</strong> (+२) · निजी <strong>८</strong> · ड्रोन <strong>३</strong></li>
         </ul>
       </div>
       <div class="stat">
         <b>पूर्वाधार</b>
         <ul class="mini">
           <li>विद्युत् <strong>७</strong> · <strong>२७६</strong> MW · टावर <strong>७</strong></li>
-          <li>पुल <strong>१९+</strong> · सडक <strong>४०</strong> किमि (सडक विभाग)</li>
+          <li>पुल <strong>१९+</strong> · सडक <strong>४०</strong> किमि</li>
         </ul>
       </div>
     </div>
-    <p class="stats-note">शव ८ डिआईजी रेग्मी (नुवाकोट ४ + धादिङ ४)। धादिङ जिल्ला प्रहरीको ६ त्यसमा जोडिएको होइन — राष्ट्रिय जम्मा अद्यावधिक छैन। उपचारको मृत्यु पनि ८ मा मिसाएको होइन। घाइते २४ र सेना हवाई २९ जोड्ने होइन।</p>
+    <ul class="stats-src" aria-label="स्रोत">
+      <li><b>शव ८</b> — बागमती डिआईजी दीपक रेग्मी (नुवाकोट ४, धादिङ ४)। <b>धादिङ ६</b> — जिल्ला प्रहरी धादिङ; ८ मा जोडिएको होइन। उपचारको मृत्यु ८ मा मिसाएको होइन।</li>
+      <li><b>घाइते</b> — रसुवा अस्पताल २४/६/१। टिचिङ १३ — सहप्रवक्ता रोस्यारा। ट्रमा ३ — डा. मरासिनी। हवाई २९ — जंगीअड्डा। २४ र २९ जोड्ने होइन।</li>
+      <li><b>सुरक्षा</b> — सशस्त्र १३ (रसुवागढी ९, मैलुङ ४)। प्रहरी ३२ / कार्यालय ४ — प्रवक्ता काफ्ले।</li>
+      <li><b>भन्सार</b> — स्थायी ३६, सम्पर्क २५, खोजी ११, गाडी ३००+ — प्रमुख ढुंगाना।</li>
+      <li><b>टिमुरे</b> — घर १००+ र पर्खाइ ३००+ — वडासदस्य घले। बजार ५–७ — डिआईजी रेग्मी।</li>
+      <li><b>उद्धार</b> — घाइते २९, सेना हेलि ६ (+२), ड्रोन ३ — जंगीअड्डा। निजी हेलि ८।</li>
+      <li><b>पूर्वाधार</b> — विद्युत् ७ / २७६ MW — प्राधिकरण। पुल १९+, सडक ४० किमि — सडक विभाग। टावर ७ — नेपाल टेलिकम।</li>
+    </ul>
 <section id="map" class="hero-map">
   <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>नक्सा · आजको बाटो</h2></div>
   <div class="card teal map-wrap">
