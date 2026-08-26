@@ -246,15 +246,35 @@ section{padding:22px 0}
   border-radius:14px;padding:10px;margin-top:10px;
 }
 .xlink img{width:120px;height:80px;object-fit:cover;border-radius:8px}
-.sources{display:grid;gap:16px}
-.src-group{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
-.src-group h3{margin:0 0 10px;font-size:16px;display:flex;align-items:center;gap:8px}
-.badge{font-size:11px;padding:3px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal);font-weight:800}
+.sources{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:12px;
+}
+.src-group{
+  aspect-ratio:1;
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:0;box-shadow:var(--shadow);overflow:hidden;
+  display:flex;flex-direction:column;min-width:0;
+}
+.src-group h3{
+  margin:0;padding:12px 14px;
+  font-size:15px;display:flex;align-items:center;justify-content:space-between;gap:8px;
+  border-bottom:1px solid var(--line);background:#f8fafc;flex:none;
+}
+.badge{font-size:11px;padding:3px 8px;border-radius:8px;background:var(--teal-soft);color:var(--teal);font-weight:800}
+.src-list{
+  flex:1;overflow-y:auto;padding:8px;
+  display:grid;grid-template-columns:1fr;gap:6px;align-content:start;
+}
 .src-group a{
-  display:block;padding:8px 10px;margin:5px 0;border-radius:10px;
-  background:var(--paper);color:var(--ink);font-size:14px;line-height:1.4;
+  display:block;padding:9px 10px;margin:0;border-radius:10px;
+  background:var(--paper);color:var(--ink);font-size:13px;line-height:1.35;
 }
 .src-group a:hover{background:var(--teal-soft);text-decoration:none}
+@media (max-width:760px){
+  .sources{grid-template-columns:repeat(2,1fr)}
+}
 footer{
   margin-top:12px;padding:28px 16px;text-align:center;color:var(--muted);
   border-top:1px solid var(--line);font-size:14px;
@@ -756,8 +776,9 @@ footer{
   <div class="sources">
 
     <div class="src-group">
-      <h3>रातोपाटी <span class="badge">२५</span></h3>
-      <a href="https://www.ratopati.com/story/587445/floods-in-trishuli-exceed-danger-level" target="_blank" rel="noopener">फुर्केमा त्रिशूलीले खतरा तह नाघ्यो</a>
+<h3>रातोपाटी <span class="badge">२५</span></h3>
+      <div class="src-list">
+<a href="https://www.ratopati.com/story/587445/floods-in-trishuli-exceed-danger-level" target="_blank" rel="noopener">फुर्केमा त्रिशूलीले खतरा तह नाघ्यो</a>
       <a href="https://www.ratopati.com/story/587442/prime-minister-calls-emergency-cabinet-meeting" target="_blank" rel="noopener">प्रधानमन्त्रीद्वारा आकस्मिक मन्त्रिपरिषद् बैठक</a>
       <a href="https://www.ratopati.com/story/587444/a-large-number-of-armed-police-force-teams-mobilized-for-rescue-in-disaster-affected-areas" target="_blank" rel="noopener">सशस्त्रका गुल्म/गण उद्धारमा परिचालन</a>
       <a href="https://www.ratopati.com/story/587439/4-armed-police-personnel-working-in-timure-missing" target="_blank" rel="noopener">सशस्त्र प्रवक्ता: टिमुरेमा ४ जना सम्पर्कविहीन</a>
@@ -788,11 +809,13 @@ footer{
       <a href="https://www.ratopati.com/story/587396/floods-in-timur-fears-of-glacial-lake-eruption-in-tibet" target="_blank" rel="noopener">टिमुरे बाढी, तिब्बतमा हिमताल विस्फोटनको आशंका</a>
       <a href="https://www.ratopati.com/story/587394/flash-flood-causes-major-damage-in-timure-bazaar" target="_blank" rel="noopener">आकस्मिक बाढीले टिमुरे बजारमा ठुलो क्षति</a>
       <a href="https://www.ratopati.com/story/587391/large-flood-enters-bhotekoshi-from-tibet-urges-to-adopt-high-alert-up-to-muglin" target="_blank" rel="noopener">तिब्बतबाट भोटेकोशीमा ठूलो बाढी, मुग्लिनसम्म सतर्कता</a>
-    </div>
+</div>
+</div>
 
     <div class="src-group">
-      <h3>अनलाइनखबर <span class="badge">२०</span></h3>
-      <a href="https://www.onlinekhabar.com/2026/08/2003903/rasuwa-flood-7-people-rescued-by-army-helicopter" target="_blank" rel="noopener">सेनाले ७ जना हेलिकप्टरबाट उद्धार</a>
+<h3>अनलाइनखबर <span class="badge">२०</span></h3>
+      <div class="src-list">
+<a href="https://www.onlinekhabar.com/2026/08/2003903/rasuwa-flood-7-people-rescued-by-army-helicopter" target="_blank" rel="noopener">सेनाले ७ जना हेलिकप्टरबाट उद्धार</a>
       <a href="https://www.onlinekhabar.com/2026/08/2003900/no-need-to-seek-government-permission-to-fly-private-helicopters-to-rescue-flood-victims" target="_blank" rel="noopener">उद्धारका निजी हेलिकप्टरलाई अनुमति नचाहिने</a>
       <a href="https://www.onlinekhabar.com/2026/08/2003888/the-flood-came-with-a-loud-sound-like-a-volcanic-eruption" target="_blank" rel="noopener">भन्सार प्रमुख ढुंगाना: १५/२० जना मात्र सम्पर्कमा</a>
       <a href="https://www.onlinekhabar.com/2026/08/2003892/manakamana-cable-car-closed-due-to-floods" target="_blank" rel="noopener">मनकामना केबलकार ११:३० देखि बन्द</a>
@@ -812,26 +835,32 @@ footer{
       <a href="https://www.onlinekhabar.com/2026/08/2003805/floods-from-tibet-cause-major-damage-in-timure-bazaar-area" target="_blank" rel="noopener">तिब्बततर्फबाट आएको बाढीले टिमुरे बजारमा ठूलो क्षति</a>
       <a href="https://www.onlinekhabar.com/2026/08/2003799/bhotekoshi-flood-all-helicopter-companies-instructed-to-remain-on-alert" target="_blank" rel="noopener">सबै हेलिकप्टर कम्पनीलाई तयारी अवस्थामा रहन निर्देशन</a>
       <a href="https://www.onlinekhabar.com/2026/08/2003796/major-flood-in-bhotekoshi-river-in-rasuwa-urges-people-to-be-vigilant-in-areas-around-the-river" target="_blank" rel="noopener">भोटेकोशीमा ठूलो बाढी, आसपास सचेत रहन आग्रह</a>
-    </div>
+</div>
+</div>
 
     <div class="src-group">
-      <h3>Khabarhub (English) <span class="badge">५</span></h3>
-      <a href="https://english.khabarhub.com/2026/26/564842/" target="_blank" rel="noopener">PM Shah orders rescue, relief measures</a>
+<h3>Khabarhub (English) <span class="badge">५</span></h3>
+      <div class="src-list">
+<a href="https://english.khabarhub.com/2026/26/564842/" target="_blank" rel="noopener">PM Shah orders rescue, relief measures</a>
       <a href="https://english.khabarhub.com/2026/26/564836/" target="_blank" rel="noopener">PM calls emergency Disaster Council meeting</a>
       <a href="https://english.khabarhub.com/2026/26/564831/" target="_blank" rel="noopener">Floods wash away police offices in Rasuwa</a>
       <a href="https://english.khabarhub.com/2026/26/564826/" target="_blank" rel="noopener">Bhotekoshi flood causes widespread destruction in Rasuwa</a>
       <a href="https://english.khabarhub.com/2026/26/564822/" target="_blank" rel="noopener">Bhotekoshi river water level rises, residents alerted</a>
-    </div>
+</div>
+</div>
 
     <div class="src-group">
-      <h3>काठमाडौं पोस्ट <span class="badge">२</span></h3>
-      <a href="https://kathmandupost.com/national/2026/08/26/major-flood-damages-syabrubesi-hydropower-projects-in-rasuwa" target="_blank" rel="noopener">Flash flood hits Rasuwa, damages hydropower projects and markets</a>
+<h3>काठमाडौं पोस्ट <span class="badge">२</span></h3>
+      <div class="src-list">
+<a href="https://kathmandupost.com/national/2026/08/26/major-flood-damages-syabrubesi-hydropower-projects-in-rasuwa" target="_blank" rel="noopener">Flash flood hits Rasuwa, damages hydropower projects and markets</a>
       <a href="https://x.com/kathmandupost/status/2092472149349179531" target="_blank" rel="noopener">X: टिमुरे हेलिप्याड बग्यो, अल्टिच्युड एयर अवतरण गर्न सकेन</a>
-    </div>
+</div>
+</div>
 
     <div class="src-group">
-      <h3>नागरिक <span class="badge">९</span></h3>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/rasuwa-flood-meteorologist-s-guess-glacial-lake-explosion-or-dam-breach-br-35-65.html" target="_blank" rel="noopener">हिमताल विस्फोटन वा बाँध फुटेको मौसमविद्को अनुमान</a>
+<h3>नागरिक <span class="badge">९</span></h3>
+      <div class="src-list">
+<a href="https://nagariknews.nagariknetwork.com/social-affairs/rasuwa-flood-meteorologist-s-guess-glacial-lake-explosion-or-dam-breach-br-35-65.html" target="_blank" rel="noopener">हिमताल विस्फोटन वा बाँध फुटेको मौसमविद्को अनुमान</a>
       <a href="https://nagariknews.nagariknetwork.com/politics/rescue-intensifies-after-rasuwa-flood-two-helicopters-sent-to-affected-areas-br-17-47.html" target="_blank" rel="noopener">उद्धार तीव्र, दुई हेलिकप्टर प्रभावित क्षेत्रतर्फ</a>
       <a href="https://nagariknews.nagariknetwork.com/politics/prime-minister-shah-directs-rescue-efforts-after-rasuwa-flood-br-26-86.html" target="_blank" rel="noopener">प्रधानमन्त्री शाहद्वारा उद्धार निर्देशन</a>
       <a href="https://nagariknews.nagariknetwork.com/social-affairs/bhotekoshi-floods-reach-dhading-galchhi-high-alert-around-muglin-narayangadh-road-nbsp-22-67.html" target="_blank" rel="noopener">बाढी धादिङ-गल्छी पुग्यो, मुग्लिन-नारायणगढ सतर्कता</a>
@@ -840,11 +869,13 @@ footer{
       <a href="https://nagariknews.nagariknetwork.com/social-affairs/caution-urged-along-river-banks-in-5-districts-as-water-flow-in-bhotekoshi-increases-45-92.html" target="_blank" rel="noopener">५ जिल्लाका नदी किनारमा सतर्कता</a>
       <a href="https://nagariknews.nagariknetwork.com/social-affairs/massive-flood-in-bhote-koshi-from-tibet-request-to-stay-in-safe-places-56-24.html" target="_blank" rel="noopener">तिब्बतबाट भोटेकोशीमा ठुलो बाढी, सुरक्षित स्थानमा जान आग्रह</a>
       <a href="https://nagariknews.nagariknetwork.com/social-affairs/floods-in-rasuwa-major-damage-feared-in-syafrubesi-and-timure-areas-38-12.html" target="_blank" rel="noopener">स्याफ्रुबेँसी र टिमुरेमा ठूलो क्षतिको आशंका</a>
-    </div>
+</div>
+</div>
 
     <div class="src-group">
-      <h3>आधिकारिक / हेर्नुहोस् <span class="badge">१३</span></h3>
-      <a href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener">X · @NepalPoliceHQ</a>
+<h3>आधिकारिक / हेर्नुहोस् <span class="badge">१३</span></h3>
+      <div class="src-list">
+<a href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener">X · @NepalPoliceHQ</a>
       <a href="https://www.nepalpolice.gov.np" target="_blank" rel="noopener">नेपाल प्रहरी · nepalpolice.gov.np</a>
       <a href="https://bipad.gov.np" target="_blank" rel="noopener">विपद् प्राधिकरण पोर्टल · bipad.gov.np</a>
       <a href="https://www.dhm.gov.np" target="_blank" rel="noopener">जल तथा मौसम विज्ञान विभाग · dhm.gov.np</a>
@@ -857,7 +888,8 @@ footer{
       <a href="https://x.com/nvdnepal" target="_blank" rel="noopener">X · @nvdnepal</a>
       <a href="https://x.com/kathmandupost" target="_blank" rel="noopener">X · @kathmandupost</a>
       <a href="https://x.com/NepalPoliceHQ/status/2092469695371006058" target="_blank" rel="noopener">प्रहरी आधिकारिक बाढी भिडियो</a>
-    </div>
+</div>
+</div>
 
   </div>
 </section>
