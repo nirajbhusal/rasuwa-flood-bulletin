@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T02:01:00+05:45",
+  "updated_at": "2026-08-27T02:16:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,14 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-021450-bishal-sapkota-satyam-sakhi",
+      "name": "Bishal Sapkota / Satyam Sakhi",
+      "place": "Gaidakot · गोसाइकुण्ड",
+      "when": "बिहान १० बजे (दुवै मोबाइल स्विच अफ)",
+      "phone": "9703327280 / 9857053663 / 9716978333",
+      "note": "फारम ०२:१४ · बिशाल सापकोटा र सत्यम साँखी · Last selfie: black T-shirt, white T-shirt, bag blue+grey strap · सम्पर्क सोमनाथ साँखी (सत्यमको बुवा) / शिशिर आचार्य"
+    },
     {
       "id": "sheet-20260827-015445-hari-krishna-rana-magar",
       "name": "Hari Krishna Rana Magar",
