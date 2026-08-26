@@ -6,7 +6,7 @@
 <title>रसुवा–भोटेकोशी बाढी · २६ अगस्ट २०२६</title>
 <meta name="description" content="२६ अगस्ट २०२६ / १० भदौ २०८३ को रसुवा–भोटेकोशी–त्रिशूली बाढीको लाइभ अपडेट। सतर्कता, बाढीको बाटो, क्षति, उद्धार र स्रोत।">
 <meta name="robots" content="index,follow">
-<base href="https://nirajbhusal.github.io/rasuwa-flood-bulletin/">
+<base href="./">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#c41e3a">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -18,7 +18,6 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
 
-.stick{position:sticky;top:0;z-index:40;background:var(--paper)}
 .safety-banner{
   margin:0;padding:10px 16px;
   background:#9f1239;color:#fff;
@@ -86,10 +85,10 @@
   --card:#ffffff;
   --shadow:0 10px 30px rgba(15,23,42,.08);
   --radius:16px;
-  --max:980px;
+  --max:1320px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:var(--stick, 240px)}
+html{scroll-behavior:smooth;scroll-padding-top:54px}
 body{
   margin:0;
   font-family:Mukta,"Noto Sans Devanagari",system-ui,sans-serif;
@@ -104,23 +103,35 @@ body{
 a{color:var(--teal);text-decoration:none}
 a:hover{text-decoration:underline}
 img{max-width:100%;display:block}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
 .topbar{
   position:relative;
-  background:rgba(246,243,238,.94);
-  backdrop-filter:blur(12px);
+  background:rgba(246,243,238,.96);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
   border-bottom:1px solid var(--line);
 }
 .topbar-inner{
-  max-width:var(--max);margin:0 auto;padding:14px 16px 12px;
+  max-width:var(--max);margin:0 auto;padding:14px 20px 12px;
   display:flex;flex-direction:column;align-items:center;gap:10px;
   text-align:center;
+}
+@media (min-width:920px){
+  .topbar-inner{
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    text-align:left;
+    padding:12px 20px;
+    gap:10px 16px;
+  }
 }
 .live{
   display:inline-flex;align-items:center;gap:7px;
   background:var(--crimson);color:#fff;
   font-weight:800;font-size:12px;letter-spacing:.04em;
-  padding:5px 10px;border-radius:999px;
+  padding:5px 10px;border-radius:999px;flex:none;
 }
 .live i{
   width:8px;height:8px;border-radius:50%;background:#fff;
@@ -129,13 +140,32 @@ img{max-width:100%;display:block}
 }
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,255,255,0)}}
 .brand{flex:none;width:100%;min-width:0;text-align:center}
-.brand h1{margin:0;font-size:clamp(28px,7vw,52px);line-height:1.15;font-weight:800;text-align:center}
-.brand p{margin:6px 0 0;color:var(--muted);font-size:15px;text-align:center}
-.helpline{
-  font-size:13px;font-weight:700;color:var(--crimson);
-  background:var(--crimson-soft);padding:6px 10px;border-radius:10px;
+.brand h1{margin:0;font-size:clamp(26px,5vw,44px);line-height:1.15;font-weight:800;text-align:center}
+.brand p{margin:4px 0 0;color:var(--muted);font-size:15px;text-align:center}
+@media (min-width:920px){
+  .brand{width:auto;text-align:left;flex:1;min-width:280px}
+  .brand h1{font-size:clamp(26px,2.4vw,34px);text-align:left}
+  .brand p{text-align:left;margin-top:2px;font-size:14px}
 }
+.helpline{
+  font-size:13.5px;font-weight:700;color:var(--ink);
+  background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:12px;
+  display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px;box-shadow:0 2px 6px rgba(15,23,42,.04);
+}
+.helpline a{
+  color:var(--crimson);text-decoration:none;display:inline-flex;align-items:center;gap:2px;
+}
+.helpline a:hover{text-decoration:none}
+.helpline strong{
+  background:var(--crimson);color:#fff;padding:2px 7px;border-radius:6px;
+  font-size:13px;letter-spacing:.02em;font-variant-numeric:tabular-nums;font-weight:800;
+  transition:background .15s ease, transform .15s ease;display:inline-block;
+}
+.helpline a:hover strong{background:#9f1239;transform:scale(1.05)}
 .top-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;width:100%}
+@media (min-width:920px){
+  .top-actions{width:auto;justify-content:flex-end;flex:none;gap:10px}
+}
 .notify-btn{
   font:inherit;font-size:13px;font-weight:800;cursor:pointer;border:0;
   border-radius:12px;padding:10px 14px;background:var(--crimson);color:#fff;
@@ -151,8 +181,11 @@ img{max-width:100%;display:block}
 .notify-btn.off,.notify-btn.denied{background:#64748b}
 .notify-btn.denied{cursor:pointer}
 .notify-btn:disabled{opacity:.7;cursor:default}
-.notify-hint{display:none;width:100%;margin:0;font-size:12px;color:var(--muted);text-align:center}
+.notify-hint{display:none;width:100%;margin:4px 0 0;font-size:12px;color:var(--muted);text-align:center}
 .notify-hint.show{display:block}
+@media (min-width:920px){
+  .notify-hint{flex-basis:100%;text-align:right;margin-top:2px}
+}
 
 .plants{width:100%;border-collapse:collapse;font-size:16px;margin:8px 0 4px}
 .plants th,.plants td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
@@ -168,20 +201,34 @@ img{max-width:100%;display:block}
 .treat-note{margin:8px 0 0}
 .treat td.age,.treat th.age{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 
-
 .chips{
-  position:relative;
-  background:var(--paper);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(246,243,238,.96);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
   border-bottom:1px solid var(--line);
   overflow-x:auto;white-space:nowrap;
   scrollbar-width:none;
+  box-shadow:0 2px 10px rgba(15,23,42,.06);
 }
 .chips::-webkit-scrollbar{display:none}
-.chips-inner{width:max-content;min-width:100%;margin:0 auto;padding:8px 16px;display:flex;gap:8px;flex-wrap:nowrap}
+.chips-inner{width:max-content;min-width:100%;margin:0 auto;padding:8px 20px;display:flex;gap:8px;align-items:center;flex-wrap:nowrap}
+.chips-brand{
+  display:inline-flex;
+  font-weight:800;
+  font-size:14px;
+  color:var(--crimson);
+  padding:4px 6px 4px 2px;
+  align-items:center;
+  white-space:nowrap;
+}
 .chips a{
   display:inline-block;padding:7px 12px;border-radius:999px;
   background:#fff;border:1px solid var(--line);color:var(--ink);
   font-size:15px;font-weight:600;text-decoration:none;
+  transition:border-color .15s ease, color .15s ease, background .15s ease;
 }
 .chips a:hover{border-color:var(--teal);color:var(--teal)}
 .chips a.home-btn{background:var(--crimson);color:#fff;border-color:var(--crimson);display:inline-flex;align-items:center;justify-content:center;width:36px;min-width:36px;height:36px;padding:0}
@@ -229,18 +276,68 @@ img{max-width:100%;display:block}
 .hero h2{margin:0 0 8px;font-size:clamp(26px,5vw,40px);line-height:1.2}
 .lede{margin:0;color:var(--muted);max-width:46rem}
 .stats{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+  gap:12px;
   margin:18px 0 6px;
 }
-.stats-note{margin:10px 0 0;font-size:16px;font-weight:600;color:var(--ink);line-height:1.55}
-.stats-src{
-  list-style:none;margin:12px 0 0;padding:14px 16px;
-  background:#fff;border:1px solid var(--line);border-radius:14px;
-  font-size:17px;font-weight:500;color:var(--ink);line-height:1.7;text-align:left;
+@media (min-width:1160px){
+  .stats{
+    grid-template-columns:repeat(5, 1fr);
+  }
 }
-.stats-src li{margin:0 0 6px}
-.stats-src li:last-child{margin:0}
-.stats-src b{color:var(--ink);font-weight:800}
+.stats-note{margin:8px 0 0;font-size:13px;color:var(--muted)}
+.stats-src{
+  list-style:none;
+  margin:16px 0 0;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+@media (min-width:768px){
+  .stats-src{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+.stats-src li{
+  margin:0;
+  padding:14px 16px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-left:4px solid var(--crimson);
+  border-radius:14px;
+  font-size:15px;
+  color:var(--muted);
+  line-height:1.65;
+  box-shadow:0 2px 8px rgba(15,23,42,.04);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.stats-src li:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 18px rgba(15,23,42,.08);
+}
+.stats-src li b{
+  display:block;
+  color:var(--ink);
+  font-weight:800;
+  font-size:16px;
+  margin-bottom:6px;
+  padding-bottom:4px;
+  border-bottom:1px solid #f1f5f9;
+}
+.stats-src strong, .stats-src .num-hl{
+  display:inline-block;
+  color:var(--crimson);
+  background:var(--crimson-soft);
+  padding:0 7px;
+  border-radius:6px;
+  font-weight:800;
+  font-size:14.5px;
+  font-variant-numeric:tabular-nums;
+  border:1px solid rgba(196,30,58,.18);
+  margin:0 2px;
+}
 
 .log{display:flex;flex-direction:column;gap:12px}
 .log-item{
@@ -325,10 +422,24 @@ section{padding:22px 0}
   font-weight:800;padding:10px 14px;border-radius:999px;text-decoration:none!important;
 }
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.photos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.photos{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:14px;
+}
+@media (min-width:1200px){
+  .photos{
+    grid-template-columns:repeat(4, 1fr);
+  }
+}
 .photo{
   background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
   box-shadow:var(--shadow);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.photo:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(15,23,42,.12);
 }
 .photo a{display:block;color:inherit;text-decoration:none}
 .photo img{width:100%;height:240px;object-fit:cover;object-position:center;background:#e2e8f0;display:block}
@@ -375,7 +486,16 @@ section{scroll-margin-top:12px}
 .lb-prev{left:10px}
 .lb-next{right:10px}
 
-.videos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.videos{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
+  gap:14px;
+}
+@media (min-width:1100px){
+  .videos{
+    grid-template-columns:repeat(3, 1fr);
+  }
+}
 .video{background:#000;border-radius:14px;overflow:hidden;aspect-ratio:16/9}
 .video iframe{width:100%;height:100%;border:0}
 .xlink{
@@ -385,8 +505,8 @@ section{scroll-margin-top:12px}
 .xlink img{width:120px;height:80px;object-fit:cover;border-radius:8px}
 .sources{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  gap:12px;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:14px;
 }
 .src-group{
   aspect-ratio:1;
@@ -409,9 +529,6 @@ section{scroll-margin-top:12px}
   background:var(--paper);color:var(--ink);font-size:13px;line-height:1.35;
 }
 .src-group a:hover{background:var(--teal-soft);text-decoration:none}
-@media (max-width:760px){
-  .sources{grid-template-columns:repeat(2,1fr)}
-}
 footer{
   margin-top:12px;padding:28px 16px;text-align:center;color:var(--muted);
   border-top:1px solid var(--line);font-size:14px;
@@ -455,7 +572,13 @@ footer .foot-contact a:hover{text-decoration:underline}
 .ndrrma-hl .hl-nat{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:14px 16px 10px}
 .ndrrma-hl .hl-nat a{display:block;text-align:center;background:var(--crimson-soft);color:var(--crimson);font-weight:800;padding:10px 6px;border-radius:12px;text-decoration:none;line-height:1.2}
 .ndrrma-hl .hl-nat a small{display:block;font-size:11px;color:var(--muted);font-weight:700;margin-top:3px}
-.ndrrma-hl .hl-dist{column-count:2;column-gap:8px;padding:4px 16px 14px}
+.ndrrma-hl .hl-dist{column-count:1;column-gap:12px;padding:4px 16px 14px}
+@media (min-width:680px){
+  .ndrrma-hl .hl-dist{column-count:2}
+}
+@media (min-width:1100px){
+  .ndrrma-hl .hl-dist{column-count:3}
+}
 .ndrrma-hl .hl-dist article{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:10px 12px;break-inside:avoid;margin:0 0 8px;display:inline-block;width:100%;vertical-align:top}
 .ndrrma-hl .hl-dist article:last-child{margin-bottom:0}
 .ndrrma-hl .hl-dist b{display:block;margin:0 0 6px;font-size:15px;padding-bottom:6px;border-bottom:1px solid var(--line)}
@@ -467,11 +590,16 @@ footer .foot-contact a:hover{text-decoration:underline}
 .ndrrma-hl .hl-foot{background:#0f4c5c;color:#fff;padding:8px 16px;font-size:13px;line-height:1.45}
 @media (max-width:760px){
   .ndrrma-hl .hl-nat{grid-template-columns:repeat(2,1fr)}
-  .ndrrma-hl .hl-dist{column-count:1}
 }
 
 .cao-lead{margin:0 0 12px;font-size:15px;color:var(--muted)}
-.cao-grid{column-count:2;column-gap:10px}
+.cao-grid{column-count:1;column-gap:12px}
+@media (min-width:680px){
+  .cao-grid{column-count:2}
+}
+@media (min-width:1100px){
+  .cao-grid{column-count:3}
+}
 .cao-grid article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:var(--shadow);break-inside:avoid;margin:0 0 10px;display:inline-block;width:100%;vertical-align:top}
 .cao-grid h3{margin:0 0 6px;font-size:15px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
 .cao-grid h3 small{font-size:11px;font-weight:800;background:var(--teal-soft);color:var(--teal);padding:1px 7px;border-radius:8px}
@@ -480,9 +608,6 @@ footer .foot-contact a:hover{text-decoration:underline}
 .cao-grid a span{font-size:13px;font-weight:800;color:var(--ink);min-width:0}
 .cao-grid a b{font-size:12px;font-weight:600;color:var(--muted);margin-left:6px}
 .cao-grid a em{flex:none;font-style:normal;font-weight:800;font-size:15px;letter-spacing:.02em;color:var(--crimson);font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:nowrap}
-@media (max-width:760px){
-  .cao-grid{column-count:1}
-}
 
 @media (max-width:760px){
   .stats{grid-template-columns:1fr}
@@ -532,7 +657,22 @@ footer .foot-contact a:hover{text-decoration:underline}
 }
 .wl-src{margin:10px 0 0;font-size:13px;color:var(--muted);line-height:1.5}
 .wl-src a{font-weight:800}
-.wl-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.wl-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  margin-top:10px;
+}
+@media (min-width:768px){
+  .wl-list{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+@media (min-width:1240px){
+  .wl-list{
+    grid-template-columns:repeat(3, 1fr);
+  }
+}
 .wl-row{
   border:1px solid var(--line);border-radius:12px;padding:10px 12px 8px;
   background:#fafafe;
@@ -556,7 +696,6 @@ footer .foot-contact a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<div class="stick">
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">
@@ -565,7 +704,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     </div>
     <div class="top-actions">
       <span class="live"><i></i> लाइभ</span>
-      <div class="helpline">उद्धार १२३४ · प्रहरी १०० · १११४ · एम्बुलेन्स १०२ · NEOC ११४४</div>
+      <div class="helpline">उद्धार <a href="tel:1234"><strong>१२३४</strong></a> · प्रहरी <a href="tel:100"><strong>१००</strong></a> · <a href="tel:1114"><strong>१११४</strong></a> · एम्बुलेन्स <a href="tel:102"><strong>१०२</strong></a> · NEOC <a href="tel:1144"><strong>११४४</strong></a></div>
       <button type="button" class="notify-btn" id="notify-btn" aria-pressed="false" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट">
         <svg class="bell-on" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zm6-6V11c0-3.07-1.64-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
         <svg class="bell-off" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zM4.27 3 3 4.27l2.62 2.62A6.96 6.96 0 0 0 6 11v5l-2 2v1h14.73L19.73 21 21 19.73 4.27 3zM17 17H8.27L17 8.27V17z"/></svg>
@@ -579,6 +718,7 @@ footer .foot-contact a:hover{text-decoration:underline}
 <nav class="chips" aria-label="खण्डहरू">
   <div class="chips-inner">
     <a class="home-btn" href="#home" aria-label="होम" title="होम"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
+    <span class="chips-brand">रसुवा बाढी</span>
     <a href="#map">नक्सा</a>
     <a href="#alert">सतर्कता</a>
     <a href="#treat">घाइते</a>
@@ -597,7 +737,6 @@ footer .foot-contact a:hover{text-decoration:underline}
     <a href="#sources">स्रोत</a>
   </div>
 </nav>
-</div>
 
 <div class="hero" id="home">
   <div class="wrap">
@@ -693,16 +832,16 @@ footer .foot-contact a:hover{text-decoration:underline}
     </div>
     <p class="stats-note">यी फरक सूची हुन् — घाइते २४ र २५ जोड्ने होइन। हवाई उद्धार ११४ = सेना ८५ + निजी २९ (फेरि जोड्ने होइन)। स्रोत तल।</p>
     <ul class="stats-src" aria-label="स्रोत">
-      <li><b>शव जम्मा २२</b> — बागमती प्रदेश प्रहरी (रातोपाटी ~१७:२६): मृत्यु २२ — रसुवा १ पुरुष, नुवाकोट ११ (५ महिला + ६ पुरुष), धादिङ ९ (५ महिला + २ पुरुष + २ लिङ्ग नखुलेको), चितवन १ महिला। अघिल्लो पौने चारको १६ यो २२ बाट अद्यावधिक। रसुवा अस्पताल उपचार मृत्यु जोडेर २३ नबनाइएको।</li>
-      <li><b>घाइते</b> — रसुवा अस्पताल जम्मा २४ (रेफर ६, उपचार मृत्यु १)। काठमाडौं जम्मा २५ (टिचिङ १९, ट्रमा ४, वीरेन्द्र सैनिक अस्पताल छाउनी १; नामसहित २४ + कामु नगरकोटीका साथमा तीन महिनाको शिशु) — प्रहरी प्रवक्ता दानबहादुर थापा। अघिल्लो २१ / टिचिङ १७ / ट्रमा ३ / मेडिसिटी १ यो २५ बाट अद्यावधिक। रसुवा २४ र काठमाडौं २५ जोड्ने होइन; निजी हेलि २९ उद्धार ११४ भित्र — घाइते कार्डमा हाल्ने होइन।</li>
-      <li><b>सम्पर्कविहीन</b> — पर्यटन बोर्ड ३८४ (विदेशी २९१, नेपाली ९३)। लाङटाङ एमडी भट्टराई ६० (सुरुङ ३५ + अन्य २५)। पालुङटार बस ३४ — गोरखा प्रहरी। स्वास्थ्यकर्मी ६ — जनस्वास्थ्य कार्यालय रसुवा प्रमुख निरध्वज घर्ती मगर (टिमुरे/स्याफ्रुबेसी चौकी ४, रसुवागढी हेल्थ डेस्क १, उत्तरगया स्वास्थ्य संयोजक १)। सुरक्षा ७९, भन्सार ११ र बैंक २६ यसमा जोडिएको होइन। मृत्यु होइन।</li>
-      <li><b>सुरक्षा</b> — जम्मा ७९ (सेना ४४, प्रहरी २६, सशस्त्र ९) — परराष्ट्रमन्त्री खनाल, संसद्। टिमुरे र मैलुङ पोस्ट। अघिल्लो प्रहरी ३२ / सशस्त्र १३ यो ७९ बाट अद्यावधिक। मृत्यु होइन। खनालको शव ९ प्रदेश प्रहरी २२ ले नसटाउने।</li>
-      <li><b>भन्सार</b> — स्थायी ३६, सम्पर्क २५, खोजी ११, गाडी ३००+ — प्रमुख ढुंगाना।</li>
-      <li><b>टिमुरे</b> — घर १००+ र पर्खाइ ३००+ — वडासदस्य घले। बजार ५–७ — डिआईजी रेग्मी।</li>
-      <li><b>उद्धार जम्मा ११४</b> — नेपाली सेना र निजी क्षेत्र: सेना ८५ + निजी हेलि २९ = ११४। सेना: टिमुरे–धुन्चे ६०, टिमुरे–त्रिशूली १३, मैलुङ ५, बेत्रावती ४, त्रिशूली–काठमाडौं ३। निजी: कैलाश ५ (टिचिङ), सिम्रिक ३+२, अन्नपूर्ण ४ (टिचिङ), प्रभु ५ (टिचिङ) + २ (वीर), फिसटेल ५ (टिचिङ), एभरेष्ट २ (टिचिङ)। अघिल्लो प्रधानमन्त्री कार्यालय ११० यो ११४ बाट अद्यावधिक। ८५+२९ फेरि जोड्ने होइन; घाइते कार्डमा २९ हाल्ने होइन।</li>
-      <li><b>बैंक कर्मचारी सम्पर्कविहीन २६</b> — नेपाल बैंकर्स संघ १६:२५। आठ बैंक: प्रभु, हिमालयन, ग्लोबल आइएमई, सानिमा, नेपाल इन्भेस्टमेन्ट मेगा, लक्ष्मी सनराइज, एनएमबी, माछापुच्छ्रे। टिमुरे, स्याफ्रुबेसी, बेत्रावती शाखा बगे (३ ठाउँ)। मृत्यु होइन; पर्यटक ३८४ / सुरक्षा ७९ / स्वास्थ्यकर्मी ६ मा जोडिएको होइन।</li>
-      <li><b>कैदीबन्दी सुरक्षित १०००</b> — नुवाकोट केन्द्रीय कारागार प्रमुख भेषबहादुर कुँवर (अनलाइनखबर)। विदुर–३ खम्पाक्याम्प; प्रशासन भवन र प्रहरी इकाइ क्षति। करिब एक हजार।</li>
-      <li><b>पूर्वाधार</b> — विद्युत् ७ / २७६ MW — प्राधिकरण। पुल २२, बेली ५ — कान्तिपुर / सडक विभाग ~१७:४७; अघिल्लो १९+ यो २२+५ बाट अद्यावधिक। सडक ४० किमि — सडक विभाग (यथावत्)। टावर ७ — नेपाल टेलिकम।</li>
+      <li><b>शव जम्मा <strong>२२</strong></b> — बागमती प्रदेश प्रहरी (रातोपाटी ~१७:२६): मृत्यु <strong>२२</strong> — रसुवा <strong>१</strong> पुरुष, नुवाकोट <strong>११</strong> (<strong>५</strong> महिला + <strong>६</strong> पुरुष), धादिङ <strong>९</strong> (<strong>५</strong> महिला + <strong>२</strong> पुरुष + <strong>२</strong> लिङ्ग नखुलेको), चितवन <strong>१</strong> महिला। अघिल्लो पौने चारको <strong>१६</strong> यो <strong>२२</strong> बाट अद्यावधिक। रसुवा अस्पताल उपचार मृत्यु जोडेर <strong>२३</strong> नबनाइएको।</li>
+      <li><b>घाइते</b> — रसुवा अस्पताल जम्मा <strong>२४</strong> (रेफर <strong>६</strong>, उपचार मृत्यु <strong>१</strong>)। काठमाडौं जम्मा <strong>२५</strong> (टिचिङ <strong>१९</strong>, ट्रमा <strong>४</strong>, वीरेन्द्र सैनिक अस्पताल छाउनी <strong>१</strong>; नामसहित <strong>२४</strong> + कामु नगरकोटीका साथमा तीन महिनाको शिशु) — प्रहरी प्रवक्ता दानबहादुर थापा। अघिल्लो <strong>२१</strong> / टिचिङ <strong>१७</strong> / ट्रमा <strong>३</strong> / मेडिसिटी <strong>१</strong> यो <strong>२५</strong> बाट अद्यावधिक। रसुवा <strong>२४</strong> र काठमाडौं <strong>२५</strong> जोड्ने होइन; निजी हेलि <strong>२९</strong> उद्धार <strong>११४</strong> भित्र — घाइते कार्डमा हाल्ने होइन।</li>
+      <li><b>सम्पर्कविहीन</b> — पर्यटन बोर्ड <strong>३८४</strong> (विदेशी <strong>२९१</strong>, नेपाली <strong>९३</strong>)। लाङटाङ एमडी भट्टराई <strong>६०</strong> (सुरुङ <strong>३५</strong> + अन्य <strong>२५</strong>)। पालुङटार बस <strong>३४</strong> — गोरखा प्रहरी। स्वास्थ्यकर्मी <strong>६</strong> — जनस्वास्थ्य कार्यालय रसुवा प्रमुख निरध्वज घर्ती मगर (टिमुरे/स्याफ्रुबेसी चौकी <strong>४</strong>, रसुवागढी हेल्थ डेस्क <strong>१</strong>, उत्तरगया स्वास्थ्य संयोजक <strong>१</strong>)। सुरक्षा <strong>७९</strong>, भन्सार <strong>११</strong> र बैंक <strong>२६</strong> यसमा जोडिएको होइन। मृत्यु होइन।</li>
+      <li><b>सुरक्षा</b> — जम्मा <strong>७९</strong> (सेना <strong>४४</strong>, प्रहरी <strong>२६</strong>, सशस्त्र <strong>९</strong>) — परराष्ट्रमन्त्री खनाल, संसद्। टिमुरे र मैलुङ पोस्ट। अघिल्लो प्रहरी <strong>३२</strong> / सशस्त्र <strong>१३</strong> यो <strong>७९</strong> बाट अद्यावधिक। मृत्यु होइन। खनालको शव <strong>९</strong> प्रदेश प्रहरी <strong>२२</strong> ले नसटाउने।</li>
+      <li><b>भन्सार</b> — स्थायी <strong>३६</strong>, सम्पर्क <strong>२५</strong>, खोजी <strong>११</strong>, गाडी <strong>३००+</strong> — प्रमुख ढुंगाना।</li>
+      <li><b>टिमुरे</b> — घर <strong>१००+</strong> र पर्खाइ <strong>३००+</strong> — वडासदस्य घले। बजार <strong>५–७</strong> — डिआईजी रेग्मी।</li>
+      <li><b>उद्धार जम्मा <strong>११४</strong></b> — नेपाली सेना र निजी क्षेत्र: सेना <strong>८५</strong> + निजी हेलि <strong>२९</strong> = <strong>११४</strong>। सेना: टिमुरे–धुन्चे <strong>६०</strong>, टिमुरे–त्रिशूली <strong>१३</strong>, मैलुङ <strong>५</strong>, बेत्रावती <strong>४</strong>, त्रिशूली–काठमाडौं <strong>३</strong>। निजी: कैलाश <strong>५</strong> (टिचिङ), सिम्रिक <strong>३</strong>+<strong>२</strong>, अन्नपूर्ण <strong>४</strong> (टिचिङ), प्रभु <strong>५</strong> (टिचिङ) + <strong>२</strong> (वीर), फिसटेल <strong>५</strong> (टिचिङ), एभरेष्ट <strong>२</strong> (टिचिङ)। अघिल्लो प्रधानमन्त्री कार्यालय <strong>११०</strong> यो <strong>११४</strong> बाट अद्यावधिक। <strong>८५</strong>+<strong>२९</strong> फेरि जोड्ने होइन; घाइते कार्डमा <strong>२९</strong> हाल्ने होइन।</li>
+      <li><b>बैंक कर्मचारी सम्पर्कविहीन <strong>२६</strong></b> — नेपाल बैंकर्स संघ १६:२५। आठ बैंक (<strong>८</strong>): प्रभु, हिमालयन, ग्लोबल आइएमई, सानिमा, नेपाल इन्भेस्टमेन्ट मेगा, लक्ष्मी सनराइज, एनएमबी, माछापुच्छ्रे। टिमुरे, स्याफ्रुबेसी, बेत्रावती शाखा बगे (<strong>३</strong> ठाउँ)। मृत्यु होइन; पर्यटक ३८४ / सुरक्षा ७९ / स्वास्थ्यकर्मी ६ मा जोडिएको होइन।</li>
+      <li><b>कैदीबन्दी सुरक्षित <strong>१०००</strong></b> — नुवाकोट केन्द्रीय कारागार प्रमुख भेषबहादुर कुँवर (अनलाइनखबर)। विदुर–<strong>३</strong> खम्पाक्याम्प; प्रशासन भवन र प्रहरी इकाइ क्षति। करिब <strong>एक हजार</strong>।</li>
+      <li><b>पूर्वाधार</b> — विद्युत् <strong>७</strong> / <strong>२७६</strong> MW — प्राधिकरण। पुल <strong>२२</strong>, बेली <strong>५</strong> — कान्तिपुर / सडक विभाग ~१७:४७; अघिल्लो <strong>१९+</strong> यो <strong>२२</strong>+<strong>५</strong> बाट अद्यावधिक। सडक <strong>४०</strong> किमि — सडक विभाग (यथावत्)। टावर <strong>७</strong> — नेपाल टेलिकम।</li>
     </ul>
 <section id="map" class="hero-map">
   <span id="path" hidden></span>
@@ -2301,13 +2440,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     });
     paint(false);
   }
-  function setStick() {
-    var s = document.querySelector(".stick");
-    if (!s) return;
-    document.documentElement.style.setProperty("--stick", (s.offsetHeight + 8) + "px");
-  }
-  setStick();
-  window.addEventListener("resize", setStick);
+
   function qsa(sel, root) {
     return Array.prototype.slice.call((root || document).querySelectorAll(sel));
   }
