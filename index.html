@@ -875,10 +875,16 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 
 <section id="gov">
-  <aside class="gov-init">
-    <h2>विपद् पछि सरकारबाट भएको पहल</h2>
-    <p class="cab-k">मन्त्रिपरिषद्का १० निर्णय · १० भदौ २०८३</p>
-    <ul>
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>विपद् पछि सरकारबाट भएको पहल</h2></div>
+  <div class="pager" data-pager="gov">
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <div class="pboxes pager-pages"></div>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <span class="pcount pager-count"></span>
+  </div>
+  <div class="card green">
+    <p class="treat-lead">मन्त्रिपरिषद्का १० निर्णय · १० भदौ २०८३</p>
+    <ul id="gov-list">
       <li>जनधनको क्षतिप्रति गहिरो दुःख, मृतक परिवारलाई समवेदना, घाइतेको शीघ्र स्वास्थ्य लाभको कामना।</li>
       <li>स्वास्थ्य मन्त्रालय, नेपाली सेना र सरकारी अस्पताल: घाइतेको <strong>तत्काल निःशुल्क उपचार</strong>।</li>
       <li>गृह र रक्षा: अलपत्र/घाइतेको तत्काल उद्धार, सुरक्षित स्थानमा सार्न। सेना र <strong>निजी हेलिकप्टर</strong> प्रयोग; गृहमन्त्रीलाई आवश्यक स्रोत परिचालन।</li>
@@ -889,8 +895,6 @@ footer .foot-contact a:hover{text-decoration:underline}
       <li>मृतकका परिवारलाई प्रचलित कानुनबमोजिम <strong>तत्काल आर्थिक सहायता</strong>।</li>
       <li>अर्थमन्त्री: क्षतिग्रस्त सार्वजनिक पूर्वाधारको मर्मत–पुनर्निर्माणका लागि स्रोत परिचालन समन्वय।</li>
       <li>विपद् ऐन २०७४ दफा ३२: प्रभावित ६ जिल्ला — <strong>रसुवा, नुवाकोट, धादिङ, चितवन, गोरखा, तनहुँ</strong> — तीन महिना संकटग्रस्त।</li>
-    </ul>
-    <ul>
       <li>प्रवक्ता शिक्षामन्त्री सस्मित पोखरेल: ६ जिल्लामा उद्धार ड्रोन <strong>बिना अनुमति</strong>, हटलाइन १२३४। धुवाँ/आगो सङ्केत, व्हाट्सएप जियो-लोकेसन। चीन र भारतसँग उद्धार समन्वय; <strong>११ हेलिकप्टर</strong> तयारी।</li>
       <li>गृहमन्त्री सुधन गुरुङ त्रिभुवन विमानस्थल: खोज–उद्धार; सचिवालय: क्षेत्रमा <strong>१२ हेलिकप्टर</strong>; <strong>१० एम्बुलेन्स</strong> तैनाथ।</li>
       <li>एपीएफ अस्पताल: डाक्टर ५ सहित स्वास्थ्यकर्मी <strong>१७</strong> को टोली प्रभावित क्षेत्र प्रस्थान।</li>
@@ -903,7 +907,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <li>बागमती मुख्यमन्त्री किरण थापामगर: प्रदेश विपद् समिति बैठक — उद्धार, राहत, स्वास्थ्य टोली; विस्थापितलाई <strong>खाना, आवास, स्वच्छ पानी</strong> तत्काल।</li>
       <li>विपद् राष्ट्रिय परिषद् / प्राधिकरण प्रमुख डा. धर्मराज उप्रेती: जिल्ला विपद् समितिमार्फत रसुवा र नुवाकोटलाई <strong>१/१ करोड</strong>, धादिङलाई <strong>५० लाख</strong> (जम्मा २.५ करोड)।</li>
     </ul>
-  </aside>
+  </div>
 </section>
 
 <section id="photos">
@@ -2157,6 +2161,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   }
   bindPager(document.querySelector('[data-pager="photos"]'), qsa("#photo-grid figure.photo"), 6);
   bindPager(document.querySelector('[data-pager="history"]'), qsa("#history-list article.log-item"), 6);
+  bindPager(document.querySelector('[data-pager="gov"]'), qsa("#gov-list > li"), 6);
   bindPager(document.querySelector('[data-pager="rescue"]'), qsa("#rescue-list > li"), 6);
   bindPager(document.querySelector('[data-pager="damage"]'), qsa("#damage-list > li"), 6);
   bindPager(document.querySelector('[data-pager="roads"]'), qsa("#roads-list > li"), 6);
