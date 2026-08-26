@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T16:41:00+00:00",
+  "updated_at": "2026-08-26T16:51:00+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,30 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "m-sachin-gautam",
+      "name": "सचिन गौतम",
+      "place": "Upper Trishuli-1 216 MW",
+      "phone": "9860662298",
+      "reporter": "Namita Dahal",
+      "note": "सिभिल इन्जिनियर · अर्को फोन 9841912022"
+    },
+    {
+      "id": "m-hari-sedhai",
+      "name": "हरि सेढाई",
+      "place": "रसुवा भोटेकोशी बाढी",
+      "phone": "9841441685",
+      "reporter": "Pabitra Gartaula (धादिङ)",
+      "note": "सम्पर्कविहीन · अर्को फोन 9851210029"
+    },
+    {
+      "id": "m-subas-khadka",
+      "name": "सुबास खड्का",
+      "place": "सिन्धुपाल्चोक",
+      "phone": "9768752565",
+      "reporter": "दाजु (Eslon Khadka)",
+      "note": "चालक"
+    },
     {
       "id": "m-kamal-khadka",
       "name": "कमल खड्का",
