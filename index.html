@@ -553,6 +553,27 @@ footer .foot-contact a:hover{text-decoration:underline}
   box-shadow:var(--shadow);font-size:17px;line-height:1.55;font-weight:700;
 }
 .path-ask strong{color:var(--crimson)}
+
+.funds{margin:18px 0 8px}
+.funds-lead{margin:0 0 12px;font-size:17px;line-height:1.55;font-weight:600;color:var(--ink)}
+.fund{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:16px 16px 10px;box-shadow:var(--shadow);margin:0 0 12px;
+}
+.fund h3{margin:0 0 10px;font-size:20px;font-weight:800;color:var(--ink);line-height:1.3}
+.fund table{width:100%;border-collapse:collapse;font-size:17px}
+.fund th,.fund td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.fund th{font-size:13px;font-weight:800;color:var(--muted)}
+.fund td.acct{font-variant-numeric:tabular-nums;font-weight:700}
+.fund button.acct{
+  display:block;width:100%;text-align:left;font:inherit;font-variant-numeric:tabular-nums;
+  font-weight:800;color:var(--crimson);background:#fff;border:1px dashed var(--line);
+  border-radius:10px;padding:8px 10px;margin:3px 0;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.fund button.acct:hover,.fund button.acct.copied{border-color:var(--crimson);background:var(--crimson-soft)}
+.fund .note{font-size:13px;color:var(--muted);font-weight:600}
+.fund-foot{margin:4px 0 0;font-size:15px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -583,6 +604,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <a href="#alert">सतर्कता</a>
     <a href="#treat">घाइते</a>
     <a href="#helpline">हेल्पलाइन</a>
+    <a href="#donate">राहत कोष</a>
     <a href="#contacts">सम्पर्क</a>
     <a href="#gov">सरकारी पहल</a>
     <a href="#photos">तस्बिर</a>
@@ -692,6 +714,36 @@ footer .foot-contact a:hover{text-decoration:underline}
       </div>
     </div>
     <p class="stats-note">यी फरक सूची हुन् — घाइते २४ र २५ जोड्ने होइन। हवाई उद्धार ११४ = सेना ८५ + निजी २९ (फेरि जोड्ने होइन)। स्रोत तल।</p>
+    <section id="donate" class="funds">
+      <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>राहत कोष</h2></div>
+      <p class="funds-lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। नम्बर ट्याप गर्दा कपी हुन्छ।</p>
+      <article class="fund">
+        <h3>प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</h3>
+    <table>
+      <thead><tr><th>सि.नं.</th><th>बैंक</th><th>खाता नम्बर</th></tr></thead>
+      <tbody>
+        <tr><td>१</td><td>हिमालयन बैंक</td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्">०१९०५६३१२१००४६ <span class="note">$ डलर खाता</span></button></td></tr>
+        <tr><td>२</td><td>स्टान्डर्ड चार्टर्ड बैंक</td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्">०१०१३२४३८०१</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्">०२०१३२४३८०१</button></td></tr>
+        <tr><td>३</td><td>राष्ट्रिय वाणिज्य बैंक</td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्">११३०१००००३७६२००१</button><button type="button" class="acct" data-acct="113010000006006" title="कपी गर्नुहोस्">११३०१००००००६००६</button></td></tr>
+        <tr><td>४</td><td>एभरेष्ट बैंक</td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्">००१००१०५२००२७०</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्">००१०११०२२०००१२</button></td></tr>
+        <tr><td>५</td><td>नेपाल बैंक</td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्">००२११६००५१००३९०००००३</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्">००२००१००५१००३९०००००१</button></td></tr>
+        <tr><td>६</td><td>ग्लोबल आइएमई बैंक</td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्">००४०१०१०००००५७</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्">००४११०१००००००५</button></td></tr>
+        <tr><td>७</td><td>नबिल बैंक</td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्">१७१००१७५०५२८५</button></td></tr>
+        <tr><td>८</td><td>कृषि विकास बैंक</td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्">०१००२०१००२९०७०१४</button></td></tr>
+      </tbody>
+    </table>
+      </article>
+      <article class="fund">
+        <h3>प्रधानमन्त्री राहत कोष</h3>
+    <table>
+      <thead><tr><th>सि.नं.</th><th>बैंक</th><th>खाता नम्बर</th></tr></thead>
+      <tbody>
+        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक</td><td class="acct"><button type="button" class="acct" data-acct="143010000025006" title="कपी गर्नुहोस्">१४३०१०००००२५००६</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्">१४३०१००००११६४००१</button></td></tr>
+      </tbody>
+    </table>
+      </article>
+      <p class="fund-foot">स्रोत: प्रधानमन्त्री कार्यालयको खाता सूची। उद्धार नम्बर १२३४ सँग नमिसाउनुहोस्।</p>
+    </section>
     <ul class="stats-src" aria-label="स्रोत">
       <li><b>शव जम्मा २२</b> — बागमती प्रदेश प्रहरी (रातोपाटी ~१७:२६): मृत्यु २२ — रसुवा १ पुरुष, नुवाकोट ११ (५ महिला + ६ पुरुष), धादिङ ९ (५ महिला + २ पुरुष + २ लिङ्ग नखुलेको), चितवन १ महिला। अघिल्लो पौने चारको १६ यो २२ बाट अद्यावधिक। रसुवा अस्पताल उपचार मृत्यु जोडेर २३ नबनाइएको।</li>
       <li><b>घाइते</b> — रसुवा अस्पताल जम्मा २४ (रेफर ६, उपचार मृत्यु १)। काठमाडौं जम्मा २५ (टिचिङ १९, ट्रमा ४, वीरेन्द्र सैनिक अस्पताल छाउनी १; नामसहित २४ + कामु नगरकोटीका साथमा तीन महिनाको शिशु) — प्रहरी प्रवक्ता दानबहादुर थापा। अघिल्लो २१ / टिचिङ १७ / ट्रमा ३ / मेडिसिटी १ यो २५ बाट अद्यावधिक। रसुवा २४ र काठमाडौं २५ जोड्ने होइन; निजी हेलि २९ उद्धार ११४ भित्र — घाइते कार्डमा हाल्ने होइन।</li>
@@ -2093,6 +2145,28 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 
 <script>
+(function(){
+  document.querySelectorAll(".fund button.acct").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var n = btn.getAttribute("data-acct") || "";
+      function ok(){
+        btn.classList.add("copied");
+        var old = btn.getAttribute("data-old");
+        if(!old){ btn.setAttribute("data-old", btn.innerHTML); }
+        btn.textContent = "कपी भयो · " + n;
+        setTimeout(function(){
+          btn.classList.remove("copied");
+          var html = btn.getAttribute("data-old");
+          if(html) btn.innerHTML = html;
+        }, 1400);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(n).then(ok).catch(ok);
+      } else { ok(); }
+    });
+  });
+})();
+
 document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   btn.addEventListener("click", function(){
     document.querySelectorAll(".feed-tabs button").forEach(function(b){b.classList.remove("active")});
