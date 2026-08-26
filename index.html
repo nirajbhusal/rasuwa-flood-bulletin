@@ -597,7 +597,14 @@ footer .foot-contact a:hover{text-decoration:underline}
 .fund .usd{font-size:12px;font-weight:800;color:var(--muted);flex:none}
 .fund-foot{margin:4px 0 0;font-size:15px;color:var(--muted)}
 .fund .bank-en{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-top:1px}
+.fund th.swift,.fund td.swift{width:7.6em;vertical-align:middle}
+.fund td.swift button.acct{font-size:13px;letter-spacing:.03em;padding:8px 8px;margin:0}
 .fund th.qr,.fund td.qr{width:88px;text-align:center;vertical-align:middle;word-break:normal}
+.swift-faq{margin:14px 0 8px;padding:16px 16px 12px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.swift-faq h3{margin:0 0 10px;font-size:18px;font-weight:800}
+.swift-faq dt{margin:10px 0 4px;font-weight:800;font-size:16px}
+.swift-faq dd{margin:0 0 4px;font-size:15px;line-height:1.55;color:var(--ink)}
+.swift-faq code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;font-weight:700;background:var(--crimson-soft);padding:1px 6px;border-radius:6px}
 .fund td.qr img{
   width:80px;height:80px;object-fit:contain;display:block;margin:0 auto;
   border-radius:8px;border:1px solid var(--line);background:#fff;
@@ -619,7 +626,8 @@ footer .foot-contact a:hover{text-decoration:underline}
   .fund td{padding:0 0 4px;border:0;width:auto}
   .fund td:nth-child(2){font-weight:800;font-size:16px;padding-bottom:6px;grid-column:1;grid-row:1}
   .fund td.acct{grid-column:1;grid-row:2}
-  .fund td.qr{grid-column:2;grid-row:1 / span 2;width:88px;padding:0;align-self:center}
+  .fund td.swift{grid-column:1;grid-row:3;width:auto}
+  .fund td.qr{grid-column:2;grid-row:1 / span 3;width:88px;padding:0;align-self:center}
   .fund button.acct{font-size:16px;padding:12px 10px}
 }
 
@@ -732,7 +740,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="stat">
         <b>सम्पर्कविहीन</b>
         <ul class="mini">
-          <li><a href="#family">नयाँ रिपोर्ट</a> <strong id="stat-miss-form">१५७</strong></li>
+          <li><a href="#family">जनताको रिपोर्ट</a> <strong id="stat-miss-form">१६४</strong></li>
           <li>हेलो सरकार <strong>१४०</strong></li>
           <li>पर्यटक <strong>४८४</strong></li>
           <li>स्वास्थ्यकर्मी <strong>६</strong></li>
@@ -802,37 +810,52 @@ footer .foot-contact a:hover{text-decoration:underline}
     <p class="stats-note">काठमाडौं ३६ / रसुवा २१, प्रहरी ६३। पर्यटक ४८४। हवाई उद्धार ११६ = सेना ८८ + निजी २८। पुल ८०। स्रोत तल।</p>
     <section id="donate" class="funds">
       <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>राहत कोष</h2></div>
-      <p class="funds-lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
+      <p class="funds-lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन SWIFT पनि ट्याप गरेर कपी गर्न सकिन्छ। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
       <article class="fund">
         <h3>प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</h3>
     <table>
-      <thead><tr><th>सि.नं.</th><th>बैंक</th><th>खाता नम्बर</th><th class="qr">QR</th></tr></thead>
+      <thead><tr><th>सि.नं.</th><th>बैंक</th><th>खाता नम्बर</th><th>SWIFT</th><th class="qr">QR</th></tr></thead>
       <tbody>
-        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्">1130100003762001</button><button type="button" class="acct" data-acct="1130100000006006" title="कपी गर्नुहोस्">1130100000006006</button></td><td class="qr"><img src="img/qr-rbb-disaster.png" width="170" height="170" alt="राष्ट्रिय वाणिज्य बैंक QR"></td></tr>
-        <tr><td>२</td><td>नेपाल बैंक<small class="bank-en">Nepal Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्">00211600510039000003</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्">00200100510039000001</button></td><td class="qr"><img src="img/qr-nbl-disaster.png" width="173" height="173" alt="नेपाल बैंक QR"></td></tr>
-        <tr><td>३</td><td>कृषि विकास बैंक<small class="bank-en">Agricultural Development Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्">0100201002907014</button></td><td class="qr"><img src="img/qr-adbl-disaster.png" width="170" height="170" alt="कृषि विकास बैंक QR"></td></tr>
-        <tr><td>४</td><td>एभरेष्ट बैंक<small class="bank-en">Everest Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्">00100105200270</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्">00101102200012</button></td><td class="qr"><img src="img/qr-ebl-disaster.png" width="169" height="169" alt="एभरेष्ट बैंक QR"></td></tr>
-        <tr><td>५</td><td>ग्लोबल आइएमई बैंक<small class="bank-en">Global IME Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्">00411010000005</button></td><td class="qr"><img src="img/qr-gibl-disaster.png" width="172" height="172" alt="ग्लोबल आइएमई बैंक QR"></td></tr>
-        <tr><td>६</td><td>नबिल बैंक<small class="bank-en">Nabil Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्">1710017505285</button></td><td class="qr"><img src="img/qr-nabil-disaster.png" width="171" height="171" alt="नबिल बैंक QR"></td></tr>
-        <tr><td>७</td><td>स्टान्डर्ड चार्टर्ड बैंक<small class="bank-en">Standard Chartered Bank Nepal Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्">02013243801</button></td><td class="qr"><img src="img/qr-scb-disaster.png" width="168" height="168" alt="स्टान्डर्ड चार्टर्ड बैंक QR"></td></tr>
-        <tr><td>८</td><td>हिमालयन बैंक<small class="bank-en">Himalayan Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्">01905631210046 <span class="usd">$</span></button></td><td class="qr"></td></tr>
+        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्">1130100003762001</button><button type="button" class="acct" data-acct="1130100000006006" title="कपी गर्नुहोस्">1130100000006006</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्">RBBANPKA</button></td><td class="qr"><img src="img/qr-rbb-disaster.png" width="170" height="170" alt="राष्ट्रिय वाणिज्य बैंक QR"></td></tr>
+        <tr><td>२</td><td>नेपाल बैंक<small class="bank-en">Nepal Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्">00211600510039000003</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्">00200100510039000001</button></td><td class="swift"><button type="button" class="acct" data-acct="NEBLNPKA" title="SWIFT कपी गर्नुहोस्">NEBLNPKA</button></td><td class="qr"><img src="img/qr-nbl-disaster.png" width="173" height="173" alt="नेपाल बैंक QR"></td></tr>
+        <tr><td>३</td><td>कृषि विकास बैंक<small class="bank-en">Agricultural Development Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्">0100201002907014</button></td><td class="swift"><button type="button" class="acct" data-acct="ADBLNPKA" title="SWIFT कपी गर्नुहोस्">ADBLNPKA</button></td><td class="qr"><img src="img/qr-adbl-disaster.png" width="170" height="170" alt="कृषि विकास बैंक QR"></td></tr>
+        <tr><td>४</td><td>एभरेष्ट बैंक<small class="bank-en">Everest Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्">00100105200270</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्">00101102200012</button></td><td class="swift"><button type="button" class="acct" data-acct="EVBLNPKA" title="SWIFT कपी गर्नुहोस्">EVBLNPKA</button></td><td class="qr"><img src="img/qr-ebl-disaster.png" width="169" height="169" alt="एभरेष्ट बैंक QR"></td></tr>
+        <tr><td>५</td><td>ग्लोबल आइएमई बैंक<small class="bank-en">Global IME Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्">00411010000005</button></td><td class="swift"><button type="button" class="acct" data-acct="GLBBNPKA" title="SWIFT कपी गर्नुहोस्">GLBBNPKA</button></td><td class="qr"><img src="img/qr-gibl-disaster.png" width="172" height="172" alt="ग्लोबल आइएमई बैंक QR"></td></tr>
+        <tr><td>६</td><td>नबिल बैंक<small class="bank-en">Nabil Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्">1710017505285</button></td><td class="swift"><button type="button" class="acct" data-acct="NARBNPKA" title="SWIFT कपी गर्नुहोस्">NARBNPKA</button></td><td class="qr"><img src="img/qr-nabil-disaster.png" width="171" height="171" alt="नबिल बैंक QR"></td></tr>
+        <tr><td>७</td><td>स्टान्डर्ड चार्टर्ड बैंक<small class="bank-en">Standard Chartered Bank Nepal Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्">02013243801</button></td><td class="swift"><button type="button" class="acct" data-acct="SCBLNPKA" title="SWIFT कपी गर्नुहोस्">SCBLNPKA</button></td><td class="qr"><img src="img/qr-scb-disaster.png" width="168" height="168" alt="स्टान्डर्ड चार्टर्ड बैंक QR"></td></tr>
+        <tr><td>८</td><td>हिमालयन बैंक<small class="bank-en">Himalayan Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्">01905631210046 <span class="usd">$</span></button></td><td class="swift"><button type="button" class="acct" data-acct="HIMANPKA" title="SWIFT कपी गर्नुहोस्">HIMANPKA</button></td><td class="qr"></td></tr>
       </tbody>
     </table>
       </article>
       <article class="fund">
         <h3>प्रधानमन्त्री राहत कोष</h3>
     <table>
-      <thead><tr><th>सि.नं.</th><th>बैंक</th><th>खाता नम्बर</th><th class="qr">QR</th></tr></thead>
+      <thead><tr><th>सि.नं.</th><th>बैंक</th><th>खाता नम्बर</th><th>SWIFT</th><th class="qr">QR</th></tr></thead>
       <tbody>
-        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1430100000025006" title="कपी गर्नुहोस्">1430100000025006</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्">1430100001164001</button></td><td class="qr"><img src="img/qr-rbb-relief.png" width="167" height="167" alt="राष्ट्रिय वाणिज्य बैंक QR · राहत कोष"></td></tr>
+        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1430100000025006" title="कपी गर्नुहोस्">1430100000025006</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्">1430100001164001</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्">RBBANPKA</button></td><td class="qr"><img src="img/qr-rbb-relief.png" width="167" height="167" alt="राष्ट्रिय वाणिज्य बैंक QR · राहत कोष"></td></tr>
       </tbody>
     </table>
       </article>
+      <div class="swift-faq">
+        <h3>विदेशबाट SWIFT पठाउने तरिका</h3>
+        <dl>
+          <dt>SWIFT के हो?</dt>
+          <dd>बैंक चिनाउने अन्तर्राष्ट्रिय कोड (BIC)। विदेशबाट यी खातामा पैसा पठाउन आफ्नो बैंकलाई यो कोड, खाता नाम र खाता नम्बर दिनुहोस्। नेपालमा IBAN चल्दैन।</dd>
+          <dt>के लेख्ने?</dt>
+          <dd>बैंकको अंग्रेजी नाम, SWIFT (माथि कपी गर्न मिल्छ), खाता नाम: प्रधानमन्त्री दैवी प्रकोप उद्धार कोष वा प्रधानमन्त्री राहत कोष, र तालिकाको खाता नम्बर। उद्देश्यमा Rasuwa / Bhotekoshi flood relief, 26 Aug 2026 लेख्नुहोस्।</dd>
+          <dt>कुन मुद्रा?</dt>
+          <dd>अधिकांश खाता नेपाली रुपैयाँका हुन्। हिमालयन बैंकको <code>01905631210046</code> डलर ($) खाता हो, SWIFT <code>HIMANPKA</code>। अन्य मुद्रा पठाएमा बैंकले रुपैयाँमा साट्न सक्छ।</dd>
+          <dt>कति समय / शुल्क?</dt>
+          <dd>सामान्यतया १–३ कार्यदिन। पठाउने बैंक र बीचका करेस्पोन्डेन्ट बैंकले शुल्क काट्न सक्छन्। OUR/SHA/BEN विकल्प बैंकले सोध्छ — OUR मा पठाउँदा रकम पूरा आउने सम्भावना बढी, शुल्क बढी।</dd>
+          <dt>८ अक्षर कि ११?</dt>
+          <dd>माथिका कोड ८ अक्षरका हेड अफिस हुन्। बैंकले ११ अक्षर मागे <code>XXX</code> जोड्नुहोस्, जस्तै <code>RBBANPKAXXX</code>। एउटै हो।</dd>
+        </dl>
+      </div>
     </section>
     <ul class="stats-src" aria-label="स्रोत">
       <li><b>शव जम्मा १००</b> — नेपाल प्रहरी, राति २०:३० / १० भदौ २०८३ (<a href="https://www.nepalpolice.gov.np/news/10245/" target="_blank" rel="noopener">nepalpolice.gov.np/news/10245</a>)। जिल्ला: चितवन ३३, धादिङ १८, गोरखा १९, नुवाकोट ११, नवलपरासी पूर्व ११, तनहुँ ७, रसुवा १। डीआईजी अबि नारायण काफ्लेले रातोपाटीलाई २२:२३ मा पनि शव १०० जनाए (<a href="https://www.ratopati.com/story/587690/rasuwa-flood-update-death-toll-reaches-100" target="_blank" rel="noopener">रातोपाटी</a>)। अघिल्लो प्रधानमन्त्री कार्यालय ९५ यो १०० बाट अद्यावधिक।</li>
       <li><b>घाइते</b> — प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong> (ट्रमा, टिचिङ, वीरेन्द्र सैनिक आदि), रसुवा अस्पताल <strong>२१</strong>। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> (टिचिङ २१, ट्रमा ७, छाउनी १, रसुवा २१, त्रिशूली १६, नर्भिक ३, ग्रीनसिटी १)। नामतालिका अघिल्लो काठमाडौं २२ सूची यथावत्।</li>
-      <li><b>सम्पर्कविहीन</b> — <a href="#family">नयाँ रिपोर्ट</a> फारम सिटबाट नामसहितको सूची (लाइभ)। हेलो सरकार १४० अलग। प्रधानमन्त्री कार्यालय साँझ ७:००: पर्यटक विदेशी <strong>३९१</strong> + स्वदेशी <strong>९३</strong> = <strong>४८४</strong>। जलविद्युत् आयोजना कर्मचारी <strong>६०</strong>। अघिल्लो पर्यटन मन्त्रालय ४०३ (विदेशी ३४१, नेपाली ६२) यो ४८४ बाट अद्यावधिक। बस ३४ / स्वास्थ्यकर्मी ६ / सुरक्षा ८५ / भन्सार ११ / बैंक २६। मृत्यु होइन।</li>
+      <li><b>सम्पर्कविहीन</b> — <a href="#family">जनताको रिपोर्ट</a> फारमबाट आएका नामसहितको सूची (लाइभ)। हेलो सरकार १४० अलग। प्रधानमन्त्री कार्यालय साँझ ७:००: पर्यटक विदेशी <strong>३९१</strong> + स्वदेशी <strong>९३</strong> = <strong>४८४</strong>। जलविद्युत् आयोजना कर्मचारी <strong>६०</strong>। अघिल्लो पर्यटन मन्त्रालय ४०३ (विदेशी ३४१, नेपाली ६२) यो ४८४ बाट अद्यावधिक। बस ३४ / स्वास्थ्यकर्मी ६ / सुरक्षा ८५ / भन्सार ११ / बैंक २६। मृत्यु होइन।</li>
       <li><b>सुरक्षा</b> — प्रधानमन्त्री कार्यालय साँझ ७:००: जम्मा <strong>८५</strong> — सेना ४४, प्रहरी २८, सशस्त्र <strong>१३</strong>। प्रहरी पोस्ट: टिमुरे १०, रसुवागढी ८, स्याफ्रुबेसी ३, मैलुङ ५, बेत्रावती १, हाकु १। अघिल्लो खनाल संसद् ७९ (सशस्त्र ९) यो ८५ बाट अद्यावधिक। मृत्यु होइन।</li>
       <li><b>भन्सार</b> — स्थायी ३६, सम्पर्क २५, खोजी ११, गाडी ३००+ — प्रमुख ढुंगाना।</li>
       <li><b>टिमुरे</b> — घर १००+ र पर्खाइ ३००+ — वडासदस्य घले। बजार ५–७ — डिआईजी रेग्मी।</li>
@@ -1024,7 +1047,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <a class="found" id="fam-found-btn" hidden href="#" target="_blank" rel="noopener">भेटियो · रिपोर्ट</a>
     </div>
     <p class="fam-lead">हराएको व्यक्ति भेटिएमा <strong>भेटियो</strong> थिच्नुहोस्। नाम, उमेर, स्थान र फोटो जाँचपछि मात्र कार्ड देखिन्छ। आपत्कालमा <a href="tel:1234">१२३४</a>।</p>
-    <h3 class="fam-h">नयाँ रिपोर्ट</h3>
+    <h3 class="fam-h">जनताको रिपोर्ट</h3>
     <p class="treat-lead" id="fam-new-lead">फारम सिटबाट जाँचिएका सम्पर्कविहीन विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="pager" data-pager="fam-miss">
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
@@ -3087,7 +3110,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     fill("fam-found", "fam-found-empty", data.found, "found");
     var lead = document.getElementById("fam-new-lead");
     if (lead && data.missing && data.missing.length){
-      lead.innerHTML = "फारम सिटबाट नयाँ रिपोर्ट <strong>"+np(data.missing.length)+"</strong> विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।";
+      lead.innerHTML = "जनताबाट आएका रिपोर्ट <strong>"+np(data.missing.length)+"</strong> विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।";
     }
     var missStat = document.getElementById("stat-miss-form");
     if (missStat && data.missing){
