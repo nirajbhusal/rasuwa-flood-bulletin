@@ -689,6 +689,43 @@ footer .foot-contact a:hover{text-decoration:underline}
 .fam-nomatch{display:none!important}
 
 @media (max-width:760px){.fam-grid{grid-template-columns:1fr}}
+
+.portal-fab{position:fixed;right:14px;bottom:16px;z-index:55;font-family:inherit}
+.portal-fab details{position:relative}
+.portal-fab summary{
+  list-style:none;cursor:pointer;
+  width:56px;height:56px;border-radius:50%;
+  background:var(--crimson);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:13px;line-height:1.1;text-align:center;
+  box-shadow:0 8px 24px rgba(127,29,29,.35);
+  border:2px solid #fff;
+}
+.portal-fab summary::-webkit-details-marker{display:none}
+.portal-fab[open] summary,.portal-fab details[open] summary{background:#7f1d1d}
+.portal-panel{
+  position:absolute;right:0;bottom:68px;
+  width:min(300px,calc(100vw - 36px));
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 12px 40px rgba(15,23,42,.18);
+  padding:14px 14px 12px;
+}
+.portal-panel p{margin:0 0 10px;font-size:14px;line-height:1.45;color:var(--muted);font-weight:600}
+.portal-panel p b{color:var(--ink);display:block;font-size:16px;margin-bottom:2px}
+.portal-panel a{
+  display:block;padding:10px 12px;margin:0 0 6px;border-radius:10px;
+  font-weight:800;font-size:15px;text-decoration:none;line-height:1.2;
+}
+.portal-panel a.wa{background:#25d366;color:#fff}
+.portal-panel a.mail{background:#0f172a;color:#fff}
+.portal-panel a.miss{background:var(--crimson);color:#fff}
+.portal-panel a.found{background:var(--forest);color:#fff}
+.portal-panel .note{margin:8px 0 0;font-size:12px;font-weight:700;color:var(--muted)}
+@media (max-width:760px){
+  .portal-fab{right:10px;bottom:12px}
+  .portal-fab summary{width:52px;height:52px;font-size:12px}
+}
+
 </style>
 </head>
 <body>
@@ -2684,6 +2721,21 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
 </section>
 </main>
+
+<div class="portal-fab">
+  <details id="portal-contact">
+    <summary aria-label="यो पोर्टल · सम्पर्क">यो<br>पोर्टल</summary>
+    <div class="portal-panel">
+      <p><b>रसुवा बाढी बुलेटिन</b>स्वतन्त्र नागरिक पाना। सरकार होइन। हराएको/भेटिएको फारम, WhatsApp वा इमेल। उद्धारका लागि १२३४।</p>
+      <a class="miss" href="https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform" target="_blank" rel="noopener">हराएको रिपोर्ट</a>
+      <a class="found" href="https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform" target="_blank" rel="noopener">भेटियो · रिपोर्ट</a>
+      <a class="wa" href="https://wa.me/9779851175115?text=%E0%A4%B0%E0%A4%B8%E0%A5%81%E0%A4%B5%E0%A4%BE%20%E0%A4%AC%E0%A4%BE%E0%A4%A2%E0%A5%80%20%E0%A4%AC%E0%A5%81%E0%A4%B2%E0%A5%87%E0%A4%9F%E0%A4%BF%E0%A4%A8" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="mail" href="mailto:neerajbhusal@gmail.com?subject=Rasuwa%20flood%20bulletin">इमेल</a>
+      <p class="note">निरज भुसाल · स्वतन्त्र स्वयंसेवक</p>
+    </div>
+  </details>
+</div>
+
 <footer>
   <p class="foot-contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
   Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
