@@ -106,8 +106,9 @@ img{max-width:100%;display:block}
   border-bottom:1px solid var(--line);
 }
 .topbar-inner{
-  max-width:var(--max);margin:0 auto;padding:10px 16px;
-  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  max-width:var(--max);margin:0 auto;padding:14px 16px 12px;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  text-align:center;
 }
 .live{
   display:inline-flex;align-items:center;gap:7px;
@@ -121,23 +122,31 @@ img{max-width:100%;display:block}
   animation:pulse 1.4s infinite;
 }
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,255,255,0)}}
-.brand{flex:1;min-width:180px}
-.brand h1{margin:0;font-size:18px;line-height:1.25}
-.brand p{margin:0;color:var(--muted);font-size:13px}
+.brand{flex:none;width:100%;min-width:0;text-align:center}
+.brand h1{margin:0;font-size:clamp(28px,7vw,52px);line-height:1.15;font-weight:800;text-align:center}
+.brand p{margin:6px 0 0;color:var(--muted);font-size:14px;text-align:center}
 .helpline{
   font-size:13px;font-weight:700;color:var(--crimson);
   background:var(--crimson-soft);padding:6px 10px;border-radius:10px;
 }
-.top-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.top-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;width:100%}
 .notify-btn{
   font:inherit;font-size:13px;font-weight:800;cursor:pointer;border:0;
-  border-radius:10px;padding:6px 10px;background:var(--crimson);color:#fff;
+  border-radius:12px;padding:10px 14px;background:var(--crimson);color:#fff;
   display:inline-flex;align-items:center;gap:6px;line-height:1;
+  min-height:44px;min-width:44px;flex:none;touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;user-select:none;position:relative;z-index:2;
 }
-.notify-btn svg{flex:none;display:block}
+.notify-btn svg{flex:none;display:block;pointer-events:none}
+.notify-btn .bell-off{display:none}
+.notify-btn.off .bell-on{display:none}
+.notify-btn.off .bell-off{display:block}
 .notify-btn.on{background:#166534}
-.notify-btn.denied{background:#64748b;cursor:default}
+.notify-btn.off,.notify-btn.denied{background:#64748b}
+.notify-btn.denied{cursor:pointer}
 .notify-btn:disabled{opacity:.7;cursor:default}
+.notify-hint{display:none;width:100%;margin:0;font-size:12px;color:var(--muted);text-align:center}
+.notify-hint.show{display:block}
 
 .plants{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 4px}
 .plants th,.plants td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
@@ -367,8 +376,8 @@ footer{
   .stats{grid-template-columns:repeat(2,1fr)}
   .grid-2,.photos,.videos{grid-template-columns:1fr}
   .photo img{height:200px}
-  .helpline{width:100%}
-  .top-actions{width:100%}
+  .helpline{width:auto;max-width:100%}
+  .top-actions{width:100%;justify-content:center}
 }
 </style>
 </head>
@@ -376,18 +385,20 @@ footer{
 <div class="stick">
 <header class="topbar">
   <div class="topbar-inner">
-    <span class="live"><i></i> लाइभ</span>
     <div class="brand">
       <h1>रसुवा–भोटेकोशी बाढी</h1>
       <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~१३:१६ नेपाली समय</p>
     </div>
     <div class="top-actions">
+      <span class="live"><i></i> लाइभ</span>
       <div class="helpline">उद्धार १२३४ · प्रहरी १०० · १११४ · एम्बुलेन्स १०२</div>
-      <button type="button" class="notify-btn" id="notify-btn" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zm6-6V11c0-3.07-1.64-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+      <button type="button" class="notify-btn" id="notify-btn" aria-pressed="false" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट">
+        <svg class="bell-on" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zm6-6V11c0-3.07-1.64-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+        <svg class="bell-off" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zM4.27 3 3 4.27l2.62 2.62A6.96 6.96 0 0 0 6 11v5l-2 2v1h14.73L19.73 21 21 19.73 4.27 3zM17 17H8.27L17 8.27V17z"/></svg>
         <span class="notify-label">अपडेट</span>
       </button>
     </div>
+    <p class="notify-hint" id="notify-hint"></p>
   </div>
 </header>
 <p class="safety-banner" role="alert">बाढी कत्रो आयो भन्दै नदि छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदि भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।</p>
@@ -1177,77 +1188,145 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
 (function(){
   var btn = document.getElementById("notify-btn");
   if (!btn) return;
+  var hint = document.getElementById("notify-hint");
+  var KEY = "rasuwa-notify";
   var pollTimer = null;
+  var visBound = false;
 
-  function setLabel(text, cls, aria) {
+  function wantedOn() {
+    try { return localStorage.getItem(KEY) !== "0"; } catch (e) { return true; }
+  }
+  function setWanted(on) {
+    try { localStorage.setItem(KEY, on ? "1" : "0"); } catch (e) {}
+  }
+  function canApi() {
+    return ("Notification" in window) && ("serviceWorker" in navigator);
+  }
+  function standalone() {
+    return (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) || window.navigator.standalone === true;
+  }
+  function showHint(text) {
+    if (!hint) return;
+    if (!text) { hint.textContent = ""; hint.classList.remove("show"); return; }
+    hint.textContent = text;
+    hint.classList.add("show");
+  }
+  function setUi(text, cls, aria, pressed) {
     var span = btn.querySelector(".notify-label");
     if (span) span.textContent = text;
     btn.className = "notify-btn" + (cls ? " " + cls : "");
     btn.setAttribute("aria-label", aria);
+    btn.setAttribute("aria-pressed", pressed ? "true" : "false");
     btn.title = aria;
+    btn.disabled = false;
   }
-  function label() {
-    if (!("Notification" in window) || !("serviceWorker" in navigator)) {
-      setLabel("—", "denied", "अपडेट अलर्ट उपलब्ध छैन");
-      btn.disabled = true;
+  function paint() {
+    if (!canApi()) {
+      setUi("बन्द", "off", "यो ब्राउजरमा सूचना उपलब्ध छैन", false);
       return "unsupported";
     }
     var p = Notification.permission;
-    if (p === "granted") {
-      setLabel("अन", "on", "अपडेट अलर्ट अन छ");
-      return "granted";
-    }
     if (p === "denied") {
-      setLabel("बन्द", "denied", "अपडेट अलर्ट ब्लक छ");
+      setUi("बन्द", "denied", "ब्राउजरले सूचना ब्लक गरेको छ", false);
       return "denied";
     }
-    setLabel("अपडेट", "", "अपडेट अलर्ट अन गर्नुहोस्");
+    if (p === "granted" && wantedOn()) {
+      setUi("अन", "on", "अपडेट अलर्ट बन्द गर्नुहोस्", true);
+      return "on";
+    }
+    if (p === "granted") {
+      setUi("बन्द", "off", "अपडेट अलर्ट अन गर्नुहोस्", false);
+      return "off";
+    }
+    setUi("अपडेट", "off", "अपडेट अलर्ट अन गर्नुहोस्", false);
     return "default";
   }
-
-  function ping(welcome) {
-    if (!navigator.serviceWorker || !navigator.serviceWorker.controller) return;
-    navigator.serviceWorker.controller.postMessage({ type: "check", welcome: !!welcome });
+  function toWorker(msg) {
+    if (!navigator.serviceWorker) return;
+    function send(w) { if (w) w.postMessage(msg); }
+    if (navigator.serviceWorker.controller) send(navigator.serviceWorker.controller);
+    navigator.serviceWorker.ready.then(function(reg){ send(reg.active); }).catch(function(){});
   }
-
+  function ping(welcome) { toWorker({ type: "check", welcome: !!welcome }); }
   function startPoll() {
     if (pollTimer) return;
     pollTimer = setInterval(function(){ ping(false); }, 60000);
-    document.addEventListener("visibilitychange", function(){
-      if (!document.hidden) ping(false);
-    });
-  }
-
-  navigator.serviceWorker && navigator.serviceWorker.register("sw.js", { scope: "./" }).then(function(reg){
-    if (Notification.permission === "granted") {
-      startPoll();
+    if (!visBound) {
+      visBound = true;
+      document.addEventListener("visibilitychange", function(){
+        if (!document.hidden && wantedOn() && Notification.permission === "granted") ping(false);
+      });
+    }
+    navigator.serviceWorker && navigator.serviceWorker.ready.then(function(reg){
       if (reg.periodicSync) {
         reg.periodicSync.register("rasuwa-updates", { minInterval: 5 * 60 * 1000 }).catch(function(){});
       }
-    }
-    label();
-  }).catch(function(){ label(); });
-
-  label();
-
-  btn.addEventListener("click", function(){
-    if (!("Notification" in window)) return;
-    if (Notification.permission === "granted") { ping(false); return; }
-    if (Notification.permission === "denied") return;
-    Notification.requestPermission().then(function(p){
-      label();
-      if (p === "granted") {
-        startPoll();
-        navigator.serviceWorker.ready.then(function(reg){
-          if (reg.periodicSync) {
-            reg.periodicSync.register("rasuwa-updates", { minInterval: 5 * 60 * 1000 }).catch(function(){});
-          }
-          if (reg.active) reg.active.postMessage({ type: "check", welcome: true });
-          else ping(true);
-        });
+    });
+  }
+  function stopPoll() {
+    if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
+    navigator.serviceWorker && navigator.serviceWorker.ready.then(function(reg){
+      if (reg.periodicSync) {
+        reg.periodicSync.unregister("rasuwa-updates").catch(function(){});
       }
     });
-  });
+  }
+  function turnOn() {
+    setWanted(true);
+    toWorker({ type: "unmute" });
+    startPoll();
+    ping(true);
+    paint();
+    showHint("");
+  }
+  function turnOff() {
+    setWanted(false);
+    toWorker({ type: "mute" });
+    stopPoll();
+    paint();
+    showHint("");
+  }
+
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register("sw.js", { scope: "./" }).then(function(){
+      if (canApi() && Notification.permission === "granted" && wantedOn()) {
+        toWorker({ type: "unmute" });
+        startPoll();
+      } else {
+        toWorker({ type: "mute" });
+      }
+      paint();
+    }).catch(function(){ paint(); });
+  }
+  paint();
+
+  btn.addEventListener("click", function(ev){
+    ev.preventDefault();
+    ev.stopPropagation();
+    if (!canApi()) {
+      showHint("यो ब्राउजरमा सूचना चल्दैन। Chrome वा Safari (Home Screen) मा खोल्नुहोस्।");
+      return;
+    }
+    var p = Notification.permission;
+    if (p === "denied") {
+      showHint("ब्राउजर सेटिङबाट यो साइटको सूचना अनुमति दिनुहोस्।");
+      return;
+    }
+    if (p === "granted") {
+      if (wantedOn()) turnOff();
+      else turnOn();
+      return;
+    }
+    var req = Notification.requestPermission();
+    Promise.resolve(req).then(function(res){
+      paint();
+      if (res === "granted") turnOn();
+      else if (res === "denied") showHint("ब्राउजरले सूचना ब्लक गर्‍यो।");
+      else if (!standalone()) showHint("iPhone मा Share → Add to Home Screen गरेपछि सूचना आउँछ।");
+    }).catch(function(){
+      showHint("अनुमति माग्न सकिएन। Home Screen बाट खोलेर फेरि प्रयास गर्नुहोस्।");
+    });
+  }, { passive: false });
 })();
 </script>
 </body>

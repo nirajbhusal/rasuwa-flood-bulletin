@@ -2,7 +2,8 @@
 const SCOPE = self.registration.scope;
 const LATEST = new URL('latest.json', SCOPE).href;
 const ICON = new URL('icon-192.png', SCOPE).href;
-const SEEN_CACHE = 'rasuwa-seen-v1';
+const SEEN_CACHE = 'rasuwa-seen-v2';
+const MUTE_CACHE = 'rasuwa-mute-v1';
 
 self.addEventListener('install', (e) => { self.skipWaiting(); });
 self.addEventListener('activate', (e) => { e.waitUntil(self.clients.claim()); });
@@ -18,6 +19,17 @@ async function setSeen(id) {
   const c = await caches.open(SEEN_CACHE);
   await c.put('id', new Response(id, { headers: { 'content-type': 'text/plain' } }));
 }
+async function isMuted() {
+  try {
+    const c = await caches.open(MUTE_CACHE);
+    const r = await c.match('mute');
+    return r ? (await r.text()) === '1' : false;
+  } catch (err) { return false; }
+}
+async function setMuted(v) {
+  const c = await caches.open(MUTE_CACHE);
+  await c.put('mute', new Response(v ? '1' : '0', { headers: { 'content-type': 'text/plain' } }));
+}
 
 async function checkLatest(forceNotify) {
   const res = await fetch(LATEST + '?t=' + Date.now(), { cache: 'no-store' });
@@ -25,6 +37,11 @@ async function checkLatest(forceNotify) {
   const data = await res.json();
   const seen = await getSeen();
   if (!data.id) return data;
+  const muted = await isMuted();
+  if (muted && !forceNotify) {
+    if (data.id) await setSeen(data.id);
+    return data;
+  }
   if (seen && seen !== data.id) {
     await self.registration.showNotification(data.title || 'रसुवा बाढी अपडेट', {
       body: data.body || '',
@@ -50,6 +67,8 @@ async function checkLatest(forceNotify) {
 
 self.addEventListener('message', (e) => {
   const msg = e.data || {};
+  if (msg.type === 'mute') e.waitUntil(setMuted(true));
+  if (msg.type === 'unmute') e.waitUntil(setMuted(false));
   if (msg.type === 'check') {
     e.waitUntil(checkLatest(!!msg.welcome));
   }
