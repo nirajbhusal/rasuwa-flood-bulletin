@@ -344,6 +344,25 @@ footer{
 @media (max-width:760px){
   .feeds{grid-template-columns:1fr}
 }
+
+.ndrrma-hl{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin:0 0 18px;overflow:hidden}
+.ndrrma-hl .hl-head{background:var(--crimson);color:#fff;padding:11px 16px}
+.ndrrma-hl .hl-head b{display:block;font-size:16px}
+.ndrrma-hl .hl-head span{display:block;font-size:12px;opacity:.9;margin-top:2px;font-weight:600}
+.ndrrma-hl .hl-nat{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:14px 16px 10px}
+.ndrrma-hl .hl-nat a{display:block;text-align:center;background:var(--crimson-soft);color:var(--crimson);font-weight:800;padding:10px 6px;border-radius:12px;text-decoration:none;line-height:1.2}
+.ndrrma-hl .hl-nat a small{display:block;font-size:11px;color:var(--muted);font-weight:700;margin-top:3px}
+.ndrrma-hl .hl-dist{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:4px 16px 14px}
+.ndrrma-hl .hl-dist article{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.ndrrma-hl .hl-dist b{display:block;margin-bottom:5px;font-size:15px}
+.ndrrma-hl .hl-dist a{display:block;color:var(--ink);text-decoration:none;font-weight:700;font-size:14px;margin:2px 0}
+.ndrrma-hl .hl-dist a span{color:var(--muted);font-weight:600;font-size:12px;margin-right:6px}
+.ndrrma-hl .hl-extra{padding:0 16px 12px;font-size:13px;color:var(--muted)}
+.ndrrma-hl .hl-foot{background:#0f4c5c;color:#fff;padding:8px 16px;font-size:13px;line-height:1.45}
+@media (max-width:760px){
+  .ndrrma-hl .hl-nat{grid-template-columns:repeat(2,1fr)}
+  .ndrrma-hl .hl-dist{grid-template-columns:1fr}
+}
 @media (max-width:760px){
   .stats{grid-template-columns:repeat(2,1fr)}
   .grid-2,.photos,.videos{grid-template-columns:1fr}
@@ -360,10 +379,10 @@ footer{
     <span class="live"><i></i> लाइभ</span>
     <div class="brand">
       <h1>रसुवा–भोटेकोशी बाढी</h1>
-      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~१३:१४ नेपाली समय</p>
+      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~१३:१६ नेपाली समय</p>
     </div>
     <div class="top-actions">
-      <div class="helpline">उद्धार १२३४ · प्रहरी १०० · १११४ · स्वास्थ्य १११५</div>
+      <div class="helpline">उद्धार १२३४ · प्रहरी १०० · १११४ · एम्बुलेन्स १०२</div>
       <button type="button" class="notify-btn" id="notify-btn" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zm6-6V11c0-3.07-1.64-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
         <span class="notify-label">अपडेट</span>
@@ -376,6 +395,7 @@ footer{
   <div class="chips-inner">
     <a class="home-btn" href="#home" aria-label="होम" title="होम"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
     <a href="#alert">सतर्कता</a>
+    <a href="#helpline">हेल्पलाइन</a>
     <a href="#gov">सरकारी पहल</a>
     <a href="#history">अपडेट</a>
     <a href="#photos">तस्बिर</a>
@@ -450,7 +470,45 @@ footer{
 
 <aside class="police-alert" role="alert">
   <p class="police-alert-text">भोटेकोसी नदी रसुवामा तिब्बत तर्फबाट ठुलो बाढी प्रवेश गरेकोले अर्को सूचना नआउँदासम्म त्रीशुली नदीको तटिय क्षेत्रका जिल्लाहरु नुवाकोट, धादिङ, चितवन, गोरखा लगायतका स्थानहरूमा उच्च सतर्कता सहित सुरक्षित स्थानमा रहन अनुरोध छ। <span class="src">Nepal Police</span></p>
-  <p class="police-alert-phones"><a href="tel:1234">उद्धार १२३४</a> · <a href="tel:100">प्रहरी १००</a> · <a href="tel:1114">१११४</a> · <a href="tel:1115">स्वास्थ्य १११५</a></p>
+  <p class="police-alert-phones"><a href="tel:1234">उद्धार १२३४</a> · <a href="tel:100">प्रहरी १००</a> · <a href="tel:1114">१११४</a> · <a href="tel:102">एम्बुलेन्स १०२</a></p>
+</aside>
+
+
+<aside class="ndrrma-hl" id="helpline">
+  <div class="hl-head">
+    <b>आपत्कालीन सहायता / हेल्पलाइन</b>
+    <span>NDRRMA · गृह मन्त्रालय · सिंहदरबार</span>
+  </div>
+  <div class="hl-nat">
+    <a href="tel:1114">१११४<small>सशस्त्र प्रहरी</small></a>
+    <a href="tel:100">१००<small>नेपाल प्रहरी</small></a>
+    <a href="tel:102">१०२<small>एम्बुलेन्स</small></a>
+    <a href="tel:1234">१२३४<small>DEOC / उद्धार</small></a>
+  </div>
+  <div class="hl-dist">
+    <article>
+      <b>रसुवा</b>
+      <a href="tel:+9779851164422"><span>सहायक प्रजिअ</span>९८५११६४४२२</a>
+      <a href="tel:+9779851254960"><span>प्रहरी</span>९८५१२५४९६०</a>
+    </article>
+    <article>
+      <b>नुवाकोट</b>
+      <a href="tel:+9779851247777"><span>सहायक प्रजिअ</span>९८५१२४७७७७</a>
+      <a href="tel:+9779851282380"><span>प्रहरी</span>९८५१२८२३८०</a>
+    </article>
+    <article>
+      <b>धादिङ</b>
+      <a href="tel:+9779851247777"><span>प्रजिअ</span>९८५१२४७७७७</a>
+      <a href="tel:+9779851229860"><span>प्रहरी</span>९८५१२२९८६०</a>
+    </article>
+    <article>
+      <b>चितवन</b>
+      <a href="tel:+9779855088891"><span>सहायक प्रजिअ</span>९८५५०८८८९१</a>
+      <a href="tel:+9779855013999"><span>प्रहरी</span>९८५५०१३९९९</a>
+    </article>
+  </div>
+  <p class="hl-extra">स्वास्थ्य आपत्कालीन <a href="tel:1115">१११५</a> (मन्त्रालय)। गोरखा यो NDRRMA सूचीमा छैन।</p>
+  <p class="hl-foot">आपत्का बेला नआत्तिऔं, सजग र पूर्वतयार रहौं। यो जानकारी सेयर गरी सुरक्षित रहन सहयोग गरौं।</p>
 </aside>
 
 <section id="alert">
@@ -476,6 +534,7 @@ footer{
       <a href="tel:1234">उद्धार १२३४</a>
       <a href="tel:100">प्रहरी १००</a>
       <a href="tel:1114">१११४</a>
+      <a href="tel:102">एम्बुलेन्स १०२</a>
       <a href="tel:1115">स्वास्थ्य १११५</a>
     </div>
     <p class="note">संख्या प्रारम्भिक हुन्। नागरिक मृत्यु/बेपत्ताको आधिकारिक गणना अहिले सार्वजनिक भएको छैन — अनुमान नगर्नुहोस्।</p>
