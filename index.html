@@ -573,6 +573,7 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 .funds{margin:18px 0 8px}
 .funds-lead{margin:0 0 12px;font-size:17px;line-height:1.55;font-weight:600;color:var(--ink)}
+.funds-lead a{color:var(--crimson);font-weight:800}
 .fund{
   background:#fff;border:1px solid var(--line);border-radius:16px;
   padding:16px 14px 10px;box-shadow:var(--shadow);margin:0 0 12px;
@@ -595,6 +596,15 @@ footer .foot-contact a:hover{text-decoration:underline}
 .fund button.acct:hover,.fund button.acct.copied{border-color:var(--crimson);background:var(--crimson-soft)}
 .fund .usd{font-size:12px;font-weight:800;color:var(--muted);flex:none}
 .fund-foot{margin:4px 0 0;font-size:15px;color:var(--muted)}
+.fund .bank-en{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-top:1px}
+.fund .qr-sheet{margin:0 0 12px}
+.fund .qr-sheet a{display:block}
+.fund img,.qr-sheet img{
+  max-width:100%;height:auto;display:block;
+  border-radius:12px;border:1px solid var(--line);
+}
+.fund .qr-sheet figcaption{margin:6px 0 0;font-size:13px;color:var(--muted);line-height:1.45}
+.fund .qr-sheet figcaption a{color:var(--crimson);font-weight:700}
 @media (max-width:760px){
   .fund table,.fund thead,.fund tbody,.fund tr,.fund th,.fund td{display:block;width:100%}
   .fund thead{display:none}
@@ -780,29 +790,37 @@ footer .foot-contact a:hover{text-decoration:underline}
     <p class="stats-note">यी फरक सूची हुन् — काठमाडौं ३६ / रसुवा २१ र प्रहरी ६३ जोड्ने होइन। पर्यटक ४८४ मा सुरक्षा/आयोजना नजोड्नुहोस्। हवाई उद्धार ११४ = सेना ८५ + निजी २९। स्रोत तल।</p>
     <section id="donate" class="funds">
       <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>राहत कोष</h2></div>
-      <p class="funds-lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। नम्बर ट्याप गर्दा कपी हुन्छ।</p>
+      <p class="funds-lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
       <article class="fund">
         <h3>प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</h3>
+        <figure class="qr-sheet">
+          <a href="img/pm-disaster-qr.png" target="_blank" rel="noopener"><img src="img/pm-disaster-qr.png" width="1200" height="1553" alt="दैवी प्रकोप उद्धार कोष — ६ बैंकको आधिकारिक Fonepay QR"></a>
+          <figcaption>आधिकारिक QR पाना १ (६ बैंक) · <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></figcaption>
+        </figure>
     <table>
       <thead><tr><th>सि.नं.</th><th>बैंक</th><th>खाता नम्बर</th></tr></thead>
       <tbody>
-        <tr><td>१</td><td>हिमालयन बैंक</td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्">01905631210046 <span class="usd">$</span></button></td></tr>
-        <tr><td>२</td><td>स्टान्डर्ड चार्टर्ड बैंक</td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्">02013243801</button></td></tr>
-        <tr><td>३</td><td>राष्ट्रिय वाणिज्य बैंक</td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्">1130100003762001</button><button type="button" class="acct" data-acct="113010000006006" title="कपी गर्नुहोस्">113010000006006</button></td></tr>
-        <tr><td>४</td><td>एभरेष्ट बैंक</td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्">00100105200270</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्">00101102200012</button></td></tr>
-        <tr><td>५</td><td>नेपाल बैंक</td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्">00211600510039000003</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्">00200100510039000001</button></td></tr>
-        <tr><td>६</td><td>ग्लोबल आइएमई बैंक</td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्">00411010000005</button></td></tr>
-        <tr><td>७</td><td>नबिल बैंक</td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्">1710017505285</button></td></tr>
-        <tr><td>८</td><td>कृषि विकास बैंक</td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्">0100201002907014</button></td></tr>
+        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्">1130100003762001</button><button type="button" class="acct" data-acct="1130100000006006" title="कपी गर्नुहोस्">1130100000006006</button></td></tr>
+        <tr><td>२</td><td>नेपाल बैंक<small class="bank-en">Nepal Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्">00211600510039000003</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्">00200100510039000001</button></td></tr>
+        <tr><td>३</td><td>कृषि विकास बैंक<small class="bank-en">Agricultural Development Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्">0100201002907014</button></td></tr>
+        <tr><td>४</td><td>एभरेष्ट बैंक<small class="bank-en">Everest Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्">00100105200270</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्">00101102200012</button></td></tr>
+        <tr><td>५</td><td>ग्लोबल आइएमई बैंक<small class="bank-en">Global IME Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्">00411010000005</button></td></tr>
+        <tr><td>६</td><td>नबिल बैंक<small class="bank-en">Nabil Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्">1710017505285</button></td></tr>
+        <tr><td>७</td><td>स्टान्डर्ड चार्टर्ड बैंक<small class="bank-en">Standard Chartered Bank Nepal Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्">02013243801</button></td></tr>
+        <tr><td>८</td><td>हिमालयन बैंक<small class="bank-en">Himalayan Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्">01905631210046 <span class="usd">$</span></button></td></tr>
       </tbody>
     </table>
       </article>
       <article class="fund">
         <h3>प्रधानमन्त्री राहत कोष</h3>
+        <figure class="qr-sheet">
+          <a href="img/pm-relief-qr.png" target="_blank" rel="noopener"><img src="img/pm-relief-qr.png" width="1200" height="1553" alt="प्रधानमन्त्री राहत कोष — राष्ट्रिय वाणिज्य बैंक आधिकारिक QR (पाना २ मा SCB/हिमालयन पनि)"></a>
+          <figcaption>आधिकारिक QR पाना २ (SCB, हिमालयन $ बिना QR, राहत कोष RBB) · <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></figcaption>
+        </figure>
     <table>
       <thead><tr><th>सि.नं.</th><th>बैंक</th><th>खाता नम्बर</th></tr></thead>
       <tbody>
-        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक</td><td class="acct"><button type="button" class="acct" data-acct="143010000025006" title="कपी गर्नुहोस्">143010000025006</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्">1430100001164001</button></td></tr>
+        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="143010000025006" title="कपी गर्नुहोस्">143010000025006</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्">1430100001164001</button></td></tr>
       </tbody>
     </table>
       </article>
