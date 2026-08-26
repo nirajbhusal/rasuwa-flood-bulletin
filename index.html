@@ -195,6 +195,18 @@ img{max-width:100%;display:block}
 }
 .stat b{display:block;font-size:clamp(22px,4vw,32px);line-height:1.1;color:var(--crimson)}
 .stat span{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+
+.stat.wide{
+  grid-column:span 2;text-align:left;padding:14px 14px 12px;
+}
+.stat.wide b{font-size:clamp(18px,3.2vw,26px)}
+.stat.wide > span{margin-top:2px}
+.stat.wide ul.mini{
+  list-style:none;margin:8px 0 0;padding:0;
+  font-size:13px;color:var(--muted);line-height:1.45;
+}
+.stat.wide ul.mini li{margin:3px 0}
+.stat.wide ul.mini strong{color:var(--crimson);font-variant-numeric:tabular-nums}
 section{padding:22px 0}
 .sec-head{display:flex;align-items:center;gap:10px;margin:0 0 12px}
 .sec-head h2{margin:0;font-size:22px}
@@ -348,10 +360,10 @@ footer{
     <span class="live"><i></i> लाइभ</span>
     <div class="brand">
       <h1>रसुवा–भोटेकोशी बाढी</h1>
-      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~१३:०४ नेपाली समय</p>
+      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~१३:१० नेपाली समय</p>
     </div>
     <div class="top-actions">
-      <div class="helpline">उद्धार १२३४ · प्रहरी १०० · १११४</div>
+      <div class="helpline">उद्धार १२३४ · प्रहरी १०० · १११४ · स्वास्थ्य १११५</div>
       <button type="button" class="notify-btn" id="notify-btn" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zm6-6V11c0-3.07-1.64-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
         <span class="notify-label">अपडेट</span>
@@ -383,14 +395,19 @@ footer{
 <div class="hero" id="home">
   <div class="wrap">
     <p class="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
-    <h2>चीनबाट हिमपहिरोको जानकारी, त्रिशूलीमा इन्धन</h2>
-    <p class="lede">विपद् प्राधिकरण: तिब्बतमा <strong>हिमपहिरो</strong>ले बाढी आएको चीनबाट प्रारम्भिक जानकारी (प्रवक्ता महत: अनौपचारिक, पुष्टि बाँकी)। अर्थ मन्त्रालय: उद्धार हेलिकप्टरका लागि NOC ले त्रिशूलीमा <strong>हवाई इन्धन ट्यांकर</strong> पठायो। स्वास्थ्य: धुन्चेमा <strong>२ घाइते</strong> उपचारमा। टिमुरे भन्सार कार्यालय बगेको। पछिल्लो: स्थायी दरबन्दी <strong>३६</strong>, प्रमुख ढुंगानासहित <strong>२५ जना सम्पर्कमा</strong>; <strong>११ स्थायी + ३ करार/ज्यालादारी खोजी जारी</strong> — मृत्यु गणना होइन। आधिकारिक नागरिक मृत्यु संख्या अझै छैन।</p>
+    <h2>बाढी फिस्लिङअघि, बैरेनी बजारमा क्षति</h2>
+    <p class="lede">चितवन प्रजिअ गणेश अर्याल: बाढी चितवन वरपर <strong>फिस्लिङ क्षेत्रभन्दा अघि</strong> पुगेको। अनलाइनखबर तस्बिर: धादिङ <strong>बैरेनी बजार</strong>मा घर, टहरा, झोलुंगे पुल बगे। नेपाली सेना: हालसम्म <strong>१२ जना</strong> उद्धार — स्याफ्रुबेँसी ६, मैलुङ २, धुन्चे ४। टिमुरे भन्सार कार्यालय बगेको; ३६ दरबन्दीमा प्रमुखसहित २५ सम्पर्क, ११ खोजी जारी — मृत्यु होइन। आधिकारिक नागरिक मृत्यु संख्या छैन।</p>
     <div class="stats" aria-label="प्रारम्भिक तथ्यांक">
       <div class="stat"><b>३</b><span>प्रहरी कार्यालय क्षति</span></div>
-      <div class="stat"><b>१</b><span>टिमुरे भन्सार कार्यालय बगे</span></div>
-      <div class="stat"><b>२५</b><span>भन्सार स्थायी सम्पर्कमा (३६ दरबन्दी)</span></div>
-      <div class="stat"><b>११</b><span>भन्सार स्थायी खोजी जारी</span></div>
-      <div class="stat"><b>१/४</b><span>करार/ज्यालादारी सम्पर्कमा</span></div>
+      <div class="stat wide">
+        <b>टिमुरे भन्सार बगे</b>
+        <span>एउटा कार्यालय · ३६ स्थायी दरबन्दी</span>
+        <ul class="mini">
+          <li><strong>२५</strong> स्थायी सम्पर्कमा (प्रमुख ढुंगानासहित)</li>
+          <li><strong>११</strong> स्थायी खोजी जारी</li>
+          <li>करार/ज्यालादारी: <strong>१/४</strong> सम्पर्क, <strong>३</strong> खोजी जारी</li>
+        </ul>
+      </div>
       <div class="stat"><b>२</b><span>घाइते धुन्चे अस्पताल (स्वास्थ्य)</span></div>
       <div class="stat"><b>१६</b><span>प्रहरी सम्पर्कविहीन (३ युनिट)</span></div>
       <div class="stat"><b>४</b><span>सशस्त्र बीओपी सम्पर्कविहीन</span></div>
@@ -401,7 +418,7 @@ footer{
       <div class="stat"><b>२७६</b><span>मेगावाट प्रत्यक्ष प्रभावित</span></div>
       <div class="stat"><b>२</b><span>विदुर पक्की पुल बगे</span></div>
       <div class="stat"><b>२</b><span>धादिङबेसी पहुँच पुल बगे</span></div>
-      <div class="stat"><b>१२</b><span>हेलिकप्टरबाट उद्धार</span></div>
+      <div class="stat"><b>१२</b><span>उद्धार · स्याफ्रु ६, मैलुङ २, धुन्चे ४</span></div>
       <div class="stat"><b>१२</b><span>हेलिकप्टर (४ सेना+८ निजी)</span></div>
       <div class="stat"><b>३००+</b><span>टिमुरे उद्धार पर्खाइ</span></div>
     </div>
@@ -413,7 +430,7 @@ footer{
 
 <aside class="police-alert" role="alert">
   <p class="police-alert-text">भोटेकोसी नदी रसुवामा तिब्बत तर्फबाट ठुलो बाढी प्रवेश गरेकोले अर्को सूचना नआउँदासम्म त्रीशुली नदीको तटिय क्षेत्रका जिल्लाहरु नुवाकोट, धादिङ, चितवन, गोरखा लगायतका स्थानहरूमा उच्च सतर्कता सहित सुरक्षित स्थानमा रहन अनुरोध छ। <span class="src">Nepal Police</span></p>
-  <p class="police-alert-phones"><a href="tel:1234">उद्धार १२३४</a> · <a href="tel:100">प्रहरी १००</a> · <a href="tel:1114">१११४</a></p>
+  <p class="police-alert-phones"><a href="tel:1234">उद्धार १२३४</a> · <a href="tel:100">प्रहरी १००</a> · <a href="tel:1114">१११४</a> · <a href="tel:1115">स्वास्थ्य १११५</a></p>
 </aside>
 
 <section id="alert">
@@ -428,6 +445,7 @@ footer{
       <li>बाढी पूर्वानुमान महाशाखा ११:२६: त्रिशूली नदी <strong>फुर्के जलमापन केन्द्र</strong>मा सतर्कता तह नाघ्यो, जलसतह बढ्दो। डुबान जोखिम क्षेत्र र करिडोर यात्रामा उच्च सतर्कता।</li>
       <li>महाशाखा ११:४३: फुर्केमा जलसतहले <strong>खतरा तह</strong> पार गर्‍यो, तीव्र बढ्दो। तटीय/डुबान क्षेत्रका बासिन्दा तत्काल सुरक्षित स्थानमा जानुहोस्।</li>
       <li>चितवन प्रजिअ गणेश अर्याल: बाढी <strong>चितवन प्रवेश गर्दै</strong>। मुग्लिन बजार, नारायणगढ किनार, भरतपुर–१६, पश्चिम चितवन उच्च जोखिम। तटीय बस्ती सारिँदै।</li>
+      <li>प्रजिअ अर्याल (अनलाइनखबर लाइभ ~१२:५८): बाढी चितवन वरपर पुगेको, <strong>फिस्लिङ क्षेत्रभन्दा अघिल्लो भाग</strong>सम्म।</li>
       <li>सम्माननीय प्रधानमन्त्री बालेन्द्र शाहज्यूले प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालयमा बोलाउनुभएको <strong>आकस्मिक मन्त्रिपरिषद् बैठक सुरु</strong> भएको छ। निर्णय अझै सार्वजनिक छैन।</li>
       <li>नेपाल पर्यटन बोर्ड: रसुवा, नुवाकोट, धादिङ, गोरखा, चितवन र भोटेकोशी–त्रिशूली करिडोरमा नदी/पुल/समथर भूभाग यात्रा नगर्नुहोस्।</li>
       <li>लुम्बिनी मुख्यमन्त्री चेतनारायण आचार्य: नारायणी तटीय क्षेत्र (सुस्तासहित) मा <strong>उच्च सतर्कता</strong>।</li>
@@ -438,6 +456,7 @@ footer{
       <a href="tel:1234">उद्धार १२३४</a>
       <a href="tel:100">प्रहरी १००</a>
       <a href="tel:1114">१११४</a>
+      <a href="tel:1115">स्वास्थ्य १११५</a>
     </div>
     <p class="note">संख्या प्रारम्भिक हुन्। नागरिक मृत्यु/बेपत्ताको आधिकारिक गणना अहिले सार्वजनिक भएको छैन — अनुमान नगर्नुहोस्।</p>
   </div>
@@ -462,7 +481,13 @@ footer{
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>अपडेट</h2></div>
   <div class="log">
     <article class="log-item now">
-      <p class="when">~१३:०४ · अहिले</p>
+      <p class="when">~१३:१० · अहिले</p>
+      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>बाढी फिस्लिङअघि, बैरेनीमा क्षति</h3>
+      <p>चितवन प्रजिअ अर्याल: बाढी फिस्लिङ क्षेत्रभन्दा अघिसम्म। अनलाइनखबर: धादिङ बैरेनी बजारमा घर, टहरा, झोलुंगे पुल बगे। नेपाली सेना: १२ उद्धार — स्याफ्रुबेँसी ६, मैलुङ २, धुन्चे ४। स्वास्थ्य हटकलाइन १११५।</p>
+    </article>
+    <article class="log-item">
+      <p class="when">~१३:०४</p>
       <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>भन्सार: २५ स्थायी सम्पर्कमा, ११ खोजी जारी</h3>
       <p>रसुवा भन्सारमा स्थायी दरबन्दी ३६। प्रमुख भन्सार प्रशासक राजेन्द्र ढुंगानासहित २५ जना सम्पर्कमा। करार/ज्यालादारी ४ मध्ये १ सम्पर्कमा। बाँकी ११ स्थायी र ३ करार/ज्यालादारीको खोज–उद्धार–समन्वय जारी। यो मृत्यु गणना होइन।</p>
@@ -582,6 +607,10 @@ footer{
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>तस्बिर · आज २६ अगस्ट २०२६ मात्र</h2></div>
   <div class="photos">
     <figure class="photo">
+      <a href="img/today-2026-08-26-ok-baireni.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-baireni.jpg" alt="धादिङ बैरेनी बजारमा आजको बाढी, अनलाइनखबर"></a>
+      <figcaption><strong>धादिङ बैरेनी बजार</strong>अनलाइनखबर · आज · घर/टहरा/झोलुंगे क्षति</figcaption>
+    </figure>
+    <figure class="photo">
       <a href="img/today-2026-08-26-ok-syafrubesi-valley.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-syafrubesi-valley.jpg" alt="स्याफ्रुबेसी उपत्यकामा बाढी, अनलाइनखबर"></a>
       <figcaption><strong>स्याफ्रुबेसी उपत्यका</strong>अनलाइनखबर · सेनाको ७ जना उद्धार रिपोर्ट</figcaption>
     </figure>
@@ -644,8 +673,10 @@ footer{
       <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>गजुरी</b><span>धादिङ · मुग्लिन प्रहरी, सडक रोकियो</span></div></div>
       <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>आदमघाट</b><span>धादिङ · सशस्त्र प्रहरी: बाढी पार</span></div></div>
       <div class="step" role="listitem"><span class="t">११:२६–४३</span><i class="rail" aria-hidden="true"></i><div><b>फुर्के / मलेखु</b><span>त्रिशूली सतर्कता त्यसपछि खतरा तह</span></div></div>
+      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>बैरेनी</b><span>धादिङ · बजारमा घर, टहरा, झोलुंगे क्षति</span></div></div>
       <div class="step" role="listitem"><span class="t">उच्च सतर्कता</span><i class="rail" aria-hidden="true"></i><div><b>मुग्लिन</b><span>केही घण्टामा पार गर्ने चेतावनी</span></div></div>
       <div class="step" role="listitem"><span class="t">११:२१</span><i class="rail" aria-hidden="true"></i><div><b>चितवन</b><span>प्रवेश गर्दै · केबलकार ११:३० बन्द</span></div></div>
+      <div class="step" role="listitem"><span class="t">~१२:५८</span><i class="rail" aria-hidden="true"></i><div><b>फिस्लिङअघि</b><span>चितवन · प्रजिअ अर्याल</span></div></div>
     </div>
     <p>बाढी लेन्दे खोला/भोटेकोशी हुँदै त्रिशूलीमा मिसिएको छ। गल्छी र गजुरीपछि सशस्त्र प्रहरीका अनुसार धादिङको <strong>आदमघाट</strong> पार भएको छ। नुवाकोटमा विदुर मेयर राजन श्रेष्ठ: बेत्रावती बजार सबैभन्दा बढी क्षति, त्रिशूली बजार क्षति, सेन्ट्रल जेल डुबान, देवीघाट बजार डुबेको।</p>
   </div>
@@ -680,6 +711,7 @@ footer{
       <li>विदुर उपमेयर प्रभा बोगटी (रातोपाटी): वडा ४ <strong>सिमचौरका दुई पक्की पुल बगे</strong> (१–२ वर्षअघि बनेका)। घर, बैंक क्षति। प्रभावित: सोले बजार, चतेपानी, अकरे, बेत्रावती, त्रिशूली, ढुङ्गे, इनारपाटी, देवीघाट, तिरखानी। मानवीय क्षति आधिकारिक पुष्टि छैन।</li>
       <li>नेपाल टेलिकम प्रवक्ता कमल लामिछाने: <strong>७ टावर क्षति</strong> (रसुवा २, नुवाकोट ५), गल्छी–रसुवागढी अप्टिकल फाइबर बिग्रिएको। त्रिशूलीसम्म फाइबर, माथि माइक्रोवेभ रेडियो।</li>
       <li>धादिङ सीडीओ लक्ष्मी पाण्डेय गौतम (११:११): गल्छीमा <strong>झोलुङ्गे पुल बग्यो</strong>। धादिङमा अहिलेसम्म ठूलो मानवीय क्षति नभएको। मलेखु–गल्छीका तटीय बस्ती सारिँदै।</li>
+      <li>अनलाइनखबर तस्बिर (~१३:०६): धादिङ <strong>बैरेनी बजार</strong>मा बाढीले घर, टहरा, झोलुंगे पुल बगाएको। फुर्के खोला पुल पनि बगेको (अघिल्लो रिपोर्टसँग मेल)।</li>
       <li>पछिल्लो भन्सार अपडेट: रसुवा भन्सारमा <strong>३६ स्थायी दरबन्दी</strong>। प्रमुख राजेन्द्र ढुंगानासहित <strong>२५ जना सम्पर्कमा</strong>। करार/ज्यालादारी ४ मध्ये १ सम्पर्कमा। <strong>११ स्थायी र ३ करार/ज्यालादारी खोजी जारी</strong>। खोज–उद्धार–समन्वय जारी — यो मृत्यु गणना होइन। (अघिल्लो ढुंगाना उद्धरण १५–२०/३०–४० यो संख्याबाट प्रतिस्थापित।)</li>
       <li>भन्सार विभाग प्रवक्ता किशोर बर्तौला (अघिल्लो): रसुवा भन्सार कार्यालयसँग विभागको सम्पर्क छैन भनिएको। पछि <strong>टिमुरे भन्सार प्रमुख राजेन्द्र ढुंगाना</strong> मिडियामा आए: कार्यालय/बजार तहसनहस।</li>
       <li>नेपाल विद्युत् प्राधिकरण, अत्यन्त जरुरी सूचना १० भदौ २०८३: <strong>७ आयोजना प्रत्यक्ष प्रभावित</strong> (करिब २७६ मेगावाट) — रसुवागढी १११, चिलिमे २२, लाङटाङ २०, त्रिशूली ३ए ६०, त्रिशूली २४, देवीघाट १४, NEA सोलार २५। त्रिशूली ३बी हब २२० केभी सबस्टेशन र वितरण संरचनामा क्षति, आपूर्ति अवरुद्ध।</li>
@@ -727,7 +759,7 @@ footer{
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>उद्धार / सरकार</h2></div>
   <div class="card green">
     <ul>
-      <li>नेपाली सेना: रसुवाका विभिन्न ठाउँबाट हेलिकप्टरमार्फत <strong>१२ जना</strong> उद्धार। सेनाका <strong>४</strong> र निजी कम्पनीका <strong>८</strong> गरी <strong>१२ हेलिकप्टर</strong> परिचालित। त्रिशूलीस्थित नं. १ सैन्य तालिम केन्द्रमा सेनाको मेडिकल टिमले आकस्मिक उपचार सुरु।</li>
+      <li>नेपाली सेना: हेलिकप्टरमार्फत हालसम्म <strong>१२ जना</strong> उद्धार — <strong>स्याफ्रुबेँसी ६, मैलुङ २, धुन्चे ४</strong>। सेनाका <strong>४</strong> र निजी कम्पनीका <strong>८</strong> गरी <strong>१२ हेलिकप्टर</strong> परिचालित। त्रिशूलीस्थित नं. १ सैन्य तालिम केन्द्रमा सेनाको मेडिकल टिमले आकस्मिक उपचार जारी।</li>
       <li>अर्थ मन्त्रालय: उद्धार हेलिकप्टरलाई इन्धन पुर्‍याउन नेपाल आयल निगमले काठमाडौं डिपोबाट नुवाकोट <strong>त्रिशूलीमा हवाई इन्धन ट्यांकर</strong> पठायो।</li>
       <li>स्वास्थ्य प्रवक्ता डा. समीरकुमार अधिकारी: धुन्चे जिल्ला अस्पतालमा <strong>२ घाइते</strong> उपचारमा। राष्ट्रिय ट्रमा सेन्टरका ६ चिकित्सकको टोली विमानस्थल हुँदै रसुवा; पछि टोली हेलिकप्टरबाट रसुवा गएको समाचार। वीर, टिचिङ, सिभिल, ट्रमा, पाटन इमर्जेन्सी स्ट्यान्डबाइ।</li>
       <li>आफन्त पूर्ण खड्का (रातोपाटी): गोसाइँकुण्ड हिँडेको <strong>११ जनाको टोली</strong> विदुर–१ सिम्मुटारमा फसेको; गाडी बगेपछि उचाइमा पुगेका, अहिले सम्पर्क कमजोर। उद्धार अनुरोध। यो मृत्यु गणना होइन।</li>
@@ -948,8 +980,10 @@ footer{
 </div>
 
     <div class="src-group">
-<h3>अनलाइनखबर <span class="badge">२४</span></h3>
+<h3>अनलाइनखबर <span class="badge">२६</span></h3>
       <div class="src-list">
+<a href="https://www.onlinekhabar.com/2026/08/2003975/this-is-what-dhading-baireni-looked-like-after-the-flood-photos" target="_blank" rel="noopener">धादिङ बैरेनी बाढीपछि (तस्वीरहरू)</a>
+      <a href="https://www.onlinekhabar.com/2026/08/2003922/flood-damaged-dhungebazar-area-of-nuwakot-photos" target="_blank" rel="noopener">नुवाकोट ढुंगेबजार क्षति (तस्वीरहरू)</a>
 <a href="https://www.onlinekhabar.com/2026/08/2003919" target="_blank" rel="noopener">पर्यटन बोर्ड: प्रभावित क्षेत्रमा नजान अलर्ट</a>
       <a href="https://www.onlinekhabar.com/2026/08/2003916" target="_blank" rel="noopener">विपद् परिषद् बैठक: क्षति ब्रिफिङ</a>
       <a href="https://www.onlinekhabar.com/2026/08/2003915/floods-swept-away-the-bridge-across-the-river" target="_blank" rel="noopener">बाढीले फुर्के खोला पुल बगायो</a>
