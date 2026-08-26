@@ -732,6 +732,8 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="stat">
         <b>सम्पर्कविहीन</b>
         <ul class="mini">
+          <li><a href="#family">नयाँ रिपोर्ट</a> <strong id="stat-miss-form">१५७</strong></li>
+          <li>हेलो सरकार <strong>१४०</strong></li>
           <li>पर्यटक <strong>४८४</strong></li>
           <li>स्वास्थ्यकर्मी <strong>६</strong></li>
           <li>लाङटाङ आयोजना <strong>६०</strong></li>
@@ -830,7 +832,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <ul class="stats-src" aria-label="स्रोत">
       <li><b>शव जम्मा १००</b> — नेपाल प्रहरी, राति २०:३० / १० भदौ २०८३ (<a href="https://www.nepalpolice.gov.np/news/10245/" target="_blank" rel="noopener">nepalpolice.gov.np/news/10245</a>)। जिल्ला: चितवन ३३, धादिङ १८, गोरखा १९, नुवाकोट ११, नवलपरासी पूर्व ११, तनहुँ ७, रसुवा १। डीआईजी अबि नारायण काफ्लेले रातोपाटीलाई २२:२३ मा पनि शव १०० जनाए (<a href="https://www.ratopati.com/story/587690/rasuwa-flood-update-death-toll-reaches-100" target="_blank" rel="noopener">रातोपाटी</a>)। अघिल्लो प्रधानमन्त्री कार्यालय ९५ यो १०० बाट अद्यावधिक।</li>
       <li><b>घाइते</b> — प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong> (ट्रमा, टिचिङ, वीरेन्द्र सैनिक आदि), रसुवा अस्पताल <strong>२१</strong>। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> (टिचिङ २१, ट्रमा ७, छाउनी १, रसुवा २१, त्रिशूली १६, नर्भिक ३, ग्रीनसिटी १)। नामतालिका अघिल्लो काठमाडौं २२ सूची यथावत्।</li>
-      <li><b>सम्पर्कविहीन</b> — प्रधानमन्त्री कार्यालय साँझ ७:००: पर्यटक विदेशी <strong>३९१</strong> + स्वदेशी <strong>९३</strong> = <strong>४८४</strong>। जलविद्युत् आयोजना कर्मचारी <strong>६०</strong>। अघिल्लो पर्यटन मन्त्रालय ४०३ (विदेशी ३४१, नेपाली ६२) यो ४८४ बाट अद्यावधिक। बस ३४ / स्वास्थ्यकर्मी ६ / सुरक्षा ८५ / भन्सार ११ / बैंक २६। मृत्यु होइन।</li>
+      <li><b>सम्पर्कविहीन</b> — <a href="#family">नयाँ रिपोर्ट</a> फारम सिटबाट नामसहितको सूची (लाइभ)। हेलो सरकार १४० अलग। प्रधानमन्त्री कार्यालय साँझ ७:००: पर्यटक विदेशी <strong>३९१</strong> + स्वदेशी <strong>९३</strong> = <strong>४८४</strong>। जलविद्युत् आयोजना कर्मचारी <strong>६०</strong>। अघिल्लो पर्यटन मन्त्रालय ४०३ (विदेशी ३४१, नेपाली ६२) यो ४८४ बाट अद्यावधिक। बस ३४ / स्वास्थ्यकर्मी ६ / सुरक्षा ८५ / भन्सार ११ / बैंक २६। मृत्यु होइन।</li>
       <li><b>सुरक्षा</b> — प्रधानमन्त्री कार्यालय साँझ ७:००: जम्मा <strong>८५</strong> — सेना ४४, प्रहरी २८, सशस्त्र <strong>१३</strong>। प्रहरी पोस्ट: टिमुरे १०, रसुवागढी ८, स्याफ्रुबेसी ३, मैलुङ ५, बेत्रावती १, हाकु १। अघिल्लो खनाल संसद् ७९ (सशस्त्र ९) यो ८५ बाट अद्यावधिक। मृत्यु होइन।</li>
       <li><b>भन्सार</b> — स्थायी ३६, सम्पर्क २५, खोजी ११, गाडी ३००+ — प्रमुख ढुंगाना।</li>
       <li><b>टिमुरे</b> — घर १००+ र पर्खाइ ३००+ — वडासदस्य घले। बजार ५–७ — डिआईजी रेग्मी।</li>
@@ -3086,6 +3088,10 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     var lead = document.getElementById("fam-new-lead");
     if (lead && data.missing && data.missing.length){
       lead.innerHTML = "फारम सिटबाट नयाँ रिपोर्ट <strong>"+np(data.missing.length)+"</strong> विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।";
+    }
+    var missStat = document.getElementById("stat-miss-form");
+    if (missStat && data.missing){
+      missStat.textContent = np(data.missing.length);
     }
     document.querySelectorAll(".js-found-row").forEach(function(a){
       if (foundUrl){
