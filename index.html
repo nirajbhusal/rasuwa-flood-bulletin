@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
 
 .stick{position:sticky;top:0;z-index:40;background:var(--paper)}
@@ -176,6 +177,39 @@ img{max-width:100%;display:block}
 .chips a:hover{border-color:var(--teal);color:var(--teal)}
 .chips a.home-btn{background:var(--crimson);color:#fff;border-color:var(--crimson);display:inline-flex;align-items:center;justify-content:center;width:36px;min-width:36px;height:36px;padding:0}
 .chips a.home-btn:hover{background:#9f1239;color:#fff;border-color:#9f1239}
+
+#flood-map{
+  height:min(70vh, 480px);width:100%;border-radius:14px;
+  background:#d6e4ee;z-index:1;border:1px solid var(--line);
+}
+#flood-map .leaflet-container{font-family:inherit;z-index:1}
+#flood-map .leaflet-tile,
+#flood-map .leaflet-marker-icon,
+#flood-map .leaflet-pane img,
+#flood-map img{max-width:none!important}
+.map-wrap{padding:0 0 12px}
+.map-note{margin:10px 0 0;font-size:13px;color:var(--muted);line-height:1.5}
+.map-legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:10px 0 0;font-size:13px;font-weight:700;color:var(--muted)}
+.map-legend i{display:inline-block;width:18px;height:6px;border-radius:4px;margin-right:6px;vertical-align:middle}
+.map-legend .solid{background:var(--crimson)}
+.map-legend .dash{background:repeating-linear-gradient(90deg,var(--saffron) 0 8px,transparent 8px 12px)}
+.map-legend .pin{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(15,23,42,.2)}
+.map-legend .pin.start{background:var(--crimson)}
+.map-legend .pin.hit{background:var(--teal)}
+.map-legend .pin.risk{background:var(--saffron)}
+.map-pin{
+  width:26px;height:26px;border-radius:50%;
+  background:#0e7490;color:#fff;
+  font:800 11px/26px "Noto Sans Devanagari",system-ui,sans-serif;
+  text-align:center;border:2px solid #fff;
+  box-shadow:0 2px 6px rgba(15,23,42,.35);
+}
+.map-pin.start{background:#c41e3a}
+.map-pin.risk{background:#d97706}
+.leaflet-popup-content{font-family:"Noto Sans Devanagari",system-ui,sans-serif;margin:10px 12px;line-height:1.45}
+.leaflet-popup-content b{display:block;font-size:16px}
+.leaflet-popup-content span{display:block;font-size:13px;color:#475569}
+
 .hero{
   background:linear-gradient(160deg,#fff 0%, #fde8ec 42%, #e0f4f8 100%);
   border-bottom:1px solid var(--line);
@@ -469,6 +503,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <a href="#contacts">सम्पर्क</a>
     <a href="#gov">सरकारी पहल</a>
     <a href="#photos">तस्बिर</a>
+    <a href="#map">नक्सा</a>
     <a href="#history">अपडेट</a>
     <a href="#path">कहाँ पुग्यो</a>
     <a href="#event">घटना</a>
@@ -1203,6 +1238,23 @@ footer .foot-contact a:hover{text-decoration:underline}
       <h3>बाढी तिब्बतबाट टिमुरे हुँदै भोटेकोशीमा पस्यो</h3>
       <p>भीषण बाढी तिब्बतबाट नेपालको टिमुरे हुँदै लेन्दे खोला/भोटेकोशीमा पस्यो। महाशाखा: स्थानीय वर्षा होइन, हिमताल विस्फोटनको आशंका तर अहिले पुष्टि छैन।</p>
     </article>
+  </div>
+</section>
+
+
+
+<section id="map">
+  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>नक्सा · आजको बाटो</h2></div>
+  <div class="card teal map-wrap">
+    <div id="flood-map" role="img" aria-label="टिमुरेदेखि देवघाट–सुस्तासम्मको बाढी बाटो"></div>
+    <div class="map-legend">
+      <span><i class="solid"></i>पुष्टि बाटो</span>
+      <span><i class="dash"></i>अनुमान / जोखिम</span>
+      <span><i class="pin start"></i>प्रवेश</span>
+      <span><i class="pin hit"></i>पुगेको</span>
+      <span><i class="pin risk"></i>अनुमान</span>
+    </div>
+    <p class="map-note">बिन्दुहरू बजार/पुलका अनुमानित स्थान हुन्, नदीको ठीक बीच होइन। चितवन देवघाट पुगेको आधिकारिक पुष्टि छैन (अनुमान ~१५:३०)। सुस्ता जोखिम मात्र। नुवाकोट देवीघाट ≠ चितवन देवघाट। © OpenStreetMap</p>
   </div>
 </section>
 
@@ -1981,6 +2033,63 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (e.key === "Escape") closeLb();
     if (e.key === "ArrowLeft") openLb(lbI - 1);
     if (e.key === "ArrowRight") openLb(lbI + 1);
+  });
+})();
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function(){
+  var el = document.getElementById("flood-map");
+  if (!el || typeof L === "undefined") return;
+  var confirmed = [
+    {name:"टिमुरे", t:"~९:१५", note:"तिब्बतबाट नेपाल प्रवेश", lat:28.250, lng:85.357, kind:"start"},
+    {name:"स्याफ्रुबेसी", t:"बिहान", note:"बजार र पूर्वाधार क्षति", lat:28.163, lng:85.345, kind:"hit"},
+    {name:"बेत्रावती / विदुर", t:"~९:००", note:"त्रिशूली, नुवाकोट देवीघाट, जेल", lat:27.967, lng:85.184, kind:"hit"},
+    {name:"गल्छी", t:"१०:२८", note:"धादिङ · महाशाखा पुष्टि", lat:27.811, lng:85.001, kind:"hit"},
+    {name:"गजुरी", t:"ताजा", note:"सडक रोकियो", lat:27.748, lng:84.978, kind:"hit"},
+    {name:"आदमघाट", t:"ताजा", note:"बाढी पार", lat:27.803, lng:84.887, kind:"hit"},
+    {name:"फुर्के / मलेखु", t:"११:५०", note:"१०.८ मिटर · पुल बग्यो", lat:27.804, lng:84.837, kind:"hit"},
+    {name:"बैरेनी", t:"ताजा", note:"बजार क्षति", lat:27.793, lng:84.762, kind:"hit"},
+    {name:"मुग्लिन", t:"~१३:४२", note:"बाढी पुग्यो · सडक बन्द", lat:27.857, lng:84.557, kind:"hit"},
+    {name:"फिस्लिङअघि", t:"~१२:५८", note:"चितवन · प्रजिअ अर्याल", lat:27.820, lng:84.502, kind:"hit"}
+  ];
+  var risk = [
+    {name:"चितवन देवघाट", t:"अनुमान १५:३०", note:"नारायणी संगम · आधिकारिक पुष्टि छैन", lat:27.711, lng:84.419, kind:"risk"},
+    {name:"सुस्ता", t:"जोखिम", note:"नारायणी तटीय · जलविज्ञान केन्द्र", lat:27.452, lng:83.909, kind:"risk"}
+  ];
+  var map = L.map(el, {scrollWheelZoom:false, tap:true});
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 16,
+    attribution: "&copy; <a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener'>OpenStreetMap</a>"
+  }).addTo(map);
+  var confLatLng = confirmed.map(function(p){ return [p.lat, p.lng]; });
+  var riskLatLng = [[confirmed[confirmed.length-1].lat, confirmed[confirmed.length-1].lng]].concat(
+    risk.map(function(p){ return [p.lat, p.lng]; })
+  );
+  L.polyline(confLatLng, {color:"#c41e3a", weight:4, opacity:.9, lineJoin:"round"}).addTo(map);
+  L.polyline(riskLatLng, {color:"#d97706", weight:3, opacity:.85, dashArray:"8 8", lineJoin:"round"}).addTo(map);
+  function pin(p, n) {
+    var icon = L.divIcon({
+      className: "",
+      html: '<div class="map-pin ' + p.kind + '">' + n + "</div>",
+      iconSize: [26, 26],
+      iconAnchor: [13, 13],
+      popupAnchor: [0, -14]
+    });
+    L.marker([p.lat, p.lng], {icon: icon, keyboard: true, title: p.name})
+      .bindPopup("<b>" + p.name + "</b><span>" + p.t + " · " + p.note + "</span>")
+      .addTo(map);
+  }
+  confirmed.forEach(function(p, i){ pin(p, i + 1); });
+  risk.forEach(function(p, i){ pin(p, confirmed.length + i + 1); });
+  map.fitBounds(confLatLng.concat(risk.map(function(p){ return [p.lat, p.lng]; })), {padding: [28, 28], maxZoom: 10});
+  function fix() { map.invalidateSize(); }
+  window.addEventListener("resize", fix);
+  window.addEventListener("hashchange", function(){ if (location.hash === "#map") setTimeout(fix, 300); });
+  if (location.hash === "#map") setTimeout(fix, 300);
+  document.querySelectorAll('a[href="#map"]').forEach(function(a){
+    a.addEventListener("click", function(){ setTimeout(fix, 350); });
   });
 })();
 </script>
