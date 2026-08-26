@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T17:50:46+00:00",
+  "updated_at": "2026-08-26T17:53:39+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,20 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-826202623344-guru-dutta-pandey",
+      "name": "Guru dutta pandey",
+      "place": "Syangja · Kerung boarder",
+      "phone": "9847425878",
+      "note": "2083/5/10 at around 9 am"
+    },
+    {
+      "id": "sheet-826202623330-satya-sundar-prajapati",
+      "name": "Satya sundar prajapati",
+      "place": "Bhaktapur · Rasuwa (upper trishuli project 216 MW)",
+      "phone": "9843195093",
+      "note": "उमेर 34-35 · Working for doosan , korean company"
+    },
     {
       "id": "fb-20260826-keval-nath-acharya",
       "name": "केबल नाथ आचार्य",
