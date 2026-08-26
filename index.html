@@ -178,6 +178,7 @@ img{max-width:100%;display:block}
 .chips a.home-btn{background:var(--crimson);color:#fff;border-color:var(--crimson);display:inline-flex;align-items:center;justify-content:center;width:36px;min-width:36px;height:36px;padding:0}
 .chips a.home-btn:hover{background:#9f1239;color:#fff;border-color:#9f1239}
 
+.hero-map{padding:14px 0 6px}.hero-map .sec-head{margin-bottom:10px}
 #flood-map{
   height:min(70vh, 480px);width:100%;border-radius:14px;
   background:#d6e4ee;z-index:1;border:1px solid var(--line);
@@ -498,12 +499,12 @@ footer .foot-contact a:hover{text-decoration:underline}
 <nav class="chips" aria-label="खण्डहरू">
   <div class="chips-inner">
     <a class="home-btn" href="#home" aria-label="होम" title="होम"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
+    <a href="#map">नक्सा</a>
     <a href="#alert">सतर्कता</a>
     <a href="#helpline">हेल्पलाइन</a>
     <a href="#contacts">सम्पर्क</a>
     <a href="#gov">सरकारी पहल</a>
     <a href="#photos">तस्बिर</a>
-    <a href="#map">नक्सा</a>
     <a href="#history">अपडेट</a>
     <a href="#path">कहाँ पुग्यो</a>
     <a href="#event">घटना</a>
@@ -575,6 +576,20 @@ footer .foot-contact a:hover{text-decoration:underline}
       </div>
     </div>
     <p class="stats-note">शव ८ डिआईजी रेग्मी (नुवाकोट ४ + धादिङ ४)। धादिङ जिल्ला प्रहरीको ६ त्यसमा जोडिएको होइन — राष्ट्रिय जम्मा अद्यावधिक छैन। उपचारको मृत्यु पनि ८ मा मिसाएको होइन। घाइते २४ र सेना हवाई २९ जोड्ने होइन।</p>
+<section id="map" class="hero-map">
+  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>नक्सा · आजको बाटो</h2></div>
+  <div class="card teal map-wrap">
+    <div id="flood-map" role="img" aria-label="टिमुरेदेखि देवघाट–सुस्तासम्मको बाढी बाटो"></div>
+    <div class="map-legend">
+      <span><i class="solid"></i>पुष्टि बाटो</span>
+      <span><i class="dash"></i>अनुमान / जोखिम</span>
+      <span><i class="pin start"></i>प्रवेश</span>
+      <span><i class="pin hit"></i>पुगेको</span>
+      <span><i class="pin risk"></i>अनुमान</span>
+    </div>
+    <p class="map-note">बिन्दुहरू बजार/पुलका अनुमानित स्थान हुन्, नदीको ठीक बीच होइन। चितवन देवघाट पुगेको आधिकारिक पुष्टि छैन (अनुमान ~१५:३०)। सुस्ता जोखिम मात्र। नुवाकोट देवीघाट ≠ चितवन देवघाट। © OpenStreetMap</p>
+  </div>
+</section>
   </div>
 </div>
 
@@ -1241,22 +1256,6 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
 </section>
 
-
-
-<section id="map">
-  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>नक्सा · आजको बाटो</h2></div>
-  <div class="card teal map-wrap">
-    <div id="flood-map" role="img" aria-label="टिमुरेदेखि देवघाट–सुस्तासम्मको बाढी बाटो"></div>
-    <div class="map-legend">
-      <span><i class="solid"></i>पुष्टि बाटो</span>
-      <span><i class="dash"></i>अनुमान / जोखिम</span>
-      <span><i class="pin start"></i>प्रवेश</span>
-      <span><i class="pin hit"></i>पुगेको</span>
-      <span><i class="pin risk"></i>अनुमान</span>
-    </div>
-    <p class="map-note">बिन्दुहरू बजार/पुलका अनुमानित स्थान हुन्, नदीको ठीक बीच होइन। चितवन देवघाट पुगेको आधिकारिक पुष्टि छैन (अनुमान ~१५:३०)। सुस्ता जोखिम मात्र। नुवाकोट देवीघाट ≠ चितवन देवघाट। © OpenStreetMap</p>
-  </div>
-</section>
 
 
 <section id="path">
@@ -2085,6 +2084,8 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   risk.forEach(function(p, i){ pin(p, confirmed.length + i + 1); });
   map.fitBounds(confLatLng.concat(risk.map(function(p){ return [p.lat, p.lng]; })), {padding: [28, 28], maxZoom: 10});
   function fix() { map.invalidateSize(); }
+  setTimeout(fix, 0);
+  setTimeout(fix, 400);
   window.addEventListener("resize", fix);
   window.addEventListener("hashchange", function(){ if (location.hash === "#map") setTimeout(fix, 300); });
   if (location.hash === "#map") setTimeout(fix, 300);
