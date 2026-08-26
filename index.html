@@ -183,8 +183,8 @@ img{max-width:100%;display:block}
 .hero h2{margin:0 0 8px;font-size:clamp(26px,5vw,40px);line-height:1.2}
 .lede{margin:0;color:var(--muted);max-width:46rem}
 .stats{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
-  margin:22px 0 6px;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+  margin:18px 0 6px;
 }
 .stats-note{margin:8px 0 0;font-size:13px;color:var(--muted)}
 .log{display:flex;flex-direction:column;gap:12px}
@@ -199,23 +199,18 @@ img{max-width:100%;display:block}
 .log-item p{margin:0;color:var(--muted);font-size:15px;line-height:1.55}
 
 .stat{
-  background:#fff;border:1px solid var(--line);border-radius:14px;
-  padding:12px 10px;text-align:center;box-shadow:var(--shadow);
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:14px 16px;text-align:left;box-shadow:var(--shadow);
+  min-height:108px;
 }
-.stat b{display:block;font-size:clamp(22px,4vw,32px);line-height:1.1;color:var(--crimson)}
-.stat span{display:block;font-size:12px;color:var(--muted);margin-top:4px}
-
-.stat.wide{
-  grid-column:span 2;text-align:left;padding:14px 14px 12px;
-}
-.stat.wide b{font-size:clamp(18px,3.2vw,26px)}
-.stat.wide > span{margin-top:2px}
-.stat.wide ul.mini{
+.stat b{display:block;font-size:15px;font-weight:800;line-height:1.25;color:var(--ink);letter-spacing:.01em}
+.stat span{display:none}
+.stat ul.mini{
   list-style:none;margin:8px 0 0;padding:0;
-  font-size:13px;color:var(--muted);line-height:1.45;
+  font-size:14px;color:var(--muted);line-height:1.5;
 }
-.stat.wide ul.mini li{margin:3px 0}
-.stat.wide ul.mini strong{color:var(--crimson);font-variant-numeric:tabular-nums}
+.stat ul.mini li{margin:4px 0}
+.stat ul.mini strong{color:var(--crimson);font-variant-numeric:tabular-nums;font-weight:800}
 section{padding:22px 0}
 .sec-head{display:flex;align-items:center;gap:10px;margin:0 0 12px}
 .sec-head h2{margin:0;font-size:22px}
@@ -373,7 +368,7 @@ footer{
   .ndrrma-hl .hl-dist{grid-template-columns:1fr}
 }
 @media (max-width:760px){
-  .stats{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:1fr}
   .grid-2,.photos,.videos{grid-template-columns:1fr}
   .photo img{height:200px}
   .helpline{width:auto;max-width:100%}
@@ -429,53 +424,46 @@ footer{
     <h2>७ शव फेला, नुवाकोट–धादिङ</h2>
     <p class="lede">बागमती प्रहरी प्रमुख दीपक रेग्मी: नुवाकोट नदी किनारमा <strong>३</strong> र धादिङमा <strong>४</strong> गरी <strong>७</strong> शव। नाम अझै सार्वजनिक छैन। घाइते उद्धार र बेपत्ता खोजी जारी। पृथ्वी–मुग्लिन बन्द, देवघाट ~१५:३०, जोखिम सुस्तासम्म। नदी किनार नजानुहोस्।</p>
     <div class="stats" aria-label="प्रारम्भिक तथ्यांक">
-      <div class="stat wide">
+      <div class="stat">
         <b>शव</b>
         <ul class="mini">
           <li>जम्मा <strong>७</strong> · नुवाकोट <strong>३</strong> · धादिङ <strong>४</strong></li>
+          <li>घाइते धुन्चे <strong>२</strong></li>
         </ul>
       </div>
-      <div class="stat"><b>४</b><span>प्रहरी कार्यालय</span></div>
-      <div class="stat wide">
+      <div class="stat">
+        <b>सुरक्षा</b>
+        <ul class="mini">
+          <li>सम्पर्कविहीन <strong>४१</strong> · प्रहरी <strong>३२</strong> · सशस्त्र <strong>९</strong></li>
+          <li>कार्यालय <strong>४</strong></li>
+        </ul>
+      </div>
+      <div class="stat">
         <b>टिमुरे भन्सार</b>
         <ul class="mini">
           <li>स्थायी <strong>३६</strong> · सम्पर्क <strong>२५</strong> · खोजी <strong>११</strong></li>
           <li>करार <strong>४</strong> · सम्पर्क <strong>१</strong> · खोजी <strong>३</strong></li>
         </ul>
       </div>
-      <div class="stat"><b>२</b><span>घाइते धुन्चे</span></div>
-      <div class="stat wide">
-        <b>४१</b>
-        <span>सुरक्षाकर्मी सम्पर्कविहीन</span>
+      <div class="stat">
+        <b>टिमुरे</b>
         <ul class="mini">
-          <li>प्रहरी <strong>३२</strong> · सशस्त्र <strong>९</strong></li>
+          <li>घर <strong>१००+</strong> · बजार बाँकी <strong>५–७</strong></li>
+          <li>उद्धार पर्खाइ <strong>३००+</strong></li>
         </ul>
       </div>
-      <div class="stat wide">
-        <b>टिमुरे घर</b>
+      <div class="stat">
+        <b>उद्धार</b>
         <ul class="mini">
-          <li>प्रभावित <strong>१००+</strong> · बजार बाँकी <strong>५–७</strong></li>
-        </ul>
-      </div>
-      <div class="stat"><b>७</b><span>टेलिकम टावर</span></div>
-      <div class="stat wide">
-        <b>विद्युत्</b>
-        <ul class="mini">
-          <li>आयोजना <strong>७</strong> · <strong>२७६</strong> मेगावाट</li>
-        </ul>
-      </div>
-      <div class="stat"><b>३००+</b><span>टिमुरे उद्धार पर्खाइ</span></div>
-      <div class="stat wide">
-        <b>पुल</b>
-        <ul class="mini">
-          <li>विदुर पक्की <strong>२</strong> · धादिङबेसी पहुँच <strong>२</strong></li>
-        </ul>
-      </div>
-      <div class="stat wide">
-        <b>१२</b>
-        <span>उद्धार · स्याफ्रु ६, मैलुङ २, धुन्चे ४</span>
-        <ul class="mini">
+          <li>स्याफ्रु <strong>६</strong> · मैलुङ <strong>२</strong> · धुन्चे <strong>४</strong></li>
           <li>हेलिकप्टर <strong>१२</strong> · सेना <strong>४</strong> · निजी <strong>८</strong></li>
+        </ul>
+      </div>
+      <div class="stat">
+        <b>पूर्वाधार</b>
+        <ul class="mini">
+          <li>विद्युत् <strong>७</strong> आयोजना · <strong>२७६</strong> मेगावाट · टावर <strong>७</strong></li>
+          <li>पुल विदुर <strong>२</strong> · धादिङबेसी <strong>२</strong></li>
         </ul>
       </div>
     </div>
