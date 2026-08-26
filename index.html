@@ -132,9 +132,10 @@ img{max-width:100%;display:block}
 .hero h2{margin:0 0 8px;font-size:clamp(26px,5vw,40px);line-height:1.2}
 .lede{margin:0;color:var(--muted);max-width:46rem}
 .stats{
-  display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
   margin:22px 0 6px;
 }
+.stats-note{margin:8px 0 0;font-size:13px;color:var(--muted)}
 .stat{
   background:#fff;border:1px solid var(--line);border-radius:14px;
   padding:12px 10px;text-align:center;box-shadow:var(--shadow);
@@ -165,21 +166,39 @@ section{padding:22px 0}
   border-radius:999px;text-decoration:none;
 }
 .path{
-  display:flex;align-items:stretch;gap:0;overflow-x:auto;padding:6px 0 10px;
+  display:flex;flex-direction:column;gap:0;padding:4px 0 2px;
 }
 .step{
-  min-width:150px;flex:1;background:#fff;border:1px solid var(--line);
-  padding:12px;position:relative;
+  display:grid;grid-template-columns:76px 16px 1fr;
+  gap:12px;align-items:start;
+  background:transparent;border:0;padding:0 0 16px;
+  min-width:0;position:relative;
 }
-.step:first-child{border-radius:14px 0 0 14px}
-.step:last-child{border-radius:0 14px 14px 0}
-.step .t{font-size:12px;color:var(--teal);font-weight:800}
-.step b{display:block;font-size:16px}
-.step span{font-size:13px;color:var(--muted)}
-.step + .step::before{
-  content:"";position:absolute;left:-8px;top:50%;width:16px;height:16px;
-  border-top:3px solid var(--teal);border-right:3px solid var(--teal);
-  transform:translateY(-50%) rotate(45deg);background:transparent;
+.step:last-child{padding-bottom:0}
+.step .t{font-size:13px;color:var(--teal);font-weight:800;padding-top:2px;line-height:1.2}
+.step .rail{
+  width:16px;position:relative;align-self:stretch;
+}
+.step .rail::before{
+  content:"";position:absolute;left:50%;top:8px;transform:translateX(-50%);
+  width:12px;height:12px;border-radius:50%;
+  background:var(--teal);box-shadow:0 0 0 3px var(--teal-soft);
+}
+.step .rail::after{
+  content:"";position:absolute;left:50%;top:22px;bottom:-16px;transform:translateX(-50%);
+  width:3px;background:var(--teal-soft);
+}
+.step:last-child .rail::after{display:none}
+.step b{display:block;font-size:17px;line-height:1.25}
+.step span{font-size:14px;color:var(--muted)}
+.x-open{
+  padding:16px;background:#f8fafc;min-height:0;
+}
+.x-open img{width:100%;height:140px;object-fit:cover;border-radius:10px;margin-bottom:12px;display:block}
+.x-open p{margin:0 0 12px;font-size:14px;color:var(--muted)}
+.x-btn{
+  display:inline-block;background:#0f172a;color:#fff!important;
+  font-weight:800;padding:10px 14px;border-radius:999px;text-decoration:none!important;
 }
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .photos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
@@ -224,7 +243,7 @@ footer{
 .feeds{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .feed-box{
   background:#fff;border:1px solid var(--line);border-radius:16px;
-  overflow:hidden;box-shadow:var(--shadow);min-height:560px;
+  overflow:hidden;box-shadow:var(--shadow);min-height:0;
 }
 .feed-box header{
   display:flex;justify-content:space-between;align-items:baseline;gap:8px;
@@ -285,11 +304,19 @@ footer{
     <p class="lede">बाढी पूर्वानुमान महाशाखा ११:४३: मलेखुस्थित <strong>फुर्के</strong> जलमापन केन्द्रमा त्रिशूलीको जलसतहले <strong>खतरा तह</strong> पार गर्‍यो, अझै तीव्र बढ्दो। तटीय बासिन्दा तत्काल सुरक्षित स्थानमा जानुहोस्। प्रधानमन्त्री कार्यालय: उद्धारका लागि निजी हेलिकप्टरलाई अनुमति नचाहिने। आधिकारिक मृत्यु संख्या अझै छैन।</p>
     <div class="stats" aria-label="प्रारम्भिक तथ्यांक">
       <div class="stat"><b>३</b><span>प्रहरी कार्यालय क्षति</span></div>
+      <div class="stat"><b>१</b><span>भन्सार कार्यालय सम्पर्कविहीन</span></div>
+      <div class="stat"><b>१५–२०/३०–४०</b><span>भन्सार कर्मचारी सम्पर्क</span></div>
       <div class="stat"><b>८/१५</b><span>टिमुरे प्रहरी सम्पर्क</span></div>
-      <div class="stat"><b>४</b><span>सशस्त्र बीओपी टिमुरे सम्पर्कविहीन</span></div>
+      <div class="stat"><b>४</b><span>सशस्त्र बीओपी सम्पर्कविहीन</span></div>
+      <div class="stat"><b>१००+</b><span>टिमुरे घर प्रभावित (स्थानीय)</span></div>
+      <div class="stat"><b>५–७</b><span>टिमुरे बजार घर बाँकी</span></div>
+      <div class="stat"><b>७</b><span>टेलिकम टावर क्षति</span></div>
+      <div class="stat"><b>६</b><span>विद्युत् गृह/सबस्टेशन</span></div>
+      <div class="stat"><b>२</b><span>विदुर पक्की पुल बगे</span></div>
       <div class="stat"><b>३</b><span>सेना हेलिकप्टर उद्धार</span></div>
-      <div class="stat"><b>३००+</b><span>टिमुरे उद्धार पर्खाइ (स्थानीय)</span></div>
+      <div class="stat"><b>३००+</b><span>टिमुरे उद्धार पर्खाइ</span></div>
     </div>
+    <p class="stats-note">आधिकारिक/स्थानीय स्रोतका प्रारम्भिक संख्या। नागरिक मृत्यु गणना अझै सार्वजनिक छैन।</p>
   </div>
 </div>
 
@@ -379,14 +406,15 @@ footer{
   <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>कहाँ पुग्यो</h2></div>
   <div class="card teal">
     <div class="path" role="list">
-      <div class="step" role="listitem"><span class="t">~९:१५</span><b>टिमुरे</b><span>तिब्बतबाट प्रवेश</span></div>
-      <div class="step" role="listitem"><span class="t">बिहान</span><b>स्याफ्रुबेसी</b><span>बजार/पूर्वाधार</span></div>
-      <div class="step" role="listitem"><span class="t">अघि नै</span><b>विदुर</b><span>त्रिशूली करिडोर</span></div>
-      <div class="step" role="listitem"><span class="t">१०:२८</span><b>गल्छी</b><span>धादिङ · पुष्टि</span></div>
-      <div class="step" role="listitem"><span class="t">ताजा</span><b>गजुरी</b><span>मुग्लिन प्रहरी</span></div>
-      <div class="step" role="listitem"><span class="t">ताजा</span><b>आदमघाट</b><span>धादिङ · सशस्त्र</span></div>
-      <div class="step" role="listitem"><span class="t">केही घण्टा</span><b>मुग्लिन</b><span>उच्च सतर्कता</span></div>
-      <div class="step" role="listitem"><span class="t">११:२१</span><b>चितवन</b><span>प्रवेश गर्दै</span></div>
+      <div class="step" role="listitem"><span class="t">~९:१५</span><i class="rail" aria-hidden="true"></i><div><b>टिमुरे</b><span>तिब्बतबाट नेपाल प्रवेश</span></div></div>
+      <div class="step" role="listitem"><span class="t">बिहान</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेसी</b><span>बजार र पूर्वाधार क्षति</span></div></div>
+      <div class="step" role="listitem"><span class="t">~९:००</span><i class="rail" aria-hidden="true"></i><div><b>विदुर / नुवाकोट</b><span>बेत्रावती, त्रिशूली, देवीघाट, जेल</span></div></div>
+      <div class="step" role="listitem"><span class="t">१०:२८</span><i class="rail" aria-hidden="true"></i><div><b>गल्छी</b><span>धादिङ · महाशाखा पुष्टि, झोलुङ्गे पुल बग्यो</span></div></div>
+      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>गजुरी</b><span>धादिङ · मुग्लिन प्रहरी, सडक रोकियो</span></div></div>
+      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>आदमघाट</b><span>धादिङ · सशस्त्र प्रहरी: बाढी पार</span></div></div>
+      <div class="step" role="listitem"><span class="t">११:२६–४३</span><i class="rail" aria-hidden="true"></i><div><b>फुर्के / मलेखु</b><span>त्रिशूली सतर्कता त्यसपछि खतरा तह</span></div></div>
+      <div class="step" role="listitem"><span class="t">उच्च सतर्कता</span><i class="rail" aria-hidden="true"></i><div><b>मुग्लिन</b><span>केही घण्टामा पार गर्ने चेतावनी</span></div></div>
+      <div class="step" role="listitem"><span class="t">११:२१</span><i class="rail" aria-hidden="true"></i><div><b>चितवन</b><span>प्रवेश गर्दै · केबलकार ११:३० बन्द</span></div></div>
     </div>
     <p>बाढी लेन्दे खोला/भोटेकोशी हुँदै त्रिशूलीमा मिसिएको छ। गल्छी र गजुरीपछि सशस्त्र प्रहरीका अनुसार धादिङको <strong>आदमघाट</strong> पार भएको छ। नुवाकोटमा विदुर मेयर राजन श्रेष्ठ: बेत्रावती बजार सबैभन्दा बढी क्षति, त्रिशूली बजार क्षति, सेन्ट्रल जेल डुबान, देवीघाट बजार डुबेको।</p>
   </div>
@@ -478,7 +506,11 @@ footer{
       <div class="feeds">
         <article class="feed-box">
           <header><b>नेपाल प्रहरी</b><a href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener">@NepalPoliceHQ</a></header>
-          <div class="feed-frame"><iframe title="Nepal Police X" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/NepalPoliceHQ?dnt=true&embedId=tl-NepalPoliceHQ&frame=false&hideBorder=true&hideFooter=false&hideHeader=true&hideScrollBar=false&lang=en&origin=https%3A%2F%2Fnirajbhusal.github.io&showHeader=false&showReplies=false&theme=light&transparent=false" width="500" height="560" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          <div class="x-open">
+            <img src="img/x_NepalPoliceHQ_official_alert_video_frame.jpg" alt="">
+            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
+            <a class="x-btn" href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+          </div>
         </article>
         <article class="feed-box">
           <header><b>नेपाली सेना</b><a href="https://www.facebook.com/NepaliArmyHQ/" target="_blank" rel="noopener">Facebook</a></header>
@@ -486,11 +518,19 @@ footer{
         </article>
         <article class="feed-box">
           <header><b>विपद् प्राधिकरण</b><a href="https://x.com/NDRRMA_Nepal" target="_blank" rel="noopener">@NDRRMA_Nepal</a></header>
-          <div class="feed-frame"><iframe title="NDRRMA X" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/NDRRMA_Nepal?dnt=true&embedId=tl-NDRRMA_Nepal&frame=false&hideBorder=true&hideFooter=false&hideHeader=true&hideScrollBar=false&lang=en&origin=https%3A%2F%2Fnirajbhusal.github.io&showHeader=false&showReplies=false&theme=light&transparent=false" width="500" height="560" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          <div class="x-open">
+            
+            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
+            <a class="x-btn" href="https://x.com/NDRRMA_Nepal" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+          </div>
         </article>
         <article class="feed-box">
           <header><b>सेना (X)</b><a href="https://x.com/thenepalesearmy" target="_blank" rel="noopener">@thenepalesearmy</a></header>
-          <div class="feed-frame"><iframe title="Nepali Army X" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/thenepalesearmy?dnt=true&embedId=tl-thenepalesearmy&frame=false&hideBorder=true&hideFooter=false&hideHeader=true&hideScrollBar=false&lang=en&origin=https%3A%2F%2Fnirajbhusal.github.io&showHeader=false&showReplies=false&theme=light&transparent=false" width="500" height="560" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          <div class="x-open">
+            
+            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
+            <a class="x-btn" href="https://x.com/thenepalesearmy" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+          </div>
         </article>
       </div>
     </div>
@@ -503,10 +543,9 @@ footer{
         </article>
         <article class="feed-box">
           <header><b>इन्स्टाग्राम</b><a href="https://www.instagram.com/sudangrg_haminepal/" target="_blank" rel="noopener">@sudangrg_haminepal</a></header>
-          <div class="feed-frame" style="padding:18px;height:auto">
-            <p>गृहमन्त्रीको सार्वजनिक इन्स्टाग्राम खाता। लाइभ पोस्ट हेर्न खाता खोल्नुहोस्।</p>
-            <p><a href="https://www.instagram.com/sudangrg_haminepal/" target="_blank" rel="noopener" style="display:inline-block;background:var(--crimson);color:#fff;font-weight:800;padding:8px 12px;border-radius:999px;text-decoration:none">Instagram मा खोल्नुहोस्</a></p>
-            <p class="feed-note">X मा सार्वजनिक ह्यान्डल आधिकारिक रूपमा पुष्टि नभएकाले फेसबुक पेजलाई मुख्य फिड राखिएको छ।</p>
+          <div class="x-open">
+            <p>गृहमन्त्रीको सार्वजनिक इन्स्टाग्राम। लाइभ पोस्ट खातामा हेर्नुहोस्।</p>
+            <a class="x-btn" href="https://www.instagram.com/sudangrg_haminepal/" target="_blank" rel="noopener">Instagram मा खोल्नुहोस्</a>
           </div>
         </article>
       </div>
@@ -516,19 +555,35 @@ footer{
       <div class="feeds">
         <article class="feed-box">
           <header><b>अनलाइनखबर</b><a href="https://x.com/Online_khabar" target="_blank" rel="noopener">@Online_khabar</a></header>
-          <div class="feed-frame"><iframe title="OnlineKhabar X" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/Online_khabar?dnt=true&embedId=tl-Online_khabar&frame=false&hideBorder=true&hideFooter=false&hideHeader=true&hideScrollBar=false&lang=en&origin=https%3A%2F%2Fnirajbhusal.github.io&showHeader=false&showReplies=false&theme=light&transparent=false" width="500" height="560" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          <div class="x-open">
+            
+            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
+            <a class="x-btn" href="https://x.com/Online_khabar" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+          </div>
         </article>
         <article class="feed-box">
           <header><b>काठमाडौं पोस्ट</b><a href="https://x.com/kathmandupost" target="_blank" rel="noopener">@kathmandupost</a></header>
-          <div class="feed-frame"><iframe title="Kathmandu Post X" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/kathmandupost?dnt=true&embedId=tl-kathmandupost&frame=false&hideBorder=true&hideFooter=false&hideHeader=true&hideScrollBar=false&lang=en&origin=https%3A%2F%2Fnirajbhusal.github.io&showHeader=false&showReplies=false&theme=light&transparent=false" width="500" height="560" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          <div class="x-open">
+            
+            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
+            <a class="x-btn" href="https://x.com/kathmandupost" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+          </div>
         </article>
         <article class="feed-box">
           <header><b>रातोपाटी</b><a href="https://x.com/Rato_pati" target="_blank" rel="noopener">@Rato_pati</a></header>
-          <div class="feed-frame"><iframe title="Ratopati X" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/Rato_pati?dnt=true&embedId=tl-Rato_pati&frame=false&hideBorder=true&hideFooter=false&hideHeader=true&hideScrollBar=false&lang=en&origin=https%3A%2F%2Fnirajbhusal.github.io&showHeader=false&showReplies=false&theme=light&transparent=false" width="500" height="560" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          <div class="x-open">
+            
+            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
+            <a class="x-btn" href="https://x.com/Rato_pati" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+          </div>
         </article>
         <article class="feed-box">
           <header><b>अनलाइनखबर (EN)</b><a href="https://x.com/OnlineKhabar_En" target="_blank" rel="noopener">@OnlineKhabar_En</a></header>
-          <div class="feed-frame"><iframe title="OnlineKhabar English X" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/OnlineKhabar_En?dnt=true&embedId=tl-OnlineKhabar_En&frame=false&hideBorder=true&hideFooter=false&hideHeader=true&hideScrollBar=false&lang=en&origin=https%3A%2F%2Fnirajbhusal.github.io&showHeader=false&showReplies=false&theme=light&transparent=false" width="500" height="560" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          <div class="x-open">
+            
+            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
+            <a class="x-btn" href="https://x.com/OnlineKhabar_En" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+          </div>
         </article>
       </div>
     </div>
@@ -541,11 +596,15 @@ footer{
         </article>
         <article class="feed-box">
           <header><b>RONB (X)</b><a href="https://x.com/RONBupdates" target="_blank" rel="noopener">@RONBupdates</a></header>
-          <div class="feed-frame"><iframe title="RONB X" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/RONBupdates?dnt=true&embedId=tl-RONBupdates&frame=false&hideBorder=true&hideFooter=false&hideHeader=true&hideScrollBar=false&lang=en&origin=https%3A%2F%2Fnirajbhusal.github.io&showHeader=false&showReplies=false&theme=light&transparent=false" width="500" height="560" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          <div class="x-open">
+            
+            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
+            <a class="x-btn" href="https://x.com/RONBupdates" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+          </div>
         </article>
       </div>
     </div>
-    <p class="feed-note">फिडमा तस्बिर नदेखिए सम्बन्धित X/Facebook लिंकबाट खोल्नुहोस्। केही ब्राउजरले एम्बेड ब्लक गर्छन्।</p>
+    <p class="feed-note">X को एम्बेड रेट-लिमिटले थम्बनेल लोड हुँदैनथ्यो, त्यसैले X खाता सीधै खोल्ने लिंक राखिएको छ। फेसबुक पेज फिड यहाँ नै चल्छ।</p>
 </section>
 
 <section id="videos">
