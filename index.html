@@ -291,7 +291,53 @@ a.js-found-row[hidden]{display:none}
 }
 .kicker{color:var(--crimson);font-weight:800;font-size:13px;letter-spacing:.06em;margin:0 0 6px}
 .hero h2{margin:0 0 8px;font-size:clamp(26px,5vw,40px);line-height:1.2}
-.lede{margin:0;color:var(--muted);max-width:46rem}
+.lede{
+  margin:0 0 14px;
+  color:#334155;
+  font-size:16.5px;
+  line-height:1.75;
+  max-width:min(100%, 78rem);
+}
+.lede strong{
+  color:var(--crimson);
+  background:var(--crimson-soft);
+  padding:1px 7px;
+  border-radius:6px;
+  font-weight:800;
+  font-size:15px;
+  font-variant-numeric:tabular-nums;
+  border:1px solid rgba(196,30,58,.18);
+  display:inline-block;
+  margin:0 1px;
+}
+.source-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  background:#fff;
+  color:var(--ink);
+  font-weight:800;
+  font-size:13.5px;
+  padding:2px 8px;
+  border-radius:6px;
+  border:1px solid var(--line);
+  box-shadow:0 1px 3px rgba(15,23,42,.05);
+  margin:0 2px;
+  vertical-align:baseline;
+}
+.lede-alert{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  background:#fef2f2;
+  color:#991b1b;
+  font-weight:800;
+  font-size:14px;
+  padding:2px 9px;
+  border-radius:6px;
+  border:1px solid #fecaca;
+  margin-left:4px;
+}
 .stats{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
@@ -827,7 +873,7 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="wrap">
     <p class="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
     <h2>शव ९५</h2>
-    <p class="lede">प्रधानमन्त्री कार्यालय (साँझ ७:००): शव <strong>९५</strong> (सनाखत जारी)। नेपाल प्रहरी जिल्ला: चितवन ३३, धादिङ १८, गोरखा १६, नुवाकोट ११, पूर्वी नवलपुर ११, तनहुँ ५, रसुवा १। सुरक्षाकर्मी सम्पर्कविहीन <strong>८५</strong> (सेना ४४, प्रहरी २८, सशस्त्र १३)। पर्यटक <strong>४८४</strong> (विदेशी ३९१, स्वदेशी ९३)। घाइते: काठमाडौं <strong>३६</strong>, रसुवा <strong>२१</strong> — प्रहरी जम्मा ६३ मा जोड्ने होइन। हवाई उद्धार ११४ यथावत्। नदी किनार नजानुहोस्।</p>
+    <p class="lede"><span class="source-tag">प्रधानमन्त्री कार्यालय · साँझ ७:००</span> शव <strong>९५</strong> (सनाखत जारी)। <span class="source-tag">नेपाल प्रहरी</span> जिल्ला विवरण: चितवन <strong>३३</strong>, धादिङ <strong>१८</strong>, गोरखा <strong>१६</strong>, नुवाकोट <strong>११</strong>, पूर्वी नवलपुर <strong>११</strong>, तनहुँ <strong>५</strong>, रसुवा <strong>१</strong>। सुरक्षाकर्मी सम्पर्कविहीन <strong>८५</strong> (सेना <strong>४४</strong>, प्रहरी <strong>२८</strong>, सशस्त्र <strong>१३</strong>)। पर्यटक <strong>४८४</strong> (विदेशी <strong>३९१</strong>, स्वदेशी <strong>९३</strong>)। घाइते: काठमाडौं <strong>३६</strong>, रसुवा <strong>२१</strong> (प्रहरी जम्मा <strong>६३</strong> उपचाररत मा जोड्ने होइन)। हवाई उद्धार <strong>११४</strong> यथावत्। <span class="lede-alert">⚠️ नदी किनार नजानुहोस्</span></p>
     <div class="stats" aria-label="प्रारम्भिक तथ्यांक">
       <div class="stat">
         <b>शव फेला</b>
