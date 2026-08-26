@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T18:37:25+00:00",
+  "updated_at": "2026-08-26T18:46:04+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,31 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-002651-sweeti-phanju",
+      "name": "Sweeti Phanju",
+      "age": "25",
+      "place": "Bhaktapur · Upper Trishuli Hydropower Area",
+      "phone": "9843237911",
+      "note": "फारम ००:२६"
+    },
+    {
+      "id": "sheet-20260827-002427-shiva-kumar-shrestha",
+      "name": "Shiva Kumar Shrestha",
+      "place": "Dhading · Timure Immigration",
+      "when": "27th August",
+      "phone": "9851352707",
+      "note": "फारम ००:२४"
+    },
+    {
+      "id": "sheet-20260827-002056-rupesh-shrestha",
+      "name": "Rupesh Shrestha",
+      "age": "27",
+      "place": "Bidur-8 (Majhigaun), Nuwakot · Betrawati Bazar, Rasuwa",
+      "when": "8:30",
+      "phone": "9869803729 / 9849254113 / 9843479383",
+      "note": "फारम ००:२०"
+    },
     {
       "id": "sheet-20260827-001718-binod-acharya",
       "name": "Binod Acharya",

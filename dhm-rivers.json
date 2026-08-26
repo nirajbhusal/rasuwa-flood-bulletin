@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T18:37:25+00:00",
+  "updated_at": "2026-08-26T18:46:04+00:00",
   "note_np": "DHM नेटवर्कमा अहिले खतरा तहमा फुर्के मात्र (गेज बगेको, लाइभ होइन)। काली/देवघाट लाइभ तर सतर्कतामुनि। धुन्चे/बेत्रावती मौन ०९:२०।",
   "hydrology": "https://www.hydrology.gov.np/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -78,13 +78,13 @@
       "name": "Narayani at Devghat",
       "name_np": "देवघाट · नारायणी",
       "district_np": "चितवन",
-      "level_m": 4.367,
+      "level_m": 4.366,
       "warning_m": 7.3,
       "danger_m": 9.0,
       "status": "BELOW WARNING LEVEL",
       "steady": "STEADY",
-      "observed_at": "2026-08-26T18:05:00+00:00",
-      "observed_npt": "२३:५०",
+      "observed_at": "2026-08-26T18:15:00+00:00",
+      "observed_npt": "००:००",
       "silent": false,
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
