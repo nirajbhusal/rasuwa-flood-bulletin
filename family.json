@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T01:37:37+05:45",
+  "updated_at": "2026-08-27T01:55:37+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,24 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-014714-kulsum-nigar",
+      "name": "Kulsum Nigar",
+      "age": "21",
+      "place": "Mayurbhanj, Odisha, India · last known Pokhara (trekking plans)",
+      "when": "25 August ~11:00 WhatsApp; last msgs delivered ~08:50",
+      "phone": "9583701993",
+      "note": "फारम ०१:४७ · +91 · Samsung S25 · friends trek toward Kathmandu"
+    },
+    {
+      "id": "sheet-20260827-014521-sunau-aungdi-tamang",
+      "name": "Sunau Aungdi Tamang",
+      "age": "58",
+      "place": "Sonam guest house, Gosainkunda-2 / upper Timure, Rasuwa",
+      "when": "08/26/2026 10am",
+      "phone": "9803544525",
+      "note": "फारम ०१:४५ · T-shirt pant · contact Lobsang Dolma"
+    },
     {
       "id": "sheet-20260827-012322-shankar-gurung",
       "name": "Shankar Gurung",
