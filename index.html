@@ -196,6 +196,23 @@ img{max-width:100%;display:block}
 .plants tfoot td{font-weight:800;border-bottom:0;padding-top:10px}
 .treat-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 4px}
 .treat{min-width:760px}
+.fam-tbl{min-width:560px}
+.fam-tbl td:nth-child(2){font-weight:650}
+.fam-new{min-width:640px}
+.fam-new th:last-child,.fam-new td.found-cell{
+  text-align:center;white-space:nowrap;width:1%;vertical-align:middle
+}
+a.js-found-row{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:3px 10px;border-radius:999px;
+  font-size:13px;font-weight:800;line-height:1.2;
+  background:var(--forest);color:#fff;text-decoration:none;white-space:nowrap;
+}
+a.js-found-row:hover{text-decoration:none;filter:brightness(1.08)}
+a.js-found-row[hidden]{display:none}
+@media (max-width:760px){
+  .fam-new td.found-cell{display:block;text-align:left;padding-top:6px}
+}
 .treat td.phone a{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700;color:var(--ink)}
 .treat-lead,.treat-note{font-size:16px;color:var(--muted);margin:0 0 8px;line-height:1.65}
 .treat-note{margin:8px 0 0}
@@ -693,6 +710,72 @@ footer .foot-contact a:hover{text-decoration:underline}
   box-shadow:var(--shadow);font-size:17px;line-height:1.55;font-weight:700;
 }
 .path-ask strong{color:var(--crimson)}
+
+.funds{margin:18px 0 8px}
+.funds-lead{margin:0 0 12px;font-size:17px;line-height:1.55;font-weight:600;color:var(--ink)}
+.fund{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:16px 14px 10px;box-shadow:var(--shadow);margin:0 0 12px;
+}
+.fund h3{margin:0 0 10px;font-size:19px;font-weight:800;color:var(--ink);line-height:1.3}
+.fund table{width:100%;border-collapse:collapse;font-size:16px;table-layout:fixed}
+.fund th,.fund td{padding:10px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;word-break:break-word}
+.fund th{font-size:13px;font-weight:800;color:var(--muted)}
+.fund th:first-child,.fund td:first-child{width:2.4em;white-space:nowrap}
+.fund td.acct{font-variant-numeric:tabular-nums;font-weight:700}
+.fund button.acct{
+  display:flex;align-items:center;gap:6px;width:100%;text-align:left;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:15px;font-weight:700;letter-spacing:.01em;line-height:1.35;
+  font-variant-numeric:tabular-nums;color:var(--crimson);background:#fff;
+  border:1px dashed var(--line);border-radius:10px;padding:10px 10px;margin:4px 0;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+  overflow-wrap:anywhere;word-break:break-all;
+}
+.fund button.acct:hover,.fund button.acct.copied{border-color:var(--crimson);background:var(--crimson-soft)}
+.fund .usd{font-size:12px;font-weight:800;color:var(--muted);flex:none}
+.fund-foot{margin:4px 0 0;font-size:15px;color:var(--muted)}
+@media (max-width:760px){
+  .fund table,.fund thead,.fund tbody,.fund tr,.fund th,.fund td{display:block;width:100%}
+  .fund thead{display:none}
+  .fund tr{padding:10px 0;border-bottom:1px solid var(--line)}
+  .fund tr:last-child{border-bottom:0}
+  .fund td:first-child{display:none}
+  .fund td{padding:0 0 4px;border:0}
+  .fund td:nth-child(2){font-weight:800;font-size:16px;padding-bottom:6px}
+  .fund button.acct{font-size:16px;padding:12px 10px}
+}
+
+.fam-lead{margin:0 0 12px;font-size:17px;line-height:1.55;font-weight:600}
+.fam-actions{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 16px}
+.fam-actions a{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:12px 16px;border-radius:12px;font-weight:800;font-size:17px;
+  text-decoration:none;line-height:1.2;
+}
+.fam-actions a.miss{background:var(--crimson);color:#fff}
+.fam-actions a.found{background:var(--forest);color:#fff}
+.fam-actions a.hot{background:var(--saffron-soft);color:#9a3412;border:1px solid #fcd34d}
+.fam-actions a:hover{text-decoration:none;filter:brightness(1.05)}
+.fam-actions a[hidden]{display:none}
+.fam-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 8px}
+.fam-card{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:12px 12px 10px;box-shadow:var(--shadow);min-width:0;
+}
+.fam-card.matched{border-color:#86efac;background:var(--forest-soft)}
+.fam-card h3{margin:0 0 4px;font-size:18px;font-weight:800;line-height:1.3}
+.fam-card p{margin:0 0 4px;font-size:15px;color:var(--muted);line-height:1.4}
+.fam-card .tag{
+  display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;
+  border-radius:999px;margin:0 0 8px;background:var(--crimson-soft);color:var(--crimson)
+}
+.fam-card .tag.ok{background:var(--forest-soft);color:var(--forest)}
+.fam-card .tag.pair{background:var(--saffron-soft);color:#9a3412}
+.fam-card img{width:100%;height:160px;object-fit:cover;border-radius:10px;margin:0 0 8px;background:#f1f5f9}
+.fam-h{margin:16px 0 8px;font-size:18px;font-weight:800}
+.fam-empty{margin:0;padding:14px;text-align:center;color:var(--muted);font-weight:700;font-size:16px}
+@media (max-width:760px){.fam-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -700,11 +783,11 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="topbar-inner">
     <div class="brand">
       <h1>रसुवा–भोटेकोशी बाढी</h1>
-      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~१८:२० नेपाली समय</p>
+      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~२१:१० नेपाली समय</p>
     </div>
     <div class="top-actions">
       <span class="live"><i></i> लाइभ</span>
-      <div class="helpline">उद्धार <a href="tel:1234"><strong>१२३४</strong></a> · प्रहरी <a href="tel:100"><strong>१००</strong></a> · <a href="tel:1114"><strong>१११४</strong></a> · एम्बुलेन्स <a href="tel:102"><strong>१०२</strong></a> · NEOC <a href="tel:1144"><strong>११४४</strong></a></div>
+      <div class="helpline">उद्धार <a href="tel:1234"><strong>१२३४</strong></a> · प्रहरी <a href="tel:100"><strong>१००</strong></a> · <a href="tel:1148"><strong>११४८</strong></a> · <a href="tel:1111"><strong>११११</strong></a> · <a href="tel:1114"><strong>१११४</strong></a> · एम्बुलेन्स <a href="tel:102"><strong>१०२</strong></a> · NEOC <a href="tel:1144"><strong>११४४</strong></a></div>
       <button type="button" class="notify-btn" id="notify-btn" aria-pressed="false" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट">
         <svg class="bell-on" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zm6-6V11c0-3.07-1.64-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
         <svg class="bell-off" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zM4.27 3 3 4.27l2.62 2.62A6.96 6.96 0 0 0 6 11v5l-2 2v1h14.73L19.73 21 21 19.73 4.27 3zM17 17H8.27L17 8.27V17z"/></svg>
@@ -722,7 +805,9 @@ footer .foot-contact a:hover{text-decoration:underline}
     <a href="#map">नक्सा</a>
     <a href="#alert">सतर्कता</a>
     <a href="#treat">घाइते</a>
+    <a href="#family">हराएको / भेटिएको</a>
     <a href="#helpline">हेल्पलाइन</a>
+    <a href="#donate">राहत कोष</a>
     <a href="#contacts">सम्पर्क</a>
     <a href="#gov">सरकारी पहल</a>
     <a href="#photos">तस्बिर</a>
@@ -741,30 +826,31 @@ footer .foot-contact a:hover{text-decoration:underline}
 <div class="hero" id="home">
   <div class="wrap">
     <p class="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
-    <h2>हवाई उद्धार ११४</h2>
-    <p class="lede">नेपाली सेना र निजी क्षेत्र: हवाई उद्धार <strong>११४</strong> (सेना ८५, निजी हेलि २९) — अघिल्लो ११० यो ११४ बाट अद्यावधिक। बागमती प्रदेश प्रहरी: मृत्यु <strong>२२</strong> (रसुवा १, नुवाकोट ११, धादिङ ९, चितवन १)। प्रहरी प्रवक्ता दानबहादुर थापा: काठमाडौंका अस्पतालमा घाइते <strong>२५</strong> उपचाररत (टिचिङ १९, ट्रमा ४, वीरेन्द्र सैनिक १) — अघिल्लो २१ यो २५ बाट अद्यावधिक; रसुवा २४ जोड्ने होइन। देवघाट पुगेको यथावत्; सुस्तामा बाढी पुगेको होइन। नदी किनार नजानुहोस्।</p>
+    <h2>शव ९५</h2>
+    <p class="lede">प्रधानमन्त्री कार्यालय (साँझ ७:००): शव <strong>९५</strong> (सनाखत जारी)। नेपाल प्रहरी जिल्ला: चितवन ३३, धादिङ १८, गोरखा १६, नुवाकोट ११, पूर्वी नवलपुर ११, तनहुँ ५, रसुवा १। सुरक्षाकर्मी सम्पर्कविहीन <strong>८५</strong> (सेना ४४, प्रहरी २८, सशस्त्र १३)। पर्यटक <strong>४८४</strong> (विदेशी ३९१, स्वदेशी ९३)। घाइते: काठमाडौं <strong>३६</strong>, रसुवा <strong>२१</strong> — प्रहरी जम्मा ६३ मा जोड्ने होइन। हवाई उद्धार ११४ यथावत्। नदी किनार नजानुहोस्।</p>
     <div class="stats" aria-label="प्रारम्भिक तथ्यांक">
       <div class="stat">
         <b>शव फेला</b>
         <ul class="mini">
-          <li>जम्मा <strong>२२</strong></li>
-          <li>रसुवा <strong>१</strong> · नुवाकोट <strong>११</strong></li>
-          <li>धादिङ <strong>९</strong> · चितवन <strong>१</strong></li>
+          <li>जम्मा <strong>९५</strong></li>
+          <li>चितवन <strong>३३</strong> · धादिङ <strong>१८</strong></li>
+          <li>गोरखा <strong>१६</strong> · नुवाकोट <strong>११</strong></li>
+          <li>नवलपुर <strong>११</strong> · तनहुँ <strong>५</strong> · रसुवा <strong>१</strong></li>
         </ul>
       </div>
       <div class="stat">
         <b>घाइते</b>
         <ul class="mini">
-          <li>रसुवा अस्पताल <strong>२४</strong></li>
-          <li>रेफर <strong>६</strong> · त्यहाँ मृत्यु <strong>१</strong></li>
-          <li>काठमाडौं अस्पताल <strong>२५</strong></li>
-          <li>टिचिङ <strong>१९</strong> · ट्रमा <strong>४</strong> · सैनिक <strong>१</strong></li>
+          <li>काठमाडौं <strong>३६</strong> · रसुवा <strong>२१</strong></li>
+          <li>प्रहरी जम्मा <strong>६३</strong> उपचाररत</li>
+          <li>टिचिङ <strong>२१</strong> · ट्रमा <strong>७</strong> · सैनिक <strong>१</strong></li>
+          <li>त्रिशूली <strong>१६</strong> · नर्भिक <strong>३</strong> · ग्रीनसिटी <strong>१</strong></li>
         </ul>
       </div>
       <div class="stat">
         <b>सम्पर्कविहीन</b>
         <ul class="mini">
-          <li>पर्यटक <strong>३८४</strong></li>
+          <li>पर्यटक <strong>४८४</strong></li>
           <li>स्वास्थ्यकर्मी <strong>६</strong></li>
           <li>लाङटाङ आयोजना <strong>६०</strong></li>
           <li>गोरखा बस यात्रु <strong>३४</strong></li>
@@ -773,9 +859,9 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="stat">
         <b>सुरक्षाकर्मी सम्पर्कविहीन</b>
         <ul class="mini">
-          <li>जम्मा <strong>७९</strong> · मृत्यु होइन</li>
-          <li>सेना <strong>४४</strong> · प्रहरी <strong>२६</strong></li>
-          <li>सशस्त्र <strong>९</strong></li>
+          <li>जम्मा <strong>८५</strong> · मृत्यु होइन</li>
+          <li>सेना <strong>४४</strong> · प्रहरी <strong>२८</strong></li>
+          <li>सशस्त्र <strong>१३</strong></li>
         </ul>
       </div>
       <div class="stat">
@@ -830,18 +916,47 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
     </div>
-    <p class="stats-note">यी फरक सूची हुन् — घाइते २४ र २५ जोड्ने होइन। हवाई उद्धार ११४ = सेना ८५ + निजी २९ (फेरि जोड्ने होइन)। स्रोत तल।</p>
+    <p class="stats-note">यी फरक सूची हुन् — काठमाडौं ३६ / रसुवा २१ र प्रहरी ६३ जोड्ने होइन। पर्यटक ४८४ मा सुरक्षा/आयोजना नजोड्नुहोस्। हवाई उद्धार ११४ = सेना ८५ + निजी २९। स्रोत तल।</p>
+    <section id="donate" class="funds">
+      <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>राहत कोष</h2></div>
+      <p class="funds-lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। नम्बर ट्याप गर्दा कपी हुन्छ।</p>
+      <article class="fund">
+        <h3>प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</h3>
+    <table>
+      <thead><tr><th>सि.नं.</th><th>बैंक</th><th>खाता नम्बर</th></tr></thead>
+      <tbody>
+        <tr><td>१</td><td>हिमालयन बैंक</td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्">01905631210046 <span class="usd">$</span></button></td></tr>
+        <tr><td>२</td><td>स्टान्डर्ड चार्टर्ड बैंक</td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्">02013243801</button></td></tr>
+        <tr><td>३</td><td>राष्ट्रिय वाणिज्य बैंक</td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्">1130100003762001</button><button type="button" class="acct" data-acct="113010000006006" title="कपी गर्नुहोस्">113010000006006</button></td></tr>
+        <tr><td>४</td><td>एभरेष्ट बैंक</td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्">00100105200270</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्">00101102200012</button></td></tr>
+        <tr><td>५</td><td>नेपाल बैंक</td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्">00211600510039000003</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्">00200100510039000001</button></td></tr>
+        <tr><td>६</td><td>ग्लोबल आइएमई बैंक</td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्">00411010000005</button></td></tr>
+        <tr><td>७</td><td>नबिल बैंक</td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्">1710017505285</button></td></tr>
+        <tr><td>८</td><td>कृषि विकास बैंक</td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्">0100201002907014</button></td></tr>
+      </tbody>
+    </table>
+      </article>
+      <article class="fund">
+        <h3>प्रधानमन्त्री राहत कोष</h3>
+    <table>
+      <thead><tr><th>सि.नं.</th><th>बैंक</th><th>खाता नम्बर</th></tr></thead>
+      <tbody>
+        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक</td><td class="acct"><button type="button" class="acct" data-acct="143010000025006" title="कपी गर्नुहोस्">143010000025006</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्">1430100001164001</button></td></tr>
+      </tbody>
+    </table>
+      </article>
+    </section>
     <ul class="stats-src" aria-label="स्रोत">
-      <li><b>शव जम्मा <strong>२२</strong></b> — बागमती प्रदेश प्रहरी (रातोपाटी ~१७:२६): मृत्यु <strong>२२</strong> — रसुवा <strong>१</strong> पुरुष, नुवाकोट <strong>११</strong> (<strong>५</strong> महिला + <strong>६</strong> पुरुष), धादिङ <strong>९</strong> (<strong>५</strong> महिला + <strong>२</strong> पुरुष + <strong>२</strong> लिङ्ग नखुलेको), चितवन <strong>१</strong> महिला। अघिल्लो पौने चारको <strong>१६</strong> यो <strong>२२</strong> बाट अद्यावधिक। रसुवा अस्पताल उपचार मृत्यु जोडेर <strong>२३</strong> नबनाइएको।</li>
-      <li><b>घाइते</b> — रसुवा अस्पताल जम्मा <strong>२४</strong> (रेफर <strong>६</strong>, उपचार मृत्यु <strong>१</strong>)। काठमाडौं जम्मा <strong>२५</strong> (टिचिङ <strong>१९</strong>, ट्रमा <strong>४</strong>, वीरेन्द्र सैनिक अस्पताल छाउनी <strong>१</strong>; नामसहित <strong>२४</strong> + कामु नगरकोटीका साथमा तीन महिनाको शिशु) — प्रहरी प्रवक्ता दानबहादुर थापा। अघिल्लो <strong>२१</strong> / टिचिङ <strong>१७</strong> / ट्रमा <strong>३</strong> / मेडिसिटी <strong>१</strong> यो <strong>२५</strong> बाट अद्यावधिक। रसुवा <strong>२४</strong> र काठमाडौं <strong>२५</strong> जोड्ने होइन; निजी हेलि <strong>२९</strong> उद्धार <strong>११४</strong> भित्र — घाइते कार्डमा हाल्ने होइन।</li>
-      <li><b>सम्पर्कविहीन</b> — पर्यटन बोर्ड <strong>३८४</strong> (विदेशी <strong>२९१</strong>, नेपाली <strong>९३</strong>)। लाङटाङ एमडी भट्टराई <strong>६०</strong> (सुरुङ <strong>३५</strong> + अन्य <strong>२५</strong>)। पालुङटार बस <strong>३४</strong> — गोरखा प्रहरी। स्वास्थ्यकर्मी <strong>६</strong> — जनस्वास्थ्य कार्यालय रसुवा प्रमुख निरध्वज घर्ती मगर (टिमुरे/स्याफ्रुबेसी चौकी <strong>४</strong>, रसुवागढी हेल्थ डेस्क <strong>१</strong>, उत्तरगया स्वास्थ्य संयोजक <strong>१</strong>)। सुरक्षा <strong>७९</strong>, भन्सार <strong>११</strong> र बैंक <strong>२६</strong> यसमा जोडिएको होइन। मृत्यु होइन।</li>
-      <li><b>सुरक्षा</b> — जम्मा <strong>७९</strong> (सेना <strong>४४</strong>, प्रहरी <strong>२६</strong>, सशस्त्र <strong>९</strong>) — परराष्ट्रमन्त्री खनाल, संसद्। टिमुरे र मैलुङ पोस्ट। अघिल्लो प्रहरी <strong>३२</strong> / सशस्त्र <strong>१३</strong> यो <strong>७९</strong> बाट अद्यावधिक। मृत्यु होइन। खनालको शव <strong>९</strong> प्रदेश प्रहरी <strong>२२</strong> ले नसटाउने।</li>
+      <li><b>शव जम्मा <strong>९५</strong></b> — प्रधानमन्त्री कार्यालय, साँझ ७:०० (सनाखत जारी)। जिल्ला विवरण नेपाल प्रहरी / रासस: चितवन <strong>३३</strong>, धादिङ <strong>१८</strong>, गोरखा <strong>१६</strong>, नुवाकोट <strong>११</strong>, पूर्वी नवलपुर <strong>११</strong>, तनहुँ <strong>५</strong>, रसुवा <strong>१</strong>। लिङ्ग: महिला <strong>२७</strong>, पुरुष <strong>३७</strong>, बालिका <strong>६</strong>, बालक <strong>५</strong>, पहिचान नखुलेका <strong>२०</strong>। अघिल्लो सशस्त्र <strong>७२</strong> यो <strong>९५</strong> बाट अद्यावधिक।</li>
+      <li><b>घाइते</b> — प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong> (ट्रमा, टिचिङ, वीरेन्द्र सैनिक आदि), रसुवा अस्पताल <strong>२१</strong>। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> (टिचिङ <strong>२१</strong>, ट्रमा <strong>७</strong>, छाउनी <strong>१</strong>, रसुवा <strong>२१</strong>, त्रिशूली <strong>१६</strong>, नर्भिक <strong>३</strong>, ग्रीनसिटी <strong>१</strong>) — ३६/२१ र ६३ जोड्ने होइन। नामतालिका अघिल्लो काठमाडौं <strong>२२</strong> सूची यथावत्।</li>
+      <li><b>सम्पर्कविहीन</b> — प्रधानमन्त्री कार्यालय साँझ ७:००: पर्यटक विदेशी <strong>३९१</strong> + स्वदेशी <strong>९३</strong> = <strong>४८४</strong>। जलविद्युत् आयोजना कर्मचारी <strong>६०</strong> (लाङटाङ कार्डसँग जोड्ने होइन)। अघिल्लो पर्यटन मन्त्रालय <strong>४०३</strong> (विदेशी <strong>३४१</strong>, नेपाली <strong>६२</strong>) यो <strong>४८४</strong> बाट अद्यावधिक। बस <strong>३४</strong> / स्वास्थ्यकर्मी <strong>६</strong> / सुरक्षा <strong>८५</strong> / भन्सार <strong>११</strong> / बैंक <strong>२६</strong> मा जोडिएको होइन। मृत्यु होइन।</li>
+      <li><b>सुरक्षा</b> — प्रधानमन्त्री कार्यालय साँझ ७:००: जम्मा <strong>८५</strong> — सेना <strong>४४</strong>, प्रहरी <strong>२८</strong>, सशस्त्र <strong>१३</strong>। प्रहरी पोस्ट: टिमुरे <strong>१०</strong>, रसुवागढी <strong>८</strong>, स्याफ्रुबेसी <strong>३</strong>, मैलुङ <strong>५</strong>, बेत्रावती <strong>१</strong>, हाकु <strong>१</strong>। अघिल्लो खनाल संसद् <strong>७९</strong> (सशस्त्र <strong>९</strong>) यो <strong>८५</strong> बाट अद्यावधिक। मृत्यु होइन।</li>
       <li><b>भन्सार</b> — स्थायी <strong>३६</strong>, सम्पर्क <strong>२५</strong>, खोजी <strong>११</strong>, गाडी <strong>३००+</strong> — प्रमुख ढुंगाना।</li>
       <li><b>टिमुरे</b> — घर <strong>१००+</strong> र पर्खाइ <strong>३००+</strong> — वडासदस्य घले। बजार <strong>५–७</strong> — डिआईजी रेग्मी।</li>
       <li><b>उद्धार जम्मा <strong>११४</strong></b> — नेपाली सेना र निजी क्षेत्र: सेना <strong>८५</strong> + निजी हेलि <strong>२९</strong> = <strong>११४</strong>। सेना: टिमुरे–धुन्चे <strong>६०</strong>, टिमुरे–त्रिशूली <strong>१३</strong>, मैलुङ <strong>५</strong>, बेत्रावती <strong>४</strong>, त्रिशूली–काठमाडौं <strong>३</strong>। निजी: कैलाश <strong>५</strong> (टिचिङ), सिम्रिक <strong>३</strong>+<strong>२</strong>, अन्नपूर्ण <strong>४</strong> (टिचिङ), प्रभु <strong>५</strong> (टिचिङ) + <strong>२</strong> (वीर), फिसटेल <strong>५</strong> (टिचिङ), एभरेष्ट <strong>२</strong> (टिचिङ)। अघिल्लो प्रधानमन्त्री कार्यालय <strong>११०</strong> यो <strong>११४</strong> बाट अद्यावधिक। <strong>८५</strong>+<strong>२९</strong> फेरि जोड्ने होइन; घाइते कार्डमा <strong>२९</strong> हाल्ने होइन।</li>
       <li><b>बैंक कर्मचारी सम्पर्कविहीन <strong>२६</strong></b> — नेपाल बैंकर्स संघ १६:२५। आठ बैंक (<strong>८</strong>): प्रभु, हिमालयन, ग्लोबल आइएमई, सानिमा, नेपाल इन्भेस्टमेन्ट मेगा, लक्ष्मी सनराइज, एनएमबी, माछापुच्छ्रे। टिमुरे, स्याफ्रुबेसी, बेत्रावती शाखा बगे (<strong>३</strong> ठाउँ)। मृत्यु होइन; पर्यटक ३८४ / सुरक्षा ७९ / स्वास्थ्यकर्मी ६ मा जोडिएको होइन।</li>
       <li><b>कैदीबन्दी सुरक्षित <strong>१०००</strong></b> — नुवाकोट केन्द्रीय कारागार प्रमुख भेषबहादुर कुँवर (अनलाइनखबर)। विदुर–<strong>३</strong> खम्पाक्याम्प; प्रशासन भवन र प्रहरी इकाइ क्षति। करिब <strong>एक हजार</strong>।</li>
-      <li><b>पूर्वाधार</b> — विद्युत् <strong>७</strong> / <strong>२७६</strong> MW — प्राधिकरण। पुल <strong>२२</strong>, बेली <strong>५</strong> — कान्तिपुर / सडक विभाग ~१७:४७; अघिल्लो <strong>१९+</strong> यो <strong>२२</strong>+<strong>५</strong> बाट अद्यावधिक। सडक <strong>४०</strong> किमि — सडक विभाग (यथावत्)। टावर <strong>७</strong> — नेपाल टेलिकम।</li>
+      <li><b>पूर्वाधार</b> — प्रधानमन्त्री कार्यालय ७:००: मोटरेबल पुल <strong>१९</strong>, पक्की सडक <strong>४० किमि</strong> (सङ्कलन जारी)। सडक विभाग ~१७:४७: पक्की पुल <strong>२२</strong>, बेली <strong>५</strong> — यो <strong>१९</strong> मा मिसाएको होइन। विद्युत् <strong>७</strong> / <strong>२७६</strong> MW — प्राधिकरण। टावर <strong>७</strong> — नेपाल टेलिकम।</li>
     </ul>
 <section id="map" class="hero-map">
   <span id="path" hidden></span>
@@ -898,8 +1013,7 @@ footer .foot-contact a:hover{text-decoration:underline}
 <section id="treat">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>घाइते उपचाररतहरूको सम्पर्क विवरण</h2></div>
   <div class="card green">
-    <p class="treat-lead">रसुवाको भोटेकोशी बाढीमा घाइते भई काठमाडौंका अस्पतालमा उपचाररत <strong>२५</strong> जना — जिल्ला प्रहरी परिसर काठमाडौंका प्रवक्ता एसपी दानबहादुर थापा। ट्रमा <strong>४</strong>, वीरेन्द्र सैनिक अस्पताल छाउनी <strong>१</strong>, टिचिङ <strong>१९</strong> (कामु नगरकोटीका साथमा तीन महिनाको शिशु सहित)। अघिल्लो २१ यो २५ बाट अद्यावधिक। रसुवा अस्पताल २४ जोड्ने होइन। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
-    <p class="treat-dsp">थापाको पछिल्लो विवरण: ट्रमामा विदुर–५ का भक्त भण्डारी, सीता भण्डारी, विवेक कुमाल र रिहाना लामिछाने; छाउनीमा गोसाइँकुण्डकी दावा डोल्मा; टिचिङमा तेजबहादुर तामाङदेखि कामु नगरकोटीसम्म — शिशु नगरकोटीका साथमा। यी तालिकाका सि.नं. <strong>१–१९</strong> सँग मिल्छन्, दोहोरिएका नाम होइनन्। सि.नं. <strong>२०–२५</strong> (प्रेमदोर्जे घले, नेमा दोर्जे घले, फुर्प लामा, रामप्रसाद थारु, सुराची राना मगर, रिता दोचा) यही २५ को बाँकी हुन्, नयाँ बिरामी होइनन्। «कार्की थपका एक पुरुष» = तालिकाको कार्की थरका पुरुष (सि.नं. ९)।</p>
+    <p class="treat-lead">प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong>। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> — टिचिङ २१, ट्रमा ७, छाउनी १, रसुवा २१, त्रिशूली १६, नर्भिक ३, ग्रीनसिटी १ (३६/२१ मा जोड्ने होइन)। तलको नामतालिका काठमाडौंको अघिल्लो सूची हो। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="treat-wrap">
     <table class="plants treat">
       <thead>
@@ -915,34 +1029,256 @@ footer .foot-contact a:hover{text-decoration:underline}
       </thead>
       <tbody>
         <tr><td>१</td><td>भक्त भण्डारी</td><td class="age">४२</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>२</td><td>सीता भण्डारी</td><td class="age">४१</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>३</td><td>विवेक कुमाल</td><td class="age">२४</td><td>विदुर–५, नुवाकोट</td><td class="phone"><a href="tel:+9779841781836">9841781836</a></td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
+        <tr><td>२</td><td>सिता भण्डारी</td><td class="age">४१</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
+        <tr><td>३</td><td>विबेक कुमाल</td><td class="age">२४</td><td>विदुर–५, नुवाकोट</td><td class="phone"><a href="tel:+9779841781836">9841781836</a></td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
         <tr><td>४</td><td>रिहाना लामिछाने</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
         <tr><td>५</td><td>दावा डोल्मा</td><td class="age">—</td><td>गोसाइँकुण्ड, रसुवा</td><td class="phone">—</td><td>—</td><td>वीरेन्द्र सैनिक अस्पताल, छाउनी</td></tr>
-        <tr><td>६</td><td>तेजबहादुर तामाङ</td><td class="age">३४</td><td>विदुर–३, नुवाकोट</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>७</td><td>पेम्वा तामाङ</td><td class="age">४८</td><td>गोसाइँकुण्ड–५, रसुवा</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>६</td><td>तेज बहादुर तामाङ</td><td class="age">३४</td><td>विदुर–३, नुवाकोट</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>७</td><td>पेम्बा तामाङ</td><td class="age">४८</td><td>गोसाइँकुण्ड–५, रसुवा</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
         <tr><td>८</td><td>कुशल मगर</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>९</td><td>कार्की थरका पुरुष</td><td class="age">४५</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१०</td><td>नामथर बताउन नसक्ने पुरुष</td><td class="age">३५</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>११</td><td>मीनबहादुर श्रेष्ठ</td><td class="age">३३</td><td>सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१२</td><td>गिरीलाल बुढाथोकी</td><td class="age">४०</td><td>सल्यान</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१३</td><td>रुपक रोका</td><td class="age">२३</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१४</td><td>सुजन बस्नेत</td><td class="age">३५</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>९</td><td>मिन बहादुर श्रेष्ठ</td><td class="age">३३</td><td>सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>१०</td><td>गिरीलाल बुढाथोकी</td><td class="age">४०</td><td>सल्यान</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>११</td><td>रुपक रोक्का</td><td class="age">२३</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>१२</td><td>सुजन बस्नेत</td><td class="age">३५</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>१३</td><td>सुशान श्रेष्ठ</td><td class="age">२३</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>१४</td><td>वल बहादुर घर्ती मगर</td><td class="age">—</td><td>जाजरकोट</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
         <tr><td>१५</td><td>अशोक श्रेष्ठ</td><td class="age">—</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१६</td><td>सुशान्त श्रेष्ठ</td><td class="age">२३</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१७</td><td>बलबहादुर घर्ती मगर</td><td class="age">—</td><td>जाजरकोट</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१८</td><td>कामु नगरकोटी</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१९</td><td>तीन महिनाको शिशु</td><td class="age">३ महिना</td><td>कामु नगरकोटीका साथमा</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>२०</td><td>प्रेमदोर्जे घले</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>२१</td><td>नेमा दोर्जे घले</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>२२</td><td>फुर्प लामा</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>२३</td><td>रामप्रसाद थारु</td><td class="age">—</td><td>जीतपुर, बर्दिया</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>२४</td><td>सुराची राना मगर</td><td class="age">—</td><td>बेत्रावती–५, रसुवा</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>२५</td><td>रिता दोचा</td><td class="age">—</td><td>चांगुनारायण–१, भक्तपुर</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>१६</td><td>कामु नगरकोटी</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>१७</td><td>प्रेम दोर्जे घले</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>१८</td><td>नेमा दोर्जे घले</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>१९</td><td>फुर्पु लामा</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>२०</td><td>राम प्रसाद थारु</td><td class="age">—</td><td>जीतपुर, बर्दिया</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>२१</td><td>सुराची राना मगर</td><td class="age">—</td><td>बेत्रावती–५, रसुवा</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>२२</td><td>रिता दोचा</td><td class="age">—</td><td>चांगुनारायण–१, भक्तपुर</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>२३</td><td>कार्की थरका पुरुष</td><td class="age">४५</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>२४</td><td>नामथर बताउन नसक्ने पुरुष</td><td class="age">३५</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>२५</td><td>तीन महिनाको शिशु</td><td class="age">३ महिना</td><td>कामु नगरकोटीका साथमा</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
       </tbody>
     </table>
     </div>
-    <p class="treat-note">स्रोत: जिल्ला प्रहरी परिसर काठमाडौं प्रवक्ता एसपी दानबहादुर थापा। नाम/ठेगाना प्रहरी विवरणअनुसार; उमेर अघिल्लो तालिकाबाट जहाँ थियो। सि.नं. १–१९ थापाको पछिल्लो बयानसँग मिल्छ; २०–२५ दोहोरिएको होइन। स्वास्थ्य प्रवक्ता: उपचार निःशुल्क, हेल्पलाइन <a href="tel:1115">1115</a>।</p>
+    <p class="treat-note">स्रोत: राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङमा उपचाररत नामसूची (२२) + प्रहरी जम्मा २५। उमेर/ठेगाना अघिल्लो प्रहरी तालिकाबाट जहाँ थियो। स्वास्थ्य प्रवक्ता: उपचार निःशुल्क, हेल्पलाइन <a href="tel:1115">1115</a>।</p>
+  </div>
+</section>
+
+<section id="family">
+  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>हराएको / भेटिएको</h2></div>
+  <div class="card">
+    <p class="fam-lead">बाढीमा हराएका वा भेटिएका व्यक्तिको विवरण पठाउनुहोस्। जाँचपछि मात्र कार्ड देखिन्छ। आपत्कालमा <a href="tel:1234">१२३४</a> वा <a href="tel:100">प्रहरी १००</a>।</p>
+    <div class="fam-actions">
+      <a class="hot" href="tel:1234">उद्धार १२३४</a>
+      <a class="miss" id="fam-miss-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform" target="_blank" rel="noopener">हराएको रिपोर्ट</a>
+      <a class="found" id="fam-found-btn" hidden href="#" target="_blank" rel="noopener">भेटियो · रिपोर्ट</a>
+    </div>
+    <p class="fam-lead">हराएको व्यक्ति भेटिएमा <strong>भेटियो</strong> थिच्नुहोस्। नाम, उमेर, स्थान र फोटो जाँचपछि मात्र कार्ड देखिन्छ। आपत्कालमा <a href="tel:1234">१२३४</a>।</p>
+    <h3 class="fam-h">नयाँ रिपोर्ट</h3>
+    <p class="treat-lead">आज साँझ थपिएका अठार विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।</p>
+    <div class="treat-wrap">
+    <table class="plants treat fam-tbl fam-new">
+      <thead>
+        <tr>
+          <th>सि.नं.</th>
+          <th>सम्पर्कविहीन / बेपत्ता</th>
+          <th>निवेदक</th>
+          <th>भेटियो</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>१</td><td>दुर्गा पोखरेल · टिमुरे, रसुवा — अध्यागमन कार्यालय · फोन <a href="tel:+9779852041460">9852041460</a></td><td class="phone">आफन्त <a href="tel:+9779810568080">9810568080</a> / <a href="tel:+9779801126625">9801126625</a> / <a href="tel:+9779842374507">9842374507</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="दुर्गा पोखरेल" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>२</td><td>नाम नखुलेको · नेपाल–तिब्बत सीमा, आज पार गर्ने तय · स्थानीय <a href="tel:+9779716078685">9716078685</a> · होटल Pasang Lhamu Highway, Shigatse 45000 · होटल <a href="tel:+9779841603450">9841603450</a></td><td class="phone">आफन्त (कजिन)</td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="नाम नखुलेको" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>३</td><td>सरोज पराजुली र दिपेश पराजुली · उमेर २३ / २२ · सिन्धुपाल्चोक, बालेफी नगरपालिका · रसुवा भन्सार कार्यालय नजिक</td><td class="phone">परिवार <a href="tel:+9779843813721">9843813721</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="सरोज पराजुली र दिपेश पराजुली" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>४</td><td>धीरेन्द्र बिष्ट · उमेर २३ / २४ · कालीकोट, नरहरिनाथ गाउँपालिका · रसुवा प्रोजेक्ट हाइड्रोपावर ड्याम · बिहान ९ बजे</td><td class="phone">परिवार <a href="tel:+9779868905326">9868905326</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="धीरेन्द्र बिष्ट" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>५</td><td>धर्मराज रिमाल · उमेर ३५ · नुवाकोट · टिमुरे · बिहान ९:००</td><td class="phone">परिवार <a href="tel:+9779865401859">9865401859</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="धर्मराज रिमाल" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>६</td><td>प्रकाश पौडेल · उमेर ३५ · रसुवा · रसुवागढी · ८:३० · रसुवागढी क्षेत्रमा खोज्न अनुरोध</td><td class="phone">परिवार <a href="tel:+9779768978274">9768978274</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="प्रकाश पौडेल" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>७</td><td>अजय प्रसाद सिंह · उमेर करिब ३१ · जनकपुर · Doosan Hydropower (216 MW Upper Trishuli) · रसुवा बाढी क्षेत्र</td><td class="phone">श्रीमती पुजा साह <a href="tel:+9779803647230">9803647230</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="अजय प्रसाद सिंह" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>८</td><td>ईश्वरी तिमल्सिना / तुलसी प्रसाद तिमल्सिना · उमेर ५३ / ६० · धादिङ · बेत्रावती</td><td class="phone">परिवार <a href="tel:+9779840286667">9840286667</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="ईश्वरी तिमल्सिना / तुलसी प्रसाद तिमल्सिना" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>९</td><td>प्रदीप श्रेष्ठ · उमेर ३९ · तातोपानी · फोन <a href="tel:+9779849993245">9849993245</a></td><td class="phone">—</td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="प्रदीप श्रेष्ठ" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१०</td><td>सुबोध बेल्बासे · उमेर २६–२७ · रुपन्देही · 3B</td><td class="phone">सम्पर्क <a href="tel:+9779857036809">9857036809</a> / <a href="tel:+9779866153617">9866153617</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="सुबोध बेल्बासे" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>११</td><td>सृष्टि बास्तोला</td><td class="phone"><a href="tel:+9779763259152">9763259152</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="सृष्टि बास्तोला" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१२</td><td>समिर पौडेल</td><td class="phone"><a href="tel:+9779863294460">9863294460</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="समिर पौडेल" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१३</td><td>शिशिर गिरी · काठमाडौं विश्वविद्यालय सिभिल · UT-3B इन्टर्नशिप</td><td class="phone"><a href="tel:+9779848029098">9848029098</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="शिशिर गिरी" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१४</td><td>लुक बहादुर केसी · उमेर ५०+ · कलंकी, भैसे</td><td class="phone"><a href="tel:+9779849441746">9849441746</a> / <a href="tel:+9779867182568">9867182568</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="लुक बहादुर केसी" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१५</td><td>अनुज हरि नेपाल · उमेर २७ · दोलखा · माछापुच्छ्रे बैंक, टिमुरे</td><td class="phone"><a href="tel:+9779851343739">9851343739</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="अनुज हरि नेपाल" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१६</td><td>प्रकाश पौडेल · उमेर ३६ · कालिका–५, जिबजबे · टिमुरे</td><td class="phone"><a href="tel:+9779818983454">9818983454</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="प्रकाश पौडेल" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१७</td><td>सुभद्रा न्यौपाने · सानिमा बैंक, टिमुरे · दिउँसो ३:३०</td><td class="phone">दाजु समिर न्यौपाने</td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="सुभद्रा न्यौपाने" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१८</td><td>गोविन्द प्रसाद भण्डारी · तुप्चे ७, विदुर</td><td class="phone"><a href="tel:+9779840683361">9840683361</a> / 860798162</td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="गोविन्द प्रसाद भण्डारी" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3 class="fam-h">हेलो सरकार · राती ८:१०</h3>
+    <p class="treat-lead">फोनमार्फत टिपिएका सम्पर्कविहीन तथा बेपत्ता <strong>१४०</strong> विवरण। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
+    <div class="pager" data-pager="hello-sarkar">
+      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+      <div class="pboxes pager-pages"></div>
+      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+      <span class="pcount pager-count"></span>
+    </div>
+    <div class="treat-wrap">
+    <table class="plants treat fam-tbl">
+      <thead>
+        <tr>
+          <th>सि.नं.</th>
+          <th>सम्पर्कविहीन / बेपत्ता</th>
+          <th>निवेदक</th>
+        </tr>
+      </thead>
+      <tbody id="hello-sarkar-body">
+        <tr><td>१</td><td>निलसोभा देउला गोसाइकुण्ड <a href="tel:+9779860888157">9860888157</a></td><td class="phone">—</td></tr>
+        <tr><td>२</td><td>सिला कुँवर <a href="tel:+9779861727493">9861727493</a></td><td class="phone">—</td></tr>
+        <tr><td>३</td><td>राजु श्रेष्ठ बजारमा पसल रहेको</td><td class="phone">—</td></tr>
+        <tr><td>४</td><td>पावर हाउसमा</td><td class="phone">—</td></tr>
+        <tr><td>५</td><td>शम्भु बस्नेत</td><td class="phone">टिमुरे बजारदेखि १५ मिनेट तलको स्थानमा रहनुभएको थियो सम्पर्क बिहिन हुनुभएको</td></tr>
+        <tr><td>६</td><td>प्रकाश न्यौपाने र सुशिला न्यौपाने टिमुरे बजारमा पसल रहेको <a href="tel:+9779840260018">9840260018</a></td><td class="phone">सुशिल पुडासैनी <a href="tel:+9779767230522">9767230522</a> निवेदक</td></tr>
+        <tr><td>७</td><td>गोरखाबाट गोसाइकुण्ड गएको बस सम्पर्क बिहिन</td><td class="phone">—</td></tr>
+        <tr><td>८</td><td>सुशिला न्यौपाने प्रकाश न्यौपाने न्यू कालिका किराना पसल <a href="tel:+9779841001152">9841001152</a> / <a href="tel:+9779840260018">9840260018</a> /</td><td class="phone">दिदी प्रकृति न्यौपाने <a href="tel:+9779761526196">9761526196</a></td></tr>
+        <tr><td>९</td><td><a href="tel:+9779843508031">9843508031</a> सुवास घिमिरे 13 जना मानिस हुनुहुन्छ</td><td class="phone">दिदी प्रकृति न्यौपाने <a href="tel:+9779761526196">9761526196</a></td></tr>
+        <tr><td>१०</td><td>भन्सारका कर्मचारी चण्डिलाल गेलाल नायब सुब्बा <a href="tel:+9779862655606">9862655606</a> सम्पर्क बिहिन भएको।</td><td class="phone">कृष्ण सापकोटा <a href="tel:+9779832058765">9832058765</a></td></tr>
+        <tr><td>११</td><td>राजु थापा बसचालक टिमुरेमा सम्पर्क रहेको तर हाल सम्पर्क विहिन भएको <a href="tel:+9779851143547">9851143547</a></td><td class="phone">गीता थापा रोहित थापा <a href="tel:+9779868767066">9868767066</a></td></tr>
+        <tr><td>१२</td><td><a href="tel:+9779860235608">9860235608</a> निमा नोर्बु घट्टेखोलाबाट सम्पर्क बिहीन</td><td class="phone">आकृति <a href="tel:+9779840681234">9840681234</a></td></tr>
+        <tr><td>१३</td><td>रसुवा हाइड्रोमा कार्यरत सुरेन्द्र विष्ट <a href="tel:+9779841463588">9841463588</a></td><td class="phone"><a href="tel:+9779841545440">9841545440</a> गणेश विष्ट</td></tr>
+        <tr><td>१४</td><td>जि मोटर्स प्रालिका कर्मचारीहरू भोजराज अधिकारीसमेत २ जना <a href="tel:+9779852062017">9852062017</a> सम्पर्क विहिन रहेको</td><td class="phone">कैलाश बाबु गेलाल <a href="tel:+9779851350505">9851350505</a></td></tr>
+        <tr><td>१५</td><td>मलेसियन नागरिक <a href="tel:+60122098044">+60122098044</a> (ह्वाटसएप)करून सुन्दरम टिमुरेको लास्ट चेकपोस्टको घुम्ती नजिक ८:१८ मा सम्पर्कमा रहेको तर हाल सम्पर्क विहीन भएको</td><td class="phone">—</td></tr>
+        <tr><td>१६</td><td>रामचन्द्र विश्‍वकर्मा टिमुरे माविमा कार्यरत <a href="tel:+9779851255797">9851255797</a></td><td class="phone"><a href="tel:+9779863483284">9863483284</a> आयुष विश्‍वकर्मा</td></tr>
+        <tr><td>१७</td><td>निमबहादुर श्रेष्ठ <a href="tel:+9779860694702">9860694702</a> बोर्डर एरियाबाट सम्पर्कविहिन भएको</td><td class="phone">उमा श्रेष्ठ <a href="tel:+9779840227986">9840227986</a></td></tr>
+        <tr><td>१८</td><td>कालिका गाउँपालिका वेत्तावति आसपास सुधा रिमाल <a href="tel:+9779840681818">9840681818</a> समेत परिवारका ४ जना बेपत्ता हुनुभएको</td><td class="phone"><a href="tel:+9779849512600">9849512600</a> सुरेश न्यौपाने</td></tr>
+        <tr><td>१९</td><td>याङ दोर्जे <a href="tel:+9779864048575">9864048575</a> स्याफ्रुबेसी र टिमुरेकोबिच क्षेत्रबाट सम्पर्कबिहिन भएको।</td><td class="phone"><a href="tel:+9779851321832">9851321832</a> सोभित तामाङ</td></tr>
+        <tr><td>२०</td><td>हरि सिजुवाल र बिन्दा सिजुवालसमेत 20 जना चढेको बस सम्पर्क बिहिन रहेको <a href="tel:+9779803807222">9803807222</a></td><td class="phone">सन्दिप सिजुवाल <a href="tel:+9779861367926">9861367926</a></td></tr>
+        <tr><td>२१</td><td>गंगा थोक्रा, प्रमिला लोप्चन र अन्जु लोप्चन स्याफ्रुबेसीदेखि सम्पर्कबिहिन रहेको <a href="tel:+9779803611101">9803611101</a></td><td class="phone">जीवन तामाङ <a href="tel:+9779863883980">9863883980</a></td></tr>
+        <tr><td>२२</td><td>बुद्धरत्न घलान <a href="tel:+9779849967099">9849967099</a> रसुवा र चाइनाको बोर्डरमा हुनुहुन्थ्यो। हाल सम्पर्क विहीन हुनुभएको।</td><td class="phone">सुस्मिता मोत्तान <a href="tel:+9779861291806">9861291806</a></td></tr>
+        <tr><td>२३</td><td>रामशरण नेपाल स्याफ्रुबेसी बा प्र 01-034 च 4073 नं. को स्कर्पियो <a href="tel:+9779841394815">9841394815</a></td><td class="phone">प्रल्हाद केसी <a href="tel:+9779851139912">9851139912</a></td></tr>
+        <tr><td>२४</td><td>निरजकुमार कुसवाहासमेत २ जना ना ७ ख ११७६ नं. को कन्टेनर गाडिमा रसुवा भन्सारको निस्कने गेटमा रहेको <a href="tel:+9779716857919">9716857919</a> / <a href="tel:+9779820641260">9820641260</a></td><td class="phone">इश्वर फुयाल <a href="tel:+9779865390210">9865390210</a></td></tr>
+        <tr><td>२५</td><td>रसुवा २१६ हाइड्रोपावर खोलाले पुरै पुरेको खोला हाल घटेको सुरूङमार्गबाट २ जना बाहिर निस्केर बसिरहेको सुरूङ भित्र धेरैजनालाई उद्दार गर्नुपर्ने।</td><td class="phone">सुरूङमार्गकै अगाडि बसिरहेको <a href="tel:+9779862749033">9862749033</a> मिलन तामाङ<a href="tel:+9779848463128">9848463128</a> मेलिसा तामाङ</td></tr>
+        <tr><td>२६</td><td>कृष्णकुमार खड्का <a href="tel:+9779841583762">9841583762</a> ३बि मैलुङबाट सम्पर्क बिहिन भएको।</td><td class="phone">हरिशरण खड्का <a href="tel:+9779808369069">9808369069</a></td></tr>
+        <tr><td>२७</td><td>प्रहरी दिपेश भण्डारी <a href="tel:+9779869287663">9869287663</a> प्रहरी कार्यालयमै हुनुहुन्थ्यो सम्पर्क विहिन हुनुभएको</td><td class="phone">प्रमोद विष्ट <a href="tel:+9779847043145">9847043145</a></td></tr>
+        <tr><td>२८</td><td>वेत्तावति क्षेत्रमा महेश डंगोल नामको व्यक्ति हाल घाइते अवस्थामा हुनुहुन्छ <a href="tel:+9779861608868">9861608868</a> दिक्षा लाई सम्पर्क गरी उद्दार गर्नुपर्ने निजको सम्पर्क नं. लागिरहेको</td><td class="phone">—</td></tr>
+        <tr><td>२९</td><td>लाक्पा छिरिङ तामाङ <a href="tel:+9779865985233">9865985233</a> सुरूङ भित्र फसेको</td><td class="phone">क्रिति तामाङ <a href="tel:+9779717128464">9717128464</a></td></tr>
+        <tr><td>३०</td><td>नुवाकोट हावाघर बटार बजारमा रहनुभएका लोकनाथ अर्याल <a href="tel:+9779849189648">9849189648</a> उद्दारको आवश्‍यकता नरहेको तर घरमा चोरी हुनसक्ने सम्भावना रहेको।</td><td class="phone">लोकनाथ अर्याल <a href="tel:+9779849189648">9849189648</a></td></tr>
+        <tr><td>३१</td><td>महेश्वर महर्जन <a href="tel:+9779841658178">9841658178</a> लगायत १० जना अपर त्रिशुलि मैलुङ दोभानदेखि माथितिर चढ्नुभएको छ। निजहरूलाई उद्दारको आवश्‍यकता छ।</td><td class="phone">सुदिप नेपाल <a href="tel:+9779851182623">9851182623</a></td></tr>
+        <tr><td>३२</td><td>रसुवाको हाइड्रोपावरमा इन्जिनियर सचिन गौतम <a href="tel:+9779861499688">9861499688</a> सम्पर्कबिहिन भएको।</td><td class="phone">प्रकाश अधिकारी <a href="tel:+9779840122213">9840122213</a></td></tr>
+        <tr><td>३३</td><td>रसुवा २१६ हाइड्रोपावर खोलाले पुरै पुरेको खोला हाल घटेको सुरूङमार्गबाट ६ जना बाहिर निस्केर बसिरहेको सुरूङ भित्र धेरैजनालाई उद्दार गर्नुपर्ने।</td><td class="phone"><a href="tel:+9779862749033">9862749033</a> मिलन तामाङ</td></tr>
+        <tr><td>३४</td><td>Treekers society सचिन अधिकारी <a href="tel:+9779766885418">9766885418</a> सम्पर्कबिहिन भएको।</td><td class="phone"><a href="tel:+9779767199720">9767199720</a> अनु लम्साल</td></tr>
+        <tr><td>३५</td><td>सकुन्तला गुरूङ कमल घले किस्पाङ गाउँपालिका <a href="tel:+9779841698301">9841698301</a> सम्पर्क बिहिन भएको।</td><td class="phone">पुजा गुरूङ <a href="tel:+9779861581747">9861581747</a></td></tr>
+        <tr><td>३६</td><td>रसुवाको मैलुङमा प्रहरी दुर्गाबहादुर मगर समेत 2 जना <a href="tel:+9779868329173">9868329173</a> लाई उद्दार गर्नुपर्ने।</td><td class="phone">निरमाया मगर <a href="tel:+9779861032268">9861032268</a></td></tr>
+        <tr><td>३७</td><td>धावन जो लामा <a href="tel:+9779860622909">9860622909</a>, भक्ति श्रेष्ठ <a href="tel:+9779843092039">9843092039</a> तेन्सान तामाङ र राजन श्रेष्ठ । रसुवामा</td><td class="phone">सविन श्रेष्ठ <a href="tel:+9779706728141">9706728141</a></td></tr>
+        <tr><td>३८</td><td>रेशम श्रेष्ठ <a href="tel:+9779841008822">9841008822</a> टिमुरे भन्सारमा कामको लागि जाँदा पौने ९ देखि सम्पर्कबिहिन भएको।</td><td class="phone">सुरेश श्रेष्ठ <a href="tel:+9779849721324">9849721324</a></td></tr>
+        <tr><td>३९</td><td>दोर्जे तामाङ बिहान साढे सातदेखि सम्पर्कबिहिन गाडि नं. 5862</td><td class="phone">सुनिता भट्टराई <a href="tel:+9779840569738">9840569738</a></td></tr>
+        <tr><td>४०</td><td>मैलुङ सेनाको चेकपोष्टबाट ५०० मिटर तल ५ जना पुरूषोत्तम अधिकारी, धर्मविर झा, डिल्लीबहादुर चौधरी, रविन्द्र हमाल, युवराज पोखरेल लाई हेलिकप्टरबाट उद्दार गर्नुपर्ने। <a href="tel:+9779843646563">9843646563</a></td><td class="phone">—</td></tr>
+        <tr><td>४१</td><td>पुरन सिं धामी, उमेश धामी, प्रेम जोशी, दिनेश धामी <a href="tel:+9779840180700">9840180700</a> रसुवागढी स्याफ्रुबेसीबाट सम्पर्कबिहिन भएको</td><td class="phone">राजु जोशी <a href="tel:+9779848581390">9848581390</a></td></tr>
+        <tr><td>४२</td><td>विनोद पाण्डे हाइड्रोपावरको कर्मचारी सम्पर्क बिहिन भएको।</td><td class="phone">नेहा <a href="tel:+9779848783952">9848783952</a></td></tr>
+        <tr><td>४३</td><td>स्वाबलम्बन विकास लघुवित्तमा कार्यरत कर्मचारी किरण थापा वेत्तावतीबाट सम्पर्कबिहिन भएको।</td><td class="phone">निराजन थापा<a href="tel:+9779840072863">9840072863</a></td></tr>
+        <tr><td>४४</td><td>सुरेन्द्र विष्ट टिमुरे र स्याफ्रुबेसीको बीचमा क्याम्पमा कार्यरत मानिस सम्पर्कबिहिन भएको।</td><td class="phone"><a href="tel:+9779860663601">9860663601</a></td></tr>
+        <tr><td>४५</td><td>हिमानसिंह तामाङ <a href="tel:+9779840441605">9840441605</a> नेपाल निमावि स्कुल टिमुरेमा पढाउने शिक्षक सम्पर्कबिहिन हुनुभएको।</td><td class="phone"><a href="tel:+9779840821078">9840821078</a> लिलिमन तामाङ</td></tr>
+        <tr><td>४६</td><td>साइनो हाइड्रोपावरमा कार्यरत उमेश धामी <a href="tel:+9779863297642">9863297642</a> सम्पर्कबिहिन हुनुभएको।</td><td class="phone">प्रिति धामी <a href="tel:+9779862466351">9862466351</a></td></tr>
+        <tr><td>४७</td><td>कपिल ज्ञवाली <a href="tel:+9779841298740">9841298740</a> त्रिशुली हाइड्रोमा कार्यरत मानिस सम्पर्कबिहिन भएको।</td><td class="phone"><a href="tel:+9779841282521">9841282521</a> कमला पन्थी मामा</td></tr>
+        <tr><td>४८</td><td>गोपाल थामी <a href="tel:+9779765561734">9765561734</a> टिमुरे हाइड्रोमा कार्यरत कर्मचारी हरि थामी <a href="tel:+9779769200445">9769200445</a></td><td class="phone">राजन श्रेष्ठ <a href="tel:+9779849227122">9849227122</a></td></tr>
+        <tr><td>४९</td><td>निशु साह सिभिल इन्जिनियर <a href="tel:+9779763362409">9763362409</a> रसुवा हाइड्रोपावर</td><td class="phone">रूद्रकुमार साहको भान्जी <a href="tel:+9779863970546">9863970546</a></td></tr>
+        <tr><td>५०</td><td>नेपाल प्रहरी सम्राट शेर्पा <a href="tel:+9779747249437">9747249437</a> रसुवागढीबाट सम्पर्कविहिन भएको।</td><td class="phone">निमर शेर्पा <a href="tel:+9779746468931">9746468931</a></td></tr>
+        <tr><td>५१</td><td>दलाई लामा, जयन्ती तामाङ <a href="tel:+9779860056036">9860056036</a> स्याफ्रुबेसी बजारबाट सम्पर्कबिहिन भएको।</td><td class="phone">रक्षतबहादुर गुरूङ <a href="tel:+9779818828536">9818828536</a></td></tr>
+        <tr><td>५२</td><td>सत्य जैशी / विरेन्द्रप्रसाद जैसी घट्टेखोलातर्फ जाँदै गरेको क्रममा सम्पर्कबिहिन हुनुभएको। <a href="tel:+9779867941314">9867941314</a></td><td class="phone">सन्तोष जोशी <a href="tel:+9779860792939">9860792939</a></td></tr>
+        <tr><td>५३</td><td>गुनासोकर्ता-हरि प्रसाद अवस्थी (<a href="tel:+9779851380652">9851380652</a>)- रसुवा भन्सारमा कार्यरत नरेश दत्त जोशी विहान देखि सम्पर्कम नरहेकोले खोजिको लागि पहल गरिदिन आग्रह</td><td class="phone">—</td></tr>
+        <tr><td>५४</td><td>गुनासोकर्ता-ईश्वर जंग हमाल (<a href="tel:+9779764821218">9764821218</a>)- भोटेकोशी चेकपोष्टमा कार्यरत नेपाल आर्मी नरेन्द्र वहादुर शाही (<a href="tel:+9779713282952">9713282952</a>1/<a href="tel:+9779840602904">9840602904</a>) विहान देखि सम्पर्कम नरहेकोले खोजिको लागि पहल गरिदिन आग्रह</td><td class="phone">—</td></tr>
+        <tr><td>५५</td><td>गुनासोकर्ता-मनोज कार्की (<a href="tel:+9779842152849">9842152849</a>)-ईटहरी भोटेकोशीमा कार्यरत विराटचोक मोरङका सूर्यवहादुर कार्की (<a href="tel:+9779828857033">9828857033</a>) र झापाको कुल वहादुर कार्की (<a href="tel:+9779842156486">9842156486</a>) विहानदेखि सम्पर्क विहिन भएकोल् खोजि गरिदिन आग्रह</td><td class="phone">—</td></tr>
+        <tr><td>५६</td><td>गुनासो कर्ता - भिम ब. लामाको श्रीमती (<a href="tel:+9779861190914">9861190914</a>)--- रसुवा भन्सारमा कार्यरत मेरा श्रीमान भिम बहादुर लामा विहानदेखि सम्पर्कमा नरहेको .... कुरा पुरा गर्न नसकी कल काटेकोले भिम वहादुर लामाको नम्वर लिन नसकिएको</td><td class="phone">—</td></tr>
+        <tr><td>५७</td><td>गुनासोकर्ता रिता कटुवाल -<a href="tel:+9779841751189">9841751189</a>  अपर त्रिशुली -1 मेलुङमा कार्यरत ईन्जिनियर सौभाग्य विष्ट (<a href="tel:+9779840523068">9840523068</a>) विहान देखि सम्पर्क विहिन रहेकोले खोजी कार्य गरिदिन आग्रह</td><td class="phone">—</td></tr>
+        <tr><td>५८</td><td>बाबुराम पाण्डे- <a href="tel:+9779842995024">9842995024</a>----- चिलिमे हाईड्रोपावरमा कार्यरत सिभिल ईन्जिनियर सन्तोष पाण्डे विहान देखि सम्पर्क विहिन रहेको ले खोजि कार्य गरिदिन आग्रह साथै चिलिमे हाईड्रो पावरको टनेलमा ८ जना मानिस उद्दारको पर्खाईमा रहेको अस्पष्ट जानकारी आएको</td><td class="phone">—</td></tr>
+        <tr><td>५९</td><td>रुपन्देही बाट गोसाइँकुण्ड हिडेको टोलिका २० जना सदश्य त्रिशुलि, जफति, ठुलो आँपको रुख भन्ने स्थानमा उद्दारको पर्खाईमा । सम्पर्क: <a href="tel:+9779857026202">9857026202</a> प्रेम पौडेल</td><td class="phone">—</td></tr>
+        <tr><td>६०</td><td>मन्जु तामाङ <a href="tel:+9779865459598">9865459598</a>-उतरगाई गा.पा. रसुवा खाल्डेवाट मेरो दाई हर्कमान तामाङ संगिता तामाङ विनामाया तामाङ सत्तिमाया तामाङ सलिन तामाङ र अनुषा तामाङ सम्पर्क बाहिर रहेको</td><td class="phone">—</td></tr>
+        <tr><td>६१</td><td>अर्विन थापा--गोर्खा - रसुवा भाबना ईन्टरप्राईजेज स्याफ्रुवेशी रसुवामा कार्यरत सिसान्त थापा भनिने पुकार थापा (रोङ्गा पुलमा डोजर अपरेटरको काम गर्ने) सहित ११ जना विहान देखि सम्पर्कमा नरहेकोले खोजि गरिदिन आग्रह</td><td class="phone">—</td></tr>
+        <tr><td>६२</td><td>प्रदेश ०३-००१ क ३८१५ को ट्रक लिएर रसुवा पुगेका चालक सुनिलमान डंगोल (<a href="tel:+9779865414713">9865414713</a>) विहान देखि सम्पर्कमा नरहेकोले खोजि दिन आग्रह</td><td class="phone"><a href="tel:+9779814245890">9814245890</a> अर्जुन श्रेष्ठ</td></tr>
+        <tr><td>६३</td><td>रमित गुभाजु <a href="tel:+9779851077831">9851077831</a> टिमुरे भन्सार भन्दा मास्तिर चौरमा म सहित 50 जना उद्दारको पर्खाईमा रहेको जानकारी प्राप्त । तुरुन्त उद्दार गर्नु पर्यो</td><td class="phone">—</td></tr>
+        <tr><td>६४</td><td>सुस्मी तामाङ {<a href="tel:+9779763482590">9763482590</a>} ले नौकुण्डा ४ मा रहेको परिवारसगँ कुरा हुन नसकेको।</td><td class="phone">—</td></tr>
+        <tr><td>६५</td><td>टिमुरेमा रहेका भाईबुहारी र छोरा काम गरेर बस्थे, <a href="tel:+9779847815409">9847815409</a> मा फोन नम्बरमा फोन लागेन। 8.10 मा जिल्ला प्रशासन गएका थिए।</td><td class="phone">—</td></tr>
+        <tr><td>६६</td><td>अन्सु कार्की {९८६३१८४४४४}  गोसाइकुण्डा घुम्ना गएको दिदिदाजु कृष्ण सरसवती अधिकारीलाई फोन नलागेको ९८६९१२४५३०</td><td class="phone">—</td></tr>
+        <tr><td>६७</td><td>गणेश जैसीसमेत २ जना <a href="tel:+9779842358235">9842358235</a> टिमुरेबाट सम्पर्कबिहिन भएको।</td><td class="phone">सुनिता रोकाया <a href="tel:+9779866208129">9866208129</a></td></tr>
+        <tr><td>६८</td><td>मिसर क्षेत्री २ जना बच्चा सहित रसुवा उत्तरगंगा गाउँपालिकाबाट सम्पर्कबिहिन भएको ।</td><td class="phone">अञ्दु लाल <a href="tel:+9779744336089">9744336089</a></td></tr>
+        <tr><td>६९</td><td>धनराज जोशी <a href="tel:+9779868209710">9868209710</a> भन्सार कार्यालयको  ड्राइभर सम्पर्कमा नरहेको।</td><td class="phone"><a href="tel:+9779845442551">9845442551</a></td></tr>
+        <tr><td>७०</td><td>पुर्ण सिंह धामी, बैतडीको चाइना 8 कम्पनी, धुङ्गचे मा काम गर्ने अहिले सम्म सम्पर्कमा हुनु हुन्न।</td><td class="phone"><a href="tel:+9779749497818">9749497818</a></td></tr>
+        <tr><td>७१</td><td>तिलक वि.क. समे्त ६ जना दाङ्ग घर भएको टिम्मुरेमा काम गर्ने व्यक्तीहरु सम्पर्कमा नरहेको।</td><td class="phone">श्रोतः <a href="tel:+9779829339045">9829339045</a></td></tr>
+        <tr><td>७२</td><td>सोभाराम योगी, दाङ्ग को मान्छे फेवा हाइड्रोपावरमा काम गर्ने व्यक्ती सम्पर्कमा नरहेकोले।</td><td class="phone">श्रोतः <a href="tel:+9779843685478">9843685478</a></td></tr>
+        <tr><td>७३</td><td>रुपेश बस्नेत, गाडीमा काम गर्ने आज फर्कनु पर्ने गाडी हो ड्राइभरको पनि सम्पर्क छैनः</td><td class="phone">श्रोतः <a href="tel:+9779762267237">9762267237</a></td></tr>
+        <tr><td>७४</td><td>रमेश कुमार यादव, रसुवा हाइड्रो ३ए मा इन्जिनियर सम्पर्कमा हुनु हुन्न ७/८ घन्टा भयो।</td><td class="phone">श्रोतः <a href="tel:+9779814250852">9814250852</a></td></tr>
+        <tr><td>७५</td><td>कृष्ण खत्री (male) trishuli hydropower</td><td class="phone">source <a href="tel:+9779867099892">9867099892</a></td></tr>
+        <tr><td>७६</td><td>Rajesh sharma (<a href="tel:+9779851145063">9851145063</a>), Pramila pathak woriking at Trishuli 3B quarter. along with 2 childrens .</td><td class="phone">source <a href="tel:+9779851145063">9851145063</a></td></tr>
+        <tr><td>७७</td><td>mankala sanjel, rishi sanjel, sushmita jaishi (-tikapur) , from timure, woriking at parking</td><td class="phone">source <a href="tel:+9779747672481">9747672481</a></td></tr>
+        <tr><td>७८</td><td>Anil bista from kalikot, Trishuli hyropower 3b</td><td class="phone">source <a href="tel:+9779869223701">9869223701</a></td></tr>
+        <tr><td>७९</td><td>Dilip Tamang, Ashok Tamang and Keshav tamang from Nuwakot. at Ghattekhola</td><td class="phone">source <a href="tel:+9779762785492">9762785492</a></td></tr>
+        <tr><td>८०</td><td>हरि खड्का - नासु टिमुरे भन्सार कार्यालय</td><td class="phone"><a href="tel:+9779868286622">9868286622</a></td></tr>
+        <tr><td>८१</td><td>राजु ओली - इलेक्ट्रिसियन काठमाडौं:</td><td class="phone">९८४१४२१८६६</td></tr>
+        <tr><td>८२</td><td>सुभाष तिमल्सिना- काठमाडौँ काँडाघारी</td><td class="phone">९८६६४१५२७५</td></tr>
+        <tr><td>८३</td><td>राजकुमार पराजुली - सिल्क कम्पनी भन्सार एजेन्ट</td><td class="phone">९८५१३३८७१९</td></tr>
+        <tr><td>८४</td><td>प्रवीण खड्का- केरुङ नाकाको गाडीचालक</td><td class="phone">—</td></tr>
+        <tr><td>८५</td><td>अन्जय तामाङ</td><td class="phone">—</td></tr>
+        <tr><td>८६</td><td>सुभाष तिमल्सिना</td><td class="phone">—</td></tr>
+        <tr><td>८७</td><td>यादव भण्डारी अधिकृत- अध्यागमन कार्यालय</td><td class="phone">—</td></tr>
+        <tr><td>८८</td><td>बुद्ध रत्न घलान,सुर्य घलान । सवारी चालक गाडी चाइनामा भएको चालक होटलमा बास बसेको , अन्तिम पटक सम्पर्कः हिजो बेलुका <a href="tel:+9779849967199">9849967199</a></td><td class="phone">सम्पर्क व्यक्तिः सुस्मिता मोक्तान <a href="tel:+9779811879538">9811879538</a> हेटौडा</td></tr>
+        <tr><td>८९</td><td>अच्युत भन्डारी, <a href="tel:+9779849414999">9849414999</a>, बिहान ७ बजेसम्म सम्पर्कमा रहेको</td><td class="phone">सुजन थापाः <a href="tel:+9779851284122">9851284122</a></td></tr>
+        <tr><td>९०</td><td>भोटेकोशी, तातोपानि स्थायी निवासी पदम बहादुर मगर <a href="tel:+9779851053818">9851053818</a>   १५ दिन देखि बसेको घट्टेखोलाहिजो बेलुका ९ बजे सम्पर्क भएको</td><td class="phone">गंगा बहादुर खड्का <a href="tel:+9779713498070">9713498070</a></td></tr>
+        <tr><td>९१</td><td>सुरज डङ्गोल र आहाना डङ्गोल बेत्रावती <a href="tel:+9779860486008">9860486008</a> बिहानै देखी सम्पर्क नभएको।</td><td class="phone">सन्देश पौडेलः <a href="tel:+9779840234806">9840234806</a></td></tr>
+        <tr><td>९२</td><td>राम भट्ट, सुमित्रा भट्ट -<a href="tel:+9779841001154">9841001154</a> - गोसाईकुन्ड भ्रमणका लागि अर्चले शान्तिबजारबाट निस्किएकोहाल सम्पर्क बिहीन</td><td class="phone">सम्पर्क व्यक्ति- सुसील पुडासैनी <a href="tel:+9779767230522">9767230522</a></td></tr>
+        <tr><td>९३</td><td>शोभा घिमिरे -<a href="tel:+9779762289966">9762289966</a>, बेत्रावती, बिहान देखी नै सम्पर्क नभएकोकौशिला रिजाल घिमिरे- <a href="tel:+9779862368832">9862368832</a>राजु घिमिरे</td><td class="phone">सम्पर्क व्यक्तिः सन्देश पौडेलः <a href="tel:+9779840234806">9840234806</a></td></tr>
+        <tr><td>९४</td><td>दुर्गा भट्टराई लगायत जम्मा १६ जनाको टिम मानसरोवर जाँदै गरेको बिहान 7ः45 पछि सम्पर्क हुन नसकेको।</td><td class="phone">सम्पर्क व्यक्तिः मोनिका भट्टराई <a href="tel:+9779863719566">9863719566</a> बालाजु</td></tr>
+        <tr><td>९५</td><td>केशब विष्ट <a href="tel:+9779865882073">9865882073</a> लाङटाङ खोला हाइड्रोपावरमा कार्यरत इलेक्ट्रिकल ओभरसियर</td><td class="phone">सम्पर्क व्यक्तिः दिपक विष्ट काठमाडौ <a href="tel:+9779865630427">9865630427</a></td></tr>
+        <tr><td>९६</td><td>दिवानन्द सुवेदी <a href="tel:+9779860492730">9860492730</a> रसुवा काठमाडौ सवारी चालक</td><td class="phone">सम्पर्क व्यक्तिः दास प्रसाद सुवेदी <a href="tel:+9779810466816">9810466816</a></td></tr>
+        <tr><td>९७</td><td>निमा डोल्मा तामाङ, पसङ ठिमो स्याफ्रु, सान्त ठिमो- <a href="tel:+9779861158609">9861158609</a> टिमुरे</td><td class="phone">सम्पर्कः फुर्पा तामाङ <a href="tel:+9779769407965">9769407965</a></td></tr>
+        <tr><td>९८</td><td>मनिकला राना, स्थायी निवासी- अर्घखाँची 974722489/<a href="tel:+9779822801584">9822801584</a> टिमुरे थकाली होटल</td><td class="phone">सम्पर्क व्यक्तिः थाम बहादुर सोमै <a href="tel:+9779864440041">9864440041</a></td></tr>
+        <tr><td>९९</td><td>सरिता मल्ल, २ महिनाको बच्चा र बच्चा हेरालु दुर्गा शाही <a href="tel:+9779868357869">9868357869</a> - अस्पताल कर्मचारी</td><td class="phone">सम्पर्क व्यक्तिः काठमाडौः शोभा शाही <a href="tel:+9779769252834">9769252834</a></td></tr>
+        <tr><td>१००</td><td>राजु श्रेष्ठ सिन्धुपाल्चोक - टिमुरे <a href="tel:+9779843251655">9843251655</a></td><td class="phone">सम्पर्क व्यक्तिः सन्दिप जंग थापा (सिन्धुपाल्चोक)</td></tr>
+        <tr><td>१०१</td><td>टिमुरे घट्टेखोलामा सम्पर्क बिहिनः रसुवागढी हाइड्रोको कर्मचारी लाक्पा तामाङ, बेचेन तामाङ, कर्मा तामाङ, ड्राईभरहरू बिजय, खुसाङ-<a href="tel:+9779861149137">9861149137</a></td><td class="phone">सम्पर्क व्यक्तिः केसाङ तामाङ <a href="tel:+9779744708579">9744708579</a></td></tr>
+        <tr><td>१०२</td><td>बुद्धि बहादुर गुरुङ (हेटौडा) सहित अरू ट्रक लगेर १ हप्तादेखी सामान अनलोड गर्न गएको <a href="tel:+9779841775418">9841775418</a> बिहान 8ः56 सम्म सम्पर्क भएको रसुवा बोर्डरमा फर्किने क्रममा। हाल सम्पर्क बिहिन</td><td class="phone">सम्पर्क व्यक्तिः विष्णु माया गुरुङ, काठमाडौं</td></tr>
+        <tr><td>१०३</td><td>सम्पर्क बिहीन आयुष खड्का, सल्यान। प्लान्ट क्वारेन्टाइन कार्यालय खरिदार, <a href="tel:+9779845556900">9845556900</a></td><td class="phone">सम्पर्क व्यक्तिः मिना बस्नेतः <a href="tel:+9779761061680">9761061680</a></td></tr>
+        <tr><td>१०४</td><td>सम्पर्क बिहिनः पदम बहादुर घर्ति मगर, टिमुरे</td><td class="phone">सम्पर्क व्यक्तिः मान बहादुर घर्ति मगर, बाजुरा <a href="tel:+9779858322064">9858322064</a></td></tr>
+        <tr><td>१०५</td><td>सम्पर्क बिहिन सिन्धुपाल्चोक, त्रिपुरासुन्दरीका देवेन्द्र खड्का, शमुन्द्र न्यौपाने बिहान ७ः३० बजे टिमुरेबाट रसुवा 4273 र 8420 नं.को भ्यान लगेर जाँदै गरेको</td><td class="phone">सम्पर्क व्यक्तिः समसेर खड्का, काठमाडौ</td></tr>
+        <tr><td>१०६</td><td>सम्पर्क बिहिनः राजु श्रेष्ठ, स्याफ्रुबेसी बगरमा पसल संचालन गरी बसेका, बिहान ७ः३० पछि सम्पर्क नभएको</td><td class="phone">सम्पर्क व्यक्ति अवर्न श्रेष्ठ, काठमाडौं <a href="tel:+9779860056790">9860056790</a></td></tr>
+        <tr><td>१०७</td><td>सम्पर्क बिहिनः देवी पौडेल, उदयपुर, 40 जनाको टिम गोसाइकुण्ड ट्रेकिङको लागि बिहान 4 बजे धुन्चेबाट हिड्ने भनिएकोमा बिहानदेखी सम्पर्क बिहिन।</td><td class="phone">सम्पर्क व्यक्तिः सागर पौडेल <a href="tel:+9779849465883">9849465883</a> थानकोट</td></tr>
+        <tr><td>१०८</td><td>रसुवाको अपर त्रिशुल्ली -1 216 काम गर्ने कृष्ण साउद मोबाईल नम्बर <a href="tel:+9779862469847">9862469847</a> अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">शंकर साउद <a href="tel:+9779841273482">9841273482</a></td></tr>
+        <tr><td>१०९</td><td>माछापुच्छे बैंक रसुवामा काम गर्ने अनुज नेपाल मोबाईल नम्बर <a href="tel:+9779861444038">9861444038</a></td><td class="phone">विष्णुहरी नेपाल <a href="tel:+9779840542515">9840542515</a></td></tr>
+        <tr><td>११०</td><td>रसुवामा नुवाकोट स्थायी ठेगाना भएका हरि खनाल मोबाईल <a href="tel:+9779851003740">9851003740</a> अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">अलि लामा <a href="tel:+9779841464603">9841464603</a></td></tr>
+        <tr><td>१११</td><td>रसुवामा सन्धुपाल्चोक जिल्ला तातोपानी गा.पा. स्थायी ठेगाना भएका गाडी नम्बर ना.5ख 9615 चालक पासाङ लामा अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">सुनिता भट्टराई मो.नं. <a href="tel:+9779768785981">9768785981</a></td></tr>
+        <tr><td>११२</td><td>रसुवामा ओखलढुङ्गा स्थायी ठेगाना भएका गाडी नम्बर बागमती प्रदेश 01001य 1864 का चालक मिलन बिडारी मोबाईल नम्बर <a href="tel:+9779849815614">9849815614</a> अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">प्रकाश मोक्तान मो.नं. <a href="tel:+9779861481491">9861481491</a>।</td></tr>
+        <tr><td>११३</td><td>रसुवामा सन्धुपाल्चोक जिल्ला चौतरा स्थायी ठेगाना भएका गाडी नम्बर 6796 चालक राजकुमार पोखरेल मोबाईल नम्बर <a href="tel:+9779768896158">9768896158</a> अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">अभिषेक पोखरेल मो.नं. <a href="tel:+9779763615298">9763615298</a></td></tr>
+        <tr><td>११४</td><td>काठमाडैबाट विहान 3 बजे रसुवाको लागि हिडेको 1486 नम्बरको स्कार्पियो चालक रसुवा नौकुण्ड 4 स्थायी ठेगाना भएका ओशोक तामाङ मोबाईल नम्बर <a href="tel:+9779843762792">9843762792</a> अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">सोनाम तामाङ मो.नं. <a href="tel:+9779763609886">9763609886</a></td></tr>
+        <tr><td>११५</td><td>काठमाडौंबाट गोसाईकुण्ड गएका काठमाडौं स्थायी ठेगाना भएका अमित डंगोल मोबाईल नम्बर <a href="tel:+9779808480396">9808480396</a>र कपिल शाक्य मोबाईल नम्बर <a href="tel:+9779843500077">9843500077</a> अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">आयुष ब्रजाचार्य मो.नं. <a href="tel:+9779849098000">9849098000</a></td></tr>
+        <tr><td>११६</td><td>रसुवामा नौकुण्ड गाउँपालिका वडा नं. 4 स्थायी ठेगाना भएका उग्रेन तामाङ मोबाईल नम्बर <a href="tel:+9779840828171">9840828171</a> अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">सुस्मिता पाख्रिन मो.नं. <a href="tel:+9779761777004">9761777004</a>/<a href="tel:+9779821897452">9821897452</a></td></tr>
+        <tr><td>११७</td><td>नुवकोट स्थायी ठेगाना भएका चन्चला दुवाल र करण खतिवडा अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">सविना श्रेष्ठ मो.नं. <a href="tel:+9779860296814">9860296814</a></td></tr>
+        <tr><td>११८</td><td>रसुवा स्थायी ठेगाना भएका फूलमाया तामाङ, अन्जली तमाङ, करन तामाङ, आशादिप तमाङ सहित 5 जना रसुवाको फाल्टेबाट बिहानादेखी अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">निशा तामाङ मो.नं. <a href="tel:+9779767832480">9767832480</a></td></tr>
+        <tr><td>११९</td><td>स्थायी ठेगाना पाल्पा भई लाङटाङ खोला हाईड्रोपावर, रसुवमा काम गर्ने रमेश थापा क्षेत्री मोबाईल नम्बर <a href="tel:+9779847258768">9847258768</a> अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">सुरेश जि.सी. मो.नं. <a href="tel:+9779840457162">9840457162</a></td></tr>
+        <tr><td>१२०</td><td>रसुवा जिल्ला टिमुरेमा नुवाकोट स्थायी ठेगाना भएका गाडी चालक ठाकुर अधिकारी मोबाईल नम्बर <a href="tel:+9779813291597">9813291597</a> अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">करुणा थापा मो.नं. <a href="tel:+9779713716616">9713716616</a></td></tr>
+        <tr><td>१२१</td><td>रसुवाबाट दोलाखा स्थायी ठेगाना भएका गाडी नम्बर 6795 का गाडी चालक सिताराम श्रेष्ठ मोबाईल नम्बर <a href="tel:+9779841361734">9841361734</a> अहिलेसम्म सम्पर्कमा नआएको।</td><td class="phone">आयुस्मा श्रेष्ठ मो.नं. <a href="tel:+9779765986229">9765986229</a></td></tr>
+        <tr><td>१२२</td><td>रसुवाको पावर चाईना(हाइड्रोपावर) मा काम गर्ने सल्यान स्थायी ठेगाना भएका भुपेन्द्र रावत(<a href="tel:+9779844306121">9844306121</a>) र भुपेन्द्र बहादुर के.सी. अहिलेसम्म सम्पर्कमा</td><td class="phone">दिपक भण्डारी मो.नं. <a href="tel:+9779868635250">9868635250</a></td></tr>
+        <tr><td>१२३</td><td>मेरोमामा यादव भण्डारी <a href="tel:+9779855063519">9855063519</a> रसुवा ईमिग्रेसनमा कार्यरत रहनुभएकोमा विहान देखि सम्पर्क विहिन भएकोले खोजि गरिदिन आग्रह</td><td class="phone">गुनासोकर्ता दिव्या खरेल <a href="tel:+9779807559335">9807559335</a></td></tr>
+        <tr><td>१२४</td><td>गौरिगंज-3 निवासी अपर त्रिशुलीमा सुपरभाईजरमा कार्यरत केवल आचार्य <a href="tel:+9779744652950">9744652950</a> सम्पर्क विहिन भएको हुनाले खोजि गरिदिन आग्रह</td><td class="phone">गुनासो कर्ता पुजन न्यौपाने <a href="tel:+9779815908636">9815908636</a></td></tr>
+        <tr><td>१२५</td><td>उपर त्रिशुली -1 मा कार्यरत सवओभरसियर जयधन जोशी <a href="tel:+9779868738325">9868738325</a> सम्पर्क विहिन हुनु भएकोले खोजि गरिदिन आग्रह</td><td class="phone">गुनासो कर्ता <a href="tel:+9779848988395">9848988395</a>- डिलेन्द्र जोशी</td></tr>
+        <tr><td>१२६</td><td>मेरो दाई शिवराम के सी (<a href="tel:+9779851066835">9851066835</a>) भेन चालक टिमुरे भन्सार वाट विहान देखि सम्पर्क बाहिर रहेकोले खोजि कार्य गरिदिन आग्रह गरिएको</td><td class="phone"><a href="tel:+9779700190279">9700190279</a> गायत्री के सी</td></tr>
+        <tr><td>१२७</td><td>मेरो भाई रुपेश वस्नेत (<a href="tel:+9779745364897">9745364897</a>) 6795 नम्वरको वस रिजर्भ लिएर रसुवा गएको तर विहान देखि सम्पर्कमा नरहेको</td><td class="phone"><a href="tel:+9779762267237">9762267237</a> कल्याणी बस्नेत</td></tr>
+        <tr><td>१२८</td><td>तिर्थयात्रामा गएको गाडि वगाएर श्रीमति समेत त्यहि बसमा वगेको तर हामी ५ जना सुर्यगढि गा.पा को भवनमा रहेकोले तत्काल उद्दारको खाँचो रहेकको</td><td class="phone"><a href="tel:+9779865173686">9865173686</a> बाबुराम देवकोटा</td></tr>
+        <tr><td>१२९</td><td>टिमुरे भन्सारमा ज्यालादारीमा काम गर्ने उजला नेपाली र  आरम्भ नेपाली (<a href="tel:+9779747709673">9747709673</a>) विहान देखि सम्पर्क विहिन भएको</td><td class="phone"><a href="tel:+9779769923094">9769923094</a>-रमेश नेपाली</td></tr>
+        <tr><td>१३०</td><td>मेरो दाई राजेन्द्र श्रेष्ठ (<a href="tel:+9779808521442">9808521442</a>) ना ६ ख ४०९३ नम्वरको कन्टेनर सहित टिमुरे भन्सार पास गरेर जाममा छु भनेर कल 8.30 मा कल भएको त्यस पछि सम्पर्क हुन नसकेकोले खोजि कार्य गरिदिन आग्रह</td><td class="phone"><a href="tel:+9779823808044">9823808044</a> दिपेन्द्र श्रेष्ठ</td></tr>
+        <tr><td>१३१</td><td>रसुवाको स्याफ्रु वेसिको NIMB बैकको बैंक मेनेजरका रुपमा कार्यरत मेरो वुवा शिव प्रसाद लम्साल <a href="tel:+9779857622994">9857622994</a> विहान देखि सम्पर्क हुन नसकेको</td><td class="phone">समित लम्साल-<a href="tel:+9779847660994">9847660994</a></td></tr>
+        <tr><td>१३२</td><td>रसुवा पहिरोपछि चौतारा साँगाचोकगढी नगरपालिका -२ रमेश ढुंगाना केरुङ नाका आसपासबाट सम्पर्कविहीन हुनुभएको</td><td class="phone"><a href="tel:+9779849574864">9849574864</a></td></tr>
+        <tr><td>१३३</td><td>कर्मा लामा, टिम्मुरे आसपास देखी बिहान 9:15 सम्म सम्पर्कमा रहेको अहिले सम्पर्क विहिन</td><td class="phone"><a href="tel:+9779860797399">9860797399</a></td></tr>
+        <tr><td>१३४</td><td>कर्मराज जैसी लगायत ३ जना रसुवाको जोखीम क्षेत्रमै बेपत्ता अवस्थामा रहेको</td><td class="phone"><a href="tel:+9779862114702">9862114702</a>रेश्मा मल्ल</td></tr>
+        <tr><td>१३५</td><td>संगम चौलागाँई स्याफ्रुवेशिबाट सम्पर्क विहिन।</td><td class="phone">—</td></tr>
+        <tr><td>१३६</td><td>दिक्षा प्याकुरेलः विदुर नपा बाट सम्पर्क विहिन</td><td class="phone">—</td></tr>
+        <tr><td>१३७</td><td>आमा बुद्धमाया बज्राचार्य मिना पवन सुष्मा श्रीजा घरमा थुनिनुभएको। त्रिसुली बजार नुवाकोट</td><td class="phone">—</td></tr>
+        <tr><td>१३८</td><td>धनराज जैसी (humla) location : timure , gadi load unload मा कार्यरत</td><td class="phone"><a href="tel:+9779844425635">9844425635</a></td></tr>
+        <tr><td>१३९</td><td>लक्ष्मण सापकोटा कमलामाई नपा ११ सिन्धुली। jai jai company रसुवागढि हाइड्रा। सम्पर्क विहिन।</td><td class="phone">—</td></tr>
+        <tr><td>१४०</td><td>मनिता कुमारी, सर्लाही ठेगाना भएको रसुवाको स्वास्थ्य केन्द्रमा कार्यरत सम्पर्कमा नरहेको</td><td class="phone"><a href="tel:+9779746592997">9746592997</a></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="treat-note">स्रोत: हेलो सरकार, राती ८:१०।</p>
+    <div id="fam-matched-wrap" hidden>
+    <h3 class="fam-h">मेल भएका</h3>
+    <div class="fam-grid" id="fam-matched"></div>
+    </div>
+    <h3 class="fam-h">प्रमाणित भेटिएको</h3>
+    <div class="pager" data-pager="fam-found" hidden>
+      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+      <div class="pboxes pager-pages"></div>
+      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+      <span class="pcount pager-count"></span>
+    </div>
+    <div class="fam-grid" id="fam-found"></div>
+    <p class="fam-empty" id="fam-found-empty">जाँचपछि मात्र यहाँ आउँछ।</p>
   </div>
 </section>
 
@@ -1105,7 +1441,9 @@ footer .foot-contact a:hover{text-decoration:underline}
       <li><strong>६ जिल्ला संकटग्रस्त:</strong> रसुवा, नुवाकोट, धादिङ, चितवन, गोरखा, तनहुँ तीन महिना। विपद् परिषद्: रसुवा–नुवाकोट १/१ करोड, धादिङ ५० लाख। नवलपरासी (बर्दघाट सुस्ता पश्चिम) प्रजिअ: नारायणी किनार नजानुहोस्।</li>
       <li><strong>उद्धार सङ्केत (प्रवक्ता पोखरेल):</strong> ६ जिल्लामा उद्धार ड्रोन <strong>बिना अनुमति</strong> — समन्वय <a href="tel:1234">१२३४</a>। फसेकाले हेलिकप्टरलाई धुवाँ/आगो, वा सहायक प्रजिअलाई व्हाट्सएप जियो-लोकेसन। चीन–भारतसँग समन्वय; <strong>११ हेलिकप्टर</strong> तयारी अवस्थामा (सेना/निजी १२ परिचालन यथावत्)।</li>
       <li>लाङटाङ २० मेगावाट: एमडी विजयमोहन भट्टराई — सुरुङमा मजदुर <strong>३५</strong> फसे (नदीभन्दा ~१०० मिटर माथि); इन्जिनियरसहित अन्य कर्मचारी <strong>२५</strong> सम्पर्कविहीन; आयोजनाभरि करिब <strong>६०</strong>। अघिल्लो २५+ यो ३५ बाट अद्यावधिक। मृत्यु होइन। पावर हाउस बगे; हेडवर्क्स केही सुरक्षित।</li>
-      <li>नेपाल पर्यटन बोर्ड: <strong>३८४ पर्यटक सम्पर्कविहीन</strong> (विदेशी २९१, नेपाली ९३)। ट्राभल एजेन्सी/गाइड/स्थानीय/सुरक्षासँग पुष्टि। मृत्यु होइन।</li>
+      <li>प्रधानमन्त्री कार्यालय साँझ ७:००: पर्यटक विदेशी <strong>३९१</strong> + स्वदेशी <strong>९३</strong> = <strong>४८४</strong> सम्पर्कविहीन। अघिल्लो पर्यटन मन्त्रालय ४०३ यो ४८४ बाट अद्यावधिक। सुरक्षा/आयोजना/बस/स्वास्थ्य/बैंकमा जोडिएको होइन। मृत्यु होइन।</li>
+      <li>संस्कृति, पर्यटन तथा नागरिक उड्डयन मन्त्रालय (खबरहब ~१९:१६): <strong>४०३</strong> सम्पर्कविहीन — विदेशी ३४१ (भारतीय १३३), नेपाली ६२। पछि प्रधानमन्त्री कार्यालय ४८४ ले अद्यावधिक।</li>
+      <li>नेपाल पर्यटन बोर्ड: <strong>३८४ पर्यटक सम्पर्कविहीन</strong> (विदेशी २९१, नेपाली ९३)। ट्राभल एजेन्सी/गाइड/स्थानीय/सुरक्षासँग पुष्टि। मृत्यु होइन। पछि मन्त्रालयको ४०३ ले अद्यावधिक।</li>
       <li>ट्रमा सेन्टर निर्देशक डा. रुद्र मरासिनी: रसुवाबाट हेलिकप्टरले ल्याएका <strong>३ जना</strong> आकस्मिक कक्षमा, अवस्था गम्भीर।</li>
       <li>नेपाली सेना (जंगीअड्डा): घाइते <strong>२९</strong> हेलिकप्टर उद्धार; सेना हेलि <strong>६</strong> (+२ जाने), ड्रोन <strong>३</strong>।</li>
       <li>सडक विभाग (कान्तिपुर ~१७:४७): पक्की पुल <strong>२२</strong>, बेली <strong>५</strong> बगे; सडक <strong>४० किमि</strong> क्षति यथावत् — यात्रा सावधानी।</li>
@@ -1137,8 +1475,13 @@ footer .foot-contact a:hover{text-decoration:underline}
     <span class="pcount pager-count"></span>
   </div>
   <div class="card green">
-    <p class="treat-lead">मन्त्रिपरिषद्का १० निर्णय · १० भदौ २०८३</p>
+    <p class="treat-lead">प्रधानमन्त्री कार्यालय ब्रिफिङ · साँझ ७:०० · १० भदौ २०८३</p>
     <ul id="gov-list">
+      <li><b>क्षति (७:०० सम्म):</b> शव <strong>९५</strong> (सनाखत जारी)। सुरक्षाकर्मी सम्पर्कविहीन ८५ — सेना ४४, प्रहरी २८, सशस्त्र १३। पर्यटक विदेशी ३९१, स्वदेशी ९३। जलविद्युत् कर्मचारी ६०। भन्सार/आप्रवासन कर्मचारी पनि खोजीमा। मोटरेबल पुल १९, पक्की सडक ४० किमि — सङ्कलन जारी।</li>
+      <li><b>०८:४०</b> स्थानीय प्रशासनबाट भोटेकोशी बाढीको सूचना। <b>०८:४५</b> प्रधानमन्त्रीले सुरक्षा निकायलाई खोज–उद्धार–राहत सुरु गर्न निर्देशन। <b>०९:००</b> प्रजिअ/स्थानीयले तटीय बासिन्दालाई सुरक्षित स्थानमा जान हाई अलर्ट।</li>
+      <li><b>०९:१५</b> विपद् प्राधिकरण आपत्कालीन बैठक। <b>०९:३५</b> नेपाल टेलिकम/एनसेलमार्फत प्रदेश–जिल्ला–स्थानीयलाई सतर्कता एसएमएस। <b>११:००</b> विपद् राष्ट्रिय परिषद् — प्रधानमन्त्रीले अधिकतम सहयोग आग्रह। <b>१२:३०</b> मन्त्रिपरिषद्: खोज–उद्धार–राहत तीव्र पार्ने। <b>१३:००</b> प्रभावित क्षेत्रका संघीय सांसदसँग छलफल।</li>
+      <li>सेना र निजी हेलिकप्टर रसुवा–नुवाकोटमा खोज–उद्धार। स्वास्थ्य टोली (सेना, प्रहरी, सशस्त्र, ट्रमा, वीर, टिचिङ) नुवाकोट जिल्ला अस्पतालमा। रसुवा अस्पतालमा घाइते <strong>२१</strong>; काठमाडौं ल्याइएका <strong>३६</strong> (ट्रमा, टिचिङ, वीरेन्द्र सैनिक आदि)। वीर र ट्रमामा निःशुल्क बेड छुट्याइएको।</li>
+      <li>नेपाल स्काउट र WHO बाट थप चिकित्सक/सामग्री। रक्तसञ्चार, बागमती–गण्डकी स्वास्थ्य मन्त्रालय, रेडक्रस, लायन्स, स्काउटसँग औषधि/रगत समन्वय। सेना ब्यारेकमा अस्थायी आश्रय; खाना, खानेपानी, औषधि। जोखिममा ११४८ / १०० / ११११। सबैभन्दा बढी प्रभावित: रसुवा, नुवाकोट, धादिङ, गोरखा तटीय क्षेत्र। प्रवक्ता सहसचिव हेमराज अर्याल।</li>
       <li>विश्व बैंक नेपाल निर्देशक डेविड सिस्लेन (~१०:३५, अर्थमन्त्री डा. स्वर्णिम वाग्ले): आपत्कालीन सहयोगस्वरुप विभिन्न स्रोतबाट रु. <strong>२५ अर्ब</strong> दिन सकिने — प्राप्त भइसकेको होइन।</li>
       <li>भारत: बाढीपीडितका लागि तत्काल चाहिने राहत सामग्रीको सूची माग। परराष्ट्रमन्त्री शिशिर खनाल: भारतीय सहयोग सामग्री <strong>आज काठमाडौं</strong> ल्याउने तयारी।</li>
       <li>चीन: तत्काल नगद सहयोग। राजदूत जाङ्ग माओमिङ्गले अर्थमन्त्रीमार्फत रकम पठाउने प्रक्रिया सुरु गर्न आग्रह। अर्थमन्त्री: आभार, अन्तरसरकारी समन्वय र मोडालिटी छलफल जारी।</li>
@@ -1393,7 +1736,31 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
   <div class="log" id="history-list">
     <article class="log-item now">
-      <p class="when">~१८:२० · अहिले</p>
+      <p class="when">~२०:१२ · अहिले</p>
+      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>प्रधानमन्त्री कार्यालय: शव ९५, सुरक्षा ८५</h3>
+      <p>प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय (साँझ ७:००, प्रवक्ता सहसचिव हेमराज अर्याल): प्रभावित क्षेत्रबाट शव <strong>९५</strong> — सनाखत जारी। सुरक्षाकर्मी सम्पर्कविहीन <strong>८५</strong> — सेना ४४, प्रहरी २८, सशस्त्र १३। पर्यटक विदेशी <strong>३९१</strong>, स्वदेशी <strong>९३</strong>। जलविद्युत् कर्मचारी ६०। काठमाडौं घाइते <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong>। मोटरेबल पुल १९, पक्की सडक ४० किमि — सङ्कलन जारी। अघिल्लो सशस्त्र शव ७२ / पर्यटन ४०३ / सुरक्षा ७९ यी आंकडाबाट अद्यावधिक।</p>
+    </article>
+    <article class="log-item">
+      <p class="when">~२०:१०</p>
+      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>नेपाल प्रहरी: शव ९५ जिल्ला विवरण, उपचाररत ६३</h3>
+      <p>नेपाल प्रहरी / रासस (खबरहब ~१९:४८): शव जिल्ला — चितवन <strong>३३</strong>, धादिङ <strong>१८</strong>, गोरखा <strong>१६</strong>, नुवाकोट <strong>११</strong>, पूर्वी नवलपुर <strong>११</strong>, तनहुँ <strong>५</strong>, रसुवा <strong>१</strong>। महिला २७, पुरुष ३७, बालिका ६, बालक ५, पहिचान नखुलेका २०। उपचाररत <strong>६३</strong>। प्रहरी सम्पर्कविहीन २८ (टिमुरे १०, रसुवागढी ८, स्याफ्रुबेसी ३, मैलुङ ५, बेत्रावती १, हाकु १)। प्रधानमन्त्री कार्यालयको ९५ सँग मेल।</p>
+    </article>
+    <article class="log-item">
+      <p class="when">~१९:५०</p>
+      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>सशस्त्र प्रहरी: शव ७२</h3>
+      <p>अनलाइनखबर: सशस्त्र प्रहरी बलका अनुसार हालसम्म <strong>७२</strong> शव — चितवन <strong>२८</strong>, धादिङ <strong>१८</strong>, नुवाकोट <strong>११</strong>, गोरखा <strong>९</strong>, तनहुँ <strong>४</strong>, पूर्वी नवलपुर <strong>१</strong>, रसुवा <strong>१</strong>। रातोपाटी (~१८:३५): प्रहरी प्रवक्ता डीआईजी अबि नारायण काफ्लेले पनि शव <strong>७२</strong> जनाएको (रसुवा–नुवाकोट–धादिङ–चितवन तट)। अघिल्लो बागमती प्रहरी २२ यो ७२ बाट अद्यावधिक। पछि नेपाल प्रहरी ९५ ले अद्यावधिक।</p>
+    </article>
+    <article class="log-item">
+      <p class="when">~१९:१६</p>
+      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>पर्यटन मन्त्रालय: सम्पर्कविहीन ४०३</h3>
+      <p>संस्कृति, पर्यटन तथा नागरिक उड्डयन मन्त्रालय (खबरहब ~१९:१६): रसुवा बाढीमा <strong>४०३</strong> नेपाली तथा विदेशी नागरिक सम्पर्कविहीन — विदेशी <strong>३४१</strong> (भारतीय १३३), नेपाली <strong>६२</strong>; महिला २०३, पुरुष २००। अघिल्लो पर्यटन बोर्ड ३८४ (विदेशी २९१, नेपाली ९३) यो ४०३ बाट अद्यावधिक। सुरक्षा ७९ / लाङटाङ ६० / बस ३४ / स्वास्थ्यकर्मी ६ / बैंक २६ मा जोडिएको होइन। मृत्यु होइन। उद्धार ११४ यथावत्।</p>
+    </article>
+    <article class="log-item">
+      <p class="when">~१८:२०</p>
       <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>हवाई उद्धार ११४ — सेना ८५, निजी २९</h3>
       <p>नेपाली सेना र निजी क्षेत्र: हवाई उद्धार जम्मा <strong>११४</strong>। सेना <strong>८५</strong> — टिमुरे–धुन्चे ६०, टिमुरे–त्रिशूली १३, मैलुङ ५, बेत्रावती ४, त्रिशूली–काठमाडौं ३। निजी हेलि <strong>२९</strong> — कैलाश ५, सिम्रिक ३ र २, अन्नपूर्ण ४, प्रभु ५ र २ (वीर), फिसटेल ५, एभरेष्ट २ (प्रायः टिचिङ)। अघिल्लो प्रधानमन्त्री कार्यालय ११० यो ११४ बाट अद्यावधिक। ८५+२९ फेरि जोड्ने होइन; घाइते २५ मा हाल्ने होइन।</p>
@@ -1426,7 +1793,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <p class="when">~१७:०५</p>
       <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>काठमाडौंमा २५ घाइते उपचाररत, नामसहित</h3>
-      <p>प्रहरी प्रवक्ता दानबहादुर थापा: काठमाडौंका अस्पतालमा <strong>२५</strong> जना उपचाररत — राष्ट्रिय ट्रमा सेन्टर <strong>४</strong> (भक्त/सीता भण्डारी, विवेक कुमाल, रिहाना लामिछाने), वीरेन्द्र सैनिक अस्पताल छाउनी <strong>१</strong> (दावा डोल्मा), टिचिङ <strong>१९</strong>। अघिल्लो २१ / टिचिङ १७ / ट्रमा ३ / मेडिसिटी १ यो २५ बाट अद्यावधिक। कामु नगरकोटीका साथमा तीन महिनाको शिशु। रसुवा अस्पताल २४ जोड्ने होइन। पूर्ण तालिका घाइते खण्डमा।</p>
+      <p>प्रहरी प्रवक्ता दानबहादुर थापा: काठमाडौंका अस्पतालमा <strong>२५</strong> जना उपचाररत — राष्ट्रिय ट्रमा सेन्टर <strong>४</strong> (भक्त/सिता भण्डारी, विबेक कुमाल, रिहाना लामिछाने), वीरेन्द्र सैनिक अस्पताल छाउनी <strong>१</strong> (दावा डोल्मा), टिचिङ <strong>२०</strong>। नामसहित २२; पहिचान नखुलेका २ र शिशु छुट्टै। रसुवा अस्पताल २४ जोड्ने होइन। पूर्ण तालिका घाइते खण्डमा।</p>
     </article>
     <article class="log-item">
       <p class="when">~१६:५५</p>
@@ -1793,7 +2160,8 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
   <div class="card green">
     <ul id="rescue-list">
-      <li>प्रहरी प्रवक्ता एसपी दानबहादुर थापा: काठमाडौंका अस्पतालमा घाइते जम्मा <strong>२५</strong> — ट्रमा ४, वीरेन्द्र सैनिक अस्पताल छाउनी १, टिचिङ १९ (कामु नगरकोटीका साथमा तीन महिनाको शिशु सहित)। अघिल्लो २१ यो २५ बाट अद्यावधिक। रसुवा २४ / सेना २९ जोड्ने होइन। नामतालिका <a href="#treat">घाइते उपचाररतहरूको सम्पर्क विवरण</a> मा।</li>
+      <li>नेपाल प्रहरी / रासस (~१९:४८): उपचाररत जम्मा <strong>६३</strong> — टिचिङ २१, ट्रमा ७, छाउनी १, रसुवा २१, त्रिशूली १६, नर्भिक ३, ग्रीनसिटी १। अघिल्लो काठमाडौं २५ / रसुवा २४ यो ६३ बाट अद्यावधिक; अस्पताल पङ्क्ति फेरि नजोड्नुहोस्। नामतालिका <a href="#treat">घाइते उपचाररतहरूको सम्पर्क विवरण</a> मा।</li>
+      <li>प्रहरी प्रवक्ता एसपी दानबहादुर थापा: काठमाडौंका अस्पतालमा घाइते जम्मा <strong>२५</strong> — ट्रमा ४, वीरेन्द्र सैनिक अस्पताल छाउनी १, टिचिङ २० (नामसहित २२ + पहिचान नखुलेका २ + शिशु १)। पछि प्रहरी ६३ ले अद्यावधिक।</li>
       <li>नेपाली सेना र निजी क्षेत्र: हवाई उद्धार जम्मा <strong>११४</strong> — सेना <strong>८५</strong>, निजी हेलि <strong>२९</strong>। सेना: टिमुरे–धुन्चे ६०, टिमुरे–त्रिशूली १३, मैलुङ ५, बेत्रावती ४, त्रिशूली–काठमाडौं ३। अघिल्लो प्रधानमन्त्री कार्यालय ११० यो ११४ बाट अद्यावधिक। ८५+२९ फेरि जोड्ने होइन।</li>
       <li>प्रधानमन्त्री कार्यालय (अनलाइनखबर १६:४३): हवाई उद्धार जम्मा <strong>११०</strong> — सेना र निजी हेलि। धुन्चे <strong>८५</strong>, टिमुरे <strong>१३</strong>, मैलुङ <strong>५</strong>, बेत्रावती <strong>४</strong>, त्रिशूली <strong>३</strong>। पछि ११४ ले अद्यावधिक।</li>
       <li>नेपाल बैंकर्स संघ (सेतोपाटी १६:२५): ८ बैंकका कर्मचारी जम्मा <strong>२६</strong> सम्पर्कविहीन — प्रभु, हिमालयन, ग्लोबल आइएमई, सानिमा, नेपाल इन्भेस्टमेन्ट मेगा, लक्ष्मी सनराइज, एनएमबी, माछापुच्छ्रे। टिमुरे, स्याफ्रुबेसी, बेत्रावती शाखा बगे। मृत्यु होइन; पर्यटक ३८४ / सुरक्षा ७९ / स्वास्थ्यकर्मी ६ मा जोडिएको होइन।</li>
@@ -2012,6 +2380,10 @@ footer .foot-contact a:hover{text-decoration:underline}
     <div class="src-group">
 <h3>रातोपाटी <span class="badge">७४</span></h3>
       <div class="src-list">
+<a href="https://www.opmcm.gov.np" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय: शव ९५, सुरक्षा ८५, पर्यटक ४८४ (साँझ ७:००)</a>
+<a href="https://khabarhub.com/2026/26/1015939/" target="_blank" rel="noopener">नेपाल प्रहरी / रासस: शव ९५ जिल्ला विवरण, उपचाररत ६३ (खबरहब)</a>
+<a href="https://www.onlinekhabar.com/2026/08/rasuwa-flood-72" target="_blank" rel="noopener">सशस्त्र प्रहरी: शव ७२ (अनलाइनखबर)</a>
+<a href="https://www.ratopati.com/story/587637/rasuwa-flood-72-bodies-found-so-far" target="_blank" rel="noopener">सशस्त्र/काफ्ले: शव ७२ (रातोपाटी)</a>
 <a href="https://www.ratopati.com/story/587611/flood-death-toll-reaches-22" target="_blank" rel="noopener">बागमती प्रहरी: मृत्यु २२ (रसुवा १, नुवाकोट ११, धादिङ ९, चितवन १)</a>
 <a href="https://www.ratopati.com/story/587614/indian-pm-modi-pm-balen-talk-over-phone-pledge-to-support-nepal" target="_blank" rel="noopener">मोदी–बालेन फोन: भारत मानवीय सहयोग तयार</a>
 <a href="https://www.ratopati.com/story/587584" target="_blank" rel="noopener">सेना: रसुवाबाट ८८ जना हवाई उद्धार</a>
@@ -2159,8 +2531,9 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
     <div class="src-group">
-<h3>Khabarhub (English) <span class="badge">७</span></h3>
+<h3>Khabarhub (English) <span class="badge">८</span></h3>
       <div class="src-list">
+<a href="https://khabarhub.com/2026/26/1015923/" target="_blank" rel="noopener">पर्यटन मन्त्रालय: सम्पर्कविहीन ४०३ (विदेशी ३४१, नेपाली ६२)</a>
 <a href="https://khabarhub.com/2026/26/1015792/" target="_blank" rel="noopener">महाशाखा: बाढी नारायणी–देवघाट पुग्यो (१५:२० हाई अलर्ट)</a>
 <a href="https://khabarhub.com/2026/26/1015787/" target="_blank" rel="noopener">लाङटाङ एमडी: ६० कर्मचारी सम्पर्कविहीन</a>
 <a href="https://english.khabarhub.com/2026/26/564842/" target="_blank" rel="noopener">PM Shah orders rescue, relief measures</a>
@@ -2232,6 +2605,28 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 
 <script>
+(function(){
+  document.querySelectorAll(".fund button.acct").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var n = btn.getAttribute("data-acct") || "";
+      function ok(){
+        btn.classList.add("copied");
+        var old = btn.getAttribute("data-old");
+        if(!old){ btn.setAttribute("data-old", btn.innerHTML); }
+        btn.textContent = "कपी भयो · " + n;
+        setTimeout(function(){
+          btn.classList.remove("copied");
+          var html = btn.getAttribute("data-old");
+          if(html) btn.innerHTML = html;
+        }, 1400);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(n).then(ok).catch(ok);
+      } else { ok(); }
+    });
+  });
+})();
+
 document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   btn.addEventListener("click", function(){
     document.querySelectorAll(".feed-tabs button").forEach(function(b){b.classList.remove("active")});
@@ -2440,7 +2835,14 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     });
     paint(false);
   }
-
+  window.__bindPager = bindPager;
+  function setStick() {
+    var s = document.querySelector(".stick");
+    if (!s) return;
+    document.documentElement.style.setProperty("--stick", (s.offsetHeight + 8) + "px");
+  }
+  setStick();
+  window.addEventListener("resize", setStick);
   function qsa(sel, root) {
     return Array.prototype.slice.call((root || document).querySelectorAll(sel));
   }
@@ -2451,6 +2853,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   bindPager(document.querySelector('[data-pager="damage"]'), qsa("#damage-list > li"), 6);
   bindPager(document.querySelector('[data-pager="roads"]'), qsa("#roads-list > li"), 6);
   bindPager(document.querySelector('[data-pager="sources"]'), qsa("#source-grid .src-group"), 4);
+  bindPager(document.querySelector('[data-pager="hello-sarkar"]'), qsa("#hello-sarkar-body tr"), 50);
 
   var figs = qsa("#photo-grid figure.photo");
   var lb = document.getElementById("lightbox");
@@ -2636,6 +3039,74 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   document.querySelectorAll('a[href="#map"]').forEach(function(a){
     a.addEventListener("click", function(){ setTimeout(fix, 350); });
   });
+})();
+
+(function(){
+  var DIG = "०१२३४५६७८९";
+  function np(s){ return String(s).replace(/[0-9]/g, function(d){ return DIG[d]; }); }
+  function esc(s){
+    return String(s||"").replace(/[&<>"]/g, function(c){
+      return ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"})[c];
+    });
+  }
+  function card(item, kind){
+    var tag = kind === "matched" ? "मेल" : (kind === "found" ? "भेटिएको" : "हराएको");
+    var cls = kind === "matched" ? "pair" : (kind === "found" ? "ok" : "");
+    var img = item.photo ? '<img src="'+esc(item.photo)+'" alt="">' : "";
+    var bits = [];
+    if (item.age) bits.push("उमेर "+esc(item.age));
+    if (item.gender) bits.push(esc(item.gender));
+    if (item.place) bits.push(esc(item.place));
+    if (item.when) bits.push(esc(item.when));
+    var note = item.note ? "<p>"+esc(item.note)+"</p>" : "";
+    return '<article class="fam-card'+(kind==="matched"?" matched":"")+'">'+
+      '<span class="tag '+cls+'">'+tag+'</span>'+img+
+      '<h3>'+esc(item.name||"नाम नखुलेको")+'</h3>'+
+      '<p>'+bits.join(" · ")+'</p>'+note+'</article>';
+  }
+  function fill(id, emptyId, items, kind){
+    var el = document.getElementById(id);
+    var empty = document.getElementById(emptyId);
+    if (!el) return;
+    el.innerHTML = (items||[]).map(function(it){ return card(it, kind); }).join("");
+    if (empty) empty.hidden = !!(items && items.length);
+  }
+  fetch("family.json", {cache:"no-store"}).then(function(r){ return r.json(); }).then(function(data){
+    var missBtn = document.getElementById("fam-miss-btn");
+    var foundBtn = document.getElementById("fam-found-btn");
+    if (missBtn && data.forms && data.forms.missing){
+      missBtn.href = data.forms.missing; missBtn.hidden = false;
+    }
+    var foundUrl = (data.forms && data.forms.found) ? data.forms.found : "";
+    if (foundBtn && foundUrl){
+      foundBtn.href = foundUrl; foundBtn.hidden = false;
+    }
+    document.querySelectorAll(".js-found-row").forEach(function(a){
+      if (foundUrl){
+        a.href = foundUrl;
+        a.hidden = false;
+        a.removeAttribute("aria-disabled");
+      } else {
+        a.hidden = true;
+        a.setAttribute("aria-disabled", "true");
+        a.removeAttribute("href");
+      }
+    });
+    var matched = data.matched || [];
+    var wrap = document.getElementById("fam-matched-wrap");
+    if (wrap) wrap.hidden = !matched.length;
+    fill("fam-matched", "fam-matched-empty", matched, "matched");
+    fill("fam-missing", "fam-missing-empty", data.missing, "missing");
+    fill("fam-found", "fam-found-empty", data.found, "found");
+    function page(sel, cards){
+      var pager = document.querySelector(sel);
+      if (!pager) return;
+      pager.hidden = !cards.length;
+      if (cards.length && window.__bindPager) window.__bindPager(pager, cards, 6);
+    }
+    page('[data-pager="fam-miss"]', Array.prototype.slice.call(document.querySelectorAll("#fam-missing .fam-card")));
+    page('[data-pager="fam-found"]', Array.prototype.slice.call(document.querySelectorAll("#fam-found .fam-card")));
+  }).catch(function(){});
 })();
 </script>
 </body>

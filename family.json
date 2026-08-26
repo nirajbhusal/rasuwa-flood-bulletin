@@ -1,0 +1,148 @@
+{
+  "updated_at": "2026-08-26T15:38:00+00:00",
+  "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
+  "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit?usp=sharing",
+  "forms": {
+    "missing": "https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform",
+    "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
+  },
+  "missing": [
+    {
+      "id": "m-durga-pokhrel",
+      "name": "दुर्गा पोखरेल",
+      "place": "टिमुरे, रसुवा — अध्यागमन कार्यालय",
+      "phone": "9852041460",
+      "reporter": "9810568080 / 9801126625 / 9842374507",
+      "note": "अध्यागमन कार्यालय क्षेत्र, सम्पर्कविहीन"
+    },
+    {
+      "id": "m-cousin-border",
+      "name": "नाम नखुलेको",
+      "place": "नेपाल–तिब्बत सीमा / Pasang Lhamu Highway, Shigatse 45000",
+      "phone": "9716078685",
+      "reporter": "आफन्त (कजिन)",
+      "note": "आज सीमा पार गर्ने तय। होटल 9841603450। सञ्चार सेवा छैन भनिएको।"
+    },
+    {
+      "id": "m-saroj-dipesh-parajuli",
+      "name": "सरोज पराजुली र दिपेश पराजुली",
+      "age": "२३ / २२",
+      "place": "सिन्धुपाल्चोक, बालेफी नगरपालिका · रसुवा भन्सार कार्यालय नजिक",
+      "reporter": "9843813721",
+      "note": "परिवारको रिपोर्ट, साँझ ८:४२"
+    },
+    {
+      "id": "m-dhirendra-bista",
+      "name": "धीरेन्द्र बिष्ट",
+      "age": "२३ / २४",
+      "place": "कालीकोट, नरहरिनाथ गाउँपालिका · रसुवा प्रोजेक्ट हाइड्रोपावर ड्याम",
+      "when": "बिहान ९ बजे",
+      "reporter": "9868905326",
+      "note": "परिवारको रिपोर्ट, साँझ ८:४७"
+    },
+    {
+      "id": "m-dharmaraj-rimal",
+      "name": "धर्मराज रिमाल",
+      "age": "३५",
+      "place": "नुवाकोट · टिमुरे",
+      "when": "बिहान ९:००",
+      "reporter": "9865401859",
+      "note": "परिवारको रिपोर्ट, साँझ ८:४९"
+    },
+    {
+      "id": "m-prakash-paudel",
+      "name": "प्रकाश पौडेल",
+      "age": "३५",
+      "place": "रसुवा · रसुवागढी",
+      "when": "८:३०",
+      "reporter": "9768978274",
+      "note": "रसुवागढी क्षेत्रमा खोज्न अनुरोध"
+    },
+    {
+      "id": "m-ajay-prasad-singh",
+      "name": "अजय प्रसाद सिंह",
+      "age": "करिब ३१",
+      "place": "जनकपुर · Doosan Hydropower (216 MW Upper Trishuli) · रसुवा बाढी क्षेत्र",
+      "reporter": "9803647230",
+      "note": "श्रीमती पुजा साह"
+    },
+    {
+      "id": "m-ishwori-tulsi-timalsina",
+      "name": "ईश्वरी तिमल्सिना / तुलसी प्रसाद तिमल्सिना",
+      "age": "५३ / ६०",
+      "place": "धादिङ · बेत्रावती",
+      "reporter": "9840286667",
+      "note": "परिवारको रिपोर्ट, साँझ ८:५८"
+    },
+    {
+      "id": "m-pradeep-shrestha",
+      "name": "प्रदीप श्रेष्ठ",
+      "age": "३९",
+      "place": "तातोपानी",
+      "phone": "9849993245",
+      "note": "फारम रिपोर्ट"
+    },
+    {
+      "id": "m-subodh-belbase",
+      "name": "सुबोध बेल्बासे",
+      "age": "२६–२७",
+      "place": "रुपन्देही · 3B",
+      "reporter": "9857036809 / 9866153617",
+      "note": "फारम रिपोर्ट"
+    },
+    {
+      "id": "m-sristi-bastola",
+      "name": "सृष्टि बास्तोला",
+      "reporter": "9763259152"
+    },
+    {
+      "id": "m-samir-paudel",
+      "name": "समिर पौडेल",
+      "reporter": "9863294460"
+    },
+    {
+      "id": "m-sishir-giri",
+      "name": "शिशिर गिरी",
+      "place": "UT-3B इन्टर्नशिप · काठमाडौं विश्वविद्यालय सिभिल",
+      "reporter": "9848029098"
+    },
+    {
+      "id": "m-luk-bahadur-kc",
+      "name": "लुक बहादुर केसी",
+      "age": "५०+",
+      "place": "कलंकी, भैसे",
+      "reporter": "9849441746 / 9867182568"
+    },
+    {
+      "id": "m-anuj-hari-nepal",
+      "name": "अनुज हरि नेपाल",
+      "age": "२७",
+      "place": "दोलखा · माछापुच्छ्रे बैंक, टिमुरे",
+      "reporter": "9851343739"
+    },
+    {
+      "id": "m-prakash-paudel-kalika",
+      "name": "प्रकाश पौडेल",
+      "age": "३६",
+      "place": "कालिका–५, जिबजबे · टिमुरे",
+      "phone": "9818983454",
+      "note": "कालिका–५ जिबजबे, टिमुरे — रसुवागढीको प्रकाश पौडेलभन्दा छुट्टै व्यक्ति"
+    },
+    {
+      "id": "m-subhadra-neupane",
+      "name": "सुभद्रा न्यौपाने",
+      "place": "सानिमा बैंक, टिमुरे",
+      "when": "दिउँसो ३:३०",
+      "reporter": "दाजु समिर न्यौपाने",
+      "note": "फोन नम्बर छैन"
+    },
+    {
+      "id": "m-govinda-prasad-bhandari",
+      "name": "गोविन्द प्रसाद भण्डारी",
+      "place": "तुप्चे ७, विदुर",
+      "reporter": "9840683361 / 860798162"
+    }
+  ],
+  "found": [],
+  "matched": []
+}
