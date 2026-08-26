@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T17:37:43+00:00",
+  "updated_at": "2026-08-26T17:37:54+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -8,32 +8,11 @@
   },
   "missing": [
     {
-      "id": "sheet-826202623145-ramkrishna-devkota-sabina-devkota",
-      "name": "Ramkrishna Devkota /Sabina Devkota",
-      "place": "Nuwakot · Syaprobesi",
-      "phone": "9841903668 / 9767550773 / 9741686728 / 9845954629",
-      "note": "उमेर 49/40 · Bhadra 10"
-    },
-    {
-      "id": "sheet-826202623180-keshab-bist",
-      "name": "Keshab Bist",
-      "place": "Baitadi · Langtang khola hydropower",
-      "phone": "9865630427",
-      "note": "उमेर 24 · He works as a electrical supervisor at Langtang khola hydropower."
-    },
-    {
-      "id": "sheet-826202623190-achutam-sapkota",
-      "name": "Achutam Sapkota",
-      "place": "Kavrepalanchok · Timure Bhansar",
-      "phone": "9861603527",
-      "note": "उमेर 36 · 8:40 am"
-    },
-    {
-      "id": "sheet-826202623194-ajay-singh",
-      "name": "Ajay Singh",
-      "place": "Dhanusha · 400 m above the river",
-      "phone": "",
-      "note": "Today"
+      "id": "sheet-826202623214-prabin-amatya",
+      "name": "Prabin Amatya",
+      "place": "Kamalbinayak,Bhaktapur · Trishuli B3 site",
+      "phone": "9765203333",
+      "note": "Upto 9:24 the mobile was in contacted, after that phone was switched off · He is a hydropower engineer, as he was working on Trishuli B3 site when flood flashed"
     },
     {
       "id": "sheet-826202623210-manoj-thapa-magar",
@@ -43,11 +22,32 @@
       "note": "उमेर 27 · 8am · if you have seen him please contact🙏🙏"
     },
     {
-      "id": "sheet-826202623214-prabin-amatya",
-      "name": "Prabin Amatya",
-      "place": "Kamalbinayak,Bhaktapur · Trishuli B3 site",
-      "phone": "9765203333",
-      "note": "Upto 9:24 the mobile was in contacted, after that phone was switched off · He is a hydropower engineer, as he was working on Trishuli B3 site when flood flashed"
+      "id": "sheet-826202623194-ajay-singh",
+      "name": "Ajay Singh",
+      "place": "Dhanusha · 400 m above the river",
+      "phone": "",
+      "note": "Today"
+    },
+    {
+      "id": "sheet-826202623190-achutam-sapkota",
+      "name": "Achutam Sapkota",
+      "place": "Kavrepalanchok · Timure Bhansar",
+      "phone": "9861603527",
+      "note": "उमेर 36 · 8:40 am"
+    },
+    {
+      "id": "sheet-826202623180-keshab-bist",
+      "name": "Keshab Bist",
+      "place": "Baitadi · Langtang khola hydropower",
+      "phone": "9865630427",
+      "note": "उमेर 24 · He works as a electrical supervisor at Langtang khola hydropower."
+    },
+    {
+      "id": "sheet-826202623145-ramkrishna-devkota-sabina-devkota",
+      "name": "Ramkrishna Devkota /Sabina Devkota",
+      "place": "Nuwakot · Syaprobesi",
+      "phone": "9841903668 / 9767550773 / 9741686728 / 9845954629",
+      "note": "उमेर 49/40 · Bhadra 10"
     },
     {
       "id": "sheet-user-20260826-prakriti-dangol",
