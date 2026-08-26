@@ -281,6 +281,38 @@ section{padding:22px 0}
 .photo img{width:100%;height:240px;object-fit:cover;object-position:center;background:#e2e8f0;display:block}
 .photo figcaption{padding:10px 12px 12px;font-size:13px;color:var(--muted)}
 .photo figcaption strong{display:block;color:var(--ink);font-size:14px;margin-bottom:2px}
+.photo-toolbar{
+  display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 12px;
+}
+.pbox{
+  font:inherit;font-weight:800;font-size:15px;min-width:38px;height:38px;
+  padding:0 10px;border-radius:10px;border:1px solid var(--line);
+  background:#fff;color:var(--ink);cursor:pointer;box-shadow:var(--shadow);
+}
+.pbox:hover{background:var(--teal-soft)}
+.pbox.active{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.pboxes{display:flex;flex-wrap:wrap;gap:6px}
+.pcount{margin-left:auto;font-size:13px;font-weight:700;color:var(--muted)}
+.photo.is-hidden{display:none}
+.lb{
+  position:fixed;inset:0;z-index:80;background:rgba(15,23,42,.92);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:48px 56px 24px;gap:10px;
+}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:8px;background:#000}
+.lb p{margin:0;color:#e2e8f0;font-size:14px;text-align:center;max-width:90%}
+.lb button{
+  font:inherit;font-weight:800;cursor:pointer;border:0;color:#fff;background:rgba(255,255,255,.12);
+}
+.lb-x{position:absolute;top:12px;right:14px;width:40px;height:40px;border-radius:999px;font-size:22px}
+.lb-prev,.lb-next{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:44px;height:44px;border-radius:12px;font-size:28px;line-height:1;
+}
+.lb-prev{left:10px}
+.lb-next{right:10px}
+
 .videos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .video{background:#000;border-radius:14px;overflow:hidden;aspect-ratio:16/9}
 .video iframe{width:100%;height:100%;border:0}
@@ -322,7 +354,7 @@ footer{
   margin-top:12px;padding:28px 16px;text-align:center;color:var(--muted);
   border-top:1px solid var(--line);font-size:14px;
 }
-footer .foot-contact{margin:14px 0 0;color:var(--ink);font-size:15px;line-height:1.55}
+footer .foot-contact{margin:0 0 14px;color:var(--ink);font-size:15px;line-height:1.55}
 footer .foot-contact a{color:var(--crimson);font-weight:800;text-decoration:none}
 footer .foot-contact a:hover{text-decoration:underline}
 .feed-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
@@ -725,7 +757,13 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 <section id="photos">
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>तस्बिर · आज २६ अगस्ट २०२६ मात्र</h2></div>
-  <div class="photos">
+  <div class="photo-toolbar">
+    <button type="button" class="pbox" id="photo-prev" aria-label="अघिल्लो पेज">‹</button>
+    <div class="pboxes" id="photo-pages"></div>
+    <button type="button" class="pbox" id="photo-next" aria-label="पछिल्लो पेज">›</button>
+    <span class="pcount" id="photo-count"></span>
+  </div>
+  <div class="photos" id="photo-grid">
     <figure class="photo">
       <a href="img/today-2026-08-26-ratopati-trishuli-birdseye.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ratopati-trishuli-birdseye.jpg" alt="त्रिशूली बजार बाढीको बर्ड भ्यू, रातोपाटी"></a>
       <figcaption><strong>त्रिशूली बर्ड भ्यू</strong>रातोपाटी · आज · सुर्याम्स उप्रेती</figcaption>
@@ -751,6 +789,18 @@ footer .foot-contact a:hover{text-decoration:underline}
       <figcaption><strong>त्रिशूली · बजार</strong>अनलाइनखबर · आज</figcaption>
     </figure>
     <figure class="photo">
+      <a href="img/today-2026-08-26-ok-trishuli2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-26-ok-trishuli2.jpg" alt="त्रिशूली बजारमा लेदोले गाडेका घर, अनलाइनखबर"></a>
+      <figcaption><strong>त्रिशूली · लेदो घर</strong>अनलाइनखबर · आज</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-ok-trishuli4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-26-ok-trishuli4.jpg" alt="त्रिशूलीमा बाढी हेर्दै स्थानीय, अनलाइनखबर"></a>
+      <figcaption><strong>त्रिशूली · स्थानीय</strong>अनलाइनखबर · आज</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-ok-trishuli5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-26-ok-trishuli5.jpg" alt="त्रिशूली उपत्यकामा बाढीको लेदो, अनलाइनखबर"></a>
+      <figcaption><strong>त्रिशूली · उपत्यका</strong>अनलाइनखबर · आज</figcaption>
+    </figure>
+    <figure class="photo">
       <a href="img/today-2026-08-26-ratopati-bidur1.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ratopati-bidur1.jpg" alt="नुवाकोट विदुरमा बाढीको लेदो र घर, रातोपाटी"></a>
       <figcaption><strong>नुवाकोट विदुर</strong>रातोपाटी · आज · घर लेदोमा</figcaption>
     </figure>
@@ -767,12 +817,20 @@ footer .foot-contact a:hover{text-decoration:underline}
       <figcaption><strong>विदुर · त्रिशूली</strong>रातोपाटी · आज</figcaption>
     </figure>
     <figure class="photo">
+      <a href="img/today-2026-08-26-ratopati-bidur3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-26-ratopati-bidur3.jpg" alt="नुवाकोट विदुरबाट सर्दै मानिसहरू, रातोपाटी"></a>
+      <figcaption><strong>विदुर · सर्दै</strong>रातोपाटी · आज</figcaption>
+    </figure>
+    <figure class="photo">
       <a href="img/today-2026-08-26-ok-uddhar-ktm.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-uddhar-ktm.jpg" alt="घाइते काठमाडौं ल्याउने हेलिकप्टर, अनलाइनखबर"></a>
       <figcaption><strong>त्रिभुवन विमानस्थल</strong>अनलाइनखबर · आज · घाइते हेलिकप्टरबाट</figcaption>
     </figure>
     <figure class="photo">
       <a href="img/today-2026-08-26-ok-ghaite2.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-ghaite2.jpg" alt="घाइते स्ट्रेचरमा काठमाडौं, अनलाइनखबर"></a>
       <figcaption><strong>घाइते स्ट्रेचर</strong>अनलाइनखबर · आज · काठमाडौं</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-ok-ghaite1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-26-ok-ghaite1.jpg" alt="हेलिकप्टरबाट घाइते स्ट्रेचरमा, अनलाइनखबर"></a>
+      <figcaption><strong>उद्धार हेलिकप्टर</strong>अनलाइनखबर · आज · कैलाश हेलि</figcaption>
     </figure>
     <figure class="photo">
       <a href="img/today-2026-08-26-ok-dhungebazar.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-dhungebazar.jpg" alt="नुवाकोट ढुंगेबजारमा आजको बाढीको लेदो, अनलाइनखबर"></a>
@@ -1537,10 +1595,19 @@ footer .foot-contact a:hover{text-decoration:underline}
 </section>
 </main>
 <footer>
+  <p class="foot-contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
   Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
   यो पृष्ठ आज २६ अगस्ट २०२६ / १० भदौ २०८३ को घटनामा मात्र केन्द्रित छ।
-  <p class="foot-contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
 </footer>
+
+<div class="lb" id="lightbox" hidden>
+  <button type="button" class="lb-x" id="lb-close" aria-label="बन्द">×</button>
+  <button type="button" class="lb-prev" id="lb-prev" aria-label="अघिल्लो तस्बिर">‹</button>
+  <img id="lb-img" alt="">
+  <button type="button" class="lb-next" id="lb-next" aria-label="पछिल्लो तस्बिर">›</button>
+  <p id="lb-cap"></p>
+</div>
+
 
 <script>
 document.querySelectorAll(".feed-tabs button").forEach(function(btn){
@@ -1700,6 +1767,85 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       showHint("अनुमति माग्न सकिएन। Home Screen बाट खोलेर फेरि प्रयास गर्नुहोस्।");
     });
   }, { passive: false });
+})();
+
+(function(){
+  var grid = document.getElementById("photo-grid");
+  if (!grid) return;
+  var figs = Array.prototype.slice.call(grid.querySelectorAll("figure.photo"));
+  var PAGE = 6;
+  var page = 0;
+  var pagesEl = document.getElementById("photo-pages");
+  var countEl = document.getElementById("photo-count");
+  var prevBtn = document.getElementById("photo-prev");
+  var nextBtn = document.getElementById("photo-next");
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lb-img");
+  var lbCap = document.getElementById("lb-cap");
+  var lbI = 0;
+  var pages = Math.max(1, Math.ceil(figs.length / PAGE));
+
+  function paint() {
+    pages = Math.max(1, Math.ceil(figs.length / PAGE));
+    if (page >= pages) page = pages - 1;
+    if (page < 0) page = 0;
+    figs.forEach(function(f, i){
+      var on = i >= page * PAGE && i < (page + 1) * PAGE;
+      f.classList.toggle("is-hidden", !on);
+    });
+    pagesEl.innerHTML = "";
+    for (var n = 0; n < pages; n++) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "pbox" + (n === page ? " active" : "");
+      b.textContent = String(n + 1);
+      b.setAttribute("aria-label", "तस्बिर पेज " + (n + 1));
+      (function(idx){ b.addEventListener("click", function(){ page = idx; paint(); }); })(n);
+      pagesEl.appendChild(b);
+    }
+    var from = page * PAGE + 1;
+    var to = Math.min((page + 1) * PAGE, figs.length);
+    countEl.textContent = from + "–" + to + " / " + figs.length;
+    prevBtn.disabled = page === 0;
+    nextBtn.disabled = page === pages - 1;
+  }
+  prevBtn.addEventListener("click", function(){ page--; paint(); });
+  nextBtn.addEventListener("click", function(){ page++; paint(); });
+
+  function openLb(i) {
+    lbI = (i + figs.length) % figs.length;
+    var a = figs[lbI].querySelector("a");
+    var img = figs[lbI].querySelector("img");
+    var cap = figs[lbI].querySelector("figcaption");
+    lbImg.src = a ? a.getAttribute("href") : img.src;
+    lbImg.alt = img ? img.alt : "";
+    lbCap.textContent = cap ? cap.innerText.replace(/\s+/g, " ").trim() : "";
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+  function closeLb() {
+    lb.hidden = true;
+    document.body.style.overflow = "";
+  }
+  figs.forEach(function(f, i){
+    var a = f.querySelector("a");
+    if (!a) return;
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      openLb(i);
+    });
+  });
+  document.getElementById("lb-close").addEventListener("click", closeLb);
+  document.getElementById("lb-prev").addEventListener("click", function(){ openLb(lbI - 1); });
+  document.getElementById("lb-next").addEventListener("click", function(){ openLb(lbI + 1); });
+  lb.addEventListener("click", function(e){ if (e.target === lb) closeLb(); });
+  document.addEventListener("keydown", function(e){
+    if (lb.hidden) return;
+    if (e.key === "Escape") closeLb();
+    if (e.key === "ArrowLeft") openLb(lbI - 1);
+    if (e.key === "ArrowRight") openLb(lbI + 1);
+  });
+  paint();
 })();
 </script>
 </body>
