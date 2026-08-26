@@ -10,6 +10,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+
+.stick{position:sticky;top:0;z-index:40;background:var(--paper)}
+.safety-banner{
+  margin:0;padding:10px 16px;
+  background:#9f1239;color:#fff;
+  font-weight:700;font-size:15px;line-height:1.5;text-align:center;
+}
 :root{
   --crimson:#c41e3a;
   --crimson-soft:#fde8ec;
@@ -43,7 +50,7 @@ a:hover{text-decoration:underline}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
 .topbar{
-  position:sticky;top:0;z-index:40;
+  position:relative;
   background:rgba(246,243,238,.94);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
@@ -72,7 +79,7 @@ img{max-width:100%;display:block}
   background:var(--crimson-soft);padding:6px 10px;border-radius:10px;
 }
 .chips{
-  position:sticky;top:62px;z-index:30;
+  position:relative;
   background:var(--paper);
   border-bottom:1px solid var(--line);
   overflow-x:auto;white-space:nowrap;
@@ -206,12 +213,12 @@ footer{
   .stats{grid-template-columns:repeat(2,1fr)}
   .grid-2,.photos,.videos{grid-template-columns:1fr}
   .photo img{height:200px}
-  .chips{top:84px}
   .helpline{width:100%}
 }
 </style>
 </head>
 <body>
+<div class="stick">
 <header class="topbar">
   <div class="topbar-inner">
     <span class="live"><i></i> लाइभ</span>
@@ -222,6 +229,7 @@ footer{
     <div class="helpline">उद्धार १२३४ · प्रहरी १०० · १११४</div>
   </div>
 </header>
+<p class="safety-banner" role="alert">बाढी कत्रो आयो भन्दै नदि छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदि भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।</p>
 <nav class="chips" aria-label="खण्डहरू">
   <div class="chips-inner">
     <a class="home-btn" href="#home" aria-label="होम" title="होम"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
@@ -237,6 +245,7 @@ footer{
     <a href="#sources">स्रोत</a>
   </div>
 </nav>
+</div>
 
 <div class="hero" id="home">
   <div class="wrap">
@@ -258,6 +267,7 @@ footer{
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>सतर्कता</h2></div>
   <div class="card red">
     <ul>
+      <li><strong>बाढी कत्रो आयो भन्दै नदि छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदि भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।</strong></li>
       <li><strong>नदी किनार नजिक नबस्नुहोस्।</strong> भोटेकोशी/त्रिशूली किनार मुग्लिनसम्म जोखिममा। जिल्ला: रसुवा, नुवाकोट, धादिङ, गोरखा, चितवन।</li>
       <li><strong>यात्रा नगर्नुहोस्:</strong> पृथ्वी राजमार्ग, गल्छी–नुवाकोट–रसुवा–स्याफ्रुबेसी, मुग्लिन–नारायणगढ।</li>
       <li>बाढी पूर्वानुमान महाशाखा १०:२८: बाढी धादिङको <strong>गल्छी</strong> पुग्यो; केही घण्टामा मुग्लिन पार गर्ने। पृथ्वी तथा मुग्लिन–नारायणगढ राजमार्ग र त्रिशूली किनारका बस्ती/बजार खाली गर्नुहोस्।</li>
