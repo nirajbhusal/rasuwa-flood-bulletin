@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T18:20:00+00:00",
+  "updated_at": "2026-08-26T18:20:45+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,16 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "m-uttam-prasain",
+      "name": "उत्तम पर्साईं",
+      "age": "37",
+      "place": "खाँददेवी गाउँपालिका–४, रामेछाप · बस नं. 7696, रसुवा",
+      "when": "26th August morning time 8:00 last contact time",
+      "phone": "9766381444 / 9697663814 / 9860804695",
+      "reporter": "दीपेश कार्की 9766381444",
+      "note": "बस नं. 7696 · दीपेश कार्की सम्पर्क"
+    },
     {
       "id": "sheet-20260826-235901-rajesh-ale-magar",
       "name": "Rajesh ale magar",
@@ -95,16 +105,6 @@
       "place": "Plano, Texas, USA · Immigration Office at Gyirong (China)",
       "phone": "17047718848",
       "note": "Isha Foundation Kailash trek · Male · ritikatejwani08@gmail.com"
-    },
-    {
-      "id": "m-uttam-prasain",
-      "name": "उत्तम पर्साईं",
-      "age": "37",
-      "place": "खाँददेवी गाउँपालिका–४, रामेछाप · बस नं. 7696, रसुवा",
-      "when": "26th August morning time 8:00 last contact time",
-      "phone": "9766381444 / 9697663814 / 9860804695",
-      "reporter": "दीपेश कार्की 9766381444",
-      "note": "बस नं. 7696 · दीपेश कार्की सम्पर्क"
     },
     {
       "id": "m-rajendra-dhakal",
