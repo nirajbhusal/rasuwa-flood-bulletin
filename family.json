@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T02:55:00+05:45",
+  "updated_at": "2026-08-27T03:25:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,24 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-032529-ashin-tamang",
+      "name": "Ashin Tamang",
+      "age": "18",
+      "place": "Thula gaun, tarakeshwor 3, kathmandu · Baseri, (last location in google map)",
+      "when": "10-05-2083 last contact at around 9 am",
+      "phone": "9841325494",
+      "note": "फारम ०३:२५ · Height 5 ft 5 inch, long black hair · Google map last seen Baseri"
+    },
+    {
+      "id": "sheet-20260827-032209-bijay-kumar-yadav",
+      "name": "Bijay Kumar Yadav",
+      "age": "",
+      "place": "Rajgadh-6,saptari · Upper Trishuli Hydropower Project",
+      "when": "26th august , 8 am",
+      "phone": "9805994665",
+      "note": "फारम ०३:२२ · Upper Trishuli Hydropower Project"
+    },
     {
       "id": "sheet-20260827-025336-venkata-subramanian",
       "name": "Venkata Subramanian",
