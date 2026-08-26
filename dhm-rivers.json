@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T12:47:55+00:00",
+  "updated_at": "2026-08-26T12:51:58+00:00",
   "note_np": "DHM नेटवर्कमा अहिले खतरा तहमा फुर्के मात्र (गेज बगेको, लाइभ होइन)। बाटोका अरू गेज सतर्कतामुनि।",
   "hydrology": "https://www.hydrology.gov.np/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -73,15 +73,15 @@
       "district": "Chitwan",
       "district_np": "चितवन",
       "basin": "Narayani",
-      "level_m": 5.806,
+      "level_m": 5.876,
       "warning_m": 10.8,
       "danger_m": 12.1,
       "status": "BELOW WARNING LEVEL",
       "steady": "FALLING",
-      "observed_at": "2026-08-26T12:35:00+00:00",
+      "observed_at": "2026-08-26T12:45:00+00:00",
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781",
-      "observed_npt": "१८:२०",
+      "observed_npt": "१८:३०",
       "silent": false
     },
     {
@@ -93,15 +93,15 @@
       "district": "Chitwan",
       "district_np": "चितवन",
       "basin": "Narayani",
-      "level_m": 4.144,
+      "level_m": 4.091,
       "warning_m": 7.3,
       "danger_m": 9.0,
       "status": "BELOW WARNING LEVEL",
       "steady": "FALLING",
-      "observed_at": "2026-08-26T12:25:00+00:00",
+      "observed_at": "2026-08-26T12:35:00+00:00",
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/265",
-      "observed_npt": "१८:१०",
+      "observed_npt": "१८:२०",
       "silent": false
     }
   ]
