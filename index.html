@@ -293,7 +293,10 @@ section{padding:22px 0}
 .pbox.active{background:var(--crimson);color:#fff;border-color:var(--crimson)}
 .pboxes{display:flex;flex-wrap:wrap;gap:6px}
 .pcount{margin-left:auto;font-size:13px;font-weight:700;color:var(--muted)}
-.photo.is-hidden{display:none}
+.is-hidden{display:none!important}
+.pager,.photo-toolbar{
+  display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 12px;
+}
 .lb{
   position:fixed;inset:0;z-index:80;background:rgba(15,23,42,.92);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -757,11 +760,11 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 <section id="photos">
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>तस्बिर · आज २६ अगस्ट २०२६ मात्र</h2></div>
-  <div class="photo-toolbar">
-    <button type="button" class="pbox" id="photo-prev" aria-label="अघिल्लो पेज">‹</button>
-    <div class="pboxes" id="photo-pages"></div>
-    <button type="button" class="pbox" id="photo-next" aria-label="पछिल्लो पेज">›</button>
-    <span class="pcount" id="photo-count"></span>
+  <div class="pager" data-pager="photos">
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <div class="pboxes pager-pages"></div>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <span class="pcount pager-count"></span>
   </div>
   <div class="photos" id="photo-grid">
     <figure class="photo">
@@ -917,7 +920,13 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 <section id="history">
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>अपडेट</h2></div>
-  <div class="log">
+  <div class="pager" data-pager="history">
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <div class="pboxes pager-pages"></div>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <span class="pcount pager-count"></span>
+  </div>
+  <div class="log" id="history-list">
     <article class="log-item now">
       <p class="when">~१५:०५ · अहिले</p>
       <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
@@ -1173,8 +1182,14 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 <section id="damage">
   <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2>क्षति (प्रारम्भिक)</h2></div>
+  <div class="pager" data-pager="damage">
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <div class="pboxes pager-pages"></div>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <span class="pcount pager-count"></span>
+  </div>
   <div class="card orange">
-    <ul>
+    <ul id="damage-list">
       <li>बागमती प्रहरी प्रमुख दीपक रेग्मी (रातोपाटी ~१४:११): धादिङ <strong>४</strong> र नुवाकोट <strong>४</strong> गरी <strong>८ शव</strong>। नाम अझै सार्वजनिक छैन। अघिल्लो जम्मा ७ यो संख्याबाट अद्यावधिक।</li>
       <li>बागमती प्रदेश प्रहरी प्रवक्ता एसएसपी राजेन्द्र धमला (रातोपाटी ~१३:५४): नुवाकोट <strong>विदुर क्षेत्रमा ४ शव</strong> — १ महिला, ३ पुरुष। विस्तृत पहिचान आउन बाँकी। अघिल्लो डिआईजी रेग्मीको नुवाकोट ३ यो संख्याबाट अद्यावधिक।</li>
       <li>बागमती प्रहरी प्रमुख दीपक रेग्मी (अनलाइनखबर ~१३:३८): नुवाकोट नदी किनारमा <strong>३</strong> र धादिङमा <strong>४</strong> गरी <strong>७ शव</strong>। नाम अझै सार्वजनिक छैन। घाइते उद्धार, शव संकलन र बेपत्ता खोजी जारी। नुवाकोटको हिस्सा पछि धमलाको ४ ले अद्यावधिक।</li>
@@ -1237,8 +1252,14 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 <section id="rescue">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>उद्धार / सरकार</h2></div>
+  <div class="pager" data-pager="rescue">
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <div class="pboxes pager-pages"></div>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <span class="pcount pager-count"></span>
+  </div>
   <div class="card green">
-    <ul>
+    <ul id="rescue-list">
       <li>नेपाली सेना जंगीअड्डा: हालसम्म घाइते <strong>२९ जना</strong> हेलिकप्टरबाट उद्धार। सेना हेलि <strong>६</strong> (+२ जाने), ड्रोन <strong>३</strong>। अघिल्लो स्थानगत १२ (स्याफ्रु ६, मैलुङ २, धुन्चे ४) यो संख्याबाट अद्यावधिक।</li>
       <li>अनलाइनखबर: रसुवा बाढीका घाइते हेलिकप्टरमार्फत <strong>काठमाडौं त्रिभुवन विमानस्थल</strong> ल्याएर विभिन्न अस्पताल पठाइएको। उद्धार जारी।</li>
       <li>वीर अस्पताल निर्देशक डा. विकास नेपाल: बाढी घाइतेको उपचार <strong>निःशुल्क</strong>। गम्भीरका लागि २७ बेड र आईसीयू ११ बेड तयारी।</li>
@@ -1272,8 +1293,14 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 <section id="roads">
   <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2>सडक / ट्राफिक</h2></div>
+  <div class="pager" data-pager="roads">
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <div class="pboxes pager-pages"></div>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <span class="pcount pager-count"></span>
+  </div>
   <div class="card orange">
-    <ul>
+    <ul id="roads-list">
       <li>नेपाल प्रहरी (~१३:२३): <strong>पृथ्वी राजमार्ग</strong> र <strong>मुग्लिन–नारायणगढ</strong> अर्को सूचना नआउँदासम्म सवारी बन्द। जानकारी: प्रहरी १००, ट्राफिक १०३।</li>
       <li>अनलाइनखबर लाइभ ~१३:४२: बाढी <strong>मुग्लिन पुग्यो/पार</strong>। सडक अझै बन्द।</li>
       <li>रासस / ट्राफिक एसपी नरेशराज सुवेदी: <strong>पासङल्हामु राजमार्ग</strong>मा सार्वजनिक सवारी रोकिएको।</li>
@@ -1421,7 +1448,13 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 <section id="sources">
   <div class="sec-head"><span class="dot" style="background:var(--ink)"></span><h2>स्रोत</h2></div>
-  <div class="sources">
+  <div class="pager" data-pager="sources">
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <div class="pboxes pager-pages"></div>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <span class="pcount pager-count"></span>
+  </div>
+  <div class="sources" id="source-grid">
 
     <div class="src-group">
 <h3>रातोपाटी <span class="badge">५९</span></h3>
@@ -1770,48 +1803,59 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
 })();
 
 (function(){
-  var grid = document.getElementById("photo-grid");
-  if (!grid) return;
-  var figs = Array.prototype.slice.call(grid.querySelectorAll("figure.photo"));
-  var PAGE = 6;
-  var page = 0;
-  var pagesEl = document.getElementById("photo-pages");
-  var countEl = document.getElementById("photo-count");
-  var prevBtn = document.getElementById("photo-prev");
-  var nextBtn = document.getElementById("photo-next");
+  function bindPager(pagerEl, items, pageSize) {
+    if (!pagerEl || !items || !items.length) return;
+    var page = 0;
+    var pagesEl = pagerEl.querySelector(".pager-pages");
+    var countEl = pagerEl.querySelector(".pager-count");
+    var prevBtn = pagerEl.querySelector(".pager-prev");
+    var nextBtn = pagerEl.querySelector(".pager-next");
+    if (!pagesEl || !countEl || !prevBtn || !nextBtn) return;
+    var PAGE = pageSize || 6;
+    function paint() {
+      var pages = Math.max(1, Math.ceil(items.length / PAGE));
+      if (page >= pages) page = pages - 1;
+      if (page < 0) page = 0;
+      items.forEach(function(f, i){
+        var on = i >= page * PAGE && i < (page + 1) * PAGE;
+        f.classList.toggle("is-hidden", !on);
+      });
+      pagesEl.innerHTML = "";
+      for (var n = 0; n < pages; n++) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "pbox" + (n === page ? " active" : "");
+        b.textContent = String(n + 1);
+        b.setAttribute("aria-label", "पेज " + (n + 1));
+        (function(idx){ b.addEventListener("click", function(){ page = idx; paint(); }); })(n);
+        pagesEl.appendChild(b);
+      }
+      var from = page * PAGE + 1;
+      var to = Math.min((page + 1) * PAGE, items.length);
+      countEl.textContent = from + "–" + to + " / " + items.length;
+      prevBtn.disabled = page === 0;
+      nextBtn.disabled = page === pages - 1;
+    }
+    prevBtn.addEventListener("click", function(){ page--; paint(); });
+    nextBtn.addEventListener("click", function(){ page++; paint(); });
+    paint();
+  }
+  function qsa(sel, root) {
+    return Array.prototype.slice.call((root || document).querySelectorAll(sel));
+  }
+  bindPager(document.querySelector('[data-pager="photos"]'), qsa("#photo-grid figure.photo"), 6);
+  bindPager(document.querySelector('[data-pager="history"]'), qsa("#history-list article.log-item"), 6);
+  bindPager(document.querySelector('[data-pager="rescue"]'), qsa("#rescue-list > li"), 6);
+  bindPager(document.querySelector('[data-pager="damage"]'), qsa("#damage-list > li"), 6);
+  bindPager(document.querySelector('[data-pager="roads"]'), qsa("#roads-list > li"), 6);
+  bindPager(document.querySelector('[data-pager="sources"]'), qsa("#source-grid .src-group"), 4);
+
+  var figs = qsa("#photo-grid figure.photo");
   var lb = document.getElementById("lightbox");
+  if (!lb || !figs.length) return;
   var lbImg = document.getElementById("lb-img");
   var lbCap = document.getElementById("lb-cap");
   var lbI = 0;
-  var pages = Math.max(1, Math.ceil(figs.length / PAGE));
-
-  function paint() {
-    pages = Math.max(1, Math.ceil(figs.length / PAGE));
-    if (page >= pages) page = pages - 1;
-    if (page < 0) page = 0;
-    figs.forEach(function(f, i){
-      var on = i >= page * PAGE && i < (page + 1) * PAGE;
-      f.classList.toggle("is-hidden", !on);
-    });
-    pagesEl.innerHTML = "";
-    for (var n = 0; n < pages; n++) {
-      var b = document.createElement("button");
-      b.type = "button";
-      b.className = "pbox" + (n === page ? " active" : "");
-      b.textContent = String(n + 1);
-      b.setAttribute("aria-label", "तस्बिर पेज " + (n + 1));
-      (function(idx){ b.addEventListener("click", function(){ page = idx; paint(); }); })(n);
-      pagesEl.appendChild(b);
-    }
-    var from = page * PAGE + 1;
-    var to = Math.min((page + 1) * PAGE, figs.length);
-    countEl.textContent = from + "–" + to + " / " + figs.length;
-    prevBtn.disabled = page === 0;
-    nextBtn.disabled = page === pages - 1;
-  }
-  prevBtn.addEventListener("click", function(){ page--; paint(); });
-  nextBtn.addEventListener("click", function(){ page++; paint(); });
-
   function openLb(i) {
     lbI = (i + figs.length) % figs.length;
     var a = figs[lbI].querySelector("a");
@@ -1845,8 +1889,8 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (e.key === "ArrowLeft") openLb(lbI - 1);
     if (e.key === "ArrowRight") openLb(lbI + 1);
   });
-  paint();
 })();
+);
 </script>
 </body>
 </html>
