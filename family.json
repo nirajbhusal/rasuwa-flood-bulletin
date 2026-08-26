@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T15:20:00+00:00",
+  "updated_at": "2026-08-26T15:25:00+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit?usp=sharing",
   "forms": {
@@ -73,6 +73,74 @@
       "place": "धादिङ · बेत्रावती",
       "reporter": "9840286667",
       "note": "परिवारको रिपोर्ट, साँझ ८:५८"
+    },
+    {
+      "id": "m-pradeep-shrestha",
+      "name": "प्रदीप श्रेष्ठ",
+      "age": "३९",
+      "place": "तातोपानी",
+      "phone": "9849993245",
+      "note": "फारम रिपोर्ट"
+    },
+    {
+      "id": "m-subodh-belbase",
+      "name": "सुबोध बेल्बासे",
+      "age": "२६–२७",
+      "place": "रुपन्देही · 3B",
+      "reporter": "9857036809 / 9866153617",
+      "note": "फारम रिपोर्ट"
+    },
+    {
+      "id": "m-sristi-bastola",
+      "name": "सृष्टि बास्तोला",
+      "reporter": "9763259152"
+    },
+    {
+      "id": "m-samir-paudel",
+      "name": "समिर पौडेल",
+      "reporter": "9863294460"
+    },
+    {
+      "id": "m-sishir-giri",
+      "name": "शिशिर गिरी",
+      "place": "UT-3B इन्टर्नशिप · काठमाडौं विश्वविद्यालय सिभिल",
+      "reporter": "9848029098"
+    },
+    {
+      "id": "m-luk-bahadur-kc",
+      "name": "लुक बहादुर केसी",
+      "age": "५०+",
+      "place": "कलंकी, भैसे",
+      "reporter": "9849441746 / 9867182568"
+    },
+    {
+      "id": "m-anuj-hari-nepal",
+      "name": "अनुज हरि नेपाल",
+      "age": "२७",
+      "place": "दोलखा · माछापुच्छ्रे बैंक, टिमुरे",
+      "reporter": "9851343739"
+    },
+    {
+      "id": "m-prakash-paudel-kalika",
+      "name": "प्रकाश पौडेल",
+      "age": "३६",
+      "place": "कालिका–५, जिबजबे · टिमुरे",
+      "phone": "9818983454",
+      "note": "कालिका–५ जिबजबे, टिमुरे — रसुवागढीको प्रकाश पौडेलभन्दा छुट्टै व्यक्ति"
+    },
+    {
+      "id": "m-subhadra-neupane",
+      "name": "सुभद्रा न्यौपाने",
+      "place": "सानिमा बैंक, टिमुरे",
+      "when": "दिउँसो ३:३०",
+      "reporter": "दाजु समिर न्यौपाने",
+      "note": "फोन नम्बर छैन"
+    },
+    {
+      "id": "m-govinda-prasad-bhandari",
+      "name": "गोविन्द प्रसाद भण्डारी",
+      "place": "तुप्चे ७, विदुर",
+      "reporter": "9840683361 / 860798162"
     }
   ],
   "found": [],
