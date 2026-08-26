@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T01:26:40+05:45",
+  "updated_at": "2026-08-27T01:37:37+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,15 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-012322-shankar-gurung",
+      "name": "Shankar Gurung",
+      "age": "31",
+      "place": "Gorkha, 6 thakukot · Rasuwa haku JC-216 hydropower",
+      "when": "26 August, missing from the 26 August morning or can't get to contact",
+      "phone": "9823693714 / 9813769855",
+      "note": "फारम ०१:२३ · Rasuwa hydropower"
+    },
     {
       "id": "sheet-20260827-011839-pradeep-karki",
       "name": "Pradeep Karki",
