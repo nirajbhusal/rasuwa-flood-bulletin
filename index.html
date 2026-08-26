@@ -165,6 +165,21 @@ img{max-width:100%;display:block}
 .treat{min-width:760px}
 .fam-tbl{min-width:560px}
 .fam-tbl td:nth-child(2){font-weight:650}
+.fam-new{min-width:640px}
+.fam-new th:last-child,.fam-new td.found-cell{
+  text-align:center;white-space:nowrap;width:1%;vertical-align:middle
+}
+a.js-found-row{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:3px 10px;border-radius:999px;
+  font-size:13px;font-weight:800;line-height:1.2;
+  background:var(--forest);color:#fff;text-decoration:none;white-space:nowrap;
+}
+a.js-found-row:hover{text-decoration:none;filter:brightness(1.08)}
+a.js-found-row[hidden]{display:none}
+@media (max-width:760px){
+  .fam-new td.found-cell{display:block;text-align:left;padding-top:6px}
+}
 .treat td.phone a{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700;color:var(--ink)}
 .treat-lead,.treat-note{font-size:16px;color:var(--muted);margin:0 0 8px;line-height:1.65}
 .treat-note{margin:8px 0 0}
@@ -913,38 +928,40 @@ footer .foot-contact a:hover{text-decoration:underline}
     <div class="fam-actions">
       <a class="hot" href="tel:1234">उद्धार १२३४</a>
       <a class="miss" id="fam-miss-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform" target="_blank" rel="noopener">हराएको रिपोर्ट</a>
-      <a class="found" id="fam-found-btn" hidden href="#" target="_blank" rel="noopener">भेटिएको रिपोर्ट</a>
+      <a class="found" id="fam-found-btn" hidden href="#" target="_blank" rel="noopener">भेटियो · रिपोर्ट</a>
     </div>
+    <p class="fam-lead">हराएको व्यक्ति भेटिएमा <strong>भेटियो</strong> थिच्नुहोस्। नाम, उमेर, स्थान र फोटो जाँचपछि मात्र कार्ड देखिन्छ। आपत्कालमा <a href="tel:1234">१२३४</a>।</p>
     <h3 class="fam-h">नयाँ रिपोर्ट</h3>
     <p class="treat-lead">आज साँझ थपिएका अठार विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="treat-wrap">
-    <table class="plants treat fam-tbl">
+    <table class="plants treat fam-tbl fam-new">
       <thead>
         <tr>
           <th>सि.नं.</th>
           <th>सम्पर्कविहीन / बेपत्ता</th>
           <th>निवेदक</th>
+          <th>भेटियो</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>१</td><td>दुर्गा पोखरेल · टिमुरे, रसुवा — अध्यागमन कार्यालय · फोन <a href="tel:+9779852041460">9852041460</a></td><td class="phone">आफन्त <a href="tel:+9779810568080">9810568080</a> / <a href="tel:+9779801126625">9801126625</a> / <a href="tel:+9779842374507">9842374507</a></td></tr>
-        <tr><td>२</td><td>नाम नखुलेको · नेपाल–तिब्बत सीमा, आज पार गर्ने तय · स्थानीय <a href="tel:+9779716078685">9716078685</a> · होटल Pasang Lhamu Highway, Shigatse 45000 · होटल <a href="tel:+9779841603450">9841603450</a></td><td class="phone">आफन्त (कजिन)</td></tr>
-        <tr><td>३</td><td>सरोज पराजुली र दिपेश पराजुली · उमेर २३ / २२ · सिन्धुपाल्चोक, बालेफी नगरपालिका · रसुवा भन्सार कार्यालय नजिक</td><td class="phone">परिवार <a href="tel:+9779843813721">9843813721</a></td></tr>
-        <tr><td>४</td><td>धीरेन्द्र बिष्ट · उमेर २३ / २४ · कालीकोट, नरहरिनाथ गाउँपालिका · रसुवा प्रोजेक्ट हाइड्रोपावर ड्याम · बिहान ९ बजे</td><td class="phone">परिवार <a href="tel:+9779868905326">9868905326</a></td></tr>
-        <tr><td>५</td><td>धर्मराज रिमाल · उमेर ३५ · नुवाकोट · टिमुरे · बिहान ९:००</td><td class="phone">परिवार <a href="tel:+9779865401859">9865401859</a></td></tr>
-        <tr><td>६</td><td>प्रकाश पौडेल · उमेर ३५ · रसुवा · रसुवागढी · ८:३० · रसुवागढी क्षेत्रमा खोज्न अनुरोध</td><td class="phone">परिवार <a href="tel:+9779768978274">9768978274</a></td></tr>
-        <tr><td>७</td><td>अजय प्रसाद सिंह · उमेर करिब ३१ · जनकपुर · Doosan Hydropower (216 MW Upper Trishuli) · रसुवा बाढी क्षेत्र</td><td class="phone">श्रीमती पुजा साह <a href="tel:+9779803647230">9803647230</a></td></tr>
-        <tr><td>८</td><td>ईश्वरी तिमल्सिना / तुलसी प्रसाद तिमल्सिना · उमेर ५३ / ६० · धादिङ · बेत्रावती</td><td class="phone">परिवार <a href="tel:+9779840286667">9840286667</a></td></tr>
-        <tr><td>९</td><td>प्रदीप श्रेष्ठ · उमेर ३९ · तातोपानी · फोन <a href="tel:+9779849993245">9849993245</a></td><td class="phone">—</td></tr>
-        <tr><td>१०</td><td>सुबोध बेल्बासे · उमेर २६–२७ · रुपन्देही · 3B</td><td class="phone">सम्पर्क <a href="tel:+9779857036809">9857036809</a> / <a href="tel:+9779866153617">9866153617</a></td></tr>
-        <tr><td>११</td><td>सृष्टि बास्तोला</td><td class="phone"><a href="tel:+9779763259152">9763259152</a></td></tr>
-        <tr><td>१२</td><td>समिर पौडेल</td><td class="phone"><a href="tel:+9779863294460">9863294460</a></td></tr>
-        <tr><td>१३</td><td>शिशिर गिरी · काठमाडौं विश्वविद्यालय सिभिल · UT-3B इन्टर्नशिप</td><td class="phone"><a href="tel:+9779848029098">9848029098</a></td></tr>
-        <tr><td>१४</td><td>लुक बहादुर केसी · उमेर ५०+ · कलंकी, भैसे</td><td class="phone"><a href="tel:+9779849441746">9849441746</a> / <a href="tel:+9779867182568">9867182568</a></td></tr>
-        <tr><td>१५</td><td>अनुज हरि नेपाल · उमेर २७ · दोलखा · माछापुच्छ्रे बैंक, टिमुरे</td><td class="phone"><a href="tel:+9779851343739">9851343739</a></td></tr>
-        <tr><td>१६</td><td>प्रकाश पौडेल · उमेर ३६ · कालिका–५, जिबजबे · टिमुरे</td><td class="phone"><a href="tel:+9779818983454">9818983454</a></td></tr>
-        <tr><td>१७</td><td>सुभद्रा न्यौपाने · सानिमा बैंक, टिमुरे · दिउँसो ३:३०</td><td class="phone">दाजु समिर न्यौपाने</td></tr>
-        <tr><td>१८</td><td>गोविन्द प्रसाद भण्डारी · तुप्चे ७, विदुर</td><td class="phone"><a href="tel:+9779840683361">9840683361</a> / 860798162</td></tr>
+        <tr><td>१</td><td>दुर्गा पोखरेल · टिमुरे, रसुवा — अध्यागमन कार्यालय · फोन <a href="tel:+9779852041460">9852041460</a></td><td class="phone">आफन्त <a href="tel:+9779810568080">9810568080</a> / <a href="tel:+9779801126625">9801126625</a> / <a href="tel:+9779842374507">9842374507</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="दुर्गा पोखरेल" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>२</td><td>नाम नखुलेको · नेपाल–तिब्बत सीमा, आज पार गर्ने तय · स्थानीय <a href="tel:+9779716078685">9716078685</a> · होटल Pasang Lhamu Highway, Shigatse 45000 · होटल <a href="tel:+9779841603450">9841603450</a></td><td class="phone">आफन्त (कजिन)</td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="नाम नखुलेको" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>३</td><td>सरोज पराजुली र दिपेश पराजुली · उमेर २३ / २२ · सिन्धुपाल्चोक, बालेफी नगरपालिका · रसुवा भन्सार कार्यालय नजिक</td><td class="phone">परिवार <a href="tel:+9779843813721">9843813721</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="सरोज पराजुली र दिपेश पराजुली" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>४</td><td>धीरेन्द्र बिष्ट · उमेर २३ / २४ · कालीकोट, नरहरिनाथ गाउँपालिका · रसुवा प्रोजेक्ट हाइड्रोपावर ड्याम · बिहान ९ बजे</td><td class="phone">परिवार <a href="tel:+9779868905326">9868905326</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="धीरेन्द्र बिष्ट" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>५</td><td>धर्मराज रिमाल · उमेर ३५ · नुवाकोट · टिमुरे · बिहान ९:००</td><td class="phone">परिवार <a href="tel:+9779865401859">9865401859</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="धर्मराज रिमाल" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>६</td><td>प्रकाश पौडेल · उमेर ३५ · रसुवा · रसुवागढी · ८:३० · रसुवागढी क्षेत्रमा खोज्न अनुरोध</td><td class="phone">परिवार <a href="tel:+9779768978274">9768978274</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="प्रकाश पौडेल" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>७</td><td>अजय प्रसाद सिंह · उमेर करिब ३१ · जनकपुर · Doosan Hydropower (216 MW Upper Trishuli) · रसुवा बाढी क्षेत्र</td><td class="phone">श्रीमती पुजा साह <a href="tel:+9779803647230">9803647230</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="अजय प्रसाद सिंह" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>८</td><td>ईश्वरी तिमल्सिना / तुलसी प्रसाद तिमल्सिना · उमेर ५३ / ६० · धादिङ · बेत्रावती</td><td class="phone">परिवार <a href="tel:+9779840286667">9840286667</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="ईश्वरी तिमल्सिना / तुलसी प्रसाद तिमल्सिना" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>९</td><td>प्रदीप श्रेष्ठ · उमेर ३९ · तातोपानी · फोन <a href="tel:+9779849993245">9849993245</a></td><td class="phone">—</td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="प्रदीप श्रेष्ठ" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१०</td><td>सुबोध बेल्बासे · उमेर २६–२७ · रुपन्देही · 3B</td><td class="phone">सम्पर्क <a href="tel:+9779857036809">9857036809</a> / <a href="tel:+9779866153617">9866153617</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="सुबोध बेल्बासे" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>११</td><td>सृष्टि बास्तोला</td><td class="phone"><a href="tel:+9779763259152">9763259152</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="सृष्टि बास्तोला" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१२</td><td>समिर पौडेल</td><td class="phone"><a href="tel:+9779863294460">9863294460</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="समिर पौडेल" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१३</td><td>शिशिर गिरी · काठमाडौं विश्वविद्यालय सिभिल · UT-3B इन्टर्नशिप</td><td class="phone"><a href="tel:+9779848029098">9848029098</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="शिशिर गिरी" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१४</td><td>लुक बहादुर केसी · उमेर ५०+ · कलंकी, भैसे</td><td class="phone"><a href="tel:+9779849441746">9849441746</a> / <a href="tel:+9779867182568">9867182568</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="लुक बहादुर केसी" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१५</td><td>अनुज हरि नेपाल · उमेर २७ · दोलखा · माछापुच्छ्रे बैंक, टिमुरे</td><td class="phone"><a href="tel:+9779851343739">9851343739</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="अनुज हरि नेपाल" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१६</td><td>प्रकाश पौडेल · उमेर ३६ · कालिका–५, जिबजबे · टिमुरे</td><td class="phone"><a href="tel:+9779818983454">9818983454</a></td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="प्रकाश पौडेल" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१७</td><td>सुभद्रा न्यौपाने · सानिमा बैंक, टिमुरे · दिउँसो ३:३०</td><td class="phone">दाजु समिर न्यौपाने</td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="सुभद्रा न्यौपाने" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
+        <tr><td>१८</td><td>गोविन्द प्रसाद भण्डारी · तुप्चे ७, विदुर</td><td class="phone"><a href="tel:+9779840683361">9840683361</a> / 860798162</td><td class="found-cell"><a class="js-found-row" hidden aria-disabled="true" data-name="गोविन्द प्रसाद भण्डारी" target="_blank" rel="noopener">रिपोर्ट</a></td></tr>
       </tbody>
     </table>
     </div>
@@ -1114,7 +1131,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <h3 class="fam-h">मेल भएका</h3>
     <div class="fam-grid" id="fam-matched"></div>
     </div>
-    <h3 class="fam-h">भेटिएको</h3>
+    <h3 class="fam-h">प्रमाणित भेटिएको</h3>
     <div class="pager" data-pager="fam-found" hidden>
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
       <div class="pboxes pager-pages"></div>
@@ -1122,7 +1139,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <span class="pcount pager-count"></span>
     </div>
     <div class="fam-grid" id="fam-found"></div>
-    <p class="fam-empty" id="fam-found-empty">प्रमाणित भेटिएको कार्ड आउन बाँकी।</p>
+    <p class="fam-empty" id="fam-found-empty">जाँचपछि मात्र यहाँ आउँछ।</p>
   </div>
 </section>
 
@@ -2921,9 +2938,21 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (missBtn && data.forms && data.forms.missing){
       missBtn.href = data.forms.missing; missBtn.hidden = false;
     }
-    if (foundBtn && data.forms && data.forms.found){
-      foundBtn.href = data.forms.found; foundBtn.hidden = false;
+    var foundUrl = (data.forms && data.forms.found) ? data.forms.found : "";
+    if (foundBtn && foundUrl){
+      foundBtn.href = foundUrl; foundBtn.hidden = false;
     }
+    document.querySelectorAll(".js-found-row").forEach(function(a){
+      if (foundUrl){
+        a.href = foundUrl;
+        a.hidden = false;
+        a.removeAttribute("aria-disabled");
+      } else {
+        a.hidden = true;
+        a.setAttribute("aria-disabled", "true");
+        a.removeAttribute("href");
+      }
+    });
     var matched = data.matched || [];
     var wrap = document.getElementById("fam-matched-wrap");
     if (wrap) wrap.hidden = !matched.length;
