@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T18:30:16+00:00",
+  "updated_at": "2026-08-26T18:37:25+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,24 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-001718-binod-acharya",
+      "name": "Binod Acharya",
+      "age": "45",
+      "place": "Rasuwa · Betrawati, Rasuwa",
+      "when": "8:30 am",
+      "phone": "9840249697",
+      "note": "फारम ००:१७"
+    },
+    {
+      "id": "sheet-20260827-001419-samir-dhungel",
+      "name": "Samir Dhungel",
+      "age": "Around 32",
+      "place": "Lalgadh Dhanusha · Upper trishuli 1 Hp",
+      "when": "D day morning",
+      "phone": "9840402024",
+      "note": "Geologist · Upper Trishuli-1 · फारम ००:१४"
+    },
     {
       "id": "sheet-20260827-000807-niranjan-shrestha",
       "name": "Niranjan Shrestha",
