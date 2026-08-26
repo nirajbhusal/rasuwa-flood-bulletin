@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T17:29:38+00:00",
+  "updated_at": "2026-08-26T17:33:59+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,20 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-user-20260826-prakriti-dangol",
+      "name": "Prakriti Dangol",
+      "place": "Betrawati Bazar, Aaintar",
+      "phone": "9860918004",
+      "note": "NTC"
+    },
+    {
+      "id": "sheet-user-20260826-lalita-devi-kumai",
+      "name": "Lalita Devi Kumai",
+      "place": "",
+      "phone": "9848152544",
+      "note": ""
+    },
     {
       "id": "sheet-20260826-231205-hari-chandra-khadka",
       "name": "Hari chandra khadka",
@@ -190,9 +204,10 @@
       "id": "m-diwananda-subedi-dipak-subedi",
       "name": "Diwananda Subedi/Dipak Subedi",
       "age": "37",
-      "place": "Ilam · Timure",
+      "place": "Ilam · Timure, China border",
       "when": "7:30 AM 26th August 2026",
-      "phone": "9802545271"
+      "phone": "9806049273 / 9802545271",
+      "note": "NCELL 9806049273"
     },
     {
       "id": "m-sabin-maharjan",
@@ -366,7 +381,7 @@
     {
       "id": "m-kamal-khadka",
       "name": "कमल खड्का",
-      "place": "दोलखा, जुंगु · साइनो हाइड्रोपावर",
+      "place": "दोलखा, जुंगु · Sino hydropower (साइनो हाइड्रोपावर)",
       "phone": "9745349989",
       "note": "साइनो हाइड्रोपावर चालक"
     },
@@ -1065,9 +1080,9 @@
       "id": "m-laxman-gurung",
       "name": "Laxman Gurung",
       "age": "60",
-      "place": "Upper Trishuli-1 Hydroelectric Project (216 MW) · Mailung sinohydro bureau 06!",
+      "place": "Upper Trishuli-1 Hydroelectric Project (216 MW) · Mailung hydropower (sinohydro bureau 06)",
       "when": "2083 / 05 / 10",
-      "phone": "9768069666 / 9868807300",
+      "phone": "9848849261 / 9768069666 / 9868807300",
       "note": "मेरो बाबा लक्ष्मण गुरुङ, जो Upper Trishuli-1 Hydroelectric Project (216 MW), Rasuwa बिहानदेखि सम्पर्क बाहिर हुनुहुन्छ।"
     },
     {
