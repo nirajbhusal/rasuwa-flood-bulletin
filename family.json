@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T03:25:00+05:45",
+  "updated_at": "2026-08-27T03:48:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,51 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-034554-nar-bahadur-tamang",
+      "name": "Nar Bahadur Tamang",
+      "age": "60",
+      "place": "Jiri/Dolakha · Kerung Boader",
+      "when": "Wednesday 7:00 AM entry hunu lako banera call garnu bako thyo tespachi contact chaina",
+      "phone": "9803214786 / 9823114086",
+      "note": "फारम ०३:४५ · Trekking group (Bhim Bahadur Tamang already listed) · Kerung border"
+    },
+    {
+      "id": "sheet-20260827-034554-daan-bahadur-tamang",
+      "name": "Daan Bahadur Tamang",
+      "age": "59",
+      "place": "Jiri/Dolakha · Kerung Boader",
+      "when": "Wednesday 7:00 AM entry hunu lako banera call garnu bako thyo tespachi contact chaina",
+      "phone": "9803214786 / 9823114086",
+      "note": "फारम ०३:४५ · Trekking group (Bhim Bahadur Tamang already listed) · Kerung border"
+    },
+    {
+      "id": "sheet-20260827-034554-jagat-tamang",
+      "name": "Jagat Tamang",
+      "age": "22",
+      "place": "Jiri/Dolakha · Kerung Boader",
+      "when": "Wednesday 7:00 AM entry hunu lako banera call garnu bako thyo tespachi contact chaina",
+      "phone": "9803214786 / 9823114086",
+      "note": "फारम ०३:४५ · Trekking group (Bhim Bahadur Tamang already listed) · Kerung border"
+    },
+    {
+      "id": "sheet-20260827-034554-baas-bahadur-tamang",
+      "name": "Baas Bahadur Tamang",
+      "age": "29",
+      "place": "Jiri/Dolakha · Kerung Boader",
+      "when": "Wednesday 7:00 AM entry hunu lako banera call garnu bako thyo tespachi contact chaina",
+      "phone": "9803214786 / 9823114086",
+      "note": "फारम ०३:४५ · Trekking group (Bhim Bahadur Tamang already listed) · Kerung border"
+    },
+    {
+      "id": "sheet-20260827-034554-pemba-ghising",
+      "name": "Pemba Ghising",
+      "age": "33",
+      "place": "Jiri/Dolakha · Kerung Boader",
+      "when": "Wednesday 7:00 AM entry hunu lako banera call garnu bako thyo tespachi contact chaina",
+      "phone": "9803214786 / 9823114086",
+      "note": "फारम ०३:४५ · Trekking group (Bhim Bahadur Tamang already listed) · Kerung border"
+    },
     {
       "id": "sheet-20260827-032529-ashin-tamang",
       "name": "Ashin Tamang",
