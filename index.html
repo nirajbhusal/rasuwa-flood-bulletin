@@ -663,6 +663,18 @@ footer .foot-contact a:hover{text-decoration:underline}
 .fam-card .js-found-row{margin-top:6px;font-size:13px}
 .fam-h{margin:16px 0 8px;font-size:18px;font-weight:800}
 .fam-empty{margin:0;padding:14px;text-align:center;color:var(--muted);font-weight:700;font-size:16px}
+
+.fam-search{margin:0 0 16px}
+.fam-search label{display:block;font-size:13px;font-weight:800;color:var(--muted);margin:0 0 6px}
+.fam-search input{
+  width:100%;box-sizing:border-box;
+  font-family:inherit;font-size:17px;font-weight:650;
+  padding:12px 14px;border-radius:12px;
+  border:1px solid var(--line);background:#fff;color:var(--ink);
+}
+.fam-search input:focus{outline:2px solid var(--crimson);border-color:var(--crimson)}
+.fam-nomatch{display:none!important}
+
 @media (max-width:760px){.fam-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -1047,6 +1059,10 @@ footer .foot-contact a:hover{text-decoration:underline}
       <a class="found" id="fam-found-btn" hidden href="#" target="_blank" rel="noopener">भेटियो · रिपोर्ट</a>
     </div>
     <p class="fam-lead">हराएको व्यक्ति भेटिएमा <strong>भेटियो</strong> थिच्नुहोस्। नाम, उमेर, स्थान र फोटो जाँचपछि मात्र कार्ड देखिन्छ। आपत्कालमा <a href="tel:1234">१२३४</a>।</p>
+    <div class="fam-search">
+      <label for="fam-search">नाम वा नम्बर खोज्नुहोस्</label>
+      <input id="fam-search" type="search" placeholder="उदाहरण: केबल, 9815…" autocomplete="off" enterkeyhint="search" spellcheck="false">
+    </div>
     <h3 class="fam-h">जनताको रिपोर्ट</h3>
     <p class="treat-lead" id="fam-new-lead">फारम सिटबाट जाँचिएका सम्पर्कविहीन विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="pager" data-pager="fam-miss">
@@ -1057,6 +1073,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     </div>
     <div class="fam-grid" id="fam-missing"></div>
     <p class="fam-empty" id="fam-missing-empty">जाँचपछि मात्र यहाँ आउँछ।</p>
+    <p class="fam-empty" id="fam-search-empty" hidden>यो खोजसँग मिल्ने नाम भेटिएन।</p>
     <h3 class="fam-h">हेलो सरकार · राती ८:१०</h3>
     <p class="treat-lead">फोनमार्फत टिपिएका सम्पर्कविहीन तथा बेपत्ता <strong>१४०</strong> विवरण। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="pager" data-pager="hello-sarkar">
@@ -3127,14 +3144,63 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
         a.removeAttribute("href");
       }
     });
-    function page(sel, cards){
+    function rebind(sel, itemNodes, size){
       var pager = document.querySelector(sel);
       if (!pager) return;
-      pager.hidden = !cards.length;
-      if (cards.length && window.__bindPager) window.__bindPager(pager, cards, 6);
+      ["pager-prev","pager-next"].forEach(function(cls){
+        var b = pager.querySelector("."+cls);
+        if (b) b.replaceWith(b.cloneNode(true));
+      });
+      var pagesEl = pager.querySelector(".pager-pages");
+      if (pagesEl) pagesEl.innerHTML = "";
+      itemNodes.forEach(function(el){ el.classList.remove("is-hidden"); });
+      pager.hidden = !itemNodes.length;
+      if (itemNodes.length && window.__bindPager) window.__bindPager(pager, itemNodes, size);
     }
-    page('[data-pager="fam-miss"]', Array.prototype.slice.call(document.querySelectorAll("#fam-missing .fam-card")));
-    page('[data-pager="fam-found"]', Array.prototype.slice.call(document.querySelectorAll("#fam-found .fam-card")));
+    function visible(sel){
+      return Array.prototype.slice.call(document.querySelectorAll(sel)).filter(function(el){
+        return !el.classList.contains("fam-nomatch");
+      });
+    }
+    function hay(el){
+      var t = (el.textContent || "").toLowerCase();
+      return t + " " + t.replace(/\D/g, "");
+    }
+    function applySearch(){
+      var q = ((document.getElementById("fam-search") || {}).value || "").trim().toLowerCase();
+      var qd = q.replace(/\D/g, "");
+      var cards = document.querySelectorAll("#fam-missing .fam-card");
+      var rows = document.querySelectorAll("#hello-sarkar-body tr");
+      var n = 0;
+      function hit(el){
+        if (!q) return true;
+        var h = hay(el);
+        return h.indexOf(q) !== -1 || (qd.length >= 4 && h.indexOf(qd) !== -1);
+      }
+      cards.forEach(function(el){
+        var ok = hit(el);
+        el.classList.toggle("fam-nomatch", !ok);
+        if (ok) n++;
+      });
+      rows.forEach(function(el){
+        var ok = hit(el);
+        el.classList.toggle("fam-nomatch", !ok);
+        if (ok) n++;
+      });
+      var empty = document.getElementById("fam-search-empty");
+      if (empty) empty.hidden = !q || n > 0;
+      var missEmpty = document.getElementById("fam-missing-empty");
+      if (missEmpty && q) missEmpty.hidden = true;
+      rebind('[data-pager="fam-miss"]', visible("#fam-missing .fam-card"), 6);
+      rebind('[data-pager="hello-sarkar"]', visible("#hello-sarkar-body tr"), 50);
+    }
+    rebind('[data-pager="fam-miss"]', visible("#fam-missing .fam-card"), 6);
+    rebind('[data-pager="fam-found"]', visible("#fam-found .fam-card"), 6);
+    var search = document.getElementById("fam-search");
+    if (search){
+      search.addEventListener("input", applySearch);
+      search.addEventListener("search", applySearch);
+    }
   }).catch(function(){});
 })();
 </script>
