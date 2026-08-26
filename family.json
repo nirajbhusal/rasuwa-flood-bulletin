@@ -1,11 +1,28 @@
 {
-  "updated_at": "2026-08-26T14:40:00+00:00",
+  "updated_at": "2026-08-26T15:10:00+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "forms": {
-    "missing": "",
+    "missing": "https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform",
     "found": ""
   },
-  "missing": [],
+  "missing": [
+    {
+      "id": "m-durga-pokhrel",
+      "name": "दुर्गा पोखरेल",
+      "place": "टिमुरे, रसुवा — अध्यागमन कार्यालय",
+      "phone": "9852041460",
+      "reporter": "9810568080 / 9801126625 / 9842374507",
+      "note": "अध्यागमन कार्यालय क्षेत्र, सम्पर्कविहीन"
+    },
+    {
+      "id": "m-cousin-border",
+      "name": "नाम नखुलेको",
+      "place": "नेपाल–तिब्बत सीमा / Pasang Lhamu Highway, Shigatse 45000",
+      "phone": "9716078685",
+      "reporter": "आफन्त (कजिन)",
+      "note": "आज सीमा पार गर्ने तय। होटल 9841603450। सञ्चार सेवा छैन भनिएको।"
+    }
+  ],
   "found": [],
   "matched": []
 }
