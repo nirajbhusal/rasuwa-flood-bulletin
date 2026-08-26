@@ -131,11 +131,22 @@ img{max-width:100%;display:block}
 .top-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .notify-btn{
   font:inherit;font-size:13px;font-weight:800;cursor:pointer;border:0;
-  border-radius:10px;padding:6px 12px;background:var(--crimson);color:#fff;
+  border-radius:10px;padding:6px 10px;background:var(--crimson);color:#fff;
+  display:inline-flex;align-items:center;gap:6px;line-height:1;
 }
+.notify-btn svg{flex:none;display:block}
 .notify-btn.on{background:#166534}
 .notify-btn.denied{background:#64748b;cursor:default}
 .notify-btn:disabled{opacity:.7;cursor:default}
+
+.plants{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 4px}
+.plants th,.plants td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
+.plants th{background:#f8fafc;font-size:12px;font-weight:800;color:var(--muted)}
+.plants td.mw,.plants th.mw{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.plants tr.hit td{background:#fff7ed}
+.plants .tag{display:inline-block;font-size:11px;font-weight:800;background:#9a3412;color:#fff;padding:1px 7px;border-radius:8px;margin-left:6px}
+.plants tfoot td{font-weight:800;border-bottom:0;padding-top:10px}
+
 
 .chips{
   position:relative;
@@ -327,7 +338,6 @@ footer{
   .photo img{height:200px}
   .helpline{width:100%}
   .top-actions{width:100%}
-  .notify-btn{width:100%}
 }
 </style>
 </head>
@@ -338,11 +348,14 @@ footer{
     <span class="live"><i></i> लाइभ</span>
     <div class="brand">
       <h1>रसुवा–भोटेकोशी बाढी</h1>
-      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~१२:३२ नेपाली समय</p>
+      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~१२:४२ नेपाली समय</p>
     </div>
     <div class="top-actions">
       <div class="helpline">उद्धार १२३४ · प्रहरी १०० · १११४</div>
-      <button type="button" class="notify-btn" id="notify-btn">सूचना अन गर्नुहोस्</button>
+      <button type="button" class="notify-btn" id="notify-btn" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zm6-6V11c0-3.07-1.64-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+        <span class="notify-label">अपडेट</span>
+      </button>
     </div>
   </div>
 </header>
@@ -357,6 +370,7 @@ footer{
     <a href="#path">कहाँ पुग्यो</a>
     <a href="#event">घटना</a>
     <a href="#damage">क्षति</a>
+    <a href="#power">विद्युत्</a>
     <a href="#rescue">उद्धार</a>
     <a href="#roads">सडक</a>
     <a href="#feeds">लाइभ फिड</a>
@@ -380,7 +394,8 @@ footer{
       <div class="stat"><b>१००+</b><span>टिमुरे घर प्रभावित (स्थानीय)</span></div>
       <div class="stat"><b>५–७</b><span>टिमुरे बजार घर बाँकी</span></div>
       <div class="stat"><b>७</b><span>टेलिकम टावर क्षति</span></div>
-      <div class="stat"><b>६</b><span>विद्युत् गृह/सबस्टेशन</span></div>
+      <div class="stat"><b>७</b><span>विद्युत् आयोजना प्रत्यक्ष प्रभावित</span></div>
+      <div class="stat"><b>२७६</b><span>मेगावाट प्रत्यक्ष प्रभावित</span></div>
       <div class="stat"><b>२</b><span>विदुर पक्की पुल बगे</span></div>
       <div class="stat"><b>१२</b><span>हेलिकप्टरबाट उद्धार</span></div>
       <div class="stat"><b>१२</b><span>हेलिकप्टर (४ सेना+८ निजी)</span></div>
@@ -437,7 +452,13 @@ footer{
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>अपडेट</h2></div>
   <div class="log">
     <article class="log-item now">
-      <p class="when">~१२:३२ · अहिले</p>
+      <p class="when">~१२:४२ · अहिले</p>
+      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>NEA: ७ आयोजना प्रत्यक्ष प्रभावित, २७६ मेगावाट</h3>
+      <p>नेपाल विद्युत् प्राधिकरणको १० भदौको अत्यन्त जरुरी सूचना: रसुवागढी १११, चिलिमे २२, लाङटाङ २०, त्रिशूली ३ए ६०, त्रिशूली २४, देवीघाट १४, NEA सोलार २५ मेगावाट प्रत्यक्ष प्रभावित। त्रिशूली ३बी हब २२० केभी सबस्टेशनसहित आपूर्ति अवरुद्ध। आधिकारिक नागरिक मृत्यु संख्या अझै छैन।</p>
+    </article>
+    <article class="log-item">
+      <p class="when">~१२:३२</p>
       <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>फुर्के पुल बग्यो, सेनाले १२ जना उद्धार, १६ प्रहरी सम्पर्कविहीन</h3>
       <p>पृथ्वी राजमार्ग–धादिङ जोड्ने फुर्केखोला पुल बाढीले बगायो। गजुरी अध्यक्ष: राजमार्ग जोखिमपूर्ण। सेना: १२ जना हेलिकप्टर उद्धार, ४ सेना + ८ निजी हेलिकप्टर। बागमती डीआईजी रेग्मी: ३ प्रहरी युनिटका १६ जना सम्पर्कविहीन — मृत्यु होइन। आधिकारिक नागरिक मृत्यु संख्या अझै छैन।</p>
@@ -619,13 +640,44 @@ footer{
       <li>नेपाल टेलिकम प्रवक्ता कमल लामिछाने: <strong>७ टावर क्षति</strong> (रसुवा २, नुवाकोट ५), गल्छी–रसुवागढी अप्टिकल फाइबर बिग्रिएको। त्रिशूलीसम्म फाइबर, माथि माइक्रोवेभ रेडियो।</li>
       <li>धादिङ सीडीओ लक्ष्मी पाण्डेय गौतम (११:११): गल्छीमा <strong>झोलुङ्गे पुल बग्यो</strong>। धादिङमा अहिलेसम्म ठूलो मानवीय क्षति नभएको। मलेखु–गल्छीका तटीय बस्ती सारिँदै।</li>
       <li>भन्सार विभाग प्रवक्ता किशोर बर्तौला: <strong>रसुवा भन्सार कार्यालयसँग सम्पर्क छैन</strong>। १३ भन्दा बढी कर्मचारी सकुशल भनिएको, कार्यालयको अवस्था अज्ञात।</li>
-      <li>नेपाल विद्युत् प्राधिकरण (~११:३४): <strong>रसुवागढी, चिलिमे, त्रिशूली ३ए, त्रिशूली ३बी हब २२० केभी सबस्टेशन, त्रिशूली र देवीघाट</strong> जलविद्युत्मा ठूलो क्षति। ती क्षेत्रको उत्पादन–प्रसारण ठप्प।</li>
+      <li>नेपाल विद्युत् प्राधिकरण, अत्यन्त जरुरी सूचना १० भदौ २०८३: <strong>७ आयोजना प्रत्यक्ष प्रभावित</strong> (करिब २७६ मेगावाट) — रसुवागढी १११, चिलिमे २२, लाङटाङ २०, त्रिशूली ३ए ६०, त्रिशूली २४, देवीघाट १४, NEA सोलार २५। त्रिशूली ३बी हब २२० केभी सबस्टेशन र वितरण संरचनामा क्षति, आपूर्ति अवरुद्ध।</li>
       <li>गोसाइँकुण्ड–२ वडासदस्य पेमा दोर्जे घले: बिहान ८:३० को बाढीले <strong>टिमुरे बजार तहसनहस</strong>, सय घरभन्दा बढी प्रभावित; कति घर/मानिस हराए थाहा छैन।</li>
       <li>बागमती डिआईजी दीपक रेग्मी: टिमुरे बजारमा <strong>५–७ घरमात्र बाँकी</strong>।</li>
       <li>टिमुरे भन्सार प्रमुख राजेन्द्र ढुंगाना (अनलाइनखबर): बाढी साढे ८–पौने ९ मा, ज्वालामुखी जस्तो आवाज। कार्यालयमा ३०/४० जना; <strong>१५/२० जना मात्र आपसमा सम्पर्कमा</strong>। केही साथी निस्कन नभ्याएको। बजार तहसनहस, माथिको जंगलमा कर्मचारी र गाउँले करिब ४०/५० जना; उद्धार टोली नदेखिएको। खोलाको पानी घटे पनि तल झर्न सकिने अवस्था छैन। यो आधिकारिक मृत्यु गणना होइन।</li>
       <li>उत्तरगया–२ वडाध्यक्ष टुकुप्रसाद सुवेदी: क्षतिको लेखाजोखा गर्न नसकिने; जलविद्युत् हब बगेको, उद्धार जान नसकेको, पहिरो पनि; पालिका कार्यालय परिसरमा बाढी पसेर सवारी बगे।</li>
     </ul>
     <p class="note">नागरिक मृत्यु वा बेपत्ताको आधिकारिक संख्या अहिले जारी भएको छैन। गत वर्षका आंकडा यो घटनामा नमिसाउनुहोस्।</p>
+  </div>
+</section>
+
+
+<section id="power">
+  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2>विद्युत् · NEA जरुरी सूचना</h2></div>
+  <div class="card orange">
+    <p>नेपाल विद्युत् प्राधिकरण प्रधान कार्यालय, दरबारमार्ग। <strong>अत्यन्त जरुरी सूचना</strong> · १० भदौ २०८३ (२६ अगस्ट २०२६)। रसुवाको आकस्मिक बाढीले जलविद्युत् र प्रसारण संरचनामा क्षति, आपूर्ति अवरुद्ध। आपूर्ति चाँडो सुचारु गर्ने प्रयास; नदीकिनार र जोखिम क्षेत्रमा सतर्क रहन आग्रह। हल्ला नपत्याउनुहोस्।</p>
+    <table class="plants">
+      <thead>
+        <tr><th>क्र.</th><th>आयोजना</th><th class="mw">मेगावाट</th><th>कैफियत</th></tr>
+      </thead>
+      <tbody>
+        <tr class="hit"><td>१</td><td>रसुवागढी</td><td class="mw">१११</td><td>प्रत्यक्ष प्रभावित · NEA सहायक <span class="tag">प्रभावित</span></td></tr>
+        <tr><td>२</td><td>सालासुङगी (सञ्जेन)</td><td class="mw">७८</td><td></td></tr>
+        <tr><td>३</td><td>अपर सञ्जेन</td><td class="mw">१४.८</td><td></td></tr>
+        <tr><td>४</td><td>सञ्जेन</td><td class="mw">४२.५</td><td></td></tr>
+        <tr class="hit"><td>५</td><td>चिलिमे</td><td class="mw">२२</td><td>प्रत्यक्ष प्रभावित · NEA सहायक <span class="tag">प्रभावित</span></td></tr>
+        <tr class="hit"><td>६</td><td>लाङटाङ</td><td class="mw">२०</td><td>प्रत्यक्ष प्रभावित · आईपीपी <span class="tag">प्रभावित</span></td></tr>
+        <tr class="hit"><td>७</td><td>त्रिशूली ३ए</td><td class="mw">६०</td><td>प्रत्यक्ष प्रभावित · NEA <span class="tag">प्रभावित</span></td></tr>
+        <tr><td>८</td><td>अपर मैलुङ</td><td class="mw">१४.८</td><td></td></tr>
+        <tr><td>९</td><td>मैलुङ</td><td class="mw">५</td><td></td></tr>
+        <tr class="hit"><td>१०</td><td>त्रिशूली</td><td class="mw">२४</td><td>प्रत्यक्ष प्रभावित · NEA <span class="tag">प्रभावित</span></td></tr>
+        <tr class="hit"><td>११</td><td>देवीघाट</td><td class="mw">१४</td><td>प्रत्यक्ष प्रभावित · NEA <span class="tag">प्रभावित</span></td></tr>
+        <tr class="hit"><td>१२</td><td>NEA सोलार</td><td class="mw">२५</td><td>प्रत्यक्ष प्रभावित · NEA <span class="tag">प्रभावित</span></td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td></td><td>जम्मा सूची</td><td class="mw">४३१.१</td><td>प्रत्यक्ष प्रभावित २७६ मेगावाट · त्रिशूली ३बी हब २२० केभी सबस्टेशन पनि क्षति</td></tr>
+      </tfoot>
+    </table>
+    <p class="note">स्रोत: नेपाल विद्युत् प्राधिकरण सूचना २०८३/०५/१०। खाली कैफियत भएका आयोजना यो सूचीमा छन्, प्रत्यक्ष प्रभावित भनेर चिन्हित छैनन्। फोन ०१-४१५३००७, ०१-४१५३०१२ · <a href="https://www.nea.org.np" target="_blank" rel="noopener">nea.org.np</a></p>
   </div>
 </section>
 
@@ -951,26 +1003,29 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   if (!btn) return;
   var pollTimer = null;
 
+  function setLabel(text, cls, aria) {
+    var span = btn.querySelector(".notify-label");
+    if (span) span.textContent = text;
+    btn.className = "notify-btn" + (cls ? " " + cls : "");
+    btn.setAttribute("aria-label", aria);
+    btn.title = aria;
+  }
   function label() {
     if (!("Notification" in window) || !("serviceWorker" in navigator)) {
-      btn.textContent = "सूचना उपलब्ध छैन";
-      btn.className = "notify-btn denied";
+      setLabel("—", "denied", "अपडेट अलर्ट उपलब्ध छैन");
       btn.disabled = true;
       return "unsupported";
     }
     var p = Notification.permission;
     if (p === "granted") {
-      btn.textContent = "सूचना अन छ";
-      btn.className = "notify-btn on";
+      setLabel("अन", "on", "अपडेट अलर्ट अन छ");
       return "granted";
     }
     if (p === "denied") {
-      btn.textContent = "सूचना ब्लक छ";
-      btn.className = "notify-btn denied";
+      setLabel("बन्द", "denied", "अपडेट अलर्ट ब्लक छ");
       return "denied";
     }
-    btn.textContent = "सूचना अन गर्नुहोस्";
-    btn.className = "notify-btn";
+    setLabel("अपडेट", "", "अपडेट अलर्ट अन गर्नुहोस्");
     return "default";
   }
 
