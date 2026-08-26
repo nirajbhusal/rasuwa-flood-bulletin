@@ -3097,8 +3097,10 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       phoneHtml += '<p class="fam-phone">सम्पर्क '+phoneLinks(item.reporter)+"</p>";
     }
     var found = kind === "missing" ? '<a class="js-found-row" hidden aria-disabled="true" data-name="'+esc(item.name||"")+'" target="_blank" rel="noopener">भेटियो</a>' : "";
+    var photo = item.photo ? '<img src="'+esc(item.photo)+'" alt="">' : "";
     return '<article class="fam-card'+(kind==="matched"?" matched":"")+'">'+
       '<span class="tag '+cls+'">'+tag+'</span>'+
+      photo+
       '<h3>'+esc(item.name||"नाम नखुलेको")+'</h3>'+
       '<p>'+bits.join(" · ")+'</p>'+note+phoneHtml+found+'</article>';
   }
