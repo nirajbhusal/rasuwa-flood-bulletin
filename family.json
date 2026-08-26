@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T18:53:30+00:00",
+  "updated_at": "2026-08-26T18:58:55+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,29 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-003957-abhiyan-shrestha",
+      "name": "Abhiyan Shrestha",
+      "age": "14",
+      "place": "Rasuwa, Bitrawati · Bitrawati, Rasuwa",
+      "note": "फारम ००:३९"
+    },
+    {
+      "id": "sheet-20260827-003852-chandu-magar",
+      "name": "Chandu Magar",
+      "age": "40",
+      "place": "Rasuwa, Bitrawati · Bitrawati, Rasuwa",
+      "phone": "9868114506",
+      "note": "फारम ००:३८"
+    },
+    {
+      "id": "sheet-20260827-003746-shadev-shrestha",
+      "name": "Shadev Shrestha",
+      "age": "40s",
+      "place": "Rasuwa, Bitrawati · Bitrawati, Rasuwa",
+      "phone": "9868114506",
+      "note": "फारम ००:३७"
+    },
     {
       "id": "sheet-20260827-003321-ishwor-shrestha",
       "name": "Ishwor Shrestha",
