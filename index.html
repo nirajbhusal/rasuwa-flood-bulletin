@@ -14,7 +14,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
 
@@ -22,7 +22,7 @@
 .safety-banner{
   margin:0;padding:10px 16px;
   background:#9f1239;color:#fff;
-  font-weight:700;font-size:15px;line-height:1.5;text-align:center;
+  font-weight:700;font-size:16px;line-height:1.55;text-align:center;
 }
 .police-alert{
   margin:18px 0 10px;
@@ -35,7 +35,7 @@
 }
 .police-alert p{margin:0}
 .police-alert-text{
-  font-weight:800;font-size:17px;line-height:1.55;
+  font-weight:800;font-size:19px;line-height:1.6;
 }
 .police-alert-text .src{
   display:inline-block;margin-left:6px;
@@ -92,11 +92,14 @@
 html{scroll-behavior:smooth;scroll-padding-top:var(--stick, 240px)}
 body{
   margin:0;
-  font-family:"Noto Sans Devanagari",system-ui,sans-serif;
+  font-family:Mukta,"Noto Sans Devanagari",system-ui,sans-serif;
   background:var(--paper);
   color:var(--ink);
-  line-height:1.65;
-  font-size:17px;
+  line-height:1.75;
+  font-size:19px;
+  font-weight:500;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 a{color:var(--teal);text-decoration:none}
 a:hover{text-decoration:underline}
@@ -127,7 +130,7 @@ img{max-width:100%;display:block}
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,255,255,0)}}
 .brand{flex:none;width:100%;min-width:0;text-align:center}
 .brand h1{margin:0;font-size:clamp(28px,7vw,52px);line-height:1.15;font-weight:800;text-align:center}
-.brand p{margin:6px 0 0;color:var(--muted);font-size:14px;text-align:center}
+.brand p{margin:6px 0 0;color:var(--muted);font-size:15px;text-align:center}
 .helpline{
   font-size:13px;font-weight:700;color:var(--crimson);
   background:var(--crimson-soft);padding:6px 10px;border-radius:10px;
@@ -151,7 +154,7 @@ img{max-width:100%;display:block}
 .notify-hint{display:none;width:100%;margin:0;font-size:12px;color:var(--muted);text-align:center}
 .notify-hint.show{display:block}
 
-.plants{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 4px}
+.plants{width:100%;border-collapse:collapse;font-size:16px;margin:8px 0 4px}
 .plants th,.plants td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
 .plants th{background:#f8fafc;font-size:12px;font-weight:800;color:var(--muted)}
 .plants td.mw,.plants th.mw{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -161,7 +164,7 @@ img{max-width:100%;display:block}
 .treat-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 4px}
 .treat{min-width:760px}
 .treat td.phone a{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700;color:var(--ink)}
-.treat-lead,.treat-note{font-size:14px;color:var(--muted);margin:0 0 8px;line-height:1.55}
+.treat-lead,.treat-note{font-size:16px;color:var(--muted);margin:0 0 8px;line-height:1.65}
 .treat-note{margin:8px 0 0}
 .treat td.age,.treat th.age{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 
@@ -178,7 +181,7 @@ img{max-width:100%;display:block}
 .chips a{
   display:inline-block;padding:7px 12px;border-radius:999px;
   background:#fff;border:1px solid var(--line);color:var(--ink);
-  font-size:14px;font-weight:600;text-decoration:none;
+  font-size:15px;font-weight:600;text-decoration:none;
 }
 .chips a:hover{border-color:var(--teal);color:var(--teal)}
 .chips a.home-btn{background:var(--crimson);color:#fff;border-color:var(--crimson);display:inline-flex;align-items:center;justify-content:center;width:36px;min-width:36px;height:36px;padding:0}
@@ -195,7 +198,7 @@ img{max-width:100%;display:block}
 #flood-map .leaflet-pane img,
 #flood-map img{max-width:none!important}
 .map-wrap{padding:0 0 12px}
-.map-note{margin:10px 0 0;font-size:13px;color:var(--muted);line-height:1.5}
+.map-note{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
 .map-legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:10px 0 0;font-size:13px;font-weight:700;color:var(--muted)}
 .map-legend i{display:inline-block;width:18px;height:6px;border-radius:4px;margin-right:6px;vertical-align:middle}
 .map-legend .solid{background:var(--crimson)}
@@ -213,7 +216,7 @@ img{max-width:100%;display:block}
 }
 .map-pin.start{background:#c41e3a}
 .map-pin.risk{background:#d97706}
-.leaflet-popup-content{font-family:"Noto Sans Devanagari",system-ui,sans-serif;margin:10px 12px;line-height:1.45}
+.leaflet-popup-content{font-family:Mukta,"Noto Sans Devanagari",system-ui,sans-serif;margin:10px 12px;line-height:1.5}
 .leaflet-popup-content b{display:block;font-size:16px}
 .leaflet-popup-content span{display:block;font-size:13px;color:#475569}
 
@@ -233,7 +236,7 @@ img{max-width:100%;display:block}
 .stats-src{
   list-style:none;margin:10px 0 0;padding:12px 14px;
   background:#fff;border:1px solid var(--line);border-radius:14px;
-  font-size:13px;color:var(--muted);line-height:1.55;text-align:left;
+  font-size:15px;color:var(--muted);line-height:1.65;text-align:left;
 }
 .stats-src li{margin:0 0 6px}
 .stats-src li:last-child{margin:0}
@@ -247,25 +250,25 @@ img{max-width:100%;display:block}
 .log-item.now{border-left:6px solid var(--crimson);background:linear-gradient(90deg,var(--crimson-soft),#fff 22%)}
 .log-item .when{margin:0;font-size:12px;font-weight:800;color:var(--crimson);letter-spacing:.02em}
 .log-item .k{margin:2px 0 0;font-size:12px;color:var(--muted);font-weight:700}
-.log-item h3{margin:4px 0 6px;font-size:17px;line-height:1.3}
-.log-item p{margin:0;color:var(--muted);font-size:15px;line-height:1.55}
+.log-item h3{margin:4px 0 6px;font-size:19px;line-height:1.35}
+.log-item p{margin:0;color:var(--muted);font-size:17px;line-height:1.65}
 
 .stat{
   background:#fff;border:1px solid var(--line);border-radius:16px;
   padding:14px 16px;text-align:left;box-shadow:var(--shadow);
   min-height:108px;
 }
-.stat b{display:block;font-size:15px;font-weight:800;line-height:1.25;color:var(--ink);letter-spacing:.01em}
+.stat b{display:block;font-size:16px;font-weight:800;line-height:1.3;color:var(--ink);letter-spacing:.01em}
 .stat span{display:none}
 .stat ul.mini{
   list-style:none;margin:8px 0 0;padding:0;
-  font-size:14px;color:var(--muted);line-height:1.5;
+  font-size:16px;color:var(--muted);line-height:1.55;
 }
 .stat ul.mini li{margin:4px 0}
 .stat ul.mini strong{color:var(--crimson);font-variant-numeric:tabular-nums;font-weight:800}
 section{padding:22px 0}
 .sec-head{display:flex;align-items:center;gap:10px;margin:0 0 12px}
-.sec-head h2{margin:0;font-size:22px}
+.sec-head h2{margin:0;font-size:24px}
 .dot{width:12px;height:12px;border-radius:50%;flex:none}
 .card{
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
@@ -310,8 +313,8 @@ section{padding:22px 0}
   width:3px;background:var(--teal-soft);
 }
 .step:last-child .rail::after{display:none}
-.step b{display:block;font-size:17px;line-height:1.25}
-.step span{font-size:14px;color:var(--muted)}
+.step b{display:block;font-size:18px;line-height:1.3}
+.step span{font-size:15px;color:var(--muted)}
 .x-open{
   padding:16px;background:#f8fafc;min-height:0;
 }
@@ -467,7 +470,7 @@ footer .foot-contact a:hover{text-decoration:underline}
   .ndrrma-hl .hl-dist{column-count:1}
 }
 
-.cao-lead{margin:0 0 12px;font-size:14px;color:var(--muted)}
+.cao-lead{margin:0 0 12px;font-size:15px;color:var(--muted)}
 .cao-grid{column-count:2;column-gap:10px}
 .cao-grid article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:var(--shadow);break-inside:avoid;margin:0 0 10px;display:inline-block;width:100%;vertical-align:top}
 .cao-grid h3{margin:0 0 6px;font-size:15px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
