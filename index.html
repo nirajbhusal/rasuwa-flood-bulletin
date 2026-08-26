@@ -1126,7 +1126,7 @@ footer .foot-contact a:hover{text-decoration:underline}
 <section id="family">
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>हराएको / भेटिएको</h2></div>
   <div class="card">
-    <p class="fam-lead">बाढीमा हराएका वा भेटिएका व्यक्तिको विवरण पठाउनुहोस्। जाँचपछि मात्र कार्ड देखिन्छ। प्रमाणित भेटिएको <strong>४१</strong> जना। आपत्कालमा <a href="tel:1234">१२३४</a> वा <a href="tel:100">प्रहरी १००</a>।</p>
+    <p class="fam-lead">बाढीमा हराएका वा भेटिएका व्यक्तिको विवरण पठाउनुहोस्। जाँचपछि मात्र कार्ड देखिन्छ। भेटिएको <strong>४१</strong> जना। आपत्कालमा <a href="tel:1234">१२३४</a> वा <a href="tel:100">प्रहरी १००</a>।</p>
     <div class="fam-actions">
       <a class="hot" href="tel:1234">उद्धार १२३४</a>
       <a class="miss" id="fam-miss-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform" target="_blank" rel="noopener">हराएको रिपोर्ट</a>
@@ -1314,7 +1314,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <h3 class="fam-h">मेल भएका</h3>
     <div class="fam-grid" id="fam-matched"></div>
     </div>
-    <h3 class="fam-h">प्रमाणित भेटिएको · <span id="stat-found">४१</span></h3>
+    <h3 class="fam-h">भेटिएको · <span id="stat-found">४१</span></h3>
     <div class="pager" data-pager="fam-found" hidden>
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
       <div class="pboxes pager-pages"></div>
@@ -1833,7 +1833,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <p class="when">~०१:०४ · अहिले</p>
       <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>भेटिएको सूची · ४१ जना</h3>
-      <p>हस्तलिखित सूचीबाट प्रमाणित भेटिएका <strong>४१</strong> जना — धेरै पालुङटार/गोरखा, बेत्रावती डंगोल परिवार, भक्तपुर/ललितपुर। हराएको सूचीसँग आफैं जोडिएको होइन। <a href="#family">हराएको / भेटिएको</a>।</p>
+      <p>हस्तलिखित सूचीबाट भेटिएका <strong>४१</strong> जना — धेरै पालुङटार/गोरखा, बेत्रावती डंगोल परिवार, भक्तपुर/ललितपुर। हराएको सूचीसँग आफैं जोडिएको होइन। <a href="#family">हराएको / भेटिएको</a>।</p>
     </article>
     <article class="log-item">
       <p class="when">~०१:००</p>
@@ -3463,7 +3463,9 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       rebind('[data-pager="hello-sarkar"]', visible("#hello-sarkar-body tr"), 50);
     }
     rebind('[data-pager="fam-miss"]', visible("#fam-missing .fam-card"), 6);
-    rebind('[data-pager="fam-found"]', visible("#fam-found .fam-card"), 6);
+    rebind('[data-pager="fam-found"]', visible("#fam-found .fam-card"), 50);
+    var foundPager = document.querySelector('[data-pager="fam-found"]');
+    if (foundPager) foundPager.hidden = visible("#fam-found .fam-card").length <= 50;
     var search = document.getElementById("fam-search");
     if (search){
       search.addEventListener("input", applySearch);
