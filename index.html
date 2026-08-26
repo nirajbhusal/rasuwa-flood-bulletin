@@ -158,6 +158,11 @@ img{max-width:100%;display:block}
 .plants tr.hit td{background:#fff7ed}
 .plants .tag{display:inline-block;font-size:11px;font-weight:800;background:#9a3412;color:#fff;padding:1px 7px;border-radius:8px;margin-left:6px}
 .plants tfoot td{font-weight:800;border-bottom:0;padding-top:10px}
+.treat-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 4px}
+.treat{min-width:620px}
+.treat-lead,.treat-note{font-size:14px;color:var(--muted);margin:0 0 8px;line-height:1.55}
+.treat-note{margin:8px 0 0}
+.treat td.age,.treat th.age{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 
 
 .chips{
@@ -490,7 +495,7 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="topbar-inner">
     <div class="brand">
       <h1>रसुवा–भोटेकोशी बाढी</h1>
-      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~१६:१० नेपाली समय</p>
+      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~१६:३० नेपाली समय</p>
     </div>
     <div class="top-actions">
       <span class="live"><i></i> लाइभ</span>
@@ -520,6 +525,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <a href="#damage">क्षति</a>
     <a href="#power">विद्युत्</a>
     <a href="#rescue">उद्धार</a>
+    <a href="#treat">उपचार</a>
     <a href="#roads">सडक</a>
     <a href="#feeds">लाइभ फिड</a>
     <a href="#videos">भिडियो</a>
@@ -531,8 +537,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 <div class="hero" id="home">
   <div class="wrap">
     <p class="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
-    <h2>प्रदेश प्रहरी: १६ को मृत्यु</h2>
-    <p class="lede">बागमती प्रदेश प्रहरी पौने चार: रसुवा <strong>१</strong>, नुवाकोट <strong>९</strong>, धादिङ <strong>६</strong> — जम्मा <strong>१६</strong> (७ महिला, ८ पुरुष, १ सनाखत बाँकी)। परराष्ट्रमन्त्री खनालको ९ यो १६ बाट अद्यावधिक। काठमाडौंमा हेलि घाइते <strong>२१</strong> (टिचिङ १७, ट्रमा ३, मेडिसिटी १)। लाङटाङ सुरुङमा मजदुर <strong>३५</strong> फसे, अन्य कर्मचारी <strong>२५</strong> सम्पर्कविहीन। नदी किनार नजानुहोस्।</p>
+    <h2>सेना: ८८ हवाई उद्धार</h2>
+    <p class="lede">जंगीअड्डा: रसुवाबाट हवाई उद्धार <strong>८८</strong> (हेलि ६, +२ जाने, ड्रोन ३)। संसद्मा खनाल: सुरक्षाकर्मी सम्पर्कविहीन <strong>७९</strong> — सेना ४४, प्रहरी २६, सशस्त्र ९ (मृत्यु होइन)। काठमाडौंमा उपचार <strong>२१</strong> मध्ये नामसहित <strong>१०</strong> (ट्रमा ३, टिचिङ ७)। प्रदेश प्रहरी: मृत्यु <strong>१६</strong> यथावत्। नदी किनार नजानुहोस्।</p>
     <div class="stats" aria-label="प्रारम्भिक तथ्यांक">
       <div class="stat">
         <b>शव</b>
@@ -558,8 +564,8 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="stat">
         <b>सुरक्षा</b>
         <ul class="mini">
-          <li>सशस्त्र <strong>१३</strong> · रसुवागढी <strong>९</strong> · मैलुङ <strong>४</strong></li>
-          <li>प्रहरी <strong>३२</strong> · कार्यालय <strong>४</strong></li>
+          <li>जम्मा <strong>७९</strong></li>
+          <li>सेना <strong>४४</strong> · प्रहरी <strong>२६</strong> · सशस्त्र <strong>९</strong></li>
         </ul>
       </div>
       <div class="stat">
@@ -579,8 +585,8 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="stat">
         <b>उद्धार</b>
         <ul class="mini">
-          <li>घाइते <strong>२९</strong></li>
-          <li>हेलि <strong>६</strong> (+२) · निजी <strong>८</strong> · ड्रोन <strong>३</strong></li>
+          <li>हवाई <strong>८८</strong></li>
+          <li>घाइते <strong>२९</strong> · हेलि <strong>६</strong> · ड्रोन <strong>३</strong></li>
         </ul>
       </div>
       <div class="stat">
@@ -594,11 +600,11 @@ footer .foot-contact a:hover{text-decoration:underline}
     <ul class="stats-src" aria-label="स्रोत">
       <li><b>शव जम्मा १६</b> — बागमती प्रदेश प्रहरी पौने चार (रसुवा १, नुवाकोट ९, धादिङ ६; ७ महिला, ८ पुरुष, १ सनाखत बाँकी)। खनाल संसद् १६:०१ को ९ र जिल्ला ४+६=१० यो १६ बाट अद्यावधिक। रसुवा अस्पताल उपचार मृत्यु यसमा जोडेर १७ नबनाइएको।</li>
       <li><b>घाइते</b> — रसुवा अस्पताल २४/६/१। काठमाडौं २१ (टिचिङ १७, ट्रमा ३, मेडिसिटी १) — प्रवक्ता दानबहादुर थापा; अघिल्लो टिचिङ १३ यो १७ बाट अद्यावधिक। २४, २१ र सेना २९ जोड्ने होइन। प्रदेश प्रहरी घाइते उद्धार ३५ (१३+१९+३) पनि जोड्ने होइन; समाचार शीर्षक ३५ / पाठ ३६।</li>
-      <li><b>सम्पर्कविहीन</b> — पर्यटन बोर्ड ३८४ (विदेशी २९१, नेपाली ९३)। लाङटाङ एमडी भट्टराई ६० (सुरुङ ३५ + अन्य २५)। पालुङटार बस ३४ — गोरखा प्रहरी। सुरक्षा/भन्सार कार्डका ३२, १३, ११ यसमा जोडिएको होइन। मृत्यु होइन।</li>
-      <li><b>सुरक्षा</b> — सशस्त्र १३ (रसुवागढी ९, मैलुङ ४)। प्रहरी ३२ / कार्यालय ४ — प्रवक्ता काफ्ले।</li>
+      <li><b>सम्पर्कविहीन</b> — पर्यटन बोर्ड ३८४ (विदेशी २९१, नेपाली ९३)। लाङटाङ एमडी भट्टराई ६० (सुरुङ ३५ + अन्य २५)। पालुङटार बस ३४ — गोरखा प्रहरी। सुरक्षा कार्डको ७९ र भन्सार ११ यसमा जोडिएको होइन। मृत्यु होइन।</li>
+      <li><b>सुरक्षा</b> — जम्मा ७९ (सेना ४४, प्रहरी २६, सशस्त्र ९) — परराष्ट्रमन्त्री खनाल, संसद्। टिमुरे र मैलुङ पोस्ट। अघिल्लो प्रहरी ३२ / सशस्त्र १३ यो ७९ बाट अद्यावधिक। मृत्यु होइन। खनालको शव ९ प्रदेश प्रहरी १६ ले नसटाउने।</li>
       <li><b>भन्सार</b> — स्थायी ३६, सम्पर्क २५, खोजी ११, गाडी ३००+ — प्रमुख ढुंगाना।</li>
       <li><b>टिमुरे</b> — घर १००+ र पर्खाइ ३००+ — वडासदस्य घले। बजार ५–७ — डिआईजी रेग्मी।</li>
-      <li><b>उद्धार</b> — घाइते २९, सेना हेलि ६ (+२), ड्रोन ३ — जंगीअड्डा। निजी हेलि ८।</li>
+      <li><b>उद्धार</b> — हवाई ८८, हेलि ६ (+२), ड्रोन ३ — सेना जनसम्पर्क निर्देशनालय / जंगीअड्डा, आज १० भदौ। घाइते २९ त्यसको उपसमूह; ८८+२९ जोड्ने होइन। अघिल्लो २९ यो ८८ बाट अद्यावधिक होइन — घाइते अलग।</li>
       <li><b>पूर्वाधार</b> — विद्युत् ७ / २७६ MW — प्राधिकरण। पुल १९+, सडक ४० किमि — सडक विभाग। टावर ७ — नेपाल टेलिकम।</li>
     </ul>
 <section id="map" class="hero-map">
@@ -1057,7 +1063,13 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
   <div class="log" id="history-list">
     <article class="log-item now">
-      <p class="when">~१६:१० · अहिले</p>
+      <p class="when">~१६:३० · अहिले</p>
+      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>सेना: ८८ हवाई उद्धार, खनाल: ७९ सुरक्षाकर्मी सम्पर्कविहीन</h3>
+      <p>जंगीअड्डा: रसुवाबाट हवाई उद्धार <strong>८८</strong> (हेलि ६, +२ जाने, ड्रोन ३) — प्रभावितको हवाई उद्धार; जंगीअड्डा घाइते <strong>२९</strong> यसमा जोडिएको होइन। परराष्ट्रमन्त्री खनाल संसद्: सुरक्षाकर्मी सम्पर्कविहीन <strong>७९</strong> — सेना ४४, प्रहरी २६, सशस्त्र ९ (टिमुरे/मैलुङ); मृत्यु होइन। अघिल्लो प्रहरी ३२ / सशस्त्र १३ यो ७९ बाट अद्यावधिक। काठमाडौं अस्पताल आंशिक सूची १५:००: <strong>१०</strong> जना (ट्रमा ३, टिचिङ ७) — जम्मा २१ मध्ये; सम्पर्क नम्बर सार्वजनिक छैन। प्रदेश प्रहरी मृत्यु <strong>१६</strong> यथावत् (खनालको ९ ले नसटाउने)।</p>
+    </article>
+    <article class="log-item">
+      <p class="when">~१६:१०</p>
       <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>प्रदेश प्रहरी: १६ मृत्यु, काठमाडौं २१ घाइते</h3>
       <p>बागमती प्रदेश प्रहरी पौने चार: मृत्यु <strong>१६</strong> — रसुवा १, नुवाकोट ९, धादिङ ६ (७ महिला, ८ पुरुष, १ सनाखत बाँकी)। परराष्ट्रमन्त्री खनाल संसद् १६:०१ को ९ यो १६ बाट अद्यावधिक। काठमाडौं जिल्ला प्रहरी प्रवक्ता दानबहादुर थापा: हेलि घाइते <strong>२१</strong> — टिचिङ १७, ट्रमा ३, मेडिसिटी १। लाङटाङ एमडी भट्टराई: सुरुङ <strong>३५</strong> मजदुर, अन्य <strong>२५</strong> कर्मचारी सम्पर्कविहीन, आयोजनाभरि ~६० — मृत्यु होइन।</p>
@@ -1418,6 +1430,9 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
   <div class="card green">
     <ul id="rescue-list">
+      <li>नेपाली सेना जनसम्पर्क निर्देशनालय (रातोपाटी ~१६:२५): रसुवाबाट हवाई उद्धार <strong>८८ जना</strong>, हेलिकप्टर <strong>६</strong> (+२ त्रिभुवनबाट जाने), ड्रोन <strong>३</strong>। आज १० भदौ २०८३। जंगीअड्डा घाइते २९ यो ८८ मा जोडिएको होइन — घाइते उपसमूह।</li>
+      <li>परराष्ट्रमन्त्री शिशिर खनाल संसद् (रातोपाटी ~१६:२८): सुरक्षाकर्मी सम्पर्कविहीन <strong>७९</strong> — सेना <strong>४४</strong>, प्रहरी <strong>२६</strong>, सशस्त्र <strong>९</strong> (टिमुरे र मैलुङ पोस्ट)। मृत्यु होइन। अघिल्लो प्रहरी ३२ / सशस्त्र १३ यो ७९ बाट अद्यावधिक। भन्सार/आप्रवासन कर्मचारी र केही स्थानीय पनि सम्पर्कविहीन — छुट्टै कार्ड, जोड्ने होइन।</li>
+      <li>काठमाडौं अस्पताल आंशिक सूची १५:००: उपचाररत <strong>१०</strong> जनाको नाम (ट्रमा ३, टिचिङ ७) — काठमाडौं जम्मा २१ मध्ये। पूर्ण तालिका <a href="#treat">काठमाडौंमा उपचार</a> खण्डमा। सम्पर्क नम्बर सार्वजनिक गरिएको छैन।</li>
       <li>काठमाडौं जिल्ला प्रहरी प्रवक्ता दानबहादुर थापा (रातोपाटी ~१५:५९): हेलिकप्टरबाट ल्याएका घाइते <strong>२१</strong> — टिचिङ <strong>१७</strong>, ट्रमा <strong>३</strong>, मेडिसिटी <strong>१</strong>। अघिल्लो टिचिङ १३ यो १७ बाट अद्यावधिक। रसुवा अस्पताल २४ र सेना २९ मा जोडिएको होइन।</li>
       <li>लाङटाङ २० मेगावाट एमडी विजयमोहन भट्टराई (आईपीएएन सचिव, रातोपाटी ~१५:५८): सुरुङमा मजदुर <strong>३५</strong> फसे (नदीभन्दा ~१०० मिटर माथि); इन्जिनियर/ओभरसियर/भान्से/चालक लगायत अन्य <strong>२५</strong> सम्पर्कविहीन; आयोजनाभरि करिब <strong>६०</strong>। अघिल्लो २५+ यो ३५ बाट अद्यावधिक। मृत्यु होइन। पावर हाउस बगे; हेडवर्क्स केही सुरक्षित।</li>
       <li>बागमती प्रदेश प्रहरी (रातोपाटी ~१६:०८): घाइते उद्धार रसुवा <strong>१३</strong>, नुवाकोट <strong>१९</strong>, धादिङ <strong>३</strong> (जोड ३५; पाठमा ३६ पनि)। सेना २९ / काठमाडौं २१ / रसुवा अस्पताल २४ मा जोडिएको होइन।</li>
@@ -1453,6 +1468,41 @@ footer .foot-contact a:hover{text-decoration:underline}
       <li>अर्थमन्त्री स्वर्णिम वाग्ले खोज तथा उद्धार समन्वयमा (अर्थ मन्त्रालय / Sidhakura)।</li>
       <li>नेकपा अध्यक्ष प्रचण्डले बाढी प्रभावित क्षेत्रमा उद्धारमा खटिन नेता-कार्यकर्तालाई निर्देशन दिएका छन् (अनलाइनखबर)।</li>
     </ul>
+  </div>
+</section>
+
+
+<section id="treat">
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>काठमाडौंमा उपचार</h2></div>
+  <div class="card green">
+    <p class="treat-lead">रसुवा बाढीमा घाइते भई उद्धार गरी काठमाडौंका अस्पतालमा उपचाररतको आंशिक सूची, <strong>१५:००</strong> सम्म। काठमाडौंमा जम्मा <strong>२१</strong> (टिचिङ १७, ट्रमा ३, मेडिसिटी १) मध्ये यो तालिकामा <strong>१०</strong> जना — राष्ट्रिय ट्रमा सेन्टर ३, टिचिङ ७। मेडिसिटीको १ यसमा छैन। सम्पर्क नम्बर सार्वजनिक गरिएको छैन।</p>
+    <div class="treat-wrap">
+    <table class="plants treat">
+      <thead>
+        <tr>
+          <th>सि.नं.</th>
+          <th>नाम थर</th>
+          <th class="age">उमेर</th>
+          <th>ठेगाना</th>
+          <th>उद्धार स्थान</th>
+          <th>अस्पताल</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>१</td><td>भक्त भण्डारी</td><td class="age">४२</td><td>विदुर–५, नुवाकोट</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
+        <tr><td>२</td><td>सीता भण्डारी</td><td class="age">४१</td><td>विदुर–५, नुवाकोट</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
+        <tr><td>३</td><td>विवेक कुमाल</td><td class="age">२४</td><td>विदुर–५, नुवाकोट</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
+        <tr><td>४</td><td>तेज बहादुर तामाङ</td><td class="age">३४</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>५</td><td>पेम्बा तामाङ</td><td class="age">४८</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>६</td><td>कुशल मगर</td><td class="age">—</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>७</td><td>कार्की भन्ने पुरुष</td><td class="age">४५</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>८</td><td>नामथर बताउन नसक्ने पुरुष</td><td class="age">३५</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>९</td><td>मिन बहादुर श्रेष्ठ</td><td class="age">३३</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>१०</td><td>गिरिलाल बुढाथोकी</td><td class="age">४०</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="treat-note">स्रोत: उद्धारपछि काठमाडौं अस्पताल विवरण, १५:०० अपडेट। पछिको प्रहरी गणना २१ ले यो १० लाई नसटाउने — बाँकी नाम खुलाउन बाँकी। स्वास्थ्य प्रवक्ता: उपचार निःशुल्क, हेल्पलाइन <a href="tel:1115">1115</a>।</p>
   </div>
 </section>
 
@@ -1624,8 +1674,11 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="sources" id="source-grid">
 
     <div class="src-group">
-<h3>रातोपाटी <span class="badge">६९</span></h3>
+<h3>रातोपाटी <span class="badge">७२</span></h3>
       <div class="src-list">
+<a href="https://www.ratopati.com/story/587584" target="_blank" rel="noopener">सेना: रसुवाबाट ८८ जना हवाई उद्धार</a>
+<a href="https://www.ratopati.com/story/587585" target="_blank" rel="noopener">खनाल संसद्: ७९ सुरक्षाकर्मी सम्पर्कविहीन</a>
+<a href="https://www.ratopati.com/story/587586" target="_blank" rel="noopener">स्वास्थ्य प्रवक्ता: काठमाडौंमा २१ को उपचार, 1115</a>
 <a href="https://www.ratopati.com/story/587577/devastating-floods-16-dead-35-injured-rescued" target="_blank" rel="noopener">बागमती प्रहरी: १६ मृत्यु (रसुवा १, नुवाकोट ९, धादिङ ६)</a>
 <a href="https://www.ratopati.com/story/587575/bodies-of-9-people-found-in-flood-affected-areas-identification-yet-to-be-done-foreign-minister-khanal" target="_blank" rel="noopener">खनाल संसद्: ९ शव, सनाखत बाँकी</a>
 <a href="https://www.ratopati.com/story/587574/21-flood-affected-people-are-receiving-treatment-in-kathmandu" target="_blank" rel="noopener">काठमाडौं प्रहरी: हेलि घाइते २१ (टिचिङ १७)</a>
