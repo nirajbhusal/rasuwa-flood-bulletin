@@ -159,7 +159,8 @@ img{max-width:100%;display:block}
 .plants .tag{display:inline-block;font-size:11px;font-weight:800;background:#9a3412;color:#fff;padding:1px 7px;border-radius:8px;margin-left:6px}
 .plants tfoot td{font-weight:800;border-bottom:0;padding-top:10px}
 .treat-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 4px}
-.treat{min-width:620px}
+.treat{min-width:760px}
+.treat td.phone a{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700;color:var(--ink)}
 .treat-lead,.treat-note{font-size:14px;color:var(--muted);margin:0 0 8px;line-height:1.55}
 .treat-note{margin:8px 0 0}
 .treat td.age,.treat th.age{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -515,6 +516,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <a class="home-btn" href="#home" aria-label="होम" title="होम"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
     <a href="#map">नक्सा</a>
     <a href="#alert">सतर्कता</a>
+    <a href="#treat">घाइते</a>
     <a href="#helpline">हेल्पलाइन</a>
     <a href="#contacts">सम्पर्क</a>
     <a href="#gov">सरकारी पहल</a>
@@ -525,7 +527,6 @@ footer .foot-contact a:hover{text-decoration:underline}
     <a href="#damage">क्षति</a>
     <a href="#power">विद्युत्</a>
     <a href="#rescue">उद्धार</a>
-    <a href="#treat">उपचार</a>
     <a href="#roads">सडक</a>
     <a href="#feeds">लाइभ फिड</a>
     <a href="#videos">भिडियो</a>
@@ -631,6 +632,41 @@ footer .foot-contact a:hover{text-decoration:underline}
   <p class="police-alert-phones"><a href="tel:1234">उद्धार १२३४</a> · <a href="tel:100">प्रहरी १००</a> · <a href="tel:1114">१११४</a> · <a href="tel:102">एम्बुलेन्स १०२</a></p>
 </aside>
 
+
+<section id="treat">
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>घाइते उपचाररतहरूको सम्पर्क विवरण</h2></div>
+  <div class="card green">
+    <p class="treat-lead">रसुवा बाढीमा घाइते भई उद्धार गरी काठमाडौंका अस्पतालमा उपचाररतको आंशिक सूची, <strong>१५:००</strong> सम्म। काठमाडौंमा जम्मा <strong>२१</strong> (टिचिङ १७, ट्रमा ३, मेडिसिटी १) मध्ये यो तालिकामा <strong>१०</strong> जना — राष्ट्रिय ट्रमा सेन्टर ३, टिचिङ ७। मेडिसिटीको १ यसमा छैन। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
+    <div class="treat-wrap">
+    <table class="plants treat">
+      <thead>
+        <tr>
+          <th>सि.नं.</th>
+          <th>नाम थर</th>
+          <th class="age">उमेर</th>
+          <th>ठेगाना</th>
+          <th>सम्पर्क नं.</th>
+          <th>उद्धार स्थान</th>
+          <th>अस्पताल</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>१</td><td>भक्त भण्डारी</td><td class="age">४२</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
+        <tr><td>२</td><td>सीता भण्डारी</td><td class="age">४१</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
+        <tr><td>३</td><td>विवेक कुमाल</td><td class="age">२४</td><td>विदुर–५, नुवाकोट</td><td class="phone"><a href="tel:+9779841781836">9841781836</a></td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
+        <tr><td>४</td><td>तेज बहादुर तामाङ</td><td class="age">३४</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>५</td><td>पेम्बा तामाङ</td><td class="age">४८</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>६</td><td>कुशल मगर</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>७</td><td>कार्की भन्ने पुरुष</td><td class="age">४५</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>८</td><td>नामथर बताउन नसक्ने पुरुष</td><td class="age">३५</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>९</td><td>मिन बहादुर श्रेष्ठ</td><td class="age">३३</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>१०</td><td>गिरिलाल बुढाथोकी</td><td class="age">४०</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="treat-note">स्रोत: उद्धारपछि काठमाडौं अस्पताल विवरण, १५:०० अपडेट। पछिको प्रहरी गणना २१ ले यो १० लाई नसटाउने — बाँकी नाम/नम्बर खुलाउन बाँकी। स्वास्थ्य प्रवक्ता: उपचार निःशुल्क, हेल्पलाइन <a href="tel:1115">1115</a>।</p>
+  </div>
+</section>
 
 <aside class="ndrrma-hl" id="helpline">
   <div class="hl-head">
@@ -1432,7 +1468,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <ul id="rescue-list">
       <li>नेपाली सेना जनसम्पर्क निर्देशनालय (रातोपाटी ~१६:२५): रसुवाबाट हवाई उद्धार <strong>८८ जना</strong>, हेलिकप्टर <strong>६</strong> (+२ त्रिभुवनबाट जाने), ड्रोन <strong>३</strong>। आज १० भदौ २०८३। जंगीअड्डा घाइते २९ यो ८८ मा जोडिएको होइन — घाइते उपसमूह।</li>
       <li>परराष्ट्रमन्त्री शिशिर खनाल संसद् (रातोपाटी ~१६:२८): सुरक्षाकर्मी सम्पर्कविहीन <strong>७९</strong> — सेना <strong>४४</strong>, प्रहरी <strong>२६</strong>, सशस्त्र <strong>९</strong> (टिमुरे र मैलुङ पोस्ट)। मृत्यु होइन। अघिल्लो प्रहरी ३२ / सशस्त्र १३ यो ७९ बाट अद्यावधिक। भन्सार/आप्रवासन कर्मचारी र केही स्थानीय पनि सम्पर्कविहीन — छुट्टै कार्ड, जोड्ने होइन।</li>
-      <li>काठमाडौं अस्पताल आंशिक सूची १५:००: उपचाररत <strong>१०</strong> जनाको नाम (ट्रमा ३, टिचिङ ७) — काठमाडौं जम्मा २१ मध्ये। पूर्ण तालिका <a href="#treat">काठमाडौंमा उपचार</a> खण्डमा। सम्पर्क नम्बर सार्वजनिक गरिएको छैन।</li>
+      <li>काठमाडौं अस्पताल आंशिक सूची १५:००: उपचाररत <strong>१०</strong> जनाको नाम (ट्रमा ३, टिचिङ ७) — काठमाडौं जम्मा २१ मध्ये। पूर्ण तालिका <a href="#treat">घाइते उपचाररतहरूको सम्पर्क विवरण</a> खण्डमा।</li>
       <li>काठमाडौं जिल्ला प्रहरी प्रवक्ता दानबहादुर थापा (रातोपाटी ~१५:५९): हेलिकप्टरबाट ल्याएका घाइते <strong>२१</strong> — टिचिङ <strong>१७</strong>, ट्रमा <strong>३</strong>, मेडिसिटी <strong>१</strong>। अघिल्लो टिचिङ १३ यो १७ बाट अद्यावधिक। रसुवा अस्पताल २४ र सेना २९ मा जोडिएको होइन।</li>
       <li>लाङटाङ २० मेगावाट एमडी विजयमोहन भट्टराई (आईपीएएन सचिव, रातोपाटी ~१५:५८): सुरुङमा मजदुर <strong>३५</strong> फसे (नदीभन्दा ~१०० मिटर माथि); इन्जिनियर/ओभरसियर/भान्से/चालक लगायत अन्य <strong>२५</strong> सम्पर्कविहीन; आयोजनाभरि करिब <strong>६०</strong>। अघिल्लो २५+ यो ३५ बाट अद्यावधिक। मृत्यु होइन। पावर हाउस बगे; हेडवर्क्स केही सुरक्षित।</li>
       <li>बागमती प्रदेश प्रहरी (रातोपाटी ~१६:०८): घाइते उद्धार रसुवा <strong>१३</strong>, नुवाकोट <strong>१९</strong>, धादिङ <strong>३</strong> (जोड ३५; पाठमा ३६ पनि)। सेना २९ / काठमाडौं २१ / रसुवा अस्पताल २४ मा जोडिएको होइन।</li>
@@ -1471,40 +1507,6 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
 </section>
 
-
-<section id="treat">
-  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>काठमाडौंमा उपचार</h2></div>
-  <div class="card green">
-    <p class="treat-lead">रसुवा बाढीमा घाइते भई उद्धार गरी काठमाडौंका अस्पतालमा उपचाररतको आंशिक सूची, <strong>१५:००</strong> सम्म। काठमाडौंमा जम्मा <strong>२१</strong> (टिचिङ १७, ट्रमा ३, मेडिसिटी १) मध्ये यो तालिकामा <strong>१०</strong> जना — राष्ट्रिय ट्रमा सेन्टर ३, टिचिङ ७। मेडिसिटीको १ यसमा छैन। सम्पर्क नम्बर सार्वजनिक गरिएको छैन।</p>
-    <div class="treat-wrap">
-    <table class="plants treat">
-      <thead>
-        <tr>
-          <th>सि.नं.</th>
-          <th>नाम थर</th>
-          <th class="age">उमेर</th>
-          <th>ठेगाना</th>
-          <th>उद्धार स्थान</th>
-          <th>अस्पताल</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>१</td><td>भक्त भण्डारी</td><td class="age">४२</td><td>विदुर–५, नुवाकोट</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>२</td><td>सीता भण्डारी</td><td class="age">४१</td><td>विदुर–५, नुवाकोट</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>३</td><td>विवेक कुमाल</td><td class="age">२४</td><td>विदुर–५, नुवाकोट</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>४</td><td>तेज बहादुर तामाङ</td><td class="age">३४</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>५</td><td>पेम्बा तामाङ</td><td class="age">४८</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>६</td><td>कुशल मगर</td><td class="age">—</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>७</td><td>कार्की भन्ने पुरुष</td><td class="age">४५</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>८</td><td>नामथर बताउन नसक्ने पुरुष</td><td class="age">३५</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>९</td><td>मिन बहादुर श्रेष्ठ</td><td class="age">३३</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१०</td><td>गिरिलाल बुढाथोकी</td><td class="age">४०</td><td>—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <p class="treat-note">स्रोत: उद्धारपछि काठमाडौं अस्पताल विवरण, १५:०० अपडेट। पछिको प्रहरी गणना २१ ले यो १० लाई नसटाउने — बाँकी नाम खुलाउन बाँकी। स्वास्थ्य प्रवक्ता: उपचार निःशुल्क, हेल्पलाइन <a href="tel:1115">1115</a>।</p>
-  </div>
-</section>
 
 <section id="roads">
   <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2>सडक / ट्राफिक</h2></div>
