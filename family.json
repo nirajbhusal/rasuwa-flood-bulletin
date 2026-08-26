@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T18:12:07+00:00",
+  "updated_at": "2026-08-26T18:20:00+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,105 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260826-235901-rajesh-ale-magar",
+      "name": "Rajesh ale magar",
+      "age": "24",
+      "place": "Nuwakot · Rasuwa new pul",
+      "when": "2083/05/10 time 8 3",
+      "phone": "9866479446",
+      "note": "Tauko ma chot · Sathi · फारम २३:५९"
+    },
+    {
+      "id": "sheet-20260826-235826-sudharshan-kafle",
+      "name": "Sudharshan Kafle",
+      "place": "Butwal · Mailung Khola HPP",
+      "note": "Mechanical Engineer · Mailung Khola HPP · बाढीमा हराएको (सोसल पोस्ट/फारम २३:५८)"
+    },
+    {
+      "id": "sheet-20260826-235736-indibar-ghimire",
+      "name": "Indibar Ghimire / इन्दीवर घिमिरे",
+      "place": "Upper Trishuli 3B Hydroelectric Project site / staff living quarters",
+      "when": "26 August 2026, morning, before/during the Rasuwa–Bhote Koshi flood",
+      "phone": "9849607827 / 9851185090",
+      "note": "Project Manager · TJVCL Upper Trishuli 3B (37 MW) · बाढीपछि सम्पर्कविहीन"
+    },
+    {
+      "id": "sheet-20260826-235735-bipin-kumar-mandal",
+      "name": "Bipin Kumar mandal",
+      "age": "25",
+      "place": "महोत्तरी",
+      "phone": "9849549140",
+      "note": "आमासँग कुरा · safe with ~60 people, waiting for rescue"
+    },
+    {
+      "id": "sheet-20260826-235651-chetna-anand-gupta",
+      "name": "Chetna Anand Gupta",
+      "age": "64",
+      "place": "Mumbai, India · Rasuwa / Timure / Syafrubesi area",
+      "when": "8:10 am, 26th August",
+      "phone": "918888881935",
+      "note": "Indian tourist · Kailash/Mansarovar · Vishrut Bharati सम्पर्क · Urgent"
+    },
+    {
+      "id": "sheet-20260826-235621-shivo-lamichhane-magar",
+      "name": "Shivo Lamichhane magar",
+      "age": "52",
+      "place": "Nuwakot · Haku besi haido poaraw",
+      "when": "2083/05/10",
+      "phone": "9866479446",
+      "note": "Son · फारम २३:५६"
+    },
+    {
+      "id": "sheet-20260826-235452-krishna-bashyal",
+      "name": "KRISHNA BASHYAL",
+      "place": "PALPA",
+      "phone": "9844796930 / 9864472469",
+      "note": "फारम २३:५४"
+    },
+    {
+      "id": "sheet-20260826-235146-suraj-timilsina",
+      "name": "सुरज तिमिल्सिना",
+      "age": "33",
+      "place": "Sindhupalchok",
+      "phone": "9841735806",
+      "note": "बिहान ८:४५ सम्म फोन · १० बजे व्यस्त · अनि अफ"
+    },
+    {
+      "id": "sheet-20260826-234619-rajan-tamrakar",
+      "name": "Rajan Tamrakar",
+      "age": "55",
+      "place": "Lalitpur · Dhunche → Gosainkunda",
+      "when": "26 august morning 11.30",
+      "phone": "9841720924 / 9841201030",
+      "note": "Gosainkunda तर्फ · त्यसपछि सम्पर्कविहीन"
+    },
+    {
+      "id": "sheet-20260826-234550-madhu-ahuja",
+      "name": "Madhu Ahuja",
+      "age": "~60",
+      "place": "Plano, Texas, USA · Immigration Office at Gyirong (China)",
+      "phone": "17047718848",
+      "note": "Isha Foundation Kailash trek · ritikatejwani08@gmail.com"
+    },
+    {
+      "id": "sheet-20260826-234306-deekap-ahuja",
+      "name": "Deekap Ahuja",
+      "age": "~60",
+      "place": "Plano, Texas, USA · Immigration Office at Gyirong (China)",
+      "phone": "17047718848",
+      "note": "Isha Foundation Kailash trek · Male · ritikatejwani08@gmail.com"
+    },
+    {
+      "id": "m-uttam-prasain",
+      "name": "उत्तम पर्साईं",
+      "age": "37",
+      "place": "खाँददेवी गाउँपालिका–४, रामेछाप · बस नं. 7696, रसुवा",
+      "when": "26th August morning time 8:00 last contact time",
+      "phone": "9766381444 / 9697663814 / 9860804695",
+      "reporter": "दीपेश कार्की 9766381444",
+      "note": "बस नं. 7696 · दीपेश कार्की सम्पर्क"
+    },
     {
       "id": "m-rajendra-dhakal",
       "name": "राजेन्द्र ढकाल",
@@ -26,6 +125,87 @@
       "phone": "9851133401 / 9849651996 / 9849145429 / 9861371109",
       "note": "Doosan Enerbility · Engineering Geologist · मोबाइल बन्द",
       "photo": "img/family-milan-kharel.jpg"
+    },
+    {
+      "id": "m-deekap-ahuja",
+      "name": "Deekap Ahuja",
+      "age": "~60",
+      "place": "Plano, Texas, USA · Immigration Office, Gyirong, China",
+      "phone": "+17047718848",
+      "note": "Isha Foundation Kailash trek · Madhu Ahuja सँग · ritikatejwani08@gmail.com"
+    },
+    {
+      "id": "m-madhu-ahuja",
+      "name": "Madhu Ahuja",
+      "age": "~60",
+      "place": "Plano, Texas, USA · Immigration Office, Gyirong, China",
+      "phone": "+17047718848",
+      "note": "Isha Foundation Kailash trek · Deekap Ahuja सँग · ritikatejwani08@gmail.com"
+    },
+    {
+      "id": "m-chetana-anand-gupta",
+      "name": "Chetana Anand Gupta",
+      "age": "64",
+      "place": "Mumbai · Rasuwa / Timure / Syafrubesi · China immigration post",
+      "when": "8:10 am, 26 Aug",
+      "phone": "+918888881935 / +919822025365",
+      "note": "Indian national · Richa Tours / Hills and Trails · Vishrut Bharati सम्पर्क"
+    },
+    {
+      "id": "m-rajan-tamrakar",
+      "name": "Rajan Tamrakar",
+      "age": "55",
+      "place": "Lalitpur · Dhunche, heading to Gosainkunda",
+      "when": "26 Aug morning 11:30",
+      "phone": "9841720924 / 9841201030",
+      "note": "गोसाइँकुण्ड जाने भनेका · आफ्नो नम्बर 9841201030"
+    },
+    {
+      "id": "m-suraj-timilsina",
+      "name": "सुरज तिमिल्सिना",
+      "age": "३३",
+      "place": "Sindhupalchok",
+      "when": "बिहान ८:४५ फोन, १० बजे मोबाइल अफ",
+      "phone": "9841735806",
+      "note": "बिहान ८:४५ सम्म कुरा भएको; १० बजेसम्म व्यस्त, अनि अफ"
+    },
+    {
+      "id": "m-krishna-bashyal",
+      "name": "Krishna Bashyal",
+      "place": "Palpa",
+      "phone": "9844796930 / 9864472469"
+    },
+    {
+      "id": "m-shivo-lamichhane-magar",
+      "name": "Shivo Lamichhane Magar",
+      "age": "52",
+      "place": "Nuwakot · Haku Besi",
+      "when": "2083/05/10",
+      "phone": "9866479446",
+      "note": "छोरा सम्पर्क · हातमा Shivo लेखेको ट्याटु"
+    },
+    {
+      "id": "m-rajesh-ale-magar",
+      "name": "Rajesh Ale Magar",
+      "age": "24",
+      "place": "Nuwakot · Rasuwa new pul",
+      "when": "2083/05/10 ~8:30",
+      "phone": "9866479446",
+      "note": "टाउकोमा चोट · साथी रिपोर्ट"
+    },
+    {
+      "id": "m-indibar-ghimire",
+      "name": "इन्दीवर घिमिरे",
+      "place": "Upper Trishuli 3B HEP, Kispang-5 · project manager",
+      "when": "26 Aug morning",
+      "phone": "9849607827 / 9851185090",
+      "note": "Trishuli Jal Vidhyut Company Ltd. · Upper Trishuli 3B (37 MW), 3B Hub substation होइन"
+    },
+    {
+      "id": "m-sudharshan-kafle",
+      "name": "Sudharshan Kafle",
+      "place": "Butwal · Mailung Khola HPP, mechanical engineer",
+      "note": "Mechanical engineer at Mailung Khola hydropower"
     },
     {
       "id": "sheet-826202623344-guru-dutta-pandey",
@@ -891,16 +1071,6 @@
       "note": "Truck driver went to timure for transportation of materials, not in contact!!"
     },
     {
-      "id": "m-uttam-prasain",
-      "name": "Uttam prasain",
-      "age": "37",
-      "place": "Ramechhap khadevi gaupalika · Rauswa",
-      "when": "26th August morning time 8:00 last contact time",
-      "phone": "9766381444",
-      "reporter": "9697663814 / 9860804695",
-      "note": "Name: Uttam prasain age 37 ramechhap khadevi gaupalika 4 bus number 7696 rasuwa bata contactless hunu vako ahile samma contact ma hununna Reporting person name Dipesh karki contact number 9766381444 dipesh karki , 986…"
-    },
-    {
       "id": "m-govinda-bahadur-adhikari-chhetri",
       "name": "Govinda Bahadur Adhikari Chhetri",
       "age": "47",
@@ -1209,7 +1379,8 @@
     {
       "id": "m-sristi-bastola",
       "name": "सृष्टि बास्तोला",
-      "reporter": "9763259152"
+      "reporter": "9763259152",
+      "phone": "9763259152"
     },
     {
       "id": "m-kumar-raut",
@@ -1266,7 +1437,8 @@
       "age": "२६–२७",
       "place": "रुपन्देही · 3B",
       "reporter": "9857036809 / 9866153617",
-      "note": "फारम रिपोर्ट"
+      "note": "फारम रिपोर्ट",
+      "phone": "9857036809 / 9866153617"
     },
     {
       "id": "m-pradeep-shrestha",
@@ -1282,7 +1454,8 @@
       "age": "५३ / ६०",
       "place": "धादिङ · बेत्रावती",
       "reporter": "9840286667",
-      "note": "परिवारको रिपोर्ट, साँझ ८:५८"
+      "note": "परिवारको रिपोर्ट, साँझ ८:५८",
+      "phone": "9840286667"
     },
     {
       "id": "m-ajay-prasad-singh",
@@ -1290,7 +1463,8 @@
       "age": "करिब ३१",
       "place": "जनकपुर · Doosan Hydropower (216 MW Upper Trishuli) · रसुवा बाढी क्षेत्र",
       "reporter": "9803647230",
-      "note": "श्रीमती पुजा साह"
+      "note": "श्रीमती पुजा साह",
+      "phone": "9803647230"
     },
     {
       "id": "m-prakash-paudel",
@@ -1316,7 +1490,8 @@
       "place": "नुवाकोट · टिमुरे",
       "when": "बिहान ९:००",
       "reporter": "9865401859",
-      "note": "परिवारको रिपोर्ट, साँझ ८:४९"
+      "note": "परिवारको रिपोर्ट, साँझ ८:४९",
+      "phone": "9865401859"
     },
     {
       "id": "m-dhirendra-bista",
@@ -1333,7 +1508,8 @@
       "age": "२३ / २२",
       "place": "सिन्धुपाल्चोक, बालेफी नगरपालिका · रसुवा भन्सार कार्यालय नजिक",
       "reporter": "9843813721",
-      "note": "परिवारको रिपोर्ट, साँझ ८:४२"
+      "note": "परिवारको रिपोर्ट, साँझ ८:४२",
+      "phone": "9843813721"
     }
   ],
   "found": [],
