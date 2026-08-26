@@ -3371,6 +3371,120 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
         return !el.classList.contains("fam-nomatch");
       });
     }
+    /* Script-insensitive search key for the missing-person wall.
+     *
+     * The list mixes scripts -- 156 of 193 names are romanised, 37 are Devanagari --
+     * so a plain substring match splits every surname in two. A family searching
+     * "तामाङ" gets nothing while nine Tamangs sit in the list.
+     *
+     * famKey() folds both scripts onto one key: transliterate Devanagari to Latin,
+     * then flatten the spellings Nepali names vary in anyway (थापा/thapa/thaapa,
+     * श्रेष्ठ/shrestha/sreshtha, भण्डारी/bhandari/bhandary).
+     *
+     * It is deliberately loose. On a missing-person wall a false positive costs a
+     * family three extra cards to read; a false negative costs them the answer.
+     */
+
+    var DEV_CONS = {
+      'क':'k','ख':'kh','ग':'g','घ':'gh','ङ':'ng',
+      'च':'ch','छ':'chh','ज':'j','झ':'jh','ञ':'ny',
+      'ट':'t','ठ':'th','ड':'d','ढ':'dh','ण':'n',
+      'त':'t','थ':'th','द':'d','ध':'dh','न':'n',
+      'प':'p','फ':'ph','ब':'b','भ':'bh','म':'m',
+      'य':'y','र':'r','ल':'l','व':'v','श':'sh','ष':'sh','स':'s','ह':'h',
+      'ळ':'l','क़':'k','ख़':'kh','ग़':'g','ज़':'z','ड़':'d','ढ़':'dh','फ़':'f','य़':'y'
+    };
+    var DEV_VOW = {
+      'अ':'a','आ':'aa','इ':'i','ई':'ii','उ':'u','ऊ':'uu','ऋ':'ri',
+      'ए':'e','ऐ':'ai','ओ':'o','औ':'au','ॠ':'ri'
+    };
+    var DEV_MATRA = {
+      'ा':'aa','ि':'i','ी':'ii','ु':'u','ू':'uu','ृ':'ri',
+      'े':'e','ै':'ai','ो':'o','ौ':'au','ॅ':'e','ॉ':'o'
+    };
+
+    /* True for any Devanagari letter, matra or sign -- used to spot word-final
+       consonants, which drop their inherent vowel. */
+    function isDev(ch) {
+      return !!ch && ch >= '\u0900' && ch <= '\u097F';
+    }
+
+    /* Devanagari -> Latin. Consonants carry an inherent 'a' unless a matra or a
+       virama follows, which is what makes राम "ram" and not "rm". */
+    function translit(s) {
+      var out = '', i, ch, nxt;
+      for (i = 0; i < s.length; i++) {
+        ch = s[i];
+        if (DEV_CONS[ch]) {
+          out += DEV_CONS[ch];
+          nxt = s[i + 1];
+          if (nxt === '्') { i++; }                       // virama: no vowel
+          else if (DEV_MATRA[nxt]) { out += DEV_MATRA[nxt]; i++; }
+          else if (isDev(nxt)) { out += 'a'; }            // inherent vowel
+          /* else: schwa deletion. A word-final consonant drops its inherent vowel,
+             which is why राम is "ram" and तामाङ is "tamang" -- without this the key
+             ends in a stray 'a' and never matches the romanised spelling. */
+        } else if (DEV_VOW[ch]) {
+          out += DEV_VOW[ch];
+        } else if (DEV_MATRA[ch]) {
+          out += DEV_MATRA[ch];
+        } else if (ch === 'ं' || ch === 'ँ') {
+          out += 'n';
+        } else if (ch === 'ः') {
+          out += 'h';
+        } else if (ch === '्' || ch === '॓' || ch === '॔') {
+          /* stray virama */
+        } else if (ch >= '०' && ch <= '९') {
+          out += String.fromCharCode(48 + (ch.charCodeAt(0) - 0x0966));  // Nepali digits
+        } else {
+          out += ch;
+        }
+      }
+      return out;
+    }
+
+    /* Flatten the spellings that vary between writers. Order matters: two-letter
+       clusters must go before the single letters they contain. */
+    function fold(s) {
+      return s
+        .replace(/chh/g, 'c').replace(/ch/g, 'c')
+        .replace(/sh/g, 's').replace(/ss/g, 's')
+        .replace(/kh/g, 'k').replace(/gh/g, 'g').replace(/jh/g, 'j')
+        .replace(/th/g, 't').replace(/dh/g, 'd')
+        .replace(/ph/g, 'p').replace(/bh/g, 'b')
+        .replace(/[vw]/g, 'b')            // व is written v, w or b
+        .replace(/z/g, 'j')
+        .replace(/ou/g, 'au')             // पौडेल is written poudel or paudel
+        .replace(/aa/g, 'a').replace(/ii/g, 'i').replace(/uu/g, 'u')
+        .replace(/ee/g, 'i').replace(/oo/g, 'u')
+        .replace(/y(?=\s|$)/g, 'i')       // -y and -i endings: bhandary / bhandari
+        /* Word boundaries are kept. Squeezing them out would let a query match
+           across two words -- "thapa" folds to "tapa", which "Guru dutta pandey"
+           and "Devkota पालुङटार" both contain once the spaces are gone. */
+        .replace(/[^a-z0-9]+/g, ' ')
+        .replace(/(.)\1+/g, '$1')         // collapse doubles
+        /* Drop a word-final 'a' on both sides. Devanagari already deletes its
+           inherent schwa (श्रेष्ठ -> srest) while the romanisation keeps it
+           (shrestha -> sresta); without this the two spellings never meet. */
+        .replace(/a(?=\s|$)/g, '')
+        .replace(/\s+/g, ' ').trim();
+    }
+
+    function famKey(s) {
+      return fold(translit(String(s || '')).toLowerCase());
+    }
+
+    /* Match the query against the START of a word, never the middle of one.
+       Searching anywhere inside the key makes short names catch places that merely
+       contain them: "thapa" folds to "tap", which sits inside "Bhaktapur", and
+       "lama" -> "lam" sits inside Ilam, Lamjung, Melamchi and Kamalamai. Anchoring
+       to a word boundary keeps prefix search working ("tam" still finds Tamang)
+       while dropping those. */
+    function famMatch(hayKey, queryKey) {
+      if (!queryKey) return true;
+      return (' ' + hayKey).indexOf(' ' + queryKey) !== -1;
+    }
+
     function hay(el){
       var t = (el.textContent || "").toLowerCase();
       return t + " " + t.replace(/\D/g, "");
@@ -3381,10 +3495,16 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       var cards = document.querySelectorAll("#fam-missing .fam-card");
       var rows = document.querySelectorAll("#hello-sarkar-body tr");
       var n = 0;
+      var qk = famKey(q);
       function hit(el){
         if (!q) return true;
         var h = hay(el);
-        return h.indexOf(q) !== -1 || (qd.length >= 4 && h.indexOf(qd) !== -1);
+        if (h.indexOf(q) !== -1) return true;
+        if (qd.length >= 4 && h.indexOf(qd) !== -1) return true;
+        /* Devanagari <-> romanised fallback, cached per card so famKey() runs
+           once per element rather than once per keystroke. */
+        if (el.__famKey === undefined) el.__famKey = famKey(h);
+        return famMatch(el.__famKey, qk);
       }
       cards.forEach(function(el){
         var ok = hit(el);
