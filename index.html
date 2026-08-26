@@ -224,6 +224,7 @@ a.js-found-row[hidden]{display:none}
 .map-legend .pin.start{background:var(--crimson)}
 .map-legend .pin.hit{background:var(--teal)}
 .map-legend .pin.risk{background:var(--saffron)}
+.map-legend .pin.gauge{border-radius:3px;background:#155e75}
 .map-pin{
   width:26px;height:26px;border-radius:50%;
   background:#0e7490;color:#fff;
@@ -233,6 +234,14 @@ a.js-found-row[hidden]{display:none}
 }
 .map-pin.start{background:#c41e3a}
 .map-pin.risk{background:#d97706}
+.map-pin.gauge{
+  width:22px;height:22px;border-radius:4px;
+  font:800 10px/22px "Noto Sans Devanagari",system-ui,sans-serif;
+  background:#155e75;
+}
+.map-pin.gauge.silent{background:#64748b}
+.map-pin.gauge.warn{background:#d97706}
+.map-pin.gauge.washed,.map-pin.gauge.danger{background:#c41e3a}
 .leaflet-popup-content{font-family:Mukta,"Noto Sans Devanagari",system-ui,sans-serif;margin:10px 12px;line-height:1.5}
 .leaflet-popup-content b{display:block;font-size:16px}
 .leaflet-popup-content span{display:block;font-size:13px;color:#475569}
@@ -688,7 +697,7 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="topbar-inner">
     <div class="brand">
       <h1>रसुवा–भोटेकोशी बाढी</h1>
-      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~००:०६ नेपाली समय</p>
+      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~००:१९ नेपाली समय</p>
     </div>
     <div class="top-actions">
       <span class="live"><i></i> लाइभ</span>
@@ -758,7 +767,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         <b>सम्पर्कविहीन</b>
         <ul class="mini">
           <li>NDRRMA <strong>२४५</strong> · रसुवा १६१ · नुवाकोट १</li>
-          <li><a href="#family">जनताको रिपोर्ट</a> <strong id="stat-miss-form">१८८</strong></li>
+          <li><a href="#family">जनताको रिपोर्ट</a> <strong id="stat-miss-form">१९३</strong></li>
           <li>हेलो सरकार <strong>१४०</strong></li>
           <li>पर्यटक <strong>४८४</strong></li>
           <li>लाङटाङ आयोजना <strong>६०</strong></li>
@@ -825,7 +834,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
     </div>
-    <p class="stats-note">NDRRMA शव १२३ / सम्पर्कविहीन २४५ / घाइते ७५। जनताको रिपोर्ट १८८। काठमाडौं ३६ / रसुवा अस्पताल २१, प्रहरी ६३। पर्यटक ४८४। हवाई उद्धार ११६ = सेना ८८ + निजी २८। स्थलगत ९३। पुल ८०। स्रोत तल।</p>
+    <p class="stats-note">NDRRMA शव १२३ / सम्पर्कविहीन २४५ / घाइते ७५। जनताको रिपोर्ट १९३। काठमाडौं ३६ / रसुवा अस्पताल २१, प्रहरी ६३। पर्यटक ४८४। हवाई उद्धार ११६ = सेना ८८ + निजी २८। स्थलगत ९३। पुल ८०। स्रोत तल।</p>
     <section id="donate" class="funds">
       <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>राहत कोष</h2></div>
       <p class="funds-lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन SWIFT पनि ट्याप गरेर कपी गर्न सकिन्छ। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
@@ -894,6 +903,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <span><i class="pin start"></i>प्रवेश</span>
       <span><i class="pin hit"></i>पुगेको</span>
       <span><i class="pin risk"></i>अनुमान</span>
+      <span><i class="pin gauge"></i>DHM गेज</span>
     </div>
     <p class="map-note">बिन्दुहरू बजार/पुलका अनुमानित स्थान हुन्, नदीको ठीक बीच होइन। चितवन देवघाट: महाशाखा १५:२० हाई अलर्ट — बाढी पुग्यो, सतह बढ्दो। सुस्ता सारिँदै (करिब ७०%), बाढी पुगेको पुष्टि छैन। नुवाकोट देवीघाट ≠ चितवन देवघाट। © OpenStreetMap</p>
   </div>
@@ -902,8 +912,14 @@ footer .foot-contact a:hover{text-decoration:underline}
     <div class="wl-top">
       <h3>DHM नदी सतह <small>बाढीको बाटो · स्वचालित गेज</small></h3>
     </div>
-    <div class="wl-list" id="wl-list"></div>
-    <p class="wl-src" id="wl-src">DHM नेटवर्कमा अहिले खतरा तहमा फुर्के मात्र (गेज बगेको, लाइभ होइन)। बाटोका अरू गेज सतर्कतामुनि। स्रोत: <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a></p>
+    <div class="wl-list" id="wl-list">
+      <article class="wl-row"><div class="wl-row-top"><h4>धुन्चे · त्रिशूली खोला<small>नुवाकोट · DHM</small></h4><span class="wl-badge silent">गेज मौन</span></div><div class="wl-num">२.४०<span>मिटर</span></div><p class="wl-meta">नुवाकोट · ०९:२० · यो पढाइपछि मौन</p></article>
+      <article class="wl-row"><div class="wl-row-top"><h4>बेत्रावती · त्रिशूली<small>नुवाकोट · DHM</small></h4><span class="wl-badge silent">गेज मौन</span></div><div class="wl-num">३.५५<span>मिटर</span></div><p class="wl-meta">नुवाकोट · ०९:२० · यो पढाइपछि मौन</p></article>
+      <article class="wl-row washed"><div class="wl-row-top"><h4>फुर्के · मलेखु<small>धादिङ · DHM</small></h4><span class="wl-badge danger">बगेको</span></div><div class="wl-num">१०.४८<span>मिटर</span></div><p class="wl-meta">धादिङ · ११:४० · अन्तिम पढाइ · लाइभ होइन</p></article>
+      <article class="wl-row"><div class="wl-row-top"><h4>काली खोला · त्रिशूली<small>चितवन · DHM</small></h4><span class="wl-badge warn">बढ्दो</span></div><div class="wl-num">७.५६<span>मिटर</span></div><p class="wl-meta">चितवन · ००:१०</p></article>
+      <article class="wl-row"><div class="wl-row-top"><h4>देवघाट · नारायणी<small>चितवन · DHM</small></h4><span class="wl-badge ok">सतर्कतामुनि</span></div><div class="wl-num">४.३७<span>मिटर</span></div><p class="wl-meta">चितवन · २३:५०</p></article>
+    </div>
+    <p class="wl-src" id="wl-src">DHM नेटवर्कमा अहिले खतरा तहमा फुर्के मात्र (गेज बगेको, लाइभ होइन)। काली ७.५६ बढ्दो ००:१० / देवघाट ४.३७ स्थिर २३:५०, दुवै सतर्कतामुनि। धुन्चे/बेत्रावती मौन ०९:२०। स्रोत: <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a></p>
   </div>
   <div class="card teal">
     <div class="path" role="list">
@@ -3111,6 +3127,75 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   confirmed.forEach(function(p, i){ pin(p, i + 1); });
   risk.forEach(function(p, i){ pin(p, confirmed.length + i + 1); });
   map.fitBounds(confLatLng.concat(risk.map(function(p){ return [p.lat, p.lng]; })), {padding: [28, 28], maxZoom: 10});
+  var GAUGE_XY = {
+    4657: [28.098163, 85.318589],
+    52: [27.97, 85.18],
+    5611: [27.804, 84.837],
+    4781: [27.833, 84.546],
+    265: [27.71, 84.43]
+  };
+  var DIG = "०१२३४५६७८९";
+  function npNum(s){ return String(s).replace(/[0-9]/g, function(d){ return DIG[d]; }); }
+  function fmtM(v){
+    if (v == null || v === "" || isNaN(v)) return "—";
+    return npNum(Number(v).toFixed(2));
+  }
+  function gaugePopup(s){
+    var level = Number(s.level_m);
+    var warn = Number(s.warning_m);
+    var danger = Number(s.danger_m);
+    var washed = !!s.washed;
+    var silent = !!s.silent;
+    if (!washed && !silent && s.observed_at) {
+      silent = (Date.now() - new Date(s.observed_at).getTime()) > 30 * 60 * 1000;
+    }
+    var when = s.observed_npt || "";
+    var line;
+    if (washed) line = fmtM(level) + " मि · बगेको · अन्तिम " + when + " · लाइभ होइन";
+    else if (silent) line = fmtM(level) + " मि · मौन · " + when + (warn ? " · सतर्कता " + fmtM(warn) : "");
+    else {
+      var trend = s.steady === "RISING" ? "बढ्दो" : (s.steady === "FALLING" ? "घट्दो" : "स्थिर");
+      var wd = (warn ? "सतर्कता " + fmtM(warn) : "") + (danger ? " / खतरा " + fmtM(danger) : "");
+      line = fmtM(level) + " मि " + trend + (wd ? " · " + wd : "") + (when ? " · " + when : "");
+    }
+    return "<b>" + (s.name_np || s.name) + "</b><span>" + line + "</span>";
+  }
+  function gaugeClass(s){
+    var level = Number(s.level_m);
+    var warn = Number(s.warning_m);
+    var danger = Number(s.danger_m);
+    var washed = !!s.washed;
+    var silent = !!s.silent;
+    if (!washed && !silent && s.observed_at) {
+      silent = (Date.now() - new Date(s.observed_at).getTime()) > 30 * 60 * 1000;
+    }
+    var cls = "map-pin gauge";
+    if (washed) cls += " washed";
+    else if (silent) cls += " silent";
+    else if (danger && level >= danger) cls += " danger";
+    else if (warn && level >= warn) cls += " warn";
+    return cls;
+  }
+  fetch("./dhm-rivers.json?t=" + Date.now(), { cache: "no-store" })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      if (!data || !data.stations) return;
+      data.stations.forEach(function(s){
+        var xy = GAUGE_XY[s.station_id];
+        if (!xy) return;
+        var icon = L.divIcon({
+          className: "",
+          html: '<div class="' + gaugeClass(s) + '">ग</div>',
+          iconSize: [22, 22],
+          iconAnchor: [11, 11],
+          popupAnchor: [0, -12]
+        });
+        L.marker(xy, {icon: icon, keyboard: true, title: (s.name_np || s.name) + " DHM", zIndexOffset: 200})
+          .bindPopup(gaugePopup(s))
+          .addTo(map);
+      });
+    })
+    .catch(function(){});
   function fix() { map.invalidateSize(); }
   setTimeout(fix, 0);
   setTimeout(fix, 400);
