@@ -1,6 +1,7 @@
 {
-  "updated_at": "2026-08-26T15:10:00+00:00",
+  "updated_at": "2026-08-26T15:20:00+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
+  "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit?usp=sharing",
   "forms": {
     "missing": "https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform",
     "found": ""
@@ -21,6 +22,57 @@
       "phone": "9716078685",
       "reporter": "आफन्त (कजिन)",
       "note": "आज सीमा पार गर्ने तय। होटल 9841603450। सञ्चार सेवा छैन भनिएको।"
+    },
+    {
+      "id": "m-saroj-dipesh-parajuli",
+      "name": "सरोज पराजुली र दिपेश पराजुली",
+      "age": "२३ / २२",
+      "place": "सिन्धुपाल्चोक, बालेफी नगरपालिका · रसुवा भन्सार कार्यालय नजिक",
+      "reporter": "9843813721",
+      "note": "परिवारको रिपोर्ट, साँझ ८:४२"
+    },
+    {
+      "id": "m-dhirendra-bista",
+      "name": "धीरेन्द्र बिष्ट",
+      "age": "२३ / २४",
+      "place": "कालीकोट, नरहरिनाथ गाउँपालिका · रसुवा प्रोजेक्ट हाइड्रोपावर ड्याम",
+      "when": "बिहान ९ बजे",
+      "reporter": "9868905326",
+      "note": "परिवारको रिपोर्ट, साँझ ८:४७"
+    },
+    {
+      "id": "m-dharmaraj-rimal",
+      "name": "धर्मराज रिमाल",
+      "age": "३५",
+      "place": "नुवाकोट · टिमुरे",
+      "when": "बिहान ९:००",
+      "reporter": "9865401859",
+      "note": "परिवारको रिपोर्ट, साँझ ८:४९"
+    },
+    {
+      "id": "m-prakash-paudel",
+      "name": "प्रकाश पौडेल",
+      "age": "३५",
+      "place": "रसुवा · रसुवागढी",
+      "when": "८:३०",
+      "reporter": "9768978274",
+      "note": "रसुवागढी क्षेत्रमा खोज्न अनुरोध"
+    },
+    {
+      "id": "m-ajay-prasad-singh",
+      "name": "अजय प्रसाद सिंह",
+      "age": "करिब ३१",
+      "place": "जनकपुर · Doosan Hydropower (216 MW Upper Trishuli) · रसुवा बाढी क्षेत्र",
+      "reporter": "9803647230",
+      "note": "श्रीमती पुजा साह"
+    },
+    {
+      "id": "m-ishwori-tulsi-timalsina",
+      "name": "ईश्वरी तिमल्सिना / तुलसी प्रसाद तिमल्सिना",
+      "age": "५३ / ६०",
+      "place": "धादिङ · बेत्रावती",
+      "reporter": "9840286667",
+      "note": "परिवारको रिपोर्ट, साँझ ८:५८"
     }
   ],
   "found": [],
