@@ -86,7 +86,7 @@ img{max-width:100%;display:block}
   font-size:14px;font-weight:600;text-decoration:none;
 }
 .chips a:hover{border-color:var(--teal);color:var(--teal)}
-.chips a.home-btn{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.chips a.home-btn{background:var(--crimson);color:#fff;border-color:var(--crimson);display:inline-flex;align-items:center;justify-content:center;width:36px;min-width:36px;height:36px;padding:0}
 .chips a.home-btn:hover{background:#9f1239;color:#fff;border-color:#9f1239}
 .hero{
   background:linear-gradient(160deg,#fff 0%, #fde8ec 42%, #e0f4f8 100%);
@@ -224,7 +224,7 @@ footer{
 </header>
 <nav class="chips" aria-label="खण्डहरू">
   <div class="chips-inner">
-    <a class="home-btn" href="#home">होम</a>
+    <a class="home-btn" href="#home" aria-label="होम" title="होम"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
     <a href="#alert">सतर्कता</a>
     <a href="#path">कहाँ पुग्यो</a>
     <a href="#event">घटना</a>
@@ -350,6 +350,7 @@ footer{
       <button type="button" class="active" data-tab="official">आधिकारिक</button>
       <button type="button" data-tab="minister">गृहमन्त्री</button>
       <button type="button" data-tab="news">समाचार पोर्टल</button>
+      <button type="button" data-tab="ronb">RONB</button>
     </div>
 
     <div class="feed-panel active" id="tab-official">
@@ -409,6 +410,19 @@ footer{
           <div class="feed-frame"><a class="twitter-timeline" data-height="520" data-chrome="nofooter noheader" href="https://twitter.com/OnlineKhabar_En?ref_src=twsrc%5Etfw">OnlineKhabar English</a></div>
         </article>
       </div>
+
+    <div class="feed-panel" id="tab-ronb">
+      <div class="feeds">
+        <article class="feed-box">
+          <header><b>Routine of Nepal Banda</b><a href="https://www.facebook.com/officialroutineofnepalbanda" target="_blank" rel="noopener">Facebook</a></header>
+          <div class="feed-frame"><iframe title="RONB Facebook" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fofficialroutineofnepalbanda&amp;tabs=timeline&amp;width=500&amp;height=520&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false" width="100%" height="520" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+        </article>
+        <article class="feed-box">
+          <header><b>RONB (X)</b><a href="https://x.com/RONBupdates" target="_blank" rel="noopener">@RONBupdates</a></header>
+          <div class="feed-frame"><a class="twitter-timeline" data-height="520" data-chrome="nofooter noheader" href="https://twitter.com/RONBupdates?ref_src=twsrc%5Etfw">RONB</a></div>
+        </article>
+      </div>
+    </div>
     </div>
 </section>
 
