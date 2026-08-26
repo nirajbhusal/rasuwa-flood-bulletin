@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T13:01:15+00:00",
+  "updated_at": "2026-08-26T13:16:21+00:00",
   "note_np": "DHM नेटवर्कमा अहिले खतरा तहमा फुर्के मात्र (गेज बगेको, लाइभ होइन)। बाटोका अरू गेज सतर्कतामुनि।",
   "hydrology": "https://www.hydrology.gov.np/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -102,7 +102,7 @@
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/265",
       "observed_npt": "१८:३०",
-      "silent": false
+      "silent": true
     }
   ]
 }
