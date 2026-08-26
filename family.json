@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T18:20:45+00:00",
+  "updated_at": "2026-08-26T18:30:16+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,47 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-000807-niranjan-shrestha",
+      "name": "Niranjan Shrestha",
+      "age": "30",
+      "place": "Dhading · Rasuwa gadi",
+      "phone": "9862425303",
+      "note": "फारम ००:०८"
+    },
+    {
+      "id": "sheet-20260827-000637-rajeev-kumar-singh",
+      "name": "Rajeev Kumar singh",
+      "age": "31",
+      "place": "Rajgadh municipality-2, Saptari · Upper Trishuli-1 Hydropower (216MW)",
+      "when": "Last contacted on 25 Aug 8 pm",
+      "phone": "9816772707",
+      "note": "QC engineer · Upper Trishuli-1 · फारम ००:०६"
+    },
+    {
+      "id": "sheet-20260827-000549-surendra-bista",
+      "name": "Surendra bista",
+      "age": "46",
+      "place": "Ratopul, Kathmandu · Rasuwagadi hydropower staff quarter, Rasuwa",
+      "when": "Bhadra 10 morning",
+      "phone": "9841281376",
+      "note": "Senior finance officer · Rasuwagadi hydropower · फारम ००:०५"
+    },
+    {
+      "id": "sheet-20260827-000411-ram-bahadur-nepali",
+      "name": "Ram Bahadur Nepali",
+      "place": "Sindhupalchok · Kerung naka",
+      "when": "Morning 9 am",
+      "phone": "9843609040",
+      "note": "फारम ००:०४"
+    },
+    {
+      "id": "sheet-20260827-000338-raju-oli",
+      "name": "Raju Oli",
+      "place": "Rasuwagadi Bhansar",
+      "phone": "9843465452",
+      "note": "Electrician · Rasuwagadi Bhansar · 1 leg partial disability · फारम ००:०३"
+    },
     {
       "id": "m-uttam-prasain",
       "name": "उत्तम पर्साईं",
