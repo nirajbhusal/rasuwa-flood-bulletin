@@ -1,12 +1,19 @@
 {
-  "updated_at": "2026-08-26T15:38:00+00:00",
+  "updated_at": "2026-08-26T16:41:00+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
-  "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit?usp=sharing",
+  "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
     "missing": "https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform",
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "m-kamal-khadka",
+      "name": "कमल खड्का",
+      "place": "दोलखा, जुंगु · साइनो हाइड्रोपावर",
+      "phone": "9745349989",
+      "note": "साइनो हाइड्रोपावर चालक"
+    },
     {
       "id": "m-durga-pokhrel",
       "name": "दुर्गा पोखरेल",
@@ -24,78 +31,6 @@
       "note": "आज सीमा पार गर्ने तय। होटल 9841603450। सञ्चार सेवा छैन भनिएको।"
     },
     {
-      "id": "m-saroj-dipesh-parajuli",
-      "name": "सरोज पराजुली र दिपेश पराजुली",
-      "age": "२३ / २२",
-      "place": "सिन्धुपाल्चोक, बालेफी नगरपालिका · रसुवा भन्सार कार्यालय नजिक",
-      "reporter": "9843813721",
-      "note": "परिवारको रिपोर्ट, साँझ ८:४२"
-    },
-    {
-      "id": "m-dhirendra-bista",
-      "name": "धीरेन्द्र बिष्ट",
-      "age": "२३ / २४",
-      "place": "कालीकोट, नरहरिनाथ गाउँपालिका · रसुवा प्रोजेक्ट हाइड्रोपावर ड्याम",
-      "when": "बिहान ९ बजे",
-      "reporter": "9868905326",
-      "note": "परिवारको रिपोर्ट, साँझ ८:४७"
-    },
-    {
-      "id": "m-dharmaraj-rimal",
-      "name": "धर्मराज रिमाल",
-      "age": "३५",
-      "place": "नुवाकोट · टिमुरे",
-      "when": "बिहान ९:००",
-      "reporter": "9865401859",
-      "note": "परिवारको रिपोर्ट, साँझ ८:४९"
-    },
-    {
-      "id": "m-prakash-paudel",
-      "name": "प्रकाश पौडेल",
-      "age": "३५",
-      "place": "रसुवा · रसुवागढी",
-      "when": "८:३०",
-      "reporter": "9768978274",
-      "note": "रसुवागढी क्षेत्रमा खोज्न अनुरोध"
-    },
-    {
-      "id": "m-ajay-prasad-singh",
-      "name": "अजय प्रसाद सिंह",
-      "age": "करिब ३१",
-      "place": "जनकपुर · Doosan Hydropower (216 MW Upper Trishuli) · रसुवा बाढी क्षेत्र",
-      "reporter": "9803647230",
-      "note": "श्रीमती पुजा साह"
-    },
-    {
-      "id": "m-ishwori-tulsi-timalsina",
-      "name": "ईश्वरी तिमल्सिना / तुलसी प्रसाद तिमल्सिना",
-      "age": "५३ / ६०",
-      "place": "धादिङ · बेत्रावती",
-      "reporter": "9840286667",
-      "note": "परिवारको रिपोर्ट, साँझ ८:५८"
-    },
-    {
-      "id": "m-pradeep-shrestha",
-      "name": "प्रदीप श्रेष्ठ",
-      "age": "३९",
-      "place": "तातोपानी",
-      "phone": "9849993245",
-      "note": "फारम रिपोर्ट"
-    },
-    {
-      "id": "m-subodh-belbase",
-      "name": "सुबोध बेल्बासे",
-      "age": "२६–२७",
-      "place": "रुपन्देही · 3B",
-      "reporter": "9857036809 / 9866153617",
-      "note": "फारम रिपोर्ट"
-    },
-    {
-      "id": "m-sristi-bastola",
-      "name": "सृष्टि बास्तोला",
-      "reporter": "9763259152"
-    },
-    {
       "id": "m-samir-paudel",
       "name": "समिर पौडेल",
       "reporter": "9863294460"
@@ -107,26 +42,11 @@
       "reporter": "9848029098"
     },
     {
-      "id": "m-luk-bahadur-kc",
-      "name": "लुक बहादुर केसी",
-      "age": "५०+",
-      "place": "कलंकी, भैसे",
-      "reporter": "9849441746 / 9867182568"
-    },
-    {
       "id": "m-anuj-hari-nepal",
       "name": "अनुज हरि नेपाल",
       "age": "२७",
       "place": "दोलखा · माछापुच्छ्रे बैंक, टिमुरे",
       "reporter": "9851343739"
-    },
-    {
-      "id": "m-prakash-paudel-kalika",
-      "name": "प्रकाश पौडेल",
-      "age": "३६",
-      "place": "कालिका–५, जिबजबे · टिमुरे",
-      "phone": "9818983454",
-      "note": "कालिका–५ जिबजबे, टिमुरे — रसुवागढीको प्रकाश पौडेलभन्दा छुट्टै व्यक्ति"
     },
     {
       "id": "m-subhadra-neupane",
@@ -141,6 +61,794 @@
       "name": "गोविन्द प्रसाद भण्डारी",
       "place": "तुप्चे ७, विदुर",
       "reporter": "9840683361 / 860798162"
+    },
+    {
+      "id": "m-prakash-paudel-kalika",
+      "name": "प्रकाश पौडेल",
+      "age": "३६",
+      "place": "कालिका–५, जिबजबे · टिमुरे",
+      "phone": "9818983454",
+      "note": "कालिका–५ जिबजबे, टिमुरे — रसुवागढीको प्रकाश पौडेलभन्दा छुट्टै व्यक्ति"
+    },
+    {
+      "id": "m-ram-mani-dahal",
+      "name": "Ram Mani Dahal",
+      "age": "34-35",
+      "place": "Kathmandu · Near Army Check post, UT-1 Mailung khola",
+      "when": "9:00 morning",
+      "phone": "9851190691",
+      "note": "Er. Ram Mani Dahal and Er. Sudeep Gautam Jade Consultancy Upper Trishuli 1, Mailug khola Last seen taking with Army and Army instructed to move towards upland but out of 4 engineers, 2 engineers still out of contact,"
+    },
+    {
+      "id": "m-hikmat-bahadhur-paal",
+      "name": "Hikmat Bahadhur paal",
+      "place": "Krishnapur 04 kanchanpur · Timmure Rasuwa",
+      "when": "26 August time unknown",
+      "phone": "9812729178"
+    },
+    {
+      "id": "m-sanjeevkumar-jain",
+      "name": "Sanjeevkumar Jain",
+      "age": "63",
+      "place": "24/D, Raj-Kunj, Model Town, Mulund West, Mumbai - 400080, Maharashtra, India · Timure border",
+      "when": "26th Early Morning",
+      "phone": "918591733617",
+      "note": "Passport number: Y7730169"
+    },
+    {
+      "id": "m-kedhara-gowri",
+      "name": "Kedhara gowri",
+      "age": "32",
+      "place": "India Tamil nadu · Was on her way to kailash",
+      "phone": "9841756825"
+    },
+    {
+      "id": "m-manil-kayastha",
+      "name": "Manil Kayastha",
+      "age": "29",
+      "place": "Bhaktapur · Hotel Sunshine, Trishuli Bajar",
+      "when": "10th bhadra, 8:30 am",
+      "phone": "9841060542",
+      "note": "He was on a solo trip to gosaikunda"
+    },
+    {
+      "id": "m-bimal-kafle",
+      "name": "Bimal kafle",
+      "place": "Chitwan · Upper trishuli"
+    },
+    {
+      "id": "m-anuska-pandey-and-her-son",
+      "name": "Anuska Pandey and her son",
+      "age": "27-28 and 2 years",
+      "place": "Gorkha · तिमुरे स्वास्थ्य चौकी, रसुवा",
+      "when": "26 Aug, 2026",
+      "phone": "9813772840 / 9863520152"
+    },
+    {
+      "id": "m-chessang-dongba",
+      "name": "chessang dongba",
+      "age": "22",
+      "place": "syabrubesi · Timure",
+      "when": "8 am",
+      "phone": "9745534996"
+    },
+    {
+      "id": "m-kirti-kumar-acharya",
+      "name": "Kirti Kumar Acharya",
+      "age": "50",
+      "place": "Miami, US · Rasugwagadhi, Tibet Immigration",
+      "when": "26th August 2026, approx 11:15 (Tibet Time)",
+      "phone": "917899919596",
+      "note": "Blue colour shirt · It was a group of 10-12 people on their way to manansrovar"
+    },
+    {
+      "id": "m-pooja-dangol-shrestha",
+      "name": "Pooja dangol shrestha",
+      "place": "Tanahun · Betrawati bazaar nuwakot",
+      "when": "Around 9",
+      "phone": "9841501507 / 9819192406",
+      "note": "Her entire family is missing. Her son and daughter are rescued by nearby family."
+    },
+    {
+      "id": "m-p7ed000b5",
+      "name": "प्रभाकर दंगाल",
+      "place": "रसुवा",
+      "when": "2083/5/10.",
+      "phone": "9811006641",
+      "note": "Army"
+    },
+    {
+      "id": "m-rupisha-dangol",
+      "name": "Rupisha Dangol",
+      "age": "22",
+      "place": "Betravati Bazar area",
+      "when": "9-11 am 26th aug",
+      "phone": "9867379991 / 9749721609",
+      "note": "Last time her family was able to contact her she was at home. No info till now"
+    },
+    {
+      "id": "m-suman-tamang",
+      "name": "Suman Tamang",
+      "place": "Kavrepalanchowk · Tibet and Rasuwa border",
+      "when": "26th Aug morning 10am",
+      "phone": "809060602078"
+    },
+    {
+      "id": "m-dinesh-kumar-ghimire",
+      "name": "Dinesh Kumar ghimire",
+      "age": "49",
+      "place": "Gulmi · Timure rasuwa office",
+      "when": "2083/5/10",
+      "phone": "9849306669",
+      "note": "Uncle"
+    },
+    {
+      "id": "m-jiwan-nepali",
+      "name": "Jiwan Nepali",
+      "age": "32-33",
+      "place": "Barahabise Sindhupalchowk · Timure rasuwagadhi",
+      "when": "Around 8 in the morning",
+      "phone": "9813235197",
+      "note": "Driver"
+    },
+    {
+      "id": "m-rahul-dhodari-puja-dhodari",
+      "name": "Rahul Dhodari, Puja Dhodari",
+      "age": "24 and 22",
+      "place": "Betrawati Bazaar, rasuwa · Betrawati Bazaar",
+      "when": "Yesterday night",
+      "phone": "9840837993",
+      "note": "Once in World Fiber Net Accountant post, another in coke suppliers office workers · They're my maternal uncle and aunt, missing during flood"
+    },
+    {
+      "id": "m-manoj-kc",
+      "name": "Manoj KC",
+      "age": "45",
+      "place": "Kathmandu · Chyaksa chilime rusuwa",
+      "when": "9 am",
+      "phone": "9841122793"
+    },
+    {
+      "id": "m-resham-shrestha",
+      "name": "Resham Shrestha",
+      "age": "37",
+      "place": "Sindhupalchok · Timbure hotel",
+      "when": "9:43 AM",
+      "phone": "9866262426",
+      "note": "Normal t shirt paint · Mero vena"
+    },
+    {
+      "id": "m-karan-bahadur-damai",
+      "name": "Karan bahadur damai",
+      "age": "38",
+      "place": "Tatopani Sindhupalchowk · Rasuwa",
+      "when": "5-6",
+      "phone": "9813235197",
+      "note": "Ash grey color tshirt with black hand sleeves and track · Drive Golden blond hair"
+    },
+    {
+      "id": "m-anil-kumar-chaudhary",
+      "name": "Anil kumar chaudhary",
+      "age": "39",
+      "place": "Lubhu, Lalitpur · Upper Trishuli hydropower-1 216mw",
+      "when": "8:30",
+      "phone": "9840057334 / 9842840173 / 9852860448 / 9814756471"
+    },
+    {
+      "id": "m-sarki-butti-tamang",
+      "name": "Sarki butti tamang",
+      "age": "50",
+      "place": "Rasuwa Shyafru besi · Home",
+      "phone": "9763430418"
+    },
+    {
+      "id": "m-prem-bahadur-pradhan",
+      "name": "Prem Bahadur Pradhan",
+      "age": "41",
+      "place": "Sindhupalchowk/listi · Timure",
+      "when": "6:00",
+      "phone": "9768613795",
+      "note": "White green · Timure"
+    },
+    {
+      "id": "m-rupisha-dangol-2",
+      "name": "Rupisha Dangol",
+      "age": "21",
+      "place": "Betrawati Bazaar · Last time we texted when she was at her house",
+      "when": "9 11 (26 aug)",
+      "phone": "9867379991",
+      "note": "Black new balance full sleeves tshirt cheetah print loose trouser"
+    },
+    {
+      "id": "m-lhakpa-sonam-tamang",
+      "name": "Lhakpa Sonam Tamang",
+      "age": "53",
+      "place": "Rasuwa shyafru besi · Shyafru besi",
+      "phone": "9763430418"
+    },
+    {
+      "id": "m-kushal-acharya",
+      "name": "Kushal acharya",
+      "age": "Around 25",
+      "place": "Kathmandu · Timure , rasuwa",
+      "when": "2083/5/10, 8:45am",
+      "phone": "9840055516",
+      "note": "Doctor. On trek as a medical officer to kailash mansarovar via fishtail tours."
+    },
+    {
+      "id": "m-pradip-neupane",
+      "name": "Pradip Neupane",
+      "age": "27",
+      "place": "Uttargaya -04 Rasuwa · Khaltay",
+      "when": "10 bhadra 2083,around 9:20",
+      "phone": "9860056311",
+      "note": "Government pffice dress white shirt, blue pant ,blue jacket"
+    },
+    {
+      "id": "m-dipesh-basnet",
+      "name": "दिपेश बस्नेत",
+      "age": "32",
+      "place": "Duwakot-2, Bhaktapur · Timure",
+      "when": "25th August 6:00pm",
+      "phone": "9841805424"
+    },
+    {
+      "id": "m-bhim-prasad",
+      "name": "Bhim Prasad",
+      "age": "36",
+      "place": "Hadigaun · Timure",
+      "when": "Till today morning",
+      "phone": "9843294571",
+      "note": "Shirt"
+    },
+    {
+      "id": "m-binu-gurung",
+      "name": "Binu Gurung",
+      "age": "54",
+      "place": "Miyapatan,Pokhara-13,Kaski (according to nagarikta-Tanahun) · Left from Pokhara at 5 AM for Gosaikunda on 26 August",
+      "when": "9:21 AM last contact dhunche/galchi not so sure but had mentioned about the way being uphill now",
+      "phone": "9806595865",
+      "note": "Pants, Tshirt and Cap · She left via a bus not sure whether she said they were in galchi/dhunche but it was in a tea shop that they had stopped in 9:21 AM she had also mentioned about the way being uphill now her phone is switched off"
+    },
+    {
+      "id": "m-sauryansh-rana",
+      "name": "Sauryansh Rana",
+      "age": "28",
+      "place": "Manbhawan"
+    },
+    {
+      "id": "m-prabin-khadka",
+      "name": "Prabin Khadka",
+      "age": "41",
+      "place": "Rasuwa · Last seen at China Border",
+      "when": "Last text with friends around 8:27 am",
+      "phone": "9860952088 / 9744441883",
+      "note": "His height is around 5’5. He was last seen at Border and we haven’t heard anything else."
+    },
+    {
+      "id": "m-lil-kumar-sunar",
+      "name": "Lil kumar sunar",
+      "age": "49",
+      "place": "Butwal ,Rupandehi · Rasuwa boarder",
+      "when": "2083-3-10"
+    },
+    {
+      "id": "m-rahul-gupta",
+      "name": "Rahul Gupta",
+      "place": "Rahul Gupta · Upper Trishuli 1, Doosan Company",
+      "phone": "9843410304",
+      "reporter": "9803043373",
+      "note": "9803043373 (other number)"
+    },
+    {
+      "id": "m-norbu-ghale",
+      "name": "Norbu Ghale",
+      "age": "65",
+      "place": "Canada · Timure-Kerung",
+      "phone": "9709060383"
+    },
+    {
+      "id": "m-pradip-neupane-2",
+      "name": "Pradip Neupane",
+      "age": "26",
+      "place": "Kalikasthan, Rasuwa · Uttargaya municipality, health section",
+      "phone": "9861343929",
+      "note": "He was public health officer there."
+    },
+    {
+      "id": "m-rajan-chapagain",
+      "name": "Rajan Chapagain",
+      "age": "40-45",
+      "place": "Kavresthali, Kathmandu · Rasuwagadhi",
+      "when": "7:30-8",
+      "phone": "9765828610",
+      "reporter": "9851225610 / 9700822781",
+      "note": "Name: Rajan Chapagain Last Location: Rasuwagadhi, Rasuwa Last contact: approximately 7:30–8:00 AM today Vehicle: White Mahindra Scorpio Number plate: Bagmati Province 1, 001 य 1883 Phone number of the missing person:…"
+    },
+    {
+      "id": "m-norbu-ghale-2",
+      "name": "Norbu Ghale",
+      "age": "65",
+      "place": "Canada · Timure-Kerung",
+      "phone": "9709060383"
+    },
+    {
+      "id": "m-padam-bahadur-malla",
+      "name": "Padam Bahadur Malla",
+      "age": "45",
+      "place": "Tilkeni-10,Kanchanpur · Upper tirsuli-1,216MW,Tunnel Worker",
+      "phone": "9865772974"
+    },
+    {
+      "id": "m-hari-prasad-khanal",
+      "name": "Hari prasad khanal",
+      "age": "mid 40’s",
+      "place": "Narja, Nuwakot (permanent) -currently living in kathmandu · Timure",
+      "phone": "9841017279",
+      "note": "Truck driver went to timure for transportation of materials, not in contact!!"
+    },
+    {
+      "id": "m-uttam-prasain",
+      "name": "Uttam prasain",
+      "age": "37",
+      "place": "Ramechhap khadevi gaupalika · Rauswa",
+      "when": "26th August morning time 8:00 last contact time",
+      "phone": "9766381444",
+      "reporter": "9697663814 / 9860804695",
+      "note": "Name: Uttam prasain age 37 ramechhap khadevi gaupalika 4 bus number 7696 rasuwa bata contactless hunu vako ahile samma contact ma hununna Reporting person name Dipesh karki contact number 9766381444 dipesh karki , 986…"
+    },
+    {
+      "id": "m-govinda-bahadur-adhikari-chhetri",
+      "name": "Govinda Bahadur Adhikari Chhetri",
+      "age": "47",
+      "place": "Pokhara Kaski · Rasuwagadhi custom office",
+      "when": "8:30 Am, August 26",
+      "phone": "9806798880 / 9846061411 / 9817163399"
+    },
+    {
+      "id": "m-milan-shrestha",
+      "name": "Milan Shrestha",
+      "age": "38",
+      "place": "Kavre · Rasuwagadhi",
+      "when": "8:48 am aug 26",
+      "phone": "9820057445",
+      "note": "Half pant · Fat. Mole beneath nose"
+    },
+    {
+      "id": "m-milan-khare",
+      "name": "Milan Khare",
+      "age": "31",
+      "place": "Kumarigal, Kathmandu · Tunnel, Upper Trishuli 1 HPP (216 MW)",
+      "when": "26th aug around 9 am",
+      "phone": "9849651996",
+      "note": "not sure · saw a fb post saying 150-200 people might be stuck inside the tunnel."
+    },
+    {
+      "id": "m-resham-bahadur-shrestha",
+      "name": "Resham Bahadur Shrestha",
+      "age": "38",
+      "place": "Sindhupalchowk · Timure",
+      "when": "8:43",
+      "phone": "9840891678",
+      "note": "Vansar office ma kam garnu hunthiyo last choti kura badi aaunu vanda 2min aagadi vako hooo"
+    },
+    {
+      "id": "m-jeeban-puri",
+      "name": "Jeeban Puri",
+      "age": "37",
+      "place": "Sindhupalchok · Timure Bhansar, Rasuwa",
+      "when": "Bhadra 8, 2083 ( phone call around 7:45 )",
+      "phone": "9869236702"
+    },
+    {
+      "id": "m-rajan-chapagain-2",
+      "name": "Rajan Chapagain",
+      "age": "40",
+      "place": "Kathmandu · Syapru Besi",
+      "when": "Last call at 9:00am",
+      "phone": "9704534143"
+    },
+    {
+      "id": "m-bhim-bahadur-tamang",
+      "name": "Bhim Bahadur Tamang",
+      "age": "55",
+      "place": "Dolakha Nepal · Timure",
+      "phone": "9803214786",
+      "note": "Trekking group from samrat travels"
+    },
+    {
+      "id": "m-dipesh-basnet-2",
+      "name": "दिपेश बस्नेत",
+      "age": "32",
+      "place": "Duwakot, Bhaktapur · Timure, Rasuwa",
+      "when": "9:00 AM",
+      "phone": "9841805424 / 9803475696 / 9840738899",
+      "note": "6 feet tall, lean"
+    },
+    {
+      "id": "m-yam-bahadur-darlami",
+      "name": "Yam Bahadur Darlami",
+      "age": "33",
+      "place": "Ruru-6-Gulmi · Rasuwagadhi Hydropower",
+      "phone": "9860608088"
+    },
+    {
+      "id": "m-hemanta-chaulagain",
+      "name": "Hemanta Chaulagain",
+      "age": "32",
+      "place": "Currently Kathmandu / kavrepalanchok koshipari chaurideurali 5 · Near by Rasuwa Bhansaar kaaryalaya",
+      "when": "last call with his wife/family in the morning around 7:30am",
+      "phone": "9769686841 / 9841256456",
+      "note": "Full Tattoo in right hand from arm to waist"
+    },
+    {
+      "id": "m-rameshwor-neupane",
+      "name": "Rameshwor Neupane",
+      "age": "32/33",
+      "place": "Kalikasthan, Rasuwa 6 · Uttargaya petrol pump, Betrawoti",
+      "when": "Bhadra 10, just until before the flood",
+      "phone": "9849185206 / 9863195188 / 9841446333",
+      "note": "Tshirt, sando and half pants"
+    },
+    {
+      "id": "m-durga-devi-raila",
+      "name": "Durga devi raila",
+      "age": "70",
+      "place": "Sole rasuwa · Sole",
+      "when": "Bihan 8:30 baje maybe",
+      "phone": "9844649160"
+    },
+    {
+      "id": "m-ramesh-gajurel",
+      "name": "Ramesh Gajurel",
+      "age": "37-38Yrs",
+      "place": "Bidur-5, Pipaltar, Nuwakot · तिब्बत नाका",
+      "when": "2026-08-26 morning",
+      "phone": "9803122570",
+      "note": "He is bus Driver"
+    },
+    {
+      "id": "m-tenzin-dolma-tamang",
+      "name": "tenzin dolma tamang",
+      "place": "timure",
+      "phone": "9746471441 / 9863026234"
+    },
+    {
+      "id": "m-santosh-kumar-thakur",
+      "name": "Santosh Kumar Thakur",
+      "age": "45",
+      "place": "Kabirgamma, loharpatti gaupalika, mahottari district · Trishuli 3A hydropower",
+      "when": "26 Aug around 9 AM",
+      "phone": "9809614360",
+      "note": "Engineer of that hydropower 6th level"
+    },
+    {
+      "id": "m-sumesh-amatya",
+      "name": "Sumesh amatya",
+      "place": "Sankhamul, kathmandu · Trisuli 3B",
+      "when": "9am august 26",
+      "phone": "9841249842"
+    },
+    {
+      "id": "m-ngajo",
+      "name": "Ngajo",
+      "age": "69",
+      "place": "timure/rasuwa · timure",
+      "phone": "9863026234 / 9746471441"
+    },
+    {
+      "id": "m-madhu-raila-gyanu-raila",
+      "name": "Madhu raila Gyanu raila",
+      "age": "50 47",
+      "place": "Sole betrawoti · Sole",
+      "when": "8:30 tira maybe",
+      "phone": "9844649160",
+      "note": "Bihan ghar mai hunuhunthyo ghar haru sabai lako xa aaile samma contact ma hunuhunna"
+    },
+    {
+      "id": "m-shreeshant-karki",
+      "name": "Shreeshant karki",
+      "age": "23",
+      "place": "Kathmandu · Rasuwa border",
+      "when": "9 12 am",
+      "phone": "9841528514",
+      "note": "Long black hair with a compass tattoo on left arm"
+    },
+    {
+      "id": "m-prakash-acharya",
+      "name": "Prakash Acharya",
+      "age": "33",
+      "place": "Dailekh · Gosainkunda Gaupalika, ward no. 2 office",
+      "when": "2083-05-09 9:30 pm",
+      "phone": "9802077004 / 9848220383",
+      "note": "He is ward no 2 sachib"
+    },
+    {
+      "id": "m-ranjan-dangol",
+      "name": "Ranjan Dangol",
+      "age": "around 40",
+      "place": "Rasuwa Betrawati · Timure, Hydropower",
+      "when": "called him yesterday evening on the phone.",
+      "phone": "9741867394",
+      "note": "works in hydropower Rasuwagadhi Hydropower"
+    },
+    {
+      "id": "m-raju-adhikari",
+      "name": "Raju Adhikari",
+      "when": "Morning of 26th August, traveling from Kathmandu to Syafrubesi",
+      "phone": "9849918236",
+      "note": "Driving a Tourist Plate Scorpio Vehicle Number BA 1 Ya 1518 · आज बिहान काठमाडौंबाट स्याफ्रुबेँसीका लागि पर्यटक लिन गएको हरियो प्लेटको बा १ य १५१८ नम्बरको पर्यटक स्कोर्पियो गाडी र चालक राजु अधिकारी हालसम्म सम्पर्कविहीन हुनुहुन्छ।"
+    },
+    {
+      "id": "m-suresh-simkhada",
+      "name": "Suresh Simkhada",
+      "age": "43",
+      "place": "Kathmandu · Timure hotel kailas at 8:45",
+      "when": "Today",
+      "phone": "9851096547",
+      "note": "Phone call today at 6:45"
+    },
+    {
+      "id": "m-jayaram-bishwokarma",
+      "name": "Jayaram bishwokarma",
+      "age": "55",
+      "place": "Lalaitpur · 9:00am tirshuli",
+      "when": "9:00am tirshuli",
+      "phone": "9861179895",
+      "note": "Morning 6:00am get on the bus from gongubu bus park for Dhunche (gosaikunda )"
+    },
+    {
+      "id": "m-jagyashwor-sharma",
+      "name": "Jagyashwor Sharma",
+      "age": "36",
+      "place": "Tikathali lalitpur · Quarantine office, rasuwa , timure",
+      "when": "6:30 ma video call ma dekhya",
+      "phone": "9848690707",
+      "note": "Black t-shirt, cream pant, grey and black colour shoe"
+    },
+    {
+      "id": "m-milan-shrestha-2",
+      "name": "Milan Shrestha",
+      "age": "38",
+      "place": "Kavrr · Rasuwagadhi",
+      "when": "8:48am",
+      "phone": "9820057445",
+      "note": "Half pant · Fat. Mole on upside of lips."
+    },
+    {
+      "id": "m-surendra-nepal",
+      "name": "Surendra nepal",
+      "age": "27",
+      "place": "Sindhupalchok balephi -6 · rasuwa timure bazzar",
+      "when": "26 august 8am",
+      "phone": "9849564848",
+      "note": "Little black quite fat around 6ft tatto in right hand"
+    },
+    {
+      "id": "m-prem-prasad-sedai",
+      "name": "Prem Prasad Sedai",
+      "age": "50",
+      "place": "Suryabinayak-1 Bhaktapur · Rasuwa border area",
+      "when": "Video call ma hijo kura vayeko sathi haru sanga ani mamu sanga",
+      "phone": "9814492315",
+      "note": "Office dress · Mero baba ho he has been out of contact for more than 12 hours now, phone is switched off too"
+    },
+    {
+      "id": "m-ayush-khadka",
+      "name": "Ayush Khadka",
+      "age": "22",
+      "place": "Salyan · Plantation quarantine timure rasuwaa",
+      "when": "Yesterday night",
+      "phone": "9764745646"
+    },
+    {
+      "id": "m-baburam-khatri-kc",
+      "name": "Baburam Khatri (KC)",
+      "age": "7/July/1991 (Age 35 at the time of missing)",
+      "place": "Solukhumbu · Rasuwa",
+      "when": "7.30 a.m. was in touch with family members/friends through phone call/social media. 26-August-2026",
+      "note": "A cap, trekking pant, and water proof jacket most likely · He was supposed to go to Kailash Trek through Himalayan Glacier Adventure and Travel Company as a guide. · https://www.facebook.com/share/1DfXsBAoQi/"
+    },
+    {
+      "id": "m-prakash-paudel-2",
+      "name": "प्रकाश पौडेल",
+      "age": "35",
+      "place": "Rasuwa · Rasuwagadi",
+      "when": "8:30",
+      "phone": "9768978274"
+    },
+    {
+      "id": "m-rajendra-dhakal",
+      "name": "Rajendra Dhakal",
+      "age": "31",
+      "place": "Kamalamai Municipality 1 Dadhi Sindhuli · Upper Trishuli 3A",
+      "when": "7 AM via video call",
+      "phone": "9840713717",
+      "note": "Working as a mechanical engineer at upper trishuli 3A"
+    },
+    {
+      "id": "m-dr-kushal-acharya",
+      "name": "Dr.Kushal Acharya",
+      "age": "28",
+      "place": "Tokha, Kathmandu · Rasuwa border",
+      "when": "Last contact - bhadra 10, 8:45 am",
+      "phone": "9840055516 / 9818771221",
+      "note": "Was on journey to kailash manosarvar as a medical officer for a group consisting 17 malaysian and 3 American people"
+    },
+    {
+      "id": "m-luk-chettri",
+      "name": "LUK CHETTRI",
+      "age": "60+",
+      "place": "kathmandu kalanki · bhainse/betrawati",
+      "when": "9:30 am",
+      "phone": "9861860824"
+    },
+    {
+      "id": "m-euan",
+      "name": "euan",
+      "age": "25-30",
+      "place": "England, Isle of man · langtang valley",
+      "when": "around 10 hr ago",
+      "phone": "9867946037",
+      "note": "has a bleach hair with a mullet"
+    },
+    {
+      "id": "m-luk-bahadur-kc",
+      "name": "लुक बहादुर केसी",
+      "age": "५०+",
+      "place": "कलंकी, भैसे",
+      "reporter": "9849441746 / 9867182568"
+    },
+    {
+      "id": "m-dupsang-tamang",
+      "name": "Dupsang tamang",
+      "age": "Late 30s",
+      "place": "immigration office, rasuwa"
+    },
+    {
+      "id": "m-laxman-gurung",
+      "name": "Laxman Gurung",
+      "age": "60",
+      "place": "Upper Trishuli-1 Hydroelectric Project (216 MW) · Mailung sinohydro bureau 06!",
+      "when": "2083 / 05 / 10",
+      "phone": "9768069666 / 9868807300",
+      "note": "मेरो बाबा लक्ष्मण गुरुङ, जो Upper Trishuli-1 Hydroelectric Project (216 MW), Rasuwa बिहानदेखि सम्पर्क बाहिर हुनुहुन्छ।"
+    },
+    {
+      "id": "m-indra-prasad-bhatta",
+      "name": "Indra Prasad Bhatta",
+      "place": "Govane, Nuwakot · Govane",
+      "when": "Not in contact since the flood",
+      "phone": "9847698269"
+    },
+    {
+      "id": "m-sristi-bastola",
+      "name": "सृष्टि बास्तोला",
+      "reporter": "9763259152"
+    },
+    {
+      "id": "m-kumar-raut",
+      "name": "Kumar raut",
+      "age": "58",
+      "place": "Benighat, rorang-9 khatauti · Shantibazar, trishuli3A",
+      "when": "This morning",
+      "phone": "9803336952"
+    },
+    {
+      "id": "m-peee54a61",
+      "name": "दिपेश बस्नेत",
+      "age": "32",
+      "place": "Ramechhap / Bhakatpur · Timure, Rasuwa",
+      "phone": "9841805424",
+      "note": "Contactless since morning"
+    },
+    {
+      "id": "m-joya-rana-magar",
+      "name": "Joya Rana Magar",
+      "age": "24",
+      "place": "Bardibas, Mahottari · Rasuwa upper Trishuli-1 hydropower",
+      "phone": "9818704083 / 9813836078"
+    },
+    {
+      "id": "m-milan-tamang",
+      "name": "Milan Tamang",
+      "age": "31",
+      "place": "Kavrepalanchowk, Temal · Timure,Rasuwa",
+      "when": "Bhadra 9",
+      "phone": "9714237314",
+      "note": "He was truck driver in timure. He have tattoo in his hand"
+    },
+    {
+      "id": "m-suman-dahal",
+      "name": "Suman Dahal",
+      "age": "23",
+      "place": "Okhaldhunga · Timure",
+      "when": "Yesterday called on messenger aaja ktm farkinxu vnthyo",
+      "phone": "9848944391",
+      "note": "White shoes white tshirt blue pant · Missing from timure Mobile phone is off and contact less"
+    },
+    {
+      "id": "m-sailesh-thapa",
+      "name": "Sailesh Thapa",
+      "age": "39",
+      "place": "Matatirtha, Chandragiri-8, Kathmandu · Timure/ Rasuwa Gadi",
+      "when": "2083/05/10 around 8:15",
+      "phone": "9860013233"
+    },
+    {
+      "id": "m-subodh-belbase",
+      "name": "सुबोध बेल्बासे",
+      "age": "२६–२७",
+      "place": "रुपन्देही · 3B",
+      "reporter": "9857036809 / 9866153617",
+      "note": "फारम रिपोर्ट"
+    },
+    {
+      "id": "m-pradeep-shrestha",
+      "name": "प्रदीप श्रेष्ठ",
+      "age": "३९",
+      "place": "तातोपानी",
+      "phone": "9849993245",
+      "note": "फारम रिपोर्ट"
+    },
+    {
+      "id": "m-ishwori-tulsi-timalsina",
+      "name": "ईश्वरी तिमल्सिना / तुलसी प्रसाद तिमल्सिना",
+      "age": "५३ / ६०",
+      "place": "धादिङ · बेत्रावती",
+      "reporter": "9840286667",
+      "note": "परिवारको रिपोर्ट, साँझ ८:५८"
+    },
+    {
+      "id": "m-ajay-prasad-singh",
+      "name": "अजय प्रसाद सिंह",
+      "age": "करिब ३१",
+      "place": "जनकपुर · Doosan Hydropower (216 MW Upper Trishuli) · रसुवा बाढी क्षेत्र",
+      "reporter": "9803647230",
+      "note": "श्रीमती पुजा साह"
+    },
+    {
+      "id": "m-prakash-paudel",
+      "name": "प्रकाश पौडेल",
+      "age": "३५",
+      "place": "रसुवा · रसुवागढी",
+      "when": "८:३०",
+      "reporter": "9768978274",
+      "note": "रसुवागढी क्षेत्रमा खोज्न अनुरोध"
+    },
+    {
+      "id": "m-dhirendra-bista-2",
+      "name": "धीरेन्द्र बिष्ट",
+      "age": "23/24",
+      "place": "Kalikot,naraharinath gaupalika · Rasuwa project hydropower dam",
+      "when": "9Am",
+      "phone": "9868905326"
+    },
+    {
+      "id": "m-dharmaraj-rimal",
+      "name": "धर्मराज रिमाल",
+      "age": "३५",
+      "place": "नुवाकोट · टिमुरे",
+      "when": "बिहान ९:००",
+      "reporter": "9865401859",
+      "note": "परिवारको रिपोर्ट, साँझ ८:४९"
+    },
+    {
+      "id": "m-dhirendra-bista",
+      "name": "धीरेन्द्र बिष्ट",
+      "age": "२३ / २४",
+      "place": "कालीकोट, नरहरिनाथ गाउँपालिका · रसुवा प्रोजेक्ट हाइड्रोपावर ड्याम",
+      "when": "बिहान ९ बजे",
+      "reporter": "9868905326",
+      "note": "परिवारको रिपोर्ट, साँझ ८:४७"
+    },
+    {
+      "id": "m-saroj-dipesh-parajuli",
+      "name": "सरोज पराजुली र दिपेश पराजुली",
+      "age": "२३ / २२",
+      "place": "सिन्धुपाल्चोक, बालेफी नगरपालिका · रसुवा भन्सार कार्यालय नजिक",
+      "reporter": "9843813721",
+      "note": "परिवारको रिपोर्ट, साँझ ८:४२"
     }
   ],
   "found": [],
