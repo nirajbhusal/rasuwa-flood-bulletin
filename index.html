@@ -86,6 +86,10 @@ img{max-width:100%;display:block}
   font-size:14px;font-weight:600;text-decoration:none;
 }
 .chips a:hover{border-color:var(--teal);color:var(--teal)}
+.chips a.home-btn{
+  background:var(--crimson);color:#fff;border-color:var(--crimson);
+}
+.chips a.home-btn:hover{background:#9f1239;color:#fff;border-color:#9f1239}
 .hero{
   background:linear-gradient(160deg,#fff 0%, #fde8ec 42%, #e0f4f8 100%);
   border-bottom:1px solid var(--line);
@@ -174,6 +178,33 @@ footer{
   margin-top:12px;padding:28px 16px;text-align:center;color:var(--muted);
   border-top:1px solid var(--line);font-size:14px;
 }
+
+.feed-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.feed-tabs button{
+  font:inherit;font-weight:700;font-size:14px;cursor:pointer;
+  padding:8px 14px;border-radius:999px;border:1px solid var(--line);
+  background:#fff;color:var(--ink);
+}
+.feed-tabs button.active{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.feed-panel{display:none}
+.feed-panel.active{display:block}
+.feeds{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.feed-box{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  overflow:hidden;box-shadow:var(--shadow);min-height:520px;
+}
+.feed-box header{
+  display:flex;justify-content:space-between;align-items:baseline;gap:8px;
+  padding:10px 12px;border-bottom:1px solid var(--line);background:#fff;
+}
+.feed-box header b{font-size:14px}
+.feed-box header a{font-size:12px;font-weight:700}
+.feed-frame{height:520px;background:#f8fafc}
+.feed-frame iframe,.feed-frame .twitter-timeline{width:100%!important}
+.feed-note{font-size:13px;color:var(--muted);margin:8px 0 0}
+@media (max-width:760px){
+  .feeds{grid-template-columns:1fr}
+}
 @media (max-width:760px){
   .stats{grid-template-columns:repeat(2,1fr)}
   .grid-2,.photos,.videos{grid-template-columns:1fr}
@@ -194,25 +225,20 @@ footer{
     <div class="helpline">उद्धार १२३४ · प्रहरी १०० · १११४</div>
   </div>
 </header>
-<nav class="chips" aria-label="खण्डहरू">
+<nav class="chips" aria-label="मेनु">
   <div class="chips-inner">
-    <a href="#alert">सतर्कता</a>
-    <a href="#path">कहाँ पुग्यो</a>
-    <a href="#event">घटना</a>
-    <a href="#damage">क्षति</a>
-    <a href="#rescue">उद्धार</a>
-    <a href="#roads">सडक</a>
+    <a class="home-btn" href="#home">होम</a>
+    <a href="#feeds">लाइभ फिड</a>
     <a href="#photos">तस्बिर</a>
     <a href="#videos">भिडियो</a>
-    <a href="#sources">स्रोत</a>
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero" id="home">
   <div class="wrap">
     <p class="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
     <h2>टिमुरेदेखि गल्छी पुग्यो बाढी, मुग्लिन केही घण्टामै</h2>
-    <p class="lede">बिहान करिब ९:००–९:१५ बजे तिब्बत हुँदै टिमुरेबाट लेन्दे खोला/भोटेकोशीमा पसेको भीषण बाढी त्रिशूली हुँदै तलतिर बढिरहेको छ। स्थानीय वर्षा होइन। आधिकारिक नागरिक मृत्यु/बेपत्ता संख्या अझै सार्वजनिक भएको छैन।</p>
+    <p class="lede">आधिकारिक खाता, गृहमन्त्री र सक्रिय समाचार पोर्टलका लाइभ फिड। उद्धार <strong>१२३४</strong>।</p>
     <div class="stats" aria-label="प्रारम्भिक तथ्यांक">
       <div class="stat"><b>३</b><span>प्रहरी कार्यालय क्षति</span></div>
       <div class="stat"><b>८/१५</b><span>टिमुरे प्रहरी सम्पर्क</span></div>
@@ -224,90 +250,72 @@ footer{
 </div>
 
 <main class="wrap">
-<section id="alert">
-  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>सतर्कता</h2></div>
-  <div class="card red">
-    <ul>
-      <li><strong>नदी किनार नजिक नबस्नुहोस्।</strong> भोटेकोशी/त्रिशूली किनार मुग्लिनसम्म जोखिममा। जिल्ला: रसुवा, नुवाकोट, धादिङ, गोरखा, चितवन।</li>
-      <li><strong>यात्रा नगर्नुहोस्:</strong> पृथ्वी राजमार्ग, गल्छी–नुवाकोट–रसुवा–स्याफ्रुबेसी, मुग्लिन–नारायणगढ।</li>
-      <li>बाढी पूर्वानुमान महाशाखा १०:२८: बाढी धादिङको <strong>गल्छी</strong> पुग्यो; केही घण्टामा मुग्लिन पार गर्ने। पृथ्वी तथा मुग्लिन–नारायणगढ राजमार्ग र त्रिशूली किनारका बस्ती/बजार खाली गर्नुहोस्।</li>
-      <li>हल्ला नपत्याउनुहोस्। आधिकारिक सूचना मात्र मान्नुहोस्।</li>
-    </ul>
-    <div class="phones">
-      <a href="tel:1234">उद्धार १२३४</a>
-      <a href="tel:100">प्रहरी १००</a>
-      <a href="tel:1114">१११४</a>
+<section id="feeds">
+    <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>लाइभ सोसल फिड</h2></div>
+    <div class="feed-tabs" role="tablist">
+      <button type="button" class="active" data-tab="official">आधिकारिक</button>
+      <button type="button" data-tab="minister">गृहमन्त्री</button>
+      <button type="button" data-tab="news">समाचार पोर्टल</button>
     </div>
-    <p class="note">संख्या प्रारम्भिक हुन्। नागरिक मृत्यु/बेपत्ताको आधिकारिक गणना अहिले सार्वजनिक भएको छैन — अनुमान नगर्नुहोस्।</p>
-  </div>
-</section>
 
-<section id="path">
-  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>कहाँ पुग्यो</h2></div>
-  <div class="card teal">
-    <div class="path" role="list">
-      <div class="step" role="listitem"><span class="t">~९:१५</span><b>टिमुरे</b><span>तिब्बतबाट प्रवेश</span></div>
-      <div class="step" role="listitem"><span class="t">बिहान</span><b>स्याफ्रुबेसी</b><span>बजार/पूर्वाधार</span></div>
-      <div class="step" role="listitem"><span class="t">अघि नै</span><b>विदुर</b><span>त्रिशूली करिडोर</span></div>
-      <div class="step" role="listitem"><span class="t">१०:२८</span><b>गल्छी</b><span>धादिङ · पुष्टि</span></div>
-      <div class="step" role="listitem"><span class="t">केही घण्टा</span><b>मुग्लिन</b><span>उच्च सतर्कता</span></div>
+    <div class="feed-panel active" id="tab-official">
+      <div class="feeds">
+        <article class="feed-box">
+          <header><b>नेपाल प्रहरी</b><a href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener">@NepalPoliceHQ</a></header>
+          <div class="feed-frame"><a class="twitter-timeline" data-height="520" data-chrome="nofooter noheader" href="https://twitter.com/NepalPoliceHQ?ref_src=twsrc%5Etfw">Nepal Police HQ</a></div>
+        </article>
+        <article class="feed-box">
+          <header><b>नेपाली सेना</b><a href="https://www.facebook.com/NepaliArmyHQ/" target="_blank" rel="noopener">Facebook</a></header>
+          <div class="feed-frame"><iframe title="Nepali Army Facebook" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FNepaliArmyHQ&amp;tabs=timeline&amp;width=500&amp;height=520&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false" width="100%" height="520" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+        </article>
+        <article class="feed-box">
+          <header><b>विपद् प्राधिकरण</b><a href="https://x.com/NDRRMA_Nepal" target="_blank" rel="noopener">@NDRRMA_Nepal</a></header>
+          <div class="feed-frame"><a class="twitter-timeline" data-height="520" data-chrome="nofooter noheader" href="https://twitter.com/NDRRMA_Nepal?ref_src=twsrc%5Etfw">NDRRMA</a></div>
+        </article>
+        <article class="feed-box">
+          <header><b>सेना (X)</b><a href="https://x.com/thenepalesearmy" target="_blank" rel="noopener">@thenepalesearmy</a></header>
+          <div class="feed-frame"><a class="twitter-timeline" data-height="520" data-chrome="nofooter noheader" href="https://twitter.com/thenepalesearmy?ref_src=twsrc%5Etfw">Nepali Army</a></div>
+        </article>
+      </div>
     </div>
-    <p>बाढी लेन्दे खोला/भोटेकोशी हुँदै त्रिशूलीमा मिसिएको छ। १०:५१ को महाशाखा अपडेटअनुसार गल्छी आसपास पुगिसकेको र मुग्लिनतर्फ बढिरहेको छ। नुवाकोटका बेत्रावती, त्रिशूली, ढुङ्गे, देवीघाटमा पनि भौतिक क्षतिको खबर आएको छ।</p>
-  </div>
-</section>
 
-<section id="event">
-  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>घटना</h2></div>
-  <div class="card teal">
-    <ul>
-      <li>करिब <strong>९:००–९:१५</strong> बजे बाढी तिब्बतबाट नेपालको टिमुरे हुँदै लेन्दे खोला/भोटेकोशीमा पस्यो, त्यसपछि त्रिशूलीतिर बढ्यो।</li>
-      <li>बाढी पूर्वानुमान महाशाखाका विनोद पराजुली: बाढी <strong>अचानक</strong> आयो, <strong>स्थानीय वर्षा होइन</strong>। हिमताल विस्फोटन (GLOF) को आशंका तर <strong>अहिले पुष्टि छैन</strong>; चीनसँग समन्वय भइरहेको छ।</li>
-      <li>रसुवा प्रजिअ नरेन्द्र परियार: धुन्चेतिर राति थोरै पानी परेको, बाढी आउने स्तरको होइन; स्रोत सीमापारि हो। क्षतिको यकिन विवरण आउन बाँकी।</li>
-      <li>नागरिक दैनिकमा वरिष्ठ मौसमविद् उज्वल उपाध्यायले प्रारम्भिक अनुमानमा हिमताल विस्फोटन वा पहिरोले बनेको अस्थायी बाँध फुटेको हुनसक्ने बताएका छन् — यो अनुमान मात्र हो।</li>
-      <li>बाढी विदुरभन्दा अघि नै पार गरिसकेको; १०:२८ मा गल्छी पुगेको महाशाखाले जनाएको छ।</li>
-    </ul>
-  </div>
-</section>
+    <div class="feed-panel" id="tab-minister">
+      <div class="feeds">
+        <article class="feed-box">
+          <header><b>गृहमन्त्री सुधन गुरुङ</b><a href="https://www.facebook.com/sudangrghaminepal/" target="_blank" rel="noopener">Facebook</a></header>
+          <div class="feed-frame"><iframe title="Home Minister Facebook" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fsudangrghaminepal&amp;tabs=timeline&amp;width=500&amp;height=520&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false" width="100%" height="520" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+        </article>
+        <article class="feed-box">
+          <header><b>इन्स्टाग्राम</b><a href="https://www.instagram.com/sudangrg_haminepal/" target="_blank" rel="noopener">@sudangrg_haminepal</a></header>
+          <div class="feed-frame" style="padding:18px">
+            <p>गृहमन्त्रीको सार्वजनिक इन्स्टाग्राम खाता। लाइभ पोस्ट हेर्न खाता खोल्नुहोस्।</p>
+            <p><a class="phones" href="https://www.instagram.com/sudangrg_haminepal/" target="_blank" rel="noopener" style="display:inline-block;background:var(--crimson);color:#fff;font-weight:800;padding:8px 12px;border-radius:999px;text-decoration:none">Instagram मा खोल्नुहोस्</a></p>
+            <p class="feed-note">X मा सार्वजनिक ह्यान्डल आधिकारिक रूपमा पुष्टि नभएकाले फेसबुक पेजलाई मुख्य फिड राखिएको छ।</p>
+          </div>
+        </article>
+      </div>
+    </div>
 
-<section id="damage">
-  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2>क्षति (प्रारम्भिक)</h2></div>
-  <div class="card orange">
-    <ul>
-      <li>सहायक प्रजिअ ध्रुव प्रसाद अधिकारी (खबरहब १०:२४): <strong>टिमुरे र नजिकैको अर्को बजार बगे</strong>। रसुवा भन्सार यार्डका सवारी/मालसामान बगे। गत वर्षको बाढीपछि बनेको नयाँ पुल फेरि बग्यो।</li>
-      <li>टिमुरे <strong>हेलिप्याड बग्यो</strong>। अल्टिच्युड एयरको हेलिकप्टर अवतरण गर्न सकेन। पाइलट सुबास खड्का: गाउँ नै देखिएन।</li>
-      <li>नेपाल प्रहरी प्रधान कार्यालय: <strong>३ प्रहरी कार्यालय</strong> — टिमुरे क्षेत्र कार्यालय, स्याफ्रुबेसी चौकी, रसुवागढी चौकी।</li>
-      <li>टिमुरेमा खटिएका <strong>१५ प्रहरीमध्ये ८ जनासँग मात्र सम्पर्क</strong> (बागमती डिआईजी दीपक रेग्मी, रातोपाटी)। नाम सार्वजनिक भएको छैन।</li>
-      <li>अनलाइनखबर ताजा शीर्षक: <strong>बीओपी टिमुरेका ९ सशस्त्र प्रहरी सम्पर्कविहीन</strong>।</li>
-      <li>प्रजिअ: तल्लो तटीय जलविद्युत्मा क्षति; बाढी बस्ती छिरेको; गोसाइँकुण्ड गाउँपालिकाका घर प्रभावित। स्थानीय अजय श्रेष्ठ: चिलिमेसहित जलविद्युत् आयोजनामा क्षति।</li>
-      <li>नुवाकोट प्रजिअ शम्भु प्रसाद रेग्मी: बेत्रावती, त्रिशूली, ढुङ्गे, देवीघाटमा व्यापक भौतिक क्षति। <strong>मानवीय क्षति आधिकारिक पुष्टि छैन।</strong></li>
-    </ul>
-    <p class="note">नागरिक मृत्यु वा बेपत्ताको आधिकारिक संख्या अहिले जारी भएको छैन। गत वर्षका आंकडा यो घटनामा नमिसाउनुहोस्।</p>
-  </div>
-</section>
-
-<section id="rescue">
-  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>उद्धार / सरकार</h2></div>
-  <div class="card green">
-    <ul>
-      <li>नेपाली सेनाका <strong>२ हेलिकप्टर रसुवा उडे</strong>, तेस्रो तयारीमा, स्थल टोली — प्रवक्ता राजाराम बस्नेत (अनलाइनखबर)।</li>
-      <li>सेनाको <strong>एमआई–१७ मेडिकल टिम लिएर उडेको</strong> अनलाइनखबरले जनाएको छ।</li>
-      <li>प्रधानमन्त्री बालेन शाह: सेना, सशस्त्र, नेपाल प्रहरी परिचालन; अन्य जिल्लाबाट थप फौज; विपद् प्राधिकरण सक्रिय; मेडिकल टिम, नेपाल स्काउट, रेडक्रस; नुवाकोट/धादिङका सीडीओलाई तल्लो तटीय बासिन्दा सार्न निर्देशन; एसएमएस/फोन अलर्ट; उच्चस्तरीय बैठक / विपद् परिषद्। निजीसहित सबै हेलिकप्टर स्ट्यान्डबाइ। जानकारीका लागि १२३४।</li>
-      <li>गृहमन्त्री सुधन गुरुङको उपस्थितिमा मनसुन कमाण्ड-पोस्ट आपत्कालीन बैठक। पाँच जिल्लाका नदीतटीय नागरिकलाई सुरक्षित रहन आग्रह।</li>
-      <li>सञ्चारमन्त्री डा. विक्रम तिमल्सिना: नदी किनार नबस्नु, यात्रा नगर्नु, हल्ला नपत्याउनु।</li>
-      <li>अर्थमन्त्री स्वर्णिम वाग्ले खोज तथा उद्धार समन्वयमा (अर्थ मन्त्रालय / Sidhakura)।</li>
-      <li>नेकपा अध्यक्ष प्रचण्डले बाढी प्रभावित क्षेत्रमा उद्धारमा खटिन नेता-कार्यकर्तालाई निर्देशन दिएका छन् (अनलाइनखबर)।</li>
-    </ul>
-  </div>
-</section>
-
-<section id="roads">
-  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2>सडक / ट्राफिक</h2></div>
-  <div class="card orange">
-    <ul>
-      <li>काठमाडौं ट्राफिकले रसुवा, नुवाकोट, चितवन, धादिङ जाने सवारी रोकेको (एसपी नरेश राज सुवेदी)। काठमाडौंबाट धादिङ/रसुवा जाने गाडी पनि रोकिएका छन्।</li>
-      <li>यात्रा नगर्नुहोस्: पृथ्वी राजमार्ग, गल्छी–नुवाकोट–रसुवा–स्याफ्रुबेसी, मुग्लिन–नारायणगढ।</li>
-    </ul>
-  </div>
+    <div class="feed-panel" id="tab-news">
+      <div class="feeds">
+        <article class="feed-box">
+          <header><b>अनलाइनखबर</b><a href="https://x.com/Online_khabar" target="_blank" rel="noopener">@Online_khabar</a></header>
+          <div class="feed-frame"><a class="twitter-timeline" data-height="520" data-chrome="nofooter noheader" href="https://twitter.com/Online_khabar?ref_src=twsrc%5Etfw">OnlineKhabar</a></div>
+        </article>
+        <article class="feed-box">
+          <header><b>काठमाडौं पोस्ट</b><a href="https://x.com/kathmandupost" target="_blank" rel="noopener">@kathmandupost</a></header>
+          <div class="feed-frame"><a class="twitter-timeline" data-height="520" data-chrome="nofooter noheader" href="https://twitter.com/kathmandupost?ref_src=twsrc%5Etfw">Kathmandu Post</a></div>
+        </article>
+        <article class="feed-box">
+          <header><b>रातोपाटी</b><a href="https://x.com/Rato_pati" target="_blank" rel="noopener">@Rato_pati</a></header>
+          <div class="feed-frame"><a class="twitter-timeline" data-height="520" data-chrome="nofooter noheader" href="https://twitter.com/Rato_pati?ref_src=twsrc%5Etfw">Ratopati</a></div>
+        </article>
+        <article class="feed-box">
+          <header><b>अनलाइनखबर (EN)</b><a href="https://x.com/OnlineKhabar_En" target="_blank" rel="noopener">@OnlineKhabar_En</a></header>
+          <div class="feed-frame"><a class="twitter-timeline" data-height="520" data-chrome="nofooter noheader" href="https://twitter.com/OnlineKhabar_En?ref_src=twsrc%5Etfw">OnlineKhabar English</a></div>
+        </article>
+      </div>
+    </div>
 </section>
 
 <section id="photos">
@@ -369,98 +377,25 @@ footer{
   </a>
 </section>
 
-<section id="sources">
-  <div class="sec-head"><span class="dot" style="background:var(--ink)"></span><h2>स्रोत</h2></div>
-  <div class="sources">
 
-    <div class="src-group">
-      <h3>रातोपाटी <span class="badge">१६</span></h3>
-      <a href="https://www.ratopati.com/story/587411/rasuwa-floods-cause-extensive-damage-to-betrawati-trishuli-devighat-and-other-areas-of-nuwakot" target="_blank" rel="noopener">नुवाकोटका बेत्रावती, त्रिशूली, देवीघाटमा व्यापक क्षति</a>
-      <a href="https://www.ratopati.com/story/587410/nuwakot-cdo-says-there-has-been-a-lot-of-physical-damage" target="_blank" rel="noopener">नुवाकोटका सीडीओ: भौतिक क्षति धेरै भयो</a>
-      <a href="https://www.ratopati.com/story/587409/rasuwa-flood-will-cross-muglin-in-the-next-few-hours" target="_blank" rel="noopener">अबको केही घण्टामा मुग्लिन पार गर्ने</a>
-      <a href="https://www.ratopati.com/story/587408/floods-damage-3-police-offices-in-rasuwa" target="_blank" rel="noopener">बाढीले रसुवाको ३ वटा प्रहरी कार्यालयमा क्षति</a>
-      <a href="https://www.ratopati.com/story/587407/cdo-instructed-to-relocate-residents-of-low-lying-coastal-areas-to-safer-places" target="_blank" rel="noopener">तल्लो तटीय बासिन्दालाई सार्न सीडीओलाई निर्देशन</a>
-      <a href="https://www.ratopati.com/story/587406/all-helicopters-were-put-on-standby-for-rescue-and-relief-operations" target="_blank" rel="noopener">सबै हेलिकप्टर स्ट्यान्डबाइ</a>
-      <a href="https://www.ratopati.com/story/587404/floods-from-tibet-cause-major-damage-in-rasuwa" target="_blank" rel="noopener">तिब्बतबाट आएको बाढीले रसुवामा ठुलो क्षति</a>
-      <a href="https://www.ratopati.com/story/587403/prime-minister-balen-calls-for-high-level-meeting" target="_blank" rel="noopener">प्रधानमन्त्री बालेनद्वारा उच्च स्तरीय बैठक आह्वान</a>
-      <a href="https://www.ratopati.com/story/587402/security-forces-mobilized-for-rescue-and-relief-prime-minister-urges-residents-of-affected-areas-to-move-to-safer-places" target="_blank" rel="noopener">सुरक्षा निकाय परिचालन, सुरक्षित स्थानमा जान आग्रह</a>
-      <a href="https://www.ratopati.com/story/587401/vehicles-heading-from-kathmandu-to-dhading-and-rasuwa-are-held" target="_blank" rel="noopener">काठमाडौंबाट धादिङ/रसुवा जाने सवारी रोकियो</a>
-      <a href="https://www.ratopati.com/story/587399/bhotekoshi-floods-reach-galchhi-request-to-evacuate-settlements-along-trishuli-coast-and-highway" target="_blank" rel="noopener">भोटेकोशी बाढी गल्छी पुग्यो, बस्ती खाली गर्न आग्रह</a>
-      <a href="https://www.ratopati.com/story/587398/severe-floods-in-rasuwa-damage-in-syafrubesi-and-timure-government-directs-to-mobilize-for-rescue-and-relief" target="_blank" rel="noopener">स्याफ्रुबेसी र टिमुरेमा क्षति, सरकारले उद्धार निर्देशन</a>
-      <a href="https://www.ratopati.com/story/587397/emergency-meeting-of-monsoon-response-command-post-begins" target="_blank" rel="noopener">मनसुन कमाण्ड-पोस्ट आपत्कालीन बैठक सुरु</a>
-      <a href="https://www.ratopati.com/story/587396/floods-in-timur-fears-of-glacial-lake-eruption-in-tibet" target="_blank" rel="noopener">टिमुरे बाढी, तिब्बतमा हिमताल विस्फोटनको आशंका</a>
-      <a href="https://www.ratopati.com/story/587394/flash-flood-causes-major-damage-in-timure-bazaar" target="_blank" rel="noopener">आकस्मिक बाढीले टिमुरे बजारमा ठुलो क्षति</a>
-      <a href="https://www.ratopati.com/story/587391/large-flood-enters-bhotekoshi-from-tibet-urges-to-adopt-high-alert-up-to-muglin" target="_blank" rel="noopener">तिब्बतबाट भोटेकोशीमा ठूलो बाढी, मुग्लिनसम्म सतर्कता</a>
-    </div>
-
-    <div class="src-group">
-      <h3>अनलाइनखबर <span class="badge">१३</span></h3>
-      <a href="https://www.onlinekhabar.com/2026/08/2003836/9-armed-police-force-personnel-from-bop-timure-remain-uncontacted" target="_blank" rel="noopener">बीओपी टिमुरेका ९ सशस्त्र प्रहरी सम्पर्कविहीन</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003833/rasuwa-flood-armys-mi-17-helicopter-takes-off-carrying-medical-team" target="_blank" rel="noopener">मेडिकल टिम बोकेर सेनाको एमआई–१७ उड्यो</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003830/prachanda-instructs-leaders-and-activists-to-work-in-rescue-efforts-in-flood-affected-areas" target="_blank" rel="noopener">प्रचण्डको निर्देशन: उद्धारमा खटिनु</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003828/prime-minister-balen-calls-emergency-meeting" target="_blank" rel="noopener">प्रधानमन्त्री बालेनले बोलाए आपत्कालीन बैठक</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003822/home-minister-urges-citizens-of-riverine-areas-of-five-districts-to-stay-safe" target="_blank" rel="noopener">गृहमन्त्री: पाँच जिल्लाका तटीय नागरिक सुरक्षित रहन</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003821/this-is-the-governments-preparation-for-the-floods-coming-from-tibet" target="_blank" rel="noopener">रसुवा बाढी: उद्धारका लागि सरकारको तयारी</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003819/rasuwa-flood-what-damage-was-caused" target="_blank" rel="noopener">रसुवा बाढी: के-के क्षति भयो?</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003814/floods-damage-3-police-offices-in-rasuwa-detailed-details-yet-to-be-released" target="_blank" rel="noopener">प्रहरीका ३ कार्यालय बगायो, विस्तृत विवरण आउन बाँकी</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003813/rasuwa-flood-traffic-stops-vehicles-going-to-four-districts-in-kathmandu" target="_blank" rel="noopener">चार जिल्ला जाने सवारी काठमाडौंमै रोकियो</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003807/2-army-helicopters-fly-to-rasuwa" target="_blank" rel="noopener">सेनाका २ वटा हेलिकप्टर रसुवा उडे</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003805/floods-from-tibet-cause-major-damage-in-timure-bazaar-area" target="_blank" rel="noopener">तिब्बततर्फबाट आएको बाढीले टिमुरे बजारमा ठूलो क्षति</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003799/bhotekoshi-flood-all-helicopter-companies-instructed-to-remain-on-alert" target="_blank" rel="noopener">सबै हेलिकप्टर कम्पनीलाई तयारी अवस्थामा रहन निर्देशन</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003796/major-flood-in-bhotekoshi-river-in-rasuwa-urges-people-to-be-vigilant-in-areas-around-the-river" target="_blank" rel="noopener">भोटेकोशीमा ठूलो बाढी, आसपास सचेत रहन आग्रह</a>
-    </div>
-
-    <div class="src-group">
-      <h3>Khabarhub (English) <span class="badge">५</span></h3>
-      <a href="https://english.khabarhub.com/2026/26/564842/" target="_blank" rel="noopener">PM Shah orders rescue, relief measures</a>
-      <a href="https://english.khabarhub.com/2026/26/564836/" target="_blank" rel="noopener">PM calls emergency Disaster Council meeting</a>
-      <a href="https://english.khabarhub.com/2026/26/564831/" target="_blank" rel="noopener">Floods wash away police offices in Rasuwa</a>
-      <a href="https://english.khabarhub.com/2026/26/564826/" target="_blank" rel="noopener">Bhotekoshi flood causes widespread destruction in Rasuwa</a>
-      <a href="https://english.khabarhub.com/2026/26/564822/" target="_blank" rel="noopener">Bhotekoshi river water level rises, residents alerted</a>
-    </div>
-
-    <div class="src-group">
-      <h3>काठमाडौं पोस्ट <span class="badge">२</span></h3>
-      <a href="https://kathmandupost.com/national/2026/08/26/major-flood-damages-syabrubesi-hydropower-projects-in-rasuwa" target="_blank" rel="noopener">Flash flood hits Rasuwa, damages hydropower projects and markets</a>
-      <a href="https://x.com/kathmandupost/status/2092472149349179531" target="_blank" rel="noopener">X: टिमुरे हेलिप्याड बग्यो, अल्टिच्युड एयर अवतरण गर्न सकेन</a>
-    </div>
-
-    <div class="src-group">
-      <h3>नागरिक <span class="badge">९</span></h3>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/rasuwa-flood-meteorologist-s-guess-glacial-lake-explosion-or-dam-breach-br-35-65.html" target="_blank" rel="noopener">हिमताल विस्फोटन वा बाँध फुटेको मौसमविद्को अनुमान</a>
-      <a href="https://nagariknews.nagariknetwork.com/politics/rescue-intensifies-after-rasuwa-flood-two-helicopters-sent-to-affected-areas-br-17-47.html" target="_blank" rel="noopener">उद्धार तीव्र, दुई हेलिकप्टर प्रभावित क्षेत्रतर्फ</a>
-      <a href="https://nagariknews.nagariknetwork.com/politics/prime-minister-shah-directs-rescue-efforts-after-rasuwa-flood-br-26-86.html" target="_blank" rel="noopener">प्रधानमन्त्री शाहद्वारा उद्धार निर्देशन</a>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/bhotekoshi-floods-reach-dhading-galchhi-high-alert-around-muglin-narayangadh-road-nbsp-22-67.html" target="_blank" rel="noopener">बाढी धादिङ-गल्छी पुग्यो, मुग्लिन-नारायणगढ सतर्कता</a>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/sudden-massive-flood-in-bhotekoshi-what-does-the-head-of-the-flood-forecasting-division-say-66-38.html" target="_blank" rel="noopener">बाढी पूर्वानुमान महाशाखा प्रमुख के भन्छन्?</a>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/emergency-meeting-begins-in-the-presence-of-the-home-minister-after-the-flood-in-bhotekoshi-27-81.html" target="_blank" rel="noopener">गृहमन्त्रीको उपस्थितिमा आकस्मिक बैठक</a>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/caution-urged-along-river-banks-in-5-districts-as-water-flow-in-bhotekoshi-increases-45-92.html" target="_blank" rel="noopener">५ जिल्लाका नदी किनारमा सतर्कता</a>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/massive-flood-in-bhote-koshi-from-tibet-request-to-stay-in-safe-places-56-24.html" target="_blank" rel="noopener">तिब्बतबाट भोटेकोशीमा ठुलो बाढी, सुरक्षित स्थानमा जान आग्रह</a>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/floods-in-rasuwa-major-damage-feared-in-syafrubesi-and-timure-areas-38-12.html" target="_blank" rel="noopener">स्याफ्रुबेँसी र टिमुरेमा ठूलो क्षतिको आशंका</a>
-    </div>
-
-    <div class="src-group">
-      <h3>आधिकारिक / हेर्नुहोस् <span class="badge">१३</span></h3>
-      <a href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener">X · @NepalPoliceHQ</a>
-      <a href="https://www.nepalpolice.gov.np" target="_blank" rel="noopener">नेपाल प्रहरी · nepalpolice.gov.np</a>
-      <a href="https://bipad.gov.np" target="_blank" rel="noopener">विपद् प्राधिकरण पोर्टल · bipad.gov.np</a>
-      <a href="https://www.dhm.gov.np" target="_blank" rel="noopener">जल तथा मौसम विज्ञान विभाग · dhm.gov.np</a>
-      <a href="https://www.hydrology.gov.np" target="_blank" rel="noopener">जलविज्ञान · hydrology.gov.np</a>
-      <a href="https://floodforecasting.gov.np" target="_blank" rel="noopener">बाढी पूर्वानुमान · floodforecasting.gov.np</a>
-      <a href="https://x.com/OnlineKhabar_En" target="_blank" rel="noopener">X · @OnlineKhabar_En</a>
-      <a href="https://x.com/RONBupdates" target="_blank" rel="noopener">X · @RONBupdates</a>
-      <a href="https://x.com/engnepalviews" target="_blank" rel="noopener">X · @engnepalviews</a>
-      <a href="https://x.com/Sidhakura_" target="_blank" rel="noopener">X · @Sidhakura_</a>
-      <a href="https://x.com/nvdnepal" target="_blank" rel="noopener">X · @nvdnepal</a>
-      <a href="https://x.com/kathmandupost" target="_blank" rel="noopener">X · @kathmandupost</a>
-      <a href="https://x.com/NepalPoliceHQ/status/2092469695371006058" target="_blank" rel="noopener">प्रहरी आधिकारिक बाढी भिडियो</a>
-    </div>
-
-  </div>
-</section>
 </main>
 <footer>
   Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
   यो पृष्ठ आज २६ अगस्ट २०२६ / १० भदौ २०८३ को घटनामा मात्र केन्द्रित छ।
 </footer>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script>
+document.querySelectorAll(".feed-tabs button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".feed-tabs button").forEach(function(b){b.classList.remove("active")});
+    document.querySelectorAll(".feed-panel").forEach(function(p){p.classList.remove("active")});
+    btn.classList.add("active");
+    var panel = document.getElementById("tab-" + btn.getAttribute("data-tab"));
+    if(panel) panel.classList.add("active");
+    if(window.twttr && twttr.widgets) twttr.widgets.load(panel);
+  });
+});
+</script>
 </body>
 </html>
