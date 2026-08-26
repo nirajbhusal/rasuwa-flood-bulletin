@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T18:58:55+00:00",
+  "updated_at": "2026-08-26T19:07:26+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,52 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-004955-choenyi-tamang",
+      "name": "Choenyi Tamang",
+      "age": "55",
+      "place": "Timure, Rasuwa · Timure, Rasuwa",
+      "phone": "9841317309",
+      "note": "फारम ००:४९"
+    },
+    {
+      "id": "sheet-20260827-004911-aayush-adhikari",
+      "name": "Aayush Adhikari",
+      "age": "27",
+      "place": "Kaushaltar, Bhaktapur · Timure",
+      "phone": "9808670950",
+      "note": "फारम ००:४९ · Medical officer · Mansarovar health camp"
+    },
+    {
+      "id": "sheet-20260827-004708-janak-budha",
+      "name": "Janak Budha",
+      "age": "30",
+      "place": "Humla · Timure, Rasuwa",
+      "phone": "9848318441",
+      "note": "फारम ००:४७"
+    },
+    {
+      "id": "sheet-20260827-004701-sonam-wangdi-tamang",
+      "name": "Sonam Wangdi Tamang",
+      "age": "56",
+      "place": "Timure, Rasuwa · Timure, Rasuwa",
+      "phone": "9841317209",
+      "note": "फारम ००:४७"
+    },
+    {
+      "id": "sheet-20260827-004613-anita-rawat",
+      "name": "Anita Rawat",
+      "age": "28",
+      "place": "Humla · Timure, Rasuwa",
+      "phone": "9848318441",
+      "note": "फारम ००:४६"
+    },
+    {
+      "id": "sheet-20260827-004138-deepak-dipak-kharel",
+      "name": "DEEPAK/DIPAK KHAREL",
+      "place": "Kakarbhitta · Upper Trishuli / Tusam Korean Company",
+      "note": "फारम ००:४१"
+    },
     {
       "id": "sheet-20260827-003957-abhiyan-shrestha",
       "name": "Abhiyan Shrestha",
