@@ -532,6 +532,19 @@ footer .foot-contact a:hover{text-decoration:underline}
 }
 .wl-src{margin:10px 0 0;font-size:13px;color:var(--muted);line-height:1.5}
 .wl-src a{font-weight:800}
+.wl-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.wl-row{
+  border:1px solid var(--line);border-radius:12px;padding:10px 12px 8px;
+  background:#fafafe;
+}
+.wl-row.washed{background:var(--crimson-soft);border-color:#fecaca}
+.wl-row-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.wl-row h4{margin:0;font-size:16px;line-height:1.3;font-weight:800}
+.wl-row h4 small{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-top:1px}
+.wl-row .wl-num{margin:6px 0 2px;font-size:clamp(22px,5vw,28px)}
+.wl-row .wl-meta{margin:0 0 6px;font-size:13px}
+.wl-row .wl-track{height:10px}
+.wl-row .wl-marks{height:22px;font-size:11px;margin-top:2px}
 
 .path-ask{
   background:linear-gradient(90deg,var(--crimson-soft),#fff 28%);
@@ -1473,16 +1486,12 @@ footer .foot-contact a:hover{text-decoration:underline}
 <section id="path">
   <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>कहाँ पुग्यो</h2></div>
   <p class="path-ask"><strong>नदी वरपरका बासिन्दाहरूलाई अनुरोध।</strong> तटीय क्षेत्रबाट सुरक्षित स्थानमा सर्नुहोस् र उच्च सतर्कता अपनाउनुहोस्।</p>
-  <div class="wl" id="wl-betrawati" data-src="./dhm-betrawati.json">
+  <div class="wl" id="wl-rivers" data-src="./dhm-rivers.json">
     <div class="wl-top">
-      <h3>त्रिशूली सतह · बेत्रावती <small>DHM स्वचालित गेज · नुवाकोट</small></h3>
-      <span class="wl-badge silent" id="wl-badge">लोड हुँदै</span>
+      <h3>DHM नदी सतह <small>बाढीको बाटो · स्वचालित गेज</small></h3>
     </div>
-    <div class="wl-num" id="wl-num">—<span>मिटर</span></div>
-    <p class="wl-meta" id="wl-meta">जल तथा मौसम विज्ञान विभागको पछिल्लो पढाइ</p>
-    <div class="wl-track" aria-hidden="true"><div class="wl-fill" id="wl-fill"></div></div>
-    <div class="wl-marks" id="wl-marks"></div>
-    <p class="wl-src" id="wl-src">फुर्के/मलेखु गेज ११:५० मा १०.८ मिटरमा बगेको — त्यो लाइभ होइन। स्रोत: <a href="https://www.dhm.gov.np/hydrology/hms-Single/52" target="_blank" rel="noopener">DHM बेत्रावती</a></p>
+    <div class="wl-list" id="wl-list"></div>
+    <p class="wl-src" id="wl-src">DHM नेटवर्कमा अहिले खतरा तहमा फुर्के मात्र (गेज बगेको, लाइभ होइन)। बाटोका अरू गेज सतर्कतामुनि। स्रोत: <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a></p>
   </div>
   <div class="card teal">
     <div class="path" role="list">
@@ -2302,12 +2311,14 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
 })();
 
 (function(){
-  var root = document.getElementById("wl-betrawati");
+  var root = document.getElementById("wl-rivers") || document.getElementById("wl-betrawati");
   if (!root) return;
+  var listEl = document.getElementById("wl-list") || root;
+  var srcEl = document.getElementById("wl-src");
   var DIG = "०१२३४५६७८९";
   function np(s){ return String(s).replace(/[0-9]/g, function(d){ return DIG[d]; }); }
   function fmtM(v){
-    if (v == null || isNaN(v)) return "—";
+    if (v == null || v === "" || isNaN(v)) return "—";
     return np(Number(v).toFixed(2));
   }
   function npt(iso){
@@ -2316,49 +2327,66 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (isNaN(d.getTime())) return "";
     var parts = new Intl.DateTimeFormat("en-GB", {
       timeZone: "Asia/Kathmandu", hour: "2-digit", minute: "2-digit",
-      hour12: false, day: "2-digit", month: "short"
+      hour12: false
     }).formatToParts(d);
     var get = function(t){ for (var i=0;i<parts.length;i++) if (parts[i].type===t) return parts[i].value; return ""; };
-    return np(get("day")) + " " + get("month") + " " + np(get("hour") + ":" + get("minute"));
+    return np(get("hour") + ":" + get("minute"));
+  }
+  function badgeOf(st, level, warn, danger, silent, washed){
+    if (washed) return {cls:"danger", label:"बगेको"};
+    if (silent) return {cls:"silent", label:"गेज मौन"};
+    if (danger && level >= danger) return {cls:"danger", label:"खतरा स्तर"};
+    if (warn && level >= warn) return {cls:"warn", label:"सतर्कता स्तर"};
+    if (st === "FALLING") return {cls:"ok", label:"घट्दो"};
+    if (st === "RISING") return {cls:"warn", label:"बढ्दो"};
+    return {cls:"ok", label:"सतर्कतामुनि"};
+  }
+  function rowHtml(s){
+    var level = Number(s.level_m);
+    var warn = Number(s.warning_m);
+    var danger = Number(s.danger_m);
+    var washed = !!s.washed;
+    var silent = !!s.silent;
+    if (!washed && !silent && s.observed_at) {
+      silent = (Date.now() - new Date(s.observed_at).getTime()) > 30 * 60 * 1000;
+    }
+    var b = badgeOf(s.steady, level, warn, danger, silent, washed);
+    var when = s.observed_npt || npt(s.observed_at);
+    var max = Math.max(danger || 0, warn || 0, level || 0) * 1.15 || 1;
+    var fillCls = "wl-fill";
+    if (!washed && !silent) {
+      if (danger && level >= danger) fillCls += " danger";
+      else if (warn && level >= warn) fillCls += " warn";
+    } else if (washed) {
+      fillCls += " danger";
+    }
+    var marks = "";
+    if (warn) marks += '<i style="left:' + ((warn/max)*100) + '%">सतर्कता ' + fmtM(warn) + '</i>';
+    if (danger) marks += '<i style="left:' + ((danger/max)*100) + '%">खतरा ' + fmtM(danger) + '</i>';
+    var meta = (s.district_np || "") + (when ? " · " + when : "");
+    if (washed) meta += " · अन्तिम पढाइ · लाइभ होइन";
+    else if (silent) meta += " · यो पढाइपछि मौन";
+    var href = s.source || ("https://www.dhm.gov.np/hydrology/hms-Single/" + s.station_id);
+    return '<article class="wl-row' + (washed ? " washed" : "") + '">' +
+      '<div class="wl-row-top"><h4>' + (s.name_np || s.name) +
+      '<small><a href="' + href + '" target="_blank" rel="noopener">' + (s.district_np || "") + ' · DHM</a></small></h4>' +
+      '<span class="wl-badge ' + b.cls + '">' + b.label + '</span></div>' +
+      '<div class="wl-num">' + fmtM(level) + '<span>मिटर</span></div>' +
+      '<p class="wl-meta">' + meta + '</p>' +
+      '<div class="wl-track" aria-hidden="true"><div class="' + fillCls + '" style="width:' + Math.min(100,(level/max)*100) + '%"></div></div>' +
+      '<div class="wl-marks">' + marks + '</div></article>';
   }
   function paint(data){
     if (!data) return;
-    var level = Number(data.level_m);
-    var warn = Number(data.warning_m) || 4.1;
-    var danger = Number(data.danger_m) || 5.0;
-    var silent = !!data.silent;
-    if (!silent && data.observed_at) {
-      silent = (Date.now() - new Date(data.observed_at).getTime()) > 30 * 60 * 1000;
+    var stations = data.stations || (data.level_m != null ? [data] : []);
+    if (!stations.length) return;
+    listEl.innerHTML = stations.map(rowHtml).join("");
+    if (srcEl && data.note_np) {
+      srcEl.innerHTML = data.note_np + ' स्रोत: <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a>';
     }
-    var badge = document.getElementById("wl-badge");
-    var num = document.getElementById("wl-num");
-    var meta = document.getElementById("wl-meta");
-    var fill = document.getElementById("wl-fill");
-    var marks = document.getElementById("wl-marks");
-    var cls = "ok";
-    var label = "सतर्कतामुनि";
-    if (level >= danger) { cls = "danger"; label = "खतरा स्तर"; }
-    else if (level >= warn) { cls = "warn"; label = "सतर्कता स्तर"; }
-    if (silent) { cls = "silent"; label = "गेज मौन"; }
-    badge.className = "wl-badge " + cls;
-    badge.textContent = label;
-    num.innerHTML = fmtM(level) + "<span>मिटर</span>";
-    var when = data.observed_npt || npt(data.observed_at);
-    meta.textContent = when
-      ? ("पछिल्लो पढाइ " + when + " · सतर्कता " + fmtM(warn) + " मि · खतरा " + fmtM(danger) + " मि")
-      : ("सतर्कता " + fmtM(warn) + " मि · खतरा " + fmtM(danger) + " मि");
-    if (silent) {
-      meta.textContent += " · यो पढाइपछि गेज मौन (स्टेसन बाढीले प्रभावित हुन सक्छ)";
-    }
-    var max = Math.max(danger * 1.15, level, warn);
-    fill.style.width = Math.min(100, (level / max) * 100) + "%";
-    fill.className = "wl-fill" + (level >= danger ? " danger" : level >= warn ? " warn" : "");
-    marks.innerHTML =
-      '<i style="left:' + ((warn/max)*100) + '%">सतर्कता ' + fmtM(warn) + '</i>' +
-      '<i style="left:' + ((danger/max)*100) + '%">खतरा ' + fmtM(danger) + '</i>';
   }
   function load(){
-    var url = root.getAttribute("data-src") || "./dhm-betrawati.json";
+    var url = root.getAttribute("data-src") || "./dhm-rivers.json";
     fetch(url + (url.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" })
       .then(function(r){ return r.ok ? r.json() : null; })
       .then(paint)
