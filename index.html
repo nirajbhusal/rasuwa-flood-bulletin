@@ -491,6 +491,47 @@ footer .foot-contact a:hover{text-decoration:underline}
   .helpline{width:auto;max-width:100%}
   .top-actions{width:100%;justify-content:center}
 }
+
+.wl{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:14px 16px 12px;margin:0 0 14px;box-shadow:var(--shadow);
+}
+.wl-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.wl-top h3{margin:0;font-size:18px;line-height:1.3}
+.wl-top h3 small{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-top:2px}
+.wl-badge{
+  font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;
+  background:var(--teal-soft);color:var(--teal);white-space:nowrap;
+}
+.wl-badge.warn{background:var(--saffron-soft);color:#9a3412}
+.wl-badge.danger{background:var(--crimson-soft);color:var(--crimson)}
+.wl-badge.silent{background:#f1f5f9;color:#475569}
+.wl-num{
+  margin:10px 0 4px;font-size:clamp(34px,7vw,48px);font-weight:800;
+  letter-spacing:.01em;line-height:1;color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+.wl-num span{font-size:.45em;font-weight:800;color:var(--muted);margin-left:6px}
+.wl-meta{margin:0 0 10px;font-size:14px;color:var(--muted)}
+.wl-track{
+  position:relative;height:14px;border-radius:999px;
+  background:linear-gradient(90deg,#d1fae5 0%,#fde68a 70%,#fecaca 100%);
+  overflow:hidden;border:1px solid var(--line);
+}
+.wl-fill{
+  position:absolute;left:0;top:0;bottom:0;width:0;
+  background:var(--teal);border-radius:999px;
+  transition:width .4s ease;
+}
+.wl-fill.warn{background:var(--saffron)}
+.wl-fill.danger{background:var(--crimson)}
+.wl-marks{position:relative;height:28px;margin-top:4px;font-size:12px;font-weight:700;color:var(--muted)}
+.wl-marks i{position:absolute;top:0;transform:translateX(-50%);text-align:center;font-style:normal;line-height:1.25}
+.wl-marks i::before{
+  content:"";display:block;width:2px;height:8px;background:#64748b;margin:0 auto 2px;
+}
+.wl-src{margin:10px 0 0;font-size:13px;color:var(--muted);line-height:1.5}
+.wl-src a{font-weight:800}
 </style>
 </head>
 <body>
@@ -1423,6 +1464,17 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 <section id="path">
   <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>कहाँ पुग्यो</h2></div>
+  <div class="wl" id="wl-betrawati" data-src="./dhm-betrawati.json">
+    <div class="wl-top">
+      <h3>त्रिशूली सतह · बेत्रावती <small>DHM स्वचालित गेज · नुवाकोट</small></h3>
+      <span class="wl-badge silent" id="wl-badge">लोड हुँदै</span>
+    </div>
+    <div class="wl-num" id="wl-num">—<span>मिटर</span></div>
+    <p class="wl-meta" id="wl-meta">जल तथा मौसम विज्ञान विभागको पछिल्लो पढाइ</p>
+    <div class="wl-track" aria-hidden="true"><div class="wl-fill" id="wl-fill"></div></div>
+    <div class="wl-marks" id="wl-marks"></div>
+    <p class="wl-src" id="wl-src">फुर्के/मलेखु गेज ११:५० मा १०.८ मिटरमा बगेको — त्यो लाइभ होइन। स्रोत: <a href="https://www.dhm.gov.np/hydrology/hms-Single/52" target="_blank" rel="noopener">DHM बेत्रावती</a></p>
+  </div>
   <div class="card teal">
     <div class="path" role="list">
       <div class="step" role="listitem"><span class="t">~९:१५</span><i class="rail" aria-hidden="true"></i><div><b>टिमुरे</b><span>तिब्बतबाट नेपाल प्रवेश</span></div></div>
@@ -2238,6 +2290,73 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (e.key === "ArrowLeft") openLb(lbI - 1);
     if (e.key === "ArrowRight") openLb(lbI + 1);
   });
+})();
+
+(function(){
+  var root = document.getElementById("wl-betrawati");
+  if (!root) return;
+  var DIG = "०१२३४५६७८९";
+  function np(s){ return String(s).replace(/[0-9]/g, function(d){ return DIG[d]; }); }
+  function fmtM(v){
+    if (v == null || isNaN(v)) return "—";
+    return np(Number(v).toFixed(2));
+  }
+  function npt(iso){
+    if (!iso) return "";
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return "";
+    var parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Kathmandu", hour: "2-digit", minute: "2-digit",
+      hour12: false, day: "2-digit", month: "short"
+    }).formatToParts(d);
+    var get = function(t){ for (var i=0;i<parts.length;i++) if (parts[i].type===t) return parts[i].value; return ""; };
+    return np(get("day")) + " " + get("month") + " " + np(get("hour") + ":" + get("minute"));
+  }
+  function paint(data){
+    if (!data) return;
+    var level = Number(data.level_m);
+    var warn = Number(data.warning_m) || 4.1;
+    var danger = Number(data.danger_m) || 5.0;
+    var silent = !!data.silent;
+    if (!silent && data.observed_at) {
+      silent = (Date.now() - new Date(data.observed_at).getTime()) > 30 * 60 * 1000;
+    }
+    var badge = document.getElementById("wl-badge");
+    var num = document.getElementById("wl-num");
+    var meta = document.getElementById("wl-meta");
+    var fill = document.getElementById("wl-fill");
+    var marks = document.getElementById("wl-marks");
+    var cls = "ok";
+    var label = "सतर्कतामुनि";
+    if (level >= danger) { cls = "danger"; label = "खतरा स्तर"; }
+    else if (level >= warn) { cls = "warn"; label = "सतर्कता स्तर"; }
+    if (silent) { cls = "silent"; label = "गेज मौन"; }
+    badge.className = "wl-badge " + cls;
+    badge.textContent = label;
+    num.innerHTML = fmtM(level) + "<span>मिटर</span>";
+    var when = data.observed_npt || npt(data.observed_at);
+    meta.textContent = when
+      ? ("पछिल्लो पढाइ " + when + " · सतर्कता " + fmtM(warn) + " मि · खतरा " + fmtM(danger) + " मि")
+      : ("सतर्कता " + fmtM(warn) + " मि · खतरा " + fmtM(danger) + " मि");
+    if (silent) {
+      meta.textContent += " · यो पढाइपछि गेज मौन (स्टेसन बाढीले प्रभावित हुन सक्छ)";
+    }
+    var max = Math.max(danger * 1.15, level, warn);
+    fill.style.width = Math.min(100, (level / max) * 100) + "%";
+    fill.className = "wl-fill" + (level >= danger ? " danger" : level >= warn ? " warn" : "");
+    marks.innerHTML =
+      '<i style="left:' + ((warn/max)*100) + '%">सतर्कता ' + fmtM(warn) + '</i>' +
+      '<i style="left:' + ((danger/max)*100) + '%">खतरा ' + fmtM(danger) + '</i>';
+  }
+  function load(){
+    var url = root.getAttribute("data-src") || "./dhm-betrawati.json";
+    fetch(url + (url.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" })
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(paint)
+      .catch(function(){});
+  }
+  load();
+  setInterval(load, 60000);
 })();
 </script>
 
