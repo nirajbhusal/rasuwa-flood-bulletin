@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T01:07:21+05:45",
+  "updated_at": "2026-08-27T01:15:24+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,22 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-010706-sangam-shrestha",
+      "name": "Sangam Shrestha",
+      "age": "around 40",
+      "place": "Kathmandu · Kerung",
+      "phone": "9860538266",
+      "note": "फारम ०१:०७ · Professional guide, Richa Travels · last 8am collecting passport to China"
+    },
+    {
+      "id": "sheet-20260827-010256-pradip-shrestha",
+      "name": "Pradip Shrestha",
+      "age": "Around 55",
+      "place": "Pharping, Dakshinkali · Syabrubesi",
+      "phone": "9841382631",
+      "note": "फारम ०१:०२ · Phone location last seen Syabrubesi 9:40am"
+    },
     {
       "id": "sheet-20260827-005953-pemba-sherpa",
       "name": "Pemba Sherpa",
