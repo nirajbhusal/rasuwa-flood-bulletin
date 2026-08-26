@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T18:08:50+00:00",
+  "updated_at": "2026-08-26T18:12:07+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,16 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "m-rajendra-dhakal",
+      "name": "राजेन्द्र ढकाल",
+      "age": "32",
+      "place": "Kamalamai–1, Sindhuli · Upper Trishuli 3A hydropower office",
+      "when": "7 AM via video call",
+      "phone": "9869114391 / 9844040989 / 9840713717",
+      "note": "Mechanical engineer · Upper Trishuli 3A · Rozy Dhakal सम्पर्क",
+      "photo": "img/family-rajendra-dhakal.jpg"
+    },
     {
       "id": "m-milan-kharel",
       "name": "मिलन खरेल",
@@ -1140,15 +1150,6 @@
       "place": "Rasuwa · Rasuwagadi",
       "when": "8:30",
       "phone": "9768978274"
-    },
-    {
-      "id": "m-rajendra-dhakal",
-      "name": "Rajendra Dhakal",
-      "age": "31",
-      "place": "Kamalamai Municipality 1 Dadhi Sindhuli · Upper Trishuli 3A",
-      "when": "7 AM via video call",
-      "phone": "9840713717",
-      "note": "Working as a mechanical engineer at upper trishuli 3A"
     },
     {
       "id": "m-dr-kushal-acharya",
