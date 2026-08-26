@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T01:55:37+05:45",
+  "updated_at": "2026-08-27T02:01:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,24 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-015445-hari-krishna-rana-magar",
+      "name": "Hari Krishna Rana Magar",
+      "age": "49",
+      "place": "Nuwakot / Dhikure · Trishuli hydropower area",
+      "when": "10 am",
+      "phone": "9813429621 / 9704233041",
+      "note": "फारम ०१:५४ · हातको पाखुरामा ठूलो ट्याटू · एउटा दाँत सुन · ७ जना कामदार missing समूह?"
+    },
+    {
+      "id": "sheet-20260827-015300-tsonyi-dolma-tamang",
+      "name": "Tsonyi Dolma Tamang",
+      "age": "58",
+      "place": "Sonam guest house, Gosainkunda-2, Rasuwa",
+      "when": "08/26/2026",
+      "phone": "9803544525",
+      "note": "फारम ०१:५३ · T-shirt sweater long skirt · contact Lobsang Dolma"
+    },
     {
       "id": "sheet-20260827-014714-kulsum-nigar",
       "name": "Kulsum Nigar",
