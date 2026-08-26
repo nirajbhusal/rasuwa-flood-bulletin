@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T17:53:39+00:00",
+  "updated_at": "2026-08-26T18:08:50+00:00",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,16 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "m-milan-kharel",
+      "name": "मिलन खरेल",
+      "age": "31",
+      "place": "Kumarigal, Kathmandu · Upper Trishuli-1 Hydropower, Dam Site, Rasuwa",
+      "when": "26th aug around 9 am",
+      "phone": "9851133401 / 9849651996 / 9849145429 / 9861371109",
+      "note": "Doosan Enerbility · Engineering Geologist · मोबाइल बन्द",
+      "photo": "img/family-milan-kharel.jpg"
+    },
     {
       "id": "sheet-826202623344-guru-dutta-pandey",
       "name": "Guru dutta pandey",
@@ -896,15 +906,6 @@
       "when": "8:48 am aug 26",
       "phone": "9820057445",
       "note": "Half pant · Fat. Mole beneath nose"
-    },
-    {
-      "id": "m-milan-khare",
-      "name": "Milan Khare",
-      "age": "31",
-      "place": "Kumarigal, Kathmandu · Tunnel, Upper Trishuli 1 HPP (216 MW)",
-      "when": "26th aug around 9 am",
-      "phone": "9849651996",
-      "note": "not sure · saw a fb post saying 150-200 people might be stuck inside the tunnel."
     },
     {
       "id": "m-resham-bahadur-shrestha",
