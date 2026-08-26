@@ -7,6 +7,11 @@
 <meta name="description" content="२६ अगस्ट २०२६ / १० भदौ २०८३ को रसुवा–भोटेकोशी–त्रिशूली बाढीको लाइभ अपडेट। सतर्कता, बाढीको बाटो, क्षति, उद्धार र स्रोत।">
 <meta name="robots" content="index,follow">
 <base href="https://nirajbhusal.github.io/rasuwa-flood-bulletin/">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#c41e3a">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -123,6 +128,15 @@ img{max-width:100%;display:block}
   font-size:13px;font-weight:700;color:var(--crimson);
   background:var(--crimson-soft);padding:6px 10px;border-radius:10px;
 }
+.top-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.notify-btn{
+  font:inherit;font-size:13px;font-weight:800;cursor:pointer;border:0;
+  border-radius:10px;padding:6px 12px;background:var(--crimson);color:#fff;
+}
+.notify-btn.on{background:#166534}
+.notify-btn.denied{background:#64748b;cursor:default}
+.notify-btn:disabled{opacity:.7;cursor:default}
+
 .chips{
   position:relative;
   background:var(--paper);
@@ -312,6 +326,8 @@ footer{
   .grid-2,.photos,.videos{grid-template-columns:1fr}
   .photo img{height:200px}
   .helpline{width:100%}
+  .top-actions{width:100%}
+  .notify-btn{width:100%}
 }
 </style>
 </head>
@@ -324,7 +340,10 @@ footer{
       <h1>रसुवा–भोटेकोशी बाढी</h1>
       <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~१२:३२ नेपाली समय</p>
     </div>
-    <div class="helpline">उद्धार १२३४ · प्रहरी १०० · १११४</div>
+    <div class="top-actions">
+      <div class="helpline">उद्धार १२३४ · प्रहरी १०० · १११४</div>
+      <button type="button" class="notify-btn" id="notify-btn">सूचना अन गर्नुहोस्</button>
+    </div>
   </div>
 </header>
 <p class="safety-banner" role="alert">बाढी कत्रो आयो भन्दै नदि छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदि भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।</p>
@@ -926,6 +945,79 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     });
   });
 });
+
+(function(){
+  var btn = document.getElementById("notify-btn");
+  if (!btn) return;
+  var pollTimer = null;
+
+  function label() {
+    if (!("Notification" in window) || !("serviceWorker" in navigator)) {
+      btn.textContent = "सूचना उपलब्ध छैन";
+      btn.className = "notify-btn denied";
+      btn.disabled = true;
+      return "unsupported";
+    }
+    var p = Notification.permission;
+    if (p === "granted") {
+      btn.textContent = "सूचना अन छ";
+      btn.className = "notify-btn on";
+      return "granted";
+    }
+    if (p === "denied") {
+      btn.textContent = "सूचना ब्लक छ";
+      btn.className = "notify-btn denied";
+      return "denied";
+    }
+    btn.textContent = "सूचना अन गर्नुहोस्";
+    btn.className = "notify-btn";
+    return "default";
+  }
+
+  function ping(welcome) {
+    if (!navigator.serviceWorker || !navigator.serviceWorker.controller) return;
+    navigator.serviceWorker.controller.postMessage({ type: "check", welcome: !!welcome });
+  }
+
+  function startPoll() {
+    if (pollTimer) return;
+    pollTimer = setInterval(function(){ ping(false); }, 60000);
+    document.addEventListener("visibilitychange", function(){
+      if (!document.hidden) ping(false);
+    });
+  }
+
+  navigator.serviceWorker && navigator.serviceWorker.register("sw.js", { scope: "./" }).then(function(reg){
+    if (Notification.permission === "granted") {
+      startPoll();
+      if (reg.periodicSync) {
+        reg.periodicSync.register("rasuwa-updates", { minInterval: 5 * 60 * 1000 }).catch(function(){});
+      }
+    }
+    label();
+  }).catch(function(){ label(); });
+
+  label();
+
+  btn.addEventListener("click", function(){
+    if (!("Notification" in window)) return;
+    if (Notification.permission === "granted") { ping(false); return; }
+    if (Notification.permission === "denied") return;
+    Notification.requestPermission().then(function(p){
+      label();
+      if (p === "granted") {
+        startPoll();
+        navigator.serviceWorker.ready.then(function(reg){
+          if (reg.periodicSync) {
+            reg.periodicSync.register("rasuwa-updates", { minInterval: 5 * 60 * 1000 }).catch(function(){});
+          }
+          if (reg.active) reg.active.postMessage({ type: "check", welcome: true });
+          else ping(true);
+        });
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>
