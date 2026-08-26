@@ -1131,7 +1131,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <a class="miss" id="fam-miss-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform" target="_blank" rel="noopener">हराएको रिपोर्ट</a>
       <a class="found" id="fam-found-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform" target="_blank" rel="noopener">अपडेट गर्नुहोस्</a>
     </div>
-    <p class="fam-lead">कार्ड सच्याउन वा नयाँ जानकारी दिन <strong>अपडेट</strong> थिच्नुहोस्। जाँचपछि मात्र सूची बदलिन्छ। आपत्कालमा <a href="tel:1234">१२३४</a>।</p>
+    <p class="fam-lead">कार्ड सच्याउन वा नयाँ जानकारी दिन <strong>अपडेट</strong> थिच्नुहोस्। फारममा त्यही व्यक्तिको नाम र विवरण आउँछ। जाँचपछि मात्र सूची बदलिन्छ। आपत्कालमा <a href="tel:1234">१२३४</a>।</p>
     <div class="fam-search">
       <label for="fam-search">नाम वा नम्बर खोज्नुहोस्</label>
       <input id="fam-search" type="search" placeholder="उदाहरण: केबल, 9815…" autocomplete="off" enterkeyhint="search" spellcheck="false">
@@ -3310,7 +3310,21 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     });
     return out.join(" / ");
   }
-  function card(item, kind){
+  function prefillFound(base, item){
+    if (!base) return "";
+    var parts = ["usp=pp_url"];
+    function add(id, val){
+      if (val == null || val === "") return;
+      parts.push(id + "=" + encodeURIComponent(String(val)));
+    }
+    add("entry.1066070736", item.name);
+    add("entry.132400697", item.age);
+    add("entry.438839561", item.place);
+    add("entry.1319182514", item.gender);
+    var join = base.indexOf("?") >= 0 ? "&" : "?";
+    return base + join + parts.join("&");
+  }
+  function card(item, kind, foundUrl){
     var tag = kind === "matched" ? "मेल" : (kind === "found" ? "भेटिएको" : "हराएको");
     var cls = kind === "matched" ? "pair" : (kind === "found" ? "ok" : "");
     var bits = [];
@@ -3324,7 +3338,10 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (item.reporter && item.reporter !== item.phone) {
       phoneHtml += '<p class="fam-phone">सम्पर्क '+phoneLinks(item.reporter)+"</p>";
     }
-    var found = kind === "missing" ? '<a class="js-found-row" hidden aria-disabled="true" data-name="'+esc(item.name||"")+'" target="_blank" rel="noopener" title="कार्ड अपडेट" aria-label="अपडेट: यो कार्ड सच्याउनुहोस्">अपडेट</a>' : "";
+    var found = "";
+    if (kind === "missing" && foundUrl){
+      found = '<a class="js-found-row" href="'+esc(prefillFound(foundUrl, item))+'" data-name="'+esc(item.name||"")+'" target="_blank" rel="noopener" title="कार्ड अपडेट" aria-label="अपडेट: यो कार्ड सच्याउनुहोस्">अपडेट</a>';
+    }
     var photo = item.photo ? '<img src="'+esc(item.photo)+'" alt="">' : "";
     return '<article class="fam-card'+(kind==="matched"?" matched":"")+'">'+
       '<span class="tag '+cls+'">'+tag+'</span>'+
@@ -3332,11 +3349,11 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       '<h3>'+esc(item.name||"नाम नखुलेको")+'</h3>'+
       '<p>'+bits.join(" · ")+'</p>'+note+phoneHtml+found+'</article>';
   }
-  function fill(id, emptyId, items, kind){
+  function fill(id, emptyId, items, kind, foundUrl){
     var el = document.getElementById(id);
     var empty = document.getElementById(emptyId);
     if (!el) return;
-    el.innerHTML = (items||[]).map(function(it){ return card(it, kind); }).join("");
+    el.innerHTML = (items||[]).map(function(it){ return card(it, kind, foundUrl); }).join("");
     if (empty) empty.hidden = !!(items && items.length);
   }
   fetch("family.json", {cache:"no-store"}).then(function(r){ return r.json(); }).then(function(data){
@@ -3352,9 +3369,9 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     var matched = data.matched || [];
     var wrap = document.getElementById("fam-matched-wrap");
     if (wrap) wrap.hidden = !matched.length;
-    fill("fam-matched", "fam-matched-empty", matched, "matched");
-    fill("fam-missing", "fam-missing-empty", data.missing, "missing");
-    fill("fam-found", "fam-found-empty", data.found, "found");
+    fill("fam-matched", "fam-matched-empty", matched, "matched", foundUrl);
+    fill("fam-missing", "fam-missing-empty", data.missing, "missing", foundUrl);
+    fill("fam-found", "fam-found-empty", data.found, "found", foundUrl);
     var lead = document.getElementById("fam-new-lead");
     if (lead && data.missing && data.missing.length){
       lead.innerHTML = "जनताबाट आएका रिपोर्ट <strong>"+np(data.missing.length)+"</strong> विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।";
@@ -3363,17 +3380,6 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (missStat && data.missing){
       missStat.textContent = np(data.missing.length);
     }
-    document.querySelectorAll(".js-found-row").forEach(function(a){
-      if (foundUrl){
-        a.href = foundUrl;
-        a.hidden = false;
-        a.removeAttribute("aria-disabled");
-      } else {
-        a.hidden = true;
-        a.setAttribute("aria-disabled", "true");
-        a.removeAttribute("href");
-      }
-    });
     function rebind(sel, itemNodes, size){
       var pager = document.querySelector(sel);
       if (!pager) return;
