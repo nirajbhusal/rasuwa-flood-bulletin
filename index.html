@@ -371,15 +371,15 @@ footer{
 }
 
 .cao-lead{margin:0 0 12px;font-size:14px;color:var(--muted)}
-.cao-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.cao-grid article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow)}
-.cao-grid h3{margin:0 0 8px;font-size:16px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:8px;border-bottom:1px solid var(--line)}
-.cao-grid h3 small{font-size:11px;font-weight:800;background:var(--teal-soft);color:var(--teal);padding:2px 8px;border-radius:8px}
-.cao-grid a{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;column-gap:10px;padding:8px 0;border-bottom:1px solid #f1f5f9;text-decoration:none;color:inherit}
+.cao-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
+.cao-grid article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:var(--shadow)}
+.cao-grid h3{margin:0 0 6px;font-size:15px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.cao-grid h3 small{font-size:11px;font-weight:800;background:var(--teal-soft);color:var(--teal);padding:1px 7px;border-radius:8px}
+.cao-grid a{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid #f1f5f9;text-decoration:none;color:inherit;line-height:1.35}
 .cao-grid a:last-child{border-bottom:0;padding-bottom:0}
-.cao-grid a span{grid-column:1;font-size:13px;font-weight:800;color:var(--ink);line-height:1.3}
-.cao-grid a b{grid-column:1;font-size:12px;font-weight:600;color:var(--muted)}
-.cao-grid a em{grid-column:2;grid-row:1 / span 2;align-self:center;font-style:normal;font-weight:800;font-size:13px;color:var(--crimson);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cao-grid a span{font-size:13px;font-weight:800;color:var(--ink);min-width:0}
+.cao-grid a b{font-size:12px;font-weight:600;color:var(--muted);margin-left:6px}
+.cao-grid a em{flex:none;font-style:normal;font-weight:800;font-size:15px;letter-spacing:.02em;color:var(--crimson);font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:nowrap}
 @media (max-width:760px){
   .cao-grid{grid-template-columns:1fr}
 }
@@ -547,70 +547,70 @@ footer{
   <p class="cao-lead">प्रभावित जिल्लाका प्रमुख प्रशासकीय अधिकृत। उद्धार/राहत समन्वयका लागि नम्बरमा ट्याप गर्नुहोस्।</p>
   <div class="cao-grid">
     <article>
-      <h3>रसुवा <small>५</small></h3>
-        <a href="tel:+9779851091534"><span>उत्तरगया गाउँपालिका</span><b>जय राम उप्रेती</b><em>९८५१०९१५३४</em></a>
-        <a href="tel:+9779849649384"><span>कालिका गाउँपालिका</span><b>धर्मराज न्यौपाने</b><em>९८४९६४९३८४</em></a>
-        <a href="tel:+9779841421988"><span>गोसाईकुण्ड गाउँपालिका</span><b>सुरेश भट्टराई</b><em>९८४१४२१९८८</em></a>
-        <a href="tel:+9779860084067"><span>नौकुण्ड गाउँपालिका</span><b>सूर्य बहादुर तामाङ्ग</b><em>९८६००८४०६७</em></a>
-        <a href="tel:+9779842897586"><span>आमाछोदिङ्मो गाउँपालिका</span><b>बिष्णु राई</b><em>९८४२८९७५८६</em></a>
+      <h3>रसुवा <small>5</small></h3>
+        <a href="tel:+9779851091534"><span>उत्तरगया गाउँपालिका <b>जय राम उप्रेती</b></span><em>9851091534</em></a>
+        <a href="tel:+9779849649384"><span>कालिका गाउँपालिका <b>धर्मराज न्यौपाने</b></span><em>9849649384</em></a>
+        <a href="tel:+9779841421988"><span>गोसाईकुण्ड गाउँपालिका <b>सुरेश भट्टराई</b></span><em>9841421988</em></a>
+        <a href="tel:+9779860084067"><span>नौकुण्ड गाउँपालिका <b>सूर्य बहादुर तामाङ्ग</b></span><em>9860084067</em></a>
+        <a href="tel:+9779842897586"><span>आमाछोदिङ्मो गाउँपालिका <b>बिष्णु राई</b></span><em>9842897586</em></a>
     </article>
     <article>
-      <h3>नुवाकोट <small>२</small></h3>
-        <a href="tel:+9779857015186"><span>बेलकोटगढी नगरपालिका</span><b>नेत्र प्रसाद घिमिरे</b><em>९८५७०१५१८६</em></a>
-        <a href="tel:+9779851145672"><span>विदुर नगरपालिका</span><b>सुभाकर पौडेल</b><em>९८५११४५६७२</em></a>
+      <h3>नुवाकोट <small>2</small></h3>
+        <a href="tel:+9779857015186"><span>बेलकोटगढी नगरपालिका <b>नेत्र प्रसाद घिमिरे</b></span><em>9857015186</em></a>
+        <a href="tel:+9779851145672"><span>विदुर नगरपालिका <b>सुभाकर पौडेल</b></span><em>9851145672</em></a>
     </article>
     <article>
-      <h3>धादिङ <small>१३</small></h3>
-        <a href="tel:+9779860155380"><span>निलकण्ठ नगरपालिका</span><b>हरी दत्त कँडेल</b><em>९८६०१५५३८०</em></a>
-        <a href="tel:+9779841454204"><span>धुनीबेंशी नगरपालिका</span><b>विनोद कुमार खनाल</b><em>९८४१४५४२०४</em></a>
-        <a href="tel:+9779851169720"><span>खनियाबास गाउँपालिका</span><b>पदम बहादुर बस्नेत</b><em>९८५११६९७२०</em></a>
-        <a href="tel:+9779848841745"><span>गजुरी गाउँपालिका</span><b>जगदिश प्रसाद जोशी</b><em>९८४८८४१७४५</em></a>
-        <a href="tel:+9779851090662"><span>गल्छी गाउँपालिका</span><b>पूर्ण प्रसाद दुलाल</b><em>९८५१०९०६६२</em></a>
-        <a href="tel:+9779860807145"><span>गंगाजमुना गाउँपालिका</span><b>सुदिप ढुंगाना</b><em>९८६०८०७१४५</em></a>
-        <a href="tel:+9779851152377"><span>ज्वालामुखी गाउँपालिका</span><b>हरेराम साह</b><em>९८५११५२३७७</em></a>
-        <a href="tel:+9779852835344"><span>थाक्रे गाउँपालिका</span><b>बलराम लम्साल</b><em>९८५२८३५३४४</em></a>
-        <a href="tel:+9779851223541"><span>नेत्रावती डबजोङ गाउँपालिका</span><b>सन्देश प्रसाद जोशी</b><em>९८५१२२३५४१</em></a>
-        <a href="tel:+9779855063224"><span>बेनीघाट रोराङ्ग गाउँपालिका</span><b>रामबाबु पौडेल</b><em>९८५५०६३२२४</em></a>
-        <a href="tel:+9779843559038"><span>रुवी भ्याली गाउँपालिका</span><b>छोइसाङ तामाङ</b><em>९८४३५५९०३८</em></a>
-        <a href="tel:+9779842506819"><span>सिद्धलेक गाउँपालिका</span><b>अनिशा आचार्य</b><em>९८४२५०६८१९</em></a>
-        <a href="tel:+9779847836676"><span>त्रिपुरासुन्दरी गाउँपालिका</span><b>विर सिंह भण्डारी</b><em>९८४७८३६६७६</em></a>
+      <h3>धादिङ <small>13</small></h3>
+        <a href="tel:+9779860155380"><span>निलकण्ठ नगरपालिका <b>हरी दत्त कँडेल</b></span><em>9860155380</em></a>
+        <a href="tel:+9779841454204"><span>धुनीबेंशी नगरपालिका <b>विनोद कुमार खनाल</b></span><em>9841454204</em></a>
+        <a href="tel:+9779851169720"><span>खनियाबास गाउँपालिका <b>पदम बहादुर बस्नेत</b></span><em>9851169720</em></a>
+        <a href="tel:+9779848841745"><span>गजुरी गाउँपालिका <b>जगदिश प्रसाद जोशी</b></span><em>9848841745</em></a>
+        <a href="tel:+9779851090662"><span>गल्छी गाउँपालिका <b>पूर्ण प्रसाद दुलाल</b></span><em>9851090662</em></a>
+        <a href="tel:+9779860807145"><span>गंगाजमुना गाउँपालिका <b>सुदिप ढुंगाना</b></span><em>9860807145</em></a>
+        <a href="tel:+9779851152377"><span>ज्वालामुखी गाउँपालिका <b>हरेराम साह</b></span><em>9851152377</em></a>
+        <a href="tel:+9779852835344"><span>थाक्रे गाउँपालिका <b>बलराम लम्साल</b></span><em>9852835344</em></a>
+        <a href="tel:+9779851223541"><span>नेत्रावती डबजोङ गाउँपालिका <b>सन्देश प्रसाद जोशी</b></span><em>9851223541</em></a>
+        <a href="tel:+9779855063224"><span>बेनीघाट रोराङ्ग गाउँपालिका <b>रामबाबु पौडेल</b></span><em>9855063224</em></a>
+        <a href="tel:+9779843559038"><span>रुवी भ्याली गाउँपालिका <b>छोइसाङ तामाङ</b></span><em>9843559038</em></a>
+        <a href="tel:+9779842506819"><span>सिद्धलेक गाउँपालिका <b>अनिशा आचार्य</b></span><em>9842506819</em></a>
+        <a href="tel:+9779847836676"><span>त्रिपुरासुन्दरी गाउँपालिका <b>विर सिंह भण्डारी</b></span><em>9847836676</em></a>
     </article>
     <article>
-      <h3>चितवन <small>७</small></h3>
-        <a href="tel:+9779851275547"><span>भरतपुर महानगरपालिका</span><b>वीरेन्द्र देव भारती</b><em>९८५१२७५५४७</em></a>
-        <a href="tel:+9779841579668"><span>खैरहनी नगरपालिका</span><b>सुशीला अधिकारी</b><em>९८४१५७९६६८</em></a>
-        <a href="tel:+9779851040759"><span>रत्ननगर नगरपालिका</span><b>प्रकाश खनाल</b><em>९८५१०४०७५९</em></a>
-        <a href="tel:+9779841468511"><span>राप्ती नगरपालिका</span><b>प्रदीप पौडेल</b><em>९८४१४६८५११</em></a>
-        <a href="tel:+9779855085565"><span>कालिका नगरपालिका</span><b>देवराज चौलागाई</b><em>९८५५०८५५६५</em></a>
-        <a href="tel:+9779857035509"><span>माडी नगरपालिका</span><b>जगत प्रसाद भुसाल</b><em>९८५७०३५५०९</em></a>
-        <a href="tel:+9779844842204"><span>इच्छाकामना गाउँपालिका</span><b>लोक राज खत्री</b><em>९८४४८४२२०४</em></a>
+      <h3>चितवन <small>7</small></h3>
+        <a href="tel:+9779851275547"><span>भरतपुर महानगरपालिका <b>वीरेन्द्र देव भारती</b></span><em>9851275547</em></a>
+        <a href="tel:+9779841579668"><span>खैरहनी नगरपालिका <b>सुशीला अधिकारी</b></span><em>9841579668</em></a>
+        <a href="tel:+9779851040759"><span>रत्ननगर नगरपालिका <b>प्रकाश खनाल</b></span><em>9851040759</em></a>
+        <a href="tel:+9779841468511"><span>राप्ती नगरपालिका <b>प्रदीप पौडेल</b></span><em>9841468511</em></a>
+        <a href="tel:+9779855085565"><span>कालिका नगरपालिका <b>देवराज चौलागाई</b></span><em>9855085565</em></a>
+        <a href="tel:+9779857035509"><span>माडी नगरपालिका <b>जगत प्रसाद भुसाल</b></span><em>9857035509</em></a>
+        <a href="tel:+9779844842204"><span>इच्छाकामना गाउँपालिका <b>लोक राज खत्री</b></span><em>9844842204</em></a>
     </article>
     <article>
-      <h3>गोरखा <small>११</small></h3>
-        <a href="tel:+9779841941056"><span>गोरखा नगरपालिका</span><b>एक देव खनाल</b><em>९८४१९४१०५६</em></a>
-        <a href="tel:+9779851192434"><span>पालुङटार नगरपालिका</span><b>शेर बहादुर बागचन्द वि.सी.</b><em>९८५११९२४३४</em></a>
-        <a href="tel:+9779851102610"><span>बारपाक सुलीकोट गाउँपालिका</span><b>सुवास आले</b><em>९८५११०२६१०</em></a>
-        <a href="tel:+9779841968173"><span>सिरानचोक गाउँपालिका</span><b>ठाकुर प्रसाद अर्याल</b><em>९८४१९६८१७३</em></a>
-        <a href="tel:+9779841673634"><span>अजिरकोट गाउँपालिका</span><b>जानुराम पन्थी</b><em>९८४१६७३६३४</em></a>
-        <a href="tel:+9779841730480"><span>आरुघाट गाउँपालिका</span><b>भिमसेन श्रेष्ठ</b><em>९८४१७३०४८०</em></a>
-        <a href="tel:+9779857676967"><span>गण्डकी गाउँपालिका</span><b>तुलसी राम आचार्य</b><em>९८५७६७६९६७</em></a>
-        <a href="tel:+9779841730480"><span>चुमनुव्री गाउँपालिका</span><b>मनोज लामिछाने</b><em>९८४१७३०४८०</em></a>
-        <a href="tel:+9779846055020"><span>धार्चे गाउँपालिका</span><b>बुद्धीराम बस्नेत</b><em>९८४६०५५०२०</em></a>
-        <a href="tel:+9779847023376"><span>भिमसेनथापा गाउँपालिका</span><b>चित्र बहादुर अधिकारी</b><em>९८४७०२३३७६</em></a>
-        <a href="tel:+9779841148425"><span>शहिद लखन गाउँपालिका</span><b>बाबुराम मगर</b><em>९८४११४८४२५</em></a>
+      <h3>गोरखा <small>11</small></h3>
+        <a href="tel:+9779841941056"><span>गोरखा नगरपालिका <b>एक देव खनाल</b></span><em>9841941056</em></a>
+        <a href="tel:+9779851192434"><span>पालुङटार नगरपालिका <b>शेर बहादुर बागचन्द वि.सी.</b></span><em>9851192434</em></a>
+        <a href="tel:+9779851102610"><span>बारपाक सुलीकोट गाउँपालिका <b>सुवास आले</b></span><em>9851102610</em></a>
+        <a href="tel:+9779841968173"><span>सिरानचोक गाउँपालिका <b>ठाकुर प्रसाद अर्याल</b></span><em>9841968173</em></a>
+        <a href="tel:+9779841673634"><span>अजिरकोट गाउँपालिका <b>जानुराम पन्थी</b></span><em>9841673634</em></a>
+        <a href="tel:+9779841730480"><span>आरुघाट गाउँपालिका <b>भिमसेन श्रेष्ठ</b></span><em>9841730480</em></a>
+        <a href="tel:+9779857676967"><span>गण्डकी गाउँपालिका <b>तुलसी राम आचार्य</b></span><em>9857676967</em></a>
+        <a href="tel:+9779841730480"><span>चुमनुव्री गाउँपालिका <b>मनोज लामिछाने</b></span><em>9841730480</em></a>
+        <a href="tel:+9779846055020"><span>धार्चे गाउँपालिका <b>बुद्धीराम बस्नेत</b></span><em>9846055020</em></a>
+        <a href="tel:+9779847023376"><span>भिमसेनथापा गाउँपालिका <b>चित्र बहादुर अधिकारी</b></span><em>9847023376</em></a>
+        <a href="tel:+9779841148425"><span>शहिद लखन गाउँपालिका <b>बाबुराम मगर</b></span><em>9841148425</em></a>
     </article>
     <article>
-      <h3>तनहुँ <small>१०</small></h3>
-        <a href="tel:+9779856033616"><span>भिमाद नगरपालिका</span><b>शोभाखर पोखरेल</b><em>९८५६०३३६१६</em></a>
-        <a href="tel:+9779851154555"><span>व्यास नगरपालिका</span><b>सुकदेव लम्साल</b><em>९८५११५४५५५</em></a>
-        <a href="tel:+9779846083582"><span>शुक्लागण्डकी नगरपालिका</span><b>शिशिर पौडेल</b><em>९८४६०८३५८२</em></a>
-        <a href="tel:+9779851061619"><span>भानु नगरपालिका</span><b>सुरज श्रेष्ठ</b><em>९८५१०६१६१९</em></a>
-        <a href="tel:+9779841615495"><span>आँबुखैरेनी गाउँपालिका</span><b>विकास चन्द्र शर्मा</b><em>९८४१६१५४९५</em></a>
-        <a href="tel:+9779846270665"><span>ऋषिङ्ग गाउँपालिका</span><b>अनिल अंगाई</b><em>९८४६२७०६६५</em></a>
-        <a href="tel:+9779846240770"><span>घिरिङ गाउँपालिका</span><b>कृष्ण प्रसाद ढकाल</b><em>९८४६२४०७७०</em></a>
-        <a href="tel:+9779845050685"><span>देवघाट गाउँपालिका</span><b>प्रद्युम्न कुमार खड्का</b><em>९८४५०५०६८५</em></a>
-        <a href="tel:+9779856080091"><span>म्याग्दे गाउँपालिका</span><b>नारायण प्रसाद अधिकारी</b><em>९८५६०८००९१</em></a>
-        <a href="tel:+9779856036315"><span>वन्दिपुर गाउँपालिका</span><b>कमल बहादुर के.सी.</b><em>९८५६०३६३१५</em></a>
+      <h3>तनहुँ <small>10</small></h3>
+        <a href="tel:+9779856033616"><span>भिमाद नगरपालिका <b>शोभाखर पोखरेल</b></span><em>9856033616</em></a>
+        <a href="tel:+9779851154555"><span>व्यास नगरपालिका <b>सुकदेव लम्साल</b></span><em>9851154555</em></a>
+        <a href="tel:+9779846083582"><span>शुक्लागण्डकी नगरपालिका <b>शिशिर पौडेल</b></span><em>9846083582</em></a>
+        <a href="tel:+9779851061619"><span>भानु नगरपालिका <b>सुरज श्रेष्ठ</b></span><em>9851061619</em></a>
+        <a href="tel:+9779841615495"><span>आँबुखैरेनी गाउँपालिका <b>विकास चन्द्र शर्मा</b></span><em>9841615495</em></a>
+        <a href="tel:+9779846270665"><span>ऋषिङ्ग गाउँपालिका <b>अनिल अंगाई</b></span><em>9846270665</em></a>
+        <a href="tel:+9779846240770"><span>घिरिङ गाउँपालिका <b>कृष्ण प्रसाद ढकाल</b></span><em>9846240770</em></a>
+        <a href="tel:+9779845050685"><span>देवघाट गाउँपालिका <b>प्रद्युम्न कुमार खड्का</b></span><em>9845050685</em></a>
+        <a href="tel:+9779856080091"><span>म्याग्दे गाउँपालिका <b>नारायण प्रसाद अधिकारी</b></span><em>9856080091</em></a>
+        <a href="tel:+9779856036315"><span>वन्दिपुर गाउँपालिका <b>कमल बहादुर के.सी.</b></span><em>9856036315</em></a>
     </article>
   </div>
 </section>
