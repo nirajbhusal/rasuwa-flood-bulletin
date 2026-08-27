@@ -150,7 +150,7 @@ img{max-width:100%;display:block}
   background:var(--crimson-soft);padding:6px 10px;border-radius:10px;
 }
 .top-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;width:100%}
-.notify-slot{position:relative;flex:none;padding:4px 0 4px 8px;z-index:41}
+.notify-slot{position:relative;flex:none;z-index:56}
 .notify-btn{
   font:inherit;cursor:pointer;border:0;
   width:36px;height:36px;border-radius:50%;padding:0;
@@ -174,7 +174,7 @@ img{max-width:100%;display:block}
   overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
 }
 .notify-hint{
-  display:none;position:absolute;left:0;top:calc(100% + 8px);margin:0;
+  display:none;position:absolute;right:0;bottom:calc(100% + 8px);left:auto;top:auto;margin:0;
   width:min(240px,calc(100vw - 24px));
   background:#0f172a;color:#fff;font-size:13px;font-weight:700;line-height:1.4;
   padding:10px 12px;border-radius:12px;text-align:left;
@@ -223,16 +223,14 @@ a.js-found-row[hidden]{display:none}
 
 .chips{
   position:sticky;top:0;z-index:40;
-  display:flex;align-items:center;gap:4px;
   background:var(--paper);
   border-bottom:1px solid var(--line);
-}
-.chips-inner{
-  flex:1;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none;
+  overflow-x:auto;white-space:nowrap;
+  scrollbar-width:none;
   mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 24px),transparent);
-  width:auto;margin:0;padding:8px 16px 8px 8px;display:flex;gap:8px;flex-wrap:nowrap
 }
-.chips-inner::-webkit-scrollbar{display:none}
+.chips::-webkit-scrollbar{display:none}
+.chips-inner{width:max-content;min-width:100%;margin:0 auto;padding:8px 16px;display:flex;gap:8px;flex-wrap:nowrap}
 .chips a{
   display:inline-flex;align-items:center;padding:8px 12px;min-height:40px;border-radius:999px;
   background:#fff;border:1px solid var(--line);color:var(--ink);
@@ -867,14 +865,6 @@ footer .foot-contact a:hover{text-decoration:underline}
 </header>
 <p class="safety-banner" role="alert" data-i18n="safety">बाढी कत्रो आयो भन्दै नदी छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदी भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।</p>
 <nav class="chips stick" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
-  <div class="notify-slot">
-    <p class="notify-hint" id="notify-hint"></p>
-    <button type="button" class="notify-btn" id="notify-btn" aria-pressed="false" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट" data-i18n-aria="notify_aria_off" data-i18n-title="notify_title">
-      <svg class="bell-on" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm8-3H4v-1.2l2-2.1V11c0-3.07 1.63-5.64 4.5-6.32V4a1.5 1.5 0 0 1 3 0v.68C16.37 5.36 18 7.92 18 11v4.7l2 2.1V19z"/></svg>
-      <svg class="bell-off" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zM3.28 2 2 3.27l2.74 2.74A7.1 7.1 0 0 0 4 11v4.7L2 17.8V19h13.73L20.73 24 22 22.73 3.28 2zM18 16.27V11c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68c-.5.12-.96.3-1.39.54L18 16.27z"/></svg>
-      <span class="notify-label" data-i18n="notify_label">अपडेट</span>
-    </button>
-  </div>
   <div class="chips-inner">
     <a class="home-btn" href="#home" aria-label="होम" title="होम" data-i18n-aria="nav_home" data-i18n-title="nav_home"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
     <a href="#map" data-i18n="nav_map">नक्सा</a>
@@ -3169,6 +3159,14 @@ footer .foot-contact a:hover{text-decoration:underline}
 </main>
 
 <div class="fab-dock">
+  <div class="notify-slot">
+    <p class="notify-hint" id="notify-hint"></p>
+    <button type="button" class="notify-btn" id="notify-btn" aria-pressed="false" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट" data-i18n-aria="notify_aria_off" data-i18n-title="notify_title">
+      <svg class="bell-on" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm8-3H4v-1.2l2-2.1V11c0-3.07 1.63-5.64 4.5-6.32V4a1.5 1.5 0 0 1 3 0v.68C16.37 5.36 18 7.92 18 11v4.7l2 2.1V19z"/></svg>
+      <svg class="bell-off" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zM3.28 2 2 3.27l2.74 2.74A7.1 7.1 0 0 0 4 11v4.7L2 17.8V19h13.73L20.73 24 22 22.73 3.28 2zM18 16.27V11c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68c-.5.12-.96.3-1.39.54L18 16.27z"/></svg>
+      <span class="notify-label" data-i18n="notify_label">अपडेट</span>
+    </button>
+  </div>
   <div class="portal-fab">
   <details id="portal-contact">
     <summary aria-label="सम्पर्क · WhatsApp र इमेल" data-i18n-aria="portal_aria">
