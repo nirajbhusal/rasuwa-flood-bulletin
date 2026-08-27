@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T00:16:58+05:45",
+  "updated_at": "2026-08-28T00:27:01+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,50 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-002321-indira-ghimire",
+      "name": "Indira Ghimire",
+      "age": "65",
+      "place": "Nuwakot · Bhaise",
+      "when": "9:05",
+      "phone": "9841671384",
+      "note": "फारम 00:23"
+    },
+    {
+      "id": "sheet-20260828-002309-lalit-bahadur-saru-magar",
+      "name": "Lalit Bahadur Saru Magar",
+      "age": "57",
+      "place": "Dhading, Neelkantha 4 · Rasuwa China border",
+      "when": "2083/05/10",
+      "phone": "9803787439",
+      "note": "फारम 00:23 · Rato cap neelo jacket"
+    },
+    {
+      "id": "sheet-20260828-001812-durga-sapkota",
+      "name": "Durga sapkota",
+      "age": "26",
+      "place": "Nuwakot · Bhaise nuwakot",
+      "when": "Bhadra 11 9:05",
+      "phone": "9841671384",
+      "note": "फारम 00:18"
+    },
+    {
+      "id": "sheet-20260828-001524-damber-bahadur-pradhan",
+      "name": "Damber bahadur pradhan",
+      "place": "Damak, jhapa · Upper trisuli 1 (hakubesi)",
+      "when": "26 aug last call was at 7 am morning",
+      "phone": "9824972926",
+      "note": "फारम 00:15 · Last call 7 am; phone switched off ~10am · भतिज"
+    },
+    {
+      "id": "sheet-20260828-001444-dwarika-parsad-dangal",
+      "name": "Dwarika Parsad Dangal",
+      "age": "51",
+      "place": "Sarahi · Charghare / Tupche",
+      "when": "2083/05/10. Time: 9 (Bidhur)",
+      "phone": "9844147729",
+      "note": "फारम 00:14"
+    },
     {
       "id": "sheet-20260827-235829-pasang-tamamg",
       "name": "Pasang tamamg",
