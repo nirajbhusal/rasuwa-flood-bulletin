@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T14:48:00+05:45",
+  "updated_at": "2026-08-27T14:55:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,54 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-145953-abiral-tamang",
+      "name": "Abiral Tamang",
+      "age": "१९",
+      "place": "जयपुर सिउरेनी",
+      "phone": "9847762124 / 98066549092 / 9716610860",
+      "note": "फारम १४:५९ · बेज ग्राफिक हुडी, मखमली माला"
+    },
+    {
+      "id": "sheet-20260827-145800-govinda-bhandari",
+      "name": "Govinda Bhandari",
+      "age": "४५+",
+      "place": "बिदुर-७, तुप्चे (अक्करे), नुवाकोट · अक्करे हेड गेट",
+      "when": "२६ अगस्ट · ~९:००",
+      "phone": "9841360901 / 9841574979",
+      "note": "फारम १४:५८ · अक्करे हेड गेट · Govinda Bahadur Adhikari सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-145628-aditi-ghosh",
+      "name": "Aditi Ghosh",
+      "age": "४७",
+      "place": "Singapore · China–Nepal border / visa office",
+      "when": "२६ अगस्ट · ~९:००",
+      "phone": "9801064787",
+      "note": "फारम १४:५६ · Isha Foundation (~८० जना) · खैरो ज्याकेट र टोपी"
+    },
+    {
+      "id": "sheet-20260827-145618-aashmaya-tamang",
+      "name": "Aashmaya Tamang",
+      "age": "३८",
+      "place": "खल्ते",
+      "note": "फारम १४:५६ · सेतो-खैरो ट्र्याक ज्याकेट, बेज ट्राउजर"
+    },
+    {
+      "id": "sheet-20260827-145451-v-s-bala-subramanyam",
+      "name": "V S Bala Subramanyam",
+      "age": "५२",
+      "place": "Kuppam, Chittoor, Andhra Pradesh · Gyirong immigration centre",
+      "when": "२६ अगस्ट · ~७:३०",
+      "phone": "7093288228",
+      "note": "फारम १४:५४ · Isha Sacred Walk S3 · अमेरिकी नागरिक, हैदराबाद · जनै"
+    },
+    {
+      "id": "sheet-20260827-144947-puspa-raj-bhattarai",
+      "name": "Puspa Raj Bhattarai",
+      "place": "त्रिशूली जलविद्युत् ३बी",
+      "note": "फारम १४:४९ · त्रिशूली ३बी · Devesh Bhattarai सँग नमिसाउने (फरक व्यक्ति)"
+    },
     {
       "id": "sheet-20260827-144353-sagar-karn",
       "name": "Sagar Karn",
