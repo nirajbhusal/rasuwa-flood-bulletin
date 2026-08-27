@@ -359,13 +359,79 @@ a.js-found-row[hidden]{display:none}
   min-height:0;
 }
 .stat b{display:block;font-size:18px;font-weight:800;line-height:1.35;color:var(--ink);letter-spacing:.01em}
-.stat span{display:none}
+.stat > span{display:none}
 .stat ul.mini{
   list-style:none;margin:8px 0 0;padding:0;
   font-size:18px;font-weight:600;color:var(--ink);line-height:1.5;
 }
 .stat ul.mini li{margin:5px 0}
 .stat ul.mini strong{color:var(--crimson);font-variant-numeric:tabular-nums;font-weight:800;font-size:22px}
+.hero h2.vis-title{font-size:clamp(22px,4vw,30px);margin:0 0 12px}
+.overview{margin:0 0 8px}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kpi{
+  appearance:none;-webkit-appearance:none;border:1px solid var(--line);background:#fff;
+  border-radius:16px;padding:12px 12px 10px;text-align:left;cursor:pointer;
+  box-shadow:var(--shadow);font:inherit;color:inherit;display:block;width:100%;
+}
+.kpi .kpi-k{display:block;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em;margin:0 0 2px}
+.kpi strong{
+  display:block;font-size:clamp(26px,4.6vw,38px);font-weight:800;line-height:1.05;
+  color:var(--crimson);font-variant-numeric:tabular-nums;letter-spacing:-.03em;
+}
+.kpi[data-panel="injured"] strong{color:#c2410c}
+.kpi[data-panel="miss"] strong{color:var(--teal)}
+.kpi[data-panel="air"] strong{color:#0e7490}
+.kpi.on{border-color:var(--crimson);box-shadow:0 0 0 3px var(--crimson-soft)}
+.kpi[data-panel="injured"].on{border-color:#c2410c;box-shadow:0 0 0 3px var(--saffron-soft)}
+.kpi[data-panel="miss"].on{border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-soft)}
+.kpi[data-panel="air"].on{border-color:#0e7490;box-shadow:0 0 0 3px #cffafe}
+.ov-panel{
+  margin:12px 0 0;background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:14px 16px 12px;box-shadow:var(--shadow);
+}
+.ov-pane{display:none}
+.ov-pane.on{display:block}
+.ov-cap{margin:0 0 8px;font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.02em}
+.ov-note{margin:10px 0 0;font-size:15px;font-weight:600;color:var(--muted);line-height:1.55}
+.ov-warn{
+  margin:10px 0 0;padding:10px 12px;border-radius:12px;
+  background:#9f1239;color:#fff;font-weight:800;font-size:15px;text-align:center;
+}
+.ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.ov-mini h3{margin:0 0 6px;font-size:13px;font-weight:800;color:var(--ink)}
+.ov-mini h3 em{font-style:normal;color:var(--crimson);margin-left:4px;font-variant-numeric:tabular-nums}
+.ibar-row{
+  display:grid;grid-template-columns:minmax(5em,26%) 1fr 2.5em;
+  align-items:center;gap:8px;margin:5px 0;
+  font-size:13px;font-weight:700;color:var(--muted);
+}
+.ibar-row > span{display:block !important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.ibar{
+  display:block !important;height:10px;border-radius:99px;background:#e8eef4;overflow:hidden;
+  font-weight:400;min-width:0;
+}
+.ibar i{
+  display:block !important;height:100%;border-radius:99px;background:var(--crimson);
+  min-width:4px;font-style:normal;
+}
+.ov-mini[data-tone="dead"] .ibar i,.ov-pane[data-panel="dead"] .ibar i{background:var(--crimson)}
+.ov-mini[data-tone="injured"] .ibar i,.ov-pane[data-panel="injured"] .ibar i{background:#c2410c}
+.ov-mini[data-tone="miss"] .ibar i,.ov-pane[data-panel="miss"] .ibar i{background:var(--teal)}
+.ov-mini[data-tone="air"] .ibar i,.ov-pane[data-panel="air"] .ibar i{background:#0e7490}
+.ibar-row em{font-style:normal;font-variant-numeric:tabular-nums;font-weight:800;color:var(--ink);text-align:right}
+.infobar{margin:12px 0 0}
+.infobar-cap{margin:0 0 4px;font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.stat ul.mini li:first-child strong{font-size:28px;letter-spacing:-.02em}
+.lede.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;
+}
+@media (max-width:760px){
+  .kpi-row{grid-template-columns:1fr 1fr}
+  .ov-grid{grid-template-columns:1fr}
+  .kpi strong{font-size:28px}
+}
+
 section{padding:22px 0}
 .sec-head{display:flex;align-items:center;gap:10px;margin:0 0 12px}
 .sec-head h2{margin:0;font-size:24px}
@@ -972,8 +1038,92 @@ footer .foot-contact a:hover{text-decoration:underline}
 <div class="hero" id="home">
   <div class="wrap">
     <p class="kicker" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
-    <h2 data-i18n="dead_162">मृतक १६२</h2>
-    <p class="lede" data-i18n-html="lede">आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। टिमुरे <strong>९५</strong> (विदेशी ८), हाकु टनेल <strong>७</strong>, भारतीय पर्यटक <strong>२१</strong>। शव <strong>१६२</strong>। SitRep-3 जिल्ला: चितवन ६४ · गोरखा १९ · धादिङ १८ · नुवाकोट ११ · तनहुँ ९ · रसुवा १ · नवलपरासी पूर्व १ (जम्मा १२३)। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। नदी किनार नजानुहोस्।</p>
+    <h2 class="vis-title" data-i18n="hero_overview">बाढीको स्थिति · ११ भदौ</h2>
+    <p class="lede sr-only" data-i18n-html="lede">आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। टिमुरे <strong>९५</strong> (विदेशी ८), हाकु टनेल <strong>७</strong>, भारतीय पर्यटक <strong>२१</strong>। शव <strong>१६२</strong>। SitRep-3 जिल्ला: चितवन ६४ · गोरखा १९ · धादिङ १८ · नुवाकोट ११ · तनहुँ ९ · रसुवा १ · नवलपरासी पूर्व १ (जम्मा १२३)। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। नदी किनार नजानुहोस्।</p>
+    <div class="overview" id="overview">
+      <div class="kpi-row" role="tablist" aria-label="मुख्य आंकडा">
+        <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="dead" id="kpi-dead">
+          <span class="kpi-k" data-i18n="kpi_dead">मृतक</span>
+          <strong>१६२</strong>
+        </button>
+        <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="injured" id="kpi-injured">
+          <span class="kpi-k" data-i18n="kpi_injured">घाइते</span>
+          <strong>७५</strong>
+        </button>
+        <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="miss" id="kpi-miss">
+          <span class="kpi-k" data-i18n="kpi_miss">सम्पर्कविहीन</span>
+          <strong>२४५</strong>
+        </button>
+        <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="air" id="kpi-air">
+          <span class="kpi-k" data-i18n="kpi_air">हेलि उद्धार</span>
+          <strong>१२३</strong>
+        </button>
+      </div>
+      <div class="ov-panel">
+        <div class="ov-pane on" data-panel="all">
+          <p class="ov-cap" data-i18n="ov_all_cap">समग्र · कार्ड थिचेर जिल्ला/वर्ग हेर्नुहोस्</p>
+          <div class="ov-grid">
+            <div class="ov-mini" data-tone="dead">
+              <h3 data-i18n-html="ov_mini_dead">मृतक <em>१६२</em></h3>
+              <div class="ibar-row"><span data-i18n="d_chitwan">चितवन</span><b class="ibar"><i style="width:100%"></i></b><em>६४</em></div>
+              <div class="ibar-row"><span data-i18n="d_gorkha">गोरखा</span><b class="ibar"><i style="width:30%"></i></b><em>१९</em></div>
+              <div class="ibar-row"><span data-i18n="d_dhading">धादिङ</span><b class="ibar"><i style="width:28%"></i></b><em>१८</em></div>
+              <p class="ov-note" data-i18n="ov_mini_dead_note">SitRep-3 जिल्ला १२३ · आधिकारिक १६२</p>
+            </div>
+            <div class="ov-mini" data-tone="injured">
+              <h3 data-i18n-html="ov_mini_injured">घाइते <em>७५</em></h3>
+              <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा</span><b class="ibar"><i style="width:100%"></i></b><em>४३</em></div>
+              <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:67%"></i></b><em>२९</em></div>
+              <div class="ibar-row"><span data-i18n="d_dhading">धादिङ</span><b class="ibar"><i style="width:7%"></i></b><em>३</em></div>
+            </div>
+            <div class="ov-mini" data-tone="miss">
+              <h3 data-i18n-html="ov_mini_miss">सम्पर्कविहीन <em>२४५</em></h3>
+              <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा</span><b class="ibar"><i style="width:100%"></i></b><em>१६१</em></div>
+              <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:4%"></i></b><em>१</em></div>
+              <p class="ov-note" data-i18n="ov_mini_miss_note">NDRRMA जिल्ला मात्र</p>
+            </div>
+            <div class="ov-mini" data-tone="air">
+              <h3 data-i18n-html="ov_mini_air">हेलि <em>१२३</em></h3>
+              <div class="ibar-row"><span data-i18n="d_timure">टिमुरे</span><b class="ibar"><i style="width:100%"></i></b><em>९५</em></div>
+              <div class="ibar-row"><span data-i18n="d_indian">भारतीय</span><b class="ibar"><i style="width:22%"></i></b><em>२१</em></div>
+              <div class="ibar-row"><span data-i18n="d_haku">हाकु टनेल</span><b class="ibar"><i style="width:7%"></i></b><em>७</em></div>
+            </div>
+          </div>
+        </div>
+        <div class="ov-pane" data-panel="dead">
+          <p class="ov-cap" data-i18n="ov_dead_cap">SitRep-3 जिल्ला · जम्मा १२३ (आधिकारिक मृतक १६२ छुट्टै)</p>
+          <div class="ibar-row"><span data-i18n="d_chitwan">चितवन</span><b class="ibar"><i style="width:100%"></i></b><em>६४</em></div>
+          <div class="ibar-row"><span data-i18n="d_gorkha">गोरखा</span><b class="ibar"><i style="width:30%"></i></b><em>१९</em></div>
+          <div class="ibar-row"><span data-i18n="d_dhading">धादिङ</span><b class="ibar"><i style="width:28%"></i></b><em>१८</em></div>
+          <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:17%"></i></b><em>११</em></div>
+          <div class="ibar-row"><span data-i18n="d_tanahun">तनहुँ</span><b class="ibar"><i style="width:14%"></i></b><em>९</em></div>
+          <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा</span><b class="ibar"><i style="width:4%"></i></b><em>१</em></div>
+          <div class="ibar-row"><span data-i18n="d_nawal">नवलपरासी पूर्व</span><b class="ibar"><i style="width:4%"></i></b><em>१</em></div>
+          <p class="ov-note" data-i18n="ov_dead_note">१६२ र १२३ एउटै स्प्लिट होइनन्।</p>
+        </div>
+        <div class="ov-pane" data-panel="injured">
+          <p class="ov-cap" data-i18n="ov_injured_cap">घाइते जिल्ला · जम्मा ७५</p>
+          <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा</span><b class="ibar"><i style="width:100%"></i></b><em>४३</em></div>
+          <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:67%"></i></b><em>२९</em></div>
+          <div class="ibar-row"><span data-i18n="d_dhading">धादिङ</span><b class="ibar"><i style="width:7%"></i></b><em>३</em></div>
+          <p class="ov-note" data-i18n="ov_injured_note">काठमाडौं ३६ / रसुवा अस्पताल २१ उपचार स्थान हुन्, जिल्लामाथि नजोड्नुहोस्।</p>
+        </div>
+        <div class="ov-pane" data-panel="miss">
+          <p class="ov-cap" data-i18n="ov_miss_cap">NDRRMA सम्पर्कविहीन · जम्मा २४५</p>
+          <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा</span><b class="ibar"><i style="width:100%"></i></b><em>१६१</em></div>
+          <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:4%"></i></b><em>१</em></div>
+          <p class="ov-note" data-i18n="ov_miss_note">फारम, हेलो सरकार र मधेश सूची यो २४५ मा छैनन्।</p>
+        </div>
+        <div class="ov-pane" data-panel="air">
+          <p class="ov-cap" data-i18n="ov_air_cap">आज ११ भदौ सेना हेलि · जम्मा १२३</p>
+          <div class="ibar-row"><span data-i18n="d_timure">टिमुरे</span><b class="ibar"><i style="width:100%"></i></b><em>९५</em></div>
+          <div class="ibar-row"><span data-i18n="d_indian">भारतीय पर्यटक</span><b class="ibar"><i style="width:22%"></i></b><em>२१</em></div>
+          <div class="ibar-row"><span data-i18n="d_haku">हाकु टनेल</span><b class="ibar"><i style="width:7%"></i></b><em>७</em></div>
+          <p class="ov-note" data-i18n="ov_air_note">टिमुरे ९५ मा विदेशी ८। SitRep-3 हवाई ११६ छुट्टै।</p>
+        </div>
+      </div>
+      <p class="ov-warn" data-i18n="ov_warn">नदी किनार नजानुहोस्।</p>
+    </div>
     <div class="stats" aria-label="प्रारम्भिक तथ्यांक" data-i18n-aria="stats_aria" data-i18n-list="hero_mini" data-i18n-kind="deep-li">
       <div class="stat">
         <b data-i18n="stat_bodies">मृतक संख्या</b>
@@ -983,15 +1133,15 @@ footer .foot-contact a:hover{text-decoration:underline}
           <li>नुवाकोट <strong>११</strong> · तनहुँ <strong>९</strong> · रसुवा <strong>१</strong> · नवलपरासी पूर्व <strong>१</strong></li>
           <li>SitRep-3 जिल्ला जम्मा <strong>१२३</strong></li>
         </ul>
-        <div class="infobar" style="--max:64" aria-hidden="true">
+        <div class="infobar" aria-hidden="true">
           <p class="infobar-cap">SitRep-3 जिल्ला</p>
-          <div class="infobar-row"><span>चितवन</span><i style="--v:64"></i><em>६४</em></div>
-          <div class="infobar-row"><span>गोरखा</span><i style="--v:19"></i><em>१९</em></div>
-          <div class="infobar-row"><span>धादिङ</span><i style="--v:18"></i><em>१८</em></div>
-          <div class="infobar-row"><span>नुवाकोट</span><i style="--v:11"></i><em>११</em></div>
-          <div class="infobar-row"><span>तनहुँ</span><i style="--v:9"></i><em>९</em></div>
-          <div class="infobar-row"><span>रसुवा</span><i style="--v:1"></i><em>१</em></div>
-          <div class="infobar-row"><span>नवलपरासी</span><i style="--v:1"></i><em>१</em></div>
+          <div class="ibar-row"><span>चितवन</span><b class="ibar"><i style="width:100%"></i></b><em>६४</em></div>
+          <div class="ibar-row"><span>गोरखा</span><b class="ibar"><i style="width:30%"></i></b><em>१९</em></div>
+          <div class="ibar-row"><span>धादिङ</span><b class="ibar"><i style="width:28%"></i></b><em>१८</em></div>
+          <div class="ibar-row"><span>नुवाकोट</span><b class="ibar"><i style="width:17%"></i></b><em>११</em></div>
+          <div class="ibar-row"><span>तनहुँ</span><b class="ibar"><i style="width:14%"></i></b><em>९</em></div>
+          <div class="ibar-row"><span>रसुवा</span><b class="ibar"><i style="width:4%"></i></b><em>१</em></div>
+          <div class="ibar-row"><span>नवलपरासी</span><b class="ibar"><i style="width:4%"></i></b><em>१</em></div>
         </div>
       </div>
       <div class="stat">
@@ -1002,11 +1152,11 @@ footer .foot-contact a:hover{text-decoration:underline}
           <li>काठमाडौं <strong>३६</strong> · रसुवा अस्पताल <strong>२१</strong></li>
           <li>प्रहरी उपचाररत <strong>६३</strong></li>
         </ul>
-        <div class="infobar" style="--max:43" aria-hidden="true">
+        <div class="infobar" aria-hidden="true">
           <p class="infobar-cap">जिल्ला</p>
-          <div class="infobar-row"><span>रसुवा</span><i style="--v:43"></i><em>४३</em></div>
-          <div class="infobar-row"><span>नुवाकोट</span><i style="--v:29"></i><em>२९</em></div>
-          <div class="infobar-row"><span>धादिङ</span><i style="--v:3"></i><em>३</em></div>
+          <div class="ibar-row"><span>रसुवा</span><b class="ibar"><i style="width:100%"></i></b><em>४३</em></div>
+          <div class="ibar-row"><span>नुवाकोट</span><b class="ibar"><i style="width:67%"></i></b><em>२९</em></div>
+          <div class="ibar-row"><span>धादिङ</span><b class="ibar"><i style="width:7%"></i></b><em>३</em></div>
         </div>
       </div>
       <div class="stat">
@@ -1021,10 +1171,10 @@ footer .foot-contact a:hover{text-decoration:underline}
           <li>लाङटाङ आयोजना <strong>६०</strong></li>
           <li>गोरखा बस यात्रु <strong>३४</strong></li>
         </ul>
-        <div class="infobar" style="--max:161" aria-hidden="true">
+        <div class="infobar" aria-hidden="true">
           <p class="infobar-cap">NDRRMA जिल्ला</p>
-          <div class="infobar-row"><span>रसुवा</span><i style="--v:161"></i><em>१६१</em></div>
-          <div class="infobar-row"><span>नुवाकोट</span><i style="--v:1"></i><em>१</em></div>
+          <div class="ibar-row"><span>रसुवा</span><b class="ibar"><i style="width:100%"></i></b><em>१६१</em></div>
+          <div class="ibar-row"><span>नुवाकोट</span><b class="ibar"><i style="width:4%"></i></b><em>१</em></div>
         </div>
       </div>
       <div class="stat">
@@ -1034,10 +1184,10 @@ footer .foot-contact a:hover{text-decoration:underline}
           <li>सेना <strong>४४</strong> · प्रहरी <strong>२६</strong></li>
           <li>सशस्त्र <strong>१३</strong></li>
         </ul>
-        <div class="infobar" style="--max:44" aria-hidden="true">
-          <div class="infobar-row"><span>सेना</span><i style="--v:44"></i><em>४४</em></div>
-          <div class="infobar-row"><span>प्रहरी</span><i style="--v:26"></i><em>२६</em></div>
-          <div class="infobar-row"><span>सशस्त्र</span><i style="--v:13"></i><em>१३</em></div>
+        <div class="infobar" aria-hidden="true">
+          <div class="ibar-row"><span>सेना</span><b class="ibar"><i style="width:100%"></i></b><em>४४</em></div>
+          <div class="ibar-row"><span>प्रहरी</span><b class="ibar"><i style="width:59%"></i></b><em>२६</em></div>
+          <div class="ibar-row"><span>सशस्त्र</span><b class="ibar"><i style="width:30%"></i></b><em>१३</em></div>
         </div>
       </div>
       <div class="stat">
@@ -1048,9 +1198,9 @@ footer .foot-contact a:hover{text-decoration:underline}
           <li>खोजीमा <strong>११</strong></li>
           <li>गाडी बगे <strong>३००+</strong></li>
         </ul>
-        <div class="infobar" style="--max:25" aria-hidden="true">
-          <div class="infobar-row"><span>सम्पर्कमा</span><i style="--v:25"></i><em>२५</em></div>
-          <div class="infobar-row"><span>खोजीमा</span><i style="--v:11"></i><em>११</em></div>
+        <div class="infobar" aria-hidden="true">
+          <div class="ibar-row"><span>सम्पर्कमा</span><b class="ibar"><i style="width:100%"></i></b><em>२५</em></div>
+          <div class="ibar-row"><span>खोजीमा</span><b class="ibar"><i style="width:44%"></i></b><em>११</em></div>
         </div>
       </div>
       <div class="stat">
@@ -1071,11 +1221,11 @@ footer .foot-contact a:hover{text-decoration:underline}
           <li>SitRep-3 हवाई <strong>११६</strong> · सेना ८८ + निजी २८</li>
           <li>स्थलगत जम्मा <strong>९३</strong> · रसुवा ४३ · नुवाकोट ४७ · धादिङ ३</li>
         </ul>
-        <div class="infobar" style="--max:95" aria-hidden="true">
+        <div class="infobar" aria-hidden="true">
           <p class="infobar-cap">आज ११ भदौ</p>
-          <div class="infobar-row"><span>टिमुरे</span><i style="--v:95"></i><em>९५</em></div>
-          <div class="infobar-row"><span>भारतीय</span><i style="--v:21"></i><em>२१</em></div>
-          <div class="infobar-row"><span>हाकु टनेल</span><i style="--v:7"></i><em>७</em></div>
+          <div class="ibar-row"><span>टिमुरे</span><b class="ibar"><i style="width:100%"></i></b><em>९५</em></div>
+          <div class="ibar-row"><span>भारतीय</span><b class="ibar"><i style="width:22%"></i></b><em>२१</em></div>
+          <div class="ibar-row"><span>हाकु टनेल</span><b class="ibar"><i style="width:7%"></i></b><em>७</em></div>
         </div>
       </div>
       <div class="stat">
@@ -3323,6 +3473,30 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 <script src="i18n.js"></script>
 <script>
+
+(function(){
+  var root = document.getElementById("overview");
+  if (!root) return;
+  var kpis = [].slice.call(root.querySelectorAll(".kpi"));
+  var panes = [].slice.call(root.querySelectorAll(".ov-pane"));
+  function show(id){
+    kpis.forEach(function(k){
+      var on = k.getAttribute("data-panel") === id;
+      k.classList.toggle("on", on);
+      k.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    panes.forEach(function(p){
+      p.classList.toggle("on", p.getAttribute("data-panel") === id);
+    });
+  }
+  kpis.forEach(function(k){
+    k.addEventListener("click", function(){
+      var id = k.getAttribute("data-panel");
+      if (k.classList.contains("on")) show("all");
+      else show(id);
+    });
+  });
+})();
 (function(){
   document.querySelectorAll(".fund button.acct").forEach(function(btn){
     btn.addEventListener("click", function(){
