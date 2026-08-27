@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T07:54:00+05:45",
+  "updated_at": "2026-08-27T07:56:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,33 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-075715-uday-shivamurthy",
+      "name": "Uday Shivamurthy",
+      "age": "60",
+      "place": "Immigration Building",
+      "when": "Aug 26th @ 8:30 AM",
+      "phone": "+13012521866",
+      "note": "फारम ०७:५७ · पत्नी Kripa Shivamurthy पनि हराएको"
+    },
+    {
+      "id": "sheet-20260827-075707-kumar-ramaswamy-sampath",
+      "name": "Kumar Ramaswamy Sampath",
+      "age": "61",
+      "place": "Wantirna South, VIC, Australia · Rasuwa Ghadhi",
+      "when": "7.3",
+      "phone": "9894839240",
+      "note": "फारम ०७:५७ · Australian · White design"
+    },
+    {
+      "id": "sheet-20260827-075442-pradip-sapkota",
+      "name": "Pradip Sapkota",
+      "age": "24",
+      "place": "Hetaunda, Makwanpur · 3B Hydro Purba construction, Rasuwa",
+      "when": "2083.05.10 8:30 am",
+      "phone": "9851023045",
+      "note": "फारम ०७:५४ · ३बी हाइड्रो पूर्वा निर्माण"
+    },
     {
       "id": "sheet-20260827-075008-avishek-singh",
       "name": "Avishek Singh",
@@ -1049,9 +1076,9 @@
     {
       "id": "sheet-826202623210-manoj-thapa-magar",
       "name": "Manoj Thapa Magar",
-      "place": "sindhupalchok · border",
-      "phone": "9810194600",
-      "note": "उमेर 27 · 8am · if you have seen him please contact🙏🙏"
+      "place": "Kodhari, Sindhupalchowk · rasuwagadhi lhende area (Nepal-China border)",
+      "phone": "9810194600 / 9818106667 / 9844273113",
+      "note": "उमेर 27 · 8am · if you have seen him please contact🙏🙏 · फारम ०७:५५ थप फोन"
     },
     {
       "id": "sheet-826202623194-ajay-singh",
@@ -1167,7 +1194,7 @@
       "place": "Kathmandu · Near Yanghila hotel & lodge",
       "when": "Around 8pm he made a phone call with his wife",
       "phone": "9823407763",
-      "note": "He operates a stall near the yanghila hotel area with his relatives"
+      "note": "He operates a stall near the yanghila hotel area with his relatives · फारम ०७:५४ दोहोर्याइएको · बिहान ८ बजे श्रीमतीलाई फोन"
     },
     {
       "id": "m-ashish-subba",
