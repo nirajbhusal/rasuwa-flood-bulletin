@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-28T02:14:29.066345+05:45",
-  "note_np": "बाढी मार्गका DHM स्टेशन · फुर्के बगेर निष्क्रिय",
+  "updated_at": "2026-08-28T02:24:59.050456+05:45",
+  "note_np": "फुर्के गेज बगेको; बेत्रावती मौन भए लाइभ नमान्नुहोस्।",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms-Single/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
   "stations": [
@@ -10,16 +10,16 @@
       "name": "Trishuli Khola at Dhunche",
       "name_np": "धुन्चे · त्रिशूली खोला",
       "district_np": "नुवाकोट",
-      "level_m": 2.414,
+      "level_m": 2.42,
       "warning_m": 3.2,
       "danger_m": null,
-      "status": "below_warning",
+      "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-28T02:00:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०२:००",
+      "observed_at": "2026-08-28T02:10:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०२:१०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657"
+      "source": "https://www.dhm.gov.np/hydrology/river-watch"
     },
     {
       "station_id": 52,
@@ -30,7 +30,7 @@
       "level_m": 3.549,
       "warning_m": 4.1,
       "danger_m": 5.0,
-      "status": "below_warning",
+      "status": "normal",
       "steady": true,
       "observed_at": "2026-08-26T09:20:00+05:45",
       "observed_npt": "२०२६-०८-२६ ०९:२०",
@@ -40,7 +40,7 @@
     },
     {
       "station_id": 5611,
-      "series_id": null,
+      "series_id": 5611,
       "name": "Trishuli at Furke Khola/Malekhu",
       "name_np": "फुर्के · मलेखु",
       "district_np": "धादिङ",
@@ -48,12 +48,12 @@
       "warning_m": 7.0,
       "danger_m": 8.0,
       "status": "washed",
-      "steady": false,
+      "steady": true,
       "observed_at": "2026-08-26T11:40:00+05:45",
       "observed_npt": "२०२६-०८-२६ ११:४०",
       "silent": false,
       "washed": true,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/5611"
+      "source": "https://www.dhm.gov.np/hydrology/river-watch"
     },
     {
       "station_id": 4781,
@@ -64,7 +64,7 @@
       "level_m": 6.375,
       "warning_m": 10.8,
       "danger_m": 12.1,
-      "status": "below_warning",
+      "status": "normal",
       "steady": true,
       "observed_at": "2026-08-28T02:00:00+05:45",
       "observed_npt": "२०२६-०८-२८ ०२:००",
@@ -78,16 +78,16 @@
       "name": "Narayani at Devghat",
       "name_np": "देवघाट · नारायणी",
       "district_np": "चितवन",
-      "level_m": 4.652,
+      "level_m": 4.597,
       "warning_m": 7.3,
       "danger_m": 9.0,
-      "status": "below_warning",
+      "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-28T01:50:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०१:५०",
+      "observed_at": "2026-08-28T02:00:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०२:००",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
+      "source": "https://www.dhm.gov.np/hydrology/river-watch"
     }
   ]
 }
