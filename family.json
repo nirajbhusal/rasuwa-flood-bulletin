@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T16:43:00+05:45",
+  "updated_at": "2026-08-27T16:55:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,51 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-164256-chakraraj-shakya",
+      "name": "Chakraraj Shakya",
+      "place": "NIC ASIA बैंक नजिक मुख्य सडकतिर जाँदै (घर छोडेर)",
+      "phone": "9841548535 / 9843131648",
+      "note": "फारम १६:४२"
+    },
+    {
+      "id": "sheet-20260827-164450-gyaljen-sherpa",
+      "name": "Gyaljen Sherpa",
+      "place": "Nayabasti, Boudha · Rasuwa",
+      "phone": "9848840000",
+      "note": "फारम १६:४४ · अन्य Sherpa कार्डसँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-164454-rajiv-singh",
+      "name": "Rajiv Singh",
+      "place": "Hakubesi · Upper Trishuli-1 (216 MW)",
+      "note": "फारम १६:४४ · Rajeev Kumar Singh सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-164849-deepa-balaji",
+      "name": "Deepa Balaji",
+      "age": "54",
+      "place": "Dallas, Texas, USA · Nepal–China Immigration Border नजिक",
+      "when": "२६ अगस्ट · ७:३० बिहान",
+      "note": "फारम १६:४८ · Black top, beige pants · Balaji Venkatachalam सँग सम्बन्धित · फारममा Nov लेखिएको; बाढी मिति अगस्ट"
+    },
+    {
+      "id": "sheet-20260827-165014-gyanendra-lal-shrestha",
+      "name": "Gyanendra Lal Shrestha",
+      "age": "54",
+      "place": "Panchkhal · Timure",
+      "when": "२६ अगस्ट · ८:४०",
+      "phone": "9849243711",
+      "note": "फारम १६:५० · Green jacket"
+    },
+    {
+      "id": "sheet-20260827-165103-balaji-venkatachalam",
+      "name": "Balaji Venkatachalam",
+      "age": "५६–५८",
+      "place": "Dallas, Texas, USA · Nepal–China Immigration Border नजिक",
+      "when": "२६ अगस्ट · ७:३० बिहान",
+      "note": "फारम १६:५१ · Black/navy top, green logo · Deepa Balaji सँग सम्बन्धित · Venkata Subramanian सँग नमिसाउने (फरक व्यक्ति)"
+    },
     {
       "id": "sheet-20260827-163213-jayaram-yonjan",
       "name": "Jayaram Yonjan",
