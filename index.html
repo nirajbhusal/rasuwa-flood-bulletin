@@ -141,7 +141,7 @@ img{max-width:100%;display:block}
   animation:pulse 1.4s infinite;
 }
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,255,255,0)}}
-.brand{flex:none;width:100%;min-width:0;text-align:center}
+.brand{flex:none;width:100%;min-width:0;text-align:center;padding:0 108px;box-sizing:border-box}
 .brand h1{margin:0;font-size:clamp(28px,7vw,52px);line-height:1.15;font-weight:800;text-align:center}
 .brand p{margin:6px 0 0;color:var(--muted);font-size:15px;text-align:center}
 .helpline{
@@ -761,24 +761,27 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 
 .lang-switch{
-  display:inline-flex;align-items:center;gap:0;
-  background:#fff;border:1px solid var(--line);
-  border-radius:999px;padding:2px;flex:none;
+  position:absolute;top:10px;right:12px;z-index:46;
+  display:inline-flex;align-items:center;gap:3px;
+  background:#fff;border:2px solid #1c1917;
+  border-radius:999px;padding:4px;flex:none;
+  box-shadow:0 4px 16px rgba(28,25,23,.22);
 }
 .lang-switch button{
   appearance:none;-webkit-appearance:none;
-  font:inherit;font-weight:800;font-size:12px;letter-spacing:.04em;
-  border:0;background:transparent;color:var(--ink);
-  padding:5px 9px;border-radius:999px;cursor:pointer;line-height:1;
+  font:inherit;font-weight:800;font-size:14px;letter-spacing:.04em;
+  border:0;background:#efeae2;color:#1c1917;
+  padding:8px 14px;min-width:48px;border-radius:999px;cursor:pointer;line-height:1.1;
 }
 .lang-switch button[aria-pressed="true"]{
   background:var(--crimson);color:#fff;
 }
 .lang-switch button:focus-visible{
-  outline:2px solid var(--teal);outline-offset:1px;
+  outline:2px solid var(--teal);outline-offset:2px;
 }
-.lang-switch .lang-sep{
-  color:var(--muted);font-size:11px;font-weight:800;padding:0 1px;user-select:none;
+@media (max-width:520px){
+  .lang-switch{top:8px;right:8px;padding:3px}
+  .lang-switch button{font-size:13px;padding:7px 12px;min-width:42px}
 }
 
 </style>
@@ -787,17 +790,16 @@ footer .foot-contact a:hover{text-decoration:underline}
 <div class="stick">
 <header class="topbar">
   <div class="topbar-inner">
+    <div class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="भाषा">
+      <button type="button" data-lang="ne" aria-pressed="true" lang="ne" title="नेपाली">ने</button>
+      <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
+    </div>
     <div class="brand">
       <h1 data-i18n="brand">रसुवा–भोटेकोशी बाढी</h1>
       <p data-i18n="brand_date">२७ अगस्ट २०२६ · ११ भदौ २०८३ · घटना १० भदौ / २६ अगस्ट</p>
     </div>
     <div class="top-actions">
       <span class="live"><i></i> <span data-i18n="live">लाइभ</span></span>
-      <div class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="भाषा">
-        <button type="button" data-lang="ne" aria-pressed="true" lang="ne" title="नेपाली">ने</button>
-        <span class="lang-sep" aria-hidden="true">|</span>
-        <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
-      </div>
       <div class="helpline" data-i18n="hl_bar">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४</div>
     </div>
   </div>
@@ -835,14 +837,15 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="wrap">
     <p class="kicker" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
     <h2 data-i18n="dead_162">शव १६२</h2>
-    <p class="lede" data-i18n-html="lede">आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। टिमुरे <strong>९५</strong> (विदेशी ८), हाकु टनेल <strong>७</strong>, भारतीय पर्यटक <strong>२१</strong>। शव <strong>१६२</strong> — चितवन प्रहरी <strong>६४</strong>। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। नदी किनार नजानुहोस्।</p>
+    <p class="lede" data-i18n-html="lede">आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। टिमुरे <strong>९५</strong> (विदेशी ८), हाकु टनेल <strong>७</strong>, भारतीय पर्यटक <strong>२१</strong>। शव <strong>१६२</strong>। SitRep-3 जिल्ला: चितवन ६४ · गोरखा १९ · धादिङ १८ · नुवाकोट ११ · तनहुँ ९ · रसुवा १ · नवलपरासी पूर्व १ (जम्मा १२३)। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। नदी किनार नजानुहोस्।</p>
     <div class="stats" aria-label="प्रारम्भिक तथ्यांक" data-i18n-aria="stats_aria" data-i18n-list="hero_mini" data-i18n-kind="deep-li">
       <div class="stat">
         <b data-i18n="stat_bodies">शव फेला</b>
         <ul class="mini">
           <li>जम्मा <strong>१६२</strong></li>
-          <li>चितवन <strong>६४</strong> · जिल्ला प्रहरी</li>
-          <li>अघिल्लो SitRep-3 <strong>१२३</strong> (राति २२:००)</li>
+          <li>चितवन <strong>६४</strong> · गोरखा <strong>१९</strong> · धादिङ <strong>१८</strong></li>
+          <li>नुवाकोट <strong>११</strong> · तनहुँ <strong>९</strong> · रसुवा <strong>१</strong> · नवलपरासी पूर्व <strong>१</strong></li>
+          <li>SitRep-3 जिल्ला जम्मा <strong>१२३</strong> · १६२ को स्प्लिट आएको छैन</li>
         </ul>
       </div>
       <div class="stat">
@@ -927,7 +930,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
     </div>
-    <p class="stats-note" data-i18n-html="stats_note">शव <strong>१६२</strong> — चितवन प्रहरी <strong>६४</strong>। आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong> (टिमुरे ९५ / हाकु टनेल ७ / भारतीय पर्यटक २१)। सम्पर्कविहीन २४५ / घाइते ७५। पर्यटक ४८४। स्रोत तल।</p>
+    <p class="stats-note" data-i18n-html="stats_note">शव <strong>१६२</strong>। SitRep-3 जिल्ला: चितवन ६४ · गोरखा १९ · धादिङ १८ · नुवाकोट ११ · तनहुँ ९ · रसुवा १ · नवलपरासी पूर्व १ (जम्मा १२३)। १६२ को स्प्लिट आएको छैन। आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong> (टिमुरे ९५ / हाकु टनेल ७ / भारतीय पर्यटक २१)। सम्पर्कविहीन २४५ / घाइते ७५। पर्यटक ४८४। स्रोत तल।</p>
     <section id="donate" class="funds">
       <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_donate">राहत कोष</h2></div>
       <p class="funds-lead" data-i18n-html="funds_lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन SWIFT पनि ट्याप गरेर कपी गर्न सकिन्छ। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
@@ -973,7 +976,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       </div>
     </section>
     <ul class="stats-src" aria-label="स्रोत" data-i18n-aria="src_word" data-i18n-list="stats_src">
-      <li><b>शव जम्मा १६२</b> — बिहान ६:०० अपडेट। अघिल्लो NDRRMA SitRep-3 १२३ / प्रहरी राति १५७ इतिहासमा। SitRep-3 (<a href="img/sitrep3-casualties.jpg" target="_blank" rel="noopener">आधिकारिक इन्फोग्राफिक</a>)।</li>
+      <li><b>शव जम्मा १६२</b> — बिहान ६:०० अपडेट। जिल्ला विवरण NDRRMA SitRep-3 (राति २२:००, जम्मा १२३): चितवन ६४, गोरखा १९, धादिङ १८, नुवाकोट ११, तनहुँ ९, रसुवा १, नवलपरासी पूर्व १। १६२ को जिल्ला स्प्लिट आएको छैन। प्रहरी राति १५७ इतिहासमा। SitRep-3 (<a href="img/sitrep3-casualties.jpg" target="_blank" rel="noopener">आधिकारिक इन्फोग्राफिक</a>)।</li>
       <li><b>घाइते</b> — NDRRMA SitRep-3: जम्मा <strong>७५</strong> — रसुवा ४३, नुवाकोट २९, धादिङ ३। प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong>। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> (टिचिङ २१, ट्रमा ७, छाउनी १, रसुवा २१, त्रिशूली १६, नर्भिक ३, ग्रीनसिटी १)।</li>
       <li><b>सम्पर्कविहीन</b> — NDRRMA SitRep-3: <strong>२४५</strong> (रसुवा DEOC १६१, सेना ४४, प्रहरी २६, सशस्त्र १३, नुवाकोट DEOC १)। <a href="#family">जनताको रिपोर्ट</a> फारमबाट आएका नामसहितको सूची (लाइभ)। हेलो सरकार १४० अलग। प्रधानमन्त्री कार्यालय साँझ ७:००: पर्यटक <strong>४८४</strong> (विदेशी ३९१, स्वदेशी ९३)। लाङटाङ ६० / बस ३४ / स्वास्थ्यकर्मी ६ / भन्सार ११ / बैंक २६। मृत्यु होइन।</li>
       <li><b>सुरक्षा</b> — NDRRMA SitRep-3: जम्मा <strong>८३</strong> — सेना ४४, प्रहरी २६, सशस्त्र <strong>१३</strong>। अघिल्लो प्रधानमन्त्री कार्यालय ८५ (प्रहरी २८) इतिहासमा। मृत्यु होइन।</li>

@@ -190,8 +190,8 @@ window.I18N = {
 "months3": "३ महिना",
 "today": "आज",
 "ongoing": "जारी",
-"lede": "आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। टिमुरे <strong>९५</strong> (विदेशी ८), हाकु टनेल <strong>७</strong>, भारतीय पर्यटक <strong>२१</strong>। शव <strong>१६२</strong> — चितवन प्रहरी <strong>६४</strong>। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। नदी किनार नजानुहोस्।",
-"stats_note": "शव <strong>१६२</strong> — चितवन प्रहरी <strong>६४</strong>। आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। सम्पर्कविहीन २४५ / घाइते ७५। पर्यटक ४८४। स्रोत तल।",
+"lede": "आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। टिमुरे <strong>९५</strong> (विदेशी ८), हाकु टनेल <strong>७</strong>, भारतीय पर्यटक <strong>२१</strong>। शव <strong>१६२</strong>। SitRep-3 जिल्ला: चितवन ६४ · गोरखा १९ · धादिङ १८ · नुवाकोट ११ · तनहुँ ९ · रसुवा १ · नवलपरासी पूर्व १ (जम्मा १२३)। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। नदी किनार नजानुहोस्।",
+"stats_note": "शव <strong>१६२</strong>। SitRep-3 जिल्ला: चितवन ६४ · गोरखा १९ · धादिङ १८ · नुवाकोट ११ · तनहुँ ९ · रसुवा १ · नवलपरासी पूर्व १ (जम्मा १२३)। १६२ को स्प्लिट आएको छैन। आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। सम्पर्कविहीन २४५ / घाइते ७५। पर्यटक ४८४। स्रोत तल।",
 "funds_lead": "बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन SWIFT पनि ट्याप गरेर कपी गर्न सकिन्छ। आधिकारिक पाना: <a href=\"https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf\" target=\"_blank\" rel=\"noopener\">प्रधानमन्त्री कार्यालय PDF</a>",
 "dd_swift": "बैंक चिनाउने अन्तर्राष्ट्रिय कोड (BIC)। विदेशबाट यी खातामा पैसा पठाउन आफ्नो बैंकलाई यो कोड, खाता नाम र खाता नम्बर दिनुहोस्। नेपालमा IBAN चल्दैन।",
 "dd_write": "बैंकको अंग्रेजी नाम, SWIFT (माथि कपी गर्न मिल्छ), खाता नाम: प्रधानमन्त्री दैवी प्रकोप उद्धार कोष वा प्रधानमन्त्री राहत कोष, र तालिकाको खाता नम्बर। उद्देश्यमा Rasuwa / Bhotekoshi flood relief, 26 Aug 2026 लेख्नुहोस्।",
@@ -451,8 +451,8 @@ window.I18N = {
 "months3": "3 months",
 "today": "today",
 "ongoing": "Ongoing",
-"lede": "This morning (11 Bhadra) the Army airlifted <strong>123</strong>. Timure <strong>95</strong> (foreign 8), Haku tunnel <strong>7</strong>, Indian tourists <strong>21</strong>. Dead <strong>162</strong> — Chitwan police <strong>64</strong>. Uncontacted NDRRMA <strong>245</strong>. Stay away from the river.",
-"stats_note": "Dead <strong>162</strong> — Chitwan police <strong>64</strong>. This morning (11 Bhadra) Army heli <strong>123</strong>. Uncontacted 245 / injured 75. Tourists 484. Sources below.",
+"lede": "This morning (11 Bhadra) the Army airlifted <strong>123</strong>. Timure <strong>95</strong> (foreign 8), Haku tunnel <strong>7</strong>, Indian tourists <strong>21</strong>. Dead <strong>162</strong>. SitRep-3 by district: Chitwan 64 · Gorkha 19 · Dhading 18 · Nuwakot 11 · Tanahun 9 · Rasuwa 1 · Nawalparasi East 1 (total 123). Uncontacted NDRRMA <strong>245</strong>. Stay away from the river.",
+"stats_note": "Dead <strong>162</strong>. SitRep-3 by district: Chitwan 64 · Gorkha 19 · Dhading 18 · Nuwakot 11 · Tanahun 9 · Rasuwa 1 · Nawalparasi East 1 (total 123). No district split for 162 yet. This morning (11 Bhadra) Army heli <strong>123</strong>. Uncontacted 245 / injured 75. Tourists 484. Sources below.",
 "funds_lead": "Government accounts at the Prime Minister’s Office for flood-relief support. Scan the QR or tap an account number to copy. SWIFT codes can also be copied for transfers from abroad. Official page: <a href=\"https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf\" target=\"_blank\" rel=\"noopener\">Prime Minister’s Office PDF</a>",
 "dd_swift": "An international bank identifier (BIC). To send money into these accounts from abroad, give your bank this code, the account name and the account number. Nepal does not use IBAN.",
 "dd_write": "The bank’s English name, SWIFT (copy from the table), account name: Prime Minister’s Disaster Relief Fund or Prime Minister’s Relief Fund, and the account number in the table. In the purpose line write Rasuwa / Bhotekoshi flood relief, 26 Aug 2026.",
@@ -525,8 +525,9 @@ window.I18N = {
 window.I18N_LISTS = {
 "hero_mini": [
 "Total <strong>162</strong>",
-"Chitwan <strong>64</strong> · District Police",
-"Previous SitRep-3 <strong>123</strong> (22:00)",
+"Chitwan <strong>64</strong> · Gorkha <strong>19</strong> · Dhading <strong>18</strong>",
+"Nuwakot <strong>11</strong> · Tanahun <strong>9</strong> · Rasuwa <strong>1</strong> · Nawalparasi East <strong>1</strong>",
+"SitRep-3 district total <strong>123</strong> · no split for 162 yet",
 "NDRRMA total <strong>75</strong>",
 "Rasuwa <strong>43</strong> · Nuwakot <strong>29</strong> · Dhading <strong>3</strong>",
 "Kathmandu <strong>36</strong> · Rasuwa Hospital <strong>21</strong>",
@@ -1059,7 +1060,7 @@ window.I18N_LISTS = {
 "The flood had already passed Bidur; the Division said it reached Galchhi at 10:28."
 ],
 "stats_src": [
-"<b>Dead total 162</b> — 06:00 update. Previous NDRRMA SitRep-3 123 / police overnight 157 are history. SitRep-3 (<a href=\"img/sitrep3-casualties.jpg\" target=\"_blank\" rel=\"noopener\">official infographic</a>).",
+"<b>Dead total 162</b> — 06:00 update. District split from NDRRMA SitRep-3 (22:00, total 123): Chitwan 64, Gorkha 19, Dhading 18, Nuwakot 11, Tanahun 9, Rasuwa 1, Nawalparasi East 1. No district split for 162 yet. Police overnight 157 is history. SitRep-3 (<a href=\"img/sitrep3-casualties.jpg\" target=\"_blank\" rel=\"noopener\">official infographic</a>).",
 "<b>Injured</b> — NDRRMA SitRep-3: total <strong>75</strong> — Rasuwa 43, Nuwakot 29, Dhading 3. PMO: Kathmandu <strong>36</strong>, Rasuwa Hospital <strong>21</strong>. Nepal Police total in treatment <strong>63</strong> (Teaching 21, Trauma 7, Chauni 1, Rasuwa 21, Trishuli 16, Neuro 3, Green City 1).",
 "<b>Uncontacted</b> — NDRRMA SitRep-3: <strong>245</strong> (Rasuwa DEOC 161, Army 44, Police 26, Armed Police 13, Nuwakot DEOC 1). <a href=\"#family\">Public reports</a> named list from the form (live). Hello Sarkar 140 separate. PMO 19:00: tourists <strong>484</strong> (foreign 391, Nepali 93). Langtang 60 / bus 34 / health workers 6 / customs 11 / banks 26. Not deaths.",
 "<b>Security</b> — NDRRMA SitRep-3: total <strong>83</strong> — Army 44, Police 26, Armed Police <strong>13</strong>. Previous PMO 85 (Police 28) is history. Not deaths.",
