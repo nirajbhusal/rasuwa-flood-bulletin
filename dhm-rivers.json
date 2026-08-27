@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-27T15:03:00+05:45",
-  "note_np": "DHM: काली 6.524@१५:०० steady; देवघाट 4.895@१४:४० steady (लाइभ, सतर्कतामुनि)। धुन्चे/बेत्रावती मौन ०९:२०। फुर्के गेज बगेको ~10.482@११:४०।",
+  "updated_at": "2026-08-27T15:10:00+05:45",
+  "note_np": "DHM: काली 6.532@१५:१० steady; देवघाट 4.824@१५:०० steady (लाइभ, सतर्कतामुनि)। धुन्चे/बेत्रावती मौन ०९:२०। फुर्के गेज बगेको ~10.482@११:४०।",
   "hydrology": "https://www.hydrology.gov.np/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
   "stations": [
@@ -63,11 +63,11 @@
       "district_np": "चितवन",
       "warning_m": 10.8,
       "danger_m": 12.1,
-      "level_m": 6.524,
+      "level_m": 6.532,
       "status": "BELOW WARNING LEVEL",
       "steady": "STEADY",
-      "observed_at": "2026-08-27T09:15:00+00:00",
-      "observed_npt": "१५:००",
+      "observed_at": "2026-08-27T09:25:00+00:00",
+      "observed_npt": "१५:१०",
       "silent": false,
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781"
@@ -80,11 +80,11 @@
       "district_np": "चितवन",
       "warning_m": 7.3,
       "danger_m": 9.0,
-      "level_m": 4.895,
+      "level_m": 4.824,
       "status": "BELOW WARNING LEVEL",
       "steady": "STEADY",
-      "observed_at": "2026-08-27T08:55:00+00:00",
-      "observed_npt": "१४:४०",
+      "observed_at": "2026-08-27T09:15:00+00:00",
+      "observed_npt": "१५:००",
       "silent": false,
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
