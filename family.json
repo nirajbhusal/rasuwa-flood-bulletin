@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T04:58:40.318973+05:45",
+  "updated_at": "2026-08-28T05:09:46+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,17 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-045927-aashish-tamang",
+      "name": "Aashish Tamang",
+      "age": "26",
+      "place": "Gatlang · China border",
+      "when": "8:00",
+      "phone": "9849930789",
+      "note": "फारम 04:59 · Black pant, white tshirt, black half jacket, black cap · entry pass 8711 china side · ठेगाना: Gatlang",
+      "status": "missing",
+      "source": "form"
+    },
     {
       "id": "sheet-20260828-040938-jyoti-paresh-patel",
       "name": "Jyoti Paresh Patel",
