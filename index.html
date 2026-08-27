@@ -395,9 +395,11 @@ a.js-found-row[hidden]{display:none}
 .stat ul.mini li{margin:5px 0}
 .stat ul.mini strong{color:var(--crimson);font-variant-numeric:tabular-nums;font-weight:800;font-size:22px}
 .hero h2.vis-title{font-size:clamp(22px,4vw,30px);margin:0 0 12px}
+.snap-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 14px}
+@media(max-width:640px){.snap-row{grid-template-columns:1fr}}
 .cash-snap{
   display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;
-  margin:0 0 14px;padding:14px 16px 12px;
+  margin:0;padding:14px 16px 12px;
   background:linear-gradient(180deg,#ecfdf5,#fff 55%);
   border:1px solid #86efac;border-radius:16px;
   box-shadow:var(--shadow);text-decoration:none;color:inherit;
@@ -407,6 +409,23 @@ a.js-found-row[hidden]{display:none}
 .cash-snap strong{font-size:clamp(32px,6vw,44px);font-weight:800;color:var(--forest);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .cash-snap .cash-unit{font-size:16px;font-weight:800;color:var(--forest)}
 .cash-snap .cash-sub{width:100%;margin-top:2px;font-size:13px;font-weight:700;color:var(--muted)}
+.aid-snap{background:linear-gradient(180deg,#ecfeff,#fff 55%);border-color:#67e8f9}
+.aid-snap:hover{border-color:#0e7490;box-shadow:0 0 0 3px #cffafe}
+.aid-snap strong,.aid-snap .cash-unit{color:#0e7490}
+.aid-ig{
+  background:linear-gradient(180deg,#ecfeff,#fff 42%);
+  border:1px solid #67e8f9;border-radius:18px;
+  padding:18px 18px 16px;margin:0 0 16px;box-shadow:var(--shadow);
+}
+.aid-ig h3{margin:0 0 8px;font-size:20px;font-weight:800;color:#0e7490}
+.aid-ig .cash-kpis{grid-template-columns:repeat(3,1fr)}
+.aid-ig .cash-kpi{border-color:#67e8f9}
+.aid-ig .cash-kpi strong,.aid-ig .cash-kpi .cash-unit{color:#0e7490}
+.aid-ig .cash-kpi.on{border-color:#0e7490;box-shadow:0 0 0 3px #cffafe}
+.aid-ig .ibar{background:#cffafe}
+.aid-ig .ibar i{background:#0e7490}
+.aid-ig .ibar-row{grid-template-columns:minmax(7em,34%) 1fr 6.2em}
+@media(max-width:760px){.aid-ig{padding:16px 14px 14px}.aid-ig .cash-kpis{grid-template-columns:1fr}}
 
 .overview{margin:0 0 8px}
 .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
@@ -1096,12 +1115,20 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="wrap">
     <p class="kicker" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
     <h2 class="vis-title" data-i18n="hero_overview">बाढीको स्थिति · ११ भदौ</h2>
+    <div class="snap-row">
     <a class="cash-snap" href="#donate" id="hero-cash">
       <span class="kpi-k" data-i18n="hero_cash_h">राहत रकम जम्मा</span>
       <strong class="num">३</strong>
       <span class="cash-unit" data-i18n="cash_crore">करोड रुपैयाँ</span>
       <span class="cash-sub" data-i18n="hero_cash_sub">कुमारी बैंक · प्रकाशित हस्तान्तरण</span>
     </a>
+    <a class="cash-snap aid-snap" href="#aid" id="hero-aid">
+      <span class="kpi-k" data-i18n="hero_aid_h">वैदेशिक सहयोग</span>
+      <strong class="num">४७.५</strong>
+      <span class="cash-unit" data-i18n="hero_aid_unit">टन · भारत</span>
+      <span class="cash-sub" data-i18n="hero_aid_sub">दुई उडान पठाइएको · IFRC USD १.२ मिलियन</span>
+    </a>
+    </div>
     <p class="lede sr-only" data-i18n-html="lede">आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। टिमुरे <strong>९५</strong> (विदेशी ८), हाकु टनेल <strong>७</strong>, भारतीय पर्यटक <strong>२१</strong>। शव <strong>२७०</strong>। SitRep-3 जिल्ला: चितवन ६४ · गोरखा १९ · धादिङ १८ · नुवाकोट ११ · तनहुँ ९ · रसुवा १ · नवलपरासी पूर्व १ (जम्मा १२३)। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। नदी किनार नजानुहोस्।</p>
     <div class="overview" id="overview">
       <div class="kpi-row" role="tablist" aria-label="मुख्य आंकडा" data-i18n-aria="kpi_aria">
@@ -2382,6 +2409,43 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 <section id="aid">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_aid">वैदेशिक सहयोग</h2></div>
+  <article class="aid-ig" id="aid-ig">
+    <h3 data-i18n="aid_ig_h">वैदेशिक सहयोग अपडेट</h3>
+    <p class="cash-lead" data-i18n-html="aid_ig_lead">पठाइएको माल र कोष मात्र। प्रस्ताव अलग। त्रिभुवनमा हस्तान्तरण पुष्टि छैन। नगद सरकारको खातामा आएको पुष्टि छैन।</p>
+    <div class="cash-kpis" role="tablist" aria-label="वैदेशिक सहयोग">
+      <button type="button" class="cash-kpi on" data-aid="sent" aria-selected="true">
+        <span class="kpi-k" data-i18n="aid_sent_k">पठाइएको माल</span>
+        <strong class="num">४७.५</strong>
+        <span class="cash-unit" data-i18n="aid_ton">टन</span>
+      </button>
+      <button type="button" class="cash-kpi" data-aid="ifrc" aria-selected="false">
+        <span class="kpi-k" data-i18n="aid_ifrc_k">IFRC DREF</span>
+        <strong class="num">१.२</strong>
+        <span class="cash-unit" data-i18n="aid_usd">मिलियन USD</span>
+      </button>
+      <button type="button" class="cash-kpi" data-aid="offer" aria-selected="false">
+        <span class="kpi-k" data-i18n="aid_offer_k">प्रस्ताव</span>
+        <strong data-i18n="aid_offer_v">जारी</strong>
+      </button>
+    </div>
+    <div class="cash-panes">
+      <div class="cash-pane on" data-aid="sent">
+        <p class="ov-cap" data-i18n="aid_sent_cap">भारत दुई उडान · कार्ड थिचेर विवरण</p>
+        <div class="ibar-row"><span data-i18n="aid_in2">दोस्रो उडान</span><b class="ibar"><i style="width:100%"></i></b><em><span class="num">३७.५</span> <span data-i18n="aid_ton">टन</span></em></div>
+        <div class="ibar-row"><span data-i18n="aid_in1">पहिलो उडान</span><b class="ibar"><i style="width:27%"></i></b><em><span class="num">१०</span> <span data-i18n="aid_ton">टन</span></em></div>
+        <p class="cash-note" data-i18n-html="aid_sent_note">जयशंकर: पहिलो १० टन HADR (२६ अगस्ट) + दोस्रो ३७.५ टन (११ भदौ, औषधि/खाद्यान्न)। WHO औषधि/टेन्ट पनि पठाइएको (टन नखुलेको)। त्रिभुवन हस्तान्तरण पुष्टि छैन।</p>
+      </div>
+      <div class="cash-pane" data-aid="ifrc">
+        <p class="ov-cap" data-i18n="aid_ifrc_cap">IFRC · USD १.२ मिलियन DREF</p>
+        <div class="ibar-row"><span>IFRC</span><b class="ibar"><i style="width:100%"></i></b><em>USD <span class="num">१.२</span>m</em></div>
+        <p class="cash-note" data-i18n="aid_ifrc_note">नेपाल रेडक्रसलाई आपत्कालीन कोष। सरकारको खातामा आएको होइन।</p>
+      </div>
+      <div class="cash-pane" data-aid="offer">
+        <p class="ov-cap" data-i18n="aid_offer_cap">प्रस्ताव · प्राप्त होइन</p>
+        <p class="cash-note" data-i18n-html="aid_offer_note">युरोपेली संघ Copernicus EMSR927, अमेरिका सहयोग तयार, चीन नगद प्रक्रिया, विश्व बैंक Rs २५ अर्ब सम्भावित। प्राप्त भएको होइन।</p>
+      </div>
+    </div>
+  </article>
   <div class="pager" data-pager="aid">
     <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
     <div class="pboxes pager-pages"></div>
@@ -3755,6 +3819,26 @@ footer .foot-contact a:hover{text-decoration:underline}
   }
   kpis.forEach(function(k){
     k.addEventListener("click", function(){ show(k.getAttribute("data-cash")); });
+  });
+})();
+
+(function(){
+  var root = document.getElementById("aid-ig");
+  if (!root) return;
+  var kpis = [].slice.call(root.querySelectorAll(".cash-kpi"));
+  var panes = [].slice.call(root.querySelectorAll(".cash-pane"));
+  function show(id){
+    kpis.forEach(function(k){
+      var on = k.getAttribute("data-aid") === id;
+      k.classList.toggle("on", on);
+      k.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    panes.forEach(function(p){
+      p.classList.toggle("on", p.getAttribute("data-aid") === id);
+    });
+  }
+  kpis.forEach(function(k){
+    k.addEventListener("click", function(){ show(k.getAttribute("data-aid")); });
   });
 })();
 
