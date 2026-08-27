@@ -719,15 +719,38 @@ footer .foot-contact a:hover{text-decoration:underline}
 .fund .bank-en{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-top:1px}
 .fund th.swift,.fund td.swift{width:7.6em;vertical-align:middle}
 .fund td.swift button.acct{font-size:13px;letter-spacing:.03em;padding:8px 8px;margin:0}
-.fund th.qr,.fund td.qr{width:88px;text-align:center;vertical-align:middle;word-break:normal}
+.fund th.qr,.fund td.qr{width:132px;text-align:center;vertical-align:middle;word-break:normal}
 .swift-faq{margin:14px 0 8px;padding:16px 16px 12px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
 .swift-faq h3{margin:0 0 10px;font-size:18px;font-weight:800}
 .swift-faq dt{margin:10px 0 4px;font-weight:800;font-size:16px}
 .swift-faq dd{margin:0 0 4px;font-size:15px;line-height:1.55;color:var(--ink)}
 .swift-faq code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;font-weight:700;background:var(--crimson-soft);padding:1px 6px;border-radius:6px}
 .fund td.qr img{
-  width:80px;height:80px;object-fit:contain;display:block;margin:0 auto;
+  width:120px;height:120px;object-fit:contain;display:block;margin:0 auto;
   border-radius:8px;border:1px solid var(--line);background:#fff;
+  image-rendering:pixelated;image-rendering:crisp-edges;
+}
+.fund td.qr a.qr-open{
+  display:inline-block;padding:6px;background:#fff;border-radius:10px;
+  border:1px solid var(--line);line-height:0;
+}
+.fund td.qr a.qr-open:hover{border-color:var(--crimson)}
+.fund-relief td.qr img{width:240px;height:240px}
+.qr-pop{
+  position:fixed;inset:0;z-index:80;background:rgba(15,23,42,.78);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:24px;gap:12px;
+}
+.qr-pop[hidden]{display:none!important}
+.qr-pop img{
+  width:min(92vw,420px);height:auto;background:#fff;padding:18px;
+  border-radius:16px;image-rendering:pixelated;image-rendering:crisp-edges;
+}
+.qr-pop p{margin:0;color:#fff;font-weight:800;font-size:15px;text-align:center}
+.qr-pop button{
+  font:inherit;font-weight:800;font-size:15px;cursor:pointer;
+  background:#fff;color:var(--ink);border:0;border-radius:999px;
+  padding:10px 18px;min-height:44px;
 }
 @media (max-width:760px){
   .fund table,.fund thead,.fund tbody,.fund th{display:block;width:100%}
@@ -745,7 +768,8 @@ footer .foot-contact a:hover{text-decoration:underline}
   .fund td:nth-child(2){font-weight:800;font-size:16px;padding-bottom:6px}
   .fund td.swift{width:auto}
   .fund td.qr{width:auto;padding-top:8px;text-align:left}
-  .fund td.qr img{margin:0}
+  .fund td.qr img{margin:0;width:200px;height:200px}
+  .fund-relief td.qr img{width:min(86vw,280px);height:auto}
   .fund td.acct::before,.fund td.swift::before,.fund td.qr::before{
     display:block;font-size:11px;font-weight:800;color:var(--muted);margin:6px 0 4px;
   }
@@ -1054,23 +1078,23 @@ footer .foot-contact a:hover{text-decoration:underline}
     <table>
       <thead><tr><th data-i18n="sn">सि.नं.</th><th data-i18n="bank">बैंक</th><th data-i18n="acct_no">खाता नम्बर</th><th>SWIFT</th><th class="qr">QR</th></tr></thead>
       <tbody>
-        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्" data-i18n-title="copy">1130100003762001</button><button type="button" class="acct" data-acct="1130100000006006" title="कपी गर्नुहोस्" data-i18n-title="copy">1130100000006006</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">RBBANPKA</button></td><td class="qr"><img src="img/qr-rbb-disaster.png" width="170" height="170" alt="राष्ट्रिय वाणिज्य बैंक QR"></td></tr>
-        <tr><td>२</td><td>नेपाल बैंक<small class="bank-en">Nepal Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्" data-i18n-title="copy">00211600510039000003</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्" data-i18n-title="copy">00200100510039000001</button></td><td class="swift"><button type="button" class="acct" data-acct="NEBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NEBLNPKA</button></td><td class="qr"><img src="img/qr-nbl-disaster.png" width="173" height="173" alt="नेपाल बैंक QR"></td></tr>
-        <tr><td>३</td><td>कृषि विकास बैंक<small class="bank-en">Agricultural Development Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्" data-i18n-title="copy">0100201002907014</button></td><td class="swift"><button type="button" class="acct" data-acct="ADBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">ADBLNPKA</button></td><td class="qr"><img src="img/qr-adbl-disaster.png" width="170" height="170" alt="कृषि विकास बैंक QR"></td></tr>
-        <tr><td>४</td><td>एभरेष्ट बैंक<small class="bank-en">Everest Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्" data-i18n-title="copy">00100105200270</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्" data-i18n-title="copy">00101102200012</button></td><td class="swift"><button type="button" class="acct" data-acct="EVBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">EVBLNPKA</button></td><td class="qr"><img src="img/qr-ebl-disaster.png" width="169" height="169" alt="एभरेष्ट बैंक QR"></td></tr>
-        <tr><td>५</td><td>ग्लोबल आइएमई बैंक<small class="bank-en">Global IME Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्" data-i18n-title="copy">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्" data-i18n-title="copy">00411010000005</button></td><td class="swift"><button type="button" class="acct" data-acct="GLBBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">GLBBNPKA</button></td><td class="qr"><img src="img/qr-gibl-disaster.png" width="172" height="172" alt="ग्लोबल आइएमई बैंक QR"></td></tr>
-        <tr><td>६</td><td>नबिल बैंक<small class="bank-en">Nabil Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्" data-i18n-title="copy">1710017505285</button></td><td class="swift"><button type="button" class="acct" data-acct="NARBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NARBNPKA</button></td><td class="qr"><img src="img/qr-nabil-disaster.png" width="171" height="171" alt="नबिल बैंक QR"></td></tr>
-        <tr><td>७</td><td>स्टान्डर्ड चार्टर्ड बैंक<small class="bank-en">Standard Chartered Bank Nepal Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">02013243801</button></td><td class="swift"><button type="button" class="acct" data-acct="SCBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">SCBLNPKA</button></td><td class="qr"><img src="img/qr-scb-disaster.png" width="168" height="168" alt="स्टान्डर्ड चार्टर्ड बैंक QR"></td></tr>
+        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्" data-i18n-title="copy">1130100003762001</button><button type="button" class="acct" data-acct="1130100000006006" title="कपी गर्नुहोस्" data-i18n-title="copy">1130100000006006</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">RBBANPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-rbb-disaster.png" target="_blank" rel="noopener"><img src="img/qr-rbb-disaster.png" width="170" height="170" alt="राष्ट्रिय वाणिज्य बैंक QR"></a></td></tr>
+        <tr><td>२</td><td>नेपाल बैंक<small class="bank-en">Nepal Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्" data-i18n-title="copy">00211600510039000003</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्" data-i18n-title="copy">00200100510039000001</button></td><td class="swift"><button type="button" class="acct" data-acct="NEBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NEBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-nbl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-nbl-disaster.png" width="173" height="173" alt="नेपाल बैंक QR"></a></td></tr>
+        <tr><td>३</td><td>कृषि विकास बैंक<small class="bank-en">Agricultural Development Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्" data-i18n-title="copy">0100201002907014</button></td><td class="swift"><button type="button" class="acct" data-acct="ADBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">ADBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-adbl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-adbl-disaster.png" width="170" height="170" alt="कृषि विकास बैंक QR"></a></td></tr>
+        <tr><td>४</td><td>एभरेष्ट बैंक<small class="bank-en">Everest Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्" data-i18n-title="copy">00100105200270</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्" data-i18n-title="copy">00101102200012</button></td><td class="swift"><button type="button" class="acct" data-acct="EVBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">EVBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-ebl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-ebl-disaster.png" width="169" height="169" alt="एभरेष्ट बैंक QR"></a></td></tr>
+        <tr><td>५</td><td>ग्लोबल आइएमई बैंक<small class="bank-en">Global IME Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्" data-i18n-title="copy">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्" data-i18n-title="copy">00411010000005</button></td><td class="swift"><button type="button" class="acct" data-acct="GLBBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">GLBBNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-gibl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-gibl-disaster.png" width="172" height="172" alt="ग्लोबल आइएमई बैंक QR"></a></td></tr>
+        <tr><td>६</td><td>नबिल बैंक<small class="bank-en">Nabil Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्" data-i18n-title="copy">1710017505285</button></td><td class="swift"><button type="button" class="acct" data-acct="NARBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NARBNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-nabil-disaster.png" target="_blank" rel="noopener"><img src="img/qr-nabil-disaster.png" width="171" height="171" alt="नबिल बैंक QR"></a></td></tr>
+        <tr><td>७</td><td>स्टान्डर्ड चार्टर्ड बैंक<small class="bank-en">Standard Chartered Bank Nepal Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">02013243801</button></td><td class="swift"><button type="button" class="acct" data-acct="SCBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">SCBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-scb-disaster.png" target="_blank" rel="noopener"><img src="img/qr-scb-disaster.png" width="168" height="168" alt="स्टान्डर्ड चार्टर्ड बैंक QR"></a></td></tr>
         <tr><td>८</td><td>हिमालयन बैंक<small class="bank-en">Himalayan Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्" data-i18n-title="copy">01905631210046 <span class="usd">$</span></button></td><td class="swift"><button type="button" class="acct" data-acct="HIMANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">HIMANPKA</button></td><td class="qr"></td></tr>
       </tbody>
     </table>
       </article>
-      <article class="fund">
+      <article class="fund fund-relief">
         <h3 data-i18n="fund_relief">प्रधानमन्त्री राहत कोष</h3>
     <table>
       <thead><tr><th data-i18n="sn">सि.नं.</th><th data-i18n="bank">बैंक</th><th data-i18n="acct_no">खाता नम्बर</th><th>SWIFT</th><th class="qr">QR</th></tr></thead>
       <tbody>
-        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1430100000025006" title="कपी गर्नुहोस्" data-i18n-title="copy">1430100000025006</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्" data-i18n-title="copy">1430100001164001</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">RBBANPKA</button></td><td class="qr"><img src="img/qr-rbb-relief.png" width="167" height="167" alt="राष्ट्रिय वाणिज्य बैंक QR · राहत कोष"></td></tr>
+        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1430100000025006" title="कपी गर्नुहोस्" data-i18n-title="copy">1430100000025006</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्" data-i18n-title="copy">1430100001164001</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">RBBANPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-rbb-relief.png" target="_blank" rel="noopener"><img src="img/qr-rbb-relief.png" width="167" height="167" alt="राष्ट्रिय वाणिज्य बैंक QR · राहत कोष"></a></td></tr>
       </tbody>
     </table>
       </article>
@@ -3241,6 +3265,11 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
 </div>
 
+<div class="qr-pop" id="qr-pop" hidden>
+  <img id="qr-pop-img" alt="">
+  <p data-i18n="qr_scan">QR ठूलो पारेर स्क्यान गर्नुहोस्</p>
+  <button type="button" id="qr-pop-x" data-i18n="close">बन्द</button>
+</div>
 <footer>
   <p class="foot-contact" data-i18n-html="foot_contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
   <span data-i18n-html="footer">Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
@@ -4058,6 +4087,32 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   });
   window.addEventListener("resize", function(){
     if (window.matchMedia("(min-width:761px)").matches) close();
+  });
+})();
+
+(function(){
+  var pop = document.getElementById("qr-pop");
+  var img = document.getElementById("qr-pop-img");
+  var x = document.getElementById("qr-pop-x");
+  if (!pop || !img) return;
+  function close(){ pop.hidden = true; document.body.style.overflow = ""; }
+  function open(src, alt){
+    img.src = src;
+    img.alt = alt || "";
+    pop.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+  document.querySelectorAll("a.qr-open").forEach(function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      var im = a.querySelector("img");
+      open(a.getAttribute("href"), im ? im.alt : "");
+    });
+  });
+  if (x) x.addEventListener("click", close);
+  pop.addEventListener("click", function(e){ if (e.target === pop) close(); });
+  document.addEventListener("keydown", function(e){
+    if (!pop.hidden && e.key === "Escape") close();
   });
 })();
 </script>
