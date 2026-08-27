@@ -188,7 +188,9 @@ img{max-width:100%;display:block}
 .plants tr.hit td{background:#fff7ed}
 .plants .tag{display:inline-block;font-size:11px;font-weight:800;background:#9a3412;color:#fff;padding:1px 7px;border-radius:8px;margin-left:6px}
 .plants tfoot td{font-weight:800;border-bottom:0;padding-top:10px}
-.treat-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 4px}
+.treat-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 4px;mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 18px),transparent)}
+.treat-wrap::-webkit-scrollbar{height:6px}
+.treat-wrap::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:99px}
 .treat{min-width:0}
 .treat.treat-wide{min-width:760px}
 .shelter-tbl,.surya-tbl{min-width:480px}
@@ -202,7 +204,7 @@ img{max-width:100%;display:block}
 }
 a.js-found-row{
   display:inline-flex;align-items:center;justify-content:center;
-  padding:3px 10px;border-radius:999px;
+  padding:10px 12px;border-radius:999px;min-height:44px;
   font-size:13px;font-weight:800;line-height:1.2;
   background:#f1f5f9;color:#334155;border:1px solid var(--line);
   text-decoration:none;white-space:nowrap;
@@ -229,7 +231,7 @@ a.js-found-row[hidden]{display:none}
 .chips::-webkit-scrollbar{display:none}
 .chips-inner{width:max-content;min-width:100%;margin:0 auto;padding:8px 16px;display:flex;gap:8px;flex-wrap:nowrap}
 .chips a{
-  display:inline-block;padding:7px 12px;border-radius:999px;
+  display:inline-flex;align-items:center;padding:8px 12px;min-height:40px;border-radius:999px;
   background:#fff;border:1px solid var(--line);color:var(--ink);
   font-size:15px;font-weight:600;text-decoration:none;
 }
@@ -239,10 +241,10 @@ a.js-found-row[hidden]{display:none}
 
 .hero-map{padding:14px 0 6px}.hero-map .sec-head{margin-bottom:10px}
 #flood-map{
-  height:min(70vh, 480px);width:100%;border-radius:14px;
-  background:#d6e4ee;z-index:1;border:1px solid var(--line);
+  height:min(70vh, 480px);width:100%;max-width:100%;border-radius:14px;
+  background:#d6e4ee;z-index:1;border:1px solid var(--line);overflow:hidden;
 }
-#flood-map .leaflet-container{font-family:inherit;z-index:1}
+#flood-map .leaflet-container{font-family:inherit;z-index:1;width:100%!important;max-width:100%}
 #flood-map .leaflet-tile,
 #flood-map .leaflet-marker-icon,
 #flood-map .leaflet-pane img,
@@ -416,6 +418,7 @@ section{padding:22px 0}
 }
 .pboxes::-webkit-scrollbar{display:none}
 .pcount{flex:none;margin:0;font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap}
+.pdots{flex:none;padding:0 2px;font-weight:800;color:var(--muted);line-height:38px}
 .is-hidden{display:none!important}
 section{scroll-margin-top:0}
 
@@ -571,6 +574,8 @@ footer .foot-contact a:hover{text-decoration:underline}
   .lb-prev{left:4px}
   .lb-next{right:4px}
   .police-alert-phones{font-size:clamp(16px,4.5vw,22px)}
+  .fam-card{padding-right:64px}
+  .fund button.acct{font-size:14px;padding:12px 10px}
 }
 
 .wl{
@@ -667,7 +672,7 @@ footer .foot-contact a:hover{text-decoration:underline}
   font-variant-numeric:tabular-nums;color:var(--crimson);background:#fff;
   border:1px dashed var(--line);border-radius:10px;padding:10px 10px;margin:4px 0;
   cursor:pointer;-webkit-tap-highlight-color:transparent;
-  overflow-wrap:anywhere;word-break:break-all;
+  white-space:nowrap;overflow-x:auto;word-break:normal;overflow-wrap:normal;
 }
 .fund button.acct:hover,.fund button.acct.copied{border-color:var(--crimson);background:var(--crimson-soft)}
 .fund .usd{font-size:12px;font-weight:800;color:var(--muted);flex:none}
@@ -812,7 +817,7 @@ footer .foot-contact a:hover{text-decoration:underline}
   appearance:none;-webkit-appearance:none;
   font:inherit;font-weight:800;font-size:14px;letter-spacing:.04em;
   border:0;background:#efeae2;color:#1c1917;
-  padding:8px 14px;min-width:48px;border-radius:999px;cursor:pointer;line-height:1.1;
+  padding:8px 14px;min-width:44px;min-height:44px;border-radius:999px;cursor:pointer;line-height:1.1;
 }
 .lang-switch button[aria-pressed="true"]{
   background:var(--crimson);color:#fff;
@@ -3391,7 +3396,19 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
         f.classList.toggle("is-hidden", !on);
       });
       pagesEl.innerHTML = "";
+      var keep = {};
+      function mark(n){ if (n >= 0 && n < pages) keep[n] = true; }
+      mark(0); mark(pages - 1);
+      for (var i = page - 2; i <= page + 2; i++) mark(i);
+      var lastShown = -2;
       for (var n = 0; n < pages; n++) {
+        if (!keep[n]) continue;
+        if (lastShown >= 0 && n > lastShown + 1) {
+          var d = document.createElement("span");
+          d.className = "pdots";
+          d.textContent = "…";
+          pagesEl.appendChild(d);
+        }
         var b = document.createElement("button");
         b.type = "button";
         b.className = "pbox" + (n === page ? " active" : "");
@@ -3399,6 +3416,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
         b.setAttribute("aria-label", (window.t ? t("page") : "पेज") + " " + (n + 1));
         (function(idx){ b.addEventListener("click", function(){ page = idx; paint(true); }); })(n);
         pagesEl.appendChild(b);
+        lastShown = n;
       }
       var from = page * PAGE + 1;
       var to = Math.min((page + 1) * PAGE, items.length);
