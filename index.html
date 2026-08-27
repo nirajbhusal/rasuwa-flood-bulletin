@@ -1009,35 +1009,60 @@ footer .foot-contact a:hover{text-decoration:underline}
 }
 .fund{
   background:#fff;border:1px solid var(--line);border-radius:16px;
-  padding:16px 14px 10px;box-shadow:var(--shadow);margin:0 0 12px;
+  padding:18px 16px 12px;box-shadow:var(--shadow);margin:0 0 16px;
 }
-.fund h3{margin:0 0 10px;font-size:19px;font-weight:800;color:var(--ink);line-height:1.3}
-.fund table{width:100%;border-collapse:collapse;font-size:16px;table-layout:fixed}
-.fund th,.fund td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle;word-break:break-word}
-.fund th{font-size:13px;font-weight:800;color:var(--muted);vertical-align:bottom}
-.fund th:first-child,.fund td:first-child{width:2.4em;white-space:nowrap}
-.fund .bank-ne{font-weight:700;line-height:1.35;color:var(--ink)}
+.fund h3{margin:0 0 12px;font-size:20px;font-weight:800;color:var(--ink);line-height:1.3}
+.fund table{width:100%;border-collapse:separate;border-spacing:0;font-size:16px}
+.fund thead{
+  position:sticky;
+  top:var(--stick, 52px);
+  z-index:15;
+}
+.fund thead th{
+  position:sticky;
+  top:var(--stick, 52px);
+  z-index:15;
+  background:rgba(246,243,238,.98);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:2px solid var(--line);
+  font-size:14px;font-weight:800;color:var(--muted);
+  padding:12px 10px;text-align:left;vertical-align:middle;
+  box-shadow:0 3px 6px rgba(15,23,42,.04);
+}
+.fund td{
+  padding:12px 10px;border-bottom:1px solid var(--line);
+  text-align:left;vertical-align:middle;word-break:break-word;
+}
+.fund th:first-child,.fund td:first-child{width:2.4em;text-align:center;white-space:nowrap;font-weight:700}
+.fund .bank-ne{font-weight:750;font-size:16.5px;line-height:1.35;color:var(--ink)}
 .fund td.acct{font-variant-numeric:tabular-nums;font-weight:700;vertical-align:middle}
 .fund button.acct{
   display:flex;align-items:center;gap:6px;width:100%;text-align:left;
   font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  font-size:14.5px;font-weight:700;letter-spacing:.01em;line-height:1.35;
+  font-size:15.5px;font-weight:700;letter-spacing:.01em;line-height:1.35;
   font-variant-numeric:tabular-nums;color:var(--crimson);background:#fff;
-  border:1px dashed var(--line);border-radius:8px;padding:8px 10px;margin:3px 0;
+  border:1px dashed var(--line);border-radius:8px;padding:8px 12px;margin:3px 0;
   cursor:pointer;-webkit-tap-highlight-color:transparent;
   white-space:nowrap;overflow-x:auto;word-break:normal;overflow-wrap:normal;
+  transition:all .15s ease;
 }
 .fund button.acct:only-child{margin:0}
 .fund button.acct:hover,.fund button.acct.copied{border-color:var(--crimson);background:var(--crimson-soft)}
-.fund .usd{font-size:12px;font-weight:800;color:var(--muted);flex:none}
+.fund .usd{
+  font-family:inherit;font-size:11.5px;font-weight:800;
+  color:#0369a1;background:#e0f2fe;border:1px solid #bae6fd;
+  padding:2px 7px;border-radius:6px;margin-left:auto;
+  letter-spacing:.02em;flex:none;line-height:1.3;
+}
 .fund-foot{margin:4px 0 0;font-size:15px;color:var(--muted)}
 .fund .bank-en, .fund button.bank-en{
   display:flex;align-items:center;gap:4px;
   width:fit-content;max-width:100%;
-  font-family:inherit;font-size:12px;font-weight:700;
+  font-family:inherit;font-size:13px;font-weight:700;
   color:var(--muted);background:#f8fafc;
   border:1px dashed var(--line);border-radius:6px;
-  padding:2px 7px;margin-top:4px;
+  padding:3px 8px;margin-top:5px;
   cursor:pointer;line-height:1.35;
   transition:all .15s ease;-webkit-tap-highlight-color:transparent;
   text-align:left;
@@ -1050,25 +1075,27 @@ footer .foot-contact a:hover{text-decoration:underline}
   color:#15803d;background:#ecfdf5;
   border-color:#86efac;font-weight:800;
 }
-.fund th.swift,.fund td.swift{width:7.6em;vertical-align:middle}
-.fund td.swift button.acct{font-size:13px;letter-spacing:.03em;padding:8px 8px;margin:0}
-.fund th.qr,.fund td.qr{width:132px;text-align:center;vertical-align:middle;word-break:normal}
-.swift-faq{margin:14px 0 8px;padding:16px 16px 12px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
-.swift-faq h3{margin:0 0 10px;font-size:18px;font-weight:800}
-.swift-faq dt{margin:10px 0 4px;font-weight:800;font-size:16px}
-.swift-faq dd{margin:0 0 4px;font-size:15px;line-height:1.55;color:var(--ink)}
-.swift-faq code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;font-weight:700;background:var(--crimson-soft);padding:1px 6px;border-radius:6px}
+.fund th.swift,.fund td.swift{width:8.5em;vertical-align:middle}
+.fund td.swift button.acct{font-size:14.5px;letter-spacing:.03em;padding:8px 10px;margin:0}
+.fund th.qr,.fund td.qr{width:180px;text-align:center;vertical-align:middle;word-break:normal}
+.fund .swift-faq{margin:14px 0 8px;padding:16px 16px 12px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.fund .swift-faq h3{margin:0 0 10px;font-size:18px;font-weight:800}
+.fund .swift-faq dt{margin:10px 0 4px;font-weight:800;font-size:16px}
+.fund .swift-faq dd{margin:0 0 4px;font-size:15px;line-height:1.55;color:var(--ink)}
+.fund .swift-faq code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;font-weight:700;background:var(--crimson-soft);padding:1px 6px;border-radius:6px}
 .fund td.qr img{
-  width:120px;height:120px;object-fit:contain;display:block;margin:0 auto;
+  width:150px;height:150px;object-fit:contain;display:block;margin:0 auto;
   border-radius:8px;border:1px solid var(--line);background:#fff;
   image-rendering:pixelated;image-rendering:crisp-edges;
+  transition:transform .15s ease, box-shadow .15s ease;
 }
 .fund td.qr a.qr-open{
-  display:inline-block;padding:6px;background:#fff;border-radius:10px;
+  display:inline-block;padding:5px;background:#fff;border-radius:10px;
   border:1px solid var(--line);line-height:0;
+  transition:border-color .15s ease, transform .15s ease;
 }
-.fund td.qr a.qr-open:hover{border-color:var(--crimson)}
-.fund-relief td.qr img{width:240px;height:240px}
+.fund td.qr a.qr-open:hover{border-color:var(--crimson);transform:scale(1.02)}
+.fund-relief td.qr img{width:220px;height:220px}
 .qr-pop{
   position:fixed;inset:0;z-index:80;background:rgba(15,23,42,.78);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -1584,7 +1611,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         <tr><td>५</td><td><div class="bank-ne">ग्लोबल आइएमई बैंक</div><button type="button" class="bank-en" data-acct="Global IME Bank Ltd." title="कपी गर्नुहोस्" data-i18n-title="copy">Global IME Bank Ltd.</button></td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्" data-i18n-title="copy">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्" data-i18n-title="copy">00411010000005</button></td><td class="swift"><button type="button" class="acct" data-acct="GLBBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">GLBBNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-gibl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-gibl-disaster.png" width="172" height="172" alt="ग्लोबल आइएमई बैंक QR"></a></td></tr>
         <tr><td>६</td><td><div class="bank-ne">नबिल बैंक</div><button type="button" class="bank-en" data-acct="Nabil Bank" title="कपी गर्नुहोस्" data-i18n-title="copy">Nabil Bank</button></td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्" data-i18n-title="copy">1710017505285</button></td><td class="swift"><button type="button" class="acct" data-acct="NARBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NARBNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-nabil-disaster.png" target="_blank" rel="noopener"><img src="img/qr-nabil-disaster.png" width="171" height="171" alt="नबिल बैंक QR"></a></td></tr>
         <tr><td>७</td><td><div class="bank-ne">स्टान्डर्ड चार्टर्ड बैंक</div><button type="button" class="bank-en" data-acct="Standard Chartered Bank Nepal Ltd." title="कपी गर्नुहोस्" data-i18n-title="copy">Standard Chartered Bank Nepal Ltd.</button></td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">02013243801</button></td><td class="swift"><button type="button" class="acct" data-acct="SCBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">SCBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-scb-disaster.png" target="_blank" rel="noopener"><img src="img/qr-scb-disaster.png" width="168" height="168" alt="स्टान्डर्ड चार्टर्ड बैंक QR"></a></td></tr>
-        <tr><td>८</td><td><div class="bank-ne">हिमालयन बैंक</div><button type="button" class="bank-en" data-acct="Himalayan Bank Limited" title="कपी गर्नुहोस्" data-i18n-title="copy">Himalayan Bank Limited</button></td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्" data-i18n-title="copy">01905631210046 <span class="usd">$</span></button></td><td class="swift"><button type="button" class="acct" data-acct="HIMANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">HIMANPKA</button></td><td class="qr"></td></tr>
+        <tr><td>८</td><td><div class="bank-ne">हिमालयन बैंक</div><button type="button" class="bank-en" data-acct="Himalayan Bank Limited" title="कपी गर्नुहोस्" data-i18n-title="copy">Himalayan Bank Limited</button></td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्" data-i18n-title="copy">01905631210046 <span class="usd">USD ($)</span></button></td><td class="swift"><button type="button" class="acct" data-acct="HIMANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">HIMANPKA</button></td><td class="qr"></td></tr>
       </tbody>
     </table>
       </article>
