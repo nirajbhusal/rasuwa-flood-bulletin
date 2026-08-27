@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T22:43:51.166869+05:45",
+  "updated_at": "2026-08-27T22:55:42.016410+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -5406,6 +5406,24 @@
       "phone": "+15032687927",
       "note": "फारम 22:21",
       "when": "Wednesday at 8:15 AM"
+    },
+    {
+      "id": "sheet-20260827-222425-shekhar-dhungana",
+      "name": "Shekhar Dhungana",
+      "age": "51",
+      "place": "Kathmandu-Kirtipur · Kerung",
+      "when": "Bhangra 10, Wednesday at 8:15AM",
+      "phone": "+15032687927",
+      "note": null
+    },
+    {
+      "id": "sheet-20260827-222621-nirmala-dhungana",
+      "name": "Nirmala Dhungana",
+      "age": "48",
+      "place": "Kathmandu-Kirtipur · Kerung",
+      "when": "Bhadra 10, Wednesday 10th at 8:20AM",
+      "phone": "+15032687927",
+      "note": null
     }
   ],
   "found": [
