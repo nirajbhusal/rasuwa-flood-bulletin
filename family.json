@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T13:33:00+05:45",
+  "updated_at": "2026-08-27T13:41:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,23 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-133416-lila-bahadur-deuja",
+      "name": "Lila Bahadur Deuja",
+      "age": "48",
+      "place": "Sindhupalchok, Barhabise-7 Danda Gaun · Rasuwa Timure ghatte kullo",
+      "when": "२०८३-०५-१०",
+      "phone": "9748299275",
+      "note": "फारम १३:३४ · casual · बाबा सम्पर्कविहीन"
+    },
+    {
+      "id": "sheet-20260827-133330-rajesh-timalsina",
+      "name": "Rajesh Timalsina",
+      "place": "Rasuwagadhi Border Path (Nepal checkpoint–China border)",
+      "when": "२६ अगस्ट · ८:००–८:४५",
+      "phone": "9860128691",
+      "note": "फारम १३:३३ · Trekking guide · Mighty Himalaya Trek"
+    },
     {
       "id": "sheet-20260827-133204-deepak-deo",
       "name": "Deepak Deo",
