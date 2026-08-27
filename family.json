@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T20:44:40+05:45",
+  "updated_at": "2026-08-27T21:04:09+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,120 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-204237-bam-bahadur-magar",
+      "name": "Bam Bahadur Magar",
+      "age": "40",
+      "place": "Doramba-2, Ramechhap · Timure, Rasuwa",
+      "when": "2083/05/10 (around 8:15 am)",
+      "phone": "9866459090, 9861296912",
+      "note": "फारम २०:४२ · Dambar Bahadur Magar / Surya Bahadur Magar / Bam Bahadur Tamang सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-204239-raimonds-furmanis",
+      "name": "Raimonds Furmanis",
+      "age": "49",
+      "place": "Latvia, Garkalne, Meznoru str 15 · Rasuwagadhi / Gyirong Port",
+      "when": "26.08.2026 - 9.53",
+      "phone": "+371 26 513 931",
+      "note": "फारम २०:४२ · height 195 cm · trekking trousers gray, fleece jacket grey/blue · Agnese Furmane सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260827-204514-surya-bahadur-magar",
+      "name": "Surya Bahadur Magar",
+      "age": "33",
+      "place": "Doramba-2, Ramechhap · Timure, Rasuwa",
+      "when": "2083/05/10 (around 8:15 am)",
+      "phone": "9866459090, 9861296912",
+      "note": "फारम २०:४५ · Dambar Bahadur Magar / Bam Bahadur Magar सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-204648-bijay-thapa",
+      "name": "Bijay Thapa",
+      "age": "30+",
+      "place": "Ramnagar, Mahotari · Mailung Khola 5mw / Trishuli-1",
+      "when": "10th Bhadra",
+      "phone": "9813836074",
+      "note": "फारम २०:४६ · Bijay Pradhan / Bijay Kumar Yadav सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260827-204830-reeta-dangol-pradhan",
+      "name": "Reeta Dangol Pradhan",
+      "age": "30",
+      "place": "Nuwakot · Betrawati",
+      "when": "2083/05/10",
+      "note": "फारम २०:४८ · फोन सीटमा बिग्रिएको (Excel) भएकाले राखिएन · Rajkumar Dangol / Arjun Bahadur Dangol / अन्य डंगोल सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260827-204936-sanjukta-kar",
+      "name": "Sanjukta Kar",
+      "age": "48",
+      "place": "London United Kingdon · Wednesday travel to immigration",
+      "when": "Last message Tuesday evening IST 5.52 pm",
+      "phone": "+91 94335 30975",
+      "note": "फारम २०:४९ · Anal Kar सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-205049-anal-kar",
+      "name": "Anal Kar",
+      "age": "55",
+      "place": "London United Kingdon · Traveling to immigration",
+      "when": "Tuesday evening last message 5.52 pm IST",
+      "phone": "+91 94335 30975",
+      "note": "फारम २०:५० · Sanjukta Kar सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-205108-rajkumar-dangol",
+      "name": "Rajkumar Dangol",
+      "age": "40",
+      "place": "Betrawati nuwakot · Betrawati",
+      "phone": "9849735505, 9841853542",
+      "note": "फारम २०:५१ · His whole family is not found · Reeta Dangol Pradhan / Arjun Bahadur Dangol / Rajkumar Shrestha सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260827-205125-chini-maya-thapa",
+      "name": "Chini Maya Thapa",
+      "age": "68",
+      "place": "Betrawati Bazar, Rasuwa · Betrawati Bazar",
+      "when": "9:20",
+      "phone": "9845341557",
+      "note": "फारम २०:५१ · Maxi with hair bun · It is said she was seen inside the house"
+    },
+    {
+      "id": "sheet-20260827-205252-agnese-furmane",
+      "name": "Agnese Furmane",
+      "age": "52",
+      "place": "Latvia, Garkalne, Meznoru str 15 · Rasuwagadhi / Gyirong Port",
+      "when": "26.08.2026 - 9.53",
+      "phone": "+371 26 513 931",
+      "note": "फारम २०:५२ · height 167 · light grey trekking trousers, light blue jacket · Raimonds Furmanis सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260827-205412-sagar-lamichhane",
+      "name": "Sagar Lamichhane",
+      "age": "29",
+      "place": "Kalika Village Municipality, Rasuwa- Dharagalli · Timure",
+      "when": "2083-05-09",
+      "phone": "9869023017",
+      "note": "फारम २०:५४ · दुब्लो, हल्का जुङ्गा दारी, हाइट 5 फुट 6 इन्च · मामा/माइजु 9843471815 / 9840030114 · Shivo Lamichhane Magar सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260827-205413-sujit-thokra",
+      "name": "Sujit Thokra",
+      "age": "18-19",
+      "place": "Rasuwa · Timure",
+      "when": "9th of Bhadra at timure",
+      "phone": "9860353744",
+      "note": "फारम २०:५४ · Sujan Thokra सँग नमिसाउने (फरक फोन/व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-205418-arjun-bahadur-dangol",
+      "name": "Arjun Bahadur Dangol",
+      "age": "70",
+      "place": "Betrawati nuwakot · Betrawati",
+      "when": "2083/05/10",
+      "note": "फारम २०:५४ · फोन सीटमा बिग्रिएको (Excel) भएकाले राखिएन · Reeta Dangol Pradhan / Rajkumar Dangol / Arjun Nagarkoti सँग नमिसाउने"
+    },
     {
       "id": "sheet-20260827-202504-rajesh-rokka",
       "name": "Rajesh Rokka",
