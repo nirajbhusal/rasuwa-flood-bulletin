@@ -693,6 +693,8 @@ window.I18N_LISTS = {
 "<strong>Teaching Hospital emergency</strong>Setopati · today · Kathmandu"
 ],
 "photos": [
+"<strong>India · second HADR flight</strong>Jaishankar · 11 Bhadra · 37.5 tonnes",
+"<strong>HADR pallets</strong>Jaishankar · 11 Bhadra · medicines/food",
 "<strong>NDRRMA SitRep-3 · Dead 123</strong>NDRRMA · 22:00 · official infographic",
 "<strong>Road after Furke bridge washed away</strong>Setopati · today · Dhading",
 "<strong>Furke · silt island</strong>Setopati · today · Dhading",
@@ -739,6 +741,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "India · second flight 37.5 tonnes",
+"p": "Indian External Affairs Minister S. Jaishankar: a second flight has taken off with <strong>37.5 tonnes</strong> of HADR material, medicines and food packets. Continuous contact with Nepal. Handover not confirmed. <a href=\"https://x.com/DrSJaishankar/status/2092849615360114978\" target=\"_blank\" rel=\"noopener\">@DrSJaishankar</a> · <a href=\"#aid\">Foreign aid</a>."
+},
 {
 "h": "Suresh Simkhada · missing from Timure",
 "p": "Suresh Simkhada (43, Kathmandu) uncontacted from Timure. Phone <a href=\"tel:+9779851096547\">9851096547</a>. Last: Hotel Kailas 8:45. Existing card updated, not a new one. List in <a href=\"#family\">Missing / Found</a>."
@@ -1107,7 +1113,8 @@ window.I18N_LISTS = {
 "<b>NEA staff 133+</b> — Nepal Electricity Authority (<a href=\"https://www.ratopati.com/story/587664/more-than-133-hydropower-employees-and-workers-left-without-contact-in-rasuwa-flood\" target=\"_blank\" rel=\"noopener\">Ratopati</a>): more than <strong>133</strong> hydropower staff/workers uncontacted. Langtang project 60 unchanged."
 ],
 "aid": [
-"<span class=\"aid-tag sent\">Sent</span> <b>India · 10 tonnes HADR</b> (in-kind). Indian External Affairs Minister S. Jaishankar (X, 26 August): humanitarian aid and essential medicines sent. IAF C-130J, Hindon to Kathmandu ~20:35 IST / ~20:50 NPT. Goods: temporary shelter, blankets, hygiene kits, solar lamps, medicines. Foreign Minister Shishir Khanal thanked India. Handover at Tribhuvan not confirmed. A further C-17 was ready for the morning — it did not fly. Sources: <a href=\"https://risingnepaldaily.com/news/85564\" target=\"_blank\" rel=\"noopener\">Gorkhapatra/Rising Nepal</a> · <a href=\"https://ddindia.co.in/2026/08/india-sends-first-tranche-of-relief-materials-to-nepal/\" target=\"_blank\" rel=\"noopener\">DD India</a> · <a href=\"https://theprint.in/diplomacy/india-rushes-1st-tranche-of-aid-to-nepal-10-tonnes-of-relief-material-including-meds-blankets-lamps/3025874/\" target=\"_blank\" rel=\"noopener\">The Print</a> · <a href=\"https://www.thehindu.com/news/international/nepal-floods-live-updates-august-26-2026-several-missing-dead/article71392492.ece\" target=\"_blank\" rel=\"noopener\">The Hindu</a>",
+"<span class=\"aid-tag sent\">Sent</span> <b>India · second flight 37.5 tonnes</b> (in-kind). Indian External Affairs Minister S. Jaishankar (X, ~11:25 · 11 Bhadra): second flight has taken off; <strong>37.5 tonnes</strong> of HADR material, medicines and food packets. Continuous contact with Nepal. Handover at Tribhuvan not confirmed. Source: <a href=\"https://x.com/DrSJaishankar/status/2092849615360114978\" target=\"_blank\" rel=\"noopener\">@DrSJaishankar</a>.",
+"<span class=\"aid-tag sent\">Sent</span> <b>India · first flight 10 tonnes HADR</b> (in-kind). Indian External Affairs Minister S. Jaishankar (X, 26 August): humanitarian aid and essential medicines sent. IAF C-130J, Hindon to Kathmandu ~20:35 IST / ~20:50 NPT. Goods: temporary shelter, blankets, hygiene kits, solar lamps, medicines. Foreign Minister Shishir Khanal thanked India. Handover at Tribhuvan not confirmed. Sources: <a href=\"https://risingnepaldaily.com/news/85564\" target=\"_blank\" rel=\"noopener\">Gorkhapatra/Rising Nepal</a> · <a href=\"https://ddindia.co.in/2026/08/india-sends-first-tranche-of-relief-materials-to-nepal/\" target=\"_blank\" rel=\"noopener\">DD India</a> · <a href=\"https://theprint.in/diplomacy/india-rushes-1st-tranche-of-aid-to-nepal-10-tonnes-of-relief-material-including-meds-blankets-lamps/3025874/\" target=\"_blank\" rel=\"noopener\">The Print</a> · <a href=\"https://www.thehindu.com/news/international/nepal-floods-live-updates-august-26-2026-several-missing-dead/article71392492.ece\" target=\"_blank\" rel=\"noopener\">The Hindu</a>",
 "<span class=\"aid-tag sent\">Sent</span> <b>IFRC · USD 1.2 million</b> (about CHF 1 million) DREF — emergency funds to Nepal Red Cross. IFRC Nepal head David Fisher: allocated so work can start at once. Not arrived in a government account. Source: <a href=\"https://www.cnn.com/2026/08/26/world/live-news/nepal-flash-flooding-floods-intl\" target=\"_blank\" rel=\"noopener\">CNN</a>",
 "<span class=\"aid-tag sent\">Sent</span> <b>WHO</b> (in-kind). Emergency medicines, tents and doctor/health supplies in the affected area. Mentioned with Scouts in the PMO briefing. Source: PMO · <a href=\"https://www.cnn.com/2026/08/26/world/live-news/nepal-flash-flooding-floods-intl\" target=\"_blank\" rel=\"noopener\">CNN / WHO Nepal</a>",
 "<span class=\"aid-tag offer\">Offered</span> <b>European Union</b>. Ursula von der Leyen: ready to mobilise further European support. Copernicus flood mapping active · <a href=\"https://mapping.emergency.copernicus.eu/activations/EMSR927/\" target=\"_blank\" rel=\"noopener\">EMSR927</a> — technical support started. Cash/goods not received. Source: <a href=\"https://www.cnn.com/2026/08/26/world/live-news/nepal-flash-flooding-floods-intl\" target=\"_blank\" rel=\"noopener\">CNN</a>",
