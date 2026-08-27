@@ -560,6 +560,9 @@ a.js-found-row[hidden]{display:none}
 .ibar-row em{font-style:normal;font-variant-numeric:tabular-nums;font-weight:800;color:var(--ink);text-align:right}
 .infobar{margin:12px 0 0}
 .infobar-cap{margin:0 0 4px;font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.stat-tourist .ibar i{background:var(--teal)}
+.stat-tourist .ibar-row{grid-template-columns:minmax(6.2em,32%) 1fr 2.8em}
+.infobar-note{margin:8px 0 0;font-size:12px;font-weight:600;color:var(--muted);line-height:1.45}
 .stat ul.mini li:first-child strong{font-size:28px;letter-spacing:-.02em}
 .lede.sr-only{
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;
@@ -1295,7 +1298,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <p class="police-alert-text"><span data-i18n-html="police_alert">भोटेकोसी नदी रसुवामा तिब्बत तर्फबाट ठुलो बाढी प्रवेश गरेकोले अर्को सूचना नआउँदासम्म त्रिशूली नदीको तटीय क्षेत्रका जिल्लाहरू नुवाकोट, धादिङ, चितवन, गोरखा लगायतका स्थानहरूमा उच्च सतर्कता सहित सुरक्षित स्थानमा रहन अनुरोध छ। </span><span class="src">Nepal Police</span></p>
       <p class="police-alert-phones"><a href="tel:1234" data-i18n="rescue_1234">उद्धार १२३४</a> · <a href="tel:100"><span data-i18n="police">प्रहरी</span> १००</a> · <a href="tel:1114">१११४</a> · <a href="tel:102"><span data-i18n="ambulance">एम्बुलेन्स</span> १०२</a></p>
     </aside>
-    <div class="stats" aria-label="प्रारम्भिक तथ्यांक" data-i18n-aria="stats_aria" data-i18n-list="hero_mini" data-i18n-kind="deep-li">
+    <div class="stats" id="stats" aria-label="प्रारम्भिक तथ्यांक" data-i18n-aria="stats_aria" data-i18n-list="hero_mini" data-i18n-kind="deep-li">
       <div class="stat">
         <b data-i18n="stat_bodies">मृतक संख्या</b>
         <ul class="mini">
@@ -1339,7 +1342,7 @@ footer .foot-contact a:hover{text-decoration:underline}
           <li><a href="#family">जनताको रिपोर्ट</a> <strong id="stat-miss-form">५४०</strong></li>
           <li>हेलो सरकार <strong>१४०</strong></li>
           <li><a href="#family">मधेश प्रहरी</a> <strong>३०</strong> · उद्धार २</li>
-          <li>पर्यटक <strong>४८४</strong></li>
+          <li>पर्यटक <strong>६६८</strong> (नेपाली १२७ · विदेशी ५४१)</li>
           <li>लाङटाङ आयोजना <strong>६०</strong></li>
           <li>गोरखा बस यात्रु <strong>३४</strong></li>
         </ul>
@@ -1347,6 +1350,20 @@ footer .foot-contact a:hover{text-decoration:underline}
           <p class="infobar-cap" data-i18n="infobar_ndrrma">NDRRMA जिल्ला</p>
           <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१६१</em></div>
           <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:4%"></i></b><em class="num">१</em></div>
+        </div>
+        <div class="infobar stat-tourist" aria-hidden="true">
+          <p class="infobar-cap" data-i18n="infobar_tourist">पर्यटक सूची · १४:१५ · जम्मा ६६८</p>
+          <div class="ibar-row"><span data-i18n="d_nepal">नेपाल</span><b class="ibar"><i style="width:71%"></i></b><em class="num">१२७</em></div>
+          <div class="ibar-row"><span data-i18n="d_india">भारत</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१७८</em></div>
+          <div class="ibar-row"><span data-i18n="d_usa">अमेरिका</span><b class="ibar"><i style="width:37%"></i></b><em class="num">६५</em></div>
+          <div class="ibar-row"><span data-i18n="d_ukraine">युक्रेन</span><b class="ibar"><i style="width:30%"></i></b><em class="num">५३</em></div>
+          <div class="ibar-row"><span data-i18n="d_malaysia">मलेसिया</span><b class="ibar"><i style="width:29%"></i></b><em class="num">५१</em></div>
+          <div class="ibar-row"><span data-i18n="d_australia">अस्ट्रेलिया</span><b class="ibar"><i style="width:20%"></i></b><em class="num">३५</em></div>
+          <div class="ibar-row"><span data-i18n="d_uk">बेलायत</span><b class="ibar"><i style="width:19%"></i></b><em class="num">३३</em></div>
+          <div class="ibar-row"><span data-i18n="d_canada">क्यानडा</span><b class="ibar"><i style="width:14%"></i></b><em class="num">२५</em></div>
+          <div class="ibar-row"><span data-i18n="d_china">चीन</span><b class="ibar"><i style="width:13%"></i></b><em class="num">२४</em></div>
+          <div class="ibar-row"><span data-i18n="d_other">अन्य</span><b class="ibar"><i style="width:43%"></i></b><em class="num">७७</em></div>
+          <p class="infobar-note" data-i18n="tourist_ibar_note">पुरुष ३४१ · महिला ३२७ · स्रोत १४:१५, २७ अगस्ट। NDRRMA २४५ अलग।</p>
         </div>
       </div>
       <div class="stat">
@@ -1425,7 +1442,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
     </div>
-    <p class="stats-note" data-i18n-html="stats_note">शव <strong>३५९</strong>। प्रहरी जिल्ला: चितवन १३२ · नवलपरासी पूर्व ८२ · धादिङ ३३ · गोरखा ३० · नुवाकोट २८ · तनहुँ २२ · रसुवा १७ · नवलपरासी पश्चिम १५। आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong> (टिमुरे ९५ / हाकु टनेल ७ / भारतीय पर्यटक २१)। सम्पर्कविहीन २४५ / घाइते ७५। पर्यटक ४८४। स्रोत तल।</p>
+    <p class="stats-note" data-i18n-html="stats_note">शव <strong>३५९</strong>। प्रहरी जिल्ला: चितवन १३२ · नवलपरासी पूर्व ८२ · धादिङ ३३ · गोरखा ३० · नुवाकोट २८ · तनहुँ २२ · रसुवा १७ · नवलपरासी पश्चिम १५। आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong> (टिमुरे ९५ / हाकु टनेल ७ / भारतीय पर्यटक २१)। सम्पर्कविहीन २४५ / घाइते ७५। पर्यटक ६६८ (नेपाली १२७ · विदेशी ५४१)। स्रोत तल।</p>
     <section id="donate" class="funds">
       <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_donate">राहत कोष</h2></div>
       <p class="funds-warn" data-i18n-html="funds_warn"><span class="src">प्राधिकरण</span> बाढीपीडितका नाममा आफूखुसी सहयोग वा व्यक्तिगत QR नसङ्कलन गर्नुहोस्। तल प्रधानमन्त्री कार्यालयका खाता मात्र आधिकारिक। अटेर देखिए <a href="tel:+97714211197">०१-४२१११९७</a> मा जानकारी दिनुहोस्।</p>
@@ -1521,7 +1538,8 @@ footer .foot-contact a:hover{text-decoration:underline}
     <ul class="stats-src" aria-label="स्रोत" data-i18n-aria="src_word" data-i18n-list="stats_src">
       <li><b>मृतक जम्मा ३५९</b> — प्रहरी / Extreme Energy, ११ भदौ साँझ। चितवन १३२, नवलपरासी पूर्व ८२, धादिङ ३३, गोरखा ३०, नुवाकोट २८, तनहुँ २२, रसुवा १७, नवलपरासी पश्चिम १५। अघिल्लो नेपाल प्रहरी १३:३० को २७० र SitRep-3 जिल्ला १२३ इतिहास।</li>
       <li><b>घाइते</b> — NDRRMA SitRep-3: जम्मा <strong>७५</strong> — रसुवा ४३, नुवाकोट २९, धादिङ ३। प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong>। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> (टिचिङ २१, ट्रमा ७, छाउनी १, रसुवा २१, त्रिशूली १६, नर्भिक ३, ग्रीनसिटी १)।</li>
-      <li><b>सम्पर्कविहीन</b> — NDRRMA SitRep-3: <strong>२४५</strong> (रसुवा DEOC १६१, सेना ४४, प्रहरी २६, सशस्त्र १३, नुवाकोट DEOC १)। <a href="#family">जनताको रिपोर्ट</a> फारमबाट आएका नामसहितको सूची (लाइभ)। हेलो सरकार १४० अलग। प्रधानमन्त्री कार्यालय साँझ ७:००: पर्यटक <strong>४८४</strong> (विदेशी ३९१, स्वदेशी ९३)। लाङटाङ ६० / बस ३४ / स्वास्थ्यकर्मी ६ / भन्सार ११ / बैंक २६। मृत्यु होइन।</li>
+      <li><b>सम्पर्कविहीन</b> — NDRRMA SitRep-3: <strong>२४५</strong> (रसुवा DEOC १६१, सेना ४४, प्रहरी २६, सशस्त्र १३, नुवाकोट DEOC १)। <a href="#family">जनताको रिपोर्ट</a> फारमबाट आएका नामसहितको सूची (लाइभ)। हेलो सरकार १४० अलग। पर्यटक सूची १४:१५: <strong>६६८</strong> (नेपाली १२७, विदेशी ५४१)। अघिल्लो प्रधानमन्त्री कार्यालय साँझ ७:०० को ४८४ इतिहास। लाङटाङ ६० / बस ३४ / स्वास्थ्यकर्मी ६ / भन्सार ११ / बैंक २६। मृत्यु होइन।</li>
+      <li><b>पर्यटक सूची ६६८</b> — भोटेकोशी बाढी सम्पर्क स्थापना हुन नसकेका पर्यटक नामावली · १४:१५, २७ अगस्ट। जम्मा <strong>६६८</strong> (पुरुष ३४१ · महिला ३२७ · नेपाली १२७ · विदेशी ५४१)। NDRRMA २४५ अलग।</li>
       <li><b>सुरक्षा</b> — NDRRMA SitRep-3: जम्मा <strong>८३</strong> — सेना ४४, प्रहरी २६, सशस्त्र <strong>१३</strong>। अघिल्लो प्रधानमन्त्री कार्यालय ८५ (प्रहरी २८) इतिहासमा। मृत्यु होइन।</li>
       <li><b>भन्सार</b> — स्थायी ३६, सम्पर्क २५, खोजी ११, गाडी ३००+ — प्रमुख ढुंगाना।</li>
       <li><b>टिमुरे</b> — घर १००+ र पर्खाइ ३००+ — वडासदस्य घले। बजार ५–७ — डिआईजी रेग्मी।</li>
@@ -3382,6 +3400,12 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
             <article class="log-item now">
+      <p class="when">~२०:५६</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>पर्यटक सम्पर्कविहीन ६६८</h3>
+      <p>भोटेकोशी बाढी पर्यटक सूची १४:१५: जम्मा <strong>६६८</strong> — नेपाली <strong>१२७</strong>, विदेशी <strong>५४१</strong>। पुरुष ३४१ · महिला ३२७। देश बार <a href="#stats">तथ्यांक</a> मा। NDRRMA सम्पर्कविहीन <strong>२४५</strong> अलग। नाम-सूची यो पानामा छैन।</p>
+    </article>
+            <article class="log-item">
       <p class="when">~२०:४६</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>HEOC घाइते १३६</h3>
@@ -4567,8 +4591,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js?v=2026-08-27-2046"></script>
-<script>window.PAGE_VER="2026-08-27-2046";</script>
+<script src="i18n.js?v=2026-08-27-2056"></script>
+<script>window.PAGE_VER="2026-08-27-2056";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
