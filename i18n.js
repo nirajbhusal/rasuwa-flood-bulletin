@@ -134,9 +134,9 @@ window.I18N = {
 "nav_rd": "उद्धार ड्यासबोर्ड",
 "h_rd": "उद्धार र उपचार सूची",
 "rd_h": "प्रकाशित नाम-सूची",
-"rd_lead": "काठमाडौं अस्पताल, नुवाकोट, सूर्यगढी, रसुवा/टिमुरे, DAO रसुवा, भारतीय र काठमाडौं हेलि — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन।",
+"rd_lead": "काठमाडौं अस्पताल, नुवाकोट, सूर्यगढी, रसुवा/टिमुरे, DAO रसुवा, भारतीय, त्रिशूली-१ र काठमाडौं हेलि — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन।",
 "rd_all_k": "सूची",
-"rd_all_v": "८",
+"rd_all_v": "९",
 "rd_all_u": "वर्ग",
 "rd_name_u": "जना",
 "rd_treat_k": "घाइते काठमाडौं",
@@ -145,8 +145,10 @@ window.I18N = {
 "rd_ras_k": "रसुवा / टिमुरे",
 "rd_dao_k": "DAO रसुवा",
 "rd_ind_k": "भारतीय",
+"rd_t1_k": "त्रिशूली-१",
 "rd_heli_k": "काठमाडौं हेलि",
-"rd_all_cap": "आठ प्रकाशित सूची · कार्ड थिचेर विवरण",
+
+"rd_all_cap": "नौ प्रकाशित सूची · कार्ड थिचेर विवरण",
 "rd_all_note": "आधिकारिक घाइते जम्मा ७५ यथावत्। यी नाम-सूची जोडेर एउटा उद्धार जम्मा बनाइएको छैन।",
 "rd_treat_cap": "HEOC #2 १७:००",
 "rd_tuth": "टिचिङ",
@@ -179,7 +181,11 @@ window.I18N = {
 "rd_ind_cap": "भारतीय नागरिक · २७ अगस्ट १३:००",
 "rd_ind_note": "२१औँ नाम Manimekalai Sukumar। हराएको सूची अलग।",
 "rd_jump_ind": "सूची हेर्नुहोस् → भारतीय",
+"rd_t1_cap": "त्रिशूली-१ आयोजना · भारतीय उद्धार",
+"rd_t1_note": "भारतीय पर्यटक २१ अलग। हराएको सूचीबाट हटाइएको छैन।",
+"rd_jump_t1": "सूची हेर्नुहोस् → त्रिशूली-१",
 "rd_heli_cap": "काठमाडौं हेलि · ११ भदौ",
+
 "rd_prabhu": "प्रभु एयर",
 "rd_augusta": "अगस्टा एयर",
 "rd_heli_note": "जम्मा <strong>११</strong>। स्याफ्रुबेसी १३:३० + धुन्चे १३:४०।",
@@ -191,7 +197,12 @@ window.I18N = {
 "nav_rasuwa_res": "रसुवा उद्धार",
 "h_india_res": "उद्धार · भारतीय नागरिक",
 "nav_india_res": "भारतीय उद्धार",
+"h_t1_res": "उद्धार · त्रिशूली-१ भारतीय",
+"nav_t1_res": "त्रिशूली-१",
+"t1_res_lead": "त्रिशूली-१ आयोजनाबाट उद्धार भएका भारतीय नागरिक <strong>६३</strong> जना। भारतीय पर्यटक २१, रसुवा/टिमुरे, DAO, नुवाकोट र हराएको सूची अलग। हराएकोबाट हटाइएको छैन।",
+"t1_res_note": "स्रोत: List of Indians rescued from the Trishuli-I Project। ६३ जना।",
 "h_heli_ktm": "उद्धार · काठमाडौं हेलि",
+
 "nav_heli_ktm": "काठमाडौं उद्धार",
 "heli_ktm_lead": "११ भदौ: प्रभु एयर <strong>५</strong> (स्याफ्रुबेसी, १३:३०) + अगस्टा एयर <strong>६</strong> (धुन्चे, १३:४०) = काठमाडौं <strong>११</strong> जना। रसुवा/टिमुरे, भारतीय, नुवाकोट र हराएको सूची अलग — नाम मिलाइएको छैन, हराएकोबाट हटाइएको छैन।",
 "h_prabhu": "प्रभु एयर 9N ATN · स्याफ्रुबेसी → काठमाडौं · १३:३०",
@@ -663,9 +674,9 @@ window.I18N = {
 "nav_rd": "Rescue dashboard",
 "h_rd": "Rescue and treatment lists",
 "rd_h": "Published name lists",
-"rd_lead": "Kathmandu hospitals, Nuwakot, Suryagadhi, Rasuwa/Timure, DAO Rasuwa, Indians and Kathmandu heli — tap a card. Lists stay separate; names are not merged.",
+"rd_lead": "Kathmandu hospitals, Nuwakot, Suryagadhi, Rasuwa/Timure, DAO Rasuwa, Indians, Trishuli-1 and Kathmandu heli — tap a card. Lists stay separate; names are not merged.",
 "rd_all_k": "Lists",
-"rd_all_v": "8",
+"rd_all_v": "9",
 "rd_all_u": "groups",
 "rd_name_u": "people",
 "rd_treat_k": "Injured Kathmandu",
@@ -674,8 +685,10 @@ window.I18N = {
 "rd_ras_k": "Rasuwa / Timure",
 "rd_dao_k": "DAO Rasuwa",
 "rd_ind_k": "Indian",
+"rd_t1_k": "Trishuli-1",
 "rd_heli_k": "Kathmandu heli",
-"rd_all_cap": "Eight published lists · tap a card for detail",
+
+"rd_all_cap": "Nine published lists · tap a card for detail",
 "rd_all_note": "Official injured total stays 75. These name lists are not added into one rescue total.",
 "rd_treat_cap": "HEOC #2 17:00",
 "rd_tuth": "Teaching",
@@ -708,7 +721,11 @@ window.I18N = {
 "rd_ind_cap": "Indian nationals · 27 Aug 13:00",
 "rd_ind_note": "21st name Manimekalai Sukumar. Missing wall stays separate.",
 "rd_jump_ind": "See list → Indian",
+"rd_t1_cap": "Trishuli-1 project · Indian rescued",
+"rd_t1_note": "Separate from the 21 Indian tourists. Not removed from the missing wall.",
+"rd_jump_t1": "See list → Trishuli-1",
 "rd_heli_cap": "Kathmandu heli · 11 Bhadra",
+
 "rd_prabhu": "Prabhu Air",
 "rd_augusta": "Augusta Air",
 "rd_heli_note": "Total <strong>11</strong>. Syaphrubesi 13:30 + Dhunche 13:40.",
@@ -720,7 +737,12 @@ window.I18N = {
 "nav_rasuwa_res": "Rasuwa rescued",
 "h_india_res": "Rescued · Indian nationals",
 "nav_india_res": "Indian rescued",
+"h_t1_res": "Rescued · Trishuli-1 Indians",
+"nav_t1_res": "Trishuli-1",
+"t1_res_lead": "<strong>63</strong> Indian nationals rescued from the Trishuli-1 project. Separate from the 21 Indian tourists, Rasuwa/Timure, DAO, Nuwakot and the missing wall. Not removed from missing.",
+"t1_res_note": "Source: List of Indians rescued from the Trishuli-I Project. 63 people.",
 "h_heli_ktm": "Rescued · Kathmandu heli",
+
 "nav_heli_ktm": "Kathmandu rescued",
 "heli_ktm_lead": "11 Bhadra: Prabhu Air <strong>5</strong> (Syaphrubesi, 13:30) + Augusta Air <strong>6</strong> (Dhunche, 13:40) = <strong>11</strong> to Kathmandu. Separate from Rasuwa/Timure, Indian, Nuwakot and missing — names not merged or removed.",
 "h_prabhu": "Prabhu Air 9N ATN · Syaphrubesi to Kathmandu · 13:30",
@@ -1213,6 +1235,7 @@ window.I18N_LISTS = {
 "<strong>Teaching Hospital emergency</strong>Setopati · today · Kathmandu"
 ],
 "photos": [
+"<strong>Trishuli-1 · Indian rescued 63</strong>List of Indians rescued from the Trishuli-I Project",
 "<strong>Nepal Police · Dead 389</strong>Police · 21:00 · 11 Bhadra · official infographic",
 "<strong>India · second HADR flight</strong>Jaishankar · 11 Bhadra · 37.5 tonnes",
 "<strong>HADR pallets</strong>Jaishankar · 11 Bhadra · medicines/food",
@@ -1262,6 +1285,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Trishuli-1 Indian rescued 63",
+"p": "<strong>63</strong> Indians rescued from the Trishuli-1 project. <a href=\"#trishuli1-res\">List</a>. Separate from the 21 Indian tourists. Not removed from the missing wall."
+},
 {
 "h": "Blood bank portal",
 "p": "Official MoHP blood-bank portal is on the <a href=\"#treat\">injured</a> section. <a href=\"https://freehealth.mohp.gov.np/blood-bank\" target=\"_blank\" rel=\"noopener\">freehealth.mohp.gov.np/blood-bank</a>."
