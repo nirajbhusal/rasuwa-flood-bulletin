@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T04:11:07.909152+05:45",
+  "updated_at": "2026-08-28T04:18:05.481078+05:45",
   "note_np": "फुर्के गेज बगेको; बेत्रावती मौन भए लाइभ नमान्नुहोस्।",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms-Single/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -19,7 +19,7 @@
       "observed_npt": "२०२६-०८-२८ ०४:००",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/river-watch"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657"
     },
     {
       "station_id": 52,
@@ -61,13 +61,13 @@
       "name": "Trishuli River at Kali Khola",
       "name_np": "काली खोला · त्रिशूली",
       "district_np": "चितवन",
-      "level_m": 6.643,
+      "level_m": 6.731,
       "warning_m": 10.8,
       "danger_m": 12.1,
       "status": "normal",
       "steady": false,
-      "observed_at": "2026-08-28T04:00:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०४:००",
+      "observed_at": "2026-08-28T04:10:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०४:१०",
       "silent": false,
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781"
@@ -78,14 +78,14 @@
       "name": "Narayani at Devghat",
       "name_np": "देवघाट · नारायणी",
       "district_np": "चितवन",
-      "level_m": 4.644,
+      "level_m": 4.667,
       "warning_m": 7.3,
       "danger_m": 9.0,
       "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-28T03:40:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०३:४०",
-      "silent": true,
+      "observed_at": "2026-08-28T03:50:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०३:५०",
+      "silent": false,
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
     }
