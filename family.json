@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T04:45:23.650796+05:45",
+  "updated_at": "2026-08-28T04:58:40.318973+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -6027,6 +6027,28 @@
       "when": "भदौ १० बिहान ९:०० देखि सम्पर्कविहीन",
       "phone": "9840702852 / 9761526503",
       "note": "फारम 04:35 · त्रिशूली-१ २१६ मेगावाट · ठेगाना: सोलुखुम्बु दुधकोशी",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260828-044303-sabin-lo",
+      "name": "Sabin Lo",
+      "age": "23",
+      "place": "Uttargaya-4, Rasuwa · China border",
+      "when": "नेपाली ८ बजेतिर",
+      "phone": "9810232827",
+      "note": "फारम 04:43 · चीन बोर्डर क्रस गरेको नाम सूचीमा नाम छ · ठेगाना: Uttargaya-4 Rasuwa",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260828-045119-ram-bahadur-guru-g",
+      "name": "Ram Bahadur Guru G",
+      "age": "67",
+      "place": "पुरानो बानेश्वर · बेत्रावती बजार (फोन ट्र्याकर)",
+      "when": "घरबाट गोसाइकुण्ड, बिहान ६:००",
+      "phone": "9761619878 / 9813333945 / 9818494790",
+      "note": "फारम 04:51 · निलो सर्ट · गोसाइकुण्ड जाने · फोन ट्र्याकर अनुसार बेत्रावती बजार · ठेगाना: पुरानो बानेश्वर",
       "status": "missing",
       "source": "form"
     }
