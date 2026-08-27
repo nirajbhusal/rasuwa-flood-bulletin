@@ -64,7 +64,18 @@ window.I18N = {
 "d_nawal": "नवलपरासी पूर्व",
 "d_timure": "टिमुरे",
 "d_indian": "भारतीय",
+"d_indian_t": "भारतीय पर्यटक",
 "d_haku": "हाकु टनेल",
+"d_army": "सेना",
+"d_police": "प्रहरी",
+"d_apf": "सशस्त्र",
+"d_incontact": "सम्पर्कमा",
+"d_searching": "खोजीमा",
+"infobar_sitrep": "SitRep-3 जिल्ला",
+"infobar_dist": "जिल्ला",
+"infobar_ndrrma": "NDRRMA जिल्ला",
+"infobar_today": "आज ११ भदौ",
+"kpi_aria": "मुख्य आंकडा",
 "stats_aria": "प्रारम्भिक तथ्यांक",
 "h_donate": "राहत कोष",
 "h_map": "नक्सा",
@@ -367,7 +378,18 @@ window.I18N = {
 "d_nawal": "Nawalparasi East",
 "d_timure": "Timure",
 "d_indian": "Indian",
+"d_indian_t": "Indian tourists",
 "d_haku": "Haku tunnel",
+"d_army": "Army",
+"d_police": "Police",
+"d_apf": "Armed Police",
+"d_incontact": "In contact",
+"d_searching": "Searching",
+"infobar_sitrep": "SitRep-3 districts",
+"infobar_dist": "Districts",
+"infobar_ndrrma": "NDRRMA districts",
+"infobar_today": "Today, 11 Bhadra",
+"kpi_aria": "Key figures",
 "stats_aria": "Preliminary figures",
 "h_donate": "Relief funds",
 "h_map": "Map",
@@ -1457,6 +1479,10 @@ window.I18N_LISTS = {
     applyKeyed(lang);
     applyList(lang);
     paintToggle(lang);
+    document.querySelectorAll(".num").forEach(function(el){
+      if (!el.getAttribute("data-raw")) el.setAttribute("data-raw", el.textContent.trim());
+      el.textContent = fmtNum(el.getAttribute("data-raw"));
+    });
     hooks.forEach(function(fn){ try { fn(lang); } catch (e) {} });
     var s = document.querySelector(".stick");
     if (s) document.documentElement.style.setProperty("--stick", (s.offsetHeight + 8) + "px");
