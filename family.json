@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T13:42:00+05:45",
+  "updated_at": "2026-08-27T13:55:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,15 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-134339-gita-raila",
+      "name": "Gita Raila",
+      "age": "52",
+      "place": "Sole बजार",
+      "when": "२६ अगस्ट",
+      "phone": "9860613530",
+      "note": "फारम १३:४३ · कुर्ता सुरूवाल · श्रीमान मधु राइला (६०) सँग · Madhu/Gyanu / Parbati Raila सँग नमिसाउने (फरक व्यक्ति)"
+    },
     {
       "id": "sheet-20260827-133947-sabriti-paudel",
       "name": "Sabriti Paudel",
