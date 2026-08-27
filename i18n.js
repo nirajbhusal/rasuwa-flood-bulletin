@@ -453,6 +453,9 @@ window.I18N = {
 "rs_crisis": "प्रभावित पालिका संकटग्रस्त (विपद् ऐन २०७४)",
 "rahat_note": "थप (सेना, राति): राहत ट्रक <strong>८</strong> / करिब <strong>८ टन</strong> प्रभावित क्षेत्रतर्फ। यो SitRep-3 पछिको अपडेट हो।",
 "treat_lead": "HEOC #2 १७:०० जम्मा <strong>१३६</strong> (उपचाररत <strong>७२</strong>, रिफर १४, डिस्चार्ज ४८)। नाम-सूची ४३ यथावत्। NDRRMA घाइते ७५ यथावत्।",
+"treat_blood_k": "स्वास्थ्य मन्त्रालय · निःशुल्क स्वास्थ्य",
+"treat_blood_h": "रगत बैंक",
+"treat_blood_sub": "आधिकारिक स्टक पोर्टल · जिल्ला र रक्त समूह अनुसार हेर्नुहोस्",
 "treat_note": "स्रोत: HEOC SitRep #2 १७:००। राष्ट्रिय ट्रमा सेन्टर पत्र २०८३/०५/११ चलानी २२६ · १७:५० का ११ + छाउनी १ + टिचिङ (TUTH) ११ भदौ ११:३० का ३१। डिस्चार्ज: रिहाना, काजु, सुशील, साईवो। बिराट मान वीर। महेश ICU, नन्द लाल HDU। कुशल मगर टिचिङमा मृत्यु — आधिकारिक मृतक <strong>३८९</strong>। स्याफ्रुबेसी HP, टिमुरे HP पूर्ण क्षति; बैरेनी अस्पताल गल्छी र चराउँदी BHSC बेनीघाट गैर-सञ्चालन। उपचार निःशुल्क, <a href=\"tel:1115\">1115</a>।",
 "shelter_lead": "जिल्ला प्रशासन कार्यालय नुवाकोट: उद्धार <strong>५६</strong> (महिला ११, पुरुष ४५)। चक्रदेव अस्पताल ११, नर्बिक काठमाडौं रेफर ९। सेनाको त्रिशूली सूची यसैमा अद्यावधिक।",
 "shelter_note": "स्रोत: जिल्ला प्रशासन कार्यालय नुवाकोट। शव पुरुष ४, महिला १ (स्थानीय)। सेनाको त्रिशूली ४१ नाम यसै तालिकामा। हवाई उद्धार ११६।",
@@ -979,6 +982,9 @@ window.I18N = {
 "rs_crisis": "Affected municipalities disaster-hit (Disaster Act 2074)",
 "rahat_note": "Later (Army, night): relief trucks <strong>8</strong> / about <strong>8 tonnes</strong> toward the affected area. This is an update after SitRep-3.",
 "treat_lead": "HEOC #2 17:00 total <strong>136</strong> (under treatment <strong>72</strong>, referred 14, discharged 48). Name list 43 unchanged. NDRRMA injured 75 unchanged.",
+"treat_blood_k": "Ministry of Health · Free Health",
+"treat_blood_h": "Blood bank",
+"treat_blood_sub": "Official stock portal · search by district and blood group",
 "treat_note": "Source: HEOC SitRep #2 17:00. National Trauma Center letter 2083/05/11 chalan 226 · 17:50 (11) + Chauni 1 + TUTH 11 Bhadra 11:30 (31). Discharged: Rehana, Kaju, Sushil, Saiwo. Birat Man to Bir. Mahesh ICU, Nandala HDU. Kusal Magar expired at TUTH — official deaths <strong>389</strong>. Syafrubesi HP and Timure HP fully damaged; Baireni Hospital Galchi and Charaudhi BHSC Benighat non-operational. Treatment free, <a href=\"tel:1115\">1115</a>.",
 "shelter_lead": "Nuwakot District Administration Office: rescued <strong>56</strong> (women 11, men 45). Chakradev Hospital 11, referred to Neuro Kathmandu 9. The Army Trishuli list is folded into this table.",
 "shelter_note": "Source: Nuwakot District Administration Office. Bodies: 4 men, 1 woman (local). The Army’s 41 Trishuli names are in this table. Air rescue 116.",
@@ -1256,6 +1262,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Blood bank portal",
+"p": "Official MoHP blood-bank portal is on the <a href=\"#treat\">injured</a> section. <a href=\"https://freehealth.mohp.gov.np/blood-bank\" target=\"_blank\" rel=\"noopener\">freehealth.mohp.gov.np/blood-bank</a>."
+},
 {
 "h": "Dead 389 · police 21:00",
 "p": "Nepal Police 21:00, 11 Bhadra: bodies total <strong>389</strong> — Chitwan 137, Nawalparasi East 87, Dhading 33, Gorkha 32, Nuwakot 28, Tanahun 28, Rasuwa 17, Nawalparasi West 27. Police uncontacted 28 · deployed 4,348. Injured and rescued 466 (Rasuwa 289, Nuwakot 90, Kathmandu 84, Dhading 3). Previous police 359 is history."
