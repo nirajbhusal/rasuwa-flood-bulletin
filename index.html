@@ -1304,13 +1304,14 @@ footer .foot-contact a:hover{text-decoration:underline}
   </button>
   <div class="chips-inner" id="nav-chips">
     <a class="home-btn" href="#home" aria-label="होम" title="होम" data-i18n-aria="nav_home" data-i18n-title="nav_home"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
-    <a href="#map" data-i18n="nav_map">नक्सा</a>
-    <a href="#alert" data-i18n="nav_alert">सतर्कता</a>
-    <a href="#rahat" data-i18n="nav_rahat">राहत भिजुअल</a>
     <a href="#treat" data-i18n="nav_treat">घाइते</a>
     <a href="#shelter" data-i18n="nav_shelter">उद्धार सूची</a>
     <a href="#suryagadhi" data-i18n="nav_surya">सूर्यगढी</a>
+    <a href="#rasuwa-res" data-i18n="nav_rasuwa_res">रसुवा उद्धार</a>
     <a href="#family" data-i18n="nav_family">हराएको / भेटिएको</a>
+    <a href="#map" data-i18n="nav_map">नक्सा</a>
+    <a href="#alert" data-i18n="nav_alert">सतर्कता</a>
+    <a href="#rahat" data-i18n="nav_rahat">राहत भिजुअल</a>
     <a href="#helpline" data-i18n="nav_helpline">हेल्पलाइन</a>
     <a href="#donate" data-i18n="nav_donate">राहत कोष</a>
     <a href="#aid" data-i18n="nav_aid">वैदेशिक सहयोग</a>
@@ -1653,7 +1654,6 @@ footer .foot-contact a:hover{text-decoration:underline}
       <li><b>पूर्वाधार</b> — NDRRMA SitRep-3 (राति २२:००): मोटरेबल पुल <strong>३५</strong> + झोलुङ्गे <strong>४५</strong> = पुल <strong>८०</strong>; पक्की सडक <strong>४० किमि</strong> पूर्ण ध्वस्त — SitRep-2 सँग मेल। विद्युत् ७ / २७६ MW — प्राधिकरण। टावर ७ — नेपाल टेलिकम।</li>
       <li><b>NEA कर्मचारी १३३+</b> — नेपाल विद्युत् प्राधिकरण (<a href="https://www.ratopati.com/story/587664/more-than-133-hydropower-employees-and-workers-left-without-contact-in-rasuwa-flood" target="_blank" rel="noopener">रातोपाटी</a>): विभिन्न जलविद्युत् आयोजनाका कर्मचारी/कामदार <strong>१३३ भन्दा बढी</strong> सम्पर्कविहीन। लाङटाङ आयोजना ६० यथावत्।</li>
     </ul>
-    </ul>
 <section id="map" class="hero-map">
   <span id="path" hidden></span>
   <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_map">नक्सा</h2></div>
@@ -1796,7 +1796,7 @@ footer .foot-contact a:hover{text-decoration:underline}
 <section id="treat">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_treat">राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङ अस्पतालमा उपचार भइरहेका घाइतेहरु</h2></div>
   <div class="card green">
-    <p class="treat-lead" data-i18n-html="treat_lead">नामसहित <strong>२२</strong> जना राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङ अस्पतालमा उपचाररत। प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong>। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> — टिचिङ २१, ट्रमा ७, छाउनी १, रसुवा २१, त्रिशूली १६, नर्भिक ३, ग्रीनसिटी १। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
+    <p class="treat-lead" data-i18n-html="treat_lead">ट्रमा सेन्टर हस्तलिखित <strong>१०</strong> (डिस्चार्ज १, वीर अस्पताल सारिएको १) + छाउनी १ + टिचिङ ११:३० का <strong>३१</strong>। आधिकारिक घाइते जम्मा <strong>७५</strong> यथावत्।</p>
     <div class="treat-wrap">
     <table class="plants treat treat-wide">
       <thead>
@@ -1808,38 +1808,56 @@ footer .foot-contact a:hover{text-decoration:underline}
           <th data-i18n="th_phone">सम्पर्क नं.</th>
           <th data-i18n="th_rescue_place">उद्धार स्थान</th>
           <th data-i18n="th_hospital">अस्पताल</th>
+          <th data-i18n="th_status">स्थिति</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>१</td><td>भक्त भण्डारी</td><td class="age">४२</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>२</td><td>सिता भण्डारी</td><td class="age">४१</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>३</td><td>विबेक कुमाल</td><td class="age">२४</td><td>विदुर–५, नुवाकोट</td><td class="phone"><a href="tel:+9779841781836">9841781836</a></td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>४</td><td>रिहाना लामिछाने</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>५</td><td>दावा डोल्मा</td><td class="age">—</td><td>गोसाइँकुण्ड, रसुवा</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_chauni">वीरेन्द्र सैनिक अस्पताल, छाउनी</td></tr>
-        <tr><td>६</td><td>तेज बहादुर तामाङ</td><td class="age">३४</td><td>विदुर–३, नुवाकोट</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>७</td><td>पेम्बा तामाङ</td><td class="age">४८</td><td>गोसाइँकुण्ड–५, रसुवा</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>८</td><td>कुशल मगर</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>९</td><td>मिन बहादुर श्रेष्ठ</td><td class="age">३३</td><td>सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>१०</td><td>गिरीलाल बुढाथोकी</td><td class="age">४०</td><td>सल्यान</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>११</td><td>रुपक रोक्का</td><td class="age">२३</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>१२</td><td>सुजन बस्नेत</td><td class="age">३५</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>१३</td><td>सुशान श्रेष्ठ</td><td class="age">२३</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>१४</td><td>वल बहादुर घर्ती मगर</td><td class="age">—</td><td>जाजरकोट</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>१५</td><td>अशोक श्रेष्ठ</td><td class="age">—</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>१६</td><td>कामु नगरकोटी</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>१७</td><td>प्रेम दोर्जे घले</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>१८</td><td>नेमा दोर्जे घले</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>१९</td><td>फुर्पु लामा</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>२०</td><td>राम प्रसाद थारु</td><td class="age">—</td><td>जीतपुर, बर्दिया</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>२१</td><td>सुराची राना मगर</td><td class="age">—</td><td>बेत्रावती–५, रसुवा</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>२२</td><td>रिता दोचा</td><td class="age">—</td><td>चांगुनारायण–१, भक्तपुर</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>२३</td><td data-i18n="treat_karki">कार्की थरका पुरुष</td><td class="age">४५</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>२४</td><td data-i18n="treat_unnamed_man">नामथर बताउन नसक्ने पुरुष</td><td class="age">३५</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
-        <tr><td>२५</td><td data-i18n="treat_infant">तीन महिनाको शिशु</td><td class="age">३ महिना</td><td data-i18n="treat_with_kamu">कामु नगरकोटीका साथमा</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>१</td><td>भक्त ब. भण्डारी</td><td class="age">४२</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td><td>कम्मर · ग्रिन जोन बेड २१</td></tr>
+        <tr><td>२</td><td>सिता भण्डारी</td><td class="age">४१</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td><td>हात · OT वार्ड ४२०</td></tr>
+        <tr><td>३</td><td>रिहाना लामिछाने</td><td class="age">१२</td><td>बेलकोटगढी–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td><td>हात–खुट्टा</td></tr>
+        <tr><td>४</td><td>विवेक कुमाल</td><td class="age">२४</td><td>विदुर–५, नुवाकोट</td><td class="phone"><a href="tel:+9779841781836">9841781836</a></td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td><td>पेट · येलो जोन बेड १२</td></tr>
+        <tr><td>५</td><td>कान्छा तामाङ</td><td class="age">३३</td><td>जिरी–९, दोलखा · हाल गोसाइँकुण्ड–२</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td><td>हात–खुट्टा · डिस्चार्ज</td></tr>
+        <tr><td>६</td><td>नन्द लाल घर्ती</td><td class="age">४६</td><td>बासगढी–२, बर्दिया · हाल गोसाइँकुण्ड–२</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td><td>टाउको/पेट/छाती · रेड जोन बेड ४</td></tr>
+        <tr><td>७</td><td>बिराट मान तामाङ</td><td class="age">३८</td><td>उत्तरगया–१ मैलुङ, रसुवा</td><td class="phone">—</td><td>मैलुङ</td><td data-i18n="hosp_bir">वीर अस्पताल</td><td>ट्रमाबाट सारिएको · टाउको/पेट/छाती</td></tr>
+        <tr><td>८</td><td>महेश डंगोल</td><td class="age">३०</td><td>उत्तरगया–१, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td><td>पूरै जिउ</td></tr>
+        <tr><td>९</td><td>सुसिल डंगोल</td><td class="age">२८</td><td>उत्तरगया–१, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td><td>खुट्टा/पेट · ग्रिन जोन बेड २२</td></tr>
+        <tr><td>१०</td><td>शम्भुलाल श्रेष्ठ</td><td class="age">५८</td><td>उत्तरगया–१, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td><td>हात/जिउ · ग्रिन जोन बेड २३</td></tr>
+        <tr><td>११</td><td>दावा डोल्मा</td><td class="age">—</td><td>गोसाइँकुण्ड, रसुवा</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_chauni">वीरेन्द्र सैनिक अस्पताल, छाउनी</td><td>—</td></tr>
+        <tr><td>१२</td><td>तेज बहादुर तामाङ</td><td class="age">३०</td><td>विदुर–३, नुवाकोट</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>Ortho-B १०४९</td></tr>
+        <tr><td>१३</td><td>पेमा तामाङ</td><td class="age">३४</td><td>गोसाइँकुण्ड–५, रसुवा</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ICU-A-६ · भेन्टिलेटर</td></tr>
+        <tr><td>१४</td><td>कुशल मगर</td><td class="age">२५</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>मृत्यु</td></tr>
+        <tr><td>१५</td><td>पवित्र कार्की</td><td class="age">४४</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ICU-A-१० · भेन्टिलेटर</td></tr>
+        <tr><td>१६</td><td>राजेन्द्र भट्ट</td><td class="age">२७</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ICU-A-४ · भेन्टिलेटर</td></tr>
+        <tr><td>१७</td><td>मिन बहादुर श्रेष्ठ</td><td class="age">३२</td><td>सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ICU-A-९ · भेन्टिलेटर</td></tr>
+        <tr><td>१८</td><td>गिरीलाल बुढाथोकी</td><td class="age">३८</td><td>सल्यान</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>डिस्चार्ज</td></tr>
+        <tr><td>१९</td><td>सुजन बस्नेत</td><td class="age">३५</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>डिस्चार्ज</td></tr>
+        <tr><td>२०</td><td>रुपक रोका</td><td class="age">२३</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>डिस्चार्ज</td></tr>
+        <tr><td>२१</td><td>सुशान्त श्रेष्ठ</td><td class="age">२३</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>डिस्चार्ज</td></tr>
+        <tr><td>२२</td><td>बल बहादुर घर्ती</td><td class="age">५०</td><td>जाजरकोट</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ICU-B-६</td></tr>
+        <tr><td>२३</td><td>अशोक श्रेष्ठ</td><td class="age">३०</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ICU-B-४</td></tr>
+        <tr><td>२४</td><td>कर्म योञ्जन नगरकोटी</td><td class="age">२८</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>डिस्चार्ज</td></tr>
+        <tr><td>२५</td><td>राम प्रसाद थारु</td><td class="age">३४</td><td>जीतपुर, बर्दिया</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>Ortho-A १०१६</td></tr>
+        <tr><td>२६</td><td>सरुची राना मगर</td><td class="age">२२</td><td>बेत्रावती–५, रसुवा</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>Ortho-A १०५१</td></tr>
+        <tr><td>२७</td><td>रिता दोचा</td><td class="age">२०</td><td>चांगुनारायण–१, भक्तपुर</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER · येलो-B</td></tr>
+        <tr><td>२८</td><td>निम दोर्जे शेर्पा</td><td class="age">२६</td><td>सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>Ortho-B १०७३</td></tr>
+        <tr><td>२९</td><td>नवलेश शर्मा</td><td class="age">४३</td><td>भारत</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER · रेड</td></tr>
+        <tr><td>३०</td><td>रितु डंगोल</td><td class="age">३२</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>Ortho-B १०५०</td></tr>
+        <tr><td>३१</td><td>स्मृति ओझा</td><td class="age">१७</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER · ग्रिन</td></tr>
+        <tr><td>३२</td><td>इशारा तामाङ</td><td class="age">५</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER</td></tr>
+        <tr><td>३३</td><td>महेश्वर शाह</td><td class="age">२७</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER</td></tr>
+        <tr><td>३४</td><td>सुशीला भोलाङ</td><td class="age">३१</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER</td></tr>
+        <tr><td>३५</td><td>सिजल थापा क्षेत्री</td><td class="age">२१</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER</td></tr>
+        <tr><td>३६</td><td>सितार तामाङ</td><td class="age">४०</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER</td></tr>
+        <tr><td>३७</td><td>राजन खत्री</td><td class="age">७१</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER · ग्रिन</td></tr>
+        <tr><td>३८</td><td>रमनलाल श्रेष्ठ</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER · येलो</td></tr>
+        <tr><td>३९</td><td>रमेश अधिकारी</td><td class="age">२६</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER</td></tr>
+        <tr><td>४०</td><td>निमा दोर्जे तामाङ</td><td class="age">२५</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER</td></tr>
+        <tr><td>४१</td><td>संगिता तामाङ</td><td class="age">२९</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER</td></tr>
+        <tr><td>४२</td><td>पासाङ छोमु घले</td><td class="age">२४</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td><td>ER · ग्रिन</td></tr>
       </tbody>
     </table>
     </div>
-    <p class="treat-note" data-i18n-html="treat_note">स्रोत: राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङमा उपचाररत नामसूची (२२) + पहिचान नखुलेका २ र शिशु १ (प्रहरी, जम्मा २५)। उमेर/ठेगाना अघिल्लो प्रहरी तालिकाबाट जहाँ थियो। स्वास्थ्य प्रवक्ता: उपचार निःशुल्क, हेल्पलाइन <a href="tel:1115">1115</a>।</p>
+    <p class="treat-note" data-i18n-html="treat_note">स्रोत: राष्ट्रिय ट्रमा सेन्टर हस्तलिखित सूची १० + छाउनी १ + टिचिङ (TUTH) ११ भदौ ११:३० का ३१। कान्छा तामाङ डिस्चार्ज, बिराट मान तामाङ वीर अस्पताल सारिएको। कुशल मगर टिचिङमा मृत्यु — आधिकारिक मृतक <strong>१६२</strong> यथावत्। उपचार निःशुल्क, <a href="tel:1115">1115</a>।</p>
   </div>
 </section>
 
@@ -1976,6 +1994,124 @@ footer .foot-contact a:hover{text-decoration:underline}
     </table>
     </div>
     <p class="treat-note" data-i18n="surya_note">स्रोत: सूर्यगढी उद्धार हस्तलिखित सूची। २३ जना।</p>
+  </div>
+</section>
+
+<section id="rasuwa-res">
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rasuwa_res">उद्धार · रसुवा / टिमुरे</h2></div>
+  <div class="card green">
+    <p class="treat-lead" data-i18n-html="rasuwa_res_lead">११ भदौको उद्धार सूची। नेपाली नाम <strong>६७</strong> (कागजात १–८८, दोहोरिएका हटाएर) + कोरियन <strong>४</strong> + इटालेली <strong>२</strong>। नुवाकोट ५६, सूर्यगढी २३ र हराएको सूची अलग — नाम मिलाइएको छैन, हराएकोबाट हटाइएको छैन।</p>
+    <div class="pager" data-pager="rasuwa-res">
+      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
+      <div class="pboxes pager-pages"></div>
+      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
+      <span class="pcount pager-count"></span>
+    </div>
+    <div class="treat-wrap">
+    <table class="plants treat shelter-tbl">
+      <thead>
+        <tr>
+          <th data-i18n="sn">सि.नं.</th>
+          <th data-i18n="th_name">नाम थर</th>
+          <th class="age" data-i18n="th_age">उमेर</th>
+          <th data-i18n="th_rescue_place">उद्धार स्थान</th>
+          <th data-i18n="th_gender">लिङ्ग</th>
+        </tr>
+      </thead>
+      <tbody id="rasuwa-res-body">
+        <tr data-pager="rasuwa-res"><td>१</td><td>सबिता रिजाल</td><td class="age">२७</td><td>विदुर–१ ढुङ्गे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>२</td><td>बिनोद घिमिरे</td><td class="age">५४</td><td>रसुवा</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>३</td><td>दीपा आचार्य</td><td class="age">५४</td><td>रसुवा</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>४</td><td>हरिस धिताल</td><td class="age">३९</td><td>रसुवा</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>५</td><td>बद्री प्रसाद आचार्य</td><td class="age">४०</td><td>उत्तरगया, रसुवा</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>६</td><td>छेसाङ तामाङ</td><td class="age">२९</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>७</td><td>तेन्जिङ लामा</td><td class="age">६६</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>८</td><td>तेन्जिङ सिनाङ दोर्जे</td><td class="age">६५</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>९</td><td>रोशन तामाङ</td><td class="age">३१</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>१०</td><td>चीनलाल तामाङ</td><td class="age">३८</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>११</td><td>कारमान नगरकोटी</td><td class="age">३६</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>१२</td><td>सोमे तामाङ</td><td class="age">२९</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>१३</td><td>कार्पु सोनाम तामाङ</td><td class="age">४१</td><td>धुन्चे / टिमुरे नाका</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>१४</td><td>टिका पौडेल</td><td class="age">४१</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>१५</td><td>काले तामाङ</td><td class="age">६८</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>१६</td><td>सोनम वाइदी तामाङ</td><td class="age">५७</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>१७</td><td>निमा तामाङ</td><td class="age">५७</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>१८</td><td>तेन्जिङ तामाङ</td><td class="age">२०</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>१९</td><td>तासी तिङ्ग रुक तामाङ</td><td class="age">७३</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>२०</td><td>रामहरी दाहाल</td><td class="age">४३</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>२१</td><td>दिनेश तामाङ</td><td class="age">२९</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>२२</td><td>दावा सोनाम तामाङ</td><td class="age">२५</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>२३</td><td>पदम बहादुर मगर</td><td class="age">५८</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>२४</td><td>भरत थापा</td><td class="age">२८</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>२५</td><td>दिल बहादुर वि.क.</td><td class="age">२३</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>२६</td><td>आदित्य रावल</td><td class="age">१६</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>२७</td><td>बालकुमार ठाकुर</td><td class="age">३७</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>२८</td><td>बुद्ध श्रेष्ठ</td><td class="age">३०</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>२९</td><td>दावा शेर्पा</td><td class="age">३७</td><td>स्याफ्रुबेसी</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>३०</td><td>मोती बहादुर पौडेल</td><td class="age">४८</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>३१</td><td>मिरा तामाङ</td><td class="age">२७</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>३२</td><td>दीक्षा मल्ल</td><td class="age">१२</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>३३</td><td>अनमोल शाही</td><td class="age">४</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>३४</td><td>सुनचौरा शाही</td><td class="age">२३</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>३५</td><td>डोलमा लामा</td><td class="age">६०</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>३६</td><td>तेन्जिङ जाडमु</td><td class="age">७०</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>३७</td><td>टिका श्रेष्ठ</td><td class="age">२२</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>३८</td><td>कृति श्रेष्ठ</td><td class="age">२७</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>३९</td><td>तिलकुमारी तामाङ</td><td class="age">३५</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>४०</td><td>दिनिशा मल्ल</td><td class="age">१५</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>४१</td><td>सोनिया तामाङ</td><td class="age">१८</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>४२</td><td>नानी चौलागाईं</td><td class="age">४३</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>४३</td><td>प्रभा मानन्धर</td><td class="age">३५</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>४४</td><td>नितु डंगोल</td><td class="age">२१</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>४५</td><td>मेन डोलमा तामाङ</td><td class="age">३२</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>४६</td><td>सुकुरानी तामाङ</td><td class="age">३६</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>४७</td><td>निमा डोल्कर</td><td class="age">३२</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>४८</td><td>छिरिङ घले</td><td class="age">२१</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>४९</td><td>किपा नगरकोटी</td><td class="age">४७</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>५०</td><td>कासाङ पाल्मु</td><td class="age">५०</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>५१</td><td>कविता नेपाली</td><td class="age">३०</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>५२</td><td>कल्पना वि.क.</td><td class="age">३९</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>५३</td><td>बीबी रानी घले</td><td class="age">३८</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>५४</td><td>सुवा मल्ल</td><td class="age">३१</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>५५</td><td>सुवास मल्ल</td><td class="age">८</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>५६</td><td>सम्झना पौडेल</td><td class="age">३४</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>५७</td><td>कबिना परियार</td><td class="age">२०</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>५८</td><td>त्यति माया तामाङ</td><td class="age">३७</td><td>टिमुरे</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>५९</td><td>सविता घिमिरे</td><td class="age">३५</td><td>धुन्चे/विदुर</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>६१</td><td>गीता आचार्य</td><td class="age">५४</td><td>उत्तरगया</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="rasuwa-res"><td>६४</td><td>पेशाड तामाङ</td><td class="age">२९</td><td>—</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>६६</td><td>तेन्जिन समेन दोर्जे</td><td class="age">३६</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>६७</td><td>सेषन तामाङ</td><td class="age">३१</td><td>—</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>७५</td><td>सोनाम वाइबा</td><td class="age">५७</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>७८</td><td>मोती बहादुर गौडेल</td><td class="age">४१</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>८२</td><td>पदम बहादुर मगर</td><td class="age">५७</td><td>टिमुरे</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="rasuwa-res"><td>८५</td><td>आदित्य रावत</td><td class="age">१६</td><td>—</td><td data-i18n="gender_male">पुरुष</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3 class="cab-k" style="margin:16px 0 8px" data-i18n="h_kr_res">कोरियन उद्धार · ११ भदौ</h3>
+    <div class="treat-wrap">
+    <table class="plants treat">
+      <thead><tr><th data-i18n="sn">सि.नं.</th><th data-i18n="th_name">नाम थर</th><th class="age" data-i18n="th_age">उमेर</th><th data-i18n="th_gender">लिङ्ग</th></tr></thead>
+      <tbody>
+        <tr><td>१</td><td>Taeyoon Kia</td><td class="age">४१</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr><td>२</td><td>Taehoon Yum</td><td class="age">५७</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr><td>३</td><td>Jongho Lim</td><td class="age">५६</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr><td>४</td><td>Jaepok Yang</td><td class="age">५६</td><td data-i18n="gender_male">पुरुष</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3 class="cab-k" style="margin:16px 0 8px" data-i18n="h_it_res">इटालेली उद्धार · ११ भदौ</h3>
+    <div class="treat-wrap">
+    <table class="plants treat">
+      <thead><tr><th data-i18n="sn">सि.नं.</th><th data-i18n="th_name">नाम थर</th><th class="age" data-i18n="th_age">उमेर</th><th data-i18n="th_gender">लिङ्ग</th></tr></thead>
+      <tbody>
+        <tr><td>१</td><td>LOtumuw Stecano</td><td class="age">३९</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr><td>२</td><td>Valurntina Piccintui</td><td class="age">३७</td><td data-i18n="gender_female">महिला</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="treat-note" data-i18n-html="rasuwa_res_note">स्रोत: उद्धार गरिएका व्यक्तिहरूको विवरण २०८३/०५/११। इटालेली नाम कागजातमा जस्ताको तस्तै। हराएको सूचीबाट हटाइएको छैन।</p>
   </div>
 </section>
 
@@ -2300,6 +2436,145 @@ footer .foot-contact a:hover{text-decoration:underline}
   <p class="hl-extra" data-i18n-html="hl_extra">स्वास्थ्य <a href="tel:1115">1115</a> · बाढी पूर्वानुमान <a href="tel:1155">1155</a> (विकल्प २) · ट्राफिक <a href="tel:103">103</a> · राष्ट्रिय आपत्कालीन <a href="tel:1144">1144</a>। सबै जिल्लाको DEOC <a href="tel:1234">1234</a>।</p>
   <p class="hl-foot" data-i18n="hl_foot">आपत्का बेला नआत्तिऔं, सजग र पूर्वतयार रहौं। यो जानकारी सेयर गरी सुरक्षित रहन सहयोग गरौं।</p>
 </aside>
+
+<section id="map" class="hero-map">
+  <span id="path" hidden></span>
+  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_map">नक्सा</h2></div>
+  <div class="card teal map-wrap">
+    <div id="flood-map" role="img" aria-label="टिमुरेदेखि देवघाट–सुस्तासम्मको बाढी बाटो" data-i18n-aria="map_aria"></div>
+    <div class="map-legend">
+      <span><i class="solid"></i><span data-i18n="map_confirmed">पुष्टि बाटो</span></span>
+      <span><i class="dash"></i><span data-i18n="map_risk">अनुमान / जोखिम</span></span>
+      <span><i class="pin start"></i><span data-i18n="map_entry">प्रवेश</span></span>
+      <span><i class="pin hit"></i><span data-i18n="map_reached">पुगेको</span></span>
+      <span><i class="pin risk"></i><span data-i18n="map_est">अनुमान</span></span>
+      <span><i class="pin gauge"></i><span data-i18n="map_gauge">DHM गेज</span></span>
+    </div>
+    <p class="map-note" data-i18n-html="map_note">बिन्दुहरू बजार/पुलका अनुमानित स्थान हुन्, नदीको ठीक बीच होइन। DHM प्रतिवेदन: देवघाट उच्चिष्ठ ६.५७ मि @ १६:००। महाशाखा: SMS ६.८ लाख; देवघाट extra ~२० मिलियन घनमिटर। सुस्ता सारिँदै (करिब ७०%), बाढी पुगेको पुष्टि छैन। नुवाकोट देवीघाट ≠ चितवन देवघाट। © OpenStreetMap</p>
+  </div>
+<p class="path-ask" data-i18n-html="path_ask"><strong>नदी वरपरका बासिन्दाहरूलाई अनुरोध।</strong> तटीय क्षेत्रबाट सुरक्षित स्थानमा सर्नुहोस् र उच्च सतर्कता अपनाउनुहोस्।</p>
+  <div class="wl" id="wl-rivers" data-src="./dhm-rivers.json">
+    <div class="wl-top">
+      <h3><span data-i18n="dhm_h">DHM नदी सतह</span> <small data-i18n="dhm_sub">बाढीको बाटो · स्वचालित गेज</small></h3>
+    </div>
+    <div class="wl-list" id="wl-list">
+      <article class="wl-row"><div class="wl-row-top"><h4>धुन्चे · त्रिशूली खोला<small>नुवाकोट · DHM</small></h4><span class="wl-badge silent">गेज मौन</span></div><div class="wl-num">२.४०<span>मिटर</span></div><p class="wl-meta">नुवाकोट · ०९:२० · यो पढाइपछि मौन</p></article>
+      <article class="wl-row"><div class="wl-row-top"><h4>बेत्रावती · त्रिशूली<small>नुवाकोट · DHM</small></h4><span class="wl-badge silent">गेज मौन</span></div><div class="wl-num">३.५५<span>मिटर</span></div><p class="wl-meta">नुवाकोट · ०९:२० · यो पढाइपछि मौन</p></article>
+      <article class="wl-row washed"><div class="wl-row-top"><h4>फुर्के · मलेखु<small>धादिङ · DHM</small></h4><span class="wl-badge danger">बगेको</span></div><div class="wl-num">१०.४८<span>मिटर</span></div><p class="wl-meta">धादिङ · ११:४० · अन्तिम पढाइ · लाइभ होइन</p></article>
+      <article class="wl-row"><div class="wl-row-top"><h4>काली खोला · त्रिशूली<small>चितवन · DHM</small></h4><span class="wl-badge warn">बढ्दो</span></div><div class="wl-num">७.५६<span>मिटर</span></div><p class="wl-meta">चितवन · ००:१०</p></article>
+      <article class="wl-row"><div class="wl-row-top"><h4>देवघाट · नारायणी<small>चितवन · DHM</small></h4><span class="wl-badge ok">सतर्कतामुनि</span></div><div class="wl-num">४.३७<span>मिटर</span></div><p class="wl-meta">चितवन · २३:५०</p></article>
+    </div>
+    <p class="wl-src" id="wl-src">DHM नेटवर्कमा अहिले खतरा तहमा फुर्के मात्र (गेज बगेको, लाइभ होइन)। काली ७.५६ बढ्दो ००:१० / देवघाट ४.३७ स्थिर २३:५०, दुवै सतर्कतामुनि। धुन्चे/बेत्रावती मौन ०९:२०। स्रोत: <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a></p>
+    <p class="wl-src" data-i18n-html="dhm_pdf">DHM प्रतिवेदन (१० भदौ): दिनको उच्चिष्ठ देवघाट <strong>६.५७ मि</strong> @ १६:००, बहाव करिब <strong>५,८५०</strong> घनमिटर/सेकेन्ड; कालीखोला <strong>१२.३ मि</strong>। SMS <strong>६,७९,२९५</strong> (NTC+Ncell)। extra आयतन करिब <strong>२०</strong> मिलियन घनमिटर। सीमानाका–देवघाट <strong>१६८</strong> किमि। माथिको सूची लाइभ गेज हो। <a href="docs/dhm-bhadra10-sitrep.pdf" target="_blank" rel="noopener">PDF</a></p>
+  </div>
+  <div class="card teal">
+    <div class="path" role="list" data-i18n-list="path" data-i18n-kind="step">
+      <div class="step" role="listitem"><span class="t">०८:३७</span><i class="rail" aria-hidden="true"></i><div><b>भूकम्प ४.४</b><span>खानी तथा भूगर्भ</span></div></div>
+      <div class="step" role="listitem"><span class="t">०८:५०</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेसी गेज मौन</b><span>अन्तिम १.६२ मि @ ०८:४०</span></div></div>
+      <div class="step" role="listitem"><span class="t">~९:१५</span><i class="rail" aria-hidden="true"></i><div><b>टिमुरे</b><span>तिब्बतबाट नेपाल प्रवेश</span></div></div>
+      <div class="step" role="listitem"><span class="t">बिहान</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेसी</b><span>बजार र पूर्वाधार क्षति</span></div></div>
+      <div class="step" role="listitem"><span class="t">~९:००</span><i class="rail" aria-hidden="true"></i><div><b>विदुर / नुवाकोट</b><span>बेत्रावती, त्रिशूली, देवीघाट, जेल</span></div></div>
+      <div class="step" role="listitem"><span class="t">१०:२८</span><i class="rail" aria-hidden="true"></i><div><b>गल्छी</b><span>धादिङ · महाशाखा पुष्टि, झोलुङ्गे पुल बग्यो</span></div></div>
+      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>गजुरी</b><span>धादिङ · मुग्लिन प्रहरी, सडक रोकियो</span></div></div>
+      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>आदमघाट</b><span>धादिङ · सशस्त्र प्रहरी: बाढी पार</span></div></div>
+      <div class="step" role="listitem"><span class="t">११:५०</span><i class="rail" aria-hidden="true"></i><div><b>फुर्के / मलेखु</b><span>१०.८ मिटर · स्टेसन र झोलुंगे बगे</span></div></div>
+      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>बैरेनी</b><span>धादिङ · बजारमा घर, टहरा, झोलुंगे क्षति</span></div></div>
+      <div class="step" role="listitem"><span class="t">१३:००</span><i class="rail" aria-hidden="true"></i><div><b>मुग्लिन</b><span>DHM: बाढी पार · पृथ्वी र मुग्लिन–नारायणगढ अझै बन्द</span></div></div>
+      <div class="step" role="listitem"><span class="t">११:२१</span><i class="rail" aria-hidden="true"></i><div><b>चितवन</b><span>प्रवेश गर्दै · केबलकार ११:३० बन्द</span></div></div>
+      <div class="step" role="listitem"><span class="t">~१२:५८</span><i class="rail" aria-hidden="true"></i><div><b>फिस्लिङअघि</b><span>चितवन · प्रजिअ अर्याल</span></div></div>
+      <div class="step" role="listitem"><span class="t">१५:२०</span><i class="rail" aria-hidden="true"></i><div><b>चितवन देवघाट</b><span>DHM: पुग्यो · उच्चिष्ठ ६.५७ मि @ १६:००</span></div></div>
+      <div class="step" role="listitem"><span class="t">~१५:४५</span><i class="rail" aria-hidden="true"></i><div><b>सुस्ता</b><span>करिब ७०% सारिए · बाढी पुगेको होइन</span></div></div>
+    </div>
+    <p data-i18n-html="path_p">बाढी लेन्दे खोला/भोटेकोशी हुँदै त्रिशूलीमा मिसिएको छ। गल्छी र गजुरीपछि सशस्त्र प्रहरीका अनुसार धादिङको <strong>आदमघाट</strong> पार भएको छ। नुवाकोटमा विदुर मेयर राजन श्रेष्ठ: बेत्रावती बजार सबैभन्दा बढी क्षति, त्रिशूली बजार क्षति, सेन्ट्रल जेल डुबान, देवीघाट बजार डुबेको। कारागार प्रमुख भेषबहादुर कुँवर: कैदीबन्दी करिब <strong>१०००</strong> सुरक्षित (विदुर–३ खम्पाक्याम्प)।</p>
+  </div>
+</section>
+  </div>
+</div>
+
+<main class="wrap">
+
+<section id="rahat">
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rahat">राहत / उद्धार भिजुअल</h2></div>
+  <p class="treat-lead" data-i18n-html="rahat_lead">NDRRMA स्थिति प्रतिवेदन #०३ · राति २२:०० · १० भदौ २०८३। नयाँ आधिकारिक राहत/उद्धार अंक आएपछि यो खण्ड अद्यावधिक हुन्छ। शव १६२ (बिहान ६:००) यथावत् — SitRep-3 शव १२३ इतिहास।</p>
+  <div class="rahat-stats" aria-label="राहत अंक" data-i18n-aria="rahat_aria">
+    <div class="rahat-stat"><b>११६</b><span data-i18n="rs_air">हवाई उद्धार · सेना ८८ + निजी २८</span></div>
+    <div class="rahat-stat"><b>९३</b><span data-i18n="rs_ground">स्थलगत उद्धार · रसुवा ४३ · नुवाकोट ४७ · धादिङ ३</span></div>
+    <div class="rahat-stat"><b data-i18n="free">निःशुल्क</b><span data-i18n="rs_free">घाइते उपचार · स्वास्थ्य / सेना / सरकारी अस्पताल</span></div>
+    <div class="rahat-stat"><b data-i18n="months3">३ महिना</b><span data-i18n="rs_crisis">प्रभावित पालिका संकटग्रस्त (विपद् ऐन २०७४)</span></div>
+  </div>
+  <h3 class="cab-k" style="margin:8px 0 10px" data-i18n="rahat_tl_h">समयरेखा · खोज–उद्धार–राहत</h3>
+  <ol class="rahat-tl" data-i18n-list="rahat_tl">
+    <li><time>०८:४०</time> तिब्बत माथिल्लो जलाधारमा पहिरो/हिउँले नदी थुनिई फुट्यो; भीषण बाढी भोटेकोशी–टिमुरे–स्याफ्रुबेसी–बेत्रावती–त्रिशूली–विदुर–देवीघाट।</li>
+    <li><time>०९:००</time> बाढीको प्रारम्भिक सूचना प्राप्त।</li>
+    <li><time>०९:१०</time> जोखिम सूचना सञ्चारमाध्यमबाट प्रवाह।</li>
+    <li><time>०९:३५</time> प्रदेश–जिल्ला–स्थानीय सतर्कता; नेपाल टेलिकम/एनसेल SMS।</li>
+    <li><time>०९:४५+</time> हवाई उद्धार सुरु — हालसम्म <strong>११६</strong> (सेना + निजी हेलि)।</li>
+    <li><time>१०:००</time> मनसुन कमाण्ड-पोस्ट आपत्कालीन बैठक — स्रोत परिचालन।</li>
+    <li><time>१०:३०</time> खोज–उद्धार टोली विमानस्थलमा स्ट्यान्डबाइ।</li>
+    <li><time>११:००</time> विपद् राष्ट्रिय परिषद् (प्रधानमन्त्री) — थप हेलिकप्टर/ड्रोन।</li>
+    <li><time>१२:३०</time> मन्त्रिपरिषद् — उद्धार–राहत तीव्र।</li>
+    <li><time>जारी</time> रसुवा, नुवाकोट, धादिङ, गोरखा, चितवन तटीय क्षेत्र हाई अलर्ट — सुरक्षित स्थानमा जानुहोस्।</li>
+  </ol>
+  <h3 class="cab-k" style="margin:8px 0 10px" data-i18n="rahat_cab_h">मन्त्रिपरिषद्का १० निर्णय</h3>
+  <ol class="rahat-cab" data-i18n-list="rahat_cab">
+    <li><b>१ · समवेदना</b>जनधनको क्षतिप्रति दुःख, मृतक परिवारलाई समवेदना, घाइतेको शीघ्र स्वास्थ्य लाभ।</li>
+    <li><b>२ · निःशुल्क उपचार</b>स्वास्थ्य मन्त्रालय, नेपाली सेना र सरकारी अस्पतालमा घाइतेको तत्काल निःशुल्क उपचार।</li>
+    <li><b>३ · उद्धार</b>गृह र रक्षा: अलपत्र/घाइतेलाई सुरक्षित स्थानमा; सेना र निजी हेलिकप्टर।</li>
+    <li><b>४ · खाना–आश्रय</b>घर गुमाएकालाई खाना र आवास — गृह, विपद् प्राधिकरण, स्थानीय समिति।</li>
+    <li><b>५ · सडक–पानी</b>भौतिक पूर्वाधार: अवरुद्ध सडक खोल्न, खानेपानी सुचारु।</li>
+    <li><b>६ · विद्युत्</b>ऊर्जा मन्त्रालय र प्राधिकरण: विद्युत् यथाशीघ्र सुचारु।</li>
+    <li><b>७ · दूरसञ्चार</b>सञ्चार मन्त्रालय: दूरसञ्चार तत्काल सुचारु।</li>
+    <li><b>८ · आर्थिक सहायता</b>मृतक परिवारलाई प्रचलित कानुनबमोजिम तत्काल आर्थिक सहायता।</li>
+    <li><b>९ · पुनर्निर्माण स्रोत</b>गृहमन्त्री: सार्वजनिक पूर्वाधार मर्मत–पुनर्निर्माण स्रोत समन्वय।</li>
+    <li><b>१० · संकटग्रस्त</b>विपद् ऐन २०७४ दफा ३२: प्रभावित स्थानीय तह तीन महिना संकटग्रस्त।</li>
+  </ol>
+  <p class="treat-note" data-i18n-html="rahat_note">थप (सेना, राति): राहत ट्रक <strong>८</strong> / करिब <strong>८ टन</strong> प्रभावित क्षेत्रतर्फ। यो SitRep-3 पछिको अपडेट हो।</p>
+  <div class="sec-head" style="margin-top:8px"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rahat_photos">उद्धार तस्बिर</h2></div>
+  <div class="pager" data-pager="rahat-photos">
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
+    <div class="pboxes pager-pages"></div>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
+    <span class="pcount pager-count"></span>
+  </div>
+  <div class="photos" id="rahat-photo-grid" data-i18n-list="rahat_photos" data-i18n-kind="fig">
+    <figure class="photo">
+      <a href="img/sitrep3-cabinet.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/sitrep3-cabinet.jpg" alt="NDRRMA स्थिति प्रतिवेदन ०३ समयरेखा र मन्त्रिपरिषद्का १० निर्णय"></a>
+      <figcaption><strong>NDRRMA SitRep #०३</strong>समयरेखा र मन्त्रिपरिषद्का १० निर्णय · राति २२:००</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-ratopati-army-heli-rescue.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ratopati-army-heli-rescue.jpg" alt="घाइतेलाई हेलिकप्टरमा चढाउँदै नेपाली सेना, रातोपाटी"></a>
+      <figcaption><strong>सेना हेलिकप्टर उद्धार</strong>रातोपाटी / रासस · आज</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-ok-uddhar-ktm.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-uddhar-ktm.jpg" alt="घाइते काठमाडौं ल्याउने हेलिकप्टर, अनलाइनखबर"></a>
+      <figcaption><strong>त्रिभुवन विमानस्थल</strong>अनलाइनखबर · आज · घाइते हेलिकप्टरबाट</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-ok-ghaite2.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-ghaite2.jpg" alt="घाइते स्ट्रेचरमा काठमाडौं, अनलाइनखबर"></a>
+      <figcaption><strong>घाइते स्ट्रेचर</strong>अनलाइनखबर · आज · काठमाडौं</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-ok-ghaite1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-26-ok-ghaite1.jpg" alt="हेलिकप्टरबाट घाइते स्ट्रेचरमा, अनलाइनखबर"></a>
+      <figcaption><strong>उद्धार हेलिकप्टर</strong>अनलाइनखबर · आज · कैलाश हेलि</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/ok-heli-timure-2026-08-26.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/ok-heli-timure-2026-08-26.jpg" alt="टिमुरे क्षेत्र हेलिकप्टरबाट बाढी क्षति, अनलाइनखबर"></a>
+      <figcaption><strong>टिमुरे हेलि दृश्य</strong>अनलाइनखबर · आज · रसुवा</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/ok-heli-bhotekoshi-valley-2026-08-26.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/ok-heli-bhotekoshi-valley-2026-08-26.jpg" alt="भोटेकोशी उपत्यका हेलिकप्टरबाट बाढी बाटो, अनलाइनखबर"></a>
+      <figcaption><strong>भोटेकोशी उपत्यका हेलि</strong>अनलाइनखबर · आज</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/ok_army_helicopters_rasuwa.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/ok_army_helicopters_rasuwa.jpg" alt="सेनाका हेलिकप्टर रसुवा उडे"></a>
+      <figcaption><strong>सेनाका हेलिकप्टर</strong>अनलाइनखबर · २ वटा रसुवा उडे</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-setopati-tuth-emergency.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-setopati-tuth-emergency.jpg" alt="टिचिङ अस्पताल आकस्मिक कक्षको प्रवेश, सेतोपाटी"></a>
+      <figcaption><strong>टिचिङ आकस्मिक</strong>सेतोपाटी · आज · काठमाडौं</figcaption>
+    </figure>
+  </div>
+</section>
 
 <section id="contacts">
   <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_contacts">स्थानीय तह सम्पर्क</h2></div>
@@ -4126,6 +4401,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   bindPager(document.querySelector('[data-pager="madhesh"]'), qsa("#madhesh-body tr"), 50);
   bindPager(document.querySelector('.pager[data-pager="shelter"]'), qsa("#shelter-body tr"), 50);
   bindPager(document.querySelector('[data-pager="surya"]'), qsa("#surya-body tr"), 50);
+  bindPager(document.querySelector('.pager[data-pager="rasuwa-res"]'), qsa("#rasuwa-res-body tr"), 50);
 
   var figs = qsa("#photo-grid figure.photo").concat(qsa("#rahat-photo-grid figure.photo"));
   var lb = document.getElementById("lightbox");

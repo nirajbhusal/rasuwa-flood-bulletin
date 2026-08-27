@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T13:55:00+05:45",
+  "updated_at": "2026-08-27T14:17:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,60 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-141728-rajkumar-shrestha",
+      "name": "Rajkumar Shrestha",
+      "age": "४६",
+      "place": "त्रिशूली बजार",
+      "when": "हिजो (२६ अगस्ट)",
+      "phone": "9741678346",
+      "note": "फारम १४:१७ · त्रिशूली बजार"
+    },
+    {
+      "id": "sheet-20260827-141724-kapil-mahajan",
+      "name": "Kapil Mahajan",
+      "age": "४५",
+      "place": "Hilversum, Netherlands · Gyirong (तिब्बत) अध्यागमन कार्यालय",
+      "when": "२०८३-०५-१० · बिहान ~९:००",
+      "phone": "00919980146808",
+      "note": "फारम १४:१७ · Isha Foundation Kailash Mansarovar Yatra · group S3"
+    },
+    {
+      "id": "sheet-20260827-141714-manish-kumar-mandal",
+      "name": "Manish Kumar Mandal",
+      "age": "३२",
+      "place": "तिलाठी कोइलाडी गाउँपालिका–२, लौनिया (सप्तरी) · रसुवा जलविद्युत",
+      "when": "बाढी बेला",
+      "phone": "9804798878 / 9815749810",
+      "note": "फारम १४:१७ · Rasuwa Hydropower"
+    },
+    {
+      "id": "sheet-20260827-141707-vaishnevy-ramasamy",
+      "name": "Vaishnevy Ramasamy",
+      "age": "४९",
+      "place": "पुदुच्चेरी, भारत · स्याफ्रुबेसी",
+      "when": "२०८३-०५-१० · बिहान ~६:१०",
+      "phone": "+91 9442300971",
+      "note": "फारम १४:१७ · भाइ Vishnuram · चुरिधार · Geetha सँगै"
+    },
+    {
+      "id": "sheet-20260827-141357-geetha-ramaswamy",
+      "name": "Geetha Ramaswamy",
+      "age": "६८",
+      "place": "पुदुच्चेरी, भारत · स्याफ्रुबेसी",
+      "when": "२०८३-०५-१० · बिहान ~६:१०",
+      "phone": "+91 9442300971",
+      "note": "फारम १४:१३ · छोरा Vishnuram · चुरिधार"
+    },
+    {
+      "id": "sheet-20260827-135647-serina-gurung",
+      "name": "सेरिना गुरुङ",
+      "age": "नाबालिग (उमेर नखुलेको)",
+      "place": "किस्पाङ गाउँपालिका–५, नुवाकोट · स्कूल बस (Uttargaya Public English Secondary School)",
+      "when": "स्कूल जाँदै (बाढी बेला)",
+      "phone": "974566078 / 9745930301 / 9749327552",
+      "note": "फारम १३:५६ · स्कूल बस · Uttargaya Public English Secondary School"
+    },
     {
       "id": "sheet-20260827-134339-gita-raila",
       "name": "Gita Raila",
