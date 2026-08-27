@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-08-28T05:29:18+05:45",
+  "updated_at": "2026-08-28T05:36:44.579759+05:45",
   "note_np": "फुर्के गेज बगेको; बेत्रावती मौन भए लाइभ नमान्नुहोस्।",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms-Single/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
   "stations": [
     {
-      "station_id": 4657,
-      "series_id": 19916,
+      "station_id": "4657",
+      "series_id": "19916",
       "name": "Trishuli Khola at Dhunche",
       "name_np": "धुन्चे · त्रिशूली खोला",
       "district_np": "नुवाकोट",
@@ -14,16 +14,16 @@
       "warning_m": 3.2,
       "danger_m": null,
       "status": "normal",
-      "steady": "STEADY",
+      "steady": true,
+      "observed_at": "2026-08-28T05:20:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०५:२०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657",
-      "observed_at": "2026-08-28T05:10:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०५:१०"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657"
     },
     {
-      "station_id": 52,
-      "series_id": 943,
+      "station_id": "52",
+      "series_id": "943",
       "name": "Trishuli at Betrawati",
       "name_np": "बेत्रावती · त्रिशूली",
       "district_np": "नुवाकोट",
@@ -31,16 +31,16 @@
       "warning_m": 4.1,
       "danger_m": 5.0,
       "status": "normal",
-      "steady": "STEADY",
+      "steady": true,
+      "observed_at": "2026-08-26T09:20:00+05:45",
+      "observed_npt": "२०२६-०८-२६ ०९:२०",
       "silent": true,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/52",
-      "observed_at": "2026-08-26T09:20:00+05:45",
-      "observed_npt": "२०२६-०८-२६ ०९:२०"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/52"
     },
     {
-      "station_id": 5611,
-      "series_id": 5611,
+      "station_id": "5611",
+      "series_id": "5611",
       "name": "Trishuli at Furke Khola/Malekhu",
       "name_np": "फुर्के · मलेखु",
       "district_np": "धादिङ",
@@ -56,38 +56,38 @@
       "observed_npt": "२०२६-०८-२६ ११:४०"
     },
     {
-      "station_id": 4781,
-      "series_id": 19583,
+      "station_id": "4781",
+      "series_id": "19583",
       "name": "Trishuli River at Kali Khola",
       "name_np": "काली खोला · त्रिशूली",
       "district_np": "चितवन",
-      "level_m": 6.643,
+      "level_m": 6.624,
       "warning_m": 10.8,
       "danger_m": 12.1,
       "status": "normal",
-      "steady": "STEADY",
+      "steady": true,
+      "observed_at": "2026-08-28T05:30:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०५:३०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781",
-      "observed_at": "2026-08-28T05:20:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०५:२०"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781"
     },
     {
-      "station_id": 265,
-      "series_id": 4140,
+      "station_id": "265",
+      "series_id": "4140",
       "name": "Narayani at Devghat",
       "name_np": "देवघाट · नारायणी",
       "district_np": "चितवन",
-      "level_m": 4.683,
+      "level_m": 4.667,
       "warning_m": 7.3,
       "danger_m": 9.0,
       "status": "normal",
-      "steady": "RISING",
+      "steady": true,
+      "observed_at": "2026-08-28T05:10:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०५:१०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/265",
-      "observed_at": "2026-08-28T05:00:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०५:००"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
     }
   ]
 }
