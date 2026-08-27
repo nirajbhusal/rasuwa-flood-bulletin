@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T14:17:00+05:45",
+  "updated_at": "2026-08-27T14:31:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,49 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-143156-mahendra-dangol",
+      "name": "Mahendra Dangol",
+      "age": "५८",
+      "place": "Happy Home Resort, बेत्रावती",
+      "when": "बाढी बेला",
+      "note": "फारम १४:३१ · Happy Home Resort, बेत्रावती · Divya Dangol सँग नमिसाउने (फरक व्यक्ति, एउटै ठाउँ)"
+    },
+    {
+      "id": "sheet-20260827-143048-divya-dangol",
+      "name": "Divya Dangol",
+      "age": "४५",
+      "place": "Happy Home Resort, बेत्रावती",
+      "when": "बाढी बेला",
+      "phone": "9767658886",
+      "note": "फारम १४:३० · Happy Home Resort, बेत्रावती"
+    },
+    {
+      "id": "sheet-20260827-142446-istoshyna-hanna",
+      "name": "Istoshyna Hanna",
+      "age": "५२",
+      "place": "Dnipro, Ukraine · Gyirong Port / रसुवागढी सीमा (पाँच तले चिनियाँ बोर्डर गार्ड भवन)",
+      "when": "२६ अगस्ट",
+      "phone": "+380956662212",
+      "note": "फारम १४:२४ · पासपोर्ट FN246477 · Nataliia Vlasova (GF444936) सँग यात्रा · प्लेड बटन-डाउन शर्ट (खैरो/क्रिम/मुसली), तल सेतो टी-शर्ट"
+    },
+    {
+      "id": "sheet-20260827-142012-deepu-shahi",
+      "name": "Deepu shahi",
+      "age": "४३",
+      "place": "कमलपोखरी, काठमाडौं · रसुवा अध्यागमन, याङखिला होटल",
+      "when": "~८:५५",
+      "phone": "9840633576",
+      "note": "फारम १४:२० · माला पसल · Shrawan Shahi सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-141917-devi-sara",
+      "name": "Devi Sara",
+      "place": "पोखरा, कास्की · धुन्चे वरपर",
+      "when": "२६ अगस्ट · ~९:१५",
+      "phone": "9846047128 / 9856022686",
+      "note": "फारम १४:१९ · Binu Gurung सँगै रिपोर्ट (फरक व्यक्ति)"
+    },
     {
       "id": "sheet-20260827-141728-rajkumar-shrestha",
       "name": "Rajkumar Shrestha",
