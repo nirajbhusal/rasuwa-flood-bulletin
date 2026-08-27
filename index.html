@@ -395,9 +395,24 @@ a.js-found-row[hidden]{display:none}
 .ov-cap{margin:0 0 8px;font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.02em}
 .ov-note{margin:10px 0 0;font-size:15px;font-weight:600;color:var(--muted);line-height:1.55}
 .ov-warn{
-  margin:10px 0 0;padding:10px 12px;border-radius:12px;
-  background:#9f1239;color:#fff;font-weight:800;font-size:15px;text-align:center;
+  margin:12px 0 8px;padding:14px 16px 12px;border-radius:16px;
+  background:#9f1239;color:#fff;border:3px solid #facc15;
+  box-shadow:0 10px 30px rgba(127,29,29,.22);text-align:left;
 }
+.ov-warn-h{
+  margin:0 0 8px;font-size:18px;font-weight:800;letter-spacing:.03em;text-align:center;
+}
+.ov-warn .police-alert-text{font-size:16px;line-height:1.55;font-weight:700}
+.ov-warn .police-alert-text .src{
+  display:inline-block;margin-left:6px;background:#facc15;color:#7f1d1d;
+  font-size:12px;font-weight:800;letter-spacing:.03em;padding:2px 8px;border-radius:999px;vertical-align:middle;
+}
+.ov-warn .police-alert-phones{
+  margin-top:10px;padding-top:10px;border-top:1px solid rgba(250,204,21,.35);
+  text-align:center;font-weight:800;font-size:clamp(16px,3.6vw,20px);
+}
+.ov-warn .police-alert-phones a{color:#fde68a;text-decoration:none}
+.ov-warn .police-alert-phones a:hover{text-decoration:underline}
 .ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
 .ov-mini h3{margin:0 0 6px;font-size:13px;font-weight:800;color:var(--ink)}
 .ov-mini h3 em{font-style:normal;color:var(--crimson);margin-left:4px;font-variant-numeric:tabular-nums}
@@ -1122,8 +1137,12 @@ footer .foot-contact a:hover{text-decoration:underline}
           <p class="ov-note" data-i18n="ov_air_note">टिमुरे ९५ मा विदेशी ८। SitRep-3 हवाई ११६ छुट्टै।</p>
         </div>
       </div>
-      <p class="ov-warn" data-i18n="ov_warn">नदी किनार नजानुहोस्।</p>
     </div>
+    <aside class="ov-warn" role="alert">
+      <p class="ov-warn-h" data-i18n="ov_warn">नदी किनार नजानुहोस्।</p>
+      <p class="police-alert-text"><span data-i18n-html="police_alert">भोटेकोसी नदी रसुवामा तिब्बत तर्फबाट ठुलो बाढी प्रवेश गरेकोले अर्को सूचना नआउँदासम्म त्रिशूली नदीको तटीय क्षेत्रका जिल्लाहरू नुवाकोट, धादिङ, चितवन, गोरखा लगायतका स्थानहरूमा उच्च सतर्कता सहित सुरक्षित स्थानमा रहन अनुरोध छ। </span><span class="src">Nepal Police</span></p>
+      <p class="police-alert-phones"><a href="tel:1234" data-i18n="rescue_1234">उद्धार १२३४</a> · <a href="tel:100"><span data-i18n="police">प्रहरी</span> १००</a> · <a href="tel:1114">१११४</a> · <a href="tel:102"><span data-i18n="ambulance">एम्बुलेन्स</span> १०२</a></p>
+    </aside>
     <div class="stats" aria-label="प्रारम्भिक तथ्यांक" data-i18n-aria="stats_aria" data-i18n-list="hero_mini" data-i18n-kind="deep-li">
       <div class="stat">
         <b data-i18n="stat_bodies">मृतक संख्या</b>
@@ -1368,11 +1387,6 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 <main class="wrap">
-
-<aside class="police-alert" role="alert">
-  <p class="police-alert-text"><span data-i18n-html="police_alert">भोटेकोसी नदी रसुवामा तिब्बत तर्फबाट ठुलो बाढी प्रवेश गरेकोले अर्को सूचना नआउँदासम्म त्रिशूली नदीको तटीय क्षेत्रका जिल्लाहरू नुवाकोट, धादिङ, चितवन, गोरखा लगायतका स्थानहरूमा उच्च सतर्कता सहित सुरक्षित स्थानमा रहन अनुरोध छ। </span><span class="src">Nepal Police</span></p>
-  <p class="police-alert-phones"><a href="tel:1234" data-i18n="rescue_1234">उद्धार १२३४</a> · <a href="tel:100"><span data-i18n="police">प्रहरी</span> १००</a> · <a href="tel:1114">१११४</a> · <a href="tel:102"><span data-i18n="ambulance">एम्बुलेन्स</span> १०२</a></p>
-</aside>
 
 <section id="rahat">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rahat">राहत / उद्धार भिजुअल</h2></div>
