@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T14:41:00+05:45",
+  "updated_at": "2026-08-27T14:48:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,15 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-144353-sagar-karn",
+      "name": "Sagar Karn",
+      "age": "२७",
+      "place": "वीरगञ्ज",
+      "when": "२०८३ भदौ ९",
+      "phone": "9845966655 / 9769741680",
+      "note": "फारम १४:४३ · ट्रक चालक · पहेँलो सर्ट"
+    },
     {
       "id": "sheet-20260827-143445-sanghamitra-banerjee",
       "name": "Sanghamitra Banerjee",
