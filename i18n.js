@@ -391,6 +391,11 @@ window.I18N = {
 "cash_byd": "BYD · साइमेक्स",
 "cash_byd_cap": "BYD · साइमेक्स · ७ करोड नगद",
 "cash_byd_note": "प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा नगद सहयोग।",
+"cash_gibl_lead": "ग्लोबल आइएमई बैंकले भोटेकोशी नदीको भीषण बाढीबाट प्रभावितको उद्धार, राहत र पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>५ करोड</strong> रुपैयाँ सहयोग गर्ने घोषणा गरेको छ।",
+"cash_gibl": "ग्लोबल आइएमई",
+"cash_gibl_cap": "ग्लोबल आइएमई बैंक · ५ करोड",
+"cash_gibl_note": "उद्धार, राहत र पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सहयोग गर्ने घोषणा।",
+
 "cash_published": "नगद राहत",
 "cash_crore": "करोड रुपैयाँ",
 "cash_cr": "करोड",
@@ -857,6 +862,11 @@ window.I18N = {
 "cash_byd": "BYD · Cimex",
 "cash_byd_cap": "BYD · Cimex · 7 crore cash",
 "cash_byd_note": "Cash contribution to the Prime Minister’s Disaster Relief Fund.",
+"cash_gibl_lead": "Global IME Bank announced <strong>5 crore</strong> rupees for the Prime Minister’s Disaster Relief Fund for rescue, relief and rehabilitation after the Bhotekoshi flood.",
+"cash_gibl": "Global IME",
+"cash_gibl_cap": "Global IME Bank · 5 crore",
+"cash_gibl_note": "Announced support to the Prime Minister’s Disaster Relief Fund for rescue, relief and rehabilitation.",
+
 "cash_published": "Cash relief",
 "cash_crore": "crore rupees",
 "cash_cr": "crore",
