@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T12:34:00+05:45",
+  "updated_at": "2026-08-27T12:42:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,86 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-124213-chhesang-tamang",
+      "name": "Chhesang Tamang",
+      "age": "21",
+      "place": "Syabrubesi, Rasuwa",
+      "when": "26 August",
+      "phone": "9808169171",
+      "note": "फारम १२:४२ · भाइ · परिवारको होटल स्याफ्रुबेसी · काठमाडौंबाट छोरी/दिदीको रिपोर्ट · सम्पर्कविहीन"
+    },
+    {
+      "id": "sheet-20260827-124136-sarulatha-dhayalan",
+      "name": "Sarulatha Dhayalan",
+      "age": "51",
+      "place": "India · Bhote Koshi, Nepal–China border (G216 / helipad area)",
+      "when": "30hrs ago",
+      "phone": "+977 9845903374",
+      "note": "फारम १२:४१ · भारतीय · TCS · सरकारी काम"
+    },
+    {
+      "id": "sheet-20260827-124038-andrii-kysil",
+      "name": "Andrii Kysil",
+      "age": "34",
+      "place": "Ukraine · Nepal–Tibet border (China तर्फबाट नेपाल)",
+      "when": "26/08/2026 08:27",
+      "phone": "+380970442244",
+      "note": "फारम १२:४० · कालो टी-शर्ट, छोटो कपाल, दायाँ हातमा तेर्सो पट्टी ट्याटु, खुट्टामा Ironman ट्याटु · उचाइ १९० से.मि., तौल ११० के.जि."
+    },
+    {
+      "id": "sheet-20260827-123947-phurpu-tamang",
+      "name": "Phurpu Tamang",
+      "age": "49",
+      "place": "Syabrubesi, Rasuwa",
+      "when": "26 August",
+      "phone": "9808169171",
+      "note": "फारम १२:३९ · छोरी काठमाडौंबाट रिपोर्ट · परिवार स्याफ्रुबेसी · सम्पर्कविहीन"
+    },
+    {
+      "id": "sheet-20260827-123941-dilip-kumar-mandal",
+      "name": "Dilip Kumar Mandal (Jibachh)",
+      "age": "28",
+      "place": "Tilathi Koiladi R.M. २, Launiya (Saptari) · Rasuwa hydropower",
+      "when": "2083-05-10",
+      "phone": "9804736342 / 9815749810",
+      "note": "फारम १२:३९"
+    },
+    {
+      "id": "sheet-20260827-123901-mukesh-khadka",
+      "name": "Mukesh Khadka",
+      "age": "30",
+      "place": "Kirtipur · Mailung",
+      "when": "26 August am",
+      "phone": "9843576798",
+      "note": "फारम १२:३९ · NIMB बैंक कर्मचारी · nimb dress"
+    },
+    {
+      "id": "sheet-20260827-123800-rameshbabu-chopparapu",
+      "name": "Rameshbabu Chopparapu",
+      "age": "53",
+      "place": "Vijayawada, Andhra Pradesh, India · Immigration Office, Near Friendship Bridge",
+      "when": "26 August around 8am",
+      "phone": "+91 8600959221",
+      "note": "फारम १२:३८ · ankurpalande@gmail.com"
+    },
+    {
+      "id": "sheet-20260827-123720-mingmar-takmang",
+      "name": "Mingmar Takmang",
+      "age": "50",
+      "place": "Syabrubesi, Rasuwa",
+      "phone": "9808169171",
+      "note": "फारम १२:३७ · सम्पर्कविहीन"
+    },
+    {
+      "id": "sheet-20260827-123710-padma-mahadevan",
+      "name": "Padma Mahadevan",
+      "age": "72",
+      "place": "Bangalore · Timure",
+      "when": "26 August 2026 8 AM",
+      "phone": "9902027300 / 9845689327",
+      "note": "फारम १२:३७ · आफ्नो नम्बर ९८४५६८९३२७"
+    },
     {
       "id": "sheet-20260827-123347-niraj-pradhan",
       "name": "Niraj Pradhan",
