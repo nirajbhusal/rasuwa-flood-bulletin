@@ -219,6 +219,9 @@ window.I18N = {
 "fam_new_lead_n": "जनताबाट आएका रिपोर्ट <strong>{n}</strong> विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।",
 "hello_lead": "फोनमार्फत टिपिएका सम्पर्कविहीन तथा बेपत्ता <strong>१४०</strong> विवरण। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।",
 "hello_note": "स्रोत: हेलो सरकार, राती ८:१०।",
+"madhesh_h": "मधेश प्रहरी · सम्पर्कविहीन ३०",
+"madhesh_lead": "मधेश प्रदेश प्रहरी: परिवार तथा आफन्तको जानकारी अनुसार रसुवा बाढीपछि <strong>३०</strong> जना सम्पर्कविहीन। पर्सा १७ (उद्धार भई सम्पर्कमा <strong>२</strong>), बारा ३, रौतहट २, सर्लाही ६, सप्तरी २। हेलो सरकार १४० र फारम सूची अलग। नाम मिलाइएको छैन।",
+"madhesh_note": "स्रोत: मधेश प्रदेश प्रहरी कार्यालय। खोजबिनको अपिल।",
 "hl_extra": "स्वास्थ्य <a href=\"tel:1115\">1115</a> · बाढी पूर्वानुमान <a href=\"tel:1155\">1155</a> (विकल्प २) · ट्राफिक <a href=\"tel:103\">103</a> · राष्ट्रिय आपत्कालीन <a href=\"tel:1144\">1144</a>। सबै जिल्लाको DEOC <a href=\"tel:1234\">1234</a>।",
 "hl_foot": "आपत्का बेला नआत्तिऔं, सजग र पूर्वतयार रहौं। यो जानकारी सेयर गरी सुरक्षित रहन सहयोग गरौं।",
 "alert_note": "संख्या प्रारम्भिक हुन्। नागरिक मृत्यु/बेपत्ताको आधिकारिक गणना अहिले सार्वजनिक भएको छैन — अनुमान नगर्नुहोस्।",
@@ -480,6 +483,9 @@ window.I18N = {
 "fam_new_lead_n": "Public reports: <strong>{n}</strong> records. Tap a number to call.",
 "hello_lead": "<strong>140</strong> uncontacted or missing records taken by phone. Tap a number to call where one is listed.",
 "hello_note": "Source: Hello Sarkar, 8:10 pm.",
+"madhesh_h": "Madhesh Police · 30 uncontacted",
+"madhesh_lead": "Madhesh Province Police: <strong>30</strong> people uncontacted after the Rasuwa flood, from family reports. Parsa 17 (rescued and in contact: <strong>2</strong>), Bara 3, Rautahat 2, Sarlahi 6, Saptari 2. Separate from Hello Sarkar 140 and the form list. Names have not been matched.",
+"madhesh_note": "Source: Madhesh Province Police. Appeal to help search.",
 "hl_extra": "Health <a href=\"tel:1115\">1115</a> · flood forecast <a href=\"tel:1155\">1155</a> (option 2) · traffic <a href=\"tel:103\">103</a> · national emergency <a href=\"tel:1144\">1144</a>. Every district DEOC <a href=\"tel:1234\">1234</a>.",
 "hl_foot": "In an emergency stay calm, stay alert, stay prepared. Share this information to help others stay safe.",
 "alert_note": "Figures are preliminary. There is no official public count of civilian dead/missing yet — do not guess.",
@@ -535,6 +541,7 @@ window.I18N_LISTS = {
 "NDRRMA <strong>245</strong> · Rasuwa 161 · Nuwakot 1",
 "<a href=\"#family\">Public reports</a> <strong id=\"stat-miss-form\">195</strong>",
 "Hello Sarkar <strong>140</strong>",
+"<a href=\"#family\">Madhesh Police</a> <strong>30</strong> · 2 rescued",
 "Tourists <strong>484</strong>",
 "Langtang project <strong>60</strong>",
 "Gorkha bus passengers <strong>34</strong>",
@@ -721,6 +728,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Madhesh Police · 30 uncontacted",
+"p": "Madhesh Province Police released <strong>30</strong> names from family reports after the Rasuwa flood. Parsa 17 (rescued and in contact 2 — Gyanbahadur Thing, Shyamlal Moktan), Bara 3, Rautahat 2, Sarlahi 6, Saptari 2. Not merged with Hello Sarkar 140 or the form wall. List in <a href=\"#family\">Missing / Found</a>."
+},
 {
 "h": "Bodies found · Chitwan 64",
 "p": "Chitwan District Police: <strong>64</strong> bodies recovered in Chitwan so far among flood deaths. Headline dead <strong>162</strong> unchanged."

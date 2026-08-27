@@ -190,6 +190,8 @@ img{max-width:100%;display:block}
 .treat-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 4px}
 .treat{min-width:760px}
 .fam-tbl{min-width:560px}
+.ok-tag{display:inline-block;margin-left:6px;font-size:11px;font-weight:800;background:var(--forest);color:#fff;padding:2px 7px;border-radius:999px;vertical-align:middle}
+.fam-tbl tr.rescued td{background:#ecfdf5}
 .fam-tbl td:nth-child(2){font-weight:650}
 .fam-new{min-width:640px}
 .fam-new th:last-child,.fam-new td.found-cell{
@@ -863,6 +865,7 @@ footer .foot-contact a:hover{text-decoration:underline}
           <li>NDRRMA <strong>२४५</strong> · रसुवा १६१ · नुवाकोट १</li>
           <li><a href="#family">जनताको रिपोर्ट</a> <strong id="stat-miss-form">१९५</strong></li>
           <li>हेलो सरकार <strong>१४०</strong></li>
+          <li><a href="#family">मधेश प्रहरी</a> <strong>३०</strong> · उद्धार २</li>
           <li>पर्यटक <strong>४८४</strong></li>
           <li>लाङटाङ आयोजना <strong>६०</strong></li>
           <li>गोरखा बस यात्रु <strong>३४</strong></li>
@@ -1453,6 +1456,59 @@ footer .foot-contact a:hover{text-decoration:underline}
     </table>
     </div>
     <p class="treat-note" data-i18n="hello_note">स्रोत: हेलो सरकार, राती ८:१०।</p>
+    <h3 class="fam-h" data-i18n="madhesh_h">मधेश प्रहरी · सम्पर्कविहीन ३०</h3>
+    <p class="treat-lead" data-i18n-html="madhesh_lead">मधेश प्रदेश प्रहरी: परिवार तथा आफन्तको जानकारी अनुसार रसुवा बाढीपछि <strong>३०</strong> जना सम्पर्कविहीन। पर्सा १७ (उद्धार भई सम्पर्कमा <strong>२</strong>), बारा ३, रौतहट २, सर्लाही ६, सप्तरी २। हेलो सरकार १४० र फारम सूची अलग। नाम मिलाइएको छैन।</p>
+    <div class="pager" data-pager="madhesh">
+      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
+      <div class="pboxes pager-pages"></div>
+      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
+      <span class="pcount pager-count"></span>
+    </div>
+    <div class="treat-wrap">
+    <table class="plants treat fam-tbl">
+      <thead>
+        <tr>
+          <th data-i18n="sn">सि.नं.</th>
+          <th data-i18n="th_name">नाम थर</th>
+          <th data-i18n="th_addr">ठेगाना</th>
+          <th data-i18n="th_phone">सम्पर्क नं.</th>
+        </tr>
+      </thead>
+      <tbody id="madhesh-body">
+        <tr data-pager="madhesh"><td>१</td><td>नारायण पटेल</td><td>पर्सा · वीरगञ्ज महानगरपालिका–१४, बहुअरी</td><td class="phone"><a href="tel:+9779814227697">9814227697</a></td></tr>
+        <tr data-pager="madhesh"><td>२</td><td>सुबोध पटेल</td><td>पर्सा · कलैया उपमहानगरपालिका–२२</td><td class="phone"><a href="tel:+9779805569268">9805569268</a></td></tr>
+        <tr data-pager="madhesh"><td>३</td><td>अरुण हजरा</td><td>पर्सा · कलैया उपमहानगरपालिका–२२, मटिअर्वा</td><td class="phone"><a href="tel:+9779805569268">9805569268</a></td></tr>
+        <tr data-pager="madhesh"><td>४</td><td>श्यामबाबु ठाकुर</td><td>पर्सा · वीरगञ्ज महानगरपालिका–१५, लक्ष्मणवा</td><td class="phone"><a href="tel:+9779861510386">9861510386</a></td></tr>
+        <tr data-pager="madhesh"><td>५</td><td>उकेश दंगोल</td><td>पर्सा · हेटौंडा उपमहानगरपालिका–८, कमाने (हाल पर्सा)</td><td class="phone"><a href="tel:+9779845338508">9845338508</a></td></tr>
+        <tr data-pager="madhesh"><td>६</td><td>संजय तामाङ</td><td>पर्सा · सिन्धुली (हाल पर्सा)</td><td class="phone"><a href="tel:+9779864031339">9864031339</a></td></tr>
+        <tr data-pager="madhesh"><td>७</td><td>आकाश तामाङ</td><td>पर्सा · पालुङ, मकवानपुर (हाल पर्सा)</td><td class="phone"><a href="tel:+9779851121320">9851121320</a></td></tr>
+        <tr data-pager="madhesh"><td>८</td><td>कमरुल होदा अंसारी</td><td>पर्सा · वीरगञ्ज महानगरपालिका–१३</td><td class="phone"><a href="tel:+9779840211926">9840211926</a></td></tr>
+        <tr data-pager="madhesh"><td>९</td><td>सुभाष पटेल</td><td>पर्सा · बरियारपुर–८, बारा (हाल पर्सा)</td><td class="phone"><a href="tel:+9779700570518">9700570518</a></td></tr>
+        <tr data-pager="madhesh" class="rescued"><td>१०</td><td>ज्ञानबहादुर थिङ <span class="ok-tag">उद्धार भई सम्पर्कमा</span></td><td>पर्सा · लालबन्दी, सर्लाही</td><td class="phone"><a href="tel:+9779763765210">9763765210</a></td></tr>
+        <tr data-pager="madhesh" class="rescued"><td>११</td><td>श्यामलाल मोक्तान <span class="ok-tag">उद्धार भई सम्पर्कमा</span></td><td>पर्सा · —</td><td class="phone"><a href="tel:+9779761502508">9761502508</a></td></tr>
+        <tr data-pager="madhesh"><td>१२</td><td>समिम देवान</td><td>पर्सा · परवानीपुर–४, चैनपुर, बारा (हाल पर्सा)</td><td class="phone"><a href="tel:+9779707945327">9707945327</a></td></tr>
+        <tr data-pager="madhesh"><td>१३</td><td>अनुतम बहादुर श्रेष्ठ</td><td>पर्सा · वीरगञ्ज महानगरपालिका–४, बिर्ता</td><td class="phone"><a href="tel:+9779814268168">9814268168</a></td></tr>
+        <tr data-pager="madhesh"><td>१४</td><td>अभिषेक बस्तोला</td><td>पर्सा · हेटौंडा–११, बस्तिपुर, मकवानपुर (हाल पर्सा)</td><td class="phone"><a href="tel:+9779842094715">9842094715</a></td></tr>
+        <tr data-pager="madhesh"><td>१५</td><td>घनश्याम बस्तोला</td><td>पर्सा · हेटौंडा–११, बस्तिपुर, मकवानपुर (हाल पर्सा)</td><td class="phone"><a href="tel:+9779840012651">9840012651</a></td></tr>
+        <tr data-pager="madhesh"><td>१६</td><td>दिनेश परियार</td><td>पर्सा · निजगढ, बारा (हाल पर्सा)</td><td class="phone"><a href="tel:+9779844404283">9844404283</a></td></tr>
+        <tr data-pager="madhesh"><td>१७</td><td>पृथ्वी चौधरी</td><td>पर्सा · वीरगञ्ज महानगरपालिका–१५, लक्ष्मणवा</td><td class="phone"><a href="tel:+9779829457719">9829457719</a></td></tr>
+        <tr data-pager="madhesh"><td>१८</td><td>नारायण सिंह</td><td>बारा · परवानीपुर गाउँपालिका–५, बहुअरी टोल</td><td class="phone"><a href="tel:+9779845033370">9845033370</a></td></tr>
+        <tr data-pager="madhesh"><td>१९</td><td>सत्यप्रकाश राम</td><td>बारा · कलैया उपमहानगरपालिका–२२, धोध टोल</td><td class="phone"><a href="tel:+9779816205619">9816205619</a></td></tr>
+        <tr data-pager="madhesh"><td>२०</td><td>अन्कित पटेल</td><td>बारा · आदर्श कोतवाल गाउँपालिका–१, चिउटाहा</td><td class="phone"><a href="tel:+9779809265788">9809265788</a></td></tr>
+        <tr data-pager="madhesh"><td>२१</td><td>गौरव राउत</td><td>रौतहट · वृन्दावन नगरपालिका–२</td><td class="phone"><a href="tel:+9779840072345">9840072345</a></td></tr>
+        <tr data-pager="madhesh"><td>२२</td><td>शेख मजिद</td><td>रौतहट · ईशनाथ नगरपालिका–४</td><td class="phone"><a href="tel:+9779823643707">9823643707</a></td></tr>
+        <tr data-pager="madhesh"><td>२३</td><td>माधव काफ्ले</td><td>सर्लाही · लालबन्दी नगरपालिका–९</td><td class="phone">—</td></tr>
+        <tr data-pager="madhesh"><td>२४</td><td>अनुज काफ्ले</td><td>सर्लाही · लालबन्दी नगरपालिका–९</td><td class="phone">—</td></tr>
+        <tr data-pager="madhesh"><td>२५</td><td>कृष्णप्रसाद धमला</td><td>सर्लाही · लालबन्दी नगरपालिका–५</td><td class="phone">—</td></tr>
+        <tr data-pager="madhesh"><td>२६</td><td>द्वारिका दंगाल</td><td>सर्लाही · लालबन्दी नगरपालिका–५</td><td class="phone">—</td></tr>
+        <tr data-pager="madhesh"><td>२७</td><td>चिरञ्जीवी खतिवडा</td><td>सर्लाही · लालबन्दी नगरपालिका–५</td><td class="phone">—</td></tr>
+        <tr data-pager="madhesh"><td>२८</td><td>सुनिल कुशवाहा</td><td>सर्लाही · हरिवन नगरपालिका–५, घुर्कौली</td><td class="phone">—</td></tr>
+        <tr data-pager="madhesh"><td>२९</td><td>अजयकुमार यादव</td><td>सप्तरी · विष्णुपुर गाउँपालिका–१</td><td class="phone"><a href="tel:+9779843104543">9843104543</a></td></tr>
+        <tr data-pager="madhesh"><td>३०</td><td>साजन चौधरी</td><td>सप्तरी · शम्भुनाथ नगरपालिका–८</td><td class="phone"><a href="tel:+9779842197558">9842197558</a> / <a href="tel:+9779845824244">9845824244</a></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="treat-note" data-i18n="madhesh_note">स्रोत: मधेश प्रदेश प्रहरी कार्यालय। खोजबिनको अपिल।</p>
     <div id="fam-matched-wrap" hidden>
     <h3 class="fam-h" data-i18n="matched_h">मेल भएका</h3>
     <div class="fam-grid" id="fam-matched"></div>
@@ -1938,6 +1994,12 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
     <article class="log-item now">
+      <p class="when">~१०:४७</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>मधेश प्रहरी · सम्पर्कविहीन ३०</h3>
+      <p>मधेश प्रदेश प्रहरी: रसुवा बाढीपछि परिवार/आफन्तको जानकारी अनुसार <strong>३०</strong> जना सम्पर्कविहीन सार्वजनिक। पर्सा १७ (उद्धार भई सम्पर्कमा २ — ज्ञानबहादुर थिङ, श्यामलाल मोक्तान), बारा ३, रौतहट २, सर्लाही ६, सप्तरी २। हेलो सरकार १४० र फारम सूची अलग। नाम मिलाइएको छैन। सूची <a href="#family">हराएको / भेटिएको</a> मा।</p>
+    </article>
+    <article class="log-item">
       <p class="when">~१०:१८</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>शव फेला · चितवन ६४</h3>
@@ -3244,6 +3306,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   bindPager(document.querySelector('[data-pager="roads"]'), qsa("#roads-list > li"), 6);
   bindPager(document.querySelector('[data-pager="sources"]'), qsa("#source-grid .src-group"), 4);
   bindPager(document.querySelector('[data-pager="hello-sarkar"]'), qsa("#hello-sarkar-body tr"), 50);
+  bindPager(document.querySelector('[data-pager="madhesh"]'), qsa("#madhesh-body tr"), 50);
   bindPager(document.querySelector('.pager[data-pager="shelter"]'), qsa("#shelter-body tr"), 50);
 
   var figs = qsa("#photo-grid figure.photo").concat(qsa("#rahat-photo-grid figure.photo"));
@@ -3692,7 +3755,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       var q = ((document.getElementById("fam-search") || {}).value || "").trim().toLowerCase();
       var qd = q.replace(/\D/g, "");
       var cards = document.querySelectorAll("#fam-missing .fam-card");
-      var rows = document.querySelectorAll("#hello-sarkar-body tr");
+      var rows = document.querySelectorAll("#hello-sarkar-body tr, #madhesh-body tr");
       var n = 0;
       function hit(el){
         if (!q) return true;
@@ -3715,6 +3778,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       if (missEmpty && q) missEmpty.hidden = true;
       rebind('[data-pager="fam-miss"]', visible("#fam-missing .fam-card"), 6);
       rebind('[data-pager="hello-sarkar"]', visible("#hello-sarkar-body tr"), 50);
+      rebind('[data-pager="madhesh"]', visible("#madhesh-body tr"), 50);
     }
     rebind('[data-pager="fam-miss"]', visible("#fam-missing .fam-card"), 6);
     rebind('[data-pager="fam-found"]', visible("#fam-found .fam-card"), 50);
