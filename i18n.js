@@ -116,6 +116,10 @@ window.I18N = {
 "h_surya": "उद्धार · सूर्यगढी",
 "h_rasuwa_res": "उद्धार · रसुवा / टिमुरे",
 "nav_rasuwa_res": "रसुवा उद्धार",
+"h_india_res": "उद्धार · भारतीय नागरिक",
+"nav_india_res": "भारतीय उद्धार",
+"india_res_lead": "११ भदौ १३:०० सम्म उद्धार भएका भारतीय नागरिक <strong>२१</strong> जना। रसुवा/टिमुरे, नुवाकोट, सूर्यगढी र हराएको सूची अलग — नाम मिलाइएको छैन, हराएकोबाट हटाइएको छैन।",
+"india_res_note": "स्रोत: List of Indians rescued, २७ अगस्ट २०२६ १३:०० बजेसम्म। २१ जना।",
 "rasuwa_res_lead": "११ भदौको उद्धार सूची। नेपाली नाम <strong>६७</strong> (कागजात १–८८, दोहोरिएका हटाएर) + कोरियन <strong>४</strong> + इटालेली <strong>२</strong>। नुवाकोट ५६, सूर्यगढी २३ र हराएको सूची अलग — नाम मिलाइएको छैन, हराएकोबाट हटाइएको छैन।",
 "h_kr_res": "कोरियन उद्धार · ११ भदौ",
 "h_it_res": "इटालेली उद्धार · ११ भदौ",
@@ -483,6 +487,10 @@ window.I18N = {
 "h_surya": "Rescue · Suryagadhi",
 "h_rasuwa_res": "Rescued · Rasuwa / Timure",
 "nav_rasuwa_res": "Rasuwa rescued",
+"h_india_res": "Rescued · Indian nationals",
+"nav_india_res": "Indian rescued",
+"india_res_lead": "As of 13:00, 11 Bhadra: <strong>21</strong> Indian nationals rescued. Separate from Rasuwa/Timure, Nuwakot, Suryagadhi and the missing wall — names not merged or removed from missing.",
+"india_res_note": "Source: List of Indians rescued, as of 13:00 on 27 August 2026. 21 people.",
 "rasuwa_res_lead": "11 Bhadra rescue list. Nepali names <strong>67</strong> (from serials 1–88, duplicates dropped) + Korean <strong>4</strong> + Italian <strong>2</strong>. Kept separate from Nuwakot 56, Suryagadhi 23, and the missing wall — not merged, not removed from missing.",
 "h_kr_res": "Korean rescued · 11 Bhadra",
 "h_it_res": "Italian rescued · 11 Bhadra",
@@ -936,6 +944,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Indian rescued 21",
+"p": "As of 13:00 on 27 August, <strong>21</strong> Indian nationals rescued. Named list in <a href=\"#india-res\">Indian rescued</a>. Not removed from the missing wall."
+},
 {
 "h": "Dead 270 · Nepal Police",
 "p": "Nepal Police: <strong>270</strong> bodies recovered from the Bhotekoshi flood. 11 Bhadra 13:30. Previous 06:00 figure 162. District split not yet in. SitRep-3 districts 123 is history."
