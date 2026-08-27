@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T10:17:00+05:45",
+  "updated_at": "2026-08-27T10:23:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,50 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-101900-madhav-kafle",
+      "name": "Madhav Kafle",
+      "age": "50 around",
+      "place": "Kathmandu · Bidhur",
+      "when": "9:00",
+      "phone": "9822784005",
+      "note": "फारम १०:१९ · Black suzuki ride"
+    },
+    {
+      "id": "sheet-20260827-101833-manikala-rana",
+      "name": "Manikala Rana",
+      "place": "Timure · Timure, rasuwa",
+      "when": "27 August",
+      "phone": "9768705162 / 9865449138",
+      "note": "फारम १०:१८ · Amar Gharti Magar सँगै सम्पर्क"
+    },
+    {
+      "id": "sheet-20260827-101825-dinesh-achhami",
+      "name": "Dinesh Achhami",
+      "age": "45",
+      "place": "Sindupalchowk · Timure bhansar",
+      "when": "Last call 8 am yesterday",
+      "phone": "9849590928",
+      "note": "फारम १०:१८"
+    },
+    {
+      "id": "sheet-20260827-101632-amar-gharti-magar",
+      "name": "Amar Gharti Magar",
+      "age": "35-40",
+      "place": "Jajarkot · Timure,rasuwa",
+      "when": "Aug 27",
+      "phone": "9768705162 / 9865449138",
+      "note": "फारम १०:१६ · Manikala Rana सँगै सम्पर्क"
+    },
+    {
+      "id": "sheet-20260827-101413-prem-bahadur-tsmang",
+      "name": "Prem Bahadur Tsmang",
+      "age": "49/50",
+      "place": "Kathmandu, Nayapati · Nuwakot Trishuli / Kerung (विरोधाभास रिपोर्ट)",
+      "when": "25 aug 2026",
+      "phone": "9747237574",
+      "note": "फारम १०:१४ · सम्भवतः Tamang · ट्रिशूली/केरुङ रिपोर्ट बाझिएको"
+    },
     {
       "id": "sheet-20260827-101339-rudhra-iyer",
       "name": "Rudhra Iyer",
