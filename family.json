@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T10:54:48+05:45",
+  "updated_at": "2026-08-27T11:06:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,122 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-110300-pemba-sherpa-solukhumbu",
+      "name": "Pemba Sherpa",
+      "age": "41",
+      "place": "सोलुखुम्बु · तिमुरेको चेकपोस्ट नजिक",
+      "when": "भदौ १० गते बिहान ८ः१८ बजे",
+      "note": "फारम ११:०३ · सोलुखुम्बु समूह; काठमाडौं/चीन नाकाको Pemba Sherpa कार्ड अलग"
+    },
+    {
+      "id": "sheet-20260827-110222-abhishek-acharya",
+      "name": "Abhishek Acharya",
+      "age": "29",
+      "place": "Langtang Khola Hydropower",
+      "note": "फारम ११:०२"
+    },
+    {
+      "id": "sheet-20260827-110132-ram-kaji-tamang",
+      "name": "Ram Kaji Tamang",
+      "age": "38",
+      "place": "सोलुखुम्बु · तिमुरेको चेकपोस्ट नजिक",
+      "when": "भदौ १० गते बिहान ८ः१८",
+      "note": "फारम ११:०१"
+    },
+    {
+      "id": "sheet-20260827-110003-sang-bahadur-tamang",
+      "name": "Sang Bahadur Tamang",
+      "age": "32",
+      "place": "सोलुखुम्बु · तिमुरेको चेकपोस्ट नजिक",
+      "when": "भदौ १० गते बिहान ८ः११ बजे",
+      "note": "फारम ११:००"
+    },
+    {
+      "id": "sheet-20260827-105956-tenjin-tamang",
+      "name": "Tenjin Tamang",
+      "place": "Bhotekoshi gaupalika–५ · Upper Trishuli hydropower surung",
+      "when": "Dhunche",
+      "phone": "9840585147",
+      "note": "फारम १०:५९ · Upper Trishuli-1 tunnel worker"
+    },
+    {
+      "id": "sheet-20260827-105903-manju-shanker",
+      "name": "Manju Shanker",
+      "age": "56",
+      "place": "Mumbai · Rasuwagadhi border crossing",
+      "when": "26/8/26, 8.30am",
+      "phone": "+91 7022754222",
+      "note": "फारम १०:५९ · Floral print white/black shirt, grey-black trekking pants"
+    },
+    {
+      "id": "sheet-20260827-105826-phurba-sherpa",
+      "name": "Phurba Sherpa",
+      "age": "23",
+      "place": "सोलुखुम्बु · तिमुरेको चेक पोस्ट नजिक",
+      "when": "भदौ १० गते बिहान ८ः१८",
+      "note": "फारम १०:५८"
+    },
+    {
+      "id": "sheet-20260827-105802-christina-khadka",
+      "name": "Christina Khadka",
+      "age": "26",
+      "place": "Rasuwa · Uttargaya school, Betrawati",
+      "when": "12:00 pm Thursday online",
+      "note": "फारम १०:५८ · शिक्षक"
+    },
+    {
+      "id": "sheet-20260827-105625-gelu-sherpa",
+      "name": "Gelu Sherpa",
+      "age": "५३",
+      "place": "सोलुखुम्बु · तिमुरेको चेक पोस्ट घुम्ति नजिक",
+      "when": "भदौ १० गते बिहान ८ः१८",
+      "note": "फारम १०:५६"
+    },
+    {
+      "id": "sheet-20260827-105511-shanker-lakshmanan",
+      "name": "Shanker Lakshmanan",
+      "age": "61",
+      "place": "Mumbai · Rasuwagadhi border crossing",
+      "when": "8.30am 26/8/26",
+      "phone": "+91 9820766478",
+      "note": "फारम १०:५५ · Black shirt, grey trekking pants"
+    },
+    {
+      "id": "sheet-20260827-105336-sudip-gautam",
+      "name": "Sudip Gautam",
+      "age": "56",
+      "place": "Dhanusha · Upper Trishuli hydropower",
+      "when": "26 August 9am",
+      "note": "फारम १०:५३"
+    },
+    {
+      "id": "sheet-20260827-105302-raj-bista",
+      "name": "Raj Bista (RAM)",
+      "age": "39",
+      "place": "Nijgadh–९ Bara · 216 Hakubesi, Dam site, Upper Trishuli",
+      "when": "१० भदौ २०८३ बिहान ०७:३०",
+      "phone": "9845303581 / 9844300990",
+      "note": "फारम १०:५३ · दायाँ हातमा R ट्याटू · पीडित मोबाइल 9844300990"
+    },
+    {
+      "id": "sheet-20260827-105239-veena-kulkarni",
+      "name": "Veena Kulkarni",
+      "age": "58",
+      "place": "Mumbai, India · Timure, Tibet border",
+      "when": "8:30 am (26 August 2026)",
+      "phone": "+91 9167118188",
+      "note": "फारम १०:५२ · Richa tours, ~५० भारतीय समूह"
+    },
+    {
+      "id": "sheet-20260827-105221-hari-sedai",
+      "name": "Hari Sedai",
+      "age": "40 to 50",
+      "place": "Tanahun Bhirchaur–१० · Mailung hydropower",
+      "when": "हिजो ८–८:३० भिडियो कल",
+      "phone": "9808933773 / 9860319439",
+      "note": "फारम १०:५२ · Tanahun; हरि सेढाई (m-hari-sedhai) फोन/ठेगाना फरक — अलग व्यक्ति"
+    },
     {
       "id": "sheet-20260827-104731-rita-khadka",
       "name": "Rita Khadka",
