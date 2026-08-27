@@ -399,6 +399,15 @@ window.I18N = {
 "cash_gibl": "ग्लोबल आइएमई",
 "cash_gibl_cap": "ग्लोबल आइएमई बैंक · ५ करोड",
 "cash_gibl_note": "उद्धार, राहत र पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सहयोग गर्ने घोषणा।",
+"cash_sheet_lead": "प्रकाशित खाता सूची: हालसम्म <strong>२७ करोड ३३ लाख</strong> · १० दाता।",
+"cash_ncell": "एनसेल अक्सियाटा",
+"cash_nica": "एनआईसी एशिया",
+"cash_reliance": "रिलायन्स सुगर",
+"cash_shiv": "शिव शक्ति ग्रुप",
+"cash_nifra": "निफ्रा",
+"cash_saras": "सारस बेभरेज (रेडबुल)",
+"cash_rbb": "राष्ट्रिय वाणिज्य बैंक",
+"cash_nbl": "नेपाल बैंक",
 
 "cash_published": "नगद राहत",
 "cash_crore": "करोड रुपैयाँ",
@@ -407,7 +416,7 @@ window.I18N = {
 "cash_note": "सीईओ रामचन्द्र खनाल र उच्च अधिकारीले अर्थमन्त्री डा. स्वर्णिम वाग्लेलाई हस्तान्तरण। प्रधानमन्त्री दैवी प्रकोप उद्धार कोष।",
 "cash_door_k": "प्रणाली",
 "cash_door": "एकद्वार",
-"cash_all_cap": "हालसम्म सार्वजनिक हस्तान्तरण · कार्ड थिचेर विवरण",
+"cash_all_cap": "प्रकाशित खाता सूची · १० दाता",
 "cash_all_note": "पूर्ण कोष जम्मा होइन। नयाँ आधिकारिक नगद आएपछि थपिन्छ।",
 "cash_kumari_cap": "कुमारी बैंक लिमिटेड · ३ करोड नगद",
 "cash_door_cap": "एकद्वार प्रणाली",
@@ -874,6 +883,15 @@ window.I18N = {
 "cash_gibl": "Global IME",
 "cash_gibl_cap": "Global IME Bank · 5 crore",
 "cash_gibl_note": "Announced support to the Prime Minister’s Disaster Relief Fund for rescue, relief and rehabilitation.",
+"cash_sheet_lead": "Published account list: <strong>27 crore 33 lakh</strong> so far · 10 donors.",
+"cash_ncell": "Ncell Axiata",
+"cash_nica": "NIC Asia",
+"cash_reliance": "Reliance Sugar",
+"cash_shiv": "Shiv Shakti Group",
+"cash_nifra": "NIFRA",
+"cash_saras": "Saras Beverage (Red Bull)",
+"cash_rbb": "Rastriya Banijya Bank",
+"cash_nbl": "Nepal Bank",
 
 "cash_published": "Cash relief",
 "cash_crore": "crore rupees",
@@ -882,7 +900,7 @@ window.I18N = {
 "cash_note": "CEO Ramchandra Khanal and senior officials handed it to Finance Minister Dr Swarnim Wagle. Prime Minister’s Disaster Relief Fund.",
 "cash_door_k": "System",
 "cash_door": "One-door",
-"cash_all_cap": "Published handovers so far · tap a card for detail",
+"cash_all_cap": "Published account list · 10 donors",
 "cash_all_note": "Not the fund’s full total. New official cash will be added here.",
 "cash_kumari_cap": "Kumari Bank Ltd · 3 crore cash",
 "cash_door_cap": "One-door system",
@@ -1152,6 +1170,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Relief cash 27.33 crore",
+"p": "Published account list of 10 donors: Gorkha 10, Nepal Bank 3.01, Kumari 3, Rastriya Banijya 3, NIFRA 2.50, NIC Asia 2.21, Saras (Red Bull) 2, Ncell 1, Shiv Shakti 51 lakh, Reliance Sugar 10 lakh. Total <strong>27 crore 33 lakh</strong>. BYD/Cimex and Global IME are not on this list. <a href=\"#donate\">Relief funds</a>."
+},
 {
 "h": "Dead 359 · police districts",
 "p": "Police / Extreme Energy: Bhotekoshi flood deaths total <strong>359</strong> — Chitwan 132, Nawalparasi East 82, Dhading 33, Gorkha 30, Nuwakot 28, Tanahun 22, Rasuwa 17, Nawalparasi West 15. Previous Nepal Police 13:30 figure 270 is history."
