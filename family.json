@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T11:12:00+05:45",
+  "updated_at": "2026-08-27T11:20:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,42 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-112030-pranisha-tamang",
+      "name": "pranisha Tamang",
+      "age": "32",
+      "place": "timure rasuwa · timure bazar, rasuwa",
+      "when": "7-8am contact",
+      "phone": "9866494671",
+      "note": "फारम ११:२०"
+    },
+    {
+      "id": "sheet-20260827-111731-lok-bahadur-magar",
+      "name": "Lok Bahadur Magar",
+      "age": "50",
+      "place": "Kathmandu · Customs office kerubg",
+      "when": "Yesterday at around 8 am",
+      "phone": "9849047711",
+      "note": "फारम ११:१७"
+    },
+    {
+      "id": "sheet-20260827-111725-chitra-venkatraman",
+      "name": "Chitra Venkatraman",
+      "age": "45",
+      "place": "Sydney · Royal Himalaya Hotel & Lodge in Shyafru bensi",
+      "when": "8.30am",
+      "phone": "+919986560283",
+      "note": "फारम ११:१७ · She was with the group Himalayan Glacier"
+    },
+    {
+      "id": "sheet-20260827-111244-jayaram-ghimire",
+      "name": "Jayaram Ghimire",
+      "age": "55-60 hola",
+      "place": "Gajuri dhading · Kerung",
+      "when": "August 27",
+      "phone": "9803479956",
+      "note": "फारम ११:१२ · He is my bhinaju. His wife’s name is debaki. He works in Tyo thulo tipper gaadi haru ma saman load haru garne ma. Kerung tira hunuhunthyo re"
+    },
     {
       "id": "sheet-20260827-111228-nishma-rimal-sunil-thapa-and-indira-thapa",
       "name": "Nishma Rimal, Sunil Thapa and Indira Thapa",
