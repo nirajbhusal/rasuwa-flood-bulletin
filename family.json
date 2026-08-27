@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T12:42:00+05:45",
+  "updated_at": "2026-08-27T12:52:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,51 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-125646-nellaipalli-ramakrishnan-kothandaraman",
+      "name": "Nellaipalli Ramakrishnan Kothandaraman",
+      "age": "67",
+      "place": "Bengaluru, India · Timure Customs office",
+      "when": "26/8/2026 8:30am",
+      "phone": "+65 91998269",
+      "note": "फारम १२:५६"
+    },
+    {
+      "id": "sheet-20260827-125455-raman-supramaniam-neelavany-marimuthu-murukan-padmahwathi",
+      "name": "Raman Supramaniam, Neelavany Marimuthu, Murukan Supramaniam, Padmahwathi A Govindasamy",
+      "age": "59 / 54 / 60 / 58",
+      "place": "Malaysia · Near Nepal–Tibet Checkpoint",
+      "when": "26 August, 8:18am NPT",
+      "phone": "+60 12-6768615",
+      "note": "फारम १२:५४ · छोरी Logadarrsiny (Malaysia)"
+    },
+    {
+      "id": "sheet-20260827-125337-nabeena-kumari-dhami",
+      "name": "Nabeena Kumari Dhami",
+      "age": "22",
+      "place": "Sunsari · Hotel Kailash, Timure, Rasuwa-3",
+      "when": "After 9:00 am",
+      "phone": "9703743488 / 9705445024",
+      "note": "फारम १२:५३ · सम्पर्कविहीन"
+    },
+    {
+      "id": "sheet-20260827-124923-anuj-kafle",
+      "name": "Anuj Kafle",
+      "age": "25",
+      "place": "Trishuli bazar",
+      "when": "9:30 am",
+      "phone": "9861035223",
+      "note": "फारम १२:४९"
+    },
+    {
+      "id": "sheet-20260827-124432-arindom-ganguly-mousumi-ganguly",
+      "name": "Arindom Ganguly / Mousumi Ganguly",
+      "age": "61 / 54",
+      "place": "Tapoban City, Durgapur · Syabrubesi",
+      "when": "26 August",
+      "phone": "8250747047 / +91 96749 07363",
+      "note": "फारम १२:४४ · २५ अगस्ट स्याफ्रुबेसी · २६ अगस्ट तिब्बत (Saga) जाने तयारी · आमाको दाहिने हातमा चुरा, बायाँमा smartwatch"
+    },
     {
       "id": "sheet-20260827-124213-chhesang-tamang",
       "name": "Chhesang Tamang",
