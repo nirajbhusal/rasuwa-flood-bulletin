@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T04:25:01.343563+05:45",
+  "updated_at": "2026-08-28T04:30:20.351801+05:45",
   "note_np": "फुर्के गेज बगेको; बेत्रावती मौन भए लाइभ नमान्नुहोस्।",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms-Single/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -10,16 +10,16 @@
       "name": "Trishuli Khola at Dhunche",
       "name_np": "धुन्चे · त्रिशूली खोला",
       "district_np": "नुवाकोट",
-      "level_m": 2.411,
+      "level_m": 2.412,
       "warning_m": 3.2,
       "danger_m": null,
       "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-28T04:10:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०४:१०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657",
+      "observed_at": "2026-08-28T04:20:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०४:२०"
     },
     {
       "station_id": 52,
@@ -32,11 +32,11 @@
       "danger_m": 5.0,
       "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-26T09:20:00+05:45",
-      "observed_npt": "२०२६-०८-२६ ०९:२०",
       "silent": true,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/52"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/52",
+      "observed_at": "2026-08-26T09:20:00+05:45",
+      "observed_npt": "२०२६-०८-२६ ०९:२०"
     },
     {
       "station_id": 5611,
@@ -49,11 +49,11 @@
       "danger_m": 8.0,
       "status": "washed",
       "steady": null,
-      "observed_at": "2026-08-26T11:40:00+05:45",
-      "observed_npt": "२०२६-०८-२६ ११:४०",
       "silent": false,
       "washed": true,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/5611"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/5611",
+      "observed_at": "2026-08-26T11:40:00+05:45",
+      "observed_npt": "२०२६-०८-२६ ११:४०"
     },
     {
       "station_id": 4781,
@@ -66,11 +66,11 @@
       "danger_m": 12.1,
       "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-28T04:20:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०४:२०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781",
+      "observed_at": "2026-08-28T04:20:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०४:२०"
     },
     {
       "station_id": 265,
@@ -83,11 +83,11 @@
       "danger_m": 9.0,
       "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-28T04:10:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०४:१०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/265",
+      "observed_at": "2026-08-28T04:10:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०४:१०"
     }
   ]
 }
