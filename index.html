@@ -81,7 +81,23 @@
 .rahat-cab{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 16px;padding:0;list-style:none}
 .rahat-cab li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:15px;line-height:1.45;font-weight:600}
 .rahat-cab li b{display:block;color:var(--forest);font-size:13px;margin-bottom:4px}
-@media(max-width:760px){.rahat-stats{grid-template-columns:1fr 1fr}.rahat-cab{grid-template-columns:1fr}}
+@media(max-width:760px){.rahat-stats{grid-template-columns:1fr 1fr}.rahat-cab{grid-template-columns:1fr}.cash-ig{padding:16px 14px 14px}.cash-hero strong{font-size:40px}}
+.cash-ig{
+  background:linear-gradient(180deg,#ecfdf5,#fff 42%);
+  border:1px solid #86efac;border-radius:18px;
+  padding:18px 18px 16px;margin:0 0 16px;box-shadow:var(--shadow);
+}
+.cash-ig h3{margin:0 0 8px;font-size:20px;font-weight:800;color:var(--forest)}
+.cash-lead{margin:0 0 14px;font-size:16px;line-height:1.6;font-weight:600;color:var(--ink)}
+.cash-hero{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 10px;margin:0 0 12px}
+.cash-hero .cash-k{width:100%;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.cash-hero strong{font-size:clamp(40px,8vw,56px);font-weight:800;color:var(--forest);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.cash-hero .cash-unit{font-size:18px;font-weight:800;color:var(--forest)}
+.cash-ig .ibar-row{grid-template-columns:minmax(7em,34%) 1fr 5.2em}
+.cash-ig .ibar{background:#d1fae5}
+.cash-ig .ibar i{background:var(--forest)}
+.cash-note{margin:12px 0 0;font-size:15px;font-weight:600;color:var(--muted);line-height:1.55}
+.cash-note a{font-weight:800}
 
 :root{
   --crimson:#c41e3a;
@@ -1391,6 +1407,17 @@ footer .foot-contact a:hover{text-decoration:underline}
 <section id="rahat">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rahat">राहत / उद्धार भिजुअल</h2></div>
   <p class="treat-lead" data-i18n-html="rahat_lead">NDRRMA स्थिति प्रतिवेदन #०३ · राति २२:०० · १० भदौ २०८३। नयाँ आधिकारिक राहत/उद्धार अंक आएपछि यो खण्ड अद्यावधिक हुन्छ। शव १६२ (बिहान ६:००) यथावत् — SitRep-3 शव १२३ इतिहास।</p>
+  <article class="cash-ig" id="cash">
+    <h3 data-i18n="cash_h">नगद राहत रकम अपडेट</h3>
+    <p class="cash-lead" data-i18n-html="cash_lead">रसुवा बाढी प्रभावित क्षेत्रमा राहत, उद्धार, खोज तथा पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सहयोग एकद्वार प्रणालीबाट आउन थालेको छ। माननीय अर्थमन्त्री डा. स्वर्णिम वाग्लेले बुझ्न थाल्नुभएको छ।</p>
+    <div class="cash-hero">
+      <span class="cash-k" data-i18n="cash_published">प्रकाशित नगद हस्तान्तरण</span>
+      <strong class="num">३</strong>
+      <span class="cash-unit" data-i18n="cash_crore">करोड रुपैयाँ</span>
+    </div>
+    <div class="ibar-row"><span data-i18n="cash_kumari">कुमारी बैंक</span><b class="ibar"><i style="width:100%"></i></b><em><span class="num">३</span> <span data-i18n="cash_cr">करोड</span></em></div>
+    <p class="cash-note" data-i18n-html="cash_note">बैंकका सीईओ रामचन्द्र खनाल र उच्च अधिकारीले अर्थमन्त्रीलाई नगद हस्तान्तरण। यो हालसम्म सार्वजनिक भएको एक हस्तान्तरण हो, कोषको पूर्ण जम्मा होइन। आधिकारिक खाता: <a href="#donate">राहत कोष</a></p>
+  </article>
   <div class="rahat-stats" aria-label="राहत अंक" data-i18n-aria="rahat_aria">
     <div class="rahat-stat"><b>११६</b><span data-i18n="rs_air">हवाई उद्धार · सेना ८८ + निजी २८</span></div>
     <div class="rahat-stat"><b>९३</b><span data-i18n="rs_ground">स्थलगत उद्धार · रसुवा ४३ · नुवाकोट ४७ · धादिङ ३</span></div>
