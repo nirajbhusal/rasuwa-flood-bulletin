@@ -737,6 +737,10 @@ window.I18N_LISTS = {
 ],
 "hist": [
 {
+"h": "Suresh Simkhada · missing from Timure",
+"p": "Suresh Simkhada (43, Kathmandu) uncontacted from Timure. Phone <a href=\"tel:+9779851096547\">9851096547</a>. Last: Hotel Kailas 8:45. Existing card updated, not a new one. List in <a href=\"#family\">Missing / Found</a>."
+},
+{
 "h": "Suryagadhi rescue · 23",
 "p": "Handwritten list of <strong>23</strong> people rescued from Suryagadhi. Betrawati Stari Phant 10, Betrawati 4, Kathmandu/Lalitpur addresses 9. Not merged with Nuwakot 56 or the form wall. List in <a href=\"#suryagadhi\">Rescue · Suryagadhi</a>."
 },

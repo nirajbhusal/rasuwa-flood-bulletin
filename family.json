@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T11:06:00+05:45",
+  "updated_at": "2026-08-27T11:11:06+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,15 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "m-suresh-simkhada",
+      "name": "Suresh Simkhada",
+      "age": "43",
+      "place": "Kathmandu · Timure",
+      "when": "26 Aug 2026 · Timure",
+      "phone": "9851096547",
+      "note": "टिमुरेबाट हराएको। Hotel Kailas मा ८:४५ सम्पर्क। फोन ६:४५।"
+    },
     {
       "id": "sheet-20260827-110300-pemba-sherpa-solukhumbu",
       "name": "Pemba Sherpa",
@@ -2660,15 +2669,6 @@
       "when": "Morning of 26th August, traveling from Kathmandu to Syafrubesi",
       "phone": "9849918236",
       "note": "Driving a Tourist Plate Scorpio Vehicle Number BA 1 Ya 1518 · आज बिहान काठमाडौंबाट स्याफ्रुबेँसीका लागि पर्यटक लिन गएको हरियो प्लेटको बा १ य १५१८ नम्बरको पर्यटक स्कोर्पियो गाडी र चालक राजु अधिकारी हालसम्म सम्पर्कविहीन हुनुहुन्छ।"
-    },
-    {
-      "id": "m-suresh-simkhada",
-      "name": "Suresh Simkhada",
-      "age": "43",
-      "place": "Kathmandu · Timure hotel kailas at 8:45",
-      "when": "Today",
-      "phone": "9851096547",
-      "note": "Phone call today at 6:45"
     },
     {
       "id": "m-jayaram-bishwokarma",
