@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T23:08:22.418671+05:45",
+  "updated_at": "2026-08-27T23:15:50.144830+05:45",
   "note_np": "फुर्के स्टेसन बाढीले बगाएको — लाइभ होइन। बाँकी स्टेसन DHM HMS।",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms-Single/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -10,7 +10,7 @@
       "name": "Trishuli Khola at Dhunche",
       "name_np": "धुन्चे · त्रिशूली खोला",
       "district_np": "नुवाकोट",
-      "level_m": 2.404,
+      "level_m": 2.392,
       "warning_m": 3.2,
       "danger_m": null,
       "status": "normal",
@@ -19,7 +19,7 @@
       "observed_npt": "२०२६-०८-२७ २३:००",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/river-watch"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657"
     },
     {
       "station_id": "52",
@@ -36,7 +36,7 @@
       "observed_npt": "२०२६-०८-२६ ०९:२०",
       "silent": true,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/river-watch"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/52"
     },
     {
       "station_id": "5611",
@@ -61,16 +61,16 @@
       "name": "Trishuli River at Kali Khola",
       "name_np": "काली खोला · त्रिशूली",
       "district_np": "चितवन",
-      "level_m": 6.245,
+      "level_m": 6.272,
       "warning_m": 10.8,
       "danger_m": 12.1,
       "status": "normal",
       "steady": "STEADY",
-      "observed_at": "2026-08-27T17:15:00+00:00",
-      "observed_npt": "२०२६-०८-२७ २३:००",
+      "observed_at": "2026-08-27T17:25:00+00:00",
+      "observed_npt": "२०२६-०८-२७ २३:१०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/river-watch"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781"
     },
     {
       "station_id": "265",
@@ -78,16 +78,16 @@
       "name": "Narayani at Devghat",
       "name_np": "देवघाट · नारायणी",
       "district_np": "चितवन",
-      "level_m": 4.63,
+      "level_m": 4.66,
       "warning_m": 7.3,
       "danger_m": 9.0,
       "status": "normal",
       "steady": "STEADY",
-      "observed_at": "2026-08-27T17:05:00+00:00",
-      "observed_npt": "२०२६-०८-२७ २२:५०",
+      "observed_at": "2026-08-27T17:15:00+00:00",
+      "observed_npt": "२०२६-०८-२७ २३:००",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/river-watch"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
     }
   ]
 }
