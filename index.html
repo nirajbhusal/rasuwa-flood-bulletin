@@ -97,6 +97,18 @@
 .cash-ig .ibar{background:#d1fae5}
 .cash-ig .ibar i{background:var(--forest)}
 .cash-note{margin:12px 0 0;font-size:15px;font-weight:600;color:var(--muted);line-height:1.55}
+.cash-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 12px}
+.cash-kpi{
+  appearance:none;border:1px solid #86efac;background:#fff;border-radius:14px;
+  padding:10px 10px 8px;text-align:left;cursor:pointer;font:inherit;color:inherit;width:100%;
+}
+.cash-kpi .kpi-k{display:block;font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.cash-kpi strong{display:block;font-size:clamp(22px,4vw,32px);font-weight:800;color:var(--forest);line-height:1.1;font-variant-numeric:tabular-nums}
+.cash-kpi .cash-unit{font-size:13px;font-weight:800;color:var(--forest)}
+.cash-kpi.on{border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5}
+.cash-pane{display:none}
+.cash-pane.on{display:block}
+@media(max-width:760px){.cash-kpis{grid-template-columns:1fr}}
 .cash-note a{font-weight:800}
 
 :root{
@@ -1294,6 +1306,42 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_donate">राहत कोष</h2></div>
       <p class="funds-warn" data-i18n-html="funds_warn"><span class="src">प्राधिकरण</span> बाढीपीडितका नाममा आफूखुसी सहयोग वा व्यक्तिगत QR नसङ्कलन गर्नुहोस्। तल प्रधानमन्त्री कार्यालयका खाता मात्र आधिकारिक। अटेर देखिए <a href="tel:+97714211197">०१-४२१११९७</a> मा जानकारी दिनुहोस्।</p>
       <p class="funds-lead" data-i18n-html="funds_lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन SWIFT पनि ट्याप गरेर कपी गर्न सकिन्छ। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
+      <article class="cash-ig" id="cash">
+        <h3 data-i18n="cash_h">नगद राहत रकम अपडेट</h3>
+        <p class="cash-lead" data-i18n-html="cash_lead">रसुवा बाढी प्रभावित क्षेत्रमा राहत, उद्धार, खोज तथा पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सहयोग एकद्वार प्रणालीबाट आउन थालेको छ। माननीय अर्थमन्त्री डा. स्वर्णिम वाग्लेले बुझ्न थाल्नुभएको छ।</p>
+        <div class="cash-kpis" role="tablist" aria-label="नगद राहत">
+          <button type="button" class="cash-kpi on" data-cash="all" aria-selected="true">
+            <span class="kpi-k" data-i18n="cash_published">प्रकाशित नगद</span>
+            <strong class="num">३</strong>
+            <span class="cash-unit" data-i18n="cash_crore">करोड रुपैयाँ</span>
+          </button>
+          <button type="button" class="cash-kpi" data-cash="kumari" aria-selected="false">
+            <span class="kpi-k" data-i18n="cash_kumari">कुमारी बैंक</span>
+            <strong class="num">३</strong>
+            <span class="cash-unit" data-i18n="cash_cr">करोड</span>
+          </button>
+          <button type="button" class="cash-kpi" data-cash="door" aria-selected="false">
+            <span class="kpi-k" data-i18n="cash_door_k">प्रणाली</span>
+            <strong data-i18n="cash_door">एकद्वार</strong>
+          </button>
+        </div>
+        <div class="cash-panes">
+          <div class="cash-pane on" data-cash="all">
+            <p class="ov-cap" data-i18n="cash_all_cap">हालसम्म सार्वजनिक हस्तान्तरण · कार्ड थिचेर विवरण</p>
+            <div class="ibar-row"><span data-i18n="cash_kumari">कुमारी बैंक</span><b class="ibar"><i style="width:100%"></i></b><em><span class="num">३</span> <span data-i18n="cash_cr">करोड</span></em></div>
+            <p class="cash-note" data-i18n="cash_all_note">पूर्ण कोष जम्मा होइन। नयाँ आधिकारिक नगद आएपछि थपिन्छ।</p>
+          </div>
+          <div class="cash-pane" data-cash="kumari">
+            <p class="ov-cap" data-i18n="cash_kumari_cap">कुमारी बैंक लिमिटेड · ३ करोड नगद</p>
+            <div class="ibar-row"><span data-i18n="cash_kumari">कुमारी बैंक</span><b class="ibar"><i style="width:100%"></i></b><em><span class="num">३</span> <span data-i18n="cash_cr">करोड</span></em></div>
+            <p class="cash-note" data-i18n-html="cash_note">सीईओ रामचन्द्र खनाल र उच्च अधिकारीले अर्थमन्त्री डा. स्वर्णिम वाग्लेलाई हस्तान्तरण। प्रधानमन्त्री दैवी प्रकोप उद्धार कोष।</p>
+          </div>
+          <div class="cash-pane" data-cash="door">
+            <p class="ov-cap" data-i18n="cash_door_cap">एकद्वार प्रणाली</p>
+            <p class="cash-note" data-i18n-html="cash_door_note">राहत, उद्धार, खोज तथा पुनर्स्थापनाको सहयोग प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमार्फत। अर्थमन्त्रीले बुझ्दै हुनुहुन्छ। तलका सरकारी खाता मात्र आधिकारिक।</p>
+          </div>
+        </div>
+      </article>
       <article class="fund">
         <h3 data-i18n="fund_disaster">प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</h3>
     <table>
@@ -1407,17 +1455,6 @@ footer .foot-contact a:hover{text-decoration:underline}
 <section id="rahat">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rahat">राहत / उद्धार भिजुअल</h2></div>
   <p class="treat-lead" data-i18n-html="rahat_lead">NDRRMA स्थिति प्रतिवेदन #०३ · राति २२:०० · १० भदौ २०८३। नयाँ आधिकारिक राहत/उद्धार अंक आएपछि यो खण्ड अद्यावधिक हुन्छ। शव १६२ (बिहान ६:००) यथावत् — SitRep-3 शव १२३ इतिहास।</p>
-  <article class="cash-ig" id="cash">
-    <h3 data-i18n="cash_h">नगद राहत रकम अपडेट</h3>
-    <p class="cash-lead" data-i18n-html="cash_lead">रसुवा बाढी प्रभावित क्षेत्रमा राहत, उद्धार, खोज तथा पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सहयोग एकद्वार प्रणालीबाट आउन थालेको छ। माननीय अर्थमन्त्री डा. स्वर्णिम वाग्लेले बुझ्न थाल्नुभएको छ।</p>
-    <div class="cash-hero">
-      <span class="cash-k" data-i18n="cash_published">प्रकाशित नगद हस्तान्तरण</span>
-      <strong class="num">३</strong>
-      <span class="cash-unit" data-i18n="cash_crore">करोड रुपैयाँ</span>
-    </div>
-    <div class="ibar-row"><span data-i18n="cash_kumari">कुमारी बैंक</span><b class="ibar"><i style="width:100%"></i></b><em><span class="num">३</span> <span data-i18n="cash_cr">करोड</span></em></div>
-    <p class="cash-note" data-i18n-html="cash_note">बैंकका सीईओ रामचन्द्र खनाल र उच्च अधिकारीले अर्थमन्त्रीलाई नगद हस्तान्तरण। यो हालसम्म सार्वजनिक भएको एक हस्तान्तरण हो, कोषको पूर्ण जम्मा होइन। आधिकारिक खाता: <a href="#donate">राहत कोष</a></p>
-  </article>
   <div class="rahat-stats" aria-label="राहत अंक" data-i18n-aria="rahat_aria">
     <div class="rahat-stat"><b>११६</b><span data-i18n="rs_air">हवाई उद्धार · सेना ८८ + निजी २८</span></div>
     <div class="rahat-stat"><b>९३</b><span data-i18n="rs_ground">स्थलगत उद्धार · रसुवा ४३ · नुवाकोट ४७ · धादिङ ३</span></div>
@@ -3538,6 +3575,27 @@ footer .foot-contact a:hover{text-decoration:underline}
     });
   });
 })();
+
+(function(){
+  var root = document.getElementById("cash");
+  if (!root) return;
+  var kpis = [].slice.call(root.querySelectorAll(".cash-kpi"));
+  var panes = [].slice.call(root.querySelectorAll(".cash-pane"));
+  function show(id){
+    kpis.forEach(function(k){
+      var on = k.getAttribute("data-cash") === id;
+      k.classList.toggle("on", on);
+      k.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    panes.forEach(function(p){
+      p.classList.toggle("on", p.getAttribute("data-cash") === id);
+    });
+  }
+  kpis.forEach(function(k){
+    k.addEventListener("click", function(){ show(k.getAttribute("data-cash")); });
+  });
+})();
+
 (function(){
   document.querySelectorAll(".fund button.acct").forEach(function(btn){
     btn.addEventListener("click", function(){
