@@ -36,7 +36,7 @@ window.I18N = {
 "dead_162": "मृतक २७०",
 "hero_overview": "बाढीको स्थिति · ११ भदौ",
 "hero_cash_h": "राहत रकम जम्मा",
-"hero_cash_sub": "कुमारी बैंक · प्रकाशित हस्तान्तरण",
+"hero_cash_sub": "गोर्खा १० · कुमारी ३ · प्रकाशित हस्तान्तरण",
 "hero_aid_h": "वैदेशिक सहयोग",
 "hero_aid_unit": "टन",
 "hero_aid_sub": "भारत दुई उडान · IFRC रेडक्रस · पठाइएको",
@@ -304,7 +304,11 @@ window.I18N = {
 "police_alert": "भोटेकोसी नदी रसुवामा तिब्बत तर्फबाट ठुलो बाढी प्रवेश गरेकोले अर्को सूचना नआउँदासम्म त्रिशूली नदीको तटीय क्षेत्रका जिल्लाहरू नुवाकोट, धादिङ, चितवन, गोरखा लगायतका स्थानहरूमा उच्च सतर्कता सहित सुरक्षित स्थानमा रहन अनुरोध छ। ",
 "rahat_lead": "NDRRMA स्थिति प्रतिवेदन #०३ · राति २२:०० · १० भदौ २०८३। नयाँ आधिकारिक राहत/उद्धार अंक आएपछि यो खण्ड अद्यावधिक हुन्छ। शव २७० (नेपाल प्रहरी १३:३०)। SitRep-3 शव १२३ इतिहास।",
 "cash_h": "नगद राहत रकम अपडेट",
-"cash_lead": "रसुवा बाढी प्रभावित क्षेत्रमा राहत, उद्धार, खोज तथा पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सहयोग एकद्वार प्रणालीबाट आउन थालेको छ। माननीय अर्थमन्त्री डा. स्वर्णिम वाग्लेले बुझ्न थाल्नुभएको छ।",
+"cash_lead": "रसुवा बाढी प्रभावित क्षेत्रमा राहत, उद्धार, खोज तथा पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा प्राप्त हुन थालेको सहयोग रकम एकद्वार प्रणालीमार्फत माननीय अर्थमन्त्री डा. स्वर्णिम वाग्लेले बुझ्न थाल्नुभएको छ।",
+"cash_gorkha_lead": "भर्खरै गोर्खा ब्रुअरीले आफ्नोतर्फबाट <strong>१० करोड</strong> रुपैयाँ नगद अर्थमन्त्रीज्यूलाई हस्तान्तरण गरेको छ। गोर्खा ब्रुअरीका प्रबन्ध निर्देशक अरुण अधिकारी, वित्त निर्देशक अमर वैद्य र बजार निर्देशक काजीमन सुब्बाले अर्थमन्त्री डा. स्वर्णिम वाग्लेलाई सहयोग रकम हस्तान्तरण गर्नुभयो।",
+"cash_gorkha": "गोर्खा ब्रुअरी",
+"cash_gorkha_cap": "गोर्खा ब्रुअरी · १० करोड नगद",
+"cash_gorkha_note": "प्रबन्ध निर्देशक अरुण अधिकारी, वित्त निर्देशक अमर वैद्य र बजार निर्देशक काजीमन सुब्बाले अर्थमन्त्री डा. स्वर्णिम वाग्लेलाई हस्तान्तरण। प्रधानमन्त्री दैवी प्रकोप उद्धार कोष।",
 "cash_published": "प्रकाशित नगद हस्तान्तरण",
 "cash_crore": "करोड रुपैयाँ",
 "cash_cr": "करोड",
@@ -416,7 +420,7 @@ window.I18N = {
 "dead_162": "Deaths 270",
 "hero_overview": "Flood snapshot · 11 Bhadra",
 "hero_cash_h": "Relief cash total",
-"hero_cash_sub": "Kumari Bank · published handover",
+"hero_cash_sub": "Gorkha 10 · Kumari 3 · published handovers",
 "hero_aid_h": "Foreign aid",
 "hero_aid_unit": "tonnes",
 "hero_aid_sub": "India two flights · IFRC Red Cross · sent",
@@ -684,7 +688,11 @@ window.I18N = {
 "police_alert": "A large flood has entered the Bhotekoshi in Rasuwa from the Tibet side. Until further notice, people in Trishuli riverside districts including Nuwakot, Dhading, Chitwan and Gorkha are asked to stay in a safe place on high alert. ",
 "rahat_lead": "NDRRMA situation report #03 · 22:00 · 10 Bhadra 2083. This section updates when new official relief/rescue figures arrive. Dead 270 (Nepal Police 13:30). SitRep-3 dead 123 is history.",
 "cash_h": "Cash relief update",
-"cash_lead": "Aid for relief, rescue, search and rehabilitation in the Rasuwa flood area has started arriving in the Prime Minister’s Disaster Relief Fund through a one-door system. Hon. Finance Minister Dr Swarnim Wagle has begun receiving it.",
+"cash_lead": "Aid for relief, rescue, search and rehabilitation in the Rasuwa flood area has started arriving in the Prime Minister’s Disaster Relief Fund. Hon. Finance Minister Dr Swarnim Wagle is receiving it through the one-door system.",
+"cash_gorkha_lead": "Gorkha Brewery has just handed over <strong>10 crore</strong> rupees in cash to the Finance Minister. Managing Director Arun Adhikari, Finance Director Amar Baidya and Marketing Director Kajiman Subba presented it to Dr Swarnim Wagle.",
+"cash_gorkha": "Gorkha Brewery",
+"cash_gorkha_cap": "Gorkha Brewery · 10 crore cash",
+"cash_gorkha_note": "MD Arun Adhikari, Finance Director Amar Baidya and Marketing Director Kajiman Subba handed it to Finance Minister Dr Swarnim Wagle. Prime Minister’s Disaster Relief Fund.",
 "cash_published": "Published cash handover",
 "cash_crore": "crore rupees",
 "cash_cr": "crore",
@@ -962,6 +970,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Gorkha Brewery 10 crore",
+"p": "Gorkha Brewery handed <strong>10 crore</strong> cash to Finance Minister Dr Swarnim Wagle for the PM Disaster Relief Fund. Published handovers now <strong>13</strong> crore (Gorkha 10 + Kumari 3). <a href=\"#donate\">Relief funds</a>."
+},
 {
 "h": "Kathmandu heli rescue 11",
 "p": "Prabhu Air 9N ATN brought <strong>5</strong> from Syaphrubesi (13:30) and Augusta Air NA 054 brought <strong>6</strong> from Dhunche (13:40) to Kathmandu. Names in <a href=\"#heli-ktm\">Kathmandu rescued</a>. Not removed from missing."
