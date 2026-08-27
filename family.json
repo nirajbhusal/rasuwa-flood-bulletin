@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T00:06:00+05:45",
+  "updated_at": "2026-08-28T00:16:58+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,33 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-235829-pasang-tamamg",
+      "name": "Pasang tamamg",
+      "age": null,
+      "place": "Rasuwa · Timure",
+      "when": "9:00 o' clock",
+      "phone": "9746470651",
+      "note": "फारम 23:58"
+    },
+    {
+      "id": "sheet-20260828-000440-सुदर-दमै-नेपाली",
+      "name": "सुदर दमै (नेपाली)",
+      "age": "38",
+      "place": "दोलखा -(बिगु 4) · रसुवा अपर हाइड्रो (216 गेरज)",
+      "when": "2083/05/10 (समय 8:40)",
+      "phone": "9866251035",
+      "note": "फारम 00:04"
+    },
+    {
+      "id": "sheet-20260828-001326-bisarath-ghimire",
+      "name": "Bisarath Ghimire",
+      "age": "9",
+      "place": "Nuwakot · Bhaise nuwakot",
+      "when": "9:05",
+      "phone": "9841671384",
+      "note": "फारम 00:13 · School dress white and gray"
+    },
     {
       "id": "sheet-20260827-235933-sangyam-rumba",
       "name": "Sangyam Rumba",
