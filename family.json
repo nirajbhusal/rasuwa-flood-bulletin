@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T09:37:45+05:45",
+  "updated_at": "2026-08-27T09:50:21+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,50 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-094630-gyan-bahadur-moktan-tamang",
+      "name": "Gyan Bahadur Moktan Tamang",
+      "place": "Rasuwa, Timure · Timure",
+      "when": "August 26, 2026, when flood hit Timure",
+      "phone": "9767279249 / 9860918990 / 9813004186 / 9862576971 / 9823749725",
+      "note": "फारम ०९:४६ · टिमुरे बाढी"
+    },
+    {
+      "id": "sheet-20260827-094544-mukunada-thapa",
+      "name": "Mukunada Thapa",
+      "age": "47",
+      "place": "Suryabinayak-8, Bhaktapur · Rasuwa hotel line",
+      "when": "2083-05-09 only phone contact",
+      "phone": "9747696416",
+      "note": "फारम ०९:४५ · होटल लाइन"
+    },
+    {
+      "id": "sheet-20260827-094526-balram-neupane",
+      "name": "Balram Neupane",
+      "age": "33-35",
+      "place": "Rasuwa · Betrawati",
+      "when": "26th August, 2026",
+      "phone": "9849931984",
+      "note": "फारम ०९:४५ · बेत्रावती"
+    },
+    {
+      "id": "sheet-20260827-094517-suman-ghising",
+      "name": "Suman Ghising",
+      "age": "46",
+      "place": "Temal, Kavre · Kerung",
+      "when": "5:32 last called 10:34:39 crossed boarder",
+      "phone": "9705322036",
+      "note": "फारम ०९:४५ · ट्रेकिङ गाइड · सीमा पार"
+    },
+    {
+      "id": "sheet-20260827-093952-debendra-khadka",
+      "name": "Debendra Khadka",
+      "age": "27",
+      "place": "Tripurasundari, Sindhupalchowk · Timure",
+      "when": "26 August, 8 A.M",
+      "phone": "9845758489",
+      "note": "फारम ०९:३९ · दुवै कानमा मुन्द्रा"
+    },
     {
       "id": "sheet-20260827-093027-pratik-bhatta",
       "name": "Pratik Bhatta",
@@ -1641,7 +1685,7 @@
       "place": "swyambhunath, kathmandu · timure, rasuwa",
       "when": "rati ko 12:01am ma last kura vako thyo message ma",
       "phone": "9808598457",
-      "note": "rasuwa bhansar office ma kaam garthyo data entry ma, ayle kei update xaina usko barema. office ma ni call lagdena teha bata kei details ni update vako xaina please let me know if any details regarding him is found."
+      "note": "rasuwa bhansar office ma kaam garthyo data entry ma, ayle kei update xaina usko barema. office ma ni call lagdena teha bata kei details ni update vako xaina please let me know if any details regarding him is found. · फारम ०९:४५ · उमेर २३ (कार्डमा २२)"
     },
     {
       "id": "m-santosh-shrestha",
