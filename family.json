@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T22:10:28.719536+05:45",
+  "updated_at": "2026-08-27T22:26:44.543150+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -5344,6 +5344,50 @@
       "place": "Princeton NJ USA · Near Friendship bridge",
       "when": "२५ अगस्ट · बुधबार १०:०० देखि",
       "note": "फारम २१:३६ · Isha Foundation group · Kailash Manasarovar बाट फर्कंदै · Drive फोटो स्किप · फोन फारममा See attached"
+    },
+    {
+      "id": "sheet-20260827-220909-nim-dorje-sherpa",
+      "name": "NIM DORJE SHERPA",
+      "place": "SYAPRU · FRIENDSHIP BRIDGE - RASUWA",
+      "phone": "9801027314",
+      "note": "फारम 22:09 · HE HELPS WITH KAILASH GROUP",
+      "when": "8 am"
+    },
+    {
+      "id": "sheet-20260827-221008-tejal-patel",
+      "name": "Tejal Patel",
+      "age": "66",
+      "place": "New Jerse, USA · Bagmati, Nepal",
+      "phone": "+1 (646) 275-9045",
+      "note": "फारम 22:10 · Group of 7 people, travelling through Nepal Trekking planners",
+      "when": "26th August"
+    },
+    {
+      "id": "sheet-20260827-221024-vivek-srivastav",
+      "name": "Vivek Srivastav",
+      "age": "51",
+      "place": "1530 Sugar Ridge Drive, Suwanee, 30024 · Tibet Immigration Office",
+      "phone": "6782329234 , +919821757675",
+      "note": "फारम 22:10 · Traveling with a group of 10 people, tour guide name: Chet Bhatta; Tour Company: Classic Vacations Nepal Pvt Ld",
+      "when": "August 26, 8:30AM"
+    },
+    {
+      "id": "sheet-20260827-221740-gopal-khanal",
+      "name": "Gopal Khanal",
+      "age": "71",
+      "place": "Kathmandu · Kerung Naaka",
+      "phone": "Ananta Khanal",
+      "note": "फारम 22:17 · In a group of 17 people.",
+      "when": "Wednesday at 8:15AM"
+    },
+    {
+      "id": "sheet-20260827-222136-sita-khanal",
+      "name": "Sita Khanal",
+      "age": "66",
+      "place": "Kathmandu, kirtipur · Kerung",
+      "phone": "+15032687927",
+      "note": "फारम 22:21",
+      "when": "Wednesday at 8:15 AM"
     }
   ],
   "found": [
