@@ -81,7 +81,7 @@
 .rahat-cab{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 16px;padding:0;list-style:none}
 .rahat-cab li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:15px;line-height:1.45;font-weight:600}
 .rahat-cab li b{display:block;color:var(--forest);font-size:13px;margin-bottom:4px}
-@media(max-width:720px){.rahat-stats{grid-template-columns:1fr 1fr}.rahat-cab{grid-template-columns:1fr}}
+@media(max-width:760px){.rahat-stats{grid-template-columns:1fr 1fr}.rahat-cab{grid-template-columns:1fr}}
 
 :root{
   --crimson:#c41e3a;
@@ -125,6 +125,7 @@ img{max-width:100%;display:block}
   border-bottom:1px solid var(--line);
 }
 .topbar-inner{
+  position:relative;
   max-width:var(--max);margin:0 auto;padding:14px 16px 12px;
   display:flex;flex-direction:column;align-items:center;gap:10px;
   text-align:center;
@@ -141,7 +142,7 @@ img{max-width:100%;display:block}
   animation:pulse 1.4s infinite;
 }
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,255,255,0)}}
-.brand{flex:none;width:100%;min-width:0;text-align:center;padding:0 108px;box-sizing:border-box}
+.brand{flex:none;width:100%;min-width:0;text-align:center;padding:0;box-sizing:border-box}
 .brand h1{margin:0;font-size:clamp(28px,7vw,52px);line-height:1.15;font-weight:800;text-align:center}
 .brand p{margin:6px 0 0;color:var(--muted);font-size:15px;text-align:center}
 .helpline{
@@ -188,7 +189,9 @@ img{max-width:100%;display:block}
 .plants .tag{display:inline-block;font-size:11px;font-weight:800;background:#9a3412;color:#fff;padding:1px 7px;border-radius:8px;margin-left:6px}
 .plants tfoot td{font-weight:800;border-bottom:0;padding-top:10px}
 .treat-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 4px}
-.treat{min-width:760px}
+.treat{min-width:0}
+.treat.treat-wide{min-width:760px}
+.shelter-tbl,.surya-tbl{min-width:480px}
 .fam-tbl{min-width:560px}
 .ok-tag{display:inline-block;margin-left:6px;font-size:11px;font-weight:800;background:var(--forest);color:#fff;padding:2px 7px;border-radius:999px;vertical-align:middle}
 .fam-tbl tr.rescued td{background:#ecfdf5}
@@ -216,11 +219,12 @@ a.js-found-row[hidden]{display:none}
 
 
 .chips{
-  position:relative;
+  position:sticky;top:0;z-index:40;
   background:var(--paper);
   border-bottom:1px solid var(--line);
   overflow-x:auto;white-space:nowrap;
   scrollbar-width:none;
+  mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 24px),transparent);
 }
 .chips::-webkit-scrollbar{display:none}
 .chips-inner{width:max-content;min-width:100%;margin:0 auto;padding:8px 16px;display:flex;gap:8px;flex-wrap:nowrap}
@@ -413,7 +417,7 @@ section{padding:22px 0}
 .pboxes::-webkit-scrollbar{display:none}
 .pcount{flex:none;margin:0;font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap}
 .is-hidden{display:none!important}
-section{scroll-margin-top:12px}
+section{scroll-margin-top:0}
 
 .lb{
   position:fixed;inset:0;z-index:80;background:rgba(15,23,42,.92);
@@ -549,7 +553,7 @@ footer .foot-contact a:hover{text-decoration:underline}
   .photo img{height:200px}
   .helpline{width:auto;max-width:100%;font-size:12px;line-height:1.45;white-space:normal;text-align:center}
   .top-actions{width:100%;justify-content:center}
-  .brand{padding:46px 10px 0}
+  .brand{padding:0}
   .brand h1{font-size:clamp(22px,7.4vw,34px)}
   .brand p{font-size:13px;line-height:1.4}
   .topbar-inner{padding:10px 12px}
@@ -561,8 +565,12 @@ footer .foot-contact a:hover{text-decoration:underline}
   .step{grid-template-columns:64px 14px 1fr;gap:8px}
   .funds-warn{font-size:15px;padding:10px 12px}
   footer{padding:24px 12px 112px}
-  .pager{gap:6px}
-  .pcount{font-size:12px}
+  .pager{flex-wrap:wrap;gap:6px;padding-bottom:4px}
+  .pcount{width:100%;text-align:right;font-size:12px}
+  .lb{padding:56px 12px 24px}
+  .lb-prev{left:4px}
+  .lb-next{right:4px}
+  .police-alert-phones{font-size:clamp(16px,4.5vw,22px)}
 }
 
 .wl{
@@ -682,20 +690,24 @@ footer .foot-contact a:hover{text-decoration:underline}
   .fund thead{display:none}
   .fund tr{
     display:grid;
-    grid-template-columns:1fr 88px;
-    column-gap:10px;
-    align-items:center;
-    padding:12px 0;
+    grid-template-columns:1fr;
+    padding:12px 0 16px;
     border-bottom:1px solid var(--line);
     width:100%;
   }
   .fund tr:last-child{border-bottom:0}
   .fund td:first-child{display:none}
   .fund td{padding:0 0 4px;border:0;width:auto}
-  .fund td:nth-child(2){font-weight:800;font-size:16px;padding-bottom:6px;grid-column:1;grid-row:1}
-  .fund td.acct{grid-column:1;grid-row:2}
-  .fund td.swift{grid-column:1;grid-row:3;width:auto}
-  .fund td.qr{grid-column:2;grid-row:1 / span 3;width:88px;padding:0;align-self:center}
+  .fund td:nth-child(2){font-weight:800;font-size:16px;padding-bottom:6px}
+  .fund td.swift{width:auto}
+  .fund td.qr{width:auto;padding-top:8px;text-align:left}
+  .fund td.qr img{margin:0}
+  .fund td.acct::before,.fund td.swift::before,.fund td.qr::before{
+    display:block;font-size:11px;font-weight:800;color:var(--muted);margin:6px 0 4px;
+  }
+  .fund td.acct::before{content:"खाता"}
+  .fund td.swift::before{content:"SWIFT"}
+  .fund td.qr::before{content:"QR"}
   .fund button.acct{font-size:16px;padding:12px 10px}
 }
 
@@ -746,7 +758,7 @@ footer .foot-contact a:hover{text-decoration:underline}
 @media (max-width:760px){.fam-grid{grid-template-columns:1fr}}
 
 .fab-dock{
-  position:fixed;right:14px;bottom:16px;z-index:55;
+  position:fixed;right:14px;bottom:max(16px, env(safe-area-inset-bottom, 0px));z-index:55;
   display:flex;flex-direction:row;align-items:flex-end;gap:10px;
   font-family:inherit;
 }
@@ -789,10 +801,11 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 
 .lang-switch{
-  position:absolute;top:10px;right:12px;z-index:46;
+  position:static;align-self:flex-end;z-index:46;
   display:inline-flex;align-items:center;gap:3px;
   background:#fff;border:2px solid #1c1917;
   border-radius:999px;padding:4px;flex:none;
+  margin:0 0 -6px;
   box-shadow:0 4px 16px rgba(28,25,23,.22);
 }
 .lang-switch button{
@@ -808,10 +821,8 @@ footer .foot-contact a:hover{text-decoration:underline}
   outline:2px solid var(--teal);outline-offset:2px;
 }
 @media (max-width:520px){
-  .lang-switch{top:8px;right:8px;padding:3px}
+  .lang-switch{padding:3px}
   .lang-switch button{font-size:13px;padding:7px 12px;min-width:42px}
-  .brand{padding:44px 8px 0}
-  .rahat-stats{grid-template-columns:1fr 1fr}
   .sources{grid-template-columns:1fr}
 }
 @media (max-width:380px){
@@ -819,11 +830,14 @@ footer .foot-contact a:hover{text-decoration:underline}
   .brand h1{font-size:clamp(20px,8vw,28px)}
   .helpline{font-size:11px}
 }
+@media (max-height:500px){
+  .stick{position:static}
+  html{scroll-padding-top:8px}
+}
 
 </style>
 </head>
 <body>
-<div class="stick">
 <header class="topbar">
   <div class="topbar-inner">
     <div class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="भाषा">
@@ -841,7 +855,7 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
 </header>
 <p class="safety-banner" role="alert" data-i18n="safety">बाढी कत्रो आयो भन्दै नदी छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदी भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।</p>
-<nav class="chips" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
+<nav class="chips stick" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
   <div class="chips-inner">
     <a class="home-btn" href="#home" aria-label="होम" title="होम" data-i18n-aria="nav_home" data-i18n-title="nav_home"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
     <a href="#map" data-i18n="nav_map">नक्सा</a>
@@ -868,7 +882,6 @@ footer .foot-contact a:hover{text-decoration:underline}
     <a href="#sources" data-i18n="nav_sources">स्रोत</a>
   </div>
 </nav>
-</div>
 
 <div class="hero" id="home">
   <div class="wrap">
@@ -1177,7 +1190,7 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="card green">
     <p class="treat-lead" data-i18n-html="treat_lead">नामसहित <strong>२२</strong> जना राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङ अस्पतालमा उपचाररत। प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong>। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> — टिचिङ २१, ट्रमा ७, छाउनी १, रसुवा २१, त्रिशूली १६, नर्भिक ३, ग्रीनसिटी १। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="treat-wrap">
-    <table class="plants treat">
+    <table class="plants treat treat-wide">
       <thead>
         <tr>
           <th>सि.नं.</th>
@@ -1233,7 +1246,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <span class="pcount pager-count"></span>
     </div>
     <div class="treat-wrap">
-    <table class="plants treat">
+    <table class="plants treat shelter-tbl">
       <thead>
         <tr>
           <th>सि.नं.</th>
@@ -1317,7 +1330,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <span class="pcount pager-count"></span>
     </div>
     <div class="treat-wrap">
-    <table class="plants treat">
+    <table class="plants treat surya-tbl">
       <thead>
         <tr>
           <th data-i18n="sn">सि.नं.</th>
@@ -2632,6 +2645,7 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2 data-i18n="h_power">विद्युत् · NEA जरुरी सूचना</h2></div>
   <div class="card orange">
     <p data-i18n-html="power_p">नेपाल विद्युत् प्राधिकरण प्रधान कार्यालय, दरबारमार्ग। <strong>अत्यन्त जरुरी सूचना</strong> · १० भदौ २०८३ (२६ अगस्ट २०२६)। रसुवाको आकस्मिक बाढीले जलविद्युत् र प्रसारण संरचनामा क्षति, आपूर्ति अवरुद्ध। आपूर्ति चाँडो सुचारु गर्ने प्रयास; नदीकिनार र जोखिम क्षेत्रमा सतर्क रहन आग्रह। हल्ला नपत्याउनुहोस्।</p>
+    <div class="treat-wrap">
     <table class="plants">
       <thead>
         <tr><th data-i18n="sn_short">क्र.</th><th data-i18n="plant">आयोजना</th><th class="mw" data-i18n="mw">मेगावाट</th><th data-i18n="remarks">कैफियत</th></tr>
@@ -2654,6 +2668,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         <tr><td></td><td data-i18n="list_total">जम्मा सूची</td><td class="mw">४३१.१</td><td data-i18n="power_foot">प्रत्यक्ष प्रभावित २७६ मेगावाट · त्रिशूली ३बी हब २२० केभी सबस्टेशन पनि क्षति</td></tr>
       </tfoot>
     </table>
+    </div>
     <p class="note" data-i18n-html="power_note1">स्रोत: नेपाल विद्युत् प्राधिकरण सूचना २०८३/०५/१०। खाली कैफियत भएका आयोजना यो सूचीमा छन्, प्रत्यक्ष प्रभावित भनेर चिन्हित छैनन्। फोन ०१-४१५३००७, ०१-४१५३०१२ · <a href="https://www.nea.org.np" target="_blank" rel="noopener">nea.org.np</a></p>
     <p class="note" data-i18n-html="power_note2">NEA (<a href="https://www.ratopati.com/story/587664/more-than-133-hydropower-employees-and-workers-left-without-contact-in-rasuwa-flood" target="_blank" rel="noopener">रातोपाटी</a>): विभिन्न आयोजनाका कर्मचारी/कामदार <strong>१३३ भन्दा बढी</strong> सम्पर्कविहीन। लाङटाङ आयोजनाको ६० यथावत्।</p>
   </div>
@@ -3415,6 +3430,8 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   }
   setStick();
   window.addEventListener("resize", setStick);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setStick);
+  if (window.__addLangHook) window.__addLangHook(setStick);
   function qsa(sel, root) {
     return Array.prototype.slice.call((root || document).querySelectorAll(sel));
   }
