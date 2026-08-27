@@ -463,6 +463,18 @@ a.js-found-row[hidden]{display:none}
 @media(max-width:760px){.aid-ig{padding:16px 14px 14px}.aid-ig .cash-kpis{grid-template-columns:1fr}}
 
 
+
+.fd-ig{margin:0 0 18px}
+.fd-ig h3{color:var(--crimson)}
+.fd-kpis{grid-template-columns:repeat(5,1fr)}
+.fd-ig .cash-kpi strong,.fd-ig .cash-kpi .cash-unit{color:var(--crimson)}
+.fd-ig .cash-kpi.on{border-color:var(--crimson);box-shadow:0 0 0 3px #fecdd3}
+.fd-ig .cash-kpi[data-fd="found"] strong,.fd-ig .cash-kpi[data-fd="found"] .cash-unit{color:var(--forest)}
+.fd-ig .cash-kpi[data-fd="found"].on{border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5}
+.fd-ig .ibar i{background:var(--crimson)}
+.fd-ig .fd-pane-found .ibar i{background:var(--forest)}
+@media(max-width:900px){.fd-kpis{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.fd-kpis{grid-template-columns:1fr 1fr}}
 .rd-ig{margin:0 0 18px}
 .rd-ig h3{color:var(--forest)}
 .rd-kpis{grid-template-columns:repeat(4,1fr)}
@@ -1557,50 +1569,50 @@ footer .foot-contact a:hover{text-decoration:underline}
       <button type="button" class="cash-kpi" data-rd="treat" aria-selected="false">
         <span class="kpi-k" data-i18n="rd_treat_k">घाइते काठमाडौं</span>
         <strong class="num">४२</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
       </button>
       <button type="button" class="cash-kpi" data-rd="nuwakot" aria-selected="false">
         <span class="kpi-k" data-i18n="rd_nuw_k">नुवाकोट</span>
         <strong class="num">५६</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
       </button>
       <button type="button" class="cash-kpi" data-rd="surya" aria-selected="false">
         <span class="kpi-k" data-i18n="rd_surya_k">सूर्यगढी</span>
         <strong class="num">२३</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
       </button>
       <button type="button" class="cash-kpi" data-rd="rasuwa" aria-selected="false">
         <span class="kpi-k" data-i18n="rd_ras_k">रसुवा / टिमुरे</span>
         <strong class="num">७३</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
       </button>
       <button type="button" class="cash-kpi" data-rd="dao" aria-selected="false">
         <span class="kpi-k" data-i18n="rd_dao_k">DAO रसुवा</span>
         <strong class="num">२१२</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
       </button>
       <button type="button" class="cash-kpi" data-rd="india" aria-selected="false">
         <span class="kpi-k" data-i18n="rd_ind_k">भारतीय</span>
         <strong class="num">२१</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
       </button>
       <button type="button" class="cash-kpi" data-rd="heli" aria-selected="false">
         <span class="kpi-k" data-i18n="rd_heli_k">काठमाडौं हेलि</span>
         <strong class="num">११</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
       </button>
     </div>
     <div class="cash-panes">
       <div class="cash-pane on" data-rd="all">
         <p class="ov-cap" data-i18n="rd_all_cap">आठ प्रकाशित सूची · कार्ड थिचेर विवरण</p>
         <ul class="cash-list">
-          <li><span data-i18n="rd_treat_k">घाइते काठमाडौं</span><strong><span class="num">४२</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
-          <li><span data-i18n="rd_nuw_k">नुवाकोट</span><strong><span class="num">५६</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
-          <li><span data-i18n="rd_surya_k">सूर्यगढी</span><strong><span class="num">२३</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
-          <li><span data-i18n="rd_ras_k">रसुवा / टिमुरे</span><strong><span class="num">७३</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
-          <li><span data-i18n="rd_dao_k">DAO रसुवा</span><strong><span class="num">२१२</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
-          <li><span data-i18n="rd_ind_k">भारतीय</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
-          <li><span data-i18n="rd_heli_k">काठमाडौं हेलि</span><strong><span class="num">११</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+          <li><span data-i18n="rd_treat_k">घाइते काठमाडौं</span><strong><span class="num">४२</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="rd_nuw_k">नुवाकोट</span><strong><span class="num">५६</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="rd_surya_k">सूर्यगढी</span><strong><span class="num">२३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="rd_ras_k">रसुवा / टिमुरे</span><strong><span class="num">७३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="rd_dao_k">DAO रसुवा</span><strong><span class="num">२१२</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="rd_ind_k">भारतीय</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="rd_heli_k">काठमाडौं हेलि</span><strong><span class="num">११</span> <span data-i18n="rd_name_u">जना</span></strong></li>
         </ul>
         <p class="cash-note" data-i18n="rd_all_note">आधिकारिक घाइते जम्मा ७५ यथावत्। यी नाम-सूची जोडेर एउटा उद्धार जम्मा बनाइएको छैन।</p>
       </div>
@@ -1622,7 +1634,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="cash-pane" data-rd="surya">
         <p class="ov-cap" data-i18n="rd_surya_cap">सूर्यगढी हस्तलिखित सूची</p>
         <ul class="cash-list">
-          <li><span data-i18n="rd_surya_k">सूर्यगढी</span><strong><span class="num">२३</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+          <li><span data-i18n="rd_surya_k">सूर्यगढी</span><strong><span class="num">२३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
         </ul>
         <p class="cash-note" data-i18n="rd_surya_note">नुवाकोट र फारम सूची अलग।</p>
         <a class="rd-jump" href="#suryagadhi" data-i18n="rd_jump_surya">सूची हेर्नुहोस् → सूर्यगढी</a>
@@ -1638,7 +1650,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="cash-pane" data-rd="dao">
         <p class="ov-cap" data-i18n="rd_dao_cap">जिल्ला प्रशासन कार्यालय रसुवा</p>
         <ul class="cash-list">
-          <li><span data-i18n="rd_dao_k">DAO रसुवा</span><strong><span class="num">२१२</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+          <li><span data-i18n="rd_dao_k">DAO रसुवा</span><strong><span class="num">२१२</span> <span data-i18n="rd_name_u">जना</span></strong></li>
         </ul>
         <p class="cash-note" data-i18n="rd_dao_note">हामीसँग भएका पाना मात्र। पूर्ण १–३७३ होइन।</p>
         <a class="rd-jump" href="#dao-res" data-i18n="rd_jump_dao">सूची हेर्नुहोस् → DAO</a>
@@ -1646,7 +1658,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="cash-pane" data-rd="india">
         <p class="ov-cap" data-i18n="rd_ind_cap">भारतीय नागरिक · २७ अगस्ट १३:००</p>
         <ul class="cash-list">
-          <li><span data-i18n="rd_ind_k">भारतीय</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+          <li><span data-i18n="rd_ind_k">भारतीय</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
         </ul>
         <p class="cash-note" data-i18n="rd_ind_note">२१औँ नाम Manimekalai Sukumar। हराएको सूची अलग।</p>
         <a class="rd-jump" href="#india-res" data-i18n="rd_jump_ind">सूची हेर्नुहोस् → भारतीय</a>
@@ -2313,6 +2325,80 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 <section id="family">
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_family">हराएको / भेटिएको</h2></div>
+  <article class="cash-ig fd-ig" id="fd">
+    <h3 data-i18n="fd_h">हराएको / भेटिएको</h3>
+    <p class="cash-lead" data-i18n="fd_lead">फारम, हेलो सरकार, मधेश र भेटिएको — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन। आधिकारिक सम्पर्कविहीन २४५ यथावत्।</p>
+    <div class="cash-kpis fd-kpis" role="tablist" aria-label="हराएको र भेटिएको">
+      <button type="button" class="cash-kpi on" data-fd="all" aria-selected="true">
+        <span class="kpi-k" data-i18n="fd_all_k">सूची</span>
+        <strong data-i18n="fd_all_v">४</strong>
+        <span class="cash-unit" data-i18n="rd_all_u">वर्ग</span>
+      </button>
+      <button type="button" class="cash-kpi" data-fd="miss" aria-selected="false">
+        <span class="kpi-k" data-i18n="fd_miss_k">हराएको</span>
+        <strong class="num fd-live-miss">५४०</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
+      </button>
+      <button type="button" class="cash-kpi" data-fd="found" aria-selected="false">
+        <span class="kpi-k" data-i18n="fd_found_k">भेटिएको</span>
+        <strong class="num fd-live-found">४१</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
+      </button>
+      <button type="button" class="cash-kpi" data-fd="hello" aria-selected="false">
+        <span class="kpi-k" data-i18n="fd_hello_k">हेलो सरकार</span>
+        <strong class="num fd-live-hello">१४०</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
+      </button>
+      <button type="button" class="cash-kpi" data-fd="madhesh" aria-selected="false">
+        <span class="kpi-k" data-i18n="fd_mad_k">मधेश प्रहरी</span>
+        <strong class="num fd-live-mad">३०</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
+      </button>
+    </div>
+    <div class="cash-panes">
+      <div class="cash-pane on" data-fd="all">
+        <p class="ov-cap" data-i18n="fd_all_cap">चार प्रकाशित सूची · कार्ड थिचेर विवरण</p>
+        <ul class="cash-list">
+          <li><span data-i18n="fd_miss_k">हराएको</span><strong><span class="num fd-live-miss">५४०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="fd_found_k">भेटिएको</span><strong><span class="num fd-live-found">४१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="fd_hello_k">हेलो सरकार</span><strong><span class="num fd-live-hello">१४०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="fd_mad_k">मधेश प्रहरी</span><strong><span class="num fd-live-mad">३०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n="fd_all_note">फारम, हेलो सरकार र मधेश आधिकारिक सम्पर्कविहीन २४५ मा जोडिएको छैन। नाम मिलाइएको छैन।</p>
+      </div>
+      <div class="cash-pane" data-fd="miss">
+        <p class="ov-cap" data-i18n="fd_miss_cap">जनताको रिपोर्ट · फारम सिट</p>
+        <ul class="cash-list">
+          <li><span data-i18n="fd_miss_k">हराएको</span><strong><span class="num fd-live-miss">५४०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n="fd_miss_note">जाँचिएका कार्ड मात्र। हेलो सरकार र मधेश अलग।</p>
+        <a class="rd-jump" href="#fam-public" data-i18n="fd_jump_miss">सूची हेर्नुहोस् → हराएको</a>
+      </div>
+      <div class="cash-pane fd-pane-found" data-fd="found">
+        <p class="ov-cap" data-i18n="fd_found_cap">भेटिएको · जाँचिएका कार्ड</p>
+        <ul class="cash-list">
+          <li><span data-i18n="fd_found_k">भेटिएको</span><strong><span class="num fd-live-found">४१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n="fd_found_note">हराएको सूचीबाट हटाइएको छैन जबसम्म जाँच हुँदैन।</p>
+        <a class="rd-jump" href="#fam-found-h" data-i18n="fd_jump_found">सूची हेर्नुहोस् → भेटिएको</a>
+      </div>
+      <div class="cash-pane" data-fd="hello">
+        <p class="ov-cap" data-i18n="fd_hello_cap">हेलो सरकार · राती ८:१०</p>
+        <ul class="cash-list">
+          <li><span data-i18n="fd_hello_k">हेलो सरकार</span><strong><span class="num fd-live-hello">१४०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n="fd_hello_note">फोनमार्फत टिपिएका विवरण। फारम सूची अलग।</p>
+        <a class="rd-jump" href="#hello-sarkar" data-i18n="fd_jump_hello">सूची हेर्नुहोस् → हेलो सरकार</a>
+      </div>
+      <div class="cash-pane" data-fd="madhesh">
+        <p class="ov-cap" data-i18n="fd_mad_cap">मधेश प्रदेश प्रहरी</p>
+        <div class="ibar-row"><span data-i18n="fd_mad_miss">सम्पर्कविहीन</span><b class="ibar"><i style="width:100%"></i></b><em class="num fd-live-mad-left">२८</em></div>
+        <div class="ibar-row"><span data-i18n="fd_mad_ok">उद्धार भई सम्पर्कमा</span><b class="ibar"><i style="width:7%"></i></b><em class="num fd-live-mad-ok">२</em></div>
+        <p class="cash-note" data-i18n-html="fd_mad_note">जम्मा <strong class="fd-live-mad">३०</strong>। पर्सा १७ · बारा ३ · रौतहट २ · सर्लाही ६ · सप्तरी २।</p>
+        <a class="rd-jump" href="#madhesh" data-i18n="fd_jump_mad">सूची हेर्नुहोस् → मधेश</a>
+      </div>
+    </div>
+  </article>
   <div class="card">
     <p class="fam-lead" data-i18n-html="fam_lead1">बाढीमा हराएका वा भेटिएका व्यक्तिको विवरण पठाउनुहोस्। जाँचपछि मात्र कार्ड देखिन्छ। भेटिएको <strong>४१</strong> जना। आपत्कालमा <a href="tel:1234">१२३४</a> वा <a href="tel:100"><span data-i18n="police">प्रहरी</span> १००</a>।</p>
     <div class="fam-actions">
@@ -2325,7 +2411,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <label for="fam-search" data-i18n="search_label">नाम वा नम्बर खोज्नुहोस्</label>
       <input id="fam-search" type="search" placeholder="उदाहरण: केबल, 9815…" data-i18n-placeholder="search_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
     </div>
-    <h3 class="fam-h" data-i18n="public_reports">जनताको रिपोर्ट</h3>
+    <h3 class="fam-h" id="fam-public" data-i18n="public_reports">जनताको रिपोर्ट</h3>
     <p class="treat-lead" id="fam-new-lead" data-i18n-html="fam_new_lead">फारम सिटबाट जाँचिएका सम्पर्कविहीन विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="pager" data-pager="fam-miss">
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
@@ -2336,7 +2422,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <div class="fam-grid" id="fam-missing"></div>
     <p class="fam-empty" id="fam-missing-empty" data-i18n="empty_review">जाँचपछि मात्र यहाँ आउँछ।</p>
     <p class="fam-empty" id="fam-search-empty" hidden data-i18n="empty_search">यो खोजसँग मिल्ने नाम भेटिएन।</p>
-    <h3 class="fam-h" data-i18n="hello_sarkar">हेलो सरकार · राती ८:१०</h3>
+    <h3 class="fam-h" id="hello-sarkar" data-i18n="hello_sarkar">हेलो सरकार · राती ८:१०</h3>
     <p class="treat-lead" data-i18n-html="hello_lead">फोनमार्फत टिपिएका सम्पर्कविहीन तथा बेपत्ता <strong>१४०</strong> विवरण। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="pager" data-pager="hello-sarkar">
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
@@ -2498,7 +2584,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     </table>
     </div>
     <p class="treat-note" data-i18n="hello_note">स्रोत: हेलो सरकार, राती ८:१०।</p>
-    <h3 class="fam-h" data-i18n="madhesh_h">मधेश प्रहरी · सम्पर्कविहीन ३०</h3>
+    <h3 class="fam-h" id="madhesh" data-i18n="madhesh_h">मधेश प्रहरी · सम्पर्कविहीन ३०</h3>
     <p class="treat-lead" data-i18n-html="madhesh_lead">मधेश प्रदेश प्रहरी: परिवार तथा आफन्तको जानकारी अनुसार रसुवा बाढीपछि <strong>३०</strong> जना सम्पर्कविहीन। पर्सा १७ (उद्धार भई सम्पर्कमा <strong>२</strong>), बारा ३, रौतहट २, सर्लाही ६, सप्तरी २। हेलो सरकार १४० र फारम सूची अलग। नाम मिलाइएको छैन।</p>
     <div class="pager" data-pager="madhesh">
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
@@ -2555,7 +2641,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <h3 class="fam-h" data-i18n="matched_h">मेल भएका</h3>
     <div class="fam-grid" id="fam-matched"></div>
     </div>
-    <h3 class="fam-h"><span data-i18n="found_h">भेटिएको</span> · <span id="stat-found">४१</span></h3>
+    <h3 class="fam-h" id="fam-found-h"><span data-i18n="found_h">भेटिएको</span> · <span id="stat-found">४१</span></h3>
     <div class="pager" data-pager="fam-found" hidden>
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
       <div class="pboxes pager-pages"></div>
@@ -4355,8 +4441,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js?v=2026-08-27-1748"></script>
-<script>window.PAGE_VER="2026-08-27-1748";</script>
+<script src="i18n.js?v=2026-08-27-1754"></script>
+<script>window.PAGE_VER="2026-08-27-1754";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -4413,6 +4499,26 @@ footer .foot-contact a:hover{text-decoration:underline}
 })();
 
 
+
+(function(){
+  var root = document.getElementById("fd");
+  if (!root) return;
+  var kpis = [].slice.call(root.querySelectorAll(".cash-kpi"));
+  var panes = [].slice.call(root.querySelectorAll(".cash-pane"));
+  function show(id){
+    kpis.forEach(function(k){
+      var on = k.getAttribute("data-fd") === id;
+      k.classList.toggle("on", on);
+      k.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    panes.forEach(function(p){
+      p.classList.toggle("on", p.getAttribute("data-fd") === id);
+    });
+  }
+  kpis.forEach(function(k){
+    k.addEventListener("click", function(){ show(k.getAttribute("data-fd")); });
+  });
+})();
 (function(){
   var root = document.getElementById("rd");
   if (!root) return;
@@ -5163,6 +5269,20 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     var foundStat = document.getElementById("stat-found");
     if (foundStat && data.found){
       foundStat.textContent = np(data.found.length);
+    }
+    function setLive(sel, n){
+      document.querySelectorAll(sel).forEach(function(el){ el.textContent = np(n); });
+    }
+    if (data.missing) setLive(".fd-live-miss", data.missing.length);
+    if (data.found) setLive(".fd-live-found", data.found.length);
+    var helloN = document.querySelectorAll("#hello-sarkar-body tr").length;
+    var madN = document.querySelectorAll("#madhesh-body tr").length;
+    var madOk = document.querySelectorAll("#madhesh-body tr.rescued").length;
+    if (helloN) setLive(".fd-live-hello", helloN);
+    if (madN){
+      setLive(".fd-live-mad", madN);
+      setLive(".fd-live-mad-ok", madOk);
+      setLive(".fd-live-mad-left", madN - madOk);
     }
   }
   fetch("family.json?t="+Date.now(), {cache:"no-store"}).then(function(r){ return r.json(); }).then(function(data){
