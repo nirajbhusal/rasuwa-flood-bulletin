@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T08:17:00+05:45",
+  "updated_at": "2026-08-27T08:27:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,24 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-082539-sachin-kumar-yadav",
+      "name": "Sachin Kumar Yadav",
+      "age": "21",
+      "place": "Mahottari · Chilime",
+      "when": null,
+      "phone": null,
+      "note": "फारम ०८:२५ · चिलिमे"
+    },
+    {
+      "id": "sheet-20260827-082227-sugam-siluwal",
+      "name": "Sugam Siluwal",
+      "age": "23",
+      "place": "Chitwan Bharatpur 5 · Rasuwa border, piding, timure",
+      "when": "26 august 8:50 am",
+      "phone": "9846136942",
+      "note": "फारम ०८:२२ · पिदिङ/टिमुरे · साथमा Tek Bahadur Adhikari 9841311761, Dilli Panta 9846024037 · अर्को फोन 9842396542"
+    },
     {
       "id": "sheet-20260827-081823-jit-bahadur-chaudary",
       "name": "जित बहादुर चौधरी",
@@ -1489,10 +1507,11 @@
     {
       "id": "m-sachin-gautam",
       "name": "सचिन गौतम",
-      "place": "Upper Trishuli-1 216 MW",
-      "phone": "9860662298",
+      "age": "24/25",
+      "place": "Duhabi · Upper Trishuli-1 216 MW",
+      "phone": "9860662298 / 9820721005",
       "reporter": "Namita Dahal",
-      "note": "सिभिल इन्जिनियर · अर्को फोन 9841912022"
+      "note": "सिभिल इन्जिनियर · अर्को फोन 9841912022 · फारम ०८:२७"
     },
     {
       "id": "m-hari-sedhai",
