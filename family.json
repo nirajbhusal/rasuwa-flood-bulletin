@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T13:15:00+05:45",
+  "updated_at": "2026-08-27T13:24:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,51 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-132305-devi-kumari-gurung",
+      "name": "DEVI KUMARI GURUNG",
+      "age": "55",
+      "place": "Pokhara, Haweli Marga · Galchi–Trishuli बाटो",
+      "when": "२६ अगस्ट ९:२०",
+      "phone": "9805535019 / 9705165229",
+      "note": "फारम १३:२३ · बाढी बेला गल्ची–त्रिशूली बाटोमा"
+    },
+    {
+      "id": "sheet-20260827-132004-sunny-chaudhary",
+      "name": "Sunny Chaudhary",
+      "age": "30",
+      "place": "Nawalparasi-West",
+      "when": "",
+      "phone": "9869266559",
+      "note": "फारम १३:२० · स्थान खाली"
+    },
+    {
+      "id": "sheet-20260827-131945-niroj-pradhan",
+      "name": "Niroj Pradhan",
+      "age": "32",
+      "place": "Kavre · Timure",
+      "when": "",
+      "phone": "9851334184",
+      "note": "फारम १३:१९ · Timure"
+    },
+    {
+      "id": "sheet-20260827-131736-ayush-adhikari",
+      "name": "Ayush Adhikari",
+      "age": "27",
+      "place": "Tanahun · Timure",
+      "when": "२०२६/०८/२६",
+      "phone": "9843417857",
+      "note": "फारम १३:१७ · फोन फरक (Aayush Adhikari 9808670950 सँग नमिसाउने)"
+    },
+    {
+      "id": "sheet-20260827-131412-mukesh-nepal",
+      "name": "Mukesh Nepal",
+      "age": "30–33",
+      "place": "Trisuli hydropower 3B",
+      "when": "",
+      "phone": "9840362440",
+      "note": "फारम १३:१४ · Worked at Trisuli Hydropower 3B"
+    },
     {
       "id": "sheet-20260827-130844-sunil-man-dangol",
       "name": "Sunil Man Dangol",
