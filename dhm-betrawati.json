@@ -8,7 +8,7 @@
   "warning_m": 4.1,
   "danger_m": 5.0,
   "status": "normal",
-  "steady": true,
+  "steady": "STEADY",
   "silent": true,
   "washed": false,
   "source": "https://www.dhm.gov.np/hydrology/hms-Single/52",
