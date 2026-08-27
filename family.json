@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T12:26:46+05:45",
+  "updated_at": "2026-08-27T12:27:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,31 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-122637-jit-bahadur-pahari",
+      "name": "Jit Bahadur Pahari",
+      "age": "30",
+      "place": "Sindhuli · Rasuwa",
+      "phone": "9845710392",
+      "note": "फारम १२:२६"
+    },
+    {
+      "id": "sheet-20260827-122426-laxman-pariyar",
+      "name": "Laxman Pariyar",
+      "age": "21",
+      "place": "Kalikot, palata-02",
+      "phone": "9745676022",
+      "note": "फारम १२:२४"
+    },
+    {
+      "id": "sheet-20260827-122353-dipendra-neupane",
+      "name": "दिपेन्द्र न्यौपाने",
+      "age": "24",
+      "place": "कमलामाई, ०७ सिन्धुली · Mailung, Rasuwa",
+      "when": "८ बजे बिहान",
+      "phone": "9849568195",
+      "note": "फारम १२:२३ · Army Uniform · श्री शेर गण नेपाल आर्मी"
+    },
     {
       "id": "sheet-20260827-122115-bam-bahadur-tamang-bipa-maya-tamang",
       "name": "Bam Bahadur Tamang / Bipa Maya Tamang",
