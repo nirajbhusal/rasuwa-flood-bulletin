@@ -1660,11 +1660,12 @@ footer .foot-contact a:hover{text-decoration:underline}
       </div>
       <div class="fd-box">
         <button type="button" class="cash-kpi" data-fd="found" aria-selected="false">
-          <span class="kpi-k" data-i18n="fd_found_row">भेटिएको · फारम</span>
-          <strong class="num fd-live-found">४१</strong>
+          <span class="kpi-k" data-i18n="fd_found_k">भेटिएको</span>
+          <strong class="num fd-live-found-total">६४८</strong>
           <span class="cash-unit" data-i18n="rd_name_u">जना</span>
         </button>
         <ul class="cash-list">
+          <li><span data-i18n="fd_found_total_k">जम्मा</span><strong><span class="num fd-live-found-total">६४८</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="fd_found_row">भेटिएको · फारम</span><strong><span class="num fd-live-found">४१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="fd_dao_row">भेटिएको · DAO रसुवा</span><strong><span class="num">४५०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="fd_ras_row">भेटिएको · रसुवा / टिमुरे</span><strong><span class="num">७३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
@@ -5063,8 +5064,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-0506"></script>
-<script>window.PAGE_VER="2026-08-28-0506";</script>
+<script src="i18n.js?v=2026-08-28-0512"></script>
+<script>window.PAGE_VER="2026-08-28-0512";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -5897,7 +5898,10 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       document.querySelectorAll(sel).forEach(function(el){ el.textContent = np(n); });
     }
     if (data.missing) setLive(".fd-live-miss", data.missing.length);
-    if (data.found) setLive(".fd-live-found", data.found.length);
+    if (data.found){
+      setLive(".fd-live-found", data.found.length);
+      setLive(".fd-live-found-total", data.found.length + 450 + 73 + 21 + 63);
+    }
     var helloN = document.querySelectorAll("#hello-sarkar-body tr").length;
     var madN = document.querySelectorAll("#madhesh-body tr").length;
     var madOk = document.querySelectorAll("#madhesh-body tr.rescued").length;
