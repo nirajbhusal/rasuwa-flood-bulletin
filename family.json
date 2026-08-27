@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T11:27:00+05:45",
+  "updated_at": "2026-08-27T11:40:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,87 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-114749-ghanashyam-bhatta-and-kalpana-bhatta",
+      "name": "Ghanashyam Bhatta and Kalpana Bhatta",
+      "age": "around 50",
+      "place": "Siddhalekh, Dhading · Galchhi Dhading towards Gosaikunda",
+      "when": "10th Bhadra 2083",
+      "phone": "9851007051",
+      "note": "फारम ११:४७"
+    },
+    {
+      "id": "sheet-20260827-114312-nirajan-pangeni",
+      "name": "निराजन पंगेनी",
+      "age": "लगभग 37-38",
+      "place": "रुपन्देही/बुटवल · त्रुशुली हब",
+      "when": "9.21 am मा फोन आएको, फोनको लोकेसन कालिकास्थान देखाएको तर सम्पर्क हुन नसकेको",
+      "phone": "9843771391",
+      "note": "फारम ११:४३ · हातमा ब्रासलेट"
+    },
+    {
+      "id": "sheet-20260827-114204-mingmar-tamang-and-muna-gurung",
+      "name": "Mingmar Tamang and Muna Gurung",
+      "age": "58 & 40",
+      "place": "Rasuwa & Dhading · Timure",
+      "when": "Bhadra 10 At night",
+      "phone": "9841262285 / 9869053670",
+      "note": "फारम ११:४२ · Muna Gurung pink dress"
+    },
+    {
+      "id": "sheet-20260827-114136-gopal-basnet",
+      "name": "Gopal Basnet",
+      "age": "48",
+      "place": "Barhabise-5 Sindhupalchok · Ghattekhola Rasuwa",
+      "when": "25/08/2026",
+      "phone": "+61433410833",
+      "note": "फारम ११:४१ · skyblue jeans/shorts, tshirt and jumper · group: Padam Magar, Manoj Magar, Bhaiji Magar and others"
+    },
+    {
+      "id": "sheet-20260827-114100-iryna-kripak",
+      "name": "Iryna Kripak",
+      "age": "34",
+      "place": "Rasuvagadhi Border check post · रसुवागढी नाका चेक पोस्ट",
+      "when": "2.08 8:45",
+      "phone": "+380996776797",
+      "note": "फारम ११:४१ · कालो-सेतो चेक ज्याकेट, गुलाबी ऊनी टोपी"
+    },
+    {
+      "id": "sheet-20260827-113920-budhumaya-tamang",
+      "name": "Budhumaya Tamang",
+      "age": "42 around",
+      "place": "Rasuwa · Salletar Mailung",
+      "when": "",
+      "phone": "9861334310 / 9749420605",
+      "note": "फारम ११:३९"
+    },
+    {
+      "id": "sheet-20260827-113506-anish-ghimire",
+      "name": "Anish Ghimire",
+      "age": "Mid 20s",
+      "place": "Pharping Kathmandu · last contact they had reached Trishuli",
+      "when": "Last seen at home before they left",
+      "phone": "9767929967",
+      "note": "फारम ११:३५ · Scorpio 9736, ~10 people, left 5am for Gosainkunda; last contact 8:49am yesterday"
+    },
+    {
+      "id": "sheet-20260827-113419-balkrishna-ranjit",
+      "name": "Balkrishna Ranjit",
+      "age": "61",
+      "place": "Banepa-10, Kavre · Rashwagadi",
+      "when": "Bhadra 9th 2083, 8:00PM",
+      "phone": "9748303457 / 9841466324",
+      "note": "फारम ११:३४ · छोरा साकार / पत्नी प्रेमा"
+    },
+    {
+      "id": "sheet-20260827-113406-ashok-kumar-mandal",
+      "name": "Ashok Kumar Mandal",
+      "age": "36",
+      "place": "Tilathi Koiladi Gaupalika ward 6, Saptari · Rasuwa Jungle",
+      "when": "2083/05/10, Time 3 PM",
+      "phone": "9706483475 / 9842954774",
+      "note": "फारम ११:३४ · 216 MW hydropower HR · पत्नी चन्द्रकला मण्डल"
+    },
     {
       "id": "sheet-20260827-112217-polina-kulak",
       "name": "Polina Kulak",
