@@ -759,6 +759,28 @@ footer .foot-contact a:hover{text-decoration:underline}
   .notify-hint{bottom:68px}
 }
 
+
+.lang-switch{
+  display:inline-flex;align-items:center;gap:0;
+  background:#fff;border:1px solid var(--line);
+  border-radius:999px;padding:2px;flex:none;
+}
+.lang-switch button{
+  appearance:none;-webkit-appearance:none;
+  font:inherit;font-weight:800;font-size:12px;letter-spacing:.04em;
+  border:0;background:transparent;color:var(--ink);
+  padding:5px 9px;border-radius:999px;cursor:pointer;line-height:1;
+}
+.lang-switch button[aria-pressed="true"]{
+  background:var(--crimson);color:#fff;
+}
+.lang-switch button:focus-visible{
+  outline:2px solid var(--teal);outline-offset:1px;
+}
+.lang-switch .lang-sep{
+  color:var(--muted);font-size:11px;font-weight:800;padding:0 1px;user-select:none;
+}
+
 </style>
 </head>
 <body>
@@ -766,59 +788,64 @@ footer .foot-contact a:hover{text-decoration:underline}
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">
-      <h1>रसुवा–भोटेकोशी बाढी</h1>
-      <p>२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~०१:२२ नेपाली समय</p>
+      <h1 data-i18n="brand">रसुवा–भोटेकोशी बाढी</h1>
+      <p data-i18n="brand_date">२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~०१:२२ नेपाली समय</p>
     </div>
     <div class="top-actions">
-      <span class="live"><i></i> लाइभ</span>
-      <div class="helpline">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४</div>
+      <span class="live"><i></i> <span data-i18n="live">लाइभ</span></span>
+      <div class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="भाषा">
+        <button type="button" data-lang="ne" aria-pressed="true" lang="ne" title="नेपाली">ने</button>
+        <span class="lang-sep" aria-hidden="true">|</span>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
+      </div>
+      <div class="helpline" data-i18n="hl_bar">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४</div>
     </div>
   </div>
 </header>
-<p class="safety-banner" role="alert">बाढी कत्रो आयो भन्दै नदी छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदी भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।</p>
-<nav class="chips" aria-label="खण्डहरू">
+<p class="safety-banner" role="alert" data-i18n="safety">बाढी कत्रो आयो भन्दै नदी छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदी भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।</p>
+<nav class="chips" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
   <div class="chips-inner">
-    <a class="home-btn" href="#home" aria-label="होम" title="होम"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
-    <a href="#map">नक्सा</a>
-    <a href="#alert">सतर्कता</a>
-    <a href="#rahat">राहत भिजुअल</a>
-    <a href="#treat">घाइते</a>
-    <a href="#shelter">उद्धार सूची</a>
-    <a href="#family">हराएको / भेटिएको</a>
-    <a href="#helpline">हेल्पलाइन</a>
-    <a href="#donate">राहत कोष</a>
-    <a href="#aid">वैदेशिक सहयोग</a>
-    <a href="#contacts">सम्पर्क</a>
-    <a href="#gov">सरकारी पहल</a>
-    <a href="#photos">तस्बिर</a>
-    <a href="#history">अपडेट</a>
-    <a href="#event">सरोकारवालाको भनाइ</a>
-    <a href="#damage">क्षति</a>
-    <a href="#power">विद्युत्</a>
-    <a href="#rescue">उद्धार</a>
-    <a href="#roads">सडक</a>
-    <a href="#feeds">लाइभ फिड</a>
-    <a href="#videos">भिडियो</a>
-    <a href="#sources">स्रोत</a>
+    <a class="home-btn" href="#home" aria-label="होम" title="होम" data-i18n-aria="nav_home" data-i18n-title="nav_home"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
+    <a href="#map" data-i18n="nav_map">नक्सा</a>
+    <a href="#alert" data-i18n="nav_alert">सतर्कता</a>
+    <a href="#rahat" data-i18n="nav_rahat">राहत भिजुअल</a>
+    <a href="#treat" data-i18n="nav_treat">घाइते</a>
+    <a href="#shelter" data-i18n="nav_shelter">उद्धार सूची</a>
+    <a href="#family" data-i18n="nav_family">हराएको / भेटिएको</a>
+    <a href="#helpline" data-i18n="nav_helpline">हेल्पलाइन</a>
+    <a href="#donate" data-i18n="nav_donate">राहत कोष</a>
+    <a href="#aid" data-i18n="nav_aid">वैदेशिक सहयोग</a>
+    <a href="#contacts" data-i18n="nav_contacts">सम्पर्क</a>
+    <a href="#gov" data-i18n="nav_gov">सरकारी पहल</a>
+    <a href="#photos" data-i18n="nav_photos">तस्बिर</a>
+    <a href="#history" data-i18n="nav_history">अपडेट</a>
+    <a href="#event" data-i18n="nav_event">सरोकारवालाको भनाइ</a>
+    <a href="#damage" data-i18n="nav_damage">क्षति</a>
+    <a href="#power" data-i18n="nav_power">विद्युत्</a>
+    <a href="#rescue" data-i18n="nav_rescue">उद्धार</a>
+    <a href="#roads" data-i18n="nav_roads">सडक</a>
+    <a href="#feeds" data-i18n="nav_feeds">लाइभ फिड</a>
+    <a href="#videos" data-i18n="nav_videos">भिडियो</a>
+    <a href="#sources" data-i18n="nav_sources">स्रोत</a>
   </div>
 </nav>
 </div>
 
 <div class="hero" id="home">
   <div class="wrap">
-    <p class="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
-    <h2>शव १६२</h2>
-    <p class="lede">बिहान ६:००: शव <strong>१६२</strong>। अघिल्लो NDRRMA SitRep-3 शव १२३ इतिहासमा। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। सुरक्षाकर्मी <strong>८३</strong> (सेना ४४, प्रहरी २६, सशस्त्र १३)। पर्यटक <strong>४८४</strong>। घाइते NDRRMA <strong>७५</strong> (रसुवा ४३, नुवाकोट २९, धादिङ ३)। हवाई उद्धार <strong>११६</strong> (सेना ८८ + निजी २८)। स्थलगत <strong>९३</strong>। पुल <strong>८०</strong> (मोटरेबल ३५ + झोलुङ्गे ४५)। नदी किनार नजानुहोस्।</p>
-    <div class="stats" aria-label="प्रारम्भिक तथ्यांक">
+    <p class="kicker" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+    <h2 data-i18n="dead_162">शव १६२</h2>
+    <p class="lede" data-i18n-html="lede">बिहान ६:००: शव <strong>१६२</strong>। अघिल्लो NDRRMA SitRep-3 शव १२३ इतिहासमा। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। सुरक्षाकर्मी <strong>८३</strong> (सेना ४४, प्रहरी २६, सशस्त्र १३)। पर्यटक <strong>४८४</strong>। घाइते NDRRMA <strong>७५</strong> (रसुवा ४३, नुवाकोट २९, धादिङ ३)। हवाई उद्धार <strong>११६</strong> (सेना ८८ + निजी २८)। स्थलगत <strong>९३</strong>। पुल <strong>८०</strong> (मोटरेबल ३५ + झोलुङ्गे ४५)। नदी किनार नजानुहोस्।</p>
+    <div class="stats" aria-label="प्रारम्भिक तथ्यांक" data-i18n-aria="stats_aria" data-i18n-list="hero_mini" data-i18n-kind="deep-li">
       <div class="stat">
-        <b>शव फेला</b>
+        <b data-i18n="stat_bodies">शव फेला</b>
         <ul class="mini">
           <li>जम्मा <strong>१६२</strong></li>
           <li>अघिल्लो NDRRMA SitRep-3 <strong>१२३</strong> (राति २२:००)।</li>
         </ul>
       </div>
       <div class="stat">
-        <b>घाइते</b>
+        <b data-i18n="stat_injured">घाइते</b>
         <ul class="mini">
           <li>NDRRMA जम्मा <strong>७५</strong></li>
           <li>रसुवा <strong>४३</strong> · नुवाकोट <strong>२९</strong> · धादिङ <strong>३</strong></li>
@@ -827,7 +854,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
       <div class="stat">
-        <b>सम्पर्कविहीन</b>
+        <b data-i18n="stat_uncontacted">सम्पर्कविहीन</b>
         <ul class="mini">
           <li>NDRRMA <strong>२४५</strong> · रसुवा १६१ · नुवाकोट १</li>
           <li><a href="#family">जनताको रिपोर्ट</a> <strong id="stat-miss-form">१९५</strong></li>
@@ -838,7 +865,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
       <div class="stat">
-        <b>सुरक्षाकर्मी सम्पर्कविहीन</b>
+        <b data-i18n="stat_security">सुरक्षाकर्मी सम्पर्कविहीन</b>
         <ul class="mini">
           <li>जम्मा <strong>८३</strong> · मृत्यु होइन</li>
           <li>सेना <strong>४४</strong> · प्रहरी <strong>२६</strong></li>
@@ -846,7 +873,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
       <div class="stat">
-        <b>टिमुरे भन्सार कर्मचारी</b>
+        <b data-i18n="stat_customs">टिमुरे भन्सार कर्मचारी</b>
         <ul class="mini">
           <li>स्थायी दरबन्दी <strong>३६</strong></li>
           <li>सम्पर्कमा <strong>२५</strong></li>
@@ -855,7 +882,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
       <div class="stat">
-        <b>टिमुरे बजार</b>
+        <b data-i18n="stat_bazaar">टिमुरे बजार</b>
         <ul class="mini">
           <li>घर क्षति <strong>१००+</strong></li>
           <li>बजार बाँकी <strong>५–७</strong> घर</li>
@@ -863,7 +890,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
       <div class="stat">
-        <b>हवाई उद्धार</b>
+        <b data-i18n="stat_air">हवाई उद्धार</b>
         <ul class="mini">
           <li>जम्मा <strong>११६</strong> जना</li>
           <li>सेना <strong>८८</strong> · निजी हेलि <strong>२८</strong></li>
@@ -872,7 +899,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
       <div class="stat">
-        <b>बैंक कर्मचारी सम्पर्कविहीन</b>
+        <b data-i18n="stat_bank">बैंक कर्मचारी सम्पर्कविहीन</b>
         <ul class="mini">
           <li>जम्मा <strong>२६</strong> जना · मृत्यु होइन</li>
           <li>८ बैंक · शाखा बगे <strong>३</strong> ठाउँ</li>
@@ -880,7 +907,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
       <div class="stat">
-        <b>कैदीबन्दी</b>
+        <b data-i18n="stat_prison">कैदीबन्दी</b>
         <ul class="mini">
           <li>सुरक्षित करिब <strong>१०००</strong></li>
           <li>नुवाकोट केन्द्रीय कारागार</li>
@@ -888,7 +915,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
       <div class="stat">
-        <b>पूर्वाधार क्षति</b>
+        <b data-i18n="stat_infra">पूर्वाधार क्षति</b>
         <ul class="mini">
           <li>विद्युत् गृह <strong>७</strong> · <strong>२७६</strong> MW</li>
           <li>टेलिकम टावर <strong>७</strong></li>
@@ -897,52 +924,52 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
     </div>
-    <p class="stats-note">शव १६२ (बिहान ६:००)। अघिल्लो NDRRMA SitRep-3 शव १२३। सम्पर्कविहीन २४५ / घाइते ७५। जनताको रिपोर्ट २१२। काठमाडौं ३६ / रसुवा अस्पताल २१, प्रहरी ६३। पर्यटक ४८४। हवाई उद्धार ११६ = सेना ८८ + निजी २८। स्थलगत ९३। पुल ८०। स्रोत तल।</p>
+    <p class="stats-note" data-i18n-html="stats_note">शव १६२ (बिहान ६:००)। अघिल्लो NDRRMA SitRep-3 शव १२३। सम्पर्कविहीन २४५ / घाइते ७५। जनताको रिपोर्ट २१२। काठमाडौं ३६ / रसुवा अस्पताल २१, प्रहरी ६३। पर्यटक ४८४। हवाई उद्धार ११६ = सेना ८८ + निजी २८। स्थलगत ९३। पुल ८०। स्रोत तल।</p>
     <section id="donate" class="funds">
-      <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>राहत कोष</h2></div>
-      <p class="funds-lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन SWIFT पनि ट्याप गरेर कपी गर्न सकिन्छ। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
+      <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_donate">राहत कोष</h2></div>
+      <p class="funds-lead" data-i18n-html="funds_lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन SWIFT पनि ट्याप गरेर कपी गर्न सकिन्छ। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
       <article class="fund">
-        <h3>प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</h3>
+        <h3 data-i18n="fund_disaster">प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</h3>
     <table>
-      <thead><tr><th>सि.नं.</th><th>बैंक</th><th>खाता नम्बर</th><th>SWIFT</th><th class="qr">QR</th></tr></thead>
+      <thead><tr><th data-i18n="sn">सि.नं.</th><th data-i18n="bank">बैंक</th><th data-i18n="acct_no">खाता नम्बर</th><th>SWIFT</th><th class="qr">QR</th></tr></thead>
       <tbody>
-        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्">1130100003762001</button><button type="button" class="acct" data-acct="1130100000006006" title="कपी गर्नुहोस्">1130100000006006</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्">RBBANPKA</button></td><td class="qr"><img src="img/qr-rbb-disaster.png" width="170" height="170" alt="राष्ट्रिय वाणिज्य बैंक QR"></td></tr>
-        <tr><td>२</td><td>नेपाल बैंक<small class="bank-en">Nepal Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्">00211600510039000003</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्">00200100510039000001</button></td><td class="swift"><button type="button" class="acct" data-acct="NEBLNPKA" title="SWIFT कपी गर्नुहोस्">NEBLNPKA</button></td><td class="qr"><img src="img/qr-nbl-disaster.png" width="173" height="173" alt="नेपाल बैंक QR"></td></tr>
-        <tr><td>३</td><td>कृषि विकास बैंक<small class="bank-en">Agricultural Development Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्">0100201002907014</button></td><td class="swift"><button type="button" class="acct" data-acct="ADBLNPKA" title="SWIFT कपी गर्नुहोस्">ADBLNPKA</button></td><td class="qr"><img src="img/qr-adbl-disaster.png" width="170" height="170" alt="कृषि विकास बैंक QR"></td></tr>
-        <tr><td>४</td><td>एभरेष्ट बैंक<small class="bank-en">Everest Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्">00100105200270</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्">00101102200012</button></td><td class="swift"><button type="button" class="acct" data-acct="EVBLNPKA" title="SWIFT कपी गर्नुहोस्">EVBLNPKA</button></td><td class="qr"><img src="img/qr-ebl-disaster.png" width="169" height="169" alt="एभरेष्ट बैंक QR"></td></tr>
-        <tr><td>५</td><td>ग्लोबल आइएमई बैंक<small class="bank-en">Global IME Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्">00411010000005</button></td><td class="swift"><button type="button" class="acct" data-acct="GLBBNPKA" title="SWIFT कपी गर्नुहोस्">GLBBNPKA</button></td><td class="qr"><img src="img/qr-gibl-disaster.png" width="172" height="172" alt="ग्लोबल आइएमई बैंक QR"></td></tr>
-        <tr><td>६</td><td>नबिल बैंक<small class="bank-en">Nabil Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्">1710017505285</button></td><td class="swift"><button type="button" class="acct" data-acct="NARBNPKA" title="SWIFT कपी गर्नुहोस्">NARBNPKA</button></td><td class="qr"><img src="img/qr-nabil-disaster.png" width="171" height="171" alt="नबिल बैंक QR"></td></tr>
-        <tr><td>७</td><td>स्टान्डर्ड चार्टर्ड बैंक<small class="bank-en">Standard Chartered Bank Nepal Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्">02013243801</button></td><td class="swift"><button type="button" class="acct" data-acct="SCBLNPKA" title="SWIFT कपी गर्नुहोस्">SCBLNPKA</button></td><td class="qr"><img src="img/qr-scb-disaster.png" width="168" height="168" alt="स्टान्डर्ड चार्टर्ड बैंक QR"></td></tr>
-        <tr><td>८</td><td>हिमालयन बैंक<small class="bank-en">Himalayan Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्">01905631210046 <span class="usd">$</span></button></td><td class="swift"><button type="button" class="acct" data-acct="HIMANPKA" title="SWIFT कपी गर्नुहोस्">HIMANPKA</button></td><td class="qr"></td></tr>
+        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्" data-i18n-title="copy">1130100003762001</button><button type="button" class="acct" data-acct="1130100000006006" title="कपी गर्नुहोस्" data-i18n-title="copy">1130100000006006</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">RBBANPKA</button></td><td class="qr"><img src="img/qr-rbb-disaster.png" width="170" height="170" alt="राष्ट्रिय वाणिज्य बैंक QR"></td></tr>
+        <tr><td>२</td><td>नेपाल बैंक<small class="bank-en">Nepal Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्" data-i18n-title="copy">00211600510039000003</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्" data-i18n-title="copy">00200100510039000001</button></td><td class="swift"><button type="button" class="acct" data-acct="NEBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NEBLNPKA</button></td><td class="qr"><img src="img/qr-nbl-disaster.png" width="173" height="173" alt="नेपाल बैंक QR"></td></tr>
+        <tr><td>३</td><td>कृषि विकास बैंक<small class="bank-en">Agricultural Development Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्" data-i18n-title="copy">0100201002907014</button></td><td class="swift"><button type="button" class="acct" data-acct="ADBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">ADBLNPKA</button></td><td class="qr"><img src="img/qr-adbl-disaster.png" width="170" height="170" alt="कृषि विकास बैंक QR"></td></tr>
+        <tr><td>४</td><td>एभरेष्ट बैंक<small class="bank-en">Everest Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्" data-i18n-title="copy">00100105200270</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्" data-i18n-title="copy">00101102200012</button></td><td class="swift"><button type="button" class="acct" data-acct="EVBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">EVBLNPKA</button></td><td class="qr"><img src="img/qr-ebl-disaster.png" width="169" height="169" alt="एभरेष्ट बैंक QR"></td></tr>
+        <tr><td>५</td><td>ग्लोबल आइएमई बैंक<small class="bank-en">Global IME Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्" data-i18n-title="copy">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्" data-i18n-title="copy">00411010000005</button></td><td class="swift"><button type="button" class="acct" data-acct="GLBBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">GLBBNPKA</button></td><td class="qr"><img src="img/qr-gibl-disaster.png" width="172" height="172" alt="ग्लोबल आइएमई बैंक QR"></td></tr>
+        <tr><td>६</td><td>नबिल बैंक<small class="bank-en">Nabil Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्" data-i18n-title="copy">1710017505285</button></td><td class="swift"><button type="button" class="acct" data-acct="NARBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NARBNPKA</button></td><td class="qr"><img src="img/qr-nabil-disaster.png" width="171" height="171" alt="नबिल बैंक QR"></td></tr>
+        <tr><td>७</td><td>स्टान्डर्ड चार्टर्ड बैंक<small class="bank-en">Standard Chartered Bank Nepal Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">02013243801</button></td><td class="swift"><button type="button" class="acct" data-acct="SCBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">SCBLNPKA</button></td><td class="qr"><img src="img/qr-scb-disaster.png" width="168" height="168" alt="स्टान्डर्ड चार्टर्ड बैंक QR"></td></tr>
+        <tr><td>८</td><td>हिमालयन बैंक<small class="bank-en">Himalayan Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्" data-i18n-title="copy">01905631210046 <span class="usd">$</span></button></td><td class="swift"><button type="button" class="acct" data-acct="HIMANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">HIMANPKA</button></td><td class="qr"></td></tr>
       </tbody>
     </table>
       </article>
       <article class="fund">
-        <h3>प्रधानमन्त्री राहत कोष</h3>
+        <h3 data-i18n="fund_relief">प्रधानमन्त्री राहत कोष</h3>
     <table>
-      <thead><tr><th>सि.नं.</th><th>बैंक</th><th>खाता नम्बर</th><th>SWIFT</th><th class="qr">QR</th></tr></thead>
+      <thead><tr><th data-i18n="sn">सि.नं.</th><th data-i18n="bank">बैंक</th><th data-i18n="acct_no">खाता नम्बर</th><th>SWIFT</th><th class="qr">QR</th></tr></thead>
       <tbody>
-        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1430100000025006" title="कपी गर्नुहोस्">1430100000025006</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्">1430100001164001</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्">RBBANPKA</button></td><td class="qr"><img src="img/qr-rbb-relief.png" width="167" height="167" alt="राष्ट्रिय वाणिज्य बैंक QR · राहत कोष"></td></tr>
+        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1430100000025006" title="कपी गर्नुहोस्" data-i18n-title="copy">1430100000025006</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्" data-i18n-title="copy">1430100001164001</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">RBBANPKA</button></td><td class="qr"><img src="img/qr-rbb-relief.png" width="167" height="167" alt="राष्ट्रिय वाणिज्य बैंक QR · राहत कोष"></td></tr>
       </tbody>
     </table>
       </article>
       <div class="swift-faq">
-        <h3>विदेशबाट SWIFT पठाउने तरिका</h3>
+        <h3 data-i18n="swift_how">विदेशबाट SWIFT पठाउने तरिका</h3>
         <dl>
-          <dt>SWIFT के हो?</dt>
-          <dd>बैंक चिनाउने अन्तर्राष्ट्रिय कोड (BIC)। विदेशबाट यी खातामा पैसा पठाउन आफ्नो बैंकलाई यो कोड, खाता नाम र खाता नम्बर दिनुहोस्। नेपालमा IBAN चल्दैन।</dd>
-          <dt>के लेख्ने?</dt>
-          <dd>बैंकको अंग्रेजी नाम, SWIFT (माथि कपी गर्न मिल्छ), खाता नाम: प्रधानमन्त्री दैवी प्रकोप उद्धार कोष वा प्रधानमन्त्री राहत कोष, र तालिकाको खाता नम्बर। उद्देश्यमा Rasuwa / Bhotekoshi flood relief, 26 Aug 2026 लेख्नुहोस्।</dd>
-          <dt>कुन मुद्रा?</dt>
-          <dd>अधिकांश खाता नेपाली रुपैयाँका हुन्। हिमालयन बैंकको <code>01905631210046</code> डलर ($) खाता हो, SWIFT <code>HIMANPKA</code>। अन्य मुद्रा पठाएमा बैंकले रुपैयाँमा साट्न सक्छ।</dd>
-          <dt>कति समय / शुल्क?</dt>
-          <dd>सामान्यतया १–३ कार्यदिन। पठाउने बैंक र बीचका करेस्पोन्डेन्ट बैंकले शुल्क काट्न सक्छन्। OUR/SHA/BEN विकल्प बैंकले सोध्छ — OUR मा पठाउँदा रकम पूरा आउने सम्भावना बढी, शुल्क बढी।</dd>
-          <dt>८ अक्षर कि ११?</dt>
-          <dd>माथिका कोड ८ अक्षरका हेड अफिस हुन्। बैंकले ११ अक्षर मागे <code>XXX</code> जोड्नुहोस्, जस्तै <code>RBBANPKAXXX</code>। एउटै हो।</dd>
+          <dt data-i18n="dt_swift">SWIFT के हो?</dt>
+          <dd data-i18n-html="dd_swift">बैंक चिनाउने अन्तर्राष्ट्रिय कोड (BIC)। विदेशबाट यी खातामा पैसा पठाउन आफ्नो बैंकलाई यो कोड, खाता नाम र खाता नम्बर दिनुहोस्। नेपालमा IBAN चल्दैन।</dd>
+          <dt data-i18n="dt_write">के लेख्ने?</dt>
+          <dd data-i18n-html="dd_write">बैंकको अंग्रेजी नाम, SWIFT (माथि कपी गर्न मिल्छ), खाता नाम: प्रधानमन्त्री दैवी प्रकोप उद्धार कोष वा प्रधानमन्त्री राहत कोष, र तालिकाको खाता नम्बर। उद्देश्यमा Rasuwa / Bhotekoshi flood relief, 26 Aug 2026 लेख्नुहोस्।</dd>
+          <dt data-i18n="dt_ccy">कुन मुद्रा?</dt>
+          <dd data-i18n-html="dd_ccy">अधिकांश खाता नेपाली रुपैयाँका हुन्। हिमालयन बैंकको <code>01905631210046</code> डलर ($) खाता हो, SWIFT <code>HIMANPKA</code>। अन्य मुद्रा पठाएमा बैंकले रुपैयाँमा साट्न सक्छ।</dd>
+          <dt data-i18n="dt_time">कति समय / शुल्क?</dt>
+          <dd data-i18n-html="dd_time">सामान्यतया १–३ कार्यदिन। पठाउने बैंक र बीचका करेस्पोन्डेन्ट बैंकले शुल्क काट्न सक्छन्। OUR/SHA/BEN विकल्प बैंकले सोध्छ — OUR मा पठाउँदा रकम पूरा आउने सम्भावना बढी, शुल्क बढी।</dd>
+          <dt data-i18n="dt_11">८ अक्षर कि ११?</dt>
+          <dd data-i18n-html="dd_11">माथिका कोड ८ अक्षरका हेड अफिस हुन्। बैंकले ११ अक्षर मागे <code>XXX</code> जोड्नुहोस्, जस्तै <code>RBBANPKAXXX</code>। एउटै हो।</dd>
         </dl>
       </div>
     </section>
-    <ul class="stats-src" aria-label="स्रोत">
+    <ul class="stats-src" aria-label="स्रोत" data-i18n-aria="src_word" data-i18n-list="stats_src">
       <li><b>शव जम्मा १६२</b> — बिहान ६:०० अपडेट। अघिल्लो NDRRMA SitRep-3 १२३ / प्रहरी राति १५७ इतिहासमा। SitRep-3 (<a href="img/sitrep3-casualties.jpg" target="_blank" rel="noopener">आधिकारिक इन्फोग्राफिक</a>)।</li>
       <li><b>घाइते</b> — NDRRMA SitRep-3: जम्मा <strong>७५</strong> — रसुवा ४३, नुवाकोट २९, धादिङ ३। प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong>। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> (टिचिङ २१, ट्रमा ७, छाउनी १, रसुवा २१, त्रिशूली १६, नर्भिक ३, ग्रीनसिटी १)।</li>
       <li><b>सम्पर्कविहीन</b> — NDRRMA SitRep-3: <strong>२४५</strong> (रसुवा DEOC १६१, सेना ४४, प्रहरी २६, सशस्त्र १३, नुवाकोट DEOC १)। <a href="#family">जनताको रिपोर्ट</a> फारमबाट आएका नामसहितको सूची (लाइभ)। हेलो सरकार १४० अलग। प्रधानमन्त्री कार्यालय साँझ ७:००: पर्यटक <strong>४८४</strong> (विदेशी ३९१, स्वदेशी ९३)। लाङटाङ ६० / बस ३४ / स्वास्थ्यकर्मी ६ / भन्सार ११ / बैंक २६। मृत्यु होइन।</li>
@@ -957,23 +984,23 @@ footer .foot-contact a:hover{text-decoration:underline}
     </ul>
 <section id="map" class="hero-map">
   <span id="path" hidden></span>
-  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>नक्सा</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_map">नक्सा</h2></div>
   <div class="card teal map-wrap">
-    <div id="flood-map" role="img" aria-label="टिमुरेदेखि देवघाट–सुस्तासम्मको बाढी बाटो"></div>
+    <div id="flood-map" role="img" aria-label="टिमुरेदेखि देवघाट–सुस्तासम्मको बाढी बाटो" data-i18n-aria="map_aria"></div>
     <div class="map-legend">
-      <span><i class="solid"></i>पुष्टि बाटो</span>
-      <span><i class="dash"></i>अनुमान / जोखिम</span>
-      <span><i class="pin start"></i>प्रवेश</span>
-      <span><i class="pin hit"></i>पुगेको</span>
-      <span><i class="pin risk"></i>अनुमान</span>
-      <span><i class="pin gauge"></i>DHM गेज</span>
+      <span><i class="solid"></i><span data-i18n="map_confirmed">पुष्टि बाटो</span></span>
+      <span><i class="dash"></i><span data-i18n="map_risk">अनुमान / जोखिम</span></span>
+      <span><i class="pin start"></i><span data-i18n="map_entry">प्रवेश</span></span>
+      <span><i class="pin hit"></i><span data-i18n="map_reached">पुगेको</span></span>
+      <span><i class="pin risk"></i><span data-i18n="map_est">अनुमान</span></span>
+      <span><i class="pin gauge"></i><span data-i18n="map_gauge">DHM गेज</span></span>
     </div>
-    <p class="map-note">बिन्दुहरू बजार/पुलका अनुमानित स्थान हुन्, नदीको ठीक बीच होइन। DHM प्रतिवेदन: देवघाट उच्चिष्ठ ६.५७ मि @ १६:००। महाशाखा: SMS ६.८ लाख; देवघाट extra ~२० मिलियन घनमिटर। सुस्ता सारिँदै (करिब ७०%), बाढी पुगेको पुष्टि छैन। नुवाकोट देवीघाट ≠ चितवन देवघाट। © OpenStreetMap</p>
+    <p class="map-note" data-i18n-html="map_note">बिन्दुहरू बजार/पुलका अनुमानित स्थान हुन्, नदीको ठीक बीच होइन। DHM प्रतिवेदन: देवघाट उच्चिष्ठ ६.५७ मि @ १६:००। महाशाखा: SMS ६.८ लाख; देवघाट extra ~२० मिलियन घनमिटर। सुस्ता सारिँदै (करिब ७०%), बाढी पुगेको पुष्टि छैन। नुवाकोट देवीघाट ≠ चितवन देवघाट। © OpenStreetMap</p>
   </div>
-<p class="path-ask"><strong>नदी वरपरका बासिन्दाहरूलाई अनुरोध।</strong> तटीय क्षेत्रबाट सुरक्षित स्थानमा सर्नुहोस् र उच्च सतर्कता अपनाउनुहोस्।</p>
+<p class="path-ask" data-i18n-html="path_ask"><strong>नदी वरपरका बासिन्दाहरूलाई अनुरोध।</strong> तटीय क्षेत्रबाट सुरक्षित स्थानमा सर्नुहोस् र उच्च सतर्कता अपनाउनुहोस्।</p>
   <div class="wl" id="wl-rivers" data-src="./dhm-rivers.json">
     <div class="wl-top">
-      <h3>DHM नदी सतह <small>बाढीको बाटो · स्वचालित गेज</small></h3>
+      <h3><span data-i18n="dhm_h">DHM नदी सतह</span> <small data-i18n="dhm_sub">बाढीको बाटो · स्वचालित गेज</small></h3>
     </div>
     <div class="wl-list" id="wl-list">
       <article class="wl-row"><div class="wl-row-top"><h4>धुन्चे · त्रिशूली खोला<small>नुवाकोट · DHM</small></h4><span class="wl-badge silent">गेज मौन</span></div><div class="wl-num">२.४०<span>मिटर</span></div><p class="wl-meta">नुवाकोट · ०९:२० · यो पढाइपछि मौन</p></article>
@@ -983,10 +1010,10 @@ footer .foot-contact a:hover{text-decoration:underline}
       <article class="wl-row"><div class="wl-row-top"><h4>देवघाट · नारायणी<small>चितवन · DHM</small></h4><span class="wl-badge ok">सतर्कतामुनि</span></div><div class="wl-num">४.३७<span>मिटर</span></div><p class="wl-meta">चितवन · २३:५०</p></article>
     </div>
     <p class="wl-src" id="wl-src">DHM नेटवर्कमा अहिले खतरा तहमा फुर्के मात्र (गेज बगेको, लाइभ होइन)। काली ७.५६ बढ्दो ००:१० / देवघाट ४.३७ स्थिर २३:५०, दुवै सतर्कतामुनि। धुन्चे/बेत्रावती मौन ०९:२०। स्रोत: <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a></p>
-    <p class="wl-src">DHM प्रतिवेदन (१० भदौ): दिनको उच्चिष्ठ देवघाट <strong>६.५७ मि</strong> @ १६:००, बहाव करिब <strong>५,८५०</strong> घनमिटर/सेकेन्ड; कालीखोला <strong>१२.३ मि</strong>। SMS <strong>६,७९,२९५</strong> (NTC+Ncell)। extra आयतन करिब <strong>२०</strong> मिलियन घनमिटर। सीमानाका–देवघाट <strong>१६८</strong> किमि। माथिको सूची लाइभ गेज हो। <a href="docs/dhm-bhadra10-sitrep.pdf" target="_blank" rel="noopener">PDF</a></p>
+    <p class="wl-src" data-i18n-html="dhm_pdf">DHM प्रतिवेदन (१० भदौ): दिनको उच्चिष्ठ देवघाट <strong>६.५७ मि</strong> @ १६:००, बहाव करिब <strong>५,८५०</strong> घनमिटर/सेकेन्ड; कालीखोला <strong>१२.३ मि</strong>। SMS <strong>६,७९,२९५</strong> (NTC+Ncell)। extra आयतन करिब <strong>२०</strong> मिलियन घनमिटर। सीमानाका–देवघाट <strong>१६८</strong> किमि। माथिको सूची लाइभ गेज हो। <a href="docs/dhm-bhadra10-sitrep.pdf" target="_blank" rel="noopener">PDF</a></p>
   </div>
   <div class="card teal">
-    <div class="path" role="list">
+    <div class="path" role="list" data-i18n-list="path" data-i18n-kind="step">
       <div class="step" role="listitem"><span class="t">०८:३७</span><i class="rail" aria-hidden="true"></i><div><b>भूकम्प ४.४</b><span>खानी तथा भूगर्भ</span></div></div>
       <div class="step" role="listitem"><span class="t">०८:५०</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेसी गेज मौन</b><span>अन्तिम १.६२ मि @ ०८:४०</span></div></div>
       <div class="step" role="listitem"><span class="t">~९:१५</span><i class="rail" aria-hidden="true"></i><div><b>टिमुरे</b><span>तिब्बतबाट नेपाल प्रवेश</span></div></div>
@@ -1003,7 +1030,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="step" role="listitem"><span class="t">१५:२०</span><i class="rail" aria-hidden="true"></i><div><b>चितवन देवघाट</b><span>DHM: पुग्यो · उच्चिष्ठ ६.५७ मि @ १६:००</span></div></div>
       <div class="step" role="listitem"><span class="t">~१५:४५</span><i class="rail" aria-hidden="true"></i><div><b>सुस्ता</b><span>करिब ७०% सारिए · बाढी पुगेको होइन</span></div></div>
     </div>
-    <p>बाढी लेन्दे खोला/भोटेकोशी हुँदै त्रिशूलीमा मिसिएको छ। गल्छी र गजुरीपछि सशस्त्र प्रहरीका अनुसार धादिङको <strong>आदमघाट</strong> पार भएको छ। नुवाकोटमा विदुर मेयर राजन श्रेष्ठ: बेत्रावती बजार सबैभन्दा बढी क्षति, त्रिशूली बजार क्षति, सेन्ट्रल जेल डुबान, देवीघाट बजार डुबेको। कारागार प्रमुख भेषबहादुर कुँवर: कैदीबन्दी करिब <strong>१०००</strong> सुरक्षित (विदुर–३ खम्पाक्याम्प)।</p>
+    <p data-i18n-html="path_p">बाढी लेन्दे खोला/भोटेकोशी हुँदै त्रिशूलीमा मिसिएको छ। गल्छी र गजुरीपछि सशस्त्र प्रहरीका अनुसार धादिङको <strong>आदमघाट</strong> पार भएको छ। नुवाकोटमा विदुर मेयर राजन श्रेष्ठ: बेत्रावती बजार सबैभन्दा बढी क्षति, त्रिशूली बजार क्षति, सेन्ट्रल जेल डुबान, देवीघाट बजार डुबेको। कारागार प्रमुख भेषबहादुर कुँवर: कैदीबन्दी करिब <strong>१०००</strong> सुरक्षित (विदुर–३ खम्पाक्याम्प)।</p>
   </div>
 </section>
   </div>
@@ -1012,21 +1039,21 @@ footer .foot-contact a:hover{text-decoration:underline}
 <main class="wrap">
 
 <aside class="police-alert" role="alert">
-  <p class="police-alert-text">भोटेकोसी नदी रसुवामा तिब्बत तर्फबाट ठुलो बाढी प्रवेश गरेकोले अर्को सूचना नआउँदासम्म त्रिशूली नदीको तटीय क्षेत्रका जिल्लाहरू नुवाकोट, धादिङ, चितवन, गोरखा लगायतका स्थानहरूमा उच्च सतर्कता सहित सुरक्षित स्थानमा रहन अनुरोध छ। <span class="src">Nepal Police</span></p>
-  <p class="police-alert-phones"><a href="tel:1234">उद्धार १२३४</a> · <a href="tel:100">प्रहरी १००</a> · <a href="tel:1114">१११४</a> · <a href="tel:102">एम्बुलेन्स १०२</a></p>
+  <p class="police-alert-text"><span data-i18n-html="police_alert">भोटेकोसी नदी रसुवामा तिब्बत तर्फबाट ठुलो बाढी प्रवेश गरेकोले अर्को सूचना नआउँदासम्म त्रिशूली नदीको तटीय क्षेत्रका जिल्लाहरू नुवाकोट, धादिङ, चितवन, गोरखा लगायतका स्थानहरूमा उच्च सतर्कता सहित सुरक्षित स्थानमा रहन अनुरोध छ। </span><span class="src">Nepal Police</span></p>
+  <p class="police-alert-phones"><a href="tel:1234" data-i18n="rescue_1234">उद्धार १२३४</a> · <a href="tel:100"><span data-i18n="police">प्रहरी</span> १००</a> · <a href="tel:1114">१११४</a> · <a href="tel:102"><span data-i18n="ambulance">एम्बुलेन्स</span> १०२</a></p>
 </aside>
 
 <section id="rahat">
-  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>राहत / उद्धार भिजुअल</h2></div>
-  <p class="treat-lead">NDRRMA स्थिति प्रतिवेदन #०३ · राति २२:०० · १० भदौ २०८३। नयाँ आधिकारिक राहत/उद्धार अंक आएपछि यो खण्ड अद्यावधिक हुन्छ। शव १६२ (बिहान ६:००) यथावत् — SitRep-3 शव १२३ इतिहास।</p>
-  <div class="rahat-stats" aria-label="राहत अंक">
-    <div class="rahat-stat"><b>११६</b><span>हवाई उद्धार · सेना ८८ + निजी २८</span></div>
-    <div class="rahat-stat"><b>९३</b><span>स्थलगत उद्धार · रसुवा ४३ · नुवाकोट ४७ · धादिङ ३</span></div>
-    <div class="rahat-stat"><b>निःशुल्क</b><span>घाइते उपचार · स्वास्थ्य / सेना / सरकारी अस्पताल</span></div>
-    <div class="rahat-stat"><b>३ महिना</b><span>प्रभावित पालिका संकटग्रस्त (विपद् ऐन २०७४)</span></div>
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rahat">राहत / उद्धार भिजुअल</h2></div>
+  <p class="treat-lead" data-i18n-html="rahat_lead">NDRRMA स्थिति प्रतिवेदन #०३ · राति २२:०० · १० भदौ २०८३। नयाँ आधिकारिक राहत/उद्धार अंक आएपछि यो खण्ड अद्यावधिक हुन्छ। शव १६२ (बिहान ६:००) यथावत् — SitRep-3 शव १२३ इतिहास।</p>
+  <div class="rahat-stats" aria-label="राहत अंक" data-i18n-aria="rahat_aria">
+    <div class="rahat-stat"><b>११६</b><span data-i18n="rs_air">हवाई उद्धार · सेना ८८ + निजी २८</span></div>
+    <div class="rahat-stat"><b>९३</b><span data-i18n="rs_ground">स्थलगत उद्धार · रसुवा ४३ · नुवाकोट ४७ · धादिङ ३</span></div>
+    <div class="rahat-stat"><b data-i18n="free">निःशुल्क</b><span data-i18n="rs_free">घाइते उपचार · स्वास्थ्य / सेना / सरकारी अस्पताल</span></div>
+    <div class="rahat-stat"><b data-i18n="months3">३ महिना</b><span data-i18n="rs_crisis">प्रभावित पालिका संकटग्रस्त (विपद् ऐन २०७४)</span></div>
   </div>
-  <h3 class="cab-k" style="margin:8px 0 10px">समयरेखा · खोज–उद्धार–राहत</h3>
-  <ol class="rahat-tl">
+  <h3 class="cab-k" style="margin:8px 0 10px" data-i18n="rahat_tl_h">समयरेखा · खोज–उद्धार–राहत</h3>
+  <ol class="rahat-tl" data-i18n-list="rahat_tl">
     <li><time>०८:४०</time> तिब्बत माथिल्लो जलाधारमा पहिरो/हिउँले नदी थुनिई फुट्यो; भीषण बाढी भोटेकोशी–टिमुरे–स्याफ्रुबेसी–बेत्रावती–त्रिशूली–विदुर–देवीघाट।</li>
     <li><time>०९:००</time> बाढीको प्रारम्भिक सूचना प्राप्त।</li>
     <li><time>०९:१०</time> जोखिम सूचना सञ्चारमाध्यमबाट प्रवाह।</li>
@@ -1038,8 +1065,8 @@ footer .foot-contact a:hover{text-decoration:underline}
     <li><time>१२:३०</time> मन्त्रिपरिषद् — उद्धार–राहत तीव्र।</li>
     <li><time>जारी</time> रसुवा, नुवाकोट, धादिङ, गोरखा, चितवन तटीय क्षेत्र हाई अलर्ट — सुरक्षित स्थानमा जानुहोस्।</li>
   </ol>
-  <h3 class="cab-k" style="margin:8px 0 10px">मन्त्रिपरिषद्का १० निर्णय</h3>
-  <ol class="rahat-cab">
+  <h3 class="cab-k" style="margin:8px 0 10px" data-i18n="rahat_cab_h">मन्त्रिपरिषद्का १० निर्णय</h3>
+  <ol class="rahat-cab" data-i18n-list="rahat_cab">
     <li><b>१ · समवेदना</b>जनधनको क्षतिप्रति दुःख, मृतक परिवारलाई समवेदना, घाइतेको शीघ्र स्वास्थ्य लाभ।</li>
     <li><b>२ · निःशुल्क उपचार</b>स्वास्थ्य मन्त्रालय, नेपाली सेना र सरकारी अस्पतालमा घाइतेको तत्काल निःशुल्क उपचार।</li>
     <li><b>३ · उद्धार</b>गृह र रक्षा: अलपत्र/घाइतेलाई सुरक्षित स्थानमा; सेना र निजी हेलिकप्टर।</li>
@@ -1051,15 +1078,15 @@ footer .foot-contact a:hover{text-decoration:underline}
     <li><b>९ · पुनर्निर्माण स्रोत</b>गृहमन्त्री: सार्वजनिक पूर्वाधार मर्मत–पुनर्निर्माण स्रोत समन्वय।</li>
     <li><b>१० · संकटग्रस्त</b>विपद् ऐन २०७४ दफा ३२: प्रभावित स्थानीय तह तीन महिना संकटग्रस्त।</li>
   </ol>
-  <p class="treat-note">थप (सेना, राति): राहत ट्रक <strong>८</strong> / करिब <strong>८ टन</strong> प्रभावित क्षेत्रतर्फ। यो SitRep-3 पछिको अपडेट हो।</p>
-  <div class="sec-head" style="margin-top:8px"><span class="dot" style="background:var(--forest)"></span><h2>उद्धार तस्बिर</h2></div>
+  <p class="treat-note" data-i18n-html="rahat_note">थप (सेना, राति): राहत ट्रक <strong>८</strong> / करिब <strong>८ टन</strong> प्रभावित क्षेत्रतर्फ। यो SitRep-3 पछिको अपडेट हो।</p>
+  <div class="sec-head" style="margin-top:8px"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rahat_photos">उद्धार तस्बिर</h2></div>
   <div class="pager" data-pager="rahat-photos">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
     <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
     <span class="pcount pager-count"></span>
   </div>
-  <div class="photos" id="rahat-photo-grid">
+  <div class="photos" id="rahat-photo-grid" data-i18n-list="rahat_photos" data-i18n-kind="fig">
     <figure class="photo">
       <a href="img/sitrep3-cabinet.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/sitrep3-cabinet.jpg" alt="NDRRMA स्थिति प्रतिवेदन ०३ समयरेखा र मन्त्रिपरिषद्का १० निर्णय"></a>
       <figcaption><strong>NDRRMA SitRep #०३</strong>समयरेखा र मन्त्रिपरिषद्का १० निर्णय · राति २२:००</figcaption>
@@ -1100,63 +1127,63 @@ footer .foot-contact a:hover{text-decoration:underline}
 </section>
 
 <section id="treat">
-  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङ अस्पतालमा उपचार भइरहेका घाइतेहरु</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_treat">राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङ अस्पतालमा उपचार भइरहेका घाइतेहरु</h2></div>
   <div class="card green">
-    <p class="treat-lead">नामसहित <strong>२२</strong> जना राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङ अस्पतालमा उपचाररत। प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong>। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> — टिचिङ २१, ट्रमा ७, छाउनी १, रसुवा २१, त्रिशूली १६, नर्भिक ३, ग्रीनसिटी १। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
+    <p class="treat-lead" data-i18n-html="treat_lead">नामसहित <strong>२२</strong> जना राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङ अस्पतालमा उपचाररत। प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong>। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> — टिचिङ २१, ट्रमा ७, छाउनी १, रसुवा २१, त्रिशूली १६, नर्भिक ३, ग्रीनसिटी १। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="treat-wrap">
     <table class="plants treat">
       <thead>
         <tr>
           <th>सि.नं.</th>
-          <th>नाम थर</th>
-          <th class="age">उमेर</th>
-          <th>ठेगाना</th>
-          <th>सम्पर्क नं.</th>
-          <th>उद्धार स्थान</th>
-          <th>अस्पताल</th>
+          <th data-i18n="th_name">नाम थर</th>
+          <th class="age" data-i18n="th_age">उमेर</th>
+          <th data-i18n="th_addr">ठेगाना</th>
+          <th data-i18n="th_phone">सम्पर्क नं.</th>
+          <th data-i18n="th_rescue_place">उद्धार स्थान</th>
+          <th data-i18n="th_hospital">अस्पताल</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>१</td><td>भक्त भण्डारी</td><td class="age">४२</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>२</td><td>सिता भण्डारी</td><td class="age">४१</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>३</td><td>विबेक कुमाल</td><td class="age">२४</td><td>विदुर–५, नुवाकोट</td><td class="phone"><a href="tel:+9779841781836">9841781836</a></td><td>नुवाकोट</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>४</td><td>रिहाना लामिछाने</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td>राष्ट्रिय ट्रमा सेन्टर</td></tr>
-        <tr><td>५</td><td>दावा डोल्मा</td><td class="age">—</td><td>गोसाइँकुण्ड, रसुवा</td><td class="phone">—</td><td>—</td><td>वीरेन्द्र सैनिक अस्पताल, छाउनी</td></tr>
-        <tr><td>६</td><td>तेज बहादुर तामाङ</td><td class="age">३४</td><td>विदुर–३, नुवाकोट</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>७</td><td>पेम्बा तामाङ</td><td class="age">४८</td><td>गोसाइँकुण्ड–५, रसुवा</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>८</td><td>कुशल मगर</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>९</td><td>मिन बहादुर श्रेष्ठ</td><td class="age">३३</td><td>सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१०</td><td>गिरीलाल बुढाथोकी</td><td class="age">४०</td><td>सल्यान</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>११</td><td>रुपक रोक्का</td><td class="age">२३</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१२</td><td>सुजन बस्नेत</td><td class="age">३५</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१३</td><td>सुशान श्रेष्ठ</td><td class="age">२३</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१४</td><td>वल बहादुर घर्ती मगर</td><td class="age">—</td><td>जाजरकोट</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१५</td><td>अशोक श्रेष्ठ</td><td class="age">—</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१६</td><td>कामु नगरकोटी</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१७</td><td>प्रेम दोर्जे घले</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१८</td><td>नेमा दोर्जे घले</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>१९</td><td>फुर्पु लामा</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>२०</td><td>राम प्रसाद थारु</td><td class="age">—</td><td>जीतपुर, बर्दिया</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>२१</td><td>सुराची राना मगर</td><td class="age">—</td><td>बेत्रावती–५, रसुवा</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>२२</td><td>रिता दोचा</td><td class="age">—</td><td>चांगुनारायण–१, भक्तपुर</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>२३</td><td>कार्की थरका पुरुष</td><td class="age">४५</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>२४</td><td>नामथर बताउन नसक्ने पुरुष</td><td class="age">३५</td><td>—</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
-        <tr><td>२५</td><td>तीन महिनाको शिशु</td><td class="age">३ महिना</td><td>कामु नगरकोटीका साथमा</td><td class="phone">—</td><td>—</td><td>टिचिङ अस्पताल</td></tr>
+        <tr><td>१</td><td>भक्त भण्डारी</td><td class="age">४२</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td></tr>
+        <tr><td>२</td><td>सिता भण्डारी</td><td class="age">४१</td><td>विदुर–५, नुवाकोट</td><td class="phone">—</td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td></tr>
+        <tr><td>३</td><td>विबेक कुमाल</td><td class="age">२४</td><td>विदुर–५, नुवाकोट</td><td class="phone"><a href="tel:+9779841781836">9841781836</a></td><td>नुवाकोट</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td></tr>
+        <tr><td>४</td><td>रिहाना लामिछाने</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_trauma">राष्ट्रिय ट्रमा सेन्टर</td></tr>
+        <tr><td>५</td><td>दावा डोल्मा</td><td class="age">—</td><td>गोसाइँकुण्ड, रसुवा</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_chauni">वीरेन्द्र सैनिक अस्पताल, छाउनी</td></tr>
+        <tr><td>६</td><td>तेज बहादुर तामाङ</td><td class="age">३४</td><td>विदुर–३, नुवाकोट</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>७</td><td>पेम्बा तामाङ</td><td class="age">४८</td><td>गोसाइँकुण्ड–५, रसुवा</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>८</td><td>कुशल मगर</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>९</td><td>मिन बहादुर श्रेष्ठ</td><td class="age">३३</td><td>सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>१०</td><td>गिरीलाल बुढाथोकी</td><td class="age">४०</td><td>सल्यान</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>११</td><td>रुपक रोक्का</td><td class="age">२३</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>१२</td><td>सुजन बस्नेत</td><td class="age">३५</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>१३</td><td>सुशान श्रेष्ठ</td><td class="age">२३</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>१४</td><td>वल बहादुर घर्ती मगर</td><td class="age">—</td><td>जाजरकोट</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>१५</td><td>अशोक श्रेष्ठ</td><td class="age">—</td><td>बाह्रबिसे–५, सिन्धुपाल्चोक</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>१६</td><td>कामु नगरकोटी</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>१७</td><td>प्रेम दोर्जे घले</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>१८</td><td>नेमा दोर्जे घले</td><td class="age">—</td><td>गोसाइँकुण्ड–७, टिमुरे</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>१९</td><td>फुर्पु लामा</td><td class="age">—</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>२०</td><td>राम प्रसाद थारु</td><td class="age">—</td><td>जीतपुर, बर्दिया</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>२१</td><td>सुराची राना मगर</td><td class="age">—</td><td>बेत्रावती–५, रसुवा</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>२२</td><td>रिता दोचा</td><td class="age">—</td><td>चांगुनारायण–१, भक्तपुर</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>२३</td><td data-i18n="treat_karki">कार्की थरका पुरुष</td><td class="age">४५</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>२४</td><td data-i18n="treat_unnamed_man">नामथर बताउन नसक्ने पुरुष</td><td class="age">३५</td><td>—</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
+        <tr><td>२५</td><td data-i18n="treat_infant">तीन महिनाको शिशु</td><td class="age">३ महिना</td><td data-i18n="treat_with_kamu">कामु नगरकोटीका साथमा</td><td class="phone">—</td><td>—</td><td data-i18n="hosp_teaching">टिचिङ अस्पताल</td></tr>
       </tbody>
     </table>
     </div>
-    <p class="treat-note">स्रोत: राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङमा उपचाररत नामसूची (२२) + पहिचान नखुलेका २ र शिशु १ (प्रहरी, जम्मा २५)। उमेर/ठेगाना अघिल्लो प्रहरी तालिकाबाट जहाँ थियो। स्वास्थ्य प्रवक्ता: उपचार निःशुल्क, हेल्पलाइन <a href="tel:1115">1115</a>।</p>
+    <p class="treat-note" data-i18n-html="treat_note">स्रोत: राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङमा उपचाररत नामसूची (२२) + पहिचान नखुलेका २ र शिशु १ (प्रहरी, जम्मा २५)। उमेर/ठेगाना अघिल्लो प्रहरी तालिकाबाट जहाँ थियो। स्वास्थ्य प्रवक्ता: उपचार निःशुल्क, हेल्पलाइन <a href="tel:1115">1115</a>।</p>
   </div>
 </section>
 
 <section id="shelter">
-  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>उद्धार · नुवाकोट</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_shelter">उद्धार · नुवाकोट</h2></div>
   <div class="card green">
-    <p class="treat-lead">जिल्ला प्रशासन कार्यालय नुवाकोट: उद्धार <strong>५६</strong> (महिला ११, पुरुष ४५)। चक्रदेव अस्पताल ११, नर्बिक काठमाडौं रेफर ९। सेनाको त्रिशूली सूची यसैमा अद्यावधिक।</p>
+    <p class="treat-lead" data-i18n-html="shelter_lead">जिल्ला प्रशासन कार्यालय नुवाकोट: उद्धार <strong>५६</strong> (महिला ११, पुरुष ४५)। चक्रदेव अस्पताल ११, नर्बिक काठमाडौं रेफर ९। सेनाको त्रिशूली सूची यसैमा अद्यावधिक।</p>
     <div class="pager" data-pager="shelter">
-      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
       <div class="pboxes pager-pages"></div>
-      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
       <span class="pcount pager-count"></span>
     </div>
     <div class="treat-wrap">
@@ -1164,106 +1191,106 @@ footer .foot-contact a:hover{text-decoration:underline}
       <thead>
         <tr>
           <th>सि.नं.</th>
-          <th>नाम थर</th>
-          <th>ठेगाना</th>
-          <th class="age">उमेर</th>
-          <th>लिङ्ग</th>
+          <th data-i18n="th_name">नाम थर</th>
+          <th data-i18n="th_addr">ठेगाना</th>
+          <th class="age" data-i18n="th_age">उमेर</th>
+          <th data-i18n="th_gender">लिङ्ग</th>
         </tr>
       </thead>
       <tbody id="shelter-body">
-        <tr data-pager="shelter"><td>१</td><td>घन बहादुर मगर</td><td>—</td><td class="age">४९</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>२</td><td>नवलेश शर्मा</td><td>भारत</td><td class="age">४०</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>३</td><td>रिता देउजा</td><td>—</td><td class="age">२०</td><td>महिला</td></tr>
-        <tr data-pager="shelter"><td>४</td><td>रुचि राना मगर</td><td>—</td><td class="age">१८</td><td>महिला</td></tr>
-        <tr data-pager="shelter"><td>५</td><td>रितु डंगोल</td><td>—</td><td class="age">३२</td><td>महिला</td></tr>
-        <tr data-pager="shelter"><td>६</td><td>धर्मराज शाही</td><td>कालिकोट</td><td class="age">३५</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>७</td><td>तिलक पराजुली</td><td>स्याङ्जा</td><td class="age">३७</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>८</td><td>निम दोर्जे शेर्पा</td><td>सिन्धुपाल्चोक</td><td class="age">२६</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>९</td><td>सुजन रत्न बज्राचार्य</td><td>विदुर–१</td><td class="age">४४</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>१०</td><td>सुमन मल्ल</td><td>विदुर–१</td><td class="age">२२</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>११</td><td>कल्पना मल्ल</td><td>विदुर–१</td><td class="age">४०</td><td>महिला</td></tr>
-        <tr data-pager="shelter"><td>१२</td><td>विनोद तामाङ</td><td>बेलकोटगढी, नुवाकोट</td><td class="age">१८</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>१३</td><td>रमेश थापा</td><td>सिन्धुपाल्चोक · मैलुङ APF</td><td class="age">४०</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>१४</td><td>दिपक सुनार</td><td>चितवन · मैलुङ APF</td><td class="age">३२</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>१५</td><td>राम प्रसाद थारु</td><td>—</td><td class="age">४१</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>१६</td><td>सूर्य बहादुर वाइबा</td><td>सिन्धुली · मैलुङ APF</td><td class="age">३९</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>१७</td><td>गणेश बोहरा</td><td>रामेछाप · मैलुङ APF</td><td class="age">३६</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>१८</td><td>मन्जित तामाङ</td><td>विदुर · मैलुङ APF</td><td class="age">२८</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>१९</td><td>वीर मान तामाङ</td><td>रसुवा</td><td class="age">३८</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>२०</td><td>प्रमोद गुप्ता</td><td>भारत</td><td class="age">२५</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>२१</td><td>सुदीप के.सी.</td><td>बारा</td><td class="age">२८</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>२२</td><td>राजिप कुमार शाह</td><td>रौतहट · प्रहरी चौकी टिमुरे</td><td class="age">३७</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>२३</td><td>धनञ्जय बराई</td><td>कपिलवस्तु</td><td class="age">३४</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>२४</td><td>गौरव थापा मगर</td><td>कपिलवस्तु</td><td class="age">३१</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>२५</td><td>प्रेम प्रसाद सुवेदी</td><td>पर्वत</td><td class="age">५०</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>२६</td><td>चण्डीराज खत्री</td><td>उदयपुर</td><td class="age">३६</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>२७</td><td>सन्तोष कुमार लुइटेल</td><td>धादिङ</td><td class="age">५१</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>२८</td><td>रमेश कुँवर</td><td>डडेल्धुरा</td><td class="age">४५</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>२९</td><td>चण्डीराज गोलाल</td><td>खोटाङ</td><td class="age">४५</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>३०</td><td>श्याम सिलवाल</td><td>गोदावरी</td><td class="age">५२</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>३१</td><td>राजेन्द्र ढुङ्गाना</td><td>काठमाडौं</td><td class="age">५६</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>३२</td><td>करवीर गैरे</td><td>रुकुम पश्चिम</td><td class="age">४९</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>३३</td><td>टेकबहादुर श्रेष्ठ</td><td>सिन्धुपाल्चोक</td><td class="age">४५</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>३४</td><td>कुमार रायमाझी</td><td>सिन्धुपाल्चोक</td><td class="age">४३</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>३५</td><td>राजीव श्रेष्ठ</td><td>तादी, नुवाकोट · राष्ट्रिय अनुसन्धान, टिमुरे</td><td class="age">३५</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>३६</td><td>शीतल तामाङ</td><td>दोलखा</td><td class="age">२९</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>३७</td><td>सुजित यादव</td><td>गौशाला, महोत्तरी</td><td class="age">२०</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>३८</td><td>कृष्णबहादुर श्रेष्ठ</td><td>बारा</td><td class="age">२८</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>३९</td><td>सरोज अधिकारी</td><td>महोत्तरी</td><td class="age">२३</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>४०</td><td>रामध्यान यादव</td><td>महोत्तरी</td><td class="age">२६</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>४१</td><td>इन्दिरा नेपाल</td><td>तुप्चे, नुवाकोट</td><td class="age">५८</td><td>महिला</td></tr>
-        <tr data-pager="shelter"><td>४२</td><td>भुवनेश्वरी पौडेल</td><td>तुप्चे, नुवाकोट</td><td class="age">६७</td><td>महिला</td></tr>
-        <tr data-pager="shelter"><td>४३</td><td>उमा नेपाल</td><td>तुप्चे, नुवाकोट</td><td class="age">६८</td><td>महिला</td></tr>
-        <tr data-pager="shelter"><td>४४</td><td>लक्ष्मी आचार्य</td><td>तुप्चे, नुवाकोट</td><td class="age">४३</td><td>महिला</td></tr>
-        <tr data-pager="shelter"><td>४५</td><td>नाम नखुलेको</td><td>देवीघाट वृद्धि आश्रम</td><td class="age">४०</td><td>महिला</td></tr>
-        <tr data-pager="shelter"><td>४६</td><td>केशव प्रसाद बराल</td><td>तुप्चे, नुवाकोट</td><td class="age">६८</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>४७</td><td>उमा बोगटी</td><td>तुप्चे, नुवाकोट</td><td class="age">५५</td><td>महिला</td></tr>
-        <tr data-pager="shelter"><td>४८</td><td>वीर सिंह आले मगर</td><td>तुप्चे, नुवाकोट</td><td class="age">४५</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>४९</td><td>सुमित जोशी</td><td>सूर्यगढी</td><td class="age">१८</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>५०</td><td>लिला जोशी</td><td>—</td><td class="age">६०</td><td>महिला</td></tr>
-        <tr data-pager="shelter"><td>५१</td><td>कैलन खतिवडा</td><td>—</td><td class="age">९</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>५२</td><td>नाम नखुलेको</td><td>देवीघाट वृद्धि आश्रम</td><td class="age">४०</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>५३</td><td>राम जोशी</td><td>त्रिशूली</td><td class="age">६५</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>५४</td><td>नवीन खतिवडा</td><td>त्रिशूली</td><td class="age">२</td><td>पुरुष</td></tr>
-        <tr data-pager="shelter"><td>५५</td><td>रमेश कार्की</td><td>त्रिशूली</td><td class="age">३९</td><td>पुरुष</td></tr>
+        <tr data-pager="shelter"><td>१</td><td>घन बहादुर मगर</td><td>—</td><td class="age">४९</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>२</td><td>नवलेश शर्मा</td><td>भारत</td><td class="age">४०</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>३</td><td>रिता देउजा</td><td>—</td><td class="age">२०</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="shelter"><td>४</td><td>रुचि राना मगर</td><td>—</td><td class="age">१८</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="shelter"><td>५</td><td>रितु डंगोल</td><td>—</td><td class="age">३२</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="shelter"><td>६</td><td>धर्मराज शाही</td><td>कालिकोट</td><td class="age">३५</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>७</td><td>तिलक पराजुली</td><td>स्याङ्जा</td><td class="age">३७</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>८</td><td>निम दोर्जे शेर्पा</td><td>सिन्धुपाल्चोक</td><td class="age">२६</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>९</td><td>सुजन रत्न बज्राचार्य</td><td>विदुर–१</td><td class="age">४४</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>१०</td><td>सुमन मल्ल</td><td>विदुर–१</td><td class="age">२२</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>११</td><td>कल्पना मल्ल</td><td>विदुर–१</td><td class="age">४०</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="shelter"><td>१२</td><td>विनोद तामाङ</td><td>बेलकोटगढी, नुवाकोट</td><td class="age">१८</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>१३</td><td>रमेश थापा</td><td>सिन्धुपाल्चोक · मैलुङ APF</td><td class="age">४०</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>१४</td><td>दिपक सुनार</td><td>चितवन · मैलुङ APF</td><td class="age">३२</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>१५</td><td>राम प्रसाद थारु</td><td>—</td><td class="age">४१</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>१६</td><td>सूर्य बहादुर वाइबा</td><td>सिन्धुली · मैलुङ APF</td><td class="age">३९</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>१७</td><td>गणेश बोहरा</td><td>रामेछाप · मैलुङ APF</td><td class="age">३६</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>१८</td><td>मन्जित तामाङ</td><td>विदुर · मैलुङ APF</td><td class="age">२८</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>१९</td><td>वीर मान तामाङ</td><td>रसुवा</td><td class="age">३८</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>२०</td><td>प्रमोद गुप्ता</td><td>भारत</td><td class="age">२५</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>२१</td><td>सुदीप के.सी.</td><td>बारा</td><td class="age">२८</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>२२</td><td>राजिप कुमार शाह</td><td>रौतहट · प्रहरी चौकी टिमुरे</td><td class="age">३७</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>२३</td><td>धनञ्जय बराई</td><td>कपिलवस्तु</td><td class="age">३४</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>२४</td><td>गौरव थापा मगर</td><td>कपिलवस्तु</td><td class="age">३१</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>२५</td><td>प्रेम प्रसाद सुवेदी</td><td>पर्वत</td><td class="age">५०</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>२६</td><td>चण्डीराज खत्री</td><td>उदयपुर</td><td class="age">३६</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>२७</td><td>सन्तोष कुमार लुइटेल</td><td>धादिङ</td><td class="age">५१</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>२८</td><td>रमेश कुँवर</td><td>डडेल्धुरा</td><td class="age">४५</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>२९</td><td>चण्डीराज गोलाल</td><td>खोटाङ</td><td class="age">४५</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>३०</td><td>श्याम सिलवाल</td><td>गोदावरी</td><td class="age">५२</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>३१</td><td>राजेन्द्र ढुङ्गाना</td><td>काठमाडौं</td><td class="age">५६</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>३२</td><td>करवीर गैरे</td><td>रुकुम पश्चिम</td><td class="age">४९</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>३३</td><td>टेकबहादुर श्रेष्ठ</td><td>सिन्धुपाल्चोक</td><td class="age">४५</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>३४</td><td>कुमार रायमाझी</td><td>सिन्धुपाल्चोक</td><td class="age">४३</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>३५</td><td>राजीव श्रेष्ठ</td><td>तादी, नुवाकोट · राष्ट्रिय अनुसन्धान, टिमुरे</td><td class="age">३५</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>३६</td><td>शीतल तामाङ</td><td>दोलखा</td><td class="age">२९</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>३७</td><td>सुजित यादव</td><td>गौशाला, महोत्तरी</td><td class="age">२०</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>३८</td><td>कृष्णबहादुर श्रेष्ठ</td><td>बारा</td><td class="age">२८</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>३९</td><td>सरोज अधिकारी</td><td>महोत्तरी</td><td class="age">२३</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>४०</td><td>रामध्यान यादव</td><td>महोत्तरी</td><td class="age">२६</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>४१</td><td>इन्दिरा नेपाल</td><td>तुप्चे, नुवाकोट</td><td class="age">५८</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="shelter"><td>४२</td><td>भुवनेश्वरी पौडेल</td><td>तुप्चे, नुवाकोट</td><td class="age">६७</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="shelter"><td>४३</td><td>उमा नेपाल</td><td>तुप्चे, नुवाकोट</td><td class="age">६८</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="shelter"><td>४४</td><td>लक्ष्मी आचार्य</td><td>तुप्चे, नुवाकोट</td><td class="age">४३</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="shelter"><td>४५</td><td data-i18n="unnamed">नाम नखुलेको</td><td>देवीघाट वृद्धि आश्रम</td><td class="age">४०</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="shelter"><td>४६</td><td>केशव प्रसाद बराल</td><td>तुप्चे, नुवाकोट</td><td class="age">६८</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>४७</td><td>उमा बोगटी</td><td>तुप्चे, नुवाकोट</td><td class="age">५५</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="shelter"><td>४८</td><td>वीर सिंह आले मगर</td><td>तुप्चे, नुवाकोट</td><td class="age">४५</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>४९</td><td>सुमित जोशी</td><td>सूर्यगढी</td><td class="age">१८</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>५०</td><td>लिला जोशी</td><td>—</td><td class="age">६०</td><td data-i18n="gender_female">महिला</td></tr>
+        <tr data-pager="shelter"><td>५१</td><td>कैलन खतिवडा</td><td>—</td><td class="age">९</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>५२</td><td data-i18n="unnamed">नाम नखुलेको</td><td>देवीघाट वृद्धि आश्रम</td><td class="age">४०</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>५३</td><td>राम जोशी</td><td>त्रिशूली</td><td class="age">६५</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>५४</td><td>नवीन खतिवडा</td><td>त्रिशूली</td><td class="age">२</td><td data-i18n="gender_male">पुरुष</td></tr>
+        <tr data-pager="shelter"><td>५५</td><td>रमेश कार्की</td><td>त्रिशूली</td><td class="age">३९</td><td data-i18n="gender_male">पुरुष</td></tr>
       </tbody>
     </table>
     </div>
-    <p class="treat-note">स्रोत: जिल्ला प्रशासन कार्यालय नुवाकोट। शव पुरुष ४, महिला १ (स्थानीय)। सेनाको त्रिशूली ४१ नाम यसै तालिकामा। हवाई उद्धार ११६।</p>
+    <p class="treat-note" data-i18n-html="shelter_note">स्रोत: जिल्ला प्रशासन कार्यालय नुवाकोट। शव पुरुष ४, महिला १ (स्थानीय)। सेनाको त्रिशूली ४१ नाम यसै तालिकामा। हवाई उद्धार ११६।</p>
   </div>
 </section>
 
 <section id="family">
-  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>हराएको / भेटिएको</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_family">हराएको / भेटिएको</h2></div>
   <div class="card">
-    <p class="fam-lead">बाढीमा हराएका वा भेटिएका व्यक्तिको विवरण पठाउनुहोस्। जाँचपछि मात्र कार्ड देखिन्छ। भेटिएको <strong>४०</strong> जना। आपत्कालमा <a href="tel:1234">१२३४</a> वा <a href="tel:100">प्रहरी १००</a>।</p>
+    <p class="fam-lead" data-i18n-html="fam_lead1">बाढीमा हराएका वा भेटिएका व्यक्तिको विवरण पठाउनुहोस्। जाँचपछि मात्र कार्ड देखिन्छ। भेटिएको <strong>४०</strong> जना। आपत्कालमा <a href="tel:1234">१२३४</a> वा <a href="tel:100"><span data-i18n="police">प्रहरी</span> १००</a>।</p>
     <div class="fam-actions">
       <a class="hot" href="tel:1234">उद्धार १२३४</a>
-      <a class="miss" id="fam-miss-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform" target="_blank" rel="noopener">हराएको रिपोर्ट</a>
-      <a class="found" id="fam-found-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform" target="_blank" rel="noopener">अपडेट गर्नुहोस्</a>
+      <a class="miss" id="fam-miss-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform" target="_blank" rel="noopener" data-i18n="report_missing">हराएको रिपोर्ट</a>
+      <a class="found" id="fam-found-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform" target="_blank" rel="noopener" data-i18n="update_form">अपडेट गर्नुहोस्</a>
     </div>
-    <p class="fam-lead">कार्ड सच्याउन वा नयाँ जानकारी दिन <strong>अपडेट</strong> थिच्नुहोस्। फारममा त्यही व्यक्तिको नाम र विवरण आउँछ। जाँचपछि मात्र सूची बदलिन्छ। आपत्कालमा <a href="tel:1234">१२३४</a>।</p>
+    <p class="fam-lead" data-i18n-html="fam_lead2">कार्ड सच्याउन वा नयाँ जानकारी दिन <strong>अपडेट</strong> थिच्नुहोस्। फारममा त्यही व्यक्तिको नाम र विवरण आउँछ। जाँचपछि मात्र सूची बदलिन्छ। आपत्कालमा <a href="tel:1234">१२३४</a>।</p>
     <div class="fam-search">
-      <label for="fam-search">नाम वा नम्बर खोज्नुहोस्</label>
-      <input id="fam-search" type="search" placeholder="उदाहरण: केबल, 9815…" autocomplete="off" enterkeyhint="search" spellcheck="false">
+      <label for="fam-search" data-i18n="search_label">नाम वा नम्बर खोज्नुहोस्</label>
+      <input id="fam-search" type="search" placeholder="उदाहरण: केबल, 9815…" data-i18n-placeholder="search_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
     </div>
-    <h3 class="fam-h">जनताको रिपोर्ट</h3>
-    <p class="treat-lead" id="fam-new-lead">फारम सिटबाट जाँचिएका सम्पर्कविहीन विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।</p>
+    <h3 class="fam-h" data-i18n="public_reports">जनताको रिपोर्ट</h3>
+    <p class="treat-lead" id="fam-new-lead" data-i18n-html="fam_new_lead">फारम सिटबाट जाँचिएका सम्पर्कविहीन विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="pager" data-pager="fam-miss">
-      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
       <div class="pboxes pager-pages"></div>
-      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
       <span class="pcount pager-count"></span>
     </div>
     <div class="fam-grid" id="fam-missing"></div>
-    <p class="fam-empty" id="fam-missing-empty">जाँचपछि मात्र यहाँ आउँछ।</p>
-    <p class="fam-empty" id="fam-search-empty" hidden>यो खोजसँग मिल्ने नाम भेटिएन।</p>
-    <h3 class="fam-h">हेलो सरकार · राती ८:१०</h3>
-    <p class="treat-lead">फोनमार्फत टिपिएका सम्पर्कविहीन तथा बेपत्ता <strong>१४०</strong> विवरण। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
+    <p class="fam-empty" id="fam-missing-empty" data-i18n="empty_review">जाँचपछि मात्र यहाँ आउँछ।</p>
+    <p class="fam-empty" id="fam-search-empty" hidden data-i18n="empty_search">यो खोजसँग मिल्ने नाम भेटिएन।</p>
+    <h3 class="fam-h" data-i18n="hello_sarkar">हेलो सरकार · राती ८:१०</h3>
+    <p class="treat-lead" data-i18n-html="hello_lead">फोनमार्फत टिपिएका सम्पर्कविहीन तथा बेपत्ता <strong>१४०</strong> विवरण। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="pager" data-pager="hello-sarkar">
-      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
       <div class="pboxes pager-pages"></div>
-      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
       <span class="pcount pager-count"></span>
     </div>
     <div class="treat-wrap">
@@ -1271,8 +1298,8 @@ footer .foot-contact a:hover{text-decoration:underline}
       <thead>
         <tr>
           <th>सि.नं.</th>
-          <th>सम्पर्कविहीन / बेपत्ता</th>
-          <th>निवेदक</th>
+          <th data-i18n="th_missing">सम्पर्कविहीन / बेपत्ता</th>
+          <th data-i18n="th_applicant">निवेदक</th>
         </tr>
       </thead>
       <tbody id="hello-sarkar-body">
@@ -1419,92 +1446,92 @@ footer .foot-contact a:hover{text-decoration:underline}
       </tbody>
     </table>
     </div>
-    <p class="treat-note">स्रोत: हेलो सरकार, राती ८:१०।</p>
+    <p class="treat-note" data-i18n="hello_note">स्रोत: हेलो सरकार, राती ८:१०।</p>
     <div id="fam-matched-wrap" hidden>
-    <h3 class="fam-h">मेल भएका</h3>
+    <h3 class="fam-h" data-i18n="matched_h">मेल भएका</h3>
     <div class="fam-grid" id="fam-matched"></div>
     </div>
-    <h3 class="fam-h">भेटिएको · <span id="stat-found">४०</span></h3>
+    <h3 class="fam-h"><span data-i18n="found_h">भेटिएको</span> · <span id="stat-found">४०</span></h3>
     <div class="pager" data-pager="fam-found" hidden>
-      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
       <div class="pboxes pager-pages"></div>
-      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
       <span class="pcount pager-count"></span>
     </div>
     <div class="fam-grid" id="fam-found"></div>
-    <p class="fam-empty" id="fam-found-empty">जाँचपछि मात्र यहाँ आउँछ।</p>
+    <p class="fam-empty" id="fam-found-empty" data-i18n="empty_review">जाँचपछि मात्र यहाँ आउँछ।</p>
   </div>
 </section>
 
 <aside class="ndrrma-hl" id="helpline">
   <div class="hl-head">
-    <b>आपत्कालीन सहायता / हेल्पलाइन</b>
-    <span>NDRRMA · गृह मन्त्रालय · सिंहदरबार</span>
+    <b data-i18n="hl_title">आपत्कालीन सहायता / हेल्पलाइन</b>
+    <span data-i18n="hl_sub">NDRRMA · गृह मन्त्रालय · सिंहदरबार</span>
   </div>
   <div class="hl-nat">
-    <a href="tel:1114">१११४<small>सशस्त्र प्रहरी</small></a>
-    <a href="tel:100">१००<small>नेपाल प्रहरी</small></a>
-    <a href="tel:102">१०२<small>एम्बुलेन्स</small></a>
-    <a href="tel:1234">१२३४<small>DEOC / उद्धार</small></a>
+    <a href="tel:1114">१११४<small data-i18n="apf">सशस्त्र प्रहरी</small></a>
+    <a href="tel:100">१००<small data-i18n="np_police">नेपाल प्रहरी</small></a>
+    <a href="tel:102">१०२<small data-i18n="ambulance">एम्बुलेन्स</small></a>
+    <a href="tel:1234">१२३४<small>DEOC / <span data-i18n="nav_rescue">उद्धार</span></small></a>
     <a href="tel:1144">११४४<small>NEOC</small></a>
   </div>
   <div class="hl-dist">
     <article>
       <b>रसुवा</b>
-      <a href="tel:+9779851277777"><span>प्रजिअ</span><em>9851277777</em></a>
-      <a href="tel:+9779851164422"><span>सहायक प्रजिअ</span><em>9851164422</em></a>
+      <a href="tel:+9779851277777"><span data-i18n="cdo">प्रजिअ</span><em>9851277777</em></a>
+      <a href="tel:+9779851164422"><span data-i18n="acdo">सहायक प्रजिअ</span><em>9851164422</em></a>
       <a href="tel:1234"><span>DEOC</span><em>1234</em></a>
-      <a href="tel:+9779851282801"><span>प्रहरी</span><em>9851282801</em></a>
-      <a href="tel:+9779851272275"><span>सशस्त्र</span><em>9851272275</em></a>
+      <a href="tel:+9779851282801"><span data-i18n="police">प्रहरी</span><em>9851282801</em></a>
+      <a href="tel:+9779851272275"><span data-i18n="armed">सशस्त्र</span><em>9851272275</em></a>
     </article>
     <article>
       <b>नुवाकोट</b>
-      <a href="tel:+9779851147777"><span>प्रजिअ</span><em>9851147777</em></a>
-      <a href="tel:+9779851248777"><span>सहायक प्रजिअ</span><em>9851248777</em></a>
+      <a href="tel:+9779851147777"><span data-i18n="cdo">प्रजिअ</span><em>9851147777</em></a>
+      <a href="tel:+9779851248777"><span data-i18n="acdo">सहायक प्रजिअ</span><em>9851248777</em></a>
       <a href="tel:1234"><span>DEOC</span><em>1234</em></a>
-      <a href="tel:+9779851282811"><span>प्रहरी</span><em>9851282811</em></a>
-      <a href="tel:+9779851272535"><span>सशस्त्र</span><em>9851272535</em></a>
+      <a href="tel:+9779851282811"><span data-i18n="police">प्रहरी</span><em>9851282811</em></a>
+      <a href="tel:+9779851272535"><span data-i18n="armed">सशस्त्र</span><em>9851272535</em></a>
     </article>
     <article>
       <b>धादिङ</b>
-      <a href="tel:+9779851247777"><span>प्रजिअ</span><em>9851247777</em></a>
-      <a href="tel:+9779851119131"><span>सहायक प्रजिअ</span><em>9851119131</em></a>
+      <a href="tel:+9779851247777"><span data-i18n="cdo">प्रजिअ</span><em>9851247777</em></a>
+      <a href="tel:+9779851119131"><span data-i18n="acdo">सहायक प्रजिअ</span><em>9851119131</em></a>
       <a href="tel:1234"><span>DEOC</span><em>1234</em></a>
-      <a href="tel:+9779851113921"><span>प्रहरी</span><em>9851113921</em></a>
-      <a href="tel:+9779851272491"><span>सशस्त्र</span><em>9851272491</em></a>
+      <a href="tel:+9779851113921"><span data-i18n="police">प्रहरी</span><em>9851113921</em></a>
+      <a href="tel:+9779851272491"><span data-i18n="armed">सशस्त्र</span><em>9851272491</em></a>
     </article>
     <article>
       <b>चितवन</b>
-      <a href="tel:+9779855017777"><span>प्रजिअ</span><em>9855017777</em></a>
-      <a href="tel:+9779855088891"><span>सहायक प्रजिअ</span><em>9855088891</em></a>
+      <a href="tel:+9779855017777"><span data-i18n="cdo">प्रजिअ</span><em>9855017777</em></a>
+      <a href="tel:+9779855088891"><span data-i18n="acdo">सहायक प्रजिअ</span><em>9855088891</em></a>
       <a href="tel:1234"><span>DEOC</span><em>1234</em></a>
-      <a href="tel:+9779855090133"><span>प्रहरी</span><em>9855090133</em></a>
-      <a href="tel:+9779851272134"><span>सशस्त्र</span><em>9851272134</em></a>
+      <a href="tel:+9779855090133"><span data-i18n="police">प्रहरी</span><em>9855090133</em></a>
+      <a href="tel:+9779851272134"><span data-i18n="armed">सशस्त्र</span><em>9851272134</em></a>
     </article>
     <article>
       <b>गोरखा</b>
-      <a href="tel:+9779856057777"><span>प्रजिअ</span><em>9856057777</em></a>
-      <a href="tel:+9779856057778"><span>सहायक प्रजिअ</span><em>9856057778</em></a>
+      <a href="tel:+9779856057777"><span data-i18n="cdo">प्रजिअ</span><em>9856057777</em></a>
+      <a href="tel:+9779856057778"><span data-i18n="acdo">सहायक प्रजिअ</span><em>9856057778</em></a>
       <a href="tel:1234"><span>DEOC</span><em>1234</em></a>
-      <a href="tel:+9779856090255"><span>प्रहरी</span><em>9856090255</em></a>
-      <a href="tel:+9779851272271"><span>सशस्त्र</span><em>9851272271</em></a>
+      <a href="tel:+9779856090255"><span data-i18n="police">प्रहरी</span><em>9856090255</em></a>
+      <a href="tel:+9779851272271"><span data-i18n="armed">सशस्त्र</span><em>9851272271</em></a>
     </article>
     <article>
       <b>तनहुँ</b>
-      <a href="tel:+9779856067777"><span>प्रजिअ</span><em>9856067777</em></a>
-      <a href="tel:+9779856001111"><span>सहायक प्रजिअ</span><em>9856001111</em></a>
+      <a href="tel:+9779856067777"><span data-i18n="cdo">प्रजिअ</span><em>9856067777</em></a>
+      <a href="tel:+9779856001111"><span data-i18n="acdo">सहायक प्रजिअ</span><em>9856001111</em></a>
       <a href="tel:1234"><span>DEOC</span><em>1234</em></a>
-      <a href="tel:+9779856090178"><span>प्रहरी</span><em>9856090178</em></a>
-      <a href="tel:+9779851272099"><span>सशस्त्र</span><em>9851272099</em></a>
+      <a href="tel:+9779856090178"><span data-i18n="police">प्रहरी</span><em>9856090178</em></a>
+      <a href="tel:+9779851272099"><span data-i18n="armed">सशस्त्र</span><em>9851272099</em></a>
     </article>
   </div>
-  <p class="hl-extra">स्वास्थ्य <a href="tel:1115">1115</a> · बाढी पूर्वानुमान <a href="tel:1155">1155</a> (विकल्प २) · ट्राफिक <a href="tel:103">103</a> · राष्ट्रिय आपत्कालीन <a href="tel:1144">1144</a>। सबै जिल्लाको DEOC <a href="tel:1234">1234</a>।</p>
-  <p class="hl-foot">आपत्का बेला नआत्तिऔं, सजग र पूर्वतयार रहौं। यो जानकारी सेयर गरी सुरक्षित रहन सहयोग गरौं।</p>
+  <p class="hl-extra" data-i18n-html="hl_extra">स्वास्थ्य <a href="tel:1115">1115</a> · बाढी पूर्वानुमान <a href="tel:1155">1155</a> (विकल्प २) · ट्राफिक <a href="tel:103">103</a> · राष्ट्रिय आपत्कालीन <a href="tel:1144">1144</a>। सबै जिल्लाको DEOC <a href="tel:1234">1234</a>।</p>
+  <p class="hl-foot" data-i18n="hl_foot">आपत्का बेला नआत्तिऔं, सजग र पूर्वतयार रहौं। यो जानकारी सेयर गरी सुरक्षित रहन सहयोग गरौं।</p>
 </aside>
 
 <section id="contacts">
-  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>स्थानीय तह सम्पर्क</h2></div>
-  <p class="cao-lead">प्रभावित जिल्लाका प्रमुख प्रशासकीय अधिकृत। उद्धार/राहत समन्वयका लागि नम्बरमा ट्याप गर्नुहोस्।</p>
+  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_contacts">स्थानीय तह सम्पर्क</h2></div>
+  <p class="cao-lead" data-i18n="cao_lead">प्रभावित जिल्लाका प्रमुख प्रशासकीय अधिकृत। उद्धार/राहत समन्वयका लागि नम्बरमा ट्याप गर्नुहोस्।</p>
   <div class="cao-grid">
     <article>
       <h3>रसुवा <small>5</small></h3>
@@ -1576,9 +1603,9 @@ footer .foot-contact a:hover{text-decoration:underline}
 </section>
 
 <section id="alert">
-  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>सतर्कता</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_alert">सतर्कता</h2></div>
   <div class="card red">
-    <ul>
+    <ul data-i18n-list="alert">
       <li><strong>बाढी कत्रो आयो भन्दै नदी छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदी भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।</strong></li>
       <li><strong>DHM प्राविधिक प्रतिवेदन:</strong> ०८:३७ भूकम्प <strong>४.४</strong>। स्याफ्रुबेसी अन्तिम <strong>१.६२ मि</strong>। SMS <strong>६,७९,२९५</strong>। देवघाट उच्च जलसतह <strong>६.५७ मि</strong> @ १६:०० (अनुमान ८ मि पुगेन); extra करिब <strong>२०</strong> मिलियन घनमिटर। कालीखोला उच्चिष्ठ <strong>१२.३ मि</strong>। चीनतर्फ नदी थुनिएको स्थान पूर्ण नखुलेकाले भोटेकोशी–त्रिशूलीमा जोखिम सकिएको होइन। किनारमा उच्च सतर्कता जारी। <a href="docs/dhm-bhadra10-sitrep.pdf" target="_blank" rel="noopener">प्रतिवेदन PDF</a>।</li>
       <li><strong>बाढी पूर्वानुमान महाशाखा १५:२० हाई अलर्ट:</strong> भोटेकोशीको बाढी <strong>नारायणी–देवघाट</strong> पुग्यो, जलसतह बढ्दो। नदी छेउछाउका बस्ती/बजारमा उच्च सतर्कता, सुरक्षित स्थानमा बस्नुहोस्। नुवाकोट देवीघाट होइन। सुस्तामा बाढी पुगेको पुष्टि छैन।</li>
@@ -1611,28 +1638,28 @@ footer .foot-contact a:hover{text-decoration:underline}
       <li>हल्ला नपत्याउनुहोस्। आधिकारिक सूचना मात्र मान्नुहोस्।</li>
     </ul>
     <div class="phones">
-      <a href="tel:1234">उद्धार १२३४</a>
-      <a href="tel:100">प्रहरी १००</a>
+      <a href="tel:1234" data-i18n="rescue_1234">उद्धार १२३४</a>
+      <a href="tel:100"><span data-i18n="police">प्रहरी</span> १००</a>
       <a href="tel:1114">१११४</a>
-      <a href="tel:102">एम्बुलेन्स १०२</a>
-      <a href="tel:1115">स्वास्थ्य १११५</a>
+      <a href="tel:102"><span data-i18n="ambulance">एम्बुलेन्स</span> १०२</a>
+      <a href="tel:1115"><span data-i18n="health">स्वास्थ्य</span> १११५</a>
     </div>
-    <p class="note">संख्या प्रारम्भिक हुन्। नागरिक मृत्यु/बेपत्ताको आधिकारिक गणना अहिले सार्वजनिक भएको छैन — अनुमान नगर्नुहोस्।</p>
+    <p class="note" data-i18n="alert_note">संख्या प्रारम्भिक हुन्। नागरिक मृत्यु/बेपत्ताको आधिकारिक गणना अहिले सार्वजनिक भएको छैन — अनुमान नगर्नुहोस्।</p>
   </div>
 </section>
 
 
 <section id="gov">
-  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>विपद् पछि सरकारबाट भएको पहल</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_gov">विपद् पछि सरकारबाट भएको पहल</h2></div>
   <div class="pager" data-pager="gov">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
     <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
     <span class="pcount pager-count"></span>
   </div>
   <aside class="gov-init">
-    <p class="cab-k">NDRRMA SitRep-3 · मन्त्रिपरिषद्का १० निर्णय · राति २२:००</p>
-    <ol>
+    <p class="cab-k" data-i18n="gov_sitrep">NDRRMA SitRep-3 · मन्त्रिपरिषद्का १० निर्णय · राति २२:००</p>
+    <ol data-i18n-list="gov_init">
       <li>जनधनको क्षतिप्रति गहिरो दुःख, मृतक परिवारलाई समवेदना, घाइतेको शीघ्र स्वास्थ्य लाभको कामना।</li>
       <li>स्वास्थ्य मन्त्रालय, नेपाली सेना र सरकारी अस्पताल: घाइतेको <strong>तत्काल निःशुल्क उपचार</strong>।</li>
       <li>गृह र रक्षा: अलपत्र/घाइतेको तत्काल उद्धार, सुरक्षित स्थानमा सार्न। सेना र <strong>निजी हेलिकप्टर</strong> प्रयोग; गृहमन्त्रीलाई आवश्यक स्रोत परिचालन।</li>
@@ -1646,8 +1673,8 @@ footer .foot-contact a:hover{text-decoration:underline}
     </ol>
   </aside>
   <div class="card green">
-    <p class="treat-lead">प्रधानमन्त्री कार्यालय ब्रिफिङ · साँझ ७:०० · १० भदौ २०८३</p>
-    <ul id="gov-list">
+    <p class="treat-lead" data-i18n="gov_pmo">प्रधानमन्त्री कार्यालय ब्रिफिङ · साँझ ७:०० · १० भदौ २०८३</p>
+    <ul id="gov-list" data-i18n-list="gov">
       <li><b>नेपाली सेना · राति:</b> प्रभावित क्षेत्रतर्फ ट्रक <strong>८</strong> मा करिब <strong>८ टन</strong> राहत पठाइएको। सामग्री: मच्छरदानी ५००, बालबालिका डिग्निटी किट १०००, स्लिपिङ ब्याग २२०, कम्बल ५००, प्लास्टिक सिट १०, त्रिपाल १००, सोलार बत्ती ५००, सोलार प्लेट ५००, जेनेरेटर ३० केभीए × १। स्रोत: नेपाली सेना।</li>
       <li><b>क्षति (७:०० सम्म):</b> शव <strong>९५</strong> (सनाखत जारी)। सुरक्षाकर्मी सम्पर्कविहीन ८५ — सेना ४४, प्रहरी २८, सशस्त्र १३। पर्यटक विदेशी ३९१, स्वदेशी ९३। जलविद्युत् कर्मचारी ६०। भन्सार/आप्रवासन कर्मचारी पनि खोजीमा। मोटरेबल पुल १९, पक्की सडक ४० किमि — सङ्कलन जारी।</li>
       <li><b>०८:४०</b> स्थानीय प्रशासनबाट भोटेकोशी बाढीको सूचना। <b>०८:४५</b> प्रधानमन्त्रीले सुरक्षा निकायलाई खोज–उद्धार–राहत सुरु गर्न निर्देशन। <b>०९:००</b> प्रजिअ/स्थानीयले तटीय बासिन्दालाई सुरक्षित स्थानमा जान हाई अलर्ट।</li>
@@ -1683,16 +1710,16 @@ footer .foot-contact a:hover{text-decoration:underline}
 </section>
 
 <section id="aid">
-  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>वैदेशिक सहयोग</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_aid">वैदेशिक सहयोग</h2></div>
   <div class="pager" data-pager="aid">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
     <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
     <span class="pcount pager-count"></span>
   </div>
   <div class="card green">
-    <p class="treat-lead">२६ अगस्ट २०२६ को भोटेकोशी–त्रिशूली बाढीपछिका वैदेशिक सहयोग मात्र। <span class="aid-tag offer">प्रस्ताव</span> घोषणा/सकिने। <span class="aid-tag sent">पठाइएको</span> सामग्री वा कोष खटिएको। <span class="aid-tag got">प्राप्त</span> नेपाल सरकारले हातमा लिएको। नगद खातामा आएको पुष्टि अहिले छैन।</p>
-    <ul id="aid-list">
+    <p class="treat-lead" data-i18n-html="aid_lead">२६ अगस्ट २०२६ को भोटेकोशी–त्रिशूली बाढीपछिका वैदेशिक सहयोग मात्र। <span class="aid-tag offer">प्रस्ताव</span> घोषणा/सकिने। <span class="aid-tag sent">पठाइएको</span> सामग्री वा कोष खटिएको। <span class="aid-tag got">प्राप्त</span> नेपाल सरकारले हातमा लिएको। नगद खातामा आएको पुष्टि अहिले छैन।</p>
+    <ul id="aid-list" data-i18n-list="aid">
       <li><span class="aid-tag sent">पठाइएको</span> <b>भारत · 10 टन HADR</b> (in-kind)। भारतीय विदेशमन्त्री एस. जयशंकर (X, २६ अगस्ट): मानवीय सहायता तथा अत्यावश्यक औषधि पठाइएको। भारतीय वायुसेना C-130J, हिन्डनबाट काठमाडौं उडान ~20:35 IST / ~20:50 नेपाली समय। सामग्री: अस्थायी आश्रय, कम्बल, स्वच्छता किट, सोलार बत्ती, औषधि। परराष्ट्रमन्त्री शिशिर खनालले आभार जनाए। त्रिभुवनमा हस्तान्तरण पुष्टि छैन। थप C-17 बिहान तयारी — उडेको होइन। स्रोत: <a href="https://risingnepaldaily.com/news/85564" target="_blank" rel="noopener">गोरखापत्र/Rising Nepal</a> · <a href="https://ddindia.co.in/2026/08/india-sends-first-tranche-of-relief-materials-to-nepal/" target="_blank" rel="noopener">DD India</a> · <a href="https://theprint.in/diplomacy/india-rushes-1st-tranche-of-aid-to-nepal-10-tonnes-of-relief-material-including-meds-blankets-lamps/3025874/" target="_blank" rel="noopener">The Print</a> · <a href="https://www.thehindu.com/news/international/nepal-floods-live-updates-august-26-2026-several-missing-dead/article71392492.ece" target="_blank" rel="noopener">The Hindu</a></li>
       <li><span class="aid-tag sent">पठाइएको</span> <b>IFRC · USD 1.2 million</b> (करिब CHF 1 million) DREF — नेपाल रेडक्रसलाई आपत्कालीन कोष। IFRC नेपाल प्रमुख डेभिड फिसर: तत्काल काम सुरु गर्न विनियोजन। सरकारको खातामा आएको होइन। स्रोत: <a href="https://www.cnn.com/2026/08/26/world/live-news/nepal-flash-flooding-floods-intl" target="_blank" rel="noopener">CNN</a></li>
       <li><span class="aid-tag sent">पठाइएको</span> <b>WHO</b> (in-kind)। आपत्कालीन औषधि, टेन्ट र चिकित्सक/स्वास्थ्य सामग्री प्रभावित क्षेत्रमा। प्रधानमन्त्री कार्यालय ब्रिफिङमा स्काउटसँगै उल्लेख। स्रोत: प्रधानमन्त्री कार्यालय · <a href="https://www.cnn.com/2026/08/26/world/live-news/nepal-flash-flooding-floods-intl" target="_blank" rel="noopener">CNN / WHO नेपाल</a></li>
@@ -1707,14 +1734,14 @@ footer .foot-contact a:hover{text-decoration:underline}
 </section>
 
 <section id="photos">
-  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>तस्बिर · आज २६ अगस्ट २०२६ मात्र</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_photos">तस्बिर · आज २६ अगस्ट २०२६ मात्र</h2></div>
   <div class="pager" data-pager="photos">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
     <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
     <span class="pcount pager-count"></span>
   </div>
-  <div class="photos" id="photo-grid">
+  <div class="photos" id="photo-grid" data-i18n-list="photos" data-i18n-kind="fig">
     <figure class="photo">
       <a href="img/sitrep3-casualties.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/sitrep3-casualties.jpg" alt="NDRRMA स्थिति प्रतिवेदन ०३ शव १२३ सम्पर्कविहीन २४५ घाइते ७५ इन्फोग्राफिक"></a>
       <figcaption><strong>NDRRMA SitRep-3 · शव १२३</strong>विपद् प्राधिकरण · राति १०:०० · आधिकारिक इन्फोग्राफिक</figcaption>
@@ -1895,437 +1922,437 @@ footer .foot-contact a:hover{text-decoration:underline}
 </section>
 
 <section id="history">
-  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>अपडेट</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_history">अपडेट</h2></div>
   <div class="pager" data-pager="history">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
     <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
     <span class="pcount pager-count"></span>
   </div>
-  <div class="log" id="history-list">
+  <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
     <article class="log-item now">
       <p class="when">~०९:२५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>राहत भिजुअल</h3>
       <p>NDRRMA SitRep-3 समयरेखा र मन्त्रिपरिषद् १० निर्णय भिजुअल खण्डमा; उद्धार तस्बिर त्यसैमुनि। शव १६२ यथावत्। <a href="#rahat">राहत भिजुअल</a>।</p>
     </article>
     <article class="log-item">
       <p class="when">~०९:०५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>Copernicus EMS · EMSR927 नक्सा</h3>
       <p>युरोपेली संघ DG ECHO ले Copernicus EMS Rapid Mapping <strong>EMSR927</strong> सक्रिय (२६ अगस्ट ०९:५३ UTC, नेपाली ~१५:३८)। क्षेत्र: <strong>टिमुरे</strong> र <strong>स्याफ्रुबेसी</strong> — बाढी सीमा (delineation)। ICEYE रडार (SAR) खिच्ने समय ~२७ अगस्ट १५:१५ नेपाली; नक्सा अझै आएको छैन (अपेक्षित ~२८ गते ०१:१५ नेपाली)। Copernicus ले GLOF आशंका लेखेको; बुलेटिनमा GLOF पुष्टि होइन। <a href="https://mapping.emergency.copernicus.eu/activations/EMSR927/" target="_blank" rel="noopener">नक्सा पोर्टल</a> · <a href="https://mapping.emergency.copernicus.eu/news/flood-in-nepal-emsr927/" target="_blank" rel="noopener">स्थिति रिपोर्ट</a>।</p>
     </article>
     <article class="log-item">
       <p class="when">~०९:००</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>NESRA FloodWatch · उपग्रह २७ अगस्ट</h3>
       <p>नेपाली अन्तरिक्ष अनुसन्धान संघ (जिओस्पेसियल / सेन्टिनेल-१, सरकारी चेतावनी प्रणाली होइन) २७ अगस्ट ०३:३१ सम्म: पोस्ट-इभेन्ट Sentinel-1 बाढी नक्सा अझै उपलब्ध छैन (प्रि-इभेन्ट २४ अगस्ट)। GLOF कुनै निकायले पुष्टि गरेको छैन; रसुवा प्रजिअ: हिमताल विस्फोटन वा अन्य कारण यकिन गर्न सकिँदैन; आइस एभलाञ्च शङ्कास्पद कारणमा। तिब्बततर्फको उद्गम ट्रिगर। सडक विभाग: बेत्रावती–रसुवागढी करिब <strong>४२ किमि</strong> क्षति (कयौं पक्की पुल बगेको), खुला/बन्द आधिकारिक पुष्टि छैन; मर्मत सुरु। NESRA को राति प्रहरी ९५ / घाइते ६३ इतिहास; बुलेटिनको शव १६२ राख्ने। <a href="https://nesraspace.org/floodwatch/rasuwa-2026/" target="_blank" rel="noopener">nesraspace.org/floodwatch/rasuwa-2026</a>।</p>
     </article>
     <article class="log-item">
       <p class="when">~०८:४६</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>DHM प्रतिवेदन · थप विवरण</h3>
       <p>बाढी पूर्वानुमान महाशाखा: भूकम्प <strong>४.४</strong> @ ०८:३७; स्याफ्रुबेसी गेज मौन ०८:५० (अन्तिम १.६२ मि); SMS <strong>६,७९,२९५</strong>। देवघाट extra करिब <strong>२०</strong> मिलियन घनमिटर; सीमानाका–देवघाट <strong>१६८</strong> किमि। ताल पूर्ण नखुलेकाले जोखिम कायम। <a href="docs/dhm-bhadra10-sitrep.pdf" target="_blank" rel="noopener">PDF</a>।</p>
     </article>
     <article class="log-item">
       <p class="when">~०६:००</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>शव १६२</h3>
       <p>बिहान ६:०० अपडेट: भोटेकोशी बाढीमा शव <strong>१६२</strong>। अघिल्लो NDRRMA SitRep-3 शव १२३ (राति २२:००)। जिल्ला विवरण आइकोछैन।</p>
     </article>
     <article class="log-item">
       <p class="when">~०७:४०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>काठमाडौं अस्पतालमा २२ घाइते</h3>
       <p>राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङमा उपचाररत नामसहित <strong>२२</strong> जना। पहिचान नखुलेका २ र शिशु १ सहित तालिकामा २५। पूर्ण तालिका <a href="#treat">घाइते</a> खण्डमा।</p>
     </article>
     <article class="log-item">
       <p class="when">~०१:२२</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>नुवाकोट उद्धार · ५६</h3>
       <p>जिल्ला प्रशासन कार्यालय नुवाकोट: उद्धार <strong>५६</strong> (महिला ११, पुरुष ४५)। चक्रदेव ११, नर्बिक काठमाडौं रेफर ९। सूची <a href="#shelter">उद्धार</a>मा। बेपत्ता सूचीबाट नाम काटिएको छैन।</p>
     </article>
     <article class="log-item">
       <p class="when">~०१:१६</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>हराएको सूची · फोटोसहित</h3>
       <p>नवराज नेपाल, यादव तीन भाइ (शिव/देव/सचित्), सुरज मण्डल नयाँ। बुद्धिसागर–खिनमाया र राहुल गुप्तामा फोटो थपिएको। <a href="#family">हराएको / भेटिएको</a>।</p>
     </article>
     <article class="log-item">
       <p class="when">~०१:०४</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>भेटिएको सूची · ४० जना</h3>
       <p>भेटिएका <strong>४०</strong> जना — धेरै पालुङटार/गोरखा, बेत्रावती डंगोल परिवार, भक्तपुर/ललितपुर। हराएको सूचीसँग आफैं जोडिएको होइन। <a href="#family">हराएको / भेटिएको</a>।</p>
     </article>
     <article class="log-item">
       <p class="when">~०१:००</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सेना: ८ टन राहत राति पठाइएको</h3>
       <p>नेपाली सेनाका ट्रक <strong>८</strong> मा करिब <strong>८ टन</strong> राहत सामग्री प्रभावित क्षेत्रतर्फ राति पठाइएको। मच्छरदानी ५००, बालबालिका डिग्निटी किट १०००, स्लिपिङ ब्याग २२०, कम्बल ५००, प्लास्टिक सिट १०, त्रिपाल १००, सोलार बत्ती ५००, सोलार प्लेट ५००, जेनेरेटर ३० केभीए एक थान। स्रोत: नेपाली सेना।</p>
     </article>
     <article class="log-item">
       <p class="when">~०१:००</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>DHM: आधिकारिक बाढी प्रतिवेदन</h3>
       <p>बाढी पूर्वानुमान महाशाखाको प्राविधिक स्थिति प्रतिवेदन (१० भदौ २०८३): देवघाट उच्च जलसतह <strong>६.५७ मि</strong> @ १६:०० (अनुमान ८ मि पुगेन); उच्च बहाव करिब <strong>५,८५०</strong> घनमिटर/सेकेन्ड; extra आयतन करिब <strong>२०</strong> मिलियन घनमिटर। कालीखोला खतरा तह पार, उच्चिष्ठ <strong>१२.३ मि</strong>। फुर्के/बेत्रावती/स्याफ्रुबेसी गेज बाढीले बगे/मौन। यस घटनामा SMS <strong>६,७९,२९५</strong> (NTC ४,३५,६३५ + Ncell २,४३,६६०)। सीमानाका–देवघाट <strong>१६८</strong> किमि। चीनतर्फ नदी थुनिएको स्थान पूर्ण नखुलेकाले भोटेकोशी–त्रिशूलीमा जोखिम सकिएको मान्न नहुने; किनारमा उच्च सतर्कता जारी। <a href="docs/dhm-bhadra10-sitrep.pdf" target="_blank" rel="noopener">प्रतिवेदन PDF</a>।</p>
     </article>
     <article class="log-item">
       <p class="when">~००:०६</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>NDRRMA SitRep-3: शव १२३</h3>
       <p>राष्ट्रिय विपद् जोखिम न्यूनीकरण तथा व्यवस्थापन प्राधिकरणको तेस्रो स्थिति प्रतिवेदन (राति १०:०० सम्म): शव <strong>१२३</strong> — चितवन <strong>६४</strong>, गोरखा <strong>१९</strong>, धादिङ <strong>१८</strong>, नुवाकोट <strong>११</strong>, तनहुँ <strong>९</strong>, रसुवा <strong>१</strong>, नवलपरासी पूर्व <strong>१</strong>। सम्पर्कविहीन NDRRMA <strong>२४५</strong> (रसुवा DEOC १६१, सेना ४४, प्रहरी २६, सशस्त्र १३, नुवाकोट DEOC १)। सुरक्षाकर्मी <strong>८३</strong>। घाइते <strong>७५</strong> — रसुवा ४३, नुवाकोट २९, धादिङ ३। हवाई उद्धार <strong>११६</strong> (सेना ८८ + निजी २८)। स्थलगत उद्धार <strong>९३</strong> (रसुवा ४३, नुवाकोट ४७, धादिङ ३)। पुल ८० / पक्की सडक ४० किमि यथावत्। अघिल्लो प्रहरी शव १०० र सुरक्षा ८५ इतिहासमा। पर्यटक ४८४ / हेलो सरकार १४० / लाङटाङ ६० / गोरखा बस ३४ यथावत्।</p>
     </article>
     <article class="log-item">
       <p class="when">~२२:५७</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>हराएको सूची</h3>
       <p>फारम सिटबाट नयाँ रिपोर्टमा <strong>३५</strong> विवरण थपिए। हेलो सरकार १४० यथावत्। सूची <a href="#family">हराएको / भेटिएको</a> मा।</p>
     </article>
     <article class="log-item">
       <p class="when">~२२:५०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>NDRRMA: पुल ८०, हवाई उद्धार ११६</h3>
       <p>राष्ट्रिय विपद् जोखिम न्यूनीकरण तथा व्यवस्थापन प्राधिकरणको दोस्रो स्थिति प्रतिवेदन (राति ९:०५ सम्म, <a href="https://www.ratopati.com/story/587691/bhotekoshi-flood-update-most-bodies-found-in-chitwan-80-bridges-damaged" target="_blank" rel="noopener">रातोपाटी २२:२९</a>): मोटरेबल पुल <strong>३५</strong> + झोलुङ्गे <strong>४५</strong> = पुल <strong>८०</strong>; पक्की सडक <strong>४० किमि</strong> पूर्ण ध्वस्त। हवाई उद्धार <strong>११६</strong> — सेना <strong>८८</strong>, निजी हेलि <strong>२८</strong>। स्थलगत उद्धार ८० (रसुवा ३०, नुवाकोट ४७, धादिङ ३)। अघिल्लो हवाई ११४ र सडक विभाग पक्की २२ / बेली ५ इतिहासमा। शव प्रहरी १०० / पर्यटक ४८४ / घाइते ३६+२१ यथावत्। डीआईजी काफ्ले (<a href="https://www.ratopati.com/story/587690/rasuwa-flood-update-death-toll-reaches-100" target="_blank" rel="noopener">रातोपाटी २२:२३</a>) ले पनि शव १०० जनाए।</p>
     </article>
     <article class="log-item">
       <p class="when">~२२:३६</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>हराएको · ३ नयाँ नाम</h3>
       <p>नयाँ रिपोर्टमा तीन नाम — <strong>सचिन गौतम</strong>, <strong>हरि सेढाई</strong>, <strong>सुबास खड्का</strong>। कमल खड्का छुट्टै। हेलो सरकार १४० यथावत्। सूची <a href="#family">हराएको / भेटिएको</a> मा।</p>
     </article>
     <article class="log-item">
       <p class="when">~२२:२६</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>हराएको सूची · फारम सिट</h3>
       <p>नयाँ रिपोर्टमा फारम सिटका सम्पर्कविहीन विवरण थपिए — <strong>कमल खड्का</strong> (साइनो हाइड्रो चालक, दोलखा जुंगु) सहित। हेलो सरकार १४० यथावत्। सूची <a href="#family">हराएको / भेटिएको</a> मा।</p>
     </article>
     <article class="log-item">
       <p class="when">~२२:१५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>नेपाल प्रहरी: शव १००</h3>
       <p>नेपाल प्रहरी (<a href="https://www.nepalpolice.gov.np/news/10245/" target="_blank" rel="noopener">nepalpolice.gov.np/news/10245</a>, २०८३-०५-१० राति २०:३०): हालसम्म शव <strong>१००</strong> फेला — रसुवा <strong>१</strong>, नुवाकोट <strong>११</strong>, धादिङ <strong>१८</strong>, चितवन <strong>३३</strong>, गोरखा <strong>१९</strong>, तनहुँ <strong>७</strong>, नवलपरासी पूर्व <strong>११</strong>। अघिल्लो प्रधानमन्त्री कार्यालय ९५ यो १०० बाट अद्यावधिक। सुरक्षा ८५ / पर्यटक ४८४ / घाइते ३६+२१ / हवाई ११४ / आश्रय ४१ यथावत्।</p>
     </article>
     <article class="log-item">
       <p class="when">~२१:३०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सेना: त्रिशूली तालिम केन्द्रमा ४१ जना उद्धार</h3>
       <p>नेपाली सेना: राती ९:३० सम्म श्री नं. १ सैन्य तालिम केन्द्र, त्रिशूलीमा <strong>४१</strong> जना राखिएका। नामसहित सूची <a href="#shelter">उद्धार सूची</a> मा। हवाई उद्धार ११४। काठमाडौं ३६ / रसुवा २१ / प्रहरी ६३।</p>
     </article>
     <article class="log-item">
       <p class="when">~२०:१२</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>प्रधानमन्त्री कार्यालय: शव ९५, सुरक्षा ८५</h3>
       <p>प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय (साँझ ७:००, प्रवक्ता सहसचिव हेमराज अर्याल): प्रभावित क्षेत्रबाट शव <strong>९५</strong> — सनाखत जारी। सुरक्षाकर्मी सम्पर्कविहीन <strong>८५</strong> — सेना ४४, प्रहरी २८, सशस्त्र १३। पर्यटक विदेशी <strong>३९१</strong>, स्वदेशी <strong>९३</strong>। जलविद्युत् कर्मचारी ६०। काठमाडौं घाइते <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong>। मोटरेबल पुल १९, पक्की सडक ४० किमि — सङ्कलन जारी। अघिल्लो सशस्त्र शव ७२ / पर्यटन ४०३ / सुरक्षा ७९ यी आंकडाबाट अद्यावधिक।</p>
     </article>
     <article class="log-item">
       <p class="when">~२०:१०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>नेपाल प्रहरी: शव ९५ जिल्ला विवरण, उपचाररत ६३</h3>
       <p>नेपाल प्रहरी / रासस (खबरहब ~१९:४८): शव जिल्ला — चितवन <strong>३३</strong>, धादिङ <strong>१८</strong>, गोरखा <strong>१६</strong>, नुवाकोट <strong>११</strong>, पूर्वी नवलपुर <strong>११</strong>, तनहुँ <strong>५</strong>, रसुवा <strong>१</strong>। महिला २७, पुरुष ३७, बालिका ६, बालक ५, पहिचान नखुलेका २०। उपचाररत <strong>६३</strong>। प्रहरी सम्पर्कविहीन २८ (टिमुरे १०, रसुवागढी ८, स्याफ्रुबेसी ३, मैलुङ ५, बेत्रावती १, हाकु १)। प्रधानमन्त्री कार्यालयको ९५ सँग मेल।</p>
     </article>
     <article class="log-item">
       <p class="when">~१९:५०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सशस्त्र प्रहरी: शव ७२</h3>
       <p>अनलाइनखबर: सशस्त्र प्रहरी बलका अनुसार हालसम्म <strong>७२</strong> शव — चितवन <strong>२८</strong>, धादिङ <strong>१८</strong>, नुवाकोट <strong>११</strong>, गोरखा <strong>९</strong>, तनहुँ <strong>४</strong>, पूर्वी नवलपुर <strong>१</strong>, रसुवा <strong>१</strong>। रातोपाटी (~१८:३५): प्रहरी प्रवक्ता डीआईजी अबि नारायण काफ्लेले पनि शव <strong>७२</strong> जनाएको (रसुवा–नुवाकोट–धादिङ–चितवन तट)। अघिल्लो बागमती प्रहरी २२ यो ७२ बाट अद्यावधिक। पछि नेपाल प्रहरी ९५ ले अद्यावधिक।</p>
     </article>
     <article class="log-item">
       <p class="when">~१९:१६</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>पर्यटन मन्त्रालय: सम्पर्कविहीन ४०३</h3>
       <p>संस्कृति, पर्यटन तथा नागरिक उड्डयन मन्त्रालय (खबरहब ~१९:१६): रसुवा बाढीमा <strong>४०३</strong> नेपाली तथा विदेशी नागरिक सम्पर्कविहीन — विदेशी <strong>३४१</strong> (भारतीय १३३), नेपाली <strong>६२</strong>; महिला २०३, पुरुष २००। अघिल्लो पर्यटन बोर्ड ३८४ (विदेशी २९१, नेपाली ९३) यो ४०३ बाट अद्यावधिक। सुरक्षा ७९ / लाङटाङ ६० / बस ३४ / स्वास्थ्यकर्मी ६ / बैंक २६। मृत्यु होइन। उद्धार ११४ यथावत्।</p>
     </article>
     <article class="log-item">
       <p class="when">~१८:२०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>हवाई उद्धार ११४ — सेना ८५, निजी २९</h3>
       <p>नेपाली सेना र निजी क्षेत्र: हवाई उद्धार जम्मा <strong>११४</strong>। सेना <strong>८५</strong> — टिमुरे–धुन्चे ६०, टिमुरे–त्रिशूली १३, मैलुङ ५, बेत्रावती ४, त्रिशूली–काठमाडौं ३। निजी हेलि <strong>२९</strong> — कैलाश ५, सिम्रिक ३ र २, अन्नपूर्ण ४, प्रभु ५ र २ (वीर), फिसटेल ५, एभरेष्ट २ (प्रायः टिचिङ)। अघिल्लो प्रधानमन्त्री कार्यालय ११० यो ११४ बाट अद्यावधिक। घाइते २५।</p>
     </article>
     <article class="log-item">
       <p class="when">~१८:१०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सडक विभाग: पक्की पुल २२, बेली ५ बगे</h3>
       <p>कान्तिपुर (~१७:४७): सडक विभागका प्रवक्ता एवं उपमहानिर्देशक शुभराज न्यौपाने — रसुवा, नुवाकोट, धादिङमा पक्की पुल <strong>२२</strong>, बेलीब्रिज <strong>५</strong> बगे। बेतनावती–रसुवागढी सडक <strong>४० किमि</strong> पूर्ण क्षति यथावत्। अघिल्लो १९+ यो २२+५ बाट अद्यावधिक। प्रारम्भिक विवरण।</p>
     </article>
     <article class="log-item">
       <p class="when">~१७:५०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>बागमती प्रहरी: शव २२, चितवनमा पनि</h3>
       <p>बागमती प्रदेश प्रहरी कार्यालय (रातोपाटी ~१७:२६): मृत्यु <strong>२२</strong> — रसुवा १ पुरुष; नुवाकोट ११ (५ महिला + ६ पुरुष); धादिङ ९ (५ महिला + २ पुरुष + २ लिङ्ग नखुलेको); चितवन १ महिला। अघिल्लो पौने चारको १६ यो २२ बाट अद्यावधिक।</p>
     </article>
     <article class="log-item">
       <p class="when">~१७:३२</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>मोदी–बालेन फोन: भारत मानवीय सहयोग तयार</h3>
       <p>भारतीय प्रधानमन्त्री नरेन्द्र मोदीले प्रधानमन्त्री बालेन्द्र शाहसँग टेलिफोनमा कुराकानी (रातोपाटी ~१७:३२)। बाढीबाट भएको जनधन क्षतिप्रति दुःख र समवेदना; कठिन परिस्थितिमा भारतका जनता नेपाली दाजुभाइ–दिदीबहिनीको साथमा। मोदी: नेपाललाई आवश्यक सबै प्रकारका <strong>मानवीय सहयोग उपलब्ध गराउन भारत तयार</strong> — प्रस्ताव/तयार, नगद हातमा आएको होइन। उद्धार–राहतमा भारतीय टोली नेपालसँग नजिक रहेर समन्वय जारी। विश्व बैंक २५ अर्ब पनि प्रस्ताव/सकिने यथावत्।</p>
     </article>
     <article class="log-item">
       <p class="when">~१७:१०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>विश्व बैंक २५ अर्ब, भारत–चीन सहयोग समन्वय</h3>
       <p>अर्थमन्त्री डा. स्वर्णिम वाग्लेसँग विश्व बैंकका नेपाल निर्देशक डेविड सिस्लेन (~१०:३५): आपत्कालीन सहयोगस्वरुप विभिन्न स्रोतबाट रु. <strong>२५ अर्ब</strong> दिन सकिने जानकारी — प्रतिबद्धता/सकिने, प्राप्त भइसकेको होइन। भारत: राहत सामग्रीको सूची माग; परराष्ट्रमन्त्री शिशिर खनाल: भारतीय सहयोग सामग्री <strong>आज काठमाडौं</strong> ल्याउने तयारी। चीन: तत्काल नगद सहयोग; राजदूत जाङ्ग माओमिङ्गले अर्थमन्त्रीमार्फत प्रक्रिया सुरु गर्न आग्रह। अर्थमन्त्री: आभार, सहयोग मोडालिटी छलफल जारी। मन्त्रिपरिषद्: रसुवा, नुवाकोट, धादिङ प्रभावित पालिका विपद् संकटग्रस्त — यो ६ जिल्ला तीन महिना घोषणालाई नसटाउने।</p>
     </article>
     <article class="log-item">
       <p class="when">~१७:०५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>काठमाडौंमा २५ घाइते उपचाररत, नामसहित</h3>
       <p>प्रहरी प्रवक्ता दानबहादुर थापा: काठमाडौंका अस्पतालमा <strong>२५</strong> जना उपचाररत — राष्ट्रिय ट्रमा सेन्टर <strong>४</strong> (भक्त/सिता भण्डारी, विबेक कुमाल, रिहाना लामिछाने), वीरेन्द्र सैनिक अस्पताल छाउनी <strong>१</strong> (दावा डोल्मा), टिचिङ <strong>२०</strong>। नामसहित २२; पहिचान नखुलेका २ र शिशु छुट्टै। रसुवा अस्पताल २४। पूर्ण तालिका घाइते खण्डमा।</p>
     </article>
     <article class="log-item">
       <p class="when">~१६:५५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>प्रधानमन्त्री कार्यालय: हवाई उद्धार ११०</h3>
       <p>प्रधानमन्त्री कार्यालय (अनलाइनखबर १६:४३): सेना र निजी हेलिकप्टरबाट <strong>११०</strong> — धुन्चे ८५, टिमुरे १३, मैलुङ ५, बेत्रावती ४, त्रिशूली ३। अघिल्लो जंगीअड्डा ८८ यो ११० बाट अद्यावधिक। घाइते २९। नेपाल बैंकर्स संघ १६:२५: ८ बैंकका कर्मचारी <strong>२६</strong> सम्पर्कविहीन (प्रभु, हिमालयन, ग्लोबल आइएमई, सानिमा, नेपाल इन्भेस्टमेन्ट मेगा, लक्ष्मी सनराइज, एनएमबी, माछापुच्छ्रे) — टिमुरे/स्याफ्रुबेसी/बेत्रावती शाखा बगे; मृत्यु होइन। नुवाकोट केन्द्रीय कारागार प्रमुख भेषबहादुर कुँवर: कैदीबन्दी करिब <strong>१०००</strong> सुरक्षित (विदुर–३ खम्पाक्याम्प); प्रशासन भवन र प्रहरी इकाइ क्षति। देवघाट पुगेको / सुस्ता नपुगेको यथावत्। मृत्यु १६ यथावत्।</p>
     </article>
     <article class="log-item">
       <p class="when">~१६:४५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>बाढी चितवन देवघाट पुग्यो</h3>
       <p>बाढी पूर्वानुमान महाशाखा १५:२० हाई अलर्ट (खबरहब ~१५:४२): भोटेकोशीको बाढी <strong>नारायणी–देवघाट</strong> पुग्यो, जलसतह बढ्दो क्रममा। नदी छेउछाउ उच्च सतर्कता। नुवाकोट देवीघाट होइन। सुस्ता सारिँदै (~७०%), बाढी पुगेको होइन। अघिल्लो देवघाट अनुमान ~१५:३० यो पुष्टिबाट अद्यावधिक।</p>
     </article>
     <article class="log-item">
       <p class="when">~१६:४०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>रसुवा: ६ स्वास्थ्यकर्मी सम्पर्कविहीन, दुई स्वास्थ्य चौकी बगे</h3>
       <p>जनस्वास्थ्य कार्यालय रसुवा प्रमुख निरध्वज घर्ती मगर: स्वास्थ्यकर्मी <strong>६</strong> सम्पर्कविहीन — टिमुरे र स्याफ्रुबेसी स्वास्थ्य चौकी बगे (२–२ जना), रसुवागढी हेल्थ डेस्क हेल्थ असिस्टेन्ट गोविन्द यादव, उत्तरगया स्वास्थ्य संयोजक। मृत्यु होइन। सूचना अधिकृत तारापती बिसी: सञ्चार टुटेका ठाउँबाट पूर्ण विवरण आउन बाँकी।</p>
     </article>
     <article class="log-item">
       <p class="when">~१६:३०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सेना: ८८ हवाई उद्धार, खनाल: ७९ सुरक्षाकर्मी सम्पर्कविहीन</h3>
       <p>जंगीअड्डा: रसुवाबाट हवाई उद्धार <strong>८८</strong> (हेलि ६, +२ जाने, ड्रोन ३) — प्रभावितको हवाई उद्धार। जंगीअड्डा घाइते <strong>२९</strong>। परराष्ट्रमन्त्री खनाल संसद्: सुरक्षाकर्मी सम्पर्कविहीन <strong>७९</strong> — सेना ४४, प्रहरी २६, सशस्त्र ९ (टिमुरे/मैलुङ); मृत्यु होइन। अघिल्लो प्रहरी ३२ / सशस्त्र १३ यो ७९ बाट अद्यावधिक। काठमाडौं अस्पताल आंशिक सूची १५:००: <strong>१०</strong> जना (ट्रमा ३, टिचिङ ७) — जम्मा २१ मध्ये; सम्पर्क नम्बर सार्वजनिक छैन। प्रदेश प्रहरी मृत्यु <strong>१६</strong> यथावत् (खनालको ९ ले नसटाउने)।</p>
     </article>
     <article class="log-item">
       <p class="when">~१६:१०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>प्रदेश प्रहरी: १६ मृत्यु, काठमाडौं २१ घाइते</h3>
       <p>बागमती प्रदेश प्रहरी पौने चार: मृत्यु <strong>१६</strong> — रसुवा १, नुवाकोट ९, धादिङ ६ (७ महिला, ८ पुरुष, १ सनाखत बाँकी)। परराष्ट्रमन्त्री खनाल संसद् १६:०१ को ९ यो १६ बाट अद्यावधिक। काठमाडौं जिल्ला प्रहरी प्रवक्ता दानबहादुर थापा: हेलि घाइते <strong>२१</strong> — टिचिङ १७, ट्रमा ३, मेडिसिटी १। लाङटाङ एमडी भट्टराई: सुरुङ <strong>३५</strong> मजदुर, अन्य <strong>२५</strong> कर्मचारी सम्पर्कविहीन, आयोजनाभरि ~६० — मृत्यु होइन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१६:०५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सुस्ता सारिँदै, परराष्ट्र: भूकम्प–पहिरो</h3>
       <p>नवलपरासी पश्चिम प्रजिअ दीपकराज नेपाल: सुस्ता (वडा ५ / थारु टोल) का बासिन्दा पारी सारिँदै, करिब <strong>७०%</strong> स्कूल/सुरक्षित स्थानमा। बाढी सुस्ता पुगेको होइन — चितवनतिर सतह बढेको ~२ घण्टापछि नारायणी असर। परराष्ट्रमन्त्री शिशिर खनाल संसद्मा: भूकम्प <strong>०८:३७</strong>, बाढी ~<strong>०८:४०</strong>, पहिरोले अस्थायी बाँध — महावीर पुन/GLOF सँगै राख्ने, प्रतिस्थापन होइन। बागमती: त्रिशूली अस्पताल २२, रसुवा अस्पताल १४, आयुर्वेद त्रिशूली ८; तीन स्वास्थ्य टोली — रसुवा अस्पतालको २४ नसटाउने। चीन: जिलोङमा १४५ सशस्त्र प्रहरी।</p>
     </article>
     <article class="log-item">
       <p class="when">~१५:५०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>धादिङ जिल्ला प्रहरी: ६ शव, स्थानीय ७ उद्धार</h3>
       <p>जिल्ला प्रहरी कार्यालय धादिङ (अनलाइनखबर ~१५:३३): शव <strong>६</strong> — गल्छी महेश दोभान १ महिला, गल्छी कोल्फु खोला पुल २ पुरुष, सिद्धलेक–७ त्रिशूली किनार १, बेनीघाट रोरङ बजार किनार २ महिला। स्थानीय अस्पतालमा <strong>७</strong> उद्धार। डिआईजी रेग्मीको राष्ट्रिय ८। लाङटाङ एमडी भट्टराई: कर्मचारी <strong>६०</strong> सम्पर्कविहीन — सुरुङ २५+ सँगै, मृत्यु होइन। धादिङ त्रिशूली पानी घटेको; मोटरेबल पुल ३ बगे।</p>
     </article>
     <article class="log-item">
       <p class="when">~१५:४५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>टिचिङमा १३ घाइते, अधिकांश गम्भीर</h3>
       <p>त्रिवि शिक्षण अस्पताल सहप्रवक्ता कालीप्रसाद रोस्यारा: सेनाले उद्धार गरी काठमाडौं ल्याएका <strong>१३</strong> जनाको उपचार टिचिङमा, अधिकांश गम्भीर, एक जना आईसीयू। रसुवा–धादिङ–नुवाकोट प्रभावित। हवाई उद्धार २९, रसुवा अस्पताल २४। गोरखा प्रहरी: पालुङटार बसबाट हाम फालेका <strong>५</strong> सम्पर्कमा (अघिल्लो ४)।</p>
     </article>
     <article class="log-item">
       <p class="when">~१५:०५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सेना: २९ घाइते हवाई उद्धार, पुल १९+</h3>
       <p>जंगीअड्डा: सेना हेलिकप्टरबाट घाइते २९ उद्धार; सेना हेलि ६ (+२ जाने), ड्रोन ३। सडक विभाग: पुल कम्तीमा १९, सडक ४० किमि क्षति। भन्सार प्रमुख ढुंगाना: यार्डमा ३००+ गाडी बगे। अघिल्लो सेना स्थानगत १२ यो २९ बाट अद्यावधिक।</p>
     </article>
     <article class="log-item">
       <p class="when">~१४:५५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>पर्यटन बोर्ड: ३८४ पर्यटक सम्पर्कविहीन</h3>
       <p>नेपाल पर्यटन बोर्ड: ३८४ सम्पर्कविहीन — विदेशी २९१, नेपाली ९३। मृत्यु होइन। ट्रमा सेन्टर: रसुवाबाट हेलिकप्टरले ल्याएका ३ जना आकस्मिकमा, अवस्था गम्भीर। त्रिशूली बजारको बर्ड भ्यू तस्बिर थपियो।</p>
     </article>
     <article class="log-item">
       <p class="when">~१४:५०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>लाङटाङ सुरुङमा २५+ मजदुर, गृहमन्त्री विमानस्थल</h3>
       <p>लाङटाङ २० मेगावाट आयोजनाको सुरुङमा कम्पनीले २५ भन्दा बढी मजदुर फसेको जनायो — मोबाइल छैन, उद्धार हुन सकेन, हेडवर्क्स सुरक्षित। गृहमन्त्री गुरुङ विमानस्थल, १० एम्बुलेन्स। पर्यटन प्रहरी: मानसरोवर/गोसाइँकुण्ड सम्पर्क संकलनमा, संख्या यकिन छैन। प्राधिकरण: ड्रोन/हेलिकप्टर सञ्चालकलाई सहयोग, हटलाइन ११४४।</p>
     </article>
     <article class="log-item">
       <p class="when">~१४:४०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>उद्धार ड्रोनलाई अनुमति नचाहिने</h3>
       <p>प्रवक्ता पोखरेल: ६ संकटग्रस्त जिल्लामा ड्रोन बिना अनुमति, हटलाइन १२३४। हेलिकप्टरलाई धुवाँ/आगो, सहायक प्रजिअलाई व्हाट्सएप जियो-लोकेसन। चीन–भारतसँग समन्वय, ११ हेलिकप्टर तयारी। गोरखापत्र पत्रकार: बेत्रावती सातबिसे फाँटमा छानाबाट उद्धार मागिरहेका देखिए — तस्बिर छैन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१४:३५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>६ जिल्ला संकटग्रस्त, राहत २.५ करोड</h3>
       <p>रसुवा, नुवाकोट, धादिङ, चितवन, गोरखा, तनहुँ तीन महिना संकटग्रस्त। विपद् परिषद्: रसुवा–नुवाकोट १/१ करोड, धादिङ ५० लाख। प्राधिकरण प्रमुख उप्रेती: जिलोङ काउन्टीको डोङलिन छाङ्गो नदीमा हिमपहिरोपछि अस्थायी बाँध फुटेको। त्रिशूली बजारका आजका तस्बिर थपियो।</p>
     </article>
     <article class="log-item">
       <p class="when">~१४:२६</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>मन्त्रिपरिषद्का १० निर्णय</h3>
       <p>निःशुल्क उपचार, सेना/निजी हेलिकप्टर उद्धार, सडक–बिजुली–सञ्चार सुचारु, मृतक परिवारलाई कानुनबमोजिम सहायता। प्रभावित स्थानीय क्षेत्र तीन महिना संकटग्रस्त (विपद् ऐन २०७४ दफा ३२)।</p>
     </article>
     <article class="log-item">
       <p class="when">~१४:२०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सशस्त्र १३ सम्पर्कविहीन</h3>
       <p>सशस्त्र उच्च अधिकृत: रसुवागढी ९ र मैलुङ ४ गरी १३ जना सम्पर्कविहीन। अघिल्लो ९ (र ४) यो संख्याबाट अद्यावधिक। मृत्यु होइन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१४:१५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>८ शव फेला, नुवाकोट–धादिङ ४–४</h3>
       <p>बागमती प्रहरी प्रमुख दीपक रेग्मी: धादिङ ४ र नुवाकोट ४ गरी ८ शव। नाम अझै सार्वजनिक छैन। अघिल्लो जम्मा ७ यो संख्याबाट अद्यावधिक।</p>
     </article>
     <article class="log-item">
       <p class="when">~१४:१०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>रसुवा, नुवाकोट, धादिङ संकटग्रस्त क्षेत्र</h3>
       <p>आकस्मिक मन्त्रिपरिषद्: तीन जिल्लालाई तीन महिना विपद् संकटग्रस्त घोषणा, मन्त्रीहरू फिल्डमा खटिन निर्देशन। घाइते हेलिकप्टरमार्फत त्रिभुवन विमानस्थल ल्याएर काठमाडौंका अस्पताल पठाइएको।</p>
     </article>
     <article class="log-item">
       <p class="when">~१४:००</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>नुवाकोट विदुरमा ४ शव, पालुङटारका ३४ यात्रु सम्पर्कविहीन</h3>
       <p>प्रदेश प्रहरी प्रवक्ता एसएसपी राजेन्द्र धमला: विदुर क्षेत्रबाट १ महिला र ३ पुरुषसहित ४ शव, विस्तृत जानकारी आउन बाँकी। गोरखा डीएसपी राजकुमार श्रेष्ठ: गोसाइँकुण्ड जाने बसका ३८ मध्ये ३४ सम्पर्कविहीन, ४ जना हाम फालेका सम्पर्कमा; सँगैका दुई माइक्रो (२६ जना) सम्पर्कमा। मृत्यु होइन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१३:५५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>ताल अझै खुलेन, जोखिम कायमै</h3>
       <p>चीन/विपद् प्राधिकरण: तिब्बतमा बाँधिएको नदी स्थलको ताल पूर्ण खुलेको छैन। रसुवा अस्पताल: २४ घाइते पुगे, उपचारमा १ मृत्यु, ६ गम्भीर रेफर। बाढी मुग्लिन ~१३:४२ मा पुग्यो। नुवाकोट विदुर–५ देवीघाटमा रुखबाट २ जना उद्धार।</p>
     </article>
     <article class="log-item">
       <p class="when">~१३:४०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>७ शव फेला, नुवाकोट–धादिङ</h3>
       <p>बागमती प्रहरी प्रमुख दीपक रेग्मी: नुवाकोट नदी किनारमा ३, धादिङमा ४। नाम अझै सार्वजनिक छैन। घाइते उद्धार र बेपत्ता खोजी जारी।</p>
     </article>
     <article class="log-item">
       <p class="when">~१३:३५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>जोखिम अब सुस्तासम्म</h3>
       <p>जलविज्ञान केन्द्र: देवघाटपछि नारायणी तटीय सुस्तासम्म जोखिम रहन सक्ने, जोखिम घटेको छैन। बागमती मुख्यमन्त्री किरण थापामगर: हेटौंडामा आपत्कालीन बैठक, प्रभावितलाई सुरक्षित स्थानमा जान आग्रह।</p>
     </article>
     <article class="log-item">
       <p class="when">~१३:२६</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>देवघाट साढे ३ बजे, पृथ्वी–मुग्लिन बन्द</h3>
       <p>नेपाल प्रहरी: पृथ्वी राजमार्ग र मुग्लिन–नारायणगढ अर्को सूचना नआउँदासम्म बन्द। बाढी सूचना: चितवन देवघाट ~१५:३०, अहिले ४.७६ मिटर। महाशाखा: फुर्के स्टेसन १०.८ मिटरमा बग्यो। नदी किनार नजानुहोस्।</p>
     </article>
     <article class="log-item">
       <p class="when">~१३:१४</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>४१ सुरक्षाकर्मी सम्पर्कविहीन</h3>
       <p>प्रहरी प्रवक्ता डीआईजी अबि नारायण काफ्ले: ३२ प्रहरी सम्पर्कविहीन, केही आउने क्रममा। सशस्त्र ९ (बीओपी टिमुरे)। जम्मा ४१ — मृत्यु होइन। कार्यालय क्षतिमा मैलुङ थपियो (४ कार्यालय)।</p>
     </article>
     <article class="log-item">
       <p class="when">~१३:१०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>बाढी फिस्लिङअघि, बैरेनीमा क्षति</h3>
       <p>चितवन प्रजिअ अर्याल: बाढी फिस्लिङ क्षेत्रभन्दा अघिसम्म। अनलाइनखबर: धादिङ बैरेनी बजारमा घर, टहरा, झोलुंगे पुल बगे। नेपाली सेना: १२ उद्धार — स्याफ्रुबेँसी ६, मैलुङ २, धुन्चे ४। स्वास्थ्य हटकलाइन १११५।</p>
     </article>
     <article class="log-item">
       <p class="when">~१३:०४</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>भन्सार: २५ स्थायी सम्पर्कमा, ११ खोजी जारी</h3>
       <p>रसुवा भन्सारमा स्थायी दरबन्दी ३६। प्रमुख भन्सार प्रशासक राजेन्द्र ढुंगानासहित २५ जना सम्पर्कमा। करार/ज्यालादारी ४ मध्ये १ सम्पर्कमा। बाँकी ११ स्थायी र ३ करार/ज्यालादारीको खोज–उद्धार–समन्वय जारी। यो मृत्यु गणना होइन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१३:०१</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>टेलिकम दुई दिन, एनसेल तीन दिन निःशुल्क</h3>
       <p>नेपाल टेलिकम: रसुवा, नुवाकोट, धादिङ, गोरखा र चितवनका प्रभावितलाई दुई दिन प्रतिव्यक्ति प्रतिदिन ५० एसएमएस र २ जीबी डाटा निःशुल्क। एनसेल: तीन दिन भ्वाइस, एसएमएस र डाटा निःशुल्क। उद्धार हेलिकप्टरका लागि NOC ले काठमाडौंबाट त्रिशूलीमा हवाई इन्धन ट्यांकर पठायो।</p>
     </article>
     <article class="log-item">
       <p class="when">~१२:५७</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>धादिङबेसी जोड्ने वैकल्पिक पुल पनि बग्यो</h3>
       <p>अनलाइनखबर लाइभ: धादिङ सदरमुकाम जोड्ने <strong>केउरिनी–फोस्रेटार वैकल्पिक पुल</strong> पनि बाढीले बगायो। मलेखु फुर्केखोला पुल अघि नै बगेको। पृथ्वी राजमार्गबाट धादिङबेसी जोड्ने दुवै मुख्य पहुँच प्रभावित। आधिकारिक नागरिक मृत्यु संख्या अझै छैन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१२:५५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>चीनबाट हिमपहिरोको जानकारी, त्रिशूलीमा हवाई इन्धन</h3>
       <p>विपद् प्राधिकरण प्रवक्ता शान्ति महत: तिब्बतमा हिमपहिरोले बाढी आएको चीनबाट प्रारम्भिक जानकारी, अनौपचारिक, थप पुष्टि बाँकी। अर्थ मन्त्रालय: NOC ले काठमाडौं डिपोबाट नुवाकोट त्रिशूलीमा हवाई इन्धन ट्यांकर पठायो। स्वास्थ्य प्रवक्ता डा. समीरकुमार अधिकारी: धुन्चे जिल्ला अस्पतालमा २ घाइते उपचारमा; ट्रमा सेन्टर टोली रसुवा उडेको। आधिकारिक नागरिक मृत्यु संख्या अझै छैन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१२:४५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>प्रधानमन्त्रीको मन्त्रिपरिषद् बैठक सुरु</h3>
       <p>सम्माननीय प्रधानमन्त्री बालेन्द्र शाहज्यूले प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालयमा बोलाउनुभएको आकस्मिक मन्त्रिपरिषद् बैठक सुरु भएको छ। उद्धार–राहत परिचालनमा निर्णय लिने अपेक्षा। आधिकारिक नागरिक मृत्यु संख्या अझै छैन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१२:४२</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>NEA: ७ आयोजना प्रत्यक्ष प्रभावित, २७६ मेगावाट</h3>
       <p>नेपाल विद्युत् प्राधिकरणको १० भदौको अत्यन्त जरुरी सूचना: रसुवागढी १११, चिलिमे २२, लाङटाङ २०, त्रिशूली ३ए ६०, त्रिशूली २४, देवीघाट १४, NEA सोलार २५ मेगावाट प्रत्यक्ष प्रभावित। त्रिशूली ३बी हब २२० केभी सबस्टेशनसहित आपूर्ति अवरुद्ध। आधिकारिक नागरिक मृत्यु संख्या अझै छैन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१२:३२</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>फुर्के पुल बग्यो, सेनाले १२ जना उद्धार, १६ प्रहरी सम्पर्कविहीन</h3>
       <p>पृथ्वी राजमार्ग–धादिङ जोड्ने फुर्केखोला पुल बाढीले बगायो। गजुरी अध्यक्ष: राजमार्ग जोखिमपूर्ण। सेना: १२ जना हेलिकप्टर उद्धार, ४ सेना + ८ निजी हेलिकप्टर। बागमती डीआईजी रेग्मी: ३ प्रहरी युनिटका १६ जना सम्पर्कविहीन — मृत्यु होइन। आधिकारिक नागरिक मृत्यु संख्या अझै छैन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१२:२६</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सरकार: ३ हेलिकप्टर, चार जिल्लामा सुरक्षा, टेलिकम निःशुल्क</h3>
       <p>नेपाली सेनाका २ उद्धार र १ एमआई–१७ स्वास्थ्यकर्मीसहित ३ हेलिकप्टर टोली नुवाकोट–रसुवा प्रस्थान। धादिङ, नुवाकोट, रसुवा, चितवनका सबै सुरक्षा निकाय फिल्डमा। ती चार जिल्लामा नेपाल टेलिकमको फोन र डाटा उद्धार–समन्वयका लागि निःशुल्क।</p>
     </article>
     <article class="log-item">
       <p class="when">~१२:२४</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सेनाले ७ जना उद्धार, हेलिकप्टर ४ वटा</h3>
       <p>सेना प्रवक्ता सहायक रथी राजाराम बस्नेत: टिमुरेबाट ४ र स्याफ्रुबेसीबाट ३ गरी ७ जना हेलिकप्टरबाट उद्धार। अवतरण नसकिने भएकाले बास्केटमार्फत। ४ हेलिकप्टर टिमुरे, स्याफ्रुबेसी, मेलुङ, त्रिशूलीमा। छाउनी सैनिक अस्पतालको २० जनाको मेडिकल टिम त्रिशूलीमा।</p>
     </article>
     <article class="log-item">
       <p class="when">~१२:१६</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>त्रिशूलीले फुर्केमा खतरा तह नाघ्यो</h3>
       <p>बाढी पूर्वानुमान महाशाखा ११:४३: मलेखुस्थित फुर्के जलमापन केन्द्रमा त्रिशूलीको जलसतहले खतरा तह पार गर्‍यो, अझै तीव्र बढ्दो। तटीय बासिन्दा तत्काल सुरक्षित स्थानमा जानुहोस्। प्रधानमन्त्री कार्यालय: उद्धारका लागि निजी हेलिकप्टरलाई अनुमति नचाहिने। आधिकारिक मृत्यु संख्या अझै छैन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१२:१०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>टिमुरे भन्सार प्रमुख: १५/२० जना मात्र सम्पर्कमा</h3>
       <p>टिमुरे भन्सार प्रमुख राजेन्द्र ढुंगाना: कार्यालयमा ३०/४० जना थिए, अहिले १५/२० जना मात्र आपसमा सम्पर्कमा। केही साथी र बजारका प्रायः मानिस निस्कन नभ्याएको। माथिको जंगलमा करिब ४०/५० जना, उद्धार टोली नदेखिएको। प्रधानमन्त्रीले आकस्मिक मन्त्रिपरिषद् बैठक बोलाएका छन्। आधिकारिक मृत्यु संख्या अझै छैन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१२:०४</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सशस्त्रका ४ जना टिमुरेमा सम्पर्कविहीन, बाढी आदमघाट पार</h3>
       <p>सशस्त्र प्रहरी प्रवक्ता डीआईजी नेत्र बहादुर कार्की: बीओपी टिमुरेका ४ जना सशस्त्र प्रहरी सम्पर्कविहीन। बाढी धादिङको आदमघाट पार भएको। विपद् प्राधिकरण: सेनाका ३ हेलिकप्टर खटाइएको, निजी ३४ हेलिकप्टर अन्यत्र नजान निर्देशन। आधिकारिक नागरिक मृत्यु संख्या अझै छैन।</p>
     </article>
     <article class="log-item">
       <p class="when">~१२:००</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>टिमुरेमा ३००+ उद्धार पर्खाइ, फुर्के सतर्कता नाघ्यो</h3>
       <p>बाढी पूर्वानुमान महाशाखा ११:२६: त्रिशूलीको फुर्के जलमापन केन्द्रमा सतर्कता तह नाघ्यो, जलसतह अझै बढ्दो। टिमुरेमा वडासदस्य पेमा दोर्जे घलेका अनुसार ३०० भन्दा बढी स्थानीय उद्धार पर्खाइमा। विदुरमा दुई पक्की पुल बगे। नेपाल टेलिकम: ७ टावर क्षति।</p>
     </article>
     <article class="log-item">
       <p class="when">~११:५०</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>बाढी गजुरी पुग्यो, मुग्लिन नजिक</h3>
       <p>मुग्लिन प्रहरी: बाढी धादिङको गजुरी पुगेको, सडक यातायात रोकिएको, नदी आसपासका नागरिक स्थानान्तरणमा। विदुर मेयर राजन श्रेष्ठ: बेत्रावती सबैभन्दा बढी क्षति, सेन्ट्रल जेल डुबानमा, देवीघाट बजार डुबेको।</p>
     </article>
     <article class="log-item">
       <p class="when">~११:३४</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>आधा दर्जन विद्युत् गृह र सबस्टेशन ठप्प</h3>
       <p>नेपाल विद्युत् प्राधिकरण: रसुवागढी, चिलिमे, त्रिशूली ३ए, त्रिशूली ३बी हब २२० केभी सबस्टेशन, त्रिशूली र देवीघाटमा ठूलो क्षति। ती क्षेत्रको उत्पादन–प्रसारण ठप्प।</p>
     </article>
     <article class="log-item">
       <p class="when">~११:३१</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>विपद् परिषद् बैठक, टिमुरेमा ~२०० उद्धार पर्खाइ</h3>
       <p>प्रधानमन्त्री बालेन शाहको अध्यक्षतामा विपद् परिषद् बैठक सिंहदरबारमा। गोसाइँकुण्ड–२ वडासदस्य पेमा दोर्जे घले: टिमुरे बजार तहसनहस, करिब २०० जना डाँडामा उद्धार पर्खाइमा, हेलिकप्टर घुमे पनि नपुगेको।</p>
     </article>
     <article class="log-item">
       <p class="when">~११:२१</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>बाढी चितवन प्रवेश गर्दै</h3>
       <p>चितवन प्रजिअ गणेश अर्याल: बाढी चितवन प्रवेश गर्दै। मुग्लिन बजार, नारायणगढ किनार, भरतपुर–१६, पश्चिम चितवन उच्च जोखिम। तटीय बस्ती सारिँदै।</p>
     </article>
     <article class="log-item">
       <p class="when">~१०:२८</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>टिमुरेदेखि गल्छी पुग्यो बाढी, मुग्लिन केही घण्टामै</h3>
       <p>बाढी पूर्वानुमान महाशाखा: बाढी धादिङको गल्छी पुग्यो। पृथ्वी तथा मुग्लिन–नारायणगढ राजमार्ग र त्रिशूली किनारका बस्ती खाली गर्न आग्रह।</p>
     </article>
     <article class="log-item">
       <p class="when">~९:००–९:१५</p>
-      <p class="k">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>बाढी तिब्बतबाट टिमुरे हुँदै भोटेकोशीमा पस्यो</h3>
       <p>भीषण बाढी तिब्बतबाट नेपालको टिमुरे हुँदै लेन्दे खोला/भोटेकोशीमा पस्यो। महाशाखा: स्थानीय वर्षा होइन, हिमताल विस्फोटनको आशंका तर अहिले पुष्टि छैन।</p>
     </article>
@@ -2334,9 +2361,9 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 
 <section id="event">
-  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>सरोकारवालाको भनाइ</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_event">सरोकारवालाको भनाइ</h2></div>
   <div class="card teal">
-    <ul>
+    <ul data-i18n-list="event">
       <li>NESRA FloodWatch (२७ अगस्ट ०३:३१): कारण अनुसन्धानमा — GLOF कुनै वैज्ञानिक/सरकारी निकायले पुष्टि गरेको छैन। रसुवा प्रजिअ नरेन्द्र परियार: हिमताल विस्फोटन हो वा अर्को कारण अझै यकिन गर्न सकिँदैन। आइस एभलाञ्च शङ्कास्पद कारणमा; तिब्बततर्फको उद्गम ट्रिगर। पोस्ट-इभेन्ट Sentinel-1 नक्साङ्कन अझै उपलब्ध छैन। परराष्ट्रमन्त्री खनालको भूकम्पपछि पहिरो–बाँधसँगै राख्ने। स्रोत: <a href="https://nesraspace.org/floodwatch/rasuwa-2026/" target="_blank" rel="noopener">NESRA FloodWatch</a>।</li>
       <li>परराष्ट्रमन्त्री शिशिर खनाल (संसद् ~१५:५४): तिब्बतमा भूकम्प <strong>०८:३७</strong> पछि पहिरोले अस्थायी बाँध बनेर बाढी ~<strong>०८:४०</strong>। यो महावीर पुनको हिमताल फुटेको र DHM को GLOF आशंकासँगै राख्ने — प्रतिस्थापन होइन, प्रारम्भिक। खतरा सकिएको होइन।</li>
       <li>करिब <strong>९:००–९:१५</strong> बजे बाढी तिब्बतबाट नेपालको टिमुरे हुँदै लेन्दे खोला/भोटेकोशीमा पस्यो, त्यसपछि त्रिशूलीतिर बढ्यो।</li>
@@ -2353,15 +2380,15 @@ footer .foot-contact a:hover{text-decoration:underline}
 </section>
 
 <section id="damage">
-  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2>क्षति (प्रारम्भिक)</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2 data-i18n="h_damage">क्षति (प्रारम्भिक)</h2></div>
   <div class="pager" data-pager="damage">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
     <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
     <span class="pcount pager-count"></span>
   </div>
   <div class="card orange">
-    <ul id="damage-list">
+    <ul id="damage-list" data-i18n-list="damage">
       <li>NDRRMA SitRep-3 (राति २२:००): मोटरेबल पुल <strong>३५</strong> + झोलुङ्गे <strong>४५</strong> = पुल <strong>८०</strong>; पक्की सडक <strong>४० किमि</strong> पूर्ण ध्वस्त — SitRep-2 सँग मेल। अघिल्लो सडक विभाग पक्की २२ / बेली ५ · प्रधानमन्त्री कार्यालय मोटरेबल १९।</li>
       <li>बागमती प्रदेश प्रहरी कार्यालय (रातोपाटी ~१७:२६): मृत्यु <strong>२२</strong> — रसुवा १ पुरुष, नुवाकोट ११ (५ महिला + ६ पुरुष), धादिङ ९ (५ महिला + २ पुरुष + २ लिङ्ग नखुलेको), चितवन १ महिला। अघिल्लो पौने चारको १६ यो २२ बाट अद्यावधिक।</li>
       <li>जनस्वास्थ्य कार्यालय रसुवा (अनलाइनखबर ~१५:४१): टिमुरे र स्याफ्रुबेसीका <strong>२ स्वास्थ्य चौकी</strong> बाढीले बगाएको। त्यहाँका ४ स्वास्थ्यकर्मीसहित जम्मा ६ सम्पर्कविहीन — क्षति कार्डमा चौकी, सम्पर्कविहीन कार्डमा ६।</li>
@@ -2393,52 +2420,52 @@ footer .foot-contact a:hover{text-decoration:underline}
       <li>टिमुरे भन्सार प्रमुख राजेन्द्र ढुंगाना (अनलाइनखबर): बाढी साढे ८–पौने ९ मा, ज्वालामुखी जस्तो आवाज। कार्यालयमा ३०/४० जना; <strong>१५/२० जना मात्र आपसमा सम्पर्कमा</strong>। केही साथी निस्कन नभ्याएको। बजार तहसनहस, माथिको जंगलमा कर्मचारी र गाउँले करिब ४०/५० जना; उद्धार टोली नदेखिएको। खोलाको पानी घटे पनि तल झर्न सकिने अवस्था छैन। यो आधिकारिक मृत्यु गणना होइन।</li>
       <li>उत्तरगया–२ वडाध्यक्ष टुकुप्रसाद सुवेदी: क्षतिको लेखाजोखा गर्न नसकिने; जलविद्युत् हब बगेको, उद्धार जान नसकेको, पहिरो पनि; पालिका कार्यालय परिसरमा बाढी पसेर सवारी बगे।</li>
     </ul>
-    <p class="note">डिआईजी रेग्मी: ८ शव (नुवाकोट ४, धादिङ ४)। धादिङ जिल्ला प्रहरीको ६। गत वर्षका आंकडा यो घटनामा नमिसाउनुहोस्।</p>
+    <p class="note" data-i18n="damage_note">डिआईजी रेग्मी: ८ शव (नुवाकोट ४, धादिङ ४)। धादिङ जिल्ला प्रहरीको ६। गत वर्षका आंकडा यो घटनामा नमिसाउनुहोस्।</p>
   </div>
 </section>
 
 
 <section id="power">
-  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2>विद्युत् · NEA जरुरी सूचना</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2 data-i18n="h_power">विद्युत् · NEA जरुरी सूचना</h2></div>
   <div class="card orange">
-    <p>नेपाल विद्युत् प्राधिकरण प्रधान कार्यालय, दरबारमार्ग। <strong>अत्यन्त जरुरी सूचना</strong> · १० भदौ २०८३ (२६ अगस्ट २०२६)। रसुवाको आकस्मिक बाढीले जलविद्युत् र प्रसारण संरचनामा क्षति, आपूर्ति अवरुद्ध। आपूर्ति चाँडो सुचारु गर्ने प्रयास; नदीकिनार र जोखिम क्षेत्रमा सतर्क रहन आग्रह। हल्ला नपत्याउनुहोस्।</p>
+    <p data-i18n-html="power_p">नेपाल विद्युत् प्राधिकरण प्रधान कार्यालय, दरबारमार्ग। <strong>अत्यन्त जरुरी सूचना</strong> · १० भदौ २०८३ (२६ अगस्ट २०२६)। रसुवाको आकस्मिक बाढीले जलविद्युत् र प्रसारण संरचनामा क्षति, आपूर्ति अवरुद्ध। आपूर्ति चाँडो सुचारु गर्ने प्रयास; नदीकिनार र जोखिम क्षेत्रमा सतर्क रहन आग्रह। हल्ला नपत्याउनुहोस्।</p>
     <table class="plants">
       <thead>
-        <tr><th>क्र.</th><th>आयोजना</th><th class="mw">मेगावाट</th><th>कैफियत</th></tr>
+        <tr><th data-i18n="sn_short">क्र.</th><th data-i18n="plant">आयोजना</th><th class="mw" data-i18n="mw">मेगावाट</th><th data-i18n="remarks">कैफियत</th></tr>
       </thead>
       <tbody>
-        <tr class="hit"><td>१</td><td>रसुवागढी</td><td class="mw">१११</td><td>प्रत्यक्ष प्रभावित · NEA सहायक <span class="tag">प्रभावित</span></td></tr>
+        <tr class="hit"><td>१</td><td>रसुवागढी</td><td class="mw">१११</td><td><span data-i18n="nea_ipp"><span data-i18n="nea_own">प्रत्यक्ष प्रभावित · NEA</span> सहायक</span> <span class="tag" data-i18n="hit_tag">प्रभावित</span></td></tr>
         <tr><td>२</td><td>सालासुङगी (सञ्जेन)</td><td class="mw">७८</td><td></td></tr>
         <tr><td>३</td><td>अपर सञ्जेन</td><td class="mw">१४.८</td><td></td></tr>
         <tr><td>४</td><td>सञ्जेन</td><td class="mw">४२.५</td><td></td></tr>
-        <tr class="hit"><td>५</td><td>चिलिमे</td><td class="mw">२२</td><td>प्रत्यक्ष प्रभावित · NEA सहायक <span class="tag">प्रभावित</span></td></tr>
-        <tr class="hit"><td>६</td><td>लाङटाङ</td><td class="mw">२०</td><td>प्रत्यक्ष प्रभावित · आईपीपी <span class="tag">प्रभावित</span></td></tr>
-        <tr class="hit"><td>७</td><td>त्रिशूली ३ए</td><td class="mw">६०</td><td>प्रत्यक्ष प्रभावित · NEA <span class="tag">प्रभावित</span></td></tr>
+        <tr class="hit"><td>५</td><td>चिलिमे</td><td class="mw">२२</td><td><span data-i18n="nea_ipp"><span data-i18n="nea_own">प्रत्यक्ष प्रभावित · NEA</span> सहायक</span> <span class="tag" data-i18n="hit_tag">प्रभावित</span></td></tr>
+        <tr class="hit"><td>६</td><td>लाङटाङ</td><td class="mw">२०</td><td><span data-i18n="nea_ipp2">प्रत्यक्ष प्रभावित · आईपीपी</span> <span class="tag" data-i18n="hit_tag">प्रभावित</span></td></tr>
+        <tr class="hit"><td>७</td><td>त्रिशूली ३ए</td><td class="mw">६०</td><td><span data-i18n="nea_own">प्रत्यक्ष प्रभावित · NEA</span> <span class="tag" data-i18n="hit_tag">प्रभावित</span></td></tr>
         <tr><td>८</td><td>अपर मैलुङ</td><td class="mw">१४.८</td><td></td></tr>
         <tr><td>९</td><td>मैलुङ</td><td class="mw">५</td><td></td></tr>
-        <tr class="hit"><td>१०</td><td>त्रिशूली</td><td class="mw">२४</td><td>प्रत्यक्ष प्रभावित · NEA <span class="tag">प्रभावित</span></td></tr>
-        <tr class="hit"><td>११</td><td>देवीघाट</td><td class="mw">१४</td><td>प्रत्यक्ष प्रभावित · NEA <span class="tag">प्रभावित</span></td></tr>
-        <tr class="hit"><td>१२</td><td>NEA सोलार</td><td class="mw">२५</td><td>प्रत्यक्ष प्रभावित · NEA <span class="tag">प्रभावित</span></td></tr>
+        <tr class="hit"><td>१०</td><td>त्रिशूली</td><td class="mw">२४</td><td><span data-i18n="nea_own">प्रत्यक्ष प्रभावित · NEA</span> <span class="tag" data-i18n="hit_tag">प्रभावित</span></td></tr>
+        <tr class="hit"><td>११</td><td>देवीघाट</td><td class="mw">१४</td><td><span data-i18n="nea_own">प्रत्यक्ष प्रभावित · NEA</span> <span class="tag" data-i18n="hit_tag">प्रभावित</span></td></tr>
+        <tr class="hit"><td>१२</td><td>NEA सोलार</td><td class="mw">२५</td><td><span data-i18n="nea_own">प्रत्यक्ष प्रभावित · NEA</span> <span class="tag" data-i18n="hit_tag">प्रभावित</span></td></tr>
       </tbody>
       <tfoot>
-        <tr><td></td><td>जम्मा सूची</td><td class="mw">४३१.१</td><td>प्रत्यक्ष प्रभावित २७६ मेगावाट · त्रिशूली ३बी हब २२० केभी सबस्टेशन पनि क्षति</td></tr>
+        <tr><td></td><td data-i18n="list_total">जम्मा सूची</td><td class="mw">४३१.१</td><td data-i18n="power_foot">प्रत्यक्ष प्रभावित २७६ मेगावाट · त्रिशूली ३बी हब २२० केभी सबस्टेशन पनि क्षति</td></tr>
       </tfoot>
     </table>
-    <p class="note">स्रोत: नेपाल विद्युत् प्राधिकरण सूचना २०८३/०५/१०। खाली कैफियत भएका आयोजना यो सूचीमा छन्, प्रत्यक्ष प्रभावित भनेर चिन्हित छैनन्। फोन ०१-४१५३००७, ०१-४१५३०१२ · <a href="https://www.nea.org.np" target="_blank" rel="noopener">nea.org.np</a></p>
-    <p class="note">NEA (<a href="https://www.ratopati.com/story/587664/more-than-133-hydropower-employees-and-workers-left-without-contact-in-rasuwa-flood" target="_blank" rel="noopener">रातोपाटी</a>): विभिन्न आयोजनाका कर्मचारी/कामदार <strong>१३३ भन्दा बढी</strong> सम्पर्कविहीन। लाङटाङ आयोजनाको ६० यथावत्।</p>
+    <p class="note" data-i18n-html="power_note1">स्रोत: नेपाल विद्युत् प्राधिकरण सूचना २०८३/०५/१०। खाली कैफियत भएका आयोजना यो सूचीमा छन्, प्रत्यक्ष प्रभावित भनेर चिन्हित छैनन्। फोन ०१-४१५३००७, ०१-४१५३०१२ · <a href="https://www.nea.org.np" target="_blank" rel="noopener">nea.org.np</a></p>
+    <p class="note" data-i18n-html="power_note2">NEA (<a href="https://www.ratopati.com/story/587664/more-than-133-hydropower-employees-and-workers-left-without-contact-in-rasuwa-flood" target="_blank" rel="noopener">रातोपाटी</a>): विभिन्न आयोजनाका कर्मचारी/कामदार <strong>१३३ भन्दा बढी</strong> सम्पर्कविहीन। लाङटाङ आयोजनाको ६० यथावत्।</p>
   </div>
 </section>
 
 <section id="rescue">
-  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2>उद्धार / सरकार</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rescue">उद्धार / सरकार</h2></div>
   <div class="pager" data-pager="rescue">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
     <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
     <span class="pcount pager-count"></span>
   </div>
   <div class="card green">
-    <ul id="rescue-list">
+    <ul id="rescue-list" data-i18n-list="rescue">
       <li>NDRRMA SitRep-3 (राति २२:००): हवाई उद्धार <strong>११६</strong> — सेना <strong>८८</strong>, निजी हेलि <strong>२८</strong>। स्थलगत उद्धार <strong>९३</strong> — रसुवा ४३, नुवाकोट ४७, धादिङ ३। अघिल्लो SitRep-2 स्थलगत ८० (रसुवा ३०)।</li>
       <li>नेपाल प्रहरी / रासस (~१९:४८): उपचाररत जम्मा <strong>६३</strong> — टिचिङ २१, ट्रमा ७, छाउनी १, रसुवा २१, त्रिशूली १६, नर्भिक ३, ग्रीनसिटी १। अघिल्लो काठमाडौं २५ / रसुवा २४ यो ६३ बाट अद्यावधिक। नामतालिका <a href="#treat">घाइते उपचाररतहरूको सम्पर्क विवरण</a> मा।</li>
       <li>प्रहरी प्रवक्ता एसपी दानबहादुर थापा: काठमाडौंका अस्पतालमा घाइते जम्मा <strong>२५</strong> — ट्रमा ४, वीरेन्द्र सैनिक अस्पताल छाउनी १, टिचिङ २० (नामसहित २२ + पहिचान नखुलेका २ + शिशु १)। पछि प्रहरी ६३ ले अद्यावधिक।</li>
@@ -2490,15 +2517,15 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 
 <section id="roads">
-  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2>सडक / ट्राफिक</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2 data-i18n="h_roads">सडक / ट्राफिक</h2></div>
   <div class="pager" data-pager="roads">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
     <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
     <span class="pcount pager-count"></span>
   </div>
   <div class="card orange">
-    <ul id="roads-list">
+    <ul id="roads-list" data-i18n-list="roads">
       <li>NESRA FloodWatch (२७ अगस्ट ०३:३१, सडक विभाग / कान्तिपुर): बेत्रावती–रसुवागढी करिब <strong>४२ किमि</strong> क्षति — कयौं पक्की पुल बगेको; खुला/बन्द आधिकारिक पुष्टि छैन। रसुवागढी–टिमुरे / टिमुरे–स्याफ्रुबेसी / स्याफ्रुबेसी–बेत्रावती यसै क्षतिको हिस्सा। मर्मत सुरु (भारी उपकरण)। पुल <strong>८०</strong> / पक्की ४० किमि NDRRMA SitRep-3 यथावत्। स्रोत: <a href="https://nesraspace.org/floodwatch/rasuwa-2026/" target="_blank" rel="noopener">NESRA FloodWatch</a>।</li>
       <li>NDRRMA SitRep-3 (राति २२:००): मोटरेबल पुल <strong>३५</strong> + झोलुङ्गे <strong>४५</strong> = पुल <strong>८०</strong>; पक्की सडक <strong>४० किमि</strong> पूर्ण ध्वस्त — SitRep-2 सँग मेल। अघिल्लो सडक विभाग पक्की २२ / बेली ५ · प्रधानमन्त्री कार्यालय मोटरेबल १९।</li>
       <li>बाढी पूर्वानुमान महाशाखा १५:२० हाई अलर्ट (खबरहब ~१५:४२): भोटेकोशीको बाढी <strong>नारायणी–देवघाट</strong> पुग्यो, जलसतह बढ्दो। नदी छेउछाउ उच्च सतर्कता। नुवाकोट देवीघाट होइन। सुस्तामा बाढी पुगेको पुष्टि छैन।</li>
@@ -2519,11 +2546,11 @@ footer .foot-contact a:hover{text-decoration:underline}
 </section>
 
 <section id="feeds">
-    <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2>लाइभ सोसल फिड</h2></div>
+    <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_feeds">लाइभ सोसल फिड</h2></div>
     <div class="feed-tabs" role="tablist">
-      <button type="button" class="active" data-tab="official">आधिकारिक</button>
-      <button type="button" data-tab="minister">गृहमन्त्री</button>
-      <button type="button" data-tab="news">समाचार पोर्टल</button>
+      <button type="button" class="active" data-tab="official" data-i18n="tab_official">आधिकारिक</button>
+      <button type="button" data-tab="minister" data-i18n="tab_minister">गृहमन्त्री</button>
+      <button type="button" data-tab="news" data-i18n="tab_news">समाचार पोर्टल</button>
       <button type="button" data-tab="ronb">RONB</button>
     </div>
 
@@ -2533,8 +2560,8 @@ footer .foot-contact a:hover{text-decoration:underline}
           <header><b>नेपाल प्रहरी</b><a href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener">@NepalPoliceHQ</a></header>
           <div class="x-open">
             <img src="img/x_NepalPoliceHQ_official_alert_video_frame.jpg" alt="">
-            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
-            <a class="x-btn" href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
+            <a class="x-btn" href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
           </div>
         </article>
         <article class="feed-box">
@@ -2545,16 +2572,16 @@ footer .foot-contact a:hover{text-decoration:underline}
           <header><b>विपद् प्राधिकरण</b><a href="https://x.com/NDRRMA_Nepal" target="_blank" rel="noopener">@NDRRMA_Nepal</a></header>
           <div class="x-open">
             
-            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
-            <a class="x-btn" href="https://x.com/NDRRMA_Nepal" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
+            <a class="x-btn" href="https://x.com/NDRRMA_Nepal" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
           </div>
         </article>
         <article class="feed-box">
           <header><b>सेना (X)</b><a href="https://x.com/thenepalesearmy" target="_blank" rel="noopener">@thenepalesearmy</a></header>
           <div class="x-open">
             
-            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
-            <a class="x-btn" href="https://x.com/thenepalesearmy" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
+            <a class="x-btn" href="https://x.com/thenepalesearmy" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
           </div>
         </article>
       </div>
@@ -2569,8 +2596,8 @@ footer .foot-contact a:hover{text-decoration:underline}
         <article class="feed-box">
           <header><b>इन्स्टाग्राम</b><a href="https://www.instagram.com/sudangrg_haminepal/" target="_blank" rel="noopener">@sudangrg_haminepal</a></header>
           <div class="x-open">
-            <p>गृहमन्त्रीको सार्वजनिक इन्स्टाग्राम। लाइभ पोस्ट खातामा हेर्नुहोस्।</p>
-            <a class="x-btn" href="https://www.instagram.com/sudangrg_haminepal/" target="_blank" rel="noopener">Instagram मा खोल्नुहोस्</a>
+            <p data-i18n="ig_hint">गृहमन्त्रीको सार्वजनिक इन्स्टाग्राम। लाइभ पोस्ट खातामा हेर्नुहोस्।</p>
+            <a class="x-btn" href="https://www.instagram.com/sudangrg_haminepal/" target="_blank" rel="noopener" data-i18n="open_ig">Instagram मा खोल्नुहोस्</a>
           </div>
         </article>
       </div>
@@ -2582,32 +2609,32 @@ footer .foot-contact a:hover{text-decoration:underline}
           <header><b>अनलाइनखबर</b><a href="https://x.com/Online_khabar" target="_blank" rel="noopener">@Online_khabar</a></header>
           <div class="x-open">
             
-            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
-            <a class="x-btn" href="https://x.com/Online_khabar" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
+            <a class="x-btn" href="https://x.com/Online_khabar" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
           </div>
         </article>
         <article class="feed-box">
           <header><b>काठमाडौं पोस्ट</b><a href="https://x.com/kathmandupost" target="_blank" rel="noopener">@kathmandupost</a></header>
           <div class="x-open">
             
-            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
-            <a class="x-btn" href="https://x.com/kathmandupost" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
+            <a class="x-btn" href="https://x.com/kathmandupost" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
           </div>
         </article>
         <article class="feed-box">
           <header><b>रातोपाटी</b><a href="https://x.com/Rato_pati" target="_blank" rel="noopener">@Rato_pati</a></header>
           <div class="x-open">
             
-            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
-            <a class="x-btn" href="https://x.com/Rato_pati" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
+            <a class="x-btn" href="https://x.com/Rato_pati" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
           </div>
         </article>
         <article class="feed-box">
           <header><b>अनलाइनखबर (EN)</b><a href="https://x.com/OnlineKhabar_En" target="_blank" rel="noopener">@OnlineKhabar_En</a></header>
           <div class="x-open">
             
-            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
-            <a class="x-btn" href="https://x.com/OnlineKhabar_En" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
+            <a class="x-btn" href="https://x.com/OnlineKhabar_En" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
           </div>
         </article>
       </div>
@@ -2623,38 +2650,38 @@ footer .foot-contact a:hover{text-decoration:underline}
           <header><b>RONB (X)</b><a href="https://x.com/RONBupdates" target="_blank" rel="noopener">@RONBupdates</a></header>
           <div class="x-open">
             
-            <p>X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</p>
-            <a class="x-btn" href="https://x.com/RONBupdates" target="_blank" rel="noopener">X मा खोल्नुहोस्</a>
+            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
+            <a class="x-btn" href="https://x.com/RONBupdates" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
           </div>
         </article>
       </div>
     </div>
-    <p class="feed-note">X को एम्बेड रेट-लिमिटले थम्बनेल लोड हुँदैनथ्यो, त्यसैले X खाता सीधै खोल्ने लिंक राखिएको छ। फेसबुक पेज फिड यहाँ नै चल्छ।</p>
+    <p class="feed-note" data-i18n="feed_note">X को एम्बेड रेट-लिमिटले थम्बनेल लोड हुँदैनथ्यो, त्यसैले X खाता सीधै खोल्ने लिंक राखिएको छ। फेसबुक पेज फिड यहाँ नै चल्छ।</p>
 </section>
 
 <section id="videos">
-  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2>भिडियो</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_videos">भिडियो</h2></div>
   <div class="videos">
-    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/6izy3rlzSOA" title="बिजपाटी बाढी भिडियो" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/gJXPIT4g7T4" title="TEN TV बाढी भिडियो" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/6izy3rlzSOA" title="बिजपाटी बाढी भिडियो" data-i18n-title="vid_biz" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/gJXPIT4g7T4" title="TEN TV बाढी भिडियो" data-i18n-title="vid_ten" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
   </div>
-  <p style="font-size:13px;color:var(--muted);margin:8px 0 0">बिजपाटी · TEN TV · गोपनीयता-सुरक्षित युट्युब एम्बेड</p>
+  <p style="font-size:13px;color:var(--muted);margin:8px 0 0" data-i18n="video_note">बिजपाटी · TEN TV · गोपनीयता-सुरक्षित युट्युब एम्बेड</p>
   <a class="xlink" href="https://x.com/NepalPoliceHQ/status/2092469695371006058" target="_blank" rel="noopener">
     <img src="img/x_NepalPoliceHQ_official_alert_video_frame.jpg" alt="">
-    <div><strong>नेपाल प्रहरी आधिकारिक भिडियो</strong><br>@NepalPoliceHQ · भोटेकोशीमा तिब्बततर्फबाट आएको बाढी</div>
+    <div><strong data-i18n="vid_police">नेपाल प्रहरी आधिकारिक भिडियो</strong><br><span data-i18n="vid_police_sub">@NepalPoliceHQ · भोटेकोशीमा तिब्बततर्फबाट आएको बाढी</span></div>
   </a>
   <a class="xlink" href="https://x.com/saalik3783/status/2092474494632030365" target="_blank" rel="noopener">
     <img src="img/x_saalik3783_bhotekoshi_video_frame.jpg" alt="">
-    <div><strong>नागरिक भिडियो</strong><br>@saalik3783 · बस्तीछेउ भीषण बाढी</div>
+    <div><strong data-i18n="vid_citizen">नागरिक भिडियो</strong><br><span data-i18n="vid_citizen_sub">@saalik3783 · बस्तीछेउ भीषण बाढी</span></div>
   </a>
 </section>
 
 <section id="sources">
-  <div class="sec-head"><span class="dot" style="background:var(--ink)"></span><h2>स्रोत</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--ink)"></span><h2 data-i18n="h_sources">स्रोत</h2></div>
   <div class="pager" data-pager="sources">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज">‹</button>
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
     <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज">›</button>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
     <span class="pcount pager-count"></span>
   </div>
   <div class="sources" id="source-grid">
@@ -2662,30 +2689,30 @@ footer .foot-contact a:hover{text-decoration:underline}
     <div class="src-group">
 <h3>DHM <span class="badge">१</span></h3>
       <div class="src-list">
-<a href="docs/dhm-bhadra10-sitrep.pdf" target="_blank" rel="noopener">बाढी पूर्वानुमान महाशाखा: प्राविधिक स्थिति प्रतिवेदन · १० भदौ २०८३ (PDF)</a>
+<a href="docs/dhm-bhadra10-sitrep.pdf" target="_blank" rel="noopener" data-i18n="src_dhm">बाढी पूर्वानुमान महाशाखा: प्राविधिक स्थिति प्रतिवेदन · १० भदौ २०८३ (PDF)</a>
 </div>
 </div>
 
     <div class="src-group">
 <h3>NDRRMA <span class="badge">२</span></h3>
       <div class="src-list">
-<a href="img/sitrep3-casualties.jpg" target="_blank" rel="noopener">स्थिति प्रतिवेदन #०३: शव १२३, सम्पर्कविहीन २४५, घाइते ७५ · राति २२:००</a>
-<a href="img/sitrep3-cabinet.jpg" target="_blank" rel="noopener">स्थिति प्रतिवेदन #०३: समयरेखा र मन्त्रिपरिषद्का १० निर्णय</a>
+<a href="img/sitrep3-casualties.jpg" target="_blank" rel="noopener" data-i18n="src_sit3a">स्थिति प्रतिवेदन #०३: शव १२३, सम्पर्कविहीन २४५, घाइते ७५ · राति २२:००</a>
+<a href="img/sitrep3-cabinet.jpg" target="_blank" rel="noopener" data-i18n="src_sit3b">स्थिति प्रतिवेदन #०३: समयरेखा र मन्त्रिपरिषद्का १० निर्णय</a>
 </div>
 </div>
 
     <div class="src-group">
 <h3>NESRA FloodWatch <span class="badge">१</span></h3>
       <div class="src-list">
-<a href="https://nesraspace.org/floodwatch/rasuwa-2026/" target="_blank" rel="noopener">NESRA FloodWatch: रसुवा २०२६ — उपग्रह २७ अगस्ट ०३:३१ NPT (सेन्टिनेल-१ / जिओस्पेसियल)</a>
+<a href="https://nesraspace.org/floodwatch/rasuwa-2026/" target="_blank" rel="noopener" data-i18n="src_nesra">NESRA FloodWatch: रसुवा २०२६ — उपग्रह २७ अगस्ट ०३:३१ NPT (सेन्टिनेल-१ / जिओस्पेसियल)</a>
 </div>
 </div>
 
     <div class="src-group">
 <h3>Copernicus EMS <span class="badge">२</span></h3>
       <div class="src-list">
-<a href="https://mapping.emergency.copernicus.eu/activations/EMSR927/" target="_blank" rel="noopener">EMSR927 Rapid Mapping: टिमुरे / स्याफ्रुबेसी बाढी नक्सा (ICEYE; नक्सा आउन बाँकी)</a>
-<a href="https://mapping.emergency.copernicus.eu/news/flood-in-nepal-emsr927/" target="_blank" rel="noopener">Copernicus EMS: Flood in Nepal — situational reporting (२६ अगस्ट)</a>
+<a href="https://mapping.emergency.copernicus.eu/activations/EMSR927/" target="_blank" rel="noopener" data-i18n="src_ems1">EMSR927 Rapid Mapping: टिमुरे / स्याफ्रुबेसी बाढी नक्सा (ICEYE; नक्सा आउन बाँकी)</a>
+<a href="https://mapping.emergency.copernicus.eu/news/flood-in-nepal-emsr927/" target="_blank" rel="noopener" data-i18n="src_ems2">Copernicus EMS: Flood in Nepal — situational reporting (२६ अगस्ट)</a>
 </div>
 </div>
 
@@ -2905,42 +2932,43 @@ footer .foot-contact a:hover{text-decoration:underline}
 
 <div class="fab-dock">
   <p class="notify-hint" id="notify-hint"></p>
-  <button type="button" class="notify-btn" id="notify-btn" aria-pressed="false" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट">
+  <button type="button" class="notify-btn" id="notify-btn" aria-pressed="false" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट" data-i18n-aria="notify_aria_off" data-i18n-title="notify_title">
     <svg class="bell-on" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm8-3H4v-1.2l2-2.1V11c0-3.07 1.63-5.64 4.5-6.32V4a1.5 1.5 0 0 1 3 0v.68C16.37 5.36 18 7.92 18 11v4.7l2 2.1V19z"/></svg>
     <svg class="bell-off" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zM3.28 2 2 3.27l2.74 2.74A7.1 7.1 0 0 0 4 11v4.7L2 17.8V19h13.73L20.73 24 22 22.73 3.28 2zM18 16.27V11c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68c-.5.12-.96.3-1.39.54L18 16.27z"/></svg>
-    <span class="notify-label">अपडेट</span>
+    <span class="notify-label" data-i18n="notify_label">अपडेट</span>
   </button>
   <div class="portal-fab">
   <details id="portal-contact">
-    <summary aria-label="सम्पर्क · WhatsApp र इमेल">
+    <summary aria-label="सम्पर्क · WhatsApp र इमेल" data-i18n-aria="portal_aria">
       <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
     </summary>
     <div class="portal-panel">
-      <p><b>रसुवा बाढी बुलेटिन</b>स्वतन्त्र नागरिक पाना। सरकार होइन। हराएको/भेटिएको फारम, WhatsApp वा इमेल। उद्धारका लागि १२३४।</p>
-      <a class="miss" href="https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform" target="_blank" rel="noopener">हराएको रिपोर्ट</a>
-      <a class="found" href="https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform" target="_blank" rel="noopener">अपडेट गर्नुहोस्</a>
+      <p data-i18n-html="portal_p"><b>रसुवा बाढी बुलेटिन</b>स्वतन्त्र नागरिक पाना। सरकार होइन। हराएको/भेटिएको फारम, WhatsApp वा इमेल। उद्धारका लागि १२३४।</p>
+      <a class="miss" href="https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform" target="_blank" rel="noopener" data-i18n="report_missing">हराएको रिपोर्ट</a>
+      <a class="found" href="https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform" target="_blank" rel="noopener" data-i18n="update_form">अपडेट गर्नुहोस्</a>
       <a class="wa" href="https://wa.me/9779701010000?text=%E0%A4%B0%E0%A4%B8%E0%A5%81%E0%A4%B5%E0%A4%BE%20%E0%A4%AC%E0%A4%BE%E0%A4%A2%E0%A5%80%20%E0%A4%AC%E0%A5%81%E0%A4%B2%E0%A5%87%E0%A4%9F%E0%A4%BF%E0%A4%A8" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="mail" href="mailto:neerajbhusal@gmail.com?subject=Rasuwa%20flood%20bulletin">इमेल</a>
+      <a class="mail" href="mailto:neerajbhusal@gmail.com?subject=Rasuwa%20flood%20bulletin" data-i18n="portal_mail">इमेल</a>
     </div>
   </details>
   </div>
 </div>
 
 <footer>
-  <p class="foot-contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
-  Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
-  यो पृष्ठ आज २६ अगस्ट २०२६ / १० भदौ २०८३ को घटनामा मात्र केन्द्रित छ।
+  <p class="foot-contact" data-i18n-html="foot_contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
+  <span data-i18n-html="footer">Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
+  यो पृष्ठ आज २६ अगस्ट २०२६ / १० भदौ २०८३ को घटनामा मात्र केन्द्रित छ।</span>
 </footer>
 
 <div class="lb" id="lightbox" hidden>
-  <button type="button" class="lb-x" id="lb-close" aria-label="बन्द">×</button>
-  <button type="button" class="lb-prev" id="lb-prev" aria-label="अघिल्लो तस्बिर">‹</button>
+  <button type="button" class="lb-x" id="lb-close" aria-label="बन्द" data-i18n-aria="close">×</button>
+  <button type="button" class="lb-prev" id="lb-prev" aria-label="अघिल्लो तस्बिर" data-i18n-aria="prev_photo">‹</button>
   <img id="lb-img" alt="">
-  <button type="button" class="lb-next" id="lb-next" aria-label="पछिल्लो तस्बिर">›</button>
+  <button type="button" class="lb-next" id="lb-next" aria-label="पछिल्लो तस्बिर" data-i18n-aria="next_photo">›</button>
   <p id="lb-cap"></p>
 </div>
 
 
+<script src="i18n.js"></script>
 <script>
 (function(){
   document.querySelectorAll(".fund button.acct").forEach(function(btn){
@@ -2950,7 +2978,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         btn.classList.add("copied");
         var old = btn.getAttribute("data-old");
         if(!old){ btn.setAttribute("data-old", btn.innerHTML); }
-        btn.textContent = "कपी भयो · " + n;
+        btn.textContent = (window.t ? t("copied") : "कपी भयो") + " · " + n;
         setTimeout(function(){
           btn.classList.remove("copied");
           var html = btn.getAttribute("data-old");
@@ -3014,25 +3042,26 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     btn.title = aria;
     btn.disabled = false;
   }
+  function tt(k){ return window.t ? t(k) : k; }
   function paint() {
     if (!canApi()) {
-      setUi("बन्द", "off", "यो ब्राउजरमा सूचना उपलब्ध छैन", false);
+      setUi(tt("notify_off_label"), "off", tt("notify_unsupported"), false);
       return "unsupported";
     }
     var p = Notification.permission;
     if (p === "denied") {
-      setUi("बन्द", "denied", "ब्राउजरले सूचना ब्लक गरेको छ", false);
+      setUi(tt("notify_off_label"), "denied", tt("notify_denied"), false);
       return "denied";
     }
     if (p === "granted" && wantedOn()) {
-      setUi("अन", "on", "अपडेट अलर्ट बन्द गर्नुहोस्", true);
+      setUi(tt("notify_on_label"), "on", tt("notify_aria_on"), true);
       return "on";
     }
     if (p === "granted") {
-      setUi("बन्द", "off", "अपडेट अलर्ट अन गर्नुहोस्", false);
+      setUi(tt("notify_off_label"), "off", tt("notify_aria_off"), false);
       return "off";
     }
-    setUi("अपडेट", "off", "अपडेट अलर्ट अन गर्नुहोस्", false);
+    setUi(tt("notify_label"), "off", tt("notify_aria_off"), false);
     return "default";
   }
   function toWorker(msg) {
@@ -3098,12 +3127,12 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     ev.preventDefault();
     ev.stopPropagation();
     if (!canApi()) {
-      showHint("यो ब्राउजरमा सूचना चल्दैन। Chrome वा Safari (Home Screen) मा खोल्नुहोस्।");
+      showHint(tt("notify_hint_ua"));
       return;
     }
     var p = Notification.permission;
     if (p === "denied") {
-      showHint("ब्राउजर सेटिङबाट यो साइटको सूचना अनुमति दिनुहोस्।");
+      showHint(tt("notify_hint_denied"));
       return;
     }
     if (p === "granted") {
@@ -3115,12 +3144,13 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     Promise.resolve(req).then(function(res){
       paint();
       if (res === "granted") turnOn();
-      else if (res === "denied") showHint("ब्राउजरले सूचना ब्लक गर्‍यो।");
-      else if (!standalone()) showHint("iPhone मा Share → Add to Home Screen गरेपछि सूचना आउँछ।");
+      else if (res === "denied") showHint(tt("notify_hint_blocked"));
+      else if (!standalone()) showHint(tt("notify_hint_ios"));
     }).catch(function(){
-      showHint("अनुमति माग्न सकिएन। Home Screen बाट खोलेर फेरि प्रयास गर्नुहोस्।");
+      showHint(tt("notify_hint_fail"));
     });
   }, { passive: false });
+  if (window.__addLangHook) window.__addLangHook(paint);
 })();
 
 (function(){
@@ -3147,7 +3177,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
         b.type = "button";
         b.className = "pbox" + (n === page ? " active" : "");
         b.textContent = String(n + 1);
-        b.setAttribute("aria-label", "पेज " + (n + 1));
+        b.setAttribute("aria-label", (window.t ? t("page") : "पेज") + " " + (n + 1));
         (function(idx){ b.addEventListener("click", function(){ page = idx; paint(true); }); })(n);
         pagesEl.appendChild(b);
       }
@@ -3171,6 +3201,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       paint(true);
     });
     paint(false);
+    if (window.__addLangHook) window.__addLangHook(function(){ paint(false); });
   }
   window.__bindPager = bindPager;
   function setStick() {
@@ -3241,12 +3272,13 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   if (!root) return;
   var listEl = document.getElementById("wl-list") || root;
   var srcEl = document.getElementById("wl-src");
-  var DIG = "०१२३४५६७८९";
-  function np(s){ return String(s).replace(/[0-9]/g, function(d){ return DIG[d]; }); }
+  function np(s){ return window.fmtNum ? fmtNum(s) : s; }
   function fmtM(v){
     if (v == null || v === "" || isNaN(v)) return "—";
-    return np(Number(v).toFixed(2));
+    var n = Number(v).toFixed(2);
+    return window.fmtNum ? fmtNum(n) : n;
   }
+  function tt(k){ return window.t ? t(k) : k; }
   function npt(iso){
     if (!iso) return "";
     var d = new Date(iso);
@@ -3259,13 +3291,13 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     return np(get("hour") + ":" + get("minute"));
   }
   function badgeOf(st, level, warn, danger, silent, washed){
-    if (washed) return {cls:"danger", label:"बगेको"};
-    if (silent) return {cls:"silent", label:"गेज मौन"};
-    if (danger && level >= danger) return {cls:"danger", label:"खतरा स्तर"};
-    if (warn && level >= warn) return {cls:"warn", label:"सतर्कता स्तर"};
-    if (st === "FALLING") return {cls:"ok", label:"घट्दो"};
-    if (st === "RISING") return {cls:"warn", label:"बढ्दो"};
-    return {cls:"ok", label:"सतर्कतामुनि"};
+    if (washed) return {cls:"danger", label:tt("washed")};
+    if (silent) return {cls:"silent", label:tt("silent_gauge")};
+    if (danger && level >= danger) return {cls:"danger", label:tt("danger_level")};
+    if (warn && level >= warn) return {cls:"warn", label:tt("warn_level")};
+    if (st === "FALLING") return {cls:"ok", label:tt("falling")};
+    if (st === "RISING") return {cls:"warn", label:tt("rising")};
+    return {cls:"ok", label:tt("below_warn")};
   }
   function rowHtml(s){
     var level = Number(s.level_m);
@@ -3287,28 +3319,43 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       fillCls += " danger";
     }
     var marks = "";
-    if (warn) marks += '<i style="left:' + ((warn/max)*100) + '%">सतर्कता ' + fmtM(warn) + '</i>';
-    if (danger) marks += '<i style="left:' + ((danger/max)*100) + '%">खतरा ' + fmtM(danger) + '</i>';
-    var meta = (s.district_np || "") + (when ? " · " + when : "");
-    if (washed) meta += " · अन्तिम पढाइ · लाइभ होइन";
-    else if (silent) meta += " · यो पढाइपछि मौन";
+    var en = document.documentElement.lang === "en";
+    if (warn) marks += '<i style="left:' + ((warn/max)*100) + '%">' + tt("warning") + " " + fmtM(warn) + '</i>';
+    if (danger) marks += '<i style="left:' + ((danger/max)*100) + '%">' + tt("danger") + " " + fmtM(danger) + '</i>';
+    var dist = en ? (s.district || s.district_np || "") : (s.district_np || s.district || "");
+    var meta = dist + (when ? " · " + when : "");
+    if (washed) meta += " · " + tt("last_not_live");
+    else if (silent) meta += " · " + tt("silent_after");
     var href = s.source || ("https://www.dhm.gov.np/hydrology/hms-Single/" + s.station_id);
+    var sname = en ? (s.name || s.name_np) : (s.name_np || s.name);
     return '<article class="wl-row' + (washed ? " washed" : "") + '">' +
-      '<div class="wl-row-top"><h4>' + (s.name_np || s.name) +
-      '<small><a href="' + href + '" target="_blank" rel="noopener">' + (s.district_np || "") + ' · DHM</a></small></h4>' +
+      '<div class="wl-row-top"><h4>' + sname +
+      '<small><a href="' + href + '" target="_blank" rel="noopener">' + dist + ' · DHM</a></small></h4>' +
       '<span class="wl-badge ' + b.cls + '">' + b.label + '</span></div>' +
-      '<div class="wl-num">' + fmtM(level) + '<span>मिटर</span></div>' +
+      '<div class="wl-num">' + fmtM(level) + '<span>' + tt("meter") + '</span></div>' +
       '<p class="wl-meta">' + meta + '</p>' +
       '<div class="wl-track" aria-hidden="true"><div class="' + fillCls + '" style="width:' + Math.min(100,(level/max)*100) + '%"></div></div>' +
       '<div class="wl-marks">' + marks + '</div></article>';
   }
+  var lastData = null;
   function paint(data){
+    if (data) lastData = data;
+    data = lastData;
     if (!data) return;
     var stations = data.stations || (data.level_m != null ? [data] : []);
     if (!stations.length) return;
     listEl.innerHTML = stations.map(rowHtml).join("");
-    if (srcEl && data.note_np) {
-      srcEl.innerHTML = data.note_np + ' स्रोत: <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a>';
+    if (srcEl) {
+      var en = document.documentElement.lang === "en";
+      var link = ' <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a>';
+      if (en) {
+        var bits = stations.map(function(s){
+          return (s.name || s.name_np || "") + " " + fmtM(s.level_m) + " " + tt("meter");
+        });
+        srcEl.innerHTML = bits.join(" · ") + ". " + tt("src_word") + ":" + link;
+      } else if (data.note_np) {
+        srcEl.innerHTML = data.note_np + " स्रोत:" + link;
+      }
     }
   }
   function load(){
@@ -3318,6 +3365,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       .then(paint)
       .catch(function(){});
   }
+  if (window.__addLangHook) window.__addLangHook(function(){ paint(lastData); });
   load();
   setInterval(load, 60000);
 })();
@@ -3329,20 +3377,20 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   var el = document.getElementById("flood-map");
   if (!el || typeof L === "undefined") return;
   var confirmed = [
-    {name:"टिमुरे", t:"~९:१५", note:"तिब्बतबाट नेपाल प्रवेश", lat:28.250, lng:85.357, kind:"start"},
-    {name:"स्याफ्रुबेसी", t:"बिहान", note:"बजार र पूर्वाधार क्षति", lat:28.163, lng:85.345, kind:"hit"},
-    {name:"बेत्रावती / विदुर", t:"~९:००", note:"त्रिशूली, नुवाकोट देवीघाट, जेल", lat:27.967, lng:85.184, kind:"hit"},
-    {name:"गल्छी", t:"१०:२८", note:"धादिङ · महाशाखा पुष्टि", lat:27.811, lng:85.001, kind:"hit"},
-    {name:"गजुरी", t:"ताजा", note:"सडक रोकियो", lat:27.748, lng:84.978, kind:"hit"},
-    {name:"आदमघाट", t:"ताजा", note:"बाढी पार", lat:27.803, lng:84.887, kind:"hit"},
-    {name:"फुर्के / मलेखु", t:"११:५०", note:"१०.८ मिटर · पुल बग्यो", lat:27.804, lng:84.837, kind:"hit"},
-    {name:"बैरेनी", t:"ताजा", note:"बजार क्षति", lat:27.793, lng:84.762, kind:"hit"},
-    {name:"मुग्लिन", t:"~१३:४२", note:"बाढी पुग्यो · सडक बन्द", lat:27.857, lng:84.557, kind:"hit"},
-    {name:"फिस्लिङअघि", t:"~१२:५८", note:"चितवन · प्रजिअ अर्याल", lat:27.820, lng:84.502, kind:"hit"},
-    {name:"चितवन देवघाट", t:"~१५:२०", note:"महाशाखा हाई अलर्ट · बाढी पुग्यो, सतह बढ्दो", lat:27.711, lng:84.419, kind:"hit"}
+    {name:"टिमुरे", name_en:"Timure", t:"~९:१५", t_en:"~9:15", note:"तिब्बतबाट नेपाल प्रवेश", note_en:"Entered Nepal from Tibet", lat:28.250, lng:85.357, kind:"start"},
+    {name:"स्याफ्रुबेसी", name_en:"Syaphrubesi", t:"बिहान", t_en:"morning", note:"बजार र पूर्वाधार क्षति", note_en:"Bazaar and infrastructure damage", lat:28.163, lng:85.345, kind:"hit"},
+    {name:"बेत्रावती / विदुर", name_en:"Betrawati / Bidur", t:"~९:००", t_en:"~9:00", note:"त्रिशूली, नुवाकोट देवीघाट, जेल", note_en:"Trishuli, Nuwakot Devighat, jail", lat:27.967, lng:85.184, kind:"hit"},
+    {name:"गल्छी", name_en:"Galchhi", t:"१०:२८", t_en:"10:28", note:"धादिङ · महाशाखा पुष्टि", note_en:"Dhading · DHM confirmed", lat:27.811, lng:85.001, kind:"hit"},
+    {name:"गजुरी", name_en:"Gajuri", t:"ताजा", t_en:"latest", note:"सडक रोकियो", note_en:"Road stopped", lat:27.748, lng:84.978, kind:"hit"},
+    {name:"आदमघाट", name_en:"Adamghat", t:"ताजा", t_en:"latest", note:"बाढी पार", note_en:"Flood passed", lat:27.803, lng:84.887, kind:"hit"},
+    {name:"फुर्के / मलेखु", name_en:"Furke / Malekhu", t:"११:५०", t_en:"11:50", note:"१०.८ मिटर · पुल बग्यो", note_en:"10.8 m · bridge washed away", lat:27.804, lng:84.837, kind:"hit"},
+    {name:"बैरेनी", name_en:"Baireni", t:"ताजा", t_en:"latest", note:"बजार क्षति", note_en:"Bazaar damage", lat:27.793, lng:84.762, kind:"hit"},
+    {name:"मुग्लिन", name_en:"Mugling", t:"~१३:४२", t_en:"~13:42", note:"बाढी पुग्यो · सडक बन्द", note_en:"Flood arrived · road closed", lat:27.857, lng:84.557, kind:"hit"},
+    {name:"फिस्लिङअघि", name_en:"Before Fishings", t:"~१२:५८", t_en:"~12:58", note:"चितवन · प्रजिअ अर्याल", note_en:"Chitwan · CDO Aryal", lat:27.820, lng:84.502, kind:"hit"},
+    {name:"चितवन देवघाट", name_en:"Chitwan Devghat", t:"~१५:२०", t_en:"~15:20", note:"महाशाखा हाई अलर्ट · बाढी पुग्यो, सतह बढ्दो", note_en:"DHM high alert · flood arrived, level rising", lat:27.711, lng:84.419, kind:"hit"}
   ];
   var risk = [
-    {name:"सुस्ता", t:"~१५:४५", note:"करिब ७०% सारिए · बाढी पुगेको होइन", lat:27.452, lng:83.909, kind:"risk"}
+    {name:"सुस्ता", name_en:"Susta", t:"~१५:४५", t_en:"~15:45", note:"करिब ७०% सारिए · बाढी पुगेको होइन", note_en:"About 70% moved · flood has not arrived", lat:27.452, lng:83.909, kind:"risk"}
   ];
   var map = L.map(el, {scrollWheelZoom:false, tap:true});
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -3355,6 +3403,14 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   );
   L.polyline(confLatLng, {color:"#c41e3a", weight:4, opacity:.9, lineJoin:"round"}).addTo(map);
   L.polyline(riskLatLng, {color:"#d97706", weight:3, opacity:.85, dashArray:"8 8", lineJoin:"round"}).addTo(map);
+  var pointMarks = [];
+  function pointLabel(p){
+    var en = document.documentElement.lang === "en";
+    var nm = en ? (p.name_en || p.name) : p.name;
+    var tm = en ? (p.t_en || p.t) : p.t;
+    var nt = en ? (p.note_en || p.note) : p.note;
+    return {nm: nm, html: "<b>" + nm + "</b><span>" + tm + " · " + nt + "</span>"};
+  }
   function pin(p, n) {
     var icon = L.divIcon({
       className: "",
@@ -3363,9 +3419,11 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       iconAnchor: [13, 13],
       popupAnchor: [0, -14]
     });
-    L.marker([p.lat, p.lng], {icon: icon, keyboard: true, title: p.name})
-      .bindPopup("<b>" + p.name + "</b><span>" + p.t + " · " + p.note + "</span>")
+    var lab = pointLabel(p);
+    var m = L.marker([p.lat, p.lng], {icon: icon, keyboard: true, title: lab.nm})
+      .bindPopup(lab.html)
       .addTo(map);
+    pointMarks.push({m: m, p: p});
   }
   confirmed.forEach(function(p, i){ pin(p, i + 1); });
   risk.forEach(function(p, i){ pin(p, confirmed.length + i + 1); });
@@ -3377,12 +3435,14 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     4781: [27.833, 84.546],
     265: [27.71, 84.43]
   };
-  var DIG = "०१२३४५६७८९";
-  function npNum(s){ return String(s).replace(/[0-9]/g, function(d){ return DIG[d]; }); }
+  function npNum(s){ return window.fmtNum ? fmtNum(s) : s; }
   function fmtM(v){
     if (v == null || v === "" || isNaN(v)) return "—";
-    return npNum(Number(v).toFixed(2));
+    var n = Number(v).toFixed(2);
+    return window.fmtNum ? fmtNum(n) : n;
   }
+  function tt(k){ return window.t ? t(k) : k; }
+  var gaugeMarks = [];
   function gaugePopup(s){
     var level = Number(s.level_m);
     var warn = Number(s.warning_m);
@@ -3394,14 +3454,16 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     }
     var when = s.observed_npt || "";
     var line;
-    if (washed) line = fmtM(level) + " मि · बगेको · अन्तिम " + when + " · लाइभ होइन";
-    else if (silent) line = fmtM(level) + " मि · मौन · " + when + (warn ? " · सतर्कता " + fmtM(warn) : "");
+    var en = document.documentElement.lang === "en";
+    var sname = en ? (s.name || s.name_np) : (s.name_np || s.name);
+    if (washed) line = fmtM(level) + " " + tt("meter") + " · " + tt("washed") + " · " + tt("last_not_live") + (when ? " · " + when : "");
+    else if (silent) line = fmtM(level) + " " + tt("meter") + " · " + tt("silent_gauge") + (when ? " · " + when : "") + (warn ? " · " + tt("warning") + " " + fmtM(warn) : "");
     else {
-      var trend = s.steady === "RISING" ? "बढ्दो" : (s.steady === "FALLING" ? "घट्दो" : "स्थिर");
-      var wd = (warn ? "सतर्कता " + fmtM(warn) : "") + (danger ? " / खतरा " + fmtM(danger) : "");
-      line = fmtM(level) + " मि " + trend + (wd ? " · " + wd : "") + (when ? " · " + when : "");
+      var trend = s.steady === "RISING" ? tt("rising") : (s.steady === "FALLING" ? tt("falling") : tt("steady"));
+      var wd = (warn ? tt("warning") + " " + fmtM(warn) : "") + (danger ? " / " + tt("danger") + " " + fmtM(danger) : "");
+      line = fmtM(level) + " " + tt("meter") + " " + trend + (wd ? " · " + wd : "") + (when ? " · " + when : "");
     }
-    return "<b>" + (s.name_np || s.name) + "</b><span>" + line + "</span>";
+    return "<b>" + sname + "</b><span>" + line + "</span>";
   }
   function gaugeClass(s){
     var level = Number(s.level_m);
@@ -3426,19 +3488,37 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       data.stations.forEach(function(s){
         var xy = GAUGE_XY[s.station_id];
         if (!xy) return;
+        var gch = document.documentElement.lang === "en" ? "G" : "ग";
         var icon = L.divIcon({
           className: "",
-          html: '<div class="' + gaugeClass(s) + '">ग</div>',
+          html: '<div class="' + gaugeClass(s) + '">' + gch + "</div>",
           iconSize: [22, 22],
           iconAnchor: [11, 11],
           popupAnchor: [0, -12]
         });
-        L.marker(xy, {icon: icon, keyboard: true, title: (s.name_np || s.name) + " DHM", zIndexOffset: 200})
+        var en = document.documentElement.lang === "en";
+        var sname = en ? (s.name || s.name_np) : (s.name_np || s.name);
+        var m = L.marker(xy, {icon: icon, keyboard: true, title: sname + " DHM", zIndexOffset: 200})
           .bindPopup(gaugePopup(s))
           .addTo(map);
+        gaugeMarks.push({m: m, s: s});
       });
     })
     .catch(function(){});
+  function refreshMapLang(){
+    pointMarks.forEach(function(x){
+      var lab = pointLabel(x.p);
+      x.m.setPopupContent(lab.html);
+      x.m.options.title = lab.nm;
+    });
+    gaugeMarks.forEach(function(x){
+      x.m.setPopupContent(gaugePopup(x.s));
+      var en = document.documentElement.lang === "en";
+      var sname = en ? (x.s.name || x.s.name_np) : (x.s.name_np || x.s.name);
+      x.m.options.title = sname + " DHM";
+    });
+  }
+  if (window.__addLangHook) window.__addLangHook(refreshMapLang);
   function fix() { map.invalidateSize(); }
   setTimeout(fix, 0);
   setTimeout(fix, 400);
@@ -3451,8 +3531,13 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
 })();
 
 (function(){
-  var DIG = "०१२३४५६७८९";
-  function np(s){ return String(s).replace(/[0-9]/g, function(d){ return DIG[d]; }); }
+  function np(s){ return window.fmtNum ? fmtNum(s) : s; }
+  function tt(k){ return window.t ? t(k) : k; }
+  function genderLabel(g){
+    if (g === "पुरुष" || g === "male" || g === "Male") return tt("gender_male");
+    if (g === "महिला" || g === "female" || g === "Female") return tt("gender_female");
+    return g;
+  }
   function esc(s){
     return String(s||"").replace(/[&<>"]/g, function(c){
       return ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"})[c];
@@ -3493,28 +3578,28 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     return base + join + parts.join("&");
   }
   function card(item, kind, foundUrl){
-    var tag = kind === "matched" ? "मेल" : (kind === "found" ? "भेटिएको" : "हराएको");
+    var tag = kind === "matched" ? tt("matched") : (kind === "found" ? tt("found") : tt("missing"));
     var cls = kind === "matched" ? "pair" : (kind === "found" ? "ok" : "");
     var bits = [];
-    if (item.age) bits.push("उमेर "+esc(item.age));
-    if (item.gender) bits.push(esc(item.gender));
+    if (item.age) bits.push(tt("age_prefix")+" "+esc(item.age));
+    if (item.gender) bits.push(esc(genderLabel(item.gender)));
     if (item.place) bits.push(esc(item.place));
     if (item.when) bits.push(esc(item.when));
     var note = item.note ? "<p>"+esc(item.note)+"</p>" : "";
     var phoneHtml = "";
     if (item.phone) phoneHtml += '<p class="fam-phone">'+phoneLinks(item.phone)+"</p>";
     if (item.reporter && item.reporter !== item.phone) {
-      phoneHtml += '<p class="fam-phone">सम्पर्क '+phoneLinks(item.reporter)+"</p>";
+      phoneHtml += '<p class="fam-phone">'+tt("contact_prefix")+" "+phoneLinks(item.reporter)+"</p>";
     }
     var found = "";
     if (kind === "missing" && foundUrl){
-      found = '<a class="js-found-row" href="'+esc(prefillFound(foundUrl, item))+'" data-name="'+esc(item.name||"")+'" target="_blank" rel="noopener" title="कार्ड अपडेट" aria-label="अपडेट: यो कार्ड सच्याउनुहोस्">अपडेट</a>';
+      found = '<a class="js-found-row" href="'+esc(prefillFound(foundUrl, item))+'" data-name="'+esc(item.name||"")+'" target="_blank" rel="noopener" title="'+tt("update_card")+'" aria-label="'+tt("update_aria")+'">'+tt("update")+'</a>';
     }
     var photo = item.photo ? '<img src="'+esc(item.photo)+'" alt="">' : "";
     return '<article class="fam-card'+(kind==="matched"?" matched":"")+'">'+
       '<span class="tag '+cls+'">'+tag+'</span>'+
       photo+
-      '<h3>'+esc(item.name||"नाम नखुलेको")+'</h3>'+
+      '<h3>'+esc(item.name||tt("unnamed"))+'</h3>'+
       '<p>'+bits.join(" · ")+'</p>'+note+phoneHtml+found+'</article>';
   }
   function fill(id, emptyId, items, kind, foundUrl){
@@ -3524,25 +3609,30 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     el.innerHTML = (items||[]).map(function(it){ return card(it, kind, foundUrl); }).join("");
     if (empty) empty.hidden = !!(items && items.length);
   }
-  fetch("family.json", {cache:"no-store"}).then(function(r){ return r.json(); }).then(function(data){
+  var lastFam = null;
+  var famFoundUrl = "";
+  function paintFamily(data){
+    if (!data) return;
+    lastFam = data;
     var missBtn = document.getElementById("fam-miss-btn");
     var foundBtn = document.getElementById("fam-found-btn");
     if (missBtn && data.forms && data.forms.missing){
       missBtn.href = data.forms.missing; missBtn.hidden = false;
     }
-    var foundUrl = (data.forms && data.forms.found) ? data.forms.found : "";
-    if (foundBtn && foundUrl){
-      foundBtn.href = foundUrl; foundBtn.hidden = false;
+    famFoundUrl = (data.forms && data.forms.found) ? data.forms.found : "";
+    if (foundBtn && famFoundUrl){
+      foundBtn.href = famFoundUrl; foundBtn.hidden = false;
     }
     var matched = data.matched || [];
     var wrap = document.getElementById("fam-matched-wrap");
     if (wrap) wrap.hidden = !matched.length;
-    fill("fam-matched", "fam-matched-empty", matched, "matched", foundUrl);
-    fill("fam-missing", "fam-missing-empty", data.missing, "missing", foundUrl);
-    fill("fam-found", "fam-found-empty", data.found, "found", foundUrl);
+    fill("fam-matched", "fam-matched-empty", matched, "matched", famFoundUrl);
+    fill("fam-missing", "fam-missing-empty", data.missing, "missing", famFoundUrl);
+    fill("fam-found", "fam-found-empty", data.found, "found", famFoundUrl);
     var lead = document.getElementById("fam-new-lead");
     if (lead && data.missing && data.missing.length){
-      lead.innerHTML = "जनताबाट आएका रिपोर्ट <strong>"+np(data.missing.length)+"</strong> विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।";
+      var tmpl = tt("fam_new_lead_n");
+      lead.innerHTML = tmpl.replace("{n}", np(data.missing.length));
     }
     var missStat = document.getElementById("stat-miss-form");
     if (missStat && data.missing){
@@ -3552,6 +3642,10 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (foundStat && data.found){
       foundStat.textContent = np(data.found.length);
     }
+  }
+  fetch("family.json", {cache:"no-store"}).then(function(r){ return r.json(); }).then(function(data){
+    paintFamily(data);
+    var foundUrl = famFoundUrl;
     function rebind(sel, itemNodes, size){
       var pager = document.querySelector(sel);
       if (!pager) return;
@@ -3611,6 +3705,11 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       search.addEventListener("input", applySearch);
       search.addEventListener("search", applySearch);
     }
+    if (window.__addLangHook) window.__addLangHook(function(){
+      if (!lastFam) return;
+      paintFamily(lastFam);
+      applySearch();
+    });
   }).catch(function(){});
 })();
 </script>
