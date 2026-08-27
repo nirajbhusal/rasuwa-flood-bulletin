@@ -8,6 +8,23 @@
   },
   "missing": [
     {
+      "id": "sheet-20260827-183615-bishnu-prasad-bhusal",
+      "name": "Bishnu Prasad Bhusal",
+      "age": "45",
+      "place": "कावासोति:वडा नम्बर ६ · रसुवा भन्सार कार्यलय मा सुब्बा मा कारेरत कर्मचारी",
+      "phone": "9857040175",
+      "note": "फारम १८:३६"
+    },
+    {
+      "id": "sheet-20260827-183437-bychkovska-olena",
+      "name": "Bychkovska Olena",
+      "age": "49",
+      "place": "Kyiv Ukraine · Border",
+      "when": "26.08 8:49 on the bridge",
+      "phone": "+380953351016",
+      "note": "फारम १८:३४ · २६ अगस्ट पुलमा ८:४९"
+    },
+    {
       "id": "sheet-20260827-182854-dhiraj-tamang",
       "name": "Dhiraj tamang",
       "place": "Nuwakot · Upper trisuli 1 hydropower project (216)under Doosan enerbility",
@@ -1294,15 +1311,6 @@
       "when": "9:15 Am",
       "phone": "9841646156/9841388525/9818546888",
       "note": "फारम ११:५६ · EN: Saraswati Adhikari"
-    },
-    {
-      "id": "sheet-20260827-115410-bychkovska-olena",
-      "name": "बायचकोभ्स्का ओलेना",
-      "age": "49",
-      "place": "Ukraine Kiev · Border",
-      "when": "5:49 Kiev time zone",
-      "phone": "+380953351016",
-      "note": "फारम ११:५४ · Brown white scarf, cap · EN: Bychkovska Olena"
     },
     {
       "id": "sheet-20260827-115333-mangal-das-lawat",
