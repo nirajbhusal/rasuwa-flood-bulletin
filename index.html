@@ -432,6 +432,12 @@ a.js-found-row[hidden]{display:none}
 .pmdrf-card strong{display:block;margin:4px 0 2px;font-size:clamp(22px,4vw,28px);font-weight:800;color:var(--forest);line-height:1.2}
 .pmdrf-card .cash-sub{display:block;font-size:14px;font-weight:700;color:var(--muted)}
 .pmdrf-card .pmdrf-url{display:block;margin-top:6px;font-size:15px;font-weight:800;color:var(--forest)}
+.pmdrf-card .pmdrf-shot{
+  display:block;width:100%;max-width:520px;height:auto;
+  margin:12px 0 4px;border-radius:12px;
+  border:1px solid #bbf7d0;box-shadow:0 6px 18px rgba(20,83,45,.12);
+}
+
 
 .aid-snap{background:linear-gradient(180deg,#ecfeff,#fff 55%);border-color:#67e8f9}
 .aid-snap:hover{border-color:#0e7490;box-shadow:0 0 0 3px #cffafe}
@@ -1399,6 +1405,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         <strong data-i18n="pmdrf_h">अनलाइन पोर्टल</strong>
         <span class="cash-sub" data-i18n="pmdrf_sub">विदेशमा रहेका नेपाली र विश्वभरका दाता सीधै योगदान गर्न सक्छन्।</span>
         <span class="pmdrf-url">pmdrf.nchl.com.np</span>
+        <img class="pmdrf-shot" src="img/pmdrf-portal.png" width="640" height="720" alt="प्रधानमन्त्री दैवी प्रकोप उद्धार कोष अनलाइन पोर्टल" data-i18n-alt="pmdrf_alt">
       </a>
       <article class="cash-ig" id="cash">
         <h3 data-i18n="cash_h">नगद राहत रकम अपडेट</h3>
@@ -3950,8 +3957,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js?v=2026-08-27-1633"></script>
-<script>window.PAGE_VER="2026-08-27-1633";</script>
+<script src="i18n.js?v=2026-08-27-1635"></script>
+<script>window.PAGE_VER="2026-08-27-1635";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
