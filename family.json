@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T10:52:49+05:45",
+  "updated_at": "2026-08-27T10:54:48+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -1858,14 +1858,6 @@
       "note": "5 feet 4 Inches, Light brown skin · Working at Macchapuchre bank"
     },
     {
-      "id": "m-raman-lal-shrestha",
-      "name": "Raman Lal Shrestha",
-      "age": "35",
-      "place": "Biratnagar · Timmure",
-      "phone": "9840174737 / 9803786316",
-      "note": "Branch manager of timmure prabhu bank"
-    },
-    {
       "id": "m-gaurav-raut",
       "name": "Gaurav Raut",
       "age": "31",
@@ -2823,6 +2815,14 @@
     }
   ],
   "found": [
+    {
+      "id": "m-raman-lal-shrestha",
+      "name": "Raman Lal Shrestha",
+      "age": "35",
+      "place": "Biratnagar · Timmure · धुन्चे अस्पताल",
+      "phone": "9840174737 / 9803786316",
+      "note": "धुन्चे अस्पतालमा भेटिएको। काठमाडौं ल्याउने तयारी। Branch manager of Timmure Prabhu Bank."
+    },
     {
       "id": "found-handlist-01",
       "name": "आनन्द श्रेष्ठ",

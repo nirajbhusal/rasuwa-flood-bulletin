@@ -213,7 +213,7 @@ window.I18N = {
 "treat_note": "स्रोत: राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङमा उपचाररत नामसूची (२२) + पहिचान नखुलेका २ र शिशु १ (प्रहरी, जम्मा २५)। उमेर/ठेगाना अघिल्लो प्रहरी तालिकाबाट जहाँ थियो। स्वास्थ्य प्रवक्ता: उपचार निःशुल्क, हेल्पलाइन <a href=\"tel:1115\">1115</a>।",
 "shelter_lead": "जिल्ला प्रशासन कार्यालय नुवाकोट: उद्धार <strong>५६</strong> (महिला ११, पुरुष ४५)। चक्रदेव अस्पताल ११, नर्बिक काठमाडौं रेफर ९। सेनाको त्रिशूली सूची यसैमा अद्यावधिक।",
 "shelter_note": "स्रोत: जिल्ला प्रशासन कार्यालय नुवाकोट। शव पुरुष ४, महिला १ (स्थानीय)। सेनाको त्रिशूली ४१ नाम यसै तालिकामा। हवाई उद्धार ११६।",
-"fam_lead1": "बाढीमा हराएका वा भेटिएका व्यक्तिको विवरण पठाउनुहोस्। जाँचपछि मात्र कार्ड देखिन्छ। भेटिएको <strong>४०</strong> जना। आपत्कालमा <a href=\"tel:1234\">१२३४</a> वा <a href=\"tel:100\">प्रहरी १००</a>।",
+"fam_lead1": "बाढीमा हराएका वा भेटिएका व्यक्तिको विवरण पठाउनुहोस्। जाँचपछि मात्र कार्ड देखिन्छ। भेटिएको <strong>४१</strong> जना। आपत्कालमा <a href=\"tel:1234\">१२३४</a> वा <a href=\"tel:100\">प्रहरी १००</a>।",
 "fam_lead2": "कार्ड सच्याउन वा नयाँ जानकारी दिन <strong>अपडेट</strong> थिच्नुहोस्। फारममा त्यही व्यक्तिको नाम र विवरण आउँछ। जाँचपछि मात्र सूची बदलिन्छ। आपत्कालमा <a href=\"tel:1234\">१२३४</a>।",
 "fam_new_lead": "फारम सिटबाट जाँचिएका सम्पर्कविहीन विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।",
 "fam_new_lead_n": "जनताबाट आएका रिपोर्ट <strong>{n}</strong> विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।",
@@ -477,7 +477,7 @@ window.I18N = {
 "treat_note": "Source: named list in treatment at the National Trauma Center, Chauni and Teaching (22) + 2 unidentified and 1 infant (police, total 25). Age/address from the earlier police table where available. Health spokesperson: treatment is free, helpline <a href=\"tel:1115\">1115</a>.",
 "shelter_lead": "Nuwakot District Administration Office: rescued <strong>56</strong> (women 11, men 45). Chakradev Hospital 11, referred to Neuro Kathmandu 9. The Army Trishuli list is folded into this table.",
 "shelter_note": "Source: Nuwakot District Administration Office. Bodies: 4 men, 1 woman (local). The Army’s 41 Trishuli names are in this table. Air rescue 116.",
-"fam_lead1": "Send details of someone missing or found in the flood. Cards appear only after review. Found: <strong>40</strong> people. In an emergency call <a href=\"tel:1234\">1234</a> or <a href=\"tel:100\">Police 100</a>.",
+"fam_lead1": "Send details of someone missing or found in the flood. Cards appear only after review. Found: <strong>41</strong> people. In an emergency call <a href=\"tel:1234\">1234</a> or <a href=\"tel:100\">Police 100</a>.",
 "fam_lead2": "To correct a card or add information, press <strong>Update</strong>. The form opens with that person’s name and details. The list changes only after review. In an emergency call <a href=\"tel:1234\">1234</a>.",
 "fam_new_lead": "Checked missing reports from the form sheet. Tap a number to call.",
 "fam_new_lead_n": "Public reports: <strong>{n}</strong> records. Tap a number to call.",
@@ -728,6 +728,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Raman Lal Shrestha found · Dhunche hospital",
+"p": "Raman Lal Shrestha (35, Biratnagar · Timure, Prabhu Bank branch manager) has been located at Dhunche hospital. Being brought to Kathmandu. Moved from missing to found."
+},
 {
 "h": "Madhesh Police · 30 uncontacted",
 "p": "Madhesh Province Police released <strong>30</strong> names from family reports after the Rasuwa flood. Parsa 17 (rescued and in contact 2 — Gyanbahadur Thing, Shyamlal Moktan), Bara 3, Rautahat 2, Sarlahi 6, Saptari 2. Not merged with Hello Sarkar 140 or the form wall. List in <a href=\"#family\">Missing / Found</a>."
