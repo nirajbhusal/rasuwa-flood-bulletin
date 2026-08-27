@@ -1593,11 +1593,18 @@ footer .foot-contact a:hover{text-decoration:underline}
         <p class="cash-note" data-i18n="rd_all_note">आधिकारिक घाइते जम्मा ७५ यथावत्। यी नाम-सूची जोडेर एउटा उद्धार जम्मा बनाइएको छैन।</p>
       </div>
       <div class="cash-pane rd-pane-treat" data-rd="treat">
-        <p class="ov-cap" data-i18n="rd_treat_cap">काठमाडौं अस्पताल · ट्रमा १७:५०</p>
-        <div class="ibar-row"><span data-i18n="rd_tuth">टिचिङ</span><b class="ibar"><i style="width:100%"></i></b><em class="num">३१</em></div>
-        <div class="ibar-row"><span data-i18n="rd_trauma">ट्रमा</span><b class="ibar"><i style="width:35%"></i></b><em class="num">११</em></div>
-        <div class="ibar-row"><span data-i18n="rd_chauni">छाउनी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
-        <p class="cash-note" data-i18n-html="rd_treat_note">सूचीमा <strong>४३</strong> नाम। आधिकारिक घाइते जम्मा <strong>७५</strong> यथावत्।</p>
+        <p class="ov-cap" data-i18n="rd_treat_cap">HEOC #2 १७:००</p>
+        <div class="ibar-row"><span data-i18n="rd_rasuwa_h">रसुवा अस्पताल</span><b class="ibar"><i style="width:100%"></i></b><em class="num">५३</em></div>
+        <div class="ibar-row"><span data-i18n="rd_tuth">टिचिङ</span><b class="ibar"><i style="width:70%"></i></b><em class="num">३७</em></div>
+        <div class="ibar-row"><span data-i18n="rd_trishuli">त्रिशूली</span><b class="ibar"><i style="width:32%"></i></b><em class="num">१७</em></div>
+        <div class="ibar-row"><span data-i18n="rd_ayurved">आयुर्वेद</span><b class="ibar"><i style="width:19%"></i></b><em class="num">१०</em></div>
+        <div class="ibar-row"><span data-i18n="rd_trauma">ट्रमा</span><b class="ibar"><i style="width:19%"></i></b><em class="num">१०</em></div>
+        <div class="ibar-row"><span data-i18n="rd_norvic">नर्भिक</span><b class="ibar"><i style="width:6%"></i></b><em class="num">३</em></div>
+        <div class="ibar-row"><span data-i18n="rd_bir">वीर</span><b class="ibar"><i style="width:6%"></i></b><em class="num">३</em></div>
+        <div class="ibar-row"><span data-i18n="rd_chauni">छाउनी</span><b class="ibar"><i style="width:2%"></i></b><em class="num">१</em></div>
+        <div class="ibar-row"><span data-i18n="rd_manmohan">मनमोहन</span><b class="ibar"><i style="width:2%"></i></b><em class="num">१</em></div>
+        <div class="ibar-row"><span data-i18n="rd_patan">पाटन</span><b class="ibar"><i style="width:2%"></i></b><em class="num">१</em></div>
+        <p class="cash-note" data-i18n-html="rd_treat_note">HEOC जम्मा <strong>१३६</strong> (उपचाररत ७२)। नाम-सूची <strong>४३</strong>। NDRRMA घाइते <strong>७५</strong> यथावत्।</p>
         <a class="rd-jump" href="#treat" data-i18n="rd_jump_treat">सूची हेर्नुहोस् → उपचार</a>
       </div>
       <div class="cash-pane" data-rd="nuwakot">
@@ -1652,7 +1659,36 @@ footer .foot-contact a:hover{text-decoration:underline}
 <section id="treat">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_treat">रसुवा भोटेकोशी बाढीबाट प्रभावित घाइतेहरूको काठमाडौंको विभिन्न अस्पतालमा उपचार भइरहेको विवरण</h2></div>
   <div class="card green">
-    <p class="treat-lead" data-i18n-html="treat_lead">२०८३ भाद्र ११ गते। राष्ट्रिय ट्रमा सेन्टर आधिकारिक पत्र १७:५० का <strong>११</strong> (डिस्चार्ज ४, वीर सारिएको १, ICU १, HDU १) + छाउनी १ + टिचिङ ११:३० का <strong>३१</strong>। सूची <strong>४३</strong>। आधिकारिक घाइते जम्मा <strong>७५</strong> यथावत्।</p>
+    <p class="treat-lead" data-i18n-html="treat_lead">HEOC #2 १७:०० जम्मा <strong>१३६</strong> (उपचाररत <strong>७२</strong>, रिफर १४, डिस्चार्ज ४८)। नाम-सूची ४३ यथावत्। NDRRMA घाइते ७५ यथावत्।</p>
+    <div class="treat-wrap">
+    <table class="plants treat">
+      <thead>
+        <tr>
+          <th data-i18n="th_hospital">अस्पताल</th>
+          <th class="mw" data-i18n="th_total">जम्मा</th>
+          <th class="mw" data-i18n="th_under">उपचार</th>
+          <th class="mw" data-i18n="th_refer">रिफर</th>
+          <th class="mw" data-i18n="th_discharge">डिस्चार्ज</th>
+          <th data-i18n="th_remarks">कैफियत</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td data-i18n="hosp_rasuwa_d">रसुवा जिल्ला अस्पताल, धुन्चे</td><td class="mw">५३</td><td class="mw">११</td><td class="mw">१३</td><td class="mw">२८</td><td data-i18n="heoc_r_dead">लास ल्याइएको १</td></tr>
+        <tr><td data-i18n="hosp_trishuli">त्रिशूली अस्पताल, विदुर, नुवाकोट</td><td class="mw">१७</td><td class="mw">४</td><td class="mw">—</td><td class="mw">१३</td><td data-i18n="heoc_r_yg">२ Y, १ G</td></tr>
+        <tr><td data-i18n="hosp_ayurved">आयुर्वेद अस्पताल, पिपलटार, नुवाकोट</td><td class="mw">१०</td><td class="mw">१०</td><td class="mw">—</td><td class="mw">—</td><td></td></tr>
+        <tr><td data-i18n="hosp_trauma_maha">राष्ट्रिय ट्रमा सेन्टर, महाबौद्ध</td><td class="mw">१०</td><td class="mw">८</td><td class="mw">१</td><td class="mw">१</td><td data-i18n="heoc_r_bir">रिफर: वीर</td></tr>
+        <tr><td data-i18n="hosp_birendra">श्री वीरेन्द्र अस्पताल, छाउनी</td><td class="mw">१</td><td class="mw">१</td><td class="mw">—</td><td class="mw">—</td><td></td></tr>
+        <tr><td data-i18n="hosp_tuth">टिचिङ अस्पताल (TUTH), काठमाडौं</td><td class="mw">३७</td><td class="mw">३१</td><td class="mw">—</td><td class="mw">५</td><td data-i18n="heoc_r_death">मृत्यु १</td></tr>
+        <tr><td data-i18n="hosp_nams">NAMS/वीर अस्पताल</td><td class="mw">३</td><td class="mw">३</td><td class="mw">—</td><td class="mw">—</td><td></td></tr>
+        <tr><td data-i18n="hosp_patan">पाटन स्वास्थ्य विज्ञान प्रतिष्ठान, ललितपुर</td><td class="mw">१</td><td class="mw">—</td><td class="mw">—</td><td class="mw">१</td><td></td></tr>
+        <tr><td data-i18n="hosp_manmohan">मनमोहन मेमोरियल मेडिकल कलेज, स्वयम्भू</td><td class="mw">१</td><td class="mw">१</td><td class="mw">—</td><td class="mw">—</td><td></td></tr>
+        <tr><td data-i18n="hosp_norvic">नर्भिक अन्तर्राष्ट्रिय अस्पताल</td><td class="mw">३</td><td class="mw">३</td><td class="mw">—</td><td class="mw">—</td><td></td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td data-i18n="th_total">जम्मा</td><td class="mw">१३६</td><td class="mw">७२</td><td class="mw">१४</td><td class="mw">४८</td><td data-i18n="heoc_r_deaths">मृत्यु २</td></tr>
+      </tfoot>
+    </table>
+    </div>
     <div class="treat-wrap">
     <table class="plants treat treat-wide">
       <thead>
@@ -1714,7 +1750,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       </tbody>
     </table>
     </div>
-    <p class="treat-note" data-i18n-html="treat_note">स्रोत: राष्ट्रिय ट्रमा सेन्टर पत्र २०८३/०५/११ चलानी २२६ · १७:५० का ११ + छाउनी १ + टिचिङ (TUTH) ११ भदौ ११:३० का ३१। डिस्चार्ज: रिहाना, काजु, सुशील, साईवो। बिराट मान वीर। महेश ICU, नन्द लाल HDU। कुशल मगर टिचिङमा मृत्यु — आधिकारिक मृतक <strong>३५९</strong>। उपचार निःशुल्क, <a href="tel:1115">1115</a>।</p>
+    <p class="treat-note" data-i18n-html="treat_note">स्रोत: HEOC SitRep #2 १७:००। राष्ट्रिय ट्रमा सेन्टर पत्र २०८३/०५/११ चलानी २२६ · १७:५० का ११ + छाउनी १ + टिचिङ (TUTH) ११ भदौ ११:३० का ३१। डिस्चार्ज: रिहाना, काजु, सुशील, साईवो। बिराट मान वीर। महेश ICU, नन्द लाल HDU। कुशल मगर टिचिङमा मृत्यु — आधिकारिक मृतक <strong>३५९</strong>। स्याफ्रुबेसी HP, टिमुरे HP पूर्ण क्षति; बैरेनी अस्पताल गल्छी र चराउँदी BHSC बेनीघाट गैर-सञ्चालन। उपचार निःशुल्क, <a href="tel:1115">1115</a>।</p>
   </div>
 </section>
 
@@ -3346,6 +3382,12 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
             <article class="log-item now">
+      <p class="when">~२०:४६</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>HEOC घाइते १३६</h3>
+      <p>HEOC SitRep #2 १७:००: अस्पतालमा जम्मा <strong>१३६</strong> · उपचाररत <strong>७२</strong> · रिफर १४ · डिस्चार्ज ४८। नाम-सूची ४३ यथावत्। NDRRMA घाइते ७५ यथावत्। <a href="#treat">घाइते</a>।</p>
+    </article>
+            <article class="log-item">
       <p class="when">~२०:२२</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>DAO उद्धार ८८–११६ र २८९–३१७</h3>
@@ -4240,6 +4282,13 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
     <div class="src-group">
+<h3>HEOC <span class="badge">१</span></h3>
+      <div class="src-list">
+<a href="https://heoc.mohp.gov.np/" target="_blank" rel="noopener" data-i18n="src_heoc">HEOC SitRep #2 17:00 घाइते अस्पताल 136</a>
+</div>
+</div>
+
+    <div class="src-group">
 <h3>NESRA FloodWatch <span class="badge">१</span></h3>
       <div class="src-list">
 <a href="https://nesraspace.org/floodwatch/rasuwa-2026/" target="_blank" rel="noopener" data-i18n="src_nesra">NESRA FloodWatch: रसुवा २०२६ — उपग्रह २७ अगस्ट ०३:३१ NPT (सेन्टिनेल-१ / जिओस्पेसियल)</a>
@@ -4518,8 +4567,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js?v=2026-08-27-2033"></script>
-<script>window.PAGE_VER="2026-08-27-2033";</script>
+<script src="i18n.js?v=2026-08-27-2046"></script>
+<script>window.PAGE_VER="2026-08-27-2046";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
