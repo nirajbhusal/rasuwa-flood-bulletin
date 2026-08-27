@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T21:04:09+05:45",
+  "updated_at": "2026-08-27T21:19:48+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,44 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-210420-sundar-shrestha",
+      "name": "Sundar Shrestha",
+      "age": "28",
+      "place": "Ramechhap · Langtang hydropower",
+      "note": "फारम २१:०४"
+    },
+    {
+      "id": "sheet-20260827-210648-nabin-gautam",
+      "name": "Nabin Gautam",
+      "age": "32",
+      "place": "Balkumari Lalitpur · Timure (NIMB bank)",
+      "phone": "9823552181",
+      "note": "फारम २१:०६ · बहिनी 9823552181 · Sachin Gautam / Sudip Gautam सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260827-210818-bishow-bhandu-shrestha",
+      "name": "Bishow Bhandu Shrestha",
+      "place": "Sindhupalchowk barbise ward no.3 · Rasuwa timmure",
+      "phone": "9761038403",
+      "note": "फारम २१:०८ · White Tshirt black trouser · Mohan Bahadur Shrestha सँग नमिसाउने (फरक व्यक्ति, एउटै फोन)"
+    },
+    {
+      "id": "sheet-20260827-210947-mohan-bahadur-shrestha",
+      "name": "Mohan Bahadur Shrestha",
+      "place": "Sindhupalchowk bhotekhoshi gaupalika",
+      "phone": "9761038403",
+      "note": "फारम २१:०९ · Bishow Bhandu Shrestha सँग नमिसाउने (फरक व्यक्ति, एउटै फोन)"
+    },
+    {
+      "id": "sheet-20260827-211102-laxman-shrestha",
+      "name": "Laxman Shrestha",
+      "age": "38–40",
+      "place": "Kathmandu · Timure rasuwa",
+      "when": "Yesterday around 7am",
+      "phone": "9767846173",
+      "note": "फारम २१:११ · Still out contact · Lakshman Shrestha सँग नमिसाउने (फरक फोन/ठाउँ)"
+    },
     {
       "id": "sheet-20260827-204237-bam-bahadur-magar",
       "name": "Bam Bahadur Magar",
