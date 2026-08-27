@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T13:05:00+05:45",
+  "updated_at": "2026-08-27T13:15:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,32 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-130844-sunil-man-dangol",
+      "name": "Sunil Man Dangol",
+      "age": "36",
+      "place": "Birgunj-15, Bishwa · रसुवा नाका (गाडी पास)",
+      "when": "भाद्र १० बिहान ८ बजे",
+      "phone": "9807260499",
+      "note": "फारम १३:०८ · बाढीपछि सम्पर्कविहीन"
+    },
+    {
+      "id": "sheet-20260827-130129-kaji-tamang",
+      "name": "Kaji Tamang",
+      "place": "Mailung, Kalika · Timure, Rasuwa",
+      "when": "25 Aug 2026",
+      "phone": "9714458931",
+      "note": "फारम १३:०१ · तिमुरेमा काम · फोन लागिरहेको छैन"
+    },
+    {
+      "id": "sheet-20260827-125748-rema-kothandaraman",
+      "name": "Rema Kothandaraman",
+      "age": "64",
+      "place": "Bengaluru, India · Timure Customs",
+      "when": "26/8/2026 8:30am",
+      "phone": "+65 91998269",
+      "note": "फारम १२:५७"
+    },
     {
       "id": "sheet-20260827-125658-jiban-jonchhe",
       "name": "Jiban Jonchhe",
