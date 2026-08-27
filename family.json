@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T06:35:00+05:45",
+  "updated_at": "2026-08-27T06:43:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,73 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-064347-shubhakshi-rawla",
+      "name": "Shubhakshi Rawla",
+      "age": "50",
+      "place": "Canada · Kailash Hotel",
+      "when": "26/8//2026",
+      "phone": "+14162941205",
+      "note": "फारम ०६:४३ · Kailash Hotel · They are from canada.  Part of Himalayan Glacier group"
+    },
+    {
+      "id": "sheet-20260827-064110-sumit-rawla",
+      "name": "Sumit Rawla",
+      "age": "50",
+      "place": "Canada · Kailash Hotel",
+      "when": "26/8/2026",
+      "phone": "+1 4162941205",
+      "note": "फारम ०६:४१ · Kailash Hotel · They are from Canada.  Singapore citizens"
+    },
+    {
+      "id": "sheet-20260827-064103-rashi-shashidharan",
+      "name": "Rashi Shashidharan",
+      "age": "13",
+      "place": "USA · Hotel Kailash Rasuwagadhi",
+      "note": "फारम ०६:४१ · Hotel Kailash Rasuwagadhi"
+    },
+    {
+      "id": "sheet-20260827-063958-rekha-shashidharan",
+      "name": "Rekha Shashidharan",
+      "age": "54",
+      "place": "USA · Hotel Kailash Rasuwagadhi",
+      "note": "फारम ०६:३९ · Hotel Kailash Rasuwagadhi"
+    },
+    {
+      "id": "sheet-20260827-063944-raju-shrestha",
+      "name": "Raju shrestha",
+      "age": "",
+      "place": "Nuwakot · Syafrubesi",
+      "when": "20260826",
+      "note": "फारम ०६:३९ · Syafrubesi"
+    },
+    {
+      "id": "sheet-20260827-063839-ramesh-sharma",
+      "name": "Ramesh Sharma",
+      "age": "65",
+      "place": "New York, NY, USA · Rasuwa border checkpoint",
+      "when": "Aug 25th",
+      "phone": "+977 9851011169",
+      "note": "फारम ०६:३८ · Rasuwa border checkpoint · On tour to Kailash with Thamel based Nepal Trekking Planner"
+    },
+    {
+      "id": "sheet-20260827-063658-man-bahadur-shrestha",
+      "name": "Man Bahadur Shrestha",
+      "age": "41",
+      "place": "Dhading · Timure",
+      "when": "Last seen 8:00am",
+      "phone": "9854543727",
+      "note": "फारम ०६:३६ · Timure · Please help him find he was driving scorpio 1631"
+    },
+    {
+      "id": "sheet-20260827-063649-reyanka-koirala",
+      "name": "Reyanka Koirala",
+      "age": "64",
+      "place": "USA · Rasuwa Border",
+      "when": "Aug 25th, confirmed by Tour Company",
+      "phone": "+13478539696",
+      "note": "फारम ०६:३६ · Rasuwa Border · On a tour to Kailash with Nepal Trekking Planner (Thamel)"
+    },
     {
       "id": "sheet-20260827-063417-jiwan-jyoti",
       "name": "Jiwan Jyoti",
