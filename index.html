@@ -462,6 +462,19 @@ a.js-found-row[hidden]{display:none}
 .aid-ig .ibar-row{grid-template-columns:minmax(7em,34%) 1fr 6.2em}
 @media(max-width:760px){.aid-ig{padding:16px 14px 14px}.aid-ig .cash-kpis{grid-template-columns:1fr}}
 
+
+.rd-ig{margin:0 0 18px}
+.rd-ig h3{color:var(--forest)}
+.rd-kpis{grid-template-columns:repeat(4,1fr)}
+.rd-ig .cash-kpi strong,.rd-ig .cash-kpi .cash-unit{color:var(--forest)}
+.rd-ig .cash-kpi.on{border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5}
+.rd-ig .cash-kpi[data-rd="treat"] strong,.rd-ig .cash-kpi[data-rd="treat"] .cash-unit{color:#c2410c}
+.rd-ig .cash-kpi[data-rd="treat"].on{border-color:#c2410c;box-shadow:0 0 0 3px var(--saffron-soft)}
+.rd-ig .ibar i{background:var(--forest)}
+.rd-ig .rd-pane-treat .ibar i{background:#c2410c}
+.rd-jump{display:inline-block;margin-top:8px;font-weight:800;color:var(--forest);text-decoration:none}
+.rd-jump:hover{text-decoration:underline}
+@media(max-width:760px){.rd-kpis{grid-template-columns:1fr 1fr}}
 .overview{margin:0 0 8px}
 .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .kpi{
@@ -1121,6 +1134,7 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="chips-inner" id="nav-chips">
     <a class="home-btn" href="#home" aria-label="होम" title="होम" data-i18n-aria="nav_home" data-i18n-title="nav_home"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
     <a href="#treat" data-i18n="nav_treat">घाइते</a>
+    <a href="#lists-dash" data-i18n="nav_rd">उद्धार ड्यासबोर्ड</a>
     <a href="#shelter" data-i18n="nav_shelter">उद्धार सूची</a>
     <a href="#suryagadhi" data-i18n="nav_surya">सूर्यगढी</a>
     <a href="#rasuwa-res" data-i18n="nav_rasuwa_res">रसुवा उद्धार</a>
@@ -1529,6 +1543,124 @@ footer .foot-contact a:hover{text-decoration:underline}
       <li><b>पूर्वाधार</b> — NDRRMA SitRep-3 (राति २२:००): मोटरेबल पुल <strong>३५</strong> + झोलुङ्गे <strong>४५</strong> = पुल <strong>८०</strong>; पक्की सडक <strong>४० किमि</strong> पूर्ण ध्वस्त — SitRep-2 सँग मेल। विद्युत् ७ / २७६ MW — प्राधिकरण। टावर ७ — नेपाल टेलिकम।</li>
       <li><b>NEA कर्मचारी १३३+</b> — नेपाल विद्युत् प्राधिकरण (<a href="https://www.ratopati.com/story/587664/more-than-133-hydropower-employees-and-workers-left-without-contact-in-rasuwa-flood" target="_blank" rel="noopener">रातोपाटी</a>): विभिन्न जलविद्युत् आयोजनाका कर्मचारी/कामदार <strong>१३३ भन्दा बढी</strong> सम्पर्कविहीन। लाङटाङ आयोजना ६० यथावत्।</li>
     </ul>
+<section id="lists-dash">
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rd">उद्धार र उपचार सूची</h2></div>
+  <article class="cash-ig rd-ig" id="rd">
+    <h3 data-i18n="rd_h">प्रकाशित नाम-सूची</h3>
+    <p class="cash-lead" data-i18n="rd_lead">काठमाडौं अस्पताल, नुवाकोट, सूर्यगढी, रसुवा/टिमुरे, DAO रसुवा, भारतीय र काठमाडौं हेलि — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन।</p>
+    <div class="cash-kpis rd-kpis" role="tablist" aria-label="उद्धार र उपचार">
+      <button type="button" class="cash-kpi on" data-rd="all" aria-selected="true">
+        <span class="kpi-k" data-i18n="rd_all_k">सूची</span>
+        <strong data-i18n="rd_all_v">८</strong>
+        <span class="cash-unit" data-i18n="rd_all_u">वर्ग</span>
+      </button>
+      <button type="button" class="cash-kpi" data-rd="treat" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_treat_k">घाइते काठमाडौं</span>
+        <strong class="num">४२</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+      </button>
+      <button type="button" class="cash-kpi" data-rd="nuwakot" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_nuw_k">नुवाकोट</span>
+        <strong class="num">५६</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+      </button>
+      <button type="button" class="cash-kpi" data-rd="surya" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_surya_k">सूर्यगढी</span>
+        <strong class="num">२३</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+      </button>
+      <button type="button" class="cash-kpi" data-rd="rasuwa" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_ras_k">रसुवा / टिमुरे</span>
+        <strong class="num">७३</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+      </button>
+      <button type="button" class="cash-kpi" data-rd="dao" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_dao_k">DAO रसुवा</span>
+        <strong class="num">२१२</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+      </button>
+      <button type="button" class="cash-kpi" data-rd="india" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_ind_k">भारतीय</span>
+        <strong class="num">२१</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+      </button>
+      <button type="button" class="cash-kpi" data-rd="heli" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_heli_k">काठमाडौं हेलि</span>
+        <strong class="num">११</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">नाम</span>
+      </button>
+    </div>
+    <div class="cash-panes">
+      <div class="cash-pane on" data-rd="all">
+        <p class="ov-cap" data-i18n="rd_all_cap">आठ प्रकाशित सूची · कार्ड थिचेर विवरण</p>
+        <ul class="cash-list">
+          <li><span data-i18n="rd_treat_k">घाइते काठमाडौं</span><strong><span class="num">४२</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+          <li><span data-i18n="rd_nuw_k">नुवाकोट</span><strong><span class="num">५६</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+          <li><span data-i18n="rd_surya_k">सूर्यगढी</span><strong><span class="num">२३</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+          <li><span data-i18n="rd_ras_k">रसुवा / टिमुरे</span><strong><span class="num">७३</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+          <li><span data-i18n="rd_dao_k">DAO रसुवा</span><strong><span class="num">२१२</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+          <li><span data-i18n="rd_ind_k">भारतीय</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+          <li><span data-i18n="rd_heli_k">काठमाडौं हेलि</span><strong><span class="num">११</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n="rd_all_note">आधिकारिक घाइते जम्मा ७५ यथावत्। यी नाम-सूची जोडेर एउटा उद्धार जम्मा बनाइएको छैन।</p>
+      </div>
+      <div class="cash-pane rd-pane-treat" data-rd="treat">
+        <p class="ov-cap" data-i18n="rd_treat_cap">काठमाडौं अस्पताल · ११ भदौ १३:३०</p>
+        <div class="ibar-row"><span data-i18n="rd_tuth">टिचिङ</span><b class="ibar"><i style="width:100%"></i></b><em class="num">३१</em></div>
+        <div class="ibar-row"><span data-i18n="rd_trauma">ट्रमा</span><b class="ibar"><i style="width:32%"></i></b><em class="num">१०</em></div>
+        <div class="ibar-row"><span data-i18n="rd_chauni">छाउनी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
+        <p class="cash-note" data-i18n-html="rd_treat_note">सूचीमा <strong>४२</strong> नाम। आधिकारिक घाइते जम्मा <strong>७५</strong> यथावत्।</p>
+        <a class="rd-jump" href="#treat" data-i18n="rd_jump_treat">सूची हेर्नुहोस् → उपचार</a>
+      </div>
+      <div class="cash-pane" data-rd="nuwakot">
+        <p class="ov-cap" data-i18n="rd_nuw_cap">DAO नुवाकोट उद्धार</p>
+        <div class="ibar-row"><span data-i18n="gender_male">पुरुष</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४५</em></div>
+        <div class="ibar-row"><span data-i18n="gender_female">महिला</span><b class="ibar"><i style="width:24%"></i></b><em class="num">११</em></div>
+        <p class="cash-note" data-i18n-html="rd_nuw_note">जम्मा <strong>५६</strong>। चक्रदेव ११, नर्बिक रेफर ९।</p>
+        <a class="rd-jump" href="#shelter" data-i18n="rd_jump_nuw">सूची हेर्नुहोस् → नुवाकोट</a>
+      </div>
+      <div class="cash-pane" data-rd="surya">
+        <p class="ov-cap" data-i18n="rd_surya_cap">सूर्यगढी हस्तलिखित सूची</p>
+        <ul class="cash-list">
+          <li><span data-i18n="rd_surya_k">सूर्यगढी</span><strong><span class="num">२३</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n="rd_surya_note">नुवाकोट र फारम सूची अलग।</p>
+        <a class="rd-jump" href="#suryagadhi" data-i18n="rd_jump_surya">सूची हेर्नुहोस् → सूर्यगढी</a>
+      </div>
+      <div class="cash-pane" data-rd="rasuwa">
+        <p class="ov-cap" data-i18n="rd_ras_cap">रसुवा / टिमुरे · ११ भदौ</p>
+        <div class="ibar-row"><span data-i18n="rd_ras_np">नेपाली</span><b class="ibar"><i style="width:100%"></i></b><em class="num">६७</em></div>
+        <div class="ibar-row"><span data-i18n="rd_ras_kr">कोरियन</span><b class="ibar"><i style="width:6%"></i></b><em class="num">४</em></div>
+        <div class="ibar-row"><span data-i18n="rd_ras_it">इटालेली</span><b class="ibar"><i style="width:3%"></i></b><em class="num">२</em></div>
+        <p class="cash-note" data-i18n-html="rd_ras_note">जम्मा <strong>७३</strong> यस सूचीमा। DAO र हराएकोबाट हटाइएको छैन।</p>
+        <a class="rd-jump" href="#rasuwa-res" data-i18n="rd_jump_ras">सूची हेर्नुहोस् → रसुवा / टिमुरे</a>
+      </div>
+      <div class="cash-pane" data-rd="dao">
+        <p class="ov-cap" data-i18n="rd_dao_cap">जिल्ला प्रशासन कार्यालय रसुवा</p>
+        <ul class="cash-list">
+          <li><span data-i18n="rd_dao_k">DAO रसुवा</span><strong><span class="num">२१२</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n="rd_dao_note">हामीसँग भएका पाना मात्र। पूर्ण १–३७३ होइन।</p>
+        <a class="rd-jump" href="#dao-res" data-i18n="rd_jump_dao">सूची हेर्नुहोस् → DAO</a>
+      </div>
+      <div class="cash-pane" data-rd="india">
+        <p class="ov-cap" data-i18n="rd_ind_cap">भारतीय नागरिक · २७ अगस्ट १३:००</p>
+        <ul class="cash-list">
+          <li><span data-i18n="rd_ind_k">भारतीय</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">नाम</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n="rd_ind_note">२१औँ नाम Manimekalai Sukumar। हराएको सूची अलग।</p>
+        <a class="rd-jump" href="#india-res" data-i18n="rd_jump_ind">सूची हेर्नुहोस् → भारतीय</a>
+      </div>
+      <div class="cash-pane" data-rd="heli">
+        <p class="ov-cap" data-i18n="rd_heli_cap">काठमाडौं हेलि · ११ भदौ</p>
+        <div class="ibar-row"><span data-i18n="rd_prabhu">प्रभु एयर</span><b class="ibar"><i style="width:83%"></i></b><em class="num">५</em></div>
+        <div class="ibar-row"><span data-i18n="rd_augusta">अगस्टा एयर</span><b class="ibar"><i style="width:100%"></i></b><em class="num">६</em></div>
+        <p class="cash-note" data-i18n-html="rd_heli_note">जम्मा <strong>११</strong>। स्याफ्रुबेसी १३:३० + धुन्चे १३:४०।</p>
+        <a class="rd-jump" href="#heli-ktm" data-i18n="rd_jump_heli">सूची हेर्नुहोस् → हेलि</a>
+      </div>
+    </div>
+  </article>
+</section>
 <section id="treat">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_treat">रसुवा भोटेकोशी बाढीबाट प्रभावित घाइतेहरूको काठमाडौंको विभिन्न अस्पतालमा उपचार भइरहेको विवरण</h2></div>
   <div class="card green">
@@ -4223,8 +4355,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js?v=2026-08-27-1746"></script>
-<script>window.PAGE_VER="2026-08-27-1746";</script>
+<script src="i18n.js?v=2026-08-27-1748"></script>
+<script>window.PAGE_VER="2026-08-27-1748";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -4280,6 +4412,26 @@ footer .foot-contact a:hover{text-decoration:underline}
   });
 })();
 
+
+(function(){
+  var root = document.getElementById("rd");
+  if (!root) return;
+  var kpis = [].slice.call(root.querySelectorAll(".cash-kpi"));
+  var panes = [].slice.call(root.querySelectorAll(".cash-pane"));
+  function show(id){
+    kpis.forEach(function(k){
+      var on = k.getAttribute("data-rd") === id;
+      k.classList.toggle("on", on);
+      k.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    panes.forEach(function(p){
+      p.classList.toggle("on", p.getAttribute("data-rd") === id);
+    });
+  }
+  kpis.forEach(function(k){
+    k.addEventListener("click", function(){ show(k.getAttribute("data-rd")); });
+  });
+})();
 (function(){
   var root = document.getElementById("cash");
   if (!root) return;
