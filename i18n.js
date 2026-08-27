@@ -118,6 +118,15 @@ window.I18N = {
 "nav_rasuwa_res": "रसुवा उद्धार",
 "h_india_res": "उद्धार · भारतीय नागरिक",
 "nav_india_res": "भारतीय उद्धार",
+"h_heli_ktm": "उद्धार · काठमाडौं हेलि",
+"nav_heli_ktm": "काठमाडौं उद्धार",
+"heli_ktm_lead": "११ भदौ: प्रभु एयर <strong>५</strong> (स्याफ्रुबेसी, १३:३०) + अगस्टा एयर <strong>६</strong> (धुन्चे, १३:४०) = काठमाडौं <strong>११</strong> जना। रसुवा/टिमुरे, भारतीय, नुवाकोट र हराएको सूची अलग — नाम मिलाइएको छैन, हराएकोबाट हटाइएको छैन।",
+"h_prabhu": "प्रभु एयर 9N ATN · स्याफ्रुबेसी → काठमाडौं · १३:३०",
+"h_augusta": "अगस्टा एयर NA 054 · धुन्चे → काठमाडौं · १३:४०",
+"heli_ktm_note": "स्रोत: २०८३/०५/११ हेलि उद्धार विवरण। प्रभु 9N ATN १३:३०, अगस्टा NA 054 १३:४०।",
+"pmdrf_k": "प्रधानमन्त्री दैवी प्रकोप उद्धार कोष",
+"pmdrf_h": "अनलाइन पोर्टल",
+"pmdrf_sub": "विदेशमा रहेका नेपाली र विश्वभरका दाता सीधै योगदान गर्न सक्छन्।",
 "india_res_lead": "११ भदौ १३:०० सम्म उद्धार भएका भारतीय नागरिक <strong>२१</strong> जना। रसुवा/टिमुरे, नुवाकोट, सूर्यगढी र हराएको सूची अलग — नाम मिलाइएको छैन, हराएकोबाट हटाइएको छैन।",
 "india_res_note": "स्रोत: List of Indians rescued, २७ अगस्ट २०२६ १३:०० बजेसम्म। २१ जना।",
 "rasuwa_res_lead": "११ भदौको उद्धार सूची। नेपाली नाम <strong>६७</strong> (कागजात १–८८, दोहोरिएका हटाएर) + कोरियन <strong>४</strong> + इटालेली <strong>२</strong>। नुवाकोट ५६, सूर्यगढी २३ र हराएको सूची अलग — नाम मिलाइएको छैन, हराएकोबाट हटाइएको छैन।",
@@ -282,7 +291,7 @@ window.I18N = {
 "lede": "आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। टिमुरे <strong>९५</strong> (विदेशी ८), हाकु टनेल <strong>७</strong>, भारतीय पर्यटक <strong>२१</strong>। शव <strong>२७०</strong>। SitRep-3 जिल्ला: चितवन ६४ · गोरखा १९ · धादिङ १८ · नुवाकोट ११ · तनहुँ ९ · रसुवा १ · नवलपरासी पूर्व १ (जम्मा १२३)। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। नदी किनार नजानुहोस्।",
 "stats_note": "शव <strong>२७०</strong>। SitRep-3 जिल्ला: चितवन ६४ · गोरखा १९ · धादिङ १८ · नुवाकोट ११ · तनहुँ ९ · रसुवा १ · नवलपरासी पूर्व १ (जम्मा १२३)। आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। सम्पर्कविहीन २४५ / घाइते ७५। पर्यटक ४८४। स्रोत तल।",
 "funds_warn": "<span class=\"src\">प्राधिकरण</span> बाढीपीडितका नाममा आफूखुसी सहयोग वा व्यक्तिगत QR नसङ्कलन गर्नुहोस्। तल प्रधानमन्त्री कार्यालयका खाता मात्र आधिकारिक। अटेर देखिए <a href=\"tel:+97714211197\">०१-४२१११९७</a> मा जानकारी दिनुहोस्।",
-"funds_lead": "बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन SWIFT पनि ट्याप गरेर कपी गर्न सकिन्छ। आधिकारिक पाना: <a href=\"https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf\" target=\"_blank\" rel=\"noopener\">प्रधानमन्त्री कार्यालय PDF</a>",
+"funds_lead": "बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन नयाँ अनलाइन पोर्टल वा SWIFT प्रयोग गर्न सकिन्छ। आधिकारिक पाना: <a href=\"https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf\" target=\"_blank\" rel=\"noopener\">प्रधानमन्त्री कार्यालय PDF</a>",
 "dd_swift": "बैंक चिनाउने अन्तर्राष्ट्रिय कोड (BIC)। विदेशबाट यी खातामा पैसा पठाउन आफ्नो बैंकलाई यो कोड, खाता नाम र खाता नम्बर दिनुहोस्। नेपालमा IBAN चल्दैन।",
 "dd_write": "बैंकको अंग्रेजी नाम, SWIFT (माथि कपी गर्न मिल्छ), खाता नाम: प्रधानमन्त्री दैवी प्रकोप उद्धार कोष वा प्रधानमन्त्री राहत कोष, र तालिकाको खाता नम्बर। उद्देश्यमा Rasuwa / Bhotekoshi flood relief, 26 Aug 2026 लेख्नुहोस्।",
 "dd_ccy": "अधिकांश खाता नेपाली रुपैयाँका हुन्। हिमालयन बैंकको <code>01905631210046</code> डलर ($) खाता हो, SWIFT <code>HIMANPKA</code>। अन्य मुद्रा पठाएमा बैंकले रुपैयाँमा साट्न सक्छ।",
@@ -489,6 +498,15 @@ window.I18N = {
 "nav_rasuwa_res": "Rasuwa rescued",
 "h_india_res": "Rescued · Indian nationals",
 "nav_india_res": "Indian rescued",
+"h_heli_ktm": "Rescued · Kathmandu heli",
+"nav_heli_ktm": "Kathmandu rescued",
+"heli_ktm_lead": "11 Bhadra: Prabhu Air <strong>5</strong> (Syaphrubesi, 13:30) + Augusta Air <strong>6</strong> (Dhunche, 13:40) = <strong>11</strong> to Kathmandu. Separate from Rasuwa/Timure, Indian, Nuwakot and missing — names not merged or removed.",
+"h_prabhu": "Prabhu Air 9N ATN · Syaphrubesi to Kathmandu · 13:30",
+"h_augusta": "Augusta Air NA 054 · Dhunche to Kathmandu · 13:40",
+"heli_ktm_note": "Source: 11 Bhadra 2083 heli rescue notes. Prabhu 9N ATN 13:30, Augusta NA 054 13:40.",
+"pmdrf_k": "Prime Minister Disaster Relief Fund",
+"pmdrf_h": "Online portal",
+"pmdrf_sub": "Nepalis abroad and donors worldwide can contribute directly.",
 "india_res_lead": "As of 13:00, 11 Bhadra: <strong>21</strong> Indian nationals rescued. Separate from Rasuwa/Timure, Nuwakot, Suryagadhi and the missing wall — names not merged or removed from missing.",
 "india_res_note": "Source: List of Indians rescued, as of 13:00 on 27 August 2026. 21 people.",
 "rasuwa_res_lead": "11 Bhadra rescue list. Nepali names <strong>67</strong> (from serials 1–88, duplicates dropped) + Korean <strong>4</strong> + Italian <strong>2</strong>. Kept separate from Nuwakot 56, Suryagadhi 23, and the missing wall — not merged, not removed from missing.",
@@ -653,7 +671,7 @@ window.I18N = {
 "lede": "This morning (11 Bhadra) the Army airlifted <strong>123</strong>. Timure <strong>95</strong> (foreign 8), Haku tunnel <strong>7</strong>, Indian tourists <strong>21</strong>. Dead <strong>270</strong>. SitRep-3 by district: Chitwan 64 · Gorkha 19 · Dhading 18 · Nuwakot 11 · Tanahun 9 · Rasuwa 1 · Nawalparasi East 1 (total 123). Uncontacted NDRRMA <strong>245</strong>. Stay away from the river.",
 "stats_note": "Dead <strong>270</strong>. SitRep-3 by district: Chitwan 64 · Gorkha 19 · Dhading 18 · Nuwakot 11 · Tanahun 9 · Rasuwa 1 · Nawalparasi East 1 (total 123). This morning (11 Bhadra) Army heli <strong>123</strong>. Uncontacted 245 / injured 75. Tourists 484. Sources below.",
 "funds_warn": "<span class=\"src\">NDRRMA</span> Do not collect money or share personal QR codes in the name of flood victims. Only the Prime Minister’s Office accounts below are official. Report unauthorized collection to <a href=\"tel:+97714211197\">01-4211197</a>.",
-"funds_lead": "Government accounts at the Prime Minister’s Office for flood-relief support. Scan the QR or tap an account number to copy. SWIFT codes can also be copied for transfers from abroad. Official page: <a href=\"https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf\" target=\"_blank\" rel=\"noopener\">Prime Minister’s Office PDF</a>",
+"funds_lead": "Government accounts at the Prime Minister’s Office for flood-relief support. Scan the QR or tap an account number to copy. Use the new online portal or copy a SWIFT code for transfers from abroad. Official page: <a href=\"https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf\" target=\"_blank\" rel=\"noopener\">Prime Minister’s Office PDF</a>",
 "dd_swift": "An international bank identifier (BIC). To send money into these accounts from abroad, give your bank this code, the account name and the account number. Nepal does not use IBAN.",
 "dd_write": "The bank’s English name, SWIFT (copy from the table), account name: Prime Minister’s Disaster Relief Fund or Prime Minister’s Relief Fund, and the account number in the table. In the purpose line write Rasuwa / Bhotekoshi flood relief, 26 Aug 2026.",
 "dd_ccy": "Most accounts are in Nepali rupees. Himalayan Bank <code>01905631210046</code> is a US dollar ($) account, SWIFT <code>HIMANPKA</code>. If you send another currency the bank may convert it to rupees.",
@@ -944,6 +962,14 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Kathmandu heli rescue 11",
+"p": "Prabhu Air 9N ATN brought <strong>5</strong> from Syaphrubesi (13:30) and Augusta Air NA 054 brought <strong>6</strong> from Dhunche (13:40) to Kathmandu. Names in <a href=\"#heli-ktm\">Kathmandu rescued</a>. Not removed from missing."
+},
+{
+"h": "PM relief online portal",
+"p": "Nepalis abroad and donors worldwide can contribute directly to the Prime Minister Disaster Relief Fund. <a href=\"https://pmdrf.nchl.com.np\" target=\"_blank\" rel=\"noopener\">pmdrf.nchl.com.np</a> · <a href=\"#donate\">Relief funds</a>."
+},
 {
 "h": "Indian rescued 21",
 "p": "As of 13:00 on 27 August, <strong>21</strong> Indian nationals rescued. Named list in <a href=\"#india-res\">Indian rescued</a>. Not removed from the missing wall."

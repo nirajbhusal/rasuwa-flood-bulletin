@@ -409,6 +409,18 @@ a.js-found-row[hidden]{display:none}
 .cash-snap strong{font-size:clamp(32px,6vw,44px);font-weight:800;color:var(--forest);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .cash-snap .cash-unit{font-size:16px;font-weight:800;color:var(--forest)}
 .cash-snap .cash-sub{width:100%;margin-top:2px;font-size:13px;font-weight:700;color:var(--muted)}
+.pmdrf-card{
+  display:block;margin:0 0 16px;padding:16px 18px 14px;
+  background:linear-gradient(180deg,#ecfdf5,#fff 55%);
+  border:1px solid #86efac;border-radius:16px;
+  box-shadow:var(--shadow);text-decoration:none;color:inherit;
+}
+.pmdrf-card:hover{text-decoration:none;border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5}
+.pmdrf-card .kpi-k{display:block;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.pmdrf-card strong{display:block;margin:4px 0 2px;font-size:clamp(22px,4vw,28px);font-weight:800;color:var(--forest);line-height:1.2}
+.pmdrf-card .cash-sub{display:block;font-size:14px;font-weight:700;color:var(--muted)}
+.pmdrf-card .pmdrf-url{display:block;margin-top:6px;font-size:15px;font-weight:800;color:var(--forest)}
+
 .aid-snap{background:linear-gradient(180deg,#ecfeff,#fff 55%);border-color:#67e8f9}
 .aid-snap:hover{border-color:#0e7490;box-shadow:0 0 0 3px #cffafe}
 .aid-snap strong,.aid-snap .cash-unit{color:#0e7490}
@@ -1095,6 +1107,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <a href="#suryagadhi" data-i18n="nav_surya">सूर्यगढी</a>
     <a href="#rasuwa-res" data-i18n="nav_rasuwa_res">रसुवा उद्धार</a>
     <a href="#india-res" data-i18n="nav_india_res">भारतीय उद्धार</a>
+    <a href="#heli-ktm" data-i18n="nav_heli_ktm">काठमाडौं उद्धार</a>
     <a href="#family" data-i18n="nav_family">हराएको / भेटिएको</a>
     <a href="#map" data-i18n="nav_map">नक्सा</a>
     <a href="#alert" data-i18n="nav_alert">सतर्कता</a>
@@ -1368,7 +1381,13 @@ footer .foot-contact a:hover{text-decoration:underline}
     <section id="donate" class="funds">
       <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_donate">राहत कोष</h2></div>
       <p class="funds-warn" data-i18n-html="funds_warn"><span class="src">प्राधिकरण</span> बाढीपीडितका नाममा आफूखुसी सहयोग वा व्यक्तिगत QR नसङ्कलन गर्नुहोस्। तल प्रधानमन्त्री कार्यालयका खाता मात्र आधिकारिक। अटेर देखिए <a href="tel:+97714211197">०१-४२१११९७</a> मा जानकारी दिनुहोस्।</p>
-      <p class="funds-lead" data-i18n-html="funds_lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन SWIFT पनि ट्याप गरेर कपी गर्न सकिन्छ। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
+      <p class="funds-lead" data-i18n-html="funds_lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन नयाँ अनलाइन पोर्टल वा SWIFT प्रयोग गर्न सकिन्छ। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
+      <a class="pmdrf-card" href="https://pmdrf.nchl.com.np" target="_blank" rel="noopener" id="pmdrf">
+        <span class="kpi-k" data-i18n="pmdrf_k">प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</span>
+        <strong data-i18n="pmdrf_h">अनलाइन पोर्टल</strong>
+        <span class="cash-sub" data-i18n="pmdrf_sub">विदेशमा रहेका नेपाली र विश्वभरका दाता सीधै योगदान गर्न सक्छन्।</span>
+        <span class="pmdrf-url">pmdrf.nchl.com.np</span>
+      </a>
       <article class="cash-ig" id="cash">
         <h3 data-i18n="cash_h">नगद राहत रकम अपडेट</h3>
         <p class="cash-lead" data-i18n-html="cash_lead">रसुवा बाढी प्रभावित क्षेत्रमा राहत, उद्धार, खोज तथा पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सहयोग एकद्वार प्रणालीबाट आउन थालेको छ। माननीय अर्थमन्त्री डा. स्वर्णिम वाग्लेले बुझ्न थाल्नुभएको छ।</p>
@@ -1825,6 +1844,41 @@ footer .foot-contact a:hover{text-decoration:underline}
     </table>
     </div>
     <p class="treat-note" data-i18n="india_res_note">स्रोत: List of Indians rescued, २७ अगस्ट २०२६ १३:०० बजेसम्म। २१ जना।</p>
+  </div>
+</section>
+
+<section id="heli-ktm">
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_heli_ktm">उद्धार · काठमाडौं हेलि</h2></div>
+  <div class="card green">
+    <p class="treat-lead" data-i18n-html="heli_ktm_lead">११ भदौ: प्रभु एयर <strong>५</strong> (स्याफ्रुबेसी, १३:३०) + अगस्टा एयर <strong>६</strong> (धुन्चे, १३:४०) = काठमाडौं <strong>११</strong> जना। रसुवा/टिमुरे, भारतीय, नुवाकोट र हराएको सूची अलग — नाम मिलाइएको छैन, हराएकोबाट हटाइएको छैन।</p>
+    <h3 style="margin:16px 0 8px" data-i18n="h_prabhu">प्रभु एयर 9N ATN · स्याफ्रुबेसी → काठमाडौं · १३:३०</h3>
+    <div class="treat-wrap">
+    <table class="plants treat">
+      <thead><tr><th data-i18n="sn">सि.नं.</th><th data-i18n="th_name">नाम थर</th></tr></thead>
+      <tbody>
+        <tr><td>१</td><td>कपु लामा</td></tr>
+        <tr><td>२</td><td>निमा डोल्मा</td></tr>
+        <tr><td>३</td><td>सरिता तामाङ</td></tr>
+        <tr><td>४</td><td>सीता तामाङ</td></tr>
+        <tr><td>५</td><td>सोनाम तामाङ</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3 style="margin:20px 0 8px" data-i18n="h_augusta">अगस्टा एयर NA 054 · धुन्चे → काठमाडौं · १३:४०</h3>
+    <div class="treat-wrap">
+    <table class="plants treat">
+      <thead><tr><th data-i18n="sn">सि.नं.</th><th data-i18n="th_name">नाम थर</th></tr></thead>
+      <tbody>
+        <tr><td>१</td><td>मुना तामाङ</td></tr>
+        <tr><td>२</td><td>याङ्सी तामाङ</td></tr>
+        <tr><td>३</td><td>छेकी डोल्मा लामा</td></tr>
+        <tr><td>४</td><td>रेनु तामाङ</td></tr>
+        <tr><td>५</td><td>लाक्पा छोमो</td></tr>
+        <tr><td>६</td><td>पाल्मु छोटेन</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="treat-note" data-i18n="heli_ktm_note">स्रोत: २०८३/०५/११ हेलि उद्धार विवरण। प्रभु 9N ATN १३:३०, अगस्टा NA 054 १३:४०।</p>
   </div>
 </section>
 
@@ -2741,7 +2795,19 @@ footer .foot-contact a:hover{text-decoration:underline}
     <span class="pcount pager-count"></span>
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
-        <article class="log-item now">
+            <article class="log-item now">
+      <p class="when">~१३:४०</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>काठमाडौं हेलि उद्धार ११</h3>
+      <p>प्रभु एयर 9N ATN स्याफ्रुबेसीबाट <strong>५</strong> जना (१३:३०) र अगस्टा एयर NA 054 धुन्चेबाट <strong>६</strong> जना (१३:४०) काठमाडौं ल्याइएको। नाम <a href="#heli-ktm">काठमाडौं उद्धार</a> मा। हराएको सूचीबाट हटाइएको छैन।</p>
+    </article>
+    <article class="log-item">
+      <p class="when">~१६:२४</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>प्रधानमन्त्री राहत अनलाइन पोर्टल</h3>
+      <p>विदेशमा रहेका नेपाली र विश्वभरका दाता प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सीधै योगदान गर्न सक्छन्। <a href="https://pmdrf.nchl.com.np" target="_blank" rel="noopener">pmdrf.nchl.com.np</a> · <a href="#donate">राहत कोष</a>।</p>
+    </article>
+    <article class="log-item">
       <p class="when">~१३:००</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>भारतीय उद्धार २१</h3>
