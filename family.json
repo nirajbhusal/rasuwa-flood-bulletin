@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T09:27:43+05:45",
+  "updated_at": "2026-08-27T09:37:45+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -8,13 +8,22 @@
   },
   "missing": [
     {
+      "id": "sheet-20260827-093027-pratik-bhatta",
+      "name": "Pratik Bhatta",
+      "age": "31",
+      "place": "Budhanilkantha, Kathmandu · Trishuli camp side (Trishuli 3B Chilime hydro)",
+      "when": "2083/05/10",
+      "phone": "9843150107",
+      "note": "फारम ०९:३० · Trishuli 3B Chilime hydro engineer"
+    },
+    {
       "id": "sheet-20260827-092412-ghanshyam-bhatt-kalpana-bhatt",
       "name": "घनश्याम भट्ट, कल्पना भट्ट",
       "age": "52/50",
       "place": "सिद्धलेक गापा १, धादिङ · बेत्रावती",
       "when": null,
       "phone": "9763619531",
-      "note": "फारम ०९:२४ · गोसाँइकुण्ड जाने ४०/४२ जना · धादिङ बस रिजर्भ · सम्पर्क गाउँले"
+      "note": "फारम ०९:२४ · गोसाँइकुण्ड जाने ४०/४२ जना · धादिङ बस रिजर्भ · सम्पर्क गाउँले · फारम ०९:२७ समूह · हरि प्रसाद सिलवाल, बिन्दा सिलवाल · धेरै लम्साल"
     },
     {
       "id": "sheet-20260827-092037-bharat-mangwani",
@@ -923,10 +932,10 @@
     {
       "id": "sheet-20260827-002427-shiva-kumar-shrestha",
       "name": "Shiva Kumar Shrestha",
-      "place": "Dhading · Timure Immigration",
+      "place": "Dhading / Kathmandu · Timure Immigration / Rasuwagadhi border",
       "when": "27th August",
-      "phone": "9851352707",
-      "note": "फारम ००:२४"
+      "phone": "9851352707 / 9851197166",
+      "note": "फारम ००:२४ · फारम ०९:३६ · border check post · 2083/5/10"
     },
     {
       "id": "sheet-20260827-002056-rupesh-shrestha",
@@ -2416,8 +2425,8 @@
       "age": "23",
       "place": "Okhaldhunga · Timure",
       "when": "Yesterday called on messenger aaja ktm farkinxu vnthyo",
-      "phone": "9848944391",
-      "note": "White shoes white tshirt blue pant · Missing from timure Mobile phone is off and contact less"
+      "phone": "9848944391 / 9842929026",
+      "note": "White shoes white tshirt blue pant · Missing from timure Mobile phone is off and contact less · फारम ०९:३४ · उमेर २१ (कार्डमा २३) · सर्लाही (कार्डमा ओखलढुङ्गा)"
     },
     {
       "id": "m-sailesh-thapa",
