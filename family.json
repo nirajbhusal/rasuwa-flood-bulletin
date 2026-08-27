@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T11:11:06+05:45",
+  "updated_at": "2026-08-27T11:12:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,100 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-111228-nishma-rimal-sunil-thapa-and-indira-thapa",
+      "name": "Nishma Rimal, Sunil Thapa and Indira Thapa",
+      "age": "23",
+      "place": "Rasuwa, Timure, Upper Sole · At home on the same address provided",
+      "when": "bhadra 10",
+      "phone": "9843480011",
+      "note": "फारम ११:१२ · We have been unable to contact them since Bhadra 10. Their phone has been switched off. We are requesting urgent assistance in locating and confirming their safety."
+    },
+    {
+      "id": "sheet-20260827-111139-shivanth-prakash",
+      "name": "Shivanth Prakash",
+      "age": "27",
+      "place": "309, THADAGAM ROAD, GCY (P.O), COIMBATORE · RASUWA GATHI IMMIGRATION CENTER",
+      "when": "26/aug/2026 around 11.00 am their time",
+      "phone": "9443799999 / 9840926636",
+      "note": "फारम ११:११"
+    },
+    {
+      "id": "sheet-20260827-111102-hikmat-mohora",
+      "name": "Hikmat Mohora",
+      "age": "Around his 30s 35",
+      "place": "Dhangadi · Rusuwa police station",
+      "when": "Dont know",
+      "phone": "9849101224 / 9860468872",
+      "note": "फारम ११:११ · Police uniform · Hikmat mohara isn’t close relative of mine yet he has helped my family in many ways when his posting was in kathmandu. He is a police officer, he has a wife and 2children who are i · पत्नी कौशिला"
+    },
+    {
+      "id": "sheet-20260827-110947-januka-lamsal",
+      "name": "Januka Lamsal",
+      "age": "34",
+      "place": "Dhading · Gosainkunda jadai gareko",
+      "when": "2026/08/26",
+      "phone": "9761613435",
+      "note": "फारम ११:०९"
+    },
+    {
+      "id": "sheet-20260827-110922-aavash-neupane",
+      "name": "Aavash Neupane",
+      "age": "Around 23",
+      "place": "Kathmandu · Upper Trishuli 3A hydropower",
+      "when": "unknown",
+      "note": "फारम ११:०९ · He is a recent graduate of mechanical engineering from Kathmandu University working in Upper Trishuli 3A hydropower project"
+    },
+    {
+      "id": "sheet-20260827-110622-tashi-tamang-jivan-tamang-chhowang-sangmo-tamang-c",
+      "name": "Tashi tamang , Jivan Tamang, Chhowang sangmo tamang, chungku tamang, Thinley wangdi tamang ,pratima tamang",
+      "place": "Shyafru chaur and shyafru bazar/rasuwa · In their homes",
+      "when": "27 Aug",
+      "phone": "9768588207/9851048860",
+      "note": "फारम ११:०६"
+    },
+    {
+      "id": "sheet-20260827-110607-narayani-parajuli",
+      "name": "NARAYANI PARAJULI",
+      "age": "28",
+      "place": "DANG · तिमुरे चेकपोस्ट नजिक",
+      "when": "भदौ १० गते बिहान ८ः१८ बजे",
+      "note": "फारम ११:०६"
+    },
+    {
+      "id": "sheet-20260827-110557-sanjaya-sherpa",
+      "name": "Sanjaya Sherpa",
+      "place": "Bhotekoshi -3 · Kerung Border Area",
+      "when": "AUG 26",
+      "phone": "9851122273 , 9841034594",
+      "note": "फारम ११:०५"
+    },
+    {
+      "id": "sheet-20260827-110543-suhasini-reddy-kandimalla",
+      "name": "Suhasini reddy kandimalla",
+      "age": "43",
+      "place": "2 rosella crescent, Springfield lakes,Qld, Australia · Spoke to her over the phone 5 am local time Nepal",
+      "when": "26/08/2026",
+      "phone": "0061449297756",
+      "note": "फारम ११:०५ · Trekking with Kailash Journeys company"
+    },
+    {
+      "id": "sheet-20260827-110449-tej-kumari-gurung-babar-gurung-thaneshowr-gurung-u",
+      "name": "tej kumari gurung, babar gurung, Thaneshowr gurung, Uma gurung, Rishi panta",
+      "age": "60-73",
+      "place": "Kathmandu · Last conversation on border at 7:30. On the way to kailash",
+      "when": "Contact at 7:30 am in check point",
+      "phone": "Bhim gurung - +977 9851057784",
+      "note": "फारम ११:०४ · no idea · 2 were UK citizens"
+    },
+    {
+      "id": "sheet-20260827-104705-min-bahadur-ale-magar",
+      "name": "Min Bahadur Ale Magar",
+      "place": "Ramechhap · Rasuwa gadhi, Ghattekhola area",
+      "when": "8:21 online in whatspp",
+      "phone": "9803529531",
+      "note": "फारम १०:४७ · Nabaraj Ale Magar was with him. Worked in housing facility in pumbling"
+    },
     {
       "id": "m-suresh-simkhada",
       "name": "Suresh Simkhada",
