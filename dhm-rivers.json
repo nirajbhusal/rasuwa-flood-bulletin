@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-27T08:04:00+05:45",
-  "note_np": "DHM: काली ७.३२८@०८:०० falling; देवघाट ५.००६@०७:४० steady (लाइभ, सतर्कतामुनि)। धुन्चे/बेत्रावती मौन ०९:२०। फुर्के गेज बगेको ~१०.४८@११:४०।",
+  "updated_at": "2026-08-27T08:10:00+05:45",
+  "note_np": "DHM: काली ७.३२८@०८:०० falling; देवघाट ५.००९@०७:५० steady (लाइभ, सतर्कतामुनि)। धुन्चे/बेत्रावती मौन ०९:२०। फुर्के गेज बगेको ~१०.४८@११:४०।",
   "hydrology": "https://www.hydrology.gov.np/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
   "stations": [
@@ -78,13 +78,13 @@
       "name": "Narayani at Devghat",
       "name_np": "देवघाट · नारायणी",
       "district_np": "चितवन",
-      "level_m": 5.006,
+      "level_m": 5.009,
       "warning_m": 7.3,
       "danger_m": 9.0,
       "status": "BELOW WARNING LEVEL",
       "steady": "STEADY",
-      "observed_at": "2026-08-27T01:55:00+00:00",
-      "observed_npt": "०७:४०",
+      "observed_at": "2026-08-27T02:05:00+00:00",
+      "observed_npt": "०७:५०",
       "silent": false,
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
