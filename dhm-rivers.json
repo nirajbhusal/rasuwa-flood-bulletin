@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T20:44:40.971178+05:45",
+  "updated_at": "2026-08-27T21:04:09+05:45",
   "note_np": "फुर्के वास आउट। बेत्रावती लामो समयदेखि मौन भए साइलेन्ट।",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -64,11 +64,11 @@
       "warning_m": 10.8,
       "danger_m": 12.1,
       "washed": false,
-      "level_m": 6.165,
+      "level_m": 6.156,
       "status": "BELOW WARNING LEVEL",
       "steady": "STEADY",
-      "observed_at": "2026-08-27T14:45:00+00:00",
-      "observed_npt": "२०२६-०८-२७ २०:३०",
+      "observed_at": "2026-08-27T14:55:00+00:00",
+      "observed_npt": "२०२६-०८-२७ २०:४०",
       "silent": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781"
     },
@@ -81,11 +81,11 @@
       "warning_m": 7.3,
       "danger_m": 9.0,
       "washed": false,
-      "level_m": 4.652,
+      "level_m": 4.661,
       "status": "BELOW WARNING LEVEL",
       "steady": "STEADY",
-      "observed_at": "2026-08-27T14:25:00+00:00",
-      "observed_npt": "२०२६-०८-२७ २०:१०",
+      "observed_at": "2026-08-27T14:35:00+00:00",
+      "observed_npt": "२०२६-०८-२७ २०:२०",
       "silent": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
     }
