@@ -15,6 +15,7 @@ window.I18N = {
 "nav_rahat": "राहत भिजुअल",
 "nav_treat": "घाइते",
 "nav_shelter": "उद्धार सूची",
+"nav_surya": "सूर्यगढी",
 "nav_family": "हराएको / भेटिएको",
 "nav_helpline": "हेल्पलाइन",
 "nav_donate": "राहत कोष",
@@ -40,6 +41,7 @@ window.I18N = {
 "h_rahat_photos": "उद्धार तस्बिर",
 "h_treat": "राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङ अस्पतालमा उपचार भइरहेका घाइतेहरु",
 "h_shelter": "उद्धार · नुवाकोट",
+"h_surya": "उद्धार · सूर्यगढी",
 "h_family": "हराएको / भेटिएको",
 "h_contacts": "स्थानीय तह सम्पर्क",
 "h_alert": "सतर्कता",
@@ -213,6 +215,8 @@ window.I18N = {
 "treat_note": "स्रोत: राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङमा उपचाररत नामसूची (२२) + पहिचान नखुलेका २ र शिशु १ (प्रहरी, जम्मा २५)। उमेर/ठेगाना अघिल्लो प्रहरी तालिकाबाट जहाँ थियो। स्वास्थ्य प्रवक्ता: उपचार निःशुल्क, हेल्पलाइन <a href=\"tel:1115\">1115</a>।",
 "shelter_lead": "जिल्ला प्रशासन कार्यालय नुवाकोट: उद्धार <strong>५६</strong> (महिला ११, पुरुष ४५)। चक्रदेव अस्पताल ११, नर्बिक काठमाडौं रेफर ९। सेनाको त्रिशूली सूची यसैमा अद्यावधिक।",
 "shelter_note": "स्रोत: जिल्ला प्रशासन कार्यालय नुवाकोट। शव पुरुष ४, महिला १ (स्थानीय)। सेनाको त्रिशूली ४१ नाम यसै तालिकामा। हवाई उद्धार ११६।",
+"surya_lead": "सूर्यगढीबाट उद्धार भएका हस्तलिखित सूची <strong>२३</strong> जना। नुवाकोट ५६ र फारम सूची अलग। नाम मिलाइएको छैन, हराएको सूचीबाट हटाइएको छैन।",
+"surya_note": "स्रोत: सूर्यगढी उद्धार हस्तलिखित सूची। २३ जना।",
 "fam_lead1": "बाढीमा हराएका वा भेटिएका व्यक्तिको विवरण पठाउनुहोस्। जाँचपछि मात्र कार्ड देखिन्छ। भेटिएको <strong>४१</strong> जना। आपत्कालमा <a href=\"tel:1234\">१२३४</a> वा <a href=\"tel:100\">प्रहरी १००</a>।",
 "fam_lead2": "कार्ड सच्याउन वा नयाँ जानकारी दिन <strong>अपडेट</strong> थिच्नुहोस्। फारममा त्यही व्यक्तिको नाम र विवरण आउँछ। जाँचपछि मात्र सूची बदलिन्छ। आपत्कालमा <a href=\"tel:1234\">१२३४</a>।",
 "fam_new_lead": "फारम सिटबाट जाँचिएका सम्पर्कविहीन विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।",
@@ -279,6 +283,7 @@ window.I18N = {
 "nav_rahat": "Relief visual",
 "nav_treat": "Injured",
 "nav_shelter": "Rescue list",
+"nav_surya": "Suryagadhi",
 "nav_family": "Missing / Found",
 "nav_helpline": "Helpline",
 "nav_donate": "Relief funds",
@@ -304,6 +309,7 @@ window.I18N = {
 "h_rahat_photos": "Rescue photos",
 "h_treat": "Injured in treatment at the National Trauma Center, Chauni and Teaching Hospital",
 "h_shelter": "Rescue · Nuwakot",
+"h_surya": "Rescue · Suryagadhi",
 "h_family": "Missing / Found",
 "h_contacts": "Local government contacts",
 "h_alert": "Alert",
@@ -477,6 +483,8 @@ window.I18N = {
 "treat_note": "Source: named list in treatment at the National Trauma Center, Chauni and Teaching (22) + 2 unidentified and 1 infant (police, total 25). Age/address from the earlier police table where available. Health spokesperson: treatment is free, helpline <a href=\"tel:1115\">1115</a>.",
 "shelter_lead": "Nuwakot District Administration Office: rescued <strong>56</strong> (women 11, men 45). Chakradev Hospital 11, referred to Neuro Kathmandu 9. The Army Trishuli list is folded into this table.",
 "shelter_note": "Source: Nuwakot District Administration Office. Bodies: 4 men, 1 woman (local). The Army’s 41 Trishuli names are in this table. Air rescue 116.",
+"surya_lead": "Handwritten list of <strong>23</strong> people rescued from Suryagadhi. Separate from Nuwakot 56 and the form wall. Names have not been matched or removed from missing.",
+"surya_note": "Source: Suryagadhi rescue handwritten list. 23 people.",
 "fam_lead1": "Send details of someone missing or found in the flood. Cards appear only after review. Found: <strong>41</strong> people. In an emergency call <a href=\"tel:1234\">1234</a> or <a href=\"tel:100\">Police 100</a>.",
 "fam_lead2": "To correct a card or add information, press <strong>Update</strong>. The form opens with that person’s name and details. The list changes only after review. In an emergency call <a href=\"tel:1234\">1234</a>.",
 "fam_new_lead": "Checked missing reports from the form sheet. Tap a number to call.",
@@ -728,6 +736,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Suryagadhi rescue · 23",
+"p": "Handwritten list of <strong>23</strong> people rescued from Suryagadhi. Betrawati Stari Phant 10, Betrawati 4, Kathmandu/Lalitpur addresses 9. Not merged with Nuwakot 56 or the form wall. List in <a href=\"#suryagadhi\">Rescue · Suryagadhi</a>."
+},
 {
 "h": "Raman Lal Shrestha found · Dhunche hospital",
 "p": "Raman Lal Shrestha (35, Biratnagar · Timure, Prabhu Bank branch manager) has been located at Dhunche hospital. Being brought to Kathmandu. Moved from missing to found."
