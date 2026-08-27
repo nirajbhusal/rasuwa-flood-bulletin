@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T09:58:52+05:45",
+  "updated_at": "2026-08-27T10:10:25+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,87 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-100627-sree-iyer",
+      "name": "Sree Iyer",
+      "age": "52",
+      "place": "Cherrybrook, NSW, Australia · Hotel Kailash",
+      "when": "25th August morning 6:30 am IST",
+      "phone": "+91 9747519090",
+      "note": "फारम १०:०६ · Australian · OZTREK · परिवार भारतीय मूल"
+    },
+    {
+      "id": "sheet-20260827-100512-krishna-thami",
+      "name": "Krishna Thami",
+      "age": "17",
+      "place": "Rasuwa",
+      "when": null,
+      "phone": "9849964572",
+      "note": "फारम १०:०५ · उमेर १७"
+    },
+    {
+      "id": "sheet-20260827-100413-rajendra-shrestha",
+      "name": "Rajendra Shrestha",
+      "age": "27",
+      "place": "Dhading, Dhunibeshi · Timure",
+      "when": "8:35 Last talk",
+      "phone": "9861017976",
+      "note": "फारम १०:०४ · container driver"
+    },
+    {
+      "id": "sheet-20260827-100338-sonam-wangdi",
+      "name": "Sonam Wangdi",
+      "age": "50+",
+      "place": "Rasuwa, ghatte khola · Sonam GUEST HOUSE",
+      "when": "25 august",
+      "phone": "9700284488",
+      "note": "फारम १०:०३ · सोनाम गेस्ट हाउस · चुन्नी डोल्मा सँगै"
+    },
+    {
+      "id": "sheet-20260827-100144-chunni-dolma",
+      "name": "Chunni Dolma",
+      "age": "50+",
+      "place": "Rasuwa, ghatte khola · Sonam GUEST HOUSE",
+      "when": "25th august",
+      "phone": "9700284488",
+      "note": "फारम १०:०१ · सोनाम गेस्ट हाउस · सम्पर्क सोनाम वाङदी सँगै"
+    },
+    {
+      "id": "sheet-20260827-100100-hari-prasad-silwal",
+      "name": "Hari Prasad Silwal",
+      "age": "55",
+      "place": "Dhading · Nuwakot",
+      "when": "9:30",
+      "phone": "9808830570",
+      "note": "फारम १०:०१ · धादिङ · गोसाँइकुण्ड"
+    },
+    {
+      "id": "sheet-20260827-100045-hari-krishna-dangol-sobita-dangol",
+      "name": "Hari Krishna Dangol, Sobita Dangol",
+      "age": "50's",
+      "place": "Bidur 10, Nuwakot, betrawati bazar · betrawati bazar",
+      "when": "9:40",
+      "phone": "9851173269",
+      "note": "फारम १०:०० · बेत्रावती बजार · दुई जना"
+    },
+    {
+      "id": "sheet-20260827-095935-naresh-kumar-bansal",
+      "name": "Naresh Kumar Bansal",
+      "age": "66",
+      "place": "Barnala, Punjab India · LUMBINI",
+      "when": "25/08/2026",
+      "phone": "9872008611",
+      "note": "फारम ०९:५९ · Grey color safari suit · दम्पती ~६५"
+    },
+    {
+      "id": "sheet-20260827-095922-alpa-karkhanis",
+      "name": "Alpa Karkhanis",
+      "age": "52",
+      "place": "Mumbai, India · timure kerung",
+      "when": "26th august 7 am",
+      "phone": "+91 9820294371",
+      "note": "फारम ०९:५९ · टिमुरे केरुङ"
+    },
     {
       "id": "sheet-20260827-095544-shanta-lama",
       "name": "Shanta Lama",
@@ -1865,9 +1946,11 @@
     {
       "id": "m-kedhara-gowri",
       "name": "Kedhara gowri",
-      "age": "32",
-      "place": "India Tamil nadu · Was on her way to kailash",
-      "phone": "9841756825"
+      "age": "33",
+      "place": "Karna kollai agraharam, Kumbakonam · Rasuwa",
+      "when": "Last contacted on 25th aug 10am",
+      "phone": "9841756825 / 85530005979",
+      "note": "फारम १०:०५ · कालाश यात्रा · Tamil Nadu"
     },
     {
       "id": "m-manil-kayastha",
