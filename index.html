@@ -469,11 +469,13 @@ a.js-found-row[hidden]{display:none}
 
 .fd-ig{margin:0 0 18px}
 .fd-ig h3{color:var(--crimson)}
-.fd-kpis{grid-template-columns:repeat(5,1fr)}
+.fd-kpis{grid-template-columns:repeat(4,1fr)}
 .fd-ig .cash-kpi strong,.fd-ig .cash-kpi .cash-unit{color:var(--crimson)}
 .fd-ig .cash-kpi.on{border-color:var(--crimson);box-shadow:0 0 0 3px #fecdd3}
 .fd-ig .cash-kpi[data-fd="found"] strong,.fd-ig .cash-kpi[data-fd="found"] .cash-unit{color:var(--forest)}
 .fd-ig .cash-kpi[data-fd="found"].on{border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5}
+.fd-ig .cash-kpi.fd-res strong,.fd-ig .cash-kpi.fd-res .cash-unit{color:var(--forest)}
+.fd-ig .cash-kpi.fd-res.on{border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5}
 .fd-ig .ibar i{background:var(--crimson)}
 .fd-ig .fd-pane-found .ibar i{background:var(--forest)}
 @media(max-width:900px){.fd-kpis{grid-template-columns:repeat(3,1fr)}}
@@ -1626,14 +1628,9 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_family">हराएको / भेटिएको</h2></div>
   <article class="cash-ig fd-ig" id="fd">
     <h3 data-i18n="fd_h">हराएको / भेटिएको</h3>
-    <p class="cash-lead" data-i18n="fd_lead">फारम, हेलो सरकार, मधेश र भेटिएको — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन। आधिकारिक सम्पर्कविहीन ९७७ यथावत्।</p>
-    <div class="cash-kpis fd-kpis" role="tablist" aria-label="हराएको र भेटिएको">
-      <button type="button" class="cash-kpi on" data-fd="all" aria-selected="true">
-        <span class="kpi-k" data-i18n="fd_all_k">सूची</span>
-        <strong data-i18n="fd_all_v">४</strong>
-        <span class="cash-unit" data-i18n="rd_all_u">वर्ग</span>
-      </button>
-      <button type="button" class="cash-kpi" data-fd="miss" aria-selected="false">
+    <p class="cash-lead" data-i18n="fd_lead">फारम, हेलो सरकार, मधेश, भेटिएको र उद्धार — कार्ड थिचेर हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन। आधिकारिक सम्पर्कविहीन ९७७ यथावत्।</p>
+    <div class="cash-kpis fd-kpis" role="tablist" aria-label="हराएको र उद्धार">
+      <button type="button" class="cash-kpi on" data-fd="miss" aria-selected="true">
         <span class="kpi-k" data-i18n="fd_miss_k">हराएको</span>
         <strong class="num fd-live-miss">५४०</strong>
         <span class="cash-unit" data-i18n="rd_name_u">जना</span>
@@ -1653,19 +1650,29 @@ footer .foot-contact a:hover{text-decoration:underline}
         <strong class="num fd-live-mad">३०</strong>
         <span class="cash-unit" data-i18n="rd_name_u">जना</span>
       </button>
+      <button type="button" class="cash-kpi fd-res" data-fd="dao" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_dao_k">DAO रसुवा</span>
+        <strong class="num">४५०</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
+      </button>
+      <button type="button" class="cash-kpi fd-res" data-fd="rasuwa" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_ras_k">रसुवा / टिमुरे</span>
+        <strong class="num">७३</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
+      </button>
+      <button type="button" class="cash-kpi fd-res" data-fd="india" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_ind_k">भारतीय</span>
+        <strong class="num">२१</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
+      </button>
+      <button type="button" class="cash-kpi fd-res" data-fd="t1" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_t1_k">त्रिशूली-१</span>
+        <strong class="num">६३</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
+      </button>
     </div>
     <div class="cash-panes">
-      <div class="cash-pane on" data-fd="all">
-        <p class="ov-cap" data-i18n="fd_all_cap">चार प्रकाशित सूची · कार्ड थिचेर विवरण</p>
-        <ul class="cash-list">
-          <li><span data-i18n="fd_miss_k">हराएको</span><strong><span class="num fd-live-miss">५४०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_found_k">भेटिएको</span><strong><span class="num fd-live-found">४१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_hello_k">हेलो सरकार</span><strong><span class="num fd-live-hello">१४०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_mad_k">मधेश प्रहरी</span><strong><span class="num fd-live-mad">३०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-        </ul>
-        <p class="cash-note" data-i18n="fd_all_note">फारम, हेलो सरकार र मधेश आधिकारिक सम्पर्कविहीन ९७७ मा जोडिएको छैन। नाम मिलाइएको छैन।</p>
-      </div>
-      <div class="cash-pane" data-fd="miss">
+      <div class="cash-pane on" data-fd="miss">
         <p class="ov-cap" data-i18n="fd_miss_cap">जनताको रिपोर्ट · फारम सिट</p>
         <ul class="cash-list">
           <li><span data-i18n="fd_miss_k">हराएको</span><strong><span class="num fd-live-miss">५४०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
@@ -1696,6 +1703,38 @@ footer .foot-contact a:hover{text-decoration:underline}
         <p class="cash-note" data-i18n-html="fd_mad_note">जम्मा <strong class="fd-live-mad">३०</strong>। पर्सा १७ · बारा ३ · रौतहट २ · सर्लाही ६ · सप्तरी २।</p>
         <a class="rd-jump" href="#madhesh" data-i18n="fd_jump_mad">सूची हेर्नुहोस् → मधेश</a>
       </div>
+      <div class="cash-pane" data-fd="dao">
+        <p class="ov-cap" data-i18n="rd_dao_cap">जिल्ला प्रशासन कार्यालय रसुवा</p>
+        <ul class="cash-list">
+          <li><span data-i18n="rd_dao_k">DAO रसुवा</span><strong><span class="num">४५०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n="rd_dao_note">हामीसँग भएका पाना मात्र। पूर्ण १–५७० होइन।</p>
+        <a class="rd-jump" href="#dao-res" data-i18n="rd_jump_dao">सूची हेर्नुहोस् → DAO</a>
+      </div>
+      <div class="cash-pane" data-fd="rasuwa">
+        <p class="ov-cap" data-i18n="rd_ras_cap">रसुवा / टिमुरे · ११ भदौ</p>
+        <div class="ibar-row"><span data-i18n="rd_ras_np">नेपाली</span><b class="ibar"><i style="width:100%"></i></b><em class="num">६७</em></div>
+        <div class="ibar-row"><span data-i18n="rd_ras_kr">कोरियन</span><b class="ibar"><i style="width:6%"></i></b><em class="num">४</em></div>
+        <div class="ibar-row"><span data-i18n="rd_ras_it">इटालेली</span><b class="ibar"><i style="width:3%"></i></b><em class="num">२</em></div>
+        <p class="cash-note" data-i18n-html="rd_ras_note">जम्मा <strong>७३</strong> यस सूचीमा। DAO र हराएकोबाट हटाइएको छैन।</p>
+        <a class="rd-jump" href="#rasuwa-res" data-i18n="rd_jump_ras">सूची हेर्नुहोस् → रसुवा</a>
+      </div>
+      <div class="cash-pane" data-fd="india">
+        <p class="ov-cap" data-i18n="rd_ind_cap">भारतीय नागरिक · २७ अगस्ट १३:००</p>
+        <ul class="cash-list">
+          <li><span data-i18n="rd_ind_k">भारतीय</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n="rd_ind_note">२१औँ नाम Manimekalai Sukumar। हराएको सूची अलग।</p>
+        <a class="rd-jump" href="#india-res" data-i18n="rd_jump_ind">सूची हेर्नुहोस् → भारतीय</a>
+      </div>
+      <div class="cash-pane" data-fd="t1">
+        <p class="ov-cap" data-i18n="rd_t1_cap">त्रिशूली-१ आयोजना · भारतीय उद्धार</p>
+        <ul class="cash-list">
+          <li><span data-i18n="rd_t1_k">त्रिशूली-१</span><strong><span class="num">६३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n="rd_t1_note">भारतीय पर्यटक २१ अलग। हराएको सूचीबाट हटाइएको छैन।</p>
+        <a class="rd-jump" href="#trishuli1-res" data-i18n="rd_jump_t1">सूची हेर्नुहोस् → त्रिशूली-१</a>
+      </div>
     </div>
   </article>
   <div class="card">
@@ -1721,7 +1760,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <div class="fam-grid" id="fam-missing"></div>
     <p class="fam-empty" id="fam-missing-empty" data-i18n="empty_review">जाँचपछि मात्र यहाँ आउँछ।</p>
     <p class="fam-empty" id="fam-search-empty" hidden data-i18n="empty_search">यो खोजसँग मिल्ने नाम भेटिएन।</p>
-    <h3 class="fam-h" id="hello-sarkar" data-i18n="hello_sarkar">हेलो सरकार · राती ८:१०</h3>
+    <h3 class="fam-h" id="hello-sarkar" data-i18n="hello_sarkar">हराएको · हेलो सरकार / मधेश प्रहरी</h3>
     <p class="treat-lead" data-i18n-html="hello_lead">फोनमार्फत टिपिएका सम्पर्कविहीन तथा बेपत्ता <strong>१४०</strong> विवरण। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="pager" data-pager="hello-sarkar">
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
@@ -1883,7 +1922,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     </table>
     </div>
     <p class="treat-note" data-i18n="hello_note">स्रोत: हेलो सरकार, राती ८:१०।</p>
-    <h3 class="fam-h" id="madhesh" data-i18n="madhesh_h">मधेश प्रहरी · सम्पर्कविहीन ३०</h3>
+    <h4 class="fam-h" id="madhesh" data-i18n="madhesh_h">मधेश प्रहरी · सम्पर्कविहीन ३०</h4>
     <p class="treat-lead" data-i18n-html="madhesh_lead">मधेश प्रदेश प्रहरी: परिवार तथा आफन्तको जानकारी अनुसार रसुवा बाढीपछि <strong>३०</strong> जना सम्पर्कविहीन। पर्सा १७ (उद्धार भई सम्पर्कमा <strong>२</strong>), बारा ३, रौतहट २, सर्लाही ६, सप्तरी २। हेलो सरकार १४० र फारम सूची अलग। नाम मिलाइएको छैन।</p>
     <div class="pager" data-pager="madhesh">
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
@@ -4966,8 +5005,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-0432"></script>
-<script>window.PAGE_VER="2026-08-28-0432";</script>
+<script src="i18n.js?v=2026-08-28-0448"></script>
+<script>window.PAGE_VER="2026-08-28-0448";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
