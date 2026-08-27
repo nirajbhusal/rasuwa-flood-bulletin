@@ -239,6 +239,41 @@ a.js-found-row[hidden]{display:none}
 .chips a:hover{border-color:var(--teal);color:var(--teal)}
 .chips a.home-btn{background:var(--crimson);color:#fff;border-color:var(--crimson);display:inline-flex;align-items:center;justify-content:center;width:36px;min-width:36px;height:36px;padding:0}
 .chips a.home-btn:hover{background:#9f1239;color:#fff;border-color:#9f1239}
+.nav-toggle{display:none}
+.nav-toggle .ico-x{display:none}
+.chips.is-open .nav-toggle .ico-h{display:none}
+.chips.is-open .nav-toggle .ico-x{display:block}
+
+@media (max-width:760px){
+  .chips{
+    overflow:visible;white-space:normal;
+    mask-image:none;
+    display:flex;align-items:center;gap:8px;
+    padding:6px 10px;
+  }
+  .nav-toggle{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:12px;padding:0;flex:none;
+    border:1px solid var(--line);background:#fff;color:var(--ink);
+    cursor:pointer;touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .nav-toggle:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+  .chips-inner{
+    display:none;
+    position:absolute;left:0;right:0;top:100%;
+    width:auto;min-width:0;max-height:min(70vh,560px);overflow:auto;
+    flex-wrap:wrap;white-space:normal;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 14px 32px rgba(15,23,42,.14);
+    padding:12px;gap:8px;
+    scrollbar-width:thin;
+  }
+  .chips.is-open .chips-inner{display:flex}
+  .chips a{white-space:nowrap}
+}
+
 
 .hero-map{padding:14px 0 6px}.hero-map .sec-head{margin-bottom:10px}
 #flood-map{
@@ -878,7 +913,11 @@ footer .foot-contact a:hover{text-decoration:underline}
 </header>
 <p class="safety-banner" role="alert" data-i18n="safety">बाढी कत्रो आयो भन्दै नदी छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदी भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।</p>
 <nav class="chips stick" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
-  <div class="chips-inner">
+  <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-chips" aria-label="मेनु" data-i18n-aria="nav_menu">
+    <svg class="ico-h" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+    <svg class="ico-x" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg>
+  </button>
+  <div class="chips-inner" id="nav-chips">
     <a class="home-btn" href="#home" aria-label="होम" title="होम" data-i18n-aria="nav_home" data-i18n-title="nav_home"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
     <a href="#map" data-i18n="nav_map">नक्सा</a>
     <a href="#alert" data-i18n="nav_alert">सतर्कता</a>
@@ -3987,6 +4026,35 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   paint();
   b.addEventListener("click", function(){
     window.scrollTo({top:0, behavior:"smooth"});
+  });
+})();
+
+(function(){
+  var nav = document.querySelector("nav.chips");
+  var btn = document.getElementById("nav-toggle");
+  if (!nav || !btn) return;
+  function close(){
+    nav.classList.remove("is-open");
+    btn.setAttribute("aria-expanded", "false");
+  }
+  function toggle(){
+    var on = !nav.classList.contains("is-open");
+    nav.classList.toggle("is-open", on);
+    btn.setAttribute("aria-expanded", on ? "true" : "false");
+  }
+  btn.addEventListener("click", function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    toggle();
+  });
+  nav.querySelectorAll(".chips-inner a").forEach(function(a){
+    a.addEventListener("click", close);
+  });
+  document.addEventListener("click", function(e){
+    if (!nav.contains(e.target)) close();
+  });
+  window.addEventListener("resize", function(){
+    if (window.matchMedia("(min-width:761px)").matches) close();
   });
 })();
 </script>
