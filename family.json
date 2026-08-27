@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T07:25:00+05:45",
+  "updated_at": "2026-08-27T07:30:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,24 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-073032-venkatraman-balakrishnan",
+      "name": "Venkatraman Balakrishnan",
+      "age": "52",
+      "place": "Sydney · Rasuwa",
+      "when": "26 Aug 2026 ~9am NPT",
+      "phone": "+61417896180",
+      "note": "फारम ०७:३० · Sydney · रसुवा"
+    },
+    {
+      "id": "sheet-20260827-072721-min-ale-magar",
+      "name": "Min Ale Magar",
+      "age": "49",
+      "place": "Ramechhap · स्थान अज्ञात",
+      "when": "",
+      "phone": "9811861645",
+      "note": "फारम ०७:२७ · रामेछाप · स्थान थाहा छैन"
+    },
     {
       "id": "sheet-20260827-072427-poonam-thakkar",
       "name": "Poonam Thakkar",
