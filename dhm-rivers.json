@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T02:09:25.330083+05:45",
+  "updated_at": "2026-08-28T02:14:29.066345+05:45",
   "note_np": "बाढी मार्गका DHM स्टेशन · फुर्के बगेर निष्क्रिय",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms-Single/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -10,13 +10,13 @@
       "name": "Trishuli Khola at Dhunche",
       "name_np": "धुन्चे · त्रिशूली खोला",
       "district_np": "नुवाकोट",
-      "level_m": 2.418,
+      "level_m": 2.414,
       "warning_m": 3.2,
       "danger_m": null,
       "status": "below_warning",
       "steady": true,
-      "observed_at": "2026-08-28T01:50:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०१:५०",
+      "observed_at": "2026-08-28T02:00:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०२:००",
       "silent": false,
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657"
