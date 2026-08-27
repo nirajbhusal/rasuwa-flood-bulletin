@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T23:53:00+05:45",
+  "updated_at": "2026-08-28T00:06:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,33 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-235933-sangyam-rumba",
+      "name": "Sangyam Rumba",
+      "age": "31",
+      "place": "Nuwakot, kakani-2 · Near Saga (China) to Rasuwagadi",
+      "when": "26 August",
+      "phone": "9851244897",
+      "note": "फारम 23:59 · कालाशबाट रसुवागढी फर्कने क्रममा; दाजु Surya Zimba"
+    },
+    {
+      "id": "sheet-20260827-235821-rajkumar-bhattarai",
+      "name": "Rajkumar Bhattarai",
+      "age": null,
+      "place": "Rasuwa · Upper Trishuli hydro 3",
+      "when": "26 August",
+      "phone": "976844320 / 9708272164",
+      "note": "फारम 23:58"
+    },
+    {
+      "id": "sheet-20260827-235052-geli-sherpa",
+      "name": "Geli Sherpa",
+      "age": "34",
+      "place": "Okhaldhunga · Nepal–China border",
+      "when": "१० भदौ · ~०८:३०",
+      "phone": "9847852318",
+      "note": "फारम 23:50 · Leaf holidays, कालाश यात्रा (४६ भारतीय)"
+    },
     {
       "id": "sheet-20260827-234258-sanju-dangol-maharjan",
       "name": "Sanju Dangol (Maharjan)",
