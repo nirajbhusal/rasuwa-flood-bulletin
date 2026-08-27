@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T09:06:00+05:45",
+  "updated_at": "2026-08-27T09:19:22+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,42 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-091244-sabitri-paudel-wosti",
+      "name": "Sabitri Paudel Wosti",
+      "age": null,
+      "place": "Nuwakot · Betrawati, Nuwakot",
+      "when": "26th August 2026, Around 9 AM",
+      "phone": "9745610202",
+      "note": "फारम ०९:१२ · बेत्रावती"
+    },
+    {
+      "id": "sheet-20260827-091139-sujan-thokra",
+      "name": "Sujan Thokra",
+      "age": "32",
+      "place": "Dhunche · Mount Kailash hotel",
+      "when": "2026.08.27",
+      "phone": "9815939923",
+      "note": "फारम ०९:११ · होटल बगेको · हराएको हिजोको बाढीदेखि"
+    },
+    {
+      "id": "sheet-20260827-090840-bibek-ghimire",
+      "name": "Bibek Ghimire",
+      "age": "30",
+      "place": "Itahari, Sunsari · Timure",
+      "when": null,
+      "phone": "9746225789",
+      "note": "फारम ०९:०८ · Kailash Mansarowar tourist assist · Hotel Yangkhil नजिक होमस्टे"
+    },
+    {
+      "id": "sheet-20260827-090814-kiran-bhattarai",
+      "name": "Kiran Bhattarai",
+      "age": "22",
+      "place": "Kapilvastu · Doosan hydropower",
+      "when": null,
+      "phone": "9860064870",
+      "note": "फारम ०९:०८ · Doosan hydropower"
+    },
     {
       "id": "sheet-20260827-090053-bhavin-rajnikant-raval",
       "name": "Bhavin Rajnikant Raval",
@@ -46,11 +82,11 @@
     {
       "id": "sheet-20260827-085401-balram-bohora",
       "name": "Balram Bohora",
-      "age": null,
+      "age": "32",
       "place": "Sindhupalchowk · Rasuwa",
       "when": "10 gate Bihan",
-      "phone": "9851161045",
-      "note": "फारम ०८:५४ · १० गेट बिहान"
+      "phone": "9851161045 / 9865711059",
+      "note": "फारम ०८:५४ · १० गेट बिहान · alt ९८६५७११०५९ / उमेर ३२"
     },
     {
       "id": "sheet-20260827-085247-ramesh-thatu",
