@@ -36,7 +36,7 @@ window.I18N = {
 "dead_162": "मृतक २७०",
 "hero_overview": "बाढीको स्थिति · ११ भदौ",
 "hero_cash_h": "राहत रकम जम्मा",
-"hero_cash_sub": "गोर्खा १० · कुमारी ३",
+"hero_cash_sub": "गोर्खा १० · सिमेक्स ७ · कुमारी ३",
 "hero_aid_h": "वैदेशिक सहयोग",
 "hero_aid_unit": "टन",
 "hero_aid_sub": "भारत दुई उडान · IFRC रेडक्रस · पठाइएको",
@@ -312,9 +312,13 @@ window.I18N = {
 "cash_h": "नगद राहत रकम अपडेट",
 "cash_lead": "रसुवा बाढी प्रभावित क्षेत्रमा राहत, उद्धार, खोज तथा पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा प्राप्त हुन थालेको सहयोग रकम एकद्वार प्रणालीमार्फत माननीय अर्थमन्त्री डा. स्वर्णिम वाग्लेले बुझ्न थाल्नुभएको छ।",
 "cash_gorkha_lead": "भर्खरै गोर्खा ब्रुअरीले आफ्नोतर्फबाट <strong>१० करोड</strong> रुपैयाँ नगद अर्थमन्त्रीज्यूलाई हस्तान्तरण गरेको छ। गोर्खा ब्रुअरीका प्रबन्ध निर्देशक अरुण अधिकारी, वित्त निर्देशक अमर वैद्य र बजार निर्देशक काजीमन सुब्बाले अर्थमन्त्री डा. स्वर्णिम वाग्लेलाई सहयोग रकम हस्तान्तरण गर्नुभयो।",
+"cash_byd_lead": "BYD र साइमेक्स इन्कले प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>७ करोड</strong> रुपैयाँ नगद सहयोग गरेका छन्।",
 "cash_gorkha": "गोर्खा ब्रुअरी",
 "cash_gorkha_cap": "गोर्खा ब्रुअरी · १० करोड नगद",
 "cash_gorkha_note": "प्रबन्ध निर्देशक अरुण अधिकारी, वित्त निर्देशक अमर वैद्य र बजार निर्देशक काजीमन सुब्बाले अर्थमन्त्री डा. स्वर्णिम वाग्लेलाई हस्तान्तरण। प्रधानमन्त्री दैवी प्रकोप उद्धार कोष।",
+"cash_byd": "BYD · साइमेक्स",
+"cash_byd_cap": "BYD · साइमेक्स · ७ करोड नगद",
+"cash_byd_note": "प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा नगद सहयोग।",
 "cash_published": "नगद राहत",
 "cash_crore": "करोड रुपैयाँ",
 "cash_cr": "करोड",
@@ -426,7 +430,7 @@ window.I18N = {
 "dead_162": "Deaths 270",
 "hero_overview": "Flood snapshot · 11 Bhadra",
 "hero_cash_h": "Relief cash total",
-"hero_cash_sub": "Gorkha 10 · Kumari 3",
+"hero_cash_sub": "Gorkha 10 · Cimex 7 · Kumari 3",
 "hero_aid_h": "Foreign aid",
 "hero_aid_unit": "tonnes",
 "hero_aid_sub": "India two flights · IFRC Red Cross · sent",
@@ -702,9 +706,13 @@ window.I18N = {
 "cash_h": "Cash relief update",
 "cash_lead": "Aid for relief, rescue, search and rehabilitation in the Rasuwa flood area has started arriving in the Prime Minister’s Disaster Relief Fund. Hon. Finance Minister Dr Swarnim Wagle is receiving it through the one-door system.",
 "cash_gorkha_lead": "Gorkha Brewery has just handed over <strong>10 crore</strong> rupees in cash to the Finance Minister. Managing Director Arun Adhikari, Finance Director Amar Baidya and Marketing Director Kajiman Subba presented it to Dr Swarnim Wagle.",
+"cash_byd_lead": "BYD and Cimex Inc contributed <strong>7 crore</strong> rupees in cash to the Prime Minister’s Disaster Relief Fund.",
 "cash_gorkha": "Gorkha Brewery",
 "cash_gorkha_cap": "Gorkha Brewery · 10 crore cash",
 "cash_gorkha_note": "MD Arun Adhikari, Finance Director Amar Baidya and Marketing Director Kajiman Subba handed it to Finance Minister Dr Swarnim Wagle. Prime Minister’s Disaster Relief Fund.",
+"cash_byd": "BYD · Cimex",
+"cash_byd_cap": "BYD · Cimex · 7 crore cash",
+"cash_byd_note": "Cash contribution to the Prime Minister’s Disaster Relief Fund.",
 "cash_published": "Cash relief",
 "cash_crore": "crore rupees",
 "cash_cr": "crore",
@@ -982,6 +990,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "BYD · Cimex 7 crore",
+"p": "BYD and Cimex Inc contributed <strong>7 crore</strong> cash to the PM Disaster Relief Fund. Published handovers now <strong>20</strong> crore (Gorkha 10 + Cimex 7 + Kumari 3). <a href=\"#donate\">Relief funds</a>."
+},
 {
 "h": "DAO Rasuwa rescued 145 names",
 "p": "District Administration Office Rasuwa / Home Ministry stamped rescue list: <strong>145</strong> names (SN 1–58, 260–288, 318–373 + two extras). Middle pages missing. List in <a href=\"#dao-res\">DAO rescued</a>. Not removed from the missing wall."
