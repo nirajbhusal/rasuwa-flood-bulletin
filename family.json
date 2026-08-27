@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T16:55:00+05:45",
+  "updated_at": "2026-08-27T17:10:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,112 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-170931-meenakshi-sanjay-ramani",
+      "name": "Meenakshi Sanjay Ramani",
+      "age": "61",
+      "place": "Mumbai · Timure–Gyirong immigration checkpoint",
+      "when": "२६ अगस्ट · ~८:०० बिहान",
+      "phone": "9821053035",
+      "note": "फारम १७:०९ · Mansarovar, Richa Tours · दाजु Paresh Natwarlal Patel र Jyoti Paresh Patel सँग · Meenakshi Subramanian सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-170615-bishal-tamang",
+      "name": "Bishal Tamang",
+      "age": "25-30",
+      "place": "Rasuwa · Upper Trishuli-1 Mailung",
+      "phone": "9804147925",
+      "note": "फारम १७:०६ · Power China (PCCC) · ~5′7″, fair, oval eyes · Bishal Timalsina सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-170506-jeshik-shrestha",
+      "name": "Jeshik Shrestha",
+      "age": "24",
+      "place": "Sindhupalchowk · Custom Office, Timmure",
+      "when": "२६ अगस्ट · ८:०१ बिहान",
+      "phone": "9851422103",
+      "note": "फारम १७:०५ · White T-shirt, white full pant · Aashish Shrestha सँग सम्बन्धित · हेलिपाइलट: टिमुरे डाँडामाथिको जंगलमा समूह देखिएको खबर"
+    },
+    {
+      "id": "sheet-20260827-170501-dhan-bahadur-tamang",
+      "name": "Dhan Bahadur Tamang",
+      "age": "46",
+      "place": "Timure area",
+      "phone": "9742430947",
+      "note": "फारम १७:०५ · ~80 kg, 5′5″"
+    },
+    {
+      "id": "sheet-20260827-170308-sukumaya-gurung",
+      "name": "Sukumaya Gurung",
+      "phone": "9844029404 / 9742850589",
+      "note": "फारम १७:०३ · Sukumaya Lawat सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-170218-ritika-pyakurel",
+      "name": "Ritika Pyakurel",
+      "age": "20",
+      "place": "Betrawati · घर",
+      "when": "२६ अगस्ट",
+      "phone": "9849412202",
+      "note": "फारम १७:०२ · ~5′1″ · फोन २६ गते दिउँसोसम्म सक्रिय · Chandra Kumari / Shankar Pyakurel सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-170127-aashish-shrestha",
+      "name": "Aashish Shrestha",
+      "age": "25",
+      "place": "Sindhupalchowk · Timmure Customs Office",
+      "when": "२६ अगस्ट · ८:०१ बिहान",
+      "phone": "9851422103",
+      "note": "फारम १७:०१ · White T-shirt, half pant · Jeshik Shrestha सँग सम्बन्धित"
+    },
+    {
+      "id": "sheet-20260827-170017-arjun-nagarkoti",
+      "name": "Arjun Nagarkoti",
+      "phone": "9823777073 / 9845873165 / 9766863766 / 9857055743",
+      "note": "फारम १७:०० · Lakshman Shrestha सँग एउटै फारम सम्पर्क"
+    },
+    {
+      "id": "sheet-20260827-165953-lakshman-shrestha",
+      "name": "Lakshman Shrestha",
+      "phone": "9823777073 / 9845873165 / 9766863766 / 9857055743",
+      "note": "फारम १६:५९ · Arjun Nagarkoti सँग एउटै फारम सम्पर्क"
+    },
+    {
+      "id": "sheet-20260827-165445-sidharthi-kumari-sahu",
+      "name": "Sidharthi Kumari Sahu",
+      "place": "Melbourne, Victoria, Australia",
+      "note": "फारम १६:५४ · Tour operator: Kailash Journey · Sandeep Mohapatra सँग सम्बन्धित"
+    },
+    {
+      "id": "sheet-20260827-165335-sandeep-mohapatra",
+      "name": "Sandeep Mohapatra",
+      "place": "Melbourne, Victoria, Australia",
+      "note": "फारम १६:५३ · Tour operator: Kailash Journey · Sidharthi Kumari Sahu सँग सम्बन्धित"
+    },
+    {
+      "id": "sheet-20260827-165257-anna-chsherba",
+      "name": "Anna Chsherba",
+      "age": "42",
+      "place": "Kerung",
+      "when": "२६ अगस्ट · बिहान",
+      "phone": "Kirill Chsherba +971 50 388 1533 (WhatsApp)",
+      "note": "फारम १६:५२ · ~160 cm, shorter hair · Latvian/Russian ५–६ जनाको समूह"
+    },
+    {
+      "id": "sheet-20260827-165118-samir-poudel",
+      "name": "Samir Poudel",
+      "age": "Around 23",
+      "place": "Chitwan · Upper Trishuli hydropower 3B",
+      "phone": "9744964963 / 9708275546 / 9863294460",
+      "note": "फारम १६:५१ · KU third-year civil intern, UT-3B · Shishir Giri सँग सम्बन्धित · Samir Dhungel / Samir Ghale Gurung सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260827-163849-shishir-giri",
+      "name": "Shishir Giri",
+      "place": "Upper Trishuli 3B hydropower project",
+      "phone": "9848029098",
+      "note": "फारम १६:३८ · KU third-year civil intern, UT-3B · Samir Poudel सँग सम्बन्धित · Ansh Giri सँग नमिसाउने (फरक व्यक्ति)"
+    },
     {
       "id": "sheet-20260827-164256-chakraraj-shakya",
       "name": "Chakraraj Shakya",
