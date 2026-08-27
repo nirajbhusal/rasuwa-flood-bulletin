@@ -22,6 +22,15 @@
 <style>
 
 .stick{position:sticky;top:0;z-index:40;background:var(--paper)}
+.hl-nav.stick{z-index:46;box-shadow:0 6px 16px rgba(15,23,42,.08)}
+.hl-nav .helpline{
+  display:block;width:100%;box-sizing:border-box;text-align:center;
+  border-radius:0;padding:8px 12px;margin:0;
+}
+.hl-nav .chips{position:relative;top:auto;z-index:auto}
+@media(max-width:760px){
+  .hl-nav .helpline{font-size:12px;line-height:1.4;padding:8px 10px}
+}
 .safety-banner{
   margin:0;padding:10px 16px;
   background:#9f1239;color:#fff;
@@ -1148,12 +1157,13 @@ footer .foot-contact a:hover{text-decoration:underline}
     </div>
     <div class="top-actions">
       <span class="live"><i></i> <span data-i18n="live">लाइभ</span></span>
-      <div class="helpline" data-i18n="hl_bar">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४</div>
     </div>
   </div>
 </header>
 <p class="safety-banner" role="alert" data-i18n="safety">बाढी कत्रो आयो भन्दै नदी छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदी भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।</p>
-<nav class="chips stick" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
+<div class="hl-nav stick">
+<div class="helpline" data-i18n="hl_bar">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४</div>
+<nav class="chips" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
   <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-chips" aria-label="मेनु" data-i18n-aria="nav_menu">
     <svg class="ico-h" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
     <svg class="ico-x" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg>
@@ -1190,6 +1200,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <a href="#sources" data-i18n="nav_sources">स्रोत</a>
   </div>
 </nav>
+</div>
 
 <div class="hero" id="home">
   <div class="wrap">
@@ -5065,8 +5076,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-0518"></script>
-<script>window.PAGE_VER="2026-08-28-0518";</script>
+<script src="i18n.js?v=2026-08-28-0522"></script>
+<script>window.PAGE_VER="2026-08-28-0522";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
