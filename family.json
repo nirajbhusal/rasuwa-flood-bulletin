@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T06:50:00+05:45",
+  "updated_at": "2026-08-27T06:57:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,41 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-065213-payal-das",
+      "name": "Payal Das",
+      "age": "53",
+      "place": "Lucknow, India · Temure",
+      "when": "8am",
+      "phone": "9936011223",
+      "note": "फारम ०६:५२ · Temure · She is with her husband Atul Das"
+    },
+    {
+      "id": "sheet-20260827-065213-krishna-sharma",
+      "name": "Krishna Sharma",
+      "age": "50",
+      "place": "Sydney Australia · Rasuwagadhi",
+      "when": "8am",
+      "phone": "+61414756663",
+      "note": "फारम ०६:५२ · Rasuwagadhi · Female · Maybe red toe nail polish"
+    },
+    {
+      "id": "sheet-20260827-065107-mohan-nath-yogi",
+      "name": "Mohan Nath Yogi",
+      "age": "44",
+      "place": "Banke, Kohalpur · Timure (टिमुरे भन्दा माथि) head constable",
+      "phone": "9842139335",
+      "note": "फारम ०६:५१ · Timure · head constable · मेरो बाबा हो उहाँ चाई हिजो देखि कन्ट्याक मा हुन्हुन्दैन"
+    },
+    {
+      "id": "sheet-20260827-065035-umesh-sharma",
+      "name": "Umesh Sharma",
+      "age": "55",
+      "place": "Sydney Australia · Rasuwagadhi",
+      "when": "8am",
+      "phone": "+61414756663",
+      "note": "फारम ०६:५० · Rasuwagadhi · Scar on forehead · son"
+    },
     {
       "id": "sheet-20260827-064656-yam-bahadur-thapa-magar",
       "name": "Yam Bahadur Thapa magar",
