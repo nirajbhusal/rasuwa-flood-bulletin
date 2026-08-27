@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T07:51:00+05:45",
+  "updated_at": "2026-08-27T07:54:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -15,15 +15,6 @@
       "when": "26th august,2026",
       "phone": "9818178630",
       "note": "फारम ०७:५०"
-    },
-    {
-      "id": "sheet-20260827-074909-anuj-hari-nepal",
-      "name": "Anuj Hari Nepal",
-      "age": "26",
-      "place": "Pawati, Dolakha · From Machhapuchre bank, Rasuwa",
-      "when": "",
-      "phone": "(982) 377-9542",
-      "note": "फारम ०७:४९"
     },
     {
       "id": "sheet-20260827-074907-aayesha-maharjan",
@@ -1501,7 +1492,9 @@
       "name": "अनुज हरि नेपाल",
       "age": "२७",
       "place": "दोलखा · माछापुच्छ्रे बैंक, टिमुरे",
-      "reporter": "9851343739"
+      "reporter": "9851343739",
+      "phone": "9823779542",
+      "note": "फारम ०७:४९ · Pawati, Dolakha"
     },
     {
       "id": "m-subhadra-neupane",
