@@ -991,6 +991,10 @@ window.I18N_LISTS = {
 ],
 "hist": [
 {
+"h": "Missing wall and Indian list restored",
+"p": "Family, Indian rescued 21 (Manimekalai Sukumar #21), Kathmandu heli, map, photos and other sections are back. Form missing cards <strong>525</strong>. Official totals unchanged: dead 270, injured 75, uncontacted 245, heli 123.",
+},
+{
 "h": "DAO rescued 233–241",
 "p": "Added SN <strong>233–241</strong> (9 names). Total <strong>212</strong>. <a href=\"#dao-res\">DAO rescued</a>. Not removed from the missing wall.",
 },
