@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T07:30:00+05:45",
+  "updated_at": "2026-08-27T07:37:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,33 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-073506-jagdishbhai-umedbhai-patel",
+      "name": "Jagdishbhai Umedbhai Patel",
+      "age": "64",
+      "place": "Toronto, Canada · Kailash Hotel (Rasuwa Ghadi)",
+      "when": "25th August, 8am",
+      "phone": "+1 647 980 6174",
+      "note": "फारम ०७:३५ · Kailash Hotel · Himalayan Glacier"
+    },
+    {
+      "id": "sheet-20260827-073439-shital-chohan",
+      "name": "Shital Chohan",
+      "age": "48",
+      "place": "Knoxville, TN USA · Himalayan Glacier tours, Timure",
+      "when": "8:00 Wednesday Aug 26",
+      "phone": "865-405-2980 / +91 98207 69239",
+      "note": "फारम ०७:३४ · Timure · Kailash tour · Chetan Chohan"
+    },
+    {
+      "id": "sheet-20260827-073202-himanshu-agarwal",
+      "name": "Himanshu Agarwal",
+      "age": "44",
+      "place": "Oakville, Canada · Hotel Kailash, Timure",
+      "when": "Aug 26 8 am",
+      "phone": "+16474000633 / +16479634392",
+      "note": "फारम ०७:३२ · Hotel Kailash Timure · Himalayan Glacier · bald 5'5\""
+    },
     {
       "id": "sheet-20260827-073032-venkatraman-balakrishnan",
       "name": "Venkatraman Balakrishnan",
