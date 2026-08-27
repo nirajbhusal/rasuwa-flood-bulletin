@@ -802,8 +802,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 @media (max-width:760px){.fam-grid{grid-template-columns:1fr}}
 
 .fab-dock{
-  position:fixed;right:14px;bottom:max(16px, env(safe-area-inset-bottom, 0px));z-index:55;
-  display:flex;flex-direction:column;align-items:center;gap:8px;
+  position:fixed;right:24px;bottom:max(24px, env(safe-area-inset-bottom, 0px));z-index:55;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
   font-family:inherit;
 }
 .fab-row{display:flex;flex-direction:row;align-items:flex-end;gap:10px}
@@ -848,13 +848,11 @@ footer .foot-contact a:hover{text-decoration:underline}
   border:1.5px solid #fff;
   flex:none;touch-action:manipulation;
   -webkit-tap-highlight-color:transparent;user-select:none;
-  position:absolute;left:50%;bottom:calc(100% + 8px);
-  transform:translateX(-50%);
 }
 .top-btn.show{display:flex}
 .top-btn svg{flex:none;display:block;pointer-events:none;width:18px;height:18px}
 @media (max-width:760px){
-  .fab-dock{right:10px;bottom:max(12px, env(safe-area-inset-bottom, 0px))}
+  .fab-dock{right:20px;bottom:max(20px, env(safe-area-inset-bottom, 0px))}
   .portal-fab summary{width:48px;height:48px}
   .portal-panel{bottom:60px}
 }
