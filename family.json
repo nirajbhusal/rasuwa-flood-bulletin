@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T15:44:00+05:45",
+  "updated_at": "2026-08-27T16:26:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,215 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-162606-rikesh-shrestha",
+      "name": "Rikesh Shrestha",
+      "place": "Doosan energy, Upper Trishuli-1 hydropower project",
+      "phone": "9823122991",
+      "note": "फारम १६:२६"
+    },
+    {
+      "id": "sheet-20260827-162313-rudra-bahadur-ghale",
+      "name": "Rudra Bahadur Ghale",
+      "place": "Ghale gaun",
+      "phone": "9848759794",
+      "note": "फारम १६:२३ · Kanchhi Ghale सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-162145-sumedha-amatya",
+      "name": "Sumedha Amatya",
+      "age": "१४",
+      "place": "Trishuli, Nuwakot",
+      "phone": "9765344522",
+      "note": "फारम १६:२१ · Cream color shorts र T-shirt · सुरक्षित ठाउँतिर दौडिएको · Sumesh Amatya सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-161713-sadip-shrestha",
+      "name": "Sadip Shrestha",
+      "age": "३८",
+      "place": "Bidur, Nuwakot · Trishuli 3A hydropower",
+      "phone": "9841520791",
+      "note": "फारम १६:१७"
+    },
+    {
+      "id": "sheet-20260827-160905-tamilarasi-asokan",
+      "name": "Tamilarasi Asokan",
+      "age": "59",
+      "place": "Karur, Tamil Nadu, India · Near immigration",
+      "when": "२६ अगस्ट · ८:४५ बिहान",
+      "phone": "+91 9600711144",
+      "note": "फारम १६:०९ · Blue jerkin · Fly Everest team"
+    },
+    {
+      "id": "sheet-20260827-160836-nishan-tamang",
+      "name": "Nishan Tamang",
+      "place": "On the way to Gosaikunda",
+      "phone": "9862498623",
+      "note": "फारम १६:०८ · गाडी बा १९ च ९७३६ · Ashen/Muyiya/Subesh/Subekshya सँग नमिसाउने (फरक व्यक्ति, एउटै रिपोर्ट फोन)"
+    },
+    {
+      "id": "sheet-20260827-160748-subekshya-bhandari",
+      "name": "Subekshya Bhandari",
+      "place": "On the way to Gosaikunda",
+      "phone": "9862498623",
+      "note": "फारम १६:०७ · गाडी बा १९ च ९७३६ · Nishan/Ashen/Muyiya/Subesh सँग नमिसाउने (फरक व्यक्ति, एउटै रिपोर्ट फोन)"
+    },
+    {
+      "id": "sheet-20260827-160700-subesh-bhandari",
+      "name": "Subesh Bhandari",
+      "place": "On the way to Gosaikunda",
+      "phone": "9862498623",
+      "note": "फारम १६:०७ · गाडी बा १९ च ९७३६ · Nishan/Ashen/Muyiya/Subekshya सँग नमिसाउने (फरक व्यक्ति, एउटै रिपोर्ट फोन)"
+    },
+    {
+      "id": "sheet-20260827-160557-muyiya-bhandari",
+      "name": "Muyiya Bhandari",
+      "place": "On the way to Gosaikunda",
+      "phone": "9862498623",
+      "note": "फारम १६:०५ · गाडी बा १९ च ९७३६ · Nishan/Ashen/Subesh/Subekshya सँग नमिसाउने (फरक व्यक्ति, एउटै रिपोर्ट फोन)"
+    },
+    {
+      "id": "sheet-20260827-160502-ashen-tamang",
+      "name": "Ashen Tamang",
+      "place": "On the way to Gosaikunda",
+      "phone": "9862498623",
+      "note": "फारम १६:०५ · गाडी बा १९ च ९७३६ · Nishan/Muyiya/Subesh/Subekshya सँग नमिसाउने (फरक व्यक्ति, एउटै रिपोर्ट फोन)"
+    },
+    {
+      "id": "sheet-20260827-160302-chessang-tamang",
+      "name": "Chessang Tamang",
+      "place": "Syafrubesi bazar",
+      "phone": "9813227218",
+      "note": "फारम १६:०३ · chessang dongba सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-160000-raju-chapagai",
+      "name": "राजु चापागाई",
+      "age": "६२",
+      "place": "चितवन, भरतपुर-५ · Rasuwa border",
+      "when": "२६ अगस्ट · ८:२५ बिहान",
+      "phone": "9862448373",
+      "note": "फारम १६:०० · Rajan Chapagain सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-155738-dorji-tamang",
+      "name": "Dorji Tamang",
+      "age": "५४",
+      "place": "Solukhumbu, Tapting · Around Timure",
+      "when": "२६ अगस्ट · ९:५५ बिहान",
+      "note": "फारम १५:५७ · Kathmandu Gokarna · Rocha tours trekking guide"
+    },
+    {
+      "id": "sheet-20260827-155630-bipin-tamang",
+      "name": "Bipin Tamang",
+      "age": "२२",
+      "place": "Kathmandu · Rasuwa, Timure",
+      "when": "२६ अगस्ट · ८:२२ बिहान",
+      "phone": "9823880024",
+      "note": "फारम १५:५६ · curly black hair · भन्सार कर्मचारी · Bipin Kumar Mandal सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-155057-arushi-gupta",
+      "name": "Arushi Gupta",
+      "age": "33",
+      "place": "Noida (UP), India · Rasuwa Custom office, Nepal–Tibet border",
+      "when": "२६ अगस्ट · ७:५० IST",
+      "phone": "+91 9650997806",
+      "note": "फारम १५:५०"
+    },
+    {
+      "id": "sheet-20260827-155045-kami-tamang",
+      "name": "Kami Tamang",
+      "age": "५२",
+      "place": "Pajong, Rasuwa · Ronga",
+      "when": "२६ अगस्ट",
+      "phone": "9845353937",
+      "note": "फारम १५:५० · बुबा · Tarsang Tamang सँग नमिसाउने (फरक व्यक्ति, एउटै रिपोर्ट फोन)"
+    },
+    {
+      "id": "sheet-20260827-155045-tarsang-tamang",
+      "name": "Tarsang Tamang",
+      "age": "४५",
+      "place": "Pajong, Rasuwa · Ronga",
+      "when": "२६ अगस्ट",
+      "phone": "9845353937",
+      "note": "फारम १५:५० · आमा · Kami Tamang सँग नमिसाउने (फरक व्यक्ति, एउटै रिपोर्ट फोन)"
+    },
+    {
+      "id": "sheet-20260827-154804-srijana-acharya",
+      "name": "Srijana Acharya",
+      "place": "Trishuli Bazaar",
+      "phone": "9819384855",
+      "note": "फारम १५:४८"
+    },
+    {
+      "id": "sheet-20260827-154652-shiva-prasad-dhakal",
+      "name": "Shiva Prasad Dhakal",
+      "age": "४८",
+      "place": "Kalika-3, Rasuwa · Plant Quarantine Office, Timure",
+      "when": "२०८३/०५/१० · ८:३० बिहान",
+      "phone": "9861883973",
+      "note": "फारम १५:४६"
+    },
+    {
+      "id": "sheet-20260827-154631-janani-sriram",
+      "name": "Janani Sriram",
+      "age": "44",
+      "place": "Florida, USA · Gyirong County Immigration / Rasuwagadhi",
+      "when": "२६ अगस्ट · ९:०० बिहान",
+      "phone": "+91 9110252409",
+      "note": "फारम १५:४६ · Isha Kailash Manasarovar yatra · Sriram Rajappa सँग नमिसाउने (फरक व्यक्ति, एउटै रिपोर्ट फोन)"
+    },
+    {
+      "id": "sheet-20260827-154542-krishna-khatri",
+      "name": "Krishna Khatri",
+      "age": "४९",
+      "place": "Upper Trishuli dam side, Hakkubesi",
+      "phone": "9746297701",
+      "note": "फारम १५:४५ · Babu Ram Khatri सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-154538-pasang-tamang",
+      "name": "Pasang Tamang",
+      "age": "५५",
+      "place": "Thuman, Rasuwa · Rasuwagadhi Hydroproject staff",
+      "when": "२६ अगस्ट",
+      "phone": "9861762667 / 9869348010",
+      "note": "फारम १५:४५ · स्टाफ ड्यूटीमा · भतिजी रिपोर्ट"
+    },
+    {
+      "id": "sheet-20260827-154426-sriram-rajappa",
+      "name": "Sriram Rajappa",
+      "age": "47",
+      "place": "Florida, USA · Gyirong County Immigration / Rasuwagadhi",
+      "when": "२६ अगस्ट · ९:०० बिहान",
+      "phone": "+91 9110252409",
+      "note": "फारम १५:४४ · Isha Kailash Manasarovar yatra · Janani Sriram सँग नमिसाउने (फरक व्यक्ति, एउटै रिपोर्ट फोन)"
+    },
+    {
+      "id": "sheet-20260827-154228-prabhakar-dangal",
+      "name": "Prabhakar Dangal",
+      "place": "Itahari-19 · Maijung army post, Rasuwa",
+      "phone": "9842156207 / 9827005085 / 9824389072",
+      "note": "फारम १५:४२ · नेपाली सेना"
+    },
+    {
+      "id": "sheet-20260827-153901-aalok-kumar-paikra",
+      "name": "Aalok Kumar Paikra",
+      "age": "28",
+      "place": "Mahadewa Gaupalika-1 · Dhunche / Haku, Rasuwa",
+      "phone": "9814767218",
+      "note": "फारम १५:३९"
+    },
+    {
+      "id": "sheet-20260827-153825-krishna-murari-aryal",
+      "name": "Krishna Murari Aryal",
+      "age": "51",
+      "place": "Gosaikunda from Pharping · reserved Scorpio बा १९ च ९७३६",
+      "when": "२६ अगस्ट · ८:४९ बिहान",
+      "phone": "9767929605 / 9849012052",
+      "note": "फारम १५:३८ · Arpan Aryal सँग नमिसाउने (फरक व्यक्ति)"
+    },
     {
       "id": "sheet-20260827-153414-sanjay-sah",
       "name": "संजय साह / Sanjay Sah",
