@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T17:42:00+05:45",
+  "updated_at": "2026-08-27T20:27:08+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,60 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-200829-ram-raja-rimal",
+      "name": "Ram Raja Rimal",
+      "place": "Rasuwa mailungarmy check post",
+      "when": "9",
+      "phone": "9842422427",
+      "note": "फारम २०:०८ · T shirt",
+      "age": "43"
+    },
+    {
+      "id": "sheet-20260827-200934-dupa-tamang",
+      "name": "Dupa Tamang",
+      "place": "Syafru Bensi,Gosainkunda -5 Rasuwa · Syafru Bensi, Gosainkunda-5 Rasuwa",
+      "when": "26 August/ Bhadra 10, before flood",
+      "phone": "9765410784",
+      "note": "फारम २०:०९",
+      "age": "48"
+    },
+    {
+      "id": "sheet-20260827-201619-prakash-koirala",
+      "name": "Prakash koirala",
+      "place": "Lalitpur · Timure hydropower",
+      "when": "No",
+      "phone": "9843859822",
+      "note": "फारम २०:१६ · No · Please find him",
+      "age": "45"
+    },
+    {
+      "id": "sheet-20260827-201748-olena-kulikova",
+      "name": "Olena Kulikova",
+      "place": "cyprus · rasuvaghandhi border",
+      "when": "26 august, 10:00 am",
+      "phone": "5794419680",
+      "note": "फारम २०:१७ · around 165cm,dark black hair,ukranian",
+      "age": "56"
+    },
+    {
+      "id": "sheet-20260827-201822-kirta-singh-bist",
+      "name": "kirta singh bist",
+      "place": "Sudurpaschim Doti · Upper Trishuli 3A",
+      "when": "Upper trishuli 3A powerhouse",
+      "phone": "9865960131",
+      "note": "फारम २०:१८ · on Missing report by upper trishuli 3A",
+      "age": "46"
+    },
+    {
+      "id": "sheet-20260827-202220-sneha-singh",
+      "name": "Sneha Singh",
+      "place": "India / Canada · Immigration office gyirong",
+      "when": "26th August 2026 at 9am",
+      "phone": "9830895199",
+      "note": "फारम २०:२२ · Mole on right cheek · Canadian citizen part of the Isha foundation Kailash Yatra",
+      "age": "34"
+    },
     {
       "id": "sheet-20260827-200630-harka-ghale-karmo-tamang",
       "name": "Harka Ghale / Karmo Tamang",
