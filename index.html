@@ -6,7 +6,7 @@
 <title>रसुवा–भोटेकोशी बाढी · २७ अगस्ट २०२६</title>
 <meta name="description" content="२७ अगस्ट २०२६ / ११ भदौ २०८३ लाइभ। घटना १० भदौ (२६ अगस्ट) रसुवा–भोटेकोशी–त्रिशूली बाढी। सतर्कता, उद्धार र स्रोत।">
 <meta name="robots" content="index,follow">
-<base href="https://nirajbhusal.github.io/rasuwa-flood-bulletin/">
+<base href="./">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#c41e3a">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -18,7 +18,6 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
 
-.stick{position:sticky;top:0;z-index:40;background:var(--paper)}
 .safety-banner{
   margin:0;padding:10px 16px;
   background:#9f1239;color:#fff;
@@ -127,7 +126,7 @@
   --card:#ffffff;
   --shadow:0 10px 30px rgba(15,23,42,.08);
   --radius:16px;
-  --max:980px;
+  --max:1320px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:var(--stick, 240px);overflow-x:clip}
@@ -145,24 +144,36 @@ body{
 a{color:var(--teal);text-decoration:none}
 a:hover{text-decoration:underline}
 img{max-width:100%;display:block}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
 .topbar{
   position:relative;
-  background:rgba(246,243,238,.94);
-  backdrop-filter:blur(12px);
+  background:rgba(246,243,238,.96);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
   border-bottom:1px solid var(--line);
 }
 .topbar-inner{
   position:relative;
-  max-width:var(--max);margin:0 auto;padding:14px 16px 12px;
+  max-width:var(--max);margin:0 auto;padding:14px 20px 12px;
   display:flex;flex-direction:column;align-items:center;gap:10px;
   text-align:center;
+}
+@media (min-width:920px){
+  .topbar-inner{
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    text-align:left;
+    padding:12px 20px;
+    gap:10px 16px;
+  }
 }
 .live{
   display:inline-flex;align-items:center;gap:7px;
   background:var(--crimson);color:#fff;
   font-weight:800;font-size:12px;letter-spacing:.04em;
-  padding:5px 10px;border-radius:999px;
+  padding:5px 10px;border-radius:999px;flex:none;
 }
 .live i{
   width:8px;height:8px;border-radius:50%;background:#fff;
@@ -173,11 +184,34 @@ img{max-width:100%;display:block}
 .brand{flex:none;width:100%;min-width:0;text-align:center;padding:0;box-sizing:border-box}
 .brand h1{margin:0;font-size:clamp(28px,7vw,52px);line-height:1.15;font-weight:800;text-align:center}
 .brand p{margin:6px 0 0;color:var(--muted);font-size:15px;text-align:center}
+@media (min-width:920px){
+  .brand{width:auto;text-align:left;flex:1;min-width:280px}
+  .brand h1{font-size:clamp(26px,2.4vw,34px);text-align:left}
+  .brand p{text-align:left;margin-top:2px;font-size:14px}
+}
 .helpline{
   font-size:13px;font-weight:700;color:var(--crimson);
   background:var(--crimson-soft);padding:6px 10px;border-radius:10px;
 }
+.helpline{
+  font-size:13.5px;font-weight:700;color:var(--ink);
+  background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:12px;
+  display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px;box-shadow:0 2px 6px rgba(15,23,42,.04);
+}
+.helpline a{
+  color:var(--crimson);text-decoration:none;display:inline-flex;align-items:center;gap:2px;
+}
+.helpline a:hover{text-decoration:none}
+.helpline strong{
+  background:var(--crimson);color:#fff;padding:2px 7px;border-radius:6px;
+  font-size:13px;letter-spacing:.02em;font-variant-numeric:tabular-nums;font-weight:800;
+  transition:background .15s ease, transform .15s ease;display:inline-block;
+}
+.helpline a:hover strong{background:#9f1239;transform:scale(1.05)}
 .top-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;width:100%}
+@media (min-width:920px){
+  .top-actions{width:auto;justify-content:flex-end;flex:none;gap:10px}
+}
 .notify-slot{position:relative;flex:none;z-index:56}
 .notify-btn{
   font:inherit;cursor:pointer;border:0;
@@ -209,6 +243,13 @@ img{max-width:100%;display:block}
   box-shadow:0 10px 28px rgba(15,23,42,.28);
 }
 .notify-hint.show{display:block}
+@media (min-width:920px){
+  .notify-hint{flex-basis:100%;text-align:right;margin-top:2px}
+}
+.notify-hint.show{display:block}
+@media (min-width:920px){
+  .notify-hint{flex-basis:100%;text-align:right;margin-top:2px}
+}
 
 .plants{width:100%;border-collapse:collapse;font-size:16px;margin:8px 0 4px}
 .plants th,.plants td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
@@ -248,21 +289,32 @@ a.js-found-row[hidden]{display:none}
 .treat-note{margin:8px 0 0}
 .treat td.age,.treat th.age{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 
-
 .chips{
   position:sticky;top:0;z-index:40;
-  background:var(--paper);
+  background:rgba(246,243,238,.96);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
   border-bottom:1px solid var(--line);
   overflow-x:auto;white-space:nowrap;
   scrollbar-width:none;
-  mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 24px),transparent);
+  box-shadow:0 2px 10px rgba(15,23,42,.06);
 }
 .chips::-webkit-scrollbar{display:none}
-.chips-inner{width:max-content;min-width:100%;margin:0 auto;padding:8px 16px;display:flex;gap:8px;flex-wrap:nowrap}
+.chips-inner{width:max-content;min-width:100%;margin:0 auto;padding:8px 20px;display:flex;gap:8px;align-items:center;flex-wrap:nowrap}
+.chips-brand{
+  display:inline-flex;
+  font-weight:800;
+  font-size:14px;
+  color:var(--crimson);
+  padding:4px 6px 4px 2px;
+  align-items:center;
+  white-space:nowrap;
+}
 .chips a{
   display:inline-flex;align-items:center;padding:8px 12px;min-height:40px;border-radius:999px;
   background:#fff;border:1px solid var(--line);color:var(--ink);
   font-size:15px;font-weight:600;text-decoration:none;
+  transition:border-color .15s ease, color .15s ease, background .15s ease;
 }
 .chips a:hover{border-color:var(--teal);color:var(--teal)}
 .chips a.home-btn{background:var(--crimson);color:#fff;border-color:var(--crimson);display:inline-flex;align-items:center;justify-content:center;width:36px;min-width:36px;height:36px;padding:0}
@@ -355,20 +407,116 @@ a.js-found-row[hidden]{display:none}
 }
 .kicker{color:var(--crimson);font-weight:800;font-size:13px;letter-spacing:.06em;margin:0 0 6px}
 .hero h2{margin:0 0 8px;font-size:clamp(26px,5vw,40px);line-height:1.2}
-.lede{margin:0;color:var(--muted);max-width:46rem}
+.lede{
+  margin:0 0 14px;
+  color:#334155;
+  font-size:16.5px;
+  line-height:1.75;
+  max-width:min(100%, 78rem);
+}
+.lede strong{
+  color:var(--crimson);
+  background:var(--crimson-soft);
+  padding:1px 7px;
+  border-radius:6px;
+  font-weight:800;
+  font-size:15px;
+  font-variant-numeric:tabular-nums;
+  border:1px solid rgba(196,30,58,.18);
+  display:inline-block;
+  margin:0 1px;
+}
+.source-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  background:#fff;
+  color:var(--ink);
+  font-weight:800;
+  font-size:13.5px;
+  padding:2px 8px;
+  border-radius:6px;
+  border:1px solid var(--line);
+  box-shadow:0 1px 3px rgba(15,23,42,.05);
+  margin:0 2px;
+  vertical-align:baseline;
+}
+.lede-alert{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  background:#fef2f2;
+  color:#991b1b;
+  font-weight:800;
+  font-size:14px;
+  padding:2px 9px;
+  border-radius:6px;
+  border:1px solid #fecaca;
+  margin-left:4px;
+}
 .stats{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+  gap:12px;
   margin:18px 0 6px;
 }
-.stats-note{margin:10px 0 0;font-size:16px;font-weight:600;color:var(--ink);line-height:1.55}
-.stats-src{
-  list-style:none;margin:12px 0 0;padding:14px 16px;
-  background:#fff;border:1px solid var(--line);border-radius:14px;
-  font-size:17px;font-weight:500;color:var(--ink);line-height:1.7;text-align:left;
+@media (min-width:1160px){
+  .stats{
+    grid-template-columns:repeat(5, 1fr);
+  }
 }
-.stats-src li{margin:0 0 6px}
-.stats-src li:last-child{margin:0}
-.stats-src b{color:var(--ink);font-weight:800}
+.stats-note{margin:8px 0 0;font-size:13px;color:var(--muted)}
+.stats-src{
+  list-style:none;
+  margin:16px 0 0;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+@media (min-width:768px){
+  .stats-src{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+.stats-src li{
+  margin:0;
+  padding:14px 16px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-left:4px solid var(--crimson);
+  border-radius:14px;
+  font-size:15px;
+  color:var(--muted);
+  line-height:1.65;
+  box-shadow:0 2px 8px rgba(15,23,42,.04);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.stats-src li:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 18px rgba(15,23,42,.08);
+}
+.stats-src li b{
+  display:block;
+  color:var(--ink);
+  font-weight:800;
+  font-size:16px;
+  margin-bottom:6px;
+  padding-bottom:4px;
+  border-bottom:1px solid #f1f5f9;
+}
+.stats-src strong, .stats-src .num-hl{
+  display:inline-block;
+  color:var(--crimson);
+  background:var(--crimson-soft);
+  padding:0 7px;
+  border-radius:6px;
+  font-weight:800;
+  font-size:14.5px;
+  font-variant-numeric:tabular-nums;
+  border:1px solid rgba(196,30,58,.18);
+  margin:0 2px;
+}
 
 .log{display:flex;flex-direction:column;gap:12px}
 .log-item{
@@ -551,10 +699,24 @@ section{padding:22px 0}
   font-weight:800;padding:10px 14px;border-radius:999px;text-decoration:none!important;
 }
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.photos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.photos{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:14px;
+}
+@media (min-width:1200px){
+  .photos{
+    grid-template-columns:repeat(4, 1fr);
+  }
+}
 .photo{
   background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
   box-shadow:var(--shadow);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.photo:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(15,23,42,.12);
 }
 .photo a{display:block;color:inherit;text-decoration:none}
 .photo img{width:100%;height:240px;object-fit:cover;object-position:center;background:#e2e8f0;display:block}
@@ -602,7 +764,16 @@ section{scroll-margin-top:0}
 .lb-prev{left:10px}
 .lb-next{right:10px}
 
-.videos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.videos{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
+  gap:14px;
+}
+@media (min-width:1100px){
+  .videos{
+    grid-template-columns:repeat(3, 1fr);
+  }
+}
 .video{background:#000;border-radius:14px;overflow:hidden;aspect-ratio:16/9}
 .video iframe{width:100%;height:100%;border:0}
 .xlink{
@@ -612,8 +783,8 @@ section{scroll-margin-top:0}
 .xlink img{width:120px;height:80px;object-fit:cover;border-radius:8px}
 .sources{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  gap:12px;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:14px;
 }
 .src-group{
   aspect-ratio:1;
@@ -636,9 +807,6 @@ section{scroll-margin-top:0}
   background:var(--paper);color:var(--ink);font-size:13px;line-height:1.35;
 }
 .src-group a:hover{background:var(--teal-soft);text-decoration:none}
-@media (max-width:760px){
-  .sources{grid-template-columns:repeat(2,1fr)}
-}
 footer{
   margin-top:12px;padding:28px 16px 96px;text-align:center;color:var(--muted);
   border-top:1px solid var(--line);font-size:14px;
@@ -682,7 +850,13 @@ footer .foot-contact a:hover{text-decoration:underline}
 .ndrrma-hl .hl-nat{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:14px 16px 10px}
 .ndrrma-hl .hl-nat a{display:block;text-align:center;background:var(--crimson-soft);color:var(--crimson);font-weight:800;padding:10px 6px;border-radius:12px;text-decoration:none;line-height:1.2}
 .ndrrma-hl .hl-nat a small{display:block;font-size:11px;color:var(--muted);font-weight:700;margin-top:3px}
-.ndrrma-hl .hl-dist{column-count:2;column-gap:8px;padding:4px 16px 14px}
+.ndrrma-hl .hl-dist{column-count:1;column-gap:12px;padding:4px 16px 14px}
+@media (min-width:680px){
+  .ndrrma-hl .hl-dist{column-count:2}
+}
+@media (min-width:1100px){
+  .ndrrma-hl .hl-dist{column-count:3}
+}
 .ndrrma-hl .hl-dist article{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:10px 12px;break-inside:avoid;margin:0 0 8px;display:inline-block;width:100%;vertical-align:top}
 .ndrrma-hl .hl-dist article:last-child{margin-bottom:0}
 .ndrrma-hl .hl-dist b{display:block;margin:0 0 6px;font-size:15px;padding-bottom:6px;border-bottom:1px solid var(--line)}
@@ -694,11 +868,16 @@ footer .foot-contact a:hover{text-decoration:underline}
 .ndrrma-hl .hl-foot{background:#0f4c5c;color:#fff;padding:8px 16px;font-size:13px;line-height:1.45}
 @media (max-width:760px){
   .ndrrma-hl .hl-nat{grid-template-columns:repeat(2,1fr)}
-  .ndrrma-hl .hl-dist{column-count:1}
 }
 
 .cao-lead{margin:0 0 12px;font-size:15px;color:var(--muted)}
-.cao-grid{column-count:2;column-gap:10px}
+.cao-grid{column-count:1;column-gap:12px}
+@media (min-width:680px){
+  .cao-grid{column-count:2}
+}
+@media (min-width:1100px){
+  .cao-grid{column-count:3}
+}
 .cao-grid article{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:var(--shadow);break-inside:avoid;margin:0 0 10px;display:inline-block;width:100%;vertical-align:top}
 .cao-grid h3{margin:0 0 6px;font-size:15px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
 .cao-grid h3 small{font-size:11px;font-weight:800;background:var(--teal-soft);color:var(--teal);padding:1px 7px;border-radius:8px}
@@ -707,9 +886,6 @@ footer .foot-contact a:hover{text-decoration:underline}
 .cao-grid a span{font-size:13px;font-weight:800;color:var(--ink);min-width:0}
 .cao-grid a b{font-size:12px;font-weight:600;color:var(--muted);margin-left:6px}
 .cao-grid a em{flex:none;font-style:normal;font-weight:800;font-size:15px;letter-spacing:.02em;color:var(--crimson);font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:nowrap}
-@media (max-width:760px){
-  .cao-grid{column-count:1}
-}
 
 @media (max-width:760px){
   .stats{grid-template-columns:1fr}
@@ -779,7 +955,22 @@ footer .foot-contact a:hover{text-decoration:underline}
 }
 .wl-src{margin:10px 0 0;font-size:13px;color:var(--muted);line-height:1.5}
 .wl-src a{font-weight:800}
-.wl-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.wl-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  margin-top:10px;
+}
+@media (min-width:768px){
+  .wl-list{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+@media (min-width:1240px){
+  .wl-list{
+    grid-template-columns:repeat(3, 1fr);
+  }
+}
 .wl-row{
   border:1px solid var(--line);border-radius:12px;padding:10px 12px 8px;
   background:#fafafe;
@@ -818,46 +1009,93 @@ footer .foot-contact a:hover{text-decoration:underline}
 }
 .fund{
   background:#fff;border:1px solid var(--line);border-radius:16px;
-  padding:16px 14px 10px;box-shadow:var(--shadow);margin:0 0 12px;
+  padding:18px 16px 12px;box-shadow:var(--shadow);margin:0 0 16px;
 }
-.fund h3{margin:0 0 10px;font-size:19px;font-weight:800;color:var(--ink);line-height:1.3}
-.fund table{width:100%;border-collapse:collapse;font-size:16px;table-layout:fixed}
-.fund th,.fund td{padding:10px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;word-break:break-word}
-.fund th{font-size:13px;font-weight:800;color:var(--muted)}
-.fund th:first-child,.fund td:first-child{width:2.4em;white-space:nowrap}
-.fund td.acct{font-variant-numeric:tabular-nums;font-weight:700}
+.fund h3{margin:0 0 12px;font-size:20px;font-weight:800;color:var(--ink);line-height:1.3}
+.fund table{width:100%;border-collapse:separate;border-spacing:0;font-size:16px}
+.fund thead{
+  position:sticky;
+  top:var(--stick, 52px);
+  z-index:15;
+}
+.fund thead th{
+  position:sticky;
+  top:var(--stick, 52px);
+  z-index:15;
+  background:rgba(246,243,238,.98);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:2px solid var(--line);
+  font-size:14px;font-weight:800;color:var(--muted);
+  padding:12px 10px;text-align:left;vertical-align:middle;
+  box-shadow:0 3px 6px rgba(15,23,42,.04);
+}
+.fund td{
+  padding:12px 10px;border-bottom:1px solid var(--line);
+  text-align:left;vertical-align:middle;word-break:break-word;
+}
+.fund th:first-child,.fund td:first-child{width:2.4em;text-align:center;white-space:nowrap;font-weight:700}
+.fund .bank-ne{font-weight:750;font-size:16.5px;line-height:1.35;color:var(--ink)}
+.fund td.acct{font-variant-numeric:tabular-nums;font-weight:700;vertical-align:middle}
 .fund button.acct{
   display:flex;align-items:center;gap:6px;width:100%;text-align:left;
   font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  font-size:15px;font-weight:700;letter-spacing:.01em;line-height:1.35;
+  font-size:15.5px;font-weight:700;letter-spacing:.01em;line-height:1.35;
   font-variant-numeric:tabular-nums;color:var(--crimson);background:#fff;
-  border:1px dashed var(--line);border-radius:10px;padding:10px 10px;margin:4px 0;
+  border:1px dashed var(--line);border-radius:8px;padding:8px 12px;margin:3px 0;
   cursor:pointer;-webkit-tap-highlight-color:transparent;
   white-space:nowrap;overflow-x:auto;word-break:normal;overflow-wrap:normal;
+  transition:all .15s ease;
 }
+.fund button.acct:only-child{margin:0}
 .fund button.acct:hover,.fund button.acct.copied{border-color:var(--crimson);background:var(--crimson-soft)}
-.fund .usd{font-size:12px;font-weight:800;color:var(--muted);flex:none}
+.fund .usd{
+  font-family:inherit;font-size:11.5px;font-weight:800;
+  color:#0369a1;background:#e0f2fe;border:1px solid #bae6fd;
+  padding:2px 7px;border-radius:6px;margin-left:auto;
+  letter-spacing:.02em;flex:none;line-height:1.3;
+}
 .fund-foot{margin:4px 0 0;font-size:15px;color:var(--muted)}
-.fund .bank-en{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-top:1px}
-.fund th.swift,.fund td.swift{width:7.6em;vertical-align:middle}
-.fund td.swift button.acct{font-size:13px;letter-spacing:.03em;padding:8px 8px;margin:0}
-.fund th.qr,.fund td.qr{width:132px;text-align:center;vertical-align:middle;word-break:normal}
+.fund .bank-en, .fund button.bank-en{
+  display:flex;align-items:center;gap:4px;
+  width:fit-content;max-width:100%;
+  font-family:inherit;font-size:13px;font-weight:700;
+  color:var(--muted);background:#f8fafc;
+  border:1px dashed var(--line);border-radius:6px;
+  padding:3px 8px;margin-top:5px;
+  cursor:pointer;line-height:1.35;
+  transition:all .15s ease;-webkit-tap-highlight-color:transparent;
+  text-align:left;
+}
+.fund button.bank-en:hover{
+  color:var(--crimson);background:var(--crimson-soft);
+  border-color:var(--crimson);
+}
+.fund button.bank-en.copied{
+  color:#15803d;background:#ecfdf5;
+  border-color:#86efac;font-weight:800;
+}
+.fund th.swift,.fund td.swift{width:8.5em;vertical-align:middle}
+.fund td.swift button.acct{font-size:14.5px;letter-spacing:.03em;padding:8px 10px;margin:0}
+.fund th.qr,.fund td.qr{width:180px;text-align:center;vertical-align:middle;word-break:normal}
 .swift-faq{margin:14px 0 8px;padding:16px 16px 12px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
 .swift-faq h3{margin:0 0 10px;font-size:18px;font-weight:800}
 .swift-faq dt{margin:10px 0 4px;font-weight:800;font-size:16px}
 .swift-faq dd{margin:0 0 4px;font-size:15px;line-height:1.55;color:var(--ink)}
 .swift-faq code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;font-weight:700;background:var(--crimson-soft);padding:1px 6px;border-radius:6px}
 .fund td.qr img{
-  width:120px;height:120px;object-fit:contain;display:block;margin:0 auto;
+  width:150px;height:150px;object-fit:contain;display:block;margin:0 auto;
   border-radius:8px;border:1px solid var(--line);background:#fff;
   image-rendering:pixelated;image-rendering:crisp-edges;
+  transition:transform .15s ease, box-shadow .15s ease;
 }
 .fund td.qr a.qr-open{
-  display:inline-block;padding:6px;background:#fff;border-radius:10px;
+  display:inline-block;padding:5px;background:#fff;border-radius:10px;
   border:1px solid var(--line);line-height:0;
+  transition:border-color .15s ease, transform .15s ease;
 }
-.fund td.qr a.qr-open:hover{border-color:var(--crimson)}
-.fund-relief td.qr img{width:240px;height:240px}
+.fund td.qr a.qr-open:hover{border-color:var(--crimson);transform:scale(1.02)}
+.fund-relief td.qr img{width:220px;height:220px}
 .qr-pop{
   position:fixed;inset:0;z-index:80;background:rgba(15,23,42,.78);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -1367,14 +1605,14 @@ footer .foot-contact a:hover{text-decoration:underline}
     <table>
       <thead><tr><th data-i18n="sn">सि.नं.</th><th data-i18n="bank">बैंक</th><th data-i18n="acct_no">खाता नम्बर</th><th>SWIFT</th><th class="qr">QR</th></tr></thead>
       <tbody>
-        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्" data-i18n-title="copy">1130100003762001</button><button type="button" class="acct" data-acct="1130100000006006" title="कपी गर्नुहोस्" data-i18n-title="copy">1130100000006006</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">RBBANPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-rbb-disaster.png" target="_blank" rel="noopener"><img src="img/qr-rbb-disaster.png" width="170" height="170" alt="राष्ट्रिय वाणिज्य बैंक QR"></a></td></tr>
-        <tr><td>२</td><td>नेपाल बैंक<small class="bank-en">Nepal Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्" data-i18n-title="copy">00211600510039000003</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्" data-i18n-title="copy">00200100510039000001</button></td><td class="swift"><button type="button" class="acct" data-acct="NEBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NEBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-nbl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-nbl-disaster.png" width="173" height="173" alt="नेपाल बैंक QR"></a></td></tr>
-        <tr><td>३</td><td>कृषि विकास बैंक<small class="bank-en">Agricultural Development Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्" data-i18n-title="copy">0100201002907014</button></td><td class="swift"><button type="button" class="acct" data-acct="ADBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">ADBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-adbl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-adbl-disaster.png" width="170" height="170" alt="कृषि विकास बैंक QR"></a></td></tr>
-        <tr><td>४</td><td>एभरेष्ट बैंक<small class="bank-en">Everest Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्" data-i18n-title="copy">00100105200270</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्" data-i18n-title="copy">00101102200012</button></td><td class="swift"><button type="button" class="acct" data-acct="EVBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">EVBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-ebl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-ebl-disaster.png" width="169" height="169" alt="एभरेष्ट बैंक QR"></a></td></tr>
-        <tr><td>५</td><td>ग्लोबल आइएमई बैंक<small class="bank-en">Global IME Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्" data-i18n-title="copy">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्" data-i18n-title="copy">00411010000005</button></td><td class="swift"><button type="button" class="acct" data-acct="GLBBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">GLBBNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-gibl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-gibl-disaster.png" width="172" height="172" alt="ग्लोबल आइएमई बैंक QR"></a></td></tr>
-        <tr><td>६</td><td>नबिल बैंक<small class="bank-en">Nabil Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्" data-i18n-title="copy">1710017505285</button></td><td class="swift"><button type="button" class="acct" data-acct="NARBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NARBNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-nabil-disaster.png" target="_blank" rel="noopener"><img src="img/qr-nabil-disaster.png" width="171" height="171" alt="नबिल बैंक QR"></a></td></tr>
-        <tr><td>७</td><td>स्टान्डर्ड चार्टर्ड बैंक<small class="bank-en">Standard Chartered Bank Nepal Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">02013243801</button></td><td class="swift"><button type="button" class="acct" data-acct="SCBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">SCBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-scb-disaster.png" target="_blank" rel="noopener"><img src="img/qr-scb-disaster.png" width="168" height="168" alt="स्टान्डर्ड चार्टर्ड बैंक QR"></a></td></tr>
-        <tr><td>८</td><td>हिमालयन बैंक<small class="bank-en">Himalayan Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्" data-i18n-title="copy">01905631210046 <span class="usd">$</span></button></td><td class="swift"><button type="button" class="acct" data-acct="HIMANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">HIMANPKA</button></td><td class="qr"></td></tr>
+        <tr><td>१</td><td><div class="bank-ne">राष्ट्रिय वाणिज्य बैंक</div><button type="button" class="bank-en" data-acct="Rastriya Banijya Bank" title="कपी गर्नुहोस्" data-i18n-title="copy">Rastriya Banijya Bank</button></td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्" data-i18n-title="copy">1130100003762001</button><button type="button" class="acct" data-acct="1130100000006006" title="कपी गर्नुहोस्" data-i18n-title="copy">1130100000006006</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">RBBANPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-rbb-disaster.png" target="_blank" rel="noopener"><img src="img/qr-rbb-disaster.png" width="170" height="170" alt="राष्ट्रिय वाणिज्य बैंक QR"></a></td></tr>
+        <tr><td>२</td><td><div class="bank-ne">नेपाल बैंक</div><button type="button" class="bank-en" data-acct="Nepal Bank Limited" title="कपी गर्नुहोस्" data-i18n-title="copy">Nepal Bank Limited</button></td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्" data-i18n-title="copy">00211600510039000003</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्" data-i18n-title="copy">00200100510039000001</button></td><td class="swift"><button type="button" class="acct" data-acct="NEBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NEBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-nbl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-nbl-disaster.png" width="173" height="173" alt="नेपाल बैंक QR"></a></td></tr>
+        <tr><td>३</td><td><div class="bank-ne">कृषि विकास बैंक</div><button type="button" class="bank-en" data-acct="Agricultural Development Bank Ltd." title="कपी गर्नुहोस्" data-i18n-title="copy">Agricultural Development Bank Ltd.</button></td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्" data-i18n-title="copy">0100201002907014</button></td><td class="swift"><button type="button" class="acct" data-acct="ADBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">ADBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-adbl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-adbl-disaster.png" width="170" height="170" alt="कृषि विकास बैंक QR"></a></td></tr>
+        <tr><td>४</td><td><div class="bank-ne">एभरेष्ट बैंक</div><button type="button" class="bank-en" data-acct="Everest Bank Limited" title="कपी गर्नुहोस्" data-i18n-title="copy">Everest Bank Limited</button></td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्" data-i18n-title="copy">00100105200270</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्" data-i18n-title="copy">00101102200012</button></td><td class="swift"><button type="button" class="acct" data-acct="EVBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">EVBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-ebl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-ebl-disaster.png" width="169" height="169" alt="एभरेष्ट बैंक QR"></a></td></tr>
+        <tr><td>५</td><td><div class="bank-ne">ग्लोबल आइएमई बैंक</div><button type="button" class="bank-en" data-acct="Global IME Bank Ltd." title="कपी गर्नुहोस्" data-i18n-title="copy">Global IME Bank Ltd.</button></td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्" data-i18n-title="copy">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्" data-i18n-title="copy">00411010000005</button></td><td class="swift"><button type="button" class="acct" data-acct="GLBBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">GLBBNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-gibl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-gibl-disaster.png" width="172" height="172" alt="ग्लोबल आइएमई बैंक QR"></a></td></tr>
+        <tr><td>६</td><td><div class="bank-ne">नबिल बैंक</div><button type="button" class="bank-en" data-acct="Nabil Bank" title="कपी गर्नुहोस्" data-i18n-title="copy">Nabil Bank</button></td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्" data-i18n-title="copy">1710017505285</button></td><td class="swift"><button type="button" class="acct" data-acct="NARBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NARBNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-nabil-disaster.png" target="_blank" rel="noopener"><img src="img/qr-nabil-disaster.png" width="171" height="171" alt="नबिल बैंक QR"></a></td></tr>
+        <tr><td>७</td><td><div class="bank-ne">स्टान्डर्ड चार्टर्ड बैंक</div><button type="button" class="bank-en" data-acct="Standard Chartered Bank Nepal Ltd." title="कपी गर्नुहोस्" data-i18n-title="copy">Standard Chartered Bank Nepal Ltd.</button></td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">02013243801</button></td><td class="swift"><button type="button" class="acct" data-acct="SCBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">SCBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-scb-disaster.png" target="_blank" rel="noopener"><img src="img/qr-scb-disaster.png" width="168" height="168" alt="स्टान्डर्ड चार्टर्ड बैंक QR"></a></td></tr>
+        <tr><td>८</td><td><div class="bank-ne">हिमालयन बैंक</div><button type="button" class="bank-en" data-acct="Himalayan Bank Limited" title="कपी गर्नुहोस्" data-i18n-title="copy">Himalayan Bank Limited</button></td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्" data-i18n-title="copy">01905631210046 <span class="usd">USD ($)</span></button></td><td class="swift"><button type="button" class="acct" data-acct="HIMANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">HIMANPKA</button></td><td class="qr"></td></tr>
       </tbody>
     </table>
       </article>
@@ -1383,7 +1621,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <table>
       <thead><tr><th data-i18n="sn">सि.नं.</th><th data-i18n="bank">बैंक</th><th data-i18n="acct_no">खाता नम्बर</th><th>SWIFT</th><th class="qr">QR</th></tr></thead>
       <tbody>
-        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1430100000025006" title="कपी गर्नुहोस्" data-i18n-title="copy">1430100000025006</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्" data-i18n-title="copy">1430100001164001</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">RBBANPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-rbb-relief.png" target="_blank" rel="noopener"><img src="img/qr-rbb-relief.png" width="167" height="167" alt="राष्ट्रिय वाणिज्य बैंक QR · राहत कोष"></a></td></tr>
+        <tr><td>१</td><td><div class="bank-ne">राष्ट्रिय वाणिज्य बैंक</div><button type="button" class="bank-en" data-acct="Rastriya Banijya Bank" title="कपी गर्नुहोस्" data-i18n-title="copy">Rastriya Banijya Bank</button></td><td class="acct"><button type="button" class="acct" data-acct="1430100000025006" title="कपी गर्नुहोस्" data-i18n-title="copy">1430100000025006</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्" data-i18n-title="copy">1430100001164001</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">RBBANPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-rbb-relief.png" target="_blank" rel="noopener"><img src="img/qr-rbb-relief.png" width="167" height="167" alt="राष्ट्रिय वाणिज्य बैंक QR · राहत कोष"></a></td></tr>
       </tbody>
     </table>
       </article>
@@ -1416,6 +1654,145 @@ footer .foot-contact a:hover{text-decoration:underline}
       <li><b>पूर्वाधार</b> — NDRRMA SitRep-3 (राति २२:००): मोटरेबल पुल <strong>३५</strong> + झोलुङ्गे <strong>४५</strong> = पुल <strong>८०</strong>; पक्की सडक <strong>४० किमि</strong> पूर्ण ध्वस्त — SitRep-2 सँग मेल। विद्युत् ७ / २७६ MW — प्राधिकरण। टावर ७ — नेपाल टेलिकम।</li>
       <li><b>NEA कर्मचारी १३३+</b> — नेपाल विद्युत् प्राधिकरण (<a href="https://www.ratopati.com/story/587664/more-than-133-hydropower-employees-and-workers-left-without-contact-in-rasuwa-flood" target="_blank" rel="noopener">रातोपाटी</a>): विभिन्न जलविद्युत् आयोजनाका कर्मचारी/कामदार <strong>१३३ भन्दा बढी</strong> सम्पर्कविहीन। लाङटाङ आयोजना ६० यथावत्।</li>
     </ul>
+<section id="map" class="hero-map">
+  <span id="path" hidden></span>
+  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_map">नक्सा</h2></div>
+  <div class="card teal map-wrap">
+    <div id="flood-map" role="img" aria-label="टिमुरेदेखि देवघाट–सुस्तासम्मको बाढी बाटो" data-i18n-aria="map_aria"></div>
+    <div class="map-legend">
+      <span><i class="solid"></i><span data-i18n="map_confirmed">पुष्टि बाटो</span></span>
+      <span><i class="dash"></i><span data-i18n="map_risk">अनुमान / जोखिम</span></span>
+      <span><i class="pin start"></i><span data-i18n="map_entry">प्रवेश</span></span>
+      <span><i class="pin hit"></i><span data-i18n="map_reached">पुगेको</span></span>
+      <span><i class="pin risk"></i><span data-i18n="map_est">अनुमान</span></span>
+      <span><i class="pin gauge"></i><span data-i18n="map_gauge">DHM गेज</span></span>
+    </div>
+    <p class="map-note" data-i18n-html="map_note">बिन्दुहरू बजार/पुलका अनुमानित स्थान हुन्, नदीको ठीक बीच होइन। DHM प्रतिवेदन: देवघाट उच्चिष्ठ ६.५७ मि @ १६:००। महाशाखा: SMS ६.८ लाख; देवघाट extra ~२० मिलियन घनमिटर। सुस्ता सारिँदै (करिब ७०%), बाढी पुगेको पुष्टि छैन। नुवाकोट देवीघाट ≠ चितवन देवघाट। © OpenStreetMap</p>
+  </div>
+<p class="path-ask" data-i18n-html="path_ask"><strong>नदी वरपरका बासिन्दाहरूलाई अनुरोध।</strong> तटीय क्षेत्रबाट सुरक्षित स्थानमा सर्नुहोस् र उच्च सतर्कता अपनाउनुहोस्।</p>
+  <div class="wl" id="wl-rivers" data-src="./dhm-rivers.json">
+    <div class="wl-top">
+      <h3><span data-i18n="dhm_h">DHM नदी सतह</span> <small data-i18n="dhm_sub">बाढीको बाटो · स्वचालित गेज</small></h3>
+    </div>
+    <div class="wl-list" id="wl-list">
+      <article class="wl-row"><div class="wl-row-top"><h4>धुन्चे · त्रिशूली खोला<small>नुवाकोट · DHM</small></h4><span class="wl-badge silent">गेज मौन</span></div><div class="wl-num">२.४०<span>मिटर</span></div><p class="wl-meta">नुवाकोट · ०९:२० · यो पढाइपछि मौन</p></article>
+      <article class="wl-row"><div class="wl-row-top"><h4>बेत्रावती · त्रिशूली<small>नुवाकोट · DHM</small></h4><span class="wl-badge silent">गेज मौन</span></div><div class="wl-num">३.५५<span>मिटर</span></div><p class="wl-meta">नुवाकोट · ०९:२० · यो पढाइपछि मौन</p></article>
+      <article class="wl-row washed"><div class="wl-row-top"><h4>फुर्के · मलेखु<small>धादिङ · DHM</small></h4><span class="wl-badge danger">बगेको</span></div><div class="wl-num">१०.४८<span>मिटर</span></div><p class="wl-meta">धादिङ · ११:४० · अन्तिम पढाइ · लाइभ होइन</p></article>
+      <article class="wl-row"><div class="wl-row-top"><h4>काली खोला · त्रिशूली<small>चितवन · DHM</small></h4><span class="wl-badge warn">बढ्दो</span></div><div class="wl-num">७.५६<span>मिटर</span></div><p class="wl-meta">चितवन · ००:१०</p></article>
+      <article class="wl-row"><div class="wl-row-top"><h4>देवघाट · नारायणी<small>चितवन · DHM</small></h4><span class="wl-badge ok">सतर्कतामुनि</span></div><div class="wl-num">४.३७<span>मिटर</span></div><p class="wl-meta">चितवन · २३:५०</p></article>
+    </div>
+    <p class="wl-src" id="wl-src">DHM नेटवर्कमा अहिले खतरा तहमा फुर्के मात्र (गेज बगेको, लाइभ होइन)। काली ७.५६ बढ्दो ००:१० / देवघाट ४.३७ स्थिर २३:५०, दुवै सतर्कतामुनि। धुन्चे/बेत्रावती मौन ०९:२०। स्रोत: <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a></p>
+    <p class="wl-src" data-i18n-html="dhm_pdf">DHM प्रतिवेदन (१० भदौ): दिनको उच्चिष्ठ देवघाट <strong>६.५७ मि</strong> @ १६:००, बहाव करिब <strong>५,८५०</strong> घनमिटर/सेकेन्ड; कालीखोला <strong>१२.३ मि</strong>। SMS <strong>६,७९,२९५</strong> (NTC+Ncell)। extra आयतन करिब <strong>२०</strong> मिलियन घनमिटर। सीमानाका–देवघाट <strong>१६८</strong> किमि। माथिको सूची लाइभ गेज हो। <a href="docs/dhm-bhadra10-sitrep.pdf" target="_blank" rel="noopener">PDF</a></p>
+  </div>
+  <div class="card teal">
+    <div class="path" role="list" data-i18n-list="path" data-i18n-kind="step">
+      <div class="step" role="listitem"><span class="t">०८:३७</span><i class="rail" aria-hidden="true"></i><div><b>भूकम्प ४.४</b><span>खानी तथा भूगर्भ</span></div></div>
+      <div class="step" role="listitem"><span class="t">०८:५०</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेसी गेज मौन</b><span>अन्तिम १.६२ मि @ ०८:४०</span></div></div>
+      <div class="step" role="listitem"><span class="t">~९:१५</span><i class="rail" aria-hidden="true"></i><div><b>टिमुरे</b><span>तिब्बतबाट नेपाल प्रवेश</span></div></div>
+      <div class="step" role="listitem"><span class="t">बिहान</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेसी</b><span>बजार र पूर्वाधार क्षति</span></div></div>
+      <div class="step" role="listitem"><span class="t">~९:००</span><i class="rail" aria-hidden="true"></i><div><b>विदुर / नुवाकोट</b><span>बेत्रावती, त्रिशूली, देवीघाट, जेल</span></div></div>
+      <div class="step" role="listitem"><span class="t">१०:२८</span><i class="rail" aria-hidden="true"></i><div><b>गल्छी</b><span>धादिङ · महाशाखा पुष्टि, झोलुङ्गे पुल बग्यो</span></div></div>
+      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>गजुरी</b><span>धादिङ · मुग्लिन प्रहरी, सडक रोकियो</span></div></div>
+      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>आदमघाट</b><span>धादिङ · सशस्त्र प्रहरी: बाढी पार</span></div></div>
+      <div class="step" role="listitem"><span class="t">११:५०</span><i class="rail" aria-hidden="true"></i><div><b>फुर्के / मलेखु</b><span>१०.८ मिटर · स्टेसन र झोलुंगे बगे</span></div></div>
+      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>बैरेनी</b><span>धादिङ · बजारमा घर, टहरा, झोलुंगे क्षति</span></div></div>
+      <div class="step" role="listitem"><span class="t">१३:००</span><i class="rail" aria-hidden="true"></i><div><b>मुग्लिन</b><span>DHM: बाढी पार · पृथ्वी र मुग्लिन–नारायणगढ अझै बन्द</span></div></div>
+      <div class="step" role="listitem"><span class="t">११:२१</span><i class="rail" aria-hidden="true"></i><div><b>चितवन</b><span>प्रवेश गर्दै · केबलकार ११:३० बन्द</span></div></div>
+      <div class="step" role="listitem"><span class="t">~१२:५८</span><i class="rail" aria-hidden="true"></i><div><b>फिस्लिङअघि</b><span>चितवन · प्रजिअ अर्याल</span></div></div>
+      <div class="step" role="listitem"><span class="t">१५:२०</span><i class="rail" aria-hidden="true"></i><div><b>चितवन देवघाट</b><span>DHM: पुग्यो · उच्चिष्ठ ६.५७ मि @ १६:००</span></div></div>
+      <div class="step" role="listitem"><span class="t">~१५:४५</span><i class="rail" aria-hidden="true"></i><div><b>सुस्ता</b><span>करिब ७०% सारिए · बाढी पुगेको होइन</span></div></div>
+    </div>
+    <p data-i18n-html="path_p">बाढी लेन्दे खोला/भोटेकोशी हुँदै त्रिशूलीमा मिसिएको छ। गल्छी र गजुरीपछि सशस्त्र प्रहरीका अनुसार धादिङको <strong>आदमघाट</strong> पार भएको छ। नुवाकोटमा विदुर मेयर राजन श्रेष्ठ: बेत्रावती बजार सबैभन्दा बढी क्षति, त्रिशूली बजार क्षति, सेन्ट्रल जेल डुबान, देवीघाट बजार डुबेको। कारागार प्रमुख भेषबहादुर कुँवर: कैदीबन्दी करिब <strong>१०००</strong> सुरक्षित (विदुर–३ खम्पाक्याम्प)।</p>
+  </div>
+</section>
+  </div>
+</div>
+
+<main class="wrap">
+
+<section id="rahat">
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rahat">राहत / उद्धार भिजुअल</h2></div>
+  <p class="treat-lead" data-i18n-html="rahat_lead">NDRRMA स्थिति प्रतिवेदन #०३ · राति २२:०० · १० भदौ २०८३। नयाँ आधिकारिक राहत/उद्धार अंक आएपछि यो खण्ड अद्यावधिक हुन्छ। शव १६२ (बिहान ६:००) यथावत् — SitRep-3 शव १२३ इतिहास।</p>
+  <div class="rahat-stats" aria-label="राहत अंक" data-i18n-aria="rahat_aria">
+    <div class="rahat-stat"><b>११६</b><span data-i18n="rs_air">हवाई उद्धार · सेना ८८ + निजी २८</span></div>
+    <div class="rahat-stat"><b>९३</b><span data-i18n="rs_ground">स्थलगत उद्धार · रसुवा ४३ · नुवाकोट ४७ · धादिङ ३</span></div>
+    <div class="rahat-stat"><b data-i18n="free">निःशुल्क</b><span data-i18n="rs_free">घाइते उपचार · स्वास्थ्य / सेना / सरकारी अस्पताल</span></div>
+    <div class="rahat-stat"><b data-i18n="months3">३ महिना</b><span data-i18n="rs_crisis">प्रभावित पालिका संकटग्रस्त (विपद् ऐन २०७४)</span></div>
+  </div>
+  <h3 class="cab-k" style="margin:8px 0 10px" data-i18n="rahat_tl_h">समयरेखा · खोज–उद्धार–राहत</h3>
+  <ol class="rahat-tl" data-i18n-list="rahat_tl">
+    <li><time>०८:४०</time> तिब्बत माथिल्लो जलाधारमा पहिरो/हिउँले नदी थुनिई फुट्यो; भीषण बाढी भोटेकोशी–टिमुरे–स्याफ्रुबेसी–बेत्रावती–त्रिशूली–विदुर–देवीघाट।</li>
+    <li><time>०९:००</time> बाढीको प्रारम्भिक सूचना प्राप्त।</li>
+    <li><time>०९:१०</time> जोखिम सूचना सञ्चारमाध्यमबाट प्रवाह।</li>
+    <li><time>०९:३५</time> प्रदेश–जिल्ला–स्थानीय सतर्कता; नेपाल टेलिकम/एनसेल SMS।</li>
+    <li><time>०९:४५+</time> हवाई उद्धार सुरु — हालसम्म <strong>११६</strong> (सेना + निजी हेलि)।</li>
+    <li><time>१०:००</time> मनसुन कमाण्ड-पोस्ट आपत्कालीन बैठक — स्रोत परिचालन।</li>
+    <li><time>१०:३०</time> खोज–उद्धार टोली विमानस्थलमा स्ट्यान्डबाइ।</li>
+    <li><time>११:००</time> विपद् राष्ट्रिय परिषद् (प्रधानमन्त्री) — थप हेलिकप्टर/ड्रोन।</li>
+    <li><time>१२:३०</time> मन्त्रिपरिषद् — उद्धार–राहत तीव्र।</li>
+    <li><time>जारी</time> रसुवा, नुवाकोट, धादिङ, गोरखा, चितवन तटीय क्षेत्र हाई अलर्ट — सुरक्षित स्थानमा जानुहोस्।</li>
+  </ol>
+  <h3 class="cab-k" style="margin:8px 0 10px" data-i18n="rahat_cab_h">मन्त्रिपरिषद्का १० निर्णय</h3>
+  <ol class="rahat-cab" data-i18n-list="rahat_cab">
+    <li><b>१ · समवेदना</b>जनधनको क्षतिप्रति दुःख, मृतक परिवारलाई समवेदना, घाइतेको शीघ्र स्वास्थ्य लाभ।</li>
+    <li><b>२ · निःशुल्क उपचार</b>स्वास्थ्य मन्त्रालय, नेपाली सेना र सरकारी अस्पतालमा घाइतेको तत्काल निःशुल्क उपचार।</li>
+    <li><b>३ · उद्धार</b>गृह र रक्षा: अलपत्र/घाइतेलाई सुरक्षित स्थानमा; सेना र निजी हेलिकप्टर।</li>
+    <li><b>४ · खाना–आश्रय</b>घर गुमाएकालाई खाना र आवास — गृह, विपद् प्राधिकरण, स्थानीय समिति।</li>
+    <li><b>५ · सडक–पानी</b>भौतिक पूर्वाधार: अवरुद्ध सडक खोल्न, खानेपानी सुचारु।</li>
+    <li><b>६ · विद्युत्</b>ऊर्जा मन्त्रालय र प्राधिकरण: विद्युत् यथाशीघ्र सुचारु।</li>
+    <li><b>७ · दूरसञ्चार</b>सञ्चार मन्त्रालय: दूरसञ्चार तत्काल सुचारु।</li>
+    <li><b>८ · आर्थिक सहायता</b>मृतक परिवारलाई प्रचलित कानुनबमोजिम तत्काल आर्थिक सहायता।</li>
+    <li><b>९ · पुनर्निर्माण स्रोत</b>गृहमन्त्री: सार्वजनिक पूर्वाधार मर्मत–पुनर्निर्माण स्रोत समन्वय।</li>
+    <li><b>१० · संकटग्रस्त</b>विपद् ऐन २०७४ दफा ३२: प्रभावित स्थानीय तह तीन महिना संकटग्रस्त।</li>
+  </ol>
+  <p class="treat-note" data-i18n-html="rahat_note">थप (सेना, राति): राहत ट्रक <strong>८</strong> / करिब <strong>८ टन</strong> प्रभावित क्षेत्रतर्फ। यो SitRep-3 पछिको अपडेट हो।</p>
+  <div class="sec-head" style="margin-top:8px"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rahat_photos">उद्धार तस्बिर</h2></div>
+  <div class="pager" data-pager="rahat-photos">
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
+    <div class="pboxes pager-pages"></div>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
+    <span class="pcount pager-count"></span>
+  </div>
+  <div class="photos" id="rahat-photo-grid" data-i18n-list="rahat_photos" data-i18n-kind="fig">
+    <figure class="photo">
+      <a href="img/sitrep3-cabinet.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/sitrep3-cabinet.jpg" alt="NDRRMA स्थिति प्रतिवेदन ०३ समयरेखा र मन्त्रिपरिषद्का १० निर्णय"></a>
+      <figcaption><strong>NDRRMA SitRep #०३</strong>समयरेखा र मन्त्रिपरिषद्का १० निर्णय · राति २२:००</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-ratopati-army-heli-rescue.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ratopati-army-heli-rescue.jpg" alt="घाइतेलाई हेलिकप्टरमा चढाउँदै नेपाली सेना, रातोपाटी"></a>
+      <figcaption><strong>सेना हेलिकप्टर उद्धार</strong>रातोपाटी / रासस · आज</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-ok-uddhar-ktm.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-uddhar-ktm.jpg" alt="घाइते काठमाडौं ल्याउने हेलिकप्टर, अनलाइनखबर"></a>
+      <figcaption><strong>त्रिभुवन विमानस्थल</strong>अनलाइनखबर · आज · घाइते हेलिकप्टरबाट</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-ok-ghaite2.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-ghaite2.jpg" alt="घाइते स्ट्रेचरमा काठमाडौं, अनलाइनखबर"></a>
+      <figcaption><strong>घाइते स्ट्रेचर</strong>अनलाइनखबर · आज · काठमाडौं</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-ok-ghaite1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-26-ok-ghaite1.jpg" alt="हेलिकप्टरबाट घाइते स्ट्रेचरमा, अनलाइनखबर"></a>
+      <figcaption><strong>उद्धार हेलिकप्टर</strong>अनलाइनखबर · आज · कैलाश हेलि</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/ok-heli-timure-2026-08-26.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/ok-heli-timure-2026-08-26.jpg" alt="टिमुरे क्षेत्र हेलिकप्टरबाट बाढी क्षति, अनलाइनखबर"></a>
+      <figcaption><strong>टिमुरे हेलि दृश्य</strong>अनलाइनखबर · आज · रसुवा</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/ok-heli-bhotekoshi-valley-2026-08-26.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/ok-heli-bhotekoshi-valley-2026-08-26.jpg" alt="भोटेकोशी उपत्यका हेलिकप्टरबाट बाढी बाटो, अनलाइनखबर"></a>
+      <figcaption><strong>भोटेकोशी उपत्यका हेलि</strong>अनलाइनखबर · आज</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/ok_army_helicopters_rasuwa.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/ok_army_helicopters_rasuwa.jpg" alt="सेनाका हेलिकप्टर रसुवा उडे"></a>
+      <figcaption><strong>सेनाका हेलिकप्टर</strong>अनलाइनखबर · २ वटा रसुवा उडे</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-26-setopati-tuth-emergency.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-setopati-tuth-emergency.jpg" alt="टिचिङ अस्पताल आकस्मिक कक्षको प्रवेश, सेतोपाटी"></a>
+      <figcaption><strong>टिचिङ आकस्मिक</strong>सेतोपाटी · आज · काठमाडौं</figcaption>
+    </figure>
+  </div>
+</section>
+
 <section id="treat">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_treat">राष्ट्रिय ट्रमा सेन्टर, छाउनी र टिचिङ अस्पतालमा उपचार भइरहेका घाइतेहरु</h2></div>
   <div class="card green">
@@ -3753,7 +4130,7 @@ footer .foot-contact a:hover{text-decoration:underline}
 })();
 
 (function(){
-  document.querySelectorAll(".fund button.acct").forEach(function(btn){
+  document.querySelectorAll(".fund button.acct, .fund button.bank-en").forEach(function(btn){
     btn.addEventListener("click", function(){
       var n = btn.getAttribute("data-acct") || "";
       function ok(){
