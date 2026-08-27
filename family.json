@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T10:41:04+05:45",
+  "updated_at": "2026-08-27T10:52:49+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,15 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-104731-rita-khadka",
+      "name": "Rita Khadka",
+      "age": "Around 24",
+      "place": "Timure, Rasuwa",
+      "when": "7 AM, Virtual Call",
+      "phone": "9768932965",
+      "note": "फारम १०:४७ · पति पनि हराएको भनिएको (नाम नखुलेको)"
+    },
     {
       "id": "sheet-20260827-103552-vikas-pradhan",
       "name": "विकास प्रधान",
