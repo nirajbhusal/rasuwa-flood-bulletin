@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T11:59:00+05:45",
+  "updated_at": "2026-08-27T12:06:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,37 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-120625-padam-bahadur-tamang",
+      "name": "Padam Bahadur Tamang",
+      "place": "Kipsang · Betrawati",
+      "when": "26/08/2026 around 9am",
+      "phone": "9843716171",
+      "note": "फारम १२:०६"
+    },
+    {
+      "id": "sheet-20260827-120502-rekha-patankar",
+      "name": "Rekha Patankar",
+      "place": "Thane, Mumbai · With Richa tours and travels around the checkpoint crossing over from Nepal to china.",
+      "phone": "+14254058666",
+      "note": "फारम १२:०५"
+    },
+    {
+      "id": "sheet-20260827-120421-satish-patankar",
+      "name": "Satish Patankar",
+      "place": "Thane, Mumbai · With Richa tours and travels around the checkpoint crossing over from Nepal to china.",
+      "phone": "+1 4254058666",
+      "note": "फारम १२:०४"
+    },
+    {
+      "id": "sheet-20260827-115851-balkumari-agasti",
+      "name": "Balkumari Agasti",
+      "age": "84 Y",
+      "place": "Nuwakot · Tribhuvan Trishuli Secondary School, Trishuli Bazar, Nuwakot",
+      "when": "Bhadra 10, 9.15 Am",
+      "phone": "9841646156/9841388525/9818546888",
+      "note": "फारम ११:५८ · Dhoti cholo"
+    },
     {
       "id": "sheet-20260827-115928-nataliia-godlevska",
       "name": "Nataliia Godlevska",
