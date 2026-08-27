@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T09:56:18+05:45",
+  "updated_at": "2026-08-27T09:58:52+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,33 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-095544-shanta-lama",
+      "name": "Shanta Lama",
+      "age": "42",
+      "place": "Thuman, near Ghattekhola · maps: Ghattekhola area",
+      "when": "last spoke 7:30am on 26 August",
+      "phone": "9801056036",
+      "note": "फारम ०९:५५ · Black t-shirt and pants · maps.app.goo.gl/orFkheJphLFoQWYy8"
+    },
+    {
+      "id": "sheet-20260827-095529-sunita-das",
+      "name": "Sunita Das",
+      "age": "32",
+      "place": "Lalbandi-1, Nawalpur, Sarlahi · Journey to Gosaikunda",
+      "when": null,
+      "phone": "9851044754",
+      "note": "फारम ०९:५५ · गोसाइकुण्ड यात्रा · सम्पर्क बाझ किशोर दास सँगै"
+    },
+    {
+      "id": "sheet-20260827-095442-bajh-kishor-das",
+      "name": "Bajh Kishor Das",
+      "age": "41",
+      "place": "Lalbandi-1, Nawalpur, Sarlahi · Journey to Gosikunda",
+      "when": null,
+      "phone": "9851044754",
+      "note": "फारम ०९:५४ · गोसाइकुण्ड यात्रा · सुनिता दास सँगै"
+    },
     {
       "id": "sheet-20260827-095252-mahesh-panta",
       "name": "Mahesh Panta",
