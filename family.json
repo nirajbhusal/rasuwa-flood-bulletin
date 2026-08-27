@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T23:32:58.628219+05:45",
+  "updated_at": "2026-08-27T23:41:21.796196+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,51 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-233956-ganesh-tamang",
+      "name": "Ganesh Tamang",
+      "age": "39",
+      "place": "Kavre, Lhongsal · Rasuwa",
+      "when": "8:30",
+      "phone": "9808208910",
+      "note": "फारम 23:39 · पर्यटक चालक"
+    },
+    {
+      "id": "sheet-20260827-233948-priyanka-choudhary",
+      "name": "Priyanka Choudhary",
+      "age": "39",
+      "place": "Oulu, Finland · Immigration office, Gyirong (Isha Foundation Kailash Trek)",
+      "when": "26.08.26 at 9.05 am",
+      "phone": "99927-77774",
+      "note": "फारम 23:39"
+    },
+    {
+      "id": "sheet-20260827-233940-deepak-rokaya",
+      "name": "Deepak Rokaya",
+      "age": "19",
+      "place": "Nepalgunj · Rasuwa",
+      "when": "5-10",
+      "phone": "9761950196",
+      "note": "फारम 23:39"
+    },
+    {
+      "id": "sheet-20260827-233448-sajan-gole",
+      "name": "Sajan Gole",
+      "age": "21",
+      "place": "Rasuwa kalikasthan-02 ghumti · Timure",
+      "when": "8:30",
+      "phone": "9813679092",
+      "note": "फारम 23:34"
+    },
+    {
+      "id": "sheet-20260827-233404-rashmi-oak",
+      "name": "Rashmi Oak",
+      "age": "55",
+      "place": "Mumbai, Maharashtra · Gyirong Port",
+      "when": "8.04 am, 26th Aug",
+      "phone": null,
+      "note": "फारम 23:34"
+    },
     {
       "id": "sheet-20260827-233001-rajesh-oak",
       "name": "Rajesh Oak",

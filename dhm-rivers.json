@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T23:33:52.413235+05:45",
+  "updated_at": "2026-08-27T23:41:21.796196+05:45",
   "note_np": "फुर्के स्टेसन बाढीले बगाएको — लाइभ होइन। बाँकी स्टेसन DHM HMS।",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms-Single/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -10,16 +10,16 @@
       "name": "Trishuli Khola at Dhunche",
       "name_np": "धुन्चे · त्रिशूली खोला",
       "district_np": "नुवाकोट",
-      "level_m": 2.394,
+      "level_m": 2.392,
       "warning_m": 3.2,
       "danger_m": null,
       "status": "normal",
       "steady": "STEADY",
-      "observed_at": "2026-08-27T17:35:00+00:00",
-      "observed_npt": "२०२६-०८-२७ २३:२०",
+      "observed_at": "2026-08-27T17:45:00+00:00",
+      "observed_npt": "२०२६-०८-२७ २३:३०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657"
+      "source": "https://www.dhm.gov.np/hydrology/river-watch"
     },
     {
       "station_id": "52",
