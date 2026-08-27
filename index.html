@@ -395,6 +395,19 @@ a.js-found-row[hidden]{display:none}
 .stat ul.mini li{margin:5px 0}
 .stat ul.mini strong{color:var(--crimson);font-variant-numeric:tabular-nums;font-weight:800;font-size:22px}
 .hero h2.vis-title{font-size:clamp(22px,4vw,30px);margin:0 0 12px}
+.cash-snap{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;
+  margin:0 0 14px;padding:14px 16px 12px;
+  background:linear-gradient(180deg,#ecfdf5,#fff 55%);
+  border:1px solid #86efac;border-radius:16px;
+  box-shadow:var(--shadow);text-decoration:none;color:inherit;
+}
+.cash-snap:hover{text-decoration:none;border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5}
+.cash-snap .kpi-k{width:100%;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.cash-snap strong{font-size:clamp(32px,6vw,44px);font-weight:800;color:var(--forest);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.cash-snap .cash-unit{font-size:16px;font-weight:800;color:var(--forest)}
+.cash-snap .cash-sub{width:100%;margin-top:2px;font-size:13px;font-weight:700;color:var(--muted)}
+
 .overview{margin:0 0 8px}
 .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .kpi{
@@ -1082,6 +1095,12 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="wrap">
     <p class="kicker" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
     <h2 class="vis-title" data-i18n="hero_overview">बाढीको स्थिति · ११ भदौ</h2>
+    <a class="cash-snap" href="#donate" id="hero-cash">
+      <span class="kpi-k" data-i18n="hero_cash_h">राहत रकम जम्मा</span>
+      <strong class="num">३</strong>
+      <span class="cash-unit" data-i18n="cash_crore">करोड रुपैयाँ</span>
+      <span class="cash-sub" data-i18n="hero_cash_sub">कुमारी बैंक · प्रकाशित हस्तान्तरण</span>
+    </a>
     <p class="lede sr-only" data-i18n-html="lede">आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। टिमुरे <strong>९५</strong> (विदेशी ८), हाकु टनेल <strong>७</strong>, भारतीय पर्यटक <strong>२१</strong>। शव <strong>१६२</strong>। SitRep-3 जिल्ला: चितवन ६४ · गोरखा १९ · धादिङ १८ · नुवाकोट ११ · तनहुँ ९ · रसुवा १ · नवलपरासी पूर्व १ (जम्मा १२३)। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। नदी किनार नजानुहोस्।</p>
     <div class="overview" id="overview">
       <div class="kpi-row" role="tablist" aria-label="मुख्य आंकडा" data-i18n-aria="kpi_aria">
