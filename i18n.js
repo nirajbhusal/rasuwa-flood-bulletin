@@ -399,7 +399,7 @@ window.I18N = {
 "cash_gibl": "ग्लोबल आइएमई",
 "cash_gibl_cap": "ग्लोबल आइएमई बैंक · ५ करोड",
 "cash_gibl_note": "उद्धार, राहत र पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सहयोग गर्ने घोषणा।",
-"cash_sheet_lead": "प्रकाशित खाता सूची: हालसम्म <strong>२७ करोड ३३ लाख</strong> · १० दाता।",
+"cash_sheet_lead": "प्रकाशित <strong>३९ करोड ३३ लाख</strong> — खाता सूची २७.३३ + BYD · साइमेक्स ७ + ग्लोबल आइएमई ५।",
 "cash_ncell": "एनसेल अक्सियाटा",
 "cash_nica": "एनआईसी एशिया",
 "cash_reliance": "रिलायन्स सुगर",
@@ -416,7 +416,7 @@ window.I18N = {
 "cash_note": "सीईओ रामचन्द्र खनाल र उच्च अधिकारीले अर्थमन्त्री डा. स्वर्णिम वाग्लेलाई हस्तान्तरण। प्रधानमन्त्री दैवी प्रकोप उद्धार कोष।",
 "cash_door_k": "प्रणाली",
 "cash_door": "एकद्वार",
-"cash_all_cap": "प्रकाशित खाता सूची · १० दाता",
+"cash_all_cap": "प्रकाशित नगद · १२ दाता",
 "cash_all_note": "पूर्ण कोष जम्मा होइन। नयाँ आधिकारिक नगद आएपछि थपिन्छ।",
 "cash_kumari_cap": "कुमारी बैंक लिमिटेड · ३ करोड नगद",
 "cash_door_cap": "एकद्वार प्रणाली",
@@ -883,7 +883,7 @@ window.I18N = {
 "cash_gibl": "Global IME",
 "cash_gibl_cap": "Global IME Bank · 5 crore",
 "cash_gibl_note": "Announced support to the Prime Minister’s Disaster Relief Fund for rescue, relief and rehabilitation.",
-"cash_sheet_lead": "Published account list: <strong>27 crore 33 lakh</strong> so far · 10 donors.",
+"cash_sheet_lead": "Published <strong>39 crore 33 lakh</strong> — account list 27.33 + BYD · Cimex 7 + Global IME 5.",
 "cash_ncell": "Ncell Axiata",
 "cash_nica": "NIC Asia",
 "cash_reliance": "Reliance Sugar",
@@ -900,7 +900,7 @@ window.I18N = {
 "cash_note": "CEO Ramchandra Khanal and senior officials handed it to Finance Minister Dr Swarnim Wagle. Prime Minister’s Disaster Relief Fund.",
 "cash_door_k": "System",
 "cash_door": "One-door",
-"cash_all_cap": "Published account list · 10 donors",
+"cash_all_cap": "Published cash · 12 donors",
 "cash_all_note": "Not the fund’s full total. New official cash will be added here.",
 "cash_kumari_cap": "Kumari Bank Ltd · 3 crore cash",
 "cash_door_cap": "One-door system",
@@ -1170,6 +1170,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Relief cash 39.33 crore",
+"p": "Added BYD · Cimex <strong>7</strong> and Global IME <strong>5</strong> back on the 27.33 account list. Total <strong>39 crore 33 lakh</strong>. <a href=\"#donate\">Relief funds</a>."
+},
 {
 "h": "Relief cash 27.33 crore",
 "p": "Published account list of 10 donors: Gorkha 10, Nepal Bank 3.01, Kumari 3, Rastriya Banijya 3, NIFRA 2.50, NIC Asia 2.21, Saras (Red Bull) 2, Ncell 1, Shiv Shakti 51 lakh, Reliance Sugar 10 lakh. Total <strong>27 crore 33 lakh</strong>. BYD/Cimex and Global IME are not on this list. <a href=\"#donate\">Relief funds</a>."
