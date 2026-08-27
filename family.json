@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T11:40:00+05:45",
+  "updated_at": "2026-08-27T11:59:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,96 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-115928-nataliia-godlevska",
+      "name": "Nataliia Godlevska",
+      "age": "48",
+      "place": "Kyiv Patriotiv 98 /34 · Chinese- nepal border",
+      "when": "26/08.  Around 8:30",
+      "phone": "+380663430666 Anastasia daughter, +380671214497 Kateryna Daughter",
+      "note": "फारम ११:५९ · Tattoo on left hand with”Y” sign and on right hand with three girls and A, K letters. Clothing - sport clothing"
+    },
+    {
+      "id": "sheet-20260827-115801-olha",
+      "name": "Olha",
+      "age": "Patis",
+      "place": "Ukraine , str Shevchenko 127 , Lytvynivka · Custom Rasuwagadhi/Timure",
+      "when": "26/08/2026",
+      "phone": "+380962819458",
+      "note": "फारम ११:५८"
+    },
+    {
+      "id": "sheet-20260827-115717-kovalevska-galyna",
+      "name": "Kovalevska Galyna",
+      "age": "43",
+      "place": "Kyiv Ukraine · Rasuwagadhi/Timure",
+      "when": "8:35",
+      "phone": "+380673234020",
+      "note": "फारम ११:५७ · Sport"
+    },
+    {
+      "id": "sheet-20260827-115715-mohit-kaushik",
+      "name": "Mohit Kaushik",
+      "age": "49",
+      "place": "Canada · Pasang Lhamu Highway",
+      "when": "August 26th, 4am",
+      "phone": "+12042978145",
+      "note": "फारम ११:५७"
+    },
+    {
+      "id": "sheet-20260827-115605-saraswati-adhikari",
+      "name": "सरस्वती अधिकारी",
+      "age": "37 Y",
+      "place": "Dhading · Tribhuvan Trishuli Secondary School, Nuwakot, Trishuli Bazar",
+      "when": "9:15 Am",
+      "phone": "9841646156/9841388525/9818546888",
+      "note": "फारम ११:५६ · EN: Saraswati Adhikari"
+    },
+    {
+      "id": "sheet-20260827-115410-bychkovska-olena",
+      "name": "बायचकोभ्स्का ओलेना",
+      "age": "49",
+      "place": "Ukraine Kiev · Border",
+      "when": "5:49 Kiev time zone",
+      "phone": "+380953351016",
+      "note": "फारम ११:५४ · Brown white scarf, cap · EN: Bychkovska Olena"
+    },
+    {
+      "id": "sheet-20260827-115333-mangal-das-lawat",
+      "name": "मंगल दास लवात",
+      "age": "68",
+      "place": "Betrawati, nuwakot",
+      "when": "Around 9 am not sure",
+      "phone": "9828577147, 9860825596, +9779741895406",
+      "note": "फारम ११:५३ · Dhaka topi, SHIRT and gray pant · He is of 6ft, his phone number was 9869227026. · EN: Mangal das lawat"
+    },
+    {
+      "id": "sheet-20260827-115209-ekaterina-zidkova",
+      "name": "एकातेरिना जिदकोवा",
+      "age": "44",
+      "place": "ग्यिरोंग कन्ट्रोल प्वाइन्ट",
+      "when": "26/08 8:27",
+      "phone": "79959024304",
+      "note": "फारम ११:५२"
+    },
+    {
+      "id": "sheet-20260827-114854-egesh-shrestha",
+      "name": "एगेश श्रेष्ठ",
+      "age": "39",
+      "place": "Banepa-7, Kavrepalanchwok · Timure,Rasuwa",
+      "when": "Last call was at 8:22 with aunt",
+      "phone": "9841004039 , 9712013568, 9860146300, 9841857671,9761739839",
+      "note": "फारम ११:४८ · He is a driver and he went for trip right now uha ko phone switched off xa plus emergency contact haru ni unreachable vako le we're not getting any kind of help · EN: Egesh Shrestha"
+    },
+    {
+      "id": "sheet-20260827-114835-deepak-ahuja",
+      "name": "दीपक आहुजा",
+      "age": "60",
+      "place": "5700 Garrett dr, Plano, TX 75093 · Last known location - Gyirong port office  - border crossing Nepal and China",
+      "when": "August 26th - around 9 am based on phone location",
+      "phone": "+1 469 525 5462",
+      "note": "फारम ११:४८ · They were part of Isha foundation group S3 · EN: Deepak Ahuja"
+    },
     {
       "id": "sheet-20260827-114749-ghanashyam-bhatta-and-kalpana-bhatta",
       "name": "Ghanashyam Bhatta and Kalpana Bhatta",
