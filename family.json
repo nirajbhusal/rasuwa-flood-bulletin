@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T20:27:08+05:45",
+  "updated_at": "2026-08-27T20:44:40+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,58 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-202504-rajesh-rokka",
+      "name": "Rajesh Rokka",
+      "age": "20",
+      "place": "Sindhupalchok · Border bhansar karyalaya",
+      "when": "2083/05/10",
+      "phone": "9849160977",
+      "note": "फारम २०:२५"
+    },
+    {
+      "id": "sheet-20260827-202910-गणेश-ज्ञवाली",
+      "name": "गणेश ज्ञवाली",
+      "age": "34",
+      "place": "सैनामैना 4 रुपन्देही · Upper त्रिशूली 216Mw, रसुवा",
+      "when": "2083/05/10",
+      "phone": "9867409761",
+      "note": "फारम २०:२९"
+    },
+    {
+      "id": "sheet-20260827-203127-indra-bahadur-khatri",
+      "name": "Indra Bahadur Khatri",
+      "age": "42",
+      "place": "Temporary Lalitpur (Patan) / Ramechhap · China border",
+      "when": "Last contact 2083/05/10 morning 8:30 am from china border, coming Kathmandu; after flood not in contact",
+      "note": "फारम २०:३१ · फोन सीटमा बिग्रिएको (Excel) भएकाले राखिएन · Babu Ram / Baburam Khatri सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260827-203156-venkataraman-balasubramaniam",
+      "name": "Venkataraman Balasubramaniam",
+      "age": "53",
+      "place": "Austin, Texas, USA · Walking to kerung immigration office",
+      "when": "26 aug 26 at 8.20 am IST",
+      "phone": "+1 737 895-0265",
+      "note": "फारम २०:३१ · Jacket, pant. Not sure colour · Nepal side immigration was done. Walking to kerung centre · India contact 91-9886646448 · V S Bala Subramanyam / Venkatraman Balakrishnan सँग नमिसाउने (फरक फोन/ठाउँ)"
+    },
+    {
+      "id": "sheet-20260827-203216-thula-kanxi",
+      "name": "Thula kanxi",
+      "place": "Rasuwa ma basne ghar chitwan · Rasuwa hydropower",
+      "when": "9 gate nepal bidhuti pradhikaran",
+      "phone": "9809292651, 9813911394",
+      "note": "फारम २०:३२ · Uha ko chori ni xa sakesamm detailing hola"
+    },
+    {
+      "id": "sheet-20260827-203852-dambar-bahadur-magar",
+      "name": "Dambar Bahadur Magar",
+      "age": "54",
+      "place": "Doramba-2, Ramechhap · Timure, Rasuwa",
+      "when": "2083/05/10 (around 8:15 am last call)",
+      "phone": "9861296912, 9866459090",
+      "note": "फारम २०:३८"
+    },
     {
       "id": "sheet-20260827-200829-ram-raja-rimal",
       "name": "Ram Raja Rimal",
