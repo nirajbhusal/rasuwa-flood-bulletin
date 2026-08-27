@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T04:05:11.810009+05:45",
+  "updated_at": "2026-08-28T04:11:07.909152+05:45",
   "note_np": "फुर्के गेज बगेको; बेत्रावती मौन भए लाइभ नमान्नुहोस्।",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms-Single/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -10,16 +10,16 @@
       "name": "Trishuli Khola at Dhunche",
       "name_np": "धुन्चे · त्रिशूली खोला",
       "district_np": "नुवाकोट",
-      "level_m": 2.401,
+      "level_m": 2.411,
       "warning_m": 3.2,
       "danger_m": null,
       "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-28T03:50:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०३:५०",
+      "observed_at": "2026-08-28T04:00:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०४:००",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657"
+      "source": "https://www.dhm.gov.np/hydrology/river-watch"
     },
     {
       "station_id": 52,
@@ -48,7 +48,7 @@
       "warning_m": 7.0,
       "danger_m": 8.0,
       "status": "washed",
-      "steady": true,
+      "steady": null,
       "observed_at": "2026-08-26T11:40:00+05:45",
       "observed_npt": "२०२६-०८-२६ ११:४०",
       "silent": false,
@@ -85,7 +85,7 @@
       "steady": true,
       "observed_at": "2026-08-28T03:40:00+05:45",
       "observed_npt": "२०२६-०८-२८ ०३:४०",
-      "silent": false,
+      "silent": true,
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
     }
