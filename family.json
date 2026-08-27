@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T15:28:00+05:45",
+  "updated_at": "2026-08-27T15:31:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,36 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-153257-madhu-kumar-karki",
+      "name": "Madhu Kumar Karki",
+      "age": "55",
+      "place": "Gothatar · Timure bazar",
+      "phone": "9841283158",
+      "note": "फारम १५:३२ · अन्तिम सम्पर्क ८:१५"
+    },
+    {
+      "id": "sheet-20260827-153014-subhashchandra-gosh",
+      "name": "Subhashchandra Gosh",
+      "age": "62",
+      "place": "Kolkata",
+      "phone": "+91 79803 94209",
+      "note": "फारम १५:३० · Kolkata समूह Chaalo Jaai · काठमाडौं २२ अगस्ट · नेपाल समूह Samrat Tour · छोरी"
+    },
+    {
+      "id": "sheet-20260827-152925-rajen-acharya",
+      "name": "Rajen Acharya",
+      "age": "52",
+      "place": "Birtamode, Jhapa · Syabrubesi Langtang hydropower 20 MW",
+      "phone": "9706816900",
+      "note": "फारम १५:२९ · छोरी Pragya Acharya · उचाइ ५.६–५.७ फिट · अन्तिम सम्पर्क ८:३२ बिहान"
+    },
+    {
+      "id": "sheet-20260827-152844-ashok-syangtan",
+      "name": "Ashok Syangtan",
+      "place": "Hetauda-3",
+      "note": "फारम १५:२८ · रसुवा काम (ड्राइभर)"
+    },
     {
       "id": "sheet-20260827-152732-debasish-banerjee",
       "name": "Debasish Banerjee",
