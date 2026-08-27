@@ -91,6 +91,15 @@
   padding:18px 18px 16px;margin:0 0 16px;box-shadow:var(--shadow);
 }
 .cash-ig h3{margin:0 0 8px;font-size:20px;font-weight:800;color:var(--forest)}
+.cash-list{list-style:none;margin:0 0 12px;padding:0}
+.cash-list li{
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  padding:10px 0;border-bottom:1px solid #d1fae5;
+  font-size:17px;font-weight:700;
+}
+.cash-list li:last-of-type{border-bottom:0}
+.cash-list strong{font-weight:800;color:var(--forest);font-variant-numeric:tabular-nums;white-space:nowrap}
+
 .cash-lead{margin:0 0 14px;font-size:16px;line-height:1.6;font-weight:600;color:var(--ink)}
 .cash-hero{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 10px;margin:0 0 12px}
 .cash-hero .cash-k{width:100%;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
@@ -1419,18 +1428,24 @@ footer .foot-contact a:hover{text-decoration:underline}
         <div class="cash-panes">
           <div class="cash-pane on" data-cash="all">
             <p class="ov-cap" data-i18n="cash_all_cap">हालसम्म सार्वजनिक हस्तान्तरण · कार्ड थिचेर विवरण</p>
-            <div class="ibar-row"><span data-i18n="cash_gorkha">गोर्खा ब्रुअरी</span><b class="ibar"><i style="width:77%"></i></b><em><span class="num">१०</span> <span data-i18n="cash_cr">करोड</span></em></div>
-            <div class="ibar-row"><span data-i18n="cash_kumari">कुमारी बैंक</span><b class="ibar"><i style="width:23%"></i></b><em><span class="num">३</span> <span data-i18n="cash_cr">करोड</span></em></div>
+            <ul class="cash-list">
+              <li><span data-i18n="cash_gorkha">गोर्खा ब्रुअरी</span><strong><span class="num">१०</span> <span data-i18n="cash_cr">करोड</span></strong></li>
+              <li><span data-i18n="cash_kumari">कुमारी बैंक</span><strong><span class="num">३</span> <span data-i18n="cash_cr">करोड</span></strong></li>
+            </ul>
             <p class="cash-note" data-i18n="cash_all_note">पूर्ण कोष जम्मा होइन। नयाँ आधिकारिक नगद आएपछि थपिन्छ।</p>
           </div>
           <div class="cash-pane" data-cash="gorkha">
             <p class="ov-cap" data-i18n="cash_gorkha_cap">गोर्खा ब्रुअरी · १० करोड नगद</p>
-            <div class="ibar-row"><span data-i18n="cash_gorkha">गोर्खा ब्रुअरी</span><b class="ibar"><i style="width:100%"></i></b><em><span class="num">१०</span> <span data-i18n="cash_cr">करोड</span></em></div>
+            <ul class="cash-list">
+              <li><span data-i18n="cash_gorkha">गोर्खा ब्रुअरी</span><strong><span class="num">१०</span> <span data-i18n="cash_cr">करोड</span></strong></li>
+            </ul>
             <p class="cash-note" data-i18n-html="cash_gorkha_note">प्रबन्ध निर्देशक अरुण अधिकारी, वित्त निर्देशक अमर वैद्य र बजार निर्देशक काजीमन सुब्बाले अर्थमन्त्री डा. स्वर्णिम वाग्लेलाई हस्तान्तरण। प्रधानमन्त्री दैवी प्रकोप उद्धार कोष।</p>
           </div>
           <div class="cash-pane" data-cash="kumari">
             <p class="ov-cap" data-i18n="cash_kumari_cap">कुमारी बैंक लिमिटेड · ३ करोड नगद</p>
-            <div class="ibar-row"><span data-i18n="cash_kumari">कुमारी बैंक</span><b class="ibar"><i style="width:100%"></i></b><em><span class="num">३</span> <span data-i18n="cash_cr">करोड</span></em></div>
+            <ul class="cash-list">
+              <li><span data-i18n="cash_kumari">कुमारी बैंक</span><strong><span class="num">३</span> <span data-i18n="cash_cr">करोड</span></strong></li>
+            </ul>
             <p class="cash-note" data-i18n-html="cash_note">सीईओ रामचन्द्र खनाल र उच्च अधिकारीले अर्थमन्त्री डा. स्वर्णिम वाग्लेलाई हस्तान्तरण। प्रधानमन्त्री दैवी प्रकोप उद्धार कोष।</p>
           </div>
           <div class="cash-pane" data-cash="door">
@@ -3935,8 +3950,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js?v=2026-08-27-1628"></script>
-<script>window.PAGE_VER="2026-08-27-1628";</script>
+<script src="i18n.js?v=2026-08-27-1633"></script>
+<script>window.PAGE_VER="2026-08-27-1633";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
