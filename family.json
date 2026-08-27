@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T21:57:07.224514+05:45",
+  "updated_at": "2026-08-27T22:10:28.719536+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,40 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-220742-urgen-tamang-and-bhumo-dawa-tamang",
+      "name": "Urgen Tamang and Bhumo Dawa tamang",
+      "age": "51",
+      "place": "Rasuwa, Timure · Timure",
+      "when": "No idea",
+      "phone": "9808125444",
+      "note": "फारम 22:07 · Husband and Wife."
+    },
+    {
+      "id": "sheet-20260827-220537-suku-kumar-thokra-tamang",
+      "name": "Suku kumar thokra tamang",
+      "age": "40",
+      "place": "Makalbari · Ghatey khola",
+      "when": "8:40",
+      "phone": "9849921713 / 97668886977",
+      "note": "फारम 22:05 · Black Sonam tshirt"
+    },
+    {
+      "id": "sheet-20260827-220259-roshan-gautam",
+      "name": "Roshan gautam",
+      "age": "26",
+      "place": "sankhu",
+      "phone": "9849046287",
+      "note": "फारम 22:02"
+    },
+    {
+      "id": "sheet-20260827-215841-ankit-ranjan",
+      "name": "Ankit Ranjan",
+      "age": "39",
+      "place": "Ranchi, Jharkhand · Near Rusua immigration office. Was planning for Kailash yatra",
+      "phone": "9873265991",
+      "note": "फारम 21:58"
+    },
     {
       "id": "sheet-20260827-215329-phurpu-sangmo-tamang",
       "name": "Phurpu Sangmo  Tamang",
