@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T08:49:00+05:45",
+  "updated_at": "2026-08-27T09:06:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,69 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-090053-bhavin-rajnikant-raval",
+      "name": "Bhavin Rajnikant Raval",
+      "age": "41",
+      "place": "Brisbane, Australia · Immigration checkpoint, Nepal–China border",
+      "when": "26/8/26, 8:30 AM",
+      "phone": "+91 8686361919 / +61 433 750 990",
+      "note": "फारम ०९:०० · Australian · ~५'१२, ~७५ kg, brown"
+    },
+    {
+      "id": "sheet-20260827-085850-suroj-dangol",
+      "name": "Suroj Dangol",
+      "age": "40",
+      "place": "Betrawati · Chappthoke",
+      "when": "26th August 9AM",
+      "phone": "9701180747 / 9841078070",
+      "note": "फारम ०८:५८ · GPS 27°58'39.5\"N 85°10'28.9\"E · Modern Trinity English Boarding School प्रिन्सिपल"
+    },
+    {
+      "id": "sheet-20260827-085711-jeetman-ghale",
+      "name": "Jeetman Ghale",
+      "age": null,
+      "place": "Goljung, Rasuwa · Syabrubesi bazar",
+      "when": null,
+      "phone": "9847618808",
+      "note": "फारम ०८:५७ · स्याफ्रुबेसी प्रभु बैंक स्टाफ"
+    },
+    {
+      "id": "sheet-20260827-085522-nima-gombo-tamang",
+      "name": "Nima Gombo Tamang",
+      "age": null,
+      "place": "Goljung, Rasuwa · Rasuwagadhi",
+      "when": "26 August",
+      "phone": "9847618808",
+      "note": "फारम ०८:५५ · Pangsing (Kerung) बाट रसुवागढी बिहान"
+    },
+    {
+      "id": "sheet-20260827-085401-balram-bohora",
+      "name": "Balram Bohora",
+      "age": null,
+      "place": "Sindhupalchowk · Rasuwa",
+      "when": "10 gate Bihan",
+      "phone": "9851161045",
+      "note": "फारम ०८:५४ · १० गेट बिहान"
+    },
+    {
+      "id": "sheet-20260827-085247-ramesh-thatu",
+      "name": "Ramesh Thatu",
+      "age": "40",
+      "place": "Bardiya · Nuwakot pahirobesi / Pro Solution",
+      "when": "Yesterday morning",
+      "phone": "9820824639",
+      "note": "फारम ०८:५२ · पहिरेबेसी · Mix white half short"
+    },
+    {
+      "id": "sheet-20260827-085209-shankar-pyakurel",
+      "name": "Shankar Pyakurel",
+      "age": "About 35",
+      "place": "Nuwakot · Trishuli Hydro 3B",
+      "when": "10 gate",
+      "phone": "9851178421",
+      "note": "फारम ०८:५२ · ३बी · १० गेट"
+    },
     {
       "id": "sheet-20260827-084803-uma-rimal-poudel",
       "name": "Uma Rimal (Poudel), Himani Poudel, Himal Paudel",
@@ -307,11 +370,11 @@
     {
       "id": "sheet-20260827-064556-karsang-chomo-ghale",
       "name": "Karsang Chomo Ghale",
-      "age": "",
-      "place": "Rasuwa",
-      "when": "2083/05/10",
-      "phone": "9865477719",
-      "note": "फारम ०६:४५ · Rasuwa"
+      "age": "50+",
+      "place": "Rasuwa · Syabrubesi",
+      "when": "2083/05/10, 9 am",
+      "phone": "9865477719 / 9845928459",
+      "note": "फारम ०६:४५ · Rasuwa · फारम ०९:०१ · Tamang dress"
     },
     {
       "id": "sheet-20260827-064347-shubhakshi-rawla",
@@ -637,10 +700,11 @@
     {
       "id": "m-navaraj-nepal",
       "name": "नवराज नेपाल / Modamodi Nepal",
-      "place": "Rasuwa Custom Office · Rasuwa border",
-      "phone": "9748304215 / 9841391175 / 9841384680",
+      "place": "Jiling-4, Devighat, Nuwakot · Rasuwa Custom Office",
+      "phone": "9748304215 / 9841391175 / 9841384680 / 9841088014 / 9849060597",
       "note": "Accountant · Rasuwa भन्सार",
-      "photo": "img/family-navaraj-nepal.jpg"
+      "photo": "img/family-navaraj-nepal.jpg",
+      "age": "44"
     },
     {
       "id": "m-shiv-kumar-yadav",
