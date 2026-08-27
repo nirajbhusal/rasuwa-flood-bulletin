@@ -1,9 +1,9 @@
 window.I18N = {
 "ne": {
-"title": "रसुवा–भोटेकोशी बाढी · २६ अगस्ट २०२६",
-"meta": "२६ अगस्ट २०२६ / १० भदौ २०८३ को रसुवा–भोटेकोशी–त्रिशूली बाढीको लाइभ अपडेट। सतर्कता, बाढीको बाटो, क्षति, उद्धार र स्रोत।",
+"title": "रसुवा–भोटेकोशी बाढी · २७ अगस्ट २०२६",
+"meta": "२७ अगस्ट २०२६ / ११ भदौ २०८३ लाइभ। घटना १० भदौ (२६ अगस्ट) रसुवा–भोटेकोशी–त्रिशूली बाढी। सतर्कता, उद्धार र स्रोत।",
 "brand": "रसुवा–भोटेकोशी बाढी",
-"brand_date": "२६ अगस्ट २०२६ · १० भदौ २०८३ · अपडेट ~०१:२२ नेपाली समय",
+"brand_date": "२७ अगस्ट २०२६ · ११ भदौ २०८३ · घटना १० भदौ / २६ अगस्ट",
 "live": "लाइभ",
 "lang_group": "भाषा",
 "hl_bar": "उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४",
@@ -190,8 +190,8 @@ window.I18N = {
 "months3": "३ महिना",
 "today": "आज",
 "ongoing": "जारी",
-"lede": "बिहान ६:००: शव <strong>१६२</strong>। अघिल्लो NDRRMA SitRep-3 शव १२३ इतिहासमा। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। सुरक्षाकर्मी <strong>८३</strong> (सेना ४४, प्रहरी २६, सशस्त्र १३)। पर्यटक <strong>४८४</strong>। घाइते NDRRMA <strong>७५</strong> (रसुवा ४३, नुवाकोट २९, धादिङ ३)। हवाई उद्धार <strong>११६</strong> (सेना ८८ + निजी २८)। स्थलगत <strong>९३</strong>। पुल <strong>८०</strong> (मोटरेबल ३५ + झोलुङ्गे ४५)। नदी किनार नजानुहोस्।",
-"stats_note": "शव १६२ (बिहान ६:००)। अघिल्लो NDRRMA SitRep-3 शव १२३। सम्पर्कविहीन २४५ / घाइते ७५। जनताको रिपोर्ट २१२। काठमाडौं ३६ / रसुवा अस्पताल २१, प्रहरी ६३। पर्यटक ४८४। हवाई उद्धार ११६ = सेना ८८ + निजी २८। स्थलगत ९३। पुल ८०। स्रोत तल।",
+"lede": "आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। टिमुरे <strong>९५</strong> (विदेशी ८), हाकु टनेल <strong>७</strong>, भारतीय पर्यटक <strong>२१</strong>। शव <strong>१६२</strong> — चितवन प्रहरी <strong>६४</strong>। सम्पर्कविहीन NDRRMA <strong>२४५</strong>। नदी किनार नजानुहोस्।",
+"stats_note": "शव <strong>१६२</strong> — चितवन प्रहरी <strong>६४</strong>। आज ११ भदौ बिहान सेना हेलि <strong>१२३</strong>। सम्पर्कविहीन २४५ / घाइते ७५। पर्यटक ४८४। स्रोत तल।",
 "funds_lead": "बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन SWIFT पनि ट्याप गरेर कपी गर्न सकिन्छ। आधिकारिक पाना: <a href=\"https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf\" target=\"_blank\" rel=\"noopener\">प्रधानमन्त्री कार्यालय PDF</a>",
 "dd_swift": "बैंक चिनाउने अन्तर्राष्ट्रिय कोड (BIC)। विदेशबाट यी खातामा पैसा पठाउन आफ्नो बैंकलाई यो कोड, खाता नाम र खाता नम्बर दिनुहोस्। नेपालमा IBAN चल्दैन।",
 "dd_write": "बैंकको अंग्रेजी नाम, SWIFT (माथि कपी गर्न मिल्छ), खाता नाम: प्रधानमन्त्री दैवी प्रकोप उद्धार कोष वा प्रधानमन्त्री राहत कोष, र तालिकाको खाता नम्बर। उद्देश्यमा Rasuwa / Bhotekoshi flood relief, 26 Aug 2026 लेख्नुहोस्।",
@@ -261,10 +261,10 @@ window.I18N = {
 "treat_with_kamu": "कामु नगरकोटीका साथमा"
 },
 "en": {
-"title": "Rasuwa–Bhotekoshi Flood · 26 August 2026",
-"meta": "Live updates on the 26 August 2026 / 10 Bhadra 2083 Rasuwa–Bhotekoshi–Trishuli flood. Alerts, flood path, damage, rescue and sources.",
+"title": "Rasuwa–Bhotekoshi Flood · 27 August 2026",
+"meta": "Live 27 August 2026 / 11 Bhadra 2083. Incident 10 Bhadra (26 August) Rasuwa–Bhotekoshi–Trishuli flood. Alerts, rescue and sources.",
 "brand": "Rasuwa–Bhotekoshi Flood",
-"brand_date": "26 August 2026 · 10 Bhadra 2083 · Update ~01:22 NPT",
+"brand_date": "27 August 2026 · 11 Bhadra 2083 · incident 10 Bhadra / 26 August",
 "live": "Live",
 "lang_group": "Language",
 "hl_bar": "Rescue 1234 · Police 100 · 1148 · 1111 · 1114 · Ambulance 102 · NEOC 1144",
@@ -451,8 +451,8 @@ window.I18N = {
 "months3": "3 months",
 "today": "today",
 "ongoing": "Ongoing",
-"lede": "06:00: Dead <strong>162</strong>. Previous NDRRMA SitRep-3 dead 123 is history. Uncontacted NDRRMA <strong>245</strong>. Security personnel <strong>83</strong> (Army 44, Police 26, Armed Police 13). Tourists <strong>484</strong>. Injured NDRRMA <strong>75</strong> (Rasuwa 43, Nuwakot 29, Dhading 3). Air rescue <strong>116</strong> (Army 88 + private 28). Ground <strong>93</strong>. Bridges <strong>80</strong> (motorable 35 + suspension 45). Stay off the riverbank.",
-"stats_note": "Dead 162 (06:00). Previous NDRRMA SitRep-3 dead 123. Uncontacted 245 / injured 75. Public reports 212. Kathmandu 36 / Rasuwa Hospital 21, Police 63. Tourists 484. Air rescue 116 = Army 88 + private 28. Ground 93. Bridges 80. Sources below.",
+"lede": "This morning (11 Bhadra) the Army airlifted <strong>123</strong>. Timure <strong>95</strong> (foreign 8), Haku tunnel <strong>7</strong>, Indian tourists <strong>21</strong>. Dead <strong>162</strong> — Chitwan police <strong>64</strong>. Uncontacted NDRRMA <strong>245</strong>. Stay away from the river.",
+"stats_note": "Dead <strong>162</strong> — Chitwan police <strong>64</strong>. This morning (11 Bhadra) Army heli <strong>123</strong>. Uncontacted 245 / injured 75. Tourists 484. Sources below.",
 "funds_lead": "Government accounts at the Prime Minister’s Office for flood-relief support. Scan the QR or tap an account number to copy. SWIFT codes can also be copied for transfers from abroad. Official page: <a href=\"https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf\" target=\"_blank\" rel=\"noopener\">Prime Minister’s Office PDF</a>",
 "dd_swift": "An international bank identifier (BIC). To send money into these accounts from abroad, give your bank this code, the account name and the account number. Nepal does not use IBAN.",
 "dd_write": "The bank’s English name, SWIFT (copy from the table), account name: Prime Minister’s Disaster Relief Fund or Prime Minister’s Relief Fund, and the account number in the table. In the purpose line write Rasuwa / Bhotekoshi flood relief, 26 Aug 2026.",
@@ -525,7 +525,8 @@ window.I18N = {
 window.I18N_LISTS = {
 "hero_mini": [
 "Total <strong>162</strong>",
-"Previous NDRRMA SitRep-3 <strong>123</strong> (22:00).",
+"Chitwan <strong>64</strong> · District Police",
+"Previous SitRep-3 <strong>123</strong> (22:00)",
 "NDRRMA total <strong>75</strong>",
 "Rasuwa <strong>43</strong> · Nuwakot <strong>29</strong> · Dhading <strong>3</strong>",
 "Kathmandu <strong>36</strong> · Rasuwa Hospital <strong>21</strong>",
@@ -546,10 +547,12 @@ window.I18N_LISTS = {
 "Homes damaged <strong>100+</strong>",
 "Bazaar left <strong>5–7</strong> houses",
 "Waiting for rescue <strong>300+</strong>",
-"Total <strong>116</strong> people",
-"Army <strong>88</strong> · private helis <strong>28</strong>",
+"Army heli this morning <strong>123</strong>",
+"Timure <strong>95</strong> · foreign 8",
+"Haku tunnel <strong>7</strong> · 3 others ongoing",
+"Indian tourists <strong>21</strong> · Timure",
+"SitRep-3 air <strong>116</strong> · Army 88 + private 28",
 "Ground <strong>93</strong> · Rasuwa 43 · Nuwakot 47 · Dhading 3",
-"NDRRMA SitRep-3 · 22:00",
 "Total <strong>26</strong> people · not deaths",
 "8 banks · branches washed away in <strong>3</strong> places",
 "Timure · Syaphrubesi · Betrawati",
@@ -717,6 +720,14 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Bodies found · Chitwan 64",
+"p": "Chitwan District Police: <strong>64</strong> bodies recovered in Chitwan so far among flood deaths. Headline dead <strong>162</strong> unchanged."
+},
+{
+"h": "Army heli rescue 123 · Timure–Haku",
+"p": "After the 10 Bhadra morning flood, today <strong>11 Bhadra</strong> morning the Nepal Army airlifted <strong>123</strong>. Timure <strong>95</strong> (foreign <strong>8</strong> — Kathmandu; others Dhunche). Seven from the Haku hydropower tunnel rescued alive; rescue ongoing in <strong>3</strong> other tunnels. <strong>21</strong> Indian tourists from Timure rescued alive, being brought to Kathmandu. <a href=\"#rescue\">Rescue</a>."
+},
 {
 "h": "Relief visual",
 "p": "NDRRMA SitRep-3 timeline and Cabinet 10 decisions are in the visual section; rescue photos just below. Dead 162 unchanged. <a href=\"#rahat\">Relief visual</a>."
@@ -1072,6 +1083,7 @@ window.I18N_LISTS = {
 "<span class=\"aid-tag offer\">Offered</span> <b>World Bank · Rs 25 billion</b>. Nepal director David Sislen (~10:35) with Finance Minister Dr Swarnim Wagle: up to 25 billion could be made available from various sources as emergency support. Loan/grant not confirmed. Not received. Source: <a href=\"https://risingnepaldaily.com/news/85557\" target=\"_blank\" rel=\"noopener\">Finance Ministry / Rising Nepal</a> · <a href=\"https://english.khabarhub.com/2026/26/564954/\" target=\"_blank\" rel=\"noopener\">Khabarhub</a> · <a href=\"https://kathmandupost.com/national/2026/08/26/nepal-seeks-answers-on-flash-flood-as-india-china-us-and-world-bank-offer-support\" target=\"_blank\" rel=\"noopener\">Kantipur</a>"
 ],
 "gov": [
+"<b>Nepal Army · this morning (11 Bhadra):</b> helicopter rescue <strong>123</strong>. Timure <strong>95</strong> (foreign <strong>8</strong>). Haku hydropower tunnel <strong>7</strong> alive; 3 other tunnels ongoing. Indian tourists <strong>21</strong> alive, being brought to Kathmandu.",
 "<b>Nepal Army · night:</b> about <strong>8 tonnes</strong> of relief sent toward the affected area in <strong>8</strong> trucks. Goods: mosquito nets 500, child dignity kits 1,000, sleeping bags 220, blankets 500, plastic sheets 10, tarpaulins 100, solar lamps 500, solar plates 500, generator 30 kVA × 1. Source: Nepal Army.",
 "<b>Damage (to 19:00):</b> dead <strong>95</strong> (identification ongoing). Security personnel uncontacted 85 — Army 44, Police 28, Armed Police 13. Foreign tourists 391, Nepali 93. Hydropower staff 60. Customs/immigration staff also being searched. Motorable bridges 19, paved road 40 km — still being compiled.",
 "<b>08:40</b> Bhotekoshi flood notice from local administration. <b>08:45</b> Prime Minister ordered security agencies to start search–rescue–relief. <b>09:00</b> CDOs/local governments high-alerted riverside residents to move to safety.",
@@ -1153,6 +1165,7 @@ window.I18N_LISTS = {
 "Uttargaya-2 ward chair Tukuprasad Subedi: damage cannot be accounted for; hydropower hub washed away, rescue could not go, landslides too; flood entered the municipal office compound and vehicles washed away."
 ],
 "rescue": [
+"Nepal Army (this morning, 11 Bhadra): helicopter rescue <strong>123</strong>. Timure <strong>95</strong> safe (foreign <strong>8</strong> — Kathmandu; others Dhunche). Haku hydropower tunnel <strong>7</strong> alive; rescue ongoing in <strong>3</strong> other tunnels. Timure Indian tourists <strong>21</strong> alive, being brought to Kathmandu.",
 "NDRRMA SitRep-3 (22:00): air rescue <strong>116</strong> — Army <strong>88</strong>, private helis <strong>28</strong>. Ground rescue <strong>93</strong> — Rasuwa 43, Nuwakot 47, Dhading 3. Previous SitRep-2 ground 80 (Rasuwa 30).",
 "Nepal Police / RSS (~19:48): in treatment total <strong>63</strong> — Teaching 21, Trauma 7, Chauni 1, Rasuwa 21, Trishuli 16, Neuro 3, Green City 1. Previous Kathmandu 25 / Rasuwa 24 is updated by this 63. Named table in <a href=\"#treat\">injured contacts</a>.",
 "Police spokesperson SP Danbahadur Thapa: injured in Kathmandu hospitals total <strong>25</strong> — Trauma 4, Birendra Military Hospital Chauni 1, Teaching 20 (named 22 + 2 unidentified + 1 infant). Later police 63 updated this.",
