@@ -802,6 +802,19 @@ footer .foot-contact a:hover{text-decoration:underline}
 .portal-panel a.miss{background:var(--crimson);color:#fff}
 .portal-panel a.found{background:var(--forest);color:#fff}
 .portal-panel .note{margin:8px 0 0;font-size:12px;font-weight:700;color:var(--muted)}
+
+.top-btn{
+  font:inherit;cursor:pointer;border:0;
+  width:36px;height:36px;border-radius:50%;padding:0;
+  background:#0f172a;color:#fff;
+  display:none;align-items:center;justify-content:center;
+  box-shadow:0 2px 8px rgba(15,23,42,.28);
+  border:1.5px solid #fff;
+  flex:none;touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;user-select:none;
+}
+.top-btn.show{display:flex}
+.top-btn svg{flex:none;display:block;pointer-events:none;width:18px;height:18px}
 @media (max-width:760px){
   .fab-dock{right:10px;bottom:max(12px, env(safe-area-inset-bottom, 0px))}
   .portal-fab summary{width:48px;height:48px}
@@ -3159,6 +3172,9 @@ footer .foot-contact a:hover{text-decoration:underline}
 </main>
 
 <div class="fab-dock">
+  <button type="button" class="top-btn" id="top-btn" aria-label="माथि जानुहोस्" title="माथि जानुहोस्" data-i18n-aria="to_top" data-i18n-title="to_top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4.5 4.5 12h5v8h5v-8h5z"/></svg>
+  </button>
   <div class="notify-slot">
     <p class="notify-hint" id="notify-hint"></p>
     <button type="button" class="notify-btn" id="notify-btn" aria-pressed="false" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट" data-i18n-aria="notify_aria_off" data-i18n-title="notify_title">
@@ -3959,6 +3975,19 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       applySearch();
     });
   }).catch(function(){});
+})();
+
+(function(){
+  var b = document.getElementById("top-btn");
+  if (!b) return;
+  function paint(){
+    b.classList.toggle("show", (window.scrollY || document.documentElement.scrollTop) > 280);
+  }
+  window.addEventListener("scroll", paint, {passive:true});
+  paint();
+  b.addEventListener("click", function(){
+    window.scrollTo({top:0, behavior:"smooth"});
+  });
 })();
 </script>
 </body>
