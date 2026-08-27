@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T07:37:00+05:45",
+  "updated_at": "2026-08-27T07:45:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,51 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260827-074509-manisha-pawar",
+      "name": "Manisha Pawar",
+      "age": "54",
+      "place": "Thane · Timure (Richa tours · Kailash Mansarovar)",
+      "when": "Video call 25 August, 8 PM",
+      "phone": "9769137066",
+      "note": "फारम ०७:४५ · Richa tours trek group"
+    },
+    {
+      "id": "sheet-20260827-074449-chandra-kumari-pyakurel",
+      "name": "Chandra kumari pyakurel",
+      "age": "75",
+      "place": "Bhaise, Betrawati · From Home",
+      "when": "Before flood 10:00 AM",
+      "phone": "9841925143",
+      "note": "फारम ०७:४४ · Sari"
+    },
+    {
+      "id": "sheet-20260827-074121-megha-shah",
+      "name": "Megha Shah",
+      "age": "52",
+      "place": "Vancouver BC, Canada · Hotel Kailash (Nepal-Tibet border)",
+      "when": "26 August, 8:00 AM",
+      "phone": "Keval Shah 9819343419 (Brother)",
+      "note": "फारम ०७:४१ · Canadian · Himalayan Glacier group"
+    },
+    {
+      "id": "sheet-20260827-074102-santosh-adhikari",
+      "name": "Santosh Adhikari",
+      "age": "30",
+      "place": "Gorkha · Rasuwagadhi Hydropower project site",
+      "when": "August 26",
+      "phone": "",
+      "note": "फारम ०७:४१ · Plant Manager, Rasuwagadhi Hydropower"
+    },
+    {
+      "id": "sheet-20260827-073853-dhaval-shah",
+      "name": "Dhaval Shah",
+      "age": "52",
+      "place": "Vancouver BC, Canada · Hotel Kailash (Nepal-Tibet border)",
+      "when": "26 August, ~8:00 AM",
+      "phone": "Keval Shah 9819343419 (Brother)",
+      "note": "फारम ०७:३८ · Canadian · Himalayan Glacier · Tibet crossing planned"
+    },
     {
       "id": "sheet-20260827-073506-jagdishbhai-umedbhai-patel",
       "name": "Jagdishbhai Umedbhai Patel",
