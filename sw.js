@@ -1,12 +1,32 @@
-/* रसुवा बाढी · सूचना */
+/* रसुवा बाढी · सूचना · SW_VER 2026-08-27-1629 */
 const SCOPE = self.registration.scope;
 const LATEST = new URL('latest.json', SCOPE).href;
 const ICON = new URL('icon-192.png', SCOPE).href;
 const SEEN_CACHE = 'rasuwa-seen-v2';
 const MUTE_CACHE = 'rasuwa-mute-v1';
+const SW_VER = '2026-08-27-1629';
 
 self.addEventListener('install', (e) => { self.skipWaiting(); });
-self.addEventListener('activate', (e) => { e.waitUntil(self.clients.claim()); });
+self.addEventListener('activate', (e) => {
+  e.waitUntil((async () => {
+    await self.clients.claim();
+    const clients = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+    await Promise.all(clients.map((c) => (c.navigate ? c.navigate(c.url) : Promise.resolve())));
+  })());
+});
+
+self.addEventListener('fetch', (e) => {
+  const url = new URL(e.request.url);
+  if (url.origin !== self.location.origin) return;
+  const dest = e.request.destination;
+  const p = url.pathname;
+  const live = e.request.mode === 'navigate' || dest === 'document' || dest === 'script' || dest === 'manifest' ||
+    /\.(html|js|json|webmanifest)$/.test(p) || p.endsWith('/');
+  if (!live) return;
+  e.respondWith(
+    fetch(e.request, { cache: 'no-store' }).catch(function () { return fetch(e.request); })
+  );
+});
 
 async function getSeen() {
   try {
@@ -31,6 +51,11 @@ async function setMuted(v) {
   await c.put('mute', new Response(v ? '1' : '0', { headers: { 'content-type': 'text/plain' } }));
 }
 
+async function tellPages(id) {
+  const clients = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+  for (const c of clients) c.postMessage({ type: 'page-refresh', id: id || SW_VER });
+}
+
 async function checkLatest(forceNotify) {
   const res = await fetch(LATEST + '?t=' + Date.now(), { cache: 'no-store' });
   if (!res.ok) return null;
@@ -39,6 +64,7 @@ async function checkLatest(forceNotify) {
   if (!data.id) return data;
   const muted = await isMuted();
   if (muted && !forceNotify) {
+    if (seen && seen !== data.id) await tellPages(data.id);
     if (data.id) await setSeen(data.id);
     return data;
   }
@@ -52,6 +78,7 @@ async function checkLatest(forceNotify) {
       lang: 'ne',
       data: { url: data.url || './' }
     });
+    await tellPages(data.id);
   } else if (forceNotify) {
     await self.registration.showNotification('रसुवा बाढी · सूचना अन भयो', {
       body: 'नयाँ आधिकारिक अपडेट आउँदा यहाँ सूचना आउँछ।',

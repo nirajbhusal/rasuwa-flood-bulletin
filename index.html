@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>रसुवा–भोटेकोशी बाढी · २७ अगस्ट २०२६</title>
 <meta name="description" content="२७ अगस्ट २०२६ / ११ भदौ २०८३ लाइभ। घटना १० भदौ (२६ अगस्ट) रसुवा–भोटेकोशी–त्रिशूली बाढी। सतर्कता, उद्धार र स्रोत।">
 <meta name="robots" content="index,follow">
@@ -3932,7 +3935,37 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js"></script>
+<script src="i18n.js?v=2026-08-27-1628"></script>
+<script>window.PAGE_VER="2026-08-27-1628";</script>
+<script>
+(function(){
+  function stale(id){ return !!(id && id !== window.PAGE_VER); }
+  function refresh(id){
+    if (!stale(id)) return;
+    var key = "rasuwa-refreshed-" + id;
+    try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch (e) {}
+    location.reload();
+  }
+  function check(){
+    fetch("latest.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function(r){ return r.json(); })
+      .then(function(d){ if (d) refresh(d.id); })
+      .catch(function(){});
+  }
+  check();
+  setInterval(check, 45000);
+  document.addEventListener("visibilitychange", function(){ if (!document.hidden) check(); });
+  window.addEventListener("pageshow", function(ev){ if (ev.persisted) check(); });
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.addEventListener("message", function(ev){
+      if (ev.data && ev.data.type === "page-refresh") refresh(ev.data.id);
+    });
+    navigator.serviceWorker.ready.then(function(reg){
+      try { reg.update(); } catch (e) {}
+    });
+  }
+})();
+</script>
 <script>
 
 (function(){
@@ -4691,7 +4724,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       foundStat.textContent = np(data.found.length);
     }
   }
-  fetch("family.json", {cache:"no-store"}).then(function(r){ return r.json(); }).then(function(data){
+  fetch("family.json?t="+Date.now(), {cache:"no-store"}).then(function(r){ return r.json(); }).then(function(data){
     paintFamily(data);
     var foundUrl = famFoundUrl;
     function rebind(sel, itemNodes, size){
