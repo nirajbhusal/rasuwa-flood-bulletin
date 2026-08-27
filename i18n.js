@@ -187,7 +187,7 @@ window.I18N = {
 "rasuwa_res_note": "स्रोत: उद्धार गरिएका व्यक्तिहरूको विवरण २०८३/०५/११। इटालेली नाम कागजातमा जस्ताको तस्तै। हराएको सूचीबाट हटाइएको छैन।",
 "h_dao_res": "उद्धार · DAO रसुवा",
 "nav_dao_res": "DAO उद्धार",
-"dao_res_lead": "मिति २०८३/०५/१० (१० भदौ) बाढी प्रभावित क्षेत्रबाट उद्धार। स्रोत: जिल्ला प्रशासन कार्यालय रसुवा / गृह मन्त्रालय छाप। हामीसँग भएका पाना मात्र: सि.नं. १–५८, ११७–१४५, २०४–२४१, २६०–२८८, ३१८–३७३ + दुई थप नाम (पूर्ण ब. लो, रेन्जेन तामाङ)। बीचका पाना छैनन् — पूर्ण १–३७३ होइन। जम्मा <strong>२१२</strong> नाम। रसुवा/टिमुरे, भारतीय, हेलि, नुवाकोट र हराएको सूची अलग — नाम मिलाइएको छैन, हराएकोबाट हटाइएको छैन।",
+"dao_res_lead": "मिति २०८३/०५/१० (१० भदौ) बाढी प्रभावित क्षेत्रबाट उद्धार। स्रोत: जिल्ला प्रशासन कार्यालय रसुवा / गृह मन्त्रालय छाप। हामीसँग भएका पाना मात्र: सि.नं. १–५८, ८८–१४५, २०४–२४१, २६०–३७३ + दुई थप नाम (पूर्ण ब. लो, रेन्जेन तामाङ)। बीचका पाना छैनन् — पूर्ण १–३७३ होइन। जम्मा <strong>२७०</strong> नाम। रसुवा/टिमुरे, भारतीय, हेलि, नुवाकोट र हराएको सूची अलग — नाम मिलाइएको छैन, हराएकोबाट हटाइएको छैन।",
 "dao_extra_h": "थप (छाप पाना)",
 
 "h_family": "हराएको / भेटिएको",
@@ -671,7 +671,7 @@ window.I18N = {
 "rasuwa_res_note": "Source: rescued-persons tables dated 2083/05/11. Italian names as on the document. Not removed from the missing wall.",
 "h_dao_res": "Rescued · DAO Rasuwa",
 "nav_dao_res": "DAO rescued",
-"dao_res_lead": "Rescued from flood-affected areas on 2083/05/10 (10 Bhadra). Source: District Administration Office Rasuwa / Home Ministry stamp. Pages we have only: SN 1–58, 117–145, 204–241, 260–288, 318–373 + two extra names (Purna B. Lo, Renjen Tamang). Middle pages are missing — not the full 1–373. Total <strong>212</strong> names. Separate from Rasuwa/Timure, Indian, heli, Nuwakot and the missing wall — names not merged or removed from missing.",
+"dao_res_lead": "Rescued from flood-affected areas on 2083/05/10 (10 Bhadra). Source: District Administration Office Rasuwa / Home Ministry stamp. Pages we have only: SN 1–58, 88–145, 204–241, 260–373 + two extra names (Purna B. Lo, Renjen Tamang). Middle pages are missing — not the full 1–373. Total <strong>270</strong> names. Separate from Rasuwa/Timure, Indian, heli, Nuwakot and the missing wall — names not merged or removed from missing.",
 "dao_extra_h": "Extra (stamped slip)",
 
 "h_family": "Missing / Found",
@@ -1170,6 +1170,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "DAO rescued 88–116 and 289–317",
+"p": "Added SN <strong>88–116</strong> and <strong>289–317</strong>. Total <strong>270</strong>. <a href=\"#dao-res\">DAO rescued</a>. Not removed from the missing wall."
+},
 {
 "h": "Relief cash 39.33 crore",
 "p": "Added BYD · Cimex <strong>7</strong> and Global IME <strong>5</strong> back on the 27.33 account list. Total <strong>39 crore 33 lakh</strong>. <a href=\"#donate\">Relief funds</a>."
