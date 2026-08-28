@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T08:57:00.272044+05:45",
+  "updated_at": "2026-08-28T09:02:28.438799+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -6806,6 +6806,37 @@
       "when": "August 26",
       "phone": "9841753903",
       "note": "फारम 08:43 · With Russian Tourists near about 67 people"
+    },
+    {
+      "id": "sheet-20260828-085232-jukta-bahadur-shrestha",
+      "name": "Jukta Bahadur Shrestha",
+      "status": "missing",
+      "source": "form",
+      "age": "65+",
+      "place": "Betrawati satbise · Near budha Temple",
+      "note": "फारम 08:52 · 2 yrs boy and 9 month girl along with a grandpa"
+    },
+    {
+      "id": "sheet-20260828-085542-venkatram-annamdevara",
+      "name": "Venkatram Annamdevara",
+      "status": "missing",
+      "source": "form",
+      "age": "52",
+      "place": "Bangalore · In Chinese embassy ( crossing the border)",
+      "when": "8:27am 26th August",
+      "phone": "9958802323",
+      "note": "फारम 08:55 · Their stampings were done at Chinese embassy so they crossed the border from the information we have been told"
+    },
+    {
+      "id": "sheet-20260828-090007-anagha-annamdevara",
+      "name": "Anagha Annamdevara",
+      "status": "missing",
+      "source": "form",
+      "age": "49",
+      "place": "Bangalore · Near chinese border, crossed chinese embassy",
+      "when": "8:27 am, 26th August",
+      "phone": "9958802323",
+      "note": "फारम 09:00 · They are with richa tours and travels ,hills and trails led my dr milind chitley, had crossed the china border"
     }
   ],
   "found": [
