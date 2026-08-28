@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T08:02:26.005439+05:45",
+  "updated_at": "2026-08-28T08:12:14.171168+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,48 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-081005-santa-ghale",
+      "name": "Santa Ghale",
+      "status": "missing",
+      "source": "form",
+      "age": "Around 40",
+      "place": "Dhading · Timure",
+      "phone": "9865441505",
+      "note": "फारम 08:10 · आइतबार २३ अगस्ट टिमुरे"
+    },
+    {
+      "id": "sheet-20260828-080806-sangthilen-sherpa",
+      "name": "Sangthilen Sherpa",
+      "status": "missing",
+      "source": "form",
+      "age": "32",
+      "place": "Sindhupalchok-3-bhotekoshi",
+      "phone": "9745626623",
+      "note": "फारम 08:08"
+    },
+    {
+      "id": "sheet-20260828-080712-man-bahadur-tamang",
+      "name": "Man Bahadur Tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "24",
+      "place": "Dolakha · Rasuwa mailung hydropower damside",
+      "when": "Rasuwa mailung hydropower damside",
+      "phone": "9862414870",
+      "note": "फारम 08:07 · दाजु Akabar Tamang · मैलुङ हाइड्रो मजदुर"
+    },
+    {
+      "id": "sheet-20260828-080440-babin-thapa-magar",
+      "name": "Babin Thapa Magar",
+      "status": "missing",
+      "source": "form",
+      "age": "47",
+      "place": "Khaniyabas-4, Dhading or Manamaiju-10,ktm · Kailash Hotel-Ghattekhola",
+      "when": "Last time contacted in-between 7-8A.M before the disaster occured.",
+      "phone": "9765026372 / 9812881880",
+      "note": "फारम 08:04 · Himalayan Glacier Company, ५२ जना"
+    },
     {
       "id": "sheet-20260828-075844-raj-kumar-damai",
       "name": "Raj Kumar Damai",
