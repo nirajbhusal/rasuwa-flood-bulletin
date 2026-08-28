@@ -506,24 +506,18 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
     width:var(--rail-off);
     min-width:var(--rail-off);
   }
-  html.desk-nav-off .chips.is-peek,
-  html.desk-nav-off .chips.stick.is-peek{
-    flex:0 0 var(--rail);
-    width:var(--rail);
-    min-width:var(--rail);
-  }
-  html.desk-nav-off .chips:not(.is-peek) .desk-nav-toggle{
+  html.desk-nav-off .desk-nav-toggle{
     justify-content:center;
     margin:10px 4px 2px;
     padding:6px;
   }
-  html.desk-nav-off .chips:not(.is-peek) .chips-inner{
+  html.desk-nav-off .chips-inner{
     padding:8px 4px 12px;
     overflow:hidden;
   }
-  html.desk-nav-off .chips:not(.is-peek) .chips-inner a:not(.home-btn){display:none}
-  html.desk-nav-off .chips:not(.is-peek) .nav-dash-label{display:none}
-  html.desk-nav-off .chips:not(.is-peek) a.home-btn{
+  html.desk-nav-off .chips-inner a:not(.home-btn){display:none}
+  html.desk-nav-off .nav-dash-label{display:none}
+  html.desk-nav-off a.home-btn{
     justify-content:center;
     padding:8px;
     gap:0;
@@ -6397,8 +6391,8 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1558"></script>
-<script>window.PAGE_VER="2026-08-28-1558";</script>
+<script src="i18n.js?v=2026-08-28-1604"></script>
+<script>window.PAGE_VER="2026-08-28-1604";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -7230,11 +7224,9 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   if (!collapsed) {
     try { collapsed = localStorage.getItem(KEY) === "1"; } catch (e) {}
   }
-  var ignoreHover = false;
   function labelKey(){ return collapsed ? "nav_show" : "nav_hide"; }
   function paint(){
     htmlEl.classList.toggle("desk-nav-off", collapsed);
-    if (!collapsed) nav.classList.remove("is-peek");
     btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
     var k = labelKey();
     btn.setAttribute("data-i18n-aria", k);
@@ -7246,32 +7238,13 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   function persist(){
     try { localStorage.setItem(KEY, collapsed ? "1" : "0"); } catch (e) {}
   }
-  function peek(on){
-    if (!collapsed) {
-      nav.classList.remove("is-peek");
-      return;
-    }
-    if (on && ignoreHover) return;
-    nav.classList.toggle("is-peek", !!on);
-  }
   paint();
   btn.addEventListener("click", function(e){
     e.preventDefault();
     e.stopPropagation();
     collapsed = !collapsed;
     persist();
-    if (collapsed) ignoreHover = true;
     paint();
-  });
-  nav.addEventListener("mouseenter", function(){ peek(true); });
-  nav.addEventListener("mouseleave", function(){
-    ignoreHover = false;
-    peek(false);
-  });
-  nav.addEventListener("focusin", function(){ peek(true); });
-  nav.addEventListener("focusout", function(e){
-    if (e.relatedTarget && nav.contains(e.relatedTarget)) return;
-    peek(false);
   });
   if (window.__addLangHook) window.__addLangHook(function(){ paint(); });
 })();
