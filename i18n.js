@@ -472,8 +472,9 @@ window.I18N = {
 "cash_gibl": "ग्लोबल आइएमई",
 "cash_gibl_cap": "ग्लोबल आइएमई बैंक · ५ करोड",
 "cash_gibl_note": "उद्धार, राहत र पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सहयोग गर्ने घोषणा।",
-"cash_sheet_lead": "प्रकाशित <strong>३९ करोड ३३ लाख</strong> — खाता सूची २७.३३ + BYD · साइमेक्स ७ + ग्लोबल आइएमई ५।",
+"cash_sheet_lead": "प्रकाशित <strong>४० करोड ३४ लाख</strong> — खाता सूची २७.३३ + BYD · साइमेक्स ७ + ग्लोबल आइएमई ५ + विक्रम पाण्डे १.०१।",
 "cash_ncell": "एनसेल अक्सियाटा",
+"cash_pandey": "विक्रम पाण्डे",
 "cash_nica": "एनआईसी एशिया",
 "cash_reliance": "रिलायन्स सुगर",
 "cash_shiv": "शिव शक्ति ग्रुप",
@@ -489,7 +490,7 @@ window.I18N = {
 "cash_note": "सीईओ रामचन्द्र खनाल र उच्च अधिकारीले अर्थमन्त्री डा. स्वर्णिम वाग्लेलाई हस्तान्तरण। प्रधानमन्त्री दैवी प्रकोप उद्धार कोष।",
 "cash_door_k": "प्रणाली",
 "cash_door": "एकद्वार",
-"cash_all_cap": "प्रकाशित नगद · १२ दाता",
+"cash_all_cap": "प्रकाशित नगद · १३ दाता",
 "cash_all_note": "पूर्ण कोष जम्मा होइन। नयाँ आधिकारिक नगद आएपछि थपिन्छ।",
 "cash_kumari_cap": "कुमारी बैंक लिमिटेड · ३ करोड नगद",
 "cash_door_cap": "एकद्वार प्रणाली",
@@ -1075,8 +1076,9 @@ window.I18N = {
 "cash_gibl": "Global IME",
 "cash_gibl_cap": "Global IME Bank · 5 crore",
 "cash_gibl_note": "Announced support to the Prime Minister’s Disaster Relief Fund for rescue, relief and rehabilitation.",
-"cash_sheet_lead": "Published <strong>39 crore 33 lakh</strong> — account list 27.33 + BYD · Cimex 7 + Global IME 5.",
+"cash_sheet_lead": "Published <strong>40 crore 34 lakh</strong> — account list 27.33 + BYD · Cimex 7 + Global IME 5 + Bikram Pandey 1.01.",
 "cash_ncell": "Ncell Axiata",
+"cash_pandey": "Bikram Pandey",
 "cash_nica": "NIC Asia",
 "cash_reliance": "Reliance Sugar",
 "cash_shiv": "Shiv Shakti Group",
@@ -1092,7 +1094,7 @@ window.I18N = {
 "cash_note": "CEO Ramchandra Khanal and senior officials handed it to Finance Minister Dr Swarnim Wagle. Prime Minister’s Disaster Relief Fund.",
 "cash_door_k": "System",
 "cash_door": "One-door",
-"cash_all_cap": "Published cash · 12 donors",
+"cash_all_cap": "Published cash · 13 donors",
 "cash_all_note": "Not the fund’s full total. New official cash will be added here.",
 "cash_kumari_cap": "Kumari Bank Ltd · 3 crore cash",
 "cash_door_cap": "One-door system",
@@ -1439,6 +1441,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Relief cash 40.34 crore",
+"p": "Former Minister Bikram Pandey contributed <strong>1.01 crore</strong> (1 crore 1 lakh) cash to the Prime Minister’s Disaster Relief Fund. Published total <strong>40 crore 34 lakh</strong> — account list 27.33 + BYD · Cimex 7 + Global IME 5 + Bikram Pandey 1.01. <a href=\"#donate\">Relief funds</a>."
+},
 {
 "h": "Dead 489 · police 12:00",
 "p": "Nepal Police Friday 12:00, 12 Bhadra: bodies total <strong>489</strong> — Chitwan 186, Nawalparasi East 112, Gorkha 44, Dhading 40, Nuwakot 37, Tanahun 29, Nawalparasi West 28, Rasuwa 13. Previous police 475 is history. Injured 73 · uncontacted 977 unchanged. Source: <a href=\"https://www.nepalpolice.gov.np/news/10264/\" target=\"_blank\" rel=\"noopener\">Nepal Police</a>. New missing-form names: An Bahadur kumal, Dhiraj kumar shah, Sonam Gole. <a href=\"#family\">Missing</a>."
