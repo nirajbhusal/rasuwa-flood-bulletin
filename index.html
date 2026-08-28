@@ -245,6 +245,10 @@ a.js-found-row[hidden]{display:none}
 .treat-lead,.treat-note{font-size:16px;color:var(--muted);margin:0 0 8px;line-height:1.65}
 .treat-note{margin:8px 0 0}
 .treat td.age,.treat th.age{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.treat-subh{font-size:18px;font-weight:800;margin:20px 0 8px;color:var(--ink)}
+.treat-block{padding-bottom:18px;margin-bottom:8px;border-bottom:1px solid var(--line)}
+.treat tr.treat-dead td{background:#fef2f2}
+
 
 
 .chips{
@@ -1665,6 +1669,7 @@ a.portal-fab-donate{
           <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:63%"></i></b><em class="num">२७</em></div>
           <div class="ibar-row"><span data-i18n="d_dhading">धादिङ</span><b class="ibar"><i style="width:7%"></i></b><em class="num">३</em></div>
           <p class="ov-note" data-i18n="ov_injured_note">आधिकारिक NDRRMA उपचाररत १०१। जिल्ला ४३/२७/३ अघिल्लो ७३ इतिहास। DEOC काठमाडौं ८८ र प्रहरी १४७३ लेबल मात्र। काठमाडौं ३६ / रसुवा अस्पताल २१ उपचार स्थान हुन्, जिल्लामाथि नजोड्नुहोस्।</p>
+          <p class="ov-note" data-i18n="ov_injured_dhunche">घाइते · रसुवा अस्पताल धुन्चे ७४ (डिस्चार्ज ४९ · रेफर २४) — NDRRMA १०१ माथि होइन।</p>
         </div>
         <div class="ov-pane" data-panel="miss">
           <p class="ov-cap" data-i18n="ov_miss_cap">NDRRMA सम्पर्कविहीन · जम्मा १,९२४</p>
@@ -1995,7 +2000,9 @@ a.portal-fab-donate{
         <div class="ibar-row"><span data-i18n="rd_nmc">NMC</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
         <div class="ibar-row"><span data-i18n="rd_grande">ग्रान्डी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
         <p class="cash-note" data-i18n-html="rd_treat_note">DEOC काठमाडौं नाम-सूची <strong>८८</strong> (उपचाररत ६९, डिस्चार्ज १९) लेबल मात्र। आधिकारिक घाइते <strong>१०१</strong>। अघिल्लो ७३ इतिहास।</p>
+        <p class="cash-note" data-i18n="treat_dhunche_extra">घाइते · रसुवा अस्पताल धुन्चे ७४ (डिस्चार्ज ४९ · रेफर २४)</p>
         <a class="rd-jump" href="#treat" data-i18n="rd_jump_treat">सूची हेर्नुहोस् → उपचार</a>
+        <a class="rd-jump" href="#treat-dhunche" data-i18n="rd_jump_dhunche">सूची हेर्नुहोस् → रसुवा अस्पताल धुन्चे</a>
       </div>
       <div class="cash-pane" data-rd="nuwakot">
         <p class="ov-cap" data-i18n="rd_nuw_cap">DAO नुवाकोट उद्धार</p>
@@ -4052,6 +4059,124 @@ a.portal-fab-donate{
 <section id="treat">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_treat">विपद्‌बाट उद्धार गरी उपचारार्थ काठमाडौं ल्याइएका घाइतेहरूको विवरण</h2></div>
   <div class="card green">
+    <div class="treat-block" id="treat-dhunche">
+    <h3 class="treat-subh" data-i18n="treat_dhunche_h">रसुवा अस्पताल · धुन्चे ७४</h3>
+    <p class="treat-lead" data-i18n-html="treat_dhunche_lead">रसुवा अस्पताल, धुन्चे — भदौ १२ बेलुका ६ बजेसम्म भोटेकोशी बाढीबाट प्रभावित <strong>७४</strong> जना घाइते तथा बिरामीको उपचार। डिस्चार्ज <strong>४९</strong> (पुरुष ३६ · महिला १३)। स्थिर गरी रेफर <strong>२४</strong> (पुरुष १७ · महिला ७)। आधिकारिक NDRRMA घाइते <strong>१०१</strong> र DEOC काठमाडौं <strong>८८</strong> यथावत् — जोडिएको छैन।</p>
+    <div class="treat-wrap">
+    <table class="plants treat">
+      <thead>
+        <tr>
+          <th data-i18n="th_hospital">अस्पताल</th>
+          <th class="mw" data-i18n="th_total">जम्मा</th>
+          <th class="mw" data-i18n="th_discharge">डिस्चार्ज</th>
+          <th class="mw" data-i18n="th_refer">रिफर</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td data-i18n="hosp_rasuwa_d">रसुवा जिल्ला अस्पताल, धुन्चे</td><td class="mw">७४</td><td class="mw">४९</td><td class="mw">२४</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="pager" data-pager="treat-dhunche">
+      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
+      <div class="pboxes pager-pages"></div>
+      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
+      <span class="pcount pager-count"></span>
+    </div>
+    <div class="treat-wrap">
+    <table class="plants treat treat-wide">
+      <thead>
+        <tr>
+          <th>सि.नं.</th>
+          <th data-i18n="th_name">नाम थर</th>
+          <th class="age" data-i18n="th_age">उमेर</th>
+          <th data-i18n="th_gender">लिङ्ग</th>
+          <th data-i18n="th_addr">ठेगाना</th>
+          <th data-i18n="th_status">स्थिति</th>
+          <th data-i18n="th_remarks">कैफियत</th>
+        </tr>
+      </thead>
+      <tbody id="treat-dhunche-body">
+        <tr data-pager="treat-dhunche"><td>१</td><td>मिन बहादुर श्रेष्ठ</td><td class="age">—</td><td data-i18n="gender_male">पुरुष</td><td>सिन्धुपालचोक</td><td>गम्भिर</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>२</td><td>कुसल मगर</td><td class="age">—</td><td data-i18n="gender_male">पुरुष</td><td>-</td><td>गम्भिर</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>३</td><td>नन्दलाल घर्ति</td><td class="age">—</td><td data-i18n="gender_male">पुरुष</td><td>बर्दिया</td><td>गम्भिर</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>४</td><td>दावा डोल्मा</td><td class="age">१३</td><td data-i18n="gender_female">महिला</td><td>गोसाइकुण्ड गा.पा-०५</td><td>गम्भिर</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>५</td><td>अशोक श्रेष्ठ</td><td class="age">३०</td><td data-i18n="gender_male">पुरुष</td><td>सिन्धुपालचोक</td><td>गम्भिर</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>६</td><td>पेम्बा तामाङ</td><td class="age">४८</td><td data-i18n="gender_male">पुरुष</td><td>गोसाईकुण्ड गा.पा-०५</td><td>गम्भर</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>७</td><td>देवेन्द्र खडका</td><td class="age">३४</td><td data-i18n="gender_male">पुरुष</td><td>काठमाडौं(गोदावरी)</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>८</td><td>राजन खत्रि</td><td class="age">४२</td><td data-i18n="gender_male">पुरुष</td><td>दोल्खा</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>९</td><td>राजेन्द्र भट्ट</td><td class="age">२७</td><td data-i18n="gender_male">पुरुष</td><td>कनचनपुर</td><td>गम्भिर</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>१०</td><td>बल बहादुर घत्री</td><td class="age">५०</td><td data-i18n="gender_male">पुरुष</td><td>जाजरकोट</td><td>गम्भिर</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>११</td><td>ऐन्जेल पौडेल</td><td class="age">२९</td><td data-i18n="gender_male">पुरुष</td><td>मोरङ</td><td>सामान्य</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>१२</td><td>प्रदिप चन्द</td><td class="age">३२</td><td data-i18n="gender_male">पुरुष</td><td>कनचनपुर</td><td>सामान्य</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>१३</td><td>राजकुमार खडका</td><td class="age">३६</td><td data-i18n="gender_male">पुरुष</td><td>सिन्धुपालचोक</td><td>—</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>१४</td><td>भुपेन्द्र भुसाल</td><td class="age">२८</td><td data-i18n="gender_male">पुरुष</td><td>रामेछाप</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>१५</td><td>सागर सहनी</td><td class="age">४५</td><td data-i18n="gender_male">पुरुष</td><td>बारा</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>१६</td><td>रमेस कुमार बुढा</td><td class="age">२४</td><td data-i18n="gender_male">पुरुष</td><td>जुम्ला</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>१७</td><td>ज्ञान बहादुर थिङ</td><td class="age">२६</td><td data-i18n="gender_male">पुरुष</td><td>सर्लाही</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>१८</td><td>श्याम लाल मोक्ताङ</td><td class="age">३३</td><td data-i18n="gender_male">पुरुष</td><td>सिन्धुली</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>१९</td><td>चन्द्र बहादुर बुढा</td><td class="age">२६</td><td data-i18n="gender_male">पुरुष</td><td>जुम्ला</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>२०</td><td>तिन्थ बहादुर बुढा</td><td class="age">२५</td><td data-i18n="gender_male">पुरुष</td><td>जुम्ला</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>२१</td><td>उमेश रावल</td><td class="age">२५</td><td data-i18n="gender_male">पुरुष</td><td>आछाम</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>२२</td><td>राजु तामाङ</td><td class="age">२९</td><td data-i18n="gender_male">पुरुष</td><td>गोशाईकुण्ड गा.पा-०६</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>२३</td><td>भुवन सिंह पार्खिन</td><td class="age">५९</td><td data-i18n="gender_male">पुरुष</td><td>मकवानपुर</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>२४</td><td>निमा ग्याल्मो घले</td><td class="age">३५</td><td data-i18n="gender_male">पुरुष</td><td>गोसाईकुण्ड गा.पा-०५</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>२५</td><td>तिर्थ बहादुर कार्कि</td><td class="age">४४</td><td data-i18n="gender_male">पुरुष</td><td>सिन्धुपालचोक</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>२६</td><td>सुकुमान कामी</td><td class="age">५५</td><td data-i18n="gender_male">पुरुष</td><td>गोसाईकुण्ड गा.पा-०५</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>२७</td><td>पाल्याङ सेर्पा</td><td class="age">३.५</td><td data-i18n="gender_female">महिला</td><td>गोसाईकुण्ड गा.पा-०५</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>२८</td><td>रेन्जेन सेर्पा</td><td class="age">७३</td><td data-i18n="gender_male">पुरुष</td><td>गोसाईकुण्ड गा.पा-०५</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>२९</td><td>मिशान तामाङ</td><td class="age">३</td><td data-i18n="gender_female">महिला</td><td>गोसाईकुण्ड गा.पा-०५</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>३०</td><td>प्रतिमा लामा</td><td class="age">४०</td><td data-i18n="gender_female">महिला</td><td>गोसाईकुण्ड गा.पा-०५</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>३१</td><td>फुर्वा याङजेन तामाङ</td><td class="age">५५</td><td data-i18n="gender_female">महिला</td><td>गोसाईकुण्ड गा.पा-०५</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>३२</td><td>उपेश चौधरी</td><td class="age">२८</td><td data-i18n="gender_male">पुरुष</td><td>बारा</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>३३</td><td>रोहन चौधरी</td><td class="age">२२</td><td data-i18n="gender_male">पुरुष</td><td>बारा</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>३४</td><td>निमा कर्म</td><td class="age">५९</td><td data-i18n="gender_female">महिला</td><td>गोसाईकुण्ड गा.पा-०२</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>३५</td><td>घुम्पु घले</td><td class="age">६४</td><td data-i18n="gender_male">पुरुष</td><td>गोसाईकुण्ड गा.पा-०२</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>३६</td><td>वाशुदेव आचार्य</td><td class="age">२८</td><td data-i18n="gender_male">पुरुष</td><td>सिन्धुपालचोक</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>३७</td><td>लामु तामाङ</td><td class="age">६</td><td data-i18n="gender_female">महिला</td><td>गोसाईकुण्ड गा.पा-०२</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>३८</td><td>सेम साम्वो तामाङ</td><td class="age">२८</td><td data-i18n="gender_female">महिला</td><td>गोसाईकुण्ड गा.पा-०२</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>३९</td><td>दावा छेन्जोम तामाङ</td><td class="age">३६</td><td data-i18n="gender_female">महिला</td><td>गोसाईकुण्ड गा.पा-०५</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>४०</td><td>सम्झाना न्यौपाने</td><td class="age">२८</td><td data-i18n="gender_female">महिला</td><td>दाङ</td><td>सामान्य</td><td>Admit(Pregnant) Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>४१</td><td>अर्विन्द मेहता</td><td class="age">३२</td><td data-i18n="gender_male">पुरुष</td><td>सर्लाही</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>४२</td><td>सानु कान्छी मोकतान</td><td class="age">२३</td><td data-i18n="gender_male">पुरुष</td><td>गोसाईकुण्ड गा.पा-०५</td><td>सामान्य</td><td>Admit (Pregnant) Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>४३</td><td>मेन्दो पेमा तामाङ</td><td class="age">३३</td><td data-i18n="gender_female">महिला</td><td>गोसाईकुण्ड गा.पा-०५</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche" class="treat-dead"><td>४४</td><td>नाम,वतन नखुलेको</td><td class="age">अन्दाजी ३५/३६</td><td data-i18n="gender_male">पुरुष</td><td>नखुलेको</td><td><strong data-i18n="treat_dead">मृत्यु</strong></td><td>Death Body sent to TUTH</td></tr>
+        <tr data-pager="treat-dhunche"><td>४५</td><td>पुर्ण बहादुर घले</td><td class="age">५५</td><td data-i18n="gender_male">पुरुष</td><td>उतरगया-४</td><td>सामान्य</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>४६</td><td>सिजन थापा क्षेत्रि</td><td class="age">२१</td><td data-i18n="gender_male">पुरुष</td><td>उतरगया-४</td><td>मध्यम</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>४७</td><td>ईश्वरा तामाङ</td><td class="age">५</td><td data-i18n="gender_female">महिला</td><td>उतरगया-५</td><td>गम्भिर</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>४८</td><td>नेत्र प्र.भट्ट</td><td class="age">५१</td><td data-i18n="gender_male">पुरुष</td><td>नुवाकोट</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>४९</td><td>ज्ञान कुमार डंगोल</td><td class="age">३९</td><td data-i18n="gender_male">पुरुष</td><td>नुवाकोट</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>५०</td><td>संगिता तामाङ</td><td class="age">२९</td><td data-i18n="gender_female">महिला</td><td>उतरगया-५</td><td>मध्यम</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>५१</td><td>महेश्वर कुमार साह</td><td class="age">२७</td><td data-i18n="gender_male">पुरुष</td><td>कालिका-रसुवा</td><td>मध्यम</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>५२</td><td>सुसिला बुलुन</td><td class="age">३१</td><td data-i18n="gender_female">महिला</td><td>उतरगया-५</td><td>मध्यम</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>५३</td><td>सितर तामाङ</td><td class="age">४०</td><td data-i18n="gender_male">पुरुष</td><td>उतरगया-१</td><td>मध्यम</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>५५</td><td>छेत्रो तमाङ</td><td class="age">४४</td><td data-i18n="gender_female">महिला</td><td>आमोछोदुम १</td><td>सामान्या</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>५६</td><td>दिल ब.तामाङ</td><td class="age">३६</td><td data-i18n="gender_male">पुरुष</td><td>आमोछोदुम १</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>५७</td><td>शुसिल पटेल</td><td class="age">२०</td><td data-i18n="gender_male">पुरुष</td><td>नुवाकोट</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>५८</td><td>निमा दोर्जे तामाङ</td><td class="age">२५</td><td data-i18n="gender_female">महिला</td><td>आमोछोदुम १</td><td>गम्भिर</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>५९</td><td>कृष्णमान श्रेष्ठ</td><td class="age">२६</td><td data-i18n="gender_male">पुरुष</td><td>नुवाकोट</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>६०</td><td>मादव प्र.दुलाल</td><td class="age">२९</td><td data-i18n="gender_male">पुरुष</td><td>सिन्धुपालचोक</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>६१</td><td>रमन लाल श्रेष्ठ</td><td class="age">३८</td><td data-i18n="gender_male">पुरुष</td><td>काठमान्डौं</td><td>गम्भिर</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>६१</td><td>निमा तामाङ</td><td class="age">५०</td><td data-i18n="gender_female">महिला</td><td>गोसाईकुण्ड गा.पा-०२</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>६२</td><td>नुवाङ दोर्जे</td><td class="age">४१</td><td data-i18n="gender_male">पुरुष</td><td>गोसाईकुण्ड गा.पा-०२</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>६३</td><td>डिन्दुप घले</td><td class="age">२६</td><td data-i18n="gender_male">पुरुष</td><td>गोसाईकुण्ड गा.पा-०६</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>६४</td><td>सन्तमाया तामाङ</td><td class="age">३५</td><td data-i18n="gender_female">महिला</td><td>गोसाईकुण्ड गा.पा-०६</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>६५</td><td>सुर्य कु.श्रेष्ठ</td><td class="age">५०</td><td data-i18n="gender_male">पुरुष</td><td>गोसाईकुण्ड गा.पा-०६</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>६६</td><td>छिरिङ नर्पु तामाङ</td><td class="age">५२</td><td data-i18n="gender_male">पुरुष</td><td>गोसाईकुण्ड गा.पा-०६</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>६७</td><td>भक्त ब.माझि</td><td class="age">१८</td><td data-i18n="gender_male">पुरुष</td><td>सिन्धुलि</td><td>सामान्य</td><td>Discharge (Holding Center)</td></tr>
+        <tr data-pager="treat-dhunche"><td>६८</td><td>राजन बि.क.</td><td class="age">४२</td><td data-i18n="gender_male">पुरुष</td><td>सिन्धुलि</td><td>सामान्य</td><td>Discharge (Holding Center</td></tr>
+        <tr data-pager="treat-dhunche"><td>६९</td><td>सुनिल माझि</td><td class="age">३५</td><td data-i18n="gender_male">पुरुष</td><td>सिन्धुलि</td><td>सामान्य</td><td>Discharge (Holding Center</td></tr>
+        <tr data-pager="treat-dhunche"><td>७०</td><td>बल ब.माझि</td><td class="age">५०</td><td data-i18n="gender_male">पुरुष</td><td>सिन्धुलि</td><td>सामान्य</td><td>Discharge (Holding Center</td></tr>
+        <tr data-pager="treat-dhunche"><td>७१</td><td>कमल थापा</td><td class="age">३८</td><td data-i18n="gender_male">पुरुष</td><td>नुवाकोट</td><td>मध्यम</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>७२</td><td>मान्वी तामाङ</td><td class="age">१२</td><td data-i18n="gender_female">महिला</td><td>गोसाईकुण्ड गा.पा-०५</td><td>सामान्य</td><td>Discharge</td></tr>
+        <tr data-pager="treat-dhunche"><td>७३</td><td>पेम्बा तामाङ</td><td class="age">४०</td><td data-i18n="gender_male">पुरुष</td><td>आमाछोदिङमो</td><td>मध्यम</td><td>Stabilized and Refer</td></tr>
+        <tr data-pager="treat-dhunche"><td>७४</td><td>रमेश बुढा</td><td class="age">२१</td><td data-i18n="gender_male">पुरुष</td><td>जुम्ला</td><td>मध्यम</td><td>Stabilized and Refer</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="treat-note" data-i18n-html="treat_dhunche_note">स्रोत: नरेन्द्र थापा, सूचना अधिकारी, रसुवा अस्पताल (<a href="tel:+9779869548081">९८६९५४८०८१</a>)। नाम-सूची CSV। मृत्यु पङ्क्ति शव टिचिङ — NDRRMA शव <strong>५७९</strong> र उपचार <strong>७४</strong> मा जोडिएको छैन।</p>
+    </div>
+    <h3 class="treat-subh" data-i18n="treat_ktm_h">DEOC काठमाडौं · ८८</h3>
     <p class="treat-lead" data-i18n-html="treat_lead">DEOC काठमाडौं · काठमाडौं ल्याइएका घाइते नाम-सूची <strong>८८</strong> (उपचाररत <strong>६९</strong>, डिस्चार्ज <strong>१९</strong>) लेबल मात्र। आधिकारिक NDRRMA घाइते उपचाररत <strong>१०१</strong>। अघिल्लो ७३ इतिहास। SitRep-6 तालिका १३०/६७ अलग (रसुवा/नुवाकोट अस्पताल सहित)।</p>
     <a class="pmdrf-card" href="https://freehealth.mohp.gov.np/blood-bank" target="_blank" rel="noopener" id="blood-bank">
       <span class="kpi-k" data-i18n="treat_blood_k">स्वास्थ्य मन्त्रालय · निःशुल्क स्वास्थ्य</span>
@@ -5920,6 +6045,12 @@ a.portal-fab-donate{
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
             <article class="log-item now">
+      <p class="when">~२१:२५</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>रसुवा अस्पताल धुन्चे १२ भदौ १८:०० — उपचार ७४</h3>
+      <p>रसुवा अस्पताल धुन्चे १२ भदौ १८:०० — उपचार ७४ (डिस्चार्ज ४९ · रेफर २४)। NDRRMA घाइते १०१ यथावत्। स्रोत नरेन्द्र थापा ९८६९५४८०८१। <a href="#treat">घाइते</a>।</p>
+    </article>
+            <article class="log-item">
       <p class="when">~२०:१५</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>NDRRMA/गृह १२ भदौ १९:०० — शव ५७९</h3>
@@ -7323,8 +7454,8 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-2035"></script>
-<script>window.PAGE_VER="2026-08-28-2035";</script>
+<script src="i18n.js?v=2026-08-28-2125"></script>
+<script>window.PAGE_VER="2026-08-28-2125";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -7599,6 +7730,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   bindPager(document.querySelector('[data-pager="sources"]'), qsa("#source-grid .src-group"), 4);
   bindPager(document.querySelector('[data-pager="hello-sarkar"]'), qsa("#hello-sarkar-body tr"), 50);
   bindPager(document.querySelector('[data-pager="madhesh"]'), qsa("#madhesh-body tr"), 50);
+  bindPager(document.querySelector('.pager[data-pager="treat-dhunche"]'), qsa("#treat-dhunche-body tr"), 50);
   bindPager(document.querySelector('.pager[data-pager="treat"]'), qsa("#treat-body tr"), 50);
   bindPager(document.querySelector('.pager[data-pager="shelter"]'), qsa("#shelter-body tr"), 50);
   bindPager(document.querySelector('[data-pager="surya"]'), qsa("#surya-body tr"), 50);

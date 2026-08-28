@@ -574,6 +574,14 @@ window.I18N = {
 "rs_crisis": "प्रभावित पालिका संकटग्रस्त (विपद् ऐन २०७४)",
 "rahat_note": "NDRRMA / गृह १२ भदौ १९:०० — सरकारले जिल्लालाई नगद: रसुवा <strong>१ करोड</strong> · नुवाकोट <strong>१ करोड</strong> · धादिङ <strong>५० लाख</strong> · <strong>१५ पालिका ६ करोड ७५ लाख</strong> (प्रधानमन्त्री कोष होइन · जिल्ला/पालिका नगद · ४ अर्ब २४ करोडमाथि नजोड्नुहोस्)। सामग्री: ३२ ट्रक; हेलि राहत ६ उडान; सञ्चार सेट। नुवाकोट: डिजेल ४१,००० · पेट्रोल २४,००० मौज्दात; हवाई इन्धन <strong>१७,०००</strong> लि पठाइएको।",
 "treat_lead": "DEOC काठमाडौं · काठमाडौं ल्याइएका घाइते नाम-सूची <strong>८८</strong> (उपचाररत <strong>६९</strong>, डिस्चार्ज <strong>१९</strong>) लेबल मात्र। आधिकारिक NDRRMA घाइते उपचाररत <strong>१०१</strong>। अघिल्लो ७३ इतिहास। SitRep-6 तालिका १३०/६७ अलग (रसुवा/नुवाकोट अस्पताल सहित)।",
+"treat_dhunche_h": "रसुवा अस्पताल · धुन्चे ७४",
+"treat_ktm_h": "DEOC काठमाडौं · ८८",
+"treat_dhunche_lead": "रसुवा अस्पताल, धुन्चे — भदौ १२ बेलुका ६ बजेसम्म भोटेकोशी बाढीबाट प्रभावित <strong>७४</strong> जना घाइते तथा बिरामीको उपचार। डिस्चार्ज <strong>४९</strong> (पुरुष ३६ · महिला १३)। स्थिर गरी रेफर <strong>२४</strong> (पुरुष १७ · महिला ७)। आधिकारिक NDRRMA घाइते <strong>१०१</strong> र DEOC काठमाडौं <strong>८८</strong> यथावत् — जोडिएको छैन।",
+"treat_dhunche_note": "स्रोत: नरेन्द्र थापा, सूचना अधिकारी, रसुवा अस्पताल (<a href=\"tel:+9779869548081\">९८६९५४८०८१</a>)। नाम-सूची CSV। मृत्यु पङ्क्ति शव टिचिङ — NDRRMA शव <strong>५७९</strong> र उपचार <strong>७४</strong> मा जोडिएको छैन।",
+"treat_dhunche_extra": "घाइते · रसुवा अस्पताल धुन्चे ७४ (डिस्चार्ज ४९ · रेफर २४)",
+"treat_dead": "मृत्यु",
+"ov_injured_dhunche": "घाइते · रसुवा अस्पताल धुन्चे ७४ (डिस्चार्ज ४९ · रेफर २४) — NDRRMA १०१ माथि होइन।",
+"rd_jump_dhunche": "सूची हेर्नुहोस् → रसुवा अस्पताल धुन्चे",
 "treat_blood_k": "स्वास्थ्य मन्त्रालय · निःशुल्क स्वास्थ्य",
 "treat_blood_h": "रगत बैंक",
 "treat_blood_sub": "आधिकारिक स्टक पोर्टल · जिल्ला र रक्त समूह अनुसार हेर्नुहोस्",
@@ -1261,6 +1269,14 @@ window.I18N = {
 "rs_crisis": "Affected municipalities disaster-hit (Disaster Act 2074)",
 "rahat_note": "NDRRMA / MoHA 12 Bhadra 19:00 — government cash to districts: Rasuwa <strong>1 crore</strong> · Nuwakot <strong>1 crore</strong> · Dhading <strong>50 lakh</strong> · <strong>15 palikas Rs 6.75 crore</strong> (district/palika cash, not the PMDRF — do not add on top of Rs 4.24 billion). Goods: 32 trucks; 6 heli relief flights; comms sets. Nuwakot: diesel 41,000 · petrol 24,000 in stock; aviation fuel <strong>17,000</strong> L sent.",
 "treat_lead": "DEOC Kathmandu · <strong>88</strong> injured brought to Kathmandu (under treatment <strong>69</strong>, discharged <strong>19</strong>) labeled only. Official NDRRMA injured under treatment <strong>101</strong>. Previous 73 is history. SitRep-6 table 130/67 is separate (includes Rasuwa/Nuwakot hospitals).",
+"treat_dhunche_h": "Rasuwa Hospital · Dhunche 74",
+"treat_ktm_h": "DEOC Kathmandu · 88",
+"treat_dhunche_lead": "Rasuwa Hospital, Dhunche — by 6:00 pm on 12 Bhadra, treatment of <strong>74</strong> injured and ill from the Bhotekoshi flood. Discharged <strong>49</strong> (men 36 · women 13). Stabilized and referred <strong>24</strong> (men 17 · women 7). Official NDRRMA injured <strong>101</strong> and DEOC Kathmandu <strong>88</strong> unchanged — not added together.",
+"treat_dhunche_note": "Source: Narendra Thapa, information officer, Rasuwa Hospital (<a href=\"tel:+9779869548081\">9869548081</a>). Name list from CSV. Death-body row sent to TUTH — not added to NDRRMA dead <strong>579</strong> or the treated <strong>74</strong>.",
+"treat_dhunche_extra": "Injured · Rasuwa Hospital Dhunche 74 (discharged 49 · referred 24)",
+"treat_dead": "Dead",
+"ov_injured_dhunche": "Injured · Rasuwa Hospital Dhunche 74 (discharged 49 · referred 24) — not added on NDRRMA 101.",
+"rd_jump_dhunche": "See list → Rasuwa Hospital Dhunche",
 "treat_blood_k": "Ministry of Health · Free Health",
 "treat_blood_h": "Blood bank",
 "treat_blood_sub": "Official stock portal · search by district and blood group",
@@ -1616,6 +1632,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Rasuwa Hospital Dhunche 12 Bhadra 18:00 — treated 74",
+"p": "Rasuwa Hospital Dhunche 12 Bhadra 18:00 — treated 74 (discharged 49 · referred 24). NDRRMA injured 101 unchanged. Source Narendra Thapa 9869548081. <a href=\"#treat\">Injured</a>."
+},
 {
 "h": "NDRRMA/MoHA 12 Bhadra 19:00 — dead 579",
 "p": "NDRRMA / Ministry of Home Affairs graphic, 19:00: bodies <strong>579</strong> — Chitwan 233, Nawalparasi East 154, Gorkha 46 (including various human remains), Dhading 40, Nuwakot 37, Tanahun 30, Nawalparasi West 27, Rasuwa 12. Uncontacted <strong>1,924</strong> (Police 28 · Army 45 · APF 13 · Customs 15 · Immigration 15 · Rasuwa DEOC 161 · Nuwakot DEOC 1 · hydropower 933 · Makwanpur DEOC 66 · foreign 517 · Nepalis living abroad (travel) 127 · Langtang National Park 3) — Hello Sarkar 140 / Madhesh 30 / form not added. Injured under treatment <strong>101</strong>. Rescued <strong>4,451</strong> (including tunnel 191 + today air 517 · foreign 129). Deployed <strong>15,431</strong> (Police 4,473 · Army 6,755 · APF 4,203). Helis 16 · flights 99. Previous police 17:00 dead 553 is history. Previous NDRRMA 15:00 dead 538 / uncontacted 977 / injured 73 / rescued 3742 / deployed 14,829 is older history. SitRep heli 1976 / citizens 1552 / aircraft 14 stay separate. Army 924 stays separate. Name tables 529 / Timure 73 / Indian 21 / Trishuli-1 63 / heli-names 654 unchanged — 4451 and 654 are not in the found total. PMDRF Rs 4.24 billion unchanged. District cash Rasuwa 1 crore · Nuwakot 1 crore · Dhading 50 lakh · 15 palikas Rs 6.75 crore (not added on the fund); 32 trucks; 6 heli relief flights; Nuwakot fuel diesel 41,000 · petrol 24,000 in stock · aviation 17,000 L sent. Source: <a href=\"img/today-2026-08-28-ndrrma-moha-1900.jpg\" target=\"_blank\" rel=\"noopener\">NDRRMA / MoHA graphic</a>."
