@@ -8,7 +8,7 @@
   "warning_m": 4.1,
   "danger_m": 5.0,
   "status": "normal",
-  "steady": true,
+  "steady": "STEADY",
   "observed_at": "2026-08-26T09:20:00+05:45",
   "observed_npt": "२०२६-०८-२६ ०९:२०",
   "silent": true,
