@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T20:05:03.694857+05:45",
+  "updated_at": "2026-08-28T20:16:05.592141+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,83 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-200322-sunanda-manirajan",
+      "name": "Sunanda Manirajan",
+      "status": "missing",
+      "source": "form",
+      "age": "63",
+      "place": "England · Kerung Border at friendship bridge",
+      "when": "8.30am at border between Nepal and Tibet",
+      "phone": "Sumi Manirajan: 00447532683015",
+      "note": "फारम 20:03 · Blue jacket, nose stud on left side"
+    },
+    {
+      "id": "sheet-20260828-200403-latha-samala",
+      "name": "Latha Samala",
+      "status": "missing",
+      "source": "form",
+      "age": "51",
+      "place": "USA · Immigration center",
+      "when": "26/08/2026",
+      "phone": "+18044001931",
+      "note": "फारम 20:04"
+    },
+    {
+      "id": "sheet-20260828-200612-leena-bector",
+      "name": "Leena Bector",
+      "status": "missing",
+      "source": "form",
+      "age": "54",
+      "place": "Slough, United Kingdom (UK Citizen) · Timori Village (Near Immigration Office)",
+      "when": "26th August (8:15AM)",
+      "phone": "+91 77384 88374",
+      "note": "फारम 20:06 · Name : Leena Bector\nAge : 54 years\nNationality: British (UK Citizen)\nLast seen : 26th Aug around 8:15 am near Immigration office (Timori Village)\nPurpose for tr"
+    },
+    {
+      "id": "sheet-20260828-200958-jiban-pariyar",
+      "name": "Jiban pariyar",
+      "status": "missing",
+      "source": "form",
+      "age": "32",
+      "place": "Sindupalchowk · Timure",
+      "when": "2083/04/10",
+      "phone": "9860512080",
+      "note": "फारम 20:09"
+    },
+    {
+      "id": "sheet-20260828-201051-कुल्बाहादुर-कार्कि",
+      "name": "कुल्बाहादुर कार्कि",
+      "status": "missing",
+      "source": "form",
+      "age": "45/50",
+      "place": "झापा कन्काइ नगरपालिका सुरुङ्गा 4 · 2083/05/10",
+      "when": "2083/05/10",
+      "phone": "9842152849",
+      "note": "फारम 20:10"
+    },
+    {
+      "id": "sheet-20260828-201148-santosh-khadka",
+      "name": "Santosh khadka",
+      "status": "missing",
+      "source": "form",
+      "age": "33years",
+      "place": "Sundupalchok barabise ward num 3 · Timure",
+      "when": "2083/05/10right",
+      "phone": "9861233653 / 9841974120",
+      "note": "फारम 20:11 · Right hand ma tatu my love muna lekehako"
+    },
+    {
+      "id": "sheet-20260828-201227-amar-biswhokarka",
+      "name": "Amar Biswhokarka",
+      "status": "missing",
+      "source": "form",
+      "age": "23",
+      "place": "Rasuwa gaupalika 1gosaikunda · Timure",
+      "when": "2083/05/10",
+      "phone": "9709300205",
+      "note": "फारम 20:12 · Hatma tatoo ra xati ma khukuriko tattoo cha · No"
+    },
     {
       "id": "sheet-20260828-195515-sabin-rana",
       "name": "सबिन राना",
