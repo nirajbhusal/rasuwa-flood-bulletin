@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T09:07:33.842395+05:45",
+  "updated_at": "2026-08-28T09:18:38.061472+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,70 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-091218-purna-bdr-ghale",
+      "name": "Purna bdr. Ghale",
+      "status": "missing",
+      "source": "form",
+      "age": "55",
+      "place": "Kispang-1, bhalche · Timure",
+      "phone": "9761851912",
+      "note": "फारम 09:12"
+    },
+    {
+      "id": "sheet-20260828-091012-ramesh-gyaldang-ghale",
+      "name": "Ramesh gyaldang ghale",
+      "status": "missing",
+      "source": "form",
+      "age": "32-35 maybe",
+      "place": "Kispang-1, bhalche · Timure",
+      "when": "26/08/2026",
+      "phone": "9761851912",
+      "note": "फारम 09:10"
+    },
+    {
+      "id": "sheet-20260828-090926-minnath-neupane",
+      "name": "Minnath Neupane",
+      "status": "missing",
+      "source": "form",
+      "age": "39 year",
+      "place": "Uttargaya-4, rasuwa · Mailung chipledhunga",
+      "when": "2083/05/10",
+      "phone": "9851050660",
+      "note": "फारम 09:09 · ज्येष्ठ दाई ९८५१०५०६६० · स्थानीयले तीनजनासँगै झर्दै गरेको देखेको"
+    },
+    {
+      "id": "sheet-20260828-090817-bhuwan-wagle",
+      "name": "Bhuwan wagle",
+      "status": "missing",
+      "source": "form",
+      "age": "25-26",
+      "place": "Kailali bauniyan · Rasuwa Upper Trishuli-1 hydropower",
+      "when": "2083/5/10 · 10 gate",
+      "phone": "9761181929",
+      "note": "फारम 09:08"
+    },
+    {
+      "id": "sheet-20260828-090755-birbal-tamang",
+      "name": "Birbal tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "25",
+      "place": "Kispang-1 bhalche · Timure",
+      "when": "26/08/2026 06:00am",
+      "phone": "9761851912",
+      "note": "फारम 09:07"
+    },
+    {
+      "id": "sheet-20260828-090557-yashika-tamang",
+      "name": "Yashika tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "19",
+      "place": "Paribesi / Nuwakot · Paribasi / near Mailung bridge",
+      "when": "2026/08/26 she was online till 8:45",
+      "note": "फारम 09:05"
+    },
     {
       "id": "sheet-20260828-090301-arunasalam-karuppiah",
       "name": "Arunasalam Karuppiah",
