@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-<script>if(window.matchMedia&&window.matchMedia("(min-width:960px)").matches)document.documentElement.classList.add("desk");</script>
+<script>if(window.matchMedia&&window.matchMedia("(min-width:960px)").matches)document.documentElement.classList.add("desk");try{if(localStorage.getItem("rasuwa-nav-collapsed")==="1")document.documentElement.classList.add("desk-nav-off");}catch(e){}</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -157,6 +157,7 @@
   --radius:16px;
   --max:980px;
   --rail:244px;
+  --rail-off:48px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:var(--stick, 240px);overflow-x:clip}
@@ -309,6 +310,7 @@ html.desk:not(.desk-ready) .page-main #helpline,
 html.desk:not(.desk-ready) .page-main .stats-src{display:none}
 .is-screen-off{display:none!important}
 .nav-toggle{display:none}
+.desk-nav-toggle{display:none}
 .nav-toggle .ico-x{display:none}
 .chips.is-open .nav-toggle .ico-h{display:none}
 .chips.is-open .nav-toggle .ico-x{display:block}
@@ -364,6 +366,8 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
     z-index:40;
     flex:0 0 var(--rail);
     width:var(--rail);
+    min-width:0;
+    transition:width .18s ease,flex-basis .18s ease;
     height:100vh;
     height:100dvh;
     display:flex;
@@ -476,6 +480,54 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
     border-color:var(--crimson);
   }
   .nav-toggle{display:none}
+  .desk-nav-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    flex:none;
+    margin:10px 10px 2px;
+    padding:6px 8px;
+    min-height:36px;
+    width:auto;
+    border:0;
+    background:transparent;
+    color:var(--muted);
+    border-radius:10px;
+    cursor:pointer;
+  }
+  .desk-nav-toggle:hover{background:#fff;color:var(--ink)}
+  .desk-nav-toggle:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+  .desk-nav-toggle .ico-show{display:none}
+  html.desk-nav-off .desk-nav-toggle .ico-hide{display:none}
+  html.desk-nav-off .desk-nav-toggle .ico-show{display:block}
+  html.desk-nav-off .chips,
+  html.desk-nav-off .chips.stick{
+    flex:0 0 var(--rail-off);
+    width:var(--rail-off);
+    min-width:var(--rail-off);
+  }
+  html.desk-nav-off .chips.is-peek,
+  html.desk-nav-off .chips.stick.is-peek{
+    flex:0 0 var(--rail);
+    width:var(--rail);
+    min-width:var(--rail);
+  }
+  html.desk-nav-off .chips:not(.is-peek) .desk-nav-toggle{
+    justify-content:center;
+    margin:10px 4px 2px;
+    padding:6px;
+  }
+  html.desk-nav-off .chips:not(.is-peek) .chips-inner{
+    padding:8px 4px 12px;
+    overflow:hidden;
+  }
+  html.desk-nav-off .chips:not(.is-peek) .chips-inner a:not(.home-btn){display:none}
+  html.desk-nav-off .chips:not(.is-peek) .nav-dash-label{display:none}
+  html.desk-nav-off .chips:not(.is-peek) a.home-btn{
+    justify-content:center;
+    padding:8px;
+    gap:0;
+  }
 
   html.desk, html.desk body{
     height:100%;
@@ -507,7 +559,9 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
     -webkit-overflow-scrolling:touch;
   }
 }
-
+@media (prefers-reduced-motion:reduce){
+  .chips,.chips.stick{transition:none}
+}
 
 .hero-map{padding:14px 0 6px}.hero-map .sec-head{margin-bottom:10px}
 #flood-map{
@@ -1408,6 +1462,10 @@ a.portal-fab-donate{
   <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-chips" aria-label="मेनु" data-i18n-aria="nav_menu">
     <svg class="ico-h" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
     <svg class="ico-x" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg>
+  </button>
+  <button type="button" class="desk-nav-toggle" id="desk-nav-toggle" aria-expanded="true" aria-controls="nav-chips" aria-label="नेभ लुकाउनुहोस्" title="नेभ लुकाउनुहोस्" data-i18n-aria="nav_hide" data-i18n-title="nav_hide">
+    <svg class="ico-hide" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 6 5 12l6 6 1.4-1.4L7.8 12l4.6-4.6zm7 0-6 6 6 6 1.4-1.4L14.8 12l4.6-4.6z"/></svg>
+    <svg class="ico-show" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.6 7.4 9.2 12l-4.6 4.6L6 18l6-6-6-6zm7 0L16.2 12l-4.6 4.6L13 18l6-6-6-6z"/></svg>
   </button>
   <div class="chips-inner" id="nav-chips">
     <a class="home-btn" href="#home" aria-label="ड्यासबोर्ड" title="ड्यासबोर्ड" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">ड्यासबोर्ड</span></a>
@@ -6339,8 +6397,8 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1534"></script>
-<script>window.PAGE_VER="2026-08-28-1534";</script>
+<script src="i18n.js?v=2026-08-28-1558"></script>
+<script>window.PAGE_VER="2026-08-28-1558";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -7160,6 +7218,62 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   window.addEventListener("resize", function(){
     if (window.matchMedia("(min-width:761px)").matches) close();
   });
+})();
+
+(function(){
+  var KEY = "rasuwa-nav-collapsed";
+  var htmlEl = document.documentElement;
+  var nav = document.querySelector("nav.chips");
+  var btn = document.getElementById("desk-nav-toggle");
+  if (!nav || !btn) return;
+  var collapsed = htmlEl.classList.contains("desk-nav-off");
+  if (!collapsed) {
+    try { collapsed = localStorage.getItem(KEY) === "1"; } catch (e) {}
+  }
+  var ignoreHover = false;
+  function labelKey(){ return collapsed ? "nav_show" : "nav_hide"; }
+  function paint(){
+    htmlEl.classList.toggle("desk-nav-off", collapsed);
+    if (!collapsed) nav.classList.remove("is-peek");
+    btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+    var k = labelKey();
+    btn.setAttribute("data-i18n-aria", k);
+    btn.setAttribute("data-i18n-title", k);
+    var lab = (window.t && window.t(k)) || (collapsed ? "नेभ देखाउनुहोस्" : "नेभ लुकाउनुहोस्");
+    btn.setAttribute("aria-label", lab);
+    btn.setAttribute("title", lab);
+  }
+  function persist(){
+    try { localStorage.setItem(KEY, collapsed ? "1" : "0"); } catch (e) {}
+  }
+  function peek(on){
+    if (!collapsed) {
+      nav.classList.remove("is-peek");
+      return;
+    }
+    if (on && ignoreHover) return;
+    nav.classList.toggle("is-peek", !!on);
+  }
+  paint();
+  btn.addEventListener("click", function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    collapsed = !collapsed;
+    persist();
+    if (collapsed) ignoreHover = true;
+    paint();
+  });
+  nav.addEventListener("mouseenter", function(){ peek(true); });
+  nav.addEventListener("mouseleave", function(){
+    ignoreHover = false;
+    peek(false);
+  });
+  nav.addEventListener("focusin", function(){ peek(true); });
+  nav.addEventListener("focusout", function(e){
+    if (e.relatedTarget && nav.contains(e.relatedTarget)) return;
+    peek(false);
+  });
+  if (window.__addLangHook) window.__addLangHook(function(){ paint(); });
 })();
 
 (function(){
