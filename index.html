@@ -156,7 +156,7 @@
   --shadow:0 10px 30px rgba(15,23,42,.08);
   --radius:16px;
   --max:980px;
-  --rail:232px;
+  --rail:244px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:var(--stick, 240px);overflow-x:clip}
@@ -372,9 +372,9 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
     overflow-y:auto;
     overscroll-behavior:contain;
     white-space:normal;
-    background:#faf8f4;
+    background:#f1eee7;
     border-bottom:0;
-    border-right:1px solid var(--line);
+    border-right:1px solid #e2dcd2;
     mask-image:none;
     -webkit-mask-image:none;
     scrollbar-width:thin;
@@ -389,8 +389,8 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
     width:auto;
     min-width:0;
     margin:0;
-    padding:16px 8px 32px;
-    gap:1px;
+    padding:14px 10px 16px;
+    gap:7px;
     flex:1 1 auto;
     min-height:100%;
     box-sizing:border-box;
@@ -401,36 +401,39 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
     align-items:center;
     width:100%;
     box-sizing:border-box;
-    border:0;
-    border-radius:0;
-    border-left:3px solid transparent;
-    background:transparent;
-    box-shadow:none;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 1px 2px rgba(15,23,42,.05);
     white-space:normal;
     line-height:1.35;
     font-size:15px;
-    font-weight:500;
+    font-weight:600;
     color:var(--ink);
-    padding:8px 12px;
+    padding:9px 12px;
     min-height:0;
     text-decoration:none;
   }
   .chips a:hover{
-    background:rgba(15,23,42,.05);
-    color:var(--ink);
+    background:#fff;
+    border-color:var(--teal);
+    color:var(--teal);
     text-decoration:none;
+    box-shadow:0 2px 8px rgba(14,116,144,.1);
   }
   .chips a.is-current,
   .chips a[aria-current]{
-    background:transparent;
-    color:var(--ink);
-    font-weight:600;
-    border-left-color:var(--crimson);
+    background:var(--crimson-soft);
+    color:#9f1239;
+    font-weight:800;
+    border-color:#f0b8c2;
+    box-shadow:none;
   }
   .chips a.is-current:hover,
   .chips a[aria-current]:hover{
-    background:rgba(15,23,42,.05);
-    border-left-color:var(--crimson);
+    background:var(--crimson-soft);
+    color:#9f1239;
+    border-color:var(--crimson);
   }
   .chips a.home-btn{
     width:100%;
@@ -438,34 +441,37 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
     height:auto;
     align-self:stretch;
     margin:0;
-    padding:8px 12px;
-    border:0;
-    border-left:3px solid transparent;
-    border-radius:0;
-    background:transparent;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:#fff;
     color:var(--ink);
     gap:8px;
     justify-content:flex-start;
+    box-shadow:0 1px 2px rgba(15,23,42,.05);
   }
   .chips a.home-btn svg{flex:none;width:23px;height:23px;color:var(--crimson)}
   .chips a.home-btn .nav-dash-label{display:inline;font-size:18px;font-weight:700;line-height:1.2}
   .chips a.home-btn:hover{
-    background:rgba(15,23,42,.05);
-    color:var(--ink);
-    border-left-color:transparent;
+    background:#fff;
+    color:var(--teal);
+    border-color:var(--teal);
   }
+  .chips a.home-btn:hover svg{color:var(--teal)}
   .chips a.home-btn.is-current,
   .chips a.home-btn[aria-current]{
-    background:transparent;
-    color:var(--ink);
+    background:var(--crimson-soft);
+    color:#9f1239;
     font-weight:700;
-    border-left-color:var(--crimson);
+    border-color:#f0b8c2;
   }
+  .chips a.home-btn.is-current svg,
+  .chips a.home-btn[aria-current] svg{color:var(--crimson)}
   .chips a.home-btn.is-current:hover,
   .chips a.home-btn[aria-current]:hover{
-    background:rgba(15,23,42,.05);
-    color:var(--ink);
-    border-left-color:var(--crimson);
+    background:var(--crimson-soft);
+    color:#9f1239;
+    border-color:var(--crimson);
   }
   .nav-toggle{display:none}
 
@@ -1290,6 +1296,20 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 }
 .portal-fab summary::-webkit-details-marker{display:none}
 .portal-fab[open] summary,.portal-fab details[open] summary{background:#7f1d1d}
+.portal-fab-gov summary{
+  background:var(--forest);
+  box-shadow:0 8px 24px rgba(4,120,87,.35);
+}
+.portal-fab-gov[open] summary,.portal-fab-gov details[open] summary{background:#065f46}
+.fab-chip{
+  position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%);
+  background:#0f172a;color:#fff;font-size:13px;font-weight:800;line-height:1.2;
+  padding:6px 10px;border-radius:8px;white-space:nowrap;
+  pointer-events:none;opacity:0;visibility:hidden;
+  box-shadow:0 6px 16px rgba(15,23,42,.18);
+}
+.portal-fab:hover .fab-chip,
+.portal-fab details[open] .fab-chip{opacity:1;visibility:visible}
 .portal-panel{
   position:absolute;right:0;bottom:68px;
   width:min(300px,calc(100vw - 36px));
@@ -1307,12 +1327,15 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 .portal-panel a.mail{background:#0f172a;color:#fff}
 .portal-panel a.miss{background:var(--crimson);color:#fff}
 .portal-panel a.found{background:var(--forest);color:#fff}
+.portal-panel a.opmcm-rescue{background:var(--teal);color:#fff}
+.portal-panel a.opmcm-donate{background:var(--forest);color:#fff}
 .portal-panel .note{margin:8px 0 0;font-size:12px;font-weight:700;color:var(--muted)}
 
 @media (max-width:760px){
   .fab-dock{right:20px;bottom:max(20px, env(safe-area-inset-bottom, 0px))}
   .portal-fab summary{width:48px;height:48px}
   .portal-panel{bottom:60px}
+  .fab-chip{display:none}
 }
 
 
@@ -5508,6 +5531,19 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 </div>
 
 <div class="fab-dock">
+<div class="portal-fab portal-fab-gov">
+  <details id="portal-gov">
+    <summary aria-label="उद्धार / दान" title="उद्धार / दान" data-i18n-aria="govfab_aria" data-i18n-title="govfab_aria">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3.2a6.8 6.8 0 0 1 4.8 2l-2.3 2.3a3.6 3.6 0 0 0-5 0L7.2 7.2A6.8 6.8 0 0 1 12 5.2zm-6.8 6.8a6.8 6.8 0 0 1 2-4.8l2.3 2.3a3.6 3.6 0 0 0 0 5L7.2 16.8a6.8 6.8 0 0 1-2-4.8zm6.8 6.8a6.8 6.8 0 0 1-4.8-2l2.3-2.3a3.6 3.6 0 0 0 5 0l2.3 2.3a6.8 6.8 0 0 1-4.8 2zm4.8-2-2.3-2.3a3.6 3.6 0 0 0 0-5l2.3-2.3a6.8 6.8 0 0 1 2 4.8 6.8 6.8 0 0 1-2 4.8z"/></svg>
+      <span class="fab-chip" data-i18n="govfab_chip">उद्धार / दान</span>
+    </summary>
+    <div class="portal-panel">
+      <p data-i18n-html="govfab_p"><b>सरकारी उद्धार</b>प्रधानमन्त्री कार्यालयको आधिकारिक पोर्टल। यो बुलेटिन सरकार होइन।</p>
+      <a class="opmcm-rescue" href="https://rescue.opmcm.gov.np/" target="_blank" rel="noopener" data-i18n="govfab_rescue">उद्धार अनुरोध</a>
+      <a class="opmcm-donate" href="https://rescue.opmcm.gov.np/donations" target="_blank" rel="noopener" data-i18n="govfab_donate">दान</a>
+    </div>
+  </details>
+</div>
 <div class="portal-fab">
   <details id="portal-contact">
     <summary aria-label="सम्पर्क · WhatsApp र इमेल" data-i18n-aria="portal_aria">
@@ -5523,6 +5559,17 @@ footer .foot-about a{color:var(--teal);font-weight:800}
   </details>
   </div>
 </div>
+<script>
+(function(){
+  var fabs = document.querySelectorAll(".fab-dock details");
+  fabs.forEach(function(d){
+    d.addEventListener("toggle", function(){
+      if (!d.open) return;
+      fabs.forEach(function(o){ if (o !== d) o.open = false; });
+    });
+  });
+})();
+</script>
 
 <div class="qr-pop" id="qr-pop" hidden>
   <img id="qr-pop-img" alt="">
@@ -5540,8 +5587,8 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1452"></script>
-<script>window.PAGE_VER="2026-08-28-1452";</script>
+<script src="i18n.js?v=2026-08-28-1510"></script>
+<script>window.PAGE_VER="2026-08-28-1510";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }

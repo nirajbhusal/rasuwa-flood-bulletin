@@ -605,7 +605,12 @@ window.I18N = {
 "about_how_h": "कसरी चल्छ",
 "about_how_short": "GitHub Pages मा स्थिर HTML। आधिकारिक जम्मा स्रोतअनुसार लेबल सहित राखिन्छ — एउटा नक्कली मिसिएको जम्मा कहिल्यै बनाइँदैन। जाँचिएको family.json मात्र। लाइभ संख्या ड्यासबोर्डमा हेर्नुहोस्।",
 "about_x": "X · @nirajbhusal",
-"about_linkedin": "LinkedIn"
+"about_linkedin": "LinkedIn",
+"govfab_aria": "उद्धार / दान",
+"govfab_chip": "उद्धार / दान",
+"govfab_p": "<b>सरकारी उद्धार</b>प्रधानमन्त्री कार्यालयको आधिकारिक पोर्टल। यो बुलेटिन सरकार होइन।",
+"govfab_rescue": "उद्धार अनुरोध",
+"govfab_donate": "दान"
 
 },
 "en": {
@@ -1214,7 +1219,12 @@ window.I18N = {
 "about_how_h": "How it works",
 "about_how_short": "Static HTML on GitHub Pages. Official totals stay labeled by source — never one fake merged total. Only curated family.json. Live figures are on the dashboard.",
 "about_x": "X · @nirajbhusal",
-"about_linkedin": "LinkedIn"
+"about_linkedin": "LinkedIn",
+"govfab_aria": "Rescue / donate",
+"govfab_chip": "Rescue / donate",
+"govfab_p": "<b>Official rescue</b>Office of the Prime Minister and Council of Ministers portal. This bulletin is not the government.",
+"govfab_rescue": "Request rescue",
+"govfab_donate": "Donate"
 
 }
 };
