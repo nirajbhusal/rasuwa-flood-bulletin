@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T20:25:00+05:45",
+  "updated_at": "2026-08-28T20:40:00+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -10867,6 +10867,39 @@
       "when": "8:30 am",
       "phone": "9842076370",
       "note": "फारम 20:15"
+    },
+    {
+      "id": "sheet-20260828-195356-laxman-pariyar-nepali",
+      "name": "Laxman Pariyar/Nepali",
+      "status": "missing",
+      "source": "form",
+      "age": "21/22",
+      "place": "Kathmandu · Timire, Rasuwa",
+      "when": "Before flooding",
+      "phone": "9862793235 / 9865073174",
+      "note": "फारम 19:53 · Laxman Pariyar (धल्कु, २३) र लक्ष्मण परियार (कालिकोट, २१) सँग नमिसाउने (फरक फोन)"
+    },
+    {
+      "id": "sheet-20260828-202158-shohit-biswhokarka",
+      "name": "Shohit Biswhokarka",
+      "status": "missing",
+      "source": "form",
+      "age": "24",
+      "place": "Rasuwa gaupalika 1 gosaikund · Syafru besi",
+      "when": "2083/05/10 बिहान ६ बजे",
+      "phone": "9709300205",
+      "note": "फारम 20:21 · Hatma tatoo ra xatima tatoo · Amar Biswhokarka (२३) सँग नमिसाउने (फरक व्यक्ति, एउटै फोन)"
+    },
+    {
+      "id": "sheet-20260828-202346-yam-bahadur-thapa",
+      "name": "Yam Bahadur Thapa",
+      "status": "missing",
+      "source": "form",
+      "age": "45",
+      "place": "Palungtar-6 · China border",
+      "when": "26 august 9:00 AM",
+      "phone": "9846111804 / 9702629771",
+      "note": "फारम 20:23 · बस चालक, चिनियाँ पर्यटक लिन सीमा · Yam Bahadur Thapa Magar (५०, स्कोर्पियो) सँग नमिसाउने"
     }
   ],
   "found": [
