@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T20:41:00+05:45",
+  "updated_at": "2026-08-28T21:11:33+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,116 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-210638-rajendra-pradhan",
+      "name": "Rajendra Pradhan",
+      "status": "missing",
+      "source": "form",
+      "age": "32",
+      "place": "chaurideurali 2, kvarepalanchok · Timure, rasuwa",
+      "when": "8:36 fb ma msg gareko",
+      "phone": "9818028998",
+      "note": "फारम 21:06 · काँधमा dragon tattoo"
+    },
+    {
+      "id": "sheet-20260828-210531-ravindra-yadav",
+      "name": "Ravindra Yadav",
+      "status": "missing",
+      "source": "form",
+      "age": "Around 35",
+      "place": "Saptari · Trishuli hydropower",
+      "when": "9:05",
+      "phone": "9863445578",
+      "note": "फारम 21:05"
+    },
+    {
+      "id": "sheet-20260828-210412-indra-lal-shrestha",
+      "name": "Indra Lal Shrestha",
+      "status": "missing",
+      "source": "form",
+      "age": "50",
+      "place": "Kathmandu · Kerung border",
+      "when": "26/08/2026 8:45",
+      "phone": "9851037491",
+      "note": "फारम 21:04 · Truck Driver"
+    },
+    {
+      "id": "sheet-20260828-210145-hari-neupane",
+      "name": "Hari Neupane",
+      "status": "missing",
+      "source": "form",
+      "age": "34/35",
+      "place": "Dharapani, Rasuwa · Timure बाट काठमाडौं आउँदै",
+      "when": "8:30",
+      "phone": "9840496467",
+      "note": "फारम 21:01 · दोस्रो फारम 21:06 · गाडी ना ५ ख ७१६५ डिब्बासहित"
+    },
+    {
+      "id": "sheet-20260828-205105-kumari-maya-tamang",
+      "name": "Kumari maya tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "37",
+      "place": "Rasuwa · Betrawati",
+      "when": "Betrawati",
+      "phone": "9843541911",
+      "note": "फारम 20:51 · सम्पर्क: दिदी"
+    },
+    {
+      "id": "sheet-20260828-204918-chitra-matta-venkatachalapathy",
+      "name": "Chitra Matta Venkatachalapathy",
+      "status": "missing",
+      "source": "form",
+      "age": "61",
+      "place": "Thanjavur, India · Siyaburubesi",
+      "when": "26 Aug 2026 6AM",
+      "phone": "+918884017955",
+      "note": "फारम 20:49 · Orange kurti, green pant · Smarat Travels समूह"
+    },
+    {
+      "id": "sheet-20260828-204727-khem-bahadur-raut",
+      "name": "खेम बहादुर राउत",
+      "status": "missing",
+      "source": "form",
+      "age": "37",
+      "place": "ओखलढुंगा · टिमुरे भन्सार",
+      "when": "2083-5-10 / ९ बजे",
+      "phone": "9844085568",
+      "note": "फारम 20:47"
+    },
+    {
+      "id": "sheet-20260828-204704-swapan-kumar-sinha",
+      "name": "Swapan Kumar Sinha",
+      "status": "missing",
+      "source": "form",
+      "age": "62",
+      "place": "Kharagpur, West Bengal · Nepal immigration पछि चीनतर्फ",
+      "when": "26th August, 8:10 AM",
+      "phone": "+918618076164",
+      "note": "फारम 20:47 · Kolkata Kailash Mansarovar समूह"
+    },
+    {
+      "id": "sheet-20260828-204600-lalit-na-chaudhary",
+      "name": "Lalit Na. Chaudhary",
+      "status": "missing",
+      "source": "form",
+      "age": "36",
+      "place": "Saptari · Hydro in Rasuwa",
+      "when": "No idea",
+      "phone": "9815711221 / 9869027385",
+      "note": "फारम 20:46 · उचाइ करिब ५'४ · Lalit Bahadur Saru Magar सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260828-204500-thanapalan-muthoo",
+      "name": "Thanapalan Muthoo",
+      "status": "missing",
+      "source": "form",
+      "age": "48",
+      "place": "Malaysia · 2 KM Before China Border",
+      "when": "26/08/2026 8 AM",
+      "phone": "+60123682985",
+      "note": "फारम 20:45 · Black Jacket · परिवारले unidentified body 421 सँग रुजु गर्न भनेको"
+    },
     {
       "id": "sheet-20260828-203755-niranjan-bhandari",
       "name": "NIranjan Bhandari",
