@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T11:34:51.347225+05:45",
+  "updated_at": "2026-08-28T11:47:32.968674+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7834,6 +7834,104 @@
       "when": "26/8/26 - 9am",
       "phone": "0172663591",
       "note": "फारम 11:33 · pink jacket, checkered shirt · group of 26"
+    },
+    {
+      "id": "sheet-20260828-113508-bijay-thapa-magar",
+      "name": "Bijay thapa magar",
+      "status": "missing",
+      "source": "form",
+      "age": "28",
+      "place": "Bardibas, Mahottari · Sino hydro / Upper Trishuli-1 (216 MW) Mailung",
+      "when": "Flood aako bela ~9:00, call ma kura",
+      "phone": "9766193206",
+      "note": "फारम 11:35 · Bijay Thapa (रामnagar / Mailung) सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260828-113543-govinda-bk-gorkha",
+      "name": "गोविन्द बि क",
+      "status": "missing",
+      "source": "form",
+      "age": "34",
+      "place": "गोरखा · रसुवा केरुङ",
+      "when": "8:40",
+      "phone": "9805583503",
+      "note": "फारम 11:35 · हातमा ट्याटु · Gobinda bk (धादिङ / घट्टेखोला) सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260828-113545-raj-kumar-bk",
+      "name": "राज कुमार बि.क (कुमार)",
+      "status": "missing",
+      "source": "form",
+      "age": "३५",
+      "place": "नुवाकोट · टिमुरे",
+      "when": "२०८३/०५/१० बिहान ८ बजे",
+      "phone": "9849697979",
+      "note": "फारम 11:35 · गाडी चालक · बागमती प्रदेश -०१-००६ ख ९५८९"
+    },
+    {
+      "id": "sheet-20260828-113710-pasang-tenzen-tamang",
+      "name": "Pasang tenzen tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "30,31",
+      "place": "Rasuwa gatlang · Timure",
+      "when": "8:15",
+      "phone": "9863383760",
+      "note": "फारम 11:37 · Pasang Tamang / Pasang dharke सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260828-113847-anil-goel",
+      "name": "Anil Goel",
+      "status": "missing",
+      "source": "form",
+      "age": "67",
+      "place": "Centreville VA, USA · Nepal Immigration Post, Rasuwagadhi",
+      "when": "Aug 26, 8:35am",
+      "phone": "Manvi Goel +1-703-622-7894",
+      "note": "फारम 11:38 · Bald, gray hair · Classic Vacation, 10 US/Canadian + 2 Nepali guides · Anil Grover सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260828-113908-arjun-balami",
+      "name": "Arjun Balami",
+      "status": "missing",
+      "source": "form",
+      "age": "40+",
+      "place": "Nuwakot, Kakani-01 · Rasuwagadi",
+      "when": "2026/8/25",
+      "phone": "9828043264",
+      "note": "फारम 11:39 · दुवै हातमा ट्याटु (नाम / शिवाजी) · Arjun Bahadur Dangol / Arjun Nagarkoti सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260828-113909-sonam-dorje-tamang",
+      "name": "Sonam dorje tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "26",
+      "place": "Rasuwa gatlang · Timure",
+      "when": null,
+      "phone": "9863383760",
+      "note": "फारम 11:39 · Pasang tenzen tamang सँग एउटै फारम सम्पर्क"
+    },
+    {
+      "id": "sheet-20260828-114134-cheku-dorje-titung",
+      "name": "Cheku dorje titung",
+      "status": "missing",
+      "source": "form",
+      "age": "40–42",
+      "place": "Rasuwa Naukunda-6 Dhargari · Kerung बाट नेपाल आउने बाटो",
+      "when": "Kerung chowk · Kerung time 9:45",
+      "note": "फारम 11:41"
+    },
+    {
+      "id": "sheet-20260828-114219-sanjay-sherpa-trisuli",
+      "name": "Sanjay Sherpa",
+      "status": "missing",
+      "source": "form",
+      "age": "30",
+      "place": "Sindhupalchowk · Trisuli bajar",
+      "when": "7:46",
+      "phone": "9843320417",
+      "note": "फारम 11:42 · Sanjaya Sherpa (केरुङ) / Sanjya sherpali (बागलुङ) सँग नमिसाउने"
     }
   ],
   "found": [
