@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T07:37:39.990190+05:45",
+  "updated_at": "2026-08-28T07:47:57.695149+05:45",
   "note_np": "DHM बाढी मार्ग स्टेसन (धुन्चे→बेत्रावती→फुर्के→काली खोला→देवघाट)। फुर्के वासड् — लाइभ होइन।",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms-Single/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -10,16 +10,16 @@
       "name": "Trishuli Khola at Dhunche",
       "name_np": "धुन्चे · त्रिशूली खोला",
       "district_np": "नुवाकोट",
-      "level_m": 2.404,
+      "level_m": 2.401,
       "warning_m": 3.2,
       "danger_m": null,
       "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-28T07:20:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०७:२०",
+      "observed_at": "2026-08-28T07:40:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०७:४०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657"
+      "source": "https://www.dhm.gov.np/hydrology/river-watch"
     },
     {
       "station_id": 52,
@@ -36,7 +36,7 @@
       "observed_npt": "२०२६-०८-२६ ०९:२०",
       "silent": true,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/52"
+      "source": "https://www.dhm.gov.np/hydrology/river-watch"
     },
     {
       "station_id": 5611,
@@ -70,7 +70,7 @@
       "observed_npt": "२०२६-०८-२८ ०७:३०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781"
+      "source": "https://www.dhm.gov.np/hydrology/river-watch"
     },
     {
       "station_id": 265,
@@ -78,16 +78,16 @@
       "name": "Narayani at Devghat",
       "name_np": "देवघाट · नारायणी",
       "district_np": "चितवन",
-      "level_m": 4.602,
+      "level_m": 4.597,
       "warning_m": 7.3,
       "danger_m": 9.0,
       "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-28T07:10:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०७:१०",
+      "observed_at": "2026-08-28T07:30:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०७:३०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
+      "source": "https://www.dhm.gov.np/hydrology/river-watch"
     }
   ]
 }
