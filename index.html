@@ -390,7 +390,7 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
     min-width:0;
     margin:0;
     padding:14px 10px 16px;
-    gap:7px;
+    gap:8px;
     flex:1 1 auto;
     min-height:100%;
     box-sizing:border-box;
@@ -407,10 +407,11 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
     box-shadow:0 1px 2px rgba(15,23,42,.05);
     white-space:normal;
     line-height:1.35;
-    font-size:15px;
-    font-weight:600;
+    font-family:Mukta,"Noto Sans Devanagari",system-ui,sans-serif;
+    font-size:16.5px;
+    font-weight:650;
     color:var(--ink);
-    padding:9px 12px;
+    padding:10px 12px;
     min-height:0;
     text-decoration:none;
   }
@@ -425,7 +426,8 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
   .chips a[aria-current]{
     background:var(--crimson-soft);
     color:#9f1239;
-    font-weight:800;
+    font-size:17.5px;
+    font-weight:700;
     border-color:#f0b8c2;
     box-shadow:none;
   }
@@ -1285,7 +1287,8 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 }
 .portal-fab{position:relative}
 .portal-fab details{position:relative}
-.portal-fab summary{
+.portal-fab summary,
+a.portal-fab{
   list-style:none;cursor:pointer;
   width:56px;height:56px;border-radius:50%;
   background:var(--crimson);color:#fff;
@@ -1293,20 +1296,26 @@ footer .foot-about a{color:var(--teal);font-weight:800}
   font-size:0;line-height:0;
   box-shadow:0 8px 24px rgba(127,29,29,.35);
   border:2px solid #fff;
+  text-decoration:none;
 }
+a.portal-fab:hover{text-decoration:none;filter:brightness(1.08);color:#fff}
 .portal-fab summary::-webkit-details-marker{display:none}
 .portal-fab[open] summary,.portal-fab details[open] summary{background:#7f1d1d}
-.portal-fab-gov summary{
+a.portal-fab-rescue{
+  background:var(--teal);
+  box-shadow:0 8px 24px rgba(14,116,144,.35);
+}
+a.portal-fab-donate{
   background:var(--forest);
   box-shadow:0 8px 24px rgba(4,120,87,.35);
 }
-.portal-fab-gov[open] summary,.portal-fab-gov details[open] summary{background:#065f46}
 .fab-chip{
   position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%);
   background:#0f172a;color:#fff;font-size:13px;font-weight:800;line-height:1.2;
   padding:6px 10px;border-radius:8px;white-space:nowrap;
   pointer-events:none;opacity:0;visibility:hidden;
   box-shadow:0 6px 16px rgba(15,23,42,.18);
+  font-family:Mukta,"Noto Sans Devanagari",system-ui,sans-serif;
 }
 .portal-fab:hover .fab-chip,
 .portal-fab details[open] .fab-chip{opacity:1;visibility:visible}
@@ -1327,13 +1336,11 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 .portal-panel a.mail{background:#0f172a;color:#fff}
 .portal-panel a.miss{background:var(--crimson);color:#fff}
 .portal-panel a.found{background:var(--forest);color:#fff}
-.portal-panel a.opmcm-rescue{background:var(--teal);color:#fff}
-.portal-panel a.opmcm-donate{background:var(--forest);color:#fff}
 .portal-panel .note{margin:8px 0 0;font-size:12px;font-weight:700;color:var(--muted)}
 
 @media (max-width:760px){
   .fab-dock{right:20px;bottom:max(20px, env(safe-area-inset-bottom, 0px))}
-  .portal-fab summary{width:48px;height:48px}
+  .portal-fab summary,a.portal-fab{width:48px;height:48px}
   .portal-panel{bottom:60px}
   .fab-chip{display:none}
 }
@@ -5531,19 +5538,14 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 </div>
 
 <div class="fab-dock">
-<div class="portal-fab portal-fab-gov">
-  <details id="portal-gov">
-    <summary aria-label="उद्धार / दान" title="उद्धार / दान" data-i18n-aria="govfab_aria" data-i18n-title="govfab_aria">
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3.2a6.8 6.8 0 0 1 4.8 2l-2.3 2.3a3.6 3.6 0 0 0-5 0L7.2 7.2A6.8 6.8 0 0 1 12 5.2zm-6.8 6.8a6.8 6.8 0 0 1 2-4.8l2.3 2.3a3.6 3.6 0 0 0 0 5L7.2 16.8a6.8 6.8 0 0 1-2-4.8zm6.8 6.8a6.8 6.8 0 0 1-4.8-2l2.3-2.3a3.6 3.6 0 0 0 5 0l2.3 2.3a6.8 6.8 0 0 1-4.8 2zm4.8-2-2.3-2.3a3.6 3.6 0 0 0 0-5l2.3-2.3a6.8 6.8 0 0 1 2 4.8 6.8 6.8 0 0 1-2 4.8z"/></svg>
-      <span class="fab-chip" data-i18n="govfab_chip">उद्धार / दान</span>
-    </summary>
-    <div class="portal-panel">
-      <p data-i18n-html="govfab_p"><b>सरकारी उद्धार</b>प्रधानमन्त्री कार्यालयको आधिकारिक पोर्टल। यो बुलेटिन सरकार होइन।</p>
-      <a class="opmcm-rescue" href="https://rescue.opmcm.gov.np/" target="_blank" rel="noopener" data-i18n="govfab_rescue">उद्धार अनुरोध</a>
-      <a class="opmcm-donate" href="https://rescue.opmcm.gov.np/donations" target="_blank" rel="noopener" data-i18n="govfab_donate">दान</a>
-    </div>
-  </details>
-</div>
+<a class="portal-fab portal-fab-rescue" href="https://rescue.opmcm.gov.np/" target="_blank" rel="noopener" aria-label="उद्धार अनुरोध" title="उद्धार अनुरोध" data-i18n-aria="govfab_rescue" data-i18n-title="govfab_rescue">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3.2a6.8 6.8 0 0 1 4.8 2l-2.3 2.3a3.6 3.6 0 0 0-5 0L7.2 7.2A6.8 6.8 0 0 1 12 5.2zm-6.8 6.8a6.8 6.8 0 0 1 2-4.8l2.3 2.3a3.6 3.6 0 0 0 0 5L7.2 16.8a6.8 6.8 0 0 1-2-4.8zm6.8 6.8a6.8 6.8 0 0 1-4.8-2l2.3-2.3a3.6 3.6 0 0 0 5 0l2.3 2.3a6.8 6.8 0 0 1-4.8 2zm4.8-2-2.3-2.3a3.6 3.6 0 0 0 0-5l2.3-2.3a6.8 6.8 0 0 1 2 4.8 6.8 6.8 0 0 1-2 4.8z"/></svg>
+  <span class="fab-chip" data-i18n="govfab_rescue">उद्धार अनुरोध</span>
+</a>
+<a class="portal-fab portal-fab-donate" href="https://rescue.opmcm.gov.np/donations" target="_blank" rel="noopener" aria-label="दान" title="दान" data-i18n-aria="govfab_donate" data-i18n-title="govfab_donate">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+  <span class="fab-chip" data-i18n="govfab_donate">दान</span>
+</a>
 <div class="portal-fab">
   <details id="portal-contact">
     <summary aria-label="सम्पर्क · WhatsApp र इमेल" data-i18n-aria="portal_aria">
@@ -5587,8 +5589,8 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1510"></script>
-<script>window.PAGE_VER="2026-08-28-1510";</script>
+<script src="i18n.js?v=2026-08-28-1518"></script>
+<script>window.PAGE_VER="2026-08-28-1518";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
