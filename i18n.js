@@ -42,6 +42,10 @@ window.I18N = {
 "hero_aid_h": "वैदेशिक सहयोग",
 "hero_aid_unit": "टन",
 "hero_aid_sub": "भारत दुई उडान · IFRC रेडक्रस · पठाइएको",
+"hero_aid_pledge": "घोषणा: युके £५ मि. · विश्व बैंक २५ अर्ब · अमेरिका $५०० हजार · OCHA $३.२ मि. · कोरिया $१ मि. · IFRC CHF २५ मि.",
+"aid_pledge_h": "वैदेशिक घोषणा",
+"aid_pledge_lead": "देश/निकाय, रकम, माध्यम।",
+"aid_pledge_tag": "घोषणा",
 "aid_ig_h": "वैदेशिक सहयोग अपडेट",
 "aid_ig_lead": "राहत सामग्री र कोष छुट्टै। अन्य प्रस्ताव प्राप्त होइन। त्रिभुवनमा हस्तान्तरण पुष्टि छैन।",
 "aid_sent_k": "राहत सामग्री",
@@ -667,6 +671,10 @@ window.I18N = {
 "hero_aid_h": "Foreign aid",
 "hero_aid_unit": "tonnes",
 "hero_aid_sub": "India two flights · IFRC Red Cross · sent",
+"hero_aid_pledge": "Pledges: UK £5m · World Bank Rs 25bn · US $500k · OCHA $3.2m · Korea $1m · IFRC CHF 25m",
+"aid_pledge_h": "Foreign-aid pledges",
+"aid_pledge_lead": "Country/organisation, amount, channel.",
+"aid_pledge_tag": "Pledge",
 "aid_ig_h": "Foreign aid update",
 "aid_ig_lead": "Relief goods and funds are separate. Other offers are not received. Handover at Tribhuvan not confirmed.",
 "aid_sent_k": "Relief goods",
@@ -1489,6 +1497,10 @@ window.I18N_LISTS = {
 ],
 "hist": [
 {
+"h": "Foreign pledges (UK, US, World Bank, OCHA, Korea, IFRC)",
+"p": "Foreign-aid announcements. <strong>UK</strong> £5 million ($6.79 million) via FCDO · <strong>United States</strong> $500,000 State Department/CRS (emergency shelters, water/hygiene) plus a disaster response adviser · <strong>World Bank</strong> Rs 25 arab ($163.55 million) · <strong>OCHA</strong> $3.2 million from CERF · <strong>South Korea</strong> $1 million through international agencies · <strong>IFRC</strong> CHF 1 million ($1.24 million) released, emergency appeal CHF 25 million. <a href=\"https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods\" target=\"_blank\" rel=\"noopener\">IFRC</a> · <a href=\"#aid\">Foreign aid</a>."
+},
+{
 "h": "PMDRF Rs 1.91 billion / Ministry of Finance",
 "p": "Ministry of Finance: <strong>Rs 1,91,86,50,911</strong> (1 arab 91 crore 86 lakh 50 thousand 911) deposited in the Prime Minister’s Disaster Relief Fund. Private-sector <strong>27.33 crore</strong> is inside this total. Friendly-nation pledges not included. Fund balance Rs 4 arab 9 crore 11 lakh 60 thousand is the whole pot, not the flood-donation total. <a href=\"#donate\">Relief funds</a>."
 },
@@ -2003,6 +2015,14 @@ window.I18N_LISTS = {
 "<b>Inmates safe 1,000</b> — Nuwakot Central Jail chief Bheshbahadur Kunwar (Onlinekhabar). Bidur-3 Khampa camp; admin building and police unit damaged. About one thousand.",
 "<b>Infrastructure</b> — NDRRMA SitRep-3 (22:00): motorable bridges <strong>35</strong> + suspension <strong>45</strong> = bridges <strong>80</strong>; paved road <strong>40 km</strong> fully destroyed — matches SitRep-2. Power 7 / 276 MW — NEA. Towers 7 — Nepal Telecom.",
 "<b>NEA staff 133+</b> — Nepal Electricity Authority (<a href=\"https://www.ratopati.com/story/587664/more-than-133-hydropower-employees-and-workers-left-without-contact-in-rasuwa-flood\" target=\"_blank\" rel=\"noopener\">Ratopati</a>): more than <strong>133</strong> hydropower staff/workers uncontacted. Langtang project 60 unchanged."
+],
+"aid_pledge": [
+"<span class=\"aid-tag pledge\">Pledge</span> <b>United Kingdom</b> · £5 million ($6.79 million) · FCDO · immediate humanitarian support",
+"<span class=\"aid-tag pledge\">Pledge</span> <b>United States</b> · $500,000 · State Department and Catholic Relief Services (emergency shelters + water/hygiene). A disaster response adviser sent to the region.",
+"<span class=\"aid-tag pledge\">Pledge</span> <b>World Bank</b> · emergency package Rs 25 arab ($163.55 million)",
+"<span class=\"aid-tag pledge\">Pledge</span> <b>United Nations OCHA</b> · $3.2 million · CERF · anticipatory and ongoing community actions",
+"<span class=\"aid-tag pledge\">Pledge</span> <b>South Korea</b> · $1 million humanitarian assistance · through international agencies",
+"<span class=\"aid-tag pledge\">Pledge</span> <b>IFRC</b> · initial CHF 1 million ($1.24 million) released; emergency appeal CHF 25 million. <a href=\"https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods\" target=\"_blank\" rel=\"noopener\">IFRC</a>"
 ],
 "aid": [
 "<span class=\"aid-tag sent\">Sent</span> <b>India · second flight 37.5 tonnes</b> (in-kind). Indian External Affairs Minister S. Jaishankar (X, ~11:25 · 11 Bhadra): second flight has taken off; <strong>37.5 tonnes</strong> of HADR material, medicines and food packets. Continuous contact with Nepal. Handover at Tribhuvan not confirmed. Source: <a href=\"https://x.com/DrSJaishankar/status/2092849615360114978\" target=\"_blank\" rel=\"noopener\">@DrSJaishankar</a>.",

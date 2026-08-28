@@ -862,6 +862,24 @@ section{padding:22px 0}
 .aid-tag.offer{background:#fef3c7;color:#92400e}
 .aid-tag.sent{background:#d1fae5;color:#065f46}
 .aid-tag.got{background:#dbeafe;color:#1e3a8a}
+
+.aid-tag.pledge{background:#fef3c7;color:#92400e}
+.pledge-box{
+  background:linear-gradient(180deg,#fffbeb,#fff 50%);
+  border:1px solid #fcd34d;border-radius:18px;
+  padding:16px 18px 14px;margin:0 0 16px;box-shadow:var(--shadow);
+}
+.pledge-box h3{margin:0 0 8px;font-size:18px;font-weight:800;color:#92400e}
+.pledge-list{list-style:none;margin:0;padding:0}
+.pledge-list li{
+  padding:8px 0;border-bottom:1px solid #fde68a;
+  font-size:16px;font-weight:600;line-height:1.5;
+}
+.pledge-list li:last-child{border-bottom:0}
+.pledge-list b{font-weight:800}
+.aid-snap .cash-sub.hero-aid-pledge{color:#0e7490;margin-top:6px}
+
+
 .card ul{margin:8px 0 0;padding-left:1.15rem}
 .card li{margin:7px 0}
 .note{
@@ -1558,6 +1576,7 @@ a.portal-fab-donate{
             </span>
           </span>
           <span class="cash-sub" data-i18n="hero_aid_sub">भारत दुई उडान · IFRC रेडक्रस · पठाइएको</span>
+          <span class="cash-sub hero-aid-pledge" data-i18n="hero_aid_pledge">घोषणा: युके £५ मि. · विश्व बैंक २५ अर्ब · अमेरिका $५०० हजार · OCHA $३.२ मि. · कोरिया $१ मि. · IFRC CHF २५ मि.</span>
         </a>
       </div>
       <div class="ov-panel">
@@ -4394,6 +4413,18 @@ a.portal-fab-donate{
           </div>
         </div>
       </article>
+      <article class="pledge-box" id="donate-pledges">
+        <h3 data-i18n="aid_pledge_h">वैदेशिक घोषणा</h3>
+        <p class="cash-note" data-i18n="aid_pledge_lead">देश/निकाय, रकम, माध्यम।</p>
+        <ul class="pledge-list" data-i18n-list="aid_pledge">
+      <li><span class="aid-tag pledge">घोषणा</span> <b>युनाइटेड किंगडम</b> · £५ मिलियन ($६.७९ मिलियन) · FCDO · तत्काल मानवीय सहयोग</li>
+      <li><span class="aid-tag pledge">घोषणा</span> <b>संयुक्त राज्य अमेरिका</b> · $५००,००० · विदेश मन्त्रालय र Catholic Relief Services (आपत्कालीन आश्रय + पानी/स्वच्छता)। विपद् सल्लाहकार क्षेत्रमा खटिएको।</li>
+      <li><span class="aid-tag pledge">घोषणा</span> <b>विश्व बैंक</b> · आपत्कालीन प्याकेज २५ अर्ब रुपैयाँ ($१६३.५५ मिलियन)</li>
+      <li><span class="aid-tag pledge">घोषणा</span> <b>संयुक्त राष्ट्र OCHA</b> · $३.२ मिलियन · CERF · अग्रिम र जारी सामुदायिक काम</li>
+      <li><span class="aid-tag pledge">घोषणा</span> <b>दक्षिण कोरिया</b> · $१ मिलियन मानवीय सहयोग · अन्तर्राष्ट्रिय निकायमार्फत</li>
+      <li><span class="aid-tag pledge">घोषणा</span> <b>IFRC</b> · प्रारम्भिक CHF १ मिलियन ($१.२४ मिलियन) जारी; आपत्कालीन अपील CHF २५ मिलियन। <a href="https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods" target="_blank" rel="noopener">IFRC</a></li>
+        </ul>
+      </article>
       <article class="fund">
         <h3 data-i18n="fund_disaster">प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</h3>
     <table>
@@ -4816,6 +4847,18 @@ a.portal-fab-donate{
       </div>
     </div>
   </article>
+  <article class="pledge-box" id="aid-pledges">
+    <h3 data-i18n="aid_pledge_h">वैदेशिक घोषणा</h3>
+    <p class="cash-note" data-i18n="aid_pledge_lead">देश/निकाय, रकम, माध्यम।</p>
+    <ul class="pledge-list" data-i18n-list="aid_pledge">
+      <li><span class="aid-tag pledge">घोषणा</span> <b>युनाइटेड किंगडम</b> · £५ मिलियन ($६.७९ मिलियन) · FCDO · तत्काल मानवीय सहयोग</li>
+      <li><span class="aid-tag pledge">घोषणा</span> <b>संयुक्त राज्य अमेरिका</b> · $५००,००० · विदेश मन्त्रालय र Catholic Relief Services (आपत्कालीन आश्रय + पानी/स्वच्छता)। विपद् सल्लाहकार क्षेत्रमा खटिएको।</li>
+      <li><span class="aid-tag pledge">घोषणा</span> <b>विश्व बैंक</b> · आपत्कालीन प्याकेज २५ अर्ब रुपैयाँ ($१६३.५५ मिलियन)</li>
+      <li><span class="aid-tag pledge">घोषणा</span> <b>संयुक्त राष्ट्र OCHA</b> · $३.२ मिलियन · CERF · अग्रिम र जारी सामुदायिक काम</li>
+      <li><span class="aid-tag pledge">घोषणा</span> <b>दक्षिण कोरिया</b> · $१ मिलियन मानवीय सहयोग · अन्तर्राष्ट्रिय निकायमार्फत</li>
+      <li><span class="aid-tag pledge">घोषणा</span> <b>IFRC</b> · प्रारम्भिक CHF १ मिलियन ($१.२४ मिलियन) जारी; आपत्कालीन अपील CHF २५ मिलियन। <a href="https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods" target="_blank" rel="noopener">IFRC</a></li>
+    </ul>
+  </article>
   <div class="pager" data-pager="aid">
     <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
     <div class="pboxes pager-pages"></div>
@@ -5065,6 +5108,12 @@ a.portal-fab-donate{
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
             <article class="log-item now">
+      <p class="when">~१६:४८</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>वैदेशिक घोषणा (युके, अमेरिका, विश्व बैंक, OCHA, कोरिया, IFRC)</h3>
+      <p>वैदेशिक सहयोग घोषणा। <strong>युके</strong> £५ मिलियन ($६.७९ मिलियन) FCDO · <strong>अमेरिका</strong> $५००,००० विदेश मन्त्रालय/CRS (आश्रय, पानी/स्वच्छता) + विपद् सल्लाहकार · <strong>विश्व बैंक</strong> २५ अर्ब रुपैयाँ ($१६३.५५ मिलियन) · <strong>OCHA</strong> $३.२ मिलियन CERF · <strong>दक्षिण कोरिया</strong> $१ मिलियन अन्तर्राष्ट्रिय निकायमार्फत · <strong>IFRC</strong> CHF १ मिलियन ($१.२४ मिलियन) जारी, अपील CHF २५ मिलियन। <a href="https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods" target="_blank" rel="noopener">IFRC</a> · <a href="#aid">वैदेशिक सहयोग</a>।</p>
+    </article>
+            <article class="log-item">
       <p class="when">~१६:१५</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>PMDRF १ अर्ब ९१ करोड / अर्थ मन्त्रालय</h3>
@@ -6413,8 +6462,8 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1618"></script>
-<script>window.PAGE_VER="2026-08-28-1618";</script>
+<script src="i18n.js?v=2026-08-28-1648"></script>
+<script>window.PAGE_VER="2026-08-28-1648";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
