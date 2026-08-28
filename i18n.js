@@ -43,7 +43,7 @@ window.I18N = {
 "hero_aid_h": "वैदेशिक सहयोग",
 "hero_aid_unit": "टन",
 "hero_aid_sub": "भारत दुई उडान · IFRC रेडक्रस · पठाइएको",
-"hero_aid_pledge": "घोषणा: युके £५ मि. · विश्व बैंक २५ अर्ब · अमेरिका $५०० हजार · OCHA $३.२ मि. · कोरिया $१ मि. · IFRC CHF २५ मि.",
+"hero_aid_pledge": "घोषणा: युके £५ मि. · विश्व बैंक २५ अर्ब · अमेरिका $५०० हजार · OCHA $३.२ मि. · कोरिया $१ मि. · IFRC CHF २५ मि. · ADB $५ मि.",
 "aid_pledge_h": "वैदेशिक घोषणा",
 "aid_pledge_lead": "देश/निकाय, रकम, माध्यम।",
 "aid_pledge_tag": "घोषणा",
@@ -716,7 +716,7 @@ window.I18N = {
 "hero_aid_h": "Foreign aid",
 "hero_aid_unit": "tonnes",
 "hero_aid_sub": "India two flights · IFRC Red Cross · sent",
-"hero_aid_pledge": "Pledges: UK £5m · World Bank Rs 25bn · US $500k · OCHA $3.2m · Korea $1m · IFRC CHF 25m",
+"hero_aid_pledge": "Pledges: UK £5m · World Bank Rs 25bn · US $500k · OCHA $3.2m · Korea $1m · IFRC CHF 25m · ADB $5m",
 "aid_pledge_h": "Foreign-aid pledges",
 "aid_pledge_lead": "Country/organisation, amount, channel.",
 "aid_pledge_tag": "Pledge",
@@ -1585,6 +1585,10 @@ window.I18N_LISTS = {
 ],
 "hist": [
 {
+"h": "ADB $5 million emergency grant (APDRF)",
+"p": "ADB $5 million emergency grant (APDRF) · pledge · not arrived in the Prime Minister’s fund. Kanda: when disaster strikes, ADB moves. <a href=\"https://www.adb.org/news/adb-responds-immediately-nepal-floods-5-million-grant\" target=\"_blank\" rel=\"noopener\">ADB</a> · <a href=\"#aid\">Foreign aid</a>."
+},
+{
 "h": "Army + private heli rescued name list 654",
 "p": "Army + private heli rescued name list <strong>654</strong> (10–12 Bhadra; men 421 · women 231). SitRep 1976 / NDRRMA 3742 unchanged. <a href=\"#family\">Missing / found</a>."
 },
@@ -2134,7 +2138,9 @@ window.I18N_LISTS = {
 "<span class=\"aid-tag pledge\">Pledge</span> <b>World Bank</b> · emergency package Rs 25 arab ($163.55 million)",
 "<span class=\"aid-tag pledge\">Pledge</span> <b>United Nations OCHA</b> · $3.2 million · CERF · anticipatory and ongoing community actions",
 "<span class=\"aid-tag pledge\">Pledge</span> <b>South Korea</b> · $1 million humanitarian assistance · through international agencies",
-"<span class=\"aid-tag pledge\">Pledge</span> <b>IFRC</b> · initial CHF 1 million ($1.24 million) released; emergency appeal CHF 25 million. <a href=\"https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods\" target=\"_blank\" rel=\"noopener\">IFRC</a>"
+"<span class=\"aid-tag pledge\">Pledge</span> <b>IFRC</b> · initial CHF 1 million ($1.24 million) released; emergency appeal CHF 25 million. <a href=\"https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods\" target=\"_blank\" rel=\"noopener\">IFRC</a>",
+"<span class=\"aid-tag pledge\">Pledge</span> <b>Asian Development Bank (ADB)</b> · $5 million · Asia Pacific Disaster Response Fund · rescue/relief (search equipment, medicine, food, water, shelter, sanitation). <a href=\"https://www.adb.org/news/adb-responds-immediately-nepal-floods-5-million-grant\" target=\"_blank\" rel=\"noopener\">ADB</a>",
+"<span class=\"aid-tag offer\">Processing</span> <b>Asian Development Bank (ADB)</b> · up to $150,000 · post-disaster needs assessment / recovery planning · not approved cash."
 ],
 "aid": [
 "<span class=\"aid-tag sent\">Sent</span> <b>India · second flight 37.5 tonnes</b> (in-kind). Indian External Affairs Minister S. Jaishankar (X, ~11:25 · 11 Bhadra): second flight has taken off; <strong>37.5 tonnes</strong> of HADR material, medicines and food packets. Continuous contact with Nepal. Handover at Tribhuvan not confirmed. Source: <a href=\"https://x.com/DrSJaishankar/status/2092849615360114978\" target=\"_blank\" rel=\"noopener\">@DrSJaishankar</a>.",
