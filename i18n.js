@@ -72,6 +72,9 @@ window.I18N = {
 "kpi_deploy": "परिचालित",
 "d_heli": "हेलि",
 "d_land": "स्थल",
+"d_army_am": "सेना · आज बिहान",
+"d_army_heli": "सेना हेलि",
+"d_army_land": "सेना जमिन",
 "d_foreign": "विदेशी",
 "d_nrn": "एनआरएन",
 "d_makwanpur": "मकवानपुर",
@@ -100,7 +103,7 @@ window.I18N = {
 "ov_miss_cap": "NDRRMA सम्पर्कविहीन · जम्मा ९७७",
 "ov_miss_note": "फारम, हेलो सरकार, मधेश र पर्यटक ६६८ यो ९७७ मा छैनन्।",
 "ov_air_cap": "SitRep #०६ · हेलि उद्धार १९७६",
-"ov_air_note": "SitRep-6 हेलि १९७६ / नागरिक १५५२ यथावत्। हेलिकप्टर मैदानमा १४। अघिल्लो SitRep-6 को १५ (सेना ६ + निजी ९) इतिहास।",
+"ov_air_note": "SitRep-6 हेलि १९७६ / नागरिक १५५२ यथावत्। हेलिकप्टर मैदानमा १४। सेना ०९:०० हेलि ७२४ (विदेशी १०१) + जमिन २०० — SitRep जम्मा होइन। अघिल्लो सेना १५:३० हेलि ६०२ इतिहास।",
 "ov_deploy_cap": "सुरक्षा परिचालन · जम्मा १३,२४८+",
 "ov_deploy_note": "आधिकारिक परिचालन अंक। सुरक्षा जम्मा सेना+सशस्त्र+प्रहरी = १३,२४८+। मेडिकल २००+ सुरक्षामा जोडिएको छैन। हेलि १४ विमान हो, उद्धार १९७६ होइन। अघिल्लो SitRep-6 परिचालित १३,२९५ इतिहास।",
 "ov_warn": "नदी किनार नजानुहोस्।",
@@ -657,6 +660,9 @@ window.I18N = {
 "kpi_deploy": "Deployed",
 "d_heli": "Heli",
 "d_land": "Land",
+"d_army_am": "Army · this morning",
+"d_army_heli": "Army heli",
+"d_army_land": "Army land",
 "d_foreign": "Foreign",
 "d_nrn": "NRN",
 "d_makwanpur": "Makwanpur",
@@ -685,7 +691,7 @@ window.I18N = {
 "ov_miss_cap": "NDRRMA uncontacted · total 977",
 "ov_miss_note": "Form, Hello Sarkar, Madhesh and tourist 668 are not inside this 977.",
 "ov_air_cap": "SitRep #06 · heli rescue 1976",
-"ov_air_note": "SitRep-6 heli 1976 / citizens 1552 unchanged. Helicopters in the field 14. Previous SitRep-6 figure of 15 (Army 6 + private 9) is history.",
+"ov_air_note": "SitRep-6 heli 1976 / citizens 1552 unchanged. Helicopters in the field 14. Army 09:00 heli 724 (foreign 101) + land 200 — not the SitRep total. Previous Army 15:30 heli 602 is history.",
 "ov_deploy_cap": "Security deployed · total 13,248+",
 "ov_deploy_note": "Official deployment figures. Security total Army+APF+Police = 13,248+. Medical 200+ is not mixed into the security total. The 14 are aircraft, not the 1976 people rescued. Previous SitRep-6 deployed 13,295 is history.",
 "ov_warn": "Stay away from the river.",
@@ -1210,7 +1216,9 @@ window.I18N_LISTS = {
 "Heli total <strong>1976</strong>",
 "Helicopters in the field <strong>14</strong>",
 "Citizens rescued <strong>1,552</strong>",
-"Earlier Army 15:30 heli <strong>602</strong> + land 200",
+"Army · this morning total <strong>924</strong>",
+"Army heli <strong>724</strong> · foreign 101",
+"Army land <strong>200</strong>",
 "SitRep-3 air <strong>116</strong> · Army 88 + private 28",
 "Total <strong>26</strong>",
 "8 banks · branches washed away in <strong>3</strong> places",
@@ -1384,6 +1392,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Army 09:00 — heli 724 (foreign 101), land 200",
+"p": "Army 09:00 — heli 724 (foreign 101), land 200. Source: Nepal Army. SitRep-6 heli 1976 / citizens 1552 unchanged — this is the Army this-morning figure, not the official SitRep total. Previous Army 15:30 heli 602 is history."
+},
 {
 "h": "Rescue list update (NDRRMA) — 529 names",
 "p": "NDRRMA public portal rescue list <strong>528</strong> (Nepali 490 · foreign 38). Timure 51 · Syaphrubesi 44 · Sindhupalchok 8. + unnamed — table <strong>529</strong>. Replaces the previous gapped DAO 450, not added together. Source: <a href=\"https://ndrrma.gov.np/np/rescue\" target=\"_blank\" rel=\"noopener\">ndrrma.gov.np/np/rescue</a> · <a href=\"#dao-res\">list</a>. Not removed from the missing wall. Deployed card now shows Army/APF/Police/medical/heli labels."
@@ -1855,7 +1867,7 @@ window.I18N_LISTS = {
 "<b>Security</b> — Security uncontacted total <strong>86</strong> — Army 45, Police 28, Armed Police 13. Deployed total <strong>13,248+</strong> — Army 5,200+, Armed Police 3,700+, Police 4,348. Medical teams <strong>200+</strong> separate. Previous SitRep-6 deployed 13,295 (Police 7,250, Army 4,200, Armed Police 1,845) is history. Not deaths.",
 "<b>Customs</b> — permanent 36, in contact 25, still searched 11, vehicles 300+ — chief Dhungana.",
 "<b>Timure</b> — homes 100+ and waiting 300+ — ward member Ghale. Bazaar 5–7 — DIG Regmi.",
-"<b>Heli rescue 1976</b> — NDRRMA SitRep-6: helicopter rescues <strong>1976</strong>. Helicopters in the field <strong>14</strong>. Citizens rescued <strong>1,552</strong> separate. Previous SitRep-6 helicopters 15 (Army 6 + private 9) is history.",
+"<b>Heli rescue 1976</b> — NDRRMA SitRep-6: helicopter rescues <strong>1976</strong>. Helicopters in the field <strong>14</strong>. Citizens rescued <strong>1,552</strong> separate. Army 09:00, 12 Bhadra: heli <strong>724</strong> (foreign 101) + land 200 — not the SitRep total. Previous Army 15:30 heli 602 and SitRep-6 helicopters 15 (Army 6 + private 9) are history.",
 "<b>Bank staff uncontacted 26</b> — Nepal Bankers Association 16:25. Eight banks: Prabhu, Himalayan, Global IME, Sanima, Nepal Investment Mega, Laxmi Sunrise, NMB, Machhapuchhre. Timure, Syaphrubesi, Betrawati branches washed away (3 places). Not deaths.",
 "<b>Inmates safe 1,000</b> — Nuwakot Central Jail chief Bheshbahadur Kunwar (Onlinekhabar). Bidur-3 Khampa camp; admin building and police unit damaged. About one thousand.",
 "<b>Infrastructure</b> — NDRRMA SitRep-3 (22:00): motorable bridges <strong>35</strong> + suspension <strong>45</strong> = bridges <strong>80</strong>; paved road <strong>40 km</strong> fully destroyed — matches SitRep-2. Power 7 / 276 MW — NEA. Towers 7 — Nepal Telecom.",
@@ -1957,6 +1969,7 @@ window.I18N_LISTS = {
 "Uttargaya-2 ward chair Tukuprasad Subedi: damage cannot be accounted for; hydropower hub washed away, rescue could not go, landslides too; flood entered the municipal office compound and vehicles washed away."
 ],
 "rescue": [
+"Nepal Army (09:00, 12 Bhadra / this morning): helicopter rescue <strong>724</strong> (foreign <strong>101</strong>) and land <strong>200</strong>. Army total <strong>924</strong> — not SitRep-6 heli 1976 / citizens 1552. Previous Army 15:30 heli 602 is history. Source: Nepal Army.",
 "Official deployment: Nepal Army <strong>5,200+</strong>, Armed Police <strong>3,700+</strong>, Nepal Police <strong>4,348</strong>, medical teams <strong>200+</strong>, helicopters in the field <strong>14</strong>. Security total <strong>13,248+</strong> (Army+APF+Police). SitRep-6 heli rescue 1976 / citizens 1552 unchanged — 14 is aircraft, not people rescued. Previous SitRep-6 deployed 13,295 is history.",
 "Nepal Army (this morning, 11 Bhadra): helicopter rescue <strong>123</strong>. Timure <strong>95</strong> safe (foreign <strong>8</strong> — Kathmandu; others Dhunche). Haku hydropower tunnel <strong>7</strong> alive; rescue ongoing in <strong>3</strong> other tunnels. Timure Indian tourists <strong>21</strong> alive, being brought to Kathmandu.",
 "NDRRMA SitRep-3 (22:00): air rescue <strong>116</strong> — Army <strong>88</strong>, private helis <strong>28</strong>. Ground rescue <strong>93</strong> — Rasuwa 43, Nuwakot 47, Dhading 3. Previous SitRep-2 ground 80 (Rasuwa 30).",
