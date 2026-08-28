@@ -205,38 +205,6 @@ img{max-width:100%;display:block}
   background:var(--crimson-soft);padding:6px 10px;border-radius:10px;
 }
 .top-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;width:100%}
-.notify-slot{position:relative;flex:none;z-index:56}
-.notify-btn{
-  font:inherit;cursor:pointer;border:0;
-  width:36px;height:36px;border-radius:50%;padding:0;
-  background:var(--crimson);color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 2px 8px rgba(127,29,29,.28);
-  border:1.5px solid #fff;
-  flex:none;touch-action:manipulation;
-  -webkit-tap-highlight-color:transparent;user-select:none;
-}
-.notify-btn svg{flex:none;display:block;pointer-events:none;width:18px;height:18px}
-.notify-btn .bell-off{display:none}
-.notify-btn.off .bell-on,.notify-btn.denied .bell-on{display:none}
-.notify-btn.off .bell-off,.notify-btn.denied .bell-off{display:block}
-.notify-btn.on{background:#166534;box-shadow:0 2px 8px rgba(22,101,52,.28)}
-.notify-btn.off,.notify-btn.denied{background:#64748b;box-shadow:0 2px 8px rgba(100,116,139,.28)}
-.notify-btn.denied{cursor:pointer}
-.notify-btn:disabled{opacity:.7;cursor:default}
-.notify-btn .notify-label{
-  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
-  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
-}
-.notify-hint{
-  display:none;position:absolute;right:0;bottom:calc(100% + 8px);left:auto;top:auto;margin:0;
-  width:min(240px,calc(100vw - 24px));
-  background:#0f172a;color:#fff;font-size:13px;font-weight:700;line-height:1.4;
-  padding:10px 12px;border-radius:12px;text-align:left;
-  box-shadow:0 10px 28px rgba(15,23,42,.28);
-}
-.notify-hint.show{display:block}
-
 .plants{width:100%;border-collapse:collapse;font-size:16px;margin:8px 0 4px}
 .plants th,.plants td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
 .plants th{background:#f8fafc;font-size:12px;font-weight:800;color:var(--muted)}
@@ -1064,7 +1032,6 @@ footer .foot-contact a:hover{text-decoration:underline}
   display:flex;flex-direction:column;align-items:flex-end;gap:10px;
   font-family:inherit;
 }
-.fab-row{display:flex;flex-direction:row;align-items:flex-end;gap:10px}
 .portal-fab{position:relative}
 .portal-fab details{position:relative}
 .portal-fab summary{
@@ -1097,18 +1064,6 @@ footer .foot-contact a:hover{text-decoration:underline}
 .portal-panel a.found{background:var(--forest);color:#fff}
 .portal-panel .note{margin:8px 0 0;font-size:12px;font-weight:700;color:var(--muted)}
 
-.top-btn{
-  font:inherit;cursor:pointer;border:0;
-  width:36px;height:36px;border-radius:50%;padding:0;
-  background:#0f172a;color:#fff;
-  display:none;align-items:center;justify-content:center;
-  box-shadow:0 2px 8px rgba(15,23,42,.28);
-  border:1.5px solid #fff;
-  flex:none;touch-action:manipulation;
-  -webkit-tap-highlight-color:transparent;user-select:none;
-}
-.top-btn.show{display:flex}
-.top-btn svg{flex:none;display:block;pointer-events:none;width:18px;height:18px}
 @media (max-width:760px){
   .fab-dock{right:20px;bottom:max(20px, env(safe-area-inset-bottom, 0px))}
   .portal-fab summary{width:48px;height:48px}
@@ -5045,19 +5000,7 @@ footer .foot-contact a:hover{text-decoration:underline}
 </main>
 
 <div class="fab-dock">
-  <button type="button" class="top-btn" id="top-btn" aria-label="माथि जानुहोस्" title="माथि जानुहोस्" data-i18n-aria="to_top" data-i18n-title="to_top">
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4.5 4.5 12h5v8h5v-8h5z"/></svg>
-  </button>
-  <div class="fab-row">
-  <div class="notify-slot">
-    <p class="notify-hint" id="notify-hint"></p>
-    <button type="button" class="notify-btn" id="notify-btn" aria-pressed="false" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट" data-i18n-aria="notify_aria_off" data-i18n-title="notify_title">
-      <svg class="bell-on" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zm8-3H4v-1.2l2-2.1V11c0-3.07 1.63-5.64 4.5-6.32V4a1.5 1.5 0 0 1 3 0v.68C16.37 5.36 18 7.92 18 11v4.7l2 2.1V19z"/></svg>
-      <svg class="bell-off" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22zM3.28 2 2 3.27l2.74 2.74A7.1 7.1 0 0 0 4 11v4.7L2 17.8V19h13.73L20.73 24 22 22.73 3.28 2zM18 16.27V11c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68c-.5.12-.96.3-1.39.54L18 16.27z"/></svg>
-      <span class="notify-label" data-i18n="notify_label">अपडेट</span>
-    </button>
-  </div>
-  <div class="portal-fab">
+<div class="portal-fab">
   <details id="portal-contact">
     <summary aria-label="सम्पर्क · WhatsApp र इमेल" data-i18n-aria="portal_aria">
       <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
@@ -5070,7 +5013,6 @@ footer .foot-contact a:hover{text-decoration:underline}
       <a class="mail" href="mailto:neerajbhusal@gmail.com?subject=Rasuwa%20flood%20bulletin" data-i18n="portal_mail">इमेल</a>
     </div>
   </details>
-  </div>
   </div>
 </div>
 
@@ -5094,8 +5036,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-0832"></script>
-<script>window.PAGE_VER="2026-08-28-0832";</script>
+<script src="i18n.js?v=2026-08-28-0838"></script>
+<script>window.PAGE_VER="2026-08-28-0838";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -5267,152 +5209,6 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     });
   });
 });
-
-(function(){
-  var btn = document.getElementById("notify-btn");
-  if (!btn) return;
-  var hint = document.getElementById("notify-hint");
-  var KEY = "rasuwa-notify";
-  var pollTimer = null;
-  var visBound = false;
-
-  function wantedOn() {
-    try { return localStorage.getItem(KEY) !== "0"; } catch (e) { return true; }
-  }
-  function setWanted(on) {
-    try { localStorage.setItem(KEY, on ? "1" : "0"); } catch (e) {}
-  }
-  function canApi() {
-    return ("Notification" in window) && ("serviceWorker" in navigator);
-  }
-  function standalone() {
-    return (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) || window.navigator.standalone === true;
-  }
-  function showHint(text) {
-    if (!hint) return;
-    if (!text) { hint.textContent = ""; hint.classList.remove("show"); return; }
-    hint.textContent = text;
-    hint.classList.add("show");
-  }
-  function setUi(text, cls, aria, pressed) {
-    var span = btn.querySelector(".notify-label");
-    if (span) span.textContent = text;
-    btn.className = "notify-btn" + (cls ? " " + cls : "");
-    btn.setAttribute("aria-label", aria);
-    btn.setAttribute("aria-pressed", pressed ? "true" : "false");
-    btn.title = aria;
-    btn.disabled = false;
-  }
-  function tt(k){ return window.t ? t(k) : k; }
-  function paint() {
-    if (!canApi()) {
-      setUi(tt("notify_off_label"), "off", tt("notify_unsupported"), false);
-      return "unsupported";
-    }
-    var p = Notification.permission;
-    if (p === "denied") {
-      setUi(tt("notify_off_label"), "denied", tt("notify_denied"), false);
-      return "denied";
-    }
-    if (p === "granted" && wantedOn()) {
-      setUi(tt("notify_on_label"), "on", tt("notify_aria_on"), true);
-      return "on";
-    }
-    if (p === "granted") {
-      setUi(tt("notify_off_label"), "off", tt("notify_aria_off"), false);
-      return "off";
-    }
-    setUi(tt("notify_label"), "off", tt("notify_aria_off"), false);
-    return "default";
-  }
-  function toWorker(msg) {
-    if (!navigator.serviceWorker) return;
-    function send(w) { if (w) w.postMessage(msg); }
-    if (navigator.serviceWorker.controller) send(navigator.serviceWorker.controller);
-    navigator.serviceWorker.ready.then(function(reg){ send(reg.active); }).catch(function(){});
-  }
-  function ping(welcome) { toWorker({ type: "check", welcome: !!welcome }); }
-  function startPoll() {
-    if (pollTimer) return;
-    pollTimer = setInterval(function(){ ping(false); }, 60000);
-    if (!visBound) {
-      visBound = true;
-      document.addEventListener("visibilitychange", function(){
-        if (!document.hidden && wantedOn() && Notification.permission === "granted") ping(false);
-      });
-    }
-    navigator.serviceWorker && navigator.serviceWorker.ready.then(function(reg){
-      if (reg.periodicSync) {
-        reg.periodicSync.register("rasuwa-updates", { minInterval: 5 * 60 * 1000 }).catch(function(){});
-      }
-    });
-  }
-  function stopPoll() {
-    if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
-    navigator.serviceWorker && navigator.serviceWorker.ready.then(function(reg){
-      if (reg.periodicSync) {
-        reg.periodicSync.unregister("rasuwa-updates").catch(function(){});
-      }
-    });
-  }
-  function turnOn() {
-    setWanted(true);
-    toWorker({ type: "unmute" });
-    startPoll();
-    ping(true);
-    paint();
-    showHint("");
-  }
-  function turnOff() {
-    setWanted(false);
-    toWorker({ type: "mute" });
-    stopPoll();
-    paint();
-    showHint("");
-  }
-
-  if (navigator.serviceWorker) {
-    navigator.serviceWorker.register("sw.js", { scope: "./" }).then(function(){
-      if (canApi() && Notification.permission === "granted" && wantedOn()) {
-        toWorker({ type: "unmute" });
-        startPoll();
-      } else {
-        toWorker({ type: "mute" });
-      }
-      paint();
-    }).catch(function(){ paint(); });
-  }
-  paint();
-
-  btn.addEventListener("click", function(ev){
-    ev.preventDefault();
-    ev.stopPropagation();
-    if (!canApi()) {
-      showHint(tt("notify_hint_ua"));
-      return;
-    }
-    var p = Notification.permission;
-    if (p === "denied") {
-      showHint(tt("notify_hint_denied"));
-      return;
-    }
-    if (p === "granted") {
-      if (wantedOn()) turnOff();
-      else turnOn();
-      return;
-    }
-    var req = Notification.requestPermission();
-    Promise.resolve(req).then(function(res){
-      paint();
-      if (res === "granted") turnOn();
-      else if (res === "denied") showHint(tt("notify_hint_blocked"));
-      else if (!standalone()) showHint(tt("notify_hint_ios"));
-    }).catch(function(){
-      showHint(tt("notify_hint_fail"));
-    });
-  }, { passive: false });
-  if (window.__addLangHook) window.__addLangHook(paint);
-})();
 
 (function(){
   function bindPager(pagerEl, items, pageSize) {
@@ -6020,19 +5816,6 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       applySearch();
     });
   }).catch(function(){});
-})();
-
-(function(){
-  var b = document.getElementById("top-btn");
-  if (!b) return;
-  function paint(){
-    b.classList.toggle("show", (window.scrollY || document.documentElement.scrollTop) > 280);
-  }
-  window.addEventListener("scroll", paint, {passive:true});
-  paint();
-  b.addEventListener("click", function(){
-    window.scrollTo({top:0, behavior:"smooth"});
-  });
 })();
 
 (function(){
