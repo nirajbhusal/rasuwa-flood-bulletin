@@ -1501,6 +1501,7 @@ a.portal-fab-donate{
     <a href="#trishuli1-res" data-i18n="nav_t1_res">त्रिशूली-१</a>
     <a href="#army-heli-res" data-i18n="nav_army_heli_res">सेना/निजी हेलि</a>
     <a href="#foreign-res" data-i18n="nav_foreign_res">उद्धार विदेशी</a>
+    <a href="#india-cross" data-i18n="nav_india_cross">भारतीय · चीनबाट</a>
     <a href="#heli-ktm" data-i18n="nav_heli_ktm">काठमाडौं उद्धार</a>
     <a href="#donate" data-i18n="nav_donate">राहत कोष</a>
     <a href="#map" data-i18n="nav_map">नक्सा</a>
@@ -1704,6 +1705,7 @@ a.portal-fab-donate{
           <div class="ibar-row"><span data-i18n="d_heli_flights">हेलि उडान</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९९</em></div>
           <div class="ibar-row"><span data-i18n="d_army_priv_heli">उद्धार · सेना/निजी हेलि</span><b class="ibar"><i style="width:100%"></i></b><em class="num">६५४</em></div>
           <p class="ov-note" data-i18n="ov_air_foreign_extra">उद्धार · विदेशी रसुवा १५२ (भारत ९८ · चीन २३ · कोरिया १९ · जर्मनी ४ · अमेरिका २ · इटाली २ · ओमान १ · टर्की १ · स्विट्जरल्यान्ड १ · रुस १) — NDRRMA विदेशी १२९ यथावत्।</p>
+          <p class="ov-note" data-i18n="ov_india_cross_extra">भारतीय · चीनबाट नेपाल प्रवेश १४९ — रसुवा विदेशी १५२ / भारत ९८ यथावत्। भेटिएको जम्मामा जोडिएको छैन।</p>
           <p class="ov-note" data-i18n="ov_air_note">SitRep-6 हेलि १९७६ / नागरिक १५५२ यथावत्। हेलिकप्टर मैदानमा १४ — NDRRMA हेलि १६ लेबल मात्र, १४ को सट्टा होइन। NDRRMA १९:०० उद्धार ४४५१ (सुरुङ्ग १९१ + आज हवाई ५१७ सहित · विदेशी १२९) · हेलि उडान ९९ अलग — जोडिएको छैन। अघिल्लो NDRRMA १५:०० उद्धार ३७४२ / उडान ७८ इतिहास। सेना ०९:०० हेलि ७२४ (विदेशी १०१) + जमिन २०० — SitRep जम्मा होइन। अघिल्लो सेना १५:३० हेलि ६०२ इतिहास। सेना/निजी हेलि नाम-सूची ६५४ (१० भदौ ४०४ · ११ भदौ १६६ · १२ भदौ ८४; पुरुष ४२१ · महिला २३१) अलग — SitRep / NDRRMA / सेना ९२४ मा जोडिएको छैन। ४४५१ वा ६५४ भेटिएको जम्मामा होइन।</p>
         </div>
         <div class="ov-pane" data-panel="deploy">
@@ -1925,7 +1927,7 @@ a.portal-fab-donate{
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rd">उद्धार र उपचार सूची</h2></div>
   <article class="cash-ig rd-ig" id="rd">
     <h3 data-i18n="rd_h">प्रकाशित नाम-सूची</h3>
-    <p class="cash-lead" data-i18n="rd_lead">काठमाडौं अस्पताल, नुवाकोट, सूर्यगढी, रसुवा/टिमुरे, NDRRMA उद्धार, भारतीय, त्रिशूली-१, सेना/निजी हेलि, उद्धार विदेशी र काठमाडौं हेलि — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन।</p>
+    <p class="cash-lead" data-i18n="rd_lead">काठमाडौं अस्पताल, नुवाकोट, सूर्यगढी, रसुवा/टिमुरे, NDRRMA उद्धार, भारतीय, त्रिशूली-१, सेना/निजी हेलि, उद्धार विदेशी, भारतीय · चीनबाट र काठमाडौं हेलि — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन।</p>
     <div class="cash-kpis rd-kpis" role="tablist" aria-label="उद्धार र उपचार">
       <button type="button" class="cash-kpi" data-rd="treat" aria-selected="false">
         <span class="kpi-k" data-i18n="rd_treat_k">घाइते काठमाडौं</span>
@@ -1972,6 +1974,11 @@ a.portal-fab-donate{
         <strong class="num">१५२</strong>
         <span class="cash-unit" data-i18n="rd_name_u">जना</span>
       </button>
+      <button type="button" class="cash-kpi" data-rd="indiacross" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_india_cross_k">भारतीय · चीनबाट</span>
+        <strong class="num">१४९</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
+      </button>
       <button type="button" class="cash-kpi" data-rd="heli" aria-selected="false">
         <span class="kpi-k" data-i18n="rd_heli_k">काठमाडौं हेलि</span>
         <strong class="num">११</strong>
@@ -1991,6 +1998,7 @@ a.portal-fab-donate{
           <li><span data-i18n="rd_t1_k">त्रिशूली-१</span><strong><span class="num">६३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_army_heli_k">उद्धार · सेना/निजी हेलि</span><strong><span class="num">६५४</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_foreign_k">उद्धार · विदेशी</span><strong><span class="num">१५२</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="rd_india_cross_k">भारतीय · चीनबाट</span><strong><span class="num">१४९</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_heli_k">काठमाडौं हेलि</span><strong><span class="num">११</span> <span data-i18n="rd_name_u">जना</span></strong></li>
         </ul>
         <p class="cash-note" data-i18n="rd_all_note">आधिकारिक घाइते जम्मा १०१। यी नाम-सूची जोडेर एउटा उद्धार जम्मा बनाइएको छैन।</p>
@@ -2088,6 +2096,14 @@ a.portal-fab-donate{
         <p class="cash-note" data-i18n-html="rd_foreign_note">नाम-सूची <strong>१५२</strong>। ११ भदौ १०४ · १२ भदौ ४८। पुरुष १३३ · महिला १६ · नखुलेको ३। NDRRMA विदेशी १२९ यथावत्। भेटिएको जम्मामा जोडिएको छैन। पर्यटक ६६८ / सम्पर्कविहीन १,९२४ मा मिसाइएको छैन।</p>
         <a class="rd-jump" href="#foreign-res" data-i18n="rd_jump_foreign">सूची हेर्नुहोस् → उद्धार विदेशी</a>
       </div>
+      <div class="cash-pane" data-rd="indiacross">
+        <p class="ov-cap" data-i18n="rd_india_cross_cap">भारतीय · चीनबाट नेपाल प्रवेश · २८ अगस्ट</p>
+        <ul class="cash-list">
+          <li><span data-i18n="rd_india_cross_k">भारतीय · चीनबाट</span><strong><span class="num">१४९</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n-html="rd_india_cross_note">चीन → नेपाल सुरक्षित प्रवेश २८ अगस्ट २०२६। रसुवा उद्धार विदेशी १५२ / भारत ९८ होइन। भेटिएको जम्मामा जोडिएको छैन।</p>
+        <a class="rd-jump" href="#india-cross" data-i18n="rd_jump_india_cross">सूची हेर्नुहोस् → भारतीय · चीनबाट</a>
+      </div>
       <div class="cash-pane" data-rd="heli">
         <p class="ov-cap" data-i18n="rd_heli_cap">काठमाडौं हेलि · ११ भदौ</p>
         <div class="ibar-row"><span data-i18n="rd_prabhu">प्रभु एयर</span><b class="ibar"><i style="width:83%"></i></b><em class="num">५</em></div>
@@ -2102,7 +2118,7 @@ a.portal-fab-donate{
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_family">हराएको / भेटिएको</h2></div>
 <article class="cash-ig fd-ig" id="fd">
     <h3 data-i18n="fd_h">हराएको / भेटिएको</h3>
-    <p class="cash-lead" data-i18n="fd_lead">हराएको र भेटिएको प्रकाशित संख्या। सूचीहरू अलग छन्, नाम जोडिएको छैन। आधिकारिक सम्पर्कविहीन १,९२४ (अघिल्लो ९७७ इतिहास)। ४४५१ वा ६५४ भेटिएको जम्मामा होइन।</p>
+    <p class="cash-lead" data-i18n="fd_lead">हराएको र भेटिएको प्रकाशित संख्या। सूचीहरू अलग छन्, नाम जोडिएको छैन। आधिकारिक सम्पर्कविहीन १,९२४ (अघिल्लो ९७७ इतिहास)। ४४५१ वा ६५४ वा चीनबाट भारतीय १४९ भेटिएको जम्मामा होइन।</p>
     <div class="cash-kpis fd-kpis" role="tablist" aria-label="हराएको र भेटिएको">
       <div class="fd-box">
         <button type="button" class="cash-kpi on" data-fd="miss" aria-selected="true">
@@ -2167,6 +2183,8 @@ a.portal-fab-donate{
         <a class="rd-jump" href="#foreign-res" data-i18n="rd_jump_foreign">सूची हेर्नुहोस् → उद्धार विदेशी</a>
         <p class="cash-note" data-i18n="fd_army_heli_note">उद्धार · सेना/निजी हेलि ६५४ — भेटिएको जम्मामा जोडिएको छैन।</p>
         <p class="cash-note" data-i18n="fd_foreign_note">उद्धार · विदेशी रसुवा १५२ — भेटिएको जम्मामा जोडिएको छैन। NDRRMA विदेशी १२९ यथावत्।</p>
+        <a class="rd-jump" href="#india-cross" data-i18n="rd_jump_india_cross">सूची हेर्नुहोस् → भारतीय · चीनबाट</a>
+        <p class="cash-note" data-i18n="fd_india_cross_note">भारतीय · चीनबाट नेपाल प्रवेश १४९ — भेटिएको जम्मामा जोडिएको छैन। रसुवा विदेशी १५२ / भारत ९८ यथावत्।</p>
       </div>
       <div class="cash-pane" data-fd="dao">
         <a class="rd-jump" href="#dao-res" data-i18n="rd_jump_dao">सूची हेर्नुहोस् → DAO</a>
@@ -4210,6 +4228,199 @@ a.portal-fab-donate{
   </div>
 </section>
 
+<section id="india-cross">
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_india_cross">भारतीय · चीनबाट नेपाल सुरक्षित प्रवेश १४९</h2></div>
+  <div class="card green">
+    <p class="treat-lead" data-i18n-html="india_cross_lead">चीनबाट नेपाल आए आज (28 August 2026 / 12 भदौ) सुरक्षित प्रवेश गरेका भारतीय नागरिक <strong>१४९</strong> जना। यो रसुवा उद्धार विदेशी १५२ (भारत ९८) होइन, नाम जोडिएको छैन। NDRRMA विदेशी १२९ / उद्धार ४,४५१, भारतीय पर्यटक २१, त्रिशूली-१ ६३, हेलि-नाम ६५४ र हराएको सूची अलग — जोडिएको छैन, हराएकोबाट हटाइएको छैन। भेटिएको जम्मामा जोडिएको छैन। पर्यटक ६६८ / सम्पर्कविहीन १,९२४ मा मिसाइएको छैन।</p>
+    <div class="pager" data-pager="india-cross">
+      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
+      <div class="pboxes pager-pages"></div>
+      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
+      <span class="pcount pager-count"></span>
+    </div>
+    <div class="treat-wrap">
+    <table class="plants treat">
+      <thead>
+        <tr>
+          <th data-i18n="sn">सि.नं.</th>
+          <th data-i18n="th_name">नाम थर</th>
+        </tr>
+      </thead>
+      <tbody id="india-cross-body">
+        <tr data-pager="india-cross"><td>१</td><td>Gresha Nikunj Shah</td></tr>
+        <tr data-pager="india-cross"><td>२</td><td>Bindu Paresh Gala</td></tr>
+        <tr data-pager="india-cross"><td>३</td><td>Pallavi Jatin Mehta</td></tr>
+        <tr data-pager="india-cross"><td>४</td><td>Lakshmi Koripalli</td></tr>
+        <tr data-pager="india-cross"><td>५</td><td>Aparna Godbole</td></tr>
+        <tr data-pager="india-cross"><td>६</td><td>Sonal Mehta</td></tr>
+        <tr data-pager="india-cross"><td>७</td><td>Jayshree Ketan Doshi</td></tr>
+        <tr data-pager="india-cross"><td>८</td><td>Dhvani Jignesh Sanghvi</td></tr>
+        <tr data-pager="india-cross"><td>९</td><td>Varsha Mukesh Mehta</td></tr>
+        <tr data-pager="india-cross"><td>१०</td><td>Sejal Anand Kanakia</td></tr>
+        <tr data-pager="india-cross"><td>११</td><td>Nipa Jignesh Chitalia</td></tr>
+        <tr data-pager="india-cross"><td>१२</td><td>Kunjal Mehta</td></tr>
+        <tr data-pager="india-cross"><td>१३</td><td>Jalpa Rakesh Mehta</td></tr>
+        <tr data-pager="india-cross"><td>१४</td><td>Dakshaben Champaklal Sheth</td></tr>
+        <tr data-pager="india-cross"><td>१५</td><td>Vaishali Mihir Kapadia</td></tr>
+        <tr data-pager="india-cross"><td>१६</td><td>Trupti Kirit Shah</td></tr>
+        <tr data-pager="india-cross"><td>१७</td><td>Tejal Bhavesh Mehta</td></tr>
+        <tr data-pager="india-cross"><td>१८</td><td>Rupal Sanjay Doshi</td></tr>
+        <tr data-pager="india-cross"><td>१९</td><td>Priyanka Piyush Mehta</td></tr>
+        <tr data-pager="india-cross"><td>२०</td><td>Nimisha Paresh Trivedi</td></tr>
+        <tr data-pager="india-cross"><td>२१</td><td>Nishita Kirti Rana</td></tr>
+        <tr data-pager="india-cross"><td>२२</td><td>Mamta Godiawala</td></tr>
+        <tr data-pager="india-cross"><td>२३</td><td>Kajal Kavin Mehta</td></tr>
+        <tr data-pager="india-cross"><td>२४</td><td>Jinal Sachin Balkavde</td></tr>
+        <tr data-pager="india-cross"><td>२५</td><td>Alpa Mayank Gordhandas</td></tr>
+        <tr data-pager="india-cross"><td>२६</td><td>Alka Kirti Rana</td></tr>
+        <tr data-pager="india-cross"><td>२७</td><td>Tripti Manoj Doshi</td></tr>
+        <tr data-pager="india-cross"><td>२८</td><td>Sangita Jayesh Valia</td></tr>
+        <tr data-pager="india-cross"><td>२९</td><td>Rekha Bharat Gandhi</td></tr>
+        <tr data-pager="india-cross"><td>३०</td><td>Bhargavi Paresh Valia</td></tr>
+        <tr data-pager="india-cross"><td>३१</td><td>Yashoda Paresh Valia</td></tr>
+        <tr data-pager="india-cross"><td>३२</td><td>Nidhi Manish Salkade</td></tr>
+        <tr data-pager="india-cross"><td>३३</td><td>Neha Ketan Mehta</td></tr>
+        <tr data-pager="india-cross"><td>३४</td><td>Meena Paresh Mehta</td></tr>
+        <tr data-pager="india-cross"><td>३५</td><td>Jilan Tushar Sheth</td></tr>
+        <tr data-pager="india-cross"><td>३६</td><td>Jignasha Nitin Thakker</td></tr>
+        <tr data-pager="india-cross"><td>३७</td><td>Jaya Somani</td></tr>
+        <tr data-pager="india-cross"><td>३८</td><td>Geeta Rajeshekhar Sajjanshetty</td></tr>
+        <tr data-pager="india-cross"><td>३९</td><td>Geeta Piyush Mehta</td></tr>
+        <tr data-pager="india-cross"><td>४०</td><td>Garima Rishi Sain</td></tr>
+        <tr data-pager="india-cross"><td>४१</td><td>Disha Kanakia</td></tr>
+        <tr data-pager="india-cross"><td>४२</td><td>Deena Suresh Valani</td></tr>
+        <tr data-pager="india-cross"><td>४३</td><td>Priya Sivaram</td></tr>
+        <tr data-pager="india-cross"><td>४४</td><td>Lajju Devang Vora</td></tr>
+        <tr data-pager="india-cross"><td>४५</td><td>Chhaya Ketan Mehta</td></tr>
+        <tr data-pager="india-cross"><td>४६</td><td>Amita Anil Thakker</td></tr>
+        <tr data-pager="india-cross"><td>४७</td><td>Lataben Maheshkumar Parekh</td></tr>
+        <tr data-pager="india-cross"><td>४८</td><td>Meena Nipul Mehta</td></tr>
+        <tr data-pager="india-cross"><td>४९</td><td>Sangeeta Kirtikumar Shah</td></tr>
+        <tr data-pager="india-cross"><td>५०</td><td>Shrutika Sukhee</td></tr>
+        <tr data-pager="india-cross"><td>५१</td><td>Sonal Jignesh Goradia</td></tr>
+        <tr data-pager="india-cross"><td>५२</td><td>Jagruti Kishorkumar Sheth</td></tr>
+        <tr data-pager="india-cross"><td>५३</td><td>Sonal Pankaj Doshi</td></tr>
+        <tr data-pager="india-cross"><td>५४</td><td>Deepali Piyush Vora</td></tr>
+        <tr data-pager="india-cross"><td>५५</td><td>Urvi Chirag Vora</td></tr>
+        <tr data-pager="india-cross"><td>५६</td><td>Shailendra Brijlal Maurya</td></tr>
+        <tr data-pager="india-cross"><td>५७</td><td>Dharmeshkumar Pravinchandra Mehta</td></tr>
+        <tr data-pager="india-cross"><td>५८</td><td>Mohit Mehta</td></tr>
+        <tr data-pager="india-cross"><td>५९</td><td>Jayesh Vinodrai Valia</td></tr>
+        <tr data-pager="india-cross"><td>६०</td><td>Vedant Mukesh Mehta</td></tr>
+        <tr data-pager="india-cross"><td>६१</td><td>Sameer Mukundbhai Mehta</td></tr>
+        <tr data-pager="india-cross"><td>६२</td><td>Sachin Shankar Balkavde</td></tr>
+        <tr data-pager="india-cross"><td>६३</td><td>Parth Chetan Sheth</td></tr>
+        <tr data-pager="india-cross"><td>६४</td><td>Paresh Nanalal Trivedi</td></tr>
+        <tr data-pager="india-cross"><td>६५</td><td>Mukesh Pranlal Mehta</td></tr>
+        <tr data-pager="india-cross"><td>६६</td><td>Ketan Arvind Mehta</td></tr>
+        <tr data-pager="india-cross"><td>६७</td><td>Jignesh Harshad Chitalia</td></tr>
+        <tr data-pager="india-cross"><td>६८</td><td>Chetan Champaklal Sheth</td></tr>
+        <tr data-pager="india-cross"><td>६९</td><td>Bhaveshkumar Pravinchandra Mehta</td></tr>
+        <tr data-pager="india-cross"><td>७०</td><td>Aayush Anand Kanakia</td></tr>
+        <tr data-pager="india-cross"><td>७१</td><td>Anand Prataprai Kanakia</td></tr>
+        <tr data-pager="india-cross"><td>७२</td><td>Sanjay Vasantrai Doshi</td></tr>
+        <tr data-pager="india-cross"><td>७३</td><td>Rakesh Chandrakant Mehta</td></tr>
+        <tr data-pager="india-cross"><td>७४</td><td>Pranay Ajay Dattani</td></tr>
+        <tr data-pager="india-cross"><td>७५</td><td>Pranav Bhupendra Gandhi</td></tr>
+        <tr data-pager="india-cross"><td>७६</td><td>Navin Ambalal Shah</td></tr>
+        <tr data-pager="india-cross"><td>७७</td><td>Mukundrai Kanaklal Mehta</td></tr>
+        <tr data-pager="india-cross"><td>७८</td><td>Kirit Harendra Shah</td></tr>
+        <tr data-pager="india-cross"><td>७९</td><td>Piyush Mehta</td></tr>
+        <tr data-pager="india-cross"><td>८०</td><td>Paresh Vinodray Valia</td></tr>
+        <tr data-pager="india-cross"><td>८१</td><td>Paresh Vinod Mehta</td></tr>
+        <tr data-pager="india-cross"><td>८२</td><td>Ketan Harilal Mehta</td></tr>
+        <tr data-pager="india-cross"><td>८३</td><td>Hemant Dilip Doshi</td></tr>
+        <tr data-pager="india-cross"><td>८४</td><td>Hareshkumar Sanghavi</td></tr>
+        <tr data-pager="india-cross"><td>८५</td><td>Kishorkumar Harshadray Sheth</td></tr>
+        <tr data-pager="india-cross"><td>८६</td><td>Nipul Hasmukhrai Mehta</td></tr>
+        <tr data-pager="india-cross"><td>८७</td><td>Jignesh Bhupendra Goradia</td></tr>
+        <tr data-pager="india-cross"><td>८८</td><td>Pankaj Jayantilal Doshi</td></tr>
+        <tr data-pager="india-cross"><td>८९</td><td>Chirag Sharadkumar Vora</td></tr>
+        <tr data-pager="india-cross"><td>९०</td><td>Piyush Sharadkumar Vora</td></tr>
+        <tr data-pager="india-cross"><td>९१</td><td>Nitin Jogendra Thakkar</td></tr>
+        <tr data-pager="india-cross"><td>९२</td><td>Kunal Rajesh Udeshi</td></tr>
+        <tr data-pager="india-cross"><td>९३</td><td>Rahul Kumar</td></tr>
+        <tr data-pager="india-cross"><td>९४</td><td>Rakesh Kumar</td></tr>
+        <tr data-pager="india-cross"><td>९५</td><td>Pradeep Krishnaji Sarmalkar</td></tr>
+        <tr data-pager="india-cross"><td>९६</td><td>Kalpana Pradeep Sarmalkar</td></tr>
+        <tr data-pager="india-cross"><td>९७</td><td>Borse Hemlata Dattatraya</td></tr>
+        <tr data-pager="india-cross"><td>९८</td><td>Sheth Rashmi Dilip</td></tr>
+        <tr data-pager="india-cross"><td>९९</td><td>Bathala Krishna Chaithanya</td></tr>
+        <tr data-pager="india-cross"><td>१००</td><td>Soumyasri Chiranjeev</td></tr>
+        <tr data-pager="india-cross"><td>१०१</td><td>Deshpande Sanjay Pandurang</td></tr>
+        <tr data-pager="india-cross"><td>१०२</td><td>Kakarmath Arati Vinayak</td></tr>
+        <tr data-pager="india-cross"><td>१०३</td><td>Puranik Vrishali Abhijeet</td></tr>
+        <tr data-pager="india-cross"><td>१०४</td><td>Ghoderao Sameer Ashokrao</td></tr>
+        <tr data-pager="india-cross"><td>१०५</td><td>Dhavale Shrikant Anant</td></tr>
+        <tr data-pager="india-cross"><td>१०६</td><td>Parab Bajrang Laxman</td></tr>
+        <tr data-pager="india-cross"><td>१०७</td><td>Kondajji Shivaramaiah Ramamurthy</td></tr>
+        <tr data-pager="india-cross"><td>१०८</td><td>Deshpande Sangita Sanjay</td></tr>
+        <tr data-pager="india-cross"><td>१०९</td><td>Pangaonkar Sunita Shashikant</td></tr>
+        <tr data-pager="india-cross"><td>११०</td><td>Ghosh Joydip</td></tr>
+        <tr data-pager="india-cross"><td>१११</td><td>Boyalla Venkatapathi Naidu</td></tr>
+        <tr data-pager="india-cross"><td>११२</td><td>Shirke Nitin Suryakant</td></tr>
+        <tr data-pager="india-cross"><td>११३</td><td>Jitekar Rakesh Dnyaneshwar</td></tr>
+        <tr data-pager="india-cross"><td>११४</td><td>Alurkar Renuka Santosh</td></tr>
+        <tr data-pager="india-cross"><td>११५</td><td>Dandekar Hemant Mukund</td></tr>
+        <tr data-pager="india-cross"><td>११६</td><td>Sabnis Poonam</td></tr>
+        <tr data-pager="india-cross"><td>११७</td><td>Pangaonkar Shashikant Shankarrao</td></tr>
+        <tr data-pager="india-cross"><td>११८</td><td>Joshi Surendra Narayan</td></tr>
+        <tr data-pager="india-cross"><td>११९</td><td>Patil Shrikant Krishna</td></tr>
+        <tr data-pager="india-cross"><td>१२०</td><td>Joshi Suvarana Ravindra</td></tr>
+        <tr data-pager="india-cross"><td>१२१</td><td>Gopal Manjula</td></tr>
+        <tr data-pager="india-cross"><td>१२२</td><td>Pande Vivek Arvind</td></tr>
+        <tr data-pager="india-cross"><td>१२३</td><td>Narayanappa Gopala Bengaluru</td></tr>
+        <tr data-pager="india-cross"><td>१२४</td><td>Jindel Shashi</td></tr>
+        <tr data-pager="india-cross"><td>१२५</td><td>Rajput Anjana Rajan</td></tr>
+        <tr data-pager="india-cross"><td>१२६</td><td>Joshi Dattareya</td></tr>
+        <tr data-pager="india-cross"><td>१२७</td><td>Kadam Aparna Ashok</td></tr>
+        <tr data-pager="india-cross"><td>१२८</td><td>Chaudhury Sangeeta</td></tr>
+        <tr data-pager="india-cross"><td>१२९</td><td>Joshi Madhavi</td></tr>
+        <tr data-pager="india-cross"><td>१३०</td><td>Deshmukh Aditya Rajan</td></tr>
+        <tr data-pager="india-cross"><td>१३१</td><td>Shimpi Seema Mukesh</td></tr>
+        <tr data-pager="india-cross"><td>१३२</td><td>Gandhi Dinesh</td></tr>
+        <tr data-pager="india-cross"><td>१३३</td><td>Patil Rucha Shreekant</td></tr>
+        <tr data-pager="india-cross"><td>१३४</td><td>Kadaba Rekha Manjunath</td></tr>
+        <tr data-pager="india-cross"><td>१३५</td><td>Kari Varsha Shrikant</td></tr>
+        <tr data-pager="india-cross"><td>१३६</td><td>Jindel Rajesh</td></tr>
+        <tr data-pager="india-cross"><td>१३७</td><td>Gandhi Nitin Balkrishna</td></tr>
+        <tr data-pager="india-cross"><td>१३८</td><td>Joshi Sonal Surendra</td></tr>
+        <tr data-pager="india-cross"><td>१३९</td><td>Sathe Shama Subodh</td></tr>
+        <tr data-pager="india-cross"><td>१४०</td><td>Alurkar Santosh Sudhakarrao</td></tr>
+        <tr data-pager="india-cross"><td>१४१</td><td>Divya</td></tr>
+        <tr data-pager="india-cross"><td>१४२</td><td>Mohana Sowjanya Kambala</td></tr>
+        <tr data-pager="india-cross"><td>१४३</td><td>Ramyas Singh Indrapal Singh</td></tr>
+        <tr data-pager="india-cross"><td>१४४</td><td>Bathala Himaja</td></tr>
+        <tr data-pager="india-cross"><td>१४५</td><td>Kulkarni Sneha Aswad</td></tr>
+        <tr data-pager="india-cross"><td>१४६</td><td>Belosay Sonali</td></tr>
+        <tr data-pager="india-cross"><td>१४७</td><td>Singh Usha</td></tr>
+        <tr data-pager="india-cross"><td>१४८</td><td>Pande Sneha Vivek</td></tr>
+        <tr data-pager="india-cross"><td>१४९</td><td>Kene Pramod Dinanath</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="treat-note" data-i18n-html="india_cross_note">स्रोत: List of Indian Nationals who safely crossed from China to Nepal today (28 August 2026) · १४९ जना। भेटिएको जम्मामा जोडिएको छैन। <a href="img/today-2026-08-28-india-china-cross-p1.jpg" target="_blank" rel="noopener">पाना १</a> · <a href="img/today-2026-08-28-india-china-cross-p2.jpg" target="_blank" rel="noopener">पाना २</a> · <a href="img/today-2026-08-28-india-china-cross-p3.jpg" target="_blank" rel="noopener">पाना ३</a> · <a href="img/today-2026-08-28-india-china-cross-p4.jpg" target="_blank" rel="noopener">पाना ४</a>।</p>
+    <div class="photos" id="india-cross-src">
+      <figure class="photo">
+        <a href="img/today-2026-08-28-india-china-cross-p1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-28-india-china-cross-p1.jpg" alt="List of Indian Nationals who safely crossed from China to Nepal today, page 1/4, SN 1-37"></a>
+        <figcaption><strong>स्रोत पाना १/४</strong>SN १–३७</figcaption>
+      </figure>
+      <figure class="photo">
+        <a href="img/today-2026-08-28-india-china-cross-p2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-28-india-china-cross-p2.jpg" alt="List of Indian Nationals who safely crossed from China to Nepal today, page 2/4, SN 38-74"></a>
+        <figcaption><strong>स्रोत पाना २/४</strong>SN ३८–७४</figcaption>
+      </figure>
+      <figure class="photo">
+        <a href="img/today-2026-08-28-india-china-cross-p3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-28-india-china-cross-p3.jpg" alt="List of Indian Nationals who safely crossed from China to Nepal today, page 3/4, SN 75-111"></a>
+        <figcaption><strong>स्रोत पाना ३/४</strong>SN ७५–१११</figcaption>
+      </figure>
+      <figure class="photo">
+        <a href="img/today-2026-08-28-india-china-cross-p4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-28-india-china-cross-p4.jpg" alt="List of Indian Nationals who safely crossed from China to Nepal today, page 4/4, SN 112-149"></a>
+        <figcaption><strong>स्रोत पाना ४/४</strong>SN ११२–१४९</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <aside class="ndrrma-hl" id="helpline">
   <div class="hl-head">
     <b data-i18n="hl_title">आपत्कालीन सहायता / हेल्पलाइन</b>
@@ -6065,6 +6276,22 @@ a.portal-fab-donate{
       <figcaption><strong>त्रिशूली-१ · भारतीय उद्धार ६३</strong>List of Indians rescued from the Trishuli-I Project</figcaption>
     </figure>
     <figure class="photo">
+      <a href="img/today-2026-08-28-india-china-cross-p1.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-28-india-china-cross-p1.jpg" alt="चीनबाट नेपाल सुरक्षित प्रवेश गरेका भारतीय १४९, पाना १/४"></a>
+      <figcaption><strong>भारतीय · चीनबाट · पाना १/४</strong>28 August 2026 · SN १–३७</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-28-india-china-cross-p2.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-28-india-china-cross-p2.jpg" alt="चीनबाट नेपाल सुरक्षित प्रवेश गरेका भारतीय १४९, पाना २/४"></a>
+      <figcaption><strong>भारतीय · चीनबाट · पाना २/४</strong>28 August 2026 · SN ३८–७४</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-28-india-china-cross-p3.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-28-india-china-cross-p3.jpg" alt="चीनबाट नेपाल सुरक्षित प्रवेश गरेका भारतीय १४९, पाना ३/४"></a>
+      <figcaption><strong>भारतीय · चीनबाट · पाना ३/४</strong>28 August 2026 · SN ७५–१११</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-28-india-china-cross-p4.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-28-india-china-cross-p4.jpg" alt="चीनबाट नेपाल सुरक्षित प्रवेश गरेका भारतीय १४९, पाना ४/४"></a>
+      <figcaption><strong>भारतीय · चीनबाट · पाना ४/४</strong>28 August 2026 · SN ११२–१४९</figcaption>
+    </figure>
+    <figure class="photo">
       <a href="img/today-2026-08-27-nepal-police-389.webp" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-27-nepal-police-389.webp" alt="नेपाल प्रहरी आधिकारिक इन्फोग्राफिक, शव ३८९, २१:०० ११ भदौ"></a>
       <figcaption><strong>नेपाल प्रहरी · शव ३८९</strong>प्रहरी · २१:०० · ११ भदौ · आधिकारिक इन्फोग्राफिक</figcaption>
     </figure>
@@ -6265,6 +6492,12 @@ a.portal-fab-donate{
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
             <article class="log-item now">
+      <p class="when">~२२:१६</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>भारतीय · चीनबाट नेपाल प्रवेश १४९</h3>
+      <p>आज चीनबाट नेपाल आएका भारतीय १४९ जनाको नाम-सूची। रसुवा विदेशी १५२ / भारत ९८ यथावत्। भेटिएको जम्मामा जोडिएको छैन। <a href="#india-cross">सूची</a>।</p>
+    </article>
+            <article class="log-item">
       <p class="when">~२१:५०</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>रसुवा १२ भदौ — उद्धार विदेशी १५२</h3>
@@ -7680,8 +7913,8 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-2150"></script>
-<script>window.PAGE_VER="2026-08-28-2150";</script>
+<script src="i18n.js?v=2026-08-28-2216"></script>
+<script>window.PAGE_VER="2026-08-28-2216";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -7966,6 +8199,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   bindPager(document.querySelector('.pager[data-pager="trishuli1-res"]'), qsa("#trishuli1-res-body tr"), 50);
   bindPager(document.querySelector('.pager[data-pager="army-heli-res"]'), qsa("#army-heli-res-body tr"), 50);
   bindPager(document.querySelector('.pager[data-pager="foreign-res"]'), qsa("#foreign-res-body tr"), 50);
+  bindPager(document.querySelector('.pager[data-pager="india-cross"]'), qsa("#india-cross-body tr"), 50);
 
   var figs = qsa("#photo-grid figure.photo").concat(qsa("#rahat-photo-grid figure.photo"));
   var lb = document.getElementById("lightbox");
@@ -8431,7 +8665,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       var q = ((document.getElementById("fam-search") || {}).value || "").trim().toLowerCase();
       var qd = q.replace(/\D/g, "");
       var cards = document.querySelectorAll("#fam-missing .fam-card");
-      var rows = document.querySelectorAll("#hello-sarkar-body tr, #madhesh-body tr, #rasuwa-res-body tr, #dao-res-body tr, #india-res-body tr, #india-t1-body tr, #trishuli1-res-body tr, #army-heli-res-body tr, #foreign-res-body tr");
+      var rows = document.querySelectorAll("#hello-sarkar-body tr, #madhesh-body tr, #rasuwa-res-body tr, #dao-res-body tr, #india-res-body tr, #india-t1-body tr, #trishuli1-res-body tr, #army-heli-res-body tr, #foreign-res-body tr, #india-cross-body tr");
       var n = 0;
       function hit(el){
         if (!q) return true;
@@ -8461,6 +8695,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       rebind('.pager[data-pager="trishuli1-res"]', visible("#trishuli1-res-body tr"), 50);
       rebind('.pager[data-pager="army-heli-res"]', visible("#army-heli-res-body tr"), 50);
       rebind('.pager[data-pager="foreign-res"]', visible("#foreign-res-body tr"), 50);
+      rebind('.pager[data-pager="india-cross"]', visible("#india-cross-body tr"), 50);
     }
     rebind('[data-pager="fam-miss"]', visible("#fam-missing .fam-card"), 6);
     rebind('[data-pager="fam-found"]', visible("#fam-found .fam-card"), 50);
