@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
+<script>if(window.matchMedia&&window.matchMedia("(min-width:960px)").matches)document.documentElement.classList.add("desk");</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -310,10 +311,9 @@ a.js-found-row[hidden]{display:none}
   .page-main{
     flex:1;
     min-width:0;
-    padding:28px 32px 48px;
-    max-width:1040px;
+    padding:24px 32px 48px;
   }
-  .page-main .wrap{padding-left:0;padding-right:0}
+  .page-main .wrap{padding-left:0;padding-right:0;max-width:none;width:100%;margin:0}
   .chips,
   .chips.stick{
     position:sticky;
@@ -403,6 +403,40 @@ a.js-found-row[hidden]{display:none}
     border-left-color:transparent;
   }
   .nav-toggle{display:none}
+
+  html.desk, html.desk body{
+    height:100%;
+    overflow:hidden;
+  }
+  html.desk body{
+    display:flex;
+    flex-direction:column;
+  }
+  html.desk .head-stick,
+  html.desk .safety-banner{flex:none}
+  html.desk .page-body{
+    flex:1 1 auto;
+    min-height:0;
+    display:flex;
+    align-items:stretch;
+    overflow:hidden;
+  }
+  html.desk .chips,
+  html.desk .chips.stick{
+    height:auto;
+    max-height:100%;
+    position:relative;
+    top:auto;
+    align-self:stretch;
+  }
+  html.desk .page-main{
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  html.desk:not(.desk-ready) .page-main section,
+  html.desk:not(.desk-ready) .page-main #helpline,
+  html.desk:not(.desk-ready) .page-main .stats-src{display:none}
+  html.desk .is-screen-off{display:none!important}
 }
 
 
@@ -1641,6 +1675,9 @@ footer .foot-about a{color:var(--teal);font-weight:800}
       </div>
     </div>
     <p class="stats-note" data-i18n-html="stats_note">शव <strong>४८९</strong>। प्रहरी जिल्ला: चितवन १८६ · नवलपरासी पूर्व ११२ · गोर्खा ४४ · नुवाकोट ३७ · धादिङ ४० · तनहुँ २९ · नवलपरासी पश्चिम २८ · रसुवा १३। SitRep-6 सम्पर्कविहीन <strong>९७७</strong> / घाइते <strong>७३</strong> / हेलि <strong>१९७६</strong> / नागरिक उद्धार <strong>१५५२</strong>। पर्यटक सूची ६६८ (नेपाली १२७ · विदेशी ५४१) अलग। स्रोत तल।</p>
+  </div>
+</div>
+<div class="wrap">
     <section id="lists-dash">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rd">उद्धार र उपचार सूची</h2></div>
   <article class="cash-ig rd-ig" id="rd">
@@ -2099,6 +2136,7 @@ footer .foot-about a{color:var(--teal);font-weight:800}
     <div class="fam-grid" id="fam-found"></div>
     <p class="fam-empty" id="fam-found-empty" data-i18n="empty_review">जाँचपछि मात्र यहाँ आउँछ।</p>
   </div>
+</section>
 
 
 <section id="rasuwa-res">
@@ -3004,7 +3042,6 @@ footer .foot-about a{color:var(--teal);font-weight:800}
     <p class="treat-note" data-i18n="t1_res_note">स्रोत: List of Indians rescued from the Trishuli-I Project। ६३ जना।</p>
   </div>
 </section>
-</section>
 
 <aside class="ndrrma-hl" id="helpline">
   <div class="hl-head">
@@ -3560,7 +3597,6 @@ footer .foot-about a{color:var(--teal);font-weight:800}
     <p data-i18n-html="path_p">बाढी लेन्दे खोला/भोटेकोशी हुँदै त्रिशूलीमा मिसिएको छ। गल्छी र गजुरीपछि सशस्त्र प्रहरीका अनुसार धादिङको <strong>आदमघाट</strong> पार भएको छ। नुवाकोटमा विदुर मेयर राजन श्रेष्ठ: बेत्रावती बजार सबैभन्दा बढी क्षति, त्रिशूली बजार क्षति, सेन्ट्रल जेल डुबान, देवीघाट बजार डुबेको। कारागार प्रमुख भेषबहादुर कुँवर: कैदीबन्दी करिब <strong>१०००</strong> सुरक्षित (विदुर–३ खम्पाक्याम्प)।</p>
   </div>
 </section>
-  </div>
 </div>
 
 <main class="wrap">
@@ -5391,8 +5427,8 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1352"></script>
-<script>window.PAGE_VER="2026-08-28-1352";</script>
+<script src="i18n.js?v=2026-08-28-1410"></script>
+<script>window.PAGE_VER="2026-08-28-1410";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -5969,6 +6005,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   }
   if (window.__addLangHook) window.__addLangHook(refreshMapLang);
   function fix() { map.invalidateSize(); }
+  window.__fixFloodMap = fix;
   setTimeout(fix, 0);
   setTimeout(fix, 400);
   window.addEventListener("resize", fix);
@@ -6236,6 +6273,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   }
   var vis = {};
   var io = new IntersectionObserver(function(entries){
+    if (document.body.classList.contains("desk-screen")) return;
     entries.forEach(function(e){
       if (e.isIntersecting) vis[e.target.id] = true;
       else delete vis[e.target.id];
@@ -6251,6 +6289,90 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       if (id) mark(id);
     });
   });
+})();
+
+
+(function(){
+  var mq = window.matchMedia("(min-width:960px)");
+  var home = document.getElementById("home");
+  var main = document.querySelector(".page-main");
+  var nav = document.querySelector("nav.chips");
+  var links = nav ? Array.prototype.slice.call(nav.querySelectorAll(".chips-inner a[href^='#']")) : [];
+  var src = document.querySelector(".stats-src");
+
+  function allScreens(){
+    var list = [];
+    if (home) list.push(home);
+    var hl = document.getElementById("helpline");
+    if (hl) list.push(hl);
+    Array.prototype.forEach.call(document.querySelectorAll(".page-main section[id]"), function(s){ list.push(s); });
+    return list;
+  }
+
+  function resolve(hash){
+    var id = (hash || "").replace(/^#/, "");
+    if (!id || id === "home") return home;
+    var el = document.getElementById(id);
+    if (!el) return home;
+    if (el === home) return home;
+    if (el.id === "helpline") return el;
+    var sec = el.closest("section[id]");
+    if (sec) return sec;
+    var aside = el.closest("#helpline");
+    if (aside) return aside;
+    if (home && home.contains(el)) return home;
+    return home;
+  }
+
+  function markNav(id){
+    links.forEach(function(a){
+      var on = (a.getAttribute("href") || "") === "#" + id;
+      a.classList.toggle("is-current", on);
+      if (on) a.setAttribute("aria-current", "location");
+      else a.removeAttribute("aria-current");
+    });
+  }
+
+  function apply(opts){
+    var desk = mq.matches;
+    document.documentElement.classList.toggle("desk", desk);
+    document.body.classList.toggle("desk-screen", desk);
+    var list = allScreens();
+    if (!desk) {
+      document.documentElement.classList.remove("desk-ready");
+      list.forEach(function(s){ s.classList.remove("is-screen-on", "is-screen-off"); });
+      if (src) src.classList.remove("is-screen-on", "is-screen-off");
+      return;
+    }
+    var target = resolve(location.hash);
+    if (!target) target = home;
+    var tid = (target && target.id) ? target.id : "home";
+    list.forEach(function(s){
+      var on = s === target;
+      s.classList.toggle("is-screen-on", on);
+      s.classList.toggle("is-screen-off", !on);
+    });
+    if (src) {
+      var homeOn = target === home;
+      src.classList.toggle("is-screen-on", homeOn);
+      src.classList.toggle("is-screen-off", !homeOn);
+    }
+    document.documentElement.classList.add("desk-ready");
+    markNav(tid);
+    if (!opts || opts.scroll !== false) {
+      if (main) main.scrollTop = 0;
+      window.scrollTo(0, 0);
+    }
+    if (tid === "map" || location.hash === "#path" || location.hash === "#map") {
+      setTimeout(function(){ if (window.__fixFloodMap) window.__fixFloodMap(); }, 80);
+      setTimeout(function(){ if (window.__fixFloodMap) window.__fixFloodMap(); }, 350);
+    }
+  }
+
+  apply({scroll: true});
+  window.addEventListener("hashchange", function(){ apply({scroll: true}); });
+  if (mq.addEventListener) mq.addEventListener("change", function(){ apply({scroll: false}); });
+  else if (mq.addListener) mq.addListener(function(){ apply({scroll: false}); });
 })();
 
 (function(){
