@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T17:35:12.025188+05:45",
+  "updated_at": "2026-08-28T17:46:04.751853+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,27 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-173234-rajkumar-darji",
+      "name": "राजकुमार दर्जि",
+      "status": "missing",
+      "source": "form",
+      "age": "30",
+      "place": "नुवाकोट · बेत्रावती रसुवा",
+      "when": "9:15",
+      "phone": "9861498983",
+      "note": "फारम 17:32 · Blue shirt, dark blue windcheater · राजकुमार भट्टराई / Dangol / Shrestha सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260828-173058-pradip-shrestha-tatopani",
+      "name": "Pradip shrestha",
+      "status": "missing",
+      "source": "form",
+      "age": "38",
+      "place": "Tatopani sindupalchowk · Timure",
+      "phone": "9828594787",
+      "note": "फारम 17:30 · Pradip Shrestha (Pharping, ~55) सँग नमिसाउने (फरक उमेर/ठाउँ/फोन)"
+    },
     {
       "id": "sheet-20260828-173213-dorje-tamang",
       "name": "Dorje tamang",
