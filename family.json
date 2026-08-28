@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T21:54:23+05:45",
+  "updated_at": "2026-08-28T22:13:50+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -11218,6 +11218,17 @@
       "when": "7:50am 26 August",
       "phone": "+91 9007416388",
       "note": "फारम 21:59"
+    },
+    {
+      "id": "sheet-20260828-215606-tej-kumari-gurung",
+      "name": "Tej kumari gurung",
+      "status": "missing",
+      "source": "form",
+      "age": "60",
+      "place": "Uk · Rasuwa Naka",
+      "when": "7:30am",
+      "phone": "982 026 7333",
+      "note": "फारम 21:56"
     }
   ],
   "found": [
