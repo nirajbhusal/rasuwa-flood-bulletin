@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T06:54:28.188295+05:45",
+  "updated_at": "2026-08-28T07:08:12.436383+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,37 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-070355-rosna-kafle",
+      "name": "Rosna Kafle",
+      "status": "missing",
+      "source": "form",
+      "age": "36",
+      "place": "Chabhil, Kathmandu · She works for Nepal Water and Energy company. Upper Hydroelectric- 1",
+      "phone": "9841488576",
+      "note": "फारम 07:03"
+    },
+    {
+      "id": "sheet-20260828-070310-gokarna-thapa",
+      "name": "Gokarna Thapa",
+      "status": "missing",
+      "source": "form",
+      "age": "31-32",
+      "place": "Dhading,Gangajamuna Ward -3 · Nepal-China border",
+      "when": "Time-8:30,Date-Aug26",
+      "phone": "9843035169",
+      "note": "फारम 07:03 · Have a big mole in his hand · He was my uncle. He is waiting in the visa line as we have seen him in last call. His last words were badi aayo ani after that we are totally contactless with h"
+    },
+    {
+      "id": "sheet-20260828-070309-neetu-goyal-tiwari",
+      "name": "Neetu Goyal Tiwari",
+      "status": "missing",
+      "source": "form",
+      "place": "British · Gyirong immigration office",
+      "when": "26.08.2026",
+      "phone": "+91 9958871854",
+      "note": "फारम 07:03 · ठेगाना: British"
+    },
     {
       "id": "sheet-20260828-061203-lakpa-rumba-tamang",
       "name": "Lakpa Rumba Tamang",
