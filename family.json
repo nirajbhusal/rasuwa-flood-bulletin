@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T10:21:03.330956+05:45",
+  "updated_at": "2026-08-28T10:30:16.201094+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7265,6 +7265,60 @@
       "when": "2083/05/09 before devasting flood",
       "phone": "9702527372",
       "note": "फारम 10:18 · Maybe working of casual office dress bcz he was currently working on the 216 doosan hydropower project."
+    },
+    {
+      "id": "sheet-20260828-101956-jyoti-magar",
+      "name": "jyoti magar",
+      "status": "missing",
+      "source": "form",
+      "age": "31",
+      "place": "Phidim 1 pancthar · rasuwa kerung naka",
+      "when": "Monday Evening",
+      "phone": "9713999085",
+      "note": "फारम 10:19"
+    },
+    {
+      "id": "sheet-20260828-102224-parvaty-thokra-tamang",
+      "name": "Parvaty thokra tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "18",
+      "place": "Rasuwa naukunda simbandhi · Kerung naka rasuwa",
+      "when": "Monday evening",
+      "phone": "9713999085",
+      "note": "फारम 10:22"
+    },
+    {
+      "id": "sheet-20260828-102000-ranjit-thami",
+      "name": "रन्जित थामी",
+      "status": "missing",
+      "source": "form",
+      "age": "२०-२५",
+      "place": "दोलखा कालिन्चोक-४ चप्लेटि · रसुवा हाइड्रोपावर",
+      "when": "२०८३-५-१०",
+      "phone": "9861696142 / 9745305781",
+      "note": "फारम 10:20 · रसुवा हाइड्रोपावरमा कार्यरत"
+    },
+    {
+      "id": "sheet-20260828-102000-sabin-thami",
+      "name": "सबिन थामी",
+      "status": "missing",
+      "source": "form",
+      "age": "२०-२५",
+      "place": "दोलखा कालिन्चोक-४ चप्लेटि · रसुवा हाइड्रोपावर",
+      "when": "२०८३-५-१०",
+      "phone": "9861696142 / 9745305781",
+      "note": "फारम 10:20 · रसुवा हाइड्रोपावरमा कार्यरत"
+    },
+    {
+      "id": "sheet-20260828-102805-tenzing-glan-tamang",
+      "name": "तेन्जिङ ग्लान तामाङ",
+      "status": "missing",
+      "source": "form",
+      "age": "३५",
+      "place": "नौकुण्ड–३ लारच्याङटार · केरुङ नाका / टिमुरे / स्याफ्रुबेसी",
+      "when": "भादौ १० बिहान ९:००–९:३०",
+      "note": "फारम 10:28"
     }
   ],
   "found": [
