@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T06:31:28+05:45",
+  "updated_at": "2026-08-28T06:37:07+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -6214,6 +6214,28 @@
       "when": "२०८३/५/१० · अन्तिम कल ८ बजे",
       "phone": "9843520353",
       "note": "फारम 06:27 · गा २ ख १५०३ · हातमा राजवर्ष भनेर ट्याटु · ठेगाना: काठमाडौं कीर्तिपुर",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260828-063026-avanish-merchant",
+      "name": "Avanish Merchant",
+      "age": "67",
+      "place": "Lakshchandi apartments , Gokuldham Goregaon East · 8 am - Rasuva Border",
+      "when": "26th August - 8 am",
+      "phone": "+91 771-5865158",
+      "note": "फारम 06:30 · There might be a whistle in his pocket or his back pack · ठेगाना: Lakshchandi apartments , Gokuldham Goregaon East",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260828-063400-amarkaji-khadka",
+      "name": "Amarkaji Khadka",
+      "age": "62",
+      "place": "Itahari · China boarder",
+      "when": "8 13 am , Wednesday",
+      "phone": "9865595868 , 9851010676",
+      "note": "फारम 06:34 · ठेगाना: Itahari",
       "status": "missing",
       "source": "form"
     }
