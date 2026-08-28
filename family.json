@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T14:15:30.526932+05:45",
+  "updated_at": "2026-08-28T14:22:55.993053+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -9102,6 +9102,59 @@
       "when": "11",
       "phone": "9707519700",
       "note": "फारम 14:12 · Orange tshirt, white skirt"
+    },
+    {
+      "id": "sheet-20260828-141318-bikas-nepal",
+      "name": "विकास नेपाल",
+      "status": "missing",
+      "source": "form",
+      "age": "35",
+      "place": "रिब्दीकोट गाउँपालिका पाल्पा · संपर्क भोटको  किनार तिर फोन मा",
+      "when": "2083-5-10",
+      "phone": "9847263151",
+      "note": "फारम 14:13"
+    },
+    {
+      "id": "sheet-20260828-141554-sanjay-rumba",
+      "name": "Sanjay Rumba",
+      "status": "missing",
+      "source": "form",
+      "age": "20",
+      "place": "Hetauda 19 Bastipur · Rasuwa",
+      "phone": "9867747852",
+      "note": "फारम 14:15"
+    },
+    {
+      "id": "sheet-20260828-141657-jyotiram-bista",
+      "name": "Jyotiram Bista",
+      "status": "missing",
+      "source": "form",
+      "age": "43",
+      "place": "Thimi, Bhaktapur · Last contact(Monday August 24 in gyoring Town), last place seen active Rasuwa Piding-timure",
+      "when": "26 August 8:30 am",
+      "phone": "9866293494 / 9851152616",
+      "note": "फारम 14:16"
+    },
+    {
+      "id": "sheet-20260828-141853-suguna-a-p-balan",
+      "name": "SUGUNA A/P BALAN",
+      "status": "missing",
+      "source": "form",
+      "age": "33",
+      "place": "No.18 Jalan Tengku Zainun Rashid 2 Taman Raja Nong 41000, Klang,Selangor,Malaysia · Rasuwagadhi Tibet - Nepal Border",
+      "when": "26.8.26... Time 9.05 am",
+      "phone": "0163517051",
+      "note": "फारम 14:18 · She followed  Malaysian Travel Agency \"Spectrum Horizon Travels\". At Tibet her group was guided by \"Leaf Holiday\".A total of 26 Members(Indian Tourists) in the "
+    },
+    {
+      "id": "sheet-20260828-141900-rameshwor-lama",
+      "name": "Rameshwor lama",
+      "status": "missing",
+      "source": "form",
+      "age": "42",
+      "place": "Thaha nagar palika · Rasuwa",
+      "phone": "9810297686",
+      "note": "फारम 14:19"
     }
   ],
   "found": [
