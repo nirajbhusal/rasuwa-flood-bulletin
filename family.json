@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T08:34:31.108884+05:45",
+  "updated_at": "2026-08-28T08:46:20.313286+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -6756,6 +6756,38 @@
       "place": "India · On the way to passport verification area",
       "phone": "7010002917",
       "note": "फारम 08:15 · same contact as Rajkumar danapal"
+    },
+    {
+      "id": "sheet-20260828-084108-kamisya-tamang",
+      "name": "Kamisya Tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "34,35",
+      "place": "Rasuwa · Rasuwa gattekhola",
+      "when": "August 26, 8:50",
+      "phone": "9851420355",
+      "note": "फारम 08:41 · Gattekhola mathi dada tira manish haru chha banne kura Kripaye chado banda chado uddar garidinu paryo"
+    },
+    {
+      "id": "sheet-20260828-084311-sharada-devkota-and-hari-devkota",
+      "name": "Sharada devkota and Hari devkota",
+      "status": "missing",
+      "source": "form",
+      "place": "Gorkha,palungtar · Way to gosaikundain bus",
+      "when": "9:10 maybe",
+      "phone": "9862904809",
+      "note": "फारम 08:43"
+    },
+    {
+      "id": "sheet-20260828-084331-damodar-bashyal",
+      "name": "Damodar Bashyal",
+      "status": "missing",
+      "source": "form",
+      "age": "60",
+      "place": "Rupandehi · Not confirmed",
+      "when": "August 26",
+      "phone": "9841753903",
+      "note": "फारम 08:43 · With Russian Tourists near about 67 people"
     }
   ],
   "found": [
