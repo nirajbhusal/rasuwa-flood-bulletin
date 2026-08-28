@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T14:33:04.584857+05:45",
+  "updated_at": "2026-08-28T14:40:54.195091+05:45",
   "note_np": "DHM बाढी मार्ग स्टेसन। फुर्के वासआउट — लाइभ होइन।",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms-Single/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -61,13 +61,13 @@
       "name": "Trishuli River at Kali Khola",
       "name_np": "काली खोला · त्रिशूली",
       "district_np": "चितवन",
-      "level_m": 5.974,
+      "level_m": 5.998,
       "warning_m": 10.8,
       "danger_m": 12.1,
       "status": "normal",
       "steady": "FALLING",
-      "observed_at": "2026-08-28T14:20:00+05:45",
-      "observed_npt": "२०२६-०८-२८ १४:२०",
+      "observed_at": "2026-08-28T14:30:00+05:45",
+      "observed_npt": "२०२६-०८-२८ १४:३०",
       "silent": false,
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781"
@@ -85,7 +85,7 @@
       "steady": "STEADY",
       "observed_at": "2026-08-28T14:10:00+05:45",
       "observed_npt": "२०२६-०८-२८ १४:१०",
-      "silent": false,
+      "silent": true,
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
     }
