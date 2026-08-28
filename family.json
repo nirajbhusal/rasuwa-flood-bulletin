@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T10:45:19.212451+05:45",
+  "updated_at": "2026-08-28T10:52:23.745922+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7418,6 +7418,71 @@
       "when": "2083/05/10 at 8:00",
       "phone": "9823482720",
       "note": "फारम 10:43"
+    },
+    {
+      "id": "sheet-20260828-104430-jivan-pariyar",
+      "name": "Jivan Pariyar",
+      "status": "missing",
+      "source": "form",
+      "age": "32",
+      "place": "Sindhupalchowk barhabise · Rasuwa",
+      "when": "2083/05/10",
+      "phone": "9823482720",
+      "note": "फारम 10:44"
+    },
+    {
+      "id": "sheet-20260828-104438-krishna-aale-magar",
+      "name": "Krishna aale magar",
+      "status": "missing",
+      "source": "form",
+      "age": "36",
+      "place": "Nuwakot · Kerung",
+      "phone": "9810167005",
+      "note": "फारम 10:44"
+    },
+    {
+      "id": "sheet-20260828-104522-lasa-mendo-tamang",
+      "name": "Lasa mendo tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "34",
+      "place": "Rasuwa naukunda 6 · Chaina botar / timmure",
+      "when": "2083/5/10  8:30",
+      "phone": "9742461152",
+      "note": "फारम 10:45"
+    },
+    {
+      "id": "sheet-20260828-104729-zimin-alexander",
+      "name": "Zimin Alexander",
+      "status": "missing",
+      "source": "form",
+      "age": "31",
+      "place": "a checkpoint on the Nepalese side; from there, he was to head along the road to Kathmandu",
+      "when": "half an hour before the wave reached the checkpoint",
+      "phone": "+79779095530",
+      "note": "फारम 10:47 · left-arm tattoo · Isha Sacred Walks tourist group"
+    },
+    {
+      "id": "sheet-20260828-104951-gobinda-bk",
+      "name": "Gobinda bk",
+      "status": "missing",
+      "source": "form",
+      "age": "35",
+      "place": "Dhading · Ghatte khola",
+      "when": "Bhadau 10 8:41",
+      "phone": "9746280725",
+      "note": "फारम 10:49"
+    },
+    {
+      "id": "sheet-20260828-105110-harindra-yadav",
+      "name": "Harindra yadav",
+      "status": "missing",
+      "source": "form",
+      "age": "45",
+      "place": "Pratappur -8 · Rasuwa",
+      "when": "8:45",
+      "phone": "9800770940",
+      "note": "फारम 10:51 · Nepal police"
     }
   ],
   "found": [
