@@ -210,6 +210,7 @@ window.I18N = {
 "nav_t1_res": "त्रिशूली-१",
 "t1_res_lead": "त्रिशूली-१ आयोजनाबाट उद्धार भएका भारतीय नागरिक <strong>६३</strong> जना। भारतीय पर्यटक २१, रसुवा/टिमुरे, DAO, नुवाकोट र हराएको सूची अलग। हराएकोबाट हटाइएको छैन।",
 "t1_res_note": "स्रोत: List of Indians rescued from the Trishuli-I Project। ६३ जना।",
+"t1_res_army": "२८ अगस्ट बिहान: नेपाली सेना — माथिल्लो त्रिशूली सुरुङबाट बिहीबार <strong>३५०</strong> उद्धार; <strong>१००+</strong> अझै फसेको अनुमान। बिहीबार रसुवा क्षेत्र <strong>८८३</strong>। आधिकारिक हेलि १९७६ / नागरिक १५५२ र यो ६३ नाम-सूची यथावत्।",
 "h_heli_ktm": "उद्धार · काठमाडौं हेलि",
 
 "nav_heli_ktm": "काठमाडौं उद्धार",
@@ -776,6 +777,7 @@ window.I18N = {
 "nav_t1_res": "Trishuli-1",
 "t1_res_lead": "<strong>63</strong> Indian nationals rescued from the Trishuli-1 project. Separate from the 21 Indian tourists, Rasuwa/Timure, DAO, Nuwakot and the missing wall. Not removed from missing.",
 "t1_res_note": "Source: List of Indians rescued from the Trishuli-I Project. 63 people.",
+"t1_res_army": "28 Aug morning: Nepali Army — <strong>350</strong> rescued Thursday from the Upper Trishuli tunnel; <strong>100+</strong> still estimated trapped. Thursday Rasuwa areas <strong>883</strong>. Official heli 1976 / citizens 1552 and this 63-name list unchanged.",
 "h_heli_ktm": "Rescued · Kathmandu heli",
 
 "nav_heli_ktm": "Kathmandu rescued",
@@ -1340,6 +1342,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Army: 350 rescued from Upper Trishuli tunnel",
+"p": "Nepali Army: <strong>350</strong> rescued Thursday from the Upper Trishuli hydropower tunnel. <strong>100+</strong> still estimated trapped; rescue ongoing. Army / PM secretariat: <strong>883</strong> rescued Thursday from Rasuwa areas. Official SitRep deaths 389 · heli 1976 · citizens 1552 unchanged — this is news, not a replacement official total. <a href=\"https://www.onlinekhabar.com/2026/08/2005444/350-people-trapped-in-tunnel-of-upper-trishuli-hydropower-project-rescued\" target=\"_blank\" rel=\"noopener\">Onlinekhabar</a> · <a href=\"https://english.khabarhub.com/2026/28/565251/\" target=\"_blank\" rel=\"noopener\">Khabarhub 05:09</a>."
+},
 {
 "h": "NDRRMA SitRep #06 · uncontacted 977",
 "p": "SitRep-6 22:00, 11 Bhadra: uncontacted <strong>977</strong> · injured <strong>73</strong> · heli rescue <strong>1976</strong> · citizens rescued <strong>1552</strong>. Deaths <strong>389</strong> unchanged. Temporary lake 0.11 km² on Lhende — high burst-flood risk."
