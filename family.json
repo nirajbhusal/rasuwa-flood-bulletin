@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T08:12:14.171168+05:45",
+  "updated_at": "2026-08-28T08:20:02.162481+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -6585,6 +6585,113 @@
       "when": "Last contacted on August 25th",
       "phone": "+18575442034",
       "note": "फारम 07:37 · Misra परिवार (३ जना रिपोर्ट) · All of them are wearing a blue tshirt"
+    },
+    {
+      "id": "sheet-20260827-180819-dr-kushal-acharya",
+      "name": "Dr. Kushal Acharya",
+      "status": "missing",
+      "source": "form",
+      "age": "28",
+      "place": "Kathmandu · Rasuwa border. Timure - story uploaded at approximately 7:30 am, was on his way to kerung.",
+      "when": "2083 bhadra 10- 8:45 am",
+      "phone": "9860471600",
+      "note": "फारम 18:08 · Was on his way to mansaworar with malasiyan team as a doctor for tour"
+    },
+    {
+      "id": "sheet-20260827-181432-vaishnevy-ramassamy",
+      "name": "Vaishnevy Ramassamy",
+      "status": "missing",
+      "source": "form",
+      "age": "50",
+      "place": "Pondicherry · With samrat travels in 1st bus",
+      "when": "6.05 am was the last contact yesterday",
+      "phone": "9384588700",
+      "note": "फारम 18:14"
+    },
+    {
+      "id": "sheet-20260827-181513-chsherba-anna",
+      "name": "Chsherba Anna",
+      "status": "missing",
+      "source": "form",
+      "age": "43",
+      "place": "Kazahstan · Boarder",
+      "when": "8:30 boarder",
+      "phone": "+79137873338",
+      "note": "फारम 18:15 · We think she has already crossed the border into China. But we haven’t got any information"
+    },
+    {
+      "id": "sheet-20260827-181540-geetha-ramassamy",
+      "name": "Geetha Ramassamy",
+      "status": "missing",
+      "source": "form",
+      "age": "68",
+      "place": "Pondicherry · Last contact was made at 06:05 from Syabrubesi before departing with Samrat tours to the Kerung Border.",
+      "when": "26/08/26",
+      "phone": "7358332359",
+      "note": "फारम 18:15"
+    },
+    {
+      "id": "sheet-20260827-235156-gelusherpa-pemba-sherpa-phurba-sherpa",
+      "name": "GeluSherpa,Pemba Sherpa, Phurba Sherpa",
+      "status": "missing",
+      "source": "form",
+      "place": "Solududhkunda 6,Likhupike 1,Solududhkunda 1 · On the way to Manasarova",
+      "when": "Yesterday at 8:00 am  at Nepal-China Border",
+      "phone": "9763612755",
+      "note": "फारम 23:51"
+    },
+    {
+      "id": "sheet-20260828-011406-rashi-shaahidharan",
+      "name": "Rashi Shaahidharan",
+      "status": "missing",
+      "source": "form",
+      "age": "12",
+      "place": "USA · Hotel Kailash",
+      "when": "26th August 7:30am",
+      "phone": "9910715777",
+      "note": "फारम 01:14 · No"
+    },
+    {
+      "id": "sheet-20260828-041601-poonam-dilipkumar-thakkar",
+      "name": "Poonam Dilipkumar Thakkar",
+      "status": "missing",
+      "source": "form",
+      "age": "42",
+      "place": "Hotel Kailash, Taimure, Rasuwaganddhi border",
+      "phone": "+919824058278",
+      "note": "फारम 04:16"
+    },
+    {
+      "id": "sheet-20260828-081246-rajkumar-danapal",
+      "name": "Rajkumar danapal",
+      "status": "missing",
+      "source": "form",
+      "age": "64",
+      "place": "India · On the way to passport verification area from syabrubesi",
+      "when": "Contacted them on 25 august night 10 pm through phone",
+      "phone": "7010002917",
+      "note": "फारम 08:12 · They were travelling in a bus on the way to kailash yatra..."
+    },
+    {
+      "id": "sheet-20260828-081435-suraj-timalsina",
+      "name": "Suraj Timalsina",
+      "status": "missing",
+      "source": "form",
+      "age": "32",
+      "place": "Sindhupalchok · Rasuwa timmure",
+      "when": "2083 bhadra 10 at 7 am",
+      "phone": "9761089845",
+      "note": "फारम 08:14"
+    },
+    {
+      "id": "sheet-20260828-081516-jayanthi-rajkumar",
+      "name": "Jayanthi Rajkumar",
+      "status": "missing",
+      "source": "form",
+      "age": "53",
+      "place": "India · On the way to passport verification area",
+      "phone": "7010002917",
+      "note": "फारम 08:15 · same contact as Rajkumar danapal"
     }
   ],
   "found": [
