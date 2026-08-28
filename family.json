@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T12:07:19.039498+05:45",
+  "updated_at": "2026-08-28T12:12:49.018736+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -8116,6 +8116,57 @@
       "when": "8:15am",
       "phone": "9843485841/9845149706",
       "note": "फारम 12:04 · He was about to leave from China border Gyirong after loading the stuffs. He told his wife to getting off from there @8:15 am after that he been contactless. It"
+    },
+    {
+      "id": "sheet-20260828-120607-milan-kharel",
+      "name": "Milan Kharel",
+      "status": "missing",
+      "source": "form",
+      "place": "Kathmandu (Gaurighat) · Upper Tirshuli-1 hydropower",
+      "phone": "9860367983",
+      "note": "फारम 12:06 · Surya (Milan) Gopali / Milan Shrestha / Milan Tamang सँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260828-120713-gopal-pariyar",
+      "name": "Gopal pariyar",
+      "status": "missing",
+      "source": "form",
+      "age": "34",
+      "place": "Tulsipur-18, dang · Rasuwa",
+      "phone": "9764743849 / 9845753014",
+      "note": "फारम 12:07 · Green t-shirt ma vako"
+    },
+    {
+      "id": "sheet-20260828-120843-sonam-tasi-sherpa",
+      "name": "Sonam tasi Sherpa",
+      "status": "missing",
+      "source": "form",
+      "age": "40",
+      "place": "Okhaldhung kheji demba · Rasuwa vansar",
+      "when": "Rasuwa vansar",
+      "phone": "9709784022",
+      "note": "फारम 12:08 · अन्य Sherpa कार्डसँग नमिसाउने"
+    },
+    {
+      "id": "sheet-20260828-120848-dhanraj-jaishi",
+      "name": "Dhanraj jaishi",
+      "status": "missing",
+      "source": "form",
+      "age": "35-45",
+      "place": "Humla · Timure bazar",
+      "when": "10 gate bata no contact",
+      "phone": "9769338675",
+      "note": "फारम 12:08 · Cap maybe shirt and trouser"
+    },
+    {
+      "id": "sheet-20260828-120955-bikash-pariyar",
+      "name": "Bikash pariyar",
+      "status": "missing",
+      "source": "form",
+      "age": "15",
+      "place": "Tulsipur-18 dang · Rasuwa",
+      "phone": "9764743849 / 9845753014 / 9847223418",
+      "note": "फारम 12:09 · Black t-shirt · Gopal pariyar (३४, तुल्सीपुर) सँग नमिसाउने (फरक व्यक्ति)"
     }
   ],
   "found": [
