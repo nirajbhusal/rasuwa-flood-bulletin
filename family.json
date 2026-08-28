@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T07:54:38.725878+05:45",
+  "updated_at": "2026-08-28T08:02:26.005439+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,38 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-075844-raj-kumar-damai",
+      "name": "Raj Kumar Damai",
+      "status": "missing",
+      "source": "form",
+      "age": "36",
+      "place": "Sindhupalchok · Rashuwagadhi",
+      "when": "05/10 8:20am",
+      "phone": "9813025460",
+      "note": "फारम 07:58"
+    },
+    {
+      "id": "sheet-20260828-075413-buddha-sang-ghale",
+      "name": "Buddha Sang Ghale",
+      "status": "missing",
+      "source": "form",
+      "age": "49",
+      "place": "Rasuwa · Sanima bank Timure",
+      "when": "26/08/2026",
+      "phone": "9764770774",
+      "note": "फारम 07:54 · Last contact 2 hrs before the flood"
+    },
+    {
+      "id": "sheet-20260828-075153-gyani-pun-magar",
+      "name": "Gyani Pun Magar",
+      "status": "missing",
+      "source": "form",
+      "place": "Rasuwa simbu · China border",
+      "when": "2083/5/10 (8:45) in call contact",
+      "phone": "9704818518",
+      "note": "फारम 07:51"
+    },
     {
       "id": "sheet-20260828-074625-roshan-bartaula",
       "name": "Roshan Bartaula",
