@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T21:43:49+05:45",
+  "updated_at": "2026-08-28T21:54:23+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -11174,6 +11174,28 @@
       "when": "26.08.2026 , time - 8:45 AM",
       "phone": "9526879526",
       "note": "United London"
+    },
+    {
+      "id": "sheet-20260828-211825-मंगले-तामाङ",
+      "name": "मंगले तामाङ",
+      "status": "missing",
+      "source": "form",
+      "age": "",
+      "place": "रसुवा · २१६ हाइड्रोपावर",
+      "when": "",
+      "phone": "9863195212",
+      "note": "फारम 21:18"
+    },
+    {
+      "id": "sheet-20260828-214711-vandana-chand",
+      "name": "Vandana Chand",
+      "status": "missing",
+      "source": "form",
+      "age": "49",
+      "place": "Washington DC · Gyirong immigration centre",
+      "when": "August 26th - around 9 am based on phone location",
+      "phone": "+917219398497",
+      "note": "फारम 21:47 · Part of S3 Group with Isha Foundation Sacred Walks"
     }
   ],
   "found": [
