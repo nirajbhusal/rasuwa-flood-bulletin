@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T06:00:38+05:45",
+  "updated_at": "2026-08-28T06:14:01+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,72 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-061203-lakpa-rumba-tamang",
+      "name": "Lakpa Rumba Tamang",
+      "age": "Around 36",
+      "place": "Sindhupalchok, Bhotekoshi-2 Tatopani Kodari · Timure",
+      "when": "2026-08-26 8 AM",
+      "phone": "9861572210 / 9767947467",
+      "note": "फारम 06:12 · ठेगाना: Sindhupalchok Bhotekoshi Gaupalika ward 2 Tatopani Kodari",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260828-061133-kristi-gurung-nabin-magar",
+      "name": "Kristi Gurung / Nabin Magar",
+      "age": "26 / 38",
+      "place": "Nuwakot Bidur-10 · Betrawati Bazar",
+      "when": "2083/5/10 around 9:30",
+      "phone": "9860674925",
+      "note": "फारम 06:11 · घरको छतमा आमाबुबासँग · Nabin हातमा महादेव ट्याटू · Kristi हातमा पातजस्तो ट्याटू · ठेगाना: Nuwakot Bidur 10 Betrawati Bazar",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260828-060622-vidhyavati-acharrya",
+      "name": "Vidhyavati Acharrya",
+      "age": "52",
+      "place": "Mumbai, India · Friendship Bridge / Rasuwa border",
+      "when": "26th August 2026 around 8:20 AM",
+      "phone": "9969582998",
+      "note": "फारम 06:06 · Richa Tours · छोरी Priyanka · 5'3\", green-brown eyes · ठेगाना: Vile Parle East, Mumbai",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260828-060501-kaisang-dindup-damrang",
+      "name": "Kaisang Dindup Damrang",
+      "age": null,
+      "place": "Dhunche · Syafru besi",
+      "when": "26 August 8:30 AM",
+      "phone": "9861181781",
+      "note": "फारम 06:05 · ठेगाना: Dhunche",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260828-060422-susan-bhattrai",
+      "name": "Susan Bhattrai",
+      "age": "32",
+      "place": "Rasuwa (Archale) · Santibajar",
+      "when": "Around 7",
+      "phone": "9848587662",
+      "note": "फारम 06:04 · ठेगाना: Rasuwa (Archale)",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260828-060148-laxminarayan-mallachari-acharrya",
+      "name": "Laxminarayan Mallachari Acharrya",
+      "age": "56",
+      "place": "Mumbai, India · Friendship Bridge / Rasuwa border",
+      "when": "26th August 2026 around 8:20 AM",
+      "phone": "9969582998",
+      "note": "फारम 06:01 · Richa Tours · छोरी Priyanka · Tall and athletic · ठेगाना: Vile Parle East, Mumbai",
+      "status": "missing",
+      "source": "form"
+    },
     {
       "id": "sheet-20260828-055602-avanish-bharat-merchant",
       "name": "Avanish Bharat Merchant",
