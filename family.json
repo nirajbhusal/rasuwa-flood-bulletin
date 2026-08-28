@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T12:23:06.750306+05:45",
+  "updated_at": "2026-08-28T12:31:04.913891+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -8242,6 +8242,65 @@
       "when": "Tuesday",
       "phone": "9841786196",
       "note": "फारम 12:20 · Trekking guide"
+    },
+    {
+      "id": "sheet-20260828-122440-bikash-thing",
+      "name": "Bikash Thing",
+      "status": "missing",
+      "source": "form",
+      "age": "35",
+      "place": "Makawanpur hetauda 12sigreni · Rasuwa 216 number",
+      "phone": "9845299238",
+      "note": "फारम 12:24 · Missing"
+    },
+    {
+      "id": "sheet-20260828-122443-ashok-kumar-gombo",
+      "name": "Ashok Kumar gombo",
+      "status": "missing",
+      "source": "form",
+      "age": "33",
+      "place": "Rashuwa",
+      "phone": "9866298424",
+      "note": "फारम 12:24"
+    },
+    {
+      "id": "sheet-20260828-122803-ang-ngima-sherpa",
+      "name": "Ang ngima sherpa",
+      "status": "missing",
+      "source": "form",
+      "age": "29",
+      "place": "Dolakha, Bigu · Timure",
+      "note": "फारम 12:28 · ang nigma dawa Sherpa सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260828-122816-sonam-tamang",
+      "name": "Sonam Tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "38",
+      "place": "Rasuwa · Gyronj Port",
+      "when": "2083/05/10",
+      "phone": "9808375480",
+      "note": "फारम 12:28 · Lhakpa Sonam Tamang / Pemba sonam tamang सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260828-122917-samir-lamichhane",
+      "name": "Samir lamichhane",
+      "status": "missing",
+      "source": "form",
+      "age": "28",
+      "place": "Rasuwa",
+      "note": "फारम 12:29"
+    },
+    {
+      "id": "sheet-20260828-122922-jhyampa-chosang-nagarkoti",
+      "name": "Jhyampa Chosang Nagarkoti",
+      "status": "missing",
+      "source": "form",
+      "age": "40",
+      "place": "Rasuwa, Gosaikunda",
+      "phone": "9863652677 / 9747241044 / 9860224070",
+      "note": "फारम 12:29 · Sister in Korea last call ~2 weeks ago; after work slept at office"
     }
   ],
   "found": [
