@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T15:53:44.333831+05:45",
+  "updated_at": "2026-08-28T16:03:40.070187+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -9664,6 +9664,66 @@
       "when": "2083/05/10",
       "phone": "9701837286",
       "note": "फारम 15:48"
+    },
+    {
+      "id": "sheet-20260828-154931-gajanan-patak",
+      "name": "Gajanan patak",
+      "status": "missing",
+      "source": "form",
+      "place": "China border",
+      "when": "2026 Aug 26 (6:00--6:30 am)",
+      "phone": "+9779863619644",
+      "note": "फारम 15:49"
+    },
+    {
+      "id": "sheet-20260828-155107-debraj-isar",
+      "name": "Debraj Isar",
+      "status": "missing",
+      "source": "form",
+      "age": "30",
+      "place": "Upper Trisuli  1 Hydropower 216mw Dhunchhe rasuwa",
+      "phone": "+9779702035253",
+      "note": "फारम 15:51"
+    },
+    {
+      "id": "sheet-20260828-155711-li-bin",
+      "name": "Li Bin",
+      "status": "missing",
+      "source": "form",
+      "place": "Dhuncha seno hydro dam work",
+      "phone": "9864490394",
+      "note": "फारम 15:57"
+    },
+    {
+      "id": "sheet-20260828-155906-shiva-deuja",
+      "name": "Shiva Deuja",
+      "status": "missing",
+      "source": "form",
+      "place": "Bharabisa 7",
+      "phone": "9749346356",
+      "note": "फारम 15:59"
+    },
+    {
+      "id": "sheet-20260828-155919-person",
+      "name": "पदम बहादुर मस्राङि मगर",
+      "status": "missing",
+      "source": "form",
+      "age": "लगभग २२ वर्ष",
+      "place": "रसुवा",
+      "when": "२०८३/०५/१०",
+      "phone": "9844327268",
+      "note": "फारम 15:59"
+    },
+    {
+      "id": "sheet-20260828-155946-person",
+      "name": "दिल्ली बहादुर पन्त",
+      "status": "missing",
+      "source": "form",
+      "age": "४५ देखि ५०",
+      "place": "रसुवाको टिमुरे",
+      "when": "भद्र १० गते बिहान ८ बजेर ३० मिनेटमा",
+      "phone": "9820218481 / 9745235105",
+      "note": "फारम 15:59"
     }
   ],
   "found": [
