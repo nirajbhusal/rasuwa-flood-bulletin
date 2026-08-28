@@ -486,7 +486,17 @@ a.js-found-row[hidden]{display:none}
 .rd-jump:hover{text-decoration:underline}
 @media(max-width:760px){.rd-kpis{grid-template-columns:1fr 1fr}}
 .overview{margin:0 0 8px}
-.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:start}
+.kpi-box{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:0 0 6px;min-width:0;box-shadow:var(--shadow);
+}
+.kpi-box .kpi{border:0;box-shadow:none;border-radius:16px 16px 0 0;padding:12px 12px 6px}
+.kpi-box .cash-list{margin:0 10px 4px;padding:0}
+.kpi-box .cash-list li{font-size:11px;padding:3px 0;gap:6px;line-height:1.3;border-bottom:1px solid #d1fae5}
+.kpi-box .cash-list strong{color:var(--forest);font-size:12px}
+.kpi-box:has(.kpi.on){border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5}
+.kpi-box .kpi.on{box-shadow:none;border-color:transparent}
 .kpi{
   appearance:none;-webkit-appearance:none;border:1px solid var(--line);background:#fff;
   border-radius:16px;padding:12px 12px 10px;text-align:left;cursor:pointer;
@@ -567,9 +577,10 @@ a.js-found-row[hidden]{display:none}
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;
 }
 @media (max-width:760px){
-  .kpi-row{grid-template-columns:1fr 1fr}
+  .kpi-row{grid-template-columns:1fr 1fr;align-items:start}
   .ov-grid{grid-template-columns:1fr}
   .kpi strong{font-size:28px}
+  .kpi-box{grid-column:1/-1}
 }
 
 section{padding:22px 0}
@@ -1145,7 +1156,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     <a href="#shelter" data-i18n="nav_shelter">उद्धार सूची</a>
     <a href="#suryagadhi" data-i18n="nav_surya">सूर्यगढी</a>
     <a href="#rasuwa-res" data-i18n="nav_rasuwa_res">रसुवा उद्धार</a>
-    <a href="#dao-res" data-i18n="nav_dao_res">DAO उद्धार</a>
+    <a href="#dao-res" data-i18n="nav_dao_res">NDRRMA उद्धार</a>
     <a href="#india-res" data-i18n="nav_india_res">भारतीय उद्धार</a>
     <a href="#trishuli1-res" data-i18n="nav_t1_res">त्रिशूली-१</a>
     <a href="#heli-ktm" data-i18n="nav_heli_ktm">काठमाडौं उद्धार</a>
@@ -1216,10 +1227,20 @@ footer .foot-contact a:hover{text-decoration:underline}
           <span class="kpi-k" data-i18n="kpi_air">हेलि उद्धार</span>
           <strong class="num">१९७६</strong>
         </button>
+        <div class="kpi-box" data-tone="deploy">
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="deploy" id="kpi-deploy">
           <span class="kpi-k" data-i18n="kpi_deploy">परिचालित</span>
           <strong class="num">१३,२४८+</strong>
         </button>
+        <ul class="cash-list kpi-split">
+          <li><span data-i18n="fd_found_total_k">जम्मा</span><strong class="num">१३,२४८+</strong></li>
+          <li><span data-i18n="d_army">सेना</span><strong class="num">५,२००+</strong></li>
+          <li><span data-i18n="d_apf">सशस्त्र</span><strong class="num">३,७००+</strong></li>
+          <li><span data-i18n="d_police">प्रहरी</span><strong class="num">४,३४८</strong></li>
+          <li><span data-i18n="d_medical">मेडिकल</span><strong class="num">२००+</strong></li>
+          <li><span data-i18n="d_heli">हेलि</span><strong class="num">१४</strong></li>
+        </ul>
+        </div>
       </div>
       <div class="ov-panel">
         <div class="ov-pane on" data-panel="all">
@@ -1257,7 +1278,9 @@ footer .foot-contact a:hover{text-decoration:underline}
               <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">५२००+</em></div>
               <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:71%"></i></b><em class="num">३७००+</em></div>
               <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:84%"></i></b><em class="num">४३४८</em></div>
-              <p class="ov-note" data-i18n="ov_mini_deploy_note">मेडिकल टोली २००+ अलग · हेलि मैदानमा १४</p>
+              <div class="ibar-row"><span data-i18n="d_medical">मेडिकल</span><b class="ibar"><i style="width:4%"></i></b><em class="num">२००+</em></div>
+              <div class="ibar-row"><span data-i18n="d_heli">हेलि</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१४</em></div>
+              <p class="ov-note" data-i18n="ov_mini_deploy_note">मेडिकल २००+ सुरक्षा जम्मामा छैन · हेलि १४ विमान, उद्धार १९७६ होइन</p>
             </div>
           </div>
         </div>
@@ -1412,8 +1435,11 @@ footer .foot-contact a:hover{text-decoration:underline}
           <li>सेना <strong>४५</strong> · प्रहरी <strong>२८</strong></li>
           <li>सशस्त्र <strong>१३</strong></li>
           <li>परिचालित जम्मा <strong>१३,२४८+</strong></li>
-          <li>सेना <strong>५,२००+</strong> · सशस्त्र <strong>३,७००+</strong> · प्रहरी <strong>४,३४८</strong></li>
-          <li>मेडिकल टोली <strong>२००+</strong></li>
+          <li>सेना <strong>५,२००+</strong></li>
+          <li>सशस्त्र <strong>३,७००+</strong></li>
+          <li>प्रहरी <strong>४,३४८</strong></li>
+          <li>मेडिकल <strong>२००+</strong></li>
+          <li>हेलि <strong>१४</strong></li>
         </ul>
         <div class="infobar" aria-hidden="true">
           <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४५</em></div>
@@ -1495,7 +1521,7 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rd">उद्धार र उपचार सूची</h2></div>
   <article class="cash-ig rd-ig" id="rd">
     <h3 data-i18n="rd_h">प्रकाशित नाम-सूची</h3>
-    <p class="cash-lead" data-i18n="rd_lead">काठमाडौं अस्पताल, नुवाकोट, सूर्यगढी, रसुवा/टिमुरे, DAO रसुवा, भारतीय, त्रिशूली-१ र काठमाडौं हेलि — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन।</p>
+    <p class="cash-lead" data-i18n="rd_lead">काठमाडौं अस्पताल, नुवाकोट, सूर्यगढी, रसुवा/टिमुरे, NDRRMA उद्धार, भारतीय, त्रिशूली-१ र काठमाडौं हेलि — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन।</p>
     <div class="cash-kpis rd-kpis" role="tablist" aria-label="उद्धार र उपचार">
       <button type="button" class="cash-kpi on" data-rd="all" aria-selected="true">
         <span class="kpi-k" data-i18n="rd_all_k">सूची</span>
@@ -1523,8 +1549,8 @@ footer .foot-contact a:hover{text-decoration:underline}
         <span class="cash-unit" data-i18n="rd_name_u">जना</span>
       </button>
       <button type="button" class="cash-kpi" data-rd="dao" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_dao_k">DAO रसुवा</span>
-        <strong class="num">४५०</strong>
+        <span class="kpi-k" data-i18n="rd_dao_k">NDRRMA उद्धार</span>
+        <strong class="num">५२९</strong>
         <span class="cash-unit" data-i18n="rd_name_u">जना</span>
       </button>
       <button type="button" class="cash-kpi" data-rd="india" aria-selected="false">
@@ -1551,7 +1577,7 @@ footer .foot-contact a:hover{text-decoration:underline}
           <li><span data-i18n="rd_nuw_k">नुवाकोट</span><strong><span class="num">५६</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_surya_k">सूर्यगढी</span><strong><span class="num">२३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_ras_k">रसुवा / टिमुरे</span><strong><span class="num">७३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="rd_dao_k">DAO रसुवा</span><strong><span class="num">४५०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="rd_dao_k">NDRRMA उद्धार</span><strong><span class="num">५२९</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_ind_k">भारतीय</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_t1_k">त्रिशूली-१</span><strong><span class="num">६३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_heli_k">काठमाडौं हेलि</span><strong><span class="num">११</span> <span data-i18n="rd_name_u">जना</span></strong></li>
@@ -1600,7 +1626,7 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="cash-pane" data-rd="dao">
         <p class="ov-cap" data-i18n="rd_dao_cap">जिल्ला प्रशासन कार्यालय रसुवा</p>
         <ul class="cash-list">
-          <li><span data-i18n="rd_dao_k">DAO रसुवा</span><strong><span class="num">४५०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="rd_dao_k">NDRRMA उद्धार</span><strong><span class="num">५२९</span> <span data-i18n="rd_name_u">जना</span></strong></li>
         </ul>
         <p class="cash-note" data-i18n="rd_dao_note">हामीसँग भएका पाना मात्र। पूर्ण १–५७० होइन।</p>
         <a class="rd-jump" href="#dao-res" data-i18n="rd_jump_dao">सूची हेर्नुहोस् → DAO</a>
@@ -1661,13 +1687,13 @@ footer .foot-contact a:hover{text-decoration:underline}
       <div class="fd-box">
         <button type="button" class="cash-kpi" data-fd="found" aria-selected="false">
           <span class="kpi-k" data-i18n="fd_found_k">भेटिएको</span>
-          <strong class="num fd-live-found-total">६४८</strong>
+          <strong class="num fd-live-found-total">७२७</strong>
           <span class="cash-unit" data-i18n="rd_name_u">जना</span>
         </button>
         <ul class="cash-list">
-          <li><span data-i18n="fd_found_total_k">जम्मा</span><strong><span class="num fd-live-found-total">६४८</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="fd_found_total_k">जम्मा</span><strong><span class="num fd-live-found-total">७२७</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="fd_found_row">भेटिएको · फारम</span><strong><span class="num fd-live-found">४१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_dao_row">भेटिएको · DAO रसुवा</span><strong><span class="num">४५०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="fd_dao_row">भेटिएको · NDRRMA उद्धार</span><strong><span class="num">५२९</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="fd_ras_row">भेटिएको · रसुवा / टिमुरे</span><strong><span class="num">७३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="fd_ind_row">भेटिएको · भारतीय उद्धार</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="fd_t1_row">भेटिएको · त्रिशूली-१</span><strong><span class="num">६३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
@@ -1675,12 +1701,12 @@ footer .foot-contact a:hover{text-decoration:underline}
       </div>
       <div class="fd-box">
         <button type="button" class="cash-kpi fd-res" data-fd="dao" aria-selected="false">
-          <span class="kpi-k" data-i18n="fd_dao_k">भेटिएको · DAO रसुवा</span>
-          <strong class="num">४५०</strong>
+          <span class="kpi-k" data-i18n="fd_dao_k">भेटिएको · NDRRMA उद्धार</span>
+          <strong class="num">५२९</strong>
           <span class="cash-unit" data-i18n="rd_name_u">जना</span>
         </button>
         <ul class="cash-list">
-          <li><span data-i18n="fd_dao_row">भेटिएको · DAO रसुवा</span><strong><span class="num">४५०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="fd_dao_row">भेटिएको · NDRRMA उद्धार</span><strong><span class="num">५२९</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="fd_ras_row">भेटिएको · रसुवा / टिमुरे</span><strong><span class="num">७३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="fd_ind_row">भेटिएको · भारतीय उद्धार</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="fd_t1_row">भेटिएको · त्रिशूली-१</span><strong><span class="num">६३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
@@ -2075,9 +2101,9 @@ footer .foot-contact a:hover{text-decoration:underline}
 </section>
 
 <section id="dao-res">
-  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_dao_res">उद्धार · DAO रसुवा</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n-html="h_dao_res">उद्धार · <a href="https://ndrrma.gov.np/np/rescue" target="_blank" rel="noopener">NDRRMA</a></h2></div>
   <div class="card green">
-    <p class="treat-lead" data-i18n-html="dao_res_lead">मिति २०८३/०५/१०–११ (१०–११ भदौ) बाढी प्रभावित क्षेत्रबाट उद्धार। स्रोत: जिल्ला प्रशासन कार्यालय रसुवा / गृह मन्त्रालय छाप। हामीसँग भएका पाना मात्र: सि.नं. १–५८, ८८–१४५, २०४–२४१, २६०–३७३, ३९१–५७० + दुई थप नाम (पूर्ण ब. लो, रेन्जेन तामाङ)। बीचका पाना छैनन् — पूर्ण १–५७० होइन। जम्मा <strong>४५०</strong> नाम। रसुवा/टिमुरे, भारतीय, हेलि, नुवाकोट र हराएको सूची अलग — नाम मिलाइएको छैन, हराएकोबाट हटाइएको छैन।</p>
+    <p class="treat-lead" data-i18n-html="dao_res_lead">NDRRMA सार्वजनिक उद्धार पोर्टल · जम्मा <strong>५२८</strong> नाम (नेपाली ४९० · विदेशी ३८)। टिमुरे ५१ · स्याफ्रुबेसी ४४ · सिन्धुपाल्चोक ८। + नाम नखुलेको — तालिका <strong>५२९</strong>। स्रोत: <a href="https://ndrrma.gov.np/np/rescue" target="_blank" rel="noopener">ndrrma.gov.np/np/rescue</a>। अघिल्लो DAO ग्याप-सूची ४५० यसबाट अद्यावधिक — जोडिएको छैन। रसुवा/टिमुरे ७३, भारतीय २१, त्रिशूली-१ ६३ र हराएको सूची अलग। ईसार तामाङ / नाम नखुलेको राखिएको।</p>
     <div class="pager" data-pager="dao-res">
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
       <div class="pboxes pager-pages"></div>
@@ -2097,456 +2123,535 @@ footer .foot-contact a:hover{text-decoration:underline}
         </tr>
       </thead>
       <tbody id="dao-res-body">
-        <tr data-pager="dao-res"><td>१</td><td>बासुदेव आचार्य</td><td>सिन्धुपाल्चोक</td><td class="age">२८</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>२</td><td>लामु तामाङ</td><td>टिमुरे</td><td class="age">६</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>३</td><td>खेम साङबु तामाङ</td><td>टिमुरे</td><td class="age">२८</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>४</td><td>मिन बहादुर श्रेष्ठ</td><td>सिन्धुपाल्चोक</td><td class="age"></td><td></td><td>रिफर</td></tr>
-        <tr data-pager="dao-res"><td>५</td><td>कुसल मगर</td><td>सिन्धुपाल्चोक</td><td class="age"></td><td></td><td>रिफर</td></tr>
-        <tr data-pager="dao-res"><td>६</td><td>दावा डोल्मा</td><td>स्याफ्रुबेसी</td><td class="age">१२</td><td></td><td>रिफर</td></tr>
-        <tr data-pager="dao-res"><td>७</td><td>अशोक श्रेष्ठ</td><td>सिन्धुपाल्चोक</td><td class="age">३०</td><td></td><td>रिफर</td></tr>
-        <tr data-pager="dao-res"><td>८</td><td>पेम्बा तामाङ</td><td>स्याफ्रुबेसी</td><td class="age">४८</td><td></td><td>रिफर</td></tr>
-        <tr data-pager="dao-res"><td>९</td><td>राजेन्द्र भट्ट</td><td>कञ्चनपुर</td><td class="age">२७</td><td></td><td>रिफर</td></tr>
-        <tr data-pager="dao-res"><td>१०</td><td>भक्त बहादुर घर्ति</td><td>जाजरकोट</td><td class="age">५०</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>११</td><td>नन्द लाल घर्ति</td><td>बर्दिया</td><td class="age"></td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>१२</td><td>देवेन्द्र खड्का</td><td>ललितपुर</td><td class="age">३४</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>१३</td><td>राजन खत्री</td><td>दोलखा</td><td class="age">४२</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>१४</td><td>एन्जल पौडेल</td><td>मोरङ</td><td class="age">२९</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>१५</td><td>प्रदिप चन्द</td><td>महेन्द्रनगर</td><td class="age">३२</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>१६</td><td>रामकुमार खड्का</td><td>सिन्धुपाल्चोक</td><td class="age">३६</td><td></td><td>डिस्चार्ज</td></tr>
-        <tr data-pager="dao-res"><td>१७</td><td>भुपेन्द्र भुजेल</td><td>रामेछाप</td><td class="age">२८</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>१८</td><td>अरविन्द मेहता</td><td>सप्तरी</td><td class="age">३२</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>१९</td><td>सम्झना न्यौपाने</td><td>स्याफ्रुबेसी</td><td class="age">२८</td><td></td><td>गर्भवती</td></tr>
-        <tr data-pager="dao-res"><td>२०</td><td>सानुकान्छी मोक्तान</td><td>दाङ</td><td class="age">२३</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>२१</td><td>दावा छेन्जोम</td><td>स्याफ्रुबेसी</td><td class="age">३५</td><td></td><td>गर्भवती</td></tr>
-        <tr data-pager="dao-res"><td>२२</td><td>मेन्दो पेम्बा तामाङ</td><td>स्याफ्रुबेसी</td><td class="age">३३</td><td></td><td>गर्भवती</td></tr>
-        <tr data-pager="dao-res"><td>२३</td><td>प्रतिमा लामा</td><td>स्याफ्रुबेसी</td><td class="age">४०</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>२४</td><td>मिसन लामा</td><td>स्याफ्रुबेसी</td><td class="age">९</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>२५</td><td>फुर्पा बोम्जन तामाङ</td><td>स्याफ्रुबेसी</td><td class="age">५४</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>२६</td><td>इन्द्र बहादुर कार्की</td><td>सिन्धुपाल्चोक</td><td class="age">४१</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>२७</td><td>सुकुमान कामी</td><td>सानो भार्खु</td><td class="age">५५</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>२८</td><td>रेन्जेन शेर्पा</td><td>स्याफ्रुबेसी</td><td class="age">३५</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>२९</td><td>तिर्थ बहादुर कार्की</td><td>सिन्धुपाल्चोक</td><td class="age">४४</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>३०</td><td>थन्फु घले</td><td>टिमुरे</td><td class="age">६४</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>३१</td><td>हिमा घले</td><td>टिमुरे</td><td class="age">५९</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>३२</td><td>रमेश बहादुर बुढा</td><td>नखुलेको</td><td class="age">२४</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>३३</td><td>ज्ञान बहादुर थिङ</td><td>नखुलेको</td><td class="age">२६</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>३४</td><td>श्याम लाल मोक्तान</td><td>नखुलेको</td><td class="age">३३</td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>३५</td><td>चन्द्र बहादुर बुढा</td><td>नखुलेको</td><td class="age"></td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>३६</td><td>तिर्थ बहादुर बुढा</td><td>नखुलेको</td><td class="age"></td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>३७</td><td>उमेश रावल</td><td>नखुलेको</td><td class="age"></td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>३८</td><td>राजु तामाङ</td><td>नखुलेको</td><td class="age"></td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>३९</td><td>भुवन सिंह पाख्रिन</td><td>नखुलेको</td><td class="age"></td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>४०</td><td>निमा ग्याल्बो घले</td><td>नखुलेको</td><td class="age"></td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>४१</td><td>पाङपाङ शेर्पा</td><td>नखुलेको</td><td class="age"></td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>४२</td><td>सागर सहनी पटेल</td><td>नखुलेको</td><td class="age"></td><td></td><td></td></tr>
-        <tr data-pager="dao-res"><td>४३</td><td>ईसार तामाङ</td><td>उत्तरगया–४</td><td class="age">४</td><td>म</td><td>काठमाडौं रिफर</td></tr>
-        <tr data-pager="dao-res"><td>४४</td><td>नाम नखुलेको</td><td>कालिका</td><td class="age"></td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४५</td><td>सुसिला बोलन</td><td>उत्तरगया–५</td><td class="age">३२</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४६</td><td>सिधार तामाङ</td><td>उत्तरगया</td><td class="age">४०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४७</td><td>रन्जन खत्री</td><td>नखुलेको</td><td class="age">४२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४८</td><td>सिजल थापा क्षेत्री</td><td>उत्तरगया–४</td><td class="age">२१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४९</td><td>कलम बहादुर शाही</td><td>कालिकोट</td><td class="age"></td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५०</td><td>दिन्दुप घले</td><td>नखुलेको</td><td class="age"></td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५१</td><td>दिलिजा पुन</td><td>रोल्पा</td><td class="age">३४</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५२</td><td>गीता पुजाई</td><td>अर्घाखाँची</td><td class="age">३०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५३</td><td>अन्जु घर्ती</td><td>बर्दिया</td><td class="age">२३</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५४</td><td>अनिता शाही</td><td>रुकुम</td><td class="age">३२</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५५</td><td>लाक्पा चिमो</td><td>स्याफ्रुबेसी</td><td class="age"></td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५६</td><td>मेन्दो ग्याल्मो तामाङ</td><td>स्याफ्रुबेसी</td><td class="age">६५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५७</td><td>निमा दोर्जे तामाङ</td><td>सानो भार्खु</td><td class="age"></td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५८</td><td>सखीया जयरामायण</td><td>भारत</td><td class="age">५९</td><td>म</td><td>विदेशी</td></tr>
-        <tr data-pager="dao-res"><td>८८</td><td>मैदली</td><td>Malta</td><td class="age">४९</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>८९</td><td>कमल सिंह</td><td>सुर्खेत</td><td class="age">२४</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>९०</td><td>सुजन पौडेल</td><td>सिन्धुपाल्चोक</td><td class="age">३८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>९१</td><td>सहदेव राई</td><td>सिन्धुपाल्चोक</td><td class="age">३५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>९२</td><td>दिपेन्द्र तामाङ</td><td>सिन्धुपाल्चोक</td><td class="age">२६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>९३</td><td>कासाङ डोल्मा</td><td>टिमुरे</td><td class="age"></td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>९४</td><td>उर्जीन तामाङ</td><td>टिमुरे</td><td class="age">३७</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>९५</td><td>सोनाय तामाङ</td><td>टिमुरे</td><td class="age">४९</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>९६</td><td>रिन्जेन तामाङ</td><td>टिमुरे</td><td class="age">६१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>९७</td><td>कामोन शेर्पा</td><td>स्याफ्रु</td><td class="age">५०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>९८</td><td>कामो तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>९९</td><td>ललिता तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१००</td><td>तेन्जिन तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>म</td><td>बच्चा</td></tr>
-        <tr data-pager="dao-res"><td>१०१</td><td>मिनु तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१०२</td><td>केसिए तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>पु</td><td>बच्चा</td></tr>
-        <tr data-pager="dao-res"><td>१०३</td><td>लकेश चौलागाई</td><td>बाँके</td><td class="age">५०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१०४</td><td>शेरचिङ लामा</td><td></td><td class="age"></td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१०५</td><td>मिन बहादुर कार्की</td><td></td><td class="age"></td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१०६</td><td>लालकेश चौलागाई</td><td></td><td class="age"></td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१०७</td><td>इमान सिं तामाङ</td><td></td><td class="age"></td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१०८</td><td>दोर्जे तामाङ</td><td>टिमुरे</td><td class="age">४५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१०९</td><td>साम्बा तामाङ</td><td>टिमुरे</td><td class="age">२१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>११०</td><td>निमा साङबो</td><td>टिमुरे</td><td class="age">२३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१११</td><td>डेनी तामाङ</td><td>टिमुरे</td><td class="age">२०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>११२</td><td>विवश तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>११३</td><td>ग्याल्बु तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>११४</td><td>लामु तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>म</td><td>बच्चा</td></tr>
-        <tr data-pager="dao-res"><td>११५</td><td>भासिका कार्की</td><td>काठमाडौं</td><td class="age">४८</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>११६</td><td>सिता तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>११७</td><td>सनम लोबु</td><td>स्याफ्रु</td><td class="age"></td><td>पु</td><td>बच्चा</td></tr>
-        <tr data-pager="dao-res"><td>११८</td><td>सोनम तामाङ</td><td>ग्रे–५</td><td class="age">५०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>११९</td><td>निमा डोल्मा</td><td>स्याफ्रु</td><td class="age">४३</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१२०</td><td>नुवाड चेन्जु</td><td>स्याफ्रु</td><td class="age">४०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१२१</td><td>जेम तामाङ</td><td>स्याफ्रु</td><td class="age">११</td><td>म</td><td>बच्चा</td></tr>
-        <tr data-pager="dao-res"><td>१२२</td><td>आकाश तामाङ</td><td>स्याफ्रु</td><td class="age">२२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१२३</td><td>बुटी तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१२४</td><td>सिता पुन घर्ती</td><td>स्याफ्रु</td><td class="age">२५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१२५</td><td>सुशान्त घर्ती</td><td>स्याफ्रु</td><td class="age">४</td><td>पु</td><td>बच्चा</td></tr>
-        <tr data-pager="dao-res"><td>१२६</td><td>छिदु तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१२७</td><td>ह्याक्सो तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>पु</td><td>बच्चा</td></tr>
-        <tr data-pager="dao-res"><td>१२८</td><td>भुन्टो तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१२९</td><td>ललिता वर्मा</td><td>नेपालगन्ज</td><td class="age">३८</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१३०</td><td>इशिका वर्मा</td><td>नेपालगन्ज</td><td class="age">७</td><td>म</td><td>बच्चा</td></tr>
-        <tr data-pager="dao-res"><td>१३१</td><td>धन कुमारी</td><td>नेपालगन्ज</td><td class="age">४८</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१३२</td><td>कमल घर्ती</td><td>रुकुम</td><td class="age">५५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१३३</td><td>अमिता घर्ती</td><td>रुकुम</td><td class="age">३८</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१३४</td><td>काजल घर्ती</td><td>रुकुम</td><td class="age">४</td><td>म</td><td>बच्चा</td></tr>
-        <tr data-pager="dao-res"><td>१३५</td><td>निदमर</td><td>स्याफ्रुबेसी</td><td class="age">६</td><td>पु</td><td>बच्चा</td></tr>
-        <tr data-pager="dao-res"><td>१३६</td><td>आइती माया तामाङ</td><td>स्याफ्रुबेसी</td><td class="age">३७</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१३७</td><td>अर्जुन खत्री</td><td>बाँके</td><td class="age">५६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१३८</td><td>छिरिङ दोर्जे तामाङ</td><td>स्याफ्रुबेसी</td><td class="age">५६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१३९</td><td>राजेन्द्र न्यौपाने</td><td>गोसाइकुण्ड</td><td class="age">४०</td><td>पु</td><td>कर्मचारी</td></tr>
-        <tr data-pager="dao-res"><td>१४०</td><td>हेम प्रसाद भट्टराई</td><td>स्याफ्रुबेसी</td><td class="age">५५</td><td>पु</td><td>कर्मचारी</td></tr>
-        <tr data-pager="dao-res"><td>१४१</td><td>बिन्दा भट्टराई</td><td>स्याफ्रुबेसी</td><td class="age">४८</td><td>म</td><td>कर्मचारी</td></tr>
-        <tr data-pager="dao-res"><td>१४२</td><td>छिरिङ ग्याल्बो</td><td>स्याफ्रुबेसी</td><td class="age">२७</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१४३</td><td>दिल कुमारी भेटवाल</td><td>स्याफ्रुबेसी</td><td class="age">४५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१४४</td><td>भूमि नन्द भेटवाल</td><td>स्याफ्रुबेसी</td><td class="age">६३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>१४५</td><td>निराजन श्रेष्ठ</td><td>टिमुरे</td><td class="age"></td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२०४</td><td>लोप्साङ तामाङ</td><td>स्याफ्रु</td><td class="age">५३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२०५</td><td>उत्तम रावत</td><td>सिन्धुपाल्चोक</td><td class="age">३८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२०६</td><td>दावा सेचुङ तामाङ</td><td>टिमुरे</td><td class="age">५१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२०७</td><td>कामी सितुङ</td><td>टिमुरे</td><td class="age">७०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२०८</td><td>फणिन्द्र जोशी</td><td>कञ्चनपुर</td><td class="age">३३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२०९</td><td>राजकुमारी तामाङ</td><td>स्याफ्रु</td><td class="age">२८</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२१०</td><td>प्रसुना तामाङ</td><td>स्याफ्रु</td><td class="age">१२</td><td>म</td><td>बच्चा</td></tr>
-        <tr data-pager="dao-res"><td>२११</td><td>दनु माया तामाङ</td><td>स्याफ्रु</td><td class="age">४३</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२१२</td><td>बासु ब्लोङ</td><td>स्याफ्रु</td><td class="age">६</td><td>पु</td><td>बच्चा</td></tr>
-        <tr data-pager="dao-res"><td>२१३</td><td>राकेश तामाङ</td><td>स्याफ्रु</td><td class="age">३०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२१४</td><td>एकिसा तामाङ</td><td>स्याफ्रु</td><td class="age">२२</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२१५</td><td>कर्नेल लामा</td><td>स्याफ्रु</td><td class="age">६१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२१६</td><td>फुर्पु नर्कु स्याङबा</td><td>कालिका–२</td><td class="age">३०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२१७</td><td>सगुन तामाङ</td><td>कालिका–१</td><td class="age">२६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२१८</td><td>दावा सोनम तामाङ</td><td>कालिका–१</td><td class="age">२९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२१९</td><td>शेर बहादुर बस्नेत</td><td>सिन्धुपाल्चोक</td><td class="age">५०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२२०</td><td>नवराज खड्का</td><td>दोलखा</td><td class="age">३०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२२१</td><td>डोल्मा लामा</td><td>टिमुरे</td><td class="age">६०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२२२</td><td>तेन्जेन लामा</td><td>टिमुरे</td><td class="age">७०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२२३</td><td>रितु डंगोल</td><td>नुवाकोट</td><td class="age">३१</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२२४</td><td>कार्साङ पाल्मु</td><td>टिमुरे–२</td><td class="age">५०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२२५</td><td>प्रभा मानन्धर</td><td>नुवाकोट–१०</td><td class="age">३५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२२६</td><td>तिल कुमारी तामाङ</td><td>टिमुरे</td><td class="age">४५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२२७</td><td>सोनिया तामाङ</td><td>टिमुरे</td><td class="age">१८</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२२८</td><td>Valentina</td><td>इटाली</td><td class="age">३७</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२२९</td><td>Suzana</td><td>टर्की</td><td class="age">५२</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२३०</td><td>Ekaterina</td><td>रूस</td><td class="age">३८</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२३१</td><td>Hatalia</td><td>स्विट्जरल्याण्ड</td><td class="age">७०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२३२</td><td>छिरिङ घले</td><td>टिमुरे</td><td class="age">२१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२३३</td><td>जिवन थामी</td><td></td><td class="age">३४</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२३४</td><td>पास लाक्पा शेर्पा</td><td></td><td class="age">४०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२३५</td><td>प्रदिप घरकरवा</td><td></td><td class="age">३१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२३६</td><td>खम्पा तामाङ</td><td></td><td class="age">६३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२३७</td><td>सुवास खड्का</td><td></td><td class="age">३३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२३८</td><td>लोसाङ्ग तामाङ</td><td></td><td class="age">३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२३९</td><td>छिरिङ तामाङ</td><td></td><td class="age">३०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२४०</td><td>विक्रम श्रेष्ठ</td><td></td><td class="age">३३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२४१</td><td>पेम्बा तामाङ</td><td></td><td class="age">५०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२६०</td><td>विशाल तामाङ</td><td>सोलुखुम्बु</td><td class="age">३०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२६१</td><td>पाङ दोर्जे तामाङ</td><td>दोलखा</td><td class="age">३२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२६२</td><td>सुशील श्रेष्ठ</td><td>दोलखा</td><td class="age">२८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२६३</td><td>निमा तामाङ</td><td>सोलुखुम्बु</td><td class="age">५०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२६४</td><td>तासी तामाङ</td><td>सोलुखुम्बु</td><td class="age">५१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२६५</td><td>चिरिङ तामाङ</td><td>सोलुखुम्बु</td><td class="age">३५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२६६</td><td>Chang Chhong</td><td>चीन</td><td class="age">६०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२६७</td><td>Gong Yu</td><td>चीन</td><td class="age">२५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२६८</td><td>प्रमोद शाक्य</td><td>भक्तपुर</td><td class="age">३९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२६९</td><td>ऐतराम घलान</td><td>उत्तरगया</td><td class="age">६२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२७०</td><td>तेन्जेन तामाङ</td><td>टिमुरे</td><td class="age">३६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२७१</td><td>तारा बुढा मगर</td><td>दैलेख</td><td class="age">२८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२७२</td><td>विकास मल्ल</td><td>रसुवा</td><td class="age">३६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२७३</td><td>पेमा छिम्ले</td><td>टिमुरे</td><td class="age">३५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२७४</td><td>नारायण नेपाली</td><td>सिन्धुपाल्चोक</td><td class="age">३९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२७५</td><td>उर्गेन तामाङ</td><td>रसुवा</td><td class="age">३८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२७६</td><td>मोहन बहादुर थापा</td><td>चरिकोट</td><td class="age">४५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२७७</td><td>बुर्कु लेम्झेल तामाङ</td><td>रसुवा</td><td class="age">५४</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२७८</td><td>सुष्मा बराल</td><td>स्याफ्रु</td><td class="age">२४</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२७९</td><td>काव्य बराल</td><td>स्याफ्रु</td><td class="age">२</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२८०</td><td>सिर्जना तामाङ</td><td>कालिका</td><td class="age">२८</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२८१</td><td>रेहान तामाङ</td><td>कालिका</td><td class="age">९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२८२</td><td>दावा तामाङ</td><td>टिमुरे</td><td class="age">४५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२८३</td><td>पेम्बा ग्याल्बो शेर्पा</td><td>आमाछोदिङमो</td><td class="age">२७</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२८४</td><td>कार्साङ दावा तामाङ</td><td>टिमुरे</td><td class="age">२७</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२८५</td><td>सौरभ लामिछाने</td><td>कालिका</td><td class="age">१९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२८६</td><td>सोनम तामाङ</td><td>सानोभार्खु</td><td class="age">२५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२८७</td><td>दावा शेर्पा</td><td>स्याफ्रुबेसी</td><td class="age">३८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२८८</td><td>बुद्ध श्रेष्ठ</td><td>धुन्चे</td><td class="age">३०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२८९</td><td>मुना तामाङ</td><td>नौकुण्ड</td><td class="age">१७</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२९०</td><td>दानुमाया तामाङ</td><td>रसुवा</td><td class="age">२०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२९१</td><td>घिर्मी तामाङ</td><td>रसुवा</td><td class="age">५१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२९२</td><td>कार्साङ्ग डोल्मा तामाङ</td><td>रसुवा</td><td class="age">४८</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२९३</td><td>त्रिवेश तामाङ</td><td>रसुवा</td><td class="age">२९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२९४</td><td>तेन्जेन लामा</td><td>टिमुरे</td><td class="age">६१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२९५</td><td>सिनेन दोर्जे</td><td>टिमुरे</td><td class="age">१०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२९६</td><td>पेमा शेर्पा</td><td>टिमुरे</td><td class="age">३७</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२९७</td><td>पेम्बा जाक्मु घले</td><td>टिमुरे</td><td class="age">४७</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२९८</td><td>छिरिङ छोमु लामा</td><td>टिमुरे</td><td class="age">३२</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>२९९</td><td>याल्मो तामाङ</td><td>स्याफ्रु</td><td class="age">५३</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३००</td><td>महल तामाङ</td><td>स्याफ्रु</td><td class="age">४२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३०१</td><td>शुरमनी वली</td><td>बर्दिया</td><td class="age">२२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३०२</td><td>कर्मा लामा</td><td>टिमुरे</td><td class="age">३६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३०३</td><td>तारा के.सी.</td><td>प्रहरी</td><td class="age"></td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३०४</td><td>छोवाङ्ग लुपु तामाङ</td><td>टिमुरे</td><td class="age"></td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३०५</td><td>ज्ञान बहादुर श्रेष्ठ</td><td>टिमुरे</td><td class="age"></td><td>पु</td><td>प्रहरी</td></tr>
-        <tr data-pager="dao-res"><td>३०६</td><td>लाक्पा लामा</td><td>टिमुरे</td><td class="age">५६</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३०७</td><td>रब बहादुर सिंह</td><td>टिमुरे</td><td class="age">४१</td><td>पु</td><td>प्रहरी</td></tr>
-        <tr data-pager="dao-res"><td>३०८</td><td>सन्जोक नेपाली</td><td>टिमुरे</td><td class="age">३०</td><td>पु</td><td>प्रहरी</td></tr>
-        <tr data-pager="dao-res"><td>३०९</td><td>विपिन दोर्जे</td><td>स्याफ्रु</td><td class="age">३७</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३१०</td><td>सिद्धी ढिङ्ग</td><td>स्याफ्रु</td><td class="age">६६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३११</td><td>प्रविन तामाङ</td><td>स्याफ्रु</td><td class="age">३०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३१२</td><td>सिङ दोर्मा लामा</td><td>स्याफ्रु</td><td class="age">३५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३१३</td><td>दावा पेमा</td><td>स्याफ्रु</td><td class="age">५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३१४</td><td>यान्जे तामाङ</td><td>स्याफ्रु</td><td class="age">१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३१५</td><td>रोशिका तामाङ</td><td>स्याफ्रु</td><td class="age">१६</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३१६</td><td>सानिमाया तामाङ</td><td>स्याफ्रु</td><td class="age">१४</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३१७</td><td>कालुना तामाङ</td><td>स्याफ्रु</td><td class="age">१८</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३१८</td><td>अञ्जली तामाङ</td><td>स्याफ्रु</td><td class="age">१५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३१९</td><td>दर्शन डोल्मा तामाङ</td><td>स्याफ्रु</td><td class="age">१५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३२०</td><td>सुरेश तामाङ</td><td>स्याफ्रु</td><td class="age">३८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३२१</td><td>सरिता तामाङ</td><td>स्याफ्रु</td><td class="age">२०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३२२</td><td>सरिता तामाङ</td><td>स्याफ्रु</td><td class="age"></td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३२३</td><td>रिनु तामाङ</td><td>स्याफ्रु</td><td class="age">१८</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३२४</td><td>अनिता न्यौपाने</td><td>धुसेनी</td><td class="age">२५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३२५</td><td>सरिस्मा देवकोटा</td><td>धुसेनी</td><td class="age">२९</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३२६</td><td>हिरामाया मगर</td><td>सोलुखुम्बु</td><td class="age">१३</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३२७</td><td>भुममाया घले</td><td>स्याफ्रु</td><td class="age">५३</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३२८</td><td>सार्की घले</td><td>स्याफ्रु</td><td class="age">९०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३२९</td><td>सोनिया तामाङ</td><td>स्याफ्रु</td><td class="age">३</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३३०</td><td>लनी तामाङ</td><td>रामेछाप</td><td class="age">२५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३३१</td><td>सुनिता लामा</td><td>स्याफ्रु</td><td class="age">३०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३३२</td><td>राज कुमार तामाङ</td><td>कालिकास्थान</td><td class="age">३२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३३३</td><td>संजिव तामाङ</td><td>कालिकास्थान</td><td class="age">२३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३३४</td><td>डेलप तामाङ</td><td>कालिकास्थान</td><td class="age">१५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३३५</td><td>अविनाश तामाङ</td><td>कालिकास्थान</td><td class="age">१४</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३३६</td><td>सरिता गुरुङ</td><td>नौकुण्ड</td><td class="age">१४</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३३७</td><td>सयोन तामाङ</td><td></td><td class="age">१४</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>३३८</td><td>सान्नु कान्छी मोक्तान</td><td></td><td class="age"></td><td>म</td><td>काठमाडौं रिफर</td></tr>
-        <tr data-pager="dao-res"><td>३३९</td><td>लावा ज्याम्चो तामाङ</td><td></td><td class="age"></td><td>पु</td><td>काठमाडौं रिफर</td></tr>
-        <tr data-pager="dao-res"><td>३४०</td><td>देबेन्द्र तामाङ</td><td></td><td class="age"></td><td>पु</td><td>काठमाडौं रिफर</td></tr>
-        <tr data-pager="dao-res"><td>३४१</td><td>मिन डोल्मा तामाङ</td><td>ठुलो हाकु</td><td class="age">३२</td><td>म</td><td>ठुलो हाकु</td></tr>
-        <tr data-pager="dao-res"><td>३४२</td><td>छत्र तामाङ</td><td>आमाछोदिङमो</td><td class="age">४४</td><td>पु</td><td>जिल्ला अस्पताल</td></tr>
-        <tr data-pager="dao-res"><td>३४३</td><td>दिल बहादुर तामाङ</td><td>हाकु</td><td class="age">३७</td><td>पु</td><td>जिल्ला अस्पताल</td></tr>
-        <tr data-pager="dao-res"><td>३४४</td><td>रमित गुबाजु</td><td>भक्तपुर</td><td class="age">३३</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३४५</td><td>मिस्टर त्रिपाठी</td><td>काठमाडौं</td><td class="age">३५</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३४६</td><td>उद्धव तिमल्सिना</td><td>सिन्धुपाल्चोक</td><td class="age">३८</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३४७</td><td>निरज तामाङ</td><td>उत्तरगया–४</td><td class="age">३२</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३४८</td><td>आइतीमाया तामाङ</td><td>हाकुबेसी</td><td class="age">३४</td><td>म</td><td>हाकुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>३४९</td><td>मिनमार छोवाङ</td><td>हाकुबेसी</td><td class="age">४९</td><td>पु</td><td>हाकुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>३५०</td><td>निमा दोर्जे तामाङ</td><td>आमाछोदिङमो</td><td class="age">२५</td><td>पु</td><td>जिल्ला अस्पताल</td></tr>
-        <tr data-pager="dao-res"><td>३५१</td><td>दिनेश जैशी</td><td>बाजुरा</td><td class="age">२७</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३५२</td><td>श्याम जैशी</td><td>बाजुरा</td><td class="age">२६</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३५३</td><td>रमन लाल श्रेष्ठ</td><td>काठमाडौं</td><td class="age">३२</td><td>पु</td><td>जिल्ला अस्पताल</td></tr>
-        <tr data-pager="dao-res"><td>३५४</td><td>पेम्बा तामाङ</td><td>टिमुरे</td><td class="age">५०</td><td>म</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३५५</td><td>पेम्बा लामा</td><td>टिमुरे</td><td class="age">३९</td><td>म</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३५६</td><td>सागर श्रेष्ठ</td><td>सिन्धुपाल्चोक</td><td class="age">३६</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३५७</td><td>कर्म रेन्जेन तामाङ</td><td>टिमुरे</td><td class="age">५८</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३५८</td><td>नेत्रराज पोखरेल</td><td>सिराहा</td><td class="age">४०</td><td>पु</td><td>मैलुङ</td></tr>
-        <tr data-pager="dao-res"><td>३५९</td><td>देवलाल मुर्मू</td><td>झापा</td><td class="age">२५</td><td>पु</td><td>मैलुङ</td></tr>
-        <tr data-pager="dao-res"><td>३६०</td><td>रोशन विष्ट (प्रहरी हवलदार)</td><td>सिन्धुपाल्चोक</td><td class="age">३१</td><td>पु</td><td>मैलुङ</td></tr>
-        <tr data-pager="dao-res"><td>३६१</td><td>दुर्गा ब. मगर (प्र.स.ह.)</td><td>चितवन</td><td class="age">३५</td><td>पु</td><td>मैलुङ</td></tr>
-        <tr data-pager="dao-res"><td>३६२</td><td>बल्ली नाथोगी</td><td>भारत</td><td class="age">६३</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३६३</td><td>खिरु बहारी</td><td>भारत</td><td class="age">३९</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३६४</td><td>छोङ गोम्बु तामाङ</td><td>धुन्चे</td><td class="age">४५</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३६५</td><td>साङ्वु तामाङ</td><td>टिमुरे</td><td class="age">६६</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३६६</td><td>दावा छोक्पा तामाङ</td><td>थुमन</td><td class="age">४५</td><td>म</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३६७</td><td>डोल्मा तामाङ</td><td>थुमन</td><td class="age">४५</td><td>म</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३६८</td><td>कामी तामाङ</td><td>थुमन</td><td class="age">५३</td><td>म</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३६९</td><td>अन्जु तामाङ</td><td>थुमन</td><td class="age">२२</td><td>म</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३७०</td><td>छिमा तामाङ</td><td>थुमन</td><td class="age">३७</td><td>म</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३७१</td><td>निर्जना तामाङ</td><td>थुमन</td><td class="age">१४</td><td>म</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३७२</td><td>कमैया तामाङ</td><td>थुमन</td><td class="age">४६</td><td>म</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३७३</td><td>विकास तामाङ</td><td>थुमन</td><td class="age">२७</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३९१</td><td>ग्याल्जेन शेर्पा</td><td>सिन्धुपाल्चोक</td><td class="age">२७</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३९२</td><td>ग्याम्जो तामाङ</td><td>सिन्धुपाल्चोक</td><td class="age">२४</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३९३</td><td>उमेश श्रेष्ठ</td><td>बनेपा</td><td class="age">२४</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३९४</td><td>दावा लामा</td><td>सिन्धुपाल्चोक</td><td class="age">३८</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३९५</td><td>सुर्य ब. तामाङ</td><td>रसुवा</td><td class="age">३५</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३९६</td><td>प्रदीप चौलागाई</td><td>टिमुरे</td><td class="age">३५</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३९७</td><td>सरु चौलागाई</td><td>टिमुरे</td><td class="age">३२</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३९८</td><td>रोजिना कार्की</td><td>टिमुरे</td><td class="age">३६</td><td>म</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>३९९</td><td>सविन श्रेष्ठ</td><td>सिन्धुपाल्चोक</td><td class="age">३१</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>४००</td><td>यज्ञ ब. पौडेल</td><td>सिन्धुपाल्चोक</td><td class="age">३१</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>४०१</td><td>दिल ब. गरुङ</td><td>टिमुरे</td><td class="age">४८</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>४०२</td><td>मान ब. पौडेल</td><td>नुवाकोट</td><td class="age">३७</td><td>पु</td><td>टिमुरे</td></tr>
-        <tr data-pager="dao-res"><td>४०३</td><td>पूर्ण ब. लो</td><td>रसुवा</td><td class="age">५८</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४०४</td><td>रेन्जेन तामाङ</td><td>रसुवा</td><td class="age">५१</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४०५</td><td>सुनिल आलेमगर</td><td>नुवाकोट</td><td class="age">३८</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४०६</td><td>राजकुमार वाईवा</td><td>रसुवा</td><td class="age">४३</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४०७</td><td>सुसम तामाङ</td><td>नुवाकोट</td><td class="age">२४</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४०८</td><td>मियालामा तामाङ</td><td>रसुवा</td><td class="age">३६</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४०९</td><td>भरत शर्मा</td><td>कञ्चनपुर</td><td class="age">२१</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४१०</td><td>दिनेश तामाङ</td><td>रसुवा</td><td class="age">१४</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४११</td><td>कुन्ती तामाङ</td><td>रसुवा</td><td class="age">१५</td><td>म</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४१२</td><td>रिमा तामाङ</td><td>रसुवा</td><td class="age">२१</td><td>म</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४१३</td><td>रिभात तामाङ</td><td>रसुवा</td><td class="age">१० महिना</td><td>म</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४१४</td><td>डोल्मा शेर्पा</td><td>रसुवा</td><td class="age">२१</td><td>म</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४१५</td><td>पेम्बा तामाङ</td><td>रसुवा</td><td class="age">५१</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४१६</td><td>बिरु तामाङ</td><td>रसुवा</td><td class="age">२९</td><td>म</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४१७</td><td>बसन्त जि.सी.</td><td>दाङ</td><td class="age">३६</td><td>म</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४१८</td><td>कर्मा छेसाङ तामाङ</td><td>रसुवा</td><td class="age">४२</td><td>म</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४१९</td><td>युनी तामाङ</td><td>रसुवा</td><td class="age">७०</td><td>म</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४२०</td><td>बिमल तामाङ</td><td>रसुवा</td><td class="age">२७</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४२१</td><td>अर्जुन घले</td><td>रसुवा</td><td class="age">१९</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४२२</td><td>मनिराज गुरुङ</td><td>पाँचथर</td><td class="age">४२</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४२३</td><td>दिपेश भण्डारी</td><td>बुटवल</td><td class="age">३१</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४२४</td><td>नरेन्द्र थारु</td><td>बर्दिया</td><td class="age">३०</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४२५</td><td>प्रेम धामी</td><td>दार्चुला</td><td class="age">२८</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४२६</td><td>प्रदिप थापा</td><td>प्युठान</td><td class="age">३०</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४२७</td><td>राजु तामाङ</td><td>नुवाकोट</td><td class="age">४५</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४२८</td><td>उद्दब पाण्डे</td><td>धादिङ</td><td class="age">४६</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४२९</td><td>रामहरि ढकाल</td><td>रसुवा</td><td class="age">३६</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४३०</td><td>रन्जिता तामाङ</td><td>रसुवा</td><td class="age">९</td><td>म</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४३१</td><td>राजु तामाङ</td><td>रसुवा</td><td class="age">६</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४३२</td><td>जंगे तामाङ</td><td>रसुवा</td><td class="age">३७</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४३३</td><td>अजय श्रेष्ठ</td><td>धादिङ</td><td class="age">३८</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४३४</td><td>पुरुषोत्तम शर्मा</td><td>बर्दिया</td><td class="age">३३</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४३५</td><td>तेन्जेन तामाङ</td><td>रसुवा</td><td class="age">६०</td><td>म</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४३६</td><td>फुर्पा साङतेन लामा</td><td>रसुवा</td><td class="age">५५</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४३७</td><td>सानीमाया तामाङ</td><td>रसुवा</td><td class="age">२४</td><td>म</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४३८</td><td>भिमदत्त जोशी</td><td>बैतडी</td><td class="age">४२</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४३९</td><td>कौशल थापा</td><td>दैलेख</td><td class="age">३४</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४४०</td><td>राजेश कुमार महतो</td><td>रौतहट</td><td class="age">४०</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४४१</td><td>राजाराम साह</td><td>महोत्तरी</td><td class="age">४३</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४४२</td><td>राजु लामा</td><td>रसुवा</td><td class="age">४४</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४४३</td><td>साङतेन डोल्मा लामा</td><td>रसुवा</td><td class="age">४३</td><td>म</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४४४</td><td>किशोर फुर्कोटी</td><td>काठमाडौं</td><td class="age">४३</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४४५</td><td>आनन्द मगर</td><td>डोल्पा</td><td class="age">२१</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४४६</td><td>रेन्जेन शेर्पा</td><td>रसुवा</td><td class="age">७३</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४४७</td><td>पासाङ शेर्पा</td><td>रसुवा</td><td class="age">४</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td>४४८</td><td>फुर्सल लामा</td><td>सिन्धुपाल्चोक</td><td class="age">२८</td><td>पु</td><td>टिमुरेबाट</td></tr>
-        <tr data-pager="dao-res"><td>४४९</td><td>छिरिङ ग्याल्बु लामा</td><td>टिमुरे</td><td class="age">३५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४५०</td><td>छेदेन लामा</td><td>टिमुरे</td><td class="age">४</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४५१</td><td>निमा तामाङ</td><td>टिमुरे</td><td class="age">३३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४५२</td><td>तारा फुयाल</td><td>सिराहा</td><td class="age">३५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४५३</td><td>सन्जिता घले</td><td>काठमाडौं</td><td class="age">२१</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४५४</td><td>खड्क बहादुर कार्की</td><td>रामेछाप</td><td class="age">३८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४५५</td><td>तेज बहादुर परियार</td><td>सुर्खेत</td><td class="age">२३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४५६</td><td>कृष्ण प्रसाद घिमिरे</td><td>अर्घाखाँची</td><td class="age">४३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४५७</td><td>शिव चन्द</td><td>काठमाडौं</td><td class="age">२१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४५८</td><td>बिपन लोहार</td><td>कैलाली</td><td class="age">२०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४५९</td><td>संजिव पौडेल</td><td>स्याफ्रु</td><td class="age">२८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४६०</td><td>लोकेन्द्र सिंह</td><td>बझाङ</td><td class="age">२८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४६१</td><td>प्रदिप श्रेष्ठ</td><td>नुवाकोट</td><td class="age">३९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४६२</td><td>रामचन्द्र श्रेष्ठ</td><td>नुवाकोट</td><td class="age">४८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४६३</td><td>पासाङ दावा शेर्पा</td><td>सोलुखुम्बु</td><td class="age">२९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४६४</td><td>लाक्पा तामाङ</td><td>स्याफ्रु</td><td class="age">३९</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४६५</td><td>तुलसी तामाङ</td><td>स्याफ्रु</td><td class="age">६०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४६६</td><td>शान्ति सोनाम तामाङ</td><td>स्याफ्रु</td><td class="age">४५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४६७</td><td>सेति तामाङ</td><td>स्याफ्रु</td><td class="age">४५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४६८</td><td>सोनाम तामाङ</td><td>स्याफ्रु</td><td class="age">८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४६९</td><td>पेम्बा टासी</td><td>स्याफ्रु</td><td class="age">५२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४७०</td><td>एलेक्स तामाङ</td><td>स्याफ्रु</td><td class="age">२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४७१</td><td>छेपाङ तामाङ</td><td>स्याफ्रु</td><td class="age">५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४७२</td><td>प्रमिला टासी</td><td>स्याफ्रु</td><td class="age">२९</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४७३</td><td>हसिना तामाङ</td><td>स्याफ्रु</td><td class="age">१३</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४७४</td><td>शुष्मा तामाङ</td><td>स्याफ्रु</td><td class="age">१५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४७५</td><td>अनिश तामाङ</td><td>स्याफ्रु</td><td class="age">९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४७६</td><td>निरज सुवेदी</td><td>काठमाडौं</td><td class="age">३४</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४७७</td><td>प्रिति महतो</td><td>काठमाडौं</td><td class="age">३१</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४७८</td><td>विष्णु जि.सि.</td><td>काठमाडौं</td><td class="age">३०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४७९</td><td>गीता वली</td><td>स्याफ्रु</td><td class="age">३९</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४८०</td><td>सिंगे दावा तामाङ</td><td>स्याफ्रु</td><td class="age">३७</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४८१</td><td>आश्विन तामाङ</td><td>स्याफ्रु</td><td class="age">७</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४८२</td><td>मोहन देउजा</td><td>गोल्जुङ</td><td class="age">३०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४८३</td><td>सुवास खड्का</td><td>गोल्जुङ</td><td class="age">३३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४८४</td><td>बेलामा तामाङ</td><td>गोल्जुङ</td><td class="age">४०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४८५</td><td>शान्ता माया तामाङ</td><td>गोल्जुङ</td><td class="age">३९</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४८६</td><td>ल्हाम्बा तामाङ</td><td>गोल्जुङ</td><td class="age">६०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४८७</td><td>मोहन खत्री</td><td>स्याफ्रुवेशी</td><td class="age">५०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४८८</td><td>नवीन मगर</td><td>स्याफ्रुवेशी</td><td class="age">४३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४८९</td><td>सुवास बुढाथोकी</td><td>स्याफ्रुवेशी</td><td class="age">३५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४९०</td><td>बद्री थापा</td><td>सिन्धुली</td><td class="age">४५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४९१</td><td>कुमार बुढाथोकी</td><td>सिन्धुली</td><td class="age">४५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४९२</td><td>टासी तामाङ</td><td>थुमन</td><td class="age">२५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४९३</td><td>शंकर मगर</td><td>सिन्धुली</td><td class="age">२१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४९४</td><td>हेम बहादुर मगर</td><td>सिन्धुली</td><td class="age">२१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४९५</td><td>दिनेश मगर</td><td>सिन्धुली</td><td class="age">२३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४९६</td><td>परशुराम राई</td><td>सिन्धुली</td><td class="age">३३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४९७</td><td>गुम्वा लामा</td><td>ठुलो स्याफ्रु</td><td class="age">४४</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४९८</td><td>मिडमा छिरिङ लामा</td><td>ठुलो स्याफ्रु</td><td class="age">१५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>४९९</td><td>धुर्व मगर</td><td>दाङ</td><td class="age">४७</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५००</td><td>राजु तामाङ</td><td>स्याफ्रु</td><td class="age">२०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५०१</td><td>समिर तामाङ</td><td>स्याफ्रु</td><td class="age">२५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५०२</td><td>भुषण ठाकुर</td><td>भारत</td><td class="age">३८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५०३</td><td>उमेश गुप्ता</td><td>भारत</td><td class="age">६०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५०४</td><td>रञ्जित कुमार राम</td><td>भारत</td><td class="age">३०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५०५</td><td>रञ्जित कुमार ठाकुर</td><td>भारत</td><td class="age">२२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५०६</td><td>सत्यम कुमार शाह</td><td>भारत</td><td class="age">१८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५०७</td><td>रोशन भट्ट</td><td>दार्चुला</td><td class="age">२५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५०८</td><td>राजन तामाङ</td><td>राम्चे</td><td class="age">१६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५०९</td><td>निराद मुस्लिम</td><td>भारत</td><td class="age">३२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५१०</td><td>सलमान अल्लाह</td><td>भारत</td><td class="age">१६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५११</td><td>शिवु कुमार</td><td>भारत</td><td class="age">१८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५१२</td><td>म्यादी हसन</td><td>भारत</td><td class="age">३८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५१३</td><td>तेन्जेन तामाङ</td><td>स्याफ्रु</td><td class="age">४७</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५१४</td><td>लक्ष्मी तामाङ</td><td>स्याफ्रु</td><td class="age">४०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५१५</td><td>एन्जल घलान</td><td>स्याफ्रु</td><td class="age">३</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५१६</td><td>जेम तामाङ</td><td>स्याफ्रु</td><td class="age">४३</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५१७</td><td>संगिता तामाङ</td><td>स्याफ्रु</td><td class="age">२८</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५१८</td><td>निमा स्याङबो</td><td>स्याफ्रु</td><td class="age">५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५१९</td><td>फुर्वा लामु तामाङ</td><td>स्याफ्रु</td><td class="age">४३</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५२०</td><td>पेमा तामाङ</td><td>स्याफ्रु</td><td class="age">२३</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५२१</td><td>मिडमा तामाङ</td><td>स्याफ्रु</td><td class="age">९३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५२२</td><td>सोनम तामाङ</td><td>स्याफ्रु</td><td class="age">२४</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५२३</td><td>ग्याल्साङ तामाङ</td><td>स्याफ्रु</td><td class="age">४५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५२४</td><td>सचिन खाती</td><td>India</td><td class="age">२९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५२५</td><td>सागर खड्का</td><td>धुन्चे</td><td class="age">३३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५२६</td><td>साम्य कर्मा तामाङ</td><td>स्याफ्रु</td><td class="age">२८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५२७</td><td>विनोद न्यौपाने</td><td>कालिका</td><td class="age">३०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५२८</td><td>सुम्यो तामाङ</td><td>स्याफ्रु</td><td class="age">३९</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५२९</td><td>छिरिङ नुर्बु</td><td>स्याफ्रु</td><td class="age">१.५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५३०</td><td>सुगम पौडेल</td><td>स्याफ्रु</td><td class="age">६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५३१</td><td>निमा बुट्टी तामाङ</td><td>स्याफ्रु</td><td class="age">३५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५३२</td><td>याबुने तामाङ</td><td>स्याफ्रु</td><td class="age">४०</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५३३</td><td>सन्तोष उपरकोटी</td><td>धादिङ</td><td class="age">२४</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५३४</td><td>मनोज मग्राती</td><td>त्रिशुलि</td><td class="age">२५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५३५</td><td>जीवन तामाङ</td><td>स्याफ्रु</td><td class="age">२८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५३६</td><td>सुमन तामाङ</td><td>उदयपुर</td><td class="age">२८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५३७</td><td>नेत्रलाल ढकाल</td><td>स्याङ्जा</td><td class="age">२९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५३८</td><td>नवराज न्यौपाने</td><td>कालिका</td><td class="age">३१</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५३९</td><td>अजित नेपाल</td><td>धादिङ</td><td class="age">४०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५४०</td><td>मोहनराज श्रेष्ठ</td><td>नुवाकोट</td><td class="age">२९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५४१</td><td>ग्याल्बो घले</td><td>धुन्चे</td><td class="age">२९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५४२</td><td>धन बहादुर मगर</td><td>सिन्धुली</td><td class="age">४२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५४३</td><td>सुमन मगर</td><td>सिन्धुली</td><td class="age">१९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५४४</td><td>चाँदनी तामाङ</td><td>स्याफ्रु</td><td class="age">२२</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५४५</td><td>दोर्जे लेन्दुप</td><td>स्याफ्रु</td><td class="age">६ महिना</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५४६</td><td>कान्छा तामाङ</td><td>स्याफ्रु</td><td class="age">२३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५४७</td><td>सृजना तामाङ</td><td>सोलु</td><td class="age">२४</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५४८</td><td>रेजिना मगर</td><td>स्याफ्रु</td><td class="age">१९</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५४९</td><td>जीवन श्रेष्ठ</td><td>बिदुर</td><td class="age">२९</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५५०</td><td>विष्णु भक्त मानन्धर</td><td>बिदुर</td><td class="age">४४</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५५१</td><td>अनिल तामाङ</td><td>नुवाकोट</td><td class="age">१७</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५५२</td><td>पुजन तामाङ</td><td>धादिङ</td><td class="age">२३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५५३</td><td>इन्द्रजीत महाराज</td><td>चितवन</td><td class="age">२५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५५४</td><td>निमा घले</td><td>स्याफ्रु</td><td class="age">३५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५५५</td><td>ग्याल्मो घले</td><td>स्याफ्रु</td><td class="age">५</td><td>म</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५५६</td><td>दीपक तामाङ</td><td>नुवाकोट</td><td class="age">२८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५५७</td><td>Cai Xiu Bin</td><td>China</td><td class="age">५३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५५८</td><td>Guo Yu Chuan</td><td>China</td><td class="age">४६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५५९</td><td>Du Zhi Hong</td><td>China</td><td class="age">४०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५६०</td><td>Luan Li Thing</td><td>China</td><td class="age">५५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५६१</td><td>Zhang Kyng Fang</td><td>China</td><td class="age">४६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५६२</td><td>वाङटासी तामाङ</td><td>हाकुबेसी</td><td class="age">५६</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५६३</td><td>छोटा तामाङ</td><td>हाकुबेसी</td><td class="age">५०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५६४</td><td>मिन बहादुर तामाङ</td><td>दोलखा</td><td class="age">३०</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५६५</td><td>गोकर्ण सुनुवार</td><td>नुवाकोट</td><td class="age">२५</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५६६</td><td>समिर तामाङ</td><td>काठमाडौं</td><td class="age">३२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५६७</td><td>राजेन तामाङ</td><td>दोलखा</td><td class="age">३३</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५६८</td><td>शम्भु अन्सारी</td><td>भारत</td><td class="age">२८</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५६९</td><td>निमा तामाङ</td><td>स्याफ्रुबेसी</td><td class="age">४२</td><td>पु</td><td></td></tr>
-        <tr data-pager="dao-res"><td>५७०</td><td>सागर पौडेल</td><td>स्याफ्रुबेसी</td><td class="age">३१</td><td>पु</td><td></td></tr>
-              <tr data-pager="dao-res"><td></td><td>पूर्ण ब. लो</td><td>रसुवा</td><td class="age">५८</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
-        <tr data-pager="dao-res"><td></td><td>रेन्जेन तामाङ</td><td>रसुवा</td><td class="age">५१</td><td>पु</td><td>स्याफ्रुबेसी</td></tr>
+        <tr data-pager="dao-res"><td>१</td><td>Dinesh Jaisi</td><td>टिमुरे</td><td class="age">२७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२</td><td>Sanukanchi Moktan</td><td></td><td class="age">२३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३</td><td>Ramkumar Khadka</td><td></td><td class="age">३६</td><td>पुरुष</td><td>सुरक्षित</td></tr>
+        <tr data-pager="dao-res"><td>४</td><td>Shyam Jaisi</td><td>टिमुरे</td><td class="age">२६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५</td><td>Sunchoura Shahi</td><td></td><td class="age">२३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>६</td><td>Anmol`Shahi</td><td></td><td class="age">४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>७</td><td>Diksha Malla</td><td></td><td class="age">१२</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>८</td><td>Mira Tamang</td><td></td><td class="age">२७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>९</td><td>Dawa Sherpa</td><td></td><td class="age">३७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१०</td><td>Buddha Shrestha</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>११</td><td>Bal Kumar Thakur</td><td></td><td class="age">३७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१२</td><td>Aaditya Rawal</td><td></td><td class="age">१६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१३</td><td>Dil Bahadur B.K</td><td></td><td class="age">२३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१४</td><td>Bharat Thapa</td><td></td><td class="age">२८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१५</td><td>Padam Bahadur Magar</td><td></td><td class="age">५८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१६</td><td>Dawa Sonam Tamang</td><td></td><td class="age">२५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१७</td><td>Dinesh Tamang</td><td></td><td class="age">२३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१८</td><td>Ramhari Dahal</td><td></td><td class="age">४३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१९</td><td>Moti Bahadur Gaudel</td><td></td><td class="age">४८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२०</td><td>Tenjen Tamang</td><td></td><td class="age">२०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२१</td><td>Nima Tamang</td><td></td><td class="age">५७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२२</td><td>Sonam Wangde</td><td></td><td class="age">५७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२३</td><td>Kale Tamang</td><td></td><td class="age">६८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२४</td><td>Tikanath Poudel</td><td></td><td class="age">४१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२५</td><td>Karpu Sonam Tamang</td><td></td><td class="age">४१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२६</td><td>Some Tamang</td><td></td><td class="age">२९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२७</td><td>Kashi Tindung tamang</td><td></td><td class="age">७३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२८</td><td>Karma Nagarkoti</td><td></td><td class="age">३६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२९</td><td>Chin Lal Tamang</td><td></td><td class="age">३८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३०</td><td>Roshan Tamang</td><td></td><td class="age">३१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३१</td><td>Tenjen Sinang Dorje</td><td></td><td class="age">६५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३२</td><td>Tenjen Lama</td><td></td><td class="age">६६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३३</td><td>Chesang Tamang</td><td></td><td class="age">२९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३४</td><td>Harish Dhital</td><td></td><td class="age">३९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३५</td><td>Badri Prasad acharya</td><td></td><td class="age">४०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३६</td><td>Gita Acharya</td><td></td><td class="age">५४</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३७</td><td>Binod Ghimire</td><td></td><td class="age">५४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३८</td><td>Sabita Rijal</td><td></td><td class="age">२७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३९</td><td>Khandi Sherpa</td><td></td><td class="age">२३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४०</td><td>Kami Yalbo Tamang</td><td></td><td class="age">२३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४१</td><td>Senang Pal Magar</td><td></td><td class="age">६१</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४२</td><td>Chowang Tamang</td><td></td><td class="age">५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४३</td><td>Tenjen Karmi</td><td></td><td class="age">३०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४४</td><td>Sabina Tamang</td><td></td><td class="age">४७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४५</td><td>Niraj Lama</td><td></td><td class="age">२१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४६</td><td>Ishwor Nepali</td><td></td><td class="age">३९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४७</td><td>Sanjay Mijar</td><td></td><td class="age">२८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४८</td><td>Joyal Ghale</td><td></td><td class="age">८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४९</td><td>Chandra Bahadur Thapa</td><td></td><td class="age">२९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५०</td><td>Yam kumari Thapa</td><td></td><td class="age">२९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५१</td><td>Titi Maya Tamang</td><td></td><td class="age">३७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५२</td><td>Kabina Pariyar</td><td></td><td class="age">२०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५३</td><td>Samjhana Poudel</td><td></td><td class="age">३४</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५४</td><td>Subash Malla</td><td></td><td class="age">८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५५</td><td>Suwa Malla</td><td></td><td class="age">३१</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५६</td><td>Bibi Rani Ghale</td><td></td><td class="age">३८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५७</td><td>Kalpana B.k</td><td></td><td class="age">३९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५८</td><td>Kabita Nepali</td><td></td><td class="age">३०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५९</td><td>Kasang Palmu</td><td></td><td class="age">५०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>६०</td><td>Kipa Nagarkoti</td><td></td><td class="age">४७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>६१</td><td>Chiring Ghale</td><td></td><td class="age">२१</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>६२</td><td>Nima Dolkar</td><td></td><td class="age">३२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>६३</td><td>Sukurani Tamang</td><td></td><td class="age">३६</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>६४</td><td>Men Dolma Tamang</td><td></td><td class="age">३२</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>६५</td><td>Nitu Dangol</td><td></td><td class="age">२१</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>६६</td><td>Prabha Manandar</td><td></td><td class="age">३५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>६७</td><td>Nani Chaulagain</td><td></td><td class="age">४३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>६८</td><td>Soniya Tamang</td><td></td><td class="age">१८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>६९</td><td>Dinisha Malla</td><td></td><td class="age">१५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>७०</td><td>Til Kumari Tamang</td><td></td><td class="age">३५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>७१</td><td>Tika Shrestha</td><td></td><td class="age">२२</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>७२</td><td>Tenjing Jangmu</td><td></td><td class="age">७०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>७३</td><td>Dolma Lama</td><td></td><td class="age">६०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>७४</td><td>Kalpana Acharya</td><td></td><td class="age">२५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>७५</td><td>Joshef B.k</td><td></td><td class="age">७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>७६</td><td>Jimi Tamang</td><td></td><td class="age">५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>७७</td><td>Kami Shidat</td><td></td><td class="age">६२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>७८</td><td>Romi B.K</td><td></td><td class="age">१५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>७९</td><td>Nawaraj Khadka</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>८०</td><td>Bharat Chaulagain</td><td></td><td class="age">२८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>८१</td><td>Pramod Shakya</td><td></td><td class="age">३९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>८२</td><td>Uddhav Timalsina</td><td></td><td class="age">२८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>८३</td><td>Wandorje Tamang</td><td></td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>८४</td><td>Tara Kumar Budha Magar</td><td></td><td class="age">२८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>८५</td><td>Pemba Thingre</td><td></td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>८६</td><td>Forpu Namje Tamang</td><td></td><td class="age">५४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>८७</td><td>Sher Bahadur Basnet</td><td></td><td class="age">५०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>८८</td><td>Safalta Pariyar</td><td></td><td class="age">२५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>८९</td><td>Panga Sawai</td><td></td><td class="age">६८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>९०</td><td>Bijay Babu</td><td></td><td class="age">५४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>९१</td><td>Mohan Bahadur Thapa</td><td></td><td class="age">४५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>९२</td><td>Mukunda Khanal</td><td></td><td class="age">३७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>९३</td><td>Bishal Khadka</td><td></td><td class="age">४५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>९४</td><td>Pasang Tamang</td><td></td><td class="age">५४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>९५</td><td>Golsen Ghale</td><td></td><td class="age">५६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>९६</td><td>Dipendra KC</td><td></td><td class="age">४६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>९७</td><td>Raj Kumar Bhokra</td><td></td><td class="age">२३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>९८</td><td>Dorje Bhokra</td><td></td><td class="age">२३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>९९</td><td>Bishal Nepal</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१००</td><td>Rabi Shrestha</td><td></td><td class="age">३१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१०१</td><td>Ananta Tamang</td><td></td><td class="age">२५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१०२</td><td>Namrat Adhikari</td><td></td><td class="age">२२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१०३</td><td>Kapil Pakhrin</td><td></td><td class="age">३८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१०४</td><td>Saraswati Neupane</td><td></td><td class="age">३१</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१०५</td><td>Ram Prasad Jaisi</td><td></td><td class="age">४९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१०६</td><td>Netra Bahadur Gharti</td><td></td><td class="age">४४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१०७</td><td>Saurav Lammichane</td><td></td><td class="age">२९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१०८</td><td>Raju Budha</td><td></td><td class="age">२४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१०९</td><td>Sabina Lama</td><td></td><td class="age">२६</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>११०</td><td>Deuti Pariyar</td><td></td><td class="age">५७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१११</td><td>Mahendra Rumba</td><td></td><td class="age">४४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>११२</td><td>Nima Pasang Tamang</td><td></td><td class="age">३३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>११३</td><td>Nima Tamang</td><td></td><td class="age">६१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>११४</td><td>Bishal Tamang</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>११५</td><td>Kashi Tamang</td><td></td><td class="age">५१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>११६</td><td>Raj Kumar Khadka</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>११७</td><td>Sagar Shrestha</td><td></td><td class="age">३९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>११८</td><td>Dil Bahadur Syangbo</td><td></td><td class="age">४६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>११९</td><td>Kumar B.K</td><td></td><td class="age">३१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१२०</td><td>Khato Tamang</td><td></td><td class="age">६०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१२१</td><td>Nangang Tamang</td><td></td><td class="age">५६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१२२</td><td>Kancha Tamang</td><td></td><td class="age">२३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१२३</td><td>Chiring Tamang</td><td></td><td class="age">२४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१२४</td><td>Deepak Tamang</td><td></td><td class="age">२३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१२५</td><td>Rajendra Prasad Dangal</td><td></td><td class="age">४५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१२६</td><td>Gajendra Thapa</td><td></td><td class="age">३८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१२७</td><td>Chirinjibi Koirala</td><td></td><td class="age">५१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१२८</td><td>Dinesh Shrestha</td><td></td><td class="age">३६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१२९</td><td>Ganesh Chaudhary</td><td></td><td class="age">३६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१३०</td><td>Jotindra Poudel</td><td></td><td class="age">४७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१३१</td><td>Hridesh Neupani</td><td></td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१३२</td><td>Chandra Bahadur Budha</td><td></td><td class="age">३१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१३३</td><td>Lok Bahadur Uchai</td><td></td><td class="age">३४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१३४</td><td>Chabilal Poudel</td><td></td><td class="age">२८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१३५</td><td>Hari Kumar Shrestha</td><td></td><td class="age">३६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१३६</td><td>Khando Tamang</td><td></td><td class="age">६१</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१३७</td><td>Nankang Tamang</td><td></td><td class="age">५६</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१३८</td><td>Mingmar Chopu Tamang</td><td></td><td class="age">२२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१३९</td><td>Funailji Sherpa</td><td></td><td class="age">५०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१४०</td><td>Ramit Guvaju</td><td></td><td class="age">३३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१४१</td><td>Dhiraj Tamang</td><td></td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१४२</td><td>Chischal Tripathi</td><td></td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१४३</td><td>Mingnar Chewang</td><td></td><td class="age">४९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१४४</td><td>Gyan Kumar Dangol</td><td></td><td class="age">३९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१४५</td><td>Sushil Shrestha</td><td></td><td class="age">२८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१४६</td><td>Renjen  Tamang</td><td>स्याफ्रुबेशी</td><td class="age">५१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१४७</td><td>Purna Bahadur Lo</td><td>स्याफ्रुबेशी</td><td class="age">५८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१४८</td><td>Bikash  Tamang</td><td>टिमुरे</td><td class="age">२७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१४९</td><td>Kamaiya  Tamang</td><td>टिमुरे</td><td class="age">४६</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१५०</td><td>Niranjana  Tamang</td><td>टिमुरे</td><td class="age">१४</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१५१</td><td>Chima  Tamang</td><td>टिमुरे</td><td class="age">३७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१५२</td><td>Anju  Tamang</td><td>टिमुरे</td><td class="age">२२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१५३</td><td>Kami  Tamang</td><td>टिमुरे</td><td class="age">५३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१५४</td><td>Dolma  Tamang</td><td>टिमुरे</td><td class="age">४५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१५५</td><td>Dawa Chukapa  Tamang</td><td>टिमुरे</td><td class="age">४५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१५६</td><td>Shaingwu  Tamang</td><td>टिमुरे</td><td class="age">६६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१५७</td><td>Chung Gumubu  Tamang</td><td>टिमुरे</td><td class="age">४५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१५८</td><td>Balli Nathogi</td><td>टिमुरे</td><td class="age">६३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१५९</td><td>Khiru Bahari</td><td>टिमुरे</td><td class="age">३९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१६०</td><td>Durga Bahadur Magar</td><td></td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१६१</td><td>Roshan Bista</td><td></td><td class="age">३९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१६२</td><td>Devlal Murya</td><td></td><td class="age">२५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१६३</td><td>Netraraj Pokhrel</td><td></td><td class="age">४०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१६४</td><td>Karma Renjen  Tamang</td><td>टिमुरे</td><td class="age">५८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१६५</td><td>Sagar Shrestha</td><td>टिमुरे</td><td class="age">३६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१६६</td><td>Pemba Lama</td><td>टिमुरे</td><td class="age">३९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१६७</td><td>Pemba  Tamang</td><td>टिमुरे</td><td class="age">५०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१६८</td><td>Raman Lal Shrestha</td><td></td><td class="age">३२</td><td>पुरुष</td><td>उपचाररत</td></tr>
+        <tr data-pager="dao-res"><td>१६९</td><td>Nima Dorje  Tamang</td><td></td><td class="age">२५</td><td>पुरुष</td><td>उपचाररत</td></tr>
+        <tr data-pager="dao-res"><td>१७०</td><td>Minmar Chewang</td><td></td><td class="age">४९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१७१</td><td>Aayetimaya  Tamang</td><td></td><td class="age">३४</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१७२</td><td>Niarj Tamang</td><td>टिमुरे</td><td class="age">३२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१७३</td><td>Kaluna  Tamang</td><td>स्याफ्रुबेशी</td><td class="age">१८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१७४</td><td>Sanimaya  Tamang</td><td>स्याफ्रुबेशी</td><td class="age">१४</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१७५</td><td>Roshika  Tamang</td><td>स्याफ्रुबेशी</td><td class="age">१६</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१७६</td><td>Yanje Tamang</td><td>स्याफ्रुबेशी</td><td class="age">१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१७७</td><td>Dawa Pema</td><td>स्याफ्रुबेशी</td><td class="age">५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१७८</td><td>Singh Dorma Lama</td><td>स्याफ्रुबेशी</td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१७९</td><td>Prabin  Tamang</td><td>स्याफ्रुबेशी</td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१८०</td><td>Singo Dingo</td><td>स्याफ्रुबेशी</td><td class="age">६६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१८१</td><td>Bipin Dorje</td><td>स्याफ्रुबेशी</td><td class="age">३७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१८२</td><td>Sanjog Nepali</td><td>टिमुरे</td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१८३</td><td>Rav Bhadur Singh</td><td>टिमुरे</td><td class="age">४१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१८४</td><td>Lakpa Lama</td><td>टिमुरे</td><td class="age">५६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१८५</td><td>Gyan Bhadur Shrestha</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१८६</td><td>Chewang Lupu  Tamang</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१८७</td><td>Tara K.C.</td><td>टिमुरे</td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१८८</td><td>Karma Lama</td><td>टिमुरे</td><td class="age">३६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१८९</td><td>Surmani Bali</td><td></td><td class="age">२२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१९०</td><td>Mahal  Tamang</td><td>स्याफ्रुबेशी</td><td class="age">४२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१९१</td><td>Yalmu  Tamang</td><td>स्याफ्रुबेशी</td><td class="age">५३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१९२</td><td>Chiring Chomu Lama</td><td></td><td class="age">३२</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१९३</td><td>Pemba Jamu Ghale</td><td>टिमुरे</td><td class="age">४७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१९४</td><td>Pema Sherpa</td><td>टिमुरे</td><td class="age">३७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१९५</td><td>Sinen Dorje</td><td>टिमुरे</td><td class="age">१०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१९६</td><td>Tenjen Lama</td><td>टिमुरे</td><td class="age">६१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१९७</td><td>Trivesh  Tamang</td><td></td><td class="age">२९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१९८</td><td>Karsang Dolma Tamang</td><td></td><td class="age">४८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>१९९</td><td>Gharmi Tamng</td><td></td><td class="age">५१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२००</td><td>Danumaya  Tamang</td><td></td><td class="age">२०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२०१</td><td>Muna  Tamang</td><td></td><td class="age">१७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२०२</td><td>Udhav Timilsina</td><td>टिमुरे</td><td class="age">३८</td><td>पुरुष</td><td>राहत शिविरमा स्थानान्तरण गरिएको</td></tr>
+        <tr data-pager="dao-res"><td>२०३</td><td>Mister Tripathi</td><td>टिमुरे</td><td class="age">३५</td><td>पुरुष</td><td>राहत शिविरमा स्थानान्तरण गरिएको</td></tr>
+        <tr data-pager="dao-res"><td>२०४</td><td>Ramit Gubaju</td><td></td><td class="age">३३</td><td>पुरुष</td><td>घाइते</td></tr>
+        <tr data-pager="dao-res"><td>२०५</td><td>Dil Bhadur Tamang</td><td></td><td class="age">३७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२०६</td><td>Chhatra  Tamang</td><td></td><td class="age">४४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२०७</td><td>Min Dolma Tamang</td><td></td><td class="age">३२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२०८</td><td>Devendra Tamang</td><td></td><td class="age"></td><td>पुरुष</td><td>घाइते</td></tr>
+        <tr data-pager="dao-res"><td>२०९</td><td>Lawa Jayamju Tamang</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२१०</td><td>Sanbhu Kanchi Moktan</td><td></td><td class="age"></td><td>पुरुष</td><td>घाइते</td></tr>
+        <tr data-pager="dao-res"><td>२११</td><td>Syon Tamang</td><td></td><td class="age">१४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२१२</td><td>Sayon Tamang</td><td></td><td class="age">१४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२१३</td><td>Sarita Gurung</td><td></td><td class="age">१४</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२१४</td><td>Avinash Tamang</td><td></td><td class="age">१४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२१५</td><td>Delap  Tamang</td><td></td><td class="age">१५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२१६</td><td>Sanjeev Tamang</td><td></td><td class="age">२३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२१७</td><td>Raj Kumar  Tamang</td><td></td><td class="age">३२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२१८</td><td>Sunita Lama</td><td>स्याफ्रुबेशी</td><td class="age">३०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२१९</td><td>Lani Tamang</td><td></td><td class="age">२५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२२०</td><td>Soniya  Tamang</td><td></td><td class="age">३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२२१</td><td>Sarko Ghale</td><td></td><td class="age">९०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२२२</td><td>Bhumaya Ghale</td><td></td><td class="age">५३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२२३</td><td>Hiramaya Magar</td><td></td><td class="age">१३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२२४</td><td>Sarishma Devkota</td><td></td><td class="age">२९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२२५</td><td>Anita Neupane</td><td></td><td class="age">२५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२२६</td><td>Renu  Tamang</td><td></td><td class="age">१८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२२७</td><td>Sarita  Tamang</td><td></td><td class="age">२०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२२८</td><td>Suresh Tamang</td><td>स्याफ्रुबेशी</td><td class="age">३८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२२९</td><td>Darshan Dolma Tamang</td><td>स्याफ्रुबेशी</td><td class="age">१५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२३०</td><td>Anjali Tamang</td><td></td><td class="age">१५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२३१</td><td>Budhha Shrestha</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२३२</td><td>Dawa Sherpa</td><td>स्याफ्रुबेशी</td><td class="age">३८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२३३</td><td>Sonam  Tamang</td><td></td><td class="age">२५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२३४</td><td>Sorab Lamichhane</td><td></td><td class="age">१९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२३५</td><td>Karsang Dawa Tamang</td><td></td><td class="age">२७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२३६</td><td>Pemba Gyalbhu Sherpa</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२३७</td><td>Dawa  Tamang</td><td>टिमुरे</td><td class="age">४५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२३८</td><td>Rojan  Tamang</td><td></td><td class="age">९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२३९</td><td>Kavya Baral</td><td>स्याफ्रुबेशी</td><td class="age">२</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२४०</td><td>Tekraj Paitola</td><td></td><td class="age">२५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२४१</td><td>Tenjen Lotten</td><td></td><td class="age">२२</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२४२</td><td>Sushma Baral</td><td>स्याफ्रुबेशी</td><td class="age">२४</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२४३</td><td>Yangmi Ghale</td><td></td><td class="age">२८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२४४</td><td>Worku Lemjhol Tamang</td><td></td><td class="age">५४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२४५</td><td>Sachin Rai</td><td></td><td class="age">२७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२४६</td><td>Durga Bahadur Shrestha</td><td></td><td class="age">४०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२४७</td><td>Mohan Bahadur Thapa</td><td></td><td class="age">४५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२४८</td><td>Pratima Lama</td><td></td><td class="age">४०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२४९</td><td>Urjan Tamang</td><td></td><td class="age">३८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२५०</td><td>maidali</td><td></td><td class="age">४९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२५१</td><td>Misana Tamang</td><td></td><td class="age">९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२५२</td><td>Dinesh Tamang</td><td></td><td class="age">२७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२५३</td><td>Chho Pemba Tamang</td><td></td><td class="age">४९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२५४</td><td>Narayan Nepali</td><td>सिन्धुपाल्चोक</td><td class="age">३९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२५५</td><td>Charki Tamang</td><td></td><td class="age">५३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२५६</td><td>Shibu Giri</td><td></td><td class="age">४४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२५७</td><td>Gyalchet Tamang</td><td></td><td class="age">२७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२५८</td><td>Umesh shrestha</td><td></td><td class="age">३२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२५९</td><td>Gyamchet Tamang</td><td></td><td class="age">३४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२६०</td><td>Pema Chemle</td><td>टिमुरे</td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२६१</td><td>Samira Tamang</td><td></td><td class="age">५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२६२</td><td>Bikash Malla</td><td></td><td class="age">३६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२६३</td><td>Shyam Bahadur Tamang</td><td></td><td class="age">३९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२६४</td><td>Samika Tamang</td><td></td><td class="age">११</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२६५</td><td>Tara Budha Magar</td><td></td><td class="age">२८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२६६</td><td>Ugan Tamang</td><td></td><td class="age">३८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२६७</td><td>Tangen Tamang</td><td></td><td class="age">३६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२६८</td><td>Chiring Dawa Tamang</td><td></td><td class="age">१३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२६९</td><td>Aayeteram Galan</td><td></td><td class="age">६२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२७०</td><td>Nawaraj Merchen</td><td></td><td class="age">३१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२७१</td><td>Xiring ghale</td><td></td><td class="age">२१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२७२</td><td>Htalia</td><td></td><td class="age">७०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२७३</td><td>Sabin Shrestha</td><td></td><td class="age">३१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२७४</td><td>Ekaterina</td><td></td><td class="age">३७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२७५</td><td>Pramod Shakya</td><td></td><td class="age">३९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२७६</td><td>Yagya Bahadur Poudel</td><td></td><td class="age">३१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२७७</td><td>Gong Yu</td><td></td><td class="age">२५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२७८</td><td>Valentina</td><td></td><td class="age">३७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२७९</td><td>Chnag Chhong</td><td></td><td class="age">६०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२८०</td><td>suzana</td><td></td><td class="age">५२</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२८१</td><td>Chiring  Tamang</td><td></td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२८२</td><td>Aashish Gajurel</td><td></td><td class="age">२२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२८३</td><td>Somiya tamang</td><td>टिमुरे</td><td class="age">१८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२८४</td><td>Tashi  Tamang</td><td></td><td class="age">५१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२८५</td><td>Suraj Khadka</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२८६</td><td>Til kumari tamang</td><td>टिमुरे</td><td class="age">४५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२८७</td><td>Nima  Tamang</td><td></td><td class="age">५०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२८८</td><td>Lakpa Chiring</td><td></td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२८९</td><td>Prabha manander</td><td></td><td class="age">३५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२९०</td><td>Sushil Shrestha</td><td></td><td class="age">२८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२९१</td><td>Sanjip Tamang</td><td></td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२९२</td><td>Pang Dorje  Tamang</td><td></td><td class="age">३२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२९३</td><td>Pradip Shrestha</td><td></td><td class="age">२२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२९४</td><td>Krsang palmu</td><td>टिमुरे</td><td class="age">५०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२९५</td><td>Bishal  Tamang</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२९६</td><td>Birendra Singh Tamang</td><td></td><td class="age">३७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२९७</td><td>Pra. Sa. Ha. Gir prasad Shrestha</td><td></td><td class="age">३४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२९८</td><td>Niranjan Shrestha</td><td>टिमुरे</td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>२९९</td><td>Ritu dangol</td><td></td><td class="age">३१</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३००</td><td>Bhumi Nanda Bhetuwal</td><td>स्याफ्रुबेशी</td><td class="age">६३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३०१</td><td>Jit Bahadur Gurung</td><td></td><td class="age">२६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३०२</td><td>Ram Kishor Dhobi</td><td></td><td class="age">३२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३०३</td><td>Dil Kumari Bhetuwal</td><td>स्याफ्रुबेशी</td><td class="age">४५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३०४</td><td>Tenjen lama</td><td></td><td class="age">७०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३०५</td><td>Manika Kumari Chaudhary</td><td></td><td class="age">२५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३०६</td><td>Dolma lama</td><td></td><td class="age">६०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३०७</td><td>Chiring Gyalbhu</td><td>स्याफ्रुबेशी</td><td class="age">२७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३०८</td><td>Purna Bahadur Ghale</td><td></td><td class="age">५५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३०९</td><td>Nawaraj lhadka</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३१०</td><td>Dawa Ghale</td><td></td><td class="age">५४</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३११</td><td>Binda Bhattrai</td><td>स्याफ्रुबेशी</td><td class="age">४८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३१२</td><td>Shre bahadur basnet</td><td></td><td class="age">५०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३१३</td><td>Hem Prasad Bhattrai</td><td>स्याफ्रुबेशी</td><td class="age">५५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३१४</td><td>Mingnar Ghale</td><td></td><td class="age">५०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३१५</td><td>Dawa senang tamang</td><td></td><td class="age">२९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३१६</td><td>Rajendra Neupane</td><td></td><td class="age">४०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३१७</td><td>Ssjun tamang</td><td></td><td class="age">२६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३१८</td><td>Arjun Khatri</td><td>स्याफ्रुबेशी</td><td class="age">५६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३१९</td><td>Sajan pariyar</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३२०</td><td>Kurpu narpu shangba</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३२१</td><td>raj Kumar Rawal</td><td></td><td class="age">३२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३२२</td><td>Tenji Ghale</td><td></td><td class="age">४०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३२३</td><td>Aayeti Maya Tamang</td><td>स्याफ्रुबेशी</td><td class="age">३७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३२४</td><td>karnel lama</td><td></td><td class="age">६१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३२५</td><td>Nita maya Tamang</td><td></td><td class="age">३०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३२६</td><td>Mangli Ghale</td><td></td><td class="age">३८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३२७</td><td>Ekisha tamang</td><td></td><td class="age">२२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३२८</td><td>Ningmar</td><td>स्याफ्रुबेशी</td><td class="age">६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३२९</td><td>Rakesh tamang</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३३०</td><td>Dharma Bir Yadav</td><td></td><td class="age">३६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३३१</td><td>Kajal Gharti</td><td></td><td class="age">४</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३३२</td><td>Man Singh Tamang</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३३३</td><td>Basu balen</td><td></td><td class="age">६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३३४</td><td>Rokal Tamang</td><td></td><td class="age">४१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३३५</td><td>Danu maya tamang</td><td></td><td class="age">४३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३३६</td><td>Amita Gharti</td><td></td><td class="age">३८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३३७</td><td>Basanta yadav</td><td></td><td class="age">२०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३३८</td><td>Prasuna tamanng</td><td></td><td class="age">१२</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३३९</td><td>Kamal Gharti</td><td></td><td class="age">५५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३४०</td><td>Binod Tamang</td><td></td><td class="age">२५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३४१</td><td>Raj kumari tamang</td><td></td><td class="age">२८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३४२</td><td>Dhan Kumari</td><td></td><td class="age">४८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३४३</td><td>Farendra joshi</td><td></td><td class="age">३३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३४४</td><td>Ishika Barma</td><td></td><td class="age">७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३४५</td><td>Umesh Shrestha</td><td></td><td class="age">३२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३४६</td><td>kami situng</td><td></td><td class="age">७०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३४७</td><td>Hima Mango Ghale</td><td></td><td class="age">२०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३४८</td><td>Lalita Barma</td><td></td><td class="age">३८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३४९</td><td>Dawa sechung tamang</td><td></td><td class="age">५१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३५०</td><td>Bhunto  Tamang</td><td>स्याफ्रुबेशी</td><td class="age"></td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>३५१</td><td>Utham  rawat</td><td></td><td class="age">३८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३५२</td><td>Choyang Dorje Sherpa</td><td></td><td class="age">६२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३५३</td><td>Hekso Tamang</td><td>स्याफ्रुबेशी</td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३५४</td><td>Lopsng tamang</td><td></td><td class="age">५३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३५५</td><td>Chiring tamang</td><td></td><td class="age">६२</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३५६</td><td>Chindu  Tamang</td><td>स्याफ्रुबेशी</td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३५७</td><td>Kapo Tamang</td><td></td><td class="age">५३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३५८</td><td>Diya Regmi</td><td></td><td class="age">१३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३५९</td><td>sita  tamang</td><td></td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३६०</td><td>Sushant Gharti</td><td>स्याफ्रुबेशी</td><td class="age">४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३६१</td><td>Vashika karki</td><td></td><td class="age">४८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३६२</td><td>Purnima Tamang</td><td></td><td class="age">८</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३६३</td><td>lamu tamang</td><td></td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३६४</td><td>Sita Pun Gharti</td><td>स्याफ्रुबेशी</td><td class="age">२५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३६५</td><td>Lopsang Tamang</td><td></td><td class="age">५३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३६६</td><td>Galbo tamang</td><td></td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३६७</td><td>Buti Tamang</td><td>स्याफ्रुबेशी</td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३६८</td><td>Tilak Chaudhary</td><td></td><td class="age">२५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३६९</td><td>Bibash tamang</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३७०</td><td>Ram Kumar Chaudhary</td><td></td><td class="age">२१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३७१</td><td>Deni tamang</td><td></td><td class="age">२०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३७२</td><td>Deepak Airi</td><td></td><td class="age">२५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३७३</td><td>Akash Tamang</td><td></td><td class="age">२२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३७४</td><td>nima sanghba</td><td></td><td class="age">२३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३७५</td><td>samba tamang</td><td></td><td class="age">२१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३७६</td><td>Man Bahadur Poudel</td><td></td><td class="age">३७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३७७</td><td>Jem Tamang</td><td>स्याफ्रुबेशी</td><td class="age">११</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३७८</td><td>Dorje tamang</td><td></td><td class="age">४५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३७९</td><td>Kingtang Ghale</td><td></td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३८०</td><td>imanshi tamang</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३८१</td><td>Nuwang Chenju</td><td></td><td class="age">४०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३८२</td><td>lalkesh chaulagain</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३८३</td><td>Sampa Tamang</td><td></td><td class="age">२०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३८४</td><td>min bahadur karki</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३८५</td><td>Krashar Tamang</td><td></td><td class="age">२२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३८६</td><td>sherching lama</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३८७</td><td>Nima Dolma</td><td>स्याफ्रुबेशी</td><td class="age">४३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३८८</td><td>Kima Tamang</td><td></td><td class="age">२०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३८९</td><td>lakesh chaulagain</td><td></td><td class="age">५०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३९०</td><td>Kamini Tamang</td><td></td><td class="age">४९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३९१</td><td>kasing tamang</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३९२</td><td>Sonam Tamang</td><td></td><td class="age">५०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३९३</td><td>minu tamang</td><td></td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३९४</td><td>Pemba Tamang</td><td></td><td class="age">४९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३९५</td><td>tnjing tamang</td><td></td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३९६</td><td>Sanam Lobhu</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३९७</td><td>Kamarenjen Tamang</td><td></td><td class="age">५८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३९८</td><td>Tawa Chokpa Tamang</td><td></td><td class="age">३९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>३९९</td><td>lalita tamang</td><td></td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४००</td><td>karma tamang</td><td></td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४०१</td><td>Nima Jadbu</td><td></td><td class="age">२३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४०२</td><td>kamon shrepa</td><td></td><td class="age">५०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४०३</td><td>Kami Tamang</td><td></td><td class="age">५३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४०४</td><td>Skhiya Jayaramayan</td><td></td><td class="age">४०</td><td>महिला</td><td>सुरक्षित</td></tr>
+        <tr data-pager="dao-res"><td>४०५</td><td>rinzen tamang</td><td></td><td class="age">३१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४०६</td><td>Syangba Tamang</td><td></td><td class="age">२१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४०७</td><td>sonaya tamang</td><td></td><td class="age">४९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४०८</td><td>Nima Dorje Tamang</td><td></td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४०९</td><td>urjin tamang</td><td></td><td class="age">३७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४१०</td><td>Mendo Gyalmo Tamang</td><td>स्याफ्रुबेशी</td><td class="age">६५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४११</td><td>kasang dolma</td><td></td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४१२</td><td>Dipendra tmanag</td><td>सिन्धुपाल्चोक</td><td class="age">२६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४१३</td><td>Lakpa Chimo</td><td>स्याफ्रुबेशी</td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४१४</td><td>shadev rai</td><td>सिन्धुपाल्चोक</td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४१५</td><td>Anita Shahi</td><td></td><td class="age">३२</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४१६</td><td>sujan poudel</td><td>सिन्धुपाल्चोक</td><td class="age">३८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४१७</td><td>Anju Ghatri</td><td></td><td class="age">२३</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४१८</td><td>Kamal singh</td><td></td><td class="age">२४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४१९</td><td>Gita Pujaye</td><td></td><td class="age">३०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४२०</td><td>Dilija Pun</td><td></td><td class="age">३४</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४२१</td><td>Dinduin Ghale</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४२२</td><td>Maidali</td><td></td><td class="age">४९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४२३</td><td>Kalam Bahdur Shahi</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४२४</td><td>Sijal Thapa Chhetri</td><td></td><td class="age">२१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४२५</td><td>Deni Tamang</td><td></td><td class="age">२०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४२६</td><td>Pasang Tamang</td><td></td><td class="age">३४</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४२७</td><td>Lokesh Joshi</td><td></td><td class="age">३७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४२८</td><td>Ranjan Khatri</td><td></td><td class="age">४२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४२९</td><td>Omkar Joshi</td><td></td><td class="age">३४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४३०</td><td>Pemba Tamang</td><td></td><td class="age">५०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४३१</td><td>Bikram Shrestha</td><td></td><td class="age">३३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४३२</td><td>Sidhar Tamang</td><td></td><td class="age">४०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४३३</td><td>Chiring Tamang</td><td></td><td class="age">३०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४३४</td><td>Losang Tamang</td><td></td><td class="age">३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४३५</td><td>Subash Khadka</td><td></td><td class="age">३३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४३६</td><td>Khampa Tamang</td><td></td><td class="age">६३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४३७</td><td>Pradip Gharkarwa</td><td></td><td class="age">३१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४३८</td><td>Pasa Lakpa Sherpa</td><td></td><td class="age">४०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४३९</td><td>Jiban Thami</td><td></td><td class="age">३४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४४०</td><td>Siman Tamang</td><td></td><td class="age">४०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४४१</td><td>Hira Bahadur Tamang</td><td></td><td class="age">४३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४४२</td><td>Sanga Bahadur Syantan</td><td></td><td class="age">२२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४४३</td><td>Raj Kumar Gubhaju</td><td></td><td class="age">३६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४४४</td><td>Gautam Lo</td><td></td><td class="age">३०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४४५</td><td>Sonam Sherpa</td><td></td><td class="age">५३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४४६</td><td>Sushila Bolan</td><td></td><td class="age">३२</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४४७</td><td>Anil Poudel</td><td></td><td class="age">२९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४४८</td><td>Tulsi Dhakal</td><td></td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४४९</td><td>ईसार तामाङ</td><td></td><td class="age">४</td><td>महिला</td><td>उपचाररत</td></tr>
+        <tr data-pager="dao-res"><td>४५०</td><td>Sushant Gharti Magar</td><td></td><td class="age">४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४५१</td><td>Sita Pun Gharti</td><td></td><td class="age">३०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४५२</td><td>PangPang Sherpa</td><td></td><td class="age"></td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>४५३</td><td>Sagar Shani Patel</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४५४</td><td>Nima Gyalbhu Ghale</td><td></td><td class="age"></td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>४५५</td><td>Tara Maya Tamang</td><td></td><td class="age">३०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४५६</td><td>Aandosh Bal</td><td></td><td class="age">३२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४५७</td><td>Sharmila Shrestha</td><td></td><td class="age">३६</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४५८</td><td>Gombo Ghale</td><td></td><td class="age">६४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४५९</td><td>Pratima Lama</td><td>स्याफ्रुबेशी</td><td class="age">४०</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४६०</td><td>रामकुमार खड्का</td><td></td><td class="age">३६</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>४६१</td><td>Jongho Lim</td><td></td><td class="age">५६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४६२</td><td>Jaepok Yang</td><td></td><td class="age">५६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४६३</td><td>Mendo Pemba Tamang</td><td>स्याफ्रुबेशी</td><td class="age">३३</td><td>महिला</td><td>उपचाररत</td></tr>
+        <tr data-pager="dao-res"><td>४६४</td><td>Mission Lama</td><td>स्याफ्रुबेशी</td><td class="age">९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४६५</td><td>Valurntina Piccintui</td><td></td><td class="age">३७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४६६</td><td>Anjana Raja</td><td></td><td class="age">५२</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४६७</td><td>Indra Bahadur Karki</td><td>सिन्धुपाल्चोक</td><td class="age">४१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४६८</td><td>Sukuman Kami</td><td></td><td class="age">४१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४६९</td><td>Taehoon yum</td><td></td><td class="age">५७</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४७०</td><td>Renjan Sherpa</td><td>स्याफ्रुबेशी</td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४७१</td><td>Tirtha Bahadur Karki</td><td>सिन्धुपाल्चोक</td><td class="age">४४</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>४७२</td><td>Dorje Tamang</td><td></td><td class="age">४५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४७३</td><td>Thanfu Ghale</td><td>टिमुरे</td><td class="age">६४</td><td>पुरुष</td><td>सुरक्षित</td></tr>
+        <tr data-pager="dao-res"><td>४७४</td><td>Pemba Saibo Ghale</td><td></td><td class="age">४७</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४७५</td><td>Nima Karma</td><td></td><td class="age">५९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४७६</td><td>Balani Yapan</td><td>टिमुरे</td><td class="age">६९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४७७</td><td>Radhu Nardan</td><td>टिमुरे</td><td class="age">५६</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४७८</td><td>Nabhukabir Dosh</td><td>टिमुरे</td><td class="age">५४</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४७९</td><td>Maran Govinda Spoon</td><td>टिमुरे</td><td class="age">५४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४८०</td><td>Pattabiraman Venkatesan</td><td></td><td class="age">५५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४८१</td><td>Satyai Dhakham</td><td>टिमुरे</td><td class="age"></td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४८२</td><td>Hima Ghale</td><td>टिमुरे</td><td class="age">५९</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४८३</td><td>Simaranjan</td><td>टिमुरे</td><td class="age">४६</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४८४</td><td>Bijay Bakhu</td><td>टिमुरे</td><td class="age">५४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४८५</td><td>Ranta Kumar</td><td>टिमुरे</td><td class="age">६५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४८६</td><td>Panga Sawai</td><td>टिमुरे</td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४८७</td><td>Ramesh Bahadur Budha</td><td></td><td class="age">२४</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४८८</td><td>Zhang Curg</td><td></td><td class="age">४३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४८९</td><td>Tian Yu</td><td></td><td class="age">३५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४९०</td><td>Gong Fu</td><td></td><td class="age">२५</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४९१</td><td>Gyan Bahadur Thing</td><td></td><td class="age">२६</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४९२</td><td>Taeyoon Kia</td><td></td><td class="age">४१</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४९३</td><td>Punganang Fui</td><td></td><td class="age">४५</td><td>महिला</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४९४</td><td>Shyam Lal Moktan</td><td></td><td class="age">३३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४९५</td><td>Thiruma Bhalan</td><td>टिमुरे</td><td class="age">६२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४९६</td><td>Zhang Chuan</td><td></td><td class="age">७०</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४९७</td><td>LOtumuw Stecano</td><td></td><td class="age">३९</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४९८</td><td>Fang Nuotau</td><td></td><td class="age">४८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>४९९</td><td>Rannaga Sawai</td><td>टिमुरे</td><td class="age">६८</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५००</td><td>Chandra Bahadur Budha</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५०१</td><td>Tirtha Bahadur Budha</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५०२</td><td>Zinzhi Giang</td><td></td><td class="age">५२</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५०३</td><td>Umesh Rawal</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५०४</td><td>Ziang Gang</td><td></td><td class="age">३१</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५०५</td><td>Raju Tamang</td><td></td><td class="age"></td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५०६</td><td>Rajesh Mandal</td><td></td><td class="age">२३</td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५०७</td><td>Bhuwan Singh Pakhrin</td><td></td><td class="age"></td><td>पुरुष</td><td></td></tr>
+        <tr data-pager="dao-res"><td>५०८</td><td>Nima Gyalbhu Ghale</td><td></td><td class="age"></td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५०९</td><td>Furba Bomjan Tamang</td><td>स्याफ्रुबेशी</td><td class="age">५४</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५१०</td><td>Dawa Chenjom</td><td>स्याफ्रुबेशी</td><td class="age">३५</td><td>महिला</td><td>उपचाररत</td></tr>
+        <tr data-pager="dao-res"><td>५११</td><td>Samjhana Neupane</td><td>स्याफ्रुबेशी</td><td class="age">२८</td><td>महिला</td><td>उपचाररत · Pregnant transferred to medical care</td></tr>
+        <tr data-pager="dao-res"><td>५१२</td><td>Arbind Mehta</td><td></td><td class="age">३२</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५१३</td><td>भुपेन्द्र भुजेल</td><td></td><td class="age">२८</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५१४</td><td>प्रदीप चन्द</td><td></td><td class="age">३२</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५१५</td><td>एन्जल पाैडेल</td><td></td><td class="age">२९</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५१६</td><td>खेम साङ्ग्बु तामाङ</td><td>टिमुरे</td><td class="age">२८</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५१७</td><td>लामु तामाङ</td><td>टिमुरे</td><td class="age">६</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५१८</td><td>बासुदेव आचार्य</td><td>सिन्धुपाल्चोक</td><td class="age">२८</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५१९</td><td>अशोक श्रेष्ठ</td><td>सिन्धुपाल्चोक</td><td class="age">३०</td><td></td><td>उपचाररत</td></tr>
+        <tr data-pager="dao-res"><td>५२०</td><td>राजन खत्री</td><td></td><td class="age">४२</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५२१</td><td>देवेन्द्र खड्का</td><td></td><td class="age">३४</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५२२</td><td>नन्द लाल घर्ती</td><td></td><td class="age"></td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td>५२३</td><td>मिन बहादुर श्रेष्ठ</td><td></td><td class="age"></td><td></td><td>उपचाररत</td></tr>
+        <tr data-pager="dao-res"><td>५२४</td><td>कुशल मगर</td><td></td><td class="age"></td><td></td><td>उपचाररत</td></tr>
+        <tr data-pager="dao-res"><td>५२५</td><td>दावा डोलमा</td><td></td><td class="age">१२</td><td></td><td>उपचाररत</td></tr>
+        <tr data-pager="dao-res"><td>५२६</td><td>पेम्बा तामाङ</td><td></td><td class="age">४८</td><td></td><td>उपचाररत</td></tr>
+        <tr data-pager="dao-res"><td>५२७</td><td>राजेन्द्र भट्ट</td><td></td><td class="age">२७</td><td></td><td>उपचाररत</td></tr>
+        <tr data-pager="dao-res"><td>५२८</td><td>भक्त बहादुर घर्ती</td><td></td><td class="age">५०</td><td></td><td></td></tr>
+        <tr data-pager="dao-res"><td></td><td>नाम नखुलेको</td><td>कालिका</td><td class="age"></td><td>पु</td><td>अघिल्लो DAO · NDRRMA मा छैन</td></tr>
 </tbody>
       <tfoot>
         <tr><td></td><td data-i18n="list_total">जम्मा सूची</td><td class="mw">४३१.१</td><td data-i18n="power_foot">प्रत्यक्ष प्रभावित २७६ मेगावाट · त्रिशूली ३बी हब २२० केभी सबस्टेशन पनि क्षति</td></tr>
@@ -3889,6 +3994,12 @@ footer .foot-contact a:hover{text-decoration:underline}
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
             <article class="log-item now">
+      <p class="when">~१०:०४</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>उद्धार सूची अपडेट (NDRRMA) — जम्मा ५२९ नाम</h3>
+      <p>NDRRMA सार्वजनिक पोर्टलबाट उद्धार सूची <strong>५२८</strong> नाम (नेपाली ४९० · विदेशी ३८)। टिमुरे ५१ · स्याफ्रुबेसी ४४ · सिन्धुपाल्चोक ८। + नाम नखुलेको — तालिका <strong>५२९</strong>। अघिल्लो DAO ग्याप-सूची ४५० यसबाट अद्यावधिक, जोडिएको छैन। स्रोत: <a href="https://ndrrma.gov.np/np/rescue" target="_blank" rel="noopener">ndrrma.gov.np/np/rescue</a> · <a href="#dao-res">सूची</a>। हराएको सूचीबाट हटाइएको छैन। परिचालित कार्डमा सेना/सशस्त्र/प्रहरी/मेडिकल/हेलि लेबल।</p>
+    </article>
+            <article class="log-item">
       <p class="when">~०९:३९</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>परिचालन — सेना ५,२००+, सशस्त्र ३,७००+, प्रहरी ४,३४८, मेडिकल २००+, हेलि १४</h3>
@@ -5124,8 +5235,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-0939"></script>
-<script>window.PAGE_VER="2026-08-28-0939";</script>
+<script src="i18n.js?v=2026-08-28-1004"></script>
+<script>window.PAGE_VER="2026-08-28-1004";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -5820,7 +5931,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (data.missing) setLive(".fd-live-miss", data.missing.length);
     if (data.found){
       setLive(".fd-live-found", data.found.length);
-      setLive(".fd-live-found-total", data.found.length + 450 + 73 + 21 + 63);
+      setLive(".fd-live-found-total", data.found.length + 529 + 73 + 21 + 63);
     }
     var helloN = document.querySelectorAll("#hello-sarkar-body tr").length;
     var madN = document.querySelectorAll("#madhesh-body tr").length;
