@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T06:37:07+05:45",
+  "updated_at": "2026-08-28T06:43:05+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -6236,6 +6236,28 @@
       "when": "8 13 am , Wednesday",
       "phone": "9865595868 , 9851010676",
       "note": "फारम 06:34 · ठेगाना: Itahari",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260828-063529-man-kumari-khadka",
+      "name": "Man Kumari Khadka",
+      "age": "60",
+      "place": "Itahari · China border",
+      "when": "8:15 am Wednesday",
+      "phone": "9865595868",
+      "note": "फारम 06:35 · ठेगाना: Itahari · Kurtha white with flower pattern",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260828-063728-raju-thapa",
+      "name": "Raju Thapa",
+      "age": "37 / 38",
+      "place": "Banepa · Timurey",
+      "when": "8:30 on bhadra 10",
+      "phone": "9860936213",
+      "note": "फारम 06:37 · ठेगाना: Banepa",
       "status": "missing",
       "source": "form"
     }
