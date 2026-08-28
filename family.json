@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T17:54:07.608642+05:45",
+  "updated_at": "2026-08-28T18:17:41.752791+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -10270,6 +10270,75 @@
       "when": "bhadra 10 bihana ko 8 50",
       "phone": "9865013739",
       "note": "फारम 17:00 · pic ma vayeko daju vai ho dubai jana missing hununxa rasuwa kerung naka bata"
+    },
+    {
+      "id": "sheet-20260828-180037-person",
+      "name": "चन्द्र बहादुर ग्यामी",
+      "status": "missing",
+      "source": "form",
+      "age": "32",
+      "place": "धादिङ · बेत्रावती",
+      "note": "फारम 18:00"
+    },
+    {
+      "id": "sheet-20260828-180106-sarada-simkhada",
+      "name": "Sarada Simkhada",
+      "status": "missing",
+      "source": "form",
+      "place": "Dartford, UK · Timure",
+      "phone": "+447375833758",
+      "note": "फारम 18:01"
+    },
+    {
+      "id": "sheet-20260828-180156-rajesh-syangten",
+      "name": "Rajesh Syangten",
+      "status": "missing",
+      "source": "form",
+      "place": "Birtamode · Rasuwa",
+      "phone": "9702640045",
+      "note": "फारम 18:01 · Tattoo on right arm and the name 'Rajesh' in English · He used to drive vehicles near or at the Rasuwa border"
+    },
+    {
+      "id": "sheet-20260828-180428-babin-lawati",
+      "name": "Babin lawati",
+      "status": "missing",
+      "source": "form",
+      "age": "20",
+      "place": "Panchthar, Mouwa tumbewa-2 · Rasuwa flood",
+      "phone": "9827989936",
+      "note": "फारम 18:04"
+    },
+    {
+      "id": "sheet-20260828-180452-milan-basnet",
+      "name": "Milan  basnet",
+      "status": "missing",
+      "source": "form",
+      "age": "32",
+      "place": "Hetauda -3 lewat · Rasuwa garhi",
+      "when": "Last time boleko 9 baje",
+      "phone": "9851034291",
+      "note": "फारम 18:04 · 🚨 **अत्यन्त जरुरी खोजी तथा उद्धारसम्बन्धी सूचना** 🚨\n\nरसुवाको **टिमुरे/रसुवागढी क्षेत्रमा गाडी लिएर जानुभएका मिलन बस्नेत** आजदेखि परिवार तथा आफन्तको सम्पर्कबाट ब"
+    },
+    {
+      "id": "sheet-20260828-181222-person",
+      "name": "तलिन्द्र मगर",
+      "status": "missing",
+      "source": "form",
+      "age": "३३",
+      "place": "सिन्धुपाल्चोक · टिमुरे",
+      "when": "२०८३-०६-१०/ ०७:२०",
+      "phone": "९८४१९२४८९५",
+      "note": "फारम 18:12"
+    },
+    {
+      "id": "sheet-20260828-181439-tenzin-thokra",
+      "name": "Tenzin thokra",
+      "status": "missing",
+      "source": "form",
+      "place": "Rasuwa Syabrubesi · China boarder immigration",
+      "when": "26 at 8:30am",
+      "phone": "9747650178",
+      "note": "फारम 18:14 · Tattoo at chest · No"
     }
   ],
   "found": [
