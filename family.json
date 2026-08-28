@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T08:20:02.162481+05:45",
+  "updated_at": "2026-08-28T08:34:31.108884+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,70 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-083112-s-ramu-a-l-sawasamy",
+      "name": "S RAMU A/L SAWASAMY",
+      "status": "missing",
+      "source": "form",
+      "age": "60",
+      "place": "Malaysian · Rasuwagadhi, Immigration Office",
+      "when": "26/8/2026 - 10am",
+      "phone": "+60182221020",
+      "note": "फारम 08:31 · +60 1116720856"
+    },
+    {
+      "id": "sheet-20260828-082334-sruthi-chandrasekharan",
+      "name": "Sruthi Chandrasekharan",
+      "status": "missing",
+      "source": "form",
+      "age": "36",
+      "place": "Australia",
+      "when": "8:15 am",
+      "phone": "9656089986",
+      "note": "फारम 08:23"
+    },
+    {
+      "id": "sheet-20260828-082044-shyam-chaudhary",
+      "name": "Shyam Chaudhary",
+      "status": "missing",
+      "source": "form",
+      "age": "38",
+      "place": "Dang (Gadhawa 04) · Trishuli 3B hydropower",
+      "when": "Last call at Trishuli 3B head office",
+      "phone": "9829510979",
+      "note": "फारम 08:20 · नागरिकता: Bhagwan din Chaudhary · श्रीमती 976943717"
+    },
+    {
+      "id": "sheet-20260828-081945-samir-khadka",
+      "name": "Samir Khadka",
+      "status": "missing",
+      "source": "form",
+      "age": "25",
+      "place": "Nagarjun-08, Bhimdhunga Ktm · Betrawati, Nuwakot",
+      "phone": "9841792906 / 9767594922",
+      "note": "फारम 08:19"
+    },
+    {
+      "id": "sheet-20260828-081752-sapana-devkota",
+      "name": "Sapana Devkota",
+      "status": "missing",
+      "source": "form",
+      "age": "60",
+      "place": "Palungtar 5 Gorkha · Bhaise",
+      "when": "2083/05/10",
+      "note": "फारम 08:17"
+    },
+    {
+      "id": "sheet-20260828-081705-dipesh-basnet",
+      "name": "Dipesh Basnet",
+      "status": "missing",
+      "source": "form",
+      "age": "32",
+      "place": "Bhaktapur · Rasuwa Timure",
+      "when": "2083 bhadra 9",
+      "phone": "9861089845",
+      "note": "फारम 08:17"
+    },
     {
       "id": "sheet-20260828-081005-santa-ghale",
       "name": "Santa Ghale",
