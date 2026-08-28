@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T08:33:18.176240+05:45",
+  "updated_at": "2026-08-28T08:41:00.200741+05:45",
   "note_np": "DHM बाढी मार्ग स्टेसन (धुन्चे→बेत्रावती→फुर्के→काली खोला→देवघाट)। फुर्के वासड् — लाइभ होइन।",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms-Single/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -10,14 +10,14 @@
       "name": "Trishuli Khola at Dhunche",
       "name_np": "धुन्चे · त्रिशूली खोला",
       "district_np": "नुवाकोट",
-      "level_m": 2.4,
+      "level_m": 2.406,
       "warning_m": 3.2,
       "danger_m": null,
       "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-28T08:00:00+05:45",
-      "observed_npt": "२०२६-०८-२८ ०८:००",
-      "silent": true,
+      "observed_at": "2026-08-28T08:20:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ०८:२०",
+      "silent": false,
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657"
     },
@@ -85,7 +85,7 @@
       "steady": true,
       "observed_at": "2026-08-28T08:10:00+05:45",
       "observed_npt": "२०२६-०८-२८ ०८:१०",
-      "silent": false,
+      "silent": true,
       "washed": false,
       "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
     }
