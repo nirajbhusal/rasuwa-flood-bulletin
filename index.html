@@ -390,7 +390,8 @@ a.js-found-row[hidden]{display:none}
 .stat ul.mini li{margin:5px 0}
 .stat ul.mini strong{color:var(--crimson);font-variant-numeric:tabular-nums;font-weight:800;font-size:22px}
 .hero h2.vis-title{font-size:clamp(22px,4vw,30px);margin:0 0 12px}
-.snap-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 14px}
+.snap-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
+.overview > .snap-row{margin-top:10px}
 @media(max-width:640px){.snap-row{grid-template-columns:1fr}}
 .cash-snap{
   display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;
@@ -492,7 +493,9 @@ a.js-found-row[hidden]{display:none}
   padding:0 0 6px;min-width:0;box-shadow:var(--shadow);
 }
 .kpi-box .kpi{border:0;box-shadow:none;border-radius:16px 16px 0 0;padding:12px 12px 6px}
+.kpi-box .kpi .kpi-k{line-height:1.25;letter-spacing:.02em}
 .kpi-box .cash-list{margin:0 10px 4px;padding:0}
+.kpi-box .cash-list.kpi-split{display:grid;grid-template-columns:1fr 1fr;column-gap:8px}
 .kpi-box .cash-list li{font-size:11px;padding:3px 0;gap:6px;line-height:1.3;border-bottom:1px solid #d1fae5}
 .kpi-box .cash-list strong{color:var(--forest);font-size:12px}
 .kpi-box:has(.kpi.on){border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5}
@@ -1185,51 +1188,28 @@ footer .foot-contact a:hover{text-decoration:underline}
   <div class="wrap">
     <p class="kicker" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
     <h2 class="vis-title" data-i18n="hero_overview">बाढीको स्थिति · १२ भदौ</h2>
-    <div class="snap-row">
-    <a class="cash-snap" href="#donate" id="hero-cash">
-      <span class="kpi-k" data-i18n="hero_cash_h">राहत रकम जम्मा</span>
-      <strong class="num">३९.३३</strong>
-      <span class="cash-unit" data-i18n="cash_crore">करोड रुपैयाँ</span>
-    </a>
-    <a class="cash-snap aid-snap" href="#aid" id="hero-aid">
-      <span class="kpi-k" data-i18n="hero_aid_h">वैदेशिक सहयोग</span>
-      <span class="aid-split">
-        <span class="aid-pair">
-          <em data-i18n="aid_sent_k">राहत सामग्री</em>
-          <strong class="num">४७.५</strong>
-          <span class="cash-unit" data-i18n="aid_ton">टन</span>
-        </span>
-        <span class="aid-pair">
-          <em data-i18n="aid_fund_k">कोष</em>
-          <strong class="num">१.२</strong>
-          <span class="cash-unit" data-i18n="aid_usd">मिलियन USD</span>
-        </span>
-      </span>
-      <span class="cash-sub" data-i18n="hero_aid_sub">भारत दुई उडान · IFRC रेडक्रस · पठाइएको</span>
-    </a>
-    </div>
     <p class="lede sr-only" data-i18n-html="lede">नेपाल प्रहरी ०६:००, १२ भदौ। शव <strong>४६९</strong>। SitRep-6 घाइते <strong>७३</strong>। सम्पर्कविहीन <strong>९७७</strong>। हेलि उद्धार <strong>१९७६</strong>। नागरिक उद्धार <strong>१५५२</strong>। लेन्देमा अस्थायी ताल ०.११ वर्ग किमि — नदी किनार नजानुहोस्।</p>
     <div class="overview" id="overview">
       <div class="kpi-row" role="tablist" aria-label="मुख्य आंकडा" data-i18n-aria="kpi_aria">
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="dead" id="kpi-dead">
-          <span class="kpi-k" data-i18n="kpi_dead">मृतक</span>
+          <span class="kpi-k" data-i18n="kpi_dead">मृतक संख्या</span>
           <strong class="num">४६९</strong>
         </button>
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="injured" id="kpi-injured">
-          <span class="kpi-k" data-i18n="kpi_injured">घाइते</span>
+          <span class="kpi-k" data-i18n="kpi_injured">घाइते संख्या</span>
           <strong class="num">७३</strong>
         </button>
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="miss" id="kpi-miss">
-          <span class="kpi-k" data-i18n="kpi_miss">सम्पर्कविहीन</span>
+          <span class="kpi-k" data-i18n="kpi_miss">सम्पर्कविहीन संख्या</span>
           <strong class="num">९७७</strong>
         </button>
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="air" id="kpi-air">
-          <span class="kpi-k" data-i18n="kpi_air">हेलि उद्धार</span>
+          <span class="kpi-k" data-i18n="kpi_air">हेलि उद्धार संख्या</span>
           <strong class="num">१९७६</strong>
         </button>
         <div class="kpi-box" data-tone="deploy">
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="deploy" id="kpi-deploy">
-          <span class="kpi-k" data-i18n="kpi_deploy">परिचालित</span>
+          <span class="kpi-k" data-i18n="kpi_deploy">खटिएको जनशक्ति</span>
           <strong class="num">१३,२४८+</strong>
         </button>
         <ul class="cash-list kpi-split">
@@ -1242,25 +1222,48 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
         </div>
       </div>
+      <div class="snap-row">
+        <a class="cash-snap" href="#donate" id="hero-cash">
+          <span class="kpi-k" data-i18n="hero_cash_h">राहत रकम जम्मा</span>
+          <strong class="num">३९.३३</strong>
+          <span class="cash-unit" data-i18n="cash_crore">करोड रुपैयाँ</span>
+        </a>
+        <a class="cash-snap aid-snap" href="#aid" id="hero-aid">
+          <span class="kpi-k" data-i18n="hero_aid_h">वैदेशिक सहयोग</span>
+          <span class="aid-split">
+            <span class="aid-pair">
+              <em data-i18n="aid_sent_k">राहत सामग्री</em>
+              <strong class="num">४७.५</strong>
+              <span class="cash-unit" data-i18n="aid_ton">टन</span>
+            </span>
+            <span class="aid-pair">
+              <em data-i18n="aid_fund_k">कोष</em>
+              <strong class="num">१.२</strong>
+              <span class="cash-unit" data-i18n="aid_usd">मिलियन USD</span>
+            </span>
+          </span>
+          <span class="cash-sub" data-i18n="hero_aid_sub">भारत दुई उडान · IFRC रेडक्रस · पठाइएको</span>
+        </a>
+      </div>
       <div class="ov-panel">
         <div class="ov-pane on" data-panel="all">
           <p class="ov-cap" data-i18n="ov_all_cap">समग्र · कार्ड थिचेर जिल्ला/वर्ग हेर्नुहोस्</p>
           <div class="ov-grid">
             <div class="ov-mini" data-tone="dead">
-              <h3 data-i18n-html="ov_mini_dead">मृतक <em>४६९</em></h3>
+              <h3 data-i18n-html="ov_mini_dead">मृतक संख्या <em>४६९</em></h3>
               <div class="ibar-row"><span data-i18n="d_chitwan">चितवन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१७८</em></div>
               <div class="ibar-row"><span data-i18n="d_nawal">नवलपरासी पूर्व</span><b class="ibar"><i style="width:62%"></i></b><em class="num">११०</em></div>
               <div class="ibar-row"><span data-i18n="d_gorkha">गोरखा</span><b class="ibar"><i style="width:25%"></i></b><em class="num">४४</em></div>
               <p class="ov-note" data-i18n="ov_mini_dead_note">प्रहरी जिल्ला · जम्मा ४६९</p>
             </div>
             <div class="ov-mini" data-tone="injured">
-              <h3 data-i18n-html="ov_mini_injured">घाइते <em>७३</em></h3>
+              <h3 data-i18n-html="ov_mini_injured">घाइते संख्या <em>७३</em></h3>
               <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४३</em></div>
               <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:63%"></i></b><em class="num">२७</em></div>
               <div class="ibar-row"><span data-i18n="d_dhading">धादिङ</span><b class="ibar"><i style="width:7%"></i></b><em class="num">३</em></div>
             </div>
             <div class="ov-mini" data-tone="miss">
-              <h3 data-i18n-html="ov_mini_miss">सम्पर्कविहीन <em>९७७</em></h3>
+              <h3 data-i18n-html="ov_mini_miss">सम्पर्कविहीन संख्या <em>९७७</em></h3>
               <div class="ibar-row"><span data-i18n="d_foreign">विदेशी</span><b class="ibar"><i style="width:100%"></i></b><em class="num">५१७</em></div>
               <div class="ibar-row"><span data-i18n="d_nrn">एनआरएन</span><b class="ibar"><i style="width:25%"></i></b><em class="num">१२७</em></div>
               <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा</span><b class="ibar"><i style="width:31%"></i></b><em class="num">१६१</em></div>
@@ -1268,13 +1271,13 @@ footer .foot-contact a:hover{text-decoration:underline}
               <p class="ov-note" data-i18n="ov_mini_miss_note">NDRRMA SitRep-6 · जम्मा ९७७</p>
             </div>
             <div class="ov-mini" data-tone="air">
-              <h3 data-i18n-html="ov_mini_air">हेलि <em>१९७६</em></h3>
+              <h3 data-i18n-html="ov_mini_air">हेलि उद्धार संख्या <em>१९७६</em></h3>
               <div class="ibar-row"><span data-i18n="d_heli">हेलि</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१९७६</em></div>
               <div class="ibar-row"><span data-i18n="d_heli_n">हेलिकप्टर</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१४</em></div>
               <div class="ibar-row"><span data-i18n="d_citizen">नागरिक</span><b class="ibar"><i style="width:78%"></i></b><em class="num">१५५२</em></div>
             </div>
             <div class="ov-mini" data-tone="deploy">
-              <h3 data-i18n-html="ov_mini_deploy">परिचालित <em>१३,२४८+</em></h3>
+              <h3 data-i18n-html="ov_mini_deploy">खटिएको जनशक्ति <em>१३,२४८+</em></h3>
               <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">५२००+</em></div>
               <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:71%"></i></b><em class="num">३७००+</em></div>
               <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:84%"></i></b><em class="num">४३४८</em></div>
@@ -1367,7 +1370,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </div>
       </div>
       <div class="stat">
-        <b data-i18n="stat_injured">घाइते</b>
+        <b data-i18n="stat_injured">घाइते संख्या</b>
         <ul class="mini">
           <li>जम्मा <strong>७३</strong></li>
           <li>रसुवा <strong>४३</strong> · नुवाकोट <strong>२७</strong> · धादिङ <strong>३</strong></li>
@@ -1390,7 +1393,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </div>
       </div>
       <div class="stat">
-        <b data-i18n="stat_uncontacted">सम्पर्कविहीन</b>
+        <b data-i18n="stat_uncontacted">सम्पर्कविहीन संख्या</b>
         <ul class="mini">
           <li>जम्मा <strong>९७७</strong></li>
           <li>विदेशी <strong>५१७</strong> · एनआरएन <strong>१२७</strong></li>
@@ -1451,7 +1454,7 @@ footer .foot-contact a:hover{text-decoration:underline}
           <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:29%"></i></b><em class="num">१३</em></div>
         </div>
         <div class="infobar" aria-hidden="true">
-          <p class="infobar-cap" data-i18n="infobar_deployed">परिचालित · जम्मा १३,२४८+</p>
+          <p class="infobar-cap" data-i18n="infobar_deployed">खटिएको जनशक्ति · जम्मा १३,२४८+</p>
           <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">५२००+</em></div>
           <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:71%"></i></b><em class="num">३७००+</em></div>
           <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:84%"></i></b><em class="num">४३४८</em></div>
@@ -1479,7 +1482,7 @@ footer .foot-contact a:hover{text-decoration:underline}
         </ul>
       </div>
       <div class="stat">
-        <b data-i18n="stat_air">हवाई उद्धार</b>
+        <b data-i18n="stat_air">हवाई उद्धार संख्या</b>
         <ul class="mini">
           <li>जम्मा हेलि <strong>१९७६</strong></li>
           <li>हेलिकप्टर मैदानमा <strong>१४</strong></li>
@@ -1533,11 +1536,6 @@ footer .foot-contact a:hover{text-decoration:underline}
     <h3 data-i18n="rd_h">प्रकाशित नाम-सूची</h3>
     <p class="cash-lead" data-i18n="rd_lead">काठमाडौं अस्पताल, नुवाकोट, सूर्यगढी, रसुवा/टिमुरे, NDRRMA उद्धार, भारतीय, त्रिशूली-१ र काठमाडौं हेलि — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन।</p>
     <div class="cash-kpis rd-kpis" role="tablist" aria-label="उद्धार र उपचार">
-      <button type="button" class="cash-kpi on" data-rd="all" aria-selected="true">
-        <span class="kpi-k" data-i18n="rd_all_k">सूची</span>
-        <strong data-i18n="rd_all_v">९</strong>
-        <span class="cash-unit" data-i18n="rd_all_u">वर्ग</span>
-      </button>
       <button type="button" class="cash-kpi" data-rd="treat" aria-selected="false">
         <span class="kpi-k" data-i18n="rd_treat_k">घाइते काठमाडौं</span>
         <strong class="num">८८</strong>
@@ -1581,7 +1579,7 @@ footer .foot-contact a:hover{text-decoration:underline}
     </div>
     <div class="cash-panes">
       <div class="cash-pane on" data-rd="all">
-        <p class="ov-cap" data-i18n="rd_all_cap">नौ प्रकाशित सूची · कार्ड थिचेर विवरण</p>
+        <p class="ov-cap" data-i18n="rd_all_cap">प्रकाशित नाम-सूची · कार्ड थिचेर विवरण</p>
         <ul class="cash-list">
           <li><span data-i18n="rd_treat_k">घाइते काठमाडौं</span><strong><span class="num">८८</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_nuw_k">नुवाकोट</span><strong><span class="num">५६</span> <span data-i18n="rd_name_u">जना</span></strong></li>
@@ -5252,8 +5250,8 @@ footer .foot-contact a:hover{text-decoration:underline}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1057"></script>
-<script>window.PAGE_VER="2026-08-28-1057";</script>
+<script src="i18n.js?v=2026-08-28-1143"></script>
+<script>window.PAGE_VER="2026-08-28-1143";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -5346,7 +5344,11 @@ footer .foot-contact a:hover{text-decoration:underline}
     });
   }
   kpis.forEach(function(k){
-    k.addEventListener("click", function(){ show(k.getAttribute("data-rd")); });
+    k.addEventListener("click", function(){
+      var id = k.getAttribute("data-rd");
+      if (k.classList.contains("on")) show("all");
+      else show(id);
+    });
   });
 })();
 (function(){
