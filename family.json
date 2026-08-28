@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T14:30:52.747492+05:45",
+  "updated_at": "2026-08-28T14:59:03.225654+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -9300,6 +9300,112 @@
       "when": "2083/05/10 morning 8:30",
       "phone": "+9779849583032",
       "note": "फारम 14:27 · Family sayet bepatta \nBudi and 1 son"
+    },
+    {
+      "id": "sheet-20260828-144556-amrit-upreti",
+      "name": "Amrit upreti",
+      "status": "missing",
+      "source": "form",
+      "age": "31",
+      "place": "Rasuwa",
+      "when": "9",
+      "note": "फारम 14:45"
+    },
+    {
+      "id": "sheet-20260828-144958-tenzing-sherpa",
+      "name": "Tenzing sherpa",
+      "status": "missing",
+      "source": "form",
+      "age": "32",
+      "place": "Okhaldunga · Border",
+      "when": "August 26",
+      "phone": "9841643455",
+      "note": "फारम 14:49 · Tattoo on hand · Dark skin"
+    },
+    {
+      "id": "sheet-20260828-145051-anita-puri",
+      "name": "Anita Puri",
+      "status": "missing",
+      "source": "form",
+      "age": "28",
+      "place": "Gulmi · Rasuwa",
+      "phone": "9864834804",
+      "note": "फारम 14:50"
+    },
+    {
+      "id": "sheet-20260828-145159-sarita-kamath",
+      "name": "Sarita Kamath",
+      "status": "missing",
+      "source": "form",
+      "age": "55",
+      "place": "Dubai, UAE · Gyirong Port Border Crossing",
+      "when": "7:45 Nepal Time",
+      "phone": "+971 50 876 3201 / +91 8050300803 / +91 7259458855 / +91 9769105088",
+      "note": "फारम 14:51"
+    },
+    {
+      "id": "sheet-20260828-145233-som-bahadur-tamang",
+      "name": "SOM BAHADUR TAMANG",
+      "status": "missing",
+      "source": "form",
+      "place": "SHINDHUPALCHOK,BARABISE 9",
+      "phone": "9742926570",
+      "note": "फारम 14:52"
+    },
+    {
+      "id": "sheet-20260828-145330-binod-shaha",
+      "name": "Binod shaha",
+      "status": "missing",
+      "source": "form",
+      "age": "36",
+      "place": "Bardiya · Rasuwa haakubesi 216 hydropower",
+      "when": "2083/5/10",
+      "phone": "9865317071",
+      "note": "फारम 14:53"
+    },
+    {
+      "id": "sheet-20260828-145358-aparna-samir-joshi",
+      "name": "Aparna Samir Joshi",
+      "status": "missing",
+      "source": "form",
+      "age": "55",
+      "place": "Thane, Maharashtra · Timure- Kerung Border/Immigration office",
+      "when": "26th August 2026 7:40 am Nepal time",
+      "phone": "+91 9819825299 / +91 9833033795",
+      "note": "फारम 14:53 · समूह फारम · Yellow top with floral print · Richa Tours group"
+    },
+    {
+      "id": "sheet-20260828-145358-samir-mukund-joshi",
+      "name": "Samir Mukund Joshi",
+      "status": "missing",
+      "source": "form",
+      "age": "57",
+      "place": "Thane, Maharashtra · Timure- Kerung Border/Immigration office",
+      "when": "26th August 2026 7:40 am Nepal time",
+      "phone": "+91 9819825299 / +91 9833033795",
+      "note": "फारम 14:53 · समूह फारम · Yellow collared T-shirt · Richa Tours group"
+    },
+    {
+      "id": "sheet-20260828-145413-jaya-ram-ghimirey",
+      "name": "Jaya Ram Ghimirey",
+      "status": "missing",
+      "source": "form",
+      "age": "47,48",
+      "place": "Dhading,gajuri · Rasuwa,kerung",
+      "when": "05/10",
+      "phone": "+9779747213060 / +9779813072315",
+      "note": "फारम 14:54"
+    },
+    {
+      "id": "sheet-20260828-145420-lek-bahadur-tamang",
+      "name": "Lek bahadur tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "27",
+      "place": "Rasuwa · Mailung hydro pawor daam side fulbari muni",
+      "when": "Badra 10 bihana 7:30 baje samma",
+      "phone": "9745613056 / 9743958433",
+      "note": "फारम 14:54 · Seto tishort tala kalo Kati daine hatko maji aula ma opretionko mark bayeko"
     }
   ],
   "found": [
