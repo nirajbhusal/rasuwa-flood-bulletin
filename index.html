@@ -155,7 +155,7 @@
   --shadow:0 10px 30px rgba(15,23,42,.08);
   --radius:16px;
   --max:980px;
-  --rail:220px;
+  --rail:232px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:var(--stick, 240px);overflow-x:clip}
@@ -307,7 +307,13 @@ a.js-found-row[hidden]{display:none}
     display:flex;
     align-items:flex-start;
   }
-  .page-main{flex:1;min-width:0}
+  .page-main{
+    flex:1;
+    min-width:0;
+    padding:28px 32px 48px;
+    max-width:1040px;
+  }
+  .page-main .wrap{padding-left:0;padding-right:0}
   .chips,
   .chips.stick{
     position:sticky;
@@ -321,6 +327,7 @@ a.js-found-row[hidden]{display:none}
     overflow-y:auto;
     overscroll-behavior:contain;
     white-space:normal;
+    background:#faf8f4;
     border-bottom:0;
     border-right:1px solid var(--line);
     mask-image:none;
@@ -337,23 +344,63 @@ a.js-found-row[hidden]{display:none}
     width:auto;
     min-width:0;
     margin:0;
-    padding:12px 10px 28px;
-    gap:4px;
+    padding:16px 8px 32px;
+    gap:1px;
   }
   .chips a{
     display:flex;
+    align-items:center;
     width:100%;
-    border-radius:10px;
+    box-sizing:border-box;
+    border:0;
+    border-radius:0;
+    border-left:3px solid transparent;
+    background:transparent;
+    box-shadow:none;
     white-space:normal;
-    line-height:1.3;
-    font-size:14px;
-    padding:7px 10px;
-    min-height:36px;
+    line-height:1.35;
+    font-size:15px;
+    font-weight:500;
+    color:var(--ink);
+    padding:8px 12px;
+    min-height:0;
+    text-decoration:none;
+  }
+  .chips a:hover{
+    background:rgba(15,23,42,.05);
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .chips a.is-current,
+  .chips a[aria-current]{
+    background:transparent;
+    color:var(--ink);
+    font-weight:600;
+    border-left-color:var(--crimson);
+  }
+  .chips a.is-current:hover,
+  .chips a[aria-current]:hover{
+    background:rgba(15,23,42,.05);
+    border-left-color:var(--crimson);
   }
   .chips a.home-btn{
     width:36px;
     min-width:36px;
+    height:36px;
     align-self:flex-start;
+    margin:0 0 10px 9px;
+    padding:0;
+    border:0;
+    border-radius:8px;
+    background:var(--crimson);
+    color:#fff;
+  }
+  .chips a.home-btn:hover,
+  .chips a.home-btn.is-current,
+  .chips a.home-btn[aria-current]{
+    background:#9f1239;
+    color:#fff;
+    border-left-color:transparent;
   }
   .nav-toggle{display:none}
 }
@@ -5344,8 +5391,8 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1347"></script>
-<script>window.PAGE_VER="2026-08-28-1347";</script>
+<script src="i18n.js?v=2026-08-28-1352"></script>
+<script>window.PAGE_VER="2026-08-28-1352";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
