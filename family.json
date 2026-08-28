@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T13:48:26.655511+05:45",
+  "updated_at": "2026-08-28T13:58:10.743340+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -8888,6 +8888,82 @@
       "place": "जुम्ला पातारासी ५ तलिलोपा · रसुवा सुरुङ भित्र",
       "phone": "9767074011",
       "note": "फारम 13:45"
+    },
+    {
+      "id": "sheet-20260828-134658-dimitri-kishkurno",
+      "name": "Dimitri Kishkurno",
+      "status": "missing",
+      "source": "form",
+      "age": "42",
+      "place": "Lessingstr. 10, 60325 Frankfurt am Main, Germany · Gyirong Port",
+      "phone": "+4917622578224",
+      "note": "फारम 13:46 · 26-AUG-2026, Around 8:42 local time · Dark blue cap, dark blue jacket, military green t-shirt, black backpack"
+    },
+    {
+      "id": "sheet-20260828-134938-dinesh-shrestha",
+      "name": "Dinesh shrestha",
+      "status": "missing",
+      "source": "form",
+      "age": "36",
+      "place": "Subbagaun,panauti kavre · Rasuwa",
+      "phone": "9843729323",
+      "note": "फारम 13:49"
+    },
+    {
+      "id": "sheet-20260828-135013-person",
+      "name": "बद्री अधिकारी",
+      "status": "missing",
+      "source": "form",
+      "age": "५६",
+      "place": "नुवाकोट सूर्यगढी गाउँपालिका २ · टिमुरे",
+      "phone": "९८५१३२८३२१",
+      "note": "फारम 13:50 · टिमुरे · निधारमा खत काखीमा सानो मासुको डल्ला फ्रेन्च कटदारी landroser जीप लिएर जानुभएको अनुहारमा ठूलो कोठी थि"
+    },
+    {
+      "id": "sheet-20260828-135047-laxmi-gurung",
+      "name": "Laxmi Gurung",
+      "status": "missing",
+      "source": "form",
+      "place": "Nuwakot · Syaprubeshi",
+      "phone": "9843275977",
+      "note": "फारम 13:50 · Budhabar bihan 8 baje"
+    },
+    {
+      "id": "sheet-20260828-135112-arjun-shrestha",
+      "name": "Arjun Shrestha",
+      "status": "missing",
+      "source": "form",
+      "age": "41",
+      "place": "Kakani01,Nuwakot · China border",
+      "phone": "9818770179",
+      "note": "फारम 13:51 · 9:07(morning ) · China Aid for Shared Future(कम्पनीको टोपीमा लेखिएको ) · 9761422262"
+    },
+    {
+      "id": "sheet-20260828-135128-ram-shrestha",
+      "name": "Ram Shrestha",
+      "status": "missing",
+      "source": "form",
+      "place": "Barhabise · Timure",
+      "note": "फारम 13:51"
+    },
+    {
+      "id": "sheet-20260828-135343-person",
+      "name": "सम बहादुर थापा",
+      "status": "missing",
+      "source": "form",
+      "place": "वालिङ-14 मैनोखोला हाल इलका पहरि कायाेेलय,टिमुरेमा कायेेेेरत पहरि सहायक · रसुवा नदि किनार तथा तला तटिय क्षेत्रमा माइकिङ गदेेेेेेेेेे खटिनुभयका",
+      "phone": "9856075555 9743418388",
+      "note": "फारम 13:53 · 2083/5/10  समय 9:00 · पहरि असई पोसाक · 2 दिन भोेइसके कोछ उहाँको जानकारी हामीले पाकोछेेनउ"
+    },
+    {
+      "id": "sheet-20260828-135423-bhupen-gurung",
+      "name": "Bhupen gurung",
+      "status": "missing",
+      "source": "form",
+      "age": "27",
+      "place": "Thori 1 parsa · Upper trisuli hydropower 216",
+      "phone": "9708401827",
+      "note": "फारम 13:54 · 2083-05-10 Trisuli time-9:00"
     }
   ],
   "found": [
