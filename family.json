@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T07:46:07.055154+05:45",
+  "updated_at": "2026-08-28T07:54:38.725878+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,28 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-074625-roshan-bartaula",
+      "name": "Roshan Bartaula",
+      "status": "missing",
+      "source": "form",
+      "age": "35-40",
+      "place": "Hetauda, Makawanpur · Timure",
+      "when": "Timure 08-25-2026",
+      "phone": "9845784136",
+      "note": "फारम 07:46 · ट्रक चालक · दायाँ पाखुरामा ट्याटू"
+    },
+    {
+      "id": "sheet-20260828-074359-bimal-bartaula",
+      "name": "Bimal Bartaula",
+      "status": "missing",
+      "source": "form",
+      "age": "35-40",
+      "place": "Hetauda, Makawanpur · Timure Bazar",
+      "when": "Timure Bazar 08/25/2026 8pm",
+      "phone": "9868156333",
+      "note": "फारम 07:43 · नाम Bimal वा Abhishek Bartaula हुन सक्ने · दायाँ हातमा ट्याटू"
+    },
     {
       "id": "sheet-20260828-070355-rosna-kafle",
       "name": "Rosna Kafle",
