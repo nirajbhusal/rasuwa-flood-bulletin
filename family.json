@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T19:03:54.612096+05:45",
+  "updated_at": "2026-08-28T19:18:01.809370+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,74 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-191452-raj-kumar-shrestha-timure",
+      "name": "राज कुमार श्रेष्ठ",
+      "status": "missing",
+      "source": "form",
+      "age": "32",
+      "place": "सिन्धुपाल्चोक · रसुवा टिमुरे",
+      "when": "9:45 बजे",
+      "phone": "9841899807",
+      "note": "फारम 19:14"
+    },
+    {
+      "id": "sheet-20260828-191343-suroj-thapa",
+      "name": "Suroj Thapa",
+      "status": "missing",
+      "source": "form",
+      "age": "34",
+      "place": "Sindhupalchok, Bahrabise ward 4 · रसुवा भन्सार",
+      "phone": "9860758068",
+      "note": "फारम 19:13"
+    },
+    {
+      "id": "sheet-20260828-191258-surya-bahadur-karki",
+      "name": "सुर्य बहादुर कार्की",
+      "status": "missing",
+      "source": "form",
+      "age": "45/50",
+      "place": "मोरङ, बिराटचोक · रसुवा हाइड्रोपावर",
+      "phone": "9842566138",
+      "note": "फारम 19:12"
+    },
+    {
+      "id": "sheet-20260828-191241-bijay-tamang",
+      "name": "Bijay Tamang",
+      "status": "missing",
+      "source": "form",
+      "place": "Sindhupalchok, Sunkoshi-4 · टिमुरे",
+      "phone": "9745669350",
+      "note": "फारम 19:12"
+    },
+    {
+      "id": "sheet-20260828-190932-lal-bahadur-balampaki",
+      "name": "लाल बहादुर बलम्पकी",
+      "status": "missing",
+      "source": "form",
+      "place": "सर्लाही · रसुवा",
+      "phone": "9861505870",
+      "note": "फारम 19:09"
+    },
+    {
+      "id": "sheet-20260828-190621-tamilselvan-subramanian",
+      "name": "Tamilselvan Subramanian",
+      "status": "missing",
+      "source": "form",
+      "age": "60",
+      "place": "Virudhunagar · Gyirong Port (immigration)",
+      "phone": "7010502147",
+      "note": "फारम 19:06"
+    },
+    {
+      "id": "sheet-20260828-190207-krishna-dhamala",
+      "name": "Krishna Dhamala",
+      "status": "missing",
+      "source": "form",
+      "place": "Sarlahi, Lalbandi · Battar",
+      "phone": "9849357465",
+      "note": "फारम 19:02"
+    },
     {
       "id": "sheet-20260828-190052-mensang-tamang",
       "name": "Mensang tamang",
