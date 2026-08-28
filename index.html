@@ -155,6 +155,7 @@
   --shadow:0 10px 30px rgba(15,23,42,.08);
   --radius:16px;
   --max:980px;
+  --rail:220px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:var(--stick, 240px);overflow-x:clip}
@@ -260,8 +261,9 @@ a.js-found-row[hidden]{display:none}
   font-size:15px;font-weight:600;text-decoration:none;
 }
 .chips a:hover{border-color:var(--teal);color:var(--teal)}
+.chips a.is-current{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
 .chips a.home-btn{background:var(--crimson);color:#fff;border-color:var(--crimson);display:inline-flex;align-items:center;justify-content:center;width:36px;min-width:36px;height:36px;padding:0}
-.chips a.home-btn:hover{background:#9f1239;color:#fff;border-color:#9f1239}
+.chips a.home-btn:hover,.chips a.home-btn.is-current{background:#9f1239;color:#fff;border-color:#9f1239}
 .nav-toggle{display:none}
 .nav-toggle .ico-x{display:none}
 .chips.is-open .nav-toggle .ico-h{display:none}
@@ -295,6 +297,65 @@ a.js-found-row[hidden]{display:none}
   }
   .chips.is-open .chips-inner{display:flex}
   .chips a{white-space:nowrap}
+}
+
+.page-body{display:block}
+.page-main{min-width:0}
+
+@media (min-width:960px){
+  .page-body{
+    display:flex;
+    align-items:flex-start;
+  }
+  .page-main{flex:1;min-width:0}
+  .chips,
+  .chips.stick{
+    position:sticky;
+    top:0;
+    z-index:40;
+    flex:0 0 var(--rail);
+    width:var(--rail);
+    height:100vh;
+    height:100dvh;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    white-space:normal;
+    border-bottom:0;
+    border-right:1px solid var(--line);
+    mask-image:none;
+    -webkit-mask-image:none;
+    scrollbar-width:thin;
+  }
+  .chips::-webkit-scrollbar{display:block;width:6px}
+  .chips::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:99px}
+  .chips::-webkit-scrollbar-track{background:transparent}
+  .chips-inner{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    width:auto;
+    min-width:0;
+    margin:0;
+    padding:12px 10px 28px;
+    gap:4px;
+  }
+  .chips a{
+    display:flex;
+    width:100%;
+    border-radius:10px;
+    white-space:normal;
+    line-height:1.3;
+    font-size:14px;
+    padding:7px 10px;
+    min-height:36px;
+  }
+  .chips a.home-btn{
+    width:36px;
+    min-width:36px;
+    align-self:flex-start;
+  }
+  .nav-toggle{display:none}
 }
 
 
@@ -1121,7 +1182,7 @@ footer .foot-about a{color:var(--teal);font-weight:800}
   .brand h1{font-size:clamp(20px,8vw,28px)}
   .helpline{font-size:11px}
 }
-@media (max-height:500px){
+@media (max-height:500px) and (max-width:959px){
   .stick{position:static}
   html{scroll-padding-top:8px}
 }
@@ -1148,6 +1209,7 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 </header>
 </div>
 <p class="safety-banner" role="alert" data-i18n="safety">बाढी कत्रो आयो भन्दै नदी छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदी भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।</p>
+<div class="page-body">
 <nav class="chips stick" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
   <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-chips" aria-label="मेनु" data-i18n-aria="nav_menu">
     <svg class="ico-h" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
@@ -1185,7 +1247,7 @@ footer .foot-about a{color:var(--teal);font-weight:800}
     <a href="#sources" data-i18n="nav_sources">स्रोत</a>
   </div>
 </nav>
-
+<div class="page-main">
 <div class="hero" id="home">
   <div class="wrap">
     <p class="kicker" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
@@ -5233,6 +5295,14 @@ footer .foot-about a{color:var(--teal);font-weight:800}
   </div>
 </section>
 </main>
+<footer>
+  <p class="foot-contact" data-i18n-html="foot_contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
+  <p class="foot-about"><a href="about.html" data-i18n="nav_about">बारेमा</a></p>
+  <span data-i18n-html="footer">Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
+  यो पृष्ठ आज २६ अगस्ट २०२६ / १० भदौ २०८३ को घटनामा मात्र केन्द्रित छ।</span>
+</footer>
+</div>
+</div>
 
 <div class="fab-dock">
 <div class="portal-fab">
@@ -5256,12 +5326,7 @@ footer .foot-about a{color:var(--teal);font-weight:800}
   <p data-i18n="qr_scan">QR ठूलो पारेर स्क्यान गर्नुहोस्</p>
   <button type="button" id="qr-pop-x" data-i18n="close">बन्द</button>
 </div>
-<footer>
-  <p class="foot-contact" data-i18n-html="foot_contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
-  <p class="foot-about"><a href="about.html" data-i18n="nav_about">बारेमा</a></p>
-  <span data-i18n-html="footer">Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
-  यो पृष्ठ आज २६ अगस्ट २०२६ / १० भदौ २०८३ को घटनामा मात्र केन्द्रित छ।</span>
-</footer>
+
 
 <div class="lb" id="lightbox" hidden>
   <button type="button" class="lb-x" id="lb-close" aria-label="बन्द" data-i18n-aria="close">×</button>
@@ -5272,8 +5337,8 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1325"></script>
-<script>window.PAGE_VER="2026-08-28-1325";</script>
+<script src="i18n.js?v=2026-08-28-1343"></script>
+<script>window.PAGE_VER="2026-08-28-1343";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -5519,9 +5584,15 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     var nav = document.querySelector(".chips.stick");
     var headH = head ? head.offsetHeight : 0;
     document.documentElement.style.setProperty("--head", headH + "px");
-    var h = (window.matchMedia("(max-width:760px)").matches && head)
-      ? headH + (nav ? nav.offsetHeight : 0) + 8
-      : ((nav ? nav.offsetHeight : (document.querySelector(".stick") || {}).offsetHeight || 0) + 8);
+    var rail = window.matchMedia("(min-width:960px)").matches;
+    var h;
+    if (rail) {
+      h = 16;
+    } else if (window.matchMedia("(max-width:760px)").matches && head) {
+      h = headH + (nav ? nav.offsetHeight : 0) + 8;
+    } else {
+      h = ((nav ? nav.offsetHeight : (document.querySelector(".stick") || {}).offsetHeight || 0) + 8);
+    }
     document.documentElement.style.setProperty("--stick", h + "px");
   }
   setStick();
@@ -6085,6 +6156,46 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   });
   window.addEventListener("resize", function(){
     if (window.matchMedia("(min-width:761px)").matches) close();
+  });
+})();
+
+(function(){
+  var nav = document.querySelector("nav.chips");
+  if (!nav || !window.IntersectionObserver) return;
+  var links = Array.prototype.slice.call(nav.querySelectorAll(".chips-inner a[href^='#']"));
+  if (!links.length) return;
+  var secs = [];
+  links.forEach(function(a){
+    var id = (a.getAttribute("href") || "").slice(1);
+    var el = id ? document.getElementById(id) : null;
+    if (!el) return;
+    secs.push(el);
+  });
+  if (!secs.length) return;
+  function mark(id){
+    links.forEach(function(a){
+      var on = (a.getAttribute("href") || "") === "#" + id;
+      a.classList.toggle("is-current", on);
+      if (on) a.setAttribute("aria-current", "location");
+      else a.removeAttribute("aria-current");
+    });
+  }
+  var vis = {};
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) vis[e.target.id] = true;
+      else delete vis[e.target.id];
+    });
+    var pick = null;
+    secs.forEach(function(el){ if (vis[el.id]) pick = el.id; });
+    if (pick) mark(pick);
+  }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+  secs.forEach(function(el){ io.observe(el); });
+  links.forEach(function(a){
+    a.addEventListener("click", function(){
+      var id = (a.getAttribute("href") || "").slice(1);
+      if (id) mark(id);
+    });
   });
 })();
 
