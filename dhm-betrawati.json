@@ -1,6 +1,6 @@
 {
-  "station_id": "52",
-  "series_id": "943",
+  "station_id": 52,
+  "series_id": 943,
   "name": "Trishuli at Betrawati",
   "name_np": "बेत्रावती · त्रिशूली",
   "district_np": "नुवाकोट",
@@ -8,7 +8,7 @@
   "warning_m": 4.1,
   "danger_m": 5.0,
   "status": "normal",
-  "steady": "STEADY",
+  "steady": true,
   "observed_at": "2026-08-26T09:20:00+05:45",
   "observed_npt": "२०२६-०८-२६ ०९:२०",
   "silent": true,
