@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T10:30:16.201094+05:45",
+  "updated_at": "2026-08-28T10:40:50.816705+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7319,6 +7319,72 @@
       "place": "नौकुण्ड–३ लारच्याङटार · केरुङ नाका / टिमुरे / स्याफ्रुबेसी",
       "when": "भादौ १० बिहान ९:००–९:३०",
       "note": "फारम 10:28"
+    },
+    {
+      "id": "sheet-20260828-103156-bijay-chaudhary",
+      "name": "Bijay Chaudhary",
+      "status": "missing",
+      "source": "form",
+      "age": "२८",
+      "place": "Bardagoriya-6, Kailali · राम्चे, रसुवा (Mailung hydropower)",
+      "when": "२०२६-०८-२६ ९:१५ राम्चे",
+      "phone": "9767304490",
+      "note": "फारम 10:31 · Mailung hydropower cook / site staff"
+    },
+    {
+      "id": "sheet-20260828-103241-jivan-shrestha",
+      "name": "Jivan Shrestha",
+      "status": "missing",
+      "source": "form",
+      "age": "३८+",
+      "place": "धादिङ · रसुवा हाइड्रोपावर (ड्राइभर)",
+      "when": "बिहान ~८:०० काममा जाँदा",
+      "phone": "9805841386 / 9803747810",
+      "note": "फारम 10:32 · हाइड्रोपावर ड्राइभर · सम्पर्क Pawan / Bipana Shrestha"
+    },
+    {
+      "id": "sheet-20260828-103259-bhagbati-lamichhane",
+      "name": "Bhagbati Lamichhane",
+      "status": "missing",
+      "source": "form",
+      "age": "४५/४६",
+      "place": "बिदुर–१० बेत्रावती · बिदुर–१० बेत्रावती",
+      "when": "२०८३-०५-१०",
+      "phone": "9741867154 / 9821845326",
+      "note": "फारम 10:32"
+    },
+    {
+      "id": "sheet-20260828-103440-goma-rokka",
+      "name": "Goma rokka",
+      "status": "missing",
+      "source": "form",
+      "age": "५८",
+      "place": "नुवाकोट त्रिशूली · नारभन्दा तल खेत",
+      "when": "१० गते बिहान ७ बजे",
+      "phone": "9818373535",
+      "note": "फारम 10:34"
+    },
+    {
+      "id": "sheet-20260828-103646-bir-bdr-tamang-suirey",
+      "name": "Bir bdr Tamang (suirey)",
+      "status": "missing",
+      "source": "form",
+      "age": "३०",
+      "place": "सिन्धुपाल्चोक भोटेकोशी–२ तातोपानी · रसुवा ड्राईपोर्ट",
+      "when": "बिहान ८:००",
+      "phone": "9840734145",
+      "note": "फारम 10:36"
+    },
+    {
+      "id": "sheet-20260828-103917-sujan-gurung",
+      "name": "Sujan gurung",
+      "status": "missing",
+      "source": "form",
+      "age": "३०",
+      "place": "रसुवा डाँडागाउँ · चीन नाका",
+      "when": "२०८३-५-१० ८:३० चीन नाका कटेपछि",
+      "phone": "9743974972",
+      "note": "फारम 10:39"
     }
   ],
   "found": [
