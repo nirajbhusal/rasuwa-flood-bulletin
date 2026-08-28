@@ -38,7 +38,8 @@ window.I18N = {
 "dead_162": "मृतक ५४७",
 "hero_overview": "बाढीको स्थिति · १२ भदौ",
 "hero_cash_h": "राहत रकम जम्मा",
-"hero_cash_sub": "एक अर्ब ९१ करोड ८६ लाख…",
+"hero_cash_num": "४ अर्ब ९ करोड",
+"hero_cash_sub": "३६ घण्टामा १ अर्ब ९१ करोड",
 "hero_aid_h": "वैदेशिक सहयोग",
 "hero_aid_unit": "टन",
 "hero_aid_sub": "भारत दुई उडान · IFRC रेडक्रस · पठाइएको",
@@ -485,9 +486,9 @@ window.I18N = {
 "cash_gibl": "ग्लोबल आइएमई",
 "cash_gibl_cap": "ग्लोबल आइएमई बैंक · ५ करोड",
 "cash_gibl_note": "उद्धार, राहत र पुनर्स्थापनाका लागि प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सहयोग गर्ने घोषणा।",
-"cash_sheet_lead": "अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष — <strong>१,९१,८६,५०,९११</strong> (एक अर्ब ९१ करोड ८६ लाख ५० हजार ९११) जम्मा। मित्र राष्ट्र घोषणा समावेश छैन।",
+"cash_sheet_lead": "अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष — जम्मा <strong>४ अर्ब ९ करोड</strong> (४ अर्ब ९ करोड ११ लाख ६० हजार)। ३६ घण्टामा <strong>१ अर्ब ९१ करोड</strong> (१,९१,८६,५०,९११)। मित्र राष्ट्र घोषणा समावेश छैन।",
 "cash_named_lead": "नाम-सूची इतिहास/विस्तार: अर्थमार्फत निजी क्षेत्र <strong>२७.३३ करोड</strong> (खाता सूची) · BYD · साइमेक्स ७ · ग्लोबल आइएमई ५ · विक्रम पाण्डे १.०१।",
-"cash_balance_note": "कोषमा कुल बचत <strong>४ अर्ब ९ करोड ११ लाख ६० हजार</strong> (अघिल्लो बचत २ अर्ब १७ करोड २५ लाख ९ हजार ७५९)। बाढी सहयोगको अलग जम्मा होइन। मित्र राष्ट्र घोषणा समावेश छैन।",
+"cash_balance_note": "अघिल्लो बचत २ अर्ब १७ करोड २५ लाख ९ हजार ७५९ इतिहास मात्र। मित्र राष्ट्र घोषणा समावेश छैन।",
 "ndrrma_rahat_1500": "NDRRMA / गृह १२ भदौ १५:०० — सरकारबाट जिल्लालाई नगद: रसुवा <strong>१ करोड</strong> · नुवाकोट <strong>१ करोड</strong> · धादिङ <strong>५० लाख</strong> (प्रधानमन्त्री कोष होइन · जिल्ला नगद)। सामग्री: १० ट्रक + थप २० ट्रक; हेलि ४ उडान खाद्यान्न/गैरखाद्य; सञ्चार सेट। नुवाकोट इन्धन: डिजेल ४१,००० लि · पेट्रोल २४,००० लि · हवाई इन्धन ९,००० लि।",
 "cash_ncell": "एनसेल अक्सियाटा",
 "cash_pandey": "विक्रम पाण्डे",
@@ -667,7 +668,8 @@ window.I18N = {
 "dead_162": "Deaths 547",
 "hero_overview": "Flood snapshot · 12 Bhadra",
 "hero_cash_h": "Relief cash total",
-"hero_cash_sub": "Rs 1.91 billion+",
+"hero_cash_num": "Rs 4.09 billion",
+"hero_cash_sub": "in 36 hours: Rs 1.91 billion",
 "hero_aid_h": "Foreign aid",
 "hero_aid_unit": "tonnes",
 "hero_aid_sub": "India two flights · IFRC Red Cross · sent",
@@ -1114,9 +1116,9 @@ window.I18N = {
 "cash_gibl": "Global IME",
 "cash_gibl_cap": "Global IME Bank · 5 crore",
 "cash_gibl_note": "Announced support to the Prime Minister’s Disaster Relief Fund for rescue, relief and rehabilitation.",
-"cash_sheet_lead": "Ministry of Finance / PMDRF — <strong>Rs 1,91,86,50,911</strong> (1 arab 91 crore 86 lakh 50 thousand 911) deposited. Friendly-nation pledges not included.",
+"cash_sheet_lead": "Ministry of Finance / PMDRF — total <strong>Rs 4 arab 9 crore</strong> (4 arab 9 crore 11 lakh 60 thousand). In 36 hours: <strong>Rs 1.91 billion</strong> (1,91,86,50,911). Friendly-nation pledges not included.",
 "cash_named_lead": "Named-donor history/detail: MoF private-sector <strong>27.33 crore</strong> (account list) · BYD · Cimex 7 · Global IME 5 · Bikram Pandey 1.01.",
-"cash_balance_note": "Fund balance <strong>Rs 4 arab 9 crore 11 lakh 60 thousand</strong> (previous balance 2 arab 17 crore 25 lakh 9 thousand 759). This is the whole pot, not the flood-donation total. Friendly-nation pledges not included.",
+"cash_balance_note": "Previous balance 2 arab 17 crore 25 lakh 9 thousand 759 is history only. Friendly-nation pledges not included.",
 "ndrrma_rahat_1500": "NDRRMA / MoHA 12 Bhadra 15:00 — government cash to districts: Rasuwa <strong>1 crore</strong> · Nuwakot <strong>1 crore</strong> · Dhading <strong>50 lakh</strong> (district cash, not the PMDRF). Goods: 10 trucks + 20 more; 4 heli flights of food/NFI; comms sets. Nuwakot fuel: diesel 41,000 L · petrol 24,000 L · aviation 9,000 L.",
 "cash_ncell": "Ncell Axiata",
 "cash_pandey": "Bikram Pandey",
@@ -1496,6 +1498,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "PMDRF total Rs 4.09 billion",
+"p": "Prime Minister’s Disaster Relief Fund total <strong>Rs 4 arab 9 crore</strong> (4 arab 9 crore 11 lakh 60 thousand). In 36 hours: <strong>Rs 1.91 billion</strong> (1,91,86,50,911). Friendly-nation pledges not included. Named-donor lines are history/detail. <a href=\"#donate\">Relief funds</a>."
+},
 {
 "h": "Foreign pledges (UK, US, World Bank, OCHA, Korea, IFRC)",
 "p": "Foreign-aid announcements. <strong>UK</strong> £5 million ($6.79 million) via FCDO · <strong>United States</strong> $500,000 State Department/CRS (emergency shelters, water/hygiene) plus a disaster response adviser · <strong>World Bank</strong> Rs 25 arab ($163.55 million) · <strong>OCHA</strong> $3.2 million from CERF · <strong>South Korea</strong> $1 million through international agencies · <strong>IFRC</strong> CHF 1 million ($1.24 million) released, emergency appeal CHF 25 million. <a href=\"https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods\" target=\"_blank\" rel=\"noopener\">IFRC</a> · <a href=\"#aid\">Foreign aid</a>."

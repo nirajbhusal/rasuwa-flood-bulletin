@@ -663,6 +663,7 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
 .cash-snap:hover{text-decoration:none;border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5}
 .cash-snap .kpi-k{width:100%;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
 .cash-snap strong{font-size:clamp(32px,6vw,44px);font-weight:800;color:var(--forest);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.cash-snap strong.cash-lead{font-size:clamp(26px,4.8vw,36px);letter-spacing:-.02em;line-height:1.15}
 .cash-snap .cash-unit{font-size:16px;font-weight:800;color:var(--forest)}
 .cash-snap .cash-sub{width:100%;margin-top:2px;font-size:13px;font-weight:700;color:var(--muted)}
 .pmdrf-card{
@@ -1557,9 +1558,8 @@ a.portal-fab-donate{
       <div class="snap-row">
         <a class="cash-snap" href="#donate" id="hero-cash">
           <span class="kpi-k" data-i18n="hero_cash_h">राहत रकम जम्मा</span>
-          <strong class="num">१९१.८७</strong>
-          <span class="cash-unit" data-i18n="cash_crore">करोड रुपैयाँ</span>
-          <span class="cash-sub" data-i18n="hero_cash_sub">एक अर्ब ९१ करोड ८६ लाख…</span>
+          <strong class="cash-lead" data-i18n="hero_cash_num">४ अर्ब ९ करोड</strong>
+          <span class="cash-sub" data-i18n="hero_cash_sub">३६ घण्टामा १ अर्ब ९१ करोड</span>
         </a>
         <a class="cash-snap aid-snap" href="#aid" id="hero-aid">
           <span class="kpi-k" data-i18n="hero_aid_h">वैदेशिक सहयोग</span>
@@ -4371,15 +4371,15 @@ a.portal-fab-donate{
       </a>
       <article class="cash-ig" id="cash">
         <h3 data-i18n="cash_h">नगद राहत रकम अपडेट</h3>
-        <p class="cash-lead" data-i18n-html="cash_sheet_lead">अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष — <strong>१,९१,८६,५०,९११</strong> (एक अर्ब ९१ करोड ८६ लाख ५० हजार ९११) जम्मा। मित्र राष्ट्र घोषणा समावेश छैन।</p>
+        <p class="cash-lead" data-i18n-html="cash_sheet_lead">अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष — जम्मा <strong>४ अर्ब ९ करोड</strong> (४ अर्ब ९ करोड ११ लाख ६० हजार)। ३६ घण्टामा <strong>१ अर्ब ९१ करोड</strong> (१,९१,८६,५०,९११)। मित्र राष्ट्र घोषणा समावेश छैन।</p>
         <p class="cash-lead" data-i18n-html="cash_lead">राहत, उद्धार, खोज तथा पुनर्स्थापनाको सहयोग एकद्वार प्रणालीमार्फत प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा। अर्थ मन्त्रालय केन्द्र मन्त्रालय हो। अर्थमन्त्री डा. स्वर्णिम वाग्लेले संस्थागत सहयोग एक करोड वा सोभन्दा बढी बुझ्नुहुन्छ; व्यक्तिले मन्त्रालयमा नगद दिन सकिन्छ।</p>
         <p class="cash-note" data-i18n-html="cash_named_lead">नाम-सूची इतिहास/विस्तार: अर्थमार्फत निजी क्षेत्र <strong>२७.३३ करोड</strong> (खाता सूची) · BYD · साइमेक्स ७ · ग्लोबल आइएमई ५ · विक्रम पाण्डे १.०१।</p>
-        <p class="cash-note" data-i18n-html="cash_balance_note">कोषमा कुल बचत <strong>४ अर्ब ९ करोड ११ लाख ६० हजार</strong> (अघिल्लो बचत २ अर्ब १७ करोड २५ लाख ९ हजार ७५९)। बाढी सहयोगको अलग जम्मा होइन। मित्र राष्ट्र घोषणा समावेश छैन।</p>
+        <p class="cash-note" data-i18n-html="cash_balance_note">अघिल्लो बचत २ अर्ब १७ करोड २५ लाख ९ हजार ७५९ इतिहास मात्र। मित्र राष्ट्र घोषणा समावेश छैन।</p>
         <p class="cash-note" data-i18n-html="ndrrma_rahat_1500">NDRRMA / गृह १२ भदौ १५:०० — सरकारबाट जिल्लालाई नगद: रसुवा <strong>१ करोड</strong> · नुवाकोट <strong>१ करोड</strong> · धादिङ <strong>५० लाख</strong> (प्रधानमन्त्री कोष होइन · जिल्ला नगद)। सामग्री: १० ट्रक + थप २० ट्रक; हेलि ४ उडान खाद्यान्न/गैरखाद्य; सञ्चार सेट। नुवाकोट इन्धन: डिजेल ४१,००० लि · पेट्रोल २४,००० लि · हवाई इन्धन ९,००० लि।</p>
         <div class="cash-kpis" role="tablist" aria-label="नगद राहत">
           <button type="button" class="cash-kpi on" data-cash="all" aria-selected="true">
             <span class="kpi-k" data-i18n="cash_published">नगद राहत</span>
-            <strong class="num">१९१.८७</strong>
+            <strong class="num">४०९.१२</strong>
             <span class="cash-unit" data-i18n="cash_crore">करोड रुपैयाँ</span>
           </button>
           <button type="button" class="cash-kpi" data-cash="door" aria-selected="false">
@@ -5108,6 +5108,12 @@ a.portal-fab-donate{
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
             <article class="log-item now">
+      <p class="when">~१६:५३</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>PMDRF जम्मा ४ अर्ब ९ करोड</h3>
+      <p>प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा जम्मा <strong>४ अर्ब ९ करोड</strong> (४ अर्ब ९ करोड ११ लाख ६० हजार)। ३६ घण्टामा <strong>१ अर्ब ९१ करोड</strong> (१,९१,८६,५०,९११)। मित्र राष्ट्र घोषणा समावेश छैन। नाम-सूची इतिहास/विस्तार। <a href="#donate">राहत कोष</a>।</p>
+    </article>
+            <article class="log-item">
       <p class="when">~१६:४८</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>वैदेशिक घोषणा (युके, अमेरिका, विश्व बैंक, OCHA, कोरिया, IFRC)</h3>
@@ -6462,8 +6468,8 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1648"></script>
-<script>window.PAGE_VER="2026-08-28-1648";</script>
+<script src="i18n.js?v=2026-08-28-1653"></script>
+<script>window.PAGE_VER="2026-08-28-1653";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
