@@ -585,7 +585,22 @@ window.I18N = {
 "rd_manjushree": "मन्जुश्री",
 "rd_alka": "अल्का",
 "rd_nmc": "NMC",
-"rd_grande": "ग्रान्डी"
+"rd_grande": "ग्रान्डी",
+"nav_about": "बारेमा",
+"about_title": "बारेमा · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"about_meta": "रसुवा बाढी बुलेटिन बारेमा। निरज भुसालको स्वतन्त्र नागरिक पाना। सरकारी साइट होइन। उद्धार १२३४।",
+"about_sub": "बारेमा · स्वतन्त्र नागरिक बुलेटिन",
+"about_back": "← बुलेटिन",
+"about_back_foot": "बुलेटिनमा फर्कनुहोस्",
+"about_kicker": "स्वतन्त्र नागरिक पाना · सरकारी साइट होइन",
+"about_h": "बारेमा",
+"about_lead": "निरज भुसालले २६ अगस्ट २०२६ मा सुरु गरेको स्वतन्त्र नागरिक बुलेटिन। भोटेकोशी बाढी तिब्बतबाट टिमुरे हुँदै करिब बिहान ९:१५ मा नेपाल पसेपछि आधिकारिक मृतक, सम्पर्कविहीन, उद्धार, सडक, राहत र जाँचिएका तस्बिर एक ठाउँमा राख्न खोलियो।",
+"about_live_note": "लाइभ संख्या पहिलो पानामा मात्र हेर्नुहोस्। यहाँ दोहोर्याइएको छैन।",
+"about_who_h": "यो पाना के हो",
+"about_who": "स्वतन्त्र नागरिक बुलेटिन। लेखक निरज भुसाल। सरकारी साइट, प्रहरी वा NDRRMA को आधिकारिक पोर्टल होइन। आकस्मिक उद्धारका लागि <a href=\"tel:1234\">१२३४</a> मा फोन गर्नुहोस्। सुझाव वा सच्याउन WhatsApp <a href=\"https://wa.me/9779701010000\">+९७७ ९७०१०१००००</a> वा <a href=\"mailto:neerajbhusal@gmail.com\">neerajbhusal@gmail.com</a>।",
+"about_feat_h": "बुलेटिनमा के छ",
+"about_how_h": "कसरी चल्छ"
+
 },
 "en": {
 "title": "Rasuwa–Bhotekoshi Flood · 27 August 2026",
@@ -1173,10 +1188,42 @@ window.I18N = {
 "treat_unnamed_man": "Man unable to give his name",
 "treat_unnamed_f": "Woman, name not known",
 "treat_infant": "Including a month-old infant",
-"treat_with_kamu": "With Kamu Nagarkoti"
+"treat_with_kamu": "With Kamu Nagarkoti",
+"nav_about": "About",
+"about_title": "About · Rasuwa–Bhotekoshi flood bulletin",
+"about_meta": "About the Rasuwa flood bulletin. An independent civic page by Niraj Bhusal. Not a government site. Rescue 1234.",
+"about_sub": "About · independent civic bulletin",
+"about_back": "← Bulletin",
+"about_back_foot": "Back to the bulletin",
+"about_kicker": "Independent civic page · not a government site",
+"about_h": "About",
+"about_lead": "An independent civic bulletin started by Niraj Bhusal on 26 August 2026, after the Bhotekoshi flood entered Nepal from Tibet via Timure around 9:15 a.m. It compiles official deaths, missing/uncontacted, rescue, roads, relief and fact-checked photos.",
+"about_live_note": "Live figures are only on the main bulletin. They are not repeated here.",
+"about_who_h": "What this page is",
+"about_who": "An independent civic bulletin by Niraj Bhusal. Not a government site, and not an official police or NDRRMA portal. For emergency rescue call <a href=\"tel:1234\">1234</a>. Corrections or suggestions: WhatsApp <a href=\"https://wa.me/9779701010000\">+977 9701010000</a> or <a href=\"mailto:neerajbhusal@gmail.com\">neerajbhusal@gmail.com</a>.",
+"about_feat_h": "What is on the bulletin",
+"about_how_h": "How it works"
+
 }
 };
 window.I18N_LISTS = {
+"about_feat": [
+"Sticky header: title, date, live, helpline. The safety banner scrolls away. Contact FAB.",
+"NE / EN language.",
+"Top dashboard: deaths, injured (NDRRMA), uncontacted, heli rescue (SitRep people vs Army 9:00 labeled separately), deployed personnel with an always-visible split. Aid (relief cash + foreign) sits under that card.",
+"Missing/found: search, 4 cards, official tables; lists are never summed; moderated Google Form wall.",
+"Other lists: NDRRMA rescue (<a href=\"https://ndrrma.gov.np/np/rescue\" target=\"_blank\" rel=\"noopener\">ndrrma.gov.np/np/rescue</a>), Timure, Indian, Trishuli-1, Nuwakot, Suryagadhi, Kathmandu heli, DEOC Kathmandu injured + blood bank.",
+"Updates, roads, power, damage, government, foreign aid, map, photos, videos, feeds, sources, local contacts, relief fund + PMDRF QR.",
+"1 2 3 pagers. Notify bell and go-to-top removed."
+],
+"about_how": [
+"Static HTML on GitHub Pages.",
+"Official totals typed from police / NDRRMA / Army / DEOC / rescue API as labeled lines. Never one fake merged total.",
+"Form → Drive sheet → curated <code>family.json</code> only (no raw dump, no auto-match).",
+"Live watch every 5 minutes: new unique names published. Water-only DHM does not bump <code>latest.json</code>.",
+"<code>latest.json</code> version id; the page reloads once when the id changes. HTML/JS/JSON are network-first.",
+"Search filters the form wall and the official tables."
+],
 "hero_mini": [
 "Total <strong>475</strong>",
 "Chitwan <strong>179</strong> · Nawalparasi East <strong>110</strong> · Gorkha <strong>44</strong>",
