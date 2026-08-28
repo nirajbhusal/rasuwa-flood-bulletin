@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T13:47:11.888067+05:45",
+  "updated_at": "2026-08-28T13:48:26.655511+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -8848,6 +8848,46 @@
       "when": "8:46 am",
       "phone": "9861825681",
       "note": "फारम 13:38"
+    },
+    {
+      "id": "sheet-20260828-134023-senjagbu-lama",
+      "name": "SENJAGBU LAMA",
+      "status": "missing",
+      "source": "form",
+      "age": "35",
+      "place": "Sindhupalchok,Bhotekoshi1Gumba · His vehicle was at china border, don’t where was the person",
+      "when": "AUG26th",
+      "phone": "9861719861",
+      "note": "फारम 13:40"
+    },
+    {
+      "id": "sheet-20260828-134354-person",
+      "name": "रुबेन बुढा",
+      "status": "missing",
+      "source": "form",
+      "place": "जुम्ला पातलासी ५ तली रोल्पा। · रसुवा सुरुङभित्र",
+      "when": "रसुवा सुरुङभित्र",
+      "phone": "9764267375",
+      "note": "फारम 13:43"
+    },
+    {
+      "id": "sheet-20260828-134552-natalia-vlasova",
+      "name": "Natalia Vlasova",
+      "status": "missing",
+      "source": "form",
+      "age": "38",
+      "place": "Ukraine · Rasuwa",
+      "note": "फारम 13:45 · She was with her treaking team member"
+    },
+    {
+      "id": "sheet-20260828-134523-person",
+      "name": "भूपेन्द्र बुढा",
+      "status": "missing",
+      "source": "form",
+      "age": "30",
+      "place": "जुम्ला पातारासी ५ तलिलोपा · रसुवा सुरुङ भित्र",
+      "phone": "9767074011",
+      "note": "फारम 13:45"
     }
   ],
   "found": [
