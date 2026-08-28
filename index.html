@@ -268,6 +268,34 @@ a.js-found-row[hidden]{display:none}
 .chips a.home-btn:hover,.chips a.home-btn.is-current{background:#9f1239;color:#fff;border-color:#9f1239}
 .chips a.home-btn .nav-dash-label{display:none}
 .screen-back{display:none}
+.screen-back.is-on{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--teal);
+  color:#fff;
+  font-weight:800;
+  font-size:13px;
+  padding:6px 12px;
+  border-radius:999px;
+  text-decoration:none;
+  margin:0 0 16px;
+}
+.screen-back.is-on:hover{text-decoration:none;filter:brightness(1.08)}
+@media (max-width:959px){
+  .screen-back.is-on{
+    display:flex;
+    width:fit-content;
+    max-width:calc(100% - 24px);
+    box-sizing:border-box;
+    margin:8px 12px 10px;
+    padding:7px 14px;
+  }
+}
+html:not(.desk-ready) .page-main section,
+html:not(.desk-ready) .page-main #helpline,
+html:not(.desk-ready) .page-main .stats-src{display:none}
+.is-screen-off{display:none!important}
 .nav-toggle{display:none}
 .nav-toggle .ico-x{display:none}
 .chips.is-open .nav-toggle .ico-h{display:none}
@@ -427,20 +455,6 @@ a.js-found-row[hidden]{display:none}
     color:var(--ink);
     border-left-color:var(--crimson);
   }
-  html.desk .screen-back.is-on{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    background:var(--teal);
-    color:#fff;
-    font-weight:800;
-    font-size:13px;
-    padding:6px 12px;
-    border-radius:999px;
-    text-decoration:none;
-    margin:0 0 16px;
-  }
-  html.desk .screen-back.is-on:hover{text-decoration:none;filter:brightness(1.08)}
   .nav-toggle{display:none}
 
   html.desk, html.desk body{
@@ -472,10 +486,6 @@ a.js-found-row[hidden]{display:none}
     overflow:auto;
     -webkit-overflow-scrolling:touch;
   }
-  html.desk:not(.desk-ready) .page-main section,
-  html.desk:not(.desk-ready) .page-main #helpline,
-  html.desk:not(.desk-ready) .page-main .stats-src{display:none}
-  html.desk .is-screen-off{display:none!important}
 }
 
 
@@ -941,6 +951,9 @@ footer{
   margin-top:12px;padding:28px 16px 96px;text-align:center;color:var(--muted);
   border-top:1px solid var(--line);font-size:14px;
 }
+@media (max-width:959px){
+  footer{margin-top:8px;padding:16px 12px 96px;font-size:13px}
+}
 footer .foot-contact{margin:0 0 14px;color:var(--ink);font-size:15px;line-height:1.55}
 footer .foot-contact a{color:var(--crimson);font-weight:800;text-decoration:none}
 footer .foot-contact a:hover{text-decoration:underline}
@@ -1028,7 +1041,7 @@ footer .foot-about a{color:var(--teal);font-weight:800}
   .sec-head h2{font-size:21px}
   .step{grid-template-columns:64px 14px 1fr;gap:8px}
   .funds-warn{font-size:15px;padding:10px 12px}
-  footer{padding:24px 12px 112px}
+  footer{padding:16px 12px 96px}
   .pager{flex-wrap:wrap;gap:6px;padding-bottom:4px}
   .pcount{width:100%;text-align:right;font-size:12px}
   .lb{padding:56px 12px 24px}
@@ -5515,8 +5528,8 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1438"></script>
-<script>window.PAGE_VER="2026-08-28-1438";</script>
+<script src="i18n.js?v=2026-08-28-1441"></script>
+<script>window.PAGE_VER="2026-08-28-1441";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -6425,15 +6438,8 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   function apply(opts){
     var desk = mq.matches;
     document.documentElement.classList.toggle("desk", desk);
-    document.body.classList.toggle("desk-screen", desk);
+    document.body.classList.add("desk-screen");
     var list = allScreens();
-    if (!desk) {
-      document.documentElement.classList.remove("desk-ready");
-      list.forEach(function(s){ s.classList.remove("is-screen-on", "is-screen-off"); });
-      if (src) src.classList.remove("is-screen-on", "is-screen-off");
-      if (back) { back.classList.remove("is-on"); back.setAttribute("hidden", ""); }
-      return;
-    }
     var target = resolve(location.hash);
     if (!target) target = home;
     var tid = (target && target.id) ? target.id : "home";
