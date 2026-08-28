@@ -7,7 +7,7 @@ window.I18N = {
 "live": "लाइभ",
 "lang_group": "भाषा",
 "hl_bar": "उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४",
-"safety": "बाढी कत्रो आयो भन्दै नदी छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो, फोटो खिच्ने काम नगर्नुहोला । नदी भन्दा धेरै टाढा बस्नुहोला र आवश्यक परेकोलाई सहयोग गर्नुहोला ।",
+"safety": "जिरोङ ताल फुट्यो — बाढी स्याफ्रुबेँसी पुग्यो, मुग्लिनसम्म सतर्कता। नदी किनार नजानुहोस्। हेर्न वा फोटो खिच्न नजानुहोस्।",
 "nav_home": "होम",
 "nav_sections": "खण्डहरू",
 "nav_map": "नक्सा",
@@ -443,7 +443,7 @@ window.I18N = {
 "months3": "३ महिना",
 "today": "आज",
 "ongoing": "जारी",
-"lede": "नेपाल प्रहरी १२:००, १२ भदौ। शव <strong>४८९</strong>। SitRep-6 घाइते <strong>७३</strong>। सम्पर्कविहीन <strong>९७७</strong>। हेलि उद्धार <strong>१९७६</strong>। नागरिक उद्धार <strong>१५५२</strong>। लेन्देमा अस्थायी ताल ०.११ वर्ग किमि — नदी किनार नजानुहोस्।",
+"lede": "जिरोङ ताल फुट्यो — बाढी स्याफ्रुबेँसी, मुग्लिनसम्म सतर्कता। नेपाल प्रहरी १२:०० शव <strong>४८९</strong>। SitRep-6 घाइते <strong>७३</strong>। सम्पर्कविहीन <strong>९७७</strong>। हेलि उद्धार <strong>१९७६</strong>। नागरिक उद्धार <strong>१५५२</strong>।",
 "stats_note": "शव <strong>४८९</strong>। प्रहरी जिल्ला: चितवन १८६ · नवलपरासी पूर्व ११२ · गोर्खा ४४ · नुवाकोट ३७ · धादिङ ४० · तनहुँ २९ · नवलपरासी पश्चिम २८ · रसुवा १३। SitRep-6 सम्पर्कविहीन <strong>९७७</strong> / घाइते <strong>७३</strong> / हेलि <strong>१९७६</strong> / नागरिक उद्धार <strong>१५५२</strong>। पर्यटक सूची ६६८ (नेपाली १२७ · विदेशी ५४१) अलग। स्रोत तल।",
 "funds_warn": "<span class=\"src\">प्राधिकरण</span> बाढीपीडितका नाममा आफूखुसी सहयोग वा व्यक्तिगत QR नसङ्कलन गर्नुहोस्। तल प्रधानमन्त्री कार्यालयका खाता मात्र आधिकारिक। अटेर देखिए <a href=\"tel:+97714211197\">०१-४२१११९७</a> मा जानकारी दिनुहोस्।",
 "funds_lead": "बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन नयाँ अनलाइन पोर्टल वा SWIFT प्रयोग गर्न सकिन्छ। आधिकारिक पाना: <a href=\"https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf\" target=\"_blank\" rel=\"noopener\">प्रधानमन्त्री कार्यालय PDF</a>",
@@ -611,7 +611,7 @@ window.I18N = {
 "live": "Live",
 "lang_group": "Language",
 "hl_bar": "Rescue 1234 · Police 100 · 1148 · 1111 · 1114 · Ambulance 102 · NEOC 1144",
-"safety": "Do not go to the riverbank to see how big the flood is, and do not film or photograph at the water’s edge. Stay well away from the river, and help anyone who needs it.",
+"safety": "Jirong lake has burst — flood has reached Syafrubesi; stay alert through Mugling. Stay off the riverbank. Do not go to watch or film.",
 "nav_home": "Home",
 "nav_sections": "Sections",
 "nav_map": "Map",
@@ -1047,7 +1047,7 @@ window.I18N = {
 "months3": "3 months",
 "today": "today",
 "ongoing": "Ongoing",
-"lede": "Nepal Police 12:00, 12 Bhadra. Dead <strong>489</strong>. SitRep-6 injured <strong>73</strong>. Uncontacted <strong>977</strong>. Heli rescue <strong>1976</strong>. Citizens rescued <strong>1552</strong>. Temporary lake 0.11 km² on Lhende — stay away from the river.",
+"lede": "Jirong lake burst — flood at Syafrubesi, alert through Mugling. Nepal Police 12:00 dead <strong>489</strong>. SitRep-6 injured <strong>73</strong>. Uncontacted <strong>977</strong>. Heli rescue <strong>1976</strong>. Citizens rescued <strong>1552</strong>.",
 "stats_note": "Dead <strong>489</strong>. Police by district: Chitwan 186 · Nawalparasi East 112 · Gorkha 44 · Nuwakot 37 · Dhading 40 · Tanahun 29 · Nawalparasi West 28 · Rasuwa 13. SitRep-6 uncontacted <strong>977</strong> / injured <strong>73</strong> / heli <strong>1976</strong> / citizens rescued <strong>1552</strong>. Tourist list 668 (Nepali 127 · foreign 541) separate. Sources below.",
 "funds_warn": "<span class=\"src\">NDRRMA</span> Do not collect money or share personal QR codes in the name of flood victims. Only the Prime Minister’s Office accounts below are official. Report unauthorized collection to <a href=\"tel:+97714211197\">01-4211197</a>.",
 "funds_lead": "Government accounts at the Prime Minister’s Office for flood-relief support. Scan the QR or tap an account number to copy. Use the new online portal or copy a SWIFT code for transfers from abroad. Official page: <a href=\"https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf\" target=\"_blank\" rel=\"noopener\">Prime Minister’s Office PDF</a>",
@@ -1441,6 +1441,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Jirong lake burst — flood at Syafrubesi",
+"p": "A dammed lake above Gyirong in Tibet burst, sending a second-wave flood to <strong>Syafrubesi</strong>. Flood Forecasting Division: impact may reach <strong>Mugling</strong>. Police: leave the Bhotekoshi–Trishuli banks. Rescuers and dozers pulled from Bidur and Trishuli Bazaar. Cabinet spokesperson: <strong>3,253</strong> affected people rescued (15 helicopters) — SitRep heli 1,976 unchanged. Dead <strong>489</strong> unchanged. New missing-form name: Phursang Syangtan. <a href=\"https://www.ratopati.com/story/588109/floods-that-started-after-a-dam-burst-in-tibet-reach-syafrubesi\" target=\"_blank\" rel=\"noopener\">Ratopati</a> · <a href=\"#family\">Missing</a>."
+},
 {
 "h": "Relief cash 40.34 crore",
 "p": "Former Minister Bikram Pandey contributed <strong>1.01 crore</strong> (1 crore 1 lakh) cash to the Prime Minister’s Disaster Relief Fund. Published total <strong>40 crore 34 lakh</strong> — account list 27.33 + BYD · Cimex 7 + Global IME 5 + Bikram Pandey 1.01. <a href=\"#donate\">Relief funds</a>."
@@ -1875,6 +1879,7 @@ window.I18N_LISTS = {
 }
 ],
 "alert": [
+"<strong>Today 12 Bhadra · Jirong lake burst:</strong> a dammed lake in Tibet burst, sending a second-wave flood to <strong>Syafrubesi</strong>. Flood Forecasting Division: impact may reach <strong>Mugling</strong>. Police: leave the Bhotekoshi–Trishuli banks immediately. Rescuers and dozers pulled from Bidur and Trishuli Bazaar. Source: <a href=\"https://www.ratopati.com/story/588109/floods-that-started-after-a-dam-burst-in-tibet-reach-syafrubesi\" target=\"_blank\" rel=\"noopener\">Ratopati 13:04</a>.",
 "<strong>SitRep-6 lake warning:</strong> temporary lake about <strong>0.11</strong> km² on the Lhende river, about <strong>18</strong> km upstream of Rasuwagadhi, debris dam — high burst-flood risk. Satellite 11:44, 27 August / 11 Bhadra. Cause: about 1 km² ice/glacier collapse on northern Lhende 26 August, seismic 5.2, Bhotekoshi–Trishuli flood. Stay away from the river.",
 "<strong>Do not go to the riverbank to see how big the flood is, and do not film or photograph at the water’s edge. Stay well away from the river, and help anyone who needs it.</strong>",
 "<strong>DHM technical report:</strong> 08:37 earthquake <strong>4.4</strong>. Syaphrubesi last <strong>1.62 m</strong>. SMS <strong>679,295</strong>. Devghat peak <strong>6.57 m</strong> @ 16:00 (the 8 m estimate was not reached); extra about <strong>20</strong> million m³. Kalikhola peak <strong>12.3 m</strong>. Because the dammed site in China is not fully mapped, risk on the Bhotekoshi–Trishuli is not over. High alert on the banks continues. <a href=\"docs/dhm-bhadra10-sitrep.pdf\" target=\"_blank\" rel=\"noopener\">Report PDF</a>.",
