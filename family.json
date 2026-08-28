@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T07:17:20.867674+05:45",
+  "updated_at": "2026-08-28T07:29:32.204616+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -6390,6 +6390,50 @@
       "when": "Aug28 7:14",
       "phone": "9813515175",
       "note": "फारम 7:14"
+    },
+    {
+      "id": "sheet-20260828-072214-gita-shrestha-trisuli",
+      "name": "Gita Shrestha",
+      "status": "missing",
+      "source": "form",
+      "age": "51",
+      "place": "Trisuli bazar · घर पुल छेउ",
+      "when": "Aug26 ~8:00",
+      "phone": "9843784280 / 9741678346",
+      "note": "फारम 7:22 · किराना+तरकारी पसल (पति Raj Kumar; छोरी Ragini; छोरा Sagar) · बेत्रावतीको अर्को गीता भन्दा फरक"
+    },
+    {
+      "id": "sheet-20260828-072718-raj-kumar-shrestha",
+      "name": "Raj Kumar Shrestha",
+      "status": "missing",
+      "source": "form",
+      "age": "53",
+      "place": "Trisuli bazar · पुल छेउको पसल",
+      "when": "Aug26 ~8:00",
+      "phone": "9741678346 / 9843784280",
+      "note": "फारम 7:27 · किराना+तरकारी पसल (पत्नी Gita; छोरी Ragini; छोरा Sagar)"
+    },
+    {
+      "id": "sheet-20260827-205515-subodh-belbase",
+      "name": "Subodh Belbase",
+      "status": "missing",
+      "source": "form",
+      "age": "24-26",
+      "place": "Butwal · Champion gaun / Upper Trishuli 3B",
+      "when": "भदौ १०",
+      "phone": "9868797073",
+      "note": "फारम 20:55 · दायाँ निधारमा दाग · ट्रक चालकसँग · साइटका सबै हराएको भनिएको"
+    },
+    {
+      "id": "sheet-20260828-071823-lata-kami",
+      "name": "Lata Kami",
+      "status": "missing",
+      "source": "form",
+      "age": "",
+      "place": "Baglung · Upper Trishuli hydropower 216",
+      "when": "Aug26 ~7:00",
+      "phone": "9763205308",
+      "note": "फारम 7:18 · Ganesh Gotame सँगै रिपोर्ट (फरक व्यक्ति)"
     }
   ],
   "found": [
