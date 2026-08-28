@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T12:12:49.018736+05:45",
+  "updated_at": "2026-08-28T12:23:06.750306+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -8167,6 +8167,81 @@
       "place": "Tulsipur-18 dang · Rasuwa",
       "phone": "9764743849 / 9845753014 / 9847223418",
       "note": "फारम 12:09 · Black t-shirt · Gopal pariyar (३४, तुल्सीपुर) सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260828-121312-sudan-giri",
+      "name": "Sudan giri",
+      "status": "missing",
+      "source": "form",
+      "age": "16",
+      "place": "Tulsipur-18 dang · Rasuwa",
+      "phone": "9764743849 / 9845753014 / 9847223418",
+      "note": "फारम 12:13 · Black t-shirt · Gopal pariyar / Bikash pariyar सँग नमिसाउने (फरक व्यक्ति, एउटै परिवार सम्पर्क)"
+    },
+    {
+      "id": "sheet-20260828-121443-jignesh-merchant",
+      "name": "Jignesh Merchant",
+      "status": "missing",
+      "source": "form",
+      "age": "56",
+      "place": "Cupertino, Claifornia, USA · Nepal Tibet Border Post",
+      "when": "26-Aug-26 8:00 a.m.",
+      "phone": "+919820182157",
+      "note": "फारम 12:14 · Not known · He is US citizen of Indian origin. · Tejal Merchant (५२) सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260828-121517-santosh-kumar-yadav",
+      "name": "Santosh Kumar yadav",
+      "status": "missing",
+      "source": "form",
+      "age": "31",
+      "place": "Saptari mahadeva akwarpur · Upper Trishuli-1(216 MW) china power",
+      "when": "Upper Trishuli-1",
+      "phone": "9805912421",
+      "note": "फारम 12:15 · Not exact · Last contact 8:45 am · Santosh Kumar Thakur / Santosh Poudel सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260828-121555-tejal-merchant",
+      "name": "Tejal Merchant",
+      "status": "missing",
+      "source": "form",
+      "age": "52",
+      "place": "Cupertino, California, USA · Nepal Tibet Border Post",
+      "when": "26-Aug-26 8:00 a.m.",
+      "phone": "+919820182157",
+      "note": "फारम 12:15 · She is a US citizen of Indian origin. · Tejal Patel सँग नमिसाउने · Jignesh Merchant (५६) सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260828-121715-raj-kumar-tamang",
+      "name": "Raj kumar Tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "31",
+      "place": "Barhabise 8 sindhupalchok · Rasuwa",
+      "when": "2083-05-10",
+      "phone": "9743212020",
+      "note": "फारम 12:17 · Raj Kumar Damai / Rajan Tamang / Dhiraj tamang सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260828-121829-om-narayan-yadav",
+      "name": "Om Narayan yadav",
+      "status": "missing",
+      "source": "form",
+      "age": "30",
+      "place": "Rajbiraj · Upper Trishuli-1 china power",
+      "when": "Bhadra 10",
+      "phone": "9768592855",
+      "note": "फारम 12:18 · Not exact · China power company · Santosh Kumar yadav सँग नमिसाउने (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260828-122018-ang-nigma-dawa-sherpa",
+      "name": "ang nigma dawa Sherpa",
+      "status": "missing",
+      "source": "form",
+      "place": "Kathmandu,dhumbarahi pipalbot-4,hadi-387,solududhakunda-9 · Rasuwa",
+      "when": "Tuesday",
+      "phone": "9841786196",
+      "note": "फारम 12:20 · Trekking guide"
     }
   ],
   "found": [
