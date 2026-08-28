@@ -603,6 +603,7 @@ window.I18N = {
 "about_who": "स्वतन्त्र नागरिक बुलेटिन। लेखक निरज भुसाल। सरकारी साइट, प्रहरी वा NDRRMA को आधिकारिक पोर्टल होइन। आकस्मिक उद्धारका लागि <a href=\"tel:1234\">१२३४</a> मा फोन गर्नुहोस्। सुझाव वा सच्याउन WhatsApp <a href=\"https://wa.me/9779701010000\">+९७७ ९७०१०१००००</a> वा <a href=\"mailto:neerajbhusal@gmail.com\">neerajbhusal@gmail.com</a>।",
 "about_feat_h": "बुलेटिनमा के छ",
 "about_how_h": "कसरी चल्छ",
+"about_how_short": "GitHub Pages मा स्थिर HTML। आधिकारिक जम्मा स्रोतअनुसार लेबल सहित राखिन्छ — एउटा नक्कली मिसिएको जम्मा कहिल्यै बनाइँदैन। जाँचिएको family.json मात्र। लाइभ संख्या ड्यासबोर्डमा हेर्नुहोस्।",
 "about_x": "X · @nirajbhusal",
 "about_linkedin": "LinkedIn"
 
@@ -1211,6 +1212,7 @@ window.I18N = {
 "about_who": "An independent civic bulletin by Niraj Bhusal. Not a government site, and not an official police or NDRRMA portal. For emergency rescue call <a href=\"tel:1234\">1234</a>. Corrections or suggestions: WhatsApp <a href=\"https://wa.me/9779701010000\">+977 9701010000</a> or <a href=\"mailto:neerajbhusal@gmail.com\">neerajbhusal@gmail.com</a>.",
 "about_feat_h": "What is on the bulletin",
 "about_how_h": "How it works",
+"about_how_short": "Static HTML on GitHub Pages. Official totals stay labeled by source — never one fake merged total. Only curated family.json. Live figures are on the dashboard.",
 "about_x": "X · @nirajbhusal",
 "about_linkedin": "LinkedIn"
 

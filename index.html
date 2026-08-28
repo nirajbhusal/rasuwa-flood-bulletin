@@ -264,6 +264,7 @@ a.js-found-row[hidden]{display:none}
 .chips a:hover{border-color:var(--teal);color:var(--teal)}
 .chips a.is-current{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
 .chips a.home-btn{background:var(--crimson);color:#fff;border-color:var(--crimson);display:inline-flex;align-items:center;justify-content:center;width:36px;min-width:36px;height:36px;padding:0}
+.chips a.home-btn svg{width:20px;height:20px}
 .chips a.home-btn:hover,.chips a.home-btn.is-current{background:#9f1239;color:#fff;border-color:#9f1239}
 .chips a.home-btn .nav-dash-label{display:none}
 .screen-back{display:none}
@@ -406,8 +407,8 @@ a.js-found-row[hidden]{display:none}
     gap:8px;
     justify-content:flex-start;
   }
-  .chips a.home-btn svg{flex:none;width:16px;height:16px;color:var(--crimson)}
-  .chips a.home-btn .nav-dash-label{display:inline}
+  .chips a.home-btn svg{flex:none;width:23px;height:23px;color:var(--crimson)}
+  .chips a.home-btn .nav-dash-label{display:inline;font-size:18px;font-weight:700;line-height:1.2}
   .chips a.home-btn:hover{
     background:rgba(15,23,42,.05);
     color:var(--ink);
@@ -417,7 +418,7 @@ a.js-found-row[hidden]{display:none}
   .chips a.home-btn[aria-current]{
     background:transparent;
     color:var(--ink);
-    font-weight:600;
+    font-weight:700;
     border-left-color:var(--crimson);
   }
   .chips a.home-btn.is-current:hover,
@@ -793,6 +794,24 @@ section{padding:22px 0}
 .phones a{
   background:var(--crimson);color:#fff;font-weight:800;padding:8px 12px;
   border-radius:999px;text-decoration:none;
+}
+.phones a.wa{background:#128C7E}
+.phones a.mail{background:#0f172a}
+.phones a.x{background:#111}
+.phones a.in{background:#0a66c2}
+.phones a:hover{text-decoration:none;filter:brightness(1.06)}
+#about .kicker{margin:0 0 12px}
+#about .about-grid{display:grid;grid-template-columns:1fr;gap:14px}
+#about .card h3{margin:0 0 8px;font-size:18px}
+#about .card p{margin:0 0 10px}
+#about .card p:last-child{margin:0}
+#about .phones{margin:0 0 10px}
+#about .foot-contact{margin:12px 0 0;color:var(--ink);font-size:15px;line-height:1.55}
+#about .foot-contact a{color:var(--crimson);font-weight:800;text-decoration:none}
+#about .foot-contact a:hover{text-decoration:underline}
+@media (min-width:960px){
+  #about .about-grid{grid-template-columns:1fr 1fr;align-items:stretch}
+  #about .about-intro{grid-column:1/-1}
 }
 .path{
   display:flex;flex-direction:column;gap:0;padding:4px 0 2px;
@@ -1336,7 +1355,7 @@ footer .foot-about a{color:var(--teal);font-weight:800}
     <svg class="ico-x" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg>
   </button>
   <div class="chips-inner" id="nav-chips">
-    <a class="home-btn" href="#home" aria-label="ड्यासबोर्ड" title="ड्यासबोर्ड" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">ड्यासबोर्ड</span></a>
+    <a class="home-btn" href="#home" aria-label="ड्यासबोर्ड" title="ड्यासबोर्ड" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">ड्यासबोर्ड</span></a>
     <a href="#family" data-i18n="nav_family">हराएको / भेटिएको</a>
     <a href="#treat" data-i18n="nav_treat">घाइते</a>
     <a href="#lists-dash" data-i18n="nav_rd">उद्धार ड्यासबोर्ड</a>
@@ -1365,7 +1384,7 @@ footer .foot-about a{color:var(--teal);font-weight:800}
     <a href="#feeds" data-i18n="nav_feeds">लाइभ फिड</a>
     <a href="#videos" data-i18n="nav_videos">भिडियो</a>
     <a href="#sources" data-i18n="nav_sources">स्रोत</a>
-    <a class="nav-about" href="about.html" data-i18n="nav_about">बारेमा</a>
+    <a class="nav-about" href="#about" data-i18n="nav_about">बारेमा</a>
   </div>
 </nav>
 <div class="page-main">
@@ -5427,10 +5446,36 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 
   </div>
 </section>
+
+<section id="about">
+  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="about_h">बारेमा</h2></div>
+  <p class="kicker" data-i18n="about_kicker">स्वतन्त्र नागरिक पाना · सरकारी साइट होइन</p>
+  <div class="about-grid">
+    <div class="card red about-intro">
+      <p data-i18n-html="about_lead">निरज भुसालले २६ अगस्ट २०२६ मा सुरु गरेको स्वतन्त्र नागरिक बुलेटिन। भोटेकोशी बाढी तिब्बतबाट टिमुरे हुँदै करिब बिहान ९:१५ मा नेपाल पसेपछि आधिकारिक मृतक, सम्पर्कविहीन, उद्धार, सडक, राहत र जाँचिएका तस्बिर एक ठाउँमा राख्न खोलियो।</p>
+    </div>
+    <div class="card teal">
+      <h3 data-i18n="about_who_h">यो पाना के हो</h3>
+      <p data-i18n-html="about_who">स्वतन्त्र नागरिक बुलेटिन। लेखक निरज भुसाल। सरकारी साइट, प्रहरी वा NDRRMA को आधिकारिक पोर्टल होइन। आकस्मिक उद्धारका लागि <a href="tel:1234">१२३४</a> मा फोन गर्नुहोस्। सुझाव वा सच्याउन WhatsApp <a href="https://wa.me/9779701010000">+९७७ ९७०१०१००००</a> वा <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a>।</p>
+      <p data-i18n-html="about_how_short">GitHub Pages मा स्थिर HTML। आधिकारिक जम्मा स्रोतअनुसार लेबल सहित राखिन्छ — एउटा नक्कली मिसिएको जम्मा कहिल्यै बनाइँदैन। जाँचिएको family.json मात्र। लाइभ संख्या ड्यासबोर्डमा हेर्नुहोस्।</p>
+    </div>
+    <div class="card green">
+      <h3 data-i18n="nav_contacts">सम्पर्क</h3>
+      <div class="phones">
+        <a href="tel:1234" data-i18n="rescue_1234">उद्धार १२३४</a>
+        <a class="wa" href="https://wa.me/9779701010000?text=%E0%A4%B0%E0%A4%B8%E0%A5%81%E0%A4%B5%E0%A4%BE%20%E0%A4%AC%E0%A4%BE%E0%A4%A2%E0%A5%80%20%E0%A4%AC%E0%A5%81%E0%A4%B2%E0%A5%87%E0%A4%9F%E0%A4%BF%E0%A4%A8" target="_blank" rel="noopener">WhatsApp 9701010000</a>
+        <a class="mail" href="mailto:neerajbhusal@gmail.com?subject=Rasuwa%20flood%20bulletin" data-i18n="portal_mail">इमेल</a>
+        <a class="x" href="https://x.com/nirajbhusal" target="_blank" rel="noopener" data-i18n="about_x">X · @nirajbhusal</a>
+        <a class="in" href="https://www.linkedin.com/in/nirajbhusal/" target="_blank" rel="noopener" data-i18n="about_linkedin">LinkedIn</a>
+      </div>
+      <p class="foot-contact" data-i18n-html="foot_contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
+    </div>
+  </div>
+</section>
 </main>
 <footer>
   <p class="foot-contact" data-i18n-html="foot_contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
-  <p class="foot-about"><a href="about.html" data-i18n="nav_about">बारेमा</a></p>
+  <p class="foot-about"><a href="#about" data-i18n="nav_about">बारेमा</a></p>
   <span data-i18n-html="footer">Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
   यो पृष्ठ आज २६ अगस्ट २०२६ / १० भदौ २०८३ को घटनामा मात्र केन्द्रित छ।</span>
 </footer>
@@ -5470,8 +5515,8 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1430"></script>
-<script>window.PAGE_VER="2026-08-28-1430";</script>
+<script src="i18n.js?v=2026-08-28-1438"></script>
+<script>window.PAGE_VER="2026-08-28-1438";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
