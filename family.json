@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T05:52:45+05:45",
+  "updated_at": "2026-08-28T06:00:38+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,17 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-055602-avanish-bharat-merchant",
+      "name": "Avanish Bharat Merchant",
+      "age": "66",
+      "place": "Mumbai, India · Friendship Bridge near border",
+      "when": "26th August 8:05 AM",
+      "phone": "+91 9821023584",
+      "note": "फारम 05:56 · Spouse · ठेगाना: Goregaon East, Mumbai",
+      "status": "missing",
+      "source": "form"
+    },
     {
       "id": "sheet-20260828-054407-dawaringan-thokra-tamang",
       "name": "Dawaringan Thokra Tamang (Sujan Tamang)",
