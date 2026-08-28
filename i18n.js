@@ -9,7 +9,7 @@ window.I18N = {
 "hl_bar": "उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४",
 "safety": "जिरोङ ताल फुट्यो — बाढी स्याफ्रुबेँसी पुग्यो, मुग्लिनसम्म सतर्कता। नदी किनार नजानुहोस्। हेर्न वा फोटो खिच्न नजानुहोस्।",
 "nav_home": "होम",
-"nav_dash": "बाढीको स्थिति",
+"nav_dash": "ड्यासबोर्ड",
 "nav_back_dash": "« ड्यासबोर्ड",
 "nav_sections": "खण्डहरू",
 "nav_map": "नक्सा",
@@ -602,7 +602,9 @@ window.I18N = {
 "about_who_h": "यो पाना के हो",
 "about_who": "स्वतन्त्र नागरिक बुलेटिन। लेखक निरज भुसाल। सरकारी साइट, प्रहरी वा NDRRMA को आधिकारिक पोर्टल होइन। आकस्मिक उद्धारका लागि <a href=\"tel:1234\">१२३४</a> मा फोन गर्नुहोस्। सुझाव वा सच्याउन WhatsApp <a href=\"https://wa.me/9779701010000\">+९७७ ९७०१०१००००</a> वा <a href=\"mailto:neerajbhusal@gmail.com\">neerajbhusal@gmail.com</a>।",
 "about_feat_h": "बुलेटिनमा के छ",
-"about_how_h": "कसरी चल्छ"
+"about_how_h": "कसरी चल्छ",
+"about_x": "X · @nirajbhusal",
+"about_linkedin": "LinkedIn"
 
 },
 "en": {
@@ -615,7 +617,7 @@ window.I18N = {
 "hl_bar": "Rescue 1234 · Police 100 · 1148 · 1111 · 1114 · Ambulance 102 · NEOC 1144",
 "safety": "Jirong lake has burst — flood has reached Syafrubesi; stay alert through Mugling. Stay off the riverbank. Do not go to watch or film.",
 "nav_home": "Home",
-"nav_dash": "Flood snapshot",
+"nav_dash": "Dashboard",
 "nav_back_dash": "Back to dashboard",
 "nav_sections": "Sections",
 "nav_map": "Map",
@@ -1208,7 +1210,9 @@ window.I18N = {
 "about_who_h": "What this page is",
 "about_who": "An independent civic bulletin by Niraj Bhusal. Not a government site, and not an official police or NDRRMA portal. For emergency rescue call <a href=\"tel:1234\">1234</a>. Corrections or suggestions: WhatsApp <a href=\"https://wa.me/9779701010000\">+977 9701010000</a> or <a href=\"mailto:neerajbhusal@gmail.com\">neerajbhusal@gmail.com</a>.",
 "about_feat_h": "What is on the bulletin",
-"about_how_h": "How it works"
+"about_how_h": "How it works",
+"about_x": "X · @nirajbhusal",
+"about_linkedin": "LinkedIn"
 
 }
 };

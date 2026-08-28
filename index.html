@@ -325,6 +325,8 @@ a.js-found-row[hidden]{display:none}
     width:var(--rail);
     height:100vh;
     height:100dvh;
+    display:flex;
+    flex-direction:column;
     overflow-x:hidden;
     overflow-y:auto;
     overscroll-behavior:contain;
@@ -348,7 +350,11 @@ a.js-found-row[hidden]{display:none}
     margin:0;
     padding:16px 8px 32px;
     gap:1px;
+    flex:1 1 auto;
+    min-height:100%;
+    box-sizing:border-box;
   }
+  .chips a.nav-about{margin-top:auto}
   .chips a{
     display:flex;
     align-items:center;
@@ -564,6 +570,7 @@ a.js-found-row[hidden]{display:none}
 .stat ul.mini li{margin:5px 0}
 .stat ul.mini strong{color:var(--crimson);font-variant-numeric:tabular-nums;font-weight:800;font-size:22px}
 .hero h2.vis-title{font-size:clamp(22px,4vw,30px);margin:0 0 12px}
+.hero-title{text-align:center}
 .snap-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
 .overview > .snap-row{margin-top:10px}
 @media(max-width:640px){.snap-row{grid-template-columns:1fr}}
@@ -1329,7 +1336,7 @@ footer .foot-about a{color:var(--teal);font-weight:800}
     <svg class="ico-x" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg>
   </button>
   <div class="chips-inner" id="nav-chips">
-    <a class="home-btn" href="#home" aria-label="बाढीको स्थिति" title="बाढीको स्थिति" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">बाढीको स्थिति</span></a>
+    <a class="home-btn" href="#home" aria-label="ड्यासबोर्ड" title="ड्यासबोर्ड" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">ड्यासबोर्ड</span></a>
     <a href="#family" data-i18n="nav_family">हराएको / भेटिएको</a>
     <a href="#treat" data-i18n="nav_treat">घाइते</a>
     <a href="#lists-dash" data-i18n="nav_rd">उद्धार ड्यासबोर्ड</a>
@@ -1358,14 +1365,17 @@ footer .foot-about a{color:var(--teal);font-weight:800}
     <a href="#feeds" data-i18n="nav_feeds">लाइभ फिड</a>
     <a href="#videos" data-i18n="nav_videos">भिडियो</a>
     <a href="#sources" data-i18n="nav_sources">स्रोत</a>
+    <a class="nav-about" href="about.html" data-i18n="nav_about">बारेमा</a>
   </div>
 </nav>
 <div class="page-main">
 <a id="screen-back" class="screen-back" href="#home" hidden><span data-i18n="nav_back_dash">« ड्यासबोर्ड</span></a>
 <div class="hero" id="home">
   <div class="wrap">
+    <div class="hero-title">
     <p class="kicker" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
     <h2 class="vis-title" data-i18n="hero_overview">बाढीको स्थिति · १२ भदौ</h2>
+    </div>
     <p class="lede sr-only" data-i18n-html="lede">जिरोङ ताल फुट्यो — बाढी स्याफ्रुबेँसी, मुग्लिनसम्म सतर्कता। नेपाल प्रहरी १२:०० शव <strong>४८९</strong>। SitRep-6 घाइते <strong>७३</strong>। सम्पर्कविहीन <strong>९७७</strong>। हेलि उद्धार <strong>१९७६</strong>। नागरिक उद्धार <strong>१५५२</strong>।</p>
     <div class="overview" id="overview">
       <div class="kpi-row" role="tablist" aria-label="मुख्य आंकडा" data-i18n-aria="kpi_aria">
@@ -5460,8 +5470,8 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1418"></script>
-<script>window.PAGE_VER="2026-08-28-1418";</script>
+<script src="i18n.js?v=2026-08-28-1430"></script>
+<script>window.PAGE_VER="2026-08-28-1430";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
