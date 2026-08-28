@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T06:22:38+05:45",
+  "updated_at": "2026-08-28T06:31:28+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -6203,6 +6203,17 @@
       "when": "27",
       "phone": "8848125254",
       "note": "फारम 06:02 · ठेगाना: Nepalgunj",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260828-062704-rajkumar-pulami-magar",
+      "name": "Rajkumar Pulami Magar",
+      "age": "४० जति",
+      "place": "काठमाडौं कीर्तिपुर · भन्सार नाका",
+      "when": "२०८३/५/१० · अन्तिम कल ८ बजे",
+      "phone": "9843520353",
+      "note": "फारम 06:27 · गा २ ख १५०३ · हातमा राजवर्ष भनेर ट्याटु · ठेगाना: काठमाडौं कीर्तिपुर",
       "status": "missing",
       "source": "form"
     }
