@@ -10,8 +10,8 @@
   "status": "normal",
   "steady": true,
   "observed_at": "2026-08-26T09:20:00+05:45",
+  "observed_npt": "२०२६-०८-२६ ०९:२०",
   "silent": true,
   "washed": false,
-  "source": "https://www.dhm.gov.np/hydrology/hms-Single/52",
-  "observed_npt": "२०२६-०८-२६ ०९:२०"
+  "source": "https://www.dhm.gov.np/hydrology/hms-Single/52"
 }

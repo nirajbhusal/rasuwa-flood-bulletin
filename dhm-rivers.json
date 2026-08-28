@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T11:47:32.968674+05:45",
+  "updated_at": "2026-08-28T11:56:28.069726+05:45",
   "note_np": "DHM बाढी मार्ग स्टेसन (धुन्चे→बेत्रावती→फुर्के→काली खोला→देवघाट)। फुर्के वासड् — लाइभ होइन।",
   "hydrology": "https://www.dhm.gov.np/hydrology/hms-Single/",
   "river_watch": "https://www.dhm.gov.np/hydrology/river-watch",
@@ -10,16 +10,16 @@
       "name": "Trishuli Khola at Dhunche",
       "name_np": "धुन्चे · त्रिशूली खोला",
       "district_np": "नुवाकोट",
-      "level_m": 2.392,
+      "level_m": 2.394,
       "warning_m": 3.2,
       "danger_m": null,
       "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-28T11:30:00+05:45",
+      "observed_at": "2026-08-28T11:40:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ११:४०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657",
-      "observed_npt": "२०२६-०८-२८ ११:३०"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4657"
     },
     {
       "station_id": 52,
@@ -33,10 +33,10 @@
       "status": "normal",
       "steady": true,
       "observed_at": "2026-08-26T09:20:00+05:45",
+      "observed_npt": "२०२६-०८-२६ ०९:२०",
       "silent": true,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/52",
-      "observed_npt": "२०२६-०८-२६ ०९:२०"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/52"
     },
     {
       "station_id": 5611,
@@ -50,10 +50,10 @@
       "status": "washed",
       "steady": null,
       "observed_at": "2026-08-26T11:40:00+05:45",
+      "observed_npt": "२०२६-०८-२६ ११:४०",
       "silent": false,
       "washed": true,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/5611",
-      "observed_npt": "२०२६-०८-२६ ११:४०"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/5611"
     },
     {
       "station_id": 4781,
@@ -61,16 +61,16 @@
       "name": "Trishuli River at Kali Khola",
       "name_np": "काली खोला · त्रिशूली",
       "district_np": "चितवन",
-      "level_m": 6.376,
+      "level_m": 6.355,
       "warning_m": 10.8,
       "danger_m": 12.1,
       "status": "normal",
       "steady": true,
-      "observed_at": "2026-08-28T11:40:00+05:45",
+      "observed_at": "2026-08-28T11:50:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ११:५०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781",
-      "observed_npt": "२०२६-०८-२८ ११:४०"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/4781"
     },
     {
       "station_id": 265,
@@ -84,10 +84,10 @@
       "status": "normal",
       "steady": true,
       "observed_at": "2026-08-28T11:30:00+05:45",
+      "observed_npt": "२०२६-०८-२८ ११:३०",
       "silent": false,
       "washed": false,
-      "source": "https://www.dhm.gov.np/hydrology/hms-Single/265",
-      "observed_npt": "२०२६-०८-२८ ११:३०"
+      "source": "https://www.dhm.gov.np/hydrology/hms-Single/265"
     }
   ]
 }
