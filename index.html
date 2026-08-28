@@ -283,18 +283,30 @@ a.js-found-row[hidden]{display:none}
 }
 .screen-back.is-on:hover{text-decoration:none;filter:brightness(1.08)}
 @media (max-width:959px){
+  html{
+    scroll-snap-type:y proximity;
+  }
+  #home,
+  .page-main section[id],
+  #helpline{
+    scroll-snap-align:start;
+  }
   .screen-back.is-on{
     display:flex;
+    position:fixed;
+    top:var(--stick, 72px);
+    left:12px;
+    z-index:38;
     width:fit-content;
     max-width:calc(100% - 24px);
     box-sizing:border-box;
-    margin:8px 12px 10px;
+    margin:0;
     padding:7px 14px;
   }
 }
-html:not(.desk-ready) .page-main section,
-html:not(.desk-ready) .page-main #helpline,
-html:not(.desk-ready) .page-main .stats-src{display:none}
+html.desk:not(.desk-ready) .page-main section,
+html.desk:not(.desk-ready) .page-main #helpline,
+html.desk:not(.desk-ready) .page-main .stats-src{display:none}
 .is-screen-off{display:none!important}
 .nav-toggle{display:none}
 .nav-toggle .ico-x{display:none}
@@ -5528,8 +5540,8 @@ footer .foot-about a{color:var(--teal);font-weight:800}
 </div>
 
 
-<script src="i18n.js?v=2026-08-28-1441"></script>
-<script>window.PAGE_VER="2026-08-28-1441";</script>
+<script src="i18n.js?v=2026-08-28-1452"></script>
+<script>window.PAGE_VER="2026-08-28-1452";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -6356,6 +6368,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   if (!nav || !window.IntersectionObserver) return;
   var links = Array.prototype.slice.call(nav.querySelectorAll(".chips-inner a[href^='#']"));
   if (!links.length) return;
+  var back = document.getElementById("screen-back");
   var secs = [];
   links.forEach(function(a){
     var id = (a.getAttribute("href") || "").slice(1);
@@ -6364,13 +6377,34 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     secs.push(el);
   });
   if (!secs.length) return;
-  function mark(id){
+  var last = "";
+  function paint(id){
     links.forEach(function(a){
       var on = (a.getAttribute("href") || "") === "#" + id;
       a.classList.toggle("is-current", on);
       if (on) a.setAttribute("aria-current", "location");
       else a.removeAttribute("aria-current");
     });
+    if (back) {
+      var show = id !== "home";
+      back.classList.toggle("is-on", show);
+      if (show) back.removeAttribute("hidden");
+      else back.setAttribute("hidden", "");
+    }
+  }
+  function spyTo(id){
+    if (!id || document.body.classList.contains("desk-screen")) return;
+    paint(id);
+    if (id === last) return;
+    last = id;
+    var next = "#" + id;
+    if (location.hash !== next) {
+      try { history.replaceState(null, "", location.pathname + location.search + next); } catch (e) {}
+    }
+    if (id === "map") {
+      setTimeout(function(){ if (window.__fixFloodMap) window.__fixFloodMap(); }, 80);
+      setTimeout(function(){ if (window.__fixFloodMap) window.__fixFloodMap(); }, 350);
+    }
   }
   var vis = {};
   var io = new IntersectionObserver(function(entries){
@@ -6381,13 +6415,15 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     });
     var pick = null;
     secs.forEach(function(el){ if (vis[el.id]) pick = el.id; });
-    if (pick) mark(pick);
+    if (pick) spyTo(pick);
   }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
   secs.forEach(function(el){ io.observe(el); });
   links.forEach(function(a){
     a.addEventListener("click", function(){
       var id = (a.getAttribute("href") || "").slice(1);
-      if (id) mark(id);
+      if (!id) return;
+      last = id;
+      paint(id);
     });
   });
 })();
@@ -6438,11 +6474,32 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   function apply(opts){
     var desk = mq.matches;
     document.documentElement.classList.toggle("desk", desk);
-    document.body.classList.add("desk-screen");
+    document.body.classList.toggle("desk-screen", desk);
     var list = allScreens();
     var target = resolve(location.hash);
     if (!target) target = home;
     var tid = (target && target.id) ? target.id : "home";
+    if (!desk) {
+      list.forEach(function(s){ s.classList.remove("is-screen-on", "is-screen-off"); });
+      if (src) src.classList.remove("is-screen-on", "is-screen-off");
+      document.documentElement.classList.add("desk-ready");
+      markNav(tid);
+      if (back) {
+        var showMob = tid !== "home";
+        back.classList.toggle("is-on", showMob);
+        if (showMob) back.removeAttribute("hidden");
+        else back.setAttribute("hidden", "");
+      }
+      if (!opts || opts.scroll !== false) {
+        if (target && target.scrollIntoView) target.scrollIntoView({block: "start"});
+        else window.scrollTo(0, 0);
+      }
+      if (tid === "map" || location.hash === "#path" || location.hash === "#map") {
+        setTimeout(function(){ if (window.__fixFloodMap) window.__fixFloodMap(); }, 80);
+        setTimeout(function(){ if (window.__fixFloodMap) window.__fixFloodMap(); }, 350);
+      }
+      return;
+    }
     list.forEach(function(s){
       var on = s === target;
       s.classList.toggle("is-screen-on", on);
