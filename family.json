@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T07:29:32.204616+05:45",
+  "updated_at": "2026-08-28T07:37:39.990190+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -6434,6 +6434,28 @@
       "when": "Aug26 ~7:00",
       "phone": "9763205308",
       "note": "फारम 7:18 · Ganesh Gotame सँगै रिपोर्ट (फरक व्यक्ति)"
+    },
+    {
+      "id": "sheet-20260828-072928-tika-lal-stangtan",
+      "name": "Tika Lal Stangtan",
+      "status": "missing",
+      "source": "form",
+      "age": "44",
+      "place": "Palung makwanpur · Timurey",
+      "when": "2083/05/10",
+      "phone": "9820270958",
+      "note": "फारम 07:29 · Truck driver, truck no.4016"
+    },
+    {
+      "id": "sheet-20260828-073058-sarki-sherpa",
+      "name": "Sarki Sherpa",
+      "status": "missing",
+      "source": "form",
+      "age": "39",
+      "place": "Shindupalchowk  votekoshi 4 · Last Chaina Nepal bordar",
+      "when": "Around 8:00am",
+      "phone": "9810273139 / 9851317629",
+      "note": "फारम 07:30 · He is coming back from chain waiting for bhansaar"
     }
   ],
   "found": [
