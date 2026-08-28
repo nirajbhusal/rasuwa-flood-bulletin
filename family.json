@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T09:02:28.438799+05:45",
+  "updated_at": "2026-08-28T09:07:33.842395+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,37 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260828-090301-arunasalam-karuppiah",
+      "name": "Arunasalam Karuppiah",
+      "status": "missing",
+      "source": "form",
+      "age": "70",
+      "place": "Should be around Timure (Nepal-Tiber border) nearby the landslide area",
+      "when": "26th Aug 2026,  8.25am",
+      "phone": "Daughter Vinothadevi 0167341603 & son Ganageswaran0169266067",
+      "note": "फारम 09:03 · Fishtail Tours & Travels"
+    },
+    {
+      "id": "sheet-20260828-090238-anipal-bista",
+      "name": "Anipal bista",
+      "status": "missing",
+      "source": "form",
+      "place": "Upper trisuli hydro B",
+      "when": "8:00 am",
+      "phone": "9840755313",
+      "note": "फारम 09:02 · He is engineer at upper trisuli hydro B."
+    },
+    {
+      "id": "sheet-20260828-090049-chandra-bahadur-gyami",
+      "name": "Chandra Bahadur gyami",
+      "status": "missing",
+      "source": "form",
+      "age": "32",
+      "place": "Flash flood after no contact",
+      "phone": "9803081256",
+      "note": "फारम 09:00"
+    },
     {
       "id": "sheet-20260828-084639-hiralal-gurung",
       "name": "Hiralal Gurung",
