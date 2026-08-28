@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T14:59:03.225654+05:45",
+  "updated_at": "2026-08-28T15:15:11.492284+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -9406,6 +9406,60 @@
       "when": "Badra 10 bihana 7:30 baje samma",
       "phone": "9745613056 / 9743958433",
       "note": "फारम 14:54 · Seto tishort tala kalo Kati daine hatko maji aula ma opretionko mark bayeko"
+    },
+    {
+      "id": "sheet-20260828-145911-manasi-pravin-gokhale",
+      "name": "Manasi Pravin Gokhale",
+      "status": "missing",
+      "source": "form",
+      "age": "63",
+      "place": "Mumbai",
+      "when": "24th",
+      "note": "फारम 14:59"
+    },
+    {
+      "id": "sheet-20260828-150007-sonam-sherpa",
+      "name": "Sonam sherpa",
+      "status": "missing",
+      "source": "form",
+      "age": "Around 50",
+      "place": "Okhaldunga · Border",
+      "when": "August 26",
+      "phone": "9841643455",
+      "note": "फारम 15:00 · हल्का सेतो कपाल फुलेको · छोटो कद र ओठको तल सानो कालो दाग · Tenzing sherpa सँग एउटै परिवार फोन, फरक व्यक्ति"
+    },
+    {
+      "id": "sheet-20260828-150222-lila-sunar",
+      "name": "Lila sunar",
+      "status": "missing",
+      "source": "form",
+      "age": "46",
+      "place": "Rupandehi · Rasuwa",
+      "when": "2083-05-10",
+      "phone": "9860043378",
+      "note": "फारम 15:02"
+    },
+    {
+      "id": "sheet-20260828-150403-juri-kupper",
+      "name": "Juri Kupper",
+      "status": "missing",
+      "source": "form",
+      "age": "41",
+      "place": "Germany, Frankfurt am Main · Rasuwagadhi Border",
+      "when": "26 August 2026 - 7:37 Nepal Time",
+      "phone": "+4917643431712",
+      "note": "फारम 15:04 · Shaved head, Dressed in Blue Cardigan, with Black Sleevless Jacket · Last picture taken at the Chinese border attached as recent photo. Part of the tourist group organised by Irina Blonskaya, 60 people - In Nepal supposed to be taken by Tashi Delek  · +4917643431712 - Sister Lolita Kupper"
+    },
+    {
+      "id": "sheet-20260828-151000-mithun-thapa",
+      "name": "Mithun thapa",
+      "status": "missing",
+      "source": "form",
+      "age": "38",
+      "place": "Sindupalchowk barbisya · Rasuwa timure",
+      "when": "8:00",
+      "phone": "9843531588",
+      "note": "फारम 15:10"
     }
   ],
   "found": [
