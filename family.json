@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T19:42:37.864883+05:45",
+  "updated_at": "2026-08-28T19:51:00.129690+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -10715,6 +10715,28 @@
       "when": "२०८३/०५/१०, ८:५३",
       "phone": "9851167676 / 9808748671 / 9841019004 / 9851150931",
       "note": "फारम 19:37 · घ्यु रङ्ग को टिसर्ट निलो जिन्स पाइन्ट {कोखामा जन्मजात हत्केलाभरको चिनु"
+    },
+    {
+      "id": "sheet-20260828-194245-pranav-gopisetty",
+      "name": "Pranav Gopisetty",
+      "status": "missing",
+      "source": "form",
+      "age": "52",
+      "place": "Aldie, Virginia · Nepal Immigration Office",
+      "when": "August 25th, 9 ish",
+      "phone": "5712960053",
+      "note": "फारम 19:42 · Is potentially with a group of 10 Americans"
+    },
+    {
+      "id": "sheet-20260828-194423-ngawang-tamang",
+      "name": "Ngawang Tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "19",
+      "place": "Nuwakot · Timure",
+      "when": "25-08-2026",
+      "phone": "9843767742",
+      "note": "फारम 19:44"
     }
   ],
   "found": [
