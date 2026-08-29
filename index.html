@@ -659,6 +659,36 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
 .cash-snap strong.cash-lead{font-size:clamp(26px,4.8vw,36px);letter-spacing:-.02em;line-height:1.15}
 .cash-snap .cash-unit{font-size:16px;font-weight:800;color:var(--forest)}
 .cash-snap .cash-sub{width:100%;margin-top:2px;font-size:13px;font-weight:700;color:var(--muted)}
+.ems-snap{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;
+  margin:10px 0 0;padding:14px 16px 12px;
+  background:linear-gradient(180deg,#fff7ed,#fff 55%);
+  border:1px solid #fdba74;border-radius:16px;
+  box-shadow:var(--shadow);text-decoration:none;color:inherit;
+}
+.ems-snap:hover{text-decoration:none;border-color:var(--saffron);box-shadow:0 0 0 3px #ffedd5}
+.ems-snap > .kpi-k{width:100%;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.ems-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;margin:6px 0 4px}
+@media(max-width:960px){.ems-chips{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.ems-chips{grid-template-columns:1fr}}
+.ems-chip{
+  background:#fff;border:1px solid #fed7aa;border-radius:14px;
+  padding:10px 10px 8px;
+}
+.ems-chip .kpi-k{width:auto;display:block;font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.ems-chip strong{display:block;font-size:clamp(22px,4vw,32px);font-weight:800;color:#c2410c;line-height:1.1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.ems-chip .cash-unit{font-size:13px;font-weight:800;color:#c2410c}
+.ems-chip .cash-sub{width:100%;margin-top:2px;font-size:12px;font-weight:700;color:var(--muted)}
+.ems-snap > .cash-sub{width:100%;margin-top:6px;font-size:13px;font-weight:700;color:var(--muted)}
+#ems927 .ems-kpis{grid-template-columns:repeat(4,1fr);margin:10px 0 12px}
+#ems927 .ems-kpis .cash-kpi{border-color:#fdba74;cursor:default}
+#ems927 .ems-kpis .cash-kpi strong,#ems927 .ems-kpis .cash-unit{color:#c2410c}
+#ems927 .ems-kpis .cash-kpi .cash-sub{display:block;margin-top:2px;font-size:12px;font-weight:700;color:var(--muted)}
+@media(max-width:760px){#ems927 .ems-kpis{grid-template-columns:1fr 1fr}}
+#ems927 .photos{margin-top:12px}
+#ems927 .photo img{height:200px;object-fit:contain;background:#0f172a}
+#ems927 .ems-links{margin:10px 0 0;font-size:15px;font-weight:700}
+#ems927 .ems-links a{font-weight:800}
 .pmdrf-card{
   display:block;margin:0 0 16px;padding:16px 18px 14px;
   background:linear-gradient(180deg,#ecfdf5,#fff 55%);
@@ -1515,6 +1545,7 @@ a.portal-fab-donate{
     <a href="#history" data-i18n="nav_history">अपडेट</a>
     <a href="#event" data-i18n="nav_event">सरोकारवालाको भनाइ</a>
     <a href="#damage" data-i18n="nav_damage">क्षति</a>
+    <a href="#ems927" data-i18n="nav_ems927">Copernicus / स्याफ्रुबेसी</a>
     <a href="#power" data-i18n="nav_power">विद्युत्</a>
     <a href="#rescue" data-i18n="nav_rescue">उद्धार</a>
     <a href="#roads" data-i18n="nav_roads">सडक</a>
@@ -1607,6 +1638,33 @@ a.portal-fab-donate{
           </span>
         </a>
       </div>
+      <a class="cash-snap ems-snap" href="#ems927" id="hero-ems">
+        <span class="kpi-k" data-i18n="hero_ems_h">स्याफ्रुबेसी क्षति · Copernicus</span>
+        <span class="ems-chips">
+          <span class="ems-chip">
+            <span class="kpi-k" data-i18n="ems_k_built">भवन</span>
+            <strong class="num">४३३</strong>
+            <span class="cash-sub" data-i18n="ems_k_built_sub">आवासीय प्रभावित ३९२ · ध्वस्त २८३</span>
+          </span>
+          <span class="ems-chip">
+            <span class="kpi-k" data-i18n="ems_k_road">सडक</span>
+            <strong class="num">७.६</strong>
+            <span class="cash-unit" data-i18n="ems_k_km">किमि</span>
+            <span class="cash-sub" data-i18n="ems_k_road_sub">पुल ५ ध्वस्त</span>
+          </span>
+          <span class="ems-chip">
+            <span class="kpi-k" data-i18n="ems_k_slide">पहिरो</span>
+            <strong class="num">१११.१</strong>
+            <span class="cash-unit" data-i18n="ems_k_ha">हे</span>
+          </span>
+          <span class="ems-chip">
+            <span class="kpi-k" data-i18n="ems_k_pop">जनसंख्या</span>
+            <strong class="num">~४५०</strong>
+            <span class="cash-sub" data-i18n="ems_k_pop_sub">AOI जम्मा ~७५०</span>
+          </span>
+        </span>
+        <span class="cash-sub" data-i18n="hero_ems_sub">Copernicus EMSR927 · २७ अगस्ट ०५:०५ UTC · स्याफ्रुबेसी AOI — प्रहरी शव ६१६ / NDRRMA ४४५१ माथि होइन।</span>
+      </a>
       <div class="ov-panel">
         <div class="ov-pane on" data-panel="all">
           <p class="ov-cap" data-i18n="ov_all_cap">समग्र · कार्ड थिचेर जिल्ला/वर्ग हेर्नुहोस्</p>
@@ -6524,6 +6582,22 @@ a.portal-fab-donate{
   </div>
   <div class="photos" id="photo-grid" data-i18n-list="photos" data-i18n-kind="fig">
     <figure class="photo">
+      <a href="img/today-2026-08-27-copernicus-ems927-overview.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-27-copernicus-ems927-overview.jpg" alt="Copernicus EMSR927 स्याफ्रुबेसी अवलोकन नक्सा, भवन ४३३" data-i18n-alt="ems_ph1_alt"></a>
+      <figcaption><strong>Copernicus EMSR927 · अवलोकन</strong>स्याफ्रुबेसी AOI · भवन ४३३ · २७ अगस्ट ०५:०५ UTC</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-27-copernicus-ems927-detail02.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-27-copernicus-ems927-detail02.jpg" alt="Copernicus EMSR927 स्याफ्रुबेसी विस्तृत नक्सा ०२" data-i18n-alt="ems_ph2_alt"></a>
+      <figcaption><strong>Copernicus EMSR927 · विस्तृत ०२</strong>स्याफ्रुबेसी AOI · ग्रेडिङ</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-27-copernicus-ems927-detail03.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-27-copernicus-ems927-detail03.jpg" alt="Copernicus EMSR927 स्याफ्रुबेसी विस्तृत नक्सा ०३" data-i18n-alt="ems_ph3_alt"></a>
+      <figcaption><strong>Copernicus EMSR927 · विस्तृत ०३</strong>स्याफ्रुबेसी AOI · ग्रेडिङ</figcaption>
+    </figure>
+    <figure class="photo">
+      <a href="img/today-2026-08-27-copernicus-ems927-table.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-27-copernicus-ems927-table.jpg" alt="Copernicus EMSR927 स्याफ्रुबेसी क्षति तालिका" data-i18n-alt="ems_ph4_alt"></a>
+      <figcaption><strong>Copernicus EMSR927 · क्षति तालिका</strong>AOI भित्रका परिणाम · आवासीय प्रभावित ३९२</figcaption>
+    </figure>
+    <figure class="photo">
       <a href="img/today-2026-08-29-nepal-police-0700.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-29-nepal-police-0700.jpg" alt="नेपाल प्रहरी रसुवा भोटेकोशी बाढी अपडेट, १३ भदौ ०७:००, शव ६१६"></a>
       <figcaption><strong>नेपाल प्रहरी · १३ भदौ ०७:००</strong>शव ६१६ · घाइते तथा उद्धार २३०१ · प्रहरी ४८११ · सम्पर्कविहीन २७</figcaption>
     </figure>
@@ -6764,6 +6838,12 @@ a.portal-fab-donate{
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
             <article class="log-item now">
+      <p class="when">~१०:१६</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>Copernicus EMSR927 स्याफ्रुबेसी क्षति</h3>
+      <p>Copernicus EMS Rapid Mapping EMSR927 AOI01 स्याफ्रुबेसी: भवन <strong>४३३</strong> (आवासीय प्रभावित ३९२ · ध्वस्त २८३) · सडक ७.६ किमि (पुल ५ ध्वस्त) · पहिरो १११.१ हे · प्रभावित जनसंख्या ~४५० (AOI ~७५०)। उपग्रह ग्रेडिङ — प्रहरी शव ६१६ / NDRRMA उद्धार ४४५१ माथि होइन। <a href="#ems927">स्याफ्रुबेसी क्षति</a> · <a href="https://mapping.emergency.copernicus.eu/activations/EMSR927" target="_blank" rel="noopener">पोर्टल</a>।</p>
+    </article>
+            <article class="log-item">
       <p class="when">~०७:००</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>प्रहरी १३ भदौ ०७:०० — शव ६१६</h3>
@@ -7581,6 +7661,94 @@ a.portal-fab-donate{
   </div>
 </section>
 
+<section id="ems927">
+  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2 data-i18n="h_ems927">स्याफ्रुबेसी क्षति · Copernicus EMSR927</h2></div>
+  <div class="card orange">
+    <p data-i18n-html="ems927_lead">Copernicus EMS Rapid Mapping <strong>EMSR927</strong> AOI01 स्याफ्रुबेसी / Syapru Besi ग्रेडिङ। स्थिति २७/०८/२०२६ ०५:०५ UTC। ITHACA उत्पादन, SERTIT जारी २७/०८/२०२६। GLIDE FF-2026-000162-NPL · Charter 1052 · उत्पादन v1। नक्सा ०१ शीर्षक भवन <strong>४३३</strong>; तालिका आवासीय प्रभावित <strong>३९२</strong> — जोडिएको छैन।</p>
+    <div class="cash-kpis ems-kpis">
+      <div class="cash-kpi">
+        <span class="kpi-k" data-i18n="ems_k_built">भवन</span>
+        <strong class="num">४३३</strong>
+        <span class="cash-sub" data-i18n="ems_k_built_sub">आवासीय प्रभावित ३९२ · ध्वस्त २८३</span>
+      </div>
+      <div class="cash-kpi">
+        <span class="kpi-k" data-i18n="ems_k_road">सडक</span>
+        <strong class="num">७.६</strong>
+        <span class="cash-unit" data-i18n="ems_k_km">किमि</span>
+        <span class="cash-sub" data-i18n="ems_k_road_sub">पुल ५ ध्वस्त</span>
+      </div>
+      <div class="cash-kpi">
+        <span class="kpi-k" data-i18n="ems_k_slide">पहिरो</span>
+        <strong class="num">१११.१</strong>
+        <span class="cash-unit" data-i18n="ems_k_ha">हे</span>
+      </div>
+      <div class="cash-kpi">
+        <span class="kpi-k" data-i18n="ems_k_pop">जनसंख्या</span>
+        <strong class="num">~४५०</strong>
+        <span class="cash-sub" data-i18n="ems_k_pop_sub">AOI जम्मा ~७५०</span>
+      </div>
+    </div>
+    <div class="treat-wrap">
+    <table class="plants">
+      <thead>
+        <tr>
+          <th data-i18n="ems_th_class">वर्ग</th>
+          <th class="mw" data-i18n="ems_th_dest">ध्वस्त</th>
+          <th class="mw" data-i18n="ems_th_dam">क्षति</th>
+          <th class="mw" data-i18n="ems_th_poss">सम्भावित</th>
+          <th class="mw" data-i18n="ems_th_aff">प्रभावित जम्मा</th>
+          <th class="mw" data-i18n="ems_th_aoi">AOI जम्मा</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td data-i18n="ems_r_slide">पहिरो</td><td class="mw"><span class="num">१११.१</span> हे</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">१११.१</span> हे</td><td class="mw">—</td></tr>
+        <tr><td data-i18n="ems_r_pop">जनसंख्या</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw">~<span class="num">४५०</span></td><td class="mw">~<span class="num">७५०</span></td></tr>
+        <tr class="hit"><td data-i18n="ems_r_res">आवासीय भवन</td><td class="mw"><span class="num">२८३</span></td><td class="mw"><span class="num">३१</span></td><td class="mw"><span class="num">७८</span></td><td class="mw"><span class="num">३९२</span></td><td class="mw"><span class="num">५१७</span></td></tr>
+        <tr><td data-i18n="ems_r_inst">संस्थागत</td><td class="mw"><span class="num">१</span></td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">१</span></td><td class="mw"><span class="num">१</span></td></tr>
+        <tr><td data-i18n="ems_r_school">विद्यालय/विश्वविद्यालय</td><td class="mw">—</td><td class="mw"><span class="num">१</span></td><td class="mw">—</td><td class="mw"><span class="num">१</span></td><td class="mw"><span class="num">१</span></td></tr>
+        <tr><td data-i18n="ems_r_otherb">अन्य गैर-आवासीय</td><td class="mw"><span class="num">३७</span></td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">३७</span></td><td class="mw"><span class="num">३८</span></td></tr>
+        <tr><td data-i18n="ems_r_rel">धार्मिक</td><td class="mw"><span class="num">२</span></td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">२</span></td><td class="mw"><span class="num">२</span></td></tr>
+        <tr><td data-i18n="ems_r_heli">हेलिप्याड</td><td class="mw"><span class="num">०.०१</span> हे</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">०.०१</span></td><td class="mw"><span class="num">०.०१</span></td></tr>
+        <tr class="hit"><td data-i18n="ems_r_pri">प्राथमिक सडक</td><td class="mw"><span class="num">४.७</span></td><td class="mw">—</td><td class="mw"><span class="num">०.७</span></td><td class="mw"><span class="num">५.४</span></td><td class="mw"><span class="num">५.४</span> किमि</td></tr>
+        <tr><td data-i18n="ems_r_loc">स्थानीय सडक</td><td class="mw"><span class="num">०.४</span></td><td class="mw">—</td><td class="mw"><span class="num">०.६</span></td><td class="mw"><span class="num">१.१</span></td><td class="mw"><span class="num">३.३</span> किमि</td></tr>
+        <tr><td data-i18n="ems_r_cart">गाडा बाटो</td><td class="mw"><span class="num">१.०</span></td><td class="mw">—</td><td class="mw"><span class="num">०.१</span></td><td class="mw"><span class="num">१.१</span></td><td class="mw"><span class="num">२.८</span> किमि</td></tr>
+        <tr class="hit"><td data-i18n="ems_r_br">पुल तथा एलिभेटेड राजमार्ग</td><td class="mw"><span class="num">५</span></td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">५</span></td><td class="mw"><span class="num">५</span></td></tr>
+        <tr><td data-i18n="ems_r_pp">विद्युत आयोजना संरचना</td><td class="mw"><span class="num">०.८</span> हे</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">०.८</span></td><td class="mw"><span class="num">०.८</span></td></tr>
+        <tr><td data-i18n="ems_r_forest">वन</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">६१.६</span></td><td class="mw"><span class="num">२२८.८</span></td></tr>
+        <tr><td data-i18n="ems_r_shrub">झाडी</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">३१.८</span></td><td class="mw"><span class="num">९३.१</span></td></tr>
+        <tr><td data-i18n="ems_r_wet">आन्तरिक सिमसार</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">१२.१</span></td><td class="mw"><span class="num">१४.६</span></td></tr>
+        <tr><td data-i18n="ems_r_otherlu">अन्य भू-उपयोग</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">३.४</span></td><td class="mw"><span class="num">४.३</span></td></tr>
+        <tr><td data-i18n="ems_r_agri">मिश्रित कृषि</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">२.१</span></td><td class="mw"><span class="num">५.१</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note" data-i18n-html="ems927_fn">* सम्भावित क्षति = क्षति प्रॉक्सी / निकटता। ** प्रभावित जम्मा = क्षति वर्गको योग। नक्सा ०१ भवन ४३३ र तालिका आवासीय ३९२ जोडिएको छैन।</p>
+    <div class="photos" id="ems927-photos">
+      <figure class="photo">
+        <a href="img/today-2026-08-27-copernicus-ems927-overview.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-27-copernicus-ems927-overview.jpg" alt="Copernicus EMSR927 स्याफ्रुबेसी अवलोकन नक्सा, भवन ४३३" data-i18n-alt="ems_ph1_alt"></a>
+        <figcaption><strong data-i18n="ems_ph1_h">Copernicus · अवलोकन</strong><span data-i18n="ems_ph1_c">नक्सा ०१ · भवन ४३३</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <a href="img/today-2026-08-27-copernicus-ems927-detail02.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-27-copernicus-ems927-detail02.jpg" alt="Copernicus EMSR927 स्याफ्रुबेसी विस्तृत नक्सा ०२" data-i18n-alt="ems_ph2_alt"></a>
+        <figcaption><strong data-i18n="ems_ph2_h">Copernicus · विस्तृत ०२</strong><span data-i18n="ems_ph2_c">AOI ग्रेडिङ</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <a href="img/today-2026-08-27-copernicus-ems927-detail03.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-27-copernicus-ems927-detail03.jpg" alt="Copernicus EMSR927 स्याफ्रुबेसी विस्तृत नक्सा ०३" data-i18n-alt="ems_ph3_alt"></a>
+        <figcaption><strong data-i18n="ems_ph3_h">Copernicus · विस्तृत ०३</strong><span data-i18n="ems_ph3_c">AOI ग्रेडिङ</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <a href="img/today-2026-08-27-copernicus-ems927-table.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-27-copernicus-ems927-table.jpg" alt="Copernicus EMSR927 स्याफ्रुबेसी क्षति तालिका" data-i18n-alt="ems_ph4_alt"></a>
+        <figcaption><strong data-i18n="ems_ph4_h">Copernicus · क्षति तालिका</strong><span data-i18n="ems_ph4_c">AOI भित्रका परिणाम</span></figcaption>
+      </figure>
+    </div>
+    <p class="ems-links">
+      <a href="img/today-2026-08-27-copernicus-ems927.pdf" target="_blank" rel="noopener" data-i18n="ems_pdf">पूर्ण PDF</a>
+      ·
+      <a href="https://mapping.emergency.copernicus.eu/activations/EMSR927" target="_blank" rel="noopener" data-i18n="ems_portal">Copernicus पोर्टल</a>
+    </p>
+    <p class="note" data-i18n-html="ems927_note">उपग्रह दृश्य व्याख्या, प्रहरी/NDRRMA सिट्रेप होइन। शव ६१६ · घाइते १०१ · सम्पर्कविहीन १९२४ · उद्धार ४४५१ माथि होइन। प्रभावित ~४५० लाई सम्पर्कविहीनमा नजोड्नुहोस्। स्रोत: Copernicus EMS Rapid Mapping · ITHACA / SERTIT।</p>
+  </div>
+</section>
 
 <section id="power">
   <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2 data-i18n="h_power">विद्युत् · NEA जरुरी सूचना</h2></div>
@@ -8192,8 +8360,8 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-29-0944"></script>
-<script>window.PAGE_VER="2026-08-29-0944";</script>
+<script src="i18n.js?v=2026-08-29-1016"></script>
+<script>window.PAGE_VER="2026-08-29-1016";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -8480,7 +8648,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   bindPager(document.querySelector('.pager[data-pager="foreign-res"]'), qsa("#foreign-res-body tr"), 50);
   bindPager(document.querySelector('.pager[data-pager="india-cross"]'), qsa("#india-cross-body tr"), 50);
 
-  var figs = qsa("#photo-grid figure.photo").concat(qsa("#rahat-photo-grid figure.photo"));
+  var figs = qsa("#photo-grid figure.photo").concat(qsa("#rahat-photo-grid figure.photo")).concat(qsa("#ems927 figure.photo"));
   var lb = document.getElementById("lightbox");
   if (!lb || !figs.length) return;
   var lbImg = document.getElementById("lb-img");
