@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29T09:41:37.401384+05:45",
+  "updated_at": "2026-08-29T09:51:50.098859+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -12670,6 +12670,26 @@
       "when": "2083/05/10",
       "phone": "9840710646",
       "note": "फारम 9:25"
+    },
+    {
+      "id": "sheet-20260829-094448-chan-kumar-bhattarai-bikas",
+      "name": "Chan Kumar Bhattarai (Bikas)",
+      "status": "missing",
+      "source": "form",
+      "note": "फारम 9:44",
+      "place": "Thankot, Kathmandu · Damsite, Upper Trishuli - 216",
+      "phone": "9841526748 (Uncle)"
+    },
+    {
+      "id": "sheet-20260829-094638-kesava-rao-tadipatri",
+      "name": "Kesava Rao Tadipatri",
+      "status": "missing",
+      "source": "form",
+      "note": "फारम 9:46",
+      "age": "73",
+      "place": "Phoenix, USA · Rasuwagadhi Checkpoint Nepal",
+      "when": "26 Aug 2026 08:30 AM Nepal time",
+      "phone": "1-202-993-9110"
     }
   ],
   "found": [
