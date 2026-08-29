@@ -1598,6 +1598,135 @@ a.portal-fab-donate{
   html{scroll-padding-top:8px}
 }
 
+
+.names-open-btn{gap:6px}
+.names-open-btn svg{width:16px;height:16px}
+.names-open-label{font-weight:800}
+@media (max-width:640px){
+  .names-open-label{display:none}
+  .names-open-btn{padding:6px 8px;min-width:36px;justify-content:center}
+}
+
+.names-home{
+  margin:10px 0 0;padding:12px 14px 10px;
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:var(--shadow);
+}
+.names-home-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 8px}
+.names-home-top h3{margin:0;font-size:18px;font-weight:800;color:var(--crimson);line-height:1.25}
+.names-home-sub{margin:0;font-size:13px;font-weight:700;color:var(--muted);line-height:1.35}
+.names-home-field{display:flex;gap:8px;align-items:stretch}
+.names-home-field input,
+#names-ov-q{
+  flex:1;min-width:0;width:100%;box-sizing:border-box;
+  font-family:inherit;font-size:17px;font-weight:650;
+  padding:12px 14px;border-radius:12px;min-height:48px;
+  border:1px solid var(--line);background:#fff;color:var(--ink);
+}
+.names-home-field input:focus,
+#names-ov-q:focus{outline:2px solid var(--crimson);border-color:var(--crimson)}
+.names-full-btn{
+  appearance:none;-webkit-appearance:none;
+  flex:none;font:inherit;font-weight:800;font-size:14px;
+  padding:10px 14px;border-radius:12px;min-height:48px;
+  border:2px solid #1c1917;background:var(--crimson);color:#fff;cursor:pointer;
+  white-space:nowrap;
+}
+.names-full-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.names-home-count,.names-count{
+  margin:8px 0 0;font-size:13px;font-weight:800;color:var(--muted);
+  font-variant-numeric:tabular-nums;
+}
+@media (min-width:960px){
+  html.desk .names-home{margin-top:8px;padding:8px 12px}
+  html.desk .names-home-sub{display:none}
+  html.desk .names-home-top{margin:0 0 6px}
+  html.desk .names-home-top h3{font-size:16px}
+  html.desk #names-home-chips{display:none}
+  html.desk .names-home-count{display:none}
+  html.desk .names-home-field input{min-height:42px;font-size:16px;padding:8px 12px}
+  html.desk .names-full-btn{min-height:42px}
+}
+
+.names-chips{
+  display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0;
+}
+.ns-chip{
+  appearance:none;-webkit-appearance:none;
+  font:inherit;font-weight:800;font-size:13px;line-height:1.2;
+  padding:8px 12px;min-height:40px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--line);background:#fff;color:var(--ink);
+}
+.ns-chip.on{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+.ns-chip.tone-miss.on{background:var(--crimson)}
+.ns-chip.tone-ok.on{background:var(--forest);border-color:var(--forest)}
+.ns-chip:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+#search.names-ov{
+  position:fixed;inset:0;z-index:80;
+  background:rgba(28,25,23,.46);
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:max(12px, env(safe-area-inset-top, 0px)) 12px 16px;
+  overflow:auto;
+}
+#search.names-ov[hidden]{display:none!important}
+.names-ov-panel{
+  width:min(720px,100%);
+  background:var(--paper);border:1px solid var(--line);border-radius:18px;
+  box-shadow:0 18px 50px rgba(15,23,42,.28);
+  padding:14px 14px 12px;margin:8px 0 24px;
+}
+.names-ov-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 10px}
+.names-ov-bar h2{margin:0;font-size:20px;font-weight:800;color:var(--crimson)}
+.names-ov-x{
+  appearance:none;-webkit-appearance:none;
+  width:44px;height:44px;border-radius:12px;border:1px solid var(--line);
+  background:#fff;color:var(--ink);font-size:26px;font-weight:800;line-height:1;cursor:pointer;
+}
+.names-ov-x:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+body.names-ov-lock{overflow:hidden}
+.ns-empty{margin:16px 0;text-align:center;color:var(--muted);font-weight:700;font-size:16px}
+.ns-hit{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:12px 14px 10px;margin:0 0 8px;box-shadow:var(--shadow);
+}
+.ns-hit h3{margin:0 0 4px;font-size:18px;font-weight:800;line-height:1.3}
+.ns-hit h3 small{display:block;font-size:14px;font-weight:700;color:var(--muted);margin-top:2px}
+.ns-meta{margin:0 0 8px;font-size:15px;font-weight:650;color:var(--ink);line-height:1.45}
+.ns-phone{font-variant-numeric:tabular-nums;font-weight:800}
+.ns-pills{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.ns-pill{
+  display:inline-block;font-size:12px;font-weight:800;padding:4px 8px;border-radius:999px;
+  background:#f1f5f9;color:#334155;
+}
+.ns-pill.ns-st-missing{background:var(--crimson-soft);color:var(--crimson)}
+.ns-pill.ns-st-found,.ns-pill.ns-st-rescue{background:var(--forest-soft);color:var(--forest)}
+.ns-pill.ns-src-ndrrma,.ns-pill.ns-src-t1{background:var(--teal-soft);color:var(--teal)}
+.ns-pill.ns-src-army{background:#fff7ed;color:#9a3412}
+.ns-pill.ns-src-cross{background:#e0f2fe;color:#075985}
+.ns-pill.ns-k-strong{background:var(--forest);color:#fff}
+.ns-pill.ns-k-soft{background:var(--saffron-soft);color:#9a3412}
+.ns-pill.ns-k-link{background:#e0f2fe;color:#075985}
+.ns-jump{display:inline-block;font-weight:800;font-size:14px;color:var(--teal);text-decoration:none;min-height:40px;padding:8px 0}
+.ns-jump:hover{text-decoration:underline}
+.ns-more{
+  appearance:none;width:100%;margin:4px 0 0;min-height:44px;
+  font:inherit;font-weight:800;border-radius:12px;cursor:pointer;
+  border:1px solid var(--line);background:#fff;color:var(--ink);
+}
+.ns-badge{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ns-badge-a{
+  display:inline-flex;align-items:center;min-height:36px;padding:6px 10px;border-radius:999px;
+  font-size:12px;font-weight:800;text-decoration:none;
+  background:var(--forest-soft);color:var(--forest);
+}
+.ns-badge-a.ns-k-soft{background:var(--saffron-soft);color:#9a3412}
+.ns-badge-a.ns-k-link{background:#e0f2fe;color:#075985}
+.ns-flash{box-shadow:0 0 0 3px var(--teal);outline:2px solid var(--teal)}
+.fam-search-extra{display:flex;gap:8px;margin:8px 0 0;align-items:center}
+.fam-search .names-full-btn{min-height:44px}
+.vis-clip{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
 </style>
 </head>
 <body>
@@ -1615,6 +1744,10 @@ a.portal-fab-donate{
       <button type="button" class="share-btn" id="share-btn" data-i18n-aria="share" aria-label="सेयर">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="18" cy="5" r="2.7"/><circle cx="6" cy="12" r="2.7"/><circle cx="18" cy="19" r="2.7"/><path d="M8.5 13.4 15.4 17.5M15.5 6.5 8.5 10.6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg>
         <span data-i18n="share">सेयर</span>
+      </button>
+      <button type="button" class="share-btn names-open-btn" id="names-open-btn" data-open-names data-i18n-aria="search_aria" aria-label="नाम खोज">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.4 3.6a6.8 6.8 0 1 1 0 13.6 6.8 6.8 0 0 1 0-13.6m0-2.1a8.9 8.9 0 1 0 5.5 15.8l4.4 4.4 1.5-1.5-4.4-4.4A8.9 8.9 0 0 0 10.4 1.5z"/></svg>
+        <span class="names-open-label" data-i18n="nav_search">खोज</span>
       </button>
       <div class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="भाषा">
         <button type="button" data-lang="ne" aria-pressed="true" lang="ne" title="नेपाली">ने</button>
@@ -1639,6 +1772,7 @@ a.portal-fab-donate{
   <div class="chips-inner" id="nav-chips">
     <a class="home-btn" href="#home" aria-label="ड्यासबोर्ड" title="ड्यासबोर्ड" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">ड्यासबोर्ड</span></a>
     <a href="#family" data-i18n="nav_family">हराएको / भेटिएको</a>
+    <a href="#search" data-i18n="nav_search">खोज</a>
     <a href="#treat" data-i18n="nav_treat">घाइते</a>
     <a href="#lists-dash" data-i18n="nav_rd">उद्धार ड्यासबोर्ड</a>
     <a href="#shelter" data-i18n="nav_shelter">उद्धार सूची</a>
@@ -1760,6 +1894,20 @@ a.portal-fab-donate{
           </span>
         </a>
       </div>
+      <div class="names-home" id="names-home">
+        <div class="names-home-top">
+          <h3 data-i18n="ns_h">नाम खोज</h3>
+          <p class="names-home-sub" data-i18n="ns_sub">हराएको, भेटिएको र उद्धार सूची · एक ठाउँ</p>
+        </div>
+        <label class="vis-clip" for="names-home-q" data-i18n="search_label">नाम वा नम्बर खोज्नुहोस्</label>
+        <div class="names-home-field">
+          <input id="names-home-q" type="search" placeholder="नाम, ठेगाना वा नम्बर…" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
+          <button type="button" class="names-full-btn" data-open-names data-i18n="ns_open">पूरा खोज</button>
+        </div>
+        <div class="names-chips" id="names-home-chips"></div>
+        <p class="names-home-count" id="names-home-count"></p>
+      </div>
+
       <div class="ov-panel">
         <div class="ov-pane on" data-panel="all">
           <p class="ov-cap" data-i18n="ov_all_cap">समग्र · कार्ड थिचेर जिल्ला/वर्ग हेर्नुहोस्</p>
@@ -2355,6 +2503,10 @@ a.portal-fab-donate{
     <div class="fam-search">
       <label for="fam-search" data-i18n="search_label">नाम वा नम्बर खोज्नुहोस्</label>
       <input id="fam-search" type="search" placeholder="उदाहरण: केबल, 9815…" data-i18n-placeholder="search_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
+      <div class="fam-search-extra">
+        <button type="button" class="names-full-btn" id="fam-search-full" data-open-names data-i18n="ns_open">पूरा खोज</button>
+      </div>
+      <div class="names-chips" id="fam-search-chips"></div>
     </div>
     <h3 class="fam-h" id="fam-public" data-i18n="public_reports">हराएको · जनताको रिपोर्ट</h3>
     <p class="treat-lead" id="fam-new-lead" data-i18n-html="fam_new_lead">फारम सिटबाट जाँचिएका सम्पर्कविहीन विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।</p>
@@ -8413,6 +8565,12 @@ a.portal-fab-donate{
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
                                     <article class="log-item now">
+      <p class="when">~१६:१२</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>नाम खोज · एक सूची</h3>
+      <p>हराएको, भेटिएको र उद्धार नाम अब एक खोजमा। नेपाली/विदेशी, स्थिति र स्रोत फिल्टर। आधिकारिक जम्मा जोडिएको छैन। <a href="#search">खोज</a>।</p>
+    </article>
+<article class="log-item">
       <p class="when">~१५:४६</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>CAN ३० लाख घोषणा</h3>
@@ -9976,6 +10134,20 @@ a.portal-fab-donate{
 </div>
 </div>
 
+<div id="search" class="names-ov" hidden role="dialog" aria-modal="true" aria-labelledby="names-ov-h">
+  <div class="names-ov-panel">
+    <div class="names-ov-bar">
+      <h2 id="names-ov-h" data-i18n="ns_h">नाम खोज</h2>
+      <button type="button" class="names-ov-x" id="names-ov-x" data-i18n-aria="close" aria-label="बन्द">×</button>
+    </div>
+    <label class="vis-clip" for="names-ov-q" data-i18n="search_label">नाम वा नम्बर खोज्नुहोस्</label>
+    <input id="names-ov-q" type="search" placeholder="नाम, ठेगाना वा नम्बर…" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
+    <div class="names-chips" id="names-ov-chips"></div>
+    <p class="names-count" id="names-ov-count"></p>
+    <div class="names-results" id="names-ov-results"></div>
+  </div>
+</div>
+
 <div class="fab-dock">
 <a class="portal-fab portal-fab-rescue" href="https://rescue.opmcm.gov.np/" target="_blank" rel="noopener" aria-label="उद्धार अनुरोध" title="उद्धार अनुरोध" data-i18n-aria="govfab_rescue" data-i18n-title="govfab_rescue">
   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3.2a6.8 6.8 0 0 1 4.8 2l-2.3 2.3a3.6 3.6 0 0 0-5 0L7.2 7.2A6.8 6.8 0 0 1 12 5.2zm-6.8 6.8a6.8 6.8 0 0 1 2-4.8l2.3 2.3a3.6 3.6 0 0 0 0 5L7.2 16.8a6.8 6.8 0 0 1-2-4.8zm6.8 6.8a6.8 6.8 0 0 1-4.8-2l2.3-2.3a3.6 3.6 0 0 0 5 0l2.3 2.3a6.8 6.8 0 0 1-4.8 2zm4.8-2-2.3-2.3a3.6 3.6 0 0 0 0-5l2.3-2.3a6.8 6.8 0 0 1 2 4.8 6.8 6.8 0 0 1-2 4.8z"/></svg>
@@ -10028,7 +10200,8 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-29-1547"></script>
+<script src="i18n.js?v=2026-08-29-1612"></script>
+<script src="names-index.js?v=2026-08-29-1612"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -10085,7 +10258,7 @@ a.portal-fab-donate{
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-29-1547";</script>
+<script>window.PAGE_VER="2026-08-29-1612";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -10743,7 +10916,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       found = '<a class="js-found-row" href="'+esc(prefillFound(foundUrl, item))+'" data-name="'+esc(item.name||"")+'" target="_blank" rel="noopener" title="'+tt("update_card")+'" aria-label="'+tt("update_aria")+'">'+tt("update")+'</a>';
     }
     var photo = item.photo ? '<img src="'+esc(item.photo)+'" alt="">' : "";
-    return '<article class="fam-card'+(kind==="matched"?" matched":"")+'">'+
+    return '<article class="fam-card'+(kind==="matched"?" matched":"")+'" id="'+(item.id?("n-"+esc(item.id)):"")+'">'+
       '<span class="tag '+cls+'">'+tag+'</span>'+
       photo+
       '<h3>'+esc(item.name||tt("unnamed"))+'</h3>'+
