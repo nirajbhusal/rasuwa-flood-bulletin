@@ -1,0 +1,441 @@
+{
+  "title": "List of foreign Citizens Inquiries Rescued Today (August 29, 2026)",
+  "date": "2026-08-29",
+  "count": 54,
+  "china": 49,
+  "india": 5,
+  "people": [
+    {
+      "s": 1,
+      "n": "Zhoo Xinyi",
+      "c": "China",
+      "age": 29,
+      "g": "Female",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 2,
+      "n": "Yan Wei",
+      "c": "China",
+      "age": 51,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 3,
+      "n": "Xie Dong Ting",
+      "c": "China",
+      "age": 38,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 4,
+      "n": "Qin Gui Choe",
+      "c": "China",
+      "age": 45,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 5,
+      "n": "Ritu Kumar",
+      "c": "China",
+      "age": 26,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 6,
+      "n": "Mahamaad Minhaj",
+      "c": "China",
+      "age": 40,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 7,
+      "n": "Kripa Shankar",
+      "c": "China",
+      "age": 48,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 8,
+      "n": "Yang Man",
+      "c": "China",
+      "age": 26,
+      "g": "Female",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 9,
+      "n": "Zhang Chu Meng",
+      "c": "China",
+      "age": 31,
+      "g": "Female",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 10,
+      "n": "Wang Meng",
+      "c": "China",
+      "age": 24,
+      "g": "Female",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 11,
+      "n": "Fu Xaetav",
+      "c": "China",
+      "age": 29,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 12,
+      "n": "Wang Xin",
+      "c": "China",
+      "age": 24,
+      "g": "Female",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 13,
+      "n": "X Jenlu",
+      "c": "China",
+      "age": 24,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 14,
+      "n": "Wang Xin",
+      "c": "China",
+      "age": 22,
+      "g": "Female",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 15,
+      "n": "Lyu jun hao",
+      "c": "China",
+      "age": 26,
+      "g": "Female",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 16,
+      "n": "Tan Jun",
+      "c": "China",
+      "age": 26,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 17,
+      "n": "Cluhi Min",
+      "c": "China",
+      "age": 62,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 18,
+      "n": "Chen Guoling",
+      "c": "China",
+      "age": 26,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 19,
+      "n": "Cone Yong Sm",
+      "c": "China",
+      "age": 29,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 20,
+      "n": "Lingw Jam",
+      "c": "China",
+      "age": 52,
+      "g": "Male",
+      "r": "Salyantar"
+    },
+    {
+      "s": 21,
+      "n": "Chen Yui Yong",
+      "c": "China",
+      "age": 22,
+      "g": "Male",
+      "r": "Dadagaun"
+    },
+    {
+      "s": 22,
+      "n": "Tan Jun",
+      "c": "China",
+      "age": 49,
+      "g": "Male",
+      "r": "Dadagaun"
+    },
+    {
+      "s": 23,
+      "n": "Niwesh Rai",
+      "c": "India",
+      "age": 32,
+      "g": "Male",
+      "r": "Dhunchephant"
+    },
+    {
+      "s": 24,
+      "n": "Rabina Chhetri",
+      "c": "India",
+      "age": 28,
+      "g": "Female",
+      "r": "Dhunchephant"
+    },
+    {
+      "s": 25,
+      "n": "Bi Hongze",
+      "c": "China",
+      "age": 35,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 26,
+      "n": "Cao Zhen Jang",
+      "c": "China",
+      "age": 26,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 27,
+      "n": "Haz Tzenan",
+      "c": "China",
+      "age": 28,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 28,
+      "n": "Wang Li Tian",
+      "c": "China",
+      "age": 57,
+      "g": "Male",
+      "r": "Mailung"
+    },
+    {
+      "s": 29,
+      "n": "Yuan Ke Xin",
+      "c": "China",
+      "age": 27,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 30,
+      "n": "Zhang Yong",
+      "c": "China",
+      "age": 63,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 31,
+      "n": "Yang Zhang Xiang",
+      "c": "China",
+      "age": 54,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 32,
+      "n": "Ma Bo",
+      "c": "China",
+      "age": 48,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 33,
+      "n": "Lya Tau",
+      "c": "China",
+      "age": 44,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 34,
+      "n": "Wang Zijang",
+      "c": "China",
+      "age": 25,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 35,
+      "n": "Zao Png",
+      "c": "China",
+      "age": 38,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 36,
+      "n": "Tu Xun Jun",
+      "c": "China",
+      "age": 55,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 37,
+      "n": "Chen Xin",
+      "c": "China",
+      "age": 25,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 38,
+      "n": "Panunn Xian",
+      "c": "China",
+      "age": 50,
+      "g": "Male",
+      "r": "UT-1 project"
+    },
+    {
+      "s": 39,
+      "n": "Liu Ya Xin",
+      "c": "China",
+      "age": 38,
+      "g": "Male",
+      "r": "Chilime"
+    },
+    {
+      "s": 40,
+      "n": "Shen Yin",
+      "c": "China",
+      "age": 51,
+      "g": "Male",
+      "r": "Mailung"
+    },
+    {
+      "s": 41,
+      "n": "Dudao Peng",
+      "c": "China",
+      "age": 47,
+      "g": "Male",
+      "r": "Mailung"
+    },
+    {
+      "s": 42,
+      "n": "Hu Fu Zhu",
+      "c": "China",
+      "age": 55,
+      "g": "Male",
+      "r": "Mailung"
+    },
+    {
+      "s": 43,
+      "n": "Pu Zheng Wen",
+      "c": "China",
+      "age": 36,
+      "g": "Male",
+      "r": "Mailung"
+    },
+    {
+      "s": 44,
+      "n": "Wu Huai Yung",
+      "c": "China",
+      "age": 54,
+      "g": "Male",
+      "r": "Mailung"
+    },
+    {
+      "s": 45,
+      "n": "Zhang Xiu Yng",
+      "c": "China",
+      "age": 55,
+      "g": "Female",
+      "r": "Mailung"
+    },
+    {
+      "s": 46,
+      "n": "Wang Bu",
+      "c": "China",
+      "age": 58,
+      "g": "Male",
+      "r": "Mailung"
+    },
+    {
+      "s": 47,
+      "n": "Li Jiv Feng",
+      "c": "China",
+      "age": 56,
+      "g": "Male",
+      "r": "Mailung"
+    },
+    {
+      "s": 48,
+      "n": "Nornoon Hoda",
+      "c": "India",
+      "age": 24,
+      "g": "Male",
+      "r": "TRISHULI"
+    },
+    {
+      "s": 49,
+      "n": "Mohamya Sahil",
+      "c": "India",
+      "age": 18,
+      "g": "Male",
+      "r": "TRISHULI"
+    },
+    {
+      "s": 50,
+      "n": "Ganse Thakur",
+      "c": "India",
+      "age": 48,
+      "g": "Male",
+      "r": "TRISHULI"
+    },
+    {
+      "s": 51,
+      "n": "Liao Fei",
+      "c": "China",
+      "age": 53,
+      "g": "Male",
+      "r": "Mailung RASUWA"
+    },
+    {
+      "s": 52,
+      "n": "Zhang Jing Giang",
+      "c": "China",
+      "age": 54,
+      "g": "Male",
+      "r": "Mailung RASUWA"
+    },
+    {
+      "s": 53,
+      "n": "Yang Xi Bing",
+      "c": "China",
+      "age": 55,
+      "g": "Male",
+      "r": "Mailung RASUWA"
+    },
+    {
+      "s": 54,
+      "n": "Zhang Liang",
+      "c": "China",
+      "age": 36,
+      "g": "Male",
+      "r": "Mailung RASUWA"
+    }
+  ]
+}

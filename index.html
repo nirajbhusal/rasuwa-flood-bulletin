@@ -1784,6 +1784,7 @@ body.names-ov-lock{overflow:hidden}
     <a href="#trishuli1-res" data-i18n="nav_t1_res">त्रिशूली-१</a>
     <a href="#army-heli-res" data-i18n="nav_army_heli_res">सेना/निजी हेलि</a>
     <a href="#foreign-res" data-i18n="nav_foreign_res">उद्धार विदेशी</a>
+    <a href="#foreign-today" data-i18n="nav_foreign_today">विदेशी आज ५४</a>
     <a href="#india-cross" data-i18n="nav_india_cross">भारतीय · चीनबाट</a>
     <a href="#heli-ktm" data-i18n="nav_heli_ktm">काठमाडौं उद्धार</a>
     <a href="#donate" data-i18n="nav_donate">राहत कोष</a>
@@ -2334,7 +2335,7 @@ body.names-ov-lock{overflow:hidden}
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rd">उद्धार र उपचार सूची</h2></div>
   <article class="cash-ig rd-ig" id="rd">
     <h3 data-i18n="rd_h">प्रकाशित नाम-सूची</h3>
-    <p class="cash-lead" data-i18n="rd_lead">काठमाडौं अस्पताल, नुवाकोट, सूर्यगढी, रसुवा/टिमुरे, NDRRMA उद्धार, भारतीय, त्रिशूली-१, सेना/निजी हेलि, उद्धार विदेशी, भारतीय · चीनबाट र काठमाडौं हेलि — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन।</p>
+    <p class="cash-lead" data-i18n="rd_lead">काठमाडौं अस्पताल, नुवाकोट, सूर्यगढी, रसुवा/टिमुरे, NDRRMA उद्धार, भारतीय, त्रिशूली-१, सेना/निजी हेलि, उद्धार विदेशी, विदेशी आज ५४, भारतीय · चीनबाट र काठमाडौं हेलि — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन।</p>
     <div class="cash-kpis rd-kpis" role="tablist" aria-label="उद्धार र उपचार">
       <button type="button" class="cash-kpi" data-rd="treat" aria-selected="false">
         <span class="kpi-k" data-i18n="rd_treat_k">घाइते काठमाडौं</span>
@@ -2381,6 +2382,11 @@ body.names-ov-lock{overflow:hidden}
         <strong class="num">१५२</strong>
         <span class="cash-unit" data-i18n="rd_name_u">जना</span>
       </button>
+      <button type="button" class="cash-kpi" data-rd="foreigntoday" aria-selected="false">
+        <span class="kpi-k" data-i18n="rd_foreign_today_k">विदेशी आज</span>
+        <strong class="num">५४</strong>
+        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
+      </button>
       <button type="button" class="cash-kpi" data-rd="indiacross" aria-selected="false">
         <span class="kpi-k" data-i18n="rd_india_cross_k">भारतीय · चीनबाट</span>
         <strong class="num">१४९</strong>
@@ -2405,6 +2411,7 @@ body.names-ov-lock{overflow:hidden}
           <li><span data-i18n="rd_t1_k">त्रिशूली-१</span><strong><span class="num">६३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_army_heli_k">उद्धार · सेना/निजी हेलि</span><strong><span class="num">६५४</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_foreign_k">उद्धार · विदेशी</span><strong><span class="num">१५२</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="rd_foreign_today_k">विदेशी आज</span><strong><span class="num">५४</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_india_cross_k">भारतीय · चीनबाट</span><strong><span class="num">१४९</span> <span data-i18n="rd_name_u">जना</span></strong></li>
           <li><span data-i18n="rd_heli_k">काठमाडौं हेलि</span><strong><span class="num">११</span> <span data-i18n="rd_name_u">जना</span></strong></li>
         </ul>
@@ -2502,6 +2509,17 @@ body.names-ov-lock{overflow:hidden}
         <div class="ibar-row"><span data-i18n="d_russia">रुस</span><b class="ibar"><i style="width:1%"></i></b><em class="num">१</em></div>
         <p class="cash-note" data-i18n-html="rd_foreign_note">नाम-सूची <strong>१५२</strong>। ११ भदौ १०४ · १२ भदौ ४८। पुरुष १३३ · महिला १६ · नखुलेको ३। NDRRMA विदेशी १२९ यथावत् · हेलि विदेशी २२७ अलग। भेटिएको जम्मामा जोडिएको छैन। पर्यटक ६६८ / सम्पर्कविहीन २,४९८ मा मिसाइएको छैन।</p>
         <a class="rd-jump" href="#foreign-res" data-i18n="rd_jump_foreign">सूची हेर्नुहोस् → उद्धार विदेशी</a>
+        <p class="cash-note" data-i18n-html="rd_foreign_today_note">नाम-सूची <strong>५४</strong> (चीन ४९ · भारत ५)। रसुवा विदेशी १५२ / NDRRMA १२९ / हेलि २२७ / पर्यटक २६१ होइन। भेटिएको जम्मामा जोडिएको छैन।</p>
+        <a class="rd-jump" href="#foreign-today" data-i18n="rd_jump_foreign_today">सूची हेर्नुहोस् → विदेशी आज ५४</a>
+      </div>
+      <div class="cash-pane" data-rd="foreigntoday">
+        <p class="ov-cap" data-i18n="rd_foreign_today_cap">विदेशी उद्धार आज · २९ अगस्ट</p>
+        <ul class="cash-list">
+          <li><span data-i18n="d_china">चीन</span><strong><span class="num">४९</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+          <li><span data-i18n="d_india">भारत</span><strong><span class="num">५</span> <span data-i18n="rd_name_u">जना</span></strong></li>
+        </ul>
+        <p class="cash-note" data-i18n-html="rd_foreign_today_note">नाम-सूची <strong>५४</strong> (चीन ४९ · भारत ५)। रसुवा विदेशी १५२ / NDRRMA १२९ / हेलि २२७ / पर्यटक २६१ होइन। भेटिएको जम्मामा जोडिएको छैन।</p>
+        <a class="rd-jump" href="#foreign-today" data-i18n="rd_jump_foreign_today">सूची हेर्नुहोस् → विदेशी आज ५४</a>
       </div>
       <div class="cash-pane" data-rd="indiacross">
         <p class="ov-cap" data-i18n="rd_india_cross_cap">भारतीय · चीनबाट नेपाल प्रवेश · २८ अगस्ट</p>
@@ -2525,7 +2543,7 @@ body.names-ov-lock{overflow:hidden}
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_family">हराएको / भेटिएको</h2></div>
 <article class="cash-ig fd-ig" id="fd">
     <h3 data-i18n="fd_h">हराएको / भेटिएको</h3>
-    <p class="cash-lead" data-i18n="fd_lead">हराएको र भेटिएको प्रकाशित संख्या। सूचीहरू अलग छन्, नाम जोडिएको छैन। आधिकारिक सम्पर्कविहीन २,४९८ (अघिल्लो २,४२६ / १,९२४ / ९७७ इतिहास)। ७५१४ वा ६५४ वा चीनबाट भारतीय १४९ भेटिएको जम्मामा होइन।</p>
+    <p class="cash-lead" data-i18n="fd_lead">हराएको र भेटिएको प्रकाशित संख्या। सूचीहरू अलग छन्, नाम जोडिएको छैन। आधिकारिक सम्पर्कविहीन २,४९८ (अघिल्लो २,४२६ / १,९२४ / ९७७ इतिहास)। ७५१४ वा ६५४ वा चीनबाट भारतीय १४९ वा विदेशी आज ५४ भेटिएको जम्मामा होइन।</p>
     <div class="cash-kpis fd-kpis" role="tablist" aria-label="हराएको र भेटिएको">
       <div class="fd-box">
         <button type="button" class="cash-kpi on" data-fd="miss" aria-selected="true">
@@ -2591,6 +2609,8 @@ body.names-ov-lock{overflow:hidden}
         <p class="cash-note" data-i18n="fd_army_heli_note">उद्धार · सेना/निजी हेलि ६५४ — भेटिएको जम्मामा जोडिएको छैन।</p>
         <p class="cash-note" data-i18n="fd_foreign_note">उद्धार · विदेशी रसुवा १५२ — भेटिएको जम्मामा जोडिएको छैन। NDRRMA विदेशी १२९ यथावत्।</p>
         <a class="rd-jump" href="#india-cross" data-i18n="rd_jump_india_cross">सूची हेर्नुहोस् → भारतीय · चीनबाट</a>
+        <a class="rd-jump" href="#foreign-today" data-i18n="rd_jump_foreign_today">सूची हेर्नुहोस् → विदेशी आज ५४</a>
+        <p class="cash-note" data-i18n="fd_foreign_today_note">उद्धार · विदेशी आज ५४ — भेटिएको जम्मामा जोडिएको छैन। रसुवा १५२ / NDRRMA १२९ / हेलि २२७ / पर्यटक २६१ यथावत्।</p>
         <p class="cash-note" data-i18n="fd_india_cross_note">भारतीय · चीनबाट नेपाल प्रवेश १४९ — भेटिएको जम्मामा जोडिएको छैन। रसुवा विदेशी १५२ / भारत ९८ यथावत्।</p>
       </div>
       <div class="cash-pane" data-fd="dao">
@@ -6299,6 +6319,90 @@ body.names-ov-lock{overflow:hidden}
   </div>
 </section>
 
+<section id="foreign-today">
+  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_foreign_today">उद्धार · विदेशी आज २९ अगस्ट ५४</h2></div>
+  <div class="card green">
+    <p class="treat-lead" data-i18n-html="foreign_today_lead">आज (२९ अगस्ट / १३ भदौ) उद्धार भएका विदेशी नागरिकको नाम-सूची <strong>५४</strong> (चीन <strong>४९</strong> · भारत <strong>५</strong>)। रसुवा विदेशी १५२ / NDRRMA विदेशी १२९ / हेलि विदेशी २२७ / पर्यटक प्रहरी २६१ होइन। भेटिएको जम्मामा जोडिएको छैन। हराएको सूचीबाट हटाइएको छैन।</p>
+    <div class="pager" data-pager="foreign-today">
+      <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
+      <div class="pboxes pager-pages"></div>
+      <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
+      <span class="pcount pager-count"></span>
+    </div>
+    <div class="treat-wrap">
+    <table class="plants treat">
+      <thead>
+        <tr>
+          <th data-i18n="sn">सि.नं.</th>
+          <th data-i18n="th_name">नाम थर</th>
+          <th data-i18n="th_country">देश</th>
+          <th data-i18n="th_age">उमेर</th>
+          <th data-i18n="th_gender">लिङ्ग</th>
+          <th data-i18n="th_place">ठेगाना</th>
+        </tr>
+      </thead>
+      <tbody id="foreign-today-body">
+        <tr data-pager="foreign-today"><td>१</td><td>Zhoo Xinyi</td><td>चीन</td><td class="age">२९</td><td>महिला</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>२</td><td>Yan Wei</td><td>चीन</td><td class="age">५१</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>३</td><td>Xie Dong Ting</td><td>चीन</td><td class="age">३८</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>४</td><td>Qin Gui Choe</td><td>चीन</td><td class="age">४५</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>५</td><td>Ritu Kumar</td><td>चीन</td><td class="age">२६</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>६</td><td>Mahamaad Minhaj</td><td>चीन</td><td class="age">४०</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>७</td><td>Kripa Shankar</td><td>चीन</td><td class="age">४८</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>८</td><td>Yang Man</td><td>चीन</td><td class="age">२६</td><td>महिला</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>९</td><td>Zhang Chu Meng</td><td>चीन</td><td class="age">३१</td><td>महिला</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>१०</td><td>Wang Meng</td><td>चीन</td><td class="age">२४</td><td>महिला</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>११</td><td>Fu Xaetav</td><td>चीन</td><td class="age">२९</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>१२</td><td>Wang Xin</td><td>चीन</td><td class="age">२४</td><td>महिला</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>१३</td><td>X Jenlu</td><td>चीन</td><td class="age">२४</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>१४</td><td>Wang Xin</td><td>चीन</td><td class="age">२२</td><td>महिला</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>१५</td><td>Lyu jun hao</td><td>चीन</td><td class="age">२६</td><td>महिला</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>१६</td><td>Tan Jun</td><td>चीन</td><td class="age">२६</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>१७</td><td>Cluhi Min</td><td>चीन</td><td class="age">६२</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>१८</td><td>Chen Guoling</td><td>चीन</td><td class="age">२६</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>१९</td><td>Cone Yong Sm</td><td>चीन</td><td class="age">२९</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>२०</td><td>Lingw Jam</td><td>चीन</td><td class="age">५२</td><td>पुरुष</td><td>Salyantar</td></tr>
+        <tr data-pager="foreign-today"><td>२१</td><td>Chen Yui Yong</td><td>चीन</td><td class="age">२२</td><td>पुरुष</td><td>Dadagaun</td></tr>
+        <tr data-pager="foreign-today"><td>२२</td><td>Tan Jun</td><td>चीन</td><td class="age">४९</td><td>पुरुष</td><td>Dadagaun</td></tr>
+        <tr data-pager="foreign-today"><td>२३</td><td>Niwesh Rai</td><td>भारत</td><td class="age">३२</td><td>पुरुष</td><td>Dhunchephant</td></tr>
+        <tr data-pager="foreign-today"><td>२४</td><td>Rabina Chhetri</td><td>भारत</td><td class="age">२८</td><td>महिला</td><td>Dhunchephant</td></tr>
+        <tr data-pager="foreign-today"><td>२५</td><td>Bi Hongze</td><td>चीन</td><td class="age">३५</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>२६</td><td>Cao Zhen Jang</td><td>चीन</td><td class="age">२६</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>२७</td><td>Haz Tzenan</td><td>चीन</td><td class="age">२८</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>२८</td><td>Wang Li Tian</td><td>चीन</td><td class="age">५७</td><td>पुरुष</td><td>Mailung</td></tr>
+        <tr data-pager="foreign-today"><td>२९</td><td>Yuan Ke Xin</td><td>चीन</td><td class="age">२७</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>३०</td><td>Zhang Yong</td><td>चीन</td><td class="age">६३</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>३१</td><td>Yang Zhang Xiang</td><td>चीन</td><td class="age">५४</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>३२</td><td>Ma Bo</td><td>चीन</td><td class="age">४८</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>३३</td><td>Lya Tau</td><td>चीन</td><td class="age">४४</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>३४</td><td>Wang Zijang</td><td>चीन</td><td class="age">२५</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>३५</td><td>Zao Png</td><td>चीन</td><td class="age">३८</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>३६</td><td>Tu Xun Jun</td><td>चीन</td><td class="age">५५</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>३७</td><td>Chen Xin</td><td>चीन</td><td class="age">२५</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>३८</td><td>Panunn Xian</td><td>चीन</td><td class="age">५०</td><td>पुरुष</td><td>UT-1 project</td></tr>
+        <tr data-pager="foreign-today"><td>३९</td><td>Liu Ya Xin</td><td>चीन</td><td class="age">३८</td><td>पुरुष</td><td>Chilime</td></tr>
+        <tr data-pager="foreign-today"><td>४०</td><td>Shen Yin</td><td>चीन</td><td class="age">५१</td><td>पुरुष</td><td>Mailung</td></tr>
+        <tr data-pager="foreign-today"><td>४१</td><td>Dudao Peng</td><td>चीन</td><td class="age">४७</td><td>पुरुष</td><td>Mailung</td></tr>
+        <tr data-pager="foreign-today"><td>४२</td><td>Hu Fu Zhu</td><td>चीन</td><td class="age">५५</td><td>पुरुष</td><td>Mailung</td></tr>
+        <tr data-pager="foreign-today"><td>४३</td><td>Pu Zheng Wen</td><td>चीन</td><td class="age">३६</td><td>पुरुष</td><td>Mailung</td></tr>
+        <tr data-pager="foreign-today"><td>४४</td><td>Wu Huai Yung</td><td>चीन</td><td class="age">५४</td><td>पुरुष</td><td>Mailung</td></tr>
+        <tr data-pager="foreign-today"><td>४५</td><td>Zhang Xiu Yng</td><td>चीन</td><td class="age">५५</td><td>महिला</td><td>Mailung</td></tr>
+        <tr data-pager="foreign-today"><td>४६</td><td>Wang Bu</td><td>चीन</td><td class="age">५८</td><td>पुरुष</td><td>Mailung</td></tr>
+        <tr data-pager="foreign-today"><td>४७</td><td>Li Jiv Feng</td><td>चीन</td><td class="age">५६</td><td>पुरुष</td><td>Mailung</td></tr>
+        <tr data-pager="foreign-today"><td>४८</td><td>Nornoon Hoda</td><td>भारत</td><td class="age">२४</td><td>पुरुष</td><td>TRISHULI</td></tr>
+        <tr data-pager="foreign-today"><td>४९</td><td>Mohamya Sahil</td><td>भारत</td><td class="age">१८</td><td>पुरुष</td><td>TRISHULI</td></tr>
+        <tr data-pager="foreign-today"><td>५०</td><td>Ganse Thakur</td><td>भारत</td><td class="age">४८</td><td>पुरुष</td><td>TRISHULI</td></tr>
+        <tr data-pager="foreign-today"><td>५१</td><td>Liao Fei</td><td>चीन</td><td class="age">५३</td><td>पुरुष</td><td>Mailung RASUWA</td></tr>
+        <tr data-pager="foreign-today"><td>५२</td><td>Zhang Jing Giang</td><td>चीन</td><td class="age">५४</td><td>पुरुष</td><td>Mailung RASUWA</td></tr>
+        <tr data-pager="foreign-today"><td>५३</td><td>Yang Xi Bing</td><td>चीन</td><td class="age">५५</td><td>पुरुष</td><td>Mailung RASUWA</td></tr>
+        <tr data-pager="foreign-today"><td>५४</td><td>Zhang Liang</td><td>चीन</td><td class="age">३६</td><td>पुरुष</td><td>Mailung RASUWA</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="treat-note" data-i18n-html="foreign_today_note">स्रोत: <a href="img/today-2026-08-29-foreign-rescued-p1.jpg" target="_blank" rel="noopener">पाना १</a> · <a href="img/today-2026-08-29-foreign-rescued-p2.jpg" target="_blank" rel="noopener">पाना २</a> · List of foreign Citizens Inquiries Rescued Today · २९ अगस्ट २०२६। नाम जस्ताको तस्तै।</p>
+  </div>
+</section>
+
 <section id="india-cross">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_india_cross">भारतीय · चीनबाट नेपाल सुरक्षित प्रवेश १४९</h2></div>
   <div class="card green">
@@ -8676,7 +8780,13 @@ body.names-ov-lock{overflow:hidden}
     <span class="pcount pager-count"></span>
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
-    <article class="log-item now">
+                <article class="log-item now">
+      <p class="when">~२१:२५</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>विदेशी उद्धार आज ५४</h3>
+      <p>२९ अगस्ट नाम-सूची <strong>५४</strong> (चीन ४९ · भारत ५)। रसुवा १५२ / NDRRMA १२९ / हेलि २२७ / पर्यटक २६१ होइन। <a href="#foreign-today">सूची</a>।</p>
+    </article>
+<article class="log-item">
       <p class="when">~२१:१०</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>पर्यटक प्रहरी/NDRRMA १८:०० — विदेशी उद्धार २६१</h3>
@@ -10375,8 +10485,8 @@ body.names-ov-lock{overflow:hidden}
 </div>
 
 
-<script src="i18n.js?v=2026-08-29-2110"></script>
-<script src="names-index.js?v=2026-08-29-2110"></script>
+<script src="i18n.js?v=2026-08-29-2124"></script>
+<script src="names-index.js?v=2026-08-29-2124"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -10433,7 +10543,7 @@ body.names-ov-lock{overflow:hidden}
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-29-2110";</script>
+<script>window.PAGE_VER="2026-08-29-2124";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -11184,7 +11294,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       var q = ((document.getElementById("fam-search") || {}).value || "").trim().toLowerCase();
       var qd = q.replace(/\D/g, "");
       var cards = document.querySelectorAll("#fam-missing .fam-card");
-      var rows = document.querySelectorAll("#hello-sarkar-body tr, #madhesh-body tr, #rasuwa-res-body tr, #dao-res-body tr, #india-res-body tr, #india-t1-body tr, #trishuli1-res-body tr, #army-heli-res-body tr, #foreign-res-body tr, #india-cross-body tr");
+      var rows = document.querySelectorAll("#hello-sarkar-body tr, #madhesh-body tr, #rasuwa-res-body tr, #dao-res-body tr, #india-res-body tr, #india-t1-body tr, #trishuli1-res-body tr, #army-heli-res-body tr, #foreign-res-body tr, #foreign-today-body tr, #india-cross-body tr");
       var n = 0;
       function hit(el){
         if (!q) return true;
@@ -11214,6 +11324,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       rebind('.pager[data-pager="trishuli1-res"]', visible("#trishuli1-res-body tr"), 50);
       rebind('.pager[data-pager="army-heli-res"]', visible("#army-heli-res-body tr"), 50);
       rebind('.pager[data-pager="foreign-res"]', visible("#foreign-res-body tr"), 50);
+      rebind('.pager[data-pager="foreign-today"]', visible("#foreign-today-body tr"), 50);
       rebind('.pager[data-pager="india-cross"]', visible("#india-cross-body tr"), 50);
     }
     rebind('[data-pager="fam-miss"]', visible("#fam-missing .fam-card"), 6);

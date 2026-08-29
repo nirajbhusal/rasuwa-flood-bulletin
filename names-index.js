@@ -23,6 +23,7 @@
     { id: "army", group: "source", i18n: "chip_army" },
     { id: "hello", group: "source", i18n: "chip_hello" },
     { id: "timure", group: "source", i18n: "chip_timure" },
+    { id: "ftoday", group: "source", i18n: "chip_ftoday" },
     { id: "np", group: "nation", i18n: "chip_np" },
     { id: "foreign", group: "nation", i18n: "chip_foreign" },
     { id: "in", group: "nation", i18n: "chip_in" },
@@ -39,7 +40,8 @@
     t1: { i18n: "src_t1", jump: "#trishuli1-res", pill: "t1" },
     army: { i18n: "src_army", jump: "#army-heli-res", pill: "army" },
     foreign: { i18n: "src_foreign", jump: "#foreign-res", pill: "foreign" },
-    cross: { i18n: "src_cross", jump: "#india-cross", pill: "cross" }
+    cross: { i18n: "src_cross", jump: "#india-cross", pill: "cross" },
+    ftoday: { i18n: "src_ftoday", jump: "#foreign-today", pill: "foreign" }
   };
 
   var recs = [];
@@ -47,7 +49,7 @@
   var shown = PAGE;
   var lastHits = [];
   var ready = false;
-  var jsonOk = { ndrrma: false, army: false, foreign: false, cross: false };
+  var jsonOk = { ndrrma: false, army: false, foreign: false, cross: false, ftoday: false };
   var overlayOpen = false;
 
   function tt(k, fb) {
@@ -163,6 +165,7 @@
       timure: src === "timure",
       np: nation === "nepali",
       foreign: nation === "foreign",
+      ftoday: src === "ftoday",
       in: nation === "indian",
       cn: src === "cross" || nation === "china"
     };
@@ -170,10 +173,11 @@
       tags.found = true;
       tags.rescue = true;
     }
-    if (src === "army" || src === "foreign") tags.rescue = true;
+    if (src === "army" || src === "foreign" || src === "ftoday") tags.rescue = true;
     if (src === "cross") { tags.cn = true; tags.in = true; }
     if (src === "india" || src === "t1") tags.in = true;
-    if (src === "foreign") tags.foreign = true;
+    if (src === "foreign" || src === "ftoday") tags.foreign = true;
+    if (src === "ftoday" && nation === "china") tags.cn = true;
     var hay = [name, nameNe, nameEn, place, o.phone || "", phoneList.join(" "), src, nation, o.note || ""]
       .join(" ").normalize("NFKC").toLowerCase();
     hay += " " + onlyDigits(hay);
@@ -319,6 +323,26 @@
     jsonOk.cross = true;
   }
 
+
+  function fromFtoday(data) {
+    (data.people || []).forEach(function (p, i) {
+      var c = (p.c || "").toLowerCase();
+      addRec({
+        id: "ftoday-" + (p.s || i),
+        name: p.n,
+        name_en: p.n,
+        age: p.age,
+        place: p.r,
+        status: "rescue",
+        source: "ftoday",
+        nation: c.indexOf("india") >= 0 ? "indian" : "china",
+        jump: "#foreign-today",
+        note: p.r || ""
+      });
+    });
+    jsonOk.ftoday = true;
+  }
+
   function scrapeDom() {
     scrapeTable("#hello-sarkar-body tr", function (tr, i) {
       var name = cellText(tr, 1);
@@ -425,6 +449,21 @@
         };
       });
     }
+    if (!jsonOk.ftoday) {
+      scrapeTable("#foreign-today-body tr", function (tr, i) {
+        var c = cellText(tr, 2);
+        return {
+          id: "ftoday-dom-" + i,
+          name: cellText(tr, 1),
+          place: cellText(tr, 5),
+          age: cellText(tr, 3),
+          status: "rescue",
+          source: "ftoday",
+          nation: /भारत|india/i.test(c) ? "indian" : "china",
+          jump: "#foreign-today"
+        };
+      });
+    }
     if (!jsonOk.cross) {
       scrapeTable("#india-cross-body tr", function (tr, i) {
         return {
@@ -507,7 +546,7 @@
           var ageHit = a.ageN != null && b.ageN != null && Math.abs(a.ageN - b.ageN) <= 1;
           var placeHit = sharedPlace(a.placeTok, b.placeTok);
           if (phoneHit || (ageHit && placeHit)) {
-            var kind = (a.source === "army" || b.source === "army" || a.source === "cross" || b.source === "cross")
+            var kind = (a.source === "army" || b.source === "army" || a.source === "cross" || b.source === "cross" || a.source === "ftoday" || b.source === "ftoday")
               ? "link" : "strong";
             addMatch(a, b, kind);
             strongAt[a.id] = 1;
@@ -519,7 +558,7 @@
         var x = g[0], y = g[1];
         if (x.source === y.source && x.status === y.status) return;
         if (differentPhone(x, y) || differentPlace(x, y)) return;
-        var softKind = (x.source === "army" || y.source === "army" || x.source === "cross" || y.source === "cross")
+        var softKind = (x.source === "army" || y.source === "army" || x.source === "cross" || y.source === "cross" || x.source === "ftoday" || y.source === "ftoday")
           ? "link" : "soft";
         addMatch(x, y, softKind);
       }
@@ -916,7 +955,8 @@
       getJson("ndrrma-rescue.json"),
       getJson("army-heli-rescue.json"),
       getJson("rasuwa-foreign-rescued.json"),
-      getJson("indian-crossed-2026-08-28.json")
+      getJson("indian-crossed-2026-08-28.json"),
+      getJson("foreign-rescued-2026-08-29.json")
     ]).then(function (pack) {
       recs = [];
       if (pack[0]) fromFamily(pack[0]);
@@ -924,6 +964,7 @@
       if (pack[2] && pack[2].people) fromArmy(pack[2]);
       if (pack[3] && pack[3].people) fromForeign(pack[3]);
       if (pack[4] && pack[4].people) fromCross(pack[4]);
+      if (pack[5] && pack[5].people) fromFtoday(pack[5]);
       scrapeDom();
       computeMatches();
       ready = true;
