@@ -502,22 +502,19 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
     width:var(--rail-off);
     min-width:var(--rail-off);
   }
+  html.desk-nav-off .chips,
+  html.desk-nav-off .chips.stick{
+    align-items:center;
+    justify-content:center;
+  }
   html.desk-nav-off .desk-nav-toggle{
     justify-content:center;
-    margin:10px 4px 2px;
-    padding:6px;
+    align-self:center;
+    margin:0;
+    padding:10px;
   }
-  html.desk-nav-off .chips-inner{
-    padding:8px 4px 12px;
-    overflow:hidden;
-  }
-  html.desk-nav-off .chips-inner a:not(.home-btn){display:none}
-  html.desk-nav-off .nav-dash-label{display:none}
-  html.desk-nav-off a.home-btn{
-    justify-content:center;
-    padding:8px;
-    gap:0;
-  }
+  html.desk-nav-off .chips-inner{display:none}
+  html.desk-nav-off .chips a.home-btn .nav-dash-label{display:none!important}
 
   html.desk, html.desk body{
     height:100%;
@@ -1685,7 +1682,7 @@ a.portal-fab-donate{
         </a>
       </div>
       <a class="cash-snap ems-snap" href="#ems927" id="hero-ems">
-        <span class="kpi-k" data-i18n="hero_ems_h">स्याफ्रुबेसी क्षति · Copernicus</span>
+        <span class="kpi-k" data-i18n="hero_ems_h">Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard</span>
         <span class="ems-snap-map">
           <img loading="lazy" decoding="async" width="1400" height="989" src="img/today-2026-08-27-copernicus-ems927-overview-sm.jpg" alt="Copernicus EMSR927 स्याफ्रुबेसी अवलोकन नक्सा, भवन ४३३" data-i18n-alt="ems_ph1_alt">
         </span>
@@ -7719,7 +7716,7 @@ a.portal-fab-donate{
 </section>
 
 <section id="ems927">
-  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2 data-i18n="h_ems927">स्याफ्रुबेसी क्षति · Copernicus EMSR927</h2></div>
+  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2 data-i18n="h_ems927">Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard · स्याफ्रुबेसी क्षति · Copernicus EMSR927</h2></div>
   <div class="card orange">
     <p data-i18n-html="ems927_lead">Copernicus EMS Rapid Mapping <strong>EMSR927</strong> AOI01 स्याफ्रुबेसी / Syapru Besi ग्रेडिङ। स्थिति २७/०८/२०२६ ०५:०५ UTC। ITHACA उत्पादन, SERTIT जारी २७/०८/२०२६। GLIDE FF-2026-000162-NPL · Charter 1052 · उत्पादन v1। <strong>४३३</strong> = सबै भवनको योग; <strong>३९२</strong> = त्यसभित्रको आवासीय।</p>
     <div class="ems-kpis8">
@@ -8489,8 +8486,8 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-29-1058"></script>
-<script>window.PAGE_VER="2026-08-29-1058";</script>
+<script src="i18n.js?v=2026-08-29-1102"></script>
+<script>window.PAGE_VER="2026-08-29-1102";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
