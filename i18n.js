@@ -60,6 +60,10 @@ window.I18N = {
 "bank_after": "विपद्पछि संकलित",
 "bank_before": "विपद्अघि मौज्दात",
 "bank_usd": "डलर (हिमालयन + लक्ष्मी)",
+"cash_can": "क्रिकेट संघ नेपाल (CAN)",
+"cash_can_cap": "घोषणा · प्रधानमन्त्री कोष · ६ अर्ब ५५ करोडमाथि होइन",
+"cash_can_note": "CAN ले प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>३० लाख</strong> (NPR ३ मिलियन) घोषणा। ९ बैंक जम्मा ६,५५,३३,६२,०११ माथि होइन। कोषमा आएको बैंक तालिकामा देखिएको छैन।",
+
 "cash_friday_cap": "शुक्रबार एकै दिन · अर्थमन्त्रीमार्फत २७ · ६ अर्ब ५५ करोडभित्र",
 "pmdrf_sheet_h": "कोष · ९ बैंक · १२ भदौ",
 "pmdrf_sheet_c": "जम्मा ६,५५,३३,६२,०११ · विपद्पछि ४,३८,०८,५२,२५२",
@@ -948,6 +952,10 @@ window.I18N = {
 "bank_after": "Collected after the disaster",
 "bank_before": "Balance before the disaster",
 "bank_usd": "USD (Himalayan + Laxmi)",
+"cash_can": "Cricket Association of Nepal (CAN)",
+"cash_can_cap": "Pledge · PMDRF · not added on NPR 6.55 billion",
+"cash_can_note": "CAN pledged <strong>NPR 3 million</strong> (30 lakh) to the Prime Minister’s Disaster Relief Fund. Not added on the 9-bank total 6,55,33,62,011. Not yet on the bank sheet.",
+
 "cash_friday_cap": "Friday same-day · 27 via the Finance Minister · inside NPR 6.55 billion",
 "pmdrf_sheet_h": "Fund · 9 banks · 12 Bhadra",
 "pmdrf_sheet_c": "Total 6,55,33,62,011 · after disaster 4,38,08,52,252",
@@ -2024,6 +2032,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "CAN pledged NPR 3 million",
+"p": "Cricket Association of Nepal (CAN) pledged <strong>NPR 3 million</strong> (30 lakh) to the PM Disaster Relief Fund. Not added on NPR 6.55 billion. <a href=\"#donate\">Relief</a>."
+},
 {
 "h": "PMDRF NPR 6.55 billion",
 "p": "9-bank table 12 Bhadra: total <strong>6,55,33,62,011</strong> = after the disaster <strong>4,38,08,52,252</strong> + prior balance <strong>2,17,25,09,759</strong>. USD 680,618 labeled separately. Previous NPR 4.24 billion is history. Surya 15 / Friday 38.55 are inside this. District cash and foreign pledges not added. <a href=\"#donate\">Relief</a>."
