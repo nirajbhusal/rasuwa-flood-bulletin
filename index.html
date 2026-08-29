@@ -1501,6 +1501,28 @@ a.portal-fab-donate{
 }
 
 
+.share-btn{
+  appearance:none;-webkit-appearance:none;
+  display:inline-flex;align-items:center;gap:6px;
+  font:inherit;font-weight:800;font-size:13px;letter-spacing:.02em;
+  border:2px solid #1c1917;background:#fff;color:#1c1917;
+  padding:6px 10px;border-radius:8px;cursor:pointer;line-height:1;
+  min-height:36px;flex:none;
+}
+.share-btn svg{width:15px;height:15px;flex:none}
+.share-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.share-toast{
+  position:fixed;left:50%;bottom:max(20px, env(safe-area-inset-bottom, 0px));
+  transform:translateX(-50%) translateY(8px);
+  background:#1c1917;color:#fff;font-weight:800;font-size:14px;
+  padding:10px 16px;border-radius:10px;z-index:90;
+  opacity:0;pointer-events:none;transition:opacity .18s, transform .18s;
+}
+.share-toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (max-width:520px){
+  .share-btn{font-size:12px;padding:5px 8px;min-height:34px}
+}
+
 .lang-switch{
   position:static;align-self:flex-end;z-index:46;
   display:inline-flex;align-items:center;gap:3px;
@@ -1552,6 +1574,10 @@ a.portal-fab-donate{
     </div>
     <div class="top-actions">
       <span class="live"><i></i> <span data-i18n="live">लाइभ</span></span>
+      <button type="button" class="share-btn" id="share-btn" data-i18n-aria="share" aria-label="सेयर">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="18" cy="5" r="2.7"/><circle cx="6" cy="12" r="2.7"/><circle cx="18" cy="19" r="2.7"/><path d="M8.5 13.4 15.4 17.5M15.5 6.5 8.5 10.6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg>
+        <span data-i18n="share">सेयर</span>
+      </button>
       <div class="helpline" data-i18n="hl_bar">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४</div>
     </div>
   </div>
@@ -1613,12 +1639,12 @@ a.portal-fab-donate{
     <p class="kicker" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
     <h2 class="vis-title" data-i18n="hero_overview">बाढीको स्थिति · १३ भदौ</h2>
     </div>
-    <p class="lede sr-only" data-i18n-html="lede">जिरोङ ताल फुट्यो — बाढी स्याफ्रुबेँसी, मुग्लिनसम्म सतर्कता। प्रहरी १३ भदौ ०७:०० शव <strong>६१६</strong>। घाइते <strong>१०१</strong>। सम्पर्कविहीन <strong>१,९२४</strong>। हेलि उद्धार <strong>१९७६</strong>। नागरिक उद्धार <strong>१५५२</strong>। NDRRMA उद्धार <strong>४४५१</strong>।</p>
+    <p class="lede sr-only" data-i18n-html="lede">जिरोङ ताल फुट्यो — बाढी स्याफ्रुबेँसी, मुग्लिनसम्म सतर्कता। NDRRMA / गृह १३ भदौ १०:०० शव <strong>६२६</strong>। घाइते <strong>१०१</strong>। सम्पर्कविहीन <strong>२,४२६</strong>। हेलि उद्धार <strong>१९७६</strong>। नागरिक उद्धार <strong>१५५२</strong>। NDRRMA उद्धार <strong>४४५१</strong>।</p>
     <div class="overview" id="overview">
       <div class="kpi-row" role="tablist" aria-label="मुख्य आंकडा" data-i18n-aria="kpi_aria">
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="dead" id="kpi-dead">
           <span class="kpi-k" data-i18n="kpi_dead">मृतक संख्या</span>
-          <strong class="num">६१६</strong>
+          <strong class="num">६२६</strong>
         </button>
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="injured" id="kpi-injured">
           <span class="kpi-k" data-i18n="kpi_injured">घाइते संख्या</span>
@@ -1626,7 +1652,7 @@ a.portal-fab-donate{
         </button>
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="miss" id="kpi-miss">
           <span class="kpi-k" data-i18n="kpi_miss">सम्पर्कविहीन संख्या</span>
-          <strong class="num">१,९२४</strong>
+          <strong class="num">२,४२६</strong>
         </button>
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="air" id="kpi-air">
           <span class="kpi-k" data-i18n="kpi_air">हेलि उद्धार संख्या</span>
@@ -1635,12 +1661,12 @@ a.portal-fab-donate{
         <div class="kpi-box" data-tone="deploy">
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="deploy" id="kpi-deploy">
           <span class="kpi-k" data-i18n="kpi_deploy">खटिएको जनशक्ति</span>
-          <strong class="num">१५,७६९</strong>
+          <strong class="num">१५,२२४</strong>
         </button>
         <ul class="cash-list kpi-split">
-          <li><span data-i18n="fd_found_total_k">जम्मा</span><strong class="num">१५,७६९</strong></li>
+          <li><span data-i18n="fd_found_total_k">जम्मा</span><strong class="num">१५,२२४</strong></li>
           <li><span data-i18n="d_army">सेना</span><strong class="num">६,७५५</strong></li>
-          <li><span data-i18n="d_apf">सशस्त्र</span><strong class="num">४,२०३</strong></li>
+          <li><span data-i18n="d_apf">सशस्त्र</span><strong class="num">३,६५८</strong></li>
           <li><span data-i18n="d_police">प्रहरी</span><strong class="num">४,८११</strong></li>
           <li><span data-i18n="d_medical">मेडिकल</span><strong class="num">२००+</strong></li>
           <li><span data-i18n="d_surgical">सर्जिकल टोली</span><strong class="num">अलग</strong></li>
@@ -1779,18 +1805,18 @@ a.portal-fab-donate{
             <div class="ibar-row"><span data-i18n="ems_r_alllc">सबै भू-आवरण (योग)</span><b class="ibar"><i style="width:32.1%"></i></b><em>१११.० / ३४५.९ · ३२.१%</em></div>
           </div>
         </div>
-        <span class="cash-sub ems-home-cap"><span data-i18n="hero_ems_sub">Copernicus EMSR927 · २७ अगस्ट ०५:०५ UTC · स्याफ्रुबेसी — प्रहरी शव ६१६ / NDRRMA ४४५१ माथि होइन।</span> <a href="#ems927" data-i18n="hero_ems_more">पूरा तालिका र नक्सा</a></span>
+        <span class="cash-sub ems-home-cap"><span data-i18n="hero_ems_sub">Copernicus EMSR927 · २७ अगस्ट ०५:०५ UTC · स्याफ्रुबेसी — NDRRMA शव ६२६ / सम्पर्कविहीन २,४२६ / उद्धार ४४५१ माथि होइन।</span> <a href="#ems927" data-i18n="hero_ems_more">पूरा तालिका र नक्सा</a></span>
       </div>
       <div class="ov-panel">
         <div class="ov-pane on" data-panel="all">
           <p class="ov-cap" data-i18n="ov_all_cap">समग्र · कार्ड थिचेर जिल्ला/वर्ग हेर्नुहोस्</p>
           <div class="ov-grid">
             <div class="ov-mini" data-tone="dead">
-              <h3 data-i18n-html="ov_mini_dead">मृतक संख्या <em>६१६</em></h3>
+              <h3 data-i18n-html="ov_mini_dead">मृतक संख्या <em>६२६</em></h3>
               <div class="ibar-row"><span data-i18n="d_chitwan">चितवन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">२३३</em></div>
               <div class="ibar-row"><span data-i18n="d_nawal">नवलपरासी पूर्व</span><b class="ibar"><i style="width:68%"></i></b><em class="num">१५८</em></div>
-              <div class="ibar-row"><span data-i18n="d_gorkha">गोरखा</span><b class="ibar"><i style="width:21%"></i></b><em class="num">४८</em></div>
-              <p class="ov-note" data-i18n="ov_mini_dead_note">प्रहरी जिल्ला · जम्मा ६१६</p>
+              <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:22%"></i></b><em class="num">५१</em></div>
+              <p class="ov-note" data-i18n="ov_mini_dead_note">NDRRMA / गृह जिल्ला · जम्मा ६२६</p>
             </div>
             <div class="ov-mini" data-tone="injured">
               <h3 data-i18n-html="ov_mini_injured">घाइते संख्या <em>१०१</em></h3>
@@ -1799,29 +1825,29 @@ a.portal-fab-donate{
               <div class="ibar-row"><span data-i18n="d_dhading">धादिङ</span><b class="ibar"><i style="width:7%"></i></b><em class="num">३</em></div>
             </div>
             <div class="ov-mini" data-tone="miss">
-              <h3 data-i18n-html="ov_mini_miss">सम्पर्कविहीन संख्या <em>१,९२४</em></h3>
+              <h3 data-i18n-html="ov_mini_miss">सम्पर्कविहीन संख्या <em>२,४२६</em></h3>
               <div class="ibar-row"><span data-i18n="d_hydro">जलविद्युत</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९३३</em></div>
+              <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा</span><b class="ibar"><i style="width:60%"></i></b><em class="num">५६२</em></div>
               <div class="ibar-row"><span data-i18n="d_foreign">विदेशी</span><b class="ibar"><i style="width:55%"></i></b><em class="num">५१७</em></div>
-              <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा</span><b class="ibar"><i style="width:17%"></i></b><em class="num">१६१</em></div>
               <div class="ibar-row"><span data-i18n="d_nrn">विदेशमा बस्ने नेपाली</span><b class="ibar"><i style="width:14%"></i></b><em class="num">१२७</em></div>
-              <p class="ov-note" data-i18n="ov_mini_miss_note">NDRRMA १२ भदौ १९:०० · जम्मा १,९२४</p>
+              <p class="ov-note" data-i18n="ov_mini_miss_note">NDRRMA / गृह १३ भदौ १०:०० · जम्मा २,४२६</p>
             </div>
             <div class="ov-mini" data-tone="air">
               <h3 data-i18n-html="ov_mini_air">हेलि उद्धार संख्या <em>१९७६</em></h3>
               <div class="ibar-row"><span data-i18n="d_heli">हेलि</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१९७६</em></div>
               <div class="ibar-row"><span data-i18n="d_heli_n">हेलिकप्टर</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१४</em></div>
               <div class="ibar-row"><span data-i18n="d_citizen">नागरिक</span><b class="ibar"><i style="width:78%"></i></b><em class="num">१५५२</em></div>
-              <div class="ibar-row"><span data-i18n="d_ndrrma_res">NDRRMA १९:००</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४४५१</em></div>
+              <div class="ibar-row"><span data-i18n="d_ndrrma_res">NDRRMA १०:००</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४४५१</em></div>
               <div class="ibar-row"><span data-i18n="d_ndrrma_heli">NDRRMA हेलि</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१६</em></div>
               <div class="ibar-row"><span data-i18n="d_heli_flights">हेलि उडान</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९९</em></div>
               <div class="ibar-row"><span data-i18n="d_army_priv_heli">उद्धार · सेना/निजी हेलि</span><b class="ibar"><i style="width:100%"></i></b><em class="num">६५४</em></div>
               <div class="ibar-row"><span data-i18n="d_foreign_rasuwa">उद्धार · विदेशी रसुवा</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१५२</em></div>
             </div>
             <div class="ov-mini" data-tone="deploy">
-              <h3 data-i18n-html="ov_mini_deploy">खटिएको जनशक्ति <em>१५,७६९</em></h3>
+              <h3 data-i18n-html="ov_mini_deploy">खटिएको जनशक्ति <em>१५,२२४</em></h3>
               <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">६७५५</em></div>
               <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:71%"></i></b><em class="num">४८११</em></div>
-              <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:62%"></i></b><em class="num">४२०३</em></div>
+              <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:54%"></i></b><em class="num">३६५८</em></div>
               <div class="ibar-row"><span data-i18n="d_medical">मेडिकल</span><b class="ibar"><i style="width:3%"></i></b><em class="num">२००+</em></div>
               <div class="ibar-row"><span data-i18n="d_heli">हेलि</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१४</em></div>
               <p class="ov-note" data-i18n="ov_mini_deploy_note">मेडिकल २००+ र सर्जिकल टोली सुरक्षा जम्मामा छैन · हेलि १४ विमान, १६ होइन · उद्धार १९७६ होइन · उडान ९९ अलग</p>
@@ -1829,16 +1855,16 @@ a.portal-fab-donate{
           </div>
         </div>
         <div class="ov-pane" data-panel="dead">
-          <p class="ov-cap" data-i18n="ov_dead_cap">प्रहरी जिल्ला · जम्मा ६१६</p>
+          <p class="ov-cap" data-i18n="ov_dead_cap">NDRRMA / गृह जिल्ला · जम्मा ६२६</p>
           <div class="ibar-row"><span data-i18n="d_chitwan">चितवन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">२३३</em></div>
           <div class="ibar-row"><span data-i18n="d_nawal">नवलपरासी पूर्व</span><b class="ibar"><i style="width:68%"></i></b><em class="num">१५८</em></div>
+          <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:22%"></i></b><em class="num">५१</em></div>
           <div class="ibar-row"><span data-i18n="d_gorkha">गोरखा</span><b class="ibar"><i style="width:21%"></i></b><em class="num">४८</em></div>
           <div class="ibar-row"><span data-i18n="d_nawal_w">नवलपरासी पश्चिम</span><b class="ibar"><i style="width:20%"></i></b><em class="num">४७</em></div>
           <div class="ibar-row"><span data-i18n="d_dhading">धादिङ</span><b class="ibar"><i style="width:19%"></i></b><em class="num">४५</em></div>
-          <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:18%"></i></b><em class="num">४१</em></div>
           <div class="ibar-row"><span data-i18n="d_tanahun">तनहुँ</span><b class="ibar"><i style="width:13%"></i></b><em class="num">३१</em></div>
           <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा</span><b class="ibar"><i style="width:6%"></i></b><em class="num">१३</em></div>
-          <p class="ov-note" data-i18n="ov_dead_note">स्रोत: नेपाल प्रहरी, १३ भदौ ०७:००। अघिल्लो NDRRMA १२ भदौ १९:०० शव ५७९ इतिहास। अघिल्लो प्रहरी १७:०० शव ५५३ र NDRRMA १५:०० शव ५३८ पुरानो इतिहास।</p>
+          <p class="ov-note" data-i18n="ov_dead_note">स्रोत: NDRRMA / गृह, १३ भदौ १०:००। नुवाकोट ५१ (+१०)। अघिल्लो प्रहरी ०७:०० शव ६१६ इतिहास। अघिल्लो NDRRMA १२ भदौ १९:०० शव ५७९ / प्रहरी १७:०० शव ५५३ / NDRRMA १५:०० शव ५३८ पुरानो इतिहास।</p>
         </div>
         <div class="ov-pane" data-panel="injured">
           <p class="ov-cap" data-i18n="ov_injured_cap">NDRRMA उपचाररत · जम्मा १०१</p>
@@ -1849,20 +1875,20 @@ a.portal-fab-donate{
           <p class="ov-note" data-i18n="ov_injured_dhunche">घाइते · रसुवा अस्पताल धुन्चे ७४ (डिस्चार्ज ४९ · रेफर २४) — NDRRMA १०१ माथि होइन।</p>
         </div>
         <div class="ov-pane" data-panel="miss">
-          <p class="ov-cap" data-i18n="ov_miss_cap">NDRRMA सम्पर्कविहीन · जम्मा १,९२४</p>
+          <p class="ov-cap" data-i18n="ov_miss_cap">NDRRMA सम्पर्कविहीन · जम्मा २,४२६</p>
           <div class="ibar-row"><span data-i18n="d_hydro">जलविद्युत</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९३३</em></div>
+          <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा DEOC</span><b class="ibar"><i style="width:60%"></i></b><em class="num">५६२</em></div>
           <div class="ibar-row"><span data-i18n="d_foreign">विदेशी</span><b class="ibar"><i style="width:55%"></i></b><em class="num">५१७</em></div>
-          <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा DEOC</span><b class="ibar"><i style="width:17%"></i></b><em class="num">१६१</em></div>
           <div class="ibar-row"><span data-i18n="d_nrn">विदेशमा बस्ने नेपाली</span><b class="ibar"><i style="width:14%"></i></b><em class="num">१२७</em></div>
-          <div class="ibar-row"><span data-i18n="d_makwanpur">मकवानपुर DEOC</span><b class="ibar"><i style="width:7%"></i></b><em class="num">६६</em></div>
+          <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट DEOC</span><b class="ibar"><i style="width:12%"></i></b><em class="num">११५</em></div>
+          <div class="ibar-row"><span data-i18n="d_makwanpur">मकवानपुर DEOC</span><b class="ibar"><i style="width:7%"></i></b><em class="num">६५</em></div>
           <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:5%"></i></b><em class="num">४५</em></div>
-          <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">२८</em></div>
+          <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">२७</em></div>
           <div class="ibar-row"><span data-i18n="d_customs">भन्सार</span><b class="ibar"><i style="width:2%"></i></b><em class="num">१५</em></div>
-          <div class="ibar-row"><span data-i18n="d_immigration">अध्यागमन</span><b class="ibar"><i style="width:2%"></i></b><em class="num">१५</em></div>
           <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:1%"></i></b><em class="num">१३</em></div>
+          <div class="ibar-row"><span data-i18n="d_immigration">अध्यागमन</span><b class="ibar"><i style="width:1%"></i></b><em class="num">४</em></div>
           <div class="ibar-row"><span data-i18n="d_langtang_np">लाङटाङ निकुञ्ज</span><b class="ibar"><i style="width:1%"></i></b><em class="num">३</em></div>
-          <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट DEOC</span><b class="ibar"><i style="width:1%"></i></b><em class="num">१</em></div>
-          <p class="ov-note" data-i18n="ov_miss_note">फारम, हेलो सरकार १४०, मधेश ३० र पर्यटक ६६८ यो १,९२४ मा छैनन्। अघिल्लो ९७७ इतिहास। विभाजन जोडेर १,९२४ माथि नराख्नुहोस्।</p>
+          <p class="ov-note" data-i18n="ov_miss_note">फारम, हेलो सरकार १४०, मधेश ३० र पर्यटक ६६८ यो २,४२६ मा छैनन्। प्रहरी २७ अब आधिकारिक २,४२६ भित्र। अघिल्लो १,९२४ / ९७७ इतिहास। विभाजन जोडेर २,४२६ माथि नराख्नुहोस्।</p>
         </div>
         <div class="ov-pane" data-panel="air">
           <p class="ov-cap" data-i18n="ov_air_cap">SitRep #०६ · हेलि उद्धार १९७६</p>
@@ -1873,24 +1899,24 @@ a.portal-fab-donate{
           <div class="ibar-row"><span data-i18n="d_army_heli">सेना हेलि</span><b class="ibar"><i style="width:78%"></i></b><em class="num">७२४</em></div>
           <div class="ibar-row"><span data-i18n="d_army_land">सेना जमिन</span><b class="ibar"><i style="width:22%"></i></b><em class="num">२००</em></div>
           <div class="ibar-row"><span data-i18n="d_foreign">विदेशी</span><b class="ibar"><i style="width:14%"></i></b><em class="num">१०१</em></div>
-          <div class="ibar-row"><span data-i18n="d_ndrrma_res">NDRRMA १९:०० उद्धार</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४४५१</em></div>
+          <div class="ibar-row"><span data-i18n="d_ndrrma_res">NDRRMA १०:०० उद्धार</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४४५१</em></div>
           <div class="ibar-row"><span data-i18n="d_foreign_res">विदेशी उद्धार</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१२९</em></div>
           <div class="ibar-row"><span data-i18n="d_ndrrma_heli">NDRRMA हेलि</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१६</em></div>
           <div class="ibar-row"><span data-i18n="d_heli_flights">हेलि उडान</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९९</em></div>
           <div class="ibar-row"><span data-i18n="d_army_priv_heli">उद्धार · सेना/निजी हेलि</span><b class="ibar"><i style="width:100%"></i></b><em class="num">६५४</em></div>
           <p class="ov-note" data-i18n="ov_air_foreign_extra">उद्धार · विदेशी रसुवा १५२ (भारत ९८ · चीन २३ · कोरिया १९ · जर्मनी ४ · अमेरिका २ · इटाली २ · ओमान १ · टर्की १ · स्विट्जरल्यान्ड १ · रुस १) — NDRRMA विदेशी १२९ यथावत्।</p>
           <p class="ov-note" data-i18n="ov_india_cross_extra">भारतीय · चीनबाट नेपाल प्रवेश १४९ — रसुवा विदेशी १५२ / भारत ९८ यथावत्। भेटिएको जम्मामा जोडिएको छैन।</p>
-          <p class="ov-note" data-i18n="ov_air_note">SitRep-6 हेलि १९७६ / नागरिक १५५२ यथावत्। हेलिकप्टर मैदानमा १४ — NDRRMA हेलि १६ लेबल मात्र, १४ को सट्टा होइन। NDRRMA १९:०० उद्धार ४४५१ (सुरुङ्ग १९१ + आज हवाई ५१७ सहित · विदेशी १२९) · हेलि उडान ९९ अलग — जोडिएको छैन। अघिल्लो NDRRMA १५:०० उद्धार ३७४२ / उडान ७८ इतिहास। सेना ०९:०० हेलि ७२४ (विदेशी १०१) + जमिन २०० — SitRep जम्मा होइन। अघिल्लो सेना १५:३० हेलि ६०२ इतिहास। सेना/निजी हेलि नाम-सूची ६५४ (१० भदौ ४०४ · ११ भदौ १६६ · १२ भदौ ८४; पुरुष ४२१ · महिला २३१) अलग — SitRep / NDRRMA / सेना ९२४ मा जोडिएको छैन। ४४५१ वा ६५४ भेटिएको जम्मामा होइन।</p>
+          <p class="ov-note" data-i18n="ov_air_note">SitRep-6 हेलि १९७६ / नागरिक १५५२ यथावत्। हेलिकप्टर मैदानमा १४ — NDRRMA हेलि १६ लेबल मात्र, १४ को सट्टा होइन। NDRRMA १०:०० उद्धार ४४५१ (सुरुङ्ग १९१ + आज हवाई ५१७ सहित · विदेशी १२९) · हेलि उडान ९९ अलग — जोडिएको छैन। अघिल्लो NDRRMA १५:०० उद्धार ३७४२ / उडान ७८ इतिहास। सेना ०९:०० हेलि ७२४ (विदेशी १०१) + जमिन २०० — SitRep जम्मा होइन। अघिल्लो सेना १५:३० हेलि ६०२ इतिहास। सेना/निजी हेलि नाम-सूची ६५४ (१० भदौ ४०४ · ११ भदौ १६६ · १२ भदौ ८४; पुरुष ४२१ · महिला २३१) अलग — SitRep / NDRRMA / सेना ९२४ मा जोडिएको छैन। ४४५१ वा ६५४ भेटिएको जम्मामा होइन।</p>
         </div>
         <div class="ov-pane" data-panel="deploy">
-          <p class="ov-cap" data-i18n="ov_deploy_cap">सुरक्षा परिचालन · जम्मा १५,७६९</p>
+          <p class="ov-cap" data-i18n="ov_deploy_cap">सुरक्षा परिचालन · जम्मा १५,२२४</p>
           <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">६७५५</em></div>
           <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:71%"></i></b><em class="num">४८११</em></div>
-          <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:62%"></i></b><em class="num">४२०३</em></div>
+          <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:54%"></i></b><em class="num">३६५८</em></div>
           <div class="ibar-row"><span data-i18n="d_medical">मेडिकल</span><b class="ibar"><i style="width:3%"></i></b><em class="num">२००+</em></div>
           <div class="ibar-row"><span data-i18n="d_surgical">सर्जिकल टोली</span><b class="ibar"><i style="width:1%"></i></b><em class="num">अलग</em></div>
           <div class="ibar-row"><span data-i18n="d_heli_n">हेलिकप्टर</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१४</em></div>
-          <p class="ov-note" data-i18n="ov_deploy_note">जम्मा १५,७६९ = प्रहरी १३ भदौ ०७:०० ४,८११ + NDRRMA सेना/सशस्त्र १२ भदौ १९:००। सुरक्षा जम्मा प्रहरी+सेना+सशस्त्र = १५,७६९ (४,८११+६,७५५+४,२०३)। मेडिकल २००+ र सर्जिकल टोली सुरक्षामा जोडिएको छैन। हेलि १४ विमान हो — NDRRMA हेलि १६ लेबल मात्र, १४ को सट्टा होइन। उद्धार १९७६ होइन। हेलि उडान ९९ अलग। अघिल्लो १५,४३१ इतिहास।</p>
+          <p class="ov-note" data-i18n="ov_deploy_note">जम्मा १५,२२४ = NDRRMA / गृह १३ भदौ १०:०० एक मिक्स (प्रहरी ४,८११ + सेना ६,७५५ + सशस्त्र ३,६५८)। मेडिकल २००+ र सर्जिकल टोली / विमान १४ सुरक्षामा जोडिएको छैन। हेलि १४ विमान हो — NDRRMA हेलि १६ लेबल मात्र, १४ को सट्टा होइन। उद्धार १९७६ होइन। हेलि उडान ९९ अलग। अघिल्लो १५,७६९ / १५,४३१ इतिहास।</p>
         </div>
       </div>
     </div>
@@ -1904,19 +1930,19 @@ a.portal-fab-donate{
       <div class="stat">
         <b data-i18n="stat_bodies">मृतक संख्या</b>
         <ul class="mini">
-          <li>जम्मा <strong>६१६</strong></li>
-          <li>चितवन <strong>२३३</strong> · नवलपरासी पूर्व <strong>१५८</strong> · गोर्खा <strong>४८</strong></li>
-          <li>नवलपरासी पश्चिम <strong>४७</strong> · धादिङ <strong>४५</strong> · नुवाकोट <strong>४१</strong></li>
+          <li>जम्मा <strong>६२६</strong></li>
+          <li>चितवन <strong>२३३</strong> · नवलपरासी पूर्व <strong>१५८</strong> · नुवाकोट <strong>५१</strong></li>
+          <li>गोरखा <strong>४८</strong> · नवलपरासी पश्चिम <strong>४७</strong> · धादिङ <strong>४५</strong></li>
           <li>तनहुँ <strong>३१</strong> · रसुवा <strong>१३</strong></li>
         </ul>
         <div class="infobar" aria-hidden="true">
-          <p class="infobar-cap" data-i18n="infobar_sitrep">प्रहरी १३ भदौ ०७:००</p>
+          <p class="infobar-cap" data-i18n="infobar_sitrep">NDRRMA / गृह १३ भदौ १०:००</p>
           <div class="ibar-row"><span data-i18n="d_chitwan">चितवन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">२३३</em></div>
           <div class="ibar-row"><span data-i18n="d_nawal">नवलपरासी पूर्व</span><b class="ibar"><i style="width:68%"></i></b><em class="num">१५८</em></div>
+          <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:22%"></i></b><em class="num">५१</em></div>
           <div class="ibar-row"><span data-i18n="d_gorkha">गोरखा</span><b class="ibar"><i style="width:21%"></i></b><em class="num">४८</em></div>
           <div class="ibar-row"><span data-i18n="d_nawal_w">नवलपरासी पश्चिम</span><b class="ibar"><i style="width:20%"></i></b><em class="num">४७</em></div>
           <div class="ibar-row"><span data-i18n="d_dhading">धादिङ</span><b class="ibar"><i style="width:19%"></i></b><em class="num">४५</em></div>
-          <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट</span><b class="ibar"><i style="width:18%"></i></b><em class="num">४१</em></div>
           <div class="ibar-row"><span data-i18n="d_tanahun">तनहुँ</span><b class="ibar"><i style="width:13%"></i></b><em class="num">३१</em></div>
           <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा</span><b class="ibar"><i style="width:6%"></i></b><em class="num">१३</em></div>
         </div>
@@ -1947,13 +1973,13 @@ a.portal-fab-donate{
       <div class="stat">
         <b data-i18n="stat_uncontacted">सम्पर्कविहीन संख्या</b>
         <ul class="mini">
-          <li>जम्मा <strong>१,९२४</strong></li>
-          <li>जलविद्युत <strong>९३३</strong> · विदेशी <strong>५१७</strong></li>
-          <li>विदेशमा बस्ने नेपाली <strong>१२७</strong> · रसुवा DEOC <strong>१६१</strong></li>
-          <li>मकवानपुर DEOC <strong>६६</strong> · सेना <strong>४५</strong> · प्रहरी <strong>२८</strong></li>
-          <li>भन्सार <strong>१५</strong> · अध्यागमन <strong>१५</strong> · सशस्त्र <strong>१३</strong></li>
-          <li>लाङटाङ निकुञ्ज <strong>३</strong> · नुवाकोट DEOC <strong>१</strong></li>
-          <li>प्रहरी ०७:०० <strong>२७</strong> लेबल</li>
+          <li>जम्मा <strong>२,४२६</strong></li>
+          <li>जलविद्युत <strong>९३३</strong> · रसुवा DEOC <strong>५६२</strong></li>
+          <li>विदेशी <strong>५१७</strong> · विदेशमा बस्ने नेपाली <strong>१२७</strong></li>
+          <li>नुवाकोट DEOC <strong>११५</strong> · मकवानपुर DEOC <strong>६५</strong> · सेना <strong>४५</strong></li>
+          <li>प्रहरी <strong>२७</strong> · भन्सार <strong>१५</strong> · सशस्त्र <strong>१३</strong></li>
+          <li>अध्यागमन <strong>४</strong> · लाङटाङ निकुञ्ज <strong>३</strong></li>
+          <li>प्रहरी २७ आधिकारिक २,४२६ भित्र</li>
           <li><a href="#family">जनताको रिपोर्ट</a> <strong id="stat-miss-form">५४०</strong></li>
           <li>हेलो सरकार <strong>१४०</strong></li>
           <li><a href="#family">मधेश प्रहरी</a> <strong>३०</strong> · उद्धार २</li>
@@ -1962,20 +1988,20 @@ a.portal-fab-donate{
           <li>गोरखा बस यात्रु <strong>३४</strong></li>
         </ul>
         <div class="infobar" aria-hidden="true">
-          <p class="infobar-cap" data-i18n="infobar_ndrrma">NDRRMA १२ भदौ १९:०० · जम्मा १,९२४</p>
+          <p class="infobar-cap" data-i18n="infobar_ndrrma">NDRRMA / गृह १३ भदौ १०:०० · जम्मा २,४२६</p>
           <div class="ibar-row"><span data-i18n="d_hydro">जलविद्युत</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९३३</em></div>
+          <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा DEOC</span><b class="ibar"><i style="width:60%"></i></b><em class="num">५६२</em></div>
           <div class="ibar-row"><span data-i18n="d_foreign">विदेशी</span><b class="ibar"><i style="width:55%"></i></b><em class="num">५१७</em></div>
-          <div class="ibar-row"><span data-i18n="d_rasuwa">रसुवा DEOC</span><b class="ibar"><i style="width:17%"></i></b><em class="num">१६१</em></div>
           <div class="ibar-row"><span data-i18n="d_nrn">विदेशमा बस्ने नेपाली</span><b class="ibar"><i style="width:14%"></i></b><em class="num">१२७</em></div>
-          <div class="ibar-row"><span data-i18n="d_makwanpur">मकवानपुर DEOC</span><b class="ibar"><i style="width:7%"></i></b><em class="num">६६</em></div>
+          <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट DEOC</span><b class="ibar"><i style="width:12%"></i></b><em class="num">११५</em></div>
+          <div class="ibar-row"><span data-i18n="d_makwanpur">मकवानपुर DEOC</span><b class="ibar"><i style="width:7%"></i></b><em class="num">६५</em></div>
           <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:5%"></i></b><em class="num">४५</em></div>
-          <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">२८</em></div>
+          <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">२७</em></div>
           <div class="ibar-row"><span data-i18n="d_customs">भन्सार</span><b class="ibar"><i style="width:2%"></i></b><em class="num">१५</em></div>
-          <div class="ibar-row"><span data-i18n="d_immigration">अध्यागमन</span><b class="ibar"><i style="width:2%"></i></b><em class="num">१५</em></div>
           <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:1%"></i></b><em class="num">१३</em></div>
+          <div class="ibar-row"><span data-i18n="d_immigration">अध्यागमन</span><b class="ibar"><i style="width:1%"></i></b><em class="num">४</em></div>
           <div class="ibar-row"><span data-i18n="d_langtang_np">लाङटाङ निकुञ्ज</span><b class="ibar"><i style="width:1%"></i></b><em class="num">३</em></div>
-          <div class="ibar-row"><span data-i18n="d_nuwakot">नुवाकोट DEOC</span><b class="ibar"><i style="width:1%"></i></b><em class="num">१</em></div>
-          <p class="infobar-note" data-i18n="police_miss_note">प्रहरी १३ भदौ ०७:०० सम्पर्कविहीन २७ लेबल मात्र — NDRRMA प्रहरी २८ / जम्मा १,९२४ अलग। हेलो सरकार १४० / मधेश ३० / फारम यो १,९२४ मा होइन। अघिल्लो ९७७ इतिहास।</p>
+          <p class="infobar-note" data-i18n="police_miss_note">प्रहरी सम्पर्कविहीन २७ अब आधिकारिक २,४२६ भित्र। हेलो सरकार १४० / मधेश ३० / फारम यो २,४२६ मा होइन। अघिल्लो १,९२४ / ९७७ इतिहास।</p>
         </div>
         <div class="infobar stat-tourist" aria-hidden="true">
           <p class="infobar-cap" data-i18n="infobar_tourist">पर्यटक सूची · १४:१५ · जम्मा ६६८</p>
@@ -1989,32 +2015,32 @@ a.portal-fab-donate{
           <div class="ibar-row"><span data-i18n="d_canada">क्यानडा</span><b class="ibar"><i style="width:14%"></i></b><em class="num">२५</em></div>
           <div class="ibar-row"><span data-i18n="d_china">चीन</span><b class="ibar"><i style="width:13%"></i></b><em class="num">२४</em></div>
           <div class="ibar-row"><span data-i18n="d_other">अन्य</span><b class="ibar"><i style="width:43%"></i></b><em class="num">७७</em></div>
-          <p class="infobar-note" data-i18n="tourist_ibar_note">पुरुष ३४१ · महिला ३२७ · स्रोत १४:१५, २७ अगस्ट। NDRRMA १९:०० आधिकारिक १,९२४ अलग।</p>
+          <p class="infobar-note" data-i18n="tourist_ibar_note">पुरुष ३४१ · महिला ३२७ · स्रोत १४:१५, २७ अगस्ट। NDRRMA १०:०० आधिकारिक २,४२६ अलग।</p>
         </div>
       </div>
       <div class="stat">
         <b data-i18n="stat_security">सुरक्षाकर्मी सम्पर्कविहीन</b>
         <ul class="mini">
-          <li>जम्मा <strong>८६</strong></li>
-          <li>सेना <strong>४५</strong> · प्रहरी <strong>२८</strong></li>
+          <li>जम्मा <strong>८५</strong></li>
+          <li>सेना <strong>४५</strong> · प्रहरी <strong>२७</strong></li>
           <li>सशस्त्र <strong>१३</strong></li>
-          <li>परिचालित जम्मा <strong>१५,७६९</strong></li>
+          <li>परिचालित जम्मा <strong>१५,२२४</strong></li>
           <li>सेना <strong>६,७५५</strong></li>
-          <li>सशस्त्र <strong>४,२०३</strong></li>
+          <li>सशस्त्र <strong>३,६५८</strong></li>
           <li>प्रहरी <strong>४,८११</strong></li>
           <li>मेडिकल <strong>२००+</strong> · सर्जिकल टोली अलग</li>
           <li>हेलि <strong>१४</strong></li>
         </ul>
         <div class="infobar" aria-hidden="true">
           <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४५</em></div>
-          <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:62%"></i></b><em class="num">२८</em></div>
+          <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:60%"></i></b><em class="num">२७</em></div>
           <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:29%"></i></b><em class="num">१३</em></div>
         </div>
         <div class="infobar" aria-hidden="true">
-          <p class="infobar-cap" data-i18n="infobar_deployed">खटिएको जनशक्ति · जम्मा १५,७६९</p>
+          <p class="infobar-cap" data-i18n="infobar_deployed">खटिएको जनशक्ति · जम्मा १५,२२४</p>
           <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">६७५५</em></div>
           <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:71%"></i></b><em class="num">४८११</em></div>
-          <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:62%"></i></b><em class="num">४२०३</em></div>
+          <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:54%"></i></b><em class="num">३६५८</em></div>
         </div>
       </div>
       <div class="stat">
@@ -2041,7 +2067,7 @@ a.portal-fab-donate{
       <div class="stat">
         <b data-i18n="stat_air">हवाई उद्धार संख्या</b>
         <ul class="mini">
-          <li>NDRRMA १९:०० उद्धार <strong>४,४५१</strong> · विदेशी १२९</li>
+          <li>NDRRMA १०:०० उद्धार <strong>४,४५१</strong> · विदेशी १२९</li>
           <li>सुरुङ्ग १९१ + आज हवाई ५१७ सहित</li>
           <li>NDRRMA हेलि <strong>१६</strong> · उडान <strong>९९</strong></li>
           <li>जम्मा हेलि <strong>१९७६</strong></li>
@@ -2054,7 +2080,7 @@ a.portal-fab-donate{
         </ul>
         <div class="infobar" aria-hidden="true">
           <p class="infobar-cap" data-i18n="infobar_today">हेलि उद्धार · हेलिकप्टर १४</p>
-          <div class="ibar-row"><span data-i18n="d_ndrrma_res">NDRRMA १९:००</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४४५१</em></div>
+          <div class="ibar-row"><span data-i18n="d_ndrrma_res">NDRRMA १०:००</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४४५१</em></div>
           <div class="ibar-row"><span data-i18n="d_ndrrma_heli">NDRRMA हेलि</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१६</em></div>
           <div class="ibar-row"><span data-i18n="d_heli_flights">हेलि उडान</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९९</em></div>
           <div class="ibar-row"><span data-i18n="d_heli">हेलि</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१९७६</em></div>
@@ -2093,7 +2119,7 @@ a.portal-fab-donate{
         </ul>
       </div>
     </div>
-    <p class="stats-note" data-i18n-html="stats_note">शव <strong>६१६</strong>। प्रहरी १३ भदौ ०७:०० जिल्ला: चितवन २३३ · नवलपरासी पूर्व १५८ · गोर्खा ४८ · नवलपरासी पश्चिम ४७ · धादिङ ४५ · नुवाकोट ४१ · तनहुँ ३१ · रसुवा १३। अघिल्लो NDRRMA १२ भदौ १९:०० शव ५७९ इतिहास। अघिल्लो प्रहरी १७:०० शव ५५३ र NDRRMA १५:०० शव ५३८ पुरानो इतिहास। NDRRMA १९:०० सम्पर्कविहीन <strong>१,९२४</strong> / घाइते <strong>१०१</strong> / उद्धार <strong>४४५१</strong> / हेलि १६ · उडान <strong>९९</strong>। SitRep हेलि <strong>१९७६</strong> / नागरिक उद्धार <strong>१५५२</strong> / विमान १४ अलग। पर्यटक सूची ६६८ (नेपाली १२७ · विदेशी ५४१) अलग। स्रोत तल।</p>
+    <p class="stats-note" data-i18n-html="stats_note">शव <strong>६२६</strong>। NDRRMA / गृह १३ भदौ १०:०० जिल्ला: चितवन २३३ · नवलपरासी पूर्व १५८ · नुवाकोट ५१ · गोर्खा ४८ · नवलपरासी पश्चिम ४७ · धादिङ ४५ · तनहुँ ३१ · रसुवा १३। अघिल्लो प्रहरी ०७:०० शव ६१६ इतिहास। अघिल्लो NDRRMA १२ भदौ १९:०० शव ५७९ / प्रहरी १७:०० शव ५५३ / NDRRMA १५:०० शव ५३८ पुरानो इतिहास। सम्पर्कविहीन <strong>२,४२६</strong> / घाइते <strong>१०१</strong> / उद्धार <strong>४४५१</strong> / जनशक्ति <strong>१५,२२४</strong> / हेलि १६ · उडान <strong>९९</strong>। SitRep हेलि <strong>१९७६</strong> / नागरिक उद्धार <strong>१५५२</strong> / विमान १४ अलग। पर्यटक सूची ६६८ (नेपाली १२७ · विदेशी ५४१) अलग। स्रोत तल।</p>
   </div>
 </div>
 <div class="wrap">
@@ -2267,7 +2293,7 @@ a.portal-fab-donate{
         <div class="ibar-row"><span data-i18n="d_turkey">टर्की</span><b class="ibar"><i style="width:1%"></i></b><em class="num">१</em></div>
         <div class="ibar-row"><span data-i18n="d_switzerland">स्विट्जरल्यान्ड</span><b class="ibar"><i style="width:1%"></i></b><em class="num">१</em></div>
         <div class="ibar-row"><span data-i18n="d_russia">रुस</span><b class="ibar"><i style="width:1%"></i></b><em class="num">१</em></div>
-        <p class="cash-note" data-i18n-html="rd_foreign_note">नाम-सूची <strong>१५२</strong>। ११ भदौ १०४ · १२ भदौ ४८। पुरुष १३३ · महिला १६ · नखुलेको ३। NDRRMA विदेशी १२९ यथावत्। भेटिएको जम्मामा जोडिएको छैन। पर्यटक ६६८ / सम्पर्कविहीन १,९२४ मा मिसाइएको छैन।</p>
+        <p class="cash-note" data-i18n-html="rd_foreign_note">नाम-सूची <strong>१५२</strong>। ११ भदौ १०४ · १२ भदौ ४८। पुरुष १३३ · महिला १६ · नखुलेको ३। NDRRMA विदेशी १२९ यथावत्। भेटिएको जम्मामा जोडिएको छैन। पर्यटक ६६८ / सम्पर्कविहीन २,४२६ मा मिसाइएको छैन।</p>
         <a class="rd-jump" href="#foreign-res" data-i18n="rd_jump_foreign">सूची हेर्नुहोस् → उद्धार विदेशी</a>
       </div>
       <div class="cash-pane" data-rd="indiacross">
@@ -2292,7 +2318,7 @@ a.portal-fab-donate{
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_family">हराएको / भेटिएको</h2></div>
 <article class="cash-ig fd-ig" id="fd">
     <h3 data-i18n="fd_h">हराएको / भेटिएको</h3>
-    <p class="cash-lead" data-i18n="fd_lead">हराएको र भेटिएको प्रकाशित संख्या। सूचीहरू अलग छन्, नाम जोडिएको छैन। आधिकारिक सम्पर्कविहीन १,९२४ (अघिल्लो ९७७ इतिहास)। ४४५१ वा ६५४ वा चीनबाट भारतीय १४९ भेटिएको जम्मामा होइन।</p>
+    <p class="cash-lead" data-i18n="fd_lead">हराएको र भेटिएको प्रकाशित संख्या। सूचीहरू अलग छन्, नाम जोडिएको छैन। आधिकारिक सम्पर्कविहीन २,४२६ (अघिल्लो १,९२४ / ९७७ इतिहास)। ४४५१ वा ६५४ वा चीनबाट भारतीय १४९ भेटिएको जम्मामा होइन।</p>
     <div class="cash-kpis fd-kpis" role="tablist" aria-label="हराएको र भेटिएको">
       <div class="fd-box">
         <button type="button" class="cash-kpi on" data-fd="miss" aria-selected="true">
@@ -4480,7 +4506,7 @@ a.portal-fab-donate{
 <section id="foreign-res">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_foreign_res">उद्धार · विदेशी</h2></div>
   <div class="card green">
-    <p class="treat-lead" data-i18n-html="foreign_res_lead">रसुवा नाम-सूची <strong>१५२</strong> विदेशी उद्धार। घोषणा/सारांश १४९ (भारत ९८ · चीन २३ · कोरिया १९ · जर्मनी ४ · अमेरिका २ · इटाली २ · ओमान १) + टर्की/स्विट्जरल्यान्ड/रुस ३ = सूची १५२। ११ भदौ १०४ · १२ भदौ ४८। पुरुष १३३ · महिला १६ · नखुलेको ३। NDRRMA विदेशी १२९ / उद्धार ४,४५१ यथावत्। भारतीय २१, त्रिशूली-१ ६३, हेलि-नाम ६५४ र हराएको सूची अलग — जोडिएको छैन, हराएकोबाट हटाइएको छैन। भेटिएको जम्मामा जोडिएको छैन। पर्यटक ६६८ / सम्पर्कविहीन १,९२४ मा मिसाइएको छैन।</p>
+    <p class="treat-lead" data-i18n-html="foreign_res_lead">रसुवा नाम-सूची <strong>१५२</strong> विदेशी उद्धार। घोषणा/सारांश १४९ (भारत ९८ · चीन २३ · कोरिया १९ · जर्मनी ४ · अमेरिका २ · इटाली २ · ओमान १) + टर्की/स्विट्जरल्यान्ड/रुस ३ = सूची १५२। ११ भदौ १०४ · १२ भदौ ४८। पुरुष १३३ · महिला १६ · नखुलेको ३। NDRRMA विदेशी १२९ / उद्धार ४,४५१ यथावत्। भारतीय २१, त्रिशूली-१ ६३, हेलि-नाम ६५४ र हराएको सूची अलग — जोडिएको छैन, हराएकोबाट हटाइएको छैन। भेटिएको जम्मामा जोडिएको छैन। पर्यटक ६६८ / सम्पर्कविहीन २,४२६ मा मिसाइएको छैन।</p>
     <p class="ov-cap" data-i18n="rd_foreign_cap">रसुवा · १२ भदौ · उद्धार विदेशी</p>
         <div class="ibar-row"><span data-i18n="d_india">भारत</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९८</em></div>
         <div class="ibar-row"><span data-i18n="d_china">चीन</span><b class="ibar"><i style="width:23%"></i></b><em class="num">२३</em></div>
@@ -4673,7 +4699,7 @@ a.portal-fab-donate{
 <section id="india-cross">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_india_cross">भारतीय · चीनबाट नेपाल सुरक्षित प्रवेश १४९</h2></div>
   <div class="card green">
-    <p class="treat-lead" data-i18n-html="india_cross_lead">चीनबाट नेपाल आए आज (28 August 2026 / 12 भदौ) सुरक्षित प्रवेश गरेका भारतीय नागरिक <strong>१४९</strong> जना। यो रसुवा उद्धार विदेशी १५२ (भारत ९८) होइन, नाम जोडिएको छैन। NDRRMA विदेशी १२९ / उद्धार ४,४५१, भारतीय पर्यटक २१, त्रिशूली-१ ६३, हेलि-नाम ६५४ र हराएको सूची अलग — जोडिएको छैन, हराएकोबाट हटाइएको छैन। भेटिएको जम्मामा जोडिएको छैन। पर्यटक ६६८ / सम्पर्कविहीन १,९२४ मा मिसाइएको छैन।</p>
+    <p class="treat-lead" data-i18n-html="india_cross_lead">चीनबाट नेपाल आए आज (28 August 2026 / 12 भदौ) सुरक्षित प्रवेश गरेका भारतीय नागरिक <strong>१४९</strong> जना। यो रसुवा उद्धार विदेशी १५२ (भारत ९८) होइन, नाम जोडिएको छैन। NDRRMA विदेशी १२९ / उद्धार ४,४५१, भारतीय पर्यटक २१, त्रिशूली-१ ६३, हेलि-नाम ६५४ र हराएको सूची अलग — जोडिएको छैन, हराएकोबाट हटाइएको छैन। भेटिएको जम्मामा जोडिएको छैन। पर्यटक ६६८ / सम्पर्कविहीन २,४२६ मा मिसाइएको छैन।</p>
     <div class="pager" data-pager="india-cross">
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
       <div class="pboxes pager-pages"></div>
@@ -5047,7 +5073,7 @@ a.portal-fab-donate{
       </tbody>
     </table>
     </div>
-    <p class="treat-note" data-i18n-html="treat_dhunche_note">स्रोत: नरेन्द्र थापा, सूचना अधिकारी, रसुवा अस्पताल (<a href="tel:+9779869548081">९८६९५४८०८१</a>)। नाम-सूची CSV। मृत्यु पङ्क्ति शव टिचिङ — शव <strong>६१६</strong> र उपचार <strong>७४</strong> मा जोडिएको छैन।</p>
+    <p class="treat-note" data-i18n-html="treat_dhunche_note">स्रोत: नरेन्द्र थापा, सूचना अधिकारी, रसुवा अस्पताल (<a href="tel:+9779869548081">९८६९५४८०८१</a>)। नाम-सूची CSV। मृत्यु पङ्क्ति शव टिचिङ — शव <strong>६२६</strong> र उपचार <strong>७४</strong> मा जोडिएको छैन।</p>
     </div>
     <h3 class="treat-subh" data-i18n="treat_ktm_h">DEOC काठमाडौं · ८८</h3>
     <p class="treat-lead" data-i18n-html="treat_lead">DEOC काठमाडौं · काठमाडौं ल्याइएका घाइते नाम-सूची <strong>८८</strong> (उपचाररत <strong>६९</strong>, डिस्चार्ज <strong>१९</strong>) लेबल मात्र। आधिकारिक NDRRMA घाइते उपचाररत <strong>१०१</strong>। अघिल्लो ७३ इतिहास। SitRep-6 तालिका १३०/६७ अलग (रसुवा/नुवाकोट अस्पताल सहित)।</p>
@@ -5197,7 +5223,7 @@ a.portal-fab-donate{
       </tbody>
     </table>
     </div>
-    <p class="treat-note" data-i18n-html="treat_note">स्रोत: जिल्ला आपतकालीन कार्यसंचालन केन्द्र, काठमाडौं — विपद्‌बाट उद्धार गरी उपचारार्थ काठमाडौं ल्याइएका घाइतेहरूको विवरण। नाम-सूची <strong>८८</strong> = उपचाररत <strong>६९</strong> + डिस्चार्ज <strong>१९</strong> लेबल मात्र। आधिकारिक NDRRMA घाइते <strong>१०१</strong> · शव <strong>६१६</strong> · सम्पर्कविहीन <strong>१,९२४</strong>। अघिल्लो घाइते ७३ / शव ५७९ / सम्पर्कविहीन ९७७ इतिहास। SitRep-6 तालिका १३०/६७ (रसुवा/नुवाकोट अस्पताल सहित) अलग। उपचार निःशुल्क, <a href="tel:1115">1115</a>।</p>
+    <p class="treat-note" data-i18n-html="treat_note">स्रोत: जिल्ला आपतकालीन कार्यसंचालन केन्द्र, काठमाडौं — विपद्‌बाट उद्धार गरी उपचारार्थ काठमाडौं ल्याइएका घाइतेहरूको विवरण। नाम-सूची <strong>८८</strong> = उपचाररत <strong>६९</strong> + डिस्चार्ज <strong>१९</strong> लेबल मात्र। आधिकारिक NDRRMA घाइते <strong>१०१</strong> · शव <strong>६२६</strong> · सम्पर्कविहीन <strong>२,४२६</strong>। अघिल्लो घाइते ७३ / शव ६१६ / सम्पर्कविहीन १,९२४ इतिहास। SitRep-6 तालिका १३०/६७ (रसुवा/नुवाकोट अस्पताल सहित) अलग। उपचार निःशुल्क, <a href="tel:1115">1115</a>।</p>
   </div>
 </section>
 
@@ -6252,16 +6278,16 @@ a.portal-fab-donate{
       </div>
     </section>
     <ul class="stats-src" aria-label="स्रोत" data-i18n-aria="src_word" data-i18n-list="stats_src">
-      <li><b>मृतक जम्मा ६१६</b> — नेपाल प्रहरी, १३ भदौ ०७:००। चितवन २३३, नवलपरासी पूर्व १५८, गोरखा ४८, नवलपरासी पश्चिम ४७, धादिङ ४५, नुवाकोट ४१, तनहुँ ३१, रसुवा १३। अघिल्लो NDRRMA १२ भदौ १९:०० शव ५७९ इतिहास। अघिल्लो प्रहरी १७:०० शव ५५३ र NDRRMA १५:०० शव ५३८ पुरानो इतिहास। स्रोत: <a href="img/today-2026-08-29-nepal-police-0700.jpg" target="_blank" rel="noopener">प्रहरी ०७:०० · ६१६</a> · अघिल्लो <a href="img/today-2026-08-28-ndrrma-moha-1900.jpg" target="_blank" rel="noopener">NDRRMA / गृह १९:०० · ५७९</a> · <a href="https://nepalpolice.gov.np/" target="_blank" rel="noopener">प्रहरी १७:०० · ५५३</a> · <a href="img/today-2026-08-28-nepal-police-1500.jpg" target="_blank" rel="noopener">प्रहरी १५:०० · ५४७</a> · <a href="img/today-2026-08-28-ndrrma-moha-1500.jpg" target="_blank" rel="noopener">NDRRMA १५:०० · ५३८</a>।</li>
-      <li><b>घाइते</b> — NDRRMA १२ भदौ १९:००: उपचाररत <strong>१०१</strong>। अघिल्लो NDRRMA १५:०० जम्मा ७३ (रसुवा ४३, नुवाकोट २७, धादिङ ३) इतिहास। प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong> लेबल। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> लेबल। नेपाल प्रहरी १३ भदौ ०७:०० घाइते तथा उद्धार जम्मा <strong>२,३०१</strong> — रसुवा ६७६, नुवाकोट १६२२, धादिङ ३ लेबल मात्र। काठमाडौं उपत्यका अस्पताल उपचार/डिस्चार्ज १४० (जम्मामाथि नजोड्नुहोस्)। अघिल्लो प्रहरी १,४७३ / काठमाडौं ९४ इतिहास। DEOC काठमाडौं ८८ लेबल मात्र।</li>
-      <li><b>सम्पर्कविहीन</b> — NDRRMA १२ भदौ १९:००: <strong>१,९२४</strong> (प्रहरी २८, सेना ४५, सशस्त्र १३, भन्सार १५, अध्यागमन १५, रसुवा DEOC १६१, नुवाकोट DEOC १, जलविद्युत ९३३, मकवानपुर DEOC ६६, विदेशी ५१७, विदेशमा बस्ने नेपाली १२७, लाङटाङ निकुञ्ज ३)। विभाजन जोडेर १,९२४ माथि नराख्नुहोस्। प्रहरी १३ भदौ ०७:०० सम्पर्कविहीन <strong>२७</strong> लेबल मात्र — १,९२४ मा जोडिएको छैन। अघिल्लो ९७७ इतिहास। <a href="#family">जनताको रिपोर्ट</a> फारम, हेलो सरकार १४०, मधेश ३० यो १,९२४ मा होइन। पर्यटक सूची १४:१५: <strong>६६८</strong> (नेपाली १२७, विदेशी ५४१) अलग। लाङटाङ आयोजना ६० / बस ३४ / बैंक २६ अलग। मृत्यु होइन।</li>
-      <li><b>पर्यटक सूची ६६८</b> — भोटेकोशी बाढी सम्पर्क स्थापना हुन नसकेका पर्यटक नामावली · १४:१५, २७ अगस्ट। जम्मा <strong>६६८</strong> (पुरुष ३४१ · महिला ३२७ · नेपाली १२७ · विदेशी ५४१)। NDRRMA १९:०० आधिकारिक १,९२४ अलग।</li>
-      <li><b>सुरक्षा</b> — सुरक्षाकर्मी सम्पर्कविहीन जम्मा <strong>८६</strong> — सेना ४५, प्रहरी २८, सशस्त्र १३। प्रहरी १३ भदौ ०७:०० सम्पर्कविहीन <strong>२७</strong> लेबल मात्र अलग। परिचालित जम्मा <strong>१५,७६९</strong> = प्रहरी १३ भदौ ०७:०० ४,८११ + NDRRMA सेना/सशस्त्र १२ भदौ १९:०० (६,७५५+४,२०३)। मेडिकल टोली <strong>२००+</strong> र सर्जिकल टोली / हेलि १४ सुरक्षा जम्मामा छैन। अघिल्लो १५,४३१ इतिहास। मृत्यु होइन।</li>
+      <li><b>मृतक जम्मा ६२६</b> — NDRRMA / गृह, १३ भदौ १०:००। चितवन २३३, नवलपरासी पूर्व १५८, नुवाकोट ५१, गोरखा ४८, नवलपरासी पश्चिम ४७, धादिङ ४५, तनहुँ ३१, रसुवा १३। अघिल्लो प्रहरी ०७:०० शव ६१६ इतिहास। अघिल्लो NDRRMA १२ भदौ १९:०० शव ५७९ / प्रहरी १७:०० शव ५५३ / NDRRMA १५:०० शव ५३८ पुरानो इतिहास। स्रोत: <a href="img/today-2026-08-29-ndrrma-1000.jpg" target="_blank" rel="noopener">NDRRMA / गृह १०:०० · ६२६</a> · अघिल्लो <a href="img/today-2026-08-29-nepal-police-0700.jpg" target="_blank" rel="noopener">प्रहरी ०७:०० · ६१६</a> · <a href="img/today-2026-08-28-ndrrma-moha-1900.jpg" target="_blank" rel="noopener">NDRRMA / गृह १९:०० · ५७९</a> · <a href="https://nepalpolice.gov.np/" target="_blank" rel="noopener">प्रहरी १७:०० · ५५३</a> · <a href="img/today-2026-08-28-nepal-police-1500.jpg" target="_blank" rel="noopener">प्रहरी १५:०० · ५४७</a> · <a href="img/today-2026-08-28-ndrrma-moha-1500.jpg" target="_blank" rel="noopener">NDRRMA १५:०० · ५३८</a>।</li>
+      <li><b>घाइते</b> — NDRRMA / गृह १३ भदौ १०:००: उपचाररत <strong>१०१</strong>। अघिल्लो NDRRMA १५:०० जम्मा ७३ (रसुवा ४३, नुवाकोट २७, धादिङ ३) इतिहास। प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong> लेबल। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> लेबल। नेपाल प्रहरी १३ भदौ ०७:०० घाइते तथा उद्धार जम्मा <strong>२,३०१</strong> — रसुवा ६७६, नुवाकोट १६२२, धादिङ ३ लेबल मात्र। काठमाडौं उपत्यका अस्पताल उपचार/डिस्चार्ज १४० (जम्मामाथि नजोड्नुहोस्)। अघिल्लो प्रहरी १,४७३ / काठमाडौं ९४ इतिहास। DEOC काठमाडौं ८८ लेबल मात्र।</li>
+      <li><b>सम्पर्कविहीन</b> — NDRRMA / गृह १३ भदौ १०:००: <strong>२,४२६</strong> (प्रहरी २७, सेना ४५, सशस्त्र १३, भन्सार १५, अध्यागमन ४, रसुवा DEOC ५६२, नुवाकोट DEOC ११५, जलविद्युत ९३३, मकवानपुर DEOC ६५, विदेशी ५१७, विदेशमा बस्ने नेपाली १२७, लाङटाङ निकुञ्ज ३)। विभाजन जोडेर २,४२६ माथि नराख्नुहोस्। प्रहरी २७ अब आधिकारिक २,४२६ भित्र। अघिल्लो १,९२४ / ९७७ इतिहास। <a href="#family">जनताको रिपोर्ट</a> फारम, हेलो सरकार १४०, मधेश ३० यो २,४२६ मा होइन। पर्यटक सूची १४:१५: <strong>६६८</strong> (नेपाली १२७, विदेशी ५४१) अलग। लाङटाङ आयोजना ६० / बस ३४ / बैंक २६ अलग। मृत्यु होइन।</li>
+      <li><b>पर्यटक सूची ६६८</b> — भोटेकोशी बाढी सम्पर्क स्थापना हुन नसकेका पर्यटक नामावली · १४:१५, २७ अगस्ट। जम्मा <strong>६६८</strong> (पुरुष ३४१ · महिला ३२७ · नेपाली १२७ · विदेशी ५४१)। NDRRMA १०:०० आधिकारिक २,४२६ अलग।</li>
+      <li><b>सुरक्षा</b> — सुरक्षाकर्मी सम्पर्कविहीन जम्मा <strong>८५</strong> — सेना ४५, प्रहरी २७, सशस्त्र १३। प्रहरी २७ आधिकारिक २,४२६ भित्र। परिचालित जम्मा <strong>१५,२२४</strong> = NDRRMA / गृह १३ भदौ १०:०० (प्रहरी ४,८११ + सेना ६,७५५ + सशस्त्र ३,६५८)। मेडिकल टोली <strong>२००+</strong> र सर्जिकल टोली / हेलि १४ सुरक्षा जम्मामा छैन। अघिल्लो १५,७६९ / १५,४३१ इतिहास। मृत्यु होइन।</li>
       <li><b>भन्सार</b> — स्थायी ३६, सम्पर्क २५, खोजी ११, गाडी ३००+ — प्रमुख ढुंगाना।</li>
       <li><b>टिमुरे</b> — घर १००+ र पर्खाइ ३००+ — वडासदस्य घले। बजार ५–७ — डिआईजी रेग्मी।</li>
       <li><b>हेलि उद्धार १९७६</b> — NDRRMA SitRep-6: हेलिकप्टरबाट <strong>१९७६</strong>। हेलिकप्टर मैदानमा <strong>१४</strong>। नागरिक उद्धार <strong>१,५५२</strong> अलग। सेना ०९:००, १२ भदौ: हेलि <strong>७२४</strong> (विदेशी १०१) + जमिन २०० — SitRep जम्मा होइन। अघिल्लो सेना १५:३० हेलि ६०२ र SitRep-6 हेलिकप्टर १५ (सेना ६ + निजी ९) इतिहास।</li>
-      <li><b>NDRRMA उद्धार ४,४५१</b> — NDRRMA / गृह १२ भदौ १९:००: जम्मा उद्धार <strong>४,४५१</strong> (सुरुङ्ग १९१ + आज हवाई ५१७ सहित · विदेशी <strong>१२९</strong>)। हेलि १६ · उडान ९९। SitRep हेलि १९७६ / नागरिक १५५२ / विमान १४ / सेना ९२४ / नाम-तालिका ७९७ / टिमुरे ७३ / भारतीय २१ / त्रिशूली-१ ६३ / नुवाकोट DAO ७७१ / हेलि-नाम ६५४ अलग — जोडिएको छैन। ४४५१ वा ६५४ भेटिएको जम्मामा होइन। अघिल्लो ३,७४२ इतिहास।</li>
-      <li><b>हेलि उडान ९९</b> — NDRRMA / गृह १२ भदौ १९:००: सेना + निजी हेलि उडान <strong>९९</strong>। NDRRMA हेलि १६ लेबल। SitRep विमान १४ र हेलि उद्धार १९७६ होइन, उडान संख्या हो। अघिल्लो उडान ७८ इतिहास।</li>
+      <li><b>NDRRMA उद्धार ४,४५१</b> — NDRRMA / गृह १३ भदौ १०:००: जम्मा उद्धार <strong>४,४५१</strong> (सुरुङ्ग १९१ + आज हवाई ५१७ सहित · विदेशी <strong>१२९</strong>)। हेलि १६ · उडान ९९। SitRep हेलि १९७६ / नागरिक १५५२ / विमान १४ / सेना ९२४ / नाम-तालिका ७९७ / टिमुरे ७३ / भारतीय २१ / त्रिशूली-१ ६३ / नुवाकोट DAO ७७१ / हेलि-नाम ६५४ अलग — जोडिएको छैन। ४४५१ वा ६५४ भेटिएको जम्मामा होइन। अघिल्लो ३,७४२ इतिहास।</li>
+      <li><b>हेलि उडान ९९</b> — NDRRMA / गृह १३ भदौ १०:००: सेना + निजी हेलि उडान <strong>९९</strong>। NDRRMA हेलि १६ लेबल। SitRep विमान १४ र हेलि उद्धार १९७६ होइन, उडान संख्या हो। अघिल्लो उडान ७८ इतिहास।</li>
       <li><b>बैंक कर्मचारी सम्पर्कविहीन २६</b> — नेपाल बैंकर्स संघ १६:२५। आठ बैंक: प्रभु, हिमालयन, ग्लोबल आइएमई, सानिमा, नेपाल इन्भेस्टमेन्ट मेगा, लक्ष्मी सनराइज, एनएमबी, माछापुच्छ्रे। टिमुरे, स्याफ्रुबेसी, बेत्रावती शाखा बगे (३ ठाउँ)। मृत्यु होइन।</li>
       <li><b>कैदीबन्दी सुरक्षित १०००</b> — नुवाकोट केन्द्रीय कारागार प्रमुख भेषबहादुर कुँवर (अनलाइनखबर)। विदुर–३ खम्पाक्याम्प; प्रशासन भवन र प्रहरी इकाइ क्षति। करिब एक हजार।</li>
       <li><b>पूर्वाधार</b> — NDRRMA SitRep-3 (राति २२:००): मोटरेबल पुल <strong>३५</strong> + झोलुङ्गे <strong>४५</strong> = पुल <strong>८०</strong>; पक्की सडक <strong>४० किमि</strong> पूर्ण ध्वस्त — SitRep-2 सँग मेल। विद्युत् ७ / २७६ MW — प्राधिकरण। टावर ७ — नेपाल टेलिकम।</li>
@@ -6325,7 +6351,7 @@ a.portal-fab-donate{
 
 <section id="rahat">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rahat">राहत / उद्धार भिजुअल</h2></div>
-  <p class="treat-lead" data-i18n-html="rahat_lead">प्रहरी १३ भदौ ०७:०० शव ६१६ (अघिल्लो NDRRMA १२ भदौ १९:०० शव ५७९ इतिहास)। घाइते १०१ · सम्पर्कविहीन १,९२४ · उद्धार ४४५१ · जनशक्ति १५,७६९ · हेलि १६ · उडान ९९। SitRep हेलि १९७६ / नागरिक १५५२ / विमान १४ अलग।</p>
+  <p class="treat-lead" data-i18n-html="rahat_lead">NDRRMA / गृह १३ भदौ १०:०० शव ६२६ (अघिल्लो प्रहरी ०७:०० शव ६१६ इतिहास)। घाइते १०१ · सम्पर्कविहीन २,४२६ · उद्धार ४४५१ · जनशक्ति १५,२२४ · हेलि १६ · उडान ९९। SitRep हेलि १९७६ / नागरिक १५५२ / विमान १४ अलग।</p>
   <div class="rahat-stats" aria-label="राहत अंक" data-i18n-aria="rahat_aria">
     <div class="rahat-stat"><b>१९७६</b><span data-i18n="rs_air">हेलि उद्धार · हेलिकप्टर १४</span></div>
     <div class="rahat-stat"><b>१५५२</b><span data-i18n="rs_ground">नागरिक उद्धार · SitRep-6</span></div>
@@ -6358,7 +6384,7 @@ a.portal-fab-donate{
     <li><b>९ · पुनर्निर्माण स्रोत</b>गृहमन्त्री: सार्वजनिक पूर्वाधार मर्मत–पुनर्निर्माण स्रोत समन्वय।</li>
     <li><b>१० · संकटग्रस्त</b>विपद् ऐन २०७४ दफा ३२: प्रभावित स्थानीय तह तीन महिना संकटग्रस्त।</li>
   </ol>
-  <p class="treat-note" data-i18n-html="rahat_note">NDRRMA / गृह १२ भदौ १९:०० — सरकारले जिल्लालाई नगद: रसुवा <strong>१ करोड</strong> · नुवाकोट <strong>१ करोड</strong> · धादिङ <strong>५० लाख</strong> · <strong>१५ पालिका ६ करोड ७५ लाख</strong> (प्रधानमन्त्री कोष होइन · जिल्ला/पालिका नगद · ४ अर्ब २४ करोडमाथि नजोड्नुहोस्)। सामग्री: ३२ ट्रक; हेलि राहत ६ उडान; सञ्चार सेट। नुवाकोट: डिजेल ४१,००० · पेट्रोल २४,००० मौज्दात; हवाई इन्धन <strong>१७,०००</strong> लि पठाइएको।</p>
+  <p class="treat-note" data-i18n-html="rahat_note">NDRRMA / गृह १३ भदौ १०:०० — सरकारले जिल्लालाई नगद: रसुवा <strong>१ करोड</strong> · नुवाकोट <strong>१ करोड</strong> · धादिङ <strong>५० लाख</strong> · <strong>१५ पालिका ६ करोड ७५ लाख</strong> (प्रधानमन्त्री कोष होइन · जिल्ला/पालिका नगद · ४ अर्ब २४ करोडमाथि नजोड्नुहोस्)। सामग्री: ३७ ट्रक; हेलि राहत ७ उडान; सञ्चार सेट। नुवाकोट: डिजेल ४१,००० · पेट्रोल २४,००० मौज्दात; हवाई इन्धन <strong>३९,०००</strong> लिटर नुवाकोटमा पठाइएको।</p>
   <div class="sec-head" style="margin-top:8px"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rahat_photos">उद्धार तस्बिर</h2></div>
   <div class="pager" data-pager="rahat-photos">
     <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
@@ -6714,6 +6740,10 @@ a.portal-fab-donate{
       <figcaption><strong>Copernicus EMSR927 · क्षति तालिका</strong>AOI भित्रका परिणाम · आवासीय प्रभावित ३९२</figcaption>
     </figure>
     <figure class="photo">
+      <a href="img/today-2026-08-29-ndrrma-1000.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-29-ndrrma-1000.jpg" alt="NDRRMA / गृह रसुवा भोटेकोशी बाढी खोज उद्धार राहत अपडेट, १३ भदौ १०:००, शव ६२६"></a>
+      <figcaption><strong>NDRRMA / गृह · १३ भदौ १०:००</strong>शव ६२६ · सम्पर्कविहीन २४२६ · उद्धार ४४५१ · जनशक्ति १५२२४</figcaption>
+    </figure>
+    <figure class="photo">
       <a href="img/today-2026-08-29-nepal-police-0700.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-29-nepal-police-0700.jpg" alt="नेपाल प्रहरी रसुवा भोटेकोशी बाढी अपडेट, १३ भदौ ०७:००, शव ६१६"></a>
       <figcaption><strong>नेपाल प्रहरी · १३ भदौ ०७:००</strong>शव ६१६ · घाइते तथा उद्धार २३०१ · प्रहरी ४८११ · सम्पर्कविहीन २७</figcaption>
     </figure>
@@ -6954,16 +6984,22 @@ a.portal-fab-donate{
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
             <article class="log-item now">
+      <p class="when">~१०:००</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>NDRRMA/गृह १३ भदौ १०:०० — शव ६२६</h3>
+      <p>NDRRMA / गृह मन्त्रालय ग्राफिक, बिहान १०:००: शव <strong>६२६</strong> — चितवन २३३, न.प.पूर्व १५८, नुवाकोट ५१, गोरखा ४८, न.प.पश्चिम ४७, धादिङ ४५, तनहुँ ३१, रसुवा १३। सम्पर्कविहीन <strong>२,४२६</strong> (प्रहरी २७ · सेना ४५ · सशस्त्र १३ · भन्सार १५ · अध्यागमन ४ · रसुवा DEOC ५६२ · नुवाकोट DEOC ११५ · जलविद्युत ९३३ · मकवानपुर DEOC ६५ · विदेशी ५१७ · विदेशमा बस्ने नेपाली १२७ · लाङटाङ निकुञ्ज ३) — हेलो सरकार १४० / मधेश ३० / फारम जोडिएको छैन। घाइते उपचाररत <strong>१०१</strong>। उद्धार <strong>४,४५१</strong> (सुरुङ्ग १९१ + आज हवाई ५१७ सहित · विदेशी १२९)। जनशक्ति <strong>१५,२२४</strong> (प्रहरी ४,८११ · सेना ६,७५५ · सशस्त्र ३,६५८)। हेलि १६ · उडान ९९। राहत सामग्री ३७ ट्रक / हेलि ७। अघिल्लो प्रहरी ०७:०० शव ६१६ इतिहास। SitRep हेलि १९७६ / नागरिक १५५२ / विमान १४ अलग। स्रोत: <a href="img/today-2026-08-29-ndrrma-1000.jpg" target="_blank" rel="noopener">NDRRMA / MoHA ग्राफिक</a>।</p>
+    </article>
+            <article class="log-item">
       <p class="when">~१०:५८</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>Copernicus स्याफ्रुबेसी क्षति इन्फोग्राफिक ड्यासबोर्ड</h3>
-      <p>EMSR927 AOI01 स्याफ्रुबेसी: सबै भवन <strong>४३३</strong>/५५९ (७७.५%) — आवासीय ३९२ त्यसभित्र, जोड्नु होइन। सडक ७.६ किमि · पुल ५/५ · पहिरो १११.१ हे · जनसंख्या ~४५०/~७५० (६०%) · भू-आवरण १११.०/३४५.९ हे। इन्फोग्राफिक ड्यासबोर्ड होम र <a href="#ems927">#ems927</a> मा। प्रहरी शव ६१६ / NDRRMA उद्धार ४४५१ माथि होइन।</p>
+      <p>EMSR927 AOI01 स्याफ्रुबेसी: सबै भवन <strong>४३३</strong>/५५९ (७७.५%) — आवासीय ३९२ त्यसभित्र, जोड्नु होइन। सडक ७.६ किमि · पुल ५/५ · पहिरो १११.१ हे · जनसंख्या ~४५०/~७५० (६०%) · भू-आवरण १११.०/३४५.९ हे। इन्फोग्राफिक ड्यासबोर्ड होम र <a href="#ems927">#ems927</a> मा। NDRRMA शव ६२६ / सम्पर्कविहीन २,४२६ / उद्धार ४४५१ माथि होइन।</p>
     </article>
             <article class="log-item">
       <p class="when">~१०:१६</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>Copernicus EMSR927 स्याफ्रुबेसी क्षति</h3>
-      <p>Copernicus EMS Rapid Mapping EMSR927 AOI01 स्याफ्रुबेसी: भवन <strong>४३३</strong> (आवासीय प्रभावित ३९२ · ध्वस्त २८३) · सडक ७.६ किमि (पुल ५ ध्वस्त) · पहिरो १११.१ हे · प्रभावित जनसंख्या ~४५० (AOI ~७५०)। उपग्रह ग्रेडिङ — प्रहरी शव ६१६ / NDRRMA उद्धार ४४५१ माथि होइन। <a href="#ems927">स्याफ्रुबेसी क्षति</a> · <a href="https://mapping.emergency.copernicus.eu/activations/EMSR927" target="_blank" rel="noopener">पोर्टल</a>।</p>
+      <p>Copernicus EMS Rapid Mapping EMSR927 AOI01 स्याफ्रुबेसी: भवन <strong>४३३</strong> (आवासीय प्रभावित ३९२ · ध्वस्त २८३) · सडक ७.६ किमि (पुल ५ ध्वस्त) · पहिरो १११.१ हे · प्रभावित जनसंख्या ~४५० (AOI ~७५०)। उपग्रह ग्रेडिङ — NDRRMA शव ६२६ / सम्पर्कविहीन २,४२६ / उद्धार ४४५१ माथि होइन। <a href="#ems927">स्याफ्रुबेसी क्षति</a> · <a href="https://mapping.emergency.copernicus.eu/activations/EMSR927" target="_blank" rel="noopener">पोर्टल</a>।</p>
     </article>
             <article class="log-item">
       <p class="when">~०७:००</p>
@@ -7940,7 +7976,7 @@ a.portal-fab-donate{
       ·
       <a href="https://mapping.emergency.copernicus.eu/activations/EMSR927" target="_blank" rel="noopener" data-i18n="ems_portal">Copernicus पोर्टल</a>
     </p>
-    <p class="note" data-i18n-html="ems927_note">उपग्रह दृश्य व्याख्या, प्रहरी/NDRRMA सिट्रेप होइन। शव ६१६ · घाइते १०१ · सम्पर्कविहीन १९२४ · उद्धार ४४५१ माथि होइन। प्रभावित ~४५० लाई सम्पर्कविहीनमा नजोड्नुहोस्। स्रोत: Copernicus EMS Rapid Mapping · ITHACA / SERTIT।</p>
+    <p class="note" data-i18n-html="ems927_note">उपग्रह दृश्य व्याख्या, प्रहरी/NDRRMA सिट्रेप होइन। शव ६२६ · घाइते १०१ · सम्पर्कविहीन २,४२६ · उद्धार ४४५१ माथि होइन। प्रभावित ~४५० लाई सम्पर्कविहीनमा नजोड्नुहोस्। स्रोत: Copernicus EMS Rapid Mapping · ITHACA / SERTIT।</p>
   </div>
 </section>
 
@@ -8220,8 +8256,9 @@ a.portal-fab-donate{
 </div>
 
     <div class="src-group">
-<h3>NDRRMA <span class="badge">६</span></h3>
+<h3>NDRRMA <span class="badge">८</span></h3>
       <div class="src-list">
+<a href="img/today-2026-08-29-ndrrma-1000.jpg" target="_blank" rel="noopener" data-i18n="src_sit1000">NDRRMA / गृह ग्राफिक: शव ६२६, सम्पर्कविहीन २४२६, घाइते १०१, उद्धार ४४५१, जनशक्ति १५२२४ · १३ भदौ १०:००</a>
 <a href="img/today-2026-08-29-nepal-police-0700.jpg" target="_blank" rel="noopener" data-i18n="src_pol0700">नेपाल प्रहरी ग्राफिक: शव ६१६, घाइते तथा उद्धार २३०१, प्रहरी ४८११, सम्पर्कविहीन २७ · १३ भदौ ०७:००</a>
 <a href="img/today-2026-08-28-ndrrma-moha-1900.jpg" target="_blank" rel="noopener" data-i18n="src_sit1900">NDRRMA / गृह ग्राफिक: शव ५७९, सम्पर्कविहीन १९२४, घाइते १०१, उद्धार ४४५१, जनशक्ति १५४३१ · १२ भदौ १९:००</a>
 <a href="img/today-2026-08-28-nepal-police-1500.jpg" target="_blank" rel="noopener" data-i18n="src_pol1500">नेपाल प्रहरी ग्राफिक: शव ५४७, घाइते तथा उद्धार १४७३, प्रहरी ४४७३, सम्पर्कविहीन २७ · १२ भदौ १५:००</a>
@@ -8554,8 +8591,64 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-29-1112"></script>
-<script>window.PAGE_VER="2026-08-29-1112";</script>
+<script src="i18n.js?v=2026-08-29-1118"></script>
+<script>
+(function(){
+  var btn = document.getElementById("share-btn");
+  if (!btn) return;
+  var CANON = "https://nirajbhusal.github.io/rasuwa-flood-bulletin/";
+  function pack(){
+    var lang = (document.documentElement.getAttribute("lang") || "ne").slice(0,2);
+    return (window.I18N && (window.I18N[lang] || window.I18N.ne)) || {};
+  }
+  function t(k, fallback){
+    return pack()[k] || fallback;
+  }
+  function pageUrl(){
+    return CANON + (location.hash || "");
+  }
+  function toast(msg){
+    var el = document.getElementById("share-toast");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "share-toast";
+      el.className = "share-toast";
+      el.setAttribute("role", "status");
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.classList.add("on");
+    clearTimeout(el._t);
+    el._t = setTimeout(function(){ el.classList.remove("on"); }, 1800);
+  }
+  function copyUrl(){
+    var u = pageUrl();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(u).then(function(){
+        toast(t("share_copied", "लिंक कपी भयो"));
+      }).catch(function(){
+        try { window.prompt("", u); } catch (e) {}
+      });
+      return;
+    }
+    try { window.prompt("", u); } catch (e) {}
+  }
+  btn.addEventListener("click", function(){
+    var u = pageUrl();
+    var title = t("share_title", "रसुवा–भोटेकोशी बाढी बुलेटिन");
+    var text = t("share_text", "रसुवा–भोटेकोशी बाढी बुलेटिन · उद्धार १२३४");
+    if (typeof navigator.share === "function") {
+      navigator.share({ title: title, text: text, url: u }).catch(function(err){
+        if (err && err.name === "AbortError") return;
+        copyUrl();
+      });
+      return;
+    }
+    copyUrl();
+  });
+})();
+</script>
+<script>window.PAGE_VER="2026-08-29-1118";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
