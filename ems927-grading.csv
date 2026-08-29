@@ -1,0 +1,21 @@
+section,category,unit,destroyed,damaged,possibly_damaged,total_affected,total_in_aoi,share_affected
+Headline,Landslide / flood-affected area,ha,,,,111.1,,
+Headline,Estimated population,inhabitants,,,,~450,~750,60%
+Buildings,Residential buildings,No.,283,31,78,392,517,75.8%
+Buildings,Institutional,No.,1,0,0,1,1,100%
+Buildings,"School, university and research buildings",No.,0,1,0,1,1,100%
+Buildings,Other non-residential buildings,No.,37,0,0,37,38,97.4%
+Buildings,Buildings used as places of worship / religious activities,No.,2,0,0,2,2,100%
+Buildings,All buildings (sum),No.,323,32,78,433,559,77.5%
+Transportation,Primary road,km,4.7,0,0.7,5.4,5.4,100%
+Transportation,Local road,km,0.4,0,0.6,1.1,3.3,33.3%
+Transportation,Cart track,km,1.0,0,0.1,1.1,2.8,39.3%
+Transportation,Bridges and elevated highways,No.,5,0,0,5,5,100%
+Transportation,Helipad,ha,0.01,0,0,0.01,0.01,100%
+Facilities,Power plant constructions,ha,0.8,0,0,0.8,0.8,100%
+Land cover,Forests,ha,,,,61.6,228.8,26.9%
+Land cover,Shrub and/or herbaceous vegetation association,ha,,,,31.8,93.1,34.2%
+Land cover,Inland wetlands,ha,,,,12.1,14.6,82.9%
+Land cover,Other,ha,,,,3.4,4.3,79.1%
+Land cover,Heterogeneous agricultural areas,ha,,,,2.1,5.1,41.2%
+Land cover,All land cover (sum),ha,,,,111.0,345.9,32.1%
