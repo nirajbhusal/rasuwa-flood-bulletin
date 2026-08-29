@@ -113,6 +113,26 @@
 .cash-list li:last-of-type{border-bottom:0}
 .cash-list strong{font-weight:800;color:var(--forest);font-variant-numeric:tabular-nums;white-space:nowrap}
 
+.need-box{
+  background:#fff;border:1px solid #fdba74;border-radius:18px;
+  padding:18px 18px 14px;margin:0 0 16px;box-shadow:var(--shadow);
+}
+.need-box h3{margin:0 0 8px;font-size:20px;font-weight:800;color:#c2410c}
+.need-box h4{margin:14px 0 6px;font-size:15px;font-weight:800;color:#9a3412;letter-spacing:.03em}
+.need-box .cash-list{margin:0}
+.need-box .cash-list strong{color:#c2410c}
+.need-box .cash-list li{border-bottom-color:#fed7aa;font-size:16px}
+.need-contacts{list-style:none;margin:0;padding:0}
+.need-contacts li{
+  padding:10px 0;border-bottom:1px solid #fed7aa;
+  display:flex;flex-wrap:wrap;gap:2px 12px;align-items:baseline;
+}
+.need-contacts li:last-child{border-bottom:0}
+.need-contacts b{font-weight:800}
+.need-contacts a{font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink);text-decoration:none}
+.need-contacts a:hover{text-decoration:underline}
+.need-contacts .place{width:100%;font-size:14px;font-weight:700;color:var(--muted)}
+
 .cash-lead{margin:0 0 14px;font-size:16px;line-height:1.6;font-weight:600;color:var(--ink)}
 .cash-hero{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 10px;margin:0 0 12px}
 .cash-hero .cash-k{width:100%;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
@@ -7530,6 +7550,83 @@ a.portal-fab-donate{
       <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_donate">राहत कोष</h2></div>
       <p class="funds-warn" data-i18n-html="funds_warn"><span class="src">प्राधिकरण</span> बाढीपीडितका नाममा आफूखुसी सहयोग वा व्यक्तिगत QR नसङ्कलन गर्नुहोस्। तल प्रधानमन्त्री कार्यालयका खाता मात्र आधिकारिक। अटेर देखिए <a href="tel:+97714211197">०१-४२१११९७</a> मा जानकारी दिनुहोस्।</p>
       <p class="funds-lead" data-i18n-html="funds_lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन नयाँ अनलाइन पोर्टल वा SWIFT प्रयोग गर्न सकिन्छ। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
+      <article class="need-box" id="rahat-need">
+        <h3 data-i18n="need_h">राहत सामग्री आवश्यक</h3>
+        <p class="cash-note" data-i18n-html="need_lead">NDRRMA स्थिति प्रतिवेदन <strong>#०६</strong> · ११ भदौ राति २२:०० · <strong>माग</strong> सूची। पठाइएको सामग्री होइन। नगद ४ अर्ब २४ करोडमाथि होइन। यो सूची अद्यावधिक हुँदै जानेछ।</p>
+        <h4 data-i18n="need_shelter">आश्रय</h4>
+        <ul class="cash-list">
+          <li><span data-i18n="need_tent">टेन्ट</span><strong>८,६९२</strong></li>
+          <li><span data-i18n="need_tarp">टार्पोलिन</span><strong>८,६९२</strong></li>
+          <li><span data-i18n="need_rope">डोरि</span><strong>८,६९२ रोल · जम्मा २६,०७६</strong></li>
+          <li><span data-i18n="need_blanket">कम्बल</span><strong>३९,११४</strong></li>
+          <li><span data-i18n="need_plastic">कालो प्लास्टिक / सिट</span><strong>८,६९२ रोल · जम्मा १७,३८४</strong></li>
+          <li><span data-i18n="need_sbag">स्लिपिङ ब्याग</span><strong>३९,११४</strong></li>
+          <li><span data-i18n="need_smat">स्लिपिङ म्याट / पी-फोम</span><strong>३९,११४</strong></li>
+        </ul>
+        <h4 data-i18n="need_kitchen">भान्सा</h4>
+        <ul class="cash-list">
+          <li><span data-i18n="need_kset">किचन सेट</span><strong>८,६९२ परिवार</strong></li>
+          <li><span data-i18n="need_gas">ग्यास + सिलिन्डर</span><strong>८,६९२</strong></li>
+          <li><span data-i18n="need_bucket">प्लास्टिक बाल्टिन</span><strong>८,६९२ · जम्मा २६,०७६</strong></li>
+          <li><span data-i18n="need_mug">प्लास्टिक मग</span><strong>८,६९२ · जम्मा ४३,४६०</strong></li>
+          <li><span data-i18n="need_wcan">पानी भाँडो</span><strong>८,६९२</strong></li>
+        </ul>
+        <h4 data-i18n="need_hygiene">सरसफाइ</h4>
+        <ul class="cash-list">
+          <li><span data-i18n="need_baby02">बेबी किट ०–२ वर्ष</span><strong>१,९५५</strong></li>
+          <li><span data-i18n="need_baby35">बेबी किट ३–५ वर्ष</span><strong>१,९५५</strong></li>
+          <li><span data-i18n="need_kishori">किशोरी / डिग्निटी किट</span><strong>३,१३०</strong></li>
+          <li><span data-i18n="need_slip">चप्पल</span><strong>३९,११४</strong></li>
+          <li><span data-i18n="need_cloth">आवश्यक लुगा</span><strong>३९,११४</strong></li>
+          <li><span data-i18n="need_hkit">हाइजिन किट</span><strong>३,१३०</strong></li>
+          <li><span data-i18n="need_piyush">पियूष</span><strong>८,६९२ · जम्मा २६,०७६</strong></li>
+          <li><span data-i18n="need_fkit">पारिवारिक हाइजिन किट</span><strong>८,६९२</strong></li>
+          <li><span data-i18n="need_soap">साबुन / लुगा धुने साबुन</span><strong>३९,११४ · जम्मा ७८,२२८</strong></li>
+          <li><span data-i18n="need_pad">स्यानिटरी प्याड</span><strong>३,१३०</strong></li>
+          <li><span data-i18n="need_brush">टूथब्रस / टूथपेस्ट</span><strong>३९,११४ · जम्मा ७८,२२८</strong></li>
+          <li><span data-i18n="need_towel">तौलिया</span><strong>३९,११४</strong></li>
+          <li><span data-i18n="need_med">औषधि</span><strong data-i18n="need_med_q">परिमाण नखुलेको</strong></li>
+        </ul>
+        <h4 data-i18n="need_light">उज्यालो</h4>
+        <ul class="cash-list">
+          <li><span data-i18n="need_spanel">सोलार प्यानल</span><strong>८,६९२</strong></li>
+          <li><span data-i18n="need_slamp">सोलार बत्ती</span><strong>८,६९२</strong></li>
+          <li><span data-i18n="need_batt">ब्याट्री</span><strong>८,६९२</strong></li>
+        </ul>
+        <h4 data-i18n="need_food">खाद्यान्न</h4>
+        <ul class="cash-list">
+          <li><span data-i18n="need_heb">उच्च ऊर्जा बिस्कुट</span><strong>३९,११४ प्याक · जम्मा ७,८२,२८०</strong></li>
+          <li><span data-i18n="need_rte">तयार खाना</span><strong>३९,११४ प्याक · जम्मा ७,८२,२८०</strong></li>
+          <li><span data-i18n="need_rice">चामल</span><strong>८,६९२ × ३० केजी</strong></li>
+          <li><span data-i18n="need_dal">दाल</span><strong>८,६९३ × २० केजी</strong></li>
+          <li><span data-i18n="need_alu">आलु</span><strong>८,६९२ × ६० केजी</strong></li>
+          <li><span data-i18n="need_oil">पकाउने तेल</span><strong>८,६९२ लि · जम्मा २६,०७६</strong></li>
+          <li><span data-i18n="need_salt">नुन</span><strong>८,६९२ प्याक · जम्मा २६,०७६</strong></li>
+          <li><span data-i18n="need_soy">भटमास</span><strong>८,६९२ × ५ केजी</strong></li>
+          <li><span data-i18n="need_chiura">चिउरा</span><strong>८,६९२ × ५ केजी</strong></li>
+          <li><span data-i18n="need_dry">सुकेको फल</span><strong>८,६९२ केजी · जम्मा १७,३८४</strong></li>
+        </ul>
+        <h4 data-i18n="need_trans">आपत्कालीन यातायात</h4>
+        <ul class="cash-list">
+          <li><span data-i18n="need_bailey">बेली पुल ५०–७० मि</span><strong>३०</strong></li>
+        </ul>
+      </article>
+      <article class="need-box" id="rahat-collect">
+        <h3 data-i18n="collect_h">आपत्कालीन गोदाम तथा राहत संकलन</h3>
+        <p class="cash-note" data-i18n="collect_lead">NDRRMA SitRep #०६ · सामग्री यहाँ बुझाउन सकिन्छ।</p>
+        <ul class="need-contacts">
+          <li><b>पुरुषोत्तम भण्डारी</b><a href="tel:+9779851147494">९८५११४७४९४</a><span class="place" data-i18n="collect_tia">त्रिभुवन अन्तर्राष्ट्रिय विमानस्थल, आपत्कालीन गोदामघर</span></li>
+          <li><b>चन्द्र बहादुर थापा</b><a href="tel:+9779851084220">९८५१०८४२२०</a><span class="place" data-i18n="collect_tia">त्रिभुवन अन्तर्राष्ट्रिय विमानस्थल, आपत्कालीन गोदामघर</span></li>
+          <li><b>निरञ्जन निरौला</b><a href="tel:+9779843468991">९८४३४६८९९१</a><span class="place" data-i18n="collect_tia">त्रिभुवन अन्तर्राष्ट्रिय विमानस्थल, आपत्कालीन गोदामघर</span></li>
+          <li><b>दिपेन्द्र पौडेल</b><a href="tel:+9779856067770">९८५६०६७७७०</a><span class="place" data-i18n="collect_battar">मैथली ब्यारेक, बट्टार नुवाकोट (रसुवा र नुवाकोट)</span></li>
+          <li><b>प्रकाश ढुंगाना</b><a href="tel:+9779860659938">९८६०६५९९३८</a><span class="place" data-i18n="collect_battar">मैथली ब्यारेक, बट्टार नुवाकोट (रसुवा र नुवाकोट)</span></li>
+          <li><b>श्याम बाबु कट्टेल</b><a href="tel:+9779846046000">९८४६०४६०००</a><span class="place" data-i18n="collect_battar">मैथली ब्यारेक, बट्टार नुवाकोट (रसुवा र नुवाकोट)</span></li>
+          <li><b>युवराज भण्डारी</b><a href="tel:+9779846106929">९८४६१०६९२९</a><span class="place" data-i18n="collect_battar">मैथली ब्यारेक, बट्टार नुवाकोट (रसुवा र नुवाकोट)</span></li>
+          <li><b>शेखर बाबु ठोकर</b><a href="tel:+9779854045497">९८५४०४५४९७</a><span class="place" data-i18n="collect_battar">मैथली ब्यारेक, बट्टार नुवाकोट (रसुवा र नुवाकोट)</span></li>
+          <li><b data-i18n="collect_insp">प्रहरी निरीक्षक</b><a href="tel:+9779851283611">९८५१२८३६११</a><span class="place" data-i18n="collect_sama">नेपाल प्रहरी विपद् प्रतिकार्य तथा तालिम केन्द्र, सामाखुसी</span></li>
+        </ul>
+        <p class="cash-note" data-i18n="collect_note">सम्बन्धित जिल्ला प्रशासन कार्यालय र स्थानीय तहसँग पनि समन्वय गरी सामग्री उपलब्ध गराउन सकिन्छ।</p>
+      </article>
       <a class="pmdrf-card" href="https://pmdrf.nchl.com.np" target="_blank" rel="noopener" id="pmdrf">
         <span class="kpi-k" data-i18n="pmdrf_k">प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</span>
         <strong data-i18n="pmdrf_h">अनलाइन पोर्टल</strong>
@@ -8390,6 +8487,12 @@ a.portal-fab-donate{
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
             <article class="log-item now">
+      <p class="when">~१३:०८</p>
+      <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
+      <h3>राहत माग सूची र गोदाम सम्पर्क</h3>
+      <p>NDRRMA SitRep #०६ (११ भदौ राति २२:००) को <strong>माग</strong> सूची र ९ संकलन सम्पर्क <a href="#donate">राहत</a> मा। तस्बिर छैन। नगद ४ अर्ब २४ करोडमाथि होइन। जिल्ला नगद २.५० करोड पहिलेकै लेबल।</p>
+    </article>
+            <article class="log-item">
       <p class="when">~१०:००</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>NDRRMA/गृह १३ भदौ १०:०० — शव ६२६</h3>
@@ -9997,7 +10100,7 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-29-1230"></script>
+<script src="i18n.js?v=2026-08-29-1310"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -10054,7 +10157,7 @@ a.portal-fab-donate{
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-29-1230";</script>
+<script>window.PAGE_VER="2026-08-29-1310";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
