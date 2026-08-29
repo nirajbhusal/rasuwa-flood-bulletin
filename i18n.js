@@ -42,8 +42,11 @@ window.I18N = {
 "kicker": "तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर",
 "dead_162": "मृतक ६२६",
 "hero_overview": "बाढीको स्थिति · १३ भदौ",
-"hero_cash_h": "राहत रकम जम्मा",
+"hero_cash_h": "अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोषमा जम्मा राहत रकम",
 "hero_cash_num": "रु. ६ अर्ब ५५ करोड",
+"hero_cash_usd": "≈ USD ४२.९५ मिलियन · NRB खरिद १५२.५७ · २८ अगस्ट",
+"aid_grand": "≈ रु. ३२ अर्ब २५ करोड",
+"aid_grand_sub": "समानान्तर · विश्व बैंक २५ अर्ब + $१६.४९ मि. + CHF २५ मि. · NRB २८ अगस्ट · कोष ६५५ माथि होइन",
 "bank_rbb": "राष्ट्रिय वाणिज्य बैंक",
 "bank_ebl": "एभरेस्ट बैंक",
 "bank_scb": "स्ट्यान्डर्ड चार्टर्ड",
@@ -122,7 +125,7 @@ window.I18N = {
 "aid_sent_note": "जयशंकर: पहिलो १० टन (२६ अगस्ट, आश्रय/कम्बल/औषधि) + दोस्रो ३७.५ टन (११ भदौ, औषधि/खाद्यान्न)। WHO औषधि/टेन्ट पनि पठाइएको (टन नखुलेको)। त्रिभुवन हस्तान्तरण पुष्टि छैन।",
 "aid_ifrc_cap": "पठाइएको कोष · IFRC DREF",
 "aid_ifrc_bar": "IFRC · रेडक्रस",
-"aid_ifrc_note": "नेपाल रेडक्रसलाई आपत्कालीन कोष। सरकारको खातामा आएको होइन। विश्व बैंक Rs २५ अर्ब प्रस्ताव हो, कोषमा गनिएको छैन।",
+"aid_ifrc_note": "नेपाल रेडक्रसलाई आपत्कालीन कोष। सरकारको खातामा आएको होइन। विश्व बैंक रु. २५ अर्ब प्रस्ताव हो, कोषमा गनिएको छैन।",
 "aid_offer_cap": "अन्य प्रस्ताव · प्राप्त होइन",
 "aid_o_eu": "युरोपेली संघ",
 "aid_o_eu_v": "नक्सा",
@@ -927,8 +930,11 @@ window.I18N = {
 "kicker": "Flash flood from Tibet · Trishuli corridor",
 "dead_162": "Deaths 626",
 "hero_overview": "Flood snapshot · 13 Bhadra",
-"hero_cash_h": "Relief cash total",
-"hero_cash_num": "Rs 6.55 billion",
+"hero_cash_h": "Total relief in the Ministry of Finance / PM Disaster Relief Fund / PM Relief Fund",
+"hero_cash_num": "NPR 6.55 billion",
+"hero_cash_usd": "≈ USD 42.95 million · NRB buy 152.57 · 28 Aug",
+"aid_grand": "≈ NPR 32.25 billion",
+"aid_grand_sub": "Converted · World Bank NPR 25bn + $16.49m + CHF 25m · NRB 28 Aug · not added on the NPR 6.55 billion pot",
 "bank_rbb": "Rastriya Banijya Bank",
 "bank_ebl": "Everest Bank",
 "bank_scb": "Standard Chartered",
@@ -938,11 +944,11 @@ window.I18N = {
 "bank_global": "Global IME",
 "bank_adbl": "Agricultural Development Bank",
 "bank_nbl": "Nepal Bank",
-"bank_total": "Total (Rs)",
+"bank_total": "Total (NPR)",
 "bank_after": "Collected after the disaster",
 "bank_before": "Balance before the disaster",
 "bank_usd": "USD (Himalayan + Laxmi)",
-"cash_friday_cap": "Friday same-day · 27 via the Finance Minister · inside Rs 6.55 billion",
+"cash_friday_cap": "Friday same-day · 27 via the Finance Minister · inside NPR 6.55 billion",
 "pmdrf_sheet_h": "Fund · 9 banks · 12 Bhadra",
 "pmdrf_sheet_c": "Total 6,55,33,62,011 · after disaster 4,38,08,52,252",
 "pmdrf_sheet_alt": "PM Disaster Relief Fund, 9 banks, 12 Bhadra",
@@ -979,16 +985,16 @@ window.I18N = {
 "hero_aid_h": "Foreign aid",
 "hero_aid_unit": "tonnes",
 "hero_aid_sub": "India two flights · IFRC Red Cross · sent",
-"hero_aid_pledge": "Pledges: UK £5m · World Bank Rs 25bn · US $500k · OCHA $3.2m · Korea $1m · IFRC CHF 25m · ADB $5m",
+"hero_aid_pledge": "Pledges: UK £5m · World Bank NPR 25bn · US $500k · OCHA $3.2m · Korea $1m · IFRC CHF 25m · ADB $5m",
 "aid_tot_h": "Pledge totals",
-"aid_tot_npr": "Rs 25 billion",
+"aid_tot_npr": "NPR 25 billion",
 "aid_tot_npr_l": "World Bank",
 "aid_tot_usd": "$16.49m total",
 "aid_tot_usd_l": "total",
 "aid_tot_usd_sub": "UK $6.79m + US $0.5m + OCHA $3.2m + ROK $1m + ADB $5m",
 "aid_tot_chf": "CHF 25m",
 "aid_tot_chf_l": "IFRC appeal",
-"aid_tot_note": "Currencies are not summed into one NPR figure. World Bank $163.55m is not inside this $16.49m. Not added to relief Rs 6.55 billion. ADB $5m is a pledge, not cash.",
+"aid_tot_note": "Currencies are not summed into one NPR figure. World Bank $163.55m is not inside this $16.49m. Not added to relief NPR 6.55 billion. ADB $5m is a pledge, not cash.",
 "aid_pledge_h": "Foreign-aid pledges",
 "aid_pledge_lead": "Country/organisation, amount, channel.",
 "aid_pledge_tag": "Pledge",
@@ -1007,7 +1013,7 @@ window.I18N = {
 "aid_sent_note": "Jaishankar: first 10 tonnes (26 Aug, shelter/blankets/medicine) + second 37.5 tonnes (11 Bhadra, medicine/food). WHO also sent medicine/tents (tonnage not given). TIA handover not confirmed.",
 "aid_ifrc_cap": "Funds sent · IFRC DREF",
 "aid_ifrc_bar": "IFRC · Red Cross",
-"aid_ifrc_note": "Emergency fund to Nepal Red Cross. Not into a government account. World Bank Rs 25 billion is an offer, not counted as funds.",
+"aid_ifrc_note": "Emergency fund to Nepal Red Cross. Not into a government account. World Bank NPR 25 billion is an offer, not counted as funds.",
 "aid_offer_cap": "Other offers · not received",
 "aid_o_eu": "European Union",
 "aid_o_eu_v": "maps",
@@ -1115,7 +1121,7 @@ window.I18N = {
 "stats_aria": "Preliminary figures",
 "h_donate": "Relief funds",
 "need_h": "Relief goods needed",
-"need_lead": "NDRRMA SitRep <strong>#06</strong> · 11 Bhadra 22:00 · <strong>need</strong> list. Not goods already sent. Not added on the Rs 6.55 billion cash pot. This list will keep being updated.",
+"need_lead": "NDRRMA SitRep <strong>#06</strong> · 11 Bhadra 22:00 · <strong>need</strong> list. Not goods already sent. Not added on the NPR 6.55 billion cash pot. This list will keep being updated.",
 "need_shelter": "Shelter",
 "need_kitchen": "Kitchen",
 "need_hygiene": "Hygiene",
@@ -1588,11 +1594,11 @@ window.I18N = {
 "cash_suryanepal_lead": "Surya Nepal Pvt. Ltd. contributed <strong>15 crore</strong> rupees to the Prime Minister’s Disaster Relief Fund.",
 "cash_suryanepal": "Surya Nepal Pvt. Ltd.",
 "cash_suryanepal_cap": "Surya Nepal Pvt. Ltd. · 15 crore",
-"cash_suryanepal_note": "Surya Nepal Pvt. Ltd. contributed 15 crore rupees to the Prime Minister’s Disaster Relief Fund. Included in the Rs 4.24 billion total — do not add again.",
-"cash_sheet_lead": "Ministry of Finance / PMDRF · 12 Bhadra — total <strong>Rs 6.55 billion</strong> (6,55,33,62,011). Collected after the disaster <strong>Rs 4.38 billion</strong> (4,38,08,52,252). Balance before the disaster <strong>Rs 2.17 billion</strong> (2,17,25,09,759) — already inside the total, do not add again. Previous 11 Bhadra total 4.09 billion (4,09,11,60,670) / post-disaster 1.91 billion is history. Surya Nepal 15 / Friday 38.55 are inside this 6.55 billion. USD <strong>680,618</strong> labeled separately — not in the NPR total. Friendly-nation pledges not included. Source: <a href=\"img/today-2026-08-29-pmdrf-banks-0512.jpg\" target=\"_blank\" rel=\"noopener\">9-bank table</a>.",
-"cash_named_lead": "Friday, via Finance Minister Dr Swarnim Wagle: 27 institutions/individuals — same-day <strong>Rs 38.55 crore</strong> (38,56,64,222) into the Prime Minister’s Disaster Relief Fund. Inside the Rs 6.55 billion — do not add again. Surya Nepal 15 is on this list. Earlier MoF private-sector 27.33 crore is history only.",
-"cash_balance_note": "Prior balance <strong>2,17,25,09,759</strong> is inside the Rs 6.55 billion — not a second pot. USD 680,618 (Himalayan 591,451 + Laxmi Sunrise 89,167) is not in the NPR total. Friendly-nation pledges not included.",
-"ndrrma_rahat_1500": "NDRRMA / MoHA 12 Bhadra 19:00 — government cash to districts: Rasuwa <strong>1 crore</strong> · Nuwakot <strong>1 crore</strong> · Dhading <strong>50 lakh</strong> · <strong>15 palikas Rs 6.75 crore</strong> (district/palika cash, not the PMDRF — do not add on top of Rs 4.24 billion). Goods: 32 trucks; 6 heli relief flights; comms sets. Nuwakot: diesel 41,000 · petrol 24,000 in stock; aviation fuel <strong>17,000</strong> L sent.",
+"cash_suryanepal_note": "Surya Nepal Pvt. Ltd. contributed 15 crore rupees to the Prime Minister’s Disaster Relief Fund. Included in the NPR 4.24 billion total — do not add again.",
+"cash_sheet_lead": "Ministry of Finance / PMDRF · 12 Bhadra — total <strong>NPR 6.55 billion</strong> (6,55,33,62,011). Collected after the disaster <strong>NPR 4.38 billion</strong> (4,38,08,52,252). Balance before the disaster <strong>NPR 2.17 billion</strong> (2,17,25,09,759) — already inside the total, do not add again. Previous 11 Bhadra total 4.09 billion (4,09,11,60,670) / post-disaster 1.91 billion is history. Surya Nepal 15 / Friday 38.55 are inside this 6.55 billion. USD <strong>680,618</strong> labeled separately — not in the NPR total. Friendly-nation pledges not included. Source: <a href=\"img/today-2026-08-29-pmdrf-banks-0512.jpg\" target=\"_blank\" rel=\"noopener\">9-bank table</a>.",
+"cash_named_lead": "Friday, via Finance Minister Dr Swarnim Wagle: 27 institutions/individuals — same-day <strong>NPR 38.55 crore</strong> (38,56,64,222) into the Prime Minister’s Disaster Relief Fund. Inside the NPR 6.55 billion — do not add again. Surya Nepal 15 is on this list. Earlier MoF private-sector 27.33 crore is history only.",
+"cash_balance_note": "Prior balance <strong>2,17,25,09,759</strong> is inside the NPR 6.55 billion — not a second pot. USD 680,618 (Himalayan 591,451 + Laxmi Sunrise 89,167) is not in the NPR total. Friendly-nation pledges not included.",
+"ndrrma_rahat_1500": "NDRRMA / MoHA 12 Bhadra 19:00 — government cash to districts: Rasuwa <strong>1 crore</strong> · Nuwakot <strong>1 crore</strong> · Dhading <strong>50 lakh</strong> · <strong>15 palikas NPR 6.75 crore</strong> (district/palika cash, not the PMDRF — do not add on top of NPR 4.24 billion). Goods: 32 trucks; 6 heli relief flights; comms sets. Nuwakot: diesel 41,000 · petrol 24,000 in stock; aviation fuel <strong>17,000</strong> L sent.",
 "cash_ncell": "Ncell Axiata",
 "cash_pandey": "Bikram Pandey",
 "cash_nica": "NIC Asia",
@@ -1612,8 +1618,8 @@ window.I18N = {
 "cash_door": "One-door",
 "cash_all_cap": "9 banks · 12 Bhadra · total 6,55,33,62,011",
 "cash_all_note": "9-bank total 6,55,33,62,011 = post-disaster 4,38,08,52,252 + prior balance 2,17,25,09,759. Friday 38.55 and Surya 15 are inside this — do not add again. USD 680,618 is not in the NPR total.",
-"cash_friday_lead": "Friday, via Finance Minister Dr Swarnim Wagle: 27 institutions/individuals — same-day <strong>Rs 38.55 crore</strong> (38,56,64,222). Surya Nepal 15 is on this list — do not add on top of Rs 6.55 billion.",
-"cash_hist_cap": "Earlier named list · inside the Rs 6.55 billion",
+"cash_friday_lead": "Friday, via Finance Minister Dr Swarnim Wagle: 27 institutions/individuals — same-day <strong>NPR 38.55 crore</strong> (38,56,64,222). Surya Nepal 15 is on this list — do not add on top of NPR 6.55 billion.",
+"cash_hist_cap": "Earlier named list · inside the NPR 6.55 billion",
 "cash_prime": "Prime Bank",
 "cash_krishi": "Agricultural Development Bank",
 "cash_nlic": "Nepal Life Insurance",
@@ -1645,7 +1651,7 @@ window.I18N = {
 "rs_ground": "Citizens rescued · SitRep-6",
 "rs_free": "Injured care · health / Army / government hospitals",
 "rs_crisis": "Affected municipalities disaster-hit (Disaster Act 2074)",
-"rahat_note": "NDRRMA / MoHA 13 Bhadra 10:00 — government cash to districts: Rasuwa <strong>1 crore</strong> · Nuwakot <strong>1 crore</strong> · Dhading <strong>50 lakh</strong> · <strong>15 palikas Rs 6.75 crore</strong> (district/palika cash, not the PMDRF — do not add on top of Rs 4.24 billion). Goods: 37 trucks; 7 heli relief flights; comms sets. Nuwakot: diesel 41,000 · petrol 24,000 in stock; aviation fuel <strong>39,000</strong> L sent to Nuwakot.",
+"rahat_note": "NDRRMA / MoHA 13 Bhadra 10:00 — government cash to districts: Rasuwa <strong>1 crore</strong> · Nuwakot <strong>1 crore</strong> · Dhading <strong>50 lakh</strong> · <strong>15 palikas NPR 6.75 crore</strong> (district/palika cash, not the PMDRF — do not add on top of NPR 4.24 billion). Goods: 37 trucks; 7 heli relief flights; comms sets. Nuwakot: diesel 41,000 · petrol 24,000 in stock; aviation fuel <strong>39,000</strong> L sent to Nuwakot.",
 "treat_lead": "DEOC Kathmandu · <strong>88</strong> injured brought to Kathmandu (under treatment <strong>69</strong>, discharged <strong>19</strong>) labeled only. Official NDRRMA injured under treatment <strong>101</strong>. Previous 73 is history. SitRep-6 table 130/67 is separate (includes Rasuwa/Nuwakot hospitals).",
 "treat_dhunche_h": "Rasuwa Hospital · Dhunche 74",
 "treat_ktm_h": "DEOC Kathmandu · 88",
@@ -2019,12 +2025,12 @@ window.I18N_LISTS = {
 ],
 "hist": [
 {
-"h": "PMDRF Rs 6.55 billion",
-"p": "9-bank table 12 Bhadra: total <strong>6,55,33,62,011</strong> = after the disaster <strong>4,38,08,52,252</strong> + prior balance <strong>2,17,25,09,759</strong>. USD 680,618 labeled separately. Previous Rs 4.24 billion is history. Surya 15 / Friday 38.55 are inside this. District cash and foreign pledges not added. <a href=\"#donate\">Relief</a>."
+"h": "PMDRF NPR 6.55 billion",
+"p": "9-bank table 12 Bhadra: total <strong>6,55,33,62,011</strong> = after the disaster <strong>4,38,08,52,252</strong> + prior balance <strong>2,17,25,09,759</strong>. USD 680,618 labeled separately. Previous NPR 4.24 billion is history. Surya 15 / Friday 38.55 are inside this. District cash and foreign pledges not added. <a href=\"#donate\">Relief</a>."
 },
 {
 "h": "Relief need list and warehouse contacts",
-"p": "NDRRMA SitRep #06 (11 Bhadra 22:00) <strong>need</strong> list and 9 collection contacts on <a href=\"#donate\">Relief</a>. No photos. Not added on the Rs 6.55 billion cash pot. District cash Rs 2.50 crore stays the earlier labeled line."
+"p": "NDRRMA SitRep #06 (11 Bhadra 22:00) <strong>need</strong> list and 9 collection contacts on <a href=\"#donate\">Relief</a>. No photos. Not added on the NPR 6.55 billion cash pot. District cash NPR 2.50 crore stays the earlier labeled line."
 },
 {
 "h": "NDRRMA/MoHA 13 Bhadra 10:00 — dead 626",
@@ -2056,7 +2062,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "NDRRMA/MoHA 12 Bhadra 19:00 — dead 579",
-"p": "NDRRMA / Ministry of Home Affairs graphic, 19:00: bodies <strong>579</strong> — Chitwan 233, Nawalparasi East 154, Gorkha 46 (including various human remains), Dhading 40, Nuwakot 37, Tanahun 30, Nawalparasi West 27, Rasuwa 12. Uncontacted <strong>1,924</strong> (Police 28 · Army 45 · APF 13 · Customs 15 · Immigration 15 · Rasuwa DEOC 161 · Nuwakot DEOC 1 · hydropower 933 · Makwanpur DEOC 66 · foreign 517 · Nepalis living abroad (travel) 127 · Langtang National Park 3) — Hello Sarkar 140 / Madhesh 30 / form not added. Injured under treatment <strong>101</strong>. Rescued <strong>4,451</strong> (including tunnel 191 + today air 517 · foreign 129). Deployed <strong>15,431</strong> (Police 4,473 · Army 6,755 · APF 4,203). Helis 16 · flights 99. Previous police 17:00 dead 553 is history. Previous NDRRMA 15:00 dead 538 / uncontacted 977 / injured 73 / rescued 3742 / deployed 14,829 is older history. SitRep heli 1976 / citizens 1552 / aircraft 14 stay separate. Army 924 stays separate. Name tables 529 / Timure 73 / Indian 21 / Trishuli-1 63 / heli-names 654 unchanged — 4451 and 654 are not in the found total. PMDRF Rs 4.24 billion unchanged. District cash Rasuwa 1 crore · Nuwakot 1 crore · Dhading 50 lakh · 15 palikas Rs 6.75 crore (not added on the fund); 32 trucks; 6 heli relief flights; Nuwakot fuel diesel 41,000 · petrol 24,000 in stock · aviation 17,000 L sent. Source: <a href=\"img/today-2026-08-28-ndrrma-moha-1900.jpg\" target=\"_blank\" rel=\"noopener\">NDRRMA / MoHA graphic</a>."
+"p": "NDRRMA / Ministry of Home Affairs graphic, 19:00: bodies <strong>579</strong> — Chitwan 233, Nawalparasi East 154, Gorkha 46 (including various human remains), Dhading 40, Nuwakot 37, Tanahun 30, Nawalparasi West 27, Rasuwa 12. Uncontacted <strong>1,924</strong> (Police 28 · Army 45 · APF 13 · Customs 15 · Immigration 15 · Rasuwa DEOC 161 · Nuwakot DEOC 1 · hydropower 933 · Makwanpur DEOC 66 · foreign 517 · Nepalis living abroad (travel) 127 · Langtang National Park 3) — Hello Sarkar 140 / Madhesh 30 / form not added. Injured under treatment <strong>101</strong>. Rescued <strong>4,451</strong> (including tunnel 191 + today air 517 · foreign 129). Deployed <strong>15,431</strong> (Police 4,473 · Army 6,755 · APF 4,203). Helis 16 · flights 99. Previous police 17:00 dead 553 is history. Previous NDRRMA 15:00 dead 538 / uncontacted 977 / injured 73 / rescued 3742 / deployed 14,829 is older history. SitRep heli 1976 / citizens 1552 / aircraft 14 stay separate. Army 924 stays separate. Name tables 529 / Timure 73 / Indian 21 / Trishuli-1 63 / heli-names 654 unchanged — 4451 and 654 are not in the found total. PMDRF NPR 4.24 billion unchanged. District cash Rasuwa 1 crore · Nuwakot 1 crore · Dhading 50 lakh · 15 palikas NPR 6.75 crore (not added on the fund); 32 trucks; 6 heli relief flights; Nuwakot fuel diesel 41,000 · petrol 24,000 in stock · aviation 17,000 L sent. Source: <a href=\"img/today-2026-08-28-ndrrma-moha-1900.jpg\" target=\"_blank\" rel=\"noopener\">NDRRMA / MoHA graphic</a>."
 },
 {
 "h": "ADB $5 million emergency grant (APDRF)",
@@ -2067,32 +2073,32 @@ window.I18N_LISTS = {
 "p": "Army + private heli rescued name list <strong>654</strong> (10–12 Bhadra; men 421 · women 231). SitRep 1976 / NDRRMA 4451 stay separate. <a href=\"#family\">Missing / found</a>."
 },
 {
-"h": "Friday via MoF: 27 donors · Rs 38.55 crore",
-"p": "Friday, via the Finance Minister: 27 institutions/individuals, same-day <strong>Rs 38.55 crore</strong> (38,56,64,222) into the same PMDRF pot; includes Surya Nepal 15; Raji Rana 1 crore 9 lakh. Not stacked on Rs 4.24 billion. <a href=\"#donate\">Relief funds</a>."
+"h": "Friday via MoF: 27 donors · NPR 38.55 crore",
+"p": "Friday, via the Finance Minister: 27 institutions/individuals, same-day <strong>NPR 38.55 crore</strong> (38,56,64,222) into the same PMDRF pot; includes Surya Nepal 15; Raji Rana 1 crore 9 lakh. Not stacked on NPR 4.24 billion. <a href=\"#donate\">Relief funds</a>."
 },
 {
 "h": "Police 12 Bhadra 17:00 — dead 553",
 "p": "Nepal Police, Friday 17:00: bodies <strong>553</strong> — Chitwan 222, Nawalparasi East 134, Gorkha 47, Dhading 40, Nuwakot 38, Tanahun 31, Nawalparasi West 28, Rasuwa 13. Previous police graphic 15:00 dead 547 is history. Injured 73 · uncontacted 977 · heli 1976 unchanged. Source: <a href=\"https://nepalpolice.gov.np/\" target=\"_blank\" rel=\"noopener\">Nepal Police</a>. New names on the missing list. <a href=\"#family\">Missing</a>."
 },
 {
-"h": "Surya Nepal 15 crore; fund total Rs 4.24 billion",
-"p": "Surya Nepal Pvt. Ltd. 15 crore is now in the total. PM fund <strong>Rs 4.09 billion</strong> + Surya Nepal <strong>15 crore</strong> = <strong>Rs 4.24 billion</strong>. The 36-hour Rs 1.91 billion stays inside the 4.09 billion. BYD 7 / Global IME 5 / Pandey 1.01 / 27.33 remain history — not stacked on 4.24. <a href=\"#donate\">Relief funds</a>."
+"h": "Surya Nepal 15 crore; fund total NPR 4.24 billion",
+"p": "Surya Nepal Pvt. Ltd. 15 crore is now in the total. PM fund <strong>NPR 4.09 billion</strong> + Surya Nepal <strong>15 crore</strong> = <strong>NPR 4.24 billion</strong>. The 36-hour NPR 1.91 billion stays inside the 4.09 billion. BYD 7 / Global IME 5 / Pandey 1.01 / 27.33 remain history — not stacked on 4.24. <a href=\"#donate\">Relief funds</a>."
 },
 {
 "h": "Surya Nepal Pvt. Ltd. 15 crore",
-"p": "Surya Nepal Pvt. Ltd. contributed <strong>15 crore</strong> rupees to the Prime Minister’s Disaster Relief Fund. Named-donor history/detail — not added on top of the Rs 4.09 billion total. <a href=\"#donate\">Relief funds</a>."
+"p": "Surya Nepal Pvt. Ltd. contributed <strong>15 crore</strong> rupees to the Prime Minister’s Disaster Relief Fund. Named-donor history/detail — not added on top of the NPR 4.09 billion total. <a href=\"#donate\">Relief funds</a>."
 },
 {
-"h": "PMDRF total Rs 4.09 billion",
-"p": "Prime Minister’s Disaster Relief Fund total <strong>Rs 4 arab 9 crore</strong> (4 arab 9 crore 11 lakh 60 thousand). In 36 hours: <strong>Rs 1.91 billion</strong> (1,91,86,50,911). Friendly-nation pledges not included. Named-donor lines are history/detail. <a href=\"#donate\">Relief funds</a>."
+"h": "PMDRF total NPR 4.09 billion",
+"p": "Prime Minister’s Disaster Relief Fund total <strong>NPR 4 arab 9 crore</strong> (4 arab 9 crore 11 lakh 60 thousand). In 36 hours: <strong>NPR 1.91 billion</strong> (1,91,86,50,911). Friendly-nation pledges not included. Named-donor lines are history/detail. <a href=\"#donate\">Relief funds</a>."
 },
 {
 "h": "Foreign pledges (UK, US, World Bank, OCHA, Korea, IFRC)",
-"p": "Foreign-aid announcements. <strong>UK</strong> £5 million ($6.79 million) via FCDO · <strong>United States</strong> $500,000 State Department/CRS (emergency shelters, water/hygiene) plus a disaster response adviser · <strong>World Bank</strong> Rs 25 arab ($163.55 million) · <strong>OCHA</strong> $3.2 million from CERF · <strong>South Korea</strong> $1 million through international agencies · <strong>IFRC</strong> CHF 1 million ($1.24 million) released, emergency appeal CHF 25 million. <a href=\"https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods\" target=\"_blank\" rel=\"noopener\">IFRC</a> · <a href=\"#aid\">Foreign aid</a>."
+"p": "Foreign-aid announcements. <strong>UK</strong> £5 million ($6.79 million) via FCDO · <strong>United States</strong> $500,000 State Department/CRS (emergency shelters, water/hygiene) plus a disaster response adviser · <strong>World Bank</strong> NPR 25 arab ($163.55 million) · <strong>OCHA</strong> $3.2 million from CERF · <strong>South Korea</strong> $1 million through international agencies · <strong>IFRC</strong> CHF 1 million ($1.24 million) released, emergency appeal CHF 25 million. <a href=\"https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods\" target=\"_blank\" rel=\"noopener\">IFRC</a> · <a href=\"#aid\">Foreign aid</a>."
 },
 {
-"h": "PMDRF Rs 1.91 billion / Ministry of Finance",
-"p": "Ministry of Finance: <strong>Rs 1,91,86,50,911</strong> (1 arab 91 crore 86 lakh 50 thousand 911) deposited in the Prime Minister’s Disaster Relief Fund. Private-sector <strong>27.33 crore</strong> is inside this total. Friendly-nation pledges not included. Fund balance Rs 4 arab 9 crore 11 lakh 60 thousand is the whole pot, not the flood-donation total. <a href=\"#donate\">Relief funds</a>."
+"h": "PMDRF NPR 1.91 billion / Ministry of Finance",
+"p": "Ministry of Finance: <strong>NPR 1,91,86,50,911</strong> (1 arab 91 crore 86 lakh 50 thousand 911) deposited in the Prime Minister’s Disaster Relief Fund. Private-sector <strong>27.33 crore</strong> is inside this total. Friendly-nation pledges not included. Fund balance NPR 4 arab 9 crore 11 lakh 60 thousand is the whole pot, not the flood-donation total. <a href=\"#donate\">Relief funds</a>."
 },
 {
 "h": "Police 12 Bhadra 15:00 — dead 547",
@@ -2360,11 +2366,11 @@ window.I18N_LISTS = {
 },
 {
 "h": "Modi–Balen call: India ready with humanitarian aid",
-"p": "Indian PM Narendra Modi spoke by phone with PM Balendra Shah (Ratopati ~17:32). Sorrow and condolences for the loss of life and property; in a hard time the people of India stand with Nepali brothers and sisters. Modi: India is ready to provide all needed <strong>humanitarian assistance</strong> — an offer/readiness, not cash in hand. Indian teams continue to coordinate rescue–relief closely with Nepal. World Bank Rs 25 billion also remains an offer/possible."
+"p": "Indian PM Narendra Modi spoke by phone with PM Balendra Shah (Ratopati ~17:32). Sorrow and condolences for the loss of life and property; in a hard time the people of India stand with Nepali brothers and sisters. Modi: India is ready to provide all needed <strong>humanitarian assistance</strong> — an offer/readiness, not cash in hand. Indian teams continue to coordinate rescue–relief closely with Nepal. World Bank NPR 25 billion also remains an offer/possible."
 },
 {
-"h": "World Bank Rs 25 billion, India–China aid coordination",
-"p": "World Bank Nepal director David Sislen with Finance Minister Dr Swarnim Wagle (~10:35): up to Rs <strong>25 billion</strong> could be made available from various sources as emergency support — a possible commitment, not received. India: asked for a list of relief goods needed; Foreign Minister Shishir Khanal: Indian relief goods being prepared to reach <strong>Kathmandu today</strong>. China: immediate cash support; Ambassador Zhang Maoming asked to start the process through the finance minister. Finance minister: thanks, aid modality still under discussion. Cabinet: Rasuwa, Nuwakot, Dhading affected municipalities disaster-hit — this does not replace the six-district three-month declaration."
+"h": "World Bank NPR 25 billion, India–China aid coordination",
+"p": "World Bank Nepal director David Sislen with Finance Minister Dr Swarnim Wagle (~10:35): up to NPR <strong>25 billion</strong> could be made available from various sources as emergency support — a possible commitment, not received. India: asked for a list of relief goods needed; Foreign Minister Shishir Khanal: Indian relief goods being prepared to reach <strong>Kathmandu today</strong>. China: immediate cash support; Ambassador Zhang Maoming asked to start the process through the finance minister. Finance minister: thanks, aid modality still under discussion. Cabinet: Rasuwa, Nuwakot, Dhading affected municipalities disaster-hit — this does not replace the six-district three-month declaration."
 },
 {
 "h": "25 injured in treatment in Kathmandu, named",
@@ -2419,8 +2425,8 @@ window.I18N_LISTS = {
 "p": "Spokesperson Pokharel: drones without a permit in the 6 disaster-hit districts, hotline 1234. Smoke/fire for helicopters, WhatsApp geo-location to the assistant CDO. Coordination with China–India, 11 helicopters ready. Gorkhapatra reporter: people seen calling for rescue from roofs at Betrawati Satbise Phant — no photo."
 },
 {
-"h": "6 districts disaster-hit, Rs 2.5 crore relief",
-"p": "Rasuwa, Nuwakot, Dhading, Chitwan, Gorkha, Tanahun disaster-hit for three months. Disaster Council: Rasuwa–Nuwakot Rs 10 million each, Dhading Rs 5 million. NDRRMA chief Upreti: a temporary dam burst after an avalanche on the Donglin Changgo in Gyirong County. Today’s photos of Trishuli bazaar added."
+"h": "6 districts disaster-hit, NPR 2.5 crore relief",
+"p": "Rasuwa, Nuwakot, Dhading, Chitwan, Gorkha, Tanahun disaster-hit for three months. Disaster Council: Rasuwa–Nuwakot NPR 10 million each, Dhading NPR 5 million. NDRRMA chief Upreti: a temporary dam burst after an avalanche on the Donglin Changgo in Gyirong County. Today’s photos of Trishuli bazaar added."
 },
 {
 "h": "Cabinet’s 10 decisions",
@@ -2560,7 +2566,7 @@ window.I18N_LISTS = {
 "CDO Aryal (Onlinekhabar live ~12:58): flood around Chitwan, as far as <strong>before the Fishling area</strong>.",
 "Division hydrologist Saurabhdhwaj Joshi: flood reached Malekhu at <strong>11:50</strong>. Furke station read <strong>10.8 m</strong> then the station and suspension bridge washed away. Kalikhola after that toward Chitwan–Devghat. Flood forecast <a href=\"tel:1155\">1155</a> (option 2).",
 "Nepal flood info: Chitwan–Devghat now <strong>4.76 m</strong>; flood expected about <strong>3:30 pm</strong>, surface up to about <strong>8 m</strong> (2–3 year return). Large inundation in Chitwan/Nawalparasi now less likely, but stay on high ground near the river.",
-"<strong>6 districts disaster-hit:</strong> Rasuwa, Nuwakot, Dhading, Chitwan, Gorkha, Tanahun for three months. Disaster Council: Rasuwa–Nuwakot Rs 10 million each, Dhading Rs 5 million. Nawalparasi (Bardaghat Susta West) CDO: stay off the Narayani bank.",
+"<strong>6 districts disaster-hit:</strong> Rasuwa, Nuwakot, Dhading, Chitwan, Gorkha, Tanahun for three months. Disaster Council: Rasuwa–Nuwakot NPR 10 million each, Dhading NPR 5 million. Nawalparasi (Bardaghat Susta West) CDO: stay off the Narayani bank.",
 "<strong>Rescue signals (spokesperson Pokharel):</strong> rescue drones in 6 districts <strong>need no permit</strong> — coordinate <a href=\"tel:1234\">1234</a>. Those trapped: smoke/fire for helicopters, or WhatsApp geo-location to the assistant CDO. Coordination with China–India; <strong>11 helicopters</strong> on standby (Army/private 12 deployed, unchanged).",
 "Langtang 20 MW: MD Bijaymohan Bhattarai — <strong>35</strong> workers trapped in the tunnel (~100 m above the river); other staff including engineers <strong>25</strong> uncontacted; about <strong>60</strong> across the project. Previous 25+ is updated by this 35. Not deaths. Powerhouse washed away; headworks somewhat safe.",
 "PMO 19:00: foreign tourists <strong>391</strong> + Nepali <strong>93</strong> = <strong>484</strong> uncontacted. Previous tourism ministry 403 is updated by this 484. Not deaths.",
@@ -2609,7 +2615,7 @@ window.I18N_LISTS = {
 "aid_pledge": [
 "<span class=\"aid-tag pledge\">Pledge</span> <b>United Kingdom</b> · £5 million ($6.79 million) · FCDO · immediate humanitarian support",
 "<span class=\"aid-tag pledge\">Pledge</span> <b>United States</b> · $500,000 · State Department and Catholic Relief Services (emergency shelters + water/hygiene). A disaster response adviser sent to the region.",
-"<span class=\"aid-tag pledge\">Pledge</span> <b>World Bank</b> · emergency package Rs 25 arab ($163.55 million)",
+"<span class=\"aid-tag pledge\">Pledge</span> <b>World Bank</b> · emergency package NPR 25 arab ($163.55 million)",
 "<span class=\"aid-tag pledge\">Pledge</span> <b>United Nations OCHA</b> · $3.2 million · CERF · anticipatory and ongoing community actions",
 "<span class=\"aid-tag pledge\">Pledge</span> <b>South Korea</b> · $1 million humanitarian assistance · through international agencies",
 "<span class=\"aid-tag pledge\">Pledge</span> <b>IFRC</b> · initial CHF 1 million ($1.24 million) released; emergency appeal CHF 25 million. <a href=\"https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods\" target=\"_blank\" rel=\"noopener\">IFRC</a>",
@@ -2626,7 +2632,7 @@ window.I18N_LISTS = {
 "<span class=\"aid-tag offer\">Offered</span> <b>India · Modi–Balen call</b> ~17:32. Indian Prime Minister: ready to provide all needed humanitarian aid. Cash not in hand. Later 10 tonnes HADR sent (above). Source: <a href=\"https://www.ratopati.com/story/587614/indian-pm-modi-pm-balen-talk-over-phone-pledge-to-support-nepal\" target=\"_blank\" rel=\"noopener\">Ratopati</a>",
 "<span class=\"aid-tag offer\">Offered</span> <b>India · relief-goods list</b> (afternoon). India asked for a list of goods needed at once. Foreign Minister Khanal: Indian relief goods being prepared to reach Kathmandu today. Later 10 tonnes sent. Source: <a href=\"https://risingnepaldaily.com/news/85557\" target=\"_blank\" rel=\"noopener\">Finance Ministry / Rising Nepal</a> · <a href=\"https://gorkhapatraonline.com/news/219978\" target=\"_blank\" rel=\"noopener\">Gorkhapatra</a>",
 "<span class=\"aid-tag offer\">Offered</span> <b>China · immediate cash</b>. Ambassador Zhang Maoming asked to start sending funds through the finance minister. Amount not disclosed. Modality still under discussion — not received. Source: <a href=\"https://risingnepaldaily.com/news/85557\" target=\"_blank\" rel=\"noopener\">Finance Ministry / Rising Nepal</a> · <a href=\"https://kathmandupost.com/national/2026/08/26/nepal-seeks-answers-on-flash-flood-as-india-china-us-and-world-bank-offer-support\" target=\"_blank\" rel=\"noopener\">Kantipur</a>",
-"<span class=\"aid-tag offer\">Offered</span> <b>World Bank · Rs 25 billion</b>. Nepal director David Sislen (~10:35) with Finance Minister Dr Swarnim Wagle: up to 25 billion could be made available from various sources as emergency support. Loan/grant not confirmed. Not received. Source: <a href=\"https://risingnepaldaily.com/news/85557\" target=\"_blank\" rel=\"noopener\">Finance Ministry / Rising Nepal</a> · <a href=\"https://english.khabarhub.com/2026/26/564954/\" target=\"_blank\" rel=\"noopener\">Khabarhub</a> · <a href=\"https://kathmandupost.com/national/2026/08/26/nepal-seeks-answers-on-flash-flood-as-india-china-us-and-world-bank-offer-support\" target=\"_blank\" rel=\"noopener\">Kantipur</a>"
+"<span class=\"aid-tag offer\">Offered</span> <b>World Bank · NPR 25 billion</b>. Nepal director David Sislen (~10:35) with Finance Minister Dr Swarnim Wagle: up to 25 billion could be made available from various sources as emergency support. Loan/grant not confirmed. Not received. Source: <a href=\"https://risingnepaldaily.com/news/85557\" target=\"_blank\" rel=\"noopener\">Finance Ministry / Rising Nepal</a> · <a href=\"https://english.khabarhub.com/2026/26/564954/\" target=\"_blank\" rel=\"noopener\">Khabarhub</a> · <a href=\"https://kathmandupost.com/national/2026/08/26/nepal-seeks-answers-on-flash-flood-as-india-china-us-and-world-bank-offer-support\" target=\"_blank\" rel=\"noopener\">Kantipur</a>"
 ],
 "gov": [
 "<b>Nepal Army · this morning (11 Bhadra):</b> helicopter rescue <strong>123</strong>. Timure <strong>95</strong> (foreign <strong>8</strong>). Haku hydropower tunnel <strong>7</strong> alive; 3 other tunnels ongoing. Indian tourists <strong>21</strong> alive, being brought to Kathmandu.",
@@ -2636,7 +2642,7 @@ window.I18N_LISTS = {
 "<b>09:15</b> NDRRMA emergency meeting. <b>09:35</b> alert SMS to province–district–local via Nepal Telecom/Ncell. <b>11:00</b> National Disaster Council — Prime Minister asked for maximum help. <b>12:30</b> Cabinet: speed up search–rescue–relief. <b>13:00</b> discussion with federal MPs from the affected area.",
 "Army and private helicopters on search–rescue in Rasuwa–Nuwakot. Health teams (Army, Police, Armed Police, Trauma, Bir, Teaching) at Nuwakot district hospital. Injured at Rasuwa Hospital <strong>21</strong>; brought to Kathmandu <strong>36</strong> (Trauma, Teaching, Birendra Military and others). Free beds set aside at Bir and Trauma.",
 "More doctors/supplies from Nepal Scouts and WHO. Medicines/blood coordinated with the blood bank, Bagmati–Gandaki health ministries, Red Cross, Lions, Scouts. Temporary shelter at Army barracks; food, drinking water, medicine. At risk: 1148 / 100 / 1111. Hardest hit: riverside Rasuwa, Nuwakot, Dhading, Gorkha. Spokesperson Joint Secretary Hemraj Aryal.",
-"World Bank Nepal director David Sislen (~10:35, Finance Minister Dr Swarnim Wagle): up to Rs <strong>25 billion</strong> could be made available from various sources as emergency support — not received yet.",
+"World Bank Nepal director David Sislen (~10:35, Finance Minister Dr Swarnim Wagle): up to NPR <strong>25 billion</strong> could be made available from various sources as emergency support — not received yet.",
 "India: asked for a list of relief goods needed at once. Foreign Minister Shishir Khanal: Indian relief goods being prepared to reach <strong>Kathmandu today</strong>.",
 "China: immediate cash support. Ambassador Zhang Maoming asked to start sending funds through the finance minister. Finance minister: thanks; inter-government coordination and modality still under discussion.",
 "Deep sorrow at the loss of life and property; condolences to families of the dead; wishes for a swift recovery for the injured.",
@@ -2659,7 +2665,7 @@ window.I18N_LISTS = {
 "Ncell: <strong>three days</strong> free voice, SMS and data for those affected.",
 "Nepal Oil Corporation immediately sent an <strong>aviation-fuel tanker to Trishuli</strong> from Kathmandu to refuel rescue helicopters.",
 "Bagmati Chief Minister Kiran Thapa Magar: provincial disaster-committee meeting — rescue, relief, health teams; <strong>food, housing, clean water</strong> at once for the displaced.",
-"National Disaster Council / NDRRMA chief Dr Dharmaraj Upreti: through district disaster committees, Rasuwa and Nuwakot <strong>Rs 10 million each</strong>, Dhading <strong>Rs 5 million</strong> (total Rs 2.5 crore)."
+"National Disaster Council / NDRRMA chief Dr Dharmaraj Upreti: through district disaster committees, Rasuwa and Nuwakot <strong>NPR 10 million each</strong>, Dhading <strong>NPR 5 million</strong> (total NPR 2.5 crore)."
 ],
 "roads": [
 "NDRRMA SitRep-6 (22:00, 11 Bhadra): Devghat road obstruction cleared. Work continues on Galchhi–Bidur–Trishuli and Baireni–Muglin. Dhunche–Grad: 1 wheel excavator, 1 wheel loader, 1 tipper. Devghat 2 machines. Bidur–Trishuli–Dunge 3 machines. Baireni–Muglin 1 backhoe.",

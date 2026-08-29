@@ -686,6 +686,14 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
 }
 .cash-snap:hover{text-decoration:none;border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5}
 .cash-snap .kpi-k{width:100%;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
+
+.cash-snap .kpi-k{white-space:normal;line-height:1.35;letter-spacing:.02em;font-size:13px}
+.cash-snap .cash-usd{width:100%;margin-top:4px;font-size:15px;font-weight:800;color:var(--forest)}
+.aid-grand{width:100%;margin:0 0 12px;padding:12px 14px;background:#ecfeff;border:1px solid #67e8f9;border-radius:14px}
+.aid-grand strong{display:block;font-size:clamp(26px,5vw,36px);font-weight:800;color:#0e7490;line-height:1.15}
+.aid-grand .cash-sub{display:block;margin-top:4px;font-size:13px;font-weight:700;color:#0e7490}
+.aid-tot .aid-grand-line{width:100%;margin:0 0 8px}
+.aid-tot .aid-grand-line strong{font-size:clamp(24px,4.4vw,32px);color:#0e7490}
 .cash-snap strong{font-size:clamp(32px,6vw,44px);font-weight:800;color:var(--forest);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .cash-snap strong.cash-lead{font-size:clamp(26px,4.8vw,36px);letter-spacing:-.02em;line-height:1.15}
 .cash-snap .cash-unit{font-size:16px;font-weight:800;color:var(--forest)}
@@ -1710,9 +1718,9 @@ a.portal-fab-donate{
       </div>
       <div class="snap-row">
         <a class="cash-snap" href="#donate" id="hero-cash">
-          <span class="kpi-k" data-i18n="hero_cash_h">राहत रकम जम्मा</span>
+          <span class="kpi-k" data-i18n="hero_cash_h">अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोषमा जम्मा राहत रकम</span>
           <strong class="cash-lead" data-i18n="hero_cash_num">रु. ६ अर्ब ५५ करोड</strong>
-          <span class="cash-sub" data-i18n="hero_cash_sub">अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोष</span>
+          <span class="cash-sub cash-usd" data-i18n="hero_cash_usd">≈ USD ४२.९५ मिलियन · NRB खरिद १५२.५७ · २८ अगस्ट</span>
         </a>
         <a class="cash-snap aid-snap" href="#aid" id="hero-aid">
           <span class="kpi-k" data-i18n="hero_aid_h">वैदेशिक सहयोग</span>
@@ -1731,6 +1739,10 @@ a.portal-fab-donate{
           <span class="cash-sub" data-i18n="hero_aid_sub">भारत दुई उडान · IFRC रेडक्रस · पठाइएको</span>
           <span class="aid-tot">
             <span class="kpi-k" data-i18n="aid_tot_h">घोषणा जम्मा</span>
+            <span class="aid-grand-line">
+              <strong data-i18n="aid_grand">≈ रु. ३२ अर्ब २५ करोड</strong>
+              <span class="cash-sub" data-i18n="aid_grand_sub">समानान्तर · विश्व बैंक २५ अर्ब + $१६.४९ मि. + CHF २५ मि. · NRB २८ अगस्ट · कोष ६५५ माथि होइन</span>
+            </span>
             <span class="aid-split">
               <span class="aid-pair">
                 <strong data-i18n="aid_tot_npr">रु. २५ अर्ब</strong>
@@ -7536,8 +7548,9 @@ a.portal-fab-donate{
         <p class="cash-note" data-i18n-html="ndrrma_rahat_1500">NDRRMA / गृह १२ भदौ १९:०० — सरकारबाट जिल्लालाई नगद: रसुवा <strong>१ करोड</strong> · नुवाकोट <strong>१ करोड</strong> · धादिङ <strong>५० लाख</strong> · <strong>१५ पालिका ६ करोड ७५ लाख</strong> (प्रधानमन्त्री कोष होइन · जिल्ला/पालिका नगद · ६ अर्ब ५५ करोडमाथि नजोड्नुहोस्)। सामग्री: ३२ ट्रक; हेलि राहत ६ उडान; सञ्चार सेट। नुवाकोट: डिजेल ४१,००० · पेट्रोल २४,००० मौज्दात; हवाई इन्धन <strong>१७,०००</strong> लि पठाइएको।</p>
         <div class="cash-kpis" role="tablist" aria-label="नगद राहत">
           <button type="button" class="cash-kpi on" data-cash="all" aria-selected="true">
-            <span class="kpi-k" data-i18n="cash_published">नगद राहत</span>
+            <span class="kpi-k" data-i18n="hero_cash_h">अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोषमा जम्मा राहत रकम</span>
             <strong data-i18n="hero_cash_num">रु. ६ अर्ब ५५ करोड</strong>
+            <span class="cash-unit" data-i18n="hero_cash_usd">≈ USD ४२.९५ मिलियन · NRB खरिद १५२.५७ · २८ अगस्ट</span>
           </button>
           <button type="button" class="cash-kpi" data-cash="door" aria-selected="false">
             <span class="kpi-k" data-i18n="cash_door_k">प्रणाली</span>
@@ -7620,6 +7633,11 @@ a.portal-fab-donate{
         <p class="cash-note" data-i18n="aid_pledge_lead">देश/निकाय, रकम, माध्यम।</p>
         <div class="pledge-tot">
           <h3 data-i18n="aid_tot_h">घोषणा जम्मा</h3>
+        <div class="aid-grand">
+          <span class="kpi-k" data-i18n="aid_tot_h">घोषणा जम्मा</span>
+          <strong data-i18n="aid_grand">≈ रु. ३२ अर्ब २५ करोड</strong>
+          <span class="cash-sub" data-i18n="aid_grand_sub">समानान्तर · विश्व बैंक २५ अर्ब + $१६.४९ मि. + CHF २५ मि. · NRB २८ अगस्ट · कोष ६५५ माथि होइन</span>
+        </div>
           <div class="pledge-tot-kpis">
             <div class="pledge-tot-card">
               <span class="kpi-k" data-i18n="aid_tot_npr_l">विश्व ब्यांक</span>
@@ -8031,6 +8049,11 @@ a.portal-fab-donate{
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_aid">वैदेशिक सहयोग</h2></div>
   <article class="aid-ig" id="aid-ig">
     <h3 data-i18n="aid_ig_h">वैदेशिक सहयोग अपडेट</h3>
+    <div class="aid-grand">
+      <span class="kpi-k" data-i18n="aid_tot_h">घोषणा जम्मा</span>
+      <strong data-i18n="aid_grand">≈ रु. ३२ अर्ब २५ करोड</strong>
+      <span class="cash-sub" data-i18n="aid_grand_sub">समानान्तर · विश्व बैंक २५ अर्ब + $१६.४९ मि. + CHF २५ मि. · NRB २८ अगस्ट · कोष ६५५ माथि होइन</span>
+    </div>
     <p class="cash-lead" data-i18n-html="aid_ig_lead">राहत सामग्री र कोष छुट्टै। अन्य प्रस्ताव प्राप्त होइन। त्रिभुवनमा हस्तान्तरण पुष्टि छैन।</p>
     <div class="cash-kpis" role="tablist" aria-label="वैदेशिक सहयोग">
       <button type="button" class="cash-kpi on" data-aid="sent" aria-selected="true">
@@ -8058,14 +8081,14 @@ a.portal-fab-donate{
       <div class="cash-pane" data-aid="ifrc">
         <p class="ov-cap" data-i18n="aid_ifrc_cap">पठाइएको कोष · IFRC DREF</p>
         <div class="ibar-row"><span data-i18n="aid_ifrc_bar">IFRC · रेडक्रस</span><b class="ibar"><i style="width:100%"></i></b><em>USD <span class="num">१.२</span>m</em></div>
-        <p class="cash-note" data-i18n="aid_ifrc_note">नेपाल रेडक्रसलाई आपत्कालीन कोष। सरकारको खातामा आएको होइन। विश्व बैंक Rs २५ अर्ब प्रस्ताव हो, कोषमा गनिएको छैन।</p>
+        <p class="cash-note" data-i18n="aid_ifrc_note">नेपाल रेडक्रसलाई आपत्कालीन कोष। सरकारको खातामा आएको होइन। विश्व बैंक रु. २५ अर्ब प्रस्ताव हो, कोषमा गनिएको छैन।</p>
       </div>
       <div class="cash-pane" data-aid="offer">
         <p class="ov-cap" data-i18n="aid_offer_cap">अन्य प्रस्ताव · प्राप्त होइन</p>
         <div class="ibar-row"><span data-i18n="aid_o_eu">युरोपेली संघ</span><b class="ibar"><i style="width:20%"></i></b><em data-i18n="aid_o_eu_v">नक्सा</em></div>
         <div class="ibar-row"><span data-i18n="aid_o_us">अमेरिका</span><b class="ibar"><i style="width:20%"></i></b><em data-i18n="aid_o_us_v">तयार</em></div>
         <div class="ibar-row"><span data-i18n="aid_o_cn">चीन</span><b class="ibar"><i style="width:20%"></i></b><em data-i18n="aid_o_cn_v">नगद प्रक्रिया</em></div>
-        <div class="ibar-row"><span data-i18n="aid_o_wb">विश्व बैंक</span><b class="ibar"><i style="width:20%"></i></b><em>Rs २५ अर्ब</em></div>
+        <div class="ibar-row"><span data-i18n="aid_o_wb">विश्व बैंक</span><b class="ibar"><i style="width:20%"></i></b><em>रु. २५ अर्ब</em></div>
         <p class="cash-note" data-i18n-html="aid_offer_note">Copernicus EMSR927 प्राविधिक सहयोग सुरु। नगद/सामग्री हातमा आएको होइन।</p>
       </div>
     </div>
@@ -8075,6 +8098,11 @@ a.portal-fab-donate{
     <p class="cash-note" data-i18n="aid_pledge_lead">देश/निकाय, रकम, माध्यम।</p>
     <div class="pledge-tot">
       <h3 data-i18n="aid_tot_h">घोषणा जम्मा</h3>
+        <div class="aid-grand">
+          <span class="kpi-k" data-i18n="aid_tot_h">घोषणा जम्मा</span>
+          <strong data-i18n="aid_grand">≈ रु. ३२ अर्ब २५ करोड</strong>
+          <span class="cash-sub" data-i18n="aid_grand_sub">समानान्तर · विश्व बैंक २५ अर्ब + $१६.४९ मि. + CHF २५ मि. · NRB २८ अगस्ट · कोष ६५५ माथि होइन</span>
+        </div>
       <div class="pledge-tot-kpis">
         <div class="pledge-tot-card">
           <span class="kpi-k" data-i18n="aid_tot_npr_l">विश्व ब्यांक</span>
@@ -8121,7 +8149,7 @@ a.portal-fab-donate{
       <li><span class="aid-tag offer">प्रस्ताव</span> <b>भारत · मोदी–बालेन फोन</b> ~17:32। भारतीय प्रधानमन्त्री: आवश्यक सबै मानवीय सहयोग दिन तयार। नगद हातमा आएको होइन। पछि 10 टन HADR पठाइएको (माथि)। स्रोत: <a href="https://www.ratopati.com/story/587614/indian-pm-modi-pm-balen-talk-over-phone-pledge-to-support-nepal" target="_blank" rel="noopener">रातोपाटी</a></li>
       <li><span class="aid-tag offer">प्रस्ताव</span> <b>भारत · राहत सामग्री सूची</b> (दिउँसो)। भारतले तत्काल चाहिने सामग्रीको सूची माग। परराष्ट्रमन्त्री खनाल: भारतीय सहयोग सामग्री आज काठमाडौं ल्याउने तयारी। पछि 10 टन पठाइएको। स्रोत: <a href="https://risingnepaldaily.com/news/85557" target="_blank" rel="noopener">अर्थ मन्त्रालय / Rising Nepal</a> · <a href="https://gorkhapatraonline.com/news/219978" target="_blank" rel="noopener">गोरखापत्र</a></li>
       <li><span class="aid-tag offer">प्रस्ताव</span> <b>चीन · तत्काल नगद</b>। राजदूत जाङ्ग माओमिङ्गले अर्थमन्त्रीमार्फत रकम पठाउने प्रक्रिया सुरु गर्न आग्रह। रकम नखुलेको। मोडालिटी छलफल जारी — प्राप्त भएको होइन। स्रोत: <a href="https://risingnepaldaily.com/news/85557" target="_blank" rel="noopener">अर्थ मन्त्रालय / Rising Nepal</a> · <a href="https://kathmandupost.com/national/2026/08/26/nepal-seeks-answers-on-flash-flood-as-india-china-us-and-world-bank-offer-support" target="_blank" rel="noopener">कान्तिपुर</a></li>
-      <li><span class="aid-tag offer">प्रस्ताव</span> <b>विश्व बैंक · Rs 25 अर्ब</b>। नेपाल निर्देशक डेविड सिस्लेन (~10:35) अर्थमन्त्री डा. स्वर्णिम वाग्ले: विभिन्न स्रोतबाट आपत्कालीन सहयोगस्वरुप 25 अर्ब दिन सकिने। ऋण/अनुदान यकिन छैन। प्राप्त भएको होइन। स्रोत: <a href="https://risingnepaldaily.com/news/85557" target="_blank" rel="noopener">अर्थ मन्त्रालय / Rising Nepal</a> · <a href="https://english.khabarhub.com/2026/26/564954/" target="_blank" rel="noopener">खबरहब</a> · <a href="https://kathmandupost.com/national/2026/08/26/nepal-seeks-answers-on-flash-flood-as-india-china-us-and-world-bank-offer-support" target="_blank" rel="noopener">कान्तिपुर</a></li>
+      <li><span class="aid-tag offer">प्रस्ताव</span> <b>विश्व बैंक · रु. २५ अर्ब</b>। नेपाल निर्देशक डेविड सिस्लेन (~10:35) अर्थमन्त्री डा. स्वर्णिम वाग्ले: विभिन्न स्रोतबाट आपत्कालीन सहयोगस्वरुप 25 अर्ब दिन सकिने। ऋण/अनुदान यकिन छैन। प्राप्त भएको होइन। स्रोत: <a href="https://risingnepaldaily.com/news/85557" target="_blank" rel="noopener">अर्थ मन्त्रालय / Rising Nepal</a> · <a href="https://english.khabarhub.com/2026/26/564954/" target="_blank" rel="noopener">खबरहब</a> · <a href="https://kathmandupost.com/national/2026/08/26/nepal-seeks-answers-on-flash-flood-as-india-china-us-and-world-bank-offer-support" target="_blank" rel="noopener">कान्तिपुर</a></li>
     </ul>
   </div>
 </section>
@@ -9989,7 +10017,7 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-29-1419"></script>
+<script src="i18n.js?v=2026-08-29-1431"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -10046,7 +10074,7 @@ a.portal-fab-donate{
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-29-1419";</script>
+<script>window.PAGE_VER="2026-08-29-1431";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
