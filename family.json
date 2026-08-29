@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29T10:38:40+05:45",
+  "updated_at": "2026-08-29T10:46:44.608335+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,39 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260829-093722-np-9479888",
+      "name": "गणेश न्यौपाने",
+      "status": "missing",
+      "source": "form",
+      "age": "~40",
+      "place": "धादिङ जिल्ला गङ्गा जमुना गा पा -६",
+      "when": "भदौ १०, २०८३/8:40",
+      "phone": "अर्जुन न्यौपाने ९८४१००१५८७ गणेश प्रसाद न्यौपाने: ९८५११७५५३४",
+      "note": "फारम 9:37. Not sure · अत्यन्त जरुरी सूचना :धादिङ जिल्ला गङ्गा जमुना गा पा -६  निवासि गणेश न्यौपाने सहित १० जना मलेसियन पर्यटक सवार २ वटा स्कारपियो जिप भदौ १०, २०८३ तदअनुसार २६ अगस्ट २०२६ बिहान करिब ३ बजे काठमाडौं हुँदै केरुङ–ल्हासा प्रस्थान"
+    },
+    {
+      "id": "sheet-20260829-093044-padam-nagarkoti",
+      "name": "Padam Nagarkoti",
+      "status": "missing",
+      "source": "form",
+      "age": "",
+      "place": "Dhunche Rasuwa · Rasuwa ghatekhola",
+      "when": "2083/05/10",
+      "phone": "986-0353744",
+      "note": "फारम 9:30 · फारम स्थिति: Still Missing"
+    },
+    {
+      "id": "sheet-20260829-073349-bishnu-bahadur-thapa",
+      "name": "Bishnu Bahadur thapa",
+      "status": "missing",
+      "source": "form",
+      "age": "50+",
+      "place": "Dhading jilla thakre -1 · Vansar vanda 3 km tada",
+      "when": "",
+      "phone": "9761149422",
+      "note": "फारम 7:33 · Dibba gadi ligera ra load garna gako afno kanxo xora ligera  last dekhiyeko location vansar vanda Ali 3km tda · फारम स्थिति: Still Missing"
+    },
     {
       "id": "sheet-20260829-103208-tula-thapa-magar",
       "name": "Tula Thapa magar",
@@ -12858,6 +12891,15 @@
     }
   ],
   "found": [
+    {
+      "id": "sheet-20260829-103817-mangal-bahadur-tamang",
+      "name": "Mangal Bahadur tamang",
+      "age": "",
+      "place": "Nuwakot tadi gaupalika 1 kalche · Rasuwa",
+      "phone": "9843065357",
+      "note": "फारम 10:38 · फारम स्थिति: Found",
+      "when": "8:50"
+    },
     {
       "id": "m-raman-lal-shrestha",
       "name": "Raman Lal Shrestha",
