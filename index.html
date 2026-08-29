@@ -203,7 +203,7 @@ img{max-width:100%;display:block}
   display:flex;align-items:center;justify-content:center;
   gap:10px 12px;width:100%;min-width:0;
 }
-.brand{flex:0 1 auto;width:auto;max-width:calc(100% - 92px);min-width:0;text-align:center;padding:0;box-sizing:border-box}
+.brand{flex:none;width:100%;max-width:100%;min-width:0;text-align:center;padding:0;box-sizing:border-box}
 .brand h1{margin:0;font-size:clamp(26px,5.4vw,48px);line-height:1.15;font-weight:800;text-align:center}
 .brand-date{margin:4px 0 0;color:var(--muted);font-size:15px;text-align:center;width:100%;line-height:1.4}
 .helpline{
@@ -1209,10 +1209,12 @@ footer .foot-about a{color:var(--teal);font-weight:800}
   .photo img{height:200px}
   .helpline{width:auto;max-width:100%;font-size:12px;line-height:1.45;white-space:normal;text-align:center}
   .top-actions{width:100%;justify-content:center}
-  .brand-row{justify-content:space-between;gap:8px}
-  .brand{max-width:calc(100% - 86px);text-align:left}
-  .brand h1{font-size:clamp(18px,5.2vw,28px);text-align:left}
-  .brand-date{font-size:12px;line-height:1.4;text-align:left}
+  .brand-row{justify-content:center;gap:0}
+  .brand{max-width:100%;text-align:center}
+  .brand h1{font-size:clamp(20px,6vw,30px);text-align:center}
+  .brand-date{font-size:12px;line-height:1.4;text-align:center}
+  .top-actions .helpline{flex:1 0 100%}
+  .top-actions .lang-switch{position:static;top:auto;right:auto}
   .topbar-inner{padding:10px 12px}
   .wrap{padding:0 12px}
   .stat{padding:14px 14px 12px}
@@ -1535,6 +1537,12 @@ a.portal-fab-donate{
   border-radius:999px;padding:3px;flex:none;
   margin:0;box-shadow:none;
 }
+@media (min-width:761px){
+  .topbar-inner{position:relative}
+  .top-actions .lang-switch{
+    position:absolute;top:14px;right:16px;
+  }
+}
 .lang-switch button{
   appearance:none;-webkit-appearance:none;
   font:inherit;font-weight:800;font-size:14px;letter-spacing:.04em;
@@ -1554,7 +1562,7 @@ a.portal-fab-donate{
 }
 @media (max-width:380px){
   .lang-switch button{font-size:12px;padding:6px 10px;min-width:36px;min-height:36px}
-  .brand h1{font-size:clamp(17px,5vw,24px)}
+  .brand h1{font-size:clamp(18px,5.6vw,26px)}
   .helpline{font-size:11px}
 }
 @media (max-height:500px) and (max-width:959px){
@@ -1572,10 +1580,6 @@ a.portal-fab-donate{
       <div class="brand">
         <h1 data-i18n="brand">रसुवा–भोटेकोशी बाढी</h1>
       </div>
-      <div class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="भाषा">
-        <button type="button" data-lang="ne" aria-pressed="true" lang="ne" title="नेपाली">ने</button>
-        <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
-      </div>
     </div>
     <p class="brand-date" data-i18n="brand_date">२७ अगस्ट २०२६ · ११ भदौ २०८३ · घटना १० भदौ / २६ अगस्ट</p>
     <div class="top-actions">
@@ -1584,6 +1588,10 @@ a.portal-fab-donate{
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="18" cy="5" r="2.7"/><circle cx="6" cy="12" r="2.7"/><circle cx="18" cy="19" r="2.7"/><path d="M8.5 13.4 15.4 17.5M15.5 6.5 8.5 10.6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg>
         <span data-i18n="share">सेयर</span>
       </button>
+      <div class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="भाषा">
+        <button type="button" data-lang="ne" aria-pressed="true" lang="ne" title="नेपाली">ने</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
+      </div>
       <div class="helpline" data-i18n="hl_bar">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४</div>
     </div>
   </div>
@@ -8497,7 +8505,7 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-29-1134"></script>
+<script src="i18n.js?v=2026-08-29-1144"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -8554,7 +8562,7 @@ a.portal-fab-donate{
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-29-1134";</script>
+<script>window.PAGE_VER="2026-08-29-1144";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
