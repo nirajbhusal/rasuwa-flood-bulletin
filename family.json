@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29T15:21:22.436246+05:45",
+  "updated_at": "2026-08-29T16:04:06.017210+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -13504,6 +13504,105 @@
       "when": "२०८३-४-१० ८ वजे",
       "phone": "",
       "note": "फारम 15:01"
+    },
+    {
+      "id": "sheet-20260829-151808-alpa-samir-karkhanis",
+      "name": "Alpa Samir Karkhanis",
+      "status": "missing",
+      "source": "form",
+      "age": "52",
+      "place": "Mumbai · Gyron check point",
+      "when": "26/08/2026",
+      "phone": "+918446356545",
+      "note": "फारम 15:18 · When through Richa tours"
+    },
+    {
+      "id": "sheet-20260829-151843-bimal-tripathi",
+      "name": "Bimal Tripathi",
+      "status": "missing",
+      "source": "form",
+      "age": "30",
+      "place": "Timure",
+      "when": "Timure",
+      "phone": "9808958450",
+      "note": "फारम 15:18 · Kehi contact huna sakeko chaina badi gayeko din dekhi"
+    },
+    {
+      "id": "sheet-20260829-153023-karpu-sonam-tamang",
+      "name": "Karpu Sonam tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "",
+      "place": "Chilime · Rasuwa gadi china border",
+      "when": "",
+      "phone": "9865389926",
+      "note": "फारम 15:30"
+    },
+    {
+      "id": "sheet-20260829-153615-mingmar-singi-tamang",
+      "name": "Mingmar singi Tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "",
+      "place": "Chilime · China border",
+      "when": "",
+      "phone": "9865389926",
+      "note": "फारम 15:36"
+    },
+    {
+      "id": "sheet-20260829-153837-mingmar-cheden-tamang",
+      "name": "Mingmar cheden tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "",
+      "place": "Chilime · Rasuwagadi china border",
+      "when": "",
+      "phone": "9865389926",
+      "note": "फारम 15:38"
+    },
+    {
+      "id": "sheet-20260829-154229-sangmo-tamang",
+      "name": "Sangmo tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "",
+      "place": "Chilime · Ronga pul",
+      "when": "",
+      "phone": "9865389926",
+      "note": "फारम 15:42"
+    },
+    {
+      "id": "sheet-20260829-154351-somlal-tamang",
+      "name": "Somlal Tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "26",
+      "place": "Nuwakot · Rasuwa timure",
+      "when": "Bhadra 10 budhabar Bihana",
+      "phone": "",
+      "note": "फारम 15:43 · Haat ma Tatto vayeko aru kunai pani part ma Tatto ma vayeko"
+    },
+    {
+      "id": "sheet-20260829-154422-sarjan-tamang",
+      "name": "Sarjan tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "",
+      "place": "Grey · Ronga pol",
+      "when": "",
+      "phone": "9865389926",
+      "note": "फारम 15:44"
+    },
+    {
+      "id": "sheet-20260829-155928-abhinav-avvari",
+      "name": "Abhinav Avvari",
+      "status": "missing",
+      "source": "form",
+      "age": "14",
+      "place": "Gyirong border port(immigration center)",
+      "when": "",
+      "phone": "",
+      "note": "फारम 15:59"
     }
   ],
   "found": [
