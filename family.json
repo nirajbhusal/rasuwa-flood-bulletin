@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29T13:11:08+05:45",
+  "updated_at": "2026-08-29T13:29:26.025225+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,105 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260829-132745-dharma-raj-rimal",
+      "name": "Dharma Raj Rimal",
+      "status": "missing",
+      "source": "form",
+      "age": "39",
+      "place": "Nuwakot · Timure",
+      "when": "2083-05-10",
+      "phone": "9843159231",
+      "note": "फारम 13:27 · फारम स्थिति: Still Missing"
+    },
+    {
+      "id": "sheet-20260829-132527-sudeep-gautam",
+      "name": "Sudeep Gautam",
+      "status": "missing",
+      "source": "form",
+      "age": "Around 50",
+      "place": "Kathmandu,Kapam · Around ramche area",
+      "when": "Last seen time ; 9:27am august 26 2026",
+      "phone": "9823551388",
+      "note": "फारम 13:25 · Bandage on hand t shirt not known cloths were t shirt and trouser with a bandage on hands · Reach was around ramche and hakubesi almost 300m away · फारम स्थिति: Still Missing"
+    },
+    {
+      "id": "sheet-20260829-132454-pokchi-maya-tamang",
+      "name": "Pokchi maya tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "45-50",
+      "place": "Rasuwa · Timure",
+      "when": "",
+      "phone": "9863277774/9849511059",
+      "note": "फारम 13:24 · फारम स्थिति: Still Missing"
+    },
+    {
+      "id": "sheet-20260829-132309-dev-bahadur-magar",
+      "name": "Dev bahadur magar",
+      "status": "missing",
+      "source": "form",
+      "age": "2017/12/22 date of birth",
+      "place": "Solukhumbu · Timure",
+      "when": "",
+      "phone": "9863277774/9849511059/",
+      "note": "फारम 13:23 · फारम स्थिति: Still Missing"
+    },
+    {
+      "id": "sheet-20260829-132248-prakash-chandra-lama",
+      "name": "Prakash Chandra lama",
+      "status": "missing",
+      "source": "form",
+      "age": "",
+      "place": "Dolakha makalbari · Timbure hotel",
+      "when": "August 26",
+      "phone": "9843046500",
+      "note": "फारम 13:22 · फारम स्थिति: Still Missing"
+    },
+    {
+      "id": "sheet-20260829-132028-नाम-उत्तम-प्रसाई",
+      "name": "नाम उत्तम  प्रसाई",
+      "status": "missing",
+      "source": "form",
+      "age": ": ३७ वर्ष",
+      "place": "ठेगानाः रामेछाप, खाडादेवी  ५ पकरबास · ८:३० सम्म सम्पर्क भएको  अहिले सम्म सम्पर्क विहीन",
+      "when": "",
+      "phone": "9767980478 9765833627",
+      "note": "फारम 13:20 · फारम स्थिति: Still Missing"
+    },
+    {
+      "id": "sheet-20260829-131942-gayathri-devi-prakash",
+      "name": "Gayathri devi prakash",
+      "status": "missing",
+      "source": "form",
+      "age": "55+",
+      "place": "Jaycee school, coimbatore · China to Nepal immigration office",
+      "when": "26th morning",
+      "phone": "9786196802",
+      "note": "फारम 13:19 · फारम स्थिति: Still Missing"
+    },
+    {
+      "id": "sheet-20260829-131613-सुदिप-थापा",
+      "name": "सुदिप थापा",
+      "status": "missing",
+      "source": "form",
+      "age": "24",
+      "place": "धादिड्ग जिल्ला थाक्रे-१",
+      "when": "2083/5/10=7:30",
+      "phone": "9863227463",
+      "note": "फारम 13:16 · फारम स्थिति: Still Missing"
+    },
+    {
+      "id": "sheet-20260829-131448-sarita-pradeep-kamath",
+      "name": "Sarita Pradeep Kamath",
+      "status": "missing",
+      "source": "form",
+      "age": "55",
+      "place": "Dubai, UAE · Gyirong Port Immigration office",
+      "when": "26 Aug, 7:45 AM Nepal Time",
+      "phone": "+917259458855, +971508763201, +971566775475, +919769105088, +918050300803, +918848670174",
+      "note": "फारम 13:14 · Travel Co. - Richa Tours. 40 people group · फारम स्थिति: Still Missing"
+    },
     {
       "id": "sheet-20260829-093722-np-9479888",
       "name": "गणेश न्यौपाने",
@@ -13218,6 +13317,61 @@
       "when": "",
       "phone": "9818792793",
       "note": "फारम 13:08"
+    },
+    {
+      "id": "sheet-20260829-125423-ram-kumar-ganesan",
+      "name": "Ram Kumar Ganesan",
+      "age": "60",
+      "place": "",
+      "when": "",
+      "phone": "+91 9952324280",
+      "note": "",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260829-125629-geetha-vaidyanathsamy",
+      "name": "Geetha Vaidyanathsamy",
+      "age": "56",
+      "place": "",
+      "when": "",
+      "phone": "+91 9489631288",
+      "note": "",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260829-130142-tejal-jignesh-merchant",
+      "name": "Tejal Jignesh Merchant",
+      "age": "",
+      "place": "Tibet customs and immigration",
+      "when": "",
+      "phone": "+44 7965026279, +91 98924 97285, +1 (408) 921-3397",
+      "note": "Traveling to kailash manosarovar",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260829-130859-person",
+      "name": "बिण्णु बहादुर थापा",
+      "age": "52",
+      "place": "रसुवा",
+      "when": "2083/5/20",
+      "phone": "984177556",
+      "note": "ठेगाना: धादिड्ग जिल्ला थाक्रे-१",
+      "status": "missing",
+      "source": "form"
+    },
+    {
+      "id": "sheet-20260829-131026-padmahwathia-govindasamy",
+      "name": "Padmahwathia Govindasamy",
+      "age": "58",
+      "place": "Near nepal-tibet/china (gyirong) border check point",
+      "when": "",
+      "phone": "+60108860694, +60143858070",
+      "note": "Last satellite location: near pasang lhamu highway",
+      "status": "missing",
+      "source": "form"
     }
   ],
   "found": [
