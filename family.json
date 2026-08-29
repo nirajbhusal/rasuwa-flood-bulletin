@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29T11:27:34+05:45",
+  "updated_at": "2026-08-29T11:54:32+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -13020,6 +13020,17 @@
       "when": "8.30 am, Royal Himalayan hotel",
       "phone": "+61 468 409 146",
       "note": "फारम 11:23"
+    },
+    {
+      "id": "sheet-20260829-114645-छिरिङ-तामाङ",
+      "name": "छिरिङ तामाङ (ख्रिती)",
+      "status": "missing",
+      "source": "form",
+      "age": "42",
+      "place": "Rasuwa goljung · Timmure rasuwa",
+      "when": "",
+      "phone": "9861180577",
+      "note": "फारम 11:46 · श्रीमती tar jyalmo ghale · कालो जुत्ता, नीलो वा कालो ट्रयाक, कालो ज्याकेट"
     }
   ],
   "found": [
