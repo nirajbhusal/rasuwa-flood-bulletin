@@ -2111,6 +2111,14 @@ window.I18N_LISTS = {
 ],
 "hist": [
 {
+"h": "Flood forecast: barrier-lake burst risk remains",
+"p": "Flood Forecasting Division: the barrier lake at the 10 Bhadra flood site is growing; burst risk remains. Bhotekoshi–Trishuli levels are below warning for now, but stay clear of banks until further notice. Source: <a href=\"https://www.onlinekhabar.com/2026/08/2006213/flood-risk-remains-in-bhotekoshi-division-urges-to-pay-attention-to-early-warnings\" target=\"_blank\" rel=\"noopener\">OnlineKhabar</a>."
+},
+{
+"h": "Gazette: five districts’ local levels crisis zones",
+"p": "MoHA via Nepal Gazette declared flood-affected local levels in Rasuwa, Nuwakot, Dhading, Gorkha and Tanahun as disaster crisis areas for three months (Disaster Act 2074 §32). Earlier six-district (incl. Chitwan) political declaration stays a separate labeled line. Source: <a href=\"https://nagariknews.nagariknetwork.com/social-affairs/five-districts-declared-disaster-zones-after-floods-50-21.html\" target=\"_blank\" rel=\"noopener\">Nagarik</a>."
+},
+{
 "h": "Damage dashboard back on home",
 "p": "Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard infographic is on the <a href=\"#home\">home</a> dashboard again. Full table/maps on <a href=\"#ems927\">#ems927</a>. Not added into deaths 669."
 },
