@@ -669,7 +669,7 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
 .ems-snap{
   display:grid;
   grid-template-columns:minmax(128px,170px) 1fr;
-  grid-template-areas:"k k" "m t" "b b" "c c";
+  grid-template-areas:"k k" "m t" "g g" "p p" "c c";
   gap:10px 12px;align-items:start;
   margin:10px 0 0;padding:14px 14px 12px;
   background:linear-gradient(180deg,#fff7ed,#fff 55%);
@@ -677,10 +677,15 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
   box-shadow:var(--shadow);text-decoration:none;color:inherit;
 }
 .ems-snap:hover{text-decoration:none;border-color:var(--saffron);box-shadow:0 0 0 3px #ffedd5}
-.ems-snap > .kpi-k{grid-area:k;width:100%;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.ems-snap > .kpi-k, .ems-snap > a.kpi-k{grid-area:k;width:100%;font-size:13px;font-weight:800;color:#9a3412;letter-spacing:.02em;text-decoration:none;line-height:1.35}
+.ems-snap > a.kpi-k:hover{color:#c2410c;text-decoration:underline}
 .ems-snap-map{grid-area:m;display:block;border-radius:12px;overflow:hidden;border:1px solid #fed7aa;background:#0f172a;aspect-ratio:1400/989}
 .ems-snap-map img{width:100%;height:100%;object-fit:cover;display:block}
 .ems-kpis8{grid-area:t;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;width:100%;margin:0}
+.ems-ig-row{grid-area:g;display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+.ems-ig-row a{display:block;border-radius:12px;overflow:hidden;border:1px solid #fed7aa;background:#0f172a}
+.ems-ig-row img{width:100%;height:auto;aspect-ratio:1075/1521;object-fit:contain;max-height:min(52vw,380px);display:block}
+.ems-home .ems-panels{grid-area:p;width:100%}
 .ems-kpi{
   background:#fff;border:1px solid #fed7aa;border-radius:12px;
   padding:8px 8px 7px;min-width:0;
@@ -704,28 +709,30 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
 .ems-lc .ibar i{background:#c2410c}
 .ems-lc .ibar-row{grid-template-columns:minmax(6em,38%) 1fr 3.6em;margin:4px 0}
 .ems-snap > .cash-sub{grid-area:c;width:100%;margin-top:2px;font-size:13px;font-weight:700;color:var(--muted)}
+.ems-home-cap a{font-weight:800;color:#c2410c;margin-left:.4em}
 @media(max-width:760px){
-  .ems-snap{grid-template-columns:1fr;grid-template-areas:"k" "m" "t" "b" "c"}
+  .ems-snap{grid-template-columns:1fr;grid-template-areas:"k" "m" "t" "g" "p" "c"}
   .ems-snap-map{max-width:280px}
   .ems-kpis8{grid-template-columns:1fr 1fr}
-  .ems-bars{grid-template-columns:1fr}
+  .ems-ig-row{grid-template-columns:1fr 1fr}
+  .ems-ig-row img{max-height:240px}
 }
-#ems927 .ems-kpis8{margin:10px 0 12px}
-#ems927 .ems-kpi{cursor:default}
-#ems927 .ems-panels{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0 0}
-#ems927 .ems-panel{
+#ems927 .ems-kpis8, .ems-home .ems-kpis8{margin:10px 0 12px}
+#ems927 .ems-kpi, .ems-home .ems-kpi{cursor:default}
+.ems-panels{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0 0}
+.ems-panel{
   margin:0;padding:12px 12px 10px;background:#fff;
   border:1px solid #fed7aa;border-radius:14px;
 }
-#ems927 .ems-panel.wide{grid-column:1/-1}
-#ems927 .ems-panel h3{margin:0 0 8px;font-size:16px;font-weight:800;color:#c2410c}
-#ems927 .ems-brow{margin:0 0 8px}
-#ems927 .ems-bmeta{margin:3px 0 0;font-size:12px;font-weight:700;color:var(--muted)}
-#ems927 .ems-brow .ibar-row{grid-template-columns:minmax(6.5em,36%) 1fr 5.4em}
-#ems927 .ems-lc .ibar-row{grid-template-columns:minmax(7em,34%) 1fr 8.5em}
+.ems-panel.wide{grid-column:1/-1}
+.ems-panel h3{margin:0 0 8px;font-size:16px;font-weight:800;color:#c2410c}
+.ems-brow{margin:0 0 8px}
+.ems-bmeta{margin:3px 0 0;font-size:12px;font-weight:700;color:var(--muted)}
+.ems-brow .ibar-row{grid-template-columns:minmax(6.5em,36%) 1fr 5.4em}
+.ems-lc .ibar-row{grid-template-columns:minmax(7em,34%) 1fr 8.5em}
 @media(max-width:760px){
-  #ems927 .ems-kpis8{grid-template-columns:1fr 1fr}
-  #ems927 .ems-panels{grid-template-columns:1fr}
+  #ems927 .ems-kpis8, .ems-home .ems-kpis8{grid-template-columns:1fr 1fr}
+  .ems-panels{grid-template-columns:1fr}
 }
 #ems927 .photos{margin-top:12px}
 #ems927 .photo img{height:auto;max-height:220px;width:100%;aspect-ratio:1400/989;object-fit:contain;background:#0f172a}
@@ -1681,9 +1688,9 @@ a.portal-fab-donate{
           </span>
         </a>
       </div>
-      <a class="cash-snap ems-snap" href="#ems927" id="hero-ems">
-        <span class="kpi-k" data-i18n="hero_ems_h">Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard</span>
-        <span class="ems-snap-map">
+      <div class="ems-snap ems-home" id="hero-ems">
+        <a class="kpi-k" href="#ems927" data-i18n="hero_ems_h">Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard · स्याफ्रुबेसी क्षति · Copernicus EMSR927</a>
+<span class="ems-snap-map">
           <img loading="lazy" decoding="async" width="1400" height="989" src="img/today-2026-08-27-copernicus-ems927-overview-sm.jpg" alt="Copernicus EMSR927 स्याफ्रुबेसी अवलोकन नक्सा, भवन ४३३" data-i18n-alt="ems_ph1_alt">
         </span>
         <span class="ems-kpis8">
@@ -1696,23 +1703,84 @@ a.portal-fab-donate{
           <span class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 3.8 14.2H11l-1.2 7.8L20.2 9.8H13z"/></svg></span><span class="kpi-k" data-i18n="ems_k_pp">विद्युत्</span><strong class="num">०.८</strong><span class="cash-unit" data-i18n="ems_k_ha">हे</span><span class="cash-sub" data-i18n="ems_k_pp_sub">१००%</span></span>
           <span class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-3.1 5.2h2.1v3.8h2v-3.8h2.1V16.8H13v-3.8h-2v3.8H8.9z"/></svg></span><span class="kpi-k" data-i18n="ems_k_heli">हेलिप्याड</span><strong class="num">०.०१</strong><span class="cash-unit" data-i18n="ems_k_ha">हे</span><span class="cash-sub" data-i18n="ems_k_heli_sub">१००%</span></span>
         </span>
-        <span class="ems-bars">
-          <span class="ems-barbox">
-            <h4 data-i18n="ems_bar_built">भवन क्षति</h4>
-            <span class="sbar" aria-hidden="true"><i class="dest" style="width:57.8%"></i><i class="dam" style="width:5.7%"></i><i class="poss" style="width:14.0%"></i></span>
-            <span class="sbar-leg" data-i18n="ems_bar_built_cap">ध्वस्त ३२३ · क्षति ३२ · सम्भावित ७८ / ५५९</span>
-          </span>
-          <span class="ems-barbox ems-lc">
-            <h4 data-i18n="ems_bar_lc">भू-आवरण प्रभावित हिस्सा</h4>
-            <span class="ibar-row"><span data-i18n="ems_r_wet">आन्तरिक सिमसार</span><b class="ibar"><i style="width:82.9%"></i></b><em>८२.९%</em></span>
-            <span class="ibar-row"><span data-i18n="ems_r_otherlu">अन्य भू-उपयोग</span><b class="ibar"><i style="width:79.1%"></i></b><em>७९.१%</em></span>
-            <span class="ibar-row"><span data-i18n="ems_r_agri">मिश्रित कृषि</span><b class="ibar"><i style="width:41.2%"></i></b><em>४१.२%</em></span>
-            <span class="ibar-row"><span data-i18n="ems_r_shrub">झाडी</span><b class="ibar"><i style="width:34.2%"></i></b><em>३४.२%</em></span>
-            <span class="ibar-row"><span data-i18n="ems_r_forest">वन</span><b class="ibar"><i style="width:26.9%"></i></b><em>२६.९%</em></span>
-          </span>
+        <span class="ems-ig-row">
+          <a href="img/today-2026-08-27-copernicus-ems927-infographic-p1.jpg" target="_blank" rel="noopener"><img class="ems-ig" loading="lazy" decoding="async" width="1075" height="1521" src="img/today-2026-08-27-copernicus-ems927-infographic-p1.jpg" alt="स्याफ्रुबेसी क्षति इन्फोग्राफिक पृष्ठ १" data-i18n-alt="ems_ph5_alt"></a>
+          <a href="img/today-2026-08-27-copernicus-ems927-infographic-p2.jpg" target="_blank" rel="noopener"><img class="ems-ig" loading="lazy" decoding="async" width="1075" height="1521" src="img/today-2026-08-27-copernicus-ems927-infographic-p2.jpg" alt="स्याफ्रुबेसी क्षति इन्फोग्राफिक पृष्ठ २" data-i18n-alt="ems_ph6_alt"></a>
         </span>
-        <span class="cash-sub" data-i18n="hero_ems_sub">Copernicus EMSR927 · २७ अगस्ट ०५:०५ UTC · स्याफ्रुबेसी — प्रहरी शव ६१६ / NDRRMA ४४५१ माथि होइन।</span>
-      </a>
+        <div class="ems-panels">
+          <div class="ems-panel">
+            <h3 data-i18n="ems_p_built">भवन</h3>
+            <div class="ems-brow">
+              <span class="sbar" aria-hidden="true"><i class="dest" style="width:57.8%"></i><i class="dam" style="width:5.7%"></i><i class="poss" style="width:14.0%"></i></span>
+              <p class="ems-bmeta" data-i18n="ems_bar_built_cap">ध्वस्त ३२३ · क्षति ३२ · सम्भावित ७८ / ५५९</p>
+            </div>
+            <div class="ems-brow">
+              <div class="ibar-row"><span data-i18n="ems_r_res">आवासीय भवन</span><b class="sbar"><i class="dest" style="width:54.7%"></i><i class="dam" style="width:6.0%"></i><i class="poss" style="width:15.1%"></i></b><em class="num">३९२/५१७</em></div>
+              <p class="ems-bmeta">ध्वस्त २८३ · क्षति ३१ · सम्भावित ७८</p>
+            </div>
+            <div class="ems-brow">
+              <div class="ibar-row"><span data-i18n="ems_r_inst">संस्थागत</span><b class="sbar"><i class="dest" style="width:100%"></i></b><em class="num">१/१</em></div>
+              <p class="ems-bmeta">ध्वस्त १</p>
+            </div>
+            <div class="ems-brow">
+              <div class="ibar-row"><span data-i18n="ems_r_school">विद्यालय/विश्वविद्यालय</span><b class="sbar"><i class="dam" style="width:100%"></i></b><em class="num">१/१</em></div>
+              <p class="ems-bmeta">क्षति १</p>
+            </div>
+            <div class="ems-brow">
+              <div class="ibar-row"><span data-i18n="ems_r_otherb">अन्य गैर-आवासीय</span><b class="sbar"><i class="dest" style="width:97.4%"></i></b><em class="num">३७/३८</em></div>
+              <p class="ems-bmeta">ध्वस्त ३७</p>
+            </div>
+            <div class="ems-brow">
+              <div class="ibar-row"><span data-i18n="ems_r_rel">धार्मिक</span><b class="sbar"><i class="dest" style="width:100%"></i></b><em class="num">२/२</em></div>
+              <p class="ems-bmeta">ध्वस्त २</p>
+            </div>
+            <div class="ems-brow">
+              <div class="ibar-row"><span data-i18n="ems_r_allb">सबै भवन (योग)</span><b class="sbar"><i class="dest" style="width:57.8%"></i><i class="dam" style="width:5.7%"></i><i class="poss" style="width:14.0%"></i></b><em class="num">४३३/५५९</em></div>
+              <p class="ems-bmeta">ध्वस्त ३२३ · क्षति ३२ · सम्भावित ७८ · ७७.५%</p>
+            </div>
+          </div>
+          <div class="ems-panel">
+            <h3 data-i18n="ems_p_trans">यातायात</h3>
+            <div class="ems-brow">
+              <div class="ibar-row"><span data-i18n="ems_r_pri">प्राथमिक सडक</span><b class="sbar"><i class="dest" style="width:87.0%"></i><i class="poss" style="width:13.0%"></i></b><em>५.४/५.४</em></div>
+              <p class="ems-bmeta">ध्वस्त ४.७ · सम्भावित ०.७ किमि · १००%</p>
+            </div>
+            <div class="ems-brow">
+              <div class="ibar-row"><span data-i18n="ems_r_loc">स्थानीय सडक</span><b class="sbar"><i class="dest" style="width:12.1%"></i><i class="poss" style="width:18.2%"></i></b><em>१.१/३.३</em></div>
+              <p class="ems-bmeta">ध्वस्त ०.४ · सम्भावित ०.६ किमि · ३३.३%</p>
+            </div>
+            <div class="ems-brow">
+              <div class="ibar-row"><span data-i18n="ems_r_cart">गाडा बाटो</span><b class="sbar"><i class="dest" style="width:35.7%"></i><i class="poss" style="width:3.6%"></i></b><em>१.१/२.८</em></div>
+              <p class="ems-bmeta">ध्वस्त १.० · सम्भावित ०.१ किमि · ३९.३%</p>
+            </div>
+            <div class="ems-brow">
+              <div class="ibar-row"><span data-i18n="ems_r_br">पुल तथा एलिभेटेड राजमार्ग</span><b class="sbar"><i class="dest" style="width:100%"></i></b><em class="num">५/५</em></div>
+              <p class="ems-bmeta">ध्वस्त ५ · १००%</p>
+            </div>
+            <div class="ems-brow">
+              <div class="ibar-row"><span data-i18n="ems_r_heli">हेलिप्याड</span><b class="sbar"><i class="dest" style="width:100%"></i></b><em>०.०१/०.०१</em></div>
+              <p class="ems-bmeta">ध्वस्त ०.०१ हे · १००%</p>
+            </div>
+          </div>
+          <div class="ems-panel">
+            <h3 data-i18n="ems_p_fac">सुविधा</h3>
+            <div class="ems-brow">
+              <div class="ibar-row"><span data-i18n="ems_r_pp">विद्युत आयोजना संरचना</span><b class="sbar"><i class="dest" style="width:100%"></i></b><em>०.८/०.८</em></div>
+              <p class="ems-bmeta">ध्वस्त ०.८ हे · १००%</p>
+            </div>
+          </div>
+          <div class="ems-panel ems-lc">
+            <h3 data-i18n="ems_p_lc">भू-आवरण</h3>
+            <div class="ibar-row"><span data-i18n="ems_r_wet">आन्तरिक सिमसार</span><b class="ibar"><i style="width:82.9%"></i></b><em>१२.१ / १४.६ · ८२.९%</em></div>
+            <div class="ibar-row"><span data-i18n="ems_r_otherlu">अन्य भू-उपयोग</span><b class="ibar"><i style="width:79.1%"></i></b><em>३.४ / ४.३ · ७९.१%</em></div>
+            <div class="ibar-row"><span data-i18n="ems_r_agri">मिश्रित कृषि</span><b class="ibar"><i style="width:41.2%"></i></b><em>२.१ / ५.१ · ४१.२%</em></div>
+            <div class="ibar-row"><span data-i18n="ems_r_shrub">झाडी</span><b class="ibar"><i style="width:34.2%"></i></b><em>३१.८ / ९३.१ · ३४.२%</em></div>
+            <div class="ibar-row"><span data-i18n="ems_r_forest">वन</span><b class="ibar"><i style="width:26.9%"></i></b><em>६१.६ / २२८.८ · २६.९%</em></div>
+            <div class="ibar-row"><span data-i18n="ems_r_alllc">सबै भू-आवरण (योग)</span><b class="ibar"><i style="width:32.1%"></i></b><em>१११.० / ३४५.९ · ३२.१%</em></div>
+          </div>
+        </div>
+        <span class="cash-sub ems-home-cap"><span data-i18n="hero_ems_sub">Copernicus EMSR927 · २७ अगस्ट ०५:०५ UTC · स्याफ्रुबेसी — प्रहरी शव ६१६ / NDRRMA ४४५१ माथि होइन।</span> <a href="#ems927" data-i18n="hero_ems_more">पूरा तालिका र नक्सा</a></span>
+      </div>
       <div class="ov-panel">
         <div class="ov-pane on" data-panel="all">
           <p class="ov-cap" data-i18n="ov_all_cap">समग्र · कार्ड थिचेर जिल्ला/वर्ग हेर्नुहोस्</p>
@@ -8486,8 +8554,8 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-29-1102"></script>
-<script>window.PAGE_VER="2026-08-29-1102";</script>
+<script src="i18n.js?v=2026-08-29-1112"></script>
+<script>window.PAGE_VER="2026-08-29-1112";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
