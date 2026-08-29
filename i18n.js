@@ -2111,6 +2111,11 @@ window.I18N_LISTS = {
 ],
 "hist": [
 {
+"h": "Trishuli-3A tunnel rescue intensified",
+"p": "Saturday: controlled blast at tunnel mouth succeeded; joint team of <strong>82</strong> (Army 62 · APF/Police 20) with excavators/drills. Friday tunnel rescues <strong>191</strong> unchanged. China PLA tunnel specialists <strong>4</strong> (heli Kerung→powerhouse) and India’s <strong>26</strong>-member team toward Syaphrubesi. Does not change deaths 626 / missing 2,426 / rescued 4,451. Sources: <a href=\"https://english.khabarhub.com/2026/29/565520/\" target=\"_blank\" rel=\"noopener\">Khabarhub</a> · <a href=\"https://english.khabarhub.com/2026/29/565524/\" target=\"_blank\" rel=\"noopener\">China/India teams</a> · <a href=\"https://nagariknews.nagariknetwork.com/social-affairs/rescue-operations-begin-at-trishuli-3-a-94-19.html\" target=\"_blank\" rel=\"noopener\">Nagarik</a>."
+},
+
+{
 "h": "Unified name search",
 "p": "Missing, found and rescue lists are now one searchable database — Nepali/foreign, status and source filters. Official totals are not added together. <a href=\"#search\">Search</a>."
 },
