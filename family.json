@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29T09:28:25+05:45",
+  "updated_at": "2026-08-29T09:41:37.401384+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -7,6 +7,270 @@
     "found": "https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform"
   },
   "missing": [
+    {
+      "id": "sheet-20260829-093752-shiv-shankar-joshi",
+      "name": "Shiv shankar Joshi",
+      "status": "missing",
+      "source": "form",
+      "age": "30",
+      "place": "Dhangadhi kailali · Mailung hydropower",
+      "when": "",
+      "phone": "9868404545",
+      "note": "फारम 09:37"
+    },
+    {
+      "id": "sheet-20260829-093617-manikandan-viruthachalam-muthusamy",
+      "name": "Manikandan Viruthachalam Muthusamy",
+      "status": "missing",
+      "source": "form",
+      "age": "47",
+      "place": "171/1, Alamarakadu Meyyanur,Salem · Gyirong port",
+      "when": "",
+      "phone": "+919894133191",
+      "note": "फारम 09:36 · Not yet still"
+    },
+    {
+      "id": "sheet-20260829-093325-जग्गेश्वोर-सर्मा",
+      "name": "जग्गेश्वोर सर्मा",
+      "status": "missing",
+      "source": "form",
+      "age": "40",
+      "place": "अछाम · नमस्कार सम्पूर्णमा🙏🙏🙏  रसुवा बाढीका क्रममा सम्पर्कविहीन हुनुभएका जग्येश्वर शर्माको खोजी तथा उद्धारका लागि यो जानकारी अत्यन्त जरुरी भएकाले पठाएको हुँ।  उहाँको मोबाइल नम्बर 9843148797 हो। उपलब्ध CDR विवरणअनुसार उहाँको मोबाइलमा 26 August 2026 दिउँसो 2:15:50 बजे सम्म गतिविधि देखिएको छ।  CDR Details:  * Mobile No.: 9843148797 * Last action: 2026-08-26, 14:15:50 (+05:45) * Cell Identity: 429013AFE3945 * CDR Reference: CDR466_RASUWA BORDER-A * Cell/Site: RASUWA BORDER-A  कृपया उक्त विवरणलाई आधार बनाएर सम्बन्धित mobile tower/cell को वास्तविक location, coverage area र अन्तिम network activity सम्बन्धित telecom provider मार्फत तत्काल जाँच गरी उहाँको खोजीमा सहयोग गरिदिनुहुन हार्दिक अनुरोध गर्दछु।  उहाँ कृषि, वन तथा वातावरण",
+      "when": "2026/8/26",
+      "phone": "9848690707",
+      "note": "फारम 09:33 · सेतो सट कालो paainट · खोजी कार्य छिटाे गरि दिनुपर्यो"
+    },
+    {
+      "id": "sheet-20260829-093116-karmu-ghale",
+      "name": "Karmu ghale",
+      "status": "missing",
+      "source": "form",
+      "age": "54, or 52",
+      "place": "Timure, rasuwa · Rasuwaghadi",
+      "when": "Last time 8 :30 am ma kura vako",
+      "phone": "9849615118, 9843003587,   9803337465",
+      "note": "फारम 09:31"
+    },
+    {
+      "id": "sheet-20260829-092900-जयराम-खड्का",
+      "name": "जयराम खड्का",
+      "status": "missing",
+      "source": "form",
+      "age": "15",
+      "place": "सिन्धुपाल्चोक   यामुनाडांडा · टिम्मुरे रसुवा",
+      "when": "२०८३/०५/०९ वेलुकी सम्म सम्पर्क भएकाे",
+      "phone": "9826069198     9845046164",
+      "note": "फारम 09:29 · कालाे कपडा लगाएकाे"
+    },
+    {
+      "id": "sheet-20260829-085123-arush-saru-magar",
+      "name": "Arush saru magar",
+      "status": "missing",
+      "source": "form",
+      "age": "A child",
+      "place": "Betravati · At home",
+      "when": "In the morning",
+      "phone": "9821905661",
+      "note": "फारम 08:51"
+    },
+    {
+      "id": "sheet-20260829-084008-radha-saru-magar",
+      "name": "Radha saru magar",
+      "status": "missing",
+      "source": "form",
+      "age": "Mis 30s",
+      "place": "Betrawati · At home",
+      "when": "In the morning",
+      "phone": "9821905661",
+      "note": "फारम 08:40"
+    },
+    {
+      "id": "sheet-20260829-083354-tilak-bahadur-thapa-magar",
+      "name": "Tilak bahadur thapa magar",
+      "status": "missing",
+      "source": "form",
+      "age": "Mid 50s",
+      "place": "Rasuwa · Chilime hydropower project",
+      "when": "In the morning",
+      "phone": "9821905661",
+      "note": "फारम 08:33"
+    },
+    {
+      "id": "sheet-20260829-080649-subakshi-rawla-sumit-rawla",
+      "name": "Subakshi rawla , sumit rawla",
+      "status": "missing",
+      "source": "form",
+      "age": "49 and 53",
+      "place": "Hotel kailash timure last seen in tea stall timure at 6 :50  26 august",
+      "when": "6:50 26 august",
+      "phone": "9717253333 and 9811530615",
+      "note": "फारम 08:06 · Orchid tattoo in right side chest butterfly tatto in left arm of girl and anchor tattoo in calf of boy · Pleasee help uss find  them or any information is a big help"
+    },
+    {
+      "id": "sheet-20260829-075414-amita-amin",
+      "name": "Amita Amin",
+      "status": "missing",
+      "source": "form",
+      "age": "67",
+      "place": "Long Island USA · Friendship Bridge",
+      "when": "26 August",
+      "phone": "Aditi Patel - 19087051856",
+      "note": "फारम 07:54 · Not sure"
+    },
+    {
+      "id": "sheet-20260829-074622-laxminath-gopisetty",
+      "name": "Laxminath Gopisetty",
+      "status": "missing",
+      "source": "form",
+      "age": "53",
+      "place": "41596 Bostonian Place, Aldie, VA [US Citizen] · Nepali Immigration Office (Rasuwagad)",
+      "when": "8:40AM August 26th 2026",
+      "phone": "Shreshta Gopisetty: 5714883009; Susheela Gopisetty: 5712960053",
+      "note": "फारम 07:46 · baseball cap, transition sunglasses, 5'7 indian man, light blue collar shirt, black backpack · They were last seen with their travel group near the immigration office in Nepal and seemed to have gotten their exit stamp at 8:30AM. They have communication records with their family until 8:40AM, but we can't figure out what happened after that."
+    },
+    {
+      "id": "sheet-20260829-071741-अनुतम-बहादुर-श्रेष्ठ",
+      "name": "अनुतम बहादुर श्रेष्ठ",
+      "status": "missing",
+      "source": "form",
+      "age": "25 वर्ष",
+      "place": "पर्सा जिल्ला , नगवा बिरगंज · टिमुरे, रसुवा",
+      "when": "2083-05-10",
+      "phone": "9845960255, 9844073050,9845229012",
+      "note": "फारम 07:17"
+    },
+    {
+      "id": "sheet-20260829-070603-1-bikram-bahadur-tamang-2-bhim-bahadur-t",
+      "name": "1) Bikram Bahadur tamang (2) Bhim Bahadur tamang./Bibash (3 somlal Tamang/theeng",
+      "status": "missing",
+      "source": "form",
+      "age": "Bikram Bahadur age:27.  Bhim Bahadur age:28. Som Lal :26",
+      "place": "1:belkot gadhi 4 nuwakot   2: jana ko :belkotgadhi 6 nuwakot · Rasuwa timure ghatte khola",
+      "when": "Vadau 8 gate 8:30",
+      "phone": "Tuhl Dai :9865545000/dd 9705107596:Bhim bahadur:9713108341",
+      "note": "फारम 07:06 · Tha navayeko · .."
+    },
+    {
+      "id": "sheet-20260829-070447-हरिकृष्ण-डंगोल",
+      "name": "हरिकृष्ण डंगोल",
+      "status": "missing",
+      "source": "form",
+      "age": "४८",
+      "place": "बेत्रावती · बेत्रावती",
+      "when": "२०८३-०५-१०",
+      "phone": "९८५११७३२६९",
+      "note": "फारम 07:04"
+    },
+    {
+      "id": "sheet-20260829-065916-rojina-dangol",
+      "name": "Rojina Dangol",
+      "status": "missing",
+      "source": "form",
+      "age": "23",
+      "place": "Nuwakot betrawati · Nuwakot betrawati",
+      "when": "2083/5/10",
+      "phone": "9860686766",
+      "note": "फारम 06:59"
+    },
+    {
+      "id": "sheet-20260829-065542-शिवलाल-बुढाथोकि-र-डिलकुमारी-घर्ति-श्रीमा",
+      "name": "शिवलाल बुढाथोकि र डिलकुमारी घर्ति(श्रीमान श्रीमती",
+      "status": "missing",
+      "source": "form",
+      "age": "34/35",
+      "place": "बासगडी नगरपालिका 2 बर्दिया · तिमुरे",
+      "when": "2083/05/10/8:30",
+      "phone": "9868945452",
+      "note": "फारम 06:55"
+    },
+    {
+      "id": "sheet-20260829-035651-ketan-ginoya-girishbhai",
+      "name": "Ketan Ginoya girishbhai",
+      "status": "missing",
+      "source": "form",
+      "age": "41",
+      "place": "USA · Isha travel group",
+      "when": "",
+      "phone": "",
+      "note": "फारम 03:56"
+    },
+    {
+      "id": "sheet-20260829-034924-kedharagowri-sainath",
+      "name": "Kedharagowri Sainath",
+      "status": "missing",
+      "source": "form",
+      "age": "32",
+      "place": "Kumbakonam, TN, India · Gyirong",
+      "when": "Aug 25 7.15 pm",
+      "phone": "+1 6177497694",
+      "note": "फारम 03:49"
+    },
+    {
+      "id": "sheet-20260829-034704-sainath-subramaniam",
+      "name": "Sainath Subramaniam",
+      "status": "missing",
+      "source": "form",
+      "age": "71",
+      "place": "Kumbakonam, TN , India · Gyirong",
+      "when": "Aug 25 7.15 pm",
+      "phone": "+1 6177497694",
+      "note": "फारम 03:47"
+    },
+    {
+      "id": "sheet-20260829-021117-sajan-syangbo",
+      "name": "Sajan Syangbo",
+      "status": "missing",
+      "source": "form",
+      "age": "21",
+      "place": "Hetauda, Makawanpur · Mailung 216mw, rasuwa",
+      "when": "Bhadra 10, 9:30 am",
+      "phone": "9741684383",
+      "note": "फारम 02:11 · Red T-shirt, black trouser, short hair boy · No contact"
+    },
+    {
+      "id": "sheet-20260829-012121-द्वरिका-प्रसाद-दंगाल",
+      "name": "द्वरिका प्रसाद दंगाल",
+      "status": "missing",
+      "source": "form",
+      "age": "52",
+      "place": "Lalbandi Sarlahi · नुवाकोट बिदुर (Last Traced Location चारघरे र टुप्चे को NTC Network)",
+      "when": "२०८३/०५/१० गते बिहान ९:०० बजे",
+      "phone": "9844147729",
+      "note": "फारम 01:21"
+    },
+    {
+      "id": "sheet-20260829-011444-roma-dilipbhai-intwala",
+      "name": "Roma Dilipbhai Intwala",
+      "status": "missing",
+      "source": "form",
+      "age": "41",
+      "place": "Valsad, Gujarat, India · Friendship Bridge / Gyirong Immigration Centre",
+      "when": "26 Aug 8:16 am",
+      "phone": "+91 9820960669",
+      "note": "फारम 01:14 · Part of 66 people - Richa tours (Hills & Trails) , Dr Milind Chitley group"
+    },
+    {
+      "id": "sheet-20260829-005820-rajashree-satish-pathak",
+      "name": "Rajashree Satish Pathak",
+      "status": "missing",
+      "source": "form",
+      "age": "56",
+      "place": "Mumbai · Timure",
+      "when": "26/08/2026 5:00 am",
+      "phone": "9920272225",
+      "note": "फारम 00:58 · Traveling with Hills and Trails"
+    },
+    {
+      "id": "sheet-20260829-005815-thaiyanayaki-thirumalairajan",
+      "name": "Thaiyanayaki thirumalairajan",
+      "status": "missing",
+      "source": "form",
+      "age": "54",
+      "place": "120 gandhi adigal salai kumbakonam · They are staying on 25/08/2026 in hotel landmark",
+      "when": "25/08/2026",
+      "phone": "+91 7708625112",
+      "note": "फारम 00:58 · Chudithar"
+    },
     {
       "id": "sheet-20260828-210638-rajendra-pradhan",
       "name": "Rajendra Pradhan",
