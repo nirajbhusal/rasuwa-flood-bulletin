@@ -30,8 +30,8 @@
     box-shadow:0 6px 16px rgba(15,23,42,.1);
   }
   .head-stick .topbar-inner{padding:8px 12px 8px;gap:6px}
-  .head-stick .brand h1{font-size:clamp(22px,6.2vw,34px)}
-  .head-stick .brand p{font-size:12px;margin-top:2px}
+  .head-stick .brand h1{font-size:clamp(20px,5.4vw,30px)}
+  .head-stick .brand-date{font-size:12px;margin-top:2px}
   .head-stick .helpline{font-size:12px;padding:5px 8px}
   .chips.stick{top:var(--head,0px);z-index:47}
 }
@@ -199,9 +199,13 @@ img{max-width:100%;display:block}
   animation:pulse 1.4s infinite;
 }
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,255,255,0)}}
-.brand{flex:none;width:100%;min-width:0;text-align:center;padding:0;box-sizing:border-box}
-.brand h1{margin:0;font-size:clamp(28px,7vw,52px);line-height:1.15;font-weight:800;text-align:center}
-.brand p{margin:6px 0 0;color:var(--muted);font-size:15px;text-align:center}
+.brand-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:10px 12px;width:100%;min-width:0;
+}
+.brand{flex:0 1 auto;width:auto;max-width:calc(100% - 92px);min-width:0;text-align:center;padding:0;box-sizing:border-box}
+.brand h1{margin:0;font-size:clamp(26px,5.4vw,48px);line-height:1.15;font-weight:800;text-align:center}
+.brand-date{margin:4px 0 0;color:var(--muted);font-size:15px;text-align:center;width:100%;line-height:1.4}
 .helpline{
   font-size:13px;font-weight:700;color:var(--crimson);
   background:var(--crimson-soft);padding:6px 10px;border-radius:10px;
@@ -1205,9 +1209,10 @@ footer .foot-about a{color:var(--teal);font-weight:800}
   .photo img{height:200px}
   .helpline{width:auto;max-width:100%;font-size:12px;line-height:1.45;white-space:normal;text-align:center}
   .top-actions{width:100%;justify-content:center}
-  .brand{padding:0}
-  .brand h1{font-size:clamp(22px,7.4vw,34px)}
-  .brand p{font-size:13px;line-height:1.4}
+  .brand-row{justify-content:space-between;gap:8px}
+  .brand{max-width:calc(100% - 86px);text-align:left}
+  .brand h1{font-size:clamp(18px,5.2vw,28px);text-align:left}
+  .brand-date{font-size:12px;line-height:1.4;text-align:left}
   .topbar-inner{padding:10px 12px}
   .wrap{padding:0 12px}
   .stat{padding:14px 14px 12px}
@@ -1524,18 +1529,17 @@ a.portal-fab-donate{
 }
 
 .lang-switch{
-  position:static;align-self:flex-end;z-index:46;
+  position:static;z-index:46;
   display:inline-flex;align-items:center;gap:3px;
   background:#fff;border:2px solid #1c1917;
-  border-radius:999px;padding:4px;flex:none;
-  margin:0 0 -6px;
-  box-shadow:0 4px 16px rgba(28,25,23,.22);
+  border-radius:999px;padding:3px;flex:none;
+  margin:0;box-shadow:none;
 }
 .lang-switch button{
   appearance:none;-webkit-appearance:none;
   font:inherit;font-weight:800;font-size:14px;letter-spacing:.04em;
   border:0;background:#efeae2;color:#1c1917;
-  padding:8px 14px;min-width:44px;min-height:44px;border-radius:999px;cursor:pointer;line-height:1.1;
+  padding:7px 12px;min-width:40px;min-height:40px;border-radius:999px;cursor:pointer;line-height:1.1;
 }
 .lang-switch button[aria-pressed="true"]{
   background:var(--crimson);color:#fff;
@@ -1549,8 +1553,8 @@ a.portal-fab-donate{
   .sources{grid-template-columns:1fr}
 }
 @media (max-width:380px){
-  .lang-switch button{font-size:12px;padding:6px 10px;min-width:38px}
-  .brand h1{font-size:clamp(20px,8vw,28px)}
+  .lang-switch button{font-size:12px;padding:6px 10px;min-width:36px;min-height:36px}
+  .brand h1{font-size:clamp(17px,5vw,24px)}
   .helpline{font-size:11px}
 }
 @media (max-height:500px) and (max-width:959px){
@@ -1564,14 +1568,16 @@ a.portal-fab-donate{
 <div class="head-stick">
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="भाषा">
-      <button type="button" data-lang="ne" aria-pressed="true" lang="ne" title="नेपाली">ने</button>
-      <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
+    <div class="brand-row">
+      <div class="brand">
+        <h1 data-i18n="brand">रसुवा–भोटेकोशी बाढी</h1>
+      </div>
+      <div class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="भाषा">
+        <button type="button" data-lang="ne" aria-pressed="true" lang="ne" title="नेपाली">ने</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
+      </div>
     </div>
-    <div class="brand">
-      <h1 data-i18n="brand">रसुवा–भोटेकोशी बाढी</h1>
-      <p data-i18n="brand_date">२७ अगस्ट २०२६ · ११ भदौ २०८३ · घटना १० भदौ / २६ अगस्ट</p>
-    </div>
+    <p class="brand-date" data-i18n="brand_date">२७ अगस्ट २०२६ · ११ भदौ २०८३ · घटना १० भदौ / २६ अगस्ट</p>
     <div class="top-actions">
       <span class="live"><i></i> <span data-i18n="live">लाइभ</span></span>
       <button type="button" class="share-btn" id="share-btn" data-i18n-aria="share" aria-label="सेयर">
@@ -8591,7 +8597,7 @@ a.portal-fab-donate{
 </div>
 
 
-<script src="i18n.js?v=2026-08-29-1118"></script>
+<script src="i18n.js?v=2026-08-29-1132"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -8648,7 +8654,7 @@ a.portal-fab-donate{
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-29-1118";</script>
+<script>window.PAGE_VER="2026-08-29-1132";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
