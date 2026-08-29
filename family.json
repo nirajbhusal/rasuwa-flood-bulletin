@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29T10:00:07+05:45",
+  "updated_at": "2026-08-29T10:23:02+05:45",
   "sheet": "https://docs.google.com/spreadsheets/d/152AEylpUgqONXOzchHknop_Aw6T3yYjHFsilwP5WqsA/edit",
   "responses_sheet": "https://docs.google.com/spreadsheets/d/1_iDsG5RFKM6elk0XeeHe6N85h60Bmc4FdUecnzIZD34/edit",
   "forms": {
@@ -12701,6 +12701,94 @@
       "when": "",
       "phone": "9849845103 Manoj Kafle, Friend",
       "note": "फारम 9:54"
+    },
+    {
+      "id": "sheet-20260829-100619-rojit-tamang",
+      "name": "Rojit tamang",
+      "status": "missing",
+      "source": "form",
+      "age": "24",
+      "place": "Solukhumbu · Rasuwa boarder",
+      "when": "2026/08/26",
+      "phone": "9707504607",
+      "note": "फारम 10:06"
+    },
+    {
+      "id": "sheet-20260829-100642-venkataraman-subramanyam",
+      "name": "Venkataraman Subramanyam",
+      "status": "missing",
+      "source": "form",
+      "age": "53",
+      "place": "USA · Rasuwagadhi border crossing Nepal side",
+      "when": "26 august around 8:20 am",
+      "phone": "9030025560",
+      "note": "फारम 10:06 · He went with 9 other people. Their names are Anil Goel, Srinivas Sudhir Rangu, Sudhindra Yapalparvi, Laxminath Gopisetty, Venkataraman Balasubramanyam, Kirti Acharya, Venkat Bangal"
+    },
+    {
+      "id": "sheet-20260829-101328-ramesh-thapa-chhetri",
+      "name": "Ramesh Thapa Chhetri",
+      "status": "missing",
+      "source": "form",
+      "age": "",
+      "place": "Mechanical Engineer at Khola Hyrdopower",
+      "when": "",
+      "phone": "9848539912",
+      "note": "फारम 10:13"
+    },
+    {
+      "id": "sheet-20260829-101412-prem-rai",
+      "name": "Prem rai",
+      "status": "missing",
+      "source": "form",
+      "age": "41",
+      "place": "Lukla · Timuree",
+      "when": "",
+      "phone": "9813056886/9862975265",
+      "note": "फारम 10:14"
+    },
+    {
+      "id": "sheet-20260829-101419-bikash-nepali",
+      "name": "Bikash Nepali",
+      "status": "missing",
+      "source": "form",
+      "age": "39",
+      "place": "Tansen,Palpa · Last seen running towards rauswa tunnel after flood. Rauswa syafrubesi",
+      "when": "2083/05/10 .Time of flood around 8:30 he was seen online on Facebook",
+      "phone": "9748704951",
+      "note": "फारम 10:14 · His height is 5.9. His skin color is dark brown with black hair."
+    },
+    {
+      "id": "sheet-20260829-101419-dipu-thatu",
+      "name": "Dipu Thatu",
+      "status": "missing",
+      "source": "form",
+      "age": "33",
+      "place": "Barbardiya 5 jabdahwa",
+      "when": "",
+      "phone": "9866774590",
+      "note": "फारम 10:14"
+    },
+    {
+      "id": "sheet-20260829-101425-अम्बर-नाछिरिङ",
+      "name": "अम्बर नाछिरिङ",
+      "status": "missing",
+      "source": "form",
+      "age": "२५",
+      "place": "सोलुखम्बु · Golgung",
+      "when": "8:47",
+      "phone": "9863594517",
+      "note": "फारम 10:14 · खोजिदिनु हुन विनम्र अनुरोध गर्दछौं"
+    },
+    {
+      "id": "sheet-20260829-101713-keshab-bista",
+      "name": "Keshab Bista",
+      "status": "missing",
+      "source": "form",
+      "age": "",
+      "place": "Baitadi · Langtang Hydro",
+      "when": "26th August",
+      "phone": "",
+      "note": "फारम 10:17 · Plant operator at Langtang Hydro"
     }
   ],
   "found": [
