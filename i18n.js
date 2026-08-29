@@ -385,7 +385,7 @@ window.I18N = {
 "fd_foreign_note": "उद्धार · विदेशी रसुवा १५२ — भेटिएको जम्मामा जोडिएको छैन। NDRRMA विदेशी १२९ यथावत्।",
 "h_foreign_res": "उद्धार · विदेशी",
 "nav_foreign_res": "उद्धार विदेशी",
-"foreign_res_lead": "रसुवा नाम-सूची <strong>१५२</strong> विदेशी उद्धार। घोषणा/सारांश १४९ (भारत ९८ · चीन २३ · कोरिया १९ · जर्मनी ४ · अमेरिका २ · इटाली २ · ओमान १) + टर्की/स्विट्जरल्यान्ड/रुस ३ = सूची १५२। ११ भदौ १०४ · १२ भदौ ४८। पुरुष १३३ · महिला १६ · नखुलेको ३। NDRRMA विदेशी १२९ / हेलि विदेशी २२७ / उद्धार ७,५१४ यथावत्। भारतीय २१, त्रिशूली-१ ६३, हेलि-नाम ६५४ र हराएको सूची अलग — जोडिएको छैन, हराएकोबाट हटाइएको छैन। भेटिएको जम्मामा जोडिएको छैन। पर्यटक ६६८ / सम्पर्कविहीन २,४९८ मा मिसाइएको छैन।",
+"foreign_res_lead": "रसुवा नाम-सूची <strong>१५२</strong> विदेशी उद्धार। घोषणा/सारांश १४९ (भारत ९८ · चीन २३ · कोरिया १९ · जर्मनी ४ · अमेरिका २ · इटाली २ · ओमान १) + टर्की/स्विट्जरल्यान्ड/रुस ३ = सूची १५२। ११ भदौ १०४ · १२ भदौ ४८। पुरुष १३३ · महिला १६ · नखुलेको ३। NDRRMA विदेशी १२९ / हेलि विदेशी २२७ / उद्धार ७,५१४ यथावत्। भारतीय २१, त्रिशूली-१ ६३, हेलि-नाम ६५४ र हराएको सूची अलग — जोडिएको छैन, हराएकोबाट हटाइएको छैन। भेटिएको जम्मामा जोडिएको छैन। पर्यटक ६६८ / सम्पर्कविहीन २,४९८ मा मिसाइएको छैन। पर्यटक प्रहरी/NDRRMA १३ भदौ १८:००: विदेशी/पर्यटक उद्धार <strong>२६१</strong> · सम्पर्कविहीन <strong>३२०</strong> — नाम-सूची १५२ / NDRRMA १२९ / हेलि विदेशी २२७ / उडान २६१ अलग लेबल।",
 "foreign_res_note": "स्रोत: रसुवा · १२ भदौ · उद्धार विदेशी नाम-सूची १५२। NDRRMA विदेशी १२९ यथावत्। भेटिएको जम्मामा जोडिएको छैन।",
 "nav_india_cross": "भारतीय · चीनबाट",
 "h_india_cross": "भारतीय · चीनबाट नेपाल सुरक्षित प्रवेश १४९",
@@ -1317,7 +1317,7 @@ window.I18N = {
 "fd_foreign_note": "Rescued · foreign Rasuwa 152 — not added into the found total. NDRRMA foreign 129 unchanged.",
 "h_foreign_res": "Rescued · foreign",
 "nav_foreign_res": "Foreign rescued",
-"foreign_res_lead": "Rasuwa name list <strong>152</strong> foreign rescued. Headline/summary 149 (India 98 · China 23 · Korea 19 · Germany 4 · USA 2 · Italy 2 · Oman 1) + Turkey/Switzerland/Russia 3 = list 152. 11 Bhadra 104 · 12 Bhadra 48. Men 133 · women 16 · unknown 3. NDRRMA foreign 129 / rescued 4,451 unchanged. Indian 21, Trishuli-1 63, heli-names 654 and the missing wall stay separate — not merged, not removed from missing. Not added into the found total. Not mixed into tourist 668 / uncontacted 2,426.",
+"foreign_res_lead": "Rasuwa name list <strong>152</strong> foreign rescued. Headline/summary 149 (India 98 · China 23 · Korea 19 · Germany 4 · USA 2 · Italy 2 · Oman 1) + Turkey/Switzerland/Russia 3 = list 152. 11 Bhadra 104 · 12 Bhadra 48. Men 133 · women 16 · unknown 3. NDRRMA foreign 129 / rescued 4,451 unchanged. Indian 21, Trishuli-1 63, heli-names 654 and the missing wall stay separate — not merged, not removed from missing. Not added into the found total. Not mixed into tourist 668 / uncontacted 2,426. Tourist Police/NDRRMA 13 Bhadra 18:00: foreign nationals/tourists rescued <strong>261</strong> · still out of contact <strong>320</strong> — labeled only, not a replacement for name list 152 / NDRRMA 129 / heli foreign 227 / flights 261.",
 "foreign_res_note": "Source: Rasuwa · 12 Bhadra · foreign rescued name list 152. NDRRMA foreign 129 unchanged. Not added into the found total.",
 "nav_india_cross": "Indian · China→Nepal",
 "h_india_cross": "Indian · safe China→Nepal crossing 149",
@@ -2115,6 +2115,18 @@ window.I18N_LISTS = {
 ],
 "hist": [
 {
+"h": "Tourist Police/NDRRMA 18:00 — foreign rescued 261",
+"p": "Tourist Police and NDRRMA: as of 6:00 pm, foreign nationals/tourists rescued <strong>261</strong> — India 167 · China 40 · Ukraine 8 · unidentified 21 · Germany 4 · Malta 4 · USA 3 · Italy/Russia/Spain/Switzerland/Turkey 2 each · Belgium/Bulgaria/Oman/Portugal 1 each. Still out of contact <strong>320</strong> — separate from official uncontacted 2,498 (foreign 589). Rasuwa name list 152 / NDRRMA foreign 129 / heli foreign 227 / flights 261 unchanged. Not in the found total. Deaths 675 unchanged. Source: <a href=\"https://english.nepalnews.com/s/nation/latest-update-261-foreign-nationals-rescued-from-bhote-koshi-floods-320-remain-out-of-contact/\" target=\"_blank\" rel=\"noopener\">Nepal News</a>."
+},
+{
+"h": "Kathmandu–Mugling / Prithvi reopened",
+"p": "Nepal Police: Kathmandu–Prithvi Highway open from this morning after three days. About <strong>1 km</strong> one-way at Baireni Bazaar, Dhading; the rest two-way. Earlier “roads closed” is history. Pasang Lhamu/Rasuwa damage unchanged. Source: <a href=\"https://www.nepalpress.com/2026/08/29/758233/traffic-operation-on-kathmandu-mugling-road-section-after-three-days/\" target=\"_blank\" rel=\"noopener\">Nepal Press</a>."
+},
+{
+"h": "China: barrier-lake burst risk eased",
+"p": "China Water Resources / CCTV: the glacier-collapse lake has been slowly draining; Saturday morning surface about <strong>99,000</strong> sq m (21,000 less than Thursday), burst threat down. Nepal Flood Forecasting Division “risk remains” stays a separate labeled line. Stay off the banks. Source: <a href=\"https://www.thehindu.com/news/international/nepal-flash-floods-death-toll-missing-persons-fresh-flood-threat-glacier-collapse-live-updates-august-29-2026/article71403315.ece\" target=\"_blank\" rel=\"noopener\">The Hindu / CCTV</a>."
+},
+{
 "h": "Flood forecast: barrier-lake burst risk remains",
 "p": "Flood Forecasting Division: the barrier lake at the 10 Bhadra flood site is growing; burst risk remains. Bhotekoshi–Trishuli levels are below warning for now, but stay clear of banks until further notice. Source: <a href=\"https://www.onlinekhabar.com/2026/08/2006213/flood-risk-remains-in-bhotekoshi-division-urges-to-pay-attention-to-early-warnings\" target=\"_blank\" rel=\"noopener\">OnlineKhabar</a>."
 },
@@ -2666,6 +2678,8 @@ window.I18N_LISTS = {
 }
 ],
 "alert": [
+"<strong>Kathmandu–Mugling / Prithvi reopened:</strong> Nepal Police — Kathmandu–Prithvi open from this morning. About <strong>1 km</strong> one-way at Baireni Bazaar; the rest two-way. Earlier road-closed line is history. Traffic <a href=\"tel:103\">103</a>. Source: <a href=\"https://www.nepalpress.com/2026/08/29/758233/traffic-operation-on-kathmandu-mugling-road-section-after-three-days/\" target=\"_blank\" rel=\"noopener\">Nepal Press</a>.",
+"<strong>China · lake burst risk eased:</strong> Water Resources/CCTV — lake slowly draining, burst threat down (Saturday morning ~99,000 sq m). Nepal Flood Forecasting Division “risk remains” stays separate. Stay off the banks.",
 "<strong>Today 12 Bhadra · Jirong lake burst:</strong> a dammed lake in Tibet burst, sending a second-wave flood to <strong>Syafrubesi</strong>. Flood Forecasting Division: impact may reach <strong>Mugling</strong>. Police: leave the Bhotekoshi–Trishuli banks immediately. Rescuers and dozers pulled from Bidur and Trishuli Bazaar. Source: <a href=\"https://www.ratopati.com/story/588109/floods-that-started-after-a-dam-burst-in-tibet-reach-syafrubesi\" target=\"_blank\" rel=\"noopener\">Ratopati 13:04</a>.",
 "<strong>SitRep-6 lake warning:</strong> temporary lake about <strong>0.11</strong> km² on the Lhende river, about <strong>18</strong> km upstream of Rasuwagadhi, debris dam — high burst-flood risk. Satellite 11:44, 27 August / 11 Bhadra. Cause: about 1 km² ice/glacier collapse on northern Lhende 26 August, seismic 5.2, Bhotekoshi–Trishuli flood. Stay away from the river.",
 "<strong>Do not go to the riverbank to see how big the flood is, and do not film or photograph at the water’s edge. Stay well away from the river, and help anyone who needs it.</strong>",
