@@ -2138,6 +2138,18 @@ window.I18N_LISTS = {
 ],
 "hist": [
 {
+"h": "Timure: girl rescued alive",
+"p": "APF Company No. 20 (Dhunche): 7-year-old Shirganga Ichaimagar pulled alive from mud at Timure, Gosainkunda-2 (Saturday afternoon). Dhunche District Hospital → TUTH referral (critical). Parents Gita and Lok Bahadur Ichaimagar (Global IME Timure) already in Kathmandu. Some outlets labeled a ~6-year-old Friday evening rescue without a name — date/name match unclear. Not added into deaths 675 / rescued 7,514. Sources: <a href=\"https://enewspolar.com/four-days-after-flash-flood-7-year-old-girl-rescued-alive-from-timure/\" target=\"_blank\" rel=\"noopener\">Enewspolar</a> · <a href=\"https://english.khabarhub.com/2026/29/565584/\" target=\"_blank\" rel=\"noopener\">Khabarhub</a>."
+},
+{
+"h": "DHM gauges live again after silence",
+"p": "Dhunche <strong>2.88</strong> m (rising · below warning 3.2) · Kali Khola <strong>6.30</strong> · Devghat <strong>4.51</strong> — all normal; reporting again at 21:40–21:50 NPT after silence. Betrawati still 26 Aug 09:20. Furke washed. Source: <a href=\"https://www.dhm.gov.np/hydrology/hms-Single/4657\" target=\"_blank\" rel=\"noopener\">DHM HMS</a>."
+},
+{
+"h": "DHM experts: immediate lake-burst risk low",
+"p": "Flood Forecasting Division (Binod Parajuli) / OnlineKhabar: after the ice-rock barrier lake began overflowing naturally, sudden-burst risk is down; more than 24 hours of overflow without a breach. Earlier “risk remains” and China CCTV “risk eased” stay separate labeled lines. Stay off the banks. Source: <a href=\"https://english.onlinekhabar.com/risk-lake-burst-rasuwa-low.html\" target=\"_blank\" rel=\"noopener\">OnlineKhabar</a>."
+},
+{
 "h": "Foreign rescued today 54",
 "p": "29 Aug name list <strong>54</strong> (China 49 · India 5). Not Rasuwa 152 / NDRRMA 129 / heli 227 / tourist 261. <a href=\"#foreign-today\">List</a>."
 },
