@@ -71,7 +71,7 @@ window.I18N = {
 
 "hero_cash_sub": "अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोष",
 "hero_ems_h": "Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard · स्याफ्रुबेसी क्षति · Copernicus EMSR927",
-"hero_ems_sub": "Copernicus EMSR927 · २७ अगस्ट ०५:०५ UTC · स्याफ्रुबेसी — NDRRMA शव ६२६ / सम्पर्कविहीन २,४२६ / उद्धार ४४५१ माथि होइन।",
+"hero_ems_sub": "Copernicus EMSR927 · २७ अगस्ट ०५:०५ UTC · स्याफ्रुबेसी — प्रहरी शव ६६९ / सम्पर्कविहीन २,४२६ / उद्धार ४४५१ माथि होइन।",
 "hero_ems_more": "पूरा तालिका र नक्सा",
 "ems_k_built": "भवन",
 "ems_k_built_sub": "४३३ / ५५९ · ७७.५%",
@@ -1002,7 +1002,7 @@ window.I18N = {
 
 "hero_cash_sub": "Ministry of Finance / PM Disaster Relief Fund / PM Relief Fund (same pot)",
 "hero_ems_h": "Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard · Syaphrubesi damage · Copernicus EMSR927",
-"hero_ems_sub": "Copernicus EMSR927 · 27 Aug 05:05 UTC · Syaphrubesi — not added into official dead 626 / uncontacted 2,426 / rescued 4451.",
+"hero_ems_sub": "Copernicus EMSR927 · 27 Aug 05:05 UTC · Syaphrubesi — not added into official dead 669 / uncontacted 2,426 / rescued 4451.",
 "hero_ems_more": "Full table and maps",
 "ems_k_built": "Built-up",
 "ems_k_built_sub": "433 / 559 · 77.5%",
@@ -2110,6 +2110,10 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{
+"h": "Damage dashboard back on home",
+"p": "Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard infographic is on the <a href=\"#home\">home</a> dashboard again. Full table/maps on <a href=\"#ems927\">#ems927</a>. Not added into deaths 669."
+},
 {"h":"प्रहरी १३ भदौ १६:०० — शव ६६९","p":"नेपाल प्रहरी (OnlineKhabar): शनिबार दिउँसो ४ बजेसम्म शव <strong>६६९</strong> — चितवन २४८, न.प.पूर्व १५८, न.प.पश्चिम ७५, गोरखा ५४, धादिङ ४९, नुवाकोट ४१, तनहुँ ३१, रसुवा १३। घाइते तथा उद्धार <strong>२,३०१</strong> यथावत् लेबल। सम्पर्कविहीन प्रहरी <strong>२७</strong>। अघिल्लो NDRRMA / गृह १०:०० शव ६२६ / प्रहरी ०७:०० शव ६१६ इतिहास। NDRRMA सम्पर्कविहीन २,४२६ · घाइते १०१ · उद्धार ४४५१ यथावत्। स्रोत: <a href=\"https://www.onlinekhabar.com/2026/08/2006464/rasuwa-flood-669-bodies-found-as-of-4-pm-on-saturday\" target=\"_blank\" rel=\"noopener\">OnlineKhabar</a>।"},
 {
 "h": "Trishuli-3A tunnel rescue intensified",
