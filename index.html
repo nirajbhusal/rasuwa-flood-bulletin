@@ -1682,6 +1682,74 @@ a.portal-fab-donate{
 .names-chips-nat .ns-chip.on{background:var(--teal);color:#fff;border-color:var(--teal)}
 .names-sec-results{margin:8px 0 0}
 .names-sec-results .ns-hit{padding:10px 12px 8px;margin:0 0 6px}
+
+.names-ig{margin:0 0 14px}
+.nig-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:stretch;
+}
+.nig-card{
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:14px 14px 12px;min-width:0;box-shadow:var(--shadow);
+  cursor:pointer;text-align:left;font:inherit;color:inherit;
+}
+.nig-card h3{
+  margin:0 0 8px;font-size:clamp(18px,2.4vw,22px);font-weight:800;line-height:1.2;
+}
+.nig-found{border-color:#86efac}
+.nig-found h3,.nig-found .nig-n{color:var(--forest)}
+.nig-rescue{border-color:#6ee7b7}
+.nig-rescue h3{color:var(--forest)}
+.nig-treat{border-color:#67e8f9}
+.nig-treat h3{color:var(--teal)}
+.nig-miss{border-color:#f9a8d4}
+.nig-miss h3,.nig-miss .nig-n{color:var(--crimson)}
+.nig-card.on{box-shadow:0 0 0 3px #d1fae5}
+.nig-miss.on{box-shadow:0 0 0 3px #fecdd3}
+.nig-treat.on{box-shadow:0 0 0 3px #cffafe}
+.nig-lead{margin:0 0 8px;font-size:15px;font-weight:700;line-height:1.45}
+.nig-lead strong{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+.nig-lines{list-style:none;margin:0 0 8px;padding:0}
+.nig-lines li{
+  display:flex;justify-content:space-between;align-items:baseline;gap:8px;
+  padding:5px 0;border-bottom:1px solid #e7e0d6;
+  font-size:13px;font-weight:700;line-height:1.35;
+}
+.nig-lines li:last-child{border-bottom:0}
+.nig-lines strong{font-variant-numeric:tabular-nums;white-space:nowrap}
+.nig-subh{margin:8px 0 4px;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.03em}
+.nig-note{margin:8px 0 0;font-size:12px;font-weight:600;color:var(--muted);line-height:1.45}
+.nig-chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.nig-chip{
+  appearance:none;-webkit-appearance:none;font:inherit;font-weight:800;font-size:11px;
+  padding:6px 8px;min-height:32px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--line);background:#f8fafc;color:var(--ink);
+}
+.nig-chip.on{background:var(--forest);color:#fff;border-color:var(--forest)}
+.nig-detail{margin:10px 0 0}
+.nig-detail .cash-pane{display:none}
+.nig-detail .cash-pane.on{display:block}
+.nig-card .ibar-row{grid-template-columns:minmax(5em,32%) 1fr 3.2em;font-size:12px;margin:3px 0}
+.names-master{margin:8px 0 14px}
+.names-master .ns-hit h3{font-size:18px}
+.names-src-tables{margin-top:8px}
+.src-pill{
+  display:inline-block;font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;
+  background:#f1f5f9;color:#334155;margin:0 0 8px;
+}
+.miss-official-h{font-size:16px;color:var(--muted)}
+.ns-pill.ns-st-treat{background:var(--teal-soft);color:var(--teal)}
+.ns-pill.ns-st-cross{background:#e0f2fe;color:#075985}
+.ns-pill.ns-xlab{background:var(--forest);color:#fff}
+@media (min-width:960px){
+  .nig-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media (max-width:640px){
+  .nig-grid{grid-template-columns:1fr}
+}
+@media (min-width:641px) and (max-width:959px){
+  .nig-grid{grid-template-columns:1fr 1fr}
+}
+
 .names-pane{display:none}
 .names-pane.on{display:block}
 .names-subh{margin:20px 0 8px;font-size:20px;font-weight:800;color:var(--teal)}
@@ -1698,13 +1766,18 @@ html.desk #names-nat-chips{display:flex}
     display:flex;flex-direction:column;overflow:hidden;max-height:100%;
   }
   html.desk #names .sec-head,
+  html.desk #names .names-ig,
   html.desk #names .names-cat-tabs,
   html.desk #names .names-search-stick{flex:none}
   html.desk #names .names-dash{
-    flex:none;max-height:28vh;overflow:auto;
+    flex:none;
+  }
+  html.desk #names .names-master{
+    flex:1 1 auto;min-height:0;overflow:auto;
+    -webkit-overflow-scrolling:touch;
   }
   html.desk #names .names-pane.on{
-    flex:1 1 auto;min-height:0;overflow:auto;
+    flex:none;max-height:36vh;overflow:auto;
     -webkit-overflow-scrolling:touch;
   }
   html.desk #names .names-search-stick{top:0;z-index:32}
@@ -2396,112 +2469,58 @@ body.names-ov-lock{overflow:hidden}
 <div class="wrap">
     <section id="names">
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_names">नाम सूची</h2></div>
-  <div class="names-cat-tabs" role="tablist" aria-label="नाम श्रेणी" data-i18n-aria="names_cats_aria">
-    <button type="button" class="names-cat-btn on" role="tab" data-names-cat="miss" aria-selected="true" data-i18n="cat_miss">हराएको</button>
-    <button type="button" class="names-cat-btn" role="tab" data-names-cat="found" aria-selected="false" data-i18n="cat_found">भेटिएको</button>
-    <button type="button" class="names-cat-btn" role="tab" data-names-cat="rescue" aria-selected="false" data-i18n="cat_rescue">उद्धार</button>
-    <button type="button" class="names-cat-btn" role="tab" data-names-cat="treat" aria-selected="false" data-i18n="cat_treat">घाइते / उपचाररत</button>
-  </div>
-  <div class="names-search-stick" id="names-search-stick">
-    <label class="vis-clip" for="names-q" data-i18n="search_label">नाम वा नम्बर खोज्नुहोस्</label>
-    <div class="names-home-field names-sec-field">
-      <input id="names-q" type="search" placeholder="नाम, ठेगाना वा नम्बर…" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
-    </div>
-    <div class="names-chips names-chips-main" id="names-sec-chips"></div>
-    <div class="names-chips names-chips-src" id="names-src-chips"></div>
-    <div class="names-chips names-chips-nat" id="names-nat-chips"></div>
-    <p class="names-home-count" id="names-sec-count"></p>
-    <div class="names-sec-results" id="names-sec-results" hidden></div>
-  </div>
-<article class="names-block names-dash" id="lists-dash">
-  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_rd">उद्धार र उपचार सूची</h2></div>
-  <article class="cash-ig rd-ig" id="rd">
-    <h3 data-i18n="rd_h">प्रकाशित नाम-सूची</h3>
-    <p class="cash-lead" data-i18n="rd_lead">काठमाडौं अस्पताल, नुवाकोट, सूर्यगढी, रसुवा/टिमुरे, NDRRMA उद्धार, भारतीय, त्रिशूली-१, सेना/निजी हेलि, उद्धार विदेशी, विदेशी आज ५४, भारतीय · चीनबाट र काठमाडौं हेलि — कार्ड थिचेर वर्ग हेर्नुहोस्। सूचीहरू अलग छन्, नाम जोडिएको छैन।</p>
-    <div class="cash-kpis rd-kpis" role="tablist" aria-label="उद्धार र उपचार">
-      <button type="button" class="cash-kpi" data-rd="treat" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_treat_k">घाइते काठमाडौं</span>
-        <strong class="num">८८</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-      </button>
-      <button type="button" class="cash-kpi" data-rd="nuwakot" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_nuw_k">नुवाकोट</span>
-        <strong class="num">७७१</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-      </button>
-      <button type="button" class="cash-kpi" data-rd="surya" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_surya_k">सूर्यगढी</span>
-        <strong class="num">२३</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-      </button>
-      <button type="button" class="cash-kpi" data-rd="rasuwa" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_ras_k">रसुवा / टिमुरे</span>
-        <strong class="num">७३</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-      </button>
-      <button type="button" class="cash-kpi" data-rd="dao" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_dao_k">NDRRMA उद्धार</span>
-        <strong class="num">२१८९</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-      </button>
-      <button type="button" class="cash-kpi" data-rd="india" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_ind_k">भारतीय</span>
-        <strong class="num">२१</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-      </button>
-      <button type="button" class="cash-kpi" data-rd="t1" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_t1_k">त्रिशूली-१</span>
-        <strong class="num">६३</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-      </button>
-      <button type="button" class="cash-kpi" data-rd="armyheli" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_army_heli_k">उद्धार · सेना/निजी हेलि</span>
-        <strong class="num">६५४</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-      </button>
-      <button type="button" class="cash-kpi" data-rd="foreign" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_foreign_k">उद्धार · विदेशी</span>
-        <strong class="num">१५२</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-      </button>
-      <button type="button" class="cash-kpi" data-rd="foreigntoday" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_foreign_today_k">विदेशी आज</span>
-        <strong class="num">५४</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-      </button>
-      <button type="button" class="cash-kpi" data-rd="indiacross" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_india_cross_k">भारतीय · चीनबाट</span>
-        <strong class="num">१४९</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-      </button>
-      <button type="button" class="cash-kpi" data-rd="heli" aria-selected="false">
-        <span class="kpi-k" data-i18n="rd_heli_k">काठमाडौं हेलि</span>
-        <strong class="num">११</strong>
-        <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-      </button>
-    </div>
-    <div class="cash-panes">
-      <div class="cash-pane on" data-rd="all">
-        <p class="ov-cap" data-i18n="rd_all_cap">प्रकाशित नाम-सूची · कार्ड थिचेर विवरण</p>
-        <ul class="cash-list">
-          <li><span data-i18n="rd_treat_k">घाइते काठमाडौं</span><strong><span class="num">८८</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="rd_nuw_k">नुवाकोट</span><strong><span class="num">७७१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="rd_surya_k">सूर्यगढी</span><strong><span class="num">२३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="rd_ras_k">रसुवा / टिमुरे</span><strong><span class="num">७३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="rd_dao_k">NDRRMA उद्धार</span><strong><span class="num">२१८९</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="rd_ind_k">भारतीय</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="rd_t1_k">त्रिशूली-१</span><strong><span class="num">६३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="rd_army_heli_k">उद्धार · सेना/निजी हेलि</span><strong><span class="num">६५४</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="rd_foreign_k">उद्धार · विदेशी</span><strong><span class="num">१५२</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="rd_foreign_today_k">विदेशी आज</span><strong><span class="num">५४</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="rd_india_cross_k">भारतीय · चीनबाट</span><strong><span class="num">१४९</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="rd_heli_k">काठमाडौं हेलि</span><strong><span class="num">११</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-        </ul>
-        <p class="cash-note" data-i18n="rd_all_note">आधिकारिक घाइते जम्मा २४२ (उपचाररत र डिस्चार्ज सहित)। यी नाम-सूची जोडेर एउटा उद्धार जम्मा बनाइएको छैन।</p>
+<article class="names-ig names-dash" id="names-ig">
+  <div id="lists-dash">
+  <div class="nig-grid" id="fd">
+    <article class="nig-card nig-found on" data-names-cat="found" tabindex="0" role="button">
+      <h3 data-i18n="cat_found">भेटिएको</h3>
+      <ul class="nig-lines">
+        <li><span data-i18n="ig_form">फारम</span><strong class="num nig-n fd-live-found">४२</strong></li>
+      </ul>
+      <p class="nig-note" data-i18n="ig_found_note">फारम भेटिएको मात्र। NDRRMA २१८९ · टिमुरे ७३ · भारतीय २१ · त्रिशूली-१ ६३ · सेना-हेलि ६५४ · विदेशी १५२ · आज ५४ · चीनबाट १४९ · उद्धार ८१८६ यो संख्यामा होइन।</p>
+    </article>
+    <article class="nig-card nig-rescue" data-names-cat="rescue" tabindex="0" role="button">
+      <h3 data-i18n="cat_rescue">उद्धार</h3>
+      <p class="nig-lead"><span data-i18n="ig_res_ndrrma">NDRRMA</span> <strong class="num">२१८९</strong> <small data-i18n="ig_res_ndrrma_split">नेपाली २०३४ · विदेशी १५५</small></p>
+      <ul class="nig-lines">
+        <li><span data-i18n="rd_ras_k">रसुवा / टिमुरे</span><strong class="num">७३</strong></li>
+        <li><span data-i18n="rd_nuw_k">नुवाकोट</span><strong class="num">७७१</strong></li>
+        <li><span data-i18n="rd_surya_k">सूर्यगढी</span><strong class="num">२३</strong></li>
+        <li><span data-i18n="rd_army_heli_k">सेना/निजी हेलि</span><strong class="num">६५४</strong></li>
+        <li><span data-i18n="rd_heli_k">काठमाडौं हेलि</span><strong class="num">११</strong></li>
+      </ul>
+      <p class="nig-subh" data-i18n="ig_res_sub">विदेशी / प्रवेश</p>
+      <ul class="nig-lines">
+        <li><span data-i18n="rd_foreign_k">विदेशी</span><strong class="num">१५२</strong></li>
+        <li><span data-i18n="rd_foreign_today_k">आज</span><strong class="num">५४</strong></li>
+        <li><span data-i18n="rd_ind_k">भारतीय</span><strong class="num">२१</strong></li>
+        <li><span data-i18n="rd_t1_k">त्रिशूली-१</span><strong class="num">६३</strong></li>
+        <li><span data-i18n="ig_cross">चीनबाट प्रवेश</span><strong class="num">१४९</strong></li>
+      </ul>
+      <p class="nig-note" data-i18n="ig_res_note">यी सूची जोडेर उद्धार जम्मा बनाइएको छैन। SitRep हेलि १९७६ / NDRRMA ग्राफिक ८१८६ अलग लेबल।</p>
+      <div class="nig-chips" role="tablist" aria-label="उद्धार विवरण">
+        <button type="button" class="nig-chip cash-kpi" data-rd="dao" aria-selected="false" data-i18n="chip_ndrrma">NDRRMA</button>
+        <button type="button" class="nig-chip cash-kpi" data-rd="rasuwa" aria-selected="false" data-i18n="rd_ras_k">रसुवा / टिमुरे</button>
+        <button type="button" class="nig-chip cash-kpi" data-rd="nuwakot" aria-selected="false" data-i18n="rd_nuw_k">नुवाकोट</button>
+        <button type="button" class="nig-chip cash-kpi" data-rd="surya" aria-selected="false" data-i18n="rd_surya_k">सूर्यगढी</button>
+        <button type="button" class="nig-chip cash-kpi" data-rd="armyheli" aria-selected="false" data-i18n="chip_army">सेना/हेलि</button>
+        <button type="button" class="nig-chip cash-kpi" data-rd="heli" aria-selected="false" data-i18n="rd_heli_k">काठमाडौं हेलि</button>
+        <button type="button" class="nig-chip cash-kpi" data-rd="foreign" aria-selected="false" data-i18n="rd_foreign_k">विदेशी</button>
+        <button type="button" class="nig-chip cash-kpi" data-rd="foreigntoday" aria-selected="false" data-i18n="rd_foreign_today_k">आज</button>
+        <button type="button" class="nig-chip cash-kpi" data-rd="india" aria-selected="false" data-i18n="rd_ind_k">भारतीय</button>
+        <button type="button" class="nig-chip cash-kpi" data-rd="t1" aria-selected="false" data-i18n="rd_t1_k">त्रिशूली-१</button>
+        <button type="button" class="nig-chip cash-kpi" data-rd="indiacross" aria-selected="false" data-i18n="ig_cross">चीनबाट प्रवेश</button>
       </div>
-      <div class="cash-pane rd-pane-treat" data-rd="treat">
-        <p class="ov-cap" data-i18n="rd_treat_cap">DEOC काठमाडौं · ८८</p>
-        <div class="ibar-row"><span data-i18n="rd_tuth">टिचिङ</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४०</em></div>
+    </article>
+    <article class="nig-card nig-treat" data-names-cat="treat" tabindex="0" role="button">
+      <h3 data-i18n="cat_treat">घाइते / उपचाररत</h3>
+      <ul class="nig-lines">
+        <li><span data-i18n="ig_inj_ndrrma">NDRRMA घाइते</span><strong class="num">२४२</strong></li>
+        <li><span data-i18n="ig_inj_dhunche">रसुवा अस्पताल धुन्चे</span><strong class="num">७४</strong></li>
+        <li><span data-i18n="ig_inj_deoc">DEOC काठमाडौं</span><strong class="num">८८</strong></li>
+      </ul>
+      <p class="nig-subh" data-i18n="rd_treat_cap">DEOC काठमाडौं · ८८</p>
+<div class="ibar-row"><span data-i18n="rd_tuth">टिचिङ</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४०</em></div>
         <div class="ibar-row"><span data-i18n="rd_trauma">ट्रमा</span><b class="ibar"><i style="width:78%"></i></b><em class="num">३१</em></div>
         <div class="ibar-row"><span data-i18n="rd_bir">वीर</span><b class="ibar"><i style="width:15%"></i></b><em class="num">६</em></div>
         <div class="ibar-row"><span data-i18n="rd_manmohan">मनमोहन</span><b class="ibar"><i style="width:5%"></i></b><em class="num">२</em></div>
@@ -2512,12 +2531,22 @@ body.names-ov-lock{overflow:hidden}
         <div class="ibar-row"><span data-i18n="rd_alka">अल्का</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
         <div class="ibar-row"><span data-i18n="rd_nmc">NMC</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
         <div class="ibar-row"><span data-i18n="rd_grande">ग्रान्डी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
-        <p class="cash-note" data-i18n-html="rd_treat_note">DEOC काठमाडौं नाम-सूची <strong>८८</strong> (उपचाररत ६९, डिस्चार्ज १९) लेबल मात्र। आधिकारिक घाइते <strong>२१९</strong>। अघिल्लो १०१ / ७३ इतिहास।</p>
-        <p class="cash-note" data-i18n="treat_dhunche_extra">घाइते · रसुवा अस्पताल धुन्चे ७४ (डिस्चार्ज ४९ · रेफर २४)</p>
-        <a class="rd-jump" href="#treat" data-i18n="rd_jump_treat">सूची हेर्नुहोस् → उपचार</a>
-        <a class="rd-jump" href="#treat-dhunche" data-i18n="rd_jump_dhunche">सूची हेर्नुहोस् → रसुवा अस्पताल धुन्चे</a>
-      </div>
-      <div class="cash-pane" data-rd="nuwakot">
+              <p class="nig-note" data-i18n="ig_inj_note">२४२, ७४ र ८८ जोडिएको छैन। धुन्चे ७४: डिस्चार्ज ४९ · रेफर २४।</p>
+    </article>
+    <article class="nig-card nig-miss" data-names-cat="miss" tabindex="0" role="button">
+      <h3 data-i18n="cat_miss">हराएको</h3>
+      <p class="nig-subh" data-i18n="ig_pub">प्रकाशित स्रोत</p>
+      <ul class="nig-lines">
+        <li><span data-i18n="ig_form">फारम</span><strong class="num nig-n fd-live-miss">७१४</strong></li>
+        <li><span data-i18n="ig_hello">हेलो सरकार</span><strong class="num fd-live-hello">१४०</strong></li>
+        <li><span data-i18n="ig_madhesh">मधेश प्रहरी</span><strong class="num fd-live-mad">३०</strong></li>
+      </ul>
+      <p class="nig-note" data-i18n="ig_miss_note">आधिकारिक सम्पर्कविहीन २,४९८ अलग। फारम, हेलो सरकार र मधेश यसमा जोडिएको छैन — तीन लाइन जोडेर आधिकारिक जम्मा बनाइएको छैन।</p>
+    </article>
+  </div>
+  <div class="nig-detail cash-ig rd-ig" id="rd">
+    <div class="cash-panes">
+<div class="cash-pane" data-rd="nuwakot">
         <p class="ov-cap" data-i18n="rd_nuw_cap">DAO नुवाकोट उद्धार</p>
         <div class="ibar-row"><span data-i18n="gender_male">पुरुष</span><b class="ibar"><i style="width:100%"></i></b><em class="num">५५५</em></div>
         <div class="ibar-row"><span data-i18n="gender_female">महिला</span><b class="ibar"><i style="width:27%"></i></b><em class="num">१५०</em></div>
@@ -2619,89 +2648,31 @@ body.names-ov-lock{overflow:hidden}
         <a class="rd-jump" href="#heli-ktm" data-i18n="rd_jump_heli">सूची हेर्नुहोस् → हेलि</a>
       </div>
     </div>
-  </article>
+  </div>
+  </div>
 </article>
-  <div class="names-pane on" data-names-cat="miss">
+  <div class="names-search-stick" id="names-search-stick">
+    <label class="vis-clip" for="names-q" data-i18n="search_label">नाम वा नम्बर खोज्नुहोस्</label>
+    <div class="names-home-field names-sec-field">
+      <input id="names-q" type="search" placeholder="नाम, ठेगाना वा नम्बर…" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
+    </div>
+    <div class="names-chips names-chips-main" id="names-sec-chips"></div>
+    <div class="names-chips names-chips-src" id="names-src-chips" hidden></div>
+    <div class="names-chips names-chips-nat" id="names-nat-chips" hidden></div>
+    <p class="names-home-count" id="names-sec-count"></p>
+  </div>
+  <div class="names-cat-tabs names-cat-tabs-compact" role="tablist" aria-label="नाम श्रेणी" data-i18n-aria="names_cats_aria">
+    <button type="button" class="names-cat-btn on" role="tab" data-names-cat="found" aria-selected="true" data-i18n="cat_found">भेटिएको</button>
+    <button type="button" class="names-cat-btn" role="tab" data-names-cat="rescue" aria-selected="false" data-i18n="cat_rescue">उद्धार</button>
+    <button type="button" class="names-cat-btn" role="tab" data-names-cat="treat" aria-selected="false" data-i18n="cat_treat">घाइते / उपचाररत</button>
+    <button type="button" class="names-cat-btn" role="tab" data-names-cat="miss" aria-selected="false" data-i18n="cat_miss">हराएको</button>
+  </div>
+  <div class="names-master" id="names-master">
+    <div class="names-sec-results" id="names-sec-results"></div>
+  </div>
+  <div class="names-pane names-src-tables" data-names-cat="miss" hidden>
 <article class="names-block" id="family">
 
-  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_family">हराएको / भेटिएको</h2></div>
-<article class="cash-ig fd-ig" id="fd">
-    <h3 data-i18n="fd_h">हराएको / भेटिएको</h3>
-    <p class="cash-lead" data-i18n="fd_lead">हराएको र भेटिएको प्रकाशित संख्या। सूचीहरू अलग छन्, नाम जोडिएको छैन। आधिकारिक सम्पर्कविहीन २,४९८ (अघिल्लो २,४२६ / १,९२४ / ९७७ इतिहास)। ८१८६ वा ६५४ वा चीनबाट भारतीय १४९ वा विदेशी आज ५४ भेटिएको जम्मामा होइन।</p>
-    <div class="cash-kpis fd-kpis" role="tablist" aria-label="हराएको र भेटिएको">
-      <div class="fd-box">
-        <button type="button" class="cash-kpi on" data-fd="miss" aria-selected="true">
-          <span class="kpi-k" data-i18n="fd_miss_k">हराएको</span>
-          <strong class="num fd-live-miss">७१४</strong>
-          <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-        </button>
-        <ul class="cash-list">
-          <li><span data-i18n="fd_miss_row">हराएको · फारम</span><strong><span class="num fd-live-miss">७१४</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-        </ul>
-      </div>
-      <div class="fd-box">
-        <button type="button" class="cash-kpi" data-fd="hello" aria-selected="false">
-          <span class="kpi-k" data-i18n="fd_hello_k">हेलो सरकार</span>
-          <strong class="num fd-live-hello">१४०</strong>
-          <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-        </button>
-        <ul class="cash-list">
-          <li><span data-i18n="fd_hello_row">हराएको · हेलो सरकार</span><strong><span class="num fd-live-hello">१४०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_mad_row">हराएको · मधेश प्रहरी</span><strong><span class="num fd-live-mad">३०</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-        </ul>
-      </div>
-      <div class="fd-box">
-        <button type="button" class="cash-kpi" data-fd="found" aria-selected="false">
-          <span class="kpi-k" data-i18n="fd_found_k">भेटिएको</span>
-          <strong class="num fd-live-found-total">२३८८</strong>
-          <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-        </button>
-        <ul class="cash-list">
-          <li><span data-i18n="fd_found_total_k">जम्मा</span><strong><span class="num fd-live-found-total">२३८८</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_found_row">भेटिएको · फारम</span><strong><span class="num fd-live-found">४२</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_dao_row">भेटिएको · NDRRMA उद्धार</span><strong><span class="num">२१८९</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_ras_row">भेटिएको · रसुवा / टिमुरे</span><strong><span class="num">७३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_ind_row">भेटिएको · भारतीय उद्धार</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_t1_row">भेटिएको · त्रिशूली-१</span><strong><span class="num">६३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-        </ul>
-      </div>
-      <div class="fd-box">
-        <button type="button" class="cash-kpi fd-res" data-fd="dao" aria-selected="false">
-          <span class="kpi-k" data-i18n="fd_dao_k">भेटिएको · NDRRMA उद्धार</span>
-          <strong class="num">२१८९</strong>
-          <span class="cash-unit" data-i18n="rd_name_u">जना</span>
-        </button>
-        <ul class="cash-list">
-          <li><span data-i18n="fd_dao_row">भेटिएको · NDRRMA उद्धार</span><strong><span class="num">२१८९</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_ras_row">भेटिएको · रसुवा / टिमुरे</span><strong><span class="num">७३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_ind_row">भेटिएको · भारतीय उद्धार</span><strong><span class="num">२१</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-          <li><span data-i18n="fd_t1_row">भेटिएको · त्रिशूली-१</span><strong><span class="num">६३</span> <span data-i18n="rd_name_u">जना</span></strong></li>
-        </ul>
-      </div>
-    </div>
-    <div class="cash-panes fd-panes">
-      <div class="cash-pane on" data-fd="miss">
-        <a class="rd-jump" href="#fam-public" data-i18n="fd_jump_miss">सूची हेर्नुहोस् → हराएको</a>
-      </div>
-      <div class="cash-pane" data-fd="hello">
-        <a class="rd-jump" href="#hello-sarkar" data-i18n="fd_jump_hello">सूची हेर्नुहोस् → हेलो सरकार</a>
-      </div>
-      <div class="cash-pane fd-pane-found" data-fd="found">
-        <a class="rd-jump" href="#fam-found-h" data-i18n="fd_jump_found">सूची हेर्नुहोस् → भेटिएको</a>
-        <a class="rd-jump" href="#army-heli-res" data-i18n="rd_jump_army_heli">सूची हेर्नुहोस् → सेना/निजी हेलि</a>
-        <a class="rd-jump" href="#foreign-res" data-i18n="rd_jump_foreign">सूची हेर्नुहोस् → उद्धार विदेशी</a>
-        <p class="cash-note" data-i18n="fd_army_heli_note">उद्धार · सेना/निजी हेलि ६५४ — भेटिएको जम्मामा जोडिएको छैन।</p>
-        <p class="cash-note" data-i18n="fd_foreign_note">उद्धार · विदेशी रसुवा १५२ — भेटिएको जम्मामा जोडिएको छैन। NDRRMA विदेशी १२९ यथावत्।</p>
-        <a class="rd-jump" href="#india-cross" data-i18n="rd_jump_india_cross">सूची हेर्नुहोस् → भारतीय · चीनबाट</a>
-        <a class="rd-jump" href="#foreign-today" data-i18n="rd_jump_foreign_today">सूची हेर्नुहोस् → विदेशी आज ५४</a>
-        <p class="cash-note" data-i18n="fd_foreign_today_note">उद्धार · विदेशी आज ५४ — भेटिएको जम्मामा जोडिएको छैन। रसुवा १५२ / NDRRMA १२९ / हेलि २२७ / पर्यटक २६१ यथावत्।</p>
-        <p class="cash-note" data-i18n="fd_india_cross_note">भारतीय · चीनबाट नेपाल प्रवेश १४९ — भेटिएको जम्मामा जोडिएको छैन। रसुवा विदेशी १५२ / भारत ९८ यथावत्।</p>
-      </div>
-      <div class="cash-pane" data-fd="dao">
-        <a class="rd-jump" href="#dao-res" data-i18n="rd_jump_dao">सूची हेर्नुहोस् → DAO</a>
-      </div>
-    </div>
-  </article>
   <div class="card">
     <p class="fam-lead" data-i18n-html="fam_lead1">बाढीमा हराएका वा भेटिएका व्यक्तिको विवरण पठाउनुहोस्। जाँचपछि मात्र कार्ड देखिन्छ। भेटिएको <strong>४१</strong> जना। आपत्कालमा <a href="tel:1234">१२३४</a> वा <a href="tel:100"><span data-i18n="police">प्रहरी</span> १००</a>।</p>
     <div class="fam-actions">
@@ -2718,7 +2689,14 @@ body.names-ov-lock{overflow:hidden}
       </div>
       <div class="names-chips" id="fam-search-chips"></div>
     </div>
-    <h3 class="fam-h" id="fam-public" data-i18n="public_reports">हराएको · जनताको रिपोर्ट</h3>
+    <div class="miss-src-chips names-chips" id="miss-src-chips">
+      <button type="button" class="ns-chip on" data-miss-src="all" data-i18n="chip_all">सबै</button>
+      <button type="button" class="ns-chip" data-miss-src="form" data-i18n="src_family">फारम</button>
+      <button type="button" class="ns-chip" data-miss-src="hello" data-i18n="src_hello">हेलो सरकार</button>
+      <button type="button" class="ns-chip" data-miss-src="madhesh" data-i18n="src_madhesh">मधेश प्रहरी</button>
+    </div>
+    <div data-miss-block="form">
+    <h3 class="fam-h" id="fam-public" data-i18n="public_reports">फारम</h3>
     <p class="treat-lead" id="fam-new-lead" data-i18n-html="fam_new_lead">फारम सिटबाट जाँचिएका सम्पर्कविहीन विवरण। नम्बरमा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="pager" data-pager="fam-miss">
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
@@ -2729,7 +2707,11 @@ body.names-ov-lock{overflow:hidden}
     <div class="fam-grid" id="fam-missing"></div>
     <p class="fam-empty" id="fam-missing-empty" data-i18n="empty_review">जाँचपछि मात्र यहाँ आउँछ।</p>
     <p class="fam-empty" id="fam-search-empty" hidden data-i18n="empty_search">यो खोजसँग मिल्ने नाम भेटिएन।</p>
-    <h3 class="fam-h" id="hello-sarkar" data-i18n="hello_sarkar">हराएको · हेलो सरकार / मधेश प्रहरी</h3>
+    </div>
+    <div class="miss-official" data-miss-block="official">
+    <h3 class="fam-h miss-official-h" data-i18n="ig_official">आधिकारिक रिपोर्ट</h3>
+    <div class="miss-tbl" data-miss-block="hello">
+    <span class="src-pill" id="hello-sarkar" data-i18n="src_hello">हेलो सरकार</span>
     <p class="treat-lead" data-i18n-html="hello_lead">फोनमार्फत टिपिएका सम्पर्कविहीन तथा बेपत्ता <strong>१४०</strong> विवरण। नम्बर भएकामा ट्याप गरेर कल गर्न सकिन्छ।</p>
     <div class="pager" data-pager="hello-sarkar">
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
@@ -2891,7 +2873,9 @@ body.names-ov-lock{overflow:hidden}
     </table>
     </div>
     <p class="treat-note" data-i18n="hello_note">स्रोत: हेलो सरकार, राती ८:१०।</p>
-    <h4 class="fam-h" id="madhesh" data-i18n="madhesh_h">हराएको · मधेश प्रहरी</h4>
+    </div>
+    <div class="miss-tbl" data-miss-block="madhesh">
+    <span class="src-pill" id="madhesh" data-i18n="src_madhesh">मधेश प्रहरी</span>
     <p class="treat-lead" data-i18n-html="madhesh_lead">मधेश प्रदेश प्रहरी: परिवार तथा आफन्तको जानकारी अनुसार रसुवा बाढीपछि <strong>३०</strong> जना सम्पर्कविहीन। पर्सा १७ (उद्धार भई सम्पर्कमा <strong>२</strong>), बारा ३, रौतहट २, सर्लाही ६, सप्तरी २। हेलो सरकार १४० र फारम सूची अलग। नाम मिलाइएको छैन।</p>
     <div class="pager" data-pager="madhesh">
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
@@ -2944,6 +2928,8 @@ body.names-ov-lock{overflow:hidden}
     </table>
     </div>
     <p class="treat-note" data-i18n="madhesh_note">स्रोत: मधेश प्रदेश प्रहरी कार्यालय। खोजबिनको अपिल।</p>
+    </div>
+    </div>
     <div id="fam-matched-wrap" hidden>
     <h3 class="fam-h" data-i18n="matched_h">मेल भएका</h3>
     <div class="fam-grid" id="fam-matched"></div>
@@ -2965,6 +2951,7 @@ body.names-ov-lock{overflow:hidden}
 </div>
   </div>
   <div class="names-pane" data-names-cat="rescue" hidden>
+<h2 class="names-pane-h vis-clip" data-i18n="cat_rescue">उद्धार</h2>
 <article class="names-block" id="dao-res">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n-html="h_dao_res">उद्धार · <a href="https://ndrrma.gov.np/np/rescue" target="_blank" rel="noopener">NDRRMA</a></h2></div>
   <div class="card green">
@@ -7557,6 +7544,7 @@ body.names-ov-lock{overflow:hidden}
     </div>
   </div>
   <div class="names-pane" data-names-cat="treat" hidden>
+<h2 class="names-pane-h vis-clip" data-i18n="cat_treat">घाइते / उपचाररत</h2>
 <article class="names-block" id="treat">
   <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_treat">विपद्‌बाट उद्धार गरी उपचारार्थ काठमाडौं ल्याइएका घाइतेहरूको विवरण</h2></div>
   <div class="card green">
@@ -10615,8 +10603,8 @@ body.names-ov-lock{overflow:hidden}
 </div>
 
 
-<script src="i18n.js?v=2026-08-30-1152"></script>
-<script src="names-index.js?v=2026-08-30-1152"></script>
+<script src="i18n.js?v=2026-08-30-1212"></script>
+<script src="names-index.js?v=2026-08-30-1212"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -10673,7 +10661,7 @@ body.names-ov-lock{overflow:hidden}
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-30-1152";</script>
+<script>window.PAGE_VER="2026-08-30-1212";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -10732,43 +10720,50 @@ body.names-ov-lock{overflow:hidden}
 
 
 (function(){
-  var root = document.getElementById("fd");
-  if (!root) return;
-  var kpis = [].slice.call(root.querySelectorAll(".cash-kpi"));
-  var panes = [].slice.call(root.querySelectorAll(".cash-pane"));
-  function show(id){
-    kpis.forEach(function(k){
-      var on = k.getAttribute("data-fd") === id;
-      k.classList.toggle("on", on);
-      k.setAttribute("aria-selected", on ? "true" : "false");
+  var row = document.getElementById("miss-src-chips");
+  if (!row) return;
+  function show(src){
+    row.querySelectorAll("[data-miss-src]").forEach(function(b){
+      var on = b.getAttribute("data-miss-src") === src;
+      b.classList.toggle("on", on);
     });
-    panes.forEach(function(p){
-      p.classList.toggle("on", p.getAttribute("data-fd") === id);
+    var family = document.getElementById("family");
+    if (!family) return;
+    family.querySelectorAll("[data-miss-block]").forEach(function(el){
+      var id = el.getAttribute("data-miss-block");
+      var on = src === "all" || id === src || (src === "hello" && id === "official") || (src === "madhesh" && id === "official");
+      if (id === "official" && (src === "all" || src === "hello" || src === "madhesh")) on = true;
+      if (id === "official" && src === "form") on = false;
+      el.hidden = !on;
     });
   }
-  kpis.forEach(function(k){
-    k.addEventListener("click", function(){ show(k.getAttribute("data-fd")); });
+  row.addEventListener("click", function(e){
+    var b = e.target.closest("[data-miss-src]");
+    if (!b) return;
+    show(b.getAttribute("data-miss-src"));
   });
 })();
 (function(){
+  var ig = document.getElementById("names-ig");
   var root = document.getElementById("rd");
-  if (!root) return;
-  var kpis = [].slice.call(root.querySelectorAll(".cash-kpi"));
+  if (!ig || !root) return;
+  var kpis = [].slice.call(ig.querySelectorAll(".nig-chip[data-rd], .cash-kpi[data-rd]"));
   var panes = [].slice.call(root.querySelectorAll(".cash-pane"));
   function show(id){
     kpis.forEach(function(k){
-      var on = k.getAttribute("data-rd") === id;
+      var on = !!id && k.getAttribute("data-rd") === id;
       k.classList.toggle("on", on);
       k.setAttribute("aria-selected", on ? "true" : "false");
     });
     panes.forEach(function(p){
-      p.classList.toggle("on", p.getAttribute("data-rd") === id);
+      p.classList.toggle("on", !!id && p.getAttribute("data-rd") === id);
     });
   }
   kpis.forEach(function(k){
-    k.addEventListener("click", function(){
+    k.addEventListener("click", function(e){
+      e.stopPropagation();
       var id = k.getAttribute("data-rd");
-      if (k.classList.contains("on")) show("all");
+      if (k.classList.contains("on")) show("");
       else show(id);
     });
   });
@@ -11383,7 +11378,6 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (data.missing) setLive(".fd-live-miss", data.missing.length);
     if (data.found){
       setLive(".fd-live-found", data.found.length);
-      setLive(".fd-live-found-total", data.found.length + 2189 + 73 + 21 + 63);
     }
     var helloN = document.querySelectorAll("#hello-sarkar-body tr").length;
     var madN = document.querySelectorAll("#madhesh-body tr").length;
@@ -11642,7 +11636,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
 
 (function(){
   var CAT_OF = {
-    names:"miss", "lists-dash":"rescue",
+    names:"found", "lists-dash":"found", "names-ig":"found", fd:"found",
     family:"miss", "hello-sarkar":"miss", madhesh:"miss", "fam-public":"miss",
     "fam-found-h":"found", "fam-found":"found", "stat-found":"found",
     "dao-res":"rescue", "rasuwa-res":"rescue", shelter:"rescue", suryagadhi:"rescue",
@@ -11667,22 +11661,31 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     opts = opts || {};
     var root = document.getElementById("names");
     if (!root || !cat) return;
-    root.querySelectorAll(".names-pane").forEach(function(p){
-      var on = p.getAttribute("data-names-cat") === cat;
-      p.classList.toggle("on", on);
-      if (on) p.removeAttribute("hidden");
-      else p.setAttribute("hidden", "");
-    });
     root.querySelectorAll(".names-cat-btn").forEach(function(b){
       var on = b.getAttribute("data-names-cat") === cat;
       b.classList.toggle("on", on);
       b.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    root.querySelectorAll(".nig-card[data-names-cat]").forEach(function(c){
+      c.classList.toggle("on", c.getAttribute("data-names-cat") === cat);
     });
     var src = document.getElementById("names-src-chips");
     if (src) src.hidden = !(cat === "rescue");
     var nat = document.getElementById("names-nat-chips");
     if (nat) nat.hidden = !(cat === "rescue");
     if (opts.filter !== false && window.__namesOnCat) window.__namesOnCat(cat, opts);
+    if (opts.showPane) {
+      root.querySelectorAll(".names-pane").forEach(function(p){
+        var on = p.getAttribute("data-names-cat") === cat;
+        p.classList.toggle("on", on);
+        if (on) p.removeAttribute("hidden");
+        else p.setAttribute("hidden", "");
+      });
+    }
+    var master = document.getElementById("names-master");
+    if (master && !opts.showPane) {
+      try { master.scrollIntoView({ block: "nearest", behavior: "auto" }); } catch (e) {}
+    }
   }
   function fromHash(){
     var id = (location.hash || "").replace(/^#/, "");
@@ -11696,7 +11699,9 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       else cat = "miss";
     }
     if (!cat) return;
-    setCat(cat, { filter: true, hashId: id });
+    var skipPane = { names:1, "lists-dash":1, "names-ig":1, fd:1, rd:1, "fam-found-h":1, "fam-found":1, "stat-found":1 };
+    var sourceJump = !!(id && !skipPane[id]);
+    setCat(cat, { filter: true, hashId: id, showPane: sourceJump });
     if (id && id !== "names" && el && el.scrollIntoView) {
       setTimeout(function(){
         var t = document.getElementById(id);
@@ -11715,6 +11720,14 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       try { history.replaceState(null, "", location.pathname + location.search + "#names"); } catch (err) {}
       return;
     }
+    var nig = e.target.closest("#names-ig [data-names-cat]");
+    if (nig && !e.target.closest("[data-rd]")) {
+      e.preventDefault();
+      var ncat = nig.getAttribute("data-names-cat");
+      setCat(ncat, { filter: true });
+      try { history.replaceState(null, "", location.pathname + location.search + "#names"); } catch (err) {}
+      return;
+    }
     var sub = e.target.closest("[data-names-sub]");
     if (sub) {
       var sid = sub.getAttribute("data-names-sub");
@@ -11723,14 +11736,14 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       if (t && t.scrollIntoView) t.scrollIntoView({ block: "start", behavior: "auto" });
     }
   });
-  var rd = document.getElementById("rd");
-  if (rd) {
-    rd.addEventListener("click", function(e){
-      var k = e.target.closest(".cash-kpi[data-rd]");
+  var ig = document.getElementById("names-ig");
+  if (ig) {
+    ig.addEventListener("click", function(e){
+      var k = e.target.closest("[data-rd]");
       if (!k) return;
       var rid = k.getAttribute("data-rd");
-      var cat = RD_CAT[rid];
-      if (cat) setCat(cat, { filter: true, foreign: !!(rid === "foreign" || rid === "foreigntoday" || rid === "india" || rid === "t1" || rid === "indiacross") });
+      var cat = RD_CAT[rid] || "rescue";
+      setCat(cat, { filter: true, foreign: !!(rid === "foreign" || rid === "foreigntoday" || rid === "india" || rid === "t1" || rid === "indiacross") });
     });
   }
   var fd = document.getElementById("fd");

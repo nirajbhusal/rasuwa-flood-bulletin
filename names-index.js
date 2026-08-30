@@ -15,10 +15,10 @@
 
   var CHIP_DEFS = [
     { id: "all", group: "all", i18n: "chip_all", row: "main" },
-    { id: "miss", group: "status", i18n: "chip_miss", row: "main" },
     { id: "found", group: "status", i18n: "chip_found", row: "main" },
     { id: "rescue", group: "status", i18n: "chip_res", row: "main" },
     { id: "treat", group: "status", i18n: "chip_treat", row: "main" },
+    { id: "miss", group: "status", i18n: "chip_miss", row: "main" },
     { id: "foreign", group: "nation", i18n: "chip_foreign", row: "main" },
     { id: "ndrrma", group: "source", i18n: "chip_ndrrma", row: "src" },
     { id: "timure", group: "source", i18n: "chip_timure", row: "src" },
@@ -50,7 +50,7 @@
   };
 
   var recs = [];
-  var filters = {};
+  var filters = { found: true };
   var shown = PAGE;
   var lastHits = [];
   var ready = false;
@@ -176,7 +176,6 @@
       cn: src === "cross" || nation === "china"
     };
     if (src === "ndrrma" || src === "timure" || src === "india" || src === "t1") {
-      tags.found = true;
       tags.rescue = true;
     }
     if (src === "army" || src === "foreign" || src === "ftoday") tags.rescue = true;
@@ -209,6 +208,10 @@
       tags: tags,
       hay: hay,
       note: o.note || "",
+      list: o.list || "",
+      extraLabs: [],
+      hideDup: false,
+      dupOf: "",
       matches: []
     });
   }
@@ -495,7 +498,8 @@
         source: "treat",
         nation: "nepali",
         jump: "#treat-dhunche",
-        note: (cellText(tr, 5) + " " + cellText(tr, 6)).trim()
+        note: (cellText(tr, 5) + " " + cellText(tr, 6)).trim(),
+        list: "dhunche"
       };
     });
     scrapeTable("#treat-body tr", function (tr, i) {
@@ -578,8 +582,36 @@
     return "";
   }
 
-  function linkKind(src) {
-    return src === "army" || src === "cross" ? "link" : "strong";
+  function isRescueTreat(src) {
+    return src === "ndrrma" || src === "timure" || src === "army" || src === "india" || src === "t1"
+      || src === "foreign" || src === "ftoday" || src === "shelter" || src === "surya" || src === "heli"
+      || src === "treat";
+  }
+
+  function scriptKind(s) {
+    s = String(s || "");
+    var dev = /[\u0900-\u097F]/.test(s);
+    var lat = /[A-Za-z]/.test(s);
+    if (dev && !lat) return "dev";
+    if (lat && !dev) return "lat";
+    return "mix";
+  }
+
+  function scriptClash(a, b) {
+    var sa = scriptKind(a.name || a.norm);
+    var sb = scriptKind(b.name || b.norm);
+    return (sa === "dev" && sb === "lat") || (sa === "lat" && sb === "dev");
+  }
+
+  function extraLabFor(rec) {
+    if (!rec) return "";
+    if (rec.source === "treat") {
+      return rec.list === "dhunche" || rec.jump === "#treat-dhunche"
+        ? tt("ig_lab_care", "उपचाररत") + " · " + tt("ig_dhunche", "धुन्चे")
+        : tt("ig_lab_care", "उपचाररत") + " · " + tt("src_treat", "उपचार");
+    }
+    var srcLab = tt((SRC_META[rec.source] || {}).i18n || "", rec.source);
+    return tt("ig_lab_res", "उद्धार") + " · " + srcLab;
   }
 
   function computeMatches() {
@@ -618,13 +650,17 @@
         for (var j = i + 1; j < g.length; j++) {
           var a = g[i], b = g[j];
           if (a.source === b.source && a.status === b.status) continue;
+          if (scriptClash(a, b)) continue;
           if (differentPhone(a, b)) continue;
           var phoneHit = samePhone(a, b);
           var ageHit = a.ageN != null && b.ageN != null && Math.abs(a.ageN - b.ageN) <= 1;
           var placeHit = sharedPlace(a.placeTok, b.placeTok);
           if (phoneHit || (ageHit && placeHit)) {
-            var kind = (a.source === "army" || b.source === "army" || a.source === "cross" || b.source === "cross" || a.source === "ftoday" || b.source === "ftoday")
-              ? "link" : "strong";
+            var rtPair = (a.status === "missing" && isRescueTreat(b.source))
+              || (b.status === "missing" && isRescueTreat(a.source));
+            var kind = rtPair ? "strong"
+              : (a.source === "army" || b.source === "army" || a.source === "cross" || b.source === "cross" || a.source === "ftoday" || b.source === "ftoday")
+                ? "link" : "strong";
             addMatch(a, b, kind);
             strongAt[a.id] = 1;
             strongAt[b.id] = 1;
@@ -634,11 +670,35 @@
       if (g.length === 2 && !strongAt[g[0].id] && !strongAt[g[1].id]) {
         var x = g[0], y = g[1];
         if (x.source === y.source && x.status === y.status) return;
+        if (scriptClash(x, y)) return;
         if (differentPhone(x, y) || differentPlace(x, y)) return;
-        var softKind = (x.source === "army" || y.source === "army" || x.source === "cross" || y.source === "cross" || x.source === "ftoday" || y.source === "ftoday")
-          ? "link" : "soft";
+        var softKind = "soft";
         addMatch(x, y, softKind);
       }
+    });
+    recs.forEach(function (r) {
+      if (r.status !== "missing") return;
+      r.matches.forEach(function (m) {
+        if (m.kind !== "strong") return;
+        var other = recs.filter(function (x) { return x.id === m.id; })[0];
+        if (!other || !isRescueTreat(other.source)) return;
+        r.extraLabs.push({
+          text: extraLabFor(other),
+          source: other.source,
+          jump: other.jump,
+          status: other.status
+        });
+        other.hideDup = true;
+        other.dupOf = r.id;
+        if (other.status === "rescue" || other.tags.rescue) r.tags.rescue = true;
+        if (other.status === "treat" || other.tags.treat) r.tags.treat = true;
+        if (other.tags.ndrrma) r.tags.ndrrma = true;
+        if (other.tags.timure) r.tags.timure = true;
+        if (other.tags.army) r.tags.army = true;
+        if (other.tags.t1) r.tags.t1 = true;
+        if (other.tags.foreign) r.tags.foreign = true;
+        if (other.tags.ftoday) r.tags.ftoday = true;
+      });
     });
   }
 
@@ -657,11 +717,15 @@
         var a = document.createElement("a");
         a.href = m.jump || "#";
         a.className = "ns-badge-a ns-k-" + m.kind;
-        var label = m.kind === "soft" ? tt("ns_soft", "सम्भावित मेल")
-          : m.kind === "link" ? tt("ns_also", "यो पनि")
-          : tt("ns_match", "मेल");
         var srcLab = tt((SRC_META[m.source] || {}).i18n || "", m.source);
-        a.textContent = label + " · " + srcLab;
+        var label;
+        if (m.kind === "soft") label = tt("ns_soft", "सम्भावित मेल") + " · " + srcLab;
+        else if (m.kind === "link") label = tt("ns_also", "यो पनि") + " · " + srcLab;
+        else if (isRescueTreat(m.source)) {
+          var fake = { source: m.source, jump: m.jump, status: m.source === "treat" ? "treat" : "rescue", list: m.jump === "#treat-dhunche" ? "dhunche" : "" };
+          label = extraLabFor(fake);
+        } else label = tt("ns_match", "मेल") + " · " + srcLab;
+        a.textContent = label;
         a.addEventListener("click", function (e) {
           e.preventDefault();
           goJump(m.jump, m.name);
@@ -695,9 +759,14 @@
     var tokens = q.split(" ").filter(Boolean);
     var qd = onlyDigits(q);
     var out = [];
+    var filtered = [];
     for (var i = 0; i < recs.length; i++) {
       var r = recs[i];
       if (!passFilters(r)) continue;
+      filtered.push(r);
+    }
+    for (var i = 0; i < filtered.length; i++) {
+      var r = filtered[i];
       if (tokens.length) {
         var ok = true;
         for (var t = 0; t < tokens.length; t++) {
@@ -706,8 +775,6 @@
         if (!ok && !(qd.length >= 4 && r.hay.indexOf(qd) !== -1)) continue;
       } else if (qd.length >= 4) {
         if (r.hay.indexOf(qd) === -1) continue;
-      } else if (!hasActiveFilter()) {
-        continue;
       }
       var score = 0;
       if (q && r.norm === q) score += 80;
@@ -718,6 +785,11 @@
       r._score = score;
       out.push(r);
     }
+    var hitIds = {};
+    out.forEach(function (r) { hitIds[r.id] = 1; });
+    out = out.filter(function (r) {
+      return !(r.hideDup && r.dupOf && hitIds[r.dupOf]);
+    });
     out.sort(function (a, b) { return b._score - a._score; });
     return out;
   }
@@ -815,7 +887,11 @@
     pills.push('<span class="ns-pill ns-st-' + r.status + '">' + esc(statusLabel(r)) + "</span>");
     pills.push('<span class="ns-pill ns-src-' + r.source + '">' + esc(tt((SRC_META[r.source] || {}).i18n || "", r.source)) + "</span>");
     if (r.nation) pills.push('<span class="ns-pill ns-nat">' + esc(natLabel(r.nation)) + "</span>");
+    (r.extraLabs || []).forEach(function (x) {
+      pills.push('<span class="ns-pill ns-xlab">' + esc(x.text) + "</span>");
+    });
     r.matches.forEach(function (m) {
+      if (m.kind === "strong" && isRescueTreat(m.source)) return;
       var lab = m.kind === "soft" ? tt("ns_soft", "सम्भावित मेल")
         : m.kind === "link" ? tt("ns_also", "यो पनि")
         : tt("ns_match", "मेल");
@@ -835,8 +911,8 @@
     if (r.status === "missing") return tt("chip_miss", "हराएको");
     if (r.status === "found") return tt("chip_found", "भेटिएको");
     if (r.status === "rescue") return tt("chip_res", "उद्धार");
-    if (r.status === "treat") return tt("chip_treat", "घाइते");
-    if (r.source === "cross") return tt("chip_cn", "चीनबाट");
+    if (r.status === "treat") return tt("chip_care", "उपचाररत");
+    if (r.source === "cross") return tt("ig_cross", "चीनबाट प्रवेश");
     return tt("chip_res", "उद्धार");
   }
 
@@ -854,7 +930,7 @@
     var box = document.getElementById("names-ov-results");
     var count = document.getElementById("names-ov-count");
     var homeCount = document.getElementById("names-home-count");
-    var emptyQ = !queryOf(q) && !onlyDigits(q) && !hasActiveFilter();
+    var emptyQ = false;
     if (count) {
       if (!ready) count.textContent = tt("ns_loading", "नाम तयार हुँदै…");
       else if (emptyQ) count.textContent = tt("ns_hint", "नाम वा नम्बर लेख्नुहोस्, वा फिल्टर छान्नुहोस्।") +
@@ -888,7 +964,7 @@
       }
       var bit = lastHits.slice(0, limit);
       target.innerHTML = bit.map(resultHtml).join("");
-      if (lastHits.length > limit && target.id !== "names-sec-results") {
+      if (lastHits.length > limit) {
         var more = document.createElement("button");
         more.type = "button";
         more.className = "ns-more";
@@ -914,10 +990,8 @@
     if (box) paintBox(box, shown);
     var secBox = document.getElementById("names-sec-results");
     if (secBox) {
-      var hasQ = !!(queryOf(q) || onlyDigits(q));
-      secBox.hidden = !hasQ;
-      if (hasQ) paintBox(secBox, Math.min(shown, 12));
-      else secBox.innerHTML = "";
+      secBox.hidden = false;
+      paintBox(secBox, shown);
     }
   }
 
@@ -1127,6 +1201,7 @@
       scrapeDom();
       computeMatches();
       ready = true;
+      if (!hasActiveFilter()) filters = { found: true };
       renderResults();
       decorateCards();
       var n = 0;
