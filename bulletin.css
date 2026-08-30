@@ -1588,9 +1588,13 @@ a.portal-fab-donate{
   width:22px;height:22px;flex:0 0 22px;min-width:22px;max-width:22px;
   overflow:hidden;
 }
-.nig-ico svg{
-  width:22px;height:22px;max-width:22px;max-height:22px;
-  display:block;flex:none;
+.nig-ico svg,
+.nig-card-h > .nig-ico svg,
+.names-ig svg.nig-lock,
+.names-ig .nig-ico svg{
+  width:22px !important;height:22px !important;
+  max-width:22px !important;max-height:22px !important;
+  display:block;flex:none;overflow:hidden;
 }
 .nig-card-h{flex-wrap:nowrap;min-width:0}
 .home-ig-card .nig-ico,
@@ -1949,9 +1953,19 @@ html.names-page.desk #names .names-pane.on{
 a.home-ig-names{cursor:pointer}
 
 @media (max-width:760px){
-  .home-ig-card .nig-card-h{flex-direction:row;align-items:center;flex-wrap:nowrap}
+  .nig-card-h,
+  .home-ig-card .nig-card-h{
+    flex-direction:row;align-items:center;flex-wrap:nowrap;
+  }
+  .nig-ico,
+  .nig-ico svg,
+  .nig-card-h svg,
+  .names-ig .nig-ico,
+  .names-ig .nig-ico svg,
   .home-ig-card .nig-ico,
   .home-ig-card .nig-ico svg{
-    width:20px;height:20px;max-width:20px;max-height:20px;flex:0 0 20px;
+    width:20px !important;height:20px !important;
+    max-width:20px !important;max-height:20px !important;
+    min-width:0;flex:0 0 20px;
   }
 }
