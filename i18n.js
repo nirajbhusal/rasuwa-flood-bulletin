@@ -17,6 +17,7 @@ window.I18N = {
 "nav_back_dash": "« ड्यासबोर्ड",
 "nav_sections": "खण्डहरू",
 "nav_map": "नक्सा / समयरेखा",
+"nav_notices": "सूचना / सडक स्थिति",
 "nav_alert": "सतर्कता",
 "nav_rahat": "राहत भिजुअल",
 "nav_treat": "घाइते",
@@ -495,6 +496,7 @@ window.I18N = {
 
 "h_contacts": "स्थानीय तह सम्पर्क",
 "h_alert": "सतर्कता",
+"h_notices": "सूचना र सडक स्थिति",
 "h_gov": "विपद्पछि सरकारबाट सरकारी पहल",
 "h_aid": "वैदेशिक सहयोग",
 "h_photos": "तस्बिर · आज २६ अगस्ट २०२६ मात्र",
@@ -994,6 +996,9 @@ window.I18N = {
 "damage_title": "बाढी क्षति मूल्यांकन ड्यासबोर्ड · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "damage_meta": "स्याफ्रुबेँसी र त्रिशूली करिडोर क्षति मूल्यांकन। Copernicus EMSR927। उद्धार १२३४।",
 "damage_sub": "स्याफ्रुबेँसी र त्रिशूली करिडोर",
+"notices_title": "सूचना र सडक स्थिति · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"notices_meta": "बाटो, पुल, नाका र सतर्कता। उद्धार १२३४।",
+"notices_sub": "बाटो, पुल, नाका र सतर्कता",
 "ems_src": "स्रोत: Copernicus EMSR927",
 "about_sub": "बारेमा · स्वतन्त्र नागरिक बुलेटिन",
 "about_back": "← बुलेटिन",
@@ -1034,6 +1039,7 @@ window.I18N = {
 "nav_back_dash": "Back to dashboard",
 "nav_sections": "Sections",
 "nav_map": "Map / Timeline",
+"nav_notices": "Notices / Road Status",
 "nav_alert": "Alert",
 "nav_rahat": "Relief visual",
 "nav_treat": "Injured",
@@ -1504,6 +1510,7 @@ window.I18N = {
 
 "h_contacts": "Local government contacts",
 "h_alert": "Alert",
+"h_notices": "Alerts, Notices and road status",
 "h_gov": "Government action after the disaster",
 "h_aid": "Foreign aid",
 "h_photos": "Photos · today 26 August 2026 only",
@@ -2004,6 +2011,9 @@ window.I18N = {
 "damage_title": "Flood damage assessment dashboard · Rasuwa–Bhotekoshi flood bulletin",
 "damage_meta": "Syabrubesi and the Trishuli corridor damage assessment. Copernicus EMSR927. Rescue 1234.",
 "damage_sub": "Syabrubesi and the Trishuli corridor",
+"notices_title": "Alerts, Notices and road status · Rasuwa–Bhotekoshi flood bulletin",
+"notices_meta": "Highways, bridges, border road and alerts. Rescue 1234.",
+"notices_sub": "Highways, bridges, border road and alerts",
 "ems_src": "Source: Copernicus EMSR927",
 "about_sub": "About · independent civic bulletin",
 "about_back": "← Bulletin",
@@ -3242,6 +3252,7 @@ window.I18N_LISTS = {
     var needPg = file === "need.html" || document.documentElement.classList.contains("need-page");
     var govPg = file === "gov.html" || document.documentElement.classList.contains("gov-page");
     var damagePg = file === "damage.html" || document.documentElement.classList.contains("damage-page");
+    var noticesPg = file === "notices.html" || document.documentElement.classList.contains("notices-page");
     if (aboutPg) {
       if (p.about_title) document.title = p.about_title;
     } else if (mapPg) {
@@ -3254,6 +3265,8 @@ window.I18N_LISTS = {
       if (p.gov_title) document.title = p.gov_title;
     } else if (damagePg) {
       if (p.damage_title) document.title = p.damage_title;
+    } else if (noticesPg) {
+      if (p.notices_title) document.title = p.notices_title;
     } else if (p.title) document.title = p.title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) {
@@ -3263,6 +3276,7 @@ window.I18N_LISTS = {
       else if (needPg && p.need_meta) meta.setAttribute("content", p.need_meta);
       else if (govPg && p.gov_meta) meta.setAttribute("content", p.gov_meta);
       else if (damagePg && p.damage_meta) meta.setAttribute("content", p.damage_meta);
+      else if (noticesPg && p.notices_meta) meta.setAttribute("content", p.notices_meta);
       else if (p.meta) meta.setAttribute("content", p.meta);
     }
     applyKeyed(lang);
