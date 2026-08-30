@@ -14,20 +14,21 @@
   };
 
   var CHIP_DEFS = [
-    { id: "all", group: "all", i18n: "chip_all" },
-    { id: "miss", group: "status", i18n: "chip_miss" },
-    { id: "found", group: "status", i18n: "chip_found" },
-    { id: "rescue", group: "status", i18n: "chip_res" },
-    { id: "ndrrma", group: "source", i18n: "chip_ndrrma" },
-    { id: "t1", group: "source", i18n: "chip_t1" },
-    { id: "army", group: "source", i18n: "chip_army" },
-    { id: "hello", group: "source", i18n: "chip_hello" },
-    { id: "timure", group: "source", i18n: "chip_timure" },
-    { id: "ftoday", group: "source", i18n: "chip_ftoday" },
-    { id: "np", group: "nation", i18n: "chip_np" },
-    { id: "foreign", group: "nation", i18n: "chip_foreign" },
-    { id: "in", group: "nation", i18n: "chip_in" },
-    { id: "cn", group: "nation", i18n: "chip_cn" }
+    { id: "all", group: "all", i18n: "chip_all", row: "main" },
+    { id: "miss", group: "status", i18n: "chip_miss", row: "main" },
+    { id: "found", group: "status", i18n: "chip_found", row: "main" },
+    { id: "rescue", group: "status", i18n: "chip_res", row: "main" },
+    { id: "treat", group: "status", i18n: "chip_treat", row: "main" },
+    { id: "foreign", group: "nation", i18n: "chip_foreign", row: "main" },
+    { id: "ndrrma", group: "source", i18n: "chip_ndrrma", row: "src" },
+    { id: "timure", group: "source", i18n: "chip_timure", row: "src" },
+    { id: "army", group: "source", i18n: "chip_army", row: "src" },
+    { id: "hello", group: "source", i18n: "chip_hello", row: "src" },
+    { id: "t1", group: "source", i18n: "chip_t1", row: "src" },
+    { id: "ftoday", group: "source", i18n: "chip_ftoday", row: "src" },
+    { id: "np", group: "nation", i18n: "chip_np", row: "nat" },
+    { id: "in", group: "nation", i18n: "chip_in", row: "nat" },
+    { id: "cn", group: "nation", i18n: "chip_cn", row: "nat" }
   ];
 
   var SRC_META = {
@@ -41,7 +42,11 @@
     army: { i18n: "src_army", jump: "#army-heli-res", pill: "army" },
     foreign: { i18n: "src_foreign", jump: "#foreign-res", pill: "foreign" },
     cross: { i18n: "src_cross", jump: "#india-cross", pill: "cross" },
-    ftoday: { i18n: "src_ftoday", jump: "#foreign-today", pill: "foreign" }
+    ftoday: { i18n: "src_ftoday", jump: "#foreign-today", pill: "foreign" },
+    treat: { i18n: "src_treat", jump: "#treat", pill: "treat" },
+    shelter: { i18n: "src_shelter", jump: "#shelter", pill: "shelter" },
+    surya: { i18n: "src_surya", jump: "#suryagadhi", pill: "surya" },
+    heli: { i18n: "src_heli", jump: "#heli-ktm", pill: "heli" }
   };
 
   var recs = [];
@@ -158,6 +163,7 @@
       miss: status === "missing",
       found: status === "found",
       rescue: status === "rescue",
+      treat: status === "treat" || src === "treat",
       ndrrma: src === "ndrrma",
       t1: src === "t1",
       army: src === "army",
@@ -174,6 +180,7 @@
       tags.rescue = true;
     }
     if (src === "army" || src === "foreign" || src === "ftoday") tags.rescue = true;
+    if (src === "shelter" || src === "surya" || src === "heli") tags.rescue = true;
     if (src === "cross") { tags.cn = true; tags.in = true; }
     if (src === "india" || src === "t1") tags.in = true;
     if (src === "foreign" || src === "ftoday") tags.foreign = true;
@@ -476,6 +483,76 @@
         };
       });
     }
+    scrapeTable("#treat-dhunche-body tr", function (tr, i) {
+      var name = cellText(tr, 1);
+      if (!name) return null;
+      return {
+        id: "treat-d-" + i,
+        name: name,
+        age: cellText(tr, 2),
+        place: cellText(tr, 4),
+        status: "treat",
+        source: "treat",
+        nation: "nepali",
+        jump: "#treat-dhunche",
+        note: (cellText(tr, 5) + " " + cellText(tr, 6)).trim()
+      };
+    });
+    scrapeTable("#treat-body tr", function (tr, i) {
+      var name = cellText(tr, 1);
+      if (!name) return null;
+      return {
+        id: "treat-k-" + i,
+        name: name,
+        age: cellText(tr, 2),
+        place: cellText(tr, 3),
+        phone: cellText(tr, 4),
+        status: "treat",
+        source: "treat",
+        nation: "nepali",
+        jump: "#treat",
+        note: (cellText(tr, 6) + " " + cellText(tr, 7)).trim()
+      };
+    });
+    scrapeTable("#shelter-body tr", function (tr, i) {
+      var name = cellText(tr, 1);
+      if (!name) return null;
+      return {
+        id: "shelter-" + i,
+        name: name,
+        age: cellText(tr, 2),
+        place: cellText(tr, 4) || cellText(tr, 5),
+        status: "rescue",
+        source: "shelter",
+        nation: "nepali",
+        jump: "#shelter"
+      };
+    });
+    scrapeTable("#surya-body tr", function (tr, i) {
+      var name = cellText(tr, 1);
+      if (!name) return null;
+      return {
+        id: "surya-" + i,
+        name: name,
+        place: cellText(tr, 2),
+        status: "rescue",
+        source: "surya",
+        nation: "nepali",
+        jump: "#suryagadhi"
+      };
+    });
+    scrapeTable("#heli-ktm tbody tr", function (tr, i) {
+      var name = cellText(tr, 1);
+      if (!name) return null;
+      return {
+        id: "heli-" + i,
+        name: name,
+        status: "rescue",
+        source: "heli",
+        nation: "nepali",
+        jump: "#heli-ktm"
+      };
+    });
   }
 
   function samePhone(a, b) {
@@ -653,9 +730,14 @@
   function currentQuery() {
     var ov = document.getElementById("names-ov-q");
     var home = document.getElementById("names-home-q");
+    var sec = document.getElementById("names-q");
     var fam = document.getElementById("fam-search");
     if (overlayOpen && ov) return ov.value || "";
-    if (home && document.activeElement === home) return home.value || "";
+    var active = document.activeElement;
+    if (sec && active === sec) return sec.value || "";
+    if (home && active === home) return home.value || "";
+    if (fam && active === fam) return fam.value || "";
+    if (sec && sec.value) return sec.value;
     if (ov && ov.value) return ov.value;
     if (home && home.value) return home.value;
     if (fam && fam.value) return fam.value;
@@ -663,17 +745,23 @@
   }
 
   function syncInputs(q, except) {
-    ["names-ov-q", "names-home-q"].forEach(function (id) {
+    ["names-ov-q", "names-home-q", "names-q", "fam-search"].forEach(function (id) {
       if (id === except) return;
       var el = document.getElementById(id);
-      if (el && el.value !== q) el.value = q;
+      if (el && el.value !== q) {
+        el.value = q;
+        if (id === "fam-search") {
+          try { el.dispatchEvent(new Event("input", { bubbles: true })); } catch (e) {}
+        }
+      }
     });
   }
 
-  function renderChips(root) {
+  function renderChips(root, row) {
     if (!root) return;
     root.innerHTML = "";
     CHIP_DEFS.forEach(function (c) {
+      if (row && c.row !== row) return;
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "ns-chip";
@@ -683,11 +771,20 @@
       if (on) btn.classList.add("on");
       if (c.id === "miss") btn.classList.add("tone-miss");
       if (c.id === "found" || c.id === "rescue") btn.classList.add("tone-ok");
+      if (c.id === "treat") btn.classList.add("tone-treat");
       btn.textContent = tt(c.i18n, c.id);
       btn.addEventListener("click", function () {
         if (c.id === "all") filters = {};
-        else {
+        else if (c.group === "status") {
+          var turn = !filters[c.id];
+          filters = {};
+          if (turn) filters[c.id] = true;
+          if (turn && window.__namesSetCat) window.__namesSetCat(c.id, { filter: false });
+        } else {
           filters[c.id] = !filters[c.id];
+          if (c.id === "foreign" && filters.foreign && window.__namesSetCat) {
+            window.__namesSetCat("rescue", { filter: false, foreign: true });
+          }
         }
         shown = PAGE;
         paintChips();
@@ -700,8 +797,11 @@
 
   function paintChips() {
     renderChips(document.getElementById("names-ov-chips"));
-    renderChips(document.getElementById("names-home-chips"));
-    renderChips(document.getElementById("fam-search-chips"));
+    renderChips(document.getElementById("names-home-chips"), "main");
+    renderChips(document.getElementById("fam-search-chips"), "main");
+    renderChips(document.getElementById("names-sec-chips"), "main");
+    renderChips(document.getElementById("names-src-chips"), "src");
+    renderChips(document.getElementById("names-nat-chips"), "nat");
   }
 
   function resultHtml(r) {
@@ -735,6 +835,7 @@
     if (r.status === "missing") return tt("chip_miss", "हराएको");
     if (r.status === "found") return tt("chip_found", "भेटिएको");
     if (r.status === "rescue") return tt("chip_res", "उद्धार");
+    if (r.status === "treat") return tt("chip_treat", "घाइते");
     if (r.source === "cross") return tt("chip_cn", "चीनबाट");
     return tt("chip_res", "उद्धार");
   }
@@ -765,42 +866,72 @@
       else if (emptyQ) homeCount.textContent = fmtNum(recs.length) + " " + tt("ns_names", "नाम");
       else homeCount.textContent = fmtNum(lastHits.length) + " " + tt("ns_names", "नाम");
     }
-    if (!box) return;
-    if (!ready) {
-      box.innerHTML = '<p class="ns-empty">' + esc(tt("ns_loading", "नाम तयार हुँदै…")) + "</p>";
-      return;
+    var secCount = document.getElementById("names-sec-count");
+    if (secCount) {
+      if (!ready) secCount.textContent = "";
+      else if (emptyQ) secCount.textContent = fmtNum(recs.length) + " " + tt("ns_names", "नाम");
+      else secCount.textContent = fmtNum(lastHits.length) + " " + tt("ns_names", "नाम");
     }
-    if (emptyQ) {
-      box.innerHTML = '<p class="ns-empty">' + esc(tt("ns_hint", "नाम वा नम्बर लेख्नुहोस्, वा फिल्टर छान्नुहोस्।")) + "</p>";
-      return;
-    }
-    if (!lastHits.length) {
-      box.innerHTML = '<p class="ns-empty">' + esc(tt("ns_empty", "यो खोजसँग मिल्ने नाम भेटिएन।")) + "</p>";
-      return;
-    }
-    box.innerHTML = slice.map(resultHtml).join("");
-    if (lastHits.length > shown) {
-      var more = document.createElement("button");
-      more.type = "button";
-      more.className = "ns-more";
-      more.textContent = tt("ns_more", "थप देखाउनुहोस्") + " · " + fmtNum(lastHits.length - shown);
-      more.addEventListener("click", function () {
-        shown += PAGE;
-        renderResults();
-      });
-      box.appendChild(more);
-    }
-    box.querySelectorAll(".ns-hit").forEach(function (el) {
-      var id = el.getAttribute("data-id");
-      var rec = recs.filter(function (r) { return r.id === id; })[0];
-      if (!rec) return;
-      el.querySelectorAll(".ns-jump").forEach(function (a) {
-        a.addEventListener("click", function (e) {
-          e.preventDefault();
-          goJump(rec.jump, rec.name, rec.domId);
+    function paintBox(target, limit) {
+      if (!target) return;
+      if (!ready) {
+        target.innerHTML = '<p class="ns-empty">' + esc(tt("ns_loading", "नाम तयार हुँदै…")) + "</p>";
+        return;
+      }
+      if (emptyQ) {
+        target.innerHTML = target.id === "names-sec-results" ? "" : '<p class="ns-empty">' + esc(tt("ns_hint", "नाम वा नम्बर लेख्नुहोस्, वा फिल्टर छान्नुहोस्।")) + "</p>";
+        return;
+      }
+      if (!lastHits.length) {
+        target.innerHTML = '<p class="ns-empty">' + esc(tt("ns_empty", "यो खोजसँग मिल्ने नाम भेटिएन।")) + "</p>";
+        return;
+      }
+      var bit = lastHits.slice(0, limit);
+      target.innerHTML = bit.map(resultHtml).join("");
+      if (lastHits.length > limit && target.id !== "names-sec-results") {
+        var more = document.createElement("button");
+        more.type = "button";
+        more.className = "ns-more";
+        more.textContent = tt("ns_more", "थप देखाउनुहोस्") + " · " + fmtNum(lastHits.length - limit);
+        more.addEventListener("click", function () {
+          shown += PAGE;
+          renderResults();
+        });
+        target.appendChild(more);
+      }
+      target.querySelectorAll(".ns-hit").forEach(function (el) {
+        var id = el.getAttribute("data-id");
+        var rec = recs.filter(function (r) { return r.id === id; })[0];
+        if (!rec) return;
+        el.querySelectorAll(".ns-jump").forEach(function (a) {
+          a.addEventListener("click", function (e) {
+            e.preventDefault();
+            goJump(rec.jump, rec.name, rec.domId);
+          });
         });
       });
-    });
+    }
+    if (box) paintBox(box, shown);
+    var secBox = document.getElementById("names-sec-results");
+    if (secBox) {
+      var hasQ = !!(queryOf(q) || onlyDigits(q));
+      secBox.hidden = !hasQ;
+      if (hasQ) paintBox(secBox, Math.min(shown, 12));
+      else secBox.innerHTML = "";
+    }
+  }
+
+  function catOfRec(rec, hash) {
+    var src = rec && rec.source;
+    var st = rec && rec.status;
+    if (st === "treat" || src === "treat") return "treat";
+    if (st === "missing" || src === "hello" || src === "madhesh") return "miss";
+    if (src === "family" && st === "found") return "found";
+    var id = (hash || "").replace(/^#/, "");
+    if (id === "fam-found-h" || id === "fam-found") return "found";
+    if (id === "treat" || id === "treat-dhunche") return "treat";
+    if (id === "family" || id === "hello-sarkar" || id === "fam-public") return "miss";
+    return "rescue";
   }
 
   function goJump(hash, name, domId) {
@@ -811,6 +942,8 @@
       fam.dispatchEvent(new Event("input", { bubbles: true }));
     }
     var target = (hash || "").replace(/^#/, "");
+    var rec = recs.filter(function (r) { return r.domId === domId || r.jump === hash; })[0];
+    if (window.__namesSetCat) window.__namesSetCat(catOfRec(rec, hash), { filter: true });
     if (target) {
       try {
         history.pushState(null, "", location.pathname + location.search + "#" + target);
@@ -873,12 +1006,20 @@
 
   function bindUi() {
     paintChips();
-    ["names-ov-q", "names-home-q"].forEach(function (id) {
+    ["names-ov-q", "names-home-q", "names-q"].forEach(function (id) {
       var el = document.getElementById(id);
       if (!el) return;
       el.addEventListener("input", onQueryInput);
       el.addEventListener("search", onQueryInput);
     });
+    var famQ = document.getElementById("fam-search");
+    if (famQ) {
+      famQ.addEventListener("input", function (e) {
+        syncInputs(e.target.value || "", "fam-search");
+        shown = PAGE;
+        renderResults();
+      });
+    }
     var homeQ = document.getElementById("names-home-q");
     if (homeQ) {
       homeQ.addEventListener("focus", function () {
@@ -890,8 +1031,26 @@
     document.querySelectorAll("[data-open-names]").forEach(function (el) {
       el.addEventListener("click", function (e) {
         e.preventDefault();
-        var q = (document.getElementById("names-home-q") || document.getElementById("fam-search") || {}).value || "";
+        var q = (document.getElementById("names-home-q") || document.getElementById("names-q") || document.getElementById("fam-search") || {}).value || "";
         openOverlay(q);
+      });
+    });
+    document.querySelectorAll("[data-jump-names]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        var q = (document.getElementById("names-home-q") || document.getElementById("fam-search") || {}).value || "";
+        var inp = document.getElementById("names-q");
+        if (inp && q) inp.value = q;
+        syncInputs(q, "names-q");
+        if (window.__namesSetCat) window.__namesSetCat("miss", { filter: false });
+        try { history.pushState(null, "", location.pathname + location.search + "#names"); } catch (err) {}
+        try { window.dispatchEvent(new Event("hashchange")); } catch (err) {}
+        shown = PAGE;
+        renderResults();
+        setTimeout(function () {
+          var focus = document.getElementById("names-q");
+          if (focus) { try { focus.focus(); } catch (err) {} }
+        }, 80);
       });
     });
     var x = document.getElementById("names-ov-x");
@@ -981,6 +1140,20 @@
     });
   }
 
+  window.__namesOnCat = function (cat, opts) {
+    if (opts && opts.filter === false) return;
+    filters = {};
+    if (cat === "miss") filters.miss = true;
+    else if (cat === "found") filters.found = true;
+    else if (cat === "treat") filters.treat = true;
+    else if (cat === "rescue") {
+      filters.rescue = true;
+      if (opts && opts.foreign) filters.foreign = true;
+    }
+    shown = PAGE;
+    paintChips();
+    renderResults();
+  };
   window.__openNamesSearch = openOverlay;
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
