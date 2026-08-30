@@ -1478,8 +1478,8 @@ a.portal-fab-donate{
 .names-open-btn svg{width:16px;height:16px}
 .names-open-label{font-weight:800}
 @media (max-width:640px){
-  .names-open-label{display:none}
-  .names-open-btn{padding:6px 8px;min-width:36px;justify-content:center}
+  .names-open-btn{padding:6px 10px;min-width:0;justify-content:center}
+  .names-open-label{display:inline;font-size:13px;font-weight:800;white-space:nowrap}
 }
 
 .names-home{
