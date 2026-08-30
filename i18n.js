@@ -36,7 +36,7 @@ window.I18N = {
 "nav_need": "राहत सामग्री / गोदाम",
 "nav_aid": "वैदेशिक सहयोग",
 "nav_contacts": "सम्पर्क",
-"nav_gov": "सरकारी पहल",
+"nav_gov": "सरकारबाट भएका पहल",
 "nav_photos": "तस्बिर",
 "nav_history": "अपडेट",
 "nav_event": "सरोकारवालाको भनाइ",
@@ -494,7 +494,7 @@ window.I18N = {
 
 "h_contacts": "स्थानीय तह सम्पर्क",
 "h_alert": "सतर्कता",
-"h_gov": "विपद् पछि सरकारबाट भएको पहल",
+"h_gov": "विपद्पछि सरकारबाट सरकारी पहल",
 "h_aid": "वैदेशिक सहयोग",
 "h_photos": "तस्बिर · आज २६ अगस्ट २०२६ मात्र",
 "h_history": "अपडेट",
@@ -985,6 +985,9 @@ window.I18N = {
 "donate_meta": "प्रधानमन्त्री दैवी प्रकोप उद्धार कोष खाता, QR, नगद NPR ६.५५ अर्ब, वैदेशिक सहयोग। उद्धार १२३४।",
 "need_title": "राहत सामग्री आवश्यक र आपत्कालीन गोदाम · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "need_meta": "NDRRMA SitRep #०६ माग सूची र आपत्कालीन गोदाम तथा राहत संकलन सम्पर्क। उद्धार १२३४।",
+"gov_title": "विपद्पछि सरकारबाट सरकारी पहल · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"gov_meta": "उद्धार, राहत, सडक, स्वास्थ्य र नीतिगत निर्णय। उद्धार १२३४।",
+"gov_sub": "उद्धार, राहत, सडक, स्वास्थ्य र नीतिगत निर्णय",
 "about_sub": "बारेमा · स्वतन्त्र नागरिक बुलेटिन",
 "about_back": "← बुलेटिन",
 "about_back_foot": "बुलेटिनमा फर्कनुहोस्",
@@ -1043,7 +1046,7 @@ window.I18N = {
 "nav_need": "Relief goods / warehouses",
 "nav_aid": "Foreign aid",
 "nav_contacts": "Contacts",
-"nav_gov": "Government action",
+"nav_gov": "Govt response",
 "nav_photos": "Photos",
 "nav_history": "Updates",
 "nav_event": "What officials say",
@@ -1983,6 +1986,9 @@ window.I18N = {
 "donate_meta": "Prime Minister Disaster Relief Fund accounts, QR, cash NPR 6.55 billion, foreign aid. Rescue 1234.",
 "need_title": "Relief goods needed and emergency warehouses · Rasuwa–Bhotekoshi flood bulletin",
 "need_meta": "NDRRMA SitRep #06 need list and emergency warehouse / collection contacts. Rescue 1234.",
+"gov_title": "Government action after the disaster · Rasuwa–Bhotekoshi flood bulletin",
+"gov_meta": "Rescue, relief, roads, health and official decisions. Rescue 1234.",
+"gov_sub": "Rescue, relief, roads, health and official decisions",
 "about_sub": "About · independent civic bulletin",
 "about_back": "← Bulletin",
 "about_back_foot": "Back to the bulletin",
@@ -3214,6 +3220,7 @@ window.I18N_LISTS = {
     var mapPg = file === "map.html" || document.documentElement.classList.contains("map-page");
     var donatePg = file === "donate.html" || document.documentElement.classList.contains("donate-page");
     var needPg = file === "need.html" || document.documentElement.classList.contains("need-page");
+    var govPg = file === "gov.html" || document.documentElement.classList.contains("gov-page");
     if (aboutPg) {
       if (p.about_title) document.title = p.about_title;
     } else if (mapPg) {
@@ -3222,6 +3229,8 @@ window.I18N_LISTS = {
       if (p.donate_title) document.title = p.donate_title;
     } else if (needPg) {
       if (p.need_title) document.title = p.need_title;
+    } else if (govPg) {
+      if (p.gov_title) document.title = p.gov_title;
     } else if (p.title) document.title = p.title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) {
@@ -3229,6 +3238,7 @@ window.I18N_LISTS = {
       else if (mapPg && p.map_meta) meta.setAttribute("content", p.map_meta);
       else if (donatePg && p.donate_meta) meta.setAttribute("content", p.donate_meta);
       else if (needPg && p.need_meta) meta.setAttribute("content", p.need_meta);
+      else if (govPg && p.gov_meta) meta.setAttribute("content", p.gov_meta);
       else if (p.meta) meta.setAttribute("content", p.meta);
     }
     applyKeyed(lang);
