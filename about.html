@@ -14,13 +14,16 @@
 <base href="https://nirajbhusal.github.io/rasuwa-flood-bulletin/">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#c41e3a">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1447">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1515">
 </head>
 <body class="about-page">
 <div class="head-stick">
@@ -38,9 +41,9 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="18" cy="5" r="2.7"/><circle cx="6" cy="12" r="2.7"/><circle cx="18" cy="19" r="2.7"/><path d="M8.5 13.4 15.4 17.5M15.5 6.5 8.5 10.6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg>
         <span data-i18n="share">सेयर</span>
       </button>
-      <button type="button" class="share-btn names-open-btn" id="names-open-btn" data-open-names data-i18n-aria="search_aria" aria-label="नाम खोज">
+      <button type="button" class="share-btn names-open-btn" id="names-open-btn" data-open-names data-i18n-aria="search_aria" aria-label="नाम खोज्नुहोस्">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.4 3.6a6.8 6.8 0 1 1 0 13.6 6.8 6.8 0 0 1 0-13.6m0-2.1a8.9 8.9 0 1 0 5.5 15.8l4.4 4.4 1.5-1.5-4.4-4.4A8.9 8.9 0 0 0 10.4 1.5z"/></svg>
-        <span class="names-open-label" data-i18n="nav_search">खोज</span>
+        <span class="names-open-label" data-i18n="nav_search">नाम खोज्नुहोस्</span>
       </button>
       <div class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="भाषा">
         <button type="button" data-lang="ne" aria-pressed="true" lang="ne" title="नेपाली">ने</button>
@@ -50,7 +53,7 @@
     </div>
   </div>
 </header>
-<p class="safety-banner" role="alert" data-i18n="safety">नदी किनार नजानुहोस्।</p>
+<p class="safety-banner" role="alert" data-i18n="safety">जिरोङ ताल फुट्यो — बाढी स्याफ्रुबेँसी पुग्यो, मुग्लिनसम्म सतर्कता। नदी किनार नजानुहोस्। हेर्न वा फोटो खिच्न नजानुहोस्।</p>
 <nav class="chips stick" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
   <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-chips" aria-label="मेनु" data-i18n-aria="nav_menu">
     <svg class="ico-h" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
@@ -61,7 +64,7 @@
     <svg class="ico-show" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.6 7.4 9.2 12l-4.6 4.6L6 18l6-6-6-6zm7 0L16.2 12l-4.6 4.6L13 18l6-6-6-6z"/></svg>
   </button>
   <div class="chips-inner" id="nav-chips">
-    <a class="home-btn" href="index.html#home" aria-label="ड्यासबोर्ड" title="ड्यासबोर्ड" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">ड्यासबोर्ड</span></a>
+    <a class="home-btn" href="index.html" aria-label="ड्यासबोर्ड" title="ड्यासबोर्ड" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">ड्यासबोर्ड</span></a>
     <a href="names.html" class="nav-names" data-i18n="nav_names">उद्धार / बेपत्ता नामावली</a>
     <a href="donate.html" data-i18n="nav_donate">राहत कोष</a>
     <a href="need.html" data-i18n="nav_need">राहत सामग्री / गोदाम</a>
@@ -70,7 +73,7 @@
     <a href="contact.html" data-i18n="nav_helpline">हेल्पलाइन / सम्पर्क</a>
     <a href="gov.html" data-i18n="nav_gov">सरकारबाट भएका पहल</a>
     <a href="photos.html" data-i18n="nav_photos">तस्बिर / भिडियो</a>
-    <a href="damage.html" data-i18n="nav_damage">क्षति ड्यासबोर्ड</a>
+    <a href="damage.html" data-i18n="nav_damage">क्षति मूल्यांकन</a>
     <a class="nav-about is-current" aria-current="location" href="about.html" data-i18n="nav_about">बारेमा</a>
   </div>
 </nav>
@@ -78,7 +81,7 @@
 <div class="page-body">
 
 <div class="page-main">
-<a id="screen-back" class="screen-back is-on" href="index.html#home"><span data-i18n="nav_back_dash">« ड्यासबोर्ड</span></a>
+<a id="screen-back" class="screen-back is-on" href="index.html"><span data-i18n="nav_back_dash">« ड्यासबोर्ड</span></a>
 <div class="wrap">
 <section id="about">
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="about_h">बारेमा</h2></div>
@@ -89,7 +92,7 @@
     </div>
     <div class="card teal">
       <h3 data-i18n="about_who_h">यो पाना के हो</h3>
-      <p data-i18n-html="about_who">स्वतन्त्र नागरिक बुलेटिन। लेखक निरज भुसाल। सरकारी साइट, प्रहरी वा NDRRMA को आधिकारिक पोर्टल होइन। आकस्मिक उद्धारका लागि <a href="tel:1234">१२३४</a> मा फोन गर्नुहोस्। सुझाव वा सच्याउन WhatsApp <a href="https://wa.me/9779701010000">+९७७ ९७०१०१००००</a> वा <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a>।</p>
+      <p data-i18n-html="about_who">स्वतन्त्र नागरिक बुलेटिन। लेखक निरज भुसाल। सरकारी साइट, प्रहरी वा NDRRMA को आधिकारिक पोर्टल होइन। आकस्मिक उद्धारका लागि <a href="tel:1234">१२३४</a> मा फोन गर्नुहोस्। सुझाव वा सच्याउन <a href="https://wa.me/9779701010000" class="wa-inline" aria-label="WhatsApp" title="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a> वा <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a>।</p>
     </div>
     <div class="card green">
       <h3 data-i18n="about_feat_h">बुलेटिनमा के छ</h3>
@@ -117,7 +120,7 @@
     <div class="card teal about-contact">
       <h3 data-i18n="nav_contacts">सम्पर्क</h3>
       <div class="phones">
-        <a class="wa" href="https://wa.me/9779701010000?text=%E0%A4%B0%E0%A4%B8%E0%A5%81%E0%A4%B5%E0%A4%BE%20%E0%A4%AC%E0%A4%BE%E0%A4%A2%E0%A5%80%20%E0%A4%AC%E0%A5%81%E0%A4%B2%E0%A5%87%E0%A4%9F%E0%A4%BF%E0%A4%A8" target="_blank" rel="noopener">WhatsApp +9779701010000</a>
+        <a class="wa" href="https://wa.me/9779701010000?text=%E0%A4%B0%E0%A4%B8%E0%A5%81%E0%A4%B5%E0%A4%BE%20%E0%A4%AC%E0%A4%BE%E0%A4%A2%E0%A5%80%20%E0%A4%AC%E0%A5%81%E0%A4%B2%E0%A5%87%E0%A4%9F%E0%A4%BF%E0%A4%A8" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
         <a class="mail" href="mailto:neerajbhusal@gmail.com?subject=Rasuwa%20flood%20bulletin">neerajbhusal@gmail.com</a>
         <a class="x" href="https://x.com/nirajbhusal" target="_blank" rel="noopener" data-i18n="about_x">X · @nirajbhusal</a>
         <a class="in" href="https://www.linkedin.com/in/nirajbhusal/" target="_blank" rel="noopener" data-i18n="about_linkedin">LinkedIn</a>
@@ -252,8 +255,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-08-30-1447"></script>
-<script src="names-index.js?v=2026-08-30-1447"></script>
+<script src="i18n.js?v=2026-08-30-1515"></script>
+<script src="names-index.js?v=2026-08-30-1515"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -287,7 +290,7 @@
     if (file === "notices.html") return CANON + "notices.html" + (location.hash || "");
     if (file === "contact.html") return CANON + "contact.html" + (location.hash || "");
     if (file === "photos.html") return CANON + "photos.html" + (location.hash || "");
-    return CANON + (location.hash || "");
+    return CANON;
   }
   function toast(msg){
     var el = document.getElementById("share-toast");
@@ -305,20 +308,21 @@
   }
   function copyUrl(){
     var u = pageUrl();
+    var payload = "Rasuwa Bhotekoshi Flood Update\n" + u;
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(u).then(function(){
+      navigator.clipboard.writeText(payload).then(function(){
         toast(t("share_copied", "लिंक कपी भयो"));
       }).catch(function(){
-        try { window.prompt("", u); } catch (e) {}
+        try { window.prompt("", payload); } catch (e) {}
       });
       return;
     }
-    try { window.prompt("", u); } catch (e) {}
+    try { window.prompt("", payload); } catch (e) {}
   }
   btn.addEventListener("click", function(){
     var u = pageUrl();
-    var title = t("share_title", "रसुवा–भोटेकोशी बाढी बुलेटिन");
-    var text = t("share_text", "रसुवा–भोटेकोशी बाढी बुलेटिन · उद्धार १२३४");
+    var title = "Rasuwa Bhotekoshi Flood Update";
+    var text = "Rasuwa Bhotekoshi Flood Update";
     if (typeof navigator.share === "function") {
       navigator.share({ title: title, text: text, url: u }).catch(function(err){
         if (err && err.name === "AbortError") return;
@@ -329,7 +333,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-08-30-1447";
+window.PAGE_VER="2026-08-30-1515";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){

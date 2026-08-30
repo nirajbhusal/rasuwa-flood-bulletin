@@ -312,6 +312,10 @@ a.js-found-row[hidden]{display:none}
 html.desk:not(.desk-ready) .page-main section,
 html.desk:not(.desk-ready) .page-main #helpline,
 html.desk:not(.desk-ready) .page-main .stats-src{display:none}
+html:not([class*="-page"]).desk:not(.desk-ready) .page-main section,
+html:not([class*="-page"]).desk:not(.desk-ready) .page-main #helpline,
+html:not([class*="-page"]).desk:not(.desk-ready) .page-main .stats-src{display:revert}
+html:not([class*="-page"]) .is-screen-off{display:revert!important}
 .is-screen-off{display:none!important}
 .nav-toggle{display:none}
 .desk-nav-toggle{display:none}
@@ -827,6 +831,18 @@ section{padding:22px 0}
   border-radius:999px;text-decoration:none;
 }
 .phones a.wa{background:#128C7E}
+.about-page .phones a.wa{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;padding:10px;border-radius:50%;
+  font-size:0;line-height:0;color:#fff;
+}
+.about-page .phones a.wa svg{width:24px;height:24px;display:block}
+.wa-inline{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:1.4em;height:1.4em;vertical-align:-0.28em;
+  color:#128C7E;text-decoration:none;
+}
+.wa-inline svg{width:1.25em;height:1.25em;display:block}
 .phones a.mail{background:#0f172a}
 .phones a.x{background:#111}
 .phones a.in{background:#0a66c2}
@@ -1475,6 +1491,19 @@ a.portal-fab-donate{
 .names-home-top h3{margin:0;font-size:18px;font-weight:800;color:var(--crimson);line-height:1.25}
 .names-home-sub{margin:0;font-size:13px;font-weight:700;color:var(--muted);line-height:1.35}
 .names-home-field{display:flex;gap:8px;align-items:stretch}
+.home-search{
+  margin:14px 0 18px;padding:16px 16px 14px;
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:var(--shadow);
+}
+.home-search > label{
+  display:block;margin:0 0 10px;
+  font-size:17px;font-weight:800;color:var(--crimson);line-height:1.3;
+}
+.home-search .names-full-btn{min-width:max-content}
+@media (max-width:640px){
+  .home-search .names-home-field{flex-direction:column}
+}
 .names-home-field input,
 #names-ov-q{
   flex:1;min-width:0;width:100%;box-sizing:border-box;

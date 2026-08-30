@@ -1123,6 +1123,15 @@
           openOverlay(homeQ.value || "");
         }
       });
+      homeQ.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          openOverlay(homeQ.value || "");
+        }
+      });
+      homeQ.addEventListener("search", function () {
+        openOverlay(homeQ.value || "");
+      });
     }
     document.querySelectorAll("[data-open-names]").forEach(function (el) {
       el.addEventListener("click", function (e) {
