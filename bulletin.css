@@ -1978,7 +1978,7 @@ a.home-ig-names:hover{text-decoration:none;border-color:var(--crimson);box-shado
   .home-ig{grid-template-columns:1fr}
 }
 
-/* names.html / about.html / map.html / donate.html / need.html / gov.html / damage.html / notices.html / contact.html long-scroll; do not one-screen-off */
+/* names.html / about.html / map.html / donate.html / need.html / gov.html / damage.html / notices.html / contact.html / photos.html long-scroll; do not one-screen-off */
 html.names-page.desk, html.names-page.desk body,
 html.about-page.desk, html.about-page.desk body,
 html.map-page.desk, html.map-page.desk body,
@@ -1987,7 +1987,8 @@ html.need-page.desk, html.need-page.desk body,
 html.gov-page.desk, html.gov-page.desk body,
 html.damage-page.desk, html.damage-page.desk body,
 html.notices-page.desk, html.notices-page.desk body,
-html.contact-page.desk, html.contact-page.desk body{
+html.contact-page.desk, html.contact-page.desk body,
+html.photos-page.desk, html.photos-page.desk body{
   height:auto;overflow:visible;
 }
 html.names-page.desk .page-body,
@@ -1998,7 +1999,8 @@ html.need-page.desk .page-body,
 html.gov-page.desk .page-body,
 html.damage-page.desk .page-body,
 html.notices-page.desk .page-body,
-html.contact-page.desk .page-body{
+html.contact-page.desk .page-body,
+html.photos-page.desk .page-body{
   overflow:visible;height:auto;min-height:0;
 }
 html.names-page.desk .page-main,
@@ -2009,7 +2011,8 @@ html.need-page.desk .page-main,
 html.gov-page.desk .page-main,
 html.damage-page.desk .page-main,
 html.notices-page.desk .page-main,
-html.contact-page.desk .page-main{
+html.contact-page.desk .page-main,
+html.photos-page.desk .page-main{
   overflow:visible;
 }
 html.names-page.desk:not(.desk-ready) .page-main section,
@@ -2020,7 +2023,8 @@ html.need-page.desk:not(.desk-ready) .page-main section,
 html.gov-page.desk:not(.desk-ready) .page-main section,
 html.damage-page.desk:not(.desk-ready) .page-main section,
 html.notices-page.desk:not(.desk-ready) .page-main section,
-html.contact-page.desk:not(.desk-ready) .page-main section{
+html.contact-page.desk:not(.desk-ready) .page-main section,
+html.photos-page.desk:not(.desk-ready) .page-main section{
   display:block;
 }
 html.map-page.desk #map{
@@ -2045,6 +2049,10 @@ html.map-page.desk #map{
 .contact-page .page-main{overflow:visible}
 .contact-page #helpline, .contact-page #contacts, .contact-page .ndrrma-hl{display:block;max-height:none;overflow:visible}
 .contact-page .kicker{margin:0 0 16px}
+.photos-page .page-main{overflow:visible}
+.photos-page #photos, .photos-page #videos{display:block;max-height:none;overflow:visible}
+.photos-page .kicker{margin:0 0 16px}
+.about-page #sources{display:block;max-height:none;overflow:visible}
 
 html.names-page.desk #names{
   display:block;overflow:visible;max-height:none;

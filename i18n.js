@@ -38,7 +38,7 @@ window.I18N = {
 "nav_aid": "वैदेशिक सहयोग",
 "nav_contacts": "सम्पर्क",
 "nav_gov": "सरकारबाट भएका पहल",
-"nav_photos": "तस्बिर",
+"nav_photos": "तस्बिर / भिडियो",
 "nav_history": "अपडेट",
 "nav_event": "सरोकारवालाको भनाइ",
 "nav_damage": "क्षति ड्यासबोर्ड",
@@ -500,6 +500,7 @@ window.I18N = {
 "h_notices": "सूचना र सडक स्थिति",
 "h_gov": "विपद्पछि सरकारबाट सरकारी पहल",
 "h_aid": "वैदेशिक सहयोग",
+"h_photos_page": "तस्बिर र भिडियो",
 "h_photos": "तस्बिर · आज २६ अगस्ट २०२६ मात्र",
 "h_history": "अपडेट",
 "h_event": "सरोकारवालाको भनाइ",
@@ -1003,6 +1004,9 @@ window.I18N = {
 "contact_title": "आपत्कालीन सहायता र सम्पर्क · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "contact_meta": "हेल्पलाइन, उद्धार नम्बर र कार्यालय। उद्धार १२३४।",
 "contact_sub": "हेल्पलाइन, उद्धार नम्बर र कार्यालय",
+"photos_title": "तस्बिर र भिडियो · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"photos_meta": "जाँचिएका तस्बिर र भिडियो · २६ अगस्ट २०२६। उद्धार १२३४।",
+"photos_sub": "आज २६ अगस्ट २०२६ को घटना · जाँचिएका तस्बिर र भिडियो",
 "ems_src": "स्रोत: Copernicus EMSR927",
 "about_sub": "बारेमा · स्वतन्त्र नागरिक बुलेटिन",
 "about_back": "← बुलेटिन",
@@ -1064,7 +1068,7 @@ window.I18N = {
 "nav_aid": "Foreign aid",
 "nav_contacts": "Contacts",
 "nav_gov": "Govt response",
-"nav_photos": "Photos",
+"nav_photos": "Photos / Video",
 "nav_history": "Updates",
 "nav_event": "What officials say",
 "nav_damage": "Damage dashboard",
@@ -1518,6 +1522,7 @@ window.I18N = {
 "h_notices": "Alerts, Notices and road status",
 "h_gov": "Government action after the disaster",
 "h_aid": "Foreign aid",
+"h_photos_page": "Photos and video",
 "h_photos": "Photos · today 26 August 2026 only",
 "h_history": "Updates",
 "h_event": "What officials say",
@@ -2022,6 +2027,9 @@ window.I18N = {
 "contact_title": "Emergency help and contacts · Rasuwa–Bhotekoshi flood bulletin",
 "contact_meta": "Helplines, rescue numbers and offices. Rescue 1234.",
 "contact_sub": "Helplines, rescue numbers and offices",
+"photos_title": "Photos and video · Rasuwa–Bhotekoshi flood bulletin",
+"photos_meta": "Fact-checked photos and video from 26 August 2026. Rescue 1234.",
+"photos_sub": "Fact-checked photos and video from 26 August 2026",
 "ems_src": "Source: Copernicus EMSR927",
 "about_sub": "About · independent civic bulletin",
 "about_back": "← Bulletin",
@@ -2053,7 +2061,7 @@ window.I18N_LISTS = {
 "ड्यासबोर्ड: मृतक ७५२, सम्पर्कविहीन २,५०२, घाइते २३९, उद्धार ८७३०, जनशक्ति १९,८९५ — प्रत्येक लेबल सहित, एउटा नक्कली जम्मा होइन। राहत नगद NPR ६.५५ अर्ब र वैदेशिक प्रतिबद्धता छुट्टै।",
 "छुट्टै <a href=\"names.html\">names.html</a> नामावली: उद्धार / भेटिएको र हराएको / सम्पर्कविहीन। घाइते/उपचाररत उद्धार अन्तर्गतको सब-फिल्टर। आधिकारिक सूची अलग लेबल, कहिल्यै जोडिँदैन। जाँचिएको हराएको भित्ता। खोज।",
 "नामावलीभित्र उद्धार सूची: NDRRMA सार्वजनिक सूची (<a href=\"https://ndrrma.gov.np/np/rescue\" target=\"_blank\" rel=\"noopener\">ndrrma.gov.np/np/rescue</a>), टिमुरे, नुवाकोट, सूर्यगढी, सेना/निजी हेलि, काठमाडौं हेलि; विदेशी उपश्रेणी; DEOC काठमाडौं घाइते + धुन्चे।",
-"राहत कोष + PMDRF (नगद NPR ६.५५ अर्ब वैदेशिक प्रतिबद्धतासँग मिसिएको छैन), सडक, तस्बिर, सतर्कता, Copernicus EMSR927 अंक (स्रोत नक्सा छैन), अपडेट, विद्युत्, क्षति, सरकारी पहल, नक्सा, भिडियो, फिड, स्रोत, स्थानीय सम्पर्क।",
+"राहत कोष + PMDRF (नगद NPR ६.५५ अर्ब वैदेशिक प्रतिबद्धतासँग मिसिएको छैन), सडक, तस्बिर/भिडियो, सतर्कता, Copernicus EMSR927 अंक (स्रोत नक्सा छैन), अपडेट, विद्युत्, क्षति, सरकारी पहल, नक्सा, आधिकारिक स्रोत, स्थानीय सम्पर्क।",
 "GitHub Pages मा स्थिर HTML। सूचना घण्टी र माथि जानुहोस् हटाइएको।"
 ],
 "en": [
@@ -2062,7 +2070,7 @@ window.I18N_LISTS = {
 "Dashboard: deaths 752, uncontacted 2,502, injured 239, rescued 8,730, manpower 19,895 — each labeled, never one fake total. Relief cash NPR 6.55 billion kept apart from foreign pledges.",
 "Separate roster on <a href=\"names.html\">names.html</a>: rescued / found vs missing / uncontacted. Injured / in-care is a sub-filter under rescued / found. Official lists labeled separately, never summed. Moderated missing wall. Search.",
 "Rescue lists on names.html: NDRRMA public list (<a href=\"https://ndrrma.gov.np/np/rescue\" target=\"_blank\" rel=\"noopener\">ndrrma.gov.np/np/rescue</a>), Timure, Nuwakot, Suryagadhi, Army/private heli, Kathmandu heli; foreign subcategory; DEOC Kathmandu injured + Dhunche.",
-"Relief fund + PMDRF (cash NPR 6.55 billion not mixed with foreign pledges), roads, photos, alerts, Copernicus EMSR927 figures (no source maps), updates, power, damage, government action, map, videos, feeds, sources, local contacts.",
+"Relief fund + PMDRF (cash NPR 6.55 billion not mixed with foreign pledges), roads, photos/video, alerts, Copernicus EMSR927 figures (no source maps), updates, power, damage, government action, map, official sources, local contacts.",
 "Static HTML on GitHub Pages. Notify bell and go-to-top removed."
 ]
 },
@@ -3262,6 +3270,7 @@ window.I18N_LISTS = {
     var damagePg = file === "damage.html" || document.documentElement.classList.contains("damage-page");
     var noticesPg = file === "notices.html" || document.documentElement.classList.contains("notices-page");
     var contactPg = file === "contact.html" || document.documentElement.classList.contains("contact-page");
+    var photosPg = file === "photos.html" || document.documentElement.classList.contains("photos-page");
     if (aboutPg) {
       if (p.about_title) document.title = p.about_title;
     } else if (mapPg) {
@@ -3278,6 +3287,8 @@ window.I18N_LISTS = {
       if (p.notices_title) document.title = p.notices_title;
     } else if (contactPg) {
       if (p.contact_title) document.title = p.contact_title;
+    } else if (photosPg) {
+      if (p.photos_title) document.title = p.photos_title;
     } else if (p.title) document.title = p.title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) {
@@ -3289,6 +3300,7 @@ window.I18N_LISTS = {
       else if (damagePg && p.damage_meta) meta.setAttribute("content", p.damage_meta);
       else if (noticesPg && p.notices_meta) meta.setAttribute("content", p.notices_meta);
       else if (contactPg && p.contact_meta) meta.setAttribute("content", p.contact_meta);
+      else if (photosPg && p.photos_meta) meta.setAttribute("content", p.photos_meta);
       else if (p.meta) meta.setAttribute("content", p.meta);
     }
     applyKeyed(lang);

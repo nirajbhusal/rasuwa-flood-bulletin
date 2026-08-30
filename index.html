@@ -29,6 +29,10 @@
   else if (id === "roads") location.replace("notices.html" + q + "#roads");
   else if (id === "helpline") location.replace("contact.html" + q + "#helpline");
   else if (id === "contacts") location.replace("contact.html" + q + "#contacts");
+  else if (id === "photos") location.replace("photos.html" + q);
+  else if (id === "videos") location.replace("photos.html" + q + "#videos");
+  else if (id === "sources") location.replace("about.html" + q + "#sources");
+  else if (id === "feeds") location.replace("index.html" + q);
   else if (D[id]) location.replace("donate.html" + q + "#" + id);
   else if (H[id]) location.replace("names.html" + location.hash);
 })();
@@ -51,7 +55,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1434">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1438">
 </head>
 <body>
 <div class="head-stick">
@@ -102,11 +106,8 @@
     <a href="notices.html" data-i18n="nav_notices">सूचना / सडक स्थिति</a>
     <a href="contact.html" data-i18n="nav_helpline">हेल्पलाइन / सम्पर्क</a>
     <a href="gov.html" data-i18n="nav_gov">सरकारबाट भएका पहल</a>
-    <a href="#photos" data-i18n="nav_photos">तस्बिर</a>
+    <a href="photos.html" data-i18n="nav_photos">तस्बिर / भिडियो</a>
     <a href="damage.html" data-i18n="nav_damage">क्षति ड्यासबोर्ड</a>
-    <a href="#feeds" data-i18n="nav_feeds">लाइभ फिड</a>
-    <a href="#videos" data-i18n="nav_videos">भिडियो</a>
-    <a href="#sources" data-i18n="nav_sources">स्रोत</a>
     <a class="nav-about" href="about.html" data-i18n="nav_about">बारेमा</a>
   </div>
 </nav>
@@ -519,625 +520,6 @@
 
 <main class="wrap">
 
-<section id="photos">
-  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_photos">तस्बिर · आज २६ अगस्ट २०२६ मात्र</h2></div>
-  <div class="pager" data-pager="photos">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
-    <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
-    <span class="pcount pager-count"></span>
-  </div>
-  <div class="photos" id="photo-grid" data-i18n-list="photos" data-i18n-kind="fig">
-    <figure class="photo">
-      <a href="img/today-2026-08-30-us-state-36m.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-30-us-state-36m.jpg" alt="US Department of State · Nepal flood humanitarian assistance more than $3.6 million"></a>
-      <figcaption><strong>अमेरिका · State · $३.६ मिलियन</strong>जीवनरक्षा सहयोग · १०,००० घरधुरी · ३ महिना खाद्यान्न · कोष ६५५ माथि होइन</figcaption>
-    </figure>
-
-    <figure class="photo">
-      <a href="img/today-2026-08-29-nepal-police-0700.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-29-nepal-police-0700.jpg" alt="नेपाल प्रहरी रसुवा भोटेकोशी बाढी अपडेट, १३ भदौ ०७:००, शव ६१६"></a>
-      <figcaption><strong>नेपाल प्रहरी · १३ भदौ ०७:००</strong>शव ६१६ · घाइते तथा उद्धार २३०१ · प्रहरी ४८११ · सम्पर्कविहीन २७</figcaption>
-    </figure>
-
-    <figure class="photo">
-      <a href="img/today-2026-08-28-nepal-police-1500.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-28-nepal-police-1500.jpg" alt="नेपाल प्रहरी रसुवा भोटेकोशी बाढी अपडेट, १२ भदौ १५:००, शव ५४७"></a>
-      <figcaption><strong>नेपाल प्रहरी · १२ भदौ १५:००</strong>शव ५४७ · घाइते तथा उद्धार १४७३ · प्रहरी ४४७३ · सम्पर्कविहीन २७</figcaption>
-    </figure>
-
-    <figure class="photo">
-      <a href="img/today-2026-08-27-trishuli1-indians-63.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-27-trishuli1-indians-63.jpg" alt="त्रिशूली-१ आयोजनाबाट उद्धार भएका भारतीय ६३ जनाको सूची"></a>
-      <figcaption><strong>त्रिशूली-१ · भारतीय उद्धार ६३</strong>List of Indians rescued from the Trishuli-I Project</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-27-nepal-police-389.webp" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-27-nepal-police-389.webp" alt="नेपाल प्रहरी आधिकारिक इन्फोग्राफिक, शव ३८९, २१:०० ११ भदौ"></a>
-      <figcaption><strong>नेपाल प्रहरी · शव ३८९</strong>प्रहरी · २१:०० · ११ भदौ · आधिकारिक इन्फोग्राफिक</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-27-jaishankar-hadr-1.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-27-jaishankar-hadr-1.jpg" alt="भारतको दोस्रो HADR उडान सामग्री, जयशंकर"></a>
-      <figcaption><strong>भारत · दोस्रो HADR उडान</strong>जयशंकर · ११ भदौ · ३७.५ टन</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-27-jaishankar-hadr-2.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-27-jaishankar-hadr-2.jpg" alt="भारतको दोस्रो HADR उडान प्यालेट, जयशंकर"></a>
-      <figcaption><strong>HADR सामग्री · प्यालेट</strong>जयशंकर · ११ भदौ · औषधि/खाद्यान्न</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/sitrep3-casualties.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/sitrep3-casualties.jpg" alt="NDRRMA स्थिति प्रतिवेदन ०३ शव १२३ सम्पर्कविहीन २४५ घाइते ७५ इन्फोग्राफिक"></a>
-      <figcaption><strong>NDRRMA SitRep-3 · शव १२३</strong>विपद् प्राधिकरण · राति १०:०० · आधिकारिक इन्फोग्राफिक</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-setopati-furke-roadend.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-setopati-furke-roadend.jpg" alt="फुर्केखोला पुल बगेर सडक टुंगिएको, सेतोपाटी"></a>
-      <figcaption><strong>फुर्के पुल बगेपछि सडक</strong>सेतोपाटी · आज · धादिङ</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-setopati-furke-debris.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-setopati-furke-debris.jpg" alt="फुर्केमा बाढी र नदीबीचको लेदो, सेतोपाटी"></a>
-      <figcaption><strong>फुर्के · लेदो टापु</strong>सेतोपाटी · आज · धादिङ</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-setopati-furke-submerged.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-setopati-furke-submerged.jpg" alt="फुर्के पुलको रेलिङ पानीमुनि, सेतोपाटी"></a>
-      <figcaption><strong>फुर्के पुल डुबान</strong>सेतोपाटी · आज · धादिङ</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-setopati-furke-collapse.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-setopati-furke-collapse.jpg" alt="धादिङ फुर्केखोला पुल बाढीले भत्काएको, सेतोपाटी"></a>
-      <figcaption><strong>फुर्केखोला पुल भत्किँदै</strong>सेतोपाटी · आज · धादिङ</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-setopati-furke-surge.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-setopati-furke-surge.jpg" alt="फुर्केखोला पुलमाथिबाटै बगेको बाढी, सेतोपाटी"></a>
-      <figcaption><strong>फुर्के पुलमाथि बाढी</strong>सेतोपाटी · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-setopati-furke-bridge.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-setopati-furke-bridge.jpg" alt="फुर्केखोला पुल र लेदो, सेतोपाटी"></a>
-      <figcaption><strong>फुर्के पुल · माथिल्लो दृश्य</strong>सेतोपाटी · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-setopati-adamghat.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-setopati-adamghat.jpg" alt="धादिङ आदमघाटमा त्रिशूली बाढी, सेतोपाटी"></a>
-      <figcaption><strong>आदमघाट बाढी</strong>सेतोपाटी · आज · धादिङ</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-setopati-adamghat-valley.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-setopati-adamghat-valley.jpg" alt="आदमघाट उपत्यकामा उर्लिएको बाढी, सेतोपाटी"></a>
-      <figcaption><strong>आदमघाट उपत्यका</strong>सेतोपाटी · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-setopati-trishuli-canal-birdseye.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-setopati-trishuli-canal-birdseye.jpg" alt="त्रिशूली बजार बर्ड भ्यू नहरसहित, सेतोपाटी"></a>
-      <figcaption><strong>त्रिशूली बर्ड भ्यू · नहर</strong>सेतोपाटी · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-trishuli8.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-trishuli8.jpg" alt="त्रिशूली बजारमा लेदोमा पुरिएका ट्रक, अनलाइनखबर"></a>
-      <figcaption><strong>त्रिशूली · ट्रक लेदोमा</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ratopati-trishuli-birdseye.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ratopati-trishuli-birdseye.jpg" alt="त्रिशूली बजार बाढीको बर्ड भ्यू, रातोपाटी"></a>
-      <figcaption><strong>त्रिशूली बर्ड भ्यू</strong>रातोपाटी · आज · सुर्याम्स उप्रेती</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-trishuli1.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-trishuli1.jpg" alt="नुवाकोट त्रिशूली बजारमा आजको बाढीको लेदो, अनलाइनखबर"></a>
-      <figcaption><strong>त्रिशूली बजार</strong>अनलाइनखबर · आज · घर लेदोमा</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-trishuli3.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-trishuli3.jpg" alt="त्रिशूली बजारमा लेदोले ढाकेको घर, अनलाइनखबर"></a>
-      <figcaption><strong>त्रिशूली · घर</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-trishuli6.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-trishuli6.jpg" alt="त्रिशूली बजारमा दोस्रो तलासम्म लेदो, अनलाइनखबर"></a>
-      <figcaption><strong>त्रिशूली · दोस्रो तला</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-trishuli7.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-trishuli7.jpg" alt="त्रिशूली बजारमा लेदोमा गाडिएको टिप्पर, अनलाइनखबर"></a>
-      <figcaption><strong>त्रिशूली · टिप्पर</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-trishuli9.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-trishuli9.jpg" alt="त्रिशूली बजारमा बाढी हेर्दै स्थानीय, अनलाइनखबर"></a>
-      <figcaption><strong>त्रिशूली · बजार</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-trishuli2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-26-ok-trishuli2.jpg" alt="त्रिशूली बजारमा लेदोले गाडेका घर, अनलाइनखबर"></a>
-      <figcaption><strong>त्रिशूली · लेदो घर</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-trishuli4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-26-ok-trishuli4.jpg" alt="त्रिशूलीमा बाढी हेर्दै स्थानीय, अनलाइनखबर"></a>
-      <figcaption><strong>त्रिशूली · स्थानीय</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-trishuli5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-26-ok-trishuli5.jpg" alt="त्रिशूली उपत्यकामा बाढीको लेदो, अनलाइनखबर"></a>
-      <figcaption><strong>त्रिशूली · उपत्यका</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ratopati-bidur1.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ratopati-bidur1.jpg" alt="नुवाकोट विदुरमा बाढीको लेदो र घर, रातोपाटी"></a>
-      <figcaption><strong>नुवाकोट विदुर</strong>रातोपाटी · आज · घर लेदोमा</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ratopati-bidur5.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ratopati-bidur5.jpg" alt="विदुरमा बाढीले गाडेको ट्रक, रातोपाटी"></a>
-      <figcaption><strong>विदुर · ट्रक</strong>रातोपाटी · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ratopati-bidur8.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ratopati-bidur8.jpg" alt="विदुर किनारमा बाढीको लेदो, रातोपाटी"></a>
-      <figcaption><strong>विदुर किनार</strong>रातोपाटी · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ratopati-bidur12.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ratopati-bidur12.jpg" alt="विदुरमा त्रिशूली बाढी हेर्दै स्थानीय, रातोपाटी"></a>
-      <figcaption><strong>विदुर · त्रिशूली</strong>रातोपाटी · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ratopati-bidur3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/today-2026-08-26-ratopati-bidur3.jpg" alt="नुवाकोट विदुरबाट सर्दै मानिसहरू, रातोपाटी"></a>
-      <figcaption><strong>विदुर · सर्दै</strong>रातोपाटी · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-dhungebazar.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-dhungebazar.jpg" alt="नुवाकोट ढुंगेबजारमा आजको बाढीको लेदो, अनलाइनखबर"></a>
-      <figcaption><strong>नुवाकोट ढुंगेबजार</strong>अनलाइनखबर · आज · घर लेदोमा</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-dhungebazar2.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-dhungebazar2.jpg" alt="ढुंगेबजारका घरमा बाढीको लेदो, अनलाइनखबर"></a>
-      <figcaption><strong>ढुंगेबजार घरहरू</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-dhungebazar1.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-dhungebazar1.jpg" alt="ढुंगेबजारमा सुरक्षाकर्मी र बाढी, अनलाइनखबर"></a>
-      <figcaption><strong>ढुंगेबजार · सुरक्षाकर्मी</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-baireni.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-baireni.jpg" alt="धादिङ बैरेनी बजारमा आजको बाढी, अनलाइनखबर"></a>
-      <figcaption><strong>धादिङ बैरेनी बजार</strong>अनलाइनखबर · आज · घर/टहरा/झोलुंगे क्षति</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-baireni1.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-baireni1.jpg" alt="बैरेनीमा बाढीको बहाव, अनलाइनखबर"></a>
-      <figcaption><strong>बैरेनी बहाव</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-baireni3.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-baireni3.jpg" alt="बैरेनीमा बाढीपछिको लेदो, अनलाइनखबर"></a>
-      <figcaption><strong>बैरेनी लेदो</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-baireni4.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-baireni4.jpg" alt="बैरेनी सडकछेउ बाढीको क्षति, अनलाइनखबर"></a>
-      <figcaption><strong>बैरेनी सडकछेउ</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-baireni5.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-baireni5.jpg" alt="बैरेनी बजारमा बाढीको पानी, अनलाइनखबर"></a>
-      <figcaption><strong>बैरेनी बजार डुबान</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-syafrubesi-valley.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-syafrubesi-valley.jpg" alt="स्याफ्रुबेसी उपत्यकामा बाढी, अनलाइनखबर"></a>
-      <figcaption><strong>स्याफ्रुबेसी उपत्यका</strong>अनलाइनखबर · सेनाको ७ जना उद्धार रिपोर्ट</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-tkp-syabrubesi-flood.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-tkp-syabrubesi-flood.jpg" alt="स्याफ्रुबेसी क्षेत्रमा बाढी, काठमाडौं पोस्ट"></a>
-      <figcaption><strong>स्याफ्रुबेसी / भोटेकोशी बाढी</strong>काठमाडौं पोस्ट · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-bhotekoshi-flood.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-bhotekoshi-flood.jpg" alt="भोटेकोशीमा भीषण बाढी"></a>
-      <figcaption><strong>भोटेकोशीको बहाव</strong>आज बिहानको दृश्य</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-onlinekhabar-rasuwa.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-onlinekhabar-rasuwa.jpg" alt="रसुवा बाढी, अनलाइनखबर"></a>
-      <figcaption><strong>रसुवा बाढी</strong>अनलाइनखबर · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ratopati-timure-surge.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ratopati-timure-surge.jpg" alt="टिमुरे/भोटेकोशीमा भीषण बाढीको बहाव, रातोपाटी"></a>
-      <figcaption><strong>टिमुरे बाढीको बहाव</strong>रातोपाटी · आज</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/today-2026-08-26-ok-nuwakot-silt.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/today-2026-08-26-ok-nuwakot-silt.jpg" alt="बाढीको लेदोले घेरिएका घरहरू, अनलाइनखबर"></a>
-      <figcaption><strong>बाढीको लेदोमा घरहरू</strong>अनलाइनखबर · नुवाकोट क्षति रिपोर्ट</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/ok_rasuwa_damage_large.jpg" target="_blank" rel="noopener"><img loading="eager" src="img/ok_rasuwa_damage_large.jpg" alt="बाढीले ढाकेको उपत्यका, अनलाइनखबर"></a>
-      <figcaption><strong>उपत्यकामा बाढी र लेदो</strong>अनलाइनखबर · «के-के क्षति भयो?»</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/ok_rasuwa_police_offices.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/ok_rasuwa_police_offices.jpg" alt="प्रहरी कार्यालय क्षति"></a>
-      <figcaption><strong>प्रहरी कार्यालय क्षति</strong>अनलाइनखबर · टिमुरे, स्याफ्रुबेसी, रसुवागढी</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/x_NepalPoliceHQ_official_alert_video_frame.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/x_NepalPoliceHQ_official_alert_video_frame.jpg" alt="नेपाल प्रहरीको आधिकारिक सतर्कता भिडियो फ्रेम"></a>
-      <figcaption><strong>प्रहरी सतर्कता भिडियो</strong>@NepalPoliceHQ · आज बिहान</figcaption>
-    </figure>
-    <figure class="photo">
-      <a href="img/x_saalik3783_bhotekoshi_video_frame.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/x_saalik3783_bhotekoshi_video_frame.jpg" alt="नागरिक भिडियोमा भोटेकोशी बाढी"></a>
-      <figcaption><strong>नागरिक भिडियो फ्रेम</strong>@saalik3783 · घरछेउको बाढी</figcaption>
-    </figure>
-    <figure class="photo" style="grid-column:1/-1">
-      <a href="img/ratopati-flood-collage.jpg" target="_blank" rel="noopener"><img loading="lazy" src="img/ratopati-flood-collage.jpg" alt="रातोपाटी बाढी कोलाज" style="height:260px"></a>
-      <figcaption><strong>रातोपाटी कोलाज</strong>आजको बाढी कवरेज</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section id="feeds">
-    <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_feeds">लाइभ सोसल फिड</h2></div>
-    <div class="feed-tabs" role="tablist">
-      <button type="button" class="active" data-tab="official" data-i18n="tab_official">आधिकारिक</button>
-      <button type="button" data-tab="minister" data-i18n="tab_minister">गृहमन्त्री</button>
-      <button type="button" data-tab="news" data-i18n="tab_news">समाचार पोर्टल</button>
-      <button type="button" data-tab="ronb">RONB</button>
-    </div>
-
-    <div class="feed-panel active" id="tab-official">
-      <div class="feeds">
-        <article class="feed-box">
-          <header><b>नेपाल प्रहरी</b><a href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener">@NepalPoliceHQ</a></header>
-          <div class="x-open">
-            <img src="img/x_NepalPoliceHQ_official_alert_video_frame.jpg" alt="">
-            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
-            <a class="x-btn" href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
-          </div>
-        </article>
-        <article class="feed-box">
-          <header><b>नेपाली सेना</b><a href="https://www.facebook.com/NepaliArmyHQ/" target="_blank" rel="noopener">Facebook</a></header>
-          <div class="feed-frame"><iframe title="Nepali Army Facebook" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FNepaliArmyHQ&tabs=timeline&width=500&height=560&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false" width="500" height="560" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe></div>
-        </article>
-        <article class="feed-box">
-          <header><b>विपद् प्राधिकरण</b><a href="https://x.com/NDRRMA_Nepal" target="_blank" rel="noopener">@NDRRMA_Nepal</a></header>
-          <div class="x-open">
-            
-            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
-            <a class="x-btn" href="https://x.com/NDRRMA_Nepal" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
-          </div>
-        </article>
-        <article class="feed-box">
-          <header><b>सेना (X)</b><a href="https://x.com/thenepalesearmy" target="_blank" rel="noopener">@thenepalesearmy</a></header>
-          <div class="x-open">
-            
-            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
-            <a class="x-btn" href="https://x.com/thenepalesearmy" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="feed-panel" id="tab-minister">
-      <div class="feeds">
-        <article class="feed-box">
-          <header><b>गृहमन्त्री सुधन गुरुङ</b><a href="https://www.facebook.com/sudangrghaminepal/" target="_blank" rel="noopener">Facebook</a></header>
-          <div class="feed-frame"><iframe title="Home Minister Facebook" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fsudangrghaminepal&tabs=timeline&width=500&height=560&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false" width="500" height="560" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe></div>
-        </article>
-        <article class="feed-box">
-          <header><b>इन्स्टाग्राम</b><a href="https://www.instagram.com/sudangrg_haminepal/" target="_blank" rel="noopener">@sudangrg_haminepal</a></header>
-          <div class="x-open">
-            <p data-i18n="ig_hint">गृहमन्त्रीको सार्वजनिक इन्स्टाग्राम। लाइभ पोस्ट खातामा हेर्नुहोस्।</p>
-            <a class="x-btn" href="https://www.instagram.com/sudangrg_haminepal/" target="_blank" rel="noopener" data-i18n="open_ig">Instagram मा खोल्नुहोस्</a>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="feed-panel" id="tab-news">
-      <div class="feeds">
-        <article class="feed-box">
-          <header><b>अनलाइनखबर</b><a href="https://x.com/Online_khabar" target="_blank" rel="noopener">@Online_khabar</a></header>
-          <div class="x-open">
-            
-            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
-            <a class="x-btn" href="https://x.com/Online_khabar" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
-          </div>
-        </article>
-        <article class="feed-box">
-          <header><b>काठमाडौं पोस्ट</b><a href="https://x.com/kathmandupost" target="_blank" rel="noopener">@kathmandupost</a></header>
-          <div class="x-open">
-            
-            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
-            <a class="x-btn" href="https://x.com/kathmandupost" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
-          </div>
-        </article>
-        <article class="feed-box">
-          <header><b>रातोपाटी</b><a href="https://x.com/Rato_pati" target="_blank" rel="noopener">@Rato_pati</a></header>
-          <div class="x-open">
-            
-            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
-            <a class="x-btn" href="https://x.com/Rato_pati" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
-          </div>
-        </article>
-        <article class="feed-box">
-          <header><b>अनलाइनखबर (EN)</b><a href="https://x.com/OnlineKhabar_En" target="_blank" rel="noopener">@OnlineKhabar_En</a></header>
-          <div class="x-open">
-            
-            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
-            <a class="x-btn" href="https://x.com/OnlineKhabar_En" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="feed-panel" id="tab-ronb">
-      <div class="feeds">
-        <article class="feed-box">
-          <header><b>Routine of Nepal Banda</b><a href="https://www.facebook.com/officialroutineofnepalbanda" target="_blank" rel="noopener">Facebook</a></header>
-          <div class="feed-frame"><iframe title="RONB Facebook" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fofficialroutineofnepalbanda&tabs=timeline&width=500&height=560&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false" width="500" height="560" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe></div>
-        </article>
-        <article class="feed-box">
-          <header><b>RONB (X)</b><a href="https://x.com/RONBupdates" target="_blank" rel="noopener">@RONBupdates</a></header>
-          <div class="x-open">
-            
-            <p><span data-i18n="x_embed">X एम्बेड रेट-लिमिटले यहाँ लोड हुँदैन। लाइभ पोस्ट सीधै खातामा हेर्नुहोस्।</span></p>
-            <a class="x-btn" href="https://x.com/RONBupdates" target="_blank" rel="noopener" data-i18n="open_x">X मा खोल्नुहोस्</a>
-          </div>
-        </article>
-      </div>
-    </div>
-    <p class="feed-note" data-i18n="feed_note">X को एम्बेड रेट-लिमिटले थम्बनेल लोड हुँदैनथ्यो, त्यसैले X खाता सीधै खोल्ने लिंक राखिएको छ। फेसबुक पेज फिड यहाँ नै चल्छ।</p>
-</section>
-
-<section id="videos">
-  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_videos">भिडियो</h2></div>
-  <div class="videos">
-    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/6izy3rlzSOA" title="बिजपाटी बाढी भिडियो" data-i18n-title="vid_biz" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/gJXPIT4g7T4" title="TEN TV बाढी भिडियो" data-i18n-title="vid_ten" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-  </div>
-  <p style="font-size:13px;color:var(--muted);margin:8px 0 0" data-i18n="video_note">बिजपाटी · TEN TV · गोपनीयता-सुरक्षित युट्युब एम्बेड</p>
-  <a class="xlink" href="https://x.com/NepalPoliceHQ/status/2092469695371006058" target="_blank" rel="noopener">
-    <img src="img/x_NepalPoliceHQ_official_alert_video_frame.jpg" alt="">
-    <div><strong data-i18n="vid_police">नेपाल प्रहरी आधिकारिक भिडियो</strong><br><span data-i18n="vid_police_sub">@NepalPoliceHQ · भोटेकोशीमा तिब्बततर्फबाट आएको बाढी</span></div>
-  </a>
-  <a class="xlink" href="https://x.com/saalik3783/status/2092474494632030365" target="_blank" rel="noopener">
-    <img src="img/x_saalik3783_bhotekoshi_video_frame.jpg" alt="">
-    <div><strong data-i18n="vid_citizen">नागरिक भिडियो</strong><br><span data-i18n="vid_citizen_sub">@saalik3783 · बस्तीछेउ भीषण बाढी</span></div>
-  </a>
-</section>
-
-<section id="sources">
-  <div class="sec-head"><span class="dot" style="background:var(--ink)"></span><h2 data-i18n="h_sources">स्रोत</h2></div>
-  <div class="pager" data-pager="sources">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
-    <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
-    <span class="pcount pager-count"></span>
-  </div>
-  <div class="sources" id="source-grid">
-
-    <div class="src-group">
-<h3>DHM <span class="badge">१</span></h3>
-      <div class="src-list">
-<a href="docs/dhm-bhadra10-sitrep.pdf" target="_blank" rel="noopener" data-i18n="src_dhm">बाढी पूर्वानुमान महाशाखा: प्राविधिक स्थिति प्रतिवेदन · १० भदौ २०८३ (PDF)</a>
-</div>
-</div>
-
-    <div class="src-group">
-<h3>NDRRMA <span class="badge">१०</span></h3>
-      <div class="src-list">
-<span class="src-plain" data-i18n="src_sit1300">NDRRMA / गृह ग्राफिक: शव ७५२, सम्पर्कविहीन २५०२, घाइते २३९, उद्धार ८७३०, जनशक्ति १९८९५ · १४ भदौ १३:००</span>
-<span class="src-plain" data-i18n="src_sit0900">NDRRMA / गृह ग्राफिक: शव ७३४, सम्पर्कविहीन २४९८, घाइते २४२, उद्धार ८१८६, जनशक्ति १९८९५ · १४ भदौ ०९:००</span>
-<span class="src-plain" data-i18n="src_sit1830">NDRRMA / गृह ग्राफिक: शव ६७५, सम्पर्कविहीन २४९८, घाइते २१९, उद्धार ७५१४, जनशक्ति १८७०८ · १३ भदौ १८:३०</span>
-<span class="src-plain" data-i18n="src_sit1000">NDRRMA / गृह ग्राफिक: शव ६२६, सम्पर्कविहीन २४२६, घाइते १०१, उद्धार ४४५१, जनशक्ति १५२२४ · १३ भदौ १०:००</span>
-<a href="img/today-2026-08-29-nepal-police-0700.jpg" target="_blank" rel="noopener" data-i18n="src_pol0700">नेपाल प्रहरी ग्राफिक: शव ६१६, घाइते तथा उद्धार २३०१, प्रहरी ४८११, सम्पर्कविहीन २७ · १३ भदौ ०७:००</a>
-<span class="src-plain" data-i18n="src_sit1900">NDRRMA / गृह ग्राफिक: शव ५७९, सम्पर्कविहीन १९२४, घाइते १०१, उद्धार ४४५१, जनशक्ति १५४३१ · १२ भदौ १९:००</span>
-<a href="img/today-2026-08-28-nepal-police-1500.jpg" target="_blank" rel="noopener" data-i18n="src_pol1500">नेपाल प्रहरी ग्राफिक: शव ५४७, घाइते तथा उद्धार १४७३, प्रहरी ४४७३, सम्पर्कविहीन २७ · १२ भदौ १५:००</a>
-<span class="src-plain" data-i18n="src_sit1500">NDRRMA / गृह ग्राफिक: शव ५३८, सम्पर्कविहीन ९७७, घाइते ७३, उद्धार ३७४२, जनशक्ति १४८२९ · १२ भदौ १५:००</span>
-<span class="src-plain" data-i18n="src_sit6a">स्थिति प्रतिवेदन #०६: शव ३८९, सम्पर्कविहीन ९७७, घाइते ७३, हेलि १९७६ · राति २२:००</span>
-<a href="img/sitrep3-casualties.jpg" target="_blank" rel="noopener" data-i18n="src_sit3a">स्थिति प्रतिवेदन #०३: शव १२३, सम्पर्कविहीन २४५, घाइते ७५ · राति २२:००</a>
-<a href="img/sitrep3-cabinet.jpg" target="_blank" rel="noopener" data-i18n="src_sit3b">स्थिति प्रतिवेदन #०३: समयरेखा र मन्त्रिपरिषद्का १० निर्णय</a>
-</div>
-</div>
-
-    <div class="src-group">
-<h3>HEOC <span class="badge">१</span></h3>
-      <div class="src-list">
-<a href="https://heoc.mohp.gov.np/" target="_blank" rel="noopener" data-i18n="src_heoc">HEOC SitRep #2 17:00 घाइते अस्पताल 136</a>
-</div>
-</div>
-
-    <div class="src-group">
-<h3>NESRA FloodWatch <span class="badge">१</span></h3>
-      <div class="src-list">
-<a href="https://nesraspace.org/floodwatch/rasuwa-2026/" target="_blank" rel="noopener" data-i18n="src_nesra">NESRA FloodWatch: रसुवा २०२६ — उपग्रह २७ अगस्ट ०३:३१ NPT (सेन्टिनेल-१ / जिओस्पेसियल)</a>
-</div>
-</div>
-
-    <div class="src-group">
-<h3>Copernicus EMS <span class="badge">२</span></h3>
-      <div class="src-list">
-<a href="https://mapping.emergency.copernicus.eu/activations/EMSR927/" target="_blank" rel="noopener" data-i18n="src_ems1">EMSR927 Rapid Mapping: टिमुरे / स्याफ्रुबेसी बाढी नक्सा (ICEYE; नक्सा आउन बाँकी)</a>
-<a href="https://mapping.emergency.copernicus.eu/news/flood-in-nepal-emsr927/" target="_blank" rel="noopener" data-i18n="src_ems2">Copernicus EMS: Flood in Nepal — situational reporting (२६ अगस्ट)</a>
-</div>
-</div>
-
-    <div class="src-group">
-<h3>रातोपाटी <span class="badge">७५</span></h3>
-      <div class="src-list">
-<a href="https://www.nepalpolice.gov.np/news/10245/" target="_blank" rel="noopener">नेपाल प्रहरी: शव १००, राति २०:३० (आधिकारिक)</a>
-<a href="https://www.opmcm.gov.np" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय: शव ९५, सुरक्षा ८५, पर्यटक ४८४ (साँझ ७:००)</a>
-<a href="https://khabarhub.com/2026/26/1015939/" target="_blank" rel="noopener">नेपाल प्रहरी / रासस: शव ९५ जिल्ला विवरण, उपचाररत ६३ (खबरहब)</a>
-<a href="https://www.onlinekhabar.com/2026/08/rasuwa-flood-72" target="_blank" rel="noopener">सशस्त्र प्रहरी: शव ७२ (अनलाइनखबर)</a>
-<a href="https://www.ratopati.com/story/587637/rasuwa-flood-72-bodies-found-so-far" target="_blank" rel="noopener">सशस्त्र/काफ्ले: शव ७२ (रातोपाटी)</a>
-<a href="https://www.ratopati.com/story/587611/flood-death-toll-reaches-22" target="_blank" rel="noopener">बागमती प्रहरी: मृत्यु २२ (रसुवा १, नुवाकोट ११, धादिङ ९, चितवन १)</a>
-<a href="https://www.ratopati.com/story/587614/indian-pm-modi-pm-balen-talk-over-phone-pledge-to-support-nepal" target="_blank" rel="noopener">मोदी–बालेन फोन: भारत मानवीय सहयोग तयार</a>
-<a href="https://www.ratopati.com/story/587584" target="_blank" rel="noopener">सेना: रसुवाबाट ८८ जना हवाई उद्धार</a>
-<a href="https://www.ratopati.com/story/587585" target="_blank" rel="noopener">खनाल संसद्: ७९ सुरक्षाकर्मी सम्पर्कविहीन</a>
-<a href="https://www.ratopati.com/story/587586" target="_blank" rel="noopener">स्वास्थ्य प्रवक्ता: काठमाडौंमा २१ को उपचार, 1115</a>
-<a href="https://www.ratopati.com/story/587577/devastating-floods-16-dead-35-injured-rescued" target="_blank" rel="noopener">बागमती प्रहरी: १६ मृत्यु (रसुवा १, नुवाकोट ९, धादिङ ६)</a>
-<a href="https://www.ratopati.com/story/587575/bodies-of-9-people-found-in-flood-affected-areas-identification-yet-to-be-done-foreign-minister-khanal" target="_blank" rel="noopener">खनाल संसद्: ९ शव, सनाखत बाँकी</a>
-<a href="https://www.ratopati.com/story/587574/21-flood-affected-people-are-receiving-treatment-in-kathmandu" target="_blank" rel="noopener">काठमाडौं प्रहरी: हेलि घाइते २१ (टिचिङ १७)</a>
-<a href="https://www.ratopati.com/story/587573/35-workers-trapped-inside-tunnel-of-langtang-hydropower-project" target="_blank" rel="noopener">लाङटाङ: सुरुङमा ३५ मजदुर, अन्य २५ सम्पर्कविहीन</a>
-<a href="https://www.ratopati.com/story/587565/residents-of-susta-are-being-moved-to-safer-places-after-the-risk-of-flooding-in-bhotekoshi" target="_blank" rel="noopener">सुस्ता: करिब ७०% सारिए (प्रजिअ नेपाल)</a>
-<a href="https://www.ratopati.com/story/587572/government-says-landslides-after-earthquake-cause-severe-flooding-in-bhotekoshi" target="_blank" rel="noopener">परराष्ट्रमन्त्री खनाल: भूकम्पपछि पहिरो–बाँध</a>
-<a href="https://www.ratopati.com/story/587571/bagmati-province-government-deploys-emergency-health-team" target="_blank" rel="noopener">बागमती: त्रिशूली २२, रसुवा १४, आयुर्वेद ८</a>
-<a href="https://www.ratopati.com/story/587570/chinese-president-directs-rescue-efforts-after-girong-landslide" target="_blank" rel="noopener">चीन: जिलोङ उद्धार, १४५ सशस्त्र प्रहरी</a>
-<a href="https://www.ratopati.com/story/587556/thirteen-people-are-being-treated-at-tribhuvan-university-teaching-hospital-most-of-them-in-critical-condition" target="_blank" rel="noopener">टिचिङ: सेनाले ल्याएका १३ घाइते, अधिकांश गम्भीर</a>
-<a href="https://www.ratopati.com/story/587552/a-vehicle-going-from-palungtar-gorkha-to-gosainkunda-fell-into-a-flood" target="_blank" rel="noopener">पालुङटार बस: ५ सम्पर्कमा, ३४ सम्पर्कविहीन</a>
-<a href="https://www.ratopati.com/story/587541" target="_blank" rel="noopener">सडक विभाग: पुल १९+, सडक ४० किमि क्षति</a>
-<a href="https://www.ratopati.com/story/587539" target="_blank" rel="noopener">भन्सार: ३००+ गाडी बगे, कर्मचारी खोजी जारी</a>
-<a href="https://www.ratopati.com/story/587537" target="_blank" rel="noopener">ट्रमा सेन्टर: रसुवाबाट ३ जना, अवस्था गम्भीर</a>
-<a href="https://www.ratopati.com/story/587533" target="_blank" rel="noopener">त्रिशूली बजार क्षति (बर्ड भ्यू)</a>
-<a href="https://www.ratopati.com/story/587531" target="_blank" rel="noopener">प्राधिकरण: हेलिकप्टर/ड्रोन सञ्चालकलाई सहयोग आग्रह</a>
-<a href="https://www.ratopati.com/story/587530" target="_blank" rel="noopener">पर्यटन प्रहरी: मानसरोवर/गोसाइँकुण्ड सम्पर्क संकलन</a>
-<a href="https://www.ratopati.com/story/587528" target="_blank" rel="noopener">उद्धार ड्रोनलाई अनुमति नचाहिने, धुवाँ/आगो सङ्केत</a>
-<a href="https://www.ratopati.com/story/587524/floods-wreak-havoc-in-rasuwa-and-lower-coastal-areas-6-districts-declared-disaster-hit" target="_blank" rel="noopener">६ जिल्ला तीन महिना संकटग्रस्त</a>
-<a href="https://www.ratopati.com/story/587520/rasuwa-flood-government-decides-to-immediately-provide-rs-10-million-each-to-rasuwa-and-nuwakot" target="_blank" rel="noopener">रसुवा–नुवाकोट १/१ करोड, धादिङ ५० लाख</a>
-<a href="https://www.ratopati.com/story/587521" target="_blank" rel="noopener">बागमती मुख्यमन्त्री: उद्धार–राहत–स्वास्थ्य</a>
-<a href="https://www.ratopati.com/story/587518" target="_blank" rel="noopener">नवलपरासी प्रजिअ: नारायणीमा विशेष सतर्कता</a>
-<a href="https://www.ratopati.com/story/587516/number-of-uncontacted-armed-police-force-members-reaches-13" target="_blank" rel="noopener">सशस्त्र १३ सम्पर्कविहीन (रसुवागढी ९, मैलुङ ४)</a>
-      <a href="https://www.ratopati.com/story/587514/flash-flood-disaster-in-nuwakot-photos" target="_blank" rel="noopener">नुवाकोट विदुर बाढी (तस्बिरहरू)</a>
-<a href="https://www.ratopati.com/story/587511/4-bodies-found-in-dhading-area-police" target="_blank" rel="noopener">डिआईजी रेग्मी: नुवाकोट ४, धादिङ ४, जम्मा ८ शव</a>
-<a href="https://www.ratopati.com/story/587502/4-bodies-found-in-bidur-area-of-nuwakot" target="_blank" rel="noopener">नुवाकोट विदुरमा ४ शव (प्रवक्ता धमला)</a>
-      <a href="https://www.ratopati.com/story/587505/armed-police-force-holds-dialogue-with-chinese-counterpart-security-agencies-to-minimize-damage" target="_blank" rel="noopener">सशस्त्र: चिनियाँ समकक्षासँग संवाद</a>
-<a href="https://www.ratopati.com/story/587500/china-issues-warning-lake-not-yet-fully-opened-at-river-dam-site-risk-remains" target="_blank" rel="noopener">चीन: ताल अझै खुलेन, जोखिम कायमै</a>
-      <a href="https://www.ratopati.com/story/587498/suspected-human-burial-in-timur-drones-and-trained-dogs-being-sent-to-search" target="_blank" rel="noopener">टिमुरे भन्सार: ड्रोन र कुकुरले खोजी</a>
-      <a href="https://www.ratopati.com/story/587496/2-people-rescued-from-tree-in-devighat-nuwakot" target="_blank" rel="noopener">नुवाकोट देवीघाट: रुखबाट २ जना उद्धार</a>
-      <a href="https://www.ratopati.com/story/587494/public-vehicle-operations-suspended-on-pasanglhamu-highway" target="_blank" rel="noopener">पासङल्हामु राजमार्गमा सार्वजनिक सवारी रोकियो</a>
-<a href="https://www.ratopati.com/story/587493/bhotekoshi-flood-risk-continues-to-rise" target="_blank" rel="noopener">जोखिम सुस्तासम्म (जलविज्ञान केन्द्र)</a>
-      <a href="https://www.ratopati.com/story/587492/emergency-meeting-begins-at-chief-ministers-office-cm-thapa-urges-caution" target="_blank" rel="noopener">बागमती मुख्यमन्त्री: आपत्कालीन बैठक</a>
-<a href="https://www.ratopati.com/story/587486/vehicular-movement-on-prithvi-highway-and-mugling-narayangadh-road-closed-until-further-notice" target="_blank" rel="noopener">पृथ्वी र मुग्लिन–नारायणगढ सवारी बन्द</a>
-      <a href="https://www.ratopati.com/story/587485/flooding-is-expected-to-reach-devghat-at-330-pm-urges-caution" target="_blank" rel="noopener">चितवन देवघाटमा साढे ३ बजे बाढी अनुमान</a>
-      <a href="https://www.ratopati.com/story/587482/flood-situation-division-appeals-not-to-go-to-river-banks" target="_blank" rel="noopener">महाशाखा: नदी किनार नजानुहोस्</a>
-<a href="https://www.ratopati.com/story/587470/china-reports-severe-flooding-in-bhotekoshi-after-avalanche-in-tibet" target="_blank" rel="noopener">चीन: तिब्बतमा हिमपहिरोले बाढी (प्रारम्भिक)</a>
-      <a href="https://www.ratopati.com/story/587465/air-fuel-sent-to-trishuli-for-rescue-helicopters" target="_blank" rel="noopener">त्रिशूलीमा हवाई इन्धन ट्यांकर</a>
-      <a href="https://www.ratopati.com/story/587460/medical-teams-mobilized-in-affected-areas-kathmandus-hub-hospitals-on-high-alert" target="_blank" rel="noopener">धुन्चेमा २ घाइते, ट्रमा टोली परिचालन</a>
-      <a href="https://www.ratopati.com/story/587463/a-group-of-11-people-walking-to-gosainkunda-got-caught-in-the-flood" target="_blank" rel="noopener">गोसाइँकुण्ड टोली ११ जना सिम्मुटारमा</a>
-      <a href="https://www.ratopati.com/story/587467/telecom-offers-two-days-of-free-voice-calls-2gb-daily-data-and-50-sms" target="_blank" rel="noopener">टेलिकम: दुई दिन निःशुल्क कल/डाटा/एसएमएस</a>
-      <a href="https://www.ratopati.com/story/587469/appeal-to-adopt-high-alert-in-narayani-coastal-area" target="_blank" rel="noopener">नारायणी तटीय क्षेत्रमा उच्च सतर्कता</a>
-      <a href="https://www.ratopati.com/story/587473/trauma-center-team-leaves-for-rasuwa" target="_blank" rel="noopener">ट्रमा सेन्टरको टोली रसुवा हिँड्यो</a>
-      <a href="https://www.ratopati.com/story/587466/president-poudel-calls-for-unity-in-times-of-disaster-urges-to-expedite-relief-and-rescue" target="_blank" rel="noopener">राष्ट्रपति पौडेल: उद्धार तीव्र पार्न आग्रह</a>
-      <a href="https://www.ratopati.com/story/587453/16-police-personnel-working-in-rasuwa-missing" target="_blank" rel="noopener">रसुवामा १६ जना प्रहरी सम्पर्कविहीन</a>
-      <a href="https://www.ratopati.com/story/587445/floods-in-trishuli-exceed-danger-level" target="_blank" rel="noopener">फुर्केमा त्रिशूलीले खतरा तह नाघ्यो</a>
-      <a href="https://www.ratopati.com/story/587442/prime-minister-calls-emergency-cabinet-meeting" target="_blank" rel="noopener">प्रधानमन्त्रीद्वारा आकस्मिक मन्त्रिपरिषद् बैठक</a>
-      <a href="https://www.ratopati.com/story/587444/a-large-number-of-armed-police-force-teams-mobilized-for-rescue-in-disaster-affected-areas" target="_blank" rel="noopener">सशस्त्रका गुल्म/गण उद्धारमा परिचालन</a>
-      <a href="https://www.ratopati.com/story/587439/4-armed-police-personnel-working-in-timure-missing" target="_blank" rel="noopener">सशस्त्र प्रवक्ता: टिमुरेमा ४ जना सम्पर्कविहीन</a>
-      <a href="https://www.ratopati.com/story/587441/3-nepal-army-helicopters-including-health-workers-were-deployed-for-rescue" target="_blank" rel="noopener">सेनाका ३ हेलिकप्टर, निजी ३४ स्ट्यान्डबाइ</a>
-      <a href="https://www.ratopati.com/story/587433/timurebasti-has-been-devastated-the-loss-of-life-and-property-is-uncountable-300-people-are-waiting-for-rescue" target="_blank" rel="noopener">टिमुरे: ३००+ उद्धार पर्खाइ (वडासदस्य घले)</a>
-      <a href="https://www.ratopati.com/story/587432/floods-wreak-havoc-in-bidur-nuwakot-major-damage-to-physical-infrastructure-including-two-concrete-bridges" target="_blank" rel="noopener">विदुर: दुई पक्की पुलसहित ठूलो क्षति</a>
-      <a href="https://www.ratopati.com/story/587436/impact-of-floods-in-rasuwa-and-nuwakot-damage-to-7-telecom-towers-network-problems" target="_blank" rel="noopener">टेलिकमका ७ टावर क्षति, नेटवर्क समस्या</a>
-      <a href="https://www.ratopati.com/story/587430/flooding-in-trishuli-river-population-levels-exceed-alert-level-in-furke-kendra" target="_blank" rel="noopener">फुर्के केन्द्रमा सतर्कता तह नाघ्यो</a>
-      <a href="https://www.ratopati.com/story/587411/rasuwa-floods-cause-extensive-damage-to-betrawati-trishuli-devighat-and-other-areas-of-nuwakot" target="_blank" rel="noopener">नुवाकोटका बेत्रावती, त्रिशूली, देवीघाटमा व्यापक क्षति</a>
-      <a href="https://www.ratopati.com/story/587410/nuwakot-cdo-says-there-has-been-a-lot-of-physical-damage" target="_blank" rel="noopener">नुवाकोटका सीडीओ: भौतिक क्षति धेरै भयो</a>
-      <a href="https://www.ratopati.com/story/587423/rasuwa-flood-half-a-dozen-power-plants-and-substations-damaged" target="_blank" rel="noopener">आधा दर्जन विद्युत् गृह र सबस्टेशन क्षतिग्रस्त</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003858/ward-member-pema-dorje-ghale-says-200-of-us-are-waiting-for-rescue" target="_blank" rel="noopener">वडासदस्य: हामी २०० जना उद्धारको पर्खाइमा छौं</a>
-      <a href="https://www.ratopati.com/story/587416/local-representatives-affected-by-floods-say-there-is-no-way-to-assess-the-damage" target="_blank" rel="noopener">उत्तरगया: क्षतिको लेखाजोखा गर्ने अवस्था छैन</a>
-      <a href="https://www.ratopati.com/story/587417/rasuwa-floods-enter-chitwan-administration-on-high-alert" target="_blank" rel="noopener">बाढी चितवन प्रवेश गर्दै, प्रशासन उच्च सतर्कतामा</a>
-      <a href="https://www.ratopati.com/story/587413/unable-to-contact-rasuwa-customs" target="_blank" rel="noopener">रसुवा भन्सारसँग सम्पर्क हुन सकेन</a>
-      <a href="https://www.ratopati.com/story/587412/flood-washes-away-suspension-bridge-in-dhadings-galchhi-coastal-area-at-high-risk" target="_blank" rel="noopener">गल्छीमा झोलुङ्गे पुल बगायो</a>
-      <a href="https://www.ratopati.com/story/587409/rasuwa-flood-will-cross-muglin-in-the-next-few-hours" target="_blank" rel="noopener">अबको केही घण्टामा मुग्लिन पार गर्ने</a>
-      <a href="https://www.ratopati.com/story/587408/floods-damage-3-police-offices-in-rasuwa" target="_blank" rel="noopener">बाढीले रसुवाको ३ वटा प्रहरी कार्यालयमा क्षति</a>
-      <a href="https://www.ratopati.com/story/587407/cdo-instructed-to-relocate-residents-of-low-lying-coastal-areas-to-safer-places" target="_blank" rel="noopener">तल्लो तटीय बासिन्दालाई सार्न सीडीओलाई निर्देशन</a>
-      <a href="https://www.ratopati.com/story/587406/all-helicopters-were-put-on-standby-for-rescue-and-relief-operations" target="_blank" rel="noopener">सबै हेलिकप्टर स्ट्यान्डबाइ</a>
-      <a href="https://www.ratopati.com/story/587404/floods-from-tibet-cause-major-damage-in-rasuwa" target="_blank" rel="noopener">तिब्बतबाट आएको बाढीले रसुवामा ठुलो क्षति</a>
-      <a href="https://www.ratopati.com/story/587403/prime-minister-balen-calls-for-high-level-meeting" target="_blank" rel="noopener">प्रधानमन्त्री बालेनद्वारा उच्च स्तरीय बैठक आह्वान</a>
-      <a href="https://www.ratopati.com/story/587402/security-forces-mobilized-for-rescue-and-relief-prime-minister-urges-residents-of-affected-areas-to-move-to-safer-places" target="_blank" rel="noopener">सुरक्षा निकाय परिचालन, सुरक्षित स्थानमा जान आग्रह</a>
-      <a href="https://www.ratopati.com/story/587401/vehicles-heading-from-kathmandu-to-dhading-and-rasuwa-are-held" target="_blank" rel="noopener">काठमाडौंबाट धादिङ/रसुवा जाने सवारी रोकियो</a>
-      <a href="https://www.ratopati.com/story/587399/bhotekoshi-floods-reach-galchhi-request-to-evacuate-settlements-along-trishuli-coast-and-highway" target="_blank" rel="noopener">भोटेकोशी बाढी गल्छी पुग्यो, बस्ती खाली गर्न आग्रह</a>
-      <a href="https://www.ratopati.com/story/587398/severe-floods-in-rasuwa-damage-in-syafrubesi-and-timure-government-directs-to-mobilize-for-rescue-and-relief" target="_blank" rel="noopener">स्याफ्रुबेसी र टिमुरेमा क्षति, सरकारले उद्धार निर्देशन</a>
-      <a href="https://www.ratopati.com/story/587397/emergency-meeting-of-monsoon-response-command-post-begins" target="_blank" rel="noopener">मनसुन कमाण्ड-पोस्ट आपत्कालीन बैठक सुरु</a>
-      <a href="https://www.ratopati.com/story/587396/floods-in-timur-fears-of-glacial-lake-eruption-in-tibet" target="_blank" rel="noopener">टिमुरे बाढी, तिब्बतमा हिमताल विस्फोटनको आशंका</a>
-      <a href="https://www.ratopati.com/story/587394/flash-flood-causes-major-damage-in-timure-bazaar" target="_blank" rel="noopener">आकस्मिक बाढीले टिमुरे बजारमा ठुलो क्षति</a>
-      <a href="https://www.ratopati.com/story/587391/large-flood-enters-bhotekoshi-from-tibet-urges-to-adopt-high-alert-up-to-muglin" target="_blank" rel="noopener">तिब्बतबाट भोटेकोशीमा ठूलो बाढी, मुग्लिनसम्म सतर्कता</a>
-</div>
-</div>
-
-    <div class="src-group">
-<h3>अनलाइनखबर <span class="badge">४३</span></h3>
-      <div class="src-list">
-<a href="https://www.onlinekhabar.com/2026/08/2004301/the-silence-after-the-bhotekoshi-flood-see-in-55-photos" target="_blank" rel="noopener">भोटेकोशी बाढीपछिको सन्नाटा (हेलि तस्बिरहरू)</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004273/more-than-a-hundred-rescued-by-helicopter" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय: हवाई उद्धार ११० (धुन्चे ८५…)</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004268/1000-inmates-of-nuwakot-central-jail-survive-flood" target="_blank" rel="noopener">नुवाकोट केन्द्रीय कारागार: करिब १००० कैदी सुरक्षित</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004203/six-health-workers-in-rasuwa-are-out-of-contact-after-floods-two-health-posts-washed-away" target="_blank" rel="noopener">रसुवा: ६ स्वास्थ्यकर्मी सम्पर्कविहीन, दुई स्वास्थ्य चौकी बगे</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004179/rasuwa-flood-bodies-of-6-people-found-in-dhading" target="_blank" rel="noopener">धादिङ जिल्ला प्रहरी: ६ शव, ७ स्थानीय उद्धार</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004154/rasuwa-flood-29-injured-rescued-by-helicopter" target="_blank" rel="noopener">सेना: घाइते २९ हेलिकप्टर उद्धार</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004147/a-team-of-17-health-workers-from-apf-hospital-departs-for-flood-affected-areas" target="_blank" rel="noopener">एपीएफ: १७ स्वास्थ्यकर्मी प्रभावित क्षेत्र</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004143/rasuwa-flood-384-tourists-left-without-contact" target="_blank" rel="noopener">पर्यटन बोर्ड: ३८४ पर्यटक सम्पर्कविहीन</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004120/more-than-25-workers-trapped-in-langtang-hydropower-project-tunnel" target="_blank" rel="noopener">लाङटाङ आयोजना सुरुङमा २५+ मजदुर</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004123/home-minister-at-the-airport-to-prepare-for-rescue" target="_blank" rel="noopener">गृहमन्त्री विमानस्थल, १० एम्बुलेन्स</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004106/rasuwa-flood-hands-begging-for-rescue-seen-on-camera" target="_blank" rel="noopener">बेत्रावती सातबिसे: छानाबाट उद्धार माग</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004074/rasuwa-floods-destroy-trishuli-bazaar-in-an-instant-photos" target="_blank" rel="noopener">त्रिशूली बजार क्षति (तस्बिरहरू)</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004059/cabinet-meeting-rasuwa-nuwakot-and-dhading-declared-flood-prone-areas" target="_blank" rel="noopener">मन्त्रिपरिषद्: रसुवा, नुवाकोट, धादिङ संकटग्रस्त</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2004058/rasuwa-flood-victims-brought-to-kathmandu-photos" target="_blank" rel="noopener">घाइते काठमाडौं ल्याइयो (तस्बिर)</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004044/34-passengers-who-went-to-visit-gosaikunda-from-palungtar-remain-uncontacted" target="_blank" rel="noopener">पालुङटार–गोसाइँकुण्ड बसका ३४ यात्रु सम्पर्कविहीन</a>
-<a href="https://www.onlinekhabar.com/2026/08/2003871/rasuwa-flood-disaster-here-is-the-latest-update" target="_blank" rel="noopener">लाइभ: रसुवा अस्पताल २४ घाइते, मुग्लिन पुग्यो</a>
-<a href="https://www.onlinekhabar.com/2026/08/2004015/rasuwa-flood-7-bodies-found" target="_blank" rel="noopener">७ शव फेला (नुवाकोट ३, धादिङ ४)</a>
-<a href="https://www.onlinekhabar.com/2026/08/2003991/41-security-personnel-missing-in-rasuwa-floods" target="_blank" rel="noopener">४१ सुरक्षाकर्मी सम्पर्कविहीन</a>
-<a href="https://www.onlinekhabar.com/2026/08/2003975/this-is-what-dhading-baireni-looked-like-after-the-flood-photos" target="_blank" rel="noopener">धादिङ बैरेनी बाढीपछि (तस्वीरहरू)</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003922/flood-damaged-dhungebazar-area-of-nuwakot-photos" target="_blank" rel="noopener">नुवाकोट ढुंगेबजार क्षति (तस्वीरहरू)</a>
-<a href="https://www.onlinekhabar.com/2026/08/2003919" target="_blank" rel="noopener">पर्यटन बोर्ड: प्रभावित क्षेत्रमा नजान अलर्ट</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003916" target="_blank" rel="noopener">विपद् परिषद् बैठक: क्षति ब्रिफिङ</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003915/floods-swept-away-the-bridge-across-the-river" target="_blank" rel="noopener">बाढीले फुर्के खोला पुल बगायो</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003906/twelve-people-trapped-in-floods-in-rasuwa-rescued" target="_blank" rel="noopener">बाढीमा फसेका १२ जनाको उद्धार</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003903/rasuwa-flood-7-people-rescued-by-army-helicopter" target="_blank" rel="noopener">सेनाले ७ जना हेलिकप्टरबाट उद्धार</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003900/no-need-to-seek-government-permission-to-fly-private-helicopters-to-rescue-flood-victims" target="_blank" rel="noopener">उद्धारका निजी हेलिकप्टरलाई अनुमति नचाहिने</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003888/the-flood-came-with-a-loud-sound-like-a-volcanic-eruption" target="_blank" rel="noopener">भन्सार प्रमुख ढुंगाना: १५/२० जना मात्र सम्पर्कमा</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003892/manakamana-cable-car-closed-due-to-floods" target="_blank" rel="noopener">मनकामना केबलकार ११:३० देखि बन्द</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003868/floods-from-tibet-through-rasuwa-reach-gajuri" target="_blank" rel="noopener">बाढी गजुरी पुग्यो (मुग्लिन प्रहरी)</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003873/where-did-the-floods-cause-damage-in-nuwakot" target="_blank" rel="noopener">नुवाकोट: बेत्रावती, सेन्ट्रल जेल, देवीघाट</a>
-            <a href="https://www.onlinekhabar.com/2026/08/2003836/9-armed-police-force-personnel-from-bop-timure-remain-uncontacted" target="_blank" rel="noopener">बीओपी टिमुरेका ९ सशस्त्र प्रहरी सम्पर्कविहीन</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003833/rasuwa-flood-armys-mi-17-helicopter-takes-off-carrying-medical-team" target="_blank" rel="noopener">मेडिकल टिम बोकेर सेनाको एमआई–१७ उड्यो</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003830/prachanda-instructs-leaders-and-activists-to-work-in-rescue-efforts-in-flood-affected-areas" target="_blank" rel="noopener">प्रचण्डको निर्देशन: उद्धारमा खटिनु</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003828/prime-minister-balen-calls-emergency-meeting" target="_blank" rel="noopener">प्रधानमन्त्री बालेनले बोलाए आपत्कालीन बैठक</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003822/home-minister-urges-citizens-of-riverine-areas-of-five-districts-to-stay-safe" target="_blank" rel="noopener">गृहमन्त्री: पाँच जिल्लाका तटीय नागरिक सुरक्षित रहन</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003821/this-is-the-governments-preparation-for-the-floods-coming-from-tibet" target="_blank" rel="noopener">रसुवा बाढी: उद्धारका लागि सरकारको तयारी</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003819/rasuwa-flood-what-damage-was-caused" target="_blank" rel="noopener">रसुवा बाढी: के-के क्षति भयो?</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003814/floods-damage-3-police-offices-in-rasuwa-detailed-details-yet-to-be-released" target="_blank" rel="noopener">प्रहरीका ३ कार्यालय बगायो, विस्तृत विवरण आउन बाँकी</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003813/rasuwa-flood-traffic-stops-vehicles-going-to-four-districts-in-kathmandu" target="_blank" rel="noopener">चार जिल्ला जाने सवारी काठमाडौंमै रोकियो</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003807/2-army-helicopters-fly-to-rasuwa" target="_blank" rel="noopener">सेनाका २ वटा हेलिकप्टर रसुवा उडे</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003805/floods-from-tibet-cause-major-damage-in-timure-bazaar-area" target="_blank" rel="noopener">तिब्बततर्फबाट आएको बाढीले टिमुरे बजारमा ठूलो क्षति</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003799/bhotekoshi-flood-all-helicopter-companies-instructed-to-remain-on-alert" target="_blank" rel="noopener">सबै हेलिकप्टर कम्पनीलाई तयारी अवस्थामा रहन निर्देशन</a>
-      <a href="https://www.onlinekhabar.com/2026/08/2003796/major-flood-in-bhotekoshi-river-in-rasuwa-urges-people-to-be-vigilant-in-areas-around-the-river" target="_blank" rel="noopener">भोटेकोशीमा ठूलो बाढी, आसपास सचेत रहन आग्रह</a>
-</div>
-</div>
-
-    <div class="src-group">
-<h3>सेतोपाटी <span class="badge">१</span></h3>
-      <div class="src-list">
-<a href="https://www.setopati.com/social/396792" target="_blank" rel="noopener">बैंकर्स संघ: ८ बैंकका २६ कर्मचारी सम्पर्कविहीन</a>
-</div>
-</div>
-
-    <div class="src-group">
-<h3>कान्तिपुर <span class="badge">१</span></h3>
-      <div class="src-list">
-<a href="https://ekantipur.com/news/2026/08/26/bhotekoshi-flood-washes-away-22-concrete-bridges-5-bailey-bridges-road-department-47-12.html" target="_blank" rel="noopener">सडक विभाग: पक्की पुल २२, बेलीब्रिज ५ बगे</a>
-</div>
-</div>
-
-    <div class="src-group">
-<h3>Khabarhub (English) <span class="badge">८</span></h3>
-      <div class="src-list">
-<a href="https://khabarhub.com/2026/26/1015923/" target="_blank" rel="noopener">पर्यटन मन्त्रालय: सम्पर्कविहीन ४०३ (विदेशी ३४१, नेपाली ६२)</a>
-<a href="https://khabarhub.com/2026/26/1015792/" target="_blank" rel="noopener">महाशाखा: बाढी नारायणी–देवघाट पुग्यो (१५:२० हाई अलर्ट)</a>
-<a href="https://khabarhub.com/2026/26/1015787/" target="_blank" rel="noopener">लाङटाङ एमडी: ६० कर्मचारी सम्पर्कविहीन</a>
-<a href="https://english.khabarhub.com/2026/26/564842/" target="_blank" rel="noopener">PM Shah orders rescue, relief measures</a>
-      <a href="https://english.khabarhub.com/2026/26/564836/" target="_blank" rel="noopener">PM calls emergency Disaster Council meeting</a>
-      <a href="https://english.khabarhub.com/2026/26/564831/" target="_blank" rel="noopener">Floods wash away police offices in Rasuwa</a>
-      <a href="https://english.khabarhub.com/2026/26/564826/" target="_blank" rel="noopener">Bhotekoshi flood causes widespread destruction in Rasuwa</a>
-      <a href="https://english.khabarhub.com/2026/26/564822/" target="_blank" rel="noopener">Bhotekoshi river water level rises, residents alerted</a>
-</div>
-</div>
-
-    <div class="src-group">
-<h3>काठमाडौं पोस्ट <span class="badge">२</span></h3>
-      <div class="src-list">
-<a href="https://kathmandupost.com/national/2026/08/26/major-flood-damages-syabrubesi-hydropower-projects-in-rasuwa" target="_blank" rel="noopener">Flash flood hits Rasuwa, damages hydropower projects and markets</a>
-      <a href="https://x.com/kathmandupost/status/2092472149349179531" target="_blank" rel="noopener">X: टिमुरे हेलिप्याड बग्यो, अल्टिच्युड एयर अवतरण गर्न सकेन</a>
-</div>
-</div>
-
-    <div class="src-group">
-<h3>नागरिक <span class="badge">९</span></h3>
-      <div class="src-list">
-<a href="https://nagariknews.nagariknetwork.com/social-affairs/rasuwa-flood-meteorologist-s-guess-glacial-lake-explosion-or-dam-breach-br-35-65.html" target="_blank" rel="noopener">हिमताल विस्फोटन वा बाँध फुटेको मौसमविद्को अनुमान</a>
-      <a href="https://nagariknews.nagariknetwork.com/politics/rescue-intensifies-after-rasuwa-flood-two-helicopters-sent-to-affected-areas-br-17-47.html" target="_blank" rel="noopener">उद्धार तीव्र, दुई हेलिकप्टर प्रभावित क्षेत्रतर्फ</a>
-      <a href="https://nagariknews.nagariknetwork.com/politics/prime-minister-shah-directs-rescue-efforts-after-rasuwa-flood-br-26-86.html" target="_blank" rel="noopener">प्रधानमन्त्री शाहद्वारा उद्धार निर्देशन</a>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/bhotekoshi-floods-reach-dhading-galchhi-high-alert-around-muglin-narayangadh-road-nbsp-22-67.html" target="_blank" rel="noopener">बाढी धादिङ-गल्छी पुग्यो, मुग्लिन-नारायणगढ सतर्कता</a>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/sudden-massive-flood-in-bhotekoshi-what-does-the-head-of-the-flood-forecasting-division-say-66-38.html" target="_blank" rel="noopener">बाढी पूर्वानुमान महाशाखा प्रमुख के भन्छन्?</a>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/emergency-meeting-begins-in-the-presence-of-the-home-minister-after-the-flood-in-bhotekoshi-27-81.html" target="_blank" rel="noopener">गृहमन्त्रीको उपस्थितिमा आकस्मिक बैठक</a>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/caution-urged-along-river-banks-in-5-districts-as-water-flow-in-bhotekoshi-increases-45-92.html" target="_blank" rel="noopener">५ जिल्लाका नदी किनारमा सतर्कता</a>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/massive-flood-in-bhote-koshi-from-tibet-request-to-stay-in-safe-places-56-24.html" target="_blank" rel="noopener">तिब्बतबाट भोटेकोशीमा ठुलो बाढी, सुरक्षित स्थानमा जान आग्रह</a>
-      <a href="https://nagariknews.nagariknetwork.com/social-affairs/floods-in-rasuwa-major-damage-feared-in-syafrubesi-and-timure-areas-38-12.html" target="_blank" rel="noopener">स्याफ्रुबेँसी र टिमुरेमा ठूलो क्षतिको आशंका</a>
-</div>
-</div>
-
-    <div class="src-group">
-<h3>आधिकारिक / हेर्नुहोस् <span class="badge">१३</span></h3>
-      <div class="src-list">
-<a href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener">X · @NepalPoliceHQ</a>
-      <a href="https://www.nepalpolice.gov.np" target="_blank" rel="noopener">नेपाल प्रहरी · nepalpolice.gov.np</a>
-      <a href="https://bipad.gov.np" target="_blank" rel="noopener">विपद् प्राधिकरण पोर्टल · bipad.gov.np</a>
-      <a href="https://www.dhm.gov.np" target="_blank" rel="noopener">जल तथा मौसम विज्ञान विभाग · dhm.gov.np</a>
-      <a href="https://www.hydrology.gov.np" target="_blank" rel="noopener">जलविज्ञान · hydrology.gov.np</a>
-      <a href="https://floodforecasting.gov.np" target="_blank" rel="noopener">बाढी पूर्वानुमान · floodforecasting.gov.np</a>
-      <a href="https://x.com/OnlineKhabar_En" target="_blank" rel="noopener">X · @OnlineKhabar_En</a>
-      <a href="https://x.com/RONBupdates" target="_blank" rel="noopener">X · @RONBupdates</a>
-      <a href="https://x.com/engnepalviews" target="_blank" rel="noopener">X · @engnepalviews</a>
-      <a href="https://x.com/Sidhakura_" target="_blank" rel="noopener">X · @Sidhakura_</a>
-      <a href="https://x.com/nvdnepal" target="_blank" rel="noopener">X · @nvdnepal</a>
-      <a href="https://x.com/kathmandupost" target="_blank" rel="noopener">X · @kathmandupost</a>
-      <a href="https://x.com/NepalPoliceHQ/status/2092469695371006058" target="_blank" rel="noopener">प्रहरी आधिकारिक बाढी भिडियो</a>
-</div>
-</div>
-
-  </div>
-</section>
-
 </main>
 <footer>
   <p class="foot-contact" data-i18n-html="foot_contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
@@ -1212,8 +594,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-08-30-1434"></script>
-<script src="names-index.js?v=2026-08-30-1434"></script>
+<script src="i18n.js?v=2026-08-30-1438"></script>
+<script src="names-index.js?v=2026-08-30-1438"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -1237,6 +619,7 @@
     if (file === "damage.html") return CANON + "damage.html" + (location.hash || "");
     if (file === "notices.html") return CANON + "notices.html" + (location.hash || "");
     if (file === "contact.html") return CANON + "contact.html" + (location.hash || "");
+    if (file === "photos.html") return CANON + "photos.html" + (location.hash || "");
     return CANON + (location.hash || "");
   }
   function toast(msg){
@@ -1280,7 +663,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-30-1434";</script>
+<script>window.PAGE_VER="2026-08-30-1438";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -1447,21 +830,6 @@
   });
 })();
 
-document.querySelectorAll(".feed-tabs button").forEach(function(btn){
-  btn.addEventListener("click", function(){
-    document.querySelectorAll(".feed-tabs button").forEach(function(b){b.classList.remove("active")});
-    document.querySelectorAll(".feed-panel").forEach(function(p){p.classList.remove("active")});
-    btn.classList.add("active");
-    var panel = document.getElementById("tab-" + btn.getAttribute("data-tab"));
-    if(!panel) return;
-    panel.classList.add("active");
-    panel.querySelectorAll("iframe").forEach(function(f){
-      var src = f.getAttribute("src");
-      if(src) f.setAttribute("src", src);
-    });
-  });
-});
-
 (function(){
   function bindPager(pagerEl, items, pageSize) {
     if (!pagerEl || !items || !items.length) return;
@@ -1549,12 +917,9 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   function qsa(sel, root) {
     return Array.prototype.slice.call((root || document).querySelectorAll(sel));
   }
-  bindPager(document.querySelector('[data-pager="photos"]'), qsa("#photo-grid figure.photo"), 6);
-  bindPager(document.querySelector('[data-pager="rahat-photos"]'), qsa("#rahat-photo-grid figure.photo"), 6);
   bindPager(document.querySelector('[data-pager="gov"]'), qsa("#gov-list > li"), 6);
   bindPager(document.querySelector('[data-pager="aid"]'), qsa("#aid-list > li"), 6);
   bindPager(document.querySelector('[data-pager="rescue"]'), qsa("#rescue-list > li"), 6);
-  bindPager(document.querySelector('[data-pager="sources"]'), qsa("#source-grid .src-group"), 4);
   bindPager(document.querySelector('[data-pager="hello-sarkar"]'), qsa("#hello-sarkar-body tr"), 50);
   bindPager(document.querySelector('[data-pager="madhesh"]'), qsa("#madhesh-body tr"), 50);
   bindPager(document.querySelector('.pager[data-pager="treat-dhunche"]'), qsa("#treat-dhunche-body tr"), 50);
@@ -1569,7 +934,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   bindPager(document.querySelector('.pager[data-pager="foreign-res"]'), qsa("#foreign-res-body tr"), 50);
   bindPager(document.querySelector('.pager[data-pager="india-cross"]'), qsa("#india-cross-body tr"), 50);
 
-  var figs = qsa("#photo-grid figure.photo").concat(qsa("#rahat-photo-grid figure.photo"));
+  var figs = qsa("#rahat-photo-grid figure.photo");
   var lb = document.getElementById("lightbox");
   if (!lb || !figs.length) return;
   var lbImg = document.getElementById("lb-img");

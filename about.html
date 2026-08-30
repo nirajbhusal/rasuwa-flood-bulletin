@@ -2,7 +2,7 @@
 <html lang="ne" class="about-page">
 <head>
 <script>if(window.matchMedia&&window.matchMedia("(min-width:960px)").matches)document.documentElement.classList.add("desk");document.documentElement.classList.add("about-page","desk-ready");try{if(localStorage.getItem("rasuwa-nav-collapsed")==="1")document.documentElement.classList.add("desk-nav-off");}catch(e){}</script>
-<script>(function(){var id=(location.hash||"").replace(/^#/,"");if(!id)return;var q=location.search||"";var file="";try{file=(location.pathname||"").split("/").pop()||"";}catch(e){}var dest=null;if(id==="about")dest="about.html"+q;else if(id==="map")dest="map.html"+q;else if(id==="path")dest="map.html"+q+"#path";else if(id==="donate")dest="donate.html"+q;else if(id==="aid")dest="donate.html"+q+"#aid";else if(id==="aid-ig")dest="donate.html"+q+"#aid-ig";else if(id==="cash"||id==="pmdrf"||id==="pmdrf-banks"||id==="pmdrf-pledges"||id==="donate-pledges")dest="donate.html"+q+"#"+id;else if(id==="rahat-need")dest="need.html"+q+"#rahat-need";else if(id==="rahat-collect")dest="need.html"+q+"#rahat-collect";else if(id==="gov")dest="gov.html"+q;else if(id==="rescue")dest="gov.html"+q+"#rescue";else if(id==="rahat")dest="gov.html"+q+"#rahat";else if(id==="event")dest="gov.html"+q+"#event";else if(id==="damage")dest="damage.html"+q;else if(id==="ems927")dest="damage.html"+q+"#ems927";else if(id==="power")dest="damage.html"+q+"#power";else if(id==="notices")dest="notices.html"+q;else if(id==="alert")dest="notices.html"+q+"#alert";else if(id==="history")dest="notices.html"+q+"#history";else if(id==="roads")dest="notices.html"+q+"#roads";else if(id==="helpline")dest="contact.html"+q+"#helpline";else if(id==="contacts")dest="contact.html"+q+"#contacts";if(!dest)return;var destFile=dest.split("#")[0].split("?")[0];if(destFile===file)return;location.replace(dest);})();</script>
+<script>(function(){var id=(location.hash||"").replace(/^#/,"");if(!id)return;var q=location.search||"";var file="";try{file=(location.pathname||"").split("/").pop()||"";}catch(e){}var dest=null;if(id==="about")dest="about.html"+q;else if(id==="map")dest="map.html"+q;else if(id==="path")dest="map.html"+q+"#path";else if(id==="donate")dest="donate.html"+q;else if(id==="aid")dest="donate.html"+q+"#aid";else if(id==="aid-ig")dest="donate.html"+q+"#aid-ig";else if(id==="cash"||id==="pmdrf"||id==="pmdrf-banks"||id==="pmdrf-pledges"||id==="donate-pledges")dest="donate.html"+q+"#"+id;else if(id==="rahat-need")dest="need.html"+q+"#rahat-need";else if(id==="rahat-collect")dest="need.html"+q+"#rahat-collect";else if(id==="gov")dest="gov.html"+q;else if(id==="rescue")dest="gov.html"+q+"#rescue";else if(id==="rahat")dest="gov.html"+q+"#rahat";else if(id==="event")dest="gov.html"+q+"#event";else if(id==="damage")dest="damage.html"+q;else if(id==="ems927")dest="damage.html"+q+"#ems927";else if(id==="power")dest="damage.html"+q+"#power";else if(id==="notices")dest="notices.html"+q;else if(id==="alert")dest="notices.html"+q+"#alert";else if(id==="history")dest="notices.html"+q+"#history";else if(id==="roads")dest="notices.html"+q+"#roads";else if(id==="helpline")dest="contact.html"+q+"#helpline";else if(id==="contacts")dest="contact.html"+q+"#contacts";else if(id==="photos")dest="photos.html"+q;else if(id==="videos")dest="photos.html"+q+"#videos";else if(id==="sources")dest="about.html"+q+"#sources";else if(id==="feeds")dest="index.html"+q;if(!dest)return;var destFile=dest.split("#")[0].split("?")[0];if(destFile===file)return;location.replace(dest);})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1434">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1438">
 </head>
 <body class="about-page">
 <div class="head-stick">
@@ -71,11 +71,8 @@
     <a href="notices.html" data-i18n="nav_notices">सूचना / सडक स्थिति</a>
     <a href="contact.html" data-i18n="nav_helpline">हेल्पलाइन / सम्पर्क</a>
     <a href="gov.html" data-i18n="nav_gov">सरकारबाट भएका पहल</a>
-    <a href="index.html#photos" data-i18n="nav_photos">तस्बिर</a>
+    <a href="photos.html" data-i18n="nav_photos">तस्बिर / भिडियो</a>
     <a href="damage.html" data-i18n="nav_damage">क्षति ड्यासबोर्ड</a>
-    <a href="index.html#feeds" data-i18n="nav_feeds">लाइभ फिड</a>
-    <a href="index.html#videos" data-i18n="nav_videos">भिडियो</a>
-    <a href="index.html#sources" data-i18n="nav_sources">स्रोत</a>
     <a class="nav-about is-current" aria-current="location" href="about.html" data-i18n="nav_about">बारेमा</a>
   </div>
 </nav>
@@ -128,6 +125,84 @@
     </div>
   </div>
 </section>
+<section id="sources">
+  <div class="sec-head"><span class="dot" style="background:var(--ink)"></span><h2 data-i18n="h_sources">स्रोत</h2></div>
+  <div class="pager" data-pager="sources">
+    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
+    <div class="pboxes pager-pages"></div>
+    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
+    <span class="pcount pager-count"></span>
+  </div>
+  <div class="sources" id="source-grid">
+
+<div class="src-group">
+<h3>DHM <span class="badge">१</span></h3>
+      <div class="src-list">
+<a href="docs/dhm-bhadra10-sitrep.pdf" target="_blank" rel="noopener" data-i18n="src_dhm">बाढी पूर्वानुमान महाशाखा: प्राविधिक स्थिति प्रतिवेदन · १० भदौ २०८३ (PDF)</a>
+</div>
+</div>
+
+    <div class="src-group">
+<h3>NDRRMA <span class="badge">१०</span></h3>
+      <div class="src-list">
+<span class="src-plain" data-i18n="src_sit1300">NDRRMA / गृह ग्राफिक: शव ७५२, सम्पर्कविहीन २५०२, घाइते २३९, उद्धार ८७३०, जनशक्ति १९८९५ · १४ भदौ १३:००</span>
+<span class="src-plain" data-i18n="src_sit0900">NDRRMA / गृह ग्राफिक: शव ७३४, सम्पर्कविहीन २४९८, घाइते २४२, उद्धार ८१८६, जनशक्ति १९८९५ · १४ भदौ ०९:००</span>
+<span class="src-plain" data-i18n="src_sit1830">NDRRMA / गृह ग्राफिक: शव ६७५, सम्पर्कविहीन २४९८, घाइते २१९, उद्धार ७५१४, जनशक्ति १८७०८ · १३ भदौ १८:३०</span>
+<span class="src-plain" data-i18n="src_sit1000">NDRRMA / गृह ग्राफिक: शव ६२६, सम्पर्कविहीन २४२६, घाइते १०१, उद्धार ४४५१, जनशक्ति १५२२४ · १३ भदौ १०:००</span>
+<a href="img/today-2026-08-29-nepal-police-0700.jpg" target="_blank" rel="noopener" data-i18n="src_pol0700">नेपाल प्रहरी ग्राफिक: शव ६१६, घाइते तथा उद्धार २३०१, प्रहरी ४८११, सम्पर्कविहीन २७ · १३ भदौ ०७:००</a>
+<span class="src-plain" data-i18n="src_sit1900">NDRRMA / गृह ग्राफिक: शव ५७९, सम्पर्कविहीन १९२४, घाइते १०१, उद्धार ४४५१, जनशक्ति १५४३१ · १२ भदौ १९:००</span>
+<a href="img/today-2026-08-28-nepal-police-1500.jpg" target="_blank" rel="noopener" data-i18n="src_pol1500">नेपाल प्रहरी ग्राफिक: शव ५४७, घाइते तथा उद्धार १४७३, प्रहरी ४४७३, सम्पर्कविहीन २७ · १२ भदौ १५:००</a>
+<span class="src-plain" data-i18n="src_sit1500">NDRRMA / गृह ग्राफिक: शव ५३८, सम्पर्कविहीन ९७७, घाइते ७३, उद्धार ३७४२, जनशक्ति १४८२९ · १२ भदौ १५:००</span>
+<span class="src-plain" data-i18n="src_sit6a">स्थिति प्रतिवेदन #०६: शव ३८९, सम्पर्कविहीन ९७७, घाइते ७३, हेलि १९७६ · राति २२:००</span>
+<a href="img/sitrep3-casualties.jpg" target="_blank" rel="noopener" data-i18n="src_sit3a">स्थिति प्रतिवेदन #०३: शव १२३, सम्पर्कविहीन २४५, घाइते ७५ · राति २२:००</a>
+<a href="img/sitrep3-cabinet.jpg" target="_blank" rel="noopener" data-i18n="src_sit3b">स्थिति प्रतिवेदन #०३: समयरेखा र मन्त्रिपरिषद्का १० निर्णय</a>
+</div>
+</div>
+
+    <div class="src-group">
+<h3>HEOC <span class="badge">१</span></h3>
+      <div class="src-list">
+<a href="https://heoc.mohp.gov.np/" target="_blank" rel="noopener" data-i18n="src_heoc">HEOC SitRep #2 17:00 घाइते अस्पताल 136</a>
+</div>
+</div>
+
+    <div class="src-group">
+<h3>NESRA FloodWatch <span class="badge">१</span></h3>
+      <div class="src-list">
+<a href="https://nesraspace.org/floodwatch/rasuwa-2026/" target="_blank" rel="noopener" data-i18n="src_nesra">NESRA FloodWatch: रसुवा २०२६ — उपग्रह २७ अगस्ट ०३:३१ NPT (सेन्टिनेल-१ / जिओस्पेसियल)</a>
+</div>
+</div>
+
+    <div class="src-group">
+<h3>Copernicus EMS <span class="badge">२</span></h3>
+      <div class="src-list">
+<a href="https://mapping.emergency.copernicus.eu/activations/EMSR927/" target="_blank" rel="noopener" data-i18n="src_ems1">EMSR927 Rapid Mapping: टिमुरे / स्याफ्रुबेसी बाढी नक्सा (ICEYE; नक्सा आउन बाँकी)</a>
+<a href="https://mapping.emergency.copernicus.eu/news/flood-in-nepal-emsr927/" target="_blank" rel="noopener" data-i18n="src_ems2">Copernicus EMS: Flood in Nepal — situational reporting (२६ अगस्ट)</a>
+</div>
+</div>
+
+    <div class="src-group">
+<h3>आधिकारिक / हेर्नुहोस् <span class="badge">१३</span></h3>
+      <div class="src-list">
+<a href="https://x.com/NepalPoliceHQ" target="_blank" rel="noopener">X · @NepalPoliceHQ</a>
+      <a href="https://www.nepalpolice.gov.np" target="_blank" rel="noopener">नेपाल प्रहरी · nepalpolice.gov.np</a>
+      <a href="https://bipad.gov.np" target="_blank" rel="noopener">विपद् प्राधिकरण पोर्टल · bipad.gov.np</a>
+      <a href="https://www.dhm.gov.np" target="_blank" rel="noopener">जल तथा मौसम विज्ञान विभाग · dhm.gov.np</a>
+      <a href="https://www.hydrology.gov.np" target="_blank" rel="noopener">जलविज्ञान · hydrology.gov.np</a>
+      <a href="https://floodforecasting.gov.np" target="_blank" rel="noopener">बाढी पूर्वानुमान · floodforecasting.gov.np</a>
+      <a href="https://x.com/OnlineKhabar_En" target="_blank" rel="noopener">X · @OnlineKhabar_En</a>
+      <a href="https://x.com/RONBupdates" target="_blank" rel="noopener">X · @RONBupdates</a>
+      <a href="https://x.com/engnepalviews" target="_blank" rel="noopener">X · @engnepalviews</a>
+      <a href="https://x.com/Sidhakura_" target="_blank" rel="noopener">X · @Sidhakura_</a>
+      <a href="https://x.com/nvdnepal" target="_blank" rel="noopener">X · @nvdnepal</a>
+      <a href="https://x.com/kathmandupost" target="_blank" rel="noopener">X · @kathmandupost</a>
+      <a href="https://x.com/NepalPoliceHQ/status/2092469695371006058" target="_blank" rel="noopener">प्रहरी आधिकारिक बाढी भिडियो</a>
+</div>
+</div>
+
+  </div>
+</section>
+
 <article id="coffee" class="coffee-card">
   <p data-i18n="about_coffee_p1">यो बुलेटिन व्यक्तिगत प्रयास हो।</p>
   <p data-i18n="about_coffee_p2">काम लाग्यो भने, वा पेज चलाउन सहयोग गर्ने हो भने कफी खर्च दिन सक्नुहुन्छ। यो राहत होइन — समय र साइट टिकाउन मात्र। राहत आधिकारिक प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा पठाउनुहोस्, लिंक यही साइटमा छ।</p>
@@ -183,8 +258,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-08-30-1434"></script>
-<script src="names-index.js?v=2026-08-30-1434"></script>
+<script src="i18n.js?v=2026-08-30-1438"></script>
+<script src="names-index.js?v=2026-08-30-1438"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -217,6 +292,7 @@
     if (file === "damage.html") return CANON + "damage.html" + (location.hash || "");
     if (file === "notices.html") return CANON + "notices.html" + (location.hash || "");
     if (file === "contact.html") return CANON + "contact.html" + (location.hash || "");
+    if (file === "photos.html") return CANON + "photos.html" + (location.hash || "");
     return CANON + (location.hash || "");
   }
   function toast(msg){
@@ -259,7 +335,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-08-30-1434";
+window.PAGE_VER="2026-08-30-1438";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){
@@ -350,5 +426,78 @@ window.PAGE_VER="2026-08-30-1434";
   if (window.__addLangHook) window.__addLangHook(function(){ paint(); });
 })();
 </script>
+
+<script>
+(function(){
+  function bindPager(pagerEl, items, pageSize) {
+    if (!pagerEl || !items || !items.length) return;
+    var page = 0;
+    var pagesEl = pagerEl.querySelector(".pager-pages");
+    var countEl = pagerEl.querySelector(".pager-count");
+    var prevBtn = pagerEl.querySelector(".pager-prev");
+    var nextBtn = pagerEl.querySelector(".pager-next");
+    if (!pagesEl || !countEl || !prevBtn || !nextBtn) return;
+    var PAGE = pageSize || 6;
+    function paint(fromClick) {
+      var pages = Math.max(1, Math.ceil(items.length / PAGE));
+      if (page >= pages) page = pages - 1;
+      if (page < 0) page = 0;
+      items.forEach(function(f, i){
+        var on = i >= page * PAGE && i < (page + 1) * PAGE;
+        f.classList.toggle("is-hidden", !on);
+      });
+      pagesEl.innerHTML = "";
+      var keep = {};
+      function mark(n){ if (n >= 0 && n < pages) keep[n] = true; }
+      mark(0); mark(pages - 1);
+      for (var i = page - 2; i <= page + 2; i++) mark(i);
+      var lastShown = -2;
+      for (var n = 0; n < pages; n++) {
+        if (!keep[n]) continue;
+        if (lastShown >= 0 && n > lastShown + 1) {
+          var d = document.createElement("span");
+          d.className = "pdots";
+          d.textContent = "…";
+          pagesEl.appendChild(d);
+        }
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "pbox" + (n === page ? " active" : "");
+        b.textContent = String(n + 1);
+        b.setAttribute("aria-label", (window.t ? t("page") : "पेज") + " " + (n + 1));
+        (function(idx){ b.addEventListener("click", function(){ page = idx; paint(true); }); })(n);
+        pagesEl.appendChild(b);
+        lastShown = n;
+      }
+      var from = page * PAGE + 1;
+      var to = Math.min((page + 1) * PAGE, items.length);
+      countEl.textContent = from + "–" + to + " / " + items.length;
+      prevBtn.disabled = page === 0;
+      nextBtn.disabled = page === pages - 1;
+      var active = pagesEl.querySelector(".pbox.active");
+      if (active) {
+        var left = active.offsetLeft - (pagesEl.clientWidth / 2) + (active.offsetWidth / 2);
+        pagesEl.scrollLeft = Math.max(0, left);
+      }
+      if (fromClick) pagerEl.scrollIntoView({block:"start", behavior:"smooth"});
+    }
+    prevBtn.addEventListener("click", function(){ if (page <= 0) return; page--; paint(true); });
+    nextBtn.addEventListener("click", function(){
+      var pages = Math.max(1, Math.ceil(items.length / PAGE));
+      if (page >= pages - 1) return;
+      page++;
+      paint(true);
+    });
+    paint(false);
+    if (window.__addLangHook) window.__addLangHook(function(){ paint(false); });
+  }
+  window.__bindPager = bindPager;
+  function qsa(sel, root) {
+    return Array.prototype.slice.call((root || document).querySelectorAll(sel));
+  }
+  bindPager(document.querySelector('[data-pager="sources"]'), qsa("#source-grid .src-group"), 4);
+})();
+</script>
+
 </body>
 </html>
