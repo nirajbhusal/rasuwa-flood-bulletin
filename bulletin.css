@@ -677,7 +677,7 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
 .ems-snap{
   display:grid;
   grid-template-columns:1fr;
-  grid-template-areas:"k" "t" "p" "c";
+  grid-template-areas:"k" "s" "t" "p" "c";
   gap:10px 12px;align-items:start;
   margin:10px 0 0;padding:14px 14px 12px;
   background:linear-gradient(180deg,#fff7ed,#fff 55%);
@@ -685,6 +685,7 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
   box-shadow:var(--shadow);text-decoration:none;color:inherit;
 }
 .ems-snap:hover{text-decoration:none;border-color:var(--saffron);box-shadow:0 0 0 3px #ffedd5}
+.ems-snap > .source{grid-area:s;width:100%;margin:0;font-size:13px;font-weight:700;color:var(--muted)}
 .ems-snap > .kpi-k, .ems-snap > a.kpi-k{grid-area:k;width:100%;font-size:13px;font-weight:800;color:#9a3412;letter-spacing:.02em;text-decoration:none;line-height:1.35}
 .ems-snap > a.kpi-k:hover{color:#c2410c;text-decoration:underline}
 .ems-snap-map{grid-area:m;display:block;border-radius:12px;overflow:hidden;border:1px solid #fed7aa;background:#0f172a;aspect-ratio:1400/989}
@@ -720,7 +721,7 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
 .ems-snap > .cash-sub{grid-area:c;width:100%;margin-top:2px;font-size:13px;font-weight:700;color:var(--muted)}
 .ems-home-cap a{font-weight:800;color:#c2410c;margin-left:.4em}
 @media(max-width:760px){
-  .ems-snap{grid-template-columns:1fr;grid-template-areas:"k" "t" "p" "c"}
+  .ems-snap{grid-template-columns:1fr;grid-template-areas:"k" "s" "t" "p" "c"}
   .ems-kpis8{grid-template-columns:1fr 1fr}
 }
 #ems927 .ems-kpis8, .ems-home .ems-kpis8{margin:10px 0 12px}
@@ -1977,13 +1978,14 @@ a.home-ig-names:hover{text-decoration:none;border-color:var(--crimson);box-shado
   .home-ig{grid-template-columns:1fr}
 }
 
-/* names.html / about.html / map.html / donate.html / need.html / gov.html long-scroll; do not one-screen-off */
+/* names.html / about.html / map.html / donate.html / need.html / gov.html / damage.html long-scroll; do not one-screen-off */
 html.names-page.desk, html.names-page.desk body,
 html.about-page.desk, html.about-page.desk body,
 html.map-page.desk, html.map-page.desk body,
 html.donate-page.desk, html.donate-page.desk body,
 html.need-page.desk, html.need-page.desk body,
-html.gov-page.desk, html.gov-page.desk body{
+html.gov-page.desk, html.gov-page.desk body,
+html.damage-page.desk, html.damage-page.desk body{
   height:auto;overflow:visible;
 }
 html.names-page.desk .page-body,
@@ -1991,7 +1993,8 @@ html.about-page.desk .page-body,
 html.map-page.desk .page-body,
 html.donate-page.desk .page-body,
 html.need-page.desk .page-body,
-html.gov-page.desk .page-body{
+html.gov-page.desk .page-body,
+html.damage-page.desk .page-body{
   overflow:visible;height:auto;min-height:0;
 }
 html.names-page.desk .page-main,
@@ -1999,7 +2002,8 @@ html.about-page.desk .page-main,
 html.map-page.desk .page-main,
 html.donate-page.desk .page-main,
 html.need-page.desk .page-main,
-html.gov-page.desk .page-main{
+html.gov-page.desk .page-main,
+html.damage-page.desk .page-main{
   overflow:visible;
 }
 html.names-page.desk:not(.desk-ready) .page-main section,
@@ -2007,7 +2011,8 @@ html.about-page.desk:not(.desk-ready) .page-main section,
 html.map-page.desk:not(.desk-ready) .page-main section,
 html.donate-page.desk:not(.desk-ready) .page-main section,
 html.need-page.desk:not(.desk-ready) .page-main section,
-html.gov-page.desk:not(.desk-ready) .page-main section{
+html.gov-page.desk:not(.desk-ready) .page-main section,
+html.damage-page.desk:not(.desk-ready) .page-main section{
   display:block;
 }
 html.map-page.desk #map{
@@ -2022,6 +2027,10 @@ html.map-page.desk #map{
 .gov-page .page-main{overflow:visible}
 .gov-page #rescue, .gov-page #rahat, .gov-page #event, .gov-page #gov{display:block;max-height:none;overflow:visible}
 .gov-page .kicker{margin:0 0 16px}
+.damage-page .page-main{overflow:visible}
+.damage-page #ems927, .damage-page #damage{display:block;max-height:none;overflow:visible}
+.damage-page .kicker{margin:0 0 6px}
+.damage-page .source{margin:0 0 16px;font-size:14px;font-weight:700;color:var(--muted)}
 html.names-page.desk #names{
   display:block;overflow:visible;max-height:none;
 }

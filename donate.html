@@ -2,7 +2,7 @@
 <html lang="ne" class="donate-page">
 <head>
 <script>if(window.matchMedia&&window.matchMedia("(min-width:960px)").matches)document.documentElement.classList.add("desk");document.documentElement.classList.add("donate-page","desk-ready");try{if(localStorage.getItem("rasuwa-nav-collapsed")==="1")document.documentElement.classList.add("desk-nav-off");}catch(e){}</script>
-<script>(function(){var id=(location.hash||"").replace(/^#/,"");if(!id)return;var q=location.search||"";var file="";try{file=(location.pathname||"").split("/").pop()||"";}catch(e){}var dest=null;if(id==="about")dest="about.html"+q;else if(id==="map")dest="map.html"+q;else if(id==="path")dest="map.html"+q+"#path";else if(id==="donate")dest="donate.html"+q;else if(id==="aid")dest="donate.html"+q+"#aid";else if(id==="aid-ig")dest="donate.html"+q+"#aid-ig";else if(id==="cash"||id==="pmdrf"||id==="pmdrf-banks"||id==="pmdrf-pledges"||id==="donate-pledges")dest="donate.html"+q+"#"+id;else if(id==="rahat-need")dest="need.html"+q+"#rahat-need";else if(id==="rahat-collect")dest="need.html"+q+"#rahat-collect";else if(id==="gov")dest="gov.html"+q;else if(id==="rescue")dest="gov.html"+q+"#rescue";else if(id==="rahat")dest="gov.html"+q+"#rahat";else if(id==="event")dest="gov.html"+q+"#event";if(!dest)return;var destFile=dest.split("#")[0].split("?")[0];if(destFile===file)return;location.replace(dest);})();</script>
+<script>(function(){var id=(location.hash||"").replace(/^#/,"");if(!id)return;var q=location.search||"";var file="";try{file=(location.pathname||"").split("/").pop()||"";}catch(e){}var dest=null;if(id==="about")dest="about.html"+q;else if(id==="map")dest="map.html"+q;else if(id==="path")dest="map.html"+q+"#path";else if(id==="donate")dest="donate.html"+q;else if(id==="aid")dest="donate.html"+q+"#aid";else if(id==="aid-ig")dest="donate.html"+q+"#aid-ig";else if(id==="cash"||id==="pmdrf"||id==="pmdrf-banks"||id==="pmdrf-pledges"||id==="donate-pledges")dest="donate.html"+q+"#"+id;else if(id==="rahat-need")dest="need.html"+q+"#rahat-need";else if(id==="rahat-collect")dest="need.html"+q+"#rahat-collect";else if(id==="gov")dest="gov.html"+q;else if(id==="rescue")dest="gov.html"+q+"#rescue";else if(id==="rahat")dest="gov.html"+q+"#rahat";else if(id==="event")dest="gov.html"+q+"#event";else if(id==="damage")dest="damage.html"+q;else if(id==="ems927")dest="damage.html"+q+"#ems927";if(!dest)return;var destFile=dest.split("#")[0].split("?")[0];if(destFile===file)return;location.replace(dest);})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1351">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1404">
 </head>
 <body class="donate-page">
 <div class="head-stick">
@@ -74,8 +74,7 @@
     <a href="gov.html" data-i18n="nav_gov">सरकारबाट भएका पहल</a>
     <a href="index.html#photos" data-i18n="nav_photos">तस्बिर</a>
     <a href="index.html#history" data-i18n="nav_history">अपडेट</a>
-    <a href="index.html#damage" data-i18n="nav_damage">क्षति</a>
-    <a href="index.html#ems927" data-i18n="nav_ems927">Copernicus / स्याफ्रुबेसी</a>
+    <a href="damage.html" data-i18n="nav_damage">क्षति ड्यासबोर्ड</a>
     <a href="index.html#power" data-i18n="nav_power">विद्युत्</a>
     <a href="index.html#roads" data-i18n="nav_roads">सडक</a>
     <a href="index.html#feeds" data-i18n="nav_feeds">लाइभ फिड</a>
@@ -430,8 +429,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-08-30-1351"></script>
-<script src="names-index.js?v=2026-08-30-1351"></script>
+<script src="i18n.js?v=2026-08-30-1404"></script>
+<script src="names-index.js?v=2026-08-30-1404"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -461,6 +460,7 @@
     if (file === "donate.html") return CANON + "donate.html" + (location.hash || "");
     if (file === "need.html") return CANON + "need.html" + (location.hash || "");
     if (file === "gov.html") return CANON + "gov.html" + (location.hash || "");
+    if (file === "damage.html") return CANON + "damage.html" + (location.hash || "");
     return CANON + (location.hash || "");
   }
   function toast(msg){
@@ -503,7 +503,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-08-30-1351";
+window.PAGE_VER="2026-08-30-1404";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){

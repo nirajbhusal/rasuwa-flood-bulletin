@@ -40,7 +40,7 @@ window.I18N = {
 "nav_photos": "तस्बिर",
 "nav_history": "अपडेट",
 "nav_event": "सरोकारवालाको भनाइ",
-"nav_damage": "क्षति",
+"nav_damage": "क्षति ड्यासबोर्ड",
 "nav_ems927": "Copernicus / स्याफ्रुबेसी",
 "nav_power": "विद्युत्",
 "nav_rescue": "उद्धार",
@@ -79,8 +79,8 @@ window.I18N = {
 "pmdrf_sheet_alt": "प्रधानमन्त्री दैवी प्रकोप उद्धार कोष, ९ बैंक, १२ भदौ",
 
 "hero_cash_sub": "अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोष",
-"hero_ems_h": "Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard · स्याफ्रुबेसी क्षति · Copernicus EMSR927",
-"hero_ems_sub": "Copernicus EMSR927 · २७ अगस्ट ०५:०५ UTC · स्याफ्रुबेसी — NDRRMA शव ७३४ / सम्पर्कविहीन २,४९८ / उद्धार ८१८६ माथि होइन।",
+"hero_ems_h": "बाढी क्षति मूल्यांकन ड्यासबोर्ड",
+"hero_ems_sub": "स्याफ्रुबेँसी र त्रिशूली करिडोर",
 "hero_ems_more": "पूरा तालिका",
 "ems_k_built": "भवन",
 "ems_k_built_sub": "४३३ / ५५९ · ७७.५%",
@@ -500,7 +500,8 @@ window.I18N = {
 "h_history": "अपडेट",
 "h_event": "सरोकारवालाको भनाइ",
 "h_damage": "क्षति (प्रारम्भिक)",
-"h_ems927": "Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard · स्याफ्रुबेसी क्षति · Copernicus EMSR927",
+"h_ems927": "बाढी क्षति मूल्यांकन ड्यासबोर्ड",
+"h_damage_dash": "बाढी क्षति मूल्यांकन ड्यासबोर्ड",
 "ems927_lead": "Copernicus EMS Rapid Mapping <strong>EMSR927</strong> AOI01 स्याफ्रुबेसी / Syapru Besi ग्रेडिङ। स्थिति २७/०८/२०२६ ०५:०५ UTC। ITHACA उत्पादन, SERTIT जारी २७/०८/२०२६। GLIDE FF-2026-000162-NPL · Charter 1052 · उत्पादन v1। <strong>४३३</strong> = सबै भवनको योग; <strong>३९२</strong> = त्यसभित्रको आवासीय।",
 "ems927_fn": "* सम्भावित क्षति = क्षति प्रॉक्सी / निकटता। ** प्रभावित जम्मा = क्षति वर्गको योग। ४३३ = सबै भवन; ३९२ = त्यसभित्रको आवासीय — जोड्नु होइन।",
 "ems927_note": "उपग्रह दृश्य व्याख्या, प्रहरी/NDRRMA सिट्रेप होइन। शव ७३४ · घाइते २४२ · सम्पर्कविहीन २,४९८ · उद्धार ८१८६ माथि होइन। प्रभावित ~४५० लाई सम्पर्कविहीनमा नजोड्नुहोस्। स्रोत: Copernicus EMS Rapid Mapping · ITHACA / SERTIT।",
@@ -988,6 +989,10 @@ window.I18N = {
 "gov_title": "विपद्पछि सरकारबाट सरकारी पहल · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "gov_meta": "उद्धार, राहत, सडक, स्वास्थ्य र नीतिगत निर्णय। उद्धार १२३४।",
 "gov_sub": "उद्धार, राहत, सडक, स्वास्थ्य र नीतिगत निर्णय",
+"damage_title": "बाढी क्षति मूल्यांकन ड्यासबोर्ड · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"damage_meta": "स्याफ्रुबेँसी र त्रिशूली करिडोर क्षति मूल्यांकन। Copernicus EMSR927। उद्धार १२३४।",
+"damage_sub": "स्याफ्रुबेँसी र त्रिशूली करिडोर",
+"ems_src": "स्रोत: Copernicus EMSR927",
 "about_sub": "बारेमा · स्वतन्त्र नागरिक बुलेटिन",
 "about_back": "← बुलेटिन",
 "about_back_foot": "बुलेटिनमा फर्कनुहोस्",
@@ -1050,7 +1055,7 @@ window.I18N = {
 "nav_photos": "Photos",
 "nav_history": "Updates",
 "nav_event": "What officials say",
-"nav_damage": "Damage",
+"nav_damage": "Damage dashboard",
 "nav_ems927": "Copernicus / Syaphrubesi",
 "nav_power": "Power",
 "nav_rescue": "Rescue",
@@ -1089,8 +1094,8 @@ window.I18N = {
 "pmdrf_sheet_alt": "PM Disaster Relief Fund, 9 banks, 12 Bhadra",
 
 "hero_cash_sub": "Ministry of Finance / PM Disaster Relief Fund / PM Relief Fund (same pot)",
-"hero_ems_h": "Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard · Syaphrubesi damage · Copernicus EMSR927",
-"hero_ems_sub": "Copernicus EMSR927 · 27 Aug 05:05 UTC · Syaphrubesi — not added into official dead 669 / uncontacted 2,426 / rescued 4451.",
+"hero_ems_h": "Flood damage assessment dashboard",
+"hero_ems_sub": "Syabrubesi and the Trishuli corridor",
 "hero_ems_more": "Full table",
 "ems_k_built": "Built-up",
 "ems_k_built_sub": "433 / 559 · 77.5%",
@@ -1502,7 +1507,8 @@ window.I18N = {
 "h_history": "Updates",
 "h_event": "What officials say",
 "h_damage": "Damage (preliminary)",
-"h_ems927": "Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard · Syaphrubesi · Copernicus EMSR927",
+"h_ems927": "Flood damage assessment dashboard",
+"h_damage_dash": "Flood damage assessment dashboard",
 "ems927_lead": "Copernicus EMS Rapid Mapping <strong>EMSR927</strong> AOI01 Syapru Besi / स्याफ्रुबेसी grading. Situation 27/08/2026 05:05 UTC. Produced by ITHACA, released by SERTIT 27/08/2026. GLIDE FF-2026-000162-NPL · Charter 1052 · product v1. <strong>433</strong> = all buildings (sum); <strong>392</strong> = residential inside that.",
 "ems927_fn": "* possibly damaged = damage proxies / proximity. ** total affected = sum of damage classes. 433 = all buildings; 392 = residential inside that — do not add them.",
 "ems927_note": "Satellite visual interpretation, not a police/NDRRMA sitrep. Not added into dead 626 · injured 101 · uncontacted 2,426 · rescued 4451. Do not add the ~450 into uncontacted. Source: Copernicus EMS Rapid Mapping · ITHACA / SERTIT.",
@@ -1989,6 +1995,10 @@ window.I18N = {
 "gov_title": "Government action after the disaster · Rasuwa–Bhotekoshi flood bulletin",
 "gov_meta": "Rescue, relief, roads, health and official decisions. Rescue 1234.",
 "gov_sub": "Rescue, relief, roads, health and official decisions",
+"damage_title": "Flood damage assessment dashboard · Rasuwa–Bhotekoshi flood bulletin",
+"damage_meta": "Syabrubesi and the Trishuli corridor damage assessment. Copernicus EMSR927. Rescue 1234.",
+"damage_sub": "Syabrubesi and the Trishuli corridor",
+"ems_src": "Source: Copernicus EMSR927",
 "about_sub": "About · independent civic bulletin",
 "about_back": "← Bulletin",
 "about_back_foot": "Back to the bulletin",
@@ -2319,7 +2329,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "Damage dashboard back on home",
-"p": "Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard infographic is on the <a href=\"#home\">home</a> dashboard again. Full table/maps on <a href=\"#ems927\">#ems927</a>. Not added into deaths 669."
+"p": "Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard infographic is on the <a href=\"#home\">home</a> dashboard again. Full table/maps on <a href=\"damage.html#ems927\">#ems927</a>. Not added into deaths 669."
 },
 {"h":"प्रहरी १३ भदौ १६:०० — शव ६६९","p":"नेपाल प्रहरी (OnlineKhabar): शनिबार दिउँसो ४ बजेसम्म शव <strong>६६९</strong> — चितवन २४८, न.प.पूर्व १५८, न.प.पश्चिम ७५, गोरखा ५४, धादिङ ४९, नुवाकोट ४१, तनहुँ ३१, रसुवा १३। घाइते तथा उद्धार <strong>२,३०१</strong> यथावत् लेबल। सम्पर्कविहीन प्रहरी <strong>२७</strong>। अघिल्लो NDRRMA / गृह १०:०० शव ६२६ / प्रहरी ०७:०० शव ६१६ इतिहास। NDRRMA सम्पर्कविहीन २,४२६ · घाइते १०१ · उद्धार ४४५१ यथावत्। स्रोत: <a href=\"https://www.onlinekhabar.com/2026/08/2006464/rasuwa-flood-669-bodies-found-as-of-4-pm-on-saturday\" target=\"_blank\" rel=\"noopener\">OnlineKhabar</a>।"},
 {
@@ -2349,11 +2359,11 @@ window.I18N_LISTS = {
 },
 {
 "h": "Copernicus Syaphrubesi damage infographic dashboard",
-"p": "EMSR927 AOI01 Syaphrubesi: all buildings <strong>433</strong>/559 (77.5%) — residential 392 is inside that, not a second total. Roads 7.6 km · bridges 5/5 · landslide 111.1 ha · population ~450/~750 (60%) · land cover 111.0/345.9 ha. Infographic dashboard on home and <a href=\"#ems927\">#ems927</a>. Not added into official dead 626 / uncontacted 2,426 / rescued 4451."
+"p": "EMSR927 AOI01 Syaphrubesi: all buildings <strong>433</strong>/559 (77.5%) — residential 392 is inside that, not a second total. Roads 7.6 km · bridges 5/5 · landslide 111.1 ha · population ~450/~750 (60%) · land cover 111.0/345.9 ha. Infographic dashboard on home and <a href=\"damage.html#ems927\">#ems927</a>. Not added into official dead 626 / uncontacted 2,426 / rescued 4451."
 },
 {
 "h": "Copernicus EMSR927 Syaphrubesi damage",
-"p": "Copernicus EMS Rapid Mapping EMSR927 AOI01 Syapru Besi: built-up <strong>433</strong> (residential affected 392 · destroyed 283) · road 7.6 km (bridges 5 destroyed) · landslide 111.1 ha · potentially affected population ~450 (AOI ~750). Satellite grading — not added into official dead 626 / uncontacted 2,426 / rescued 4451. <a href=\"#ems927\">Syaphrubesi damage</a> · <a href=\"https://mapping.emergency.copernicus.eu/activations/EMSR927\" target=\"_blank\" rel=\"noopener\">portal</a>."
+"p": "Copernicus EMS Rapid Mapping EMSR927 AOI01 Syapru Besi: built-up <strong>433</strong> (residential affected 392 · destroyed 283) · road 7.6 km (bridges 5 destroyed) · landslide 111.1 ha · potentially affected population ~450 (AOI ~750). Satellite grading — not added into official dead 626 / uncontacted 2,426 / rescued 4451. <a href=\"damage.html#ems927\">Syaphrubesi damage</a> · <a href=\"https://mapping.emergency.copernicus.eu/activations/EMSR927\" target=\"_blank\" rel=\"noopener\">portal</a>."
 },
 {
 "h": "Police 13 Bhadra 07:00 — dead 616",
@@ -3221,6 +3231,7 @@ window.I18N_LISTS = {
     var donatePg = file === "donate.html" || document.documentElement.classList.contains("donate-page");
     var needPg = file === "need.html" || document.documentElement.classList.contains("need-page");
     var govPg = file === "gov.html" || document.documentElement.classList.contains("gov-page");
+    var damagePg = file === "damage.html" || document.documentElement.classList.contains("damage-page");
     if (aboutPg) {
       if (p.about_title) document.title = p.about_title;
     } else if (mapPg) {
@@ -3231,6 +3242,8 @@ window.I18N_LISTS = {
       if (p.need_title) document.title = p.need_title;
     } else if (govPg) {
       if (p.gov_title) document.title = p.gov_title;
+    } else if (damagePg) {
+      if (p.damage_title) document.title = p.damage_title;
     } else if (p.title) document.title = p.title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) {
@@ -3239,6 +3252,7 @@ window.I18N_LISTS = {
       else if (donatePg && p.donate_meta) meta.setAttribute("content", p.donate_meta);
       else if (needPg && p.need_meta) meta.setAttribute("content", p.need_meta);
       else if (govPg && p.gov_meta) meta.setAttribute("content", p.gov_meta);
+      else if (damagePg && p.damage_meta) meta.setAttribute("content", p.damage_meta);
       else if (p.meta) meta.setAttribute("content", p.meta);
     }
     applyKeyed(lang);

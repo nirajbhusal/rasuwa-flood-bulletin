@@ -20,6 +20,8 @@
   else if (id === "rescue") location.replace("gov.html" + q + "#rescue");
   else if (id === "rahat") location.replace("gov.html" + q + "#rahat");
   else if (id === "event") location.replace("gov.html" + q + "#event");
+  else if (id === "damage") location.replace("damage.html" + q);
+  else if (id === "ems927") location.replace("damage.html" + q + "#ems927");
   else if (D[id]) location.replace("donate.html" + q + "#" + id);
   else if (H[id]) location.replace("names.html" + location.hash);
 })();
@@ -42,7 +44,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1351">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1404">
 </head>
 <body>
 <div class="head-stick">
@@ -96,8 +98,7 @@
     <a href="gov.html" data-i18n="nav_gov">सरकारबाट भएका पहल</a>
     <a href="#photos" data-i18n="nav_photos">तस्बिर</a>
     <a href="#history" data-i18n="nav_history">अपडेट</a>
-    <a href="#damage" data-i18n="nav_damage">क्षति</a>
-    <a href="#ems927" data-i18n="nav_ems927">Copernicus / स्याफ्रुबेसी</a>
+    <a href="damage.html" data-i18n="nav_damage">क्षति ड्यासबोर्ड</a>
     <a href="#power" data-i18n="nav_power">विद्युत्</a>
     <a href="#roads" data-i18n="nav_roads">सडक</a>
     <a href="#feeds" data-i18n="nav_feeds">लाइभ फिड</a>
@@ -274,7 +275,8 @@
       </div>
 
       <div class="ems-snap ems-home" id="hero-ems">
-        <a class="kpi-k" href="#ems927" data-i18n="hero_ems_h">Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard · स्याफ्रुबेसी क्षति · Copernicus EMSR927</a>
+        <a class="kpi-k" href="damage.html" data-i18n="hero_ems_h">बाढी क्षति मूल्यांकन ड्यासबोर्ड</a>
+        <p class="source" data-i18n="ems_src">स्रोत: Copernicus EMSR927</p>
         <span class="ems-kpis8">
           <span class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 20h20L13.2 7.8l-2.8 3.8-2.5-2.2L2 20zm10.4-12.6L15 3.8 22 20h-3.6L12.4 7.4zM4.8 8.6l1.7-1.3 1.3 1.7-1.7 1.3zm3-3.2 1.4-1.1 1.1 1.4-1.4 1.1z"/></svg></span><span class="kpi-k" data-i18n="ems_k_slide">पहिरो</span><strong class="num">१११.१</strong><span class="cash-unit" data-i18n="ems_k_ha">हे</span><span class="cash-sub" data-i18n="ems_k_slide_sub">पहिरो / बाढी क्षेत्र</span></span>
           <span class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 11a3.2 3.2 0 1 0-3.2-3.2A3.2 3.2 0 0 0 9 11zm7.2 0a2.7 2.7 0 1 0-2.7-2.7A2.7 2.7 0 0 0 16.2 11zM2.8 19.5v-1.3C2.8 15.4 5.6 14 9 14s6.2 1.4 6.2 4.2v1.3zm11.2 0v-1.3c0-1.2-.4-2.2-1.2-3 2.5.3 5 1.3 5 3.2v1.1z"/></svg></span><span class="kpi-k" data-i18n="ems_k_pop">जनसंख्या</span><strong class="num">~४५०</strong><span class="cash-sub" data-i18n="ems_k_pop_sub">~४५० / ~७५० · ६०%</span></span>
@@ -357,7 +359,7 @@
             <div class="ibar-row"><span data-i18n="ems_r_alllc">सबै भू-आवरण (योग)</span><b class="ibar"><i style="width:32.1%"></i></b><em>१११.० / ३४५.९ · ३२.१%</em></div>
           </div>
         </div>
-        <span class="cash-sub ems-home-cap"><span data-i18n="hero_ems_sub">Copernicus EMSR927 · २७ अगस्ट ०५:०५ UTC · स्याफ्रुबेसी — NDRRMA शव ७३४ / सम्पर्कविहीन २,४९८ / उद्धार ८१८६ माथि होइन।</span> <a href="#ems927" data-i18n="hero_ems_more">पूरा तालिका</a></span>
+        <span class="cash-sub ems-home-cap"><span data-i18n="hero_ems_sub">स्याफ्रुबेँसी र त्रिशूली करिडोर</span> <a href="damage.html" data-i18n="hero_ems_more">पूरा तालिका</a></span>
       </div>
 
       <div class="ov-panel">
@@ -1006,7 +1008,7 @@
       <p class="when">~१९:४०</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>क्षति ड्यासबोर्ड होममा</h3>
-      <p>Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard इन्फोग्राफिक फेरि <a href="#home">ड्यासबोर्ड</a> मा। पूरा तालिका/नक्सा <a href="#ems927">#ems927</a> मा। शव ७३४ / सम्पर्कविहीन २,४९८ / उद्धार ८१८६ माथि होइन।</p>
+      <p>Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard इन्फोग्राफिक फेरि <a href="#home">ड्यासबोर्ड</a> मा। पूरा तालिका/नक्सा <a href="damage.html#ems927">#ems927</a> मा। शव ७३४ / सम्पर्कविहीन २,४९८ / उद्धार ८१८६ माथि होइन।</p>
     </article>
 <article class="log-item">
       <p class="when">~१८:१८</p>
@@ -1054,13 +1056,13 @@
       <p class="when">~१०:५८</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>Copernicus स्याफ्रुबेसी क्षति इन्फोग्राफिक ड्यासबोर्ड</h3>
-      <p>EMSR927 AOI01 स्याफ्रुबेसी: सबै भवन <strong>४३३</strong>/५५९ (७७.५%) — आवासीय ३९२ त्यसभित्र, जोड्नु होइन। सडक ७.६ किमि · पुल ५/५ · पहिरो १११.१ हे · जनसंख्या ~४५०/~७५० (६०%) · भू-आवरण १११.०/३४५.९ हे। इन्फोग्राफिक ड्यासबोर्ड होम र <a href="#ems927">#ems927</a> मा। NDRRMA शव ७३४ / सम्पर्कविहीन २,४९८ / उद्धार ८१८६ माथि होइन।</p>
+      <p>EMSR927 AOI01 स्याफ्रुबेसी: सबै भवन <strong>४३३</strong>/५५९ (७७.५%) — आवासीय ३९२ त्यसभित्र, जोड्नु होइन। सडक ७.६ किमि · पुल ५/५ · पहिरो १११.१ हे · जनसंख्या ~४५०/~७५० (६०%) · भू-आवरण १११.०/३४५.९ हे। इन्फोग्राफिक ड्यासबोर्ड होम र <a href="damage.html#ems927">#ems927</a> मा। NDRRMA शव ७३४ / सम्पर्कविहीन २,४९८ / उद्धार ८१८६ माथि होइन।</p>
     </article>
             <article class="log-item">
       <p class="when">~१०:१६</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>Copernicus EMSR927 स्याफ्रुबेसी क्षति</h3>
-      <p>Copernicus EMS Rapid Mapping EMSR927 AOI01 स्याफ्रुबेसी: भवन <strong>४३३</strong> (आवासीय प्रभावित ३९२ · ध्वस्त २८३) · सडक ७.६ किमि (पुल ५ ध्वस्त) · पहिरो १११.१ हे · प्रभावित जनसंख्या ~४५० (AOI ~७५०)। उपग्रह ग्रेडिङ — NDRRMA शव ७३४ / सम्पर्कविहीन २,४९८ / उद्धार ८१८६ माथि होइन। <a href="#ems927">स्याफ्रुबेसी क्षति</a> · <a href="https://mapping.emergency.copernicus.eu/activations/EMSR927" target="_blank" rel="noopener">पोर्टल</a>।</p>
+      <p>Copernicus EMS Rapid Mapping EMSR927 AOI01 स्याफ्रुबेसी: भवन <strong>४३३</strong> (आवासीय प्रभावित ३९२ · ध्वस्त २८३) · सडक ७.६ किमि (पुल ५ ध्वस्त) · पहिरो १११.१ हे · प्रभावित जनसंख्या ~४५० (AOI ~७५०)। उपग्रह ग्रेडिङ — NDRRMA शव ७३४ / सम्पर्कविहीन २,४९८ / उद्धार ८१८६ माथि होइन। <a href="damage.html#ems927">स्याफ्रुबेसी क्षति</a> · <a href="https://mapping.emergency.copernicus.eu/activations/EMSR927" target="_blank" rel="noopener">पोर्टल</a>।</p>
     </article>
             <article class="log-item">
       <p class="when">~०७:००</p>
@@ -1815,182 +1817,7 @@
   </div>
 </section>
 
-<section id="damage">
-  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2 data-i18n="h_damage">क्षति (प्रारम्भिक)</h2></div>
-  <div class="pager" data-pager="damage">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
-    <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
-    <span class="pcount pager-count"></span>
-  </div>
-  <div class="card orange">
-    <ul id="damage-list" data-i18n-list="damage">
-      <li>NDRRMA SitRep-3 (राति २२:००): मोटरेबल पुल <strong>३५</strong> + झोलुङ्गे <strong>४५</strong> = पुल <strong>८०</strong>; पक्की सडक <strong>४० किमि</strong> पूर्ण ध्वस्त — SitRep-2 सँग मेल। अघिल्लो सडक विभाग पक्की २२ / बेली ५ · प्रधानमन्त्री कार्यालय मोटरेबल १९।</li>
-      <li>बागमती प्रदेश प्रहरी कार्यालय (रातोपाटी ~१७:२६): मृत्यु <strong>२२</strong> — रसुवा १ पुरुष, नुवाकोट ११ (५ महिला + ६ पुरुष), धादिङ ९ (५ महिला + २ पुरुष + २ लिङ्ग नखुलेको), चितवन १ महिला। अघिल्लो पौने चारको १६ यो २२ बाट अद्यावधिक।</li>
-      <li>जनस्वास्थ्य कार्यालय रसुवा (अनलाइनखबर ~१५:४१): टिमुरे र स्याफ्रुबेसीका <strong>२ स्वास्थ्य चौकी</strong> बाढीले बगाएको। त्यहाँका ४ स्वास्थ्यकर्मीसहित जम्मा ६ सम्पर्कविहीन — क्षति कार्डमा चौकी, सम्पर्कविहीन कार्डमा ६।</li>
-      <li>बागमती प्रदेश प्रहरी कार्यालय (रातोपाटी ~१६:०८, पौने चार): मृत्यु <strong>१६</strong> — रसुवा १, नुवाकोट ९, धादिङ ६। ७ महिला, ८ पुरुष, १ सनाखत बाँकी। खनालको ९ र जिल्ला ४+६=१० यो १६ बाट अद्यावधिक।</li>
-      <li>परराष्ट्रमन्त्री शिशिर खनाल (संसद् ~१६:०१): उद्धार टोलीले <strong>९</strong> शव सङ्कलन, सनाखत बाँकी — पछि प्रदेश प्रहरीको १६ ले अद्यावधिक।</li>
-      <li>धादिङ जिल्ला प्रहरी कार्यालय (अनलाइनखबर ~१५:३३ / ~१५:००): शव <strong>६</strong> — गल्छी महेश दोभान १ महिला, गल्छी कोल्फु खोला पुल २ पुरुष, सिद्धलेक–७ त्रिशूली किनार १, बेनीघाट रोरङ बजार किनार २ महिला। डिआईजी रेग्मीको धादिङ ४ / राष्ट्रिय ८। राष्ट्रिय जम्मा अद्यावधिक छैन।</li>
-      <li>बागमती प्रहरी प्रमुख दीपक रेग्मी (रातोपाटी ~१४:११): धादिङ <strong>४</strong> र नुवाकोट <strong>४</strong> गरी <strong>८ शव</strong>। नाम अझै सार्वजनिक छैन। अघिल्लो जम्मा ७ यो संख्याबाट अद्यावधिक।</li>
-      <li>बागमती प्रदेश प्रहरी प्रवक्ता एसएसपी राजेन्द्र धमला (रातोपाटी ~१३:५४): नुवाकोट <strong>विदुर क्षेत्रमा ४ शव</strong> — १ महिला, ३ पुरुष। विस्तृत पहिचान आउन बाँकी। अघिल्लो डिआईजी रेग्मीको नुवाकोट ३ यो संख्याबाट अद्यावधिक।</li>
-      <li>बागमती प्रहरी प्रमुख दीपक रेग्मी (अनलाइनखबर ~१३:३८): नुवाकोट नदी किनारमा <strong>३</strong> र धादिङमा <strong>४</strong> गरी <strong>७ शव</strong>। नाम अझै सार्वजनिक छैन। घाइते उद्धार, शव संकलन र बेपत्ता खोजी जारी। नुवाकोटको हिस्सा पछि धमलाको ४ ले अद्यावधिक।</li>
-      <li>रसुवा अस्पताल (अनलाइनखबर लाइभ ~१३:४५): <strong>२४ घाइते</strong> पुगे; उपचारमा <strong>१ मृत्यु</strong>; <strong>६ गम्भीर</strong> अन्य अस्पताल रेफर। घाइते अझै आइरहेका, हेलिकप्टर उद्धार जारी। यो मृत्यु ७ शवमा मिसाएको होइन।</li>
-      <li>सहायक प्रजिअ ध्रुव प्रसाद अधिकारी (खबरहब १०:२४): <strong>टिमुरे र नजिकैको अर्को बजार बगे</strong>। रसुवा भन्सार यार्डका सवारी/मालसामान बगे। गत वर्षको बाढीपछि बनेको नयाँ पुल फेरि बग्यो।</li>
-      <li>टिमुरे <strong>हेलिप्याड बग्यो</strong>। अल्टिच्युड एयरको हेलिकप्टर अवतरण गर्न सकेन। पाइलट सुबास खड्का: गाउँ नै देखिएन।</li>
-      <li>प्रहरी प्रवक्ता डीआईजी अबि नारायण काफ्ले (अनलाइनखबर): <strong>४ प्रहरी कार्यालय</strong> — टिमुरे, स्याफ्रुबेसी, रसुवागढी, मैलुङ। <strong>३२ प्रहरी सम्पर्कविहीन</strong> (केही आउने क्रममा)। सशस्त्र <strong>९</strong> (बीओपी टिमुरे)। जम्मा <strong>४१</strong> — मृत्यु गणना होइन। (अघिल्लो बागमती डिआईजी १६ र सशस्त्र प्रवक्ता ४ यो संख्याबाट प्रतिस्थापित।)</li>
-      <li>अघिल्लो बागमती डिआईजी दीपक रेग्मी: टिमुरेमा खटिएका १५ प्रहरीमध्ये ८ सम्पर्क (पछि १६/३ युनिट, अहिले प्रवक्ता काफ्लेको <strong>३२</strong> ले प्रतिस्थापित)।</li>
-      <li>सशस्त्र उच्च अधिकृत (रातोपाटी ~१४:१७): रसुवागढी <strong>९</strong> र मैलुङ <strong>४</strong> गरी <strong>१३ जना सम्पर्कविहीन</strong>। अघिल्लो बीओपी टिमुरे ९ / प्रवक्ता ४ यो संख्याबाट अद्यावधिक। मृत्यु होइन।</li>
-      <li>सशस्त्र: बीओपी टिमुरेका <strong>९ जना सम्पर्कविहीन</strong> (अनलाइनखबर, सशस्त्र स्रोत)। अघिल्लो प्रवक्ता कार्कीको ४ यो संख्याबाट प्रतिस्थापित। मृत्यु होइन। पछि १३ ले अद्यावधिक।</li>
-      <li>प्रजिअ: तल्लो तटीय जलविद्युत्मा क्षति; बाढी बस्ती छिरेको; गोसाइँकुण्ड गाउँपालिकाका घर प्रभावित। स्थानीय अजय श्रेष्ठ: चिलिमेसहित जलविद्युत् आयोजनामा क्षति।</li>
-      <li>नुवाकोट प्रजिअ शम्भु प्रसाद रेग्मी: बेत्रावती, त्रिशूली, ढुङ्गे, देवीघाटमा व्यापक भौतिक क्षति। <strong>मानवीय क्षति आधिकारिक पुष्टि छैन।</strong></li>
-      <li>विदुर मेयर राजन श्रेष्ठ (अनलाइनखबर): नुवाकोटमा सबैभन्दा बढी क्षति <strong>बेत्रावती बजार</strong>मा। त्रिशूली बजार क्षति, <strong>सेन्ट्रल जेल डुबानमा</strong>, देवीघाट बजार डुबेको। करिब ९ बजेतिर बाढी नुवाकोटमा आएको थाहा; क्षति स्थान यकिन गर्दै।</li>
-      <li>विदुर उपमेयर प्रभा बोगटी (रातोपाटी): वडा ४ <strong>सिमचौरका दुई पक्की पुल बगे</strong> (१–२ वर्षअघि बनेका)। घर, बैंक क्षति। प्रभावित: सोले बजार, चतेपानी, अकरे, बेत्रावती, त्रिशूली, ढुङ्गे, इनारपाटी, देवीघाट, तिरखानी। मानवीय क्षति आधिकारिक पुष्टि छैन।</li>
-      <li>नेपाल टेलिकम प्रवक्ता कमल लामिछाने: <strong>७ टावर क्षति</strong> (रसुवा २, नुवाकोट ५), गल्छी–रसुवागढी अप्टिकल फाइबर बिग्रिएको। त्रिशूलीसम्म फाइबर, माथि माइक्रोवेभ रेडियो।</li>
-      <li>धादिङ सीडीओ लक्ष्मी पाण्डेय गौतम (११:११): गल्छीमा <strong>झोलुङ्गे पुल बग्यो</strong>। धादिङमा अहिलेसम्म ठूलो मानवीय क्षति नभएको। मलेखु–गल्छीका तटीय बस्ती सारिँदै।</li>
-      <li>अनलाइनखबर तस्बिर (~१३:०६): धादिङ <strong>बैरेनी बजार</strong>मा बाढीले घर, टहरा, झोलुंगे पुल बगाएको। फुर्के खोला पुल पनि बगेको (अघिल्लो रिपोर्टसँग मेल)।</li>
-      <li>पछिल्लो भन्सार अपडेट: रसुवा भन्सारमा <strong>३६ स्थायी दरबन्दी</strong>। प्रमुख राजेन्द्र ढुंगानासहित <strong>२५ जना सम्पर्कमा</strong>। करार/ज्यालादारी ४ मध्ये १ सम्पर्कमा। <strong>११ स्थायी र ३ करार/ज्यालादारी खोजी जारी</strong>। खोज–उद्धार–समन्वय जारी — यो मृत्यु गणना होइन। (अघिल्लो ढुंगाना उद्धरण १५–२०/३०–४० यो संख्याबाट प्रतिस्थापित।)</li>
-      <li>भन्सार विभाग प्रवक्ता किशोर बर्तौला (अघिल्लो): रसुवा भन्सार कार्यालयसँग विभागको सम्पर्क छैन भनिएको। पछि <strong>टिमुरे भन्सार प्रमुख राजेन्द्र ढुंगाना</strong> मिडियामा आए: कार्यालय/बजार तहसनहस।</li>
-      <li>नेपाल विद्युत् प्राधिकरण, अत्यन्त जरुरी सूचना १० भदौ २०८३: <strong>७ आयोजना प्रत्यक्ष प्रभावित</strong> (करिब २७६ मेगावाट) — रसुवागढी १११, चिलिमे २२, लाङटाङ २०, त्रिशूली ३ए ६०, त्रिशूली २४, देवीघाट १४, NEA सोलार २५। त्रिशूली ३बी हब २२० केभी सबस्टेशन र वितरण संरचनामा क्षति, आपूर्ति अवरुद्ध।</li>
-      <li>गोसाइँकुण्ड–२ वडासदस्य पेमा दोर्जे घले: बिहान ८:३० को बाढीले <strong>टिमुरे बजार तहसनहस</strong>, सय घरभन्दा बढी प्रभावित; कति घर/मानिस हराए थाहा छैन।</li>
-      <li>बागमती डिआईजी दीपक रेग्मी: टिमुरे बजारमा <strong>५–७ घरमात्र बाँकी</strong>।</li>
-      <li>टिमुरे भन्सार प्रमुख राजेन्द्र ढुंगाना (अनलाइनखबर): बाढी साढे ८–पौने ९ मा, ज्वालामुखी जस्तो आवाज। कार्यालयमा ३०/४० जना; <strong>१५/२० जना मात्र आपसमा सम्पर्कमा</strong>। केही साथी निस्कन नभ्याएको। बजार तहसनहस, माथिको जंगलमा कर्मचारी र गाउँले करिब ४०/५० जना; उद्धार टोली नदेखिएको। खोलाको पानी घटे पनि तल झर्न सकिने अवस्था छैन। यो आधिकारिक मृत्यु गणना होइन।</li>
-      <li>उत्तरगया–२ वडाध्यक्ष टुकुप्रसाद सुवेदी: क्षतिको लेखाजोखा गर्न नसकिने; जलविद्युत् हब बगेको, उद्धार जान नसकेको, पहिरो पनि; पालिका कार्यालय परिसरमा बाढी पसेर सवारी बगे।</li>
-    </ul>
-    <p class="note" data-i18n="damage_note">डिआईजी रेग्मी: ८ शव (नुवाकोट ४, धादिङ ४)। धादिङ जिल्ला प्रहरीको ६। गत वर्षका आंकडा यो घटनामा नमिसाउनुहोस्।</p>
-  </div>
-</section>
 
-<section id="ems927">
-  <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2 data-i18n="h_ems927">Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard · स्याफ्रुबेसी क्षति · Copernicus EMSR927</h2></div>
-  <div class="card orange">
-    <p data-i18n-html="ems927_lead">Copernicus EMS Rapid Mapping <strong>EMSR927</strong> AOI01 स्याफ्रुबेसी / Syapru Besi ग्रेडिङ। स्थिति २७/०८/२०२६ ०५:०५ UTC। ITHACA उत्पादन, SERTIT जारी २७/०८/२०२६। GLIDE FF-2026-000162-NPL · Charter 1052 · उत्पादन v1। <strong>४३३</strong> = सबै भवनको योग; <strong>३९२</strong> = त्यसभित्रको आवासीय।</p>
-    <div class="ems-kpis8">
-      <div class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 20h20L13.2 7.8l-2.8 3.8-2.5-2.2L2 20zm10.4-12.6L15 3.8 22 20h-3.6L12.4 7.4zM4.8 8.6l1.7-1.3 1.3 1.7-1.7 1.3zm3-3.2 1.4-1.1 1.1 1.4-1.4 1.1z"/></svg></span><span class="kpi-k" data-i18n="ems_k_slide">पहिरो</span><strong class="num">१११.१</strong><span class="cash-unit" data-i18n="ems_k_ha">हे</span><span class="cash-sub" data-i18n="ems_k_slide_sub">पहिरो / बाढी क्षेत्र</span></div>
-      <div class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 11a3.2 3.2 0 1 0-3.2-3.2A3.2 3.2 0 0 0 9 11zm7.2 0a2.7 2.7 0 1 0-2.7-2.7A2.7 2.7 0 0 0 16.2 11zM2.8 19.5v-1.3C2.8 15.4 5.6 14 9 14s6.2 1.4 6.2 4.2v1.3zm11.2 0v-1.3c0-1.2-.4-2.2-1.2-3 2.5.3 5 1.3 5 3.2v1.1z"/></svg></span><span class="kpi-k" data-i18n="ems_k_pop">जनसंख्या</span><strong class="num">~४५०</strong><span class="cash-sub" data-i18n="ems_k_pop_sub">~४५० / ~७५० · ६०%</span></div>
-      <div class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 21V7l6-3 6 3v3h6v11H3zm2-2h4v-4H5zm6 0h4v-4h-4zm6 0h2v-7h-4v7h2zM5 13h4V9H5zm6 0h4V8.2l-2-1-2 1z"/></svg></span><span class="kpi-k" data-i18n="ems_k_built">भवन</span><strong class="num">४३३</strong><span class="cash-sub" data-i18n="ems_k_built_sub">४३३ / ५५९ · ७७.५%</span></div>
-      <div class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 3 11h2.2V21h5.4v-6.2h2.8V21h5.4V11H21z"/></svg></span><span class="kpi-k" data-i18n="ems_k_res">आवासीय</span><strong class="num">३९२</strong><span class="cash-sub" data-i18n="ems_k_res_sub">३९२ / ५१७ · ७६%</span></div>
-      <div class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.6 3h6.8l3.2 18h-4.2l-.7-4.2H10.3L9.6 21H5.4zm3.6 4.2-.5 3.2h.6l-.5 3.2h1.6l-.5-3.2h.6l-.5-3.2z"/></svg></span><span class="kpi-k" data-i18n="ems_k_road">सडक</span><strong class="num">७.६</strong><span class="cash-unit" data-i18n="ems_k_km">किमि</span><span class="cash-sub" data-i18n="ems_k_road_sub">५.४ + १.१ + १.१</span></div>
-      <div class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 16h2v5H2zm18 0h2v5h-2zM3 14h18v2H3zm1-2c0-3.2 2.6-5.8 8-6.3 5.4.5 8 3.1 8 6.3H4zm4.6-1.4A6.2 6.2 0 0 1 12 9.2a6.2 6.2 0 0 1 3.4 1.4z"/></svg></span><span class="kpi-k" data-i18n="ems_k_br">पुल</span><strong class="num">५/५</strong><span class="cash-sub" data-i18n="ems_k_br_sub">१००%</span></div>
-      <div class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 3.8 14.2H11l-1.2 7.8L20.2 9.8H13z"/></svg></span><span class="kpi-k" data-i18n="ems_k_pp">विद्युत्</span><strong class="num">०.८</strong><span class="cash-unit" data-i18n="ems_k_ha">हे</span><span class="cash-sub" data-i18n="ems_k_pp_sub">१००%</span></div>
-      <div class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-3.1 5.2h2.1v3.8h2v-3.8h2.1V16.8H13v-3.8h-2v3.8H8.9z"/></svg></span><span class="kpi-k" data-i18n="ems_k_heli">हेलिप्याड</span><strong class="num">०.०१</strong><span class="cash-unit" data-i18n="ems_k_ha">हे</span><span class="cash-sub" data-i18n="ems_k_heli_sub">१००%</span></div>
-    </div>
-    <div class="ems-panels">
-      <div class="ems-panel">
-        <h3 data-i18n="ems_p_built">भवन</h3>
-        <div class="ems-brow">
-          <span class="sbar" aria-hidden="true"><i class="dest" style="width:57.8%"></i><i class="dam" style="width:5.7%"></i><i class="poss" style="width:14.0%"></i></span>
-          <p class="ems-bmeta" data-i18n="ems_bar_built_cap">ध्वस्त ३२३ · क्षति ३२ · सम्भावित ७८ / ५५९</p>
-        </div>
-        <div class="ems-brow">
-          <div class="ibar-row"><span data-i18n="ems_r_res">आवासीय भवन</span><b class="sbar"><i class="dest" style="width:54.7%"></i><i class="dam" style="width:6.0%"></i><i class="poss" style="width:15.1%"></i></b><em class="num">३९२/५१७</em></div>
-          <p class="ems-bmeta">ध्वस्त २८३ · क्षति ३१ · सम्भावित ७८</p>
-        </div>
-        <div class="ems-brow">
-          <div class="ibar-row"><span data-i18n="ems_r_inst">संस्थागत</span><b class="sbar"><i class="dest" style="width:100%"></i></b><em class="num">१/१</em></div>
-          <p class="ems-bmeta">ध्वस्त १</p>
-        </div>
-        <div class="ems-brow">
-          <div class="ibar-row"><span data-i18n="ems_r_school">विद्यालय/विश्वविद्यालय</span><b class="sbar"><i class="dam" style="width:100%"></i></b><em class="num">१/१</em></div>
-          <p class="ems-bmeta">क्षति १</p>
-        </div>
-        <div class="ems-brow">
-          <div class="ibar-row"><span data-i18n="ems_r_otherb">अन्य गैर-आवासीय</span><b class="sbar"><i class="dest" style="width:97.4%"></i></b><em class="num">३७/३८</em></div>
-          <p class="ems-bmeta">ध्वस्त ३७</p>
-        </div>
-        <div class="ems-brow">
-          <div class="ibar-row"><span data-i18n="ems_r_rel">धार्मिक</span><b class="sbar"><i class="dest" style="width:100%"></i></b><em class="num">२/२</em></div>
-          <p class="ems-bmeta">ध्वस्त २</p>
-        </div>
-        <div class="ems-brow">
-          <div class="ibar-row"><span data-i18n="ems_r_allb">सबै भवन (योग)</span><b class="sbar"><i class="dest" style="width:57.8%"></i><i class="dam" style="width:5.7%"></i><i class="poss" style="width:14.0%"></i></b><em class="num">४३३/५५९</em></div>
-          <p class="ems-bmeta">ध्वस्त ३२३ · क्षति ३२ · सम्भावित ७८ · ७७.५%</p>
-        </div>
-      </div>
-      <div class="ems-panel">
-        <h3 data-i18n="ems_p_trans">यातायात</h3>
-        <div class="ems-brow">
-          <div class="ibar-row"><span data-i18n="ems_r_pri">प्राथमिक सडक</span><b class="sbar"><i class="dest" style="width:87.0%"></i><i class="poss" style="width:13.0%"></i></b><em>५.४/५.४</em></div>
-          <p class="ems-bmeta">ध्वस्त ४.७ · सम्भावित ०.७ किमि · १००%</p>
-        </div>
-        <div class="ems-brow">
-          <div class="ibar-row"><span data-i18n="ems_r_loc">स्थानीय सडक</span><b class="sbar"><i class="dest" style="width:12.1%"></i><i class="poss" style="width:18.2%"></i></b><em>१.१/३.३</em></div>
-          <p class="ems-bmeta">ध्वस्त ०.४ · सम्भावित ०.६ किमि · ३३.३%</p>
-        </div>
-        <div class="ems-brow">
-          <div class="ibar-row"><span data-i18n="ems_r_cart">गाडा बाटो</span><b class="sbar"><i class="dest" style="width:35.7%"></i><i class="poss" style="width:3.6%"></i></b><em>१.१/२.८</em></div>
-          <p class="ems-bmeta">ध्वस्त १.० · सम्भावित ०.१ किमि · ३९.३%</p>
-        </div>
-        <div class="ems-brow">
-          <div class="ibar-row"><span data-i18n="ems_r_br">पुल तथा एलिभेटेड राजमार्ग</span><b class="sbar"><i class="dest" style="width:100%"></i></b><em class="num">५/५</em></div>
-          <p class="ems-bmeta">ध्वस्त ५ · १००%</p>
-        </div>
-        <div class="ems-brow">
-          <div class="ibar-row"><span data-i18n="ems_r_heli">हेलिप्याड</span><b class="sbar"><i class="dest" style="width:100%"></i></b><em>०.०१/०.०१</em></div>
-          <p class="ems-bmeta">ध्वस्त ०.०१ हे · १००%</p>
-        </div>
-      </div>
-      <div class="ems-panel">
-        <h3 data-i18n="ems_p_fac">सुविधा</h3>
-        <div class="ems-brow">
-          <div class="ibar-row"><span data-i18n="ems_r_pp">विद्युत आयोजना संरचना</span><b class="sbar"><i class="dest" style="width:100%"></i></b><em>०.८/०.८</em></div>
-          <p class="ems-bmeta">ध्वस्त ०.८ हे · १००%</p>
-        </div>
-      </div>
-      <div class="ems-panel ems-lc">
-        <h3 data-i18n="ems_p_lc">भू-आवरण</h3>
-        <div class="ibar-row"><span data-i18n="ems_r_wet">आन्तरिक सिमसार</span><b class="ibar"><i style="width:82.9%"></i></b><em>१२.१ / १४.६ · ८२.९%</em></div>
-        <div class="ibar-row"><span data-i18n="ems_r_otherlu">अन्य भू-उपयोग</span><b class="ibar"><i style="width:79.1%"></i></b><em>३.४ / ४.३ · ७९.१%</em></div>
-        <div class="ibar-row"><span data-i18n="ems_r_agri">मिश्रित कृषि</span><b class="ibar"><i style="width:41.2%"></i></b><em>२.१ / ५.१ · ४१.२%</em></div>
-        <div class="ibar-row"><span data-i18n="ems_r_shrub">झाडी</span><b class="ibar"><i style="width:34.2%"></i></b><em>३१.८ / ९३.१ · ३४.२%</em></div>
-        <div class="ibar-row"><span data-i18n="ems_r_forest">वन</span><b class="ibar"><i style="width:26.9%"></i></b><em>६१.६ / २२८.८ · २६.९%</em></div>
-        <div class="ibar-row"><span data-i18n="ems_r_alllc">सबै भू-आवरण (योग)</span><b class="ibar"><i style="width:32.1%"></i></b><em>१११.० / ३४५.९ · ३२.१%</em></div>
-      </div>
-    </div>
-    <div class="treat-wrap">
-    <table class="plants">
-      <thead>
-        <tr>
-          <th data-i18n="ems_th_class">वर्ग</th>
-          <th class="mw" data-i18n="ems_th_dest">ध्वस्त</th>
-          <th class="mw" data-i18n="ems_th_dam">क्षति</th>
-          <th class="mw" data-i18n="ems_th_poss">सम्भावित</th>
-          <th class="mw" data-i18n="ems_th_aff">प्रभावित जम्मा</th>
-          <th class="mw" data-i18n="ems_th_aoi">AOI जम्मा</th>
-          <th class="mw" data-i18n="ems_th_share">हिस्सा</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td data-i18n="ems_r_slide">पहिरो</td><td class="mw"><span class="num">१११.१</span> हे</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">१११.१</span> हे</td><td class="mw">—</td><td class="mw">—</td></tr>
-        <tr><td data-i18n="ems_r_pop">जनसंख्या</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw">~<span class="num">४५०</span></td><td class="mw">~<span class="num">७५०</span></td><td class="mw">६०%</td></tr>
-        <tr class="hit"><td data-i18n="ems_r_res">आवासीय भवन</td><td class="mw"><span class="num">२८३</span></td><td class="mw"><span class="num">३१</span></td><td class="mw"><span class="num">७८</span></td><td class="mw"><span class="num">३९२</span></td><td class="mw"><span class="num">५१७</span></td><td class="mw">७५.८%</td></tr>
-        <tr><td data-i18n="ems_r_inst">संस्थागत</td><td class="mw"><span class="num">१</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">१</span></td><td class="mw"><span class="num">१</span></td><td class="mw">१००%</td></tr>
-        <tr><td data-i18n="ems_r_school">विद्यालय/विश्वविद्यालय</td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">१</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">१</span></td><td class="mw"><span class="num">१</span></td><td class="mw">१००%</td></tr>
-        <tr><td data-i18n="ems_r_otherb">अन्य गैर-आवासीय</td><td class="mw"><span class="num">३७</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">३७</span></td><td class="mw"><span class="num">३८</span></td><td class="mw">९७.४%</td></tr>
-        <tr><td data-i18n="ems_r_rel">धार्मिक</td><td class="mw"><span class="num">२</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">२</span></td><td class="mw"><span class="num">२</span></td><td class="mw">१००%</td></tr>
-        <tr class="hit"><td data-i18n="ems_r_allb">सबै भवन (योग)</td><td class="mw"><span class="num">३२३</span></td><td class="mw"><span class="num">३२</span></td><td class="mw"><span class="num">७८</span></td><td class="mw"><span class="num">४३३</span></td><td class="mw"><span class="num">५५९</span></td><td class="mw">७७.५%</td></tr>
-        <tr class="hit"><td data-i18n="ems_r_pri">प्राथमिक सडक</td><td class="mw"><span class="num">४.७</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">०.७</span></td><td class="mw"><span class="num">५.४</span></td><td class="mw"><span class="num">५.४</span> किमि</td><td class="mw">१००%</td></tr>
-        <tr><td data-i18n="ems_r_loc">स्थानीय सडक</td><td class="mw"><span class="num">०.४</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">०.६</span></td><td class="mw"><span class="num">१.१</span></td><td class="mw"><span class="num">३.३</span> किमि</td><td class="mw">३३.३%</td></tr>
-        <tr><td data-i18n="ems_r_cart">गाडा बाटो</td><td class="mw"><span class="num">१.०</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">०.१</span></td><td class="mw"><span class="num">१.१</span></td><td class="mw"><span class="num">२.८</span> किमि</td><td class="mw">३९.३%</td></tr>
-        <tr class="hit"><td data-i18n="ems_r_br">पुल तथा एलिभेटेड राजमार्ग</td><td class="mw"><span class="num">५</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">५</span></td><td class="mw"><span class="num">५</span></td><td class="mw">१००%</td></tr>
-        <tr><td data-i18n="ems_r_heli">हेलिप्याड</td><td class="mw"><span class="num">०.०१</span> हे</td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">०.०१</span></td><td class="mw"><span class="num">०.०१</span></td><td class="mw">१००%</td></tr>
-        <tr><td data-i18n="ems_r_pp">विद्युत आयोजना संरचना</td><td class="mw"><span class="num">०.८</span> हे</td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">०</span></td><td class="mw"><span class="num">०.८</span></td><td class="mw"><span class="num">०.८</span></td><td class="mw">१००%</td></tr>
-        <tr><td data-i18n="ems_r_forest">वन</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">६१.६</span></td><td class="mw"><span class="num">२२८.८</span></td><td class="mw">२६.९%</td></tr>
-        <tr><td data-i18n="ems_r_shrub">झाडी</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">३१.८</span></td><td class="mw"><span class="num">९३.१</span></td><td class="mw">३४.२%</td></tr>
-        <tr><td data-i18n="ems_r_wet">आन्तरिक सिमसार</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">१२.१</span></td><td class="mw"><span class="num">१४.६</span></td><td class="mw">८२.९%</td></tr>
-        <tr><td data-i18n="ems_r_otherlu">अन्य भू-उपयोग</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">३.४</span></td><td class="mw"><span class="num">४.३</span></td><td class="mw">७९.१%</td></tr>
-        <tr><td data-i18n="ems_r_agri">मिश्रित कृषि</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">२.१</span></td><td class="mw"><span class="num">५.१</span></td><td class="mw">४१.२%</td></tr>
-        <tr class="hit"><td data-i18n="ems_r_alllc">सबै भू-आवरण (योग)</td><td class="mw">—</td><td class="mw">—</td><td class="mw">—</td><td class="mw"><span class="num">१११.०</span></td><td class="mw"><span class="num">३४५.९</span></td><td class="mw">३२.१%</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <p class="note" data-i18n-html="ems927_fn">* सम्भावित क्षति = क्षति प्रॉक्सी / निकटता। ** प्रभावित जम्मा = क्षति वर्गको योग। ४३३ = सबै भवन; ३९२ = त्यसभित्रको आवासीय — जोड्नु होइन।</p>
-
-    <p class="ems-links">
-      <a href="https://mapping.emergency.copernicus.eu/activations/EMSR927" target="_blank" rel="noopener" data-i18n="ems_portal">Copernicus पोर्टल</a>
-    </p>
-    <p class="note" data-i18n-html="ems927_note">उपग्रह दृश्य व्याख्या, प्रहरी/NDRRMA सिट्रेप होइन। शव ७३४ · घाइते २४२ · सम्पर्कविहीन २,४९८ · उद्धार ८१८६ माथि होइन। प्रभावित ~४५० लाई सम्पर्कविहीनमा नजोड्नुहोस्। स्रोत: Copernicus EMS Rapid Mapping · ITHACA / SERTIT।</p>
-  </div>
-</section>
 
 <section id="power">
   <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2 data-i18n="h_power">विद्युत् · NEA जरुरी सूचना</h2></div>
@@ -2528,8 +2355,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-08-30-1351"></script>
-<script src="names-index.js?v=2026-08-30-1351"></script>
+<script src="i18n.js?v=2026-08-30-1404"></script>
+<script src="names-index.js?v=2026-08-30-1404"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -2550,6 +2377,7 @@
     if (file === "donate.html") return CANON + "donate.html" + (location.hash || "");
     if (file === "need.html") return CANON + "need.html" + (location.hash || "");
     if (file === "gov.html") return CANON + "gov.html" + (location.hash || "");
+    if (file === "damage.html") return CANON + "damage.html" + (location.hash || "");
     return CANON + (location.hash || "");
   }
   function toast(msg){
@@ -2593,7 +2421,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-30-1351";</script>
+<script>window.PAGE_VER="2026-08-30-1404";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -2868,7 +2696,6 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   bindPager(document.querySelector('[data-pager="gov"]'), qsa("#gov-list > li"), 6);
   bindPager(document.querySelector('[data-pager="aid"]'), qsa("#aid-list > li"), 6);
   bindPager(document.querySelector('[data-pager="rescue"]'), qsa("#rescue-list > li"), 6);
-  bindPager(document.querySelector('[data-pager="damage"]'), qsa("#damage-list > li"), 6);
   bindPager(document.querySelector('[data-pager="roads"]'), qsa("#roads-list > li"), 6);
   bindPager(document.querySelector('[data-pager="sources"]'), qsa("#source-grid .src-group"), 4);
   bindPager(document.querySelector('[data-pager="hello-sarkar"]'), qsa("#hello-sarkar-body tr"), 50);
@@ -2885,7 +2712,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   bindPager(document.querySelector('.pager[data-pager="foreign-res"]'), qsa("#foreign-res-body tr"), 50);
   bindPager(document.querySelector('.pager[data-pager="india-cross"]'), qsa("#india-cross-body tr"), 50);
 
-  var figs = qsa("#photo-grid figure.photo").concat(qsa("#rahat-photo-grid figure.photo")).concat(qsa("#ems927 figure.photo"));
+  var figs = qsa("#photo-grid figure.photo").concat(qsa("#rahat-photo-grid figure.photo"));
   var lb = document.getElementById("lightbox");
   if (!lb || !figs.length) return;
   var lbImg = document.getElementById("lb-img");
