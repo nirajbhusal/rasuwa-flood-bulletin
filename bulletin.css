@@ -1654,6 +1654,7 @@ a.portal-fab-donate{
 .nig-detail .cash-pane{display:none}
 .nig-detail .cash-pane.on{display:block}
 .nig-card .ibar-row{grid-template-columns:minmax(5.5em,40%) 1fr 3.4em;font-size:12px;margin:3px 0}
+.ibar-row.is-sub{padding-left:12px}
 .nig-rescue .ibar i{background:var(--forest)}
 .nig-inj .ibar i{background:var(--teal)}
 .nig-miss .ibar i{background:var(--crimson)}
