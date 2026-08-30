@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ne" class="need-page">
 <head>
-<script>if(window.matchMedia&&window.matchMedia("(min-width:960px)").matches)document.documentElement.classList.add("desk");document.documentElement.classList.add("need-page","desk-ready");try{if(localStorage.getItem("rasuwa-nav-collapsed")==="1")document.documentElement.classList.add("desk-nav-off");}catch(e){}</script>
+<script>if(window.matchMedia&&window.matchMedia("(min-width:960px)").matches)document.documentElement.classList.add("desk");document.documentElement.classList.add("need-page","desk-ready");</script>
 <script>(function(){var id=(location.hash||"").replace(/^#/,"");if(!id)return;var q=location.search||"";var file="";try{file=(location.pathname||"").split("/").pop()||"";}catch(e){}var dest=null;if(id==="about")dest="about.html"+q;else if(id==="map")dest="map.html"+q;else if(id==="path")dest="map.html"+q+"#path";else if(id==="donate")dest="donate.html"+q;else if(id==="aid")dest="donate.html"+q+"#aid";else if(id==="aid-ig")dest="donate.html"+q+"#aid-ig";else if(id==="cash"||id==="pmdrf"||id==="pmdrf-banks"||id==="pmdrf-pledges"||id==="donate-pledges")dest="donate.html"+q+"#"+id;else if(id==="rahat-need")dest="need.html"+q+"#rahat-need";else if(id==="rahat-collect")dest="need.html"+q+"#rahat-collect";else if(id==="gov")dest="gov.html"+q;else if(id==="rescue")dest="gov.html"+q+"#rescue";else if(id==="rahat")dest="gov.html"+q+"#rahat";else if(id==="event")dest="gov.html"+q+"#event";else if(id==="damage")dest="damage.html"+q;else if(id==="ems927")dest="damage.html"+q+"#ems927";else if(id==="power")dest="damage.html"+q+"#power";else if(id==="notices")dest="notices.html"+q;else if(id==="alert")dest="notices.html"+q+"#alert";else if(id==="history")dest="notices.html"+q+"#history";else if(id==="roads")dest="notices.html"+q+"#roads";else if(id==="helpline")dest="contact.html"+q+"#helpline";else if(id==="contacts")dest="contact.html"+q+"#contacts";else if(id==="photos")dest="photos.html"+q;else if(id==="videos")dest="photos.html"+q+"#videos";else if(id==="sources")dest="about.html"+q+"#sources";else if(id==="feeds")dest="index.html"+q;if(!dest)return;var destFile=dest.split("#")[0].split("?")[0];if(destFile===file)return;location.replace(dest);})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1446">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1447">
 </head>
 <body class="need-page">
 <div class="head-stick">
@@ -50,9 +50,7 @@
     </div>
   </div>
 </header>
-</div>
-<p class="safety-banner" role="alert" data-i18n="safety">जिरोङ ताल फुट्यो — बाढी स्याफ्रुबेँसी पुग्यो, मुग्लिनसम्म सतर्कता। नदी किनार नजानुहोस्। हेर्न वा फोटो खिच्न नजानुहोस्।</p>
-<div class="page-body">
+<p class="safety-banner" role="alert" data-i18n="safety">नदी किनार नजानुहोस्।</p>
 <nav class="chips stick" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
   <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-chips" aria-label="मेनु" data-i18n-aria="nav_menu">
     <svg class="ico-h" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
@@ -76,6 +74,8 @@
     <a class="nav-about" href="about.html" data-i18n="nav_about">बारेमा</a>
   </div>
 </nav>
+</div>
+<div class="page-body">
 
 <div class="page-main">
 <a id="screen-back" class="screen-back is-on" href="index.html#home"><span data-i18n="nav_back_dash">« ड्यासबोर्ड</span></a>
@@ -209,8 +209,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-08-30-1446"></script>
-<script src="names-index.js?v=2026-08-30-1446"></script>
+<script src="i18n.js?v=2026-08-30-1447"></script>
+<script src="names-index.js?v=2026-08-30-1447"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -286,7 +286,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-08-30-1446";
+window.PAGE_VER="2026-08-30-1447";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){
@@ -341,40 +341,6 @@ window.PAGE_VER="2026-08-30-1446";
   window.addEventListener("resize", function(){
     if (window.matchMedia("(min-width:761px)").matches) close();
   });
-})();
-(function(){
-  var KEY = "rasuwa-nav-collapsed";
-  var htmlEl = document.documentElement;
-  var nav = document.querySelector("nav.chips");
-  var btn = document.getElementById("desk-nav-toggle");
-  if (!nav || !btn) return;
-  var collapsed = htmlEl.classList.contains("desk-nav-off");
-  if (!collapsed) {
-    try { collapsed = localStorage.getItem(KEY) === "1"; } catch (e) {}
-  }
-  function labelKey(){ return collapsed ? "nav_show" : "nav_hide"; }
-  function paint(){
-    htmlEl.classList.toggle("desk-nav-off", collapsed);
-    btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
-    var k = labelKey();
-    btn.setAttribute("data-i18n-aria", k);
-    btn.setAttribute("data-i18n-title", k);
-    var lab = (window.t && window.t(k)) || (collapsed ? "नेभ देखाउनुहोस्" : "नेभ लुकाउनुहोस्");
-    btn.setAttribute("aria-label", lab);
-    btn.setAttribute("title", lab);
-  }
-  function persist(){
-    try { localStorage.setItem(KEY, collapsed ? "1" : "0"); } catch (e) {}
-  }
-  paint();
-  btn.addEventListener("click", function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    collapsed = !collapsed;
-    persist();
-    paint();
-  });
-  if (window.__addLangHook) window.__addLangHook(function(){ paint(); });
 })();
 </script>
 </body>

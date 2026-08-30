@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-<script>if(window.matchMedia&&window.matchMedia("(min-width:960px)").matches)document.documentElement.classList.add("desk");try{if(localStorage.getItem("rasuwa-nav-collapsed")==="1")document.documentElement.classList.add("desk-nav-off");}catch(e){}</script>
+<script>if(window.matchMedia&&window.matchMedia("(min-width:960px)").matches)document.documentElement.classList.add("desk");</script>
 <script>
 (function(){
   var H = {"names":1,"family":1,"fam-public":1,"fam-found-h":1,"hello-sarkar":1,"madhesh":1,"dao-res":1,"rasuwa-res":1,"shelter":1,"suryagadhi":1,"army-heli-res":1,"heli-ktm":1,"foreign-res":1,"foreign-today":1,"india-res":1,"trishuli1-res":1,"india-cross":1,"treat":1,"treat-dhunche":1,"lists-dash":1,"fd":1,"names-ig":1,"search":1};
@@ -55,7 +55,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1446">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1447">
 </head>
 <body>
 <div class="head-stick">
@@ -85,9 +85,7 @@
     </div>
   </div>
 </header>
-</div>
-<p class="safety-banner" role="alert" data-i18n="safety">जिरोङ ताल फुट्यो — बाढी स्याफ्रुबेँसी पुग्यो, मुग्लिनसम्म सतर्कता। नदी किनार नजानुहोस्। हेर्न वा फोटो खिच्न नजानुहोस्।</p>
-<div class="page-body">
+<p class="safety-banner" role="alert" data-i18n="safety">नदी किनार नजानुहोस्।</p>
 <nav class="chips stick" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
   <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-chips" aria-label="मेनु" data-i18n-aria="nav_menu">
     <svg class="ico-h" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
@@ -111,6 +109,8 @@
     <a class="nav-about" href="about.html" data-i18n="nav_about">बारेमा</a>
   </div>
 </nav>
+</div>
+<div class="page-body">
 <div class="page-main">
 <a id="screen-back" class="screen-back" href="#home" hidden><span data-i18n="nav_back_dash">« ड्यासबोर्ड</span></a>
 <div class="hero" id="home">
@@ -594,8 +594,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-08-30-1446"></script>
-<script src="names-index.js?v=2026-08-30-1446"></script>
+<script src="i18n.js?v=2026-08-30-1447"></script>
+<script src="names-index.js?v=2026-08-30-1447"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -663,7 +663,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-30-1446";</script>
+<script>window.PAGE_VER="2026-08-30-1447";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -896,19 +896,9 @@
   window.__bindPager = bindPager;
   function setStick() {
     var head = document.querySelector(".head-stick");
-    var nav = document.querySelector(".chips.stick");
     var headH = head ? head.offsetHeight : 0;
     document.documentElement.style.setProperty("--head", headH + "px");
-    var rail = window.matchMedia("(min-width:960px)").matches;
-    var h;
-    if (rail) {
-      h = 16;
-    } else if (window.matchMedia("(max-width:760px)").matches && head) {
-      h = headH + (nav ? nav.offsetHeight : 0) + 8;
-    } else {
-      h = ((nav ? nav.offsetHeight : (document.querySelector(".stick") || {}).offsetHeight || 0) + 8);
-    }
-    document.documentElement.style.setProperty("--stick", h + "px");
+    document.documentElement.style.setProperty("--stick", (headH + 8) + "px");
   }
   setStick();
   window.addEventListener("resize", setStick);
@@ -1215,40 +1205,6 @@
   });
 })();
 
-(function(){
-  var KEY = "rasuwa-nav-collapsed";
-  var htmlEl = document.documentElement;
-  var nav = document.querySelector("nav.chips");
-  var btn = document.getElementById("desk-nav-toggle");
-  if (!nav || !btn) return;
-  var collapsed = htmlEl.classList.contains("desk-nav-off");
-  if (!collapsed) {
-    try { collapsed = localStorage.getItem(KEY) === "1"; } catch (e) {}
-  }
-  function labelKey(){ return collapsed ? "nav_show" : "nav_hide"; }
-  function paint(){
-    htmlEl.classList.toggle("desk-nav-off", collapsed);
-    btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
-    var k = labelKey();
-    btn.setAttribute("data-i18n-aria", k);
-    btn.setAttribute("data-i18n-title", k);
-    var lab = (window.t && window.t(k)) || (collapsed ? "नेभ देखाउनुहोस्" : "नेभ लुकाउनुहोस्");
-    btn.setAttribute("aria-label", lab);
-    btn.setAttribute("title", lab);
-  }
-  function persist(){
-    try { localStorage.setItem(KEY, collapsed ? "1" : "0"); } catch (e) {}
-  }
-  paint();
-  btn.addEventListener("click", function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    collapsed = !collapsed;
-    persist();
-    paint();
-  });
-  if (window.__addLangHook) window.__addLangHook(function(){ paint(); });
-})();
 
 (function(){
   var nav = document.querySelector("nav.chips");
