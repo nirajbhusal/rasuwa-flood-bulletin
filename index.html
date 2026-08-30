@@ -6,7 +6,8 @@
 (function(){
   var H = {"names":1,"family":1,"fam-public":1,"fam-found-h":1,"hello-sarkar":1,"madhesh":1,"dao-res":1,"rasuwa-res":1,"shelter":1,"suryagadhi":1,"army-heli-res":1,"heli-ktm":1,"foreign-res":1,"foreign-today":1,"india-res":1,"trishuli1-res":1,"india-cross":1,"treat":1,"treat-dhunche":1,"lists-dash":1,"fd":1,"names-ig":1,"search":1};
   var id = (location.hash || "").replace(/^#/, "");
-  if (H[id]) location.replace("names.html" + location.hash);
+  if (id === "about") location.replace("about.html" + (location.search || ""));
+  else if (H[id]) location.replace("names.html" + location.hash);
 })();
 </script>
 
@@ -28,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1303">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1314">
 </head>
 <body>
 <div class="head-stick">
@@ -92,7 +93,7 @@
     <a href="#feeds" data-i18n="nav_feeds">लाइभ फिड</a>
     <a href="#videos" data-i18n="nav_videos">भिडियो</a>
     <a href="#sources" data-i18n="nav_sources">स्रोत</a>
-    <a class="nav-about" href="#about" data-i18n="nav_about">बारेमा</a>
+    <a class="nav-about" href="about.html" data-i18n="nav_about">बारेमा</a>
   </div>
 </nav>
 <div class="page-main">
@@ -3091,35 +3092,10 @@
   </div>
 </section>
 
-<section id="about">
-  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="about_h">बारेमा</h2></div>
-  <p class="kicker" data-i18n="about_kicker">स्वतन्त्र नागरिक पाना · सरकारी साइट होइन</p>
-  <div class="about-grid">
-    <div class="card red about-intro">
-      <p data-i18n-html="about_lead">निरज भुसालले २६ अगस्ट २०२६ मा सुरु गरेको स्वतन्त्र नागरिक बुलेटिन। भोटेकोशी बाढी तिब्बतबाट टिमुरे हुँदै करिब बिहान ९:१५ मा नेपाल पसेपछि आधिकारिक मृतक, सम्पर्कविहीन, उद्धार, सडक, राहत र जाँचिएका तस्बिर एक ठाउँमा राख्न खोलियो।</p>
-    </div>
-    <div class="card teal">
-      <h3 data-i18n="about_who_h">यो पाना के हो</h3>
-      <p data-i18n-html="about_who">स्वतन्त्र नागरिक बुलेटिन। लेखक निरज भुसाल। सरकारी साइट, प्रहरी वा NDRRMA को आधिकारिक पोर्टल होइन। आकस्मिक उद्धारका लागि <a href="tel:1234">१२३४</a> मा फोन गर्नुहोस्। सुझाव वा सच्याउन WhatsApp <a href="https://wa.me/9779701010000">+९७७ ९७०१०१००००</a> वा <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a>।</p>
-      <p data-i18n-html="about_how_short">GitHub Pages मा स्थिर HTML। आधिकारिक जम्मा स्रोतअनुसार लेबल सहित राखिन्छ — एउटा नक्कली मिसिएको जम्मा कहिल्यै बनाइँदैन। जाँचिएको family.json मात्र। लाइभ संख्या ड्यासबोर्डमा हेर्नुहोस्।</p>
-    </div>
-    <div class="card green">
-      <h3 data-i18n="nav_contacts">सम्पर्क</h3>
-      <div class="phones">
-        <a href="tel:1234" data-i18n="rescue_1234">उद्धार १२३४</a>
-        <a class="wa" href="https://wa.me/9779701010000?text=%E0%A4%B0%E0%A4%B8%E0%A5%81%E0%A4%B5%E0%A4%BE%20%E0%A4%AC%E0%A4%BE%E0%A4%A2%E0%A5%80%20%E0%A4%AC%E0%A5%81%E0%A4%B2%E0%A5%87%E0%A4%9F%E0%A4%BF%E0%A4%A8" target="_blank" rel="noopener">WhatsApp 9701010000</a>
-        <a class="mail" href="mailto:neerajbhusal@gmail.com?subject=Rasuwa%20flood%20bulletin" data-i18n="portal_mail">इमेल</a>
-        <a class="x" href="https://x.com/nirajbhusal" target="_blank" rel="noopener" data-i18n="about_x">X · @nirajbhusal</a>
-        <a class="in" href="https://www.linkedin.com/in/nirajbhusal/" target="_blank" rel="noopener" data-i18n="about_linkedin">LinkedIn</a>
-      </div>
-      <p class="foot-contact" data-i18n-html="foot_contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
-    </div>
-  </div>
-</section>
 </main>
 <footer>
   <p class="foot-contact" data-i18n-html="foot_contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
-  <p class="foot-about"><a href="#about" data-i18n="nav_about">बारेमा</a></p>
+  <p class="foot-about"><a href="about.html" data-i18n="nav_about">बारेमा</a></p>
   <span data-i18n-html="footer">Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
   यो पृष्ठ आज २६ अगस्ट २०२६ / १० भदौ २०८३ को घटनामा मात्र केन्द्रित छ।</span>
 </footer>
@@ -3190,8 +3166,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-08-30-1303"></script>
-<script src="names-index.js?v=2026-08-30-1303"></script>
+<script src="i18n.js?v=2026-08-30-1314"></script>
+<script src="names-index.js?v=2026-08-30-1314"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -3207,6 +3183,7 @@
   function pageUrl(){
     var file = (location.pathname || "").split("/").pop() || "";
     if (file === "names.html") return CANON + "names.html" + (location.hash || "");
+    if (file === "about.html") return CANON + "about.html" + (location.hash || "");
     return CANON + (location.hash || "");
   }
   function toast(msg){
@@ -3250,7 +3227,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-30-1303";</script>
+<script>window.PAGE_VER="2026-08-30-1314";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }

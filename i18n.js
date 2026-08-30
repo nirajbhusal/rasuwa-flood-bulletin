@@ -976,21 +976,24 @@ window.I18N = {
 "nav_hide": "नेभ लुकाउनुहोस्",
 "nav_show": "नेभ देखाउनुहोस्",
 "about_title": "बारेमा · रसुवा–भोटेकोशी बाढी बुलेटिन",
-"about_meta": "रसुवा बाढी बुलेटिन बारेमा। निरज भुसालको स्वतन्त्र नागरिक पाना। सरकारी साइट होइन। उद्धार १२३४।",
+"about_meta": "रसुवा बाढी बुलेटिन बारेमा। निरज भुसालको स्वतन्त्र नागरिक पाना। सरकारी साइट होइन। ड्यासबोर्ड, नामावली, राहत। उद्धार १२३४।",
 "about_sub": "बारेमा · स्वतन्त्र नागरिक बुलेटिन",
 "about_back": "← बुलेटिन",
 "about_back_foot": "बुलेटिनमा फर्कनुहोस्",
 "about_kicker": "स्वतन्त्र नागरिक पाना · सरकारी साइट होइन",
 "about_h": "बारेमा",
-"about_lead": "निरज भुसालले २६ अगस्ट २०२६ मा सुरु गरेको स्वतन्त्र नागरिक बुलेटिन। भोटेकोशी बाढी तिब्बतबाट टिमुरे हुँदै करिब बिहान ९:१५ मा नेपाल पसेपछि आधिकारिक मृतक, सम्पर्कविहीन, उद्धार, सडक, राहत र जाँचिएका तस्बिर एक ठाउँमा राख्न खोलियो।",
+"about_lead": "निरज भुसालले २६ अगस्ट २०२६ मा सुरु गरेको स्वतन्त्र नागरिक बुलेटिन। भोटेकोशी बाढी तिब्बतबाट टिमुरे हुँदै करिब बिहान ९:१५ मा नेपाल पसेपछि खोलियो। सरकारी / प्रहरी / NDRRMA को आधिकारिक पोर्टल होइन। आकस्मिक उद्धार <a href=\"tel:1234\">१२३४</a>।",
 "about_live_note": "लाइभ संख्या पहिलो पानामा मात्र हेर्नुहोस्। यहाँ दोहोर्याइएको छैन।",
 "about_who_h": "यो पाना के हो",
 "about_who": "स्वतन्त्र नागरिक बुलेटिन। लेखक निरज भुसाल। सरकारी साइट, प्रहरी वा NDRRMA को आधिकारिक पोर्टल होइन। आकस्मिक उद्धारका लागि <a href=\"tel:1234\">१२३४</a> मा फोन गर्नुहोस्। सुझाव वा सच्याउन WhatsApp <a href=\"https://wa.me/9779701010000\">+९७७ ९७०१०१००००</a> वा <a href=\"mailto:neerajbhusal@gmail.com\">neerajbhusal@gmail.com</a>।",
 "about_feat_h": "बुलेटिनमा के छ",
 "about_how_h": "कसरी चल्छ",
-"about_how_short": "GitHub Pages मा स्थिर HTML। आधिकारिक जम्मा स्रोतअनुसार लेबल सहित राखिन्छ — एउटा नक्कली मिसिएको जम्मा कहिल्यै बनाइँदैन। जाँचिएको family.json मात्र। लाइभ संख्या ड्यासबोर्डमा हेर्नुहोस्।",
+"about_how_short": "GitHub Pages मा स्थिर HTML। आधिकारिक जम्मा स्रोतअनुसार लेबल सहित राखिन्छ — एउटा नक्कली मिसिएको जम्मा कहिल्यै बनाइँदैन। नाम NDRRMA सार्वजनिक सूची र म्यानुअल प्रविष्टि; Google Forms इन्जेस्ट रोकिएको। जाँचिएको family.json मात्र। अंग्रेजी र देवनागरी स्वतः मिलाइँदैन।",
 "about_x": "X · @nirajbhusal",
 "about_linkedin": "LinkedIn",
+"about_coffee_p1": "यो बुलेटिन व्यक्तिगत प्रयास हो।",
+"about_coffee_p2": "काम लाग्यो भने, वा पेज चलाउन सहयोग गर्ने हो भने कफी खर्च दिन सक्नुहुन्छ। यो राहत होइन — समय र साइट टिकाउन मात्र। राहत आधिकारिक प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा पठाउनुहोस्, लिंक यही साइटमा छ।",
+"about_coffee_relief": "राहतका लागि आधिकारिक प्रधानमन्त्री दैवी प्रकोप उद्धार कोष खोल्नुहोस्",
 "govfab_rescue": "उद्धार अनुरोध",
 "govfab_donate": "दान"
 
@@ -1963,44 +1966,68 @@ window.I18N = {
 "nav_hide": "Hide menu",
 "nav_show": "Show menu",
 "about_title": "About · Rasuwa–Bhotekoshi flood bulletin",
-"about_meta": "About the Rasuwa flood bulletin. An independent civic page by Niraj Bhusal. Not a government site. Rescue 1234.",
+"about_meta": "About the Rasuwa flood bulletin. An independent civic page by Niraj Bhusal. Not a government site. Dashboard, roster, relief. Rescue 1234.",
 "about_sub": "About · independent civic bulletin",
 "about_back": "← Bulletin",
 "about_back_foot": "Back to the bulletin",
 "about_kicker": "Independent civic page · not a government site",
 "about_h": "About",
-"about_lead": "An independent civic bulletin started by Niraj Bhusal on 26 August 2026, after the Bhotekoshi flood entered Nepal from Tibet via Timure around 9:15 a.m. It compiles official deaths, missing/uncontacted, rescue, roads, relief and fact-checked photos.",
+"about_lead": "Niraj Bhusal started this independent civic bulletin on 26 August 2026, after the Bhotekoshi flood entered Nepal from Tibet via Timure around 9:15 a.m. Not a government, police or NDRRMA site. For emergency rescue call <a href=\"tel:1234\">1234</a>.",
 "about_live_note": "Live figures are only on the main bulletin. They are not repeated here.",
 "about_who_h": "What this page is",
 "about_who": "An independent civic bulletin by Niraj Bhusal. Not a government site, and not an official police or NDRRMA portal. For emergency rescue call <a href=\"tel:1234\">1234</a>. Corrections or suggestions: WhatsApp <a href=\"https://wa.me/9779701010000\">+977 9701010000</a> or <a href=\"mailto:neerajbhusal@gmail.com\">neerajbhusal@gmail.com</a>.",
 "about_feat_h": "What is on the bulletin",
 "about_how_h": "How it works",
-"about_how_short": "Static HTML on GitHub Pages. Official totals stay labeled by source — never one fake merged total. Only curated family.json. Live figures are on the dashboard.",
+"about_how_short": "Static HTML on GitHub Pages. Official totals stay labeled by source — never one fake merged total. Names from NDRRMA public lists and manual entry; Google Forms ingest is paused. Only curated family.json. English and Devanagari are not auto-matched.",
 "about_x": "X · @nirajbhusal",
 "about_linkedin": "LinkedIn",
+"about_coffee_p1": "This bulletin is a personal project.",
+"about_coffee_p2": "If it helped you find someone, or you want it to stay up, you can buy me a coffee. It goes toward time and keeping the page online — not relief. For relief, use the official Prime Minister’s Disaster Relief Fund linked on this site.",
+"about_coffee_relief": "Open the official Prime Minister’s Disaster Relief Fund for relief",
 "govfab_rescue": "Request rescue",
 "govfab_donate": "Donate"
 
 }
 };
 window.I18N_LISTS = {
-"about_feat": [
+"about_feat": {
+"ne": [
+"टाँसिने हेडर: शीर्षक, मिति, लाइभ, हेल्पलाइन। सुरक्षा ब्यानर स्क्रोल हुँदा हट्छ। सम्पर्क, उद्धार अनुरोध र दान FAB।",
+"ने / EN भाषा।",
+"ड्यासबोर्ड: मृतक ७३४, सम्पर्कविहीन २,४९८, घाइते २४२, उद्धार ८१८६, जनशक्ति १९,८९५ — प्रत्येक लेबल सहित, एउटा नक्कली जम्मा होइन। राहत नगद NPR ६.५५ अर्ब र वैदेशिक प्रतिबद्धता छुट्टै।",
+"छुट्टै <a href=\"names.html\">names.html</a> नामावली: उद्धार / भेटिएको र हराएको / सम्पर्कविहीन। घाइते/उपचाररत उद्धार अन्तर्गतको सब-फिल्टर। आधिकारिक सूची अलग लेबल, कहिल्यै जोडिँदैन। जाँचिएको हराएको भित्ता। खोज।",
+"नामावलीभित्र उद्धार सूची: NDRRMA सार्वजनिक सूची (<a href=\"https://ndrrma.gov.np/np/rescue\" target=\"_blank\" rel=\"noopener\">ndrrma.gov.np/np/rescue</a>), टिमुरे, नुवाकोट, सूर्यगढी, सेना/निजी हेलि, काठमाडौं हेलि; विदेशी उपश्रेणी; DEOC काठमाडौं घाइते + धुन्चे।",
+"राहत कोष + PMDRF (नगद NPR ६.५५ अर्ब वैदेशिक प्रतिबद्धतासँग मिसिएको छैन), सडक, तस्बिर, सतर्कता, Copernicus EMSR927 अंक (स्रोत नक्सा छैन), अपडेट, विद्युत्, क्षति, सरकारी पहल, नक्सा, भिडियो, फिड, स्रोत, स्थानीय सम्पर्क।",
+"GitHub Pages मा स्थिर HTML। सूचना घण्टी र माथि जानुहोस् हटाइएको।"
+],
+"en": [
 "Sticky header: title, date, live, helpline. The safety banner scrolls away. Contact, rescue-request and donate FABs.",
 "NE / EN language.",
-"Top dashboard: deaths, injured (NDRRMA), uncontacted, heli rescue (SitRep people vs Army 9:00 labeled separately), deployed personnel with an always-visible split. Aid (relief cash + foreign) sits under that card.",
-"One roster: Rescued / found (NDRRMA first among rescued sources; form-found labeled, not added into 2189) and Missing / uncontacted last. Injured / in-care is a sub-filter under rescued / found, not a fourth column. Foreign nationals are a subcategory. Search sits at the top. Lists are never summed; moderated Google Form wall.",
-"Rescue lists inside Names: NDRRMA (<a href=\"https://ndrrma.gov.np/np/rescue\" target=\"_blank\" rel=\"noopener\">ndrrma.gov.np/np/rescue</a>), Timure, Nuwakot, Suryagadhi, Army/private heli, Kathmandu heli; foreign subcategory; DEOC Kathmandu injured + Dhunche.",
-"Updates, roads, power, damage, government, foreign aid, map, photos, videos, feeds, sources, local contacts, relief fund + PMDRF QR.",
-"1 2 3 pagers. Notify bell and go-to-top removed."
+"Dashboard: deaths 734, uncontacted 2,498, injured 242, rescued 8,186, manpower 19,895 — each labeled, never one fake total. Relief cash NPR 6.55 billion kept apart from foreign pledges.",
+"Separate roster on <a href=\"names.html\">names.html</a>: rescued / found vs missing / uncontacted. Injured / in-care is a sub-filter under rescued / found. Official lists labeled separately, never summed. Moderated missing wall. Search.",
+"Rescue lists on names.html: NDRRMA public list (<a href=\"https://ndrrma.gov.np/np/rescue\" target=\"_blank\" rel=\"noopener\">ndrrma.gov.np/np/rescue</a>), Timure, Nuwakot, Suryagadhi, Army/private heli, Kathmandu heli; foreign subcategory; DEOC Kathmandu injured + Dhunche.",
+"Relief fund + PMDRF (cash NPR 6.55 billion not mixed with foreign pledges), roads, photos, alerts, Copernicus EMSR927 figures (no source maps), updates, power, damage, government action, map, videos, feeds, sources, local contacts.",
+"Static HTML on GitHub Pages. Notify bell and go-to-top removed."
+]
+},
+"about_how": {
+"ne": [
+"GitHub Pages मा स्थिर HTML।",
+"आधिकारिक अंक NDRRMA / गृह / प्रहरीबाट स्रोतअनुसार लेबल सहित राखिन्छ। एउटा नक्कली मिसिएको जम्मा कहिल्यै बनाइँदैन।",
+"नाम NDRRMA सार्वजनिक सूची र निरजको म्यानुअल प्रविष्टिबाट। Google Forms इन्जेस्ट रोकिएको छ। जाँचिएको <code>family.json</code> मात्र (कच्चा डम्प होइन)।",
+"अंग्रेजी र देवनागरी नाम स्वतः मिलाइँदैन।",
+"<code>latest.json</code> संस्करण आईडी; आईडी बदलिएपछि पाना एक पटक रिफ्रेस। HTML/JS/JSON नेटवर्क-फर्स्ट।",
+"एकीकृत नाम खोजले फारम भित्ता र आधिकारिक तालिका फिल्टर गर्छ। आधिकारिक जम्मा जोडिँदैन।"
 ],
-"about_how": [
+"en": [
 "Static HTML on GitHub Pages.",
-"Official totals typed from police / NDRRMA / Army / DEOC / rescue API as labeled lines. Never one fake merged total.",
-"Form → Drive sheet → curated <code>family.json</code> only (no raw dump, no auto-match).",
-"Live watch every 5 minutes: new unique names published. Water-only DHM does not bump <code>latest.json</code>.",
+"Official figures from NDRRMA / MoHA / police typed as labeled lines. Never one fake merged total.",
+"Names from NDRRMA public lists plus Niraj’s manual entry. Google Forms ingest is paused. Curated <code>family.json</code> only (no raw dump).",
+"English and Devanagari names are not auto-matched.",
 "<code>latest.json</code> version id; the page reloads once when the id changes. HTML/JS/JSON are network-first.",
-"Unified name search on Home and the Names section: filters the form wall and the official tables, including injured. Official totals are not added together."
-],
+"Unified name search filters the form wall and the official tables. Official totals are not added together."
+]
+},
 "hero_mini": [
 "Total <strong>669</strong>",
 "Chitwan <strong>248</strong> · Nawalparasi East <strong>158</strong> · Nawalparasi West <strong>75</strong>",
@@ -3089,8 +3116,12 @@ window.I18N_LISTS = {
     document.querySelectorAll("[data-i18n-list]").forEach(function(root){
       var key = root.getAttribute("data-i18n-list");
       var kind = root.getAttribute("data-i18n-kind") || "li";
-      var en = lists[key];
-      if (!en) return;
+      var pack = lists[key];
+      if (!pack) return;
+      var bilingual = pack && typeof pack === "object" && !Array.isArray(pack) && (pack.ne || pack.en);
+      var en = bilingual ? pack.en : pack;
+      var neArr = bilingual ? pack.ne : null;
+      if (!en && !neArr) return;
       if (kind === "hist") {
         root.querySelectorAll("article.log-item").forEach(function(art, i){
           var h = art.querySelector("h3");
@@ -3138,9 +3169,9 @@ window.I18N_LISTS = {
         }
       }
       items.forEach(function(li, i){
-        if (!li.__ne) li.__ne = li.innerHTML;
-        if (lang === "en" && en[i] != null) li.innerHTML = en[i];
-        else li.innerHTML = li.__ne;
+        if (!li.__ne) li.__ne = (neArr && neArr[i] != null) ? neArr[i] : li.innerHTML;
+        if (lang === "en" && en && en[i] != null) li.innerHTML = en[i];
+        else li.innerHTML = (neArr && neArr[i] != null) ? neArr[i] : li.__ne;
       });
     });
   }
@@ -3161,9 +3192,17 @@ window.I18N_LISTS = {
       } catch (e) {}
     }
     var p = (window.I18N && window.I18N[lang]) || {};
-    if (p.title) document.title = p.title;
+    var file = "";
+    try { file = (location.pathname || "").split("/").pop() || ""; } catch (e) {}
+    var aboutPg = file === "about.html" || document.documentElement.classList.contains("about-page");
+    if (aboutPg) {
+      if (p.about_title) document.title = p.about_title;
+    } else if (p.title) document.title = p.title;
     var meta = document.querySelector('meta[name="description"]');
-    if (meta && p.meta) meta.setAttribute("content", p.meta);
+    if (meta) {
+      if (aboutPg && p.about_meta) meta.setAttribute("content", p.about_meta);
+      else if (p.meta) meta.setAttribute("content", p.meta);
+    }
     applyKeyed(lang);
     applyList(lang);
     paintToggle(lang);

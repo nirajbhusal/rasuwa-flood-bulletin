@@ -991,18 +991,59 @@ section{padding:22px 0}
 .phones a.x{background:#111}
 .phones a.in{background:#0a66c2}
 .phones a:hover{text-decoration:none;filter:brightness(1.06)}
-#about .kicker{margin:0 0 12px}
-#about .about-grid{display:grid;grid-template-columns:1fr;gap:14px}
-#about .card h3{margin:0 0 8px;font-size:18px}
-#about .card p{margin:0 0 10px}
-#about .card p:last-child{margin:0}
-#about .phones{margin:0 0 10px}
+#about .kicker, .about-page .kicker{margin:0 0 12px}
+#about .about-grid, .about-page .about-grid{display:grid;grid-template-columns:1fr;gap:14px}
+#about .card h3, .about-page .card h3{margin:0 0 8px;font-size:18px}
+#about .card p, .about-page .card p{margin:0 0 10px}
+#about .card p:last-child, .about-page .card p:last-child{margin:0}
+#about .phones, .about-page .phones{margin:0 0 10px}
 #about .foot-contact{margin:12px 0 0;color:var(--ink);font-size:15px;line-height:1.55}
 #about .foot-contact a{color:var(--crimson);font-weight:800;text-decoration:none}
 #about .foot-contact a:hover{text-decoration:underline}
+.about-page .page-main{overflow:visible}
+.about-page #about{display:block;max-height:none;overflow:visible}
+.about-page #coffee{
+  scroll-margin-top: var(--stick, 80px);
+  margin:48px 0 12px;
+  padding:22px 20px 18px;
+  background:#fffbeb;
+  border:2px solid #f59e0b;
+  border-radius:18px;
+  box-shadow:0 8px 24px rgba(146,64,14,.08);
+}
+.about-page #coffee p{
+  margin:0 0 12px;
+  font-size:17px;
+  line-height:1.65;
+  color:var(--ink);
+  font-weight:600;
+}
+.about-page .bmc-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  margin:4px 0 8px;
+}
+.about-page .bmc-btn img{
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+.about-page .coffee-relief{
+  display:block;
+  margin-top:14px;
+  font-weight:800;
+  font-size:16px;
+  line-height:1.5;
+  color:var(--crimson);
+  text-decoration:none;
+}
+.about-page .coffee-relief:hover{text-decoration:underline}
 @media (min-width:960px){
-  #about .about-grid{grid-template-columns:1fr 1fr;align-items:stretch}
-  #about .about-intro{grid-column:1/-1}
+  #about .about-grid, .about-page .about-grid{grid-template-columns:1fr 1fr;align-items:stretch}
+  #about .about-intro, .about-page .about-intro{grid-column:1/-1}
+  .about-page .about-contact{grid-column:1/-1}
 }
 .path{
   display:flex;flex-direction:column;gap:0;padding:4px 0 2px;
@@ -1936,17 +1977,21 @@ a.home-ig-names:hover{text-decoration:none;border-color:var(--crimson);box-shado
   .home-ig{grid-template-columns:1fr}
 }
 
-/* names.html long-scroll; do not one-screen-off */
-html.names-page.desk, html.names-page.desk body{
+/* names.html / about.html long-scroll; do not one-screen-off */
+html.names-page.desk, html.names-page.desk body,
+html.about-page.desk, html.about-page.desk body{
   height:auto;overflow:visible;
 }
-html.names-page.desk .page-body{
+html.names-page.desk .page-body,
+html.about-page.desk .page-body{
   overflow:visible;height:auto;min-height:0;
 }
-html.names-page.desk .page-main{
+html.names-page.desk .page-main,
+html.about-page.desk .page-main{
   overflow:visible;
 }
-html.names-page.desk:not(.desk-ready) .page-main section{
+html.names-page.desk:not(.desk-ready) .page-main section,
+html.about-page.desk:not(.desk-ready) .page-main section{
   display:block;
 }
 html.names-page.desk #names{
