@@ -57,6 +57,14 @@
   var jsonOk = { ndrrma: false, army: false, foreign: false, cross: false, ftoday: false };
   var overlayOpen = false;
 
+  function isNamesPage() {
+    return document.documentElement.classList.contains("names-page") || /names\.html(?:$|\?)/.test(location.pathname || "");
+  }
+  function afterSearchHash() {
+    return isNamesPage() ? "" : "#home";
+  }
+
+
   function tt(k, fb) {
     if (window.t) {
       var s = window.t(k);
@@ -1020,12 +1028,16 @@
 
   function goJump(hash, name, domId) {
     closeOverlay(true);
+    var target = (hash || "").replace(/^#/, "");
+    if (!isNamesPage()) {
+      location.href = "names.html" + (target ? "#" + target : "");
+      return;
+    }
     var fam = document.getElementById("fam-search");
     if (fam && name) {
       fam.value = name;
       fam.dispatchEvent(new Event("input", { bubbles: true }));
     }
-    var target = (hash || "").replace(/^#/, "");
     var rec = recs.filter(function (r) { return r.domId === domId || r.jump === hash; })[0];
     if (window.__namesSetCat) window.__namesSetCat(catOfRec(rec, hash), { filter: true });
     if (target) {
@@ -1073,7 +1085,7 @@
     document.body.classList.remove("names-ov-lock");
     if (!keepHash && location.hash === "#search") {
       try {
-        history.replaceState(null, "", location.pathname + location.search + "#home");
+        history.replaceState(null, "", location.pathname + location.search + afterSearchHash());
       } catch (e) {}
     }
   }
@@ -1168,12 +1180,12 @@
     }, true);
     if (location.hash === "#search") {
       openOverlay();
-      try { history.replaceState(null, "", location.pathname + location.search + "#home"); } catch (err) {}
+      try { history.replaceState(null, "", location.pathname + location.search + afterSearchHash()); } catch (err) {}
     }
     window.addEventListener("hashchange", function () {
       if (location.hash === "#search") {
         openOverlay();
-        try { history.replaceState(null, "", location.pathname + location.search + "#home"); } catch (err) {}
+        try { history.replaceState(null, "", location.pathname + location.search + afterSearchHash()); } catch (err) {}
       }
     });
     if (window.__addLangHook) {
