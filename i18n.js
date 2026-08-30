@@ -33,6 +33,7 @@ window.I18N = {
 "ndrrma_0900_alt": "NDRRMA स्थिति बोर्ड, १४ भदौ ०९:००",
 "nav_helpline": "हेल्पलाइन",
 "nav_donate": "राहत कोष",
+"nav_need": "राहत सामग्री / गोदाम",
 "nav_aid": "वैदेशिक सहयोग",
 "nav_contacts": "सम्पर्क",
 "nav_gov": "सरकारी पहल",
@@ -250,6 +251,7 @@ window.I18N = {
 "kpi_aria": "मुख्य आंकडा",
 "stats_aria": "प्रारम्भिक तथ्यांक",
 "h_donate": "राहत कोष",
+"h_need": "राहत सामग्री आवश्यक र आपत्कालीन गोदाम",
 "need_h": "राहत सामग्री आवश्यक",
 "need_lead": "NDRRMA स्थिति प्रतिवेदन <strong>#०६</strong> · ११ भदौ राति २२:०० · <strong>माग</strong> सूची। पठाइएको सामग्री होइन। नगद ६ अर्ब ५५ करोडमाथि होइन। यो सूची अद्यावधिक हुँदै जानेछ।",
 "need_shelter": "आश्रय",
@@ -979,6 +981,10 @@ window.I18N = {
 "map_meta": "बाढी मार्ग र घटना समयरेखा। टिमुरेदेखि देवघाट–सुस्ता। DHM नदी सतह। उद्धार १२३४।",
 "about_title": "बारेमा · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "about_meta": "रसुवा बाढी बुलेटिन बारेमा। निरज भुसालको स्वतन्त्र नागरिक पाना। सरकारी साइट होइन। ड्यासबोर्ड, नामावली, राहत। उद्धार १२३४।",
+"donate_title": "राहत कोष · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"donate_meta": "प्रधानमन्त्री दैवी प्रकोप उद्धार कोष खाता, QR, नगद NPR ६.५५ अर्ब, वैदेशिक सहयोग। उद्धार १२३४।",
+"need_title": "राहत सामग्री आवश्यक र आपत्कालीन गोदाम · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"need_meta": "NDRRMA SitRep #०६ माग सूची र आपत्कालीन गोदाम तथा राहत संकलन सम्पर्क। उद्धार १२३४।",
 "about_sub": "बारेमा · स्वतन्त्र नागरिक बुलेटिन",
 "about_back": "← बुलेटिन",
 "about_back_foot": "बुलेटिनमा फर्कनुहोस्",
@@ -1034,6 +1040,7 @@ window.I18N = {
 "ndrrma_0900_alt": "NDRRMA situation board, 14 Bhadra 09:00",
 "nav_helpline": "Helpline",
 "nav_donate": "Relief funds",
+"nav_need": "Relief goods / warehouses",
 "nav_aid": "Foreign aid",
 "nav_contacts": "Contacts",
 "nav_gov": "Government action",
@@ -1245,6 +1252,7 @@ window.I18N = {
 "kpi_aria": "Key figures",
 "stats_aria": "Preliminary figures",
 "h_donate": "Relief funds",
+"h_need": "Relief goods needed and emergency warehouses",
 "need_h": "Relief goods needed",
 "need_lead": "NDRRMA SitRep <strong>#06</strong> · 11 Bhadra 22:00 · <strong>need</strong> list. Not goods already sent. Not added on the NPR 6.55 billion cash pot. This list will keep being updated.",
 "need_shelter": "Shelter",
@@ -1971,6 +1979,10 @@ window.I18N = {
 "map_meta": "Flood path and incident timeline from Timure to Devghat–Susta. DHM river gauges. Rescue 1234.",
 "about_title": "About · Rasuwa–Bhotekoshi flood bulletin",
 "about_meta": "About the Rasuwa flood bulletin. An independent civic page by Niraj Bhusal. Not a government site. Dashboard, roster, relief. Rescue 1234.",
+"donate_title": "Relief funds · Rasuwa–Bhotekoshi flood bulletin",
+"donate_meta": "Prime Minister Disaster Relief Fund accounts, QR, cash NPR 6.55 billion, foreign aid. Rescue 1234.",
+"need_title": "Relief goods needed and emergency warehouses · Rasuwa–Bhotekoshi flood bulletin",
+"need_meta": "NDRRMA SitRep #06 need list and emergency warehouse / collection contacts. Rescue 1234.",
 "about_sub": "About · independent civic bulletin",
 "about_back": "← Bulletin",
 "about_back_foot": "Back to the bulletin",
@@ -2315,15 +2327,15 @@ window.I18N_LISTS = {
 },
 {
 "h": "CAN pledged NPR 3 million",
-"p": "Cricket Association of Nepal (CAN) pledged <strong>NPR 3 million</strong> (30 lakh) to the PM Disaster Relief Fund. Not added on NPR 6.55 billion. <a href=\"#donate\">Relief</a>."
+"p": "Cricket Association of Nepal (CAN) pledged <strong>NPR 3 million</strong> (30 lakh) to the PM Disaster Relief Fund. Not added on NPR 6.55 billion. <a href=\"donate.html\">Relief</a>."
 },
 {
 "h": "PMDRF NPR 6.55 billion",
-"p": "9-bank table 12 Bhadra: total <strong>6,55,33,62,011</strong> = after the disaster <strong>4,38,08,52,252</strong> + prior balance <strong>2,17,25,09,759</strong>. USD 680,618 labeled separately. Previous NPR 4.24 billion is history. Surya 15 / Friday 38.55 are inside this. District cash and foreign pledges not added. <a href=\"#donate\">Relief</a>."
+"p": "9-bank table 12 Bhadra: total <strong>6,55,33,62,011</strong> = after the disaster <strong>4,38,08,52,252</strong> + prior balance <strong>2,17,25,09,759</strong>. USD 680,618 labeled separately. Previous NPR 4.24 billion is history. Surya 15 / Friday 38.55 are inside this. District cash and foreign pledges not added. <a href=\"donate.html\">Relief</a>."
 },
 {
 "h": "Relief need list and warehouse contacts",
-"p": "NDRRMA SitRep #06 (11 Bhadra 22:00) <strong>need</strong> list and 9 collection contacts on <a href=\"#donate\">Relief</a>. No photos. Not added on the NPR 6.55 billion cash pot. District cash NPR 2.50 crore stays the earlier labeled line."
+"p": "NDRRMA SitRep #06 (11 Bhadra 22:00) <strong>need</strong> list and 9 collection contacts on <a href=\"need.html\">Relief</a>. No photos. Not added on the NPR 6.55 billion cash pot. District cash NPR 2.50 crore stays the earlier labeled line."
 },
 {
 "h": "NDRRMA/MoHA 13 Bhadra 10:00 — dead 626",
@@ -2359,7 +2371,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "ADB $5 million emergency grant (APDRF)",
-"p": "ADB $5 million emergency grant (APDRF) · pledge · not arrived in the Prime Minister’s fund. Kanda: when disaster strikes, ADB moves. <a href=\"https://www.adb.org/news/adb-responds-immediately-nepal-floods-5-million-grant\" target=\"_blank\" rel=\"noopener\">ADB</a> · <a href=\"#aid\">Foreign aid</a>."
+"p": "ADB $5 million emergency grant (APDRF) · pledge · not arrived in the Prime Minister’s fund. Kanda: when disaster strikes, ADB moves. <a href=\"https://www.adb.org/news/adb-responds-immediately-nepal-floods-5-million-grant\" target=\"_blank\" rel=\"noopener\">ADB</a> · <a href=\"donate.html#aid\">Foreign aid</a>."
 },
 {
 "h": "Army + private heli rescued name list 654",
@@ -2367,7 +2379,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "Friday via MoF: 27 donors · NPR 38.55 crore",
-"p": "Friday, via the Finance Minister: 27 institutions/individuals, same-day <strong>NPR 38.55 crore</strong> (38,56,64,222) into the same PMDRF pot; includes Surya Nepal 15; Raji Rana 1 crore 9 lakh. Not stacked on NPR 4.24 billion. <a href=\"#donate\">Relief funds</a>."
+"p": "Friday, via the Finance Minister: 27 institutions/individuals, same-day <strong>NPR 38.55 crore</strong> (38,56,64,222) into the same PMDRF pot; includes Surya Nepal 15; Raji Rana 1 crore 9 lakh. Not stacked on NPR 4.24 billion. <a href=\"donate.html\">Relief funds</a>."
 },
 {
 "h": "Police 12 Bhadra 17:00 — dead 553",
@@ -2375,23 +2387,23 @@ window.I18N_LISTS = {
 },
 {
 "h": "Surya Nepal 15 crore; fund total NPR 4.24 billion",
-"p": "Surya Nepal Pvt. Ltd. 15 crore is now in the total. PM fund <strong>NPR 4.09 billion</strong> + Surya Nepal <strong>15 crore</strong> = <strong>NPR 4.24 billion</strong>. The 36-hour NPR 1.91 billion stays inside the 4.09 billion. BYD 7 / Global IME 5 / Pandey 1.01 / 27.33 remain history — not stacked on 4.24. <a href=\"#donate\">Relief funds</a>."
+"p": "Surya Nepal Pvt. Ltd. 15 crore is now in the total. PM fund <strong>NPR 4.09 billion</strong> + Surya Nepal <strong>15 crore</strong> = <strong>NPR 4.24 billion</strong>. The 36-hour NPR 1.91 billion stays inside the 4.09 billion. BYD 7 / Global IME 5 / Pandey 1.01 / 27.33 remain history — not stacked on 4.24. <a href=\"donate.html\">Relief funds</a>."
 },
 {
 "h": "Surya Nepal Pvt. Ltd. 15 crore",
-"p": "Surya Nepal Pvt. Ltd. contributed <strong>15 crore</strong> rupees to the Prime Minister’s Disaster Relief Fund. Named-donor history/detail — not added on top of the NPR 4.09 billion total. <a href=\"#donate\">Relief funds</a>."
+"p": "Surya Nepal Pvt. Ltd. contributed <strong>15 crore</strong> rupees to the Prime Minister’s Disaster Relief Fund. Named-donor history/detail — not added on top of the NPR 4.09 billion total. <a href=\"donate.html\">Relief funds</a>."
 },
 {
 "h": "PMDRF total NPR 4.09 billion",
-"p": "Prime Minister’s Disaster Relief Fund total <strong>NPR 4 arab 9 crore</strong> (4 arab 9 crore 11 lakh 60 thousand). In 36 hours: <strong>NPR 1.91 billion</strong> (1,91,86,50,911). Friendly-nation pledges not included. Named-donor lines are history/detail. <a href=\"#donate\">Relief funds</a>."
+"p": "Prime Minister’s Disaster Relief Fund total <strong>NPR 4 arab 9 crore</strong> (4 arab 9 crore 11 lakh 60 thousand). In 36 hours: <strong>NPR 1.91 billion</strong> (1,91,86,50,911). Friendly-nation pledges not included. Named-donor lines are history/detail. <a href=\"donate.html\">Relief funds</a>."
 },
 {
 "h": "Foreign pledges (UK, US, World Bank, OCHA, Korea, IFRC)",
-"p": "Foreign-aid announcements. <strong>UK</strong> £5 million ($6.79 million) via FCDO · <strong>United States</strong> $500,000 State Department/CRS (emergency shelters, water/hygiene) plus a disaster response adviser · <strong>World Bank</strong> NPR 25 arab ($163.55 million) · <strong>OCHA</strong> $3.2 million from CERF · <strong>South Korea</strong> $1 million through international agencies · <strong>IFRC</strong> CHF 1 million ($1.24 million) released, emergency appeal CHF 25 million. <a href=\"https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods\" target=\"_blank\" rel=\"noopener\">IFRC</a> · <a href=\"#aid\">Foreign aid</a>."
+"p": "Foreign-aid announcements. <strong>UK</strong> £5 million ($6.79 million) via FCDO · <strong>United States</strong> $500,000 State Department/CRS (emergency shelters, water/hygiene) plus a disaster response adviser · <strong>World Bank</strong> NPR 25 arab ($163.55 million) · <strong>OCHA</strong> $3.2 million from CERF · <strong>South Korea</strong> $1 million through international agencies · <strong>IFRC</strong> CHF 1 million ($1.24 million) released, emergency appeal CHF 25 million. <a href=\"https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods\" target=\"_blank\" rel=\"noopener\">IFRC</a> · <a href=\"donate.html#aid\">Foreign aid</a>."
 },
 {
 "h": "PMDRF NPR 1.91 billion / Ministry of Finance",
-"p": "Ministry of Finance: <strong>NPR 1,91,86,50,911</strong> (1 arab 91 crore 86 lakh 50 thousand 911) deposited in the Prime Minister’s Disaster Relief Fund. Private-sector <strong>27.33 crore</strong> is inside this total. Friendly-nation pledges not included. Fund balance NPR 4 arab 9 crore 11 lakh 60 thousand is the whole pot, not the flood-donation total. <a href=\"#donate\">Relief funds</a>."
+"p": "Ministry of Finance: <strong>NPR 1,91,86,50,911</strong> (1 arab 91 crore 86 lakh 50 thousand 911) deposited in the Prime Minister’s Disaster Relief Fund. Private-sector <strong>27.33 crore</strong> is inside this total. Friendly-nation pledges not included. Fund balance NPR 4 arab 9 crore 11 lakh 60 thousand is the whole pot, not the flood-donation total. <a href=\"donate.html\">Relief funds</a>."
 },
 {
 "h": "Police 12 Bhadra 15:00 — dead 547",
@@ -2411,7 +2423,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "Relief cash 40.34 crore",
-"p": "Former Minister Bikram Pandey contributed <strong>1.01 crore</strong> (1 crore 1 lakh) cash to the Prime Minister’s Disaster Relief Fund. Published total <strong>40 crore 34 lakh</strong> — account list 27.33 + BYD · Cimex 7 + Global IME 5 + Bikram Pandey 1.01. <a href=\"#donate\">Relief funds</a>."
+"p": "Former Minister Bikram Pandey contributed <strong>1.01 crore</strong> (1 crore 1 lakh) cash to the Prime Minister’s Disaster Relief Fund. Published total <strong>40 crore 34 lakh</strong> — account list 27.33 + BYD · Cimex 7 + Global IME 5 + Bikram Pandey 1.01. <a href=\"donate.html\">Relief funds</a>."
 },
 {
 "h": "Dead 489 · police 12:00",
@@ -2479,11 +2491,11 @@ window.I18N_LISTS = {
 },
 {
 "h": "Relief cash 39.33 crore",
-"p": "Added BYD · Cimex <strong>7</strong> and Global IME <strong>5</strong> back on the 27.33 account list. Total <strong>39 crore 33 lakh</strong>. <a href=\"#donate\">Relief funds</a>."
+"p": "Added BYD · Cimex <strong>7</strong> and Global IME <strong>5</strong> back on the 27.33 account list. Total <strong>39 crore 33 lakh</strong>. <a href=\"donate.html\">Relief funds</a>."
 },
 {
 "h": "Relief cash 27.33 crore",
-"p": "Published account list of 10 donors: Gorkha 10, Nepal Bank 3.01, Kumari 3, Rastriya Banijya 3, NIFRA 2.50, NIC Asia 2.21, Saras (Red Bull) 2, Ncell 1, Shiv Shakti 51 lakh, Reliance Sugar 10 lakh. Total <strong>27 crore 33 lakh</strong>. BYD/Cimex and Global IME are not on this list. <a href=\"#donate\">Relief funds</a>."
+"p": "Published account list of 10 donors: Gorkha 10, Nepal Bank 3.01, Kumari 3, Rastriya Banijya 3, NIFRA 2.50, NIC Asia 2.21, Saras (Red Bull) 2, Ncell 1, Shiv Shakti 51 lakh, Reliance Sugar 10 lakh. Total <strong>27 crore 33 lakh</strong>. BYD/Cimex and Global IME are not on this list. <a href=\"donate.html\">Relief funds</a>."
 },
 {
 "h": "Dead 359 · police districts",
@@ -2503,7 +2515,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "BYD · Cimex 7 crore",
-"p": "BYD and Cimex Inc contributed <strong>7 crore</strong> cash to the PM Disaster Relief Fund. Published handovers now <strong>20</strong> crore (Gorkha 10 + Cimex 7 + Kumari 3). <a href=\"#donate\">Relief funds</a>."
+"p": "BYD and Cimex Inc contributed <strong>7 crore</strong> cash to the PM Disaster Relief Fund. Published handovers now <strong>20</strong> crore (Gorkha 10 + Cimex 7 + Kumari 3). <a href=\"donate.html\">Relief funds</a>."
 },
 {
 "h": "DAO Rasuwa rescued 145 names",
@@ -2511,7 +2523,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "Gorkha Brewery 10 crore",
-"p": "Gorkha Brewery handed <strong>10 crore</strong> cash to Finance Minister Dr Swarnim Wagle for the PM Disaster Relief Fund. Published handovers now <strong>13</strong> crore (Gorkha 10 + Kumari 3). <a href=\"#donate\">Relief funds</a>."
+"p": "Gorkha Brewery handed <strong>10 crore</strong> cash to Finance Minister Dr Swarnim Wagle for the PM Disaster Relief Fund. Published handovers now <strong>13</strong> crore (Gorkha 10 + Kumari 3). <a href=\"donate.html\">Relief funds</a>."
 },
 {
 "h": "Kathmandu heli rescue 11",
@@ -2519,7 +2531,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "PM relief online portal",
-"p": "Nepalis abroad and donors worldwide can contribute directly to the Prime Minister Disaster Relief Fund. <a href=\"https://pmdrf.nchl.com.np\" target=\"_blank\" rel=\"noopener\">pmdrf.nchl.com.np</a> · <a href=\"#donate\">Relief funds</a>."
+"p": "Nepalis abroad and donors worldwide can contribute directly to the Prime Minister Disaster Relief Fund. <a href=\"https://pmdrf.nchl.com.np\" target=\"_blank\" rel=\"noopener\">pmdrf.nchl.com.np</a> · <a href=\"donate.html\">Relief funds</a>."
 },
 {
 "h": "Indian rescued 21",
@@ -2531,7 +2543,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "India · second flight 37.5 tonnes",
-"p": "Indian External Affairs Minister S. Jaishankar: a second flight has taken off with <strong>37.5 tonnes</strong> of HADR material, medicines and food packets. Continuous contact with Nepal. Handover not confirmed. <a href=\"https://x.com/DrSJaishankar/status/2092849615360114978\" target=\"_blank\" rel=\"noopener\">@DrSJaishankar</a> · <a href=\"#aid\">Foreign aid</a>."
+"p": "Indian External Affairs Minister S. Jaishankar: a second flight has taken off with <strong>37.5 tonnes</strong> of HADR material, medicines and food packets. Continuous contact with Nepal. Handover not confirmed. <a href=\"https://x.com/DrSJaishankar/status/2092849615360114978\" target=\"_blank\" rel=\"noopener\">@DrSJaishankar</a> · <a href=\"donate.html#aid\">Foreign aid</a>."
 },
 {
 "h": "Suresh Simkhada · missing from Timure",
@@ -3200,15 +3212,23 @@ window.I18N_LISTS = {
     try { file = (location.pathname || "").split("/").pop() || ""; } catch (e) {}
     var aboutPg = file === "about.html" || document.documentElement.classList.contains("about-page");
     var mapPg = file === "map.html" || document.documentElement.classList.contains("map-page");
+    var donatePg = file === "donate.html" || document.documentElement.classList.contains("donate-page");
+    var needPg = file === "need.html" || document.documentElement.classList.contains("need-page");
     if (aboutPg) {
       if (p.about_title) document.title = p.about_title;
     } else if (mapPg) {
       if (p.map_title) document.title = p.map_title;
+    } else if (donatePg) {
+      if (p.donate_title) document.title = p.donate_title;
+    } else if (needPg) {
+      if (p.need_title) document.title = p.need_title;
     } else if (p.title) document.title = p.title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) {
       if (aboutPg && p.about_meta) meta.setAttribute("content", p.about_meta);
       else if (mapPg && p.map_meta) meta.setAttribute("content", p.map_meta);
+      else if (donatePg && p.donate_meta) meta.setAttribute("content", p.donate_meta);
+      else if (needPg && p.need_meta) meta.setAttribute("content", p.need_meta);
       else if (p.meta) meta.setAttribute("content", p.meta);
     }
     applyKeyed(lang);

@@ -5,10 +5,18 @@
 <script>
 (function(){
   var H = {"names":1,"family":1,"fam-public":1,"fam-found-h":1,"hello-sarkar":1,"madhesh":1,"dao-res":1,"rasuwa-res":1,"shelter":1,"suryagadhi":1,"army-heli-res":1,"heli-ktm":1,"foreign-res":1,"foreign-today":1,"india-res":1,"trishuli1-res":1,"india-cross":1,"treat":1,"treat-dhunche":1,"lists-dash":1,"fd":1,"names-ig":1,"search":1};
+  var D = {"cash":1,"pmdrf":1,"pmdrf-banks":1,"pmdrf-pledges":1,"donate-pledges":1};
   var id = (location.hash || "").replace(/^#/, "");
-  if (id === "about") location.replace("about.html" + (location.search || ""));
-  else if (id === "map") location.replace("map.html" + (location.search || ""));
-  else if (id === "path") location.replace("map.html" + (location.search || "") + "#path");
+  var q = location.search || "";
+  if (id === "about") location.replace("about.html" + q);
+  else if (id === "map") location.replace("map.html" + q);
+  else if (id === "path") location.replace("map.html" + q + "#path");
+  else if (id === "donate") location.replace("donate.html" + q);
+  else if (id === "aid") location.replace("donate.html" + q + "#aid");
+  else if (id === "aid-ig") location.replace("donate.html" + q + "#aid-ig");
+  else if (id === "rahat-need") location.replace("need.html" + q + "#rahat-need");
+  else if (id === "rahat-collect") location.replace("need.html" + q + "#rahat-collect");
+  else if (D[id]) location.replace("donate.html" + q + "#" + id);
   else if (H[id]) location.replace("names.html" + location.hash);
 })();
 </script>
@@ -30,7 +38,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1330">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1336">
 </head>
 <body>
 <div class="head-stick">
@@ -75,12 +83,12 @@
   <div class="chips-inner" id="nav-chips">
     <a class="home-btn" href="#home" aria-label="ड्यासबोर्ड" title="ड्यासबोर्ड" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">ड्यासबोर्ड</span></a>
     <a href="names.html" class="nav-names" data-i18n="nav_names">उद्धार / बेपत्ता नामावली</a>
-    <a href="#donate" data-i18n="nav_donate">राहत कोष</a>
+    <a href="donate.html" data-i18n="nav_donate">राहत कोष</a>
+    <a href="need.html" data-i18n="nav_need">राहत सामग्री / गोदाम</a>
     <a href="map.html" data-i18n="nav_map">नक्सा / समयरेखा</a>
     <a href="#alert" data-i18n="nav_alert">सतर्कता</a>
     <a href="#rahat" data-i18n="nav_rahat">राहत भिजुअल</a>
     <a href="#helpline" data-i18n="nav_helpline">हेल्पलाइन</a>
-    <a href="#aid" data-i18n="nav_aid">वैदेशिक सहयोग</a>
     <a href="#contacts" data-i18n="nav_contacts">सम्पर्क</a>
     <a href="#gov" data-i18n="nav_gov">सरकारी पहल</a>
     <a href="#photos" data-i18n="nav_photos">तस्बिर</a>
@@ -141,12 +149,12 @@
         </div>
       </div>
       <div class="snap-row">
-        <a class="cash-snap" href="#donate" id="hero-cash">
+        <a class="cash-snap" href="donate.html" id="hero-cash">
           <span class="kpi-k" data-i18n="hero_cash_h">अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोषमा जम्मा राहत रकम</span>
           <strong class="cash-lead" data-i18n="hero_cash_num">रु. ६ अर्ब ५५ करोड</strong>
           <span class="cash-sub cash-usd" data-i18n="hero_cash_usd">≈ USD ४२.९५ मिलियन · NRB खरिद १५२.५७ · २८ अगस्ट</span>
         </a>
-        <a class="cash-snap aid-snap" href="#aid" id="hero-aid">
+        <a class="cash-snap aid-snap" href="donate.html#aid" id="hero-aid">
           <span class="kpi-k" data-i18n="hero_aid_h">वैदेशिक सहयोग</span>
           <span class="aid-split">
             <span class="aid-pair">
@@ -549,268 +557,7 @@
   <p class="hl-foot" data-i18n="hl_foot">आपत्का बेला नआत्तिऔं, सजग र पूर्वतयार रहौं। यो जानकारी सेयर गरी सुरक्षित रहन सहयोग गरौं।</p>
 </aside>
 
-<section id="donate" class="funds">
-      <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_donate">राहत कोष</h2></div>
-      <p class="funds-warn" data-i18n-html="funds_warn"><span class="src">प्राधिकरण</span> बाढीपीडितका नाममा आफूखुसी सहयोग वा व्यक्तिगत QR नसङ्कलन गर्नुहोस्। तल प्रधानमन्त्री कार्यालयका खाता मात्र आधिकारिक। अटेर देखिए <a href="tel:+97714211197">०१-४२१११९७</a> मा जानकारी दिनुहोस्।</p>
-      <p class="funds-lead" data-i18n-html="funds_lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन नयाँ अनलाइन पोर्टल वा SWIFT प्रयोग गर्न सकिन्छ। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
-      <article class="need-box" id="rahat-need">
-        <h3 data-i18n="need_h">राहत सामग्री आवश्यक</h3>
-        <p class="cash-note" data-i18n-html="need_lead">NDRRMA स्थिति प्रतिवेदन <strong>#०६</strong> · ११ भदौ राति २२:०० · <strong>माग</strong> सूची। पठाइएको सामग्री होइन। नगद ६ अर्ब ५५ करोडमाथि होइन। यो सूची अद्यावधिक हुँदै जानेछ।</p>
-        <h4 data-i18n="need_shelter">आश्रय</h4>
-        <ul class="cash-list">
-          <li><span data-i18n="need_tent">टेन्ट</span><strong>८,६९२</strong></li>
-          <li><span data-i18n="need_tarp">टार्पोलिन</span><strong>८,६९२</strong></li>
-          <li><span data-i18n="need_rope">डोरि</span><strong>८,६९२ रोल · जम्मा २६,०७६</strong></li>
-          <li><span data-i18n="need_blanket">कम्बल</span><strong>३९,११४</strong></li>
-          <li><span data-i18n="need_plastic">कालो प्लास्टिक / सिट</span><strong>८,६९२ रोल · जम्मा १७,३८४</strong></li>
-          <li><span data-i18n="need_sbag">स्लिपिङ ब्याग</span><strong>३९,११४</strong></li>
-          <li><span data-i18n="need_smat">स्लिपिङ म्याट / पी-फोम</span><strong>३९,११४</strong></li>
-        </ul>
-        <h4 data-i18n="need_kitchen">भान्सा</h4>
-        <ul class="cash-list">
-          <li><span data-i18n="need_kset">किचन सेट</span><strong>८,६९२ परिवार</strong></li>
-          <li><span data-i18n="need_gas">ग्यास + सिलिन्डर</span><strong>८,६९२</strong></li>
-          <li><span data-i18n="need_bucket">प्लास्टिक बाल्टिन</span><strong>८,६९२ · जम्मा २६,०७६</strong></li>
-          <li><span data-i18n="need_mug">प्लास्टिक मग</span><strong>८,६९२ · जम्मा ४३,४६०</strong></li>
-          <li><span data-i18n="need_wcan">पानी भाँडो</span><strong>८,६९२</strong></li>
-        </ul>
-        <h4 data-i18n="need_hygiene">सरसफाइ</h4>
-        <ul class="cash-list">
-          <li><span data-i18n="need_baby02">बेबी किट ०–२ वर्ष</span><strong>१,९५५</strong></li>
-          <li><span data-i18n="need_baby35">बेबी किट ३–५ वर्ष</span><strong>१,९५५</strong></li>
-          <li><span data-i18n="need_kishori">किशोरी / डिग्निटी किट</span><strong>३,१३०</strong></li>
-          <li><span data-i18n="need_slip">चप्पल</span><strong>३९,११४</strong></li>
-          <li><span data-i18n="need_cloth">आवश्यक लुगा</span><strong>३९,११४</strong></li>
-          <li><span data-i18n="need_hkit">हाइजिन किट</span><strong>३,१३०</strong></li>
-          <li><span data-i18n="need_piyush">पियूष</span><strong>८,६९२ · जम्मा २६,०७६</strong></li>
-          <li><span data-i18n="need_fkit">पारिवारिक हाइजिन किट</span><strong>८,६९२</strong></li>
-          <li><span data-i18n="need_soap">साबुन / लुगा धुने साबुन</span><strong>३९,११४ · जम्मा ७८,२२८</strong></li>
-          <li><span data-i18n="need_pad">स्यानिटरी प्याड</span><strong>३,१३०</strong></li>
-          <li><span data-i18n="need_brush">टूथब्रस / टूथपेस्ट</span><strong>३९,११४ · जम्मा ७८,२२८</strong></li>
-          <li><span data-i18n="need_towel">तौलिया</span><strong>३९,११४</strong></li>
-          <li><span data-i18n="need_med">औषधि</span><strong data-i18n="need_med_q">परिमाण नखुलेको</strong></li>
-        </ul>
-        <h4 data-i18n="need_light">उज्यालो</h4>
-        <ul class="cash-list">
-          <li><span data-i18n="need_spanel">सोलार प्यानल</span><strong>८,६९२</strong></li>
-          <li><span data-i18n="need_slamp">सोलार बत्ती</span><strong>८,६९२</strong></li>
-          <li><span data-i18n="need_batt">ब्याट्री</span><strong>८,६९२</strong></li>
-        </ul>
-        <h4 data-i18n="need_food">खाद्यान्न</h4>
-        <ul class="cash-list">
-          <li><span data-i18n="need_heb">उच्च ऊर्जा बिस्कुट</span><strong>३९,११४ प्याक · जम्मा ७,८२,२८०</strong></li>
-          <li><span data-i18n="need_rte">तयार खाना</span><strong>३९,११४ प्याक · जम्मा ७,८२,२८०</strong></li>
-          <li><span data-i18n="need_rice">चामल</span><strong>८,६९२ × ३० केजी</strong></li>
-          <li><span data-i18n="need_dal">दाल</span><strong>८,६९३ × २० केजी</strong></li>
-          <li><span data-i18n="need_alu">आलु</span><strong>८,६९२ × ६० केजी</strong></li>
-          <li><span data-i18n="need_oil">पकाउने तेल</span><strong>८,६९२ लि · जम्मा २६,०७६</strong></li>
-          <li><span data-i18n="need_salt">नुन</span><strong>८,६९२ प्याक · जम्मा २६,०७६</strong></li>
-          <li><span data-i18n="need_soy">भटमास</span><strong>८,६९२ × ५ केजी</strong></li>
-          <li><span data-i18n="need_chiura">चिउरा</span><strong>८,६९२ × ५ केजी</strong></li>
-          <li><span data-i18n="need_dry">सुकेको फल</span><strong>८,६९२ केजी · जम्मा १७,३८४</strong></li>
-        </ul>
-        <h4 data-i18n="need_trans">आपत्कालीन यातायात</h4>
-        <ul class="cash-list">
-          <li><span data-i18n="need_bailey">बेली पुल ५०–७० मि</span><strong>३०</strong></li>
-        </ul>
-      </article>
-      <article class="need-box" id="rahat-collect">
-        <h3 data-i18n="collect_h">आपत्कालीन गोदाम तथा राहत संकलन</h3>
-        <p class="cash-note" data-i18n="collect_lead">NDRRMA SitRep #०६ · सामग्री यहाँ बुझाउन सकिन्छ।</p>
-        <ul class="need-contacts">
-          <li><b>पुरुषोत्तम भण्डारी</b><a href="tel:+9779851147494">९८५११४७४९४</a><span class="place" data-i18n="collect_tia">त्रिभुवन अन्तर्राष्ट्रिय विमानस्थल, आपत्कालीन गोदामघर</span></li>
-          <li><b>चन्द्र बहादुर थापा</b><a href="tel:+9779851084220">९८५१०८४२२०</a><span class="place" data-i18n="collect_tia">त्रिभुवन अन्तर्राष्ट्रिय विमानस्थल, आपत्कालीन गोदामघर</span></li>
-          <li><b>निरञ्जन निरौला</b><a href="tel:+9779843468991">९८४३४६८९९१</a><span class="place" data-i18n="collect_tia">त्रिभुवन अन्तर्राष्ट्रिय विमानस्थल, आपत्कालीन गोदामघर</span></li>
-          <li><b>दिपेन्द्र पौडेल</b><a href="tel:+9779856067770">९८५६०६७७७०</a><span class="place" data-i18n="collect_battar">मैथली ब्यारेक, बट्टार नुवाकोट (रसुवा र नुवाकोट)</span></li>
-          <li><b>प्रकाश ढुंगाना</b><a href="tel:+9779860659938">९८६०६५९९३८</a><span class="place" data-i18n="collect_battar">मैथली ब्यारेक, बट्टार नुवाकोट (रसुवा र नुवाकोट)</span></li>
-          <li><b>श्याम बाबु कट्टेल</b><a href="tel:+9779846046000">९८४६०४६०००</a><span class="place" data-i18n="collect_battar">मैथली ब्यारेक, बट्टार नुवाकोट (रसुवा र नुवाकोट)</span></li>
-          <li><b>युवराज भण्डारी</b><a href="tel:+9779846106929">९८४६१०६९२९</a><span class="place" data-i18n="collect_battar">मैथली ब्यारेक, बट्टार नुवाकोट (रसुवा र नुवाकोट)</span></li>
-          <li><b>शेखर बाबु ठोकर</b><a href="tel:+9779854045497">९८५४०४५४९७</a><span class="place" data-i18n="collect_battar">मैथली ब्यारेक, बट्टार नुवाकोट (रसुवा र नुवाकोट)</span></li>
-          <li><b data-i18n="collect_insp">प्रहरी निरीक्षक</b><a href="tel:+9779851283611">९८५१२८३६११</a><span class="place" data-i18n="collect_sama">नेपाल प्रहरी विपद् प्रतिकार्य तथा तालिम केन्द्र, सामाखुसी</span></li>
-        </ul>
-        <p class="cash-note" data-i18n="collect_note">सम्बन्धित जिल्ला प्रशासन कार्यालय र स्थानीय तहसँग पनि समन्वय गरी सामग्री उपलब्ध गराउन सकिन्छ।</p>
-      </article>
-      <a class="pmdrf-card" href="https://pmdrf.nchl.com.np" target="_blank" rel="noopener" id="pmdrf">
-        <span class="kpi-k" data-i18n="pmdrf_k">प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</span>
-        <strong data-i18n="pmdrf_h">अनलाइन पोर्टल</strong>
-        <span class="cash-sub" data-i18n="pmdrf_sub">विदेशमा रहेका नेपाली र विश्वभरका दाता सीधै योगदान गर्न सक्छन्।</span>
-        <span class="pmdrf-url">pmdrf.nchl.com.np</span>
-        <img class="pmdrf-shot" src="img/pmdrf-portal.png" width="640" height="720" alt="प्रधानमन्त्री दैवी प्रकोप उद्धार कोष अनलाइन पोर्टल" data-i18n-alt="pmdrf_alt">
-      </a>
-      <article class="cash-ig" id="cash">
-        <h3 data-i18n="cash_h">नगद राहत रकम अपडेट</h3>
-        <p class="cash-lead" data-i18n-html="cash_sheet_lead">अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष · १२ भदौ — जम्मा <strong>रु. ६ अर्ब ५५ करोड</strong> (६,५५,३३,६२,०११)। विपद्पछि संकलित <strong>४ अर्ब ३८ करोड</strong> (४,३८,०८,५२,२५२)। विपद्अघि मौज्दात <strong>२ अर्ब १७ करोड</strong> (२,१७,२५,०९,७५९) — जम्माभित्र, फेरि नजोड्नुहोस्। अघिल्लो ११ भदौ जम्मा ४ अर्ब ९ करोड (४,०९,११,६०,६७०) / विपद्पछि १ अर्ब ९१ करोड इतिहास। सूर्य नेपाल १५ / शुक्रबार ३८.५५ यसै ६ अर्ब ५५ करोडभित्र। डलर <strong>६,८०,६१८</strong> अलग लेबल — नेपाली जम्मामा होइन। मित्र राष्ट्र घोषणा समावेश छैन। स्रोत: ९ बैंक तालिका।</p>
 
-        <p class="cash-lead" data-i18n-html="cash_lead">राहत, उद्धार, खोज तथा पुनर्स्थापनाको सहयोग एकद्वार प्रणालीमार्फत प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा। अर्थ मन्त्रालय केन्द्र मन्त्रालय हो। अर्थमन्त्री डा. स्वर्णिम वाग्लेले संस्थागत सहयोग एक करोड वा सोभन्दा बढी बुझ्नुहुन्छ; व्यक्तिले मन्त्रालयमा नगद दिन सकिन्छ।</p>
-        <p class="cash-note" data-i18n-html="cash_named_lead">शुक्रबार अर्थमन्त्री डा. स्वर्णिम वाग्लेमार्फत २७ संस्था/व्यक्ति — एकै दिन <strong>३८ करोड ५५ लाख</strong> (३८,५६,६४,२२२)। सूर्य नेपाल १५ यसै सूचीमा। अब ६ अर्ब ५५ करोडभित्र — फेरि नजोड्नुहोस्। अर्थमार्फत निजी क्षेत्र २७.३३ करोड अघिल्लो इतिहास मात्र।</p>
-        <p class="cash-note" data-i18n-html="cash_balance_note">विपद्अघि मौज्दात <strong>२,१७,२५,०९,७५९</strong> ६ अर्ब ५५ करोडभित्र — अलग कोष होइन। डलर ६,८०,६१८ (हिमालयन ५,९१,४५१ + लक्ष्मी सनराइज ८९,१६७) नेपाली जम्मामा होइन। मित्र राष्ट्र घोषणा समावेश छैन।</p>
-        <p class="cash-note" data-i18n-html="ndrrma_rahat_1500">NDRRMA / गृह १२ भदौ १९:०० — सरकारबाट जिल्लालाई नगद: रसुवा <strong>१ करोड</strong> · नुवाकोट <strong>१ करोड</strong> · धादिङ <strong>५० लाख</strong> · <strong>१५ पालिका ६ करोड ७५ लाख</strong> (प्रधानमन्त्री कोष होइन · जिल्ला/पालिका नगद · ६ अर्ब ५५ करोडमाथि नजोड्नुहोस्)। सामग्री: ३२ ट्रक; हेलि राहत ६ उडान; सञ्चार सेट। नुवाकोट: डिजेल ४१,००० · पेट्रोल २४,००० मौज्दात; हवाई इन्धन <strong>१७,०००</strong> लि पठाइएको।</p>
-        <div class="cash-kpis" role="tablist" aria-label="नगद राहत">
-          <button type="button" class="cash-kpi on" data-cash="all" aria-selected="true">
-            <span class="kpi-k" data-i18n="hero_cash_h">अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोषमा जम्मा राहत रकम</span>
-            <strong data-i18n="hero_cash_num">रु. ६ अर्ब ५५ करोड</strong>
-            <span class="cash-unit" data-i18n="hero_cash_usd">≈ USD ४२.९५ मिलियन · NRB खरिद १५२.५७ · २८ अगस्ट</span>
-          </button>
-          <button type="button" class="cash-kpi" data-cash="door" aria-selected="false">
-            <span class="kpi-k" data-i18n="cash_door_k">प्रणाली</span>
-            <strong data-i18n="cash_door">एकद्वार</strong>
-          </button>
-        </div>
-        <div class="cash-panes">
-          <div class="cash-pane on" data-cash="all">
-            <p class="ov-cap" data-i18n="cash_all_cap">९ बैंक · १२ भदौ · जम्मा ६,५५,३३,६२,०११</p>
-            <ul class="cash-list" id="pmdrf-banks">
-              <li><span data-i18n="bank_rbb">राष्ट्रिय वाणिज्य बैंक</span><strong>३,२७,९९,०२,३३५</strong></li>
-              <li><span data-i18n="bank_ebl">एभरेस्ट बैंक</span><strong>१,९५,२७,१८,१८५</strong></li>
-              <li><span data-i18n="bank_scb">स्ट्यान्डर्ड चार्टर्ड</span><strong>३०,६२,८८,७५०</strong></li>
-              <li><span data-i18n="bank_lsbl">लक्ष्मी सनराइज</span><strong>३०,०८,५८,७५१</strong></li>
-              <li><span data-i18n="bank_hbl">हिमालयन बैंक</span><strong>२३,१७,१४,९५३</strong></li>
-              <li><span data-i18n="bank_nabil">नबिल बैंक</span><strong>१६,४०,४७,७०८</strong></li>
-              <li><span data-i18n="bank_global">ग्लोबल आइएमई</span><strong>१३,०१,८०,०००</strong></li>
-              <li><span data-i18n="bank_adbl">कृषि विकास बैंक</span><strong>९,५२,६२,७१५</strong></li>
-              <li><span data-i18n="bank_nbl">नेपाल बैंक</span><strong>९,२३,८८,६१४</strong></li>
-              <li><span data-i18n="bank_total">जम्मा (रु.)</span><strong>६,५५,३३,६२,०११</strong></li>
-              <li><span data-i18n="bank_after">विपद्पछि संकलित</span><strong>४,३८,०८,५२,२५२</strong></li>
-              <li><span data-i18n="bank_before">विपद्अघि मौज्दात</span><strong>२,१७,२५,०९,७५९</strong></li>
-              <li><span data-i18n="bank_usd">डलर (हिमालयन + लक्ष्मी)</span><strong>६,८०,६१८</strong></li>
-            </ul>
-            <p class="ov-cap" data-i18n="cash_can_cap">घोषणा · प्रधानमन्त्री कोष · ६ अर्ब ५५ करोडमाथि होइन</p>
-            <ul class="cash-list" id="pmdrf-pledges">
-              <li><span data-i18n="cash_can">क्रिकेट संघ नेपाल (CAN)</span><strong>३० लाख</strong></li>
-            </ul>
-            <p class="cash-note" data-i18n-html="cash_can_note">CAN ले प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>३० लाख</strong> (NPR ३ मिलियन) घोषणा। ९ बैंक जम्मा ६,५५,३३,६२,०११ माथि होइन। कोषमा आएको बैंक तालिकामा देखिएको छैन।</p>
-            <p class="ov-cap" data-i18n="cash_friday_cap">शुक्रबार एकै दिन · अर्थमन्त्रीमार्फत २७ · ६ अर्ब ५५ करोडभित्र</p>
-            <p class="cash-lead" data-i18n-html="cash_friday_lead">शुक्रबार अर्थमन्त्री डा. स्वर्णिम वाग्लेमार्फत २७ संस्था/व्यक्ति — एकै दिन <strong>३८ करोड ५५ लाख</strong> (३८,५६,६४,२२२)। सूर्य नेपाल १५ यसै सूचीमा — ६ अर्ब ५५ करोडमाथि नजोड्नुहोस्।</p>
-            <ul class="cash-list">
-              <li><span data-i18n="cash_suryanepal">सूर्य नेपाल प्रालि</span><strong>१५ करोड</strong></li>
-              <li><span data-i18n="cash_prime">प्राइम बैंक</span><strong>३ करोड १० लाख</strong></li>
-              <li><span data-i18n="cash_krishi">कृषि विकास बैंक</span><strong>३ करोड</strong></li>
-              <li><span data-i18n="cash_nlic">नेपाल लाइफ इन्स्योरेन्स</span><strong>२ करोड ५१ लाख</strong></li>
-              <li><span data-i18n="cash_hbullion">हिमालयन बुलियन कम्पनी</span><strong>१ करोड १ लाख</strong></li>
-              <li><span data-i18n="cash_agrothai">एग्रो थाईफुड्स प्राइभेट लिमिटेड</span><strong>१ करोड</strong></li>
-              <li><span data-i18n="cash_asianlife">एसियन लाइफ इन्स्योरेन्स</span><strong>१ करोड १ लाख</strong></li>
-              <li><span data-i18n="cash_suryajyoti">सूर्यज्योति लाइफ इन्स्योरेन्स</span><strong>१ करोड</strong></li>
-              <li><span data-i18n="cash_vijayshah">विजयकुमार शाह</span><strong>१ करोड</strong></li>
-              <li><span data-i18n="cash_syakar">स्याकार ट्रेडिङ (पद्मज्योति समूह)</span><strong>१ करोड</strong></li>
-              <li><span data-i18n="cash_rajirana">राजी राणा</span><strong>१ करोड ९ लाख</strong></li>
-              <li><span data-i18n="cash_wwf">WWF नेपाल</span><strong>१ करोड</strong></li>
-              <li><span data-i18n="cash_maw">मोरङ अटो वर्क्स</span><strong>१ करोड ११ लाख</strong></li>
-              <li><span data-i18n="cash_jawlakhel">जावलाखेल डिस्टिलरी</span><strong>१ करोड</strong></li>
-              <li><span data-i18n="cash_hdist">हिमालयन डिस्टिलरी</span><strong>१ करोड</strong></li>
-              <li><span data-i18n="cash_alpha">अल्फा अटोमोटिभ प्रालि</span><strong>१ करोड</strong></li>
-              <li><span data-i18n="cash_solu">सोलु हाइड्रोपावर</span><strong>१ करोड</strong></li>
-              <li><span data-i18n="cash_cement">नेपाल सिमेन्ट उत्पादक संघ</span><strong>५१ लाख</strong></li>
-              <li><span data-i18n="cash_muktinath">मुक्तिनाथ विकास बैंक</span><strong>५० लाख</strong></li>
-              <li><span data-i18n="cash_lumbini">लुम्बिनी विकास बैंक</span><strong>२५ लाख</strong></li>
-              <li><span data-i18n="cash_ntea">नेपाल चिया विकास कर्पोरेसन</span><strong>११ लाख</strong></li>
-              <li><span data-i18n="cash_abacus">एबाकस इन्साइट्स प्रालि</span><strong>१५ लाख</strong></li>
-              <li><span data-i18n="cash_cas">सीएएस ट्रेडिङ हाउस</span><strong>१ लाख ११ हजार</strong></li>
-              <li><span data-i18n="cash_silver">सिल्भर लाइनिङ प्रालि</span><strong>१ लाख ११ हजार</strong></li>
-              <li><span data-i18n="cash_friday_other">अन्य तिन संस्था</span><strong>२६ लाख ६२ हजार</strong></li>
-            </ul>
-            <p class="ov-cap" data-i18n="cash_hist_cap">अघिल्लो नाम-सूची · ६ अर्ब ५५ करोडभित्र</p>
-            <ul class="cash-list">
-              <li><span data-i18n="cash_gorkha">गोर्खा ब्रुअरी</span><strong>१० करोड</strong></li>
-              <li><span data-i18n="cash_byd">BYD · साइमेक्स</span><strong>७ करोड</strong></li>
-              <li><span data-i18n="cash_gibl">ग्लोबल आइएमई</span><strong>५ करोड</strong></li>
-              <li><span data-i18n="cash_nbl">नेपाल बैंक</span><strong>३.०१ करोड</strong></li>
-              <li><span data-i18n="cash_kumari">कुमारी बैंक</span><strong>३ करोड</strong></li>
-              <li><span data-i18n="cash_rbb">राष्ट्रिय वाणिज्य बैंक</span><strong>३ करोड</strong></li>
-              <li><span data-i18n="cash_nifra">निफ्रा</span><strong>२.५० करोड</strong></li>
-              <li><span data-i18n="cash_nica">एनआईसी एशिया</span><strong>२.२१ करोड</strong></li>
-              <li><span data-i18n="cash_saras">सारस बेभरेज (रेडबुल)</span><strong>२ करोड</strong></li>
-              <li><span data-i18n="cash_pandey">विक्रम पाण्डे</span><strong>१.०१ करोड</strong></li>
-              <li><span data-i18n="cash_ncell">एनसेल अक्सियाटा</span><strong>१ करोड</strong></li>
-              <li><span data-i18n="cash_shiv">शिव शक्ति ग्रुप</span><strong>५१ लाख</strong></li>
-              <li><span data-i18n="cash_reliance">रिलायन्स सुगर</span><strong>१० लाख</strong></li>
-            </ul>
-            <p class="cash-note" data-i18n="cash_all_note">९ बैंकको योग ६,५५,३३,६२,०११ = विपद्पछि ४,३८,०८,५२,२५२ + मौज्दात २,१७,२५,०९,७५९। शुक्रबार ३८.५५ र सूर्य १५ यसैभित्र — फेरि नजोड्नुहोस्। डलर ६,८०,६१८ नेपाली जम्मामा होइन।</p>
-          </div>
-          <div class="cash-pane" data-cash="door">
-            <p class="ov-cap" data-i18n="cash_door_cap">एकद्वार प्रणाली</p>
-            <p class="cash-note" data-i18n-html="cash_door_note">राहत, उद्धार, खोज तथा पुनर्स्थापनाको सहयोग प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमार्फत। अर्थमन्त्रीले बुझ्दै हुनुहुन्छ। तलका सरकारी खाता मात्र आधिकारिक।</p>
-          </div>
-        </div>
-      </article>
-      <article class="pledge-box" id="donate-pledges">
-        <h3 data-i18n="aid_pledge_h">वैदेशिक घोषणा</h3>
-        <p class="cash-note" data-i18n="aid_pledge_lead">देश/निकाय, रकम, माध्यम।</p>
-        <div class="pledge-tot">
-          <h3 data-i18n="aid_tot_h">घोषणा जम्मा</h3>
-        <div class="aid-grand">
-          <span class="kpi-k" data-i18n="aid_tot_h">घोषणा जम्मा</span>
-          <strong data-i18n="aid_grand">≈ रु. ३२ अर्ब ७२ करोड</strong>
-          <span class="cash-sub" data-i18n="aid_grand_sub">समानान्तर · विश्व बैंक २५ अर्ब + $१९.५९ मि. + CHF २५ मि. · NRB २८ अगस्ट · कोष ६५५ माथि होइन</span>
-        </div>
-          <div class="pledge-tot-kpis">
-            <div class="pledge-tot-card">
-              <span class="kpi-k" data-i18n="aid_tot_npr_l">विश्व ब्यांक</span>
-              <strong data-i18n="aid_tot_npr">रु. २५ अर्ब</strong>
-            </div>
-            <div class="pledge-tot-card">
-              <span class="kpi-k" data-i18n="aid_tot_usd_l">जम्मा</span>
-              <strong data-i18n="aid_tot_usd">$१९.५९ मि. जम्मा</strong>
-              <span class="cash-unit" data-i18n="aid_tot_usd_sub">UK $6.79m + US $3.6m + OCHA $3.2m + ROK $1m + ADB $5m</span>
-            </div>
-            <div class="pledge-tot-card">
-              <span class="kpi-k" data-i18n="aid_tot_chf_l">IFRC अपिल</span>
-              <strong data-i18n="aid_tot_chf">CHF २५ मि.</strong>
-            </div>
-          </div>
-          <p class="cash-note" data-i18n="aid_tot_note">मुद्रा मिसाएर एक नेपाली जम्मा बनाइएको छैन। विश्व बैंक $१६३.५५ मि. यो $१९.५९ मा छैन। अमेरिका $३.६ मि. — अघिल्लो $०.५ मि. यसैभित्र। राहत रु. ६ अर्ब ५५ करोडमा जोडिएको होइन। ADB $५ मि. घोषणा हो, नगद होइन।</p>
-        </div>
-        <ul class="pledge-list" data-i18n-list="aid_pledge">
-      <li><span class="aid-tag pledge">घोषणा</span> <b>युनाइटेड किंगडम</b> · £५ मिलियन ($६.७९ मिलियन) · FCDO · तत्काल मानवीय सहयोग</li>
-      <li><span class="aid-tag pledge">घोषणा</span> <b>संयुक्त राज्य अमेरिका</b> · $३.६ मिलियन · US Department of State · जीवनरक्षा मानवीय सहयोग (१०,००० घरधुरीलाई ३ महिनासम्म खाद्यान्न सहित)। दूतावास नेपाल/चीन। अघिल्लो $५००,००० यसैभित्र — फेरि नजोड्नुहोस्। कोष ६५५ माथि होइन। स्रोत: <a href="img/today-2026-08-30-us-state-36m.jpg" target="_blank" rel="noopener">State graphic</a>।</li>
-      <li><span class="aid-tag pledge">घोषणा</span> <b>विश्व बैंक</b> · आपत्कालीन प्याकेज २५ अर्ब रुपैयाँ ($१६३.५५ मिलियन)</li>
-      <li><span class="aid-tag pledge">घोषणा</span> <b>संयुक्त राष्ट्र OCHA</b> · $३.२ मिलियन · CERF · अग्रिम र जारी सामुदायिक काम</li>
-      <li><span class="aid-tag pledge">घोषणा</span> <b>दक्षिण कोरिया</b> · $१ मिलियन मानवीय सहयोग · अन्तर्राष्ट्रिय निकायमार्फत</li>
-      <li><span class="aid-tag pledge">घोषणा</span> <b>IFRC</b> · प्रारम्भिक CHF १ मिलियन ($१.२४ मिलियन) जारी; आपत्कालीन अपील CHF २५ मिलियन। <a href="https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods" target="_blank" rel="noopener">IFRC</a></li>
-      <li><span class="aid-tag pledge">घोषणा</span> <b>एसियाली विकास बैंक (ADB)</b> · $५ मिलियन · Asia Pacific Disaster Response Fund · उद्धार/राहत (खोज उपकरण, औषधि, खाद्यान्न, पानी, आश्रय, सरसफाइ)। <a href="https://www.adb.org/news/adb-responds-immediately-nepal-floods-5-million-grant" target="_blank" rel="noopener">ADB</a></li>
-      <li><span class="aid-tag offer">प्रक्रियामा</span> <b>एसियाली विकास बैंक (ADB)</b> · $१५०,००० · विपद्पछिको आवश्यकता मूल्याङ्कन / पुनर्लाभ योजना · स्वीकृत नगद होइन।</li>
-        </ul>
-      </article>
-      <article class="fund">
-        <h3 data-i18n="fund_disaster">प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</h3>
-    <table>
-      <thead><tr><th data-i18n="sn">सि.नं.</th><th data-i18n="bank">बैंक</th><th data-i18n="acct_no">खाता नम्बर</th><th>SWIFT</th><th class="qr">QR</th></tr></thead>
-      <tbody>
-        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1130100003762001" title="कपी गर्नुहोस्" data-i18n-title="copy">1130100003762001</button><button type="button" class="acct" data-acct="1130100000006006" title="कपी गर्नुहोस्" data-i18n-title="copy">1130100000006006</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">RBBANPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-rbb-disaster.png" target="_blank" rel="noopener"><img src="img/qr-rbb-disaster.png" width="170" height="170" alt="राष्ट्रिय वाणिज्य बैंक QR"></a></td></tr>
-        <tr><td>२</td><td>नेपाल बैंक<small class="bank-en">Nepal Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00211600510039000003" title="कपी गर्नुहोस्" data-i18n-title="copy">00211600510039000003</button><button type="button" class="acct" data-acct="00200100510039000001" title="कपी गर्नुहोस्" data-i18n-title="copy">00200100510039000001</button></td><td class="swift"><button type="button" class="acct" data-acct="NEBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NEBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-nbl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-nbl-disaster.png" width="173" height="173" alt="नेपाल बैंक QR"></a></td></tr>
-        <tr><td>३</td><td>कृषि विकास बैंक<small class="bank-en">Agricultural Development Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="0100201002907014" title="कपी गर्नुहोस्" data-i18n-title="copy">0100201002907014</button></td><td class="swift"><button type="button" class="acct" data-acct="ADBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">ADBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-adbl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-adbl-disaster.png" width="170" height="170" alt="कृषि विकास बैंक QR"></a></td></tr>
-        <tr><td>४</td><td>एभरेष्ट बैंक<small class="bank-en">Everest Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="00100105200270" title="कपी गर्नुहोस्" data-i18n-title="copy">00100105200270</button><button type="button" class="acct" data-acct="00101102200012" title="कपी गर्नुहोस्" data-i18n-title="copy">00101102200012</button></td><td class="swift"><button type="button" class="acct" data-acct="EVBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">EVBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-ebl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-ebl-disaster.png" width="169" height="169" alt="एभरेष्ट बैंक QR"></a></td></tr>
-        <tr><td>५</td><td>ग्लोबल आइएमई बैंक<small class="bank-en">Global IME Bank Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="00401010000057" title="कपी गर्नुहोस्" data-i18n-title="copy">00401010000057</button><button type="button" class="acct" data-acct="00411010000005" title="कपी गर्नुहोस्" data-i18n-title="copy">00411010000005</button></td><td class="swift"><button type="button" class="acct" data-acct="GLBBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">GLBBNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-gibl-disaster.png" target="_blank" rel="noopener"><img src="img/qr-gibl-disaster.png" width="172" height="172" alt="ग्लोबल आइएमई बैंक QR"></a></td></tr>
-        <tr><td>६</td><td>नबिल बैंक<small class="bank-en">Nabil Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1710017505285" title="कपी गर्नुहोस्" data-i18n-title="copy">1710017505285</button></td><td class="swift"><button type="button" class="acct" data-acct="NARBNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">NARBNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-nabil-disaster.png" target="_blank" rel="noopener"><img src="img/qr-nabil-disaster.png" width="171" height="171" alt="नबिल बैंक QR"></a></td></tr>
-        <tr><td>७</td><td>स्टान्डर्ड चार्टर्ड बैंक<small class="bank-en">Standard Chartered Bank Nepal Ltd.</small></td><td class="acct"><button type="button" class="acct" data-acct="01013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">01013243801</button><button type="button" class="acct" data-acct="02013243801" title="कपी गर्नुहोस्" data-i18n-title="copy">02013243801</button></td><td class="swift"><button type="button" class="acct" data-acct="SCBLNPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">SCBLNPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-scb-disaster.png" target="_blank" rel="noopener"><img src="img/qr-scb-disaster.png" width="168" height="168" alt="स्टान्डर्ड चार्टर्ड बैंक QR"></a></td></tr>
-        <tr><td>८</td><td>हिमालयन बैंक<small class="bank-en">Himalayan Bank Limited</small></td><td class="acct"><button type="button" class="acct" data-acct="01905631210046" title="कपी गर्नुहोस्" data-i18n-title="copy">01905631210046 <span class="usd">$</span></button></td><td class="swift"><button type="button" class="acct" data-acct="HIMANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">HIMANPKA</button></td><td class="qr"></td></tr>
-      </tbody>
-    </table>
-      </article>
-      <article class="fund fund-relief">
-        <h3 data-i18n="fund_relief">प्रधानमन्त्री राहत कोष</h3>
-    <table>
-      <thead><tr><th data-i18n="sn">सि.नं.</th><th data-i18n="bank">बैंक</th><th data-i18n="acct_no">खाता नम्बर</th><th>SWIFT</th><th class="qr">QR</th></tr></thead>
-      <tbody>
-        <tr><td>१</td><td>राष्ट्रिय वाणिज्य बैंक<small class="bank-en">Rastriya Banijya Bank</small></td><td class="acct"><button type="button" class="acct" data-acct="1430100000025006" title="कपी गर्नुहोस्" data-i18n-title="copy">1430100000025006</button><button type="button" class="acct" data-acct="1430100001164001" title="कपी गर्नुहोस्" data-i18n-title="copy">1430100001164001</button></td><td class="swift"><button type="button" class="acct" data-acct="RBBANPKA" title="SWIFT कपी गर्नुहोस्" data-i18n-title="copy_swift">RBBANPKA</button></td><td class="qr"><a class="qr-open" href="img/qr-rbb-relief.png" target="_blank" rel="noopener"><img src="img/qr-rbb-relief.png" width="167" height="167" alt="राष्ट्रिय वाणिज्य बैंक QR · राहत कोष"></a></td></tr>
-      </tbody>
-    </table>
-      </article>
-      <div class="swift-faq">
-        <h3 data-i18n="swift_how">विदेशबाट SWIFT पठाउने तरिका</h3>
-        <dl>
-          <dt data-i18n="dt_swift">SWIFT के हो?</dt>
-          <dd data-i18n-html="dd_swift">बैंक चिनाउने अन्तर्राष्ट्रिय कोड (BIC)। विदेशबाट यी खातामा पैसा पठाउन आफ्नो बैंकलाई यो कोड, खाता नाम र खाता नम्बर दिनुहोस्। नेपालमा IBAN चल्दैन।</dd>
-          <dt data-i18n="dt_write">के लेख्ने?</dt>
-          <dd data-i18n-html="dd_write">बैंकको अंग्रेजी नाम, SWIFT (माथि कपी गर्न मिल्छ), खाता नाम: प्रधानमन्त्री दैवी प्रकोप उद्धार कोष वा प्रधानमन्त्री राहत कोष, र तालिकाको खाता नम्बर। उद्देश्यमा Rasuwa / Bhotekoshi flood relief, 26 Aug 2026 लेख्नुहोस्।</dd>
-          <dt data-i18n="dt_ccy">कुन मुद्रा?</dt>
-          <dd data-i18n-html="dd_ccy">अधिकांश खाता नेपाली रुपैयाँका हुन्। हिमालयन बैंकको <code>01905631210046</code> डलर ($) खाता हो, SWIFT <code>HIMANPKA</code>। अन्य मुद्रा पठाएमा बैंकले रुपैयाँमा साट्न सक्छ।</dd>
-          <dt data-i18n="dt_time">कति समय / शुल्क?</dt>
-          <dd data-i18n-html="dd_time">सामान्यतया १–३ कार्यदिन। पठाउने बैंक र बीचका करेस्पोन्डेन्ट बैंकले शुल्क काट्न सक्छन्। OUR/SHA/BEN विकल्प बैंकले सोध्छ — OUR मा पठाउँदा रकम पूरा आउने सम्भावना बढी, शुल्क बढी।</dd>
-          <dt data-i18n="dt_11">८ अक्षर कि ११?</dt>
-          <dd data-i18n-html="dd_11">माथिका कोड ८ अक्षरका हेड अफिस हुन्। बैंकले ११ अक्षर मागे <code>XXX</code> जोड्नुहोस्, जस्तै <code>RBBANPKAXXX</code>। एउटै हो।</dd>
-        </dl>
-      </div>
-    </section>
     <ul class="stats-src" aria-label="स्रोत" data-i18n-aria="src_word" data-i18n-list="stats_src">
       <li><b>मृतक जम्मा ७३४</b> — NDRRMA / गृह, १४ भदौ ०९:०० (विभिन्न मानव अङ्ग सहित)। चितवन २५९, नवलपरासी पूर्व १८४, नवलपरासी पश्चिम ८२, गोरखा ५८, नुवाकोट ५२, धादिङ ५०, तनहुँ ३६, रसुवा १३। अघिल्लो NDRRMA १३ भदौ १८:३० शव ६७५ / प्रहरी १६:०० शव ६६९ / NDRRMA १०:०० शव ६२६ / प्रहरी ०७:०० शव ६१६ इतिहास। अघिल्लो NDRRMA १२ भदौ १९:०० शव ५७९ / प्रहरी १७:०० शव ५५३ / NDRRMA १५:०० शव ५३८ पुरानो इतिहास। स्रोत: NDRRMA / गृह ०९:०० · ७३४ · NDRRMA / गृह १८:३० · ६७५ · <a href="https://www.onlinekhabar.com/2026/08/2006464/rasuwa-flood-669-bodies-found-as-of-4-pm-on-saturday" target="_blank" rel="noopener">प्रहरी १६:०० · ६६९</a> · NDRRMA / गृह १०:०० · ६२६ · <a href="img/today-2026-08-29-nepal-police-0700.jpg" target="_blank" rel="noopener">प्रहरी ०७:०० · ६१६</a> · NDRRMA / गृह १९:०० · ५७९ · <a href="https://nepalpolice.gov.np/" target="_blank" rel="noopener">प्रहरी १७:०० · ५५३</a> · <a href="img/today-2026-08-28-nepal-police-1500.jpg" target="_blank" rel="noopener">प्रहरी १५:०० · ५४७</a> · NDRRMA १५:०० · ५३८।</li>
       <li><b>घाइते</b> — NDRRMA / गृह १४ भदौ ०९:००: <strong>२४२</strong> (उपचाररत र डिस्चार्ज सहित)। अघिल्लो उपचाररत १०१ इतिहास। अघिल्लो NDRRMA १५:०० जम्मा ७३ (रसुवा ४३, नुवाकोट २७, धादिङ ३) पुरानो इतिहास। प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong> लेबल। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> लेबल। नेपाल प्रहरी १३ भदौ ०७:०० घाइते तथा उद्धार जम्मा <strong>२,३०१</strong> — रसुवा ६७६, नुवाकोट १६२२, धादिङ ३ लेबल मात्र, २४२ को सट्टा होइन। काठमाडौं उपत्यका अस्पताल उपचार/डिस्चार्ज १४० (जम्मामाथि नजोड्नुहोस्)। DEOC काठमाडौं ८८ र रसुवा अस्पताल धुन्चे ७४ लेबल मात्र।</li>
@@ -1100,114 +847,6 @@
   </div>
 </section>
 
-<section id="aid">
-  <div class="sec-head"><span class="dot" style="background:var(--forest)"></span><h2 data-i18n="h_aid">वैदेशिक सहयोग</h2></div>
-  <article class="aid-ig" id="aid-ig">
-    <h3 data-i18n="aid_ig_h">वैदेशिक सहयोग अपडेट</h3>
-    <div class="aid-grand">
-      <span class="kpi-k" data-i18n="aid_tot_h">घोषणा जम्मा</span>
-      <strong data-i18n="aid_grand">≈ रु. ३२ अर्ब ७२ करोड</strong>
-      <span class="cash-sub" data-i18n="aid_grand_sub">समानान्तर · विश्व बैंक २५ अर्ब + $१९.५९ मि. + CHF २५ मि. · NRB २८ अगस्ट · कोष ६५५ माथि होइन</span>
-    </div>
-    <p class="cash-lead" data-i18n-html="aid_ig_lead">राहत सामग्री र कोष छुट्टै। अन्य प्रस्ताव प्राप्त होइन। त्रिभुवनमा हस्तान्तरण पुष्टि छैन।</p>
-    <div class="cash-kpis" role="tablist" aria-label="वैदेशिक सहयोग">
-      <button type="button" class="cash-kpi on" data-aid="sent" aria-selected="true">
-        <span class="kpi-k" data-i18n="aid_sent_k">राहत सामग्री</span>
-        <strong class="num">४७.५</strong>
-        <span class="cash-unit" data-i18n="aid_ton">टन</span>
-      </button>
-      <button type="button" class="cash-kpi" data-aid="ifrc" aria-selected="false">
-        <span class="kpi-k" data-i18n="aid_fund_k">कोष</span>
-        <strong class="num">१.२</strong>
-        <span class="cash-unit" data-i18n="aid_usd">मिलियन USD</span>
-      </button>
-      <button type="button" class="cash-kpi" data-aid="offer" aria-selected="false">
-        <span class="kpi-k" data-i18n="aid_offer_k">अन्य प्रस्ताव</span>
-        <strong class="num">४</strong>
-      </button>
-    </div>
-    <div class="cash-panes">
-      <div class="cash-pane on" data-aid="sent">
-        <p class="ov-cap" data-i18n="aid_sent_cap">पठाइएको राहत सामग्री · भारत दुई उडान</p>
-        <div class="ibar-row"><span data-i18n="aid_in2">भारत · दोस्रो उडान</span><b class="ibar"><i style="width:100%"></i></b><em><span class="num">३७.५</span> <span data-i18n="aid_ton">टन</span></em></div>
-        <div class="ibar-row"><span data-i18n="aid_in1">भारत · पहिलो उडान</span><b class="ibar"><i style="width:27%"></i></b><em><span class="num">१०</span> <span data-i18n="aid_ton">टन</span></em></div>
-        <p class="cash-note" data-i18n-html="aid_sent_note">जयशंकर: पहिलो १० टन (२६ अगस्ट, आश्रय/कम्बल/औषधि) + दोस्रो ३७.५ टन (११ भदौ, औषधि/खाद्यान्न)। WHO औषधि/टेन्ट पनि पठाइएको (टन नखुलेको)। त्रिभुवन हस्तान्तरण पुष्टि छैन।</p>
-      </div>
-      <div class="cash-pane" data-aid="ifrc">
-        <p class="ov-cap" data-i18n="aid_ifrc_cap">पठाइएको कोष · IFRC DREF</p>
-        <div class="ibar-row"><span data-i18n="aid_ifrc_bar">IFRC · रेडक्रस</span><b class="ibar"><i style="width:100%"></i></b><em>USD <span class="num">१.२</span>m</em></div>
-        <p class="cash-note" data-i18n="aid_ifrc_note">नेपाल रेडक्रसलाई आपत्कालीन कोष। सरकारको खातामा आएको होइन। विश्व बैंक रु. २५ अर्ब प्रस्ताव हो, कोषमा गनिएको छैन।</p>
-      </div>
-      <div class="cash-pane" data-aid="offer">
-        <p class="ov-cap" data-i18n="aid_offer_cap">अन्य प्रस्ताव · प्राप्त होइन</p>
-        <div class="ibar-row"><span data-i18n="aid_o_eu">युरोपेली संघ</span><b class="ibar"><i style="width:20%"></i></b><em data-i18n="aid_o_eu_v">नक्सा</em></div>
-        <div class="ibar-row"><span data-i18n="aid_o_us">अमेरिका</span><b class="ibar"><i style="width:20%"></i></b><em data-i18n="aid_o_us_v">तयार</em></div>
-        <div class="ibar-row"><span data-i18n="aid_o_cn">चीन</span><b class="ibar"><i style="width:20%"></i></b><em data-i18n="aid_o_cn_v">नगद प्रक्रिया</em></div>
-        <div class="ibar-row"><span data-i18n="aid_o_wb">विश्व बैंक</span><b class="ibar"><i style="width:20%"></i></b><em>रु. २५ अर्ब</em></div>
-        <p class="cash-note" data-i18n-html="aid_offer_note">Copernicus EMSR927 प्राविधिक सहयोग सुरु। नगद/सामग्री हातमा आएको होइन।</p>
-      </div>
-    </div>
-  </article>
-  <article class="pledge-box" id="aid-pledges">
-    <h3 data-i18n="aid_pledge_h">वैदेशिक घोषणा</h3>
-    <p class="cash-note" data-i18n="aid_pledge_lead">देश/निकाय, रकम, माध्यम।</p>
-    <div class="pledge-tot">
-      <h3 data-i18n="aid_tot_h">घोषणा जम्मा</h3>
-        <div class="aid-grand">
-          <span class="kpi-k" data-i18n="aid_tot_h">घोषणा जम्मा</span>
-          <strong data-i18n="aid_grand">≈ रु. ३२ अर्ब ७२ करोड</strong>
-          <span class="cash-sub" data-i18n="aid_grand_sub">समानान्तर · विश्व बैंक २५ अर्ब + $१९.५९ मि. + CHF २५ मि. · NRB २८ अगस्ट · कोष ६५५ माथि होइन</span>
-        </div>
-      <div class="pledge-tot-kpis">
-        <div class="pledge-tot-card">
-          <span class="kpi-k" data-i18n="aid_tot_npr_l">विश्व ब्यांक</span>
-          <strong data-i18n="aid_tot_npr">रु. २५ अर्ब</strong>
-        </div>
-        <div class="pledge-tot-card">
-          <span class="kpi-k" data-i18n="aid_tot_usd_l">जम्मा</span>
-          <strong data-i18n="aid_tot_usd">$१९.५९ मि. जम्मा</strong>
-          <span class="cash-unit" data-i18n="aid_tot_usd_sub">UK $6.79m + US $3.6m + OCHA $3.2m + ROK $1m + ADB $5m</span>
-        </div>
-        <div class="pledge-tot-card">
-          <span class="kpi-k" data-i18n="aid_tot_chf_l">IFRC अपिल</span>
-          <strong data-i18n="aid_tot_chf">CHF २५ मि.</strong>
-        </div>
-      </div>
-      <p class="cash-note" data-i18n="aid_tot_note">मुद्रा मिसाएर एक नेपाली जम्मा बनाइएको छैन। विश्व बैंक $१६३.५५ मि. यो $१९.५९ मा छैन। अमेरिका $३.६ मि. — अघिल्लो $०.५ मि. यसैभित्र। राहत रु. ६ अर्ब ५५ करोडमा जोडिएको होइन। ADB $५ मि. घोषणा हो, नगद होइन।</p>
-    </div>
-    <ul class="pledge-list" data-i18n-list="aid_pledge">
-      <li><span class="aid-tag pledge">घोषणा</span> <b>युनाइटेड किंगडम</b> · £५ मिलियन ($६.७९ मिलियन) · FCDO · तत्काल मानवीय सहयोग</li>
-      <li><span class="aid-tag pledge">घोषणा</span> <b>संयुक्त राज्य अमेरिका</b> · $३.६ मिलियन · US Department of State · जीवनरक्षा मानवीय सहयोग (१०,००० घरधुरीलाई ३ महिनासम्म खाद्यान्न सहित)। दूतावास नेपाल/चीन। अघिल्लो $५००,००० यसैभित्र — फेरि नजोड्नुहोस्। कोष ६५५ माथि होइन। स्रोत: <a href="img/today-2026-08-30-us-state-36m.jpg" target="_blank" rel="noopener">State graphic</a>।</li>
-      <li><span class="aid-tag pledge">घोषणा</span> <b>विश्व बैंक</b> · आपत्कालीन प्याकेज २५ अर्ब रुपैयाँ ($१६३.५५ मिलियन)</li>
-      <li><span class="aid-tag pledge">घोषणा</span> <b>संयुक्त राष्ट्र OCHA</b> · $३.२ मिलियन · CERF · अग्रिम र जारी सामुदायिक काम</li>
-      <li><span class="aid-tag pledge">घोषणा</span> <b>दक्षिण कोरिया</b> · $१ मिलियन मानवीय सहयोग · अन्तर्राष्ट्रिय निकायमार्फत</li>
-      <li><span class="aid-tag pledge">घोषणा</span> <b>IFRC</b> · प्रारम्भिक CHF १ मिलियन ($१.२४ मिलियन) जारी; आपत्कालीन अपील CHF २५ मिलियन। <a href="https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods" target="_blank" rel="noopener">IFRC</a></li>
-      <li><span class="aid-tag pledge">घोषणा</span> <b>एसियाली विकास बैंक (ADB)</b> · $५ मिलियन · Asia Pacific Disaster Response Fund · उद्धार/राहत (खोज उपकरण, औषधि, खाद्यान्न, पानी, आश्रय, सरसफाइ)। <a href="https://www.adb.org/news/adb-responds-immediately-nepal-floods-5-million-grant" target="_blank" rel="noopener">ADB</a></li>
-      <li><span class="aid-tag offer">प्रक्रियामा</span> <b>एसियाली विकास बैंक (ADB)</b> · $१५०,००० · विपद्पछिको आवश्यकता मूल्याङ्कन / पुनर्लाभ योजना · स्वीकृत नगद होइन।</li>
-    </ul>
-  </article>
-  <div class="pager" data-pager="aid">
-    <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
-    <div class="pboxes pager-pages"></div>
-    <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
-    <span class="pcount pager-count"></span>
-  </div>
-  <div class="card green">
-    <p class="treat-lead" data-i18n-html="aid_lead">२६ अगस्ट २०२६ को भोटेकोशी–त्रिशूली बाढीपछिका वैदेशिक सहयोग मात्र। <span class="aid-tag offer">प्रस्ताव</span> घोषणा/सकिने। <span class="aid-tag sent">पठाइएको</span> सामग्री वा कोष खटिएको। <span class="aid-tag got">प्राप्त</span> नेपाल सरकारले हातमा लिएको। नगद खातामा आएको पुष्टि अहिले छैन।</p>
-    <ul id="aid-list" data-i18n-list="aid">
-      <li><span class="aid-tag sent">पठाइएको</span> <b>भारत · दोस्रो उडान ३७.५ टन</b> (in-kind)। भारतीय विदेशमन्त्री एस. जयशंकर (X, ~११:२५ · ११ भदौ): दोस्रो उडान उडेको; HADR सामग्री, औषधि र खाद्यान्न प्याकेट <strong>३७.५ टन</strong>। नेपाल सरकारसँग निरन्तर सम्पर्क। त्रिभुवनमा हस्तान्तरण पुष्टि छैन। स्रोत: <a href="https://x.com/DrSJaishankar/status/2092849615360114978" target="_blank" rel="noopener">@DrSJaishankar</a></li>
-      <li><span class="aid-tag sent">पठाइएको</span> <b>भारत · पहिलो उडान 10 टन HADR</b> (in-kind)। भारतीय विदेशमन्त्री एस. जयशंकर (X, २६ अगस्ट): मानवीय सहायता तथा अत्यावश्यक औषधि पठाइएको। भारतीय वायुसेना C-130J, हिन्डनबाट काठमाडौं उडान ~20:35 IST / ~20:50 नेपाली समय। सामग्री: अस्थायी आश्रय, कम्बल, स्वच्छता किट, सोलार बत्ती, औषधि। परराष्ट्रमन्त्री शिशिर खनालले आभार जनाए। त्रिभुवनमा हस्तान्तरण पुष्टि छैन। स्रोत: <a href="https://risingnepaldaily.com/news/85564" target="_blank" rel="noopener">गोरखापत्र/Rising Nepal</a> · <a href="https://ddindia.co.in/2026/08/india-sends-first-tranche-of-relief-materials-to-nepal/" target="_blank" rel="noopener">DD India</a> · <a href="https://theprint.in/diplomacy/india-rushes-1st-tranche-of-aid-to-nepal-10-tonnes-of-relief-material-including-meds-blankets-lamps/3025874/" target="_blank" rel="noopener">The Print</a> · <a href="https://www.thehindu.com/news/international/nepal-floods-live-updates-august-26-2026-several-missing-dead/article71392492.ece" target="_blank" rel="noopener">The Hindu</a></li>
-      <li><span class="aid-tag sent">पठाइएको</span> <b>IFRC · USD 1.2 million</b> (करिब CHF 1 million) DREF — नेपाल रेडक्रसलाई आपत्कालीन कोष। IFRC नेपाल प्रमुख डेभिड फिसर: तत्काल काम सुरु गर्न विनियोजन। सरकारको खातामा आएको होइन। स्रोत: <a href="https://www.cnn.com/2026/08/26/world/live-news/nepal-flash-flooding-floods-intl" target="_blank" rel="noopener">CNN</a></li>
-      <li><span class="aid-tag sent">पठाइएको</span> <b>WHO</b> (in-kind)। आपत्कालीन औषधि, टेन्ट र चिकित्सक/स्वास्थ्य सामग्री प्रभावित क्षेत्रमा। प्रधानमन्त्री कार्यालय ब्रिफिङमा स्काउटसँगै उल्लेख। स्रोत: प्रधानमन्त्री कार्यालय · <a href="https://www.cnn.com/2026/08/26/world/live-news/nepal-flash-flooding-floods-intl" target="_blank" rel="noopener">CNN / WHO नेपाल</a></li>
-      <li><span class="aid-tag offer">प्रस्ताव</span> <b>युरोपेली संघ</b>। उर्सुला फोन डेर लेयेन: थप यूरोपीय सहयोग परिचालन गर्न तयार। Copernicus बाढी क्षेत्र नक्साङ्कन सक्रिय · <a href="https://mapping.emergency.copernicus.eu/activations/EMSR927/" target="_blank" rel="noopener">EMSR927</a> — प्राविधिक सहयोग सुरु। नगद/सामग्री प्राप्त भएको होइन। स्रोत: <a href="https://www.cnn.com/2026/08/26/world/live-news/nepal-flash-flooding-floods-intl" target="_blank" rel="noopener">CNN</a></li>
-      <li><span class="aid-tag offer">प्रस्ताव</span> <b>संयुक्त राज्य अमेरिका</b>। अमेरिकी विदेश मन्त्रालय: नेपाल सरकारसँग सम्पर्क; सहयोग दिन तयार। दूतावास समवेदना/निगरानी — अनुदान रकम वा सामग्री आएको होइन। स्रोत: <a href="https://kathmandupost.com/national/2026/08/26/nepal-seeks-answers-on-flash-flood-as-india-china-us-and-world-bank-offer-support" target="_blank" rel="noopener">कान्तिपुर</a> · <a href="https://www.cnn.com/2026/08/26/world/live-news/nepal-flash-flooding-floods-intl" target="_blank" rel="noopener">CNN</a></li>
-      <li><span class="aid-tag offer">प्रस्ताव</span> <b>भारत · मोदी–बालेन फोन</b> ~17:32। भारतीय प्रधानमन्त्री: आवश्यक सबै मानवीय सहयोग दिन तयार। नगद हातमा आएको होइन। पछि 10 टन HADR पठाइएको (माथि)। स्रोत: <a href="https://www.ratopati.com/story/587614/indian-pm-modi-pm-balen-talk-over-phone-pledge-to-support-nepal" target="_blank" rel="noopener">रातोपाटी</a></li>
-      <li><span class="aid-tag offer">प्रस्ताव</span> <b>भारत · राहत सामग्री सूची</b> (दिउँसो)। भारतले तत्काल चाहिने सामग्रीको सूची माग। परराष्ट्रमन्त्री खनाल: भारतीय सहयोग सामग्री आज काठमाडौं ल्याउने तयारी। पछि 10 टन पठाइएको। स्रोत: <a href="https://risingnepaldaily.com/news/85557" target="_blank" rel="noopener">अर्थ मन्त्रालय / Rising Nepal</a> · <a href="https://gorkhapatraonline.com/news/219978" target="_blank" rel="noopener">गोरखापत्र</a></li>
-      <li><span class="aid-tag offer">प्रस्ताव</span> <b>चीन · तत्काल नगद</b>। राजदूत जाङ्ग माओमिङ्गले अर्थमन्त्रीमार्फत रकम पठाउने प्रक्रिया सुरु गर्न आग्रह। रकम नखुलेको। मोडालिटी छलफल जारी — प्राप्त भएको होइन। स्रोत: <a href="https://risingnepaldaily.com/news/85557" target="_blank" rel="noopener">अर्थ मन्त्रालय / Rising Nepal</a> · <a href="https://kathmandupost.com/national/2026/08/26/nepal-seeks-answers-on-flash-flood-as-india-china-us-and-world-bank-offer-support" target="_blank" rel="noopener">कान्तिपुर</a></li>
-      <li><span class="aid-tag offer">प्रस्ताव</span> <b>विश्व बैंक · रु. २५ अर्ब</b>। नेपाल निर्देशक डेविड सिस्लेन (~10:35) अर्थमन्त्री डा. स्वर्णिम वाग्ले: विभिन्न स्रोतबाट आपत्कालीन सहयोगस्वरुप 25 अर्ब दिन सकिने। ऋण/अनुदान यकिन छैन। प्राप्त भएको होइन। स्रोत: <a href="https://risingnepaldaily.com/news/85557" target="_blank" rel="noopener">अर्थ मन्त्रालय / Rising Nepal</a> · <a href="https://english.khabarhub.com/2026/26/564954/" target="_blank" rel="noopener">खबरहब</a> · <a href="https://kathmandupost.com/national/2026/08/26/nepal-seeks-answers-on-flash-flood-as-india-china-us-and-world-bank-offer-support" target="_blank" rel="noopener">कान्तिपुर</a></li>
-    </ul>
-  </div>
-</section>
 
 <section id="photos">
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_photos">तस्बिर · आज २६ अगस्ट २०२६ मात्र</h2></div>
@@ -1537,19 +1176,19 @@
       <p class="when">~१५:४६</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>CAN ३० लाख घोषणा</h3>
-      <p>क्रिकेट संघ नेपाल (CAN) प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>३० लाख</strong> घोषणा। ६ अर्ब ५५ करोडमाथि होइन। <a href="#donate">राहत</a>।</p>
+      <p>क्रिकेट संघ नेपाल (CAN) प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>३० लाख</strong> घोषणा। ६ अर्ब ५५ करोडमाथि होइन। <a href="donate.html">राहत</a>।</p>
     </article>
 <article class="log-item">
       <p class="when">~१४:२०</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>प्रधानमन्त्री कोष ६ अर्ब ५५ करोड</h3>
-      <p>९ बैंक तालिका १२ भदौ: जम्मा <strong>६,५५,३३,६२,०११</strong> = विपद्पछि <strong>४,३८,०८,५२,२५२</strong> + मौज्दात <strong>२,१७,२५,०९,७५९</strong>। डलर ६,८०,६१८ अलग। अघिल्लो ४ अर्ब २४ करोड इतिहास। सूर्य १५ / शुक्रबार ३८.५५ यसैभित्र। जिल्ला नगद र वैदेशिक घोषणा जोडिएको होइन। <a href="#donate">राहत</a>।</p>
+      <p>९ बैंक तालिका १२ भदौ: जम्मा <strong>६,५५,३३,६२,०११</strong> = विपद्पछि <strong>४,३८,०८,५२,२५२</strong> + मौज्दात <strong>२,१७,२५,०९,७५९</strong>। डलर ६,८०,६१८ अलग। अघिल्लो ४ अर्ब २४ करोड इतिहास। सूर्य १५ / शुक्रबार ३८.५५ यसैभित्र। जिल्ला नगद र वैदेशिक घोषणा जोडिएको होइन। <a href="donate.html">राहत</a>।</p>
     </article>
 <article class="log-item">
       <p class="when">~१३:०८</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>राहत माग सूची र गोदाम सम्पर्क</h3>
-      <p>NDRRMA SitRep #०६ (११ भदौ राति २२:००) को <strong>माग</strong> सूची र ९ संकलन सम्पर्क <a href="#donate">राहत</a> मा। तस्बिर छैन। नगद ६ अर्ब ५५ करोडमाथि होइन। जिल्ला नगद २.५० करोड पहिलेकै लेबल।</p>
+      <p>NDRRMA SitRep #०६ (११ भदौ राति २२:००) को <strong>माग</strong> सूची र ९ संकलन सम्पर्क <a href="need.html">राहत</a> मा। तस्बिर छैन। नगद ६ अर्ब ५५ करोडमाथि होइन। जिल्ला नगद २.५० करोड पहिलेकै लेबल।</p>
     </article>
             <article class="log-item">
       <p class="when">~१०:००</p>
@@ -1603,7 +1242,7 @@
       <p class="when">~१९:५५</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>ADB $५ मिलियन आपत्कालीन अनुदान (APDRF)</h3>
-      <p>ADB $५ मिलियन आपत्कालीन अनुदान (APDRF) · घोषणा · प्रधानमन्त्री कोषमा आएको होइन। काना: विपत्मा ADB अघि सर्छ। <a href="https://www.adb.org/news/adb-responds-immediately-nepal-floods-5-million-grant" target="_blank" rel="noopener">ADB</a> · <a href="#aid">वैदेशिक सहयोग</a>।</p>
+      <p>ADB $५ मिलियन आपत्कालीन अनुदान (APDRF) · घोषणा · प्रधानमन्त्री कोषमा आएको होइन। काना: विपत्मा ADB अघि सर्छ। <a href="https://www.adb.org/news/adb-responds-immediately-nepal-floods-5-million-grant" target="_blank" rel="noopener">ADB</a> · <a href="donate.html#aid">वैदेशिक सहयोग</a>।</p>
     </article>
             <article class="log-item">
       <p class="when">~१९:४८</p>
@@ -1615,7 +1254,7 @@
       <p class="when">~१९:४०</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>शुक्रबार अर्थमन्त्रीमार्फत २७ · ३८ करोड ५५ लाख</h3>
-      <p>शुक्रबार अर्थमन्त्रीमार्फत २७ संस्था/व्यक्ति <strong>३८ करोड ५५ लाख</strong> (३८,५६,६४,२२२) उही कोषमा; सूर्य नेपाल १५ सहित; राजी राणा १ करोड ९ लाख। ६ अर्ब ५५ करोडमाथि नजोड्नुहोस्। <a href="#donate">राहत कोष</a>।</p>
+      <p>शुक्रबार अर्थमन्त्रीमार्फत २७ संस्था/व्यक्ति <strong>३८ करोड ५५ लाख</strong> (३८,५६,६४,२२२) उही कोषमा; सूर्य नेपाल १५ सहित; राजी राणा १ करोड ९ लाख। ६ अर्ब ५५ करोडमाथि नजोड्नुहोस्। <a href="donate.html">राहत कोष</a>।</p>
     </article>
             <article class="log-item">
       <p class="when">~१९:००</p>
@@ -1627,31 +1266,31 @@
       <p class="when">~१७:३९</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सूर्य नेपाल १५ करोड; कोष जम्मा ४ अर्ब २४ करोड</h3>
-      <p>सूर्य नेपाल प्रालि १५ करोड अब जम्मामा। प्रधानमन्त्री कोष <strong>४ अर्ब ९ करोड</strong> + सूर्य नेपाल <strong>१५ करोड</strong> = <strong>४ अर्ब २४ करोड</strong>। ३६ घण्टामा १ अर्ब ९१ करोड ४ अर्ब ९ करोडभित्र। BYD ७ / ग्लोबल आइएमई ५ / पाण्डे १.०१ / २७.३३ इतिहास — ६ अर्ब ५५ करोडमाथि नजोड्नुहोस्। <a href="#donate">राहत कोष</a>।</p>
+      <p>सूर्य नेपाल प्रालि १५ करोड अब जम्मामा। प्रधानमन्त्री कोष <strong>४ अर्ब ९ करोड</strong> + सूर्य नेपाल <strong>१५ करोड</strong> = <strong>४ अर्ब २४ करोड</strong>। ३६ घण्टामा १ अर्ब ९१ करोड ४ अर्ब ९ करोडभित्र। BYD ७ / ग्लोबल आइएमई ५ / पाण्डे १.०१ / २७.३३ इतिहास — ६ अर्ब ५५ करोडमाथि नजोड्नुहोस्। <a href="donate.html">राहत कोष</a>।</p>
     </article>
             <article class="log-item">
       <p class="when">~१७:०४</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>सूर्य नेपाल प्रालि १५ करोड</h3>
-      <p>सूर्य नेपाल प्रालिले प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>१५ करोड</strong> रुपैयाँ सहयोग। नाम-सूची इतिहास/विस्तार — जम्मा ४ अर्ब ९ करोडमाथि नजोड्नुहोस्। <a href="#donate">राहत कोष</a>।</p>
+      <p>सूर्य नेपाल प्रालिले प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>१५ करोड</strong> रुपैयाँ सहयोग। नाम-सूची इतिहास/विस्तार — जम्मा ४ अर्ब ९ करोडमाथि नजोड्नुहोस्। <a href="donate.html">राहत कोष</a>।</p>
     </article>
             <article class="log-item">
       <p class="when">~१६:५३</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>PMDRF जम्मा ४ अर्ब ९ करोड</h3>
-      <p>प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा जम्मा <strong>४ अर्ब ९ करोड</strong> (४ अर्ब ९ करोड ११ लाख ६० हजार)। ३६ घण्टामा <strong>१ अर्ब ९१ करोड</strong> (१,९१,८६,५०,९११)। मित्र राष्ट्र घोषणा समावेश छैन। नाम-सूची इतिहास/विस्तार। <a href="#donate">राहत कोष</a>।</p>
+      <p>प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा जम्मा <strong>४ अर्ब ९ करोड</strong> (४ अर्ब ९ करोड ११ लाख ६० हजार)। ३६ घण्टामा <strong>१ अर्ब ९१ करोड</strong> (१,९१,८६,५०,९११)। मित्र राष्ट्र घोषणा समावेश छैन। नाम-सूची इतिहास/विस्तार। <a href="donate.html">राहत कोष</a>।</p>
     </article>
             <article class="log-item">
       <p class="when">~१६:४८</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>वैदेशिक घोषणा (युके, अमेरिका, विश्व बैंक, OCHA, कोरिया, IFRC)</h3>
-      <p>वैदेशिक सहयोग घोषणा। <strong>युके</strong> £५ मिलियन ($६.७९ मिलियन) FCDO · <strong>अमेरिका</strong> $५००,००० विदेश मन्त्रालय/CRS (आश्रय, पानी/स्वच्छता) + विपद् सल्लाहकार · <strong>विश्व बैंक</strong> २५ अर्ब रुपैयाँ ($१६३.५५ मिलियन) · <strong>OCHA</strong> $३.२ मिलियन CERF · <strong>दक्षिण कोरिया</strong> $१ मिलियन अन्तर्राष्ट्रिय निकायमार्फत · <strong>IFRC</strong> CHF १ मिलियन ($१.२४ मिलियन) जारी, अपील CHF २५ मिलियन। <a href="https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods" target="_blank" rel="noopener">IFRC</a> · <a href="#aid">वैदेशिक सहयोग</a>।</p>
+      <p>वैदेशिक सहयोग घोषणा। <strong>युके</strong> £५ मिलियन ($६.७९ मिलियन) FCDO · <strong>अमेरिका</strong> $५००,००० विदेश मन्त्रालय/CRS (आश्रय, पानी/स्वच्छता) + विपद् सल्लाहकार · <strong>विश्व बैंक</strong> २५ अर्ब रुपैयाँ ($१६३.५५ मिलियन) · <strong>OCHA</strong> $३.२ मिलियन CERF · <strong>दक्षिण कोरिया</strong> $१ मिलियन अन्तर्राष्ट्रिय निकायमार्फत · <strong>IFRC</strong> CHF १ मिलियन ($१.२४ मिलियन) जारी, अपील CHF २५ मिलियन। <a href="https://www.ifrc.org/press-release/ifrc-launches-chf-25-million-emergency-appeal-response-devastating-nepal-flash-floods" target="_blank" rel="noopener">IFRC</a> · <a href="donate.html#aid">वैदेशिक सहयोग</a>।</p>
     </article>
             <article class="log-item">
       <p class="when">~१६:१५</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>PMDRF १ अर्ब ९१ करोड / अर्थ मन्त्रालय</h3>
-      <p>अर्थ मन्त्रालय: प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>१,९१,८६,५०,९११</strong> (एक अर्ब ९१ करोड ८६ लाख ५० हजार ९११) जम्मा। निजी क्षेत्र <strong>२७.३३ करोड</strong> यसैभित्र। मित्र राष्ट्र घोषणा समावेश छैन। कोष बचत ४ अर्ब ९ करोड ११ लाख ६० हजार — बाढी सहयोगको अलग जम्मा होइन। <a href="#donate">राहत कोष</a>।</p>
+      <p>अर्थ मन्त्रालय: प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>१,९१,८६,५०,९११</strong> (एक अर्ब ९१ करोड ८६ लाख ५० हजार ९११) जम्मा। निजी क्षेत्र <strong>२७.३३ करोड</strong> यसैभित्र। मित्र राष्ट्र घोषणा समावेश छैन। कोष बचत ४ अर्ब ९ करोड ११ लाख ६० हजार — बाढी सहयोगको अलग जम्मा होइन। <a href="donate.html">राहत कोष</a>।</p>
     </article>
             <article class="log-item">
       <p class="when">~१६:०४</p>
@@ -1681,7 +1320,7 @@
       <p class="when">~१३:२५</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>राहत नगद ४०.३४ करोड</h3>
-      <p>पूर्वमन्त्री विक्रम पाण्डेले प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>१.०१ करोड</strong> (एक करोड एक लाख) नगद सहयोग। प्रकाशित जम्मा <strong>४० करोड ३४ लाख</strong> — खाता सूची २७.३३ + BYD · साइमेक्स ७ + ग्लोबल आइएमई ५ + विक्रम पाण्डे १.०१। <a href="#donate">राहत कोष</a>।</p>
+      <p>पूर्वमन्त्री विक्रम पाण्डेले प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>१.०१ करोड</strong> (एक करोड एक लाख) नगद सहयोग। प्रकाशित जम्मा <strong>४० करोड ३४ लाख</strong> — खाता सूची २७.३३ + BYD · साइमेक्स ७ + ग्लोबल आइएमई ५ + विक्रम पाण्डे १.०१। <a href="donate.html">राहत कोष</a>।</p>
     </article>
             <article class="log-item">
       <p class="when">~१२:४०</p>
@@ -1783,13 +1422,13 @@
       <p class="when">~१९:१३</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>राहत नगद ३९.३३ करोड</h3>
-      <p>खाता सूची २७.३३ मा BYD · साइमेक्स <strong>७</strong> र ग्लोबल आइएमई <strong>५</strong> थप। जम्मा <strong>३९ करोड ३३ लाख</strong>। <a href="#donate">राहत कोष</a>।</p>
+      <p>खाता सूची २७.३३ मा BYD · साइमेक्स <strong>७</strong> र ग्लोबल आइएमई <strong>५</strong> थप। जम्मा <strong>३९ करोड ३३ लाख</strong>। <a href="donate.html">राहत कोष</a>।</p>
     </article>
             <article class="log-item">
       <p class="when">~१९:१०</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>राहत नगद २७.३३ करोड</h3>
-      <p>प्रकाशित खाता सूची १० दाता: गोर्खा १०, नेपाल बैंक ३.०१, कुमारी ३, राष्ट्रिय वाणिज्य ३, निफ्रा २.५०, एनआईसी एशिया २.२१, सारस (रेडबुल) २, एनसेल १, शिव शक्ति ५१ लाख, रिलायन्स सुगर १० लाख। जम्मा <strong>२७ करोड ३३ लाख</strong>। BYD/साइमेक्स र ग्लोबल आइएमई यस सूचीमा छैनन्। <a href="#donate">राहत कोष</a>।</p>
+      <p>प्रकाशित खाता सूची १० दाता: गोर्खा १०, नेपाल बैंक ३.०१, कुमारी ३, राष्ट्रिय वाणिज्य ३, निफ्रा २.५०, एनआईसी एशिया २.२१, सारस (रेडबुल) २, एनसेल १, शिव शक्ति ५१ लाख, रिलायन्स सुगर १० लाख। जम्मा <strong>२७ करोड ३३ लाख</strong>। BYD/साइमेक्स र ग्लोबल आइएमई यस सूचीमा छैनन्। <a href="donate.html">राहत कोष</a>।</p>
     </article>
             <article class="log-item">
       <p class="when">~१९:०५</p>
@@ -1825,7 +1464,7 @@
       <p class="when">~१६:२८</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>गोर्खा ब्रुअरी १० करोड</h3>
-      <p>गोर्खा ब्रुअरीले प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>१० करोड</strong> नगद अर्थमन्त्री डा. स्वर्णिम वाग्लेलाई हस्तान्तरण। प्रकाशित नगद अब <strong>१३</strong> करोड (गोर्खा १० + कुमारी ३)। <a href="#donate">राहत कोष</a>।</p>
+      <p>गोर्खा ब्रुअरीले प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>१० करोड</strong> नगद अर्थमन्त्री डा. स्वर्णिम वाग्लेलाई हस्तान्तरण। प्रकाशित नगद अब <strong>१३</strong> करोड (गोर्खा १० + कुमारी ३)। <a href="donate.html">राहत कोष</a>।</p>
     </article>
     <article class="log-item">
       <p class="when">~१३:४०</p>
@@ -1837,7 +1476,7 @@
       <p class="when">~१६:२४</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>प्रधानमन्त्री राहत अनलाइन पोर्टल</h3>
-      <p>विदेशमा रहेका नेपाली र विश्वभरका दाता प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सीधै योगदान गर्न सक्छन्। <a href="https://pmdrf.nchl.com.np" target="_blank" rel="noopener">pmdrf.nchl.com.np</a> · <a href="#donate">राहत कोष</a>।</p>
+      <p>विदेशमा रहेका नेपाली र विश्वभरका दाता प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा सीधै योगदान गर्न सक्छन्। <a href="https://pmdrf.nchl.com.np" target="_blank" rel="noopener">pmdrf.nchl.com.np</a> · <a href="donate.html">राहत कोष</a>।</p>
     </article>
     <article class="log-item">
       <p class="when">~१३:००</p>
@@ -1855,7 +1494,7 @@
       <p class="when">~११:२५</p>
       <p class="k" data-i18n="kicker">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर</p>
       <h3>भारत · दोस्रो उडान ३७.५ टन</h3>
-      <p>भारतीय विदेशमन्त्री एस. जयशंकर: दोस्रो उडान उडेको। HADR सामग्री, औषधि र खाद्यान्न प्याकेट <strong>३७.५ टन</strong>। नेपाल सरकारसँग निरन्तर सम्पर्क। हस्तान्तरण पुष्टि छैन। <a href="https://x.com/DrSJaishankar/status/2092849615360114978" target="_blank" rel="noopener">@DrSJaishankar</a> · <a href="#aid">वैदेशिक सहयोग</a>।</p>
+      <p>भारतीय विदेशमन्त्री एस. जयशंकर: दोस्रो उडान उडेको। HADR सामग्री, औषधि र खाद्यान्न प्याकेट <strong>३७.५ टन</strong>। नेपाल सरकारसँग निरन्तर सम्पर्क। हस्तान्तरण पुष्टि छैन। <a href="https://x.com/DrSJaishankar/status/2092849615360114978" target="_blank" rel="noopener">@DrSJaishankar</a> · <a href="donate.html#aid">वैदेशिक सहयोग</a>।</p>
     </article>
     <article class="log-item">
       <p class="when">~११:१०</p>
@@ -3117,8 +2756,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-08-30-1330"></script>
-<script src="names-index.js?v=2026-08-30-1330"></script>
+<script src="i18n.js?v=2026-08-30-1336"></script>
+<script src="names-index.js?v=2026-08-30-1336"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -3136,6 +2775,8 @@
     if (file === "names.html") return CANON + "names.html" + (location.hash || "");
     if (file === "about.html") return CANON + "about.html" + (location.hash || "");
     if (file === "map.html") return CANON + "map.html" + (location.hash || "");
+    if (file === "donate.html") return CANON + "donate.html" + (location.hash || "");
+    if (file === "need.html") return CANON + "need.html" + (location.hash || "");
     return CANON + (location.hash || "");
   }
   function toast(msg){
@@ -3179,7 +2820,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-30-1330";</script>
+<script>window.PAGE_VER="2026-08-30-1336";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -3793,7 +3434,7 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   var links = Array.prototype.slice.call(nav.querySelectorAll(".chips-inner a[href^='#']"));
   if (!links.length) return;
   var back = document.getElementById("screen-back");
-  var SPY = {home:1, names:1, donate:1, ems927:1, photos:1, history:1};
+  var SPY = {home:1, names:1, ems927:1, photos:1, history:1};
   var secs = [];
   links.forEach(function(a){
     var id = (a.getAttribute("href") || "").slice(1);

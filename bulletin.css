@@ -1977,25 +1977,33 @@ a.home-ig-names:hover{text-decoration:none;border-color:var(--crimson);box-shado
   .home-ig{grid-template-columns:1fr}
 }
 
-/* names.html / about.html / map.html long-scroll; do not one-screen-off */
+/* names.html / about.html / map.html / donate.html / need.html long-scroll; do not one-screen-off */
 html.names-page.desk, html.names-page.desk body,
 html.about-page.desk, html.about-page.desk body,
-html.map-page.desk, html.map-page.desk body{
+html.map-page.desk, html.map-page.desk body,
+html.donate-page.desk, html.donate-page.desk body,
+html.need-page.desk, html.need-page.desk body{
   height:auto;overflow:visible;
 }
 html.names-page.desk .page-body,
 html.about-page.desk .page-body,
-html.map-page.desk .page-body{
+html.map-page.desk .page-body,
+html.donate-page.desk .page-body,
+html.need-page.desk .page-body{
   overflow:visible;height:auto;min-height:0;
 }
 html.names-page.desk .page-main,
 html.about-page.desk .page-main,
-html.map-page.desk .page-main{
+html.map-page.desk .page-main,
+html.donate-page.desk .page-main,
+html.need-page.desk .page-main{
   overflow:visible;
 }
 html.names-page.desk:not(.desk-ready) .page-main section,
 html.about-page.desk:not(.desk-ready) .page-main section,
-html.map-page.desk:not(.desk-ready) .page-main section{
+html.map-page.desk:not(.desk-ready) .page-main section,
+html.donate-page.desk:not(.desk-ready) .page-main section,
+html.need-page.desk:not(.desk-ready) .page-main section{
   display:block;
 }
 html.map-page.desk #map{
@@ -2003,6 +2011,10 @@ html.map-page.desk #map{
 }
 .map-page .page-main{overflow:visible}
 .map-page #map{display:block;max-height:none;overflow:visible}
+.donate-page .page-main{overflow:visible}
+.donate-page #donate, .donate-page #aid{display:block;max-height:none;overflow:visible}
+.need-page .page-main{overflow:visible}
+.need-page #need, .need-page #rahat-need, .need-page #rahat-collect{display:block;max-height:none;overflow:visible}
 html.names-page.desk #names{
   display:block;overflow:visible;max-height:none;
 }
