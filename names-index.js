@@ -15,10 +15,10 @@
 
   var CHIP_DEFS = [
     { id: "all", group: "all", i18n: "chip_all", row: "main" },
-    { id: "found", group: "status", i18n: "chip_found", row: "main" },
     { id: "rescue", group: "status", i18n: "chip_res", row: "main" },
     { id: "treat", group: "status", i18n: "chip_treat", row: "main" },
     { id: "miss", group: "status", i18n: "chip_miss", row: "main" },
+    { id: "found", group: "status", i18n: "chip_found", row: "main", hide: true },
     { id: "foreign", group: "nation", i18n: "chip_foreign", row: "main" },
     { id: "ndrrma", group: "source", i18n: "chip_ndrrma", row: "src" },
     { id: "timure", group: "source", i18n: "chip_timure", row: "src" },
@@ -50,7 +50,7 @@
   };
 
   var recs = [];
-  var filters = { found: true };
+  var filters = { rescue: true };
   var shown = PAGE;
   var lastHits = [];
   var ready = false;
@@ -180,6 +180,7 @@
     }
     if (src === "army" || src === "foreign" || src === "ftoday") tags.rescue = true;
     if (src === "shelter" || src === "surya" || src === "heli") tags.rescue = true;
+    if (status === "found") tags.rescue = true;
     if (src === "cross") { tags.cn = true; tags.in = true; }
     if (src === "india" || src === "t1") tags.in = true;
     if (src === "foreign" || src === "ftoday") tags.foreign = true;
@@ -742,12 +743,19 @@
       if (c.group === "all") return;
       if (filters[c.id]) groups[c.group].push(c.id);
     });
-    function any(list) {
+    function any(list, group) {
       if (!list.length) return true;
-      for (var i = 0; i < list.length; i++) if (r.tags[list[i]]) return true;
+      for (var i = 0; i < list.length; i++) {
+        var id = list[i];
+        if (group === "status" && (id === "rescue" || id === "found")) {
+          if (r.tags.rescue || r.tags.found) return true;
+          continue;
+        }
+        if (r.tags[id]) return true;
+      }
       return false;
     }
-    return any(groups.status) && any(groups.source) && any(groups.nation);
+    return any(groups.status, "status") && any(groups.source) && any(groups.nation);
   }
 
   function queryOf(raw) {
@@ -833,6 +841,7 @@
     if (!root) return;
     root.innerHTML = "";
     CHIP_DEFS.forEach(function (c) {
+      if (c.hide) return;
       if (row && c.row !== row) return;
       var btn = document.createElement("button");
       btn.type = "button";
@@ -849,9 +858,10 @@
         if (c.id === "all") filters = {};
         else if (c.group === "status") {
           var turn = !filters[c.id];
+          var sid = c.id === "found" ? "rescue" : c.id;
           filters = {};
-          if (turn) filters[c.id] = true;
-          if (turn && window.__namesSetCat) window.__namesSetCat(c.id, { filter: false });
+          if (turn) filters[sid] = true;
+          if (turn && window.__namesSetCat) window.__namesSetCat(sid, { filter: false });
         } else {
           filters[c.id] = !filters[c.id];
           if (c.id === "foreign" && filters.foreign && window.__namesSetCat) {
@@ -908,12 +918,12 @@
   }
 
   function statusLabel(r) {
-    if (r.status === "missing") return tt("chip_miss", "हराएको");
+    if (r.status === "missing") return tt("st_miss", "हराएको");
     if (r.status === "found") return tt("chip_found", "भेटिएको");
-    if (r.status === "rescue") return tt("chip_res", "उद्धार");
+    if (r.status === "rescue") return tt("ig_lab_res", "उद्धार");
     if (r.status === "treat") return tt("chip_care", "उपचाररत");
     if (r.source === "cross") return tt("ig_cross", "चीनबाट प्रवेश");
-    return tt("chip_res", "उद्धार");
+    return tt("ig_lab_res", "उद्धार");
   }
 
   function natLabel(n) {
@@ -1000,9 +1010,9 @@
     var st = rec && rec.status;
     if (st === "treat" || src === "treat") return "treat";
     if (st === "missing" || src === "hello" || src === "madhesh") return "miss";
-    if (src === "family" && st === "found") return "found";
+    if (src === "family" && st === "found") return "rescue";
     var id = (hash || "").replace(/^#/, "");
-    if (id === "fam-found-h" || id === "fam-found") return "found";
+    if (id === "fam-found-h" || id === "fam-found") return "rescue";
     if (id === "treat" || id === "treat-dhunche") return "treat";
     if (id === "family" || id === "hello-sarkar" || id === "fam-public") return "miss";
     return "rescue";
@@ -1201,7 +1211,7 @@
       scrapeDom();
       computeMatches();
       ready = true;
-      if (!hasActiveFilter()) filters = { found: true };
+      if (!hasActiveFilter()) filters = { rescue: true };
       renderResults();
       decorateCards();
       var n = 0;
@@ -1219,7 +1229,7 @@
     if (opts && opts.filter === false) return;
     filters = {};
     if (cat === "miss") filters.miss = true;
-    else if (cat === "found") filters.found = true;
+    else if (cat === "found") filters.rescue = true;
     else if (cat === "treat") filters.treat = true;
     else if (cat === "rescue") {
       filters.rescue = true;

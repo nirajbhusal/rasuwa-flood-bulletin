@@ -1685,15 +1685,35 @@ a.portal-fab-donate{
 
 .names-ig{margin:0 0 14px}
 .nig-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:stretch;
+  display:grid;grid-template-columns:1fr;gap:12px;align-items:stretch;
 }
 .nig-card{
   background:#fff;border:1px solid var(--line);border-radius:18px;
   padding:14px 14px 12px;min-width:0;box-shadow:var(--shadow);
   cursor:pointer;text-align:left;font:inherit;color:inherit;
 }
-.nig-card h3{
-  margin:0 0 8px;font-size:clamp(18px,2.4vw,22px);font-weight:800;line-height:1.2;
+.nig-card-h{display:flex;align-items:center;gap:8px;margin:0 0 8px}
+.nig-card-h h3,.nig-card h3{
+  margin:0;font-size:clamp(17px,2.3vw,21px);font-weight:800;line-height:1.2;
+}
+.nig-ico{display:block;width:22px;height:22px;flex:none}
+.nig-ico svg{width:22px;height:22px;display:block}
+.nig-rescue .nig-ico{color:var(--forest)}
+.nig-miss .nig-ico{color:var(--crimson)}
+.nig-split{margin:0 0 8px;font-size:13px;font-weight:700;color:var(--muted);line-height:1.35}
+.nig-inj{margin:10px 0 8px;padding-top:8px;border-top:1px dashed #e7e0d6}
+.nig-chip-treat{margin-top:6px}
+.names-sec-head{align-items:flex-start}
+.names-sec-head h2{
+  font-size:clamp(15px,4.1vw,22px);line-height:1.35;font-weight:800;max-width:100%;
+}
+.fam-found-pill{display:inline-block;margin:0 0 8px}
+.chips a.nav-names{
+  flex-direction:column;align-items:flex-start;justify-content:center;
+  white-space:normal;line-height:1.25;gap:1px;
+}
+.chips a.nav-names .nav-en{
+  display:block;font-size:11px;font-weight:700;opacity:.78;line-height:1.2;
 }
 .nig-found{border-color:#86efac}
 .nig-found h3,.nig-found .nig-n{color:var(--forest)}
@@ -1725,10 +1745,14 @@ a.portal-fab-donate{
   border:1px solid var(--line);background:#f8fafc;color:var(--ink);
 }
 .nig-chip.on{background:var(--forest);color:#fff;border-color:var(--forest)}
+.nig-chip-treat.on{background:var(--teal);border-color:var(--teal)}
 .nig-detail{margin:10px 0 0}
 .nig-detail .cash-pane{display:none}
 .nig-detail .cash-pane.on{display:block}
-.nig-card .ibar-row{grid-template-columns:minmax(5em,32%) 1fr 3.2em;font-size:12px;margin:3px 0}
+.nig-card .ibar-row{grid-template-columns:minmax(5.5em,40%) 1fr 3.4em;font-size:12px;margin:3px 0}
+.nig-rescue .ibar i{background:var(--forest)}
+.nig-inj .ibar i{background:var(--teal)}
+.nig-miss .ibar i{background:var(--crimson)}
 .names-master{margin:8px 0 14px}
 .names-master .ns-hit h3{font-size:18px}
 .names-src-tables{margin-top:8px}
@@ -1740,14 +1764,11 @@ a.portal-fab-donate{
 .ns-pill.ns-st-treat{background:var(--teal-soft);color:var(--teal)}
 .ns-pill.ns-st-cross{background:#e0f2fe;color:#075985}
 .ns-pill.ns-xlab{background:var(--forest);color:#fff}
-@media (min-width:960px){
-  .nig-grid{grid-template-columns:repeat(4,1fr)}
+@media (min-width:700px){
+  .nig-grid,.nig-grid-2{grid-template-columns:1fr 1fr}
 }
-@media (max-width:640px){
-  .nig-grid{grid-template-columns:1fr}
-}
-@media (min-width:641px) and (max-width:959px){
-  .nig-grid{grid-template-columns:1fr 1fr}
+@media (max-width:699px){
+  .nig-grid,.nig-grid-2{grid-template-columns:1fr}
 }
 
 .names-pane{display:none}
@@ -1918,7 +1939,7 @@ body.names-ov-lock{overflow:hidden}
   </button>
   <div class="chips-inner" id="nav-chips">
     <a class="home-btn" href="#home" aria-label="ड्यासबोर्ड" title="ड्यासबोर्ड" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">ड्यासबोर्ड</span></a>
-    <a href="#names" data-i18n="nav_names">नाम</a>
+    <a href="#names" class="nav-names" data-i18n-html="nav_names">उद्धार / बेपत्ता नामावली<span class="nav-en">Rescued / Missing</span></a>
     <a href="#donate" data-i18n="nav_donate">राहत कोष</a>
     <a href="#map" data-i18n="nav_map">नक्सा</a>
     <a href="#alert" data-i18n="nav_alert">सतर्कता</a>
@@ -2031,7 +2052,7 @@ body.names-ov-lock{overflow:hidden}
       <div class="names-home" id="names-home">
         <div class="names-home-top">
           <h3 data-i18n="ns_h">नाम खोज</h3>
-          <p class="names-home-sub" data-i18n="ns_sub">हराएको, भेटिएको र उद्धार सूची · एक ठाउँ</p>
+          <p class="names-home-sub" data-i18n="ns_sub">उद्धार / भेटिएको र हराएको / सम्पर्कविहीन · एक ठाउँ</p>
         </div>
         <label class="vis-clip" for="names-home-q" data-i18n="search_label">नाम वा नम्बर खोज्नुहोस्</label>
         <div class="names-home-field">
@@ -2468,36 +2489,50 @@ body.names-ov-lock{overflow:hidden}
 </div>
 <div class="wrap">
     <section id="names">
-  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_names">नाम सूची</h2></div>
+  <div class="sec-head names-sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_names">रसुवा–भोटेकोशी बाढीमा उद्धार गरिएका, फेला परेका र सम्पर्कविहीन व्यक्तिहरूको नामावली</h2></div>
 <article class="names-ig names-dash" id="names-ig">
   <div id="lists-dash">
-  <div class="nig-grid" id="fd">
-    <article class="nig-card nig-found on" data-names-cat="found" tabindex="0" role="button">
-      <h3 data-i18n="cat_found">भेटिएको</h3>
-      <ul class="nig-lines">
-        <li><span data-i18n="ig_form">फारम</span><strong class="num nig-n fd-live-found">४२</strong></li>
-      </ul>
-      <p class="nig-note" data-i18n="ig_found_note">फारम भेटिएको मात्र। NDRRMA २१८९ · टिमुरे ७३ · भारतीय २१ · त्रिशूली-१ ६३ · सेना-हेलि ६५४ · विदेशी १५२ · आज ५४ · चीनबाट १४९ · उद्धार ८१८६ यो संख्यामा होइन।</p>
-    </article>
-    <article class="nig-card nig-rescue" data-names-cat="rescue" tabindex="0" role="button">
-      <h3 data-i18n="cat_rescue">उद्धार</h3>
-      <p class="nig-lead"><span data-i18n="ig_res_ndrrma">NDRRMA</span> <strong class="num">२१८९</strong> <small data-i18n="ig_res_ndrrma_split">नेपाली २०३४ · विदेशी १५५</small></p>
-      <ul class="nig-lines">
-        <li><span data-i18n="rd_ras_k">रसुवा / टिमुरे</span><strong class="num">७३</strong></li>
-        <li><span data-i18n="rd_nuw_k">नुवाकोट</span><strong class="num">७७१</strong></li>
-        <li><span data-i18n="rd_surya_k">सूर्यगढी</span><strong class="num">२३</strong></li>
-        <li><span data-i18n="rd_army_heli_k">सेना/निजी हेलि</span><strong class="num">६५४</strong></li>
-        <li><span data-i18n="rd_heli_k">काठमाडौं हेलि</span><strong class="num">११</strong></li>
-      </ul>
+  <div class="nig-grid nig-grid-2" id="fd">
+    <article class="nig-card nig-rescue on" data-names-cat="rescue" tabindex="0" role="button">
+      <div class="nig-card-h">
+        <span class="nig-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 11a3.2 3.2 0 1 0-3.2-3.2A3.2 3.2 0 0 0 9 11zm7.2 0a2.7 2.7 0 1 0-2.7-2.7A2.7 2.7 0 0 0 16.2 11zM2.8 19.5v-1.3C2.8 15.4 5.6 14 9 14s6.2 1.4 6.2 4.2v1.3zm11.2 0v-1.3c0-1.2-.4-2.2-1.2-3 2.5.3 5 1.3 5 3.2v1.1z"/></svg></span>
+        <h3 data-i18n="cat_rescue">उद्धार / भेटिएको</h3>
+      </div>
+      <div class="ibar-row"><span data-i18n="ig_res_ndrrma">NDRRMA</span><b class="ibar"><i style="width:100%"></i></b><em class="num">२१८९</em></div>
+      <p class="nig-lead nig-split"><small data-i18n="ig_res_ndrrma_split">नेपाली २०३४ · विदेशी १५५</small></p>
+      <div class="ibar-row"><span data-i18n="ig_form_found">फारम भेटिएको</span><b class="ibar"><i style="width:2%"></i></b><em class="num nig-n fd-live-found">४२</em></div>
+      <div class="ibar-row"><span data-i18n="rd_ras_k">रसुवा / टिमुरे</span><b class="ibar"><i style="width:3%"></i></b><em class="num">७३</em></div>
+      <div class="ibar-row"><span data-i18n="rd_nuw_k">नुवाकोट</span><b class="ibar"><i style="width:35%"></i></b><em class="num">७७१</em></div>
+      <div class="ibar-row"><span data-i18n="rd_surya_k">सूर्यगढी</span><b class="ibar"><i style="width:1%"></i></b><em class="num">२३</em></div>
+      <div class="ibar-row"><span data-i18n="rd_army_heli_k">सेना/निजी हेलि</span><b class="ibar"><i style="width:30%"></i></b><em class="num">६५४</em></div>
+      <div class="ibar-row"><span data-i18n="rd_heli_k">काठमाडौं हेलि</span><b class="ibar"><i style="width:1%"></i></b><em class="num">११</em></div>
       <p class="nig-subh" data-i18n="ig_res_sub">विदेशी / प्रवेश</p>
-      <ul class="nig-lines">
-        <li><span data-i18n="rd_foreign_k">विदेशी</span><strong class="num">१५२</strong></li>
-        <li><span data-i18n="rd_foreign_today_k">आज</span><strong class="num">५४</strong></li>
-        <li><span data-i18n="rd_ind_k">भारतीय</span><strong class="num">२१</strong></li>
-        <li><span data-i18n="rd_t1_k">त्रिशूली-१</span><strong class="num">६३</strong></li>
-        <li><span data-i18n="ig_cross">चीनबाट प्रवेश</span><strong class="num">१४९</strong></li>
-      </ul>
-      <p class="nig-note" data-i18n="ig_res_note">यी सूची जोडेर उद्धार जम्मा बनाइएको छैन। SitRep हेलि १९७६ / NDRRMA ग्राफिक ८१८६ अलग लेबल।</p>
+      <div class="ibar-row"><span data-i18n="rd_foreign_k">विदेशी</span><b class="ibar"><i style="width:7%"></i></b><em class="num">१५२</em></div>
+      <div class="ibar-row"><span data-i18n="rd_foreign_today_k">आज</span><b class="ibar"><i style="width:2%"></i></b><em class="num">५४</em></div>
+      <div class="ibar-row"><span data-i18n="rd_ind_k">भारतीय</span><b class="ibar"><i style="width:1%"></i></b><em class="num">२१</em></div>
+      <div class="ibar-row"><span data-i18n="rd_t1_k">त्रिशूली-१</span><b class="ibar"><i style="width:3%"></i></b><em class="num">६३</em></div>
+      <div class="ibar-row"><span data-i18n="ig_cross">चीनबाट प्रवेश</span><b class="ibar"><i style="width:7%"></i></b><em class="num">१४९</em></div>
+      <p class="nig-note" data-i18n="ig_res_note">यी सूची जोडेर उद्धार जम्मा बनाइएको छैन। फारम भेटिएको २१८९ मा होइन। SitRep हेलि १९७६ / NDRRMA ग्राफिक ८१८६ अलग लेबल।</p>
+      <div class="nig-inj">
+        <p class="nig-subh" data-i18n="cat_treat">घाइते / उपचाररत</p>
+        <div class="ibar-row"><span data-i18n="ig_inj_ndrrma">NDRRMA घाइते</span><b class="ibar"><i style="width:100%"></i></b><em class="num">२४२</em></div>
+        <div class="ibar-row"><span data-i18n="ig_inj_dhunche">रसुवा अस्पताल धुन्चे</span><b class="ibar"><i style="width:31%"></i></b><em class="num">७४</em></div>
+        <div class="ibar-row"><span data-i18n="ig_inj_deoc">DEOC काठमाडौं</span><b class="ibar"><i style="width:36%"></i></b><em class="num">८८</em></div>
+        <p class="nig-subh" data-i18n="rd_treat_cap">DEOC काठमाडौं · ८८</p>
+        <div class="ibar-row"><span data-i18n="rd_tuth">टिचिङ</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४०</em></div>
+        <div class="ibar-row"><span data-i18n="rd_trauma">ट्रमा</span><b class="ibar"><i style="width:78%"></i></b><em class="num">३१</em></div>
+        <div class="ibar-row"><span data-i18n="rd_bir">वीर</span><b class="ibar"><i style="width:15%"></i></b><em class="num">६</em></div>
+        <div class="ibar-row"><span data-i18n="rd_manmohan">मनमोहन</span><b class="ibar"><i style="width:5%"></i></b><em class="num">२</em></div>
+        <div class="ibar-row"><span data-i18n="rd_norvic">नर्भिक</span><b class="ibar"><i style="width:5%"></i></b><em class="num">२</em></div>
+        <div class="ibar-row"><span data-i18n="rd_manjushree">मन्जुश्री</span><b class="ibar"><i style="width:5%"></i></b><em class="num">२</em></div>
+        <div class="ibar-row"><span data-i18n="rd_chauni">छाउनी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
+        <div class="ibar-row"><span data-i18n="rd_greencity">ग्रीनसिटी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
+        <div class="ibar-row"><span data-i18n="rd_alka">अल्का</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
+        <div class="ibar-row"><span data-i18n="rd_nmc">NMC</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
+        <div class="ibar-row"><span data-i18n="rd_grande">ग्रान्डी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
+        <p class="nig-note" data-i18n="ig_inj_note">२४२, ७४ र ८८ जोडिएको छैन। धुन्चे ७४: डिस्चार्ज ४९ · रेफर २४।</p>
+        <button type="button" class="nig-chip nig-chip-treat" data-names-cat="treat" aria-selected="false" data-i18n="cat_treat">घाइते / उपचाररत</button>
+      </div>
       <div class="nig-chips" role="tablist" aria-label="उद्धार विवरण">
         <button type="button" class="nig-chip cash-kpi" data-rd="dao" aria-selected="false" data-i18n="chip_ndrrma">NDRRMA</button>
         <button type="button" class="nig-chip cash-kpi" data-rd="rasuwa" aria-selected="false" data-i18n="rd_ras_k">रसुवा / टिमुरे</button>
@@ -2512,35 +2547,15 @@ body.names-ov-lock{overflow:hidden}
         <button type="button" class="nig-chip cash-kpi" data-rd="indiacross" aria-selected="false" data-i18n="ig_cross">चीनबाट प्रवेश</button>
       </div>
     </article>
-    <article class="nig-card nig-treat" data-names-cat="treat" tabindex="0" role="button">
-      <h3 data-i18n="cat_treat">घाइते / उपचाररत</h3>
-      <ul class="nig-lines">
-        <li><span data-i18n="ig_inj_ndrrma">NDRRMA घाइते</span><strong class="num">२४२</strong></li>
-        <li><span data-i18n="ig_inj_dhunche">रसुवा अस्पताल धुन्चे</span><strong class="num">७४</strong></li>
-        <li><span data-i18n="ig_inj_deoc">DEOC काठमाडौं</span><strong class="num">८८</strong></li>
-      </ul>
-      <p class="nig-subh" data-i18n="rd_treat_cap">DEOC काठमाडौं · ८८</p>
-<div class="ibar-row"><span data-i18n="rd_tuth">टिचिङ</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४०</em></div>
-        <div class="ibar-row"><span data-i18n="rd_trauma">ट्रमा</span><b class="ibar"><i style="width:78%"></i></b><em class="num">३१</em></div>
-        <div class="ibar-row"><span data-i18n="rd_bir">वीर</span><b class="ibar"><i style="width:15%"></i></b><em class="num">६</em></div>
-        <div class="ibar-row"><span data-i18n="rd_manmohan">मनमोहन</span><b class="ibar"><i style="width:5%"></i></b><em class="num">२</em></div>
-        <div class="ibar-row"><span data-i18n="rd_norvic">नर्भिक</span><b class="ibar"><i style="width:5%"></i></b><em class="num">२</em></div>
-        <div class="ibar-row"><span data-i18n="rd_manjushree">मन्जुश्री</span><b class="ibar"><i style="width:5%"></i></b><em class="num">२</em></div>
-        <div class="ibar-row"><span data-i18n="rd_chauni">छाउनी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
-        <div class="ibar-row"><span data-i18n="rd_greencity">ग्रीनसिटी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
-        <div class="ibar-row"><span data-i18n="rd_alka">अल्का</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
-        <div class="ibar-row"><span data-i18n="rd_nmc">NMC</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
-        <div class="ibar-row"><span data-i18n="rd_grande">ग्रान्डी</span><b class="ibar"><i style="width:3%"></i></b><em class="num">१</em></div>
-              <p class="nig-note" data-i18n="ig_inj_note">२४२, ७४ र ८८ जोडिएको छैन। धुन्चे ७४: डिस्चार्ज ४९ · रेफर २४।</p>
-    </article>
     <article class="nig-card nig-miss" data-names-cat="miss" tabindex="0" role="button">
-      <h3 data-i18n="cat_miss">हराएको</h3>
+      <div class="nig-card-h">
+        <span class="nig-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.2a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8zm0 10.4c3.7 0 8 1.8 8 4.4V20H4v-2c0-2.6 4.3-4.4 8-4.4z"/><circle cx="18.4" cy="6.2" r="2.3"/><path d="M17.5 6.2h1.8M18.4 5.3v1.8" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+        <h3 data-i18n="cat_miss">हराएको / सम्पर्कविहीन</h3>
+      </div>
       <p class="nig-subh" data-i18n="ig_pub">प्रकाशित स्रोत</p>
-      <ul class="nig-lines">
-        <li><span data-i18n="ig_form">फारम</span><strong class="num nig-n fd-live-miss">७१४</strong></li>
-        <li><span data-i18n="ig_hello">हेलो सरकार</span><strong class="num fd-live-hello">१४०</strong></li>
-        <li><span data-i18n="ig_madhesh">मधेश प्रहरी</span><strong class="num fd-live-mad">३०</strong></li>
-      </ul>
+      <div class="ibar-row"><span data-i18n="ig_form">फारम</span><b class="ibar"><i style="width:100%"></i></b><em class="num nig-n fd-live-miss">७१४</em></div>
+      <div class="ibar-row"><span data-i18n="ig_hello">हेलो सरकार</span><b class="ibar"><i style="width:20%"></i></b><em class="num fd-live-hello">१४०</em></div>
+      <div class="ibar-row"><span data-i18n="ig_madhesh">मधेश प्रहरी</span><b class="ibar"><i style="width:4%"></i></b><em class="num fd-live-mad">३०</em></div>
       <p class="nig-note" data-i18n="ig_miss_note">आधिकारिक सम्पर्कविहीन २,४९८ अलग। फारम, हेलो सरकार र मधेश यसमा जोडिएको छैन — तीन लाइन जोडेर आधिकारिक जम्मा बनाइएको छैन।</p>
     </article>
   </div>
@@ -2657,15 +2672,13 @@ body.names-ov-lock{overflow:hidden}
       <input id="names-q" type="search" placeholder="नाम, ठेगाना वा नम्बर…" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
     </div>
     <div class="names-chips names-chips-main" id="names-sec-chips"></div>
-    <div class="names-chips names-chips-src" id="names-src-chips" hidden></div>
-    <div class="names-chips names-chips-nat" id="names-nat-chips" hidden></div>
+    <div class="names-chips names-chips-src" id="names-src-chips"></div>
+    <div class="names-chips names-chips-nat" id="names-nat-chips"></div>
     <p class="names-home-count" id="names-sec-count"></p>
   </div>
   <div class="names-cat-tabs names-cat-tabs-compact" role="tablist" aria-label="नाम श्रेणी" data-i18n-aria="names_cats_aria">
-    <button type="button" class="names-cat-btn on" role="tab" data-names-cat="found" aria-selected="true" data-i18n="cat_found">भेटिएको</button>
-    <button type="button" class="names-cat-btn" role="tab" data-names-cat="rescue" aria-selected="false" data-i18n="cat_rescue">उद्धार</button>
-    <button type="button" class="names-cat-btn" role="tab" data-names-cat="treat" aria-selected="false" data-i18n="cat_treat">घाइते / उपचाररत</button>
-    <button type="button" class="names-cat-btn" role="tab" data-names-cat="miss" aria-selected="false" data-i18n="cat_miss">हराएको</button>
+    <button type="button" class="names-cat-btn on" role="tab" data-names-cat="rescue" aria-selected="true" data-i18n="cat_rescue">उद्धार / भेटिएको</button>
+    <button type="button" class="names-cat-btn" role="tab" data-names-cat="miss" aria-selected="false" data-i18n="cat_miss">हराएको / सम्पर्कविहीन</button>
   </div>
   <div class="names-master" id="names-master">
     <div class="names-sec-results" id="names-sec-results"></div>
@@ -2939,7 +2952,7 @@ body.names-ov-lock{overflow:hidden}
   </div>
   <div class="names-pane" data-names-cat="found" hidden>
 <div class="card names-found-card">
-<h3 class="fam-h" id="fam-found-h"><span data-i18n="found_h">भेटिएको</span> · <span id="stat-found">४१</span></h3>
+<p class="src-pill fam-found-pill" id="fam-found-h"><span data-i18n="found_h">भेटिएको</span> · <span id="stat-found">४१</span></p>
     <div class="pager" data-pager="fam-found" hidden>
       <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
       <div class="pboxes pager-pages"></div>
@@ -10603,8 +10616,8 @@ body.names-ov-lock{overflow:hidden}
 </div>
 
 
-<script src="i18n.js?v=2026-08-30-1212"></script>
-<script src="names-index.js?v=2026-08-30-1212"></script>
+<script src="i18n.js?v=2026-08-30-1236"></script>
+<script src="names-index.js?v=2026-08-30-1236"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -10661,7 +10674,7 @@ body.names-ov-lock{overflow:hidden}
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-30-1212";</script>
+<script>window.PAGE_VER="2026-08-30-1236";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -11636,9 +11649,9 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
 
 (function(){
   var CAT_OF = {
-    names:"found", "lists-dash":"found", "names-ig":"found", fd:"found",
+    names:"rescue", "lists-dash":"rescue", "names-ig":"rescue", fd:"rescue",
     family:"miss", "hello-sarkar":"miss", madhesh:"miss", "fam-public":"miss",
-    "fam-found-h":"found", "fam-found":"found", "stat-found":"found",
+    "fam-found-h":"rescue", "fam-found":"rescue", "stat-found":"rescue",
     "dao-res":"rescue", "rasuwa-res":"rescue", shelter:"rescue", suryagadhi:"rescue",
     "army-heli-res":"rescue", "heli-ktm":"rescue",
     "foreign-res":"rescue", "foreign-today":"rescue", "india-res":"rescue",
@@ -11656,18 +11669,25 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     t1:"trishuli1-res", foreign:"foreign-res", foreigntoday:"foreign-today",
     indicacross:"india-cross"
   };
-  var FD_CAT = { miss:"miss", hello:"miss", found:"found", dao:"rescue" };
+  var FD_CAT = { miss:"miss", hello:"miss", found:"rescue", dao:"rescue" };
   function setCat(cat, opts){
     opts = opts || {};
     var root = document.getElementById("names");
     if (!root || !cat) return;
     root.querySelectorAll(".names-cat-btn").forEach(function(b){
-      var on = b.getAttribute("data-names-cat") === cat;
+      var bc = b.getAttribute("data-names-cat");
+      var on = bc === cat || ((cat === "treat" || cat === "found") && bc === "rescue");
       b.classList.toggle("on", on);
       b.setAttribute("aria-selected", on ? "true" : "false");
     });
     root.querySelectorAll(".nig-card[data-names-cat]").forEach(function(c){
-      c.classList.toggle("on", c.getAttribute("data-names-cat") === cat);
+      var cc = c.getAttribute("data-names-cat");
+      c.classList.toggle("on", cc === cat || ((cat === "treat" || cat === "found") && cc === "rescue"));
+    });
+    root.querySelectorAll(".nig-chip[data-names-cat]").forEach(function(c){
+      var on = c.getAttribute("data-names-cat") === cat;
+      c.classList.toggle("on", on);
+      c.setAttribute("aria-selected", on ? "true" : "false");
     });
     var src = document.getElementById("names-src-chips");
     if (src) src.hidden = !(cat === "rescue");
