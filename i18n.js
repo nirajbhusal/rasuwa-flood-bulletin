@@ -16,7 +16,7 @@ window.I18N = {
 "nav_dash": "ड्यासबोर्ड",
 "nav_back_dash": "« ड्यासबोर्ड",
 "nav_sections": "खण्डहरू",
-"nav_map": "नक्सा",
+"nav_map": "नक्सा / समयरेखा",
 "nav_alert": "सतर्कता",
 "nav_rahat": "राहत भिजुअल",
 "nav_treat": "घाइते",
@@ -306,7 +306,7 @@ window.I18N = {
 "collect_sama": "नेपाल प्रहरी विपद् प्रतिकार्य तथा तालिम केन्द्र, सामाखुसी",
 "collect_note": "सम्बन्धित जिल्ला प्रशासन कार्यालय र स्थानीय तहसँग पनि समन्वय गरी सामग्री उपलब्ध गराउन सकिन्छ।",
 
-"h_map": "नक्सा",
+"h_map": "बाढी मार्ग र घटना समयरेखा",
 "h_rahat": "राहत / उद्धार भिजुअल",
 "h_rahat_photos": "उद्धार तस्बिर",
 "h_treat": "विपद्‌बाट उद्धार गरी उपचारार्थ काठमाडौं ल्याइएका घाइतेहरूको विवरण",
@@ -975,6 +975,8 @@ window.I18N = {
 "nav_about": "बारेमा",
 "nav_hide": "नेभ लुकाउनुहोस्",
 "nav_show": "नेभ देखाउनुहोस्",
+"map_title": "नक्सा / समयरेखा · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"map_meta": "बाढी मार्ग र घटना समयरेखा। टिमुरेदेखि देवघाट–सुस्ता। DHM नदी सतह। उद्धार १२३४।",
 "about_title": "बारेमा · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "about_meta": "रसुवा बाढी बुलेटिन बारेमा। निरज भुसालको स्वतन्त्र नागरिक पाना। सरकारी साइट होइन। ड्यासबोर्ड, नामावली, राहत। उद्धार १२३४।",
 "about_sub": "बारेमा · स्वतन्त्र नागरिक बुलेटिन",
@@ -1015,7 +1017,7 @@ window.I18N = {
 "nav_dash": "Dashboard",
 "nav_back_dash": "Back to dashboard",
 "nav_sections": "Sections",
-"nav_map": "Map",
+"nav_map": "Map / Timeline",
 "nav_alert": "Alert",
 "nav_rahat": "Relief visual",
 "nav_treat": "Injured",
@@ -1299,7 +1301,7 @@ window.I18N = {
 "collect_sama": "Nepal Police Disaster Response and Training Center, Samakhusi",
 "collect_note": "Goods can also be coordinated with the relevant District Administration Office and local level.",
 
-"h_map": "Map",
+"h_map": "Flood path and incident timeline",
 "h_rahat": "Relief / rescue visual",
 "h_rahat_photos": "Rescue photos",
 "h_treat": "Injured rescued from the disaster and brought to Kathmandu for treatment",
@@ -1965,6 +1967,8 @@ window.I18N = {
 "nav_about": "About",
 "nav_hide": "Hide menu",
 "nav_show": "Show menu",
+"map_title": "Map / Timeline · Rasuwa–Bhotekoshi flood bulletin",
+"map_meta": "Flood path and incident timeline from Timure to Devghat–Susta. DHM river gauges. Rescue 1234.",
 "about_title": "About · Rasuwa–Bhotekoshi flood bulletin",
 "about_meta": "About the Rasuwa flood bulletin. An independent civic page by Niraj Bhusal. Not a government site. Dashboard, roster, relief. Rescue 1234.",
 "about_sub": "About · independent civic bulletin",
@@ -3195,12 +3199,16 @@ window.I18N_LISTS = {
     var file = "";
     try { file = (location.pathname || "").split("/").pop() || ""; } catch (e) {}
     var aboutPg = file === "about.html" || document.documentElement.classList.contains("about-page");
+    var mapPg = file === "map.html" || document.documentElement.classList.contains("map-page");
     if (aboutPg) {
       if (p.about_title) document.title = p.about_title;
+    } else if (mapPg) {
+      if (p.map_title) document.title = p.map_title;
     } else if (p.title) document.title = p.title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) {
       if (aboutPg && p.about_meta) meta.setAttribute("content", p.about_meta);
+      else if (mapPg && p.map_meta) meta.setAttribute("content", p.map_meta);
       else if (p.meta) meta.setAttribute("content", p.meta);
     }
     applyKeyed(lang);

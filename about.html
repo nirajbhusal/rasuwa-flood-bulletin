@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1314">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1330">
 </head>
 <body class="about-page">
 <div class="head-stick">
@@ -65,7 +65,7 @@
     <a class="home-btn" href="index.html#home" aria-label="ड्यासबोर्ड" title="ड्यासबोर्ड" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">ड्यासबोर्ड</span></a>
     <a href="names.html" class="nav-names" data-i18n="nav_names">उद्धार / बेपत्ता नामावली</a>
     <a href="index.html#donate" data-i18n="nav_donate">राहत कोष</a>
-    <a href="index.html#map" data-i18n="nav_map">नक्सा</a>
+    <a href="map.html" data-i18n="nav_map">नक्सा / समयरेखा</a>
     <a href="index.html#alert" data-i18n="nav_alert">सतर्कता</a>
     <a href="index.html#rahat" data-i18n="nav_rahat">राहत भिजुअल</a>
     <a href="index.html#helpline" data-i18n="nav_helpline">हेल्पलाइन</a>
@@ -190,8 +190,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-08-30-1314"></script>
-<script src="names-index.js?v=2026-08-30-1314"></script>
+<script src="i18n.js?v=2026-08-30-1330"></script>
+<script src="names-index.js?v=2026-08-30-1330"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -217,6 +217,7 @@
     var file = (location.pathname || "").split("/").pop() || "";
     if (file === "names.html") return CANON + "names.html" + (location.hash || "");
     if (file === "about.html") return CANON + "about.html" + (location.hash || "");
+    if (file === "map.html") return CANON + "map.html" + (location.hash || "");
     return CANON + (location.hash || "");
   }
   function toast(msg){
@@ -259,7 +260,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-08-30-1314";
+window.PAGE_VER="2026-08-30-1330";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){

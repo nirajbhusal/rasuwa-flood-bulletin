@@ -1977,23 +1977,32 @@ a.home-ig-names:hover{text-decoration:none;border-color:var(--crimson);box-shado
   .home-ig{grid-template-columns:1fr}
 }
 
-/* names.html / about.html long-scroll; do not one-screen-off */
+/* names.html / about.html / map.html long-scroll; do not one-screen-off */
 html.names-page.desk, html.names-page.desk body,
-html.about-page.desk, html.about-page.desk body{
+html.about-page.desk, html.about-page.desk body,
+html.map-page.desk, html.map-page.desk body{
   height:auto;overflow:visible;
 }
 html.names-page.desk .page-body,
-html.about-page.desk .page-body{
+html.about-page.desk .page-body,
+html.map-page.desk .page-body{
   overflow:visible;height:auto;min-height:0;
 }
 html.names-page.desk .page-main,
-html.about-page.desk .page-main{
+html.about-page.desk .page-main,
+html.map-page.desk .page-main{
   overflow:visible;
 }
 html.names-page.desk:not(.desk-ready) .page-main section,
-html.about-page.desk:not(.desk-ready) .page-main section{
+html.about-page.desk:not(.desk-ready) .page-main section,
+html.map-page.desk:not(.desk-ready) .page-main section{
   display:block;
 }
+html.map-page.desk #map{
+  display:block;overflow:visible;max-height:none;
+}
+.map-page .page-main{overflow:visible}
+.map-page #map{display:block;max-height:none;overflow:visible}
 html.names-page.desk #names{
   display:block;overflow:visible;max-height:none;
 }

@@ -7,6 +7,8 @@
   var H = {"names":1,"family":1,"fam-public":1,"fam-found-h":1,"hello-sarkar":1,"madhesh":1,"dao-res":1,"rasuwa-res":1,"shelter":1,"suryagadhi":1,"army-heli-res":1,"heli-ktm":1,"foreign-res":1,"foreign-today":1,"india-res":1,"trishuli1-res":1,"india-cross":1,"treat":1,"treat-dhunche":1,"lists-dash":1,"fd":1,"names-ig":1,"search":1};
   var id = (location.hash || "").replace(/^#/, "");
   if (id === "about") location.replace("about.html" + (location.search || ""));
+  else if (id === "map") location.replace("map.html" + (location.search || ""));
+  else if (id === "path") location.replace("map.html" + (location.search || "") + "#path");
   else if (H[id]) location.replace("names.html" + location.hash);
 })();
 </script>
@@ -28,8 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1314">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1330">
 </head>
 <body>
 <div class="head-stick">
@@ -75,7 +76,7 @@
     <a class="home-btn" href="#home" aria-label="ड्यासबोर्ड" title="ड्यासबोर्ड" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">ड्यासबोर्ड</span></a>
     <a href="names.html" class="nav-names" data-i18n="nav_names">उद्धार / बेपत्ता नामावली</a>
     <a href="#donate" data-i18n="nav_donate">राहत कोष</a>
-    <a href="#map" data-i18n="nav_map">नक्सा</a>
+    <a href="map.html" data-i18n="nav_map">नक्सा / समयरेखा</a>
     <a href="#alert" data-i18n="nav_alert">सतर्कता</a>
     <a href="#rahat" data-i18n="nav_rahat">राहत भिजुअल</a>
     <a href="#helpline" data-i18n="nav_helpline">हेल्पलाइन</a>
@@ -827,57 +828,7 @@
       <li><b>NEA कर्मचारी १३३+</b> — नेपाल विद्युत् प्राधिकरण (<a href="https://www.ratopati.com/story/587664/more-than-133-hydropower-employees-and-workers-left-without-contact-in-rasuwa-flood" target="_blank" rel="noopener">रातोपाटी</a>): विभिन्न जलविद्युत् आयोजनाका कर्मचारी/कामदार <strong>१३३ भन्दा बढी</strong> सम्पर्कविहीन। लाङटाङ आयोजना ६० यथावत्।</li>
     </ul>
 
-<section id="map" class="hero-map">
-  <span id="path" hidden></span>
-  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_map">नक्सा</h2></div>
-  <div class="card teal map-wrap">
-    <div id="flood-map" role="img" aria-label="टिमुरेदेखि देवघाट–सुस्तासम्मको बाढी बाटो" data-i18n-aria="map_aria"></div>
-    <div class="map-legend">
-      <span><i class="solid"></i><span data-i18n="map_confirmed">पुष्टि बाटो</span></span>
-      <span><i class="dash"></i><span data-i18n="map_risk">अनुमान / जोखिम</span></span>
-      <span><i class="pin start"></i><span data-i18n="map_entry">प्रवेश</span></span>
-      <span><i class="pin hit"></i><span data-i18n="map_reached">पुगेको</span></span>
-      <span><i class="pin risk"></i><span data-i18n="map_est">अनुमान</span></span>
-      <span><i class="pin gauge"></i><span data-i18n="map_gauge">DHM गेज</span></span>
-    </div>
-    <p class="map-note" data-i18n-html="map_note">बिन्दुहरू बजार/पुलका अनुमानित स्थान हुन्, नदीको ठीक बीच होइन। DHM प्रतिवेदन: देवघाट उच्चिष्ठ ६.५७ मि @ १६:००। महाशाखा: SMS ६.८ लाख; देवघाट extra ~२० मिलियन घनमिटर। सुस्ता सारिँदै (करिब ७०%), बाढी पुगेको पुष्टि छैन। नुवाकोट देवीघाट ≠ चितवन देवघाट। © OpenStreetMap</p>
-  </div>
-<p class="path-ask" data-i18n-html="path_ask"><strong>नदी वरपरका बासिन्दाहरूलाई अनुरोध।</strong> तटीय क्षेत्रबाट सुरक्षित स्थानमा सर्नुहोस् र उच्च सतर्कता अपनाउनुहोस्।</p>
-  <div class="wl" id="wl-rivers" data-src="./dhm-rivers.json">
-    <div class="wl-top">
-      <h3><span data-i18n="dhm_h">DHM नदी सतह</span> <small data-i18n="dhm_sub">बाढीको बाटो · स्वचालित गेज</small></h3>
-    </div>
-    <div class="wl-list" id="wl-list">
-      <article class="wl-row"><div class="wl-row-top"><h4>धुन्चे · त्रिशूली खोला<small>नुवाकोट · DHM</small></h4><span class="wl-badge silent">गेज मौन</span></div><div class="wl-num">२.४०<span>मिटर</span></div><p class="wl-meta">नुवाकोट · ०९:२० · यो पढाइपछि मौन</p></article>
-      <article class="wl-row"><div class="wl-row-top"><h4>बेत्रावती · त्रिशूली<small>नुवाकोट · DHM</small></h4><span class="wl-badge silent">गेज मौन</span></div><div class="wl-num">३.५५<span>मिटर</span></div><p class="wl-meta">नुवाकोट · ०९:२० · यो पढाइपछि मौन</p></article>
-      <article class="wl-row washed"><div class="wl-row-top"><h4>फुर्के · मलेखु<small>धादिङ · DHM</small></h4><span class="wl-badge danger">बगेको</span></div><div class="wl-num">१०.४८<span>मिटर</span></div><p class="wl-meta">धादिङ · ११:४० · अन्तिम पढाइ · लाइभ होइन</p></article>
-      <article class="wl-row"><div class="wl-row-top"><h4>काली खोला · त्रिशूली<small>चितवन · DHM</small></h4><span class="wl-badge warn">बढ्दो</span></div><div class="wl-num">७.५६<span>मिटर</span></div><p class="wl-meta">चितवन · ००:१०</p></article>
-      <article class="wl-row"><div class="wl-row-top"><h4>देवघाट · नारायणी<small>चितवन · DHM</small></h4><span class="wl-badge ok">सतर्कतामुनि</span></div><div class="wl-num">४.३७<span>मिटर</span></div><p class="wl-meta">चितवन · २३:५०</p></article>
-    </div>
-    <p class="wl-src" id="wl-src">DHM नेटवर्कमा अहिले खतरा तहमा फुर्के मात्र (गेज बगेको, लाइभ होइन)। काली ७.५६ बढ्दो ००:१० / देवघाट ४.३७ स्थिर २३:५०, दुवै सतर्कतामुनि। धुन्चे/बेत्रावती मौन ०९:२०। स्रोत: <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a></p>
-    <p class="wl-src" data-i18n-html="dhm_pdf">DHM प्रतिवेदन (१० भदौ): दिनको उच्चिष्ठ देवघाट <strong>६.५७ मि</strong> @ १६:००, बहाव करिब <strong>५,८५०</strong> घनमिटर/सेकेन्ड; कालीखोला <strong>१२.३ मि</strong>। SMS <strong>६,७९,२९५</strong> (NTC+Ncell)। extra आयतन करिब <strong>२०</strong> मिलियन घनमिटर। सीमानाका–देवघाट <strong>१६८</strong> किमि। माथिको सूची लाइभ गेज हो। <a href="docs/dhm-bhadra10-sitrep.pdf" target="_blank" rel="noopener">PDF</a></p>
-  </div>
-  <div class="card teal">
-    <div class="path" role="list" data-i18n-list="path" data-i18n-kind="step">
-      <div class="step" role="listitem"><span class="t">०८:३७</span><i class="rail" aria-hidden="true"></i><div><b>भूकम्प ४.४</b><span>खानी तथा भूगर्भ</span></div></div>
-      <div class="step" role="listitem"><span class="t">०८:५०</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेसी गेज मौन</b><span>अन्तिम १.६२ मि @ ०८:४०</span></div></div>
-      <div class="step" role="listitem"><span class="t">~९:१५</span><i class="rail" aria-hidden="true"></i><div><b>टिमुरे</b><span>तिब्बतबाट नेपाल प्रवेश</span></div></div>
-      <div class="step" role="listitem"><span class="t">बिहान</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेसी</b><span>बजार र पूर्वाधार क्षति</span></div></div>
-      <div class="step" role="listitem"><span class="t">~९:००</span><i class="rail" aria-hidden="true"></i><div><b>विदुर / नुवाकोट</b><span>बेत्रावती, त्रिशूली, देवीघाट, जेल</span></div></div>
-      <div class="step" role="listitem"><span class="t">१०:२८</span><i class="rail" aria-hidden="true"></i><div><b>गल्छी</b><span>धादिङ · महाशाखा पुष्टि, झोलुङ्गे पुल बग्यो</span></div></div>
-      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>गजुरी</b><span>धादिङ · मुग्लिन प्रहरी, सडक रोकियो</span></div></div>
-      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>आदमघाट</b><span>धादिङ · सशस्त्र प्रहरी: बाढी पार</span></div></div>
-      <div class="step" role="listitem"><span class="t">११:५०</span><i class="rail" aria-hidden="true"></i><div><b>फुर्के / मलेखु</b><span>१०.८ मिटर · स्टेसन र झोलुंगे बगे</span></div></div>
-      <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>बैरेनी</b><span>धादिङ · बजारमा घर, टहरा, झोलुंगे क्षति</span></div></div>
-      <div class="step" role="listitem"><span class="t">१३:००</span><i class="rail" aria-hidden="true"></i><div><b>मुग्लिन</b><span>DHM: बाढी पार · पृथ्वी र मुग्लिन–नारायणगढ अझै बन्द</span></div></div>
-      <div class="step" role="listitem"><span class="t">११:२१</span><i class="rail" aria-hidden="true"></i><div><b>चितवन</b><span>प्रवेश गर्दै · केबलकार ११:३० बन्द</span></div></div>
-      <div class="step" role="listitem"><span class="t">~१२:५८</span><i class="rail" aria-hidden="true"></i><div><b>फिस्लिङअघि</b><span>चितवन · प्रजिअ अर्याल</span></div></div>
-      <div class="step" role="listitem"><span class="t">१५:२०</span><i class="rail" aria-hidden="true"></i><div><b>चितवन देवघाट</b><span>DHM: पुग्यो · उच्चिष्ठ ६.५७ मि @ १६:००</span></div></div>
-      <div class="step" role="listitem"><span class="t">~१५:४५</span><i class="rail" aria-hidden="true"></i><div><b>सुस्ता</b><span>करिब ७०% सारिए · बाढी पुगेको होइन</span></div></div>
-    </div>
-    <p data-i18n-html="path_p">बाढी लेन्दे खोला/भोटेकोशी हुँदै त्रिशूलीमा मिसिएको छ। गल्छी र गजुरीपछि सशस्त्र प्रहरीका अनुसार धादिङको <strong>आदमघाट</strong> पार भएको छ। नुवाकोटमा विदुर मेयर राजन श्रेष्ठ: बेत्रावती बजार सबैभन्दा बढी क्षति, त्रिशूली बजार क्षति, सेन्ट्रल जेल डुबान, देवीघाट बजार डुबेको। कारागार प्रमुख भेषबहादुर कुँवर: कैदीबन्दी करिब <strong>१०००</strong> सुरक्षित (विदुर–३ खम्पाक्याम्प)।</p>
-  </div>
-</section>
+
 </div>
 
 <main class="wrap">
@@ -3166,8 +3117,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-08-30-1314"></script>
-<script src="names-index.js?v=2026-08-30-1314"></script>
+<script src="i18n.js?v=2026-08-30-1330"></script>
+<script src="names-index.js?v=2026-08-30-1330"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -3184,6 +3135,7 @@
     var file = (location.pathname || "").split("/").pop() || "";
     if (file === "names.html") return CANON + "names.html" + (location.hash || "");
     if (file === "about.html") return CANON + "about.html" + (location.hash || "");
+    if (file === "map.html") return CANON + "map.html" + (location.hash || "");
     return CANON + (location.hash || "");
   }
   function toast(msg){
@@ -3227,7 +3179,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-30-1314";</script>
+<script>window.PAGE_VER="2026-08-30-1330";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -3560,270 +3512,9 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
   });
 })();
 
-(function(){
-  var root = document.getElementById("wl-rivers") || document.getElementById("wl-betrawati");
-  if (!root) return;
-  var listEl = document.getElementById("wl-list") || root;
-  var srcEl = document.getElementById("wl-src");
-  function np(s){ return window.fmtNum ? fmtNum(s) : s; }
-  function fmtM(v){
-    if (v == null || v === "" || isNaN(v)) return "—";
-    var n = Number(v).toFixed(2);
-    return window.fmtNum ? fmtNum(n) : n;
-  }
-  function tt(k){ return window.t ? t(k) : k; }
-  function npt(iso){
-    if (!iso) return "";
-    var d = new Date(iso);
-    if (isNaN(d.getTime())) return "";
-    var parts = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Asia/Kathmandu", hour: "2-digit", minute: "2-digit",
-      hour12: false
-    }).formatToParts(d);
-    var get = function(t){ for (var i=0;i<parts.length;i++) if (parts[i].type===t) return parts[i].value; return ""; };
-    return np(get("hour") + ":" + get("minute"));
-  }
-  function badgeOf(st, level, warn, danger, silent, washed){
-    if (washed) return {cls:"danger", label:tt("washed")};
-    if (silent) return {cls:"silent", label:tt("silent_gauge")};
-    if (danger && level >= danger) return {cls:"danger", label:tt("danger_level")};
-    if (warn && level >= warn) return {cls:"warn", label:tt("warn_level")};
-    if (st === "FALLING") return {cls:"ok", label:tt("falling")};
-    if (st === "RISING") return {cls:"warn", label:tt("rising")};
-    return {cls:"ok", label:tt("below_warn")};
-  }
-  function rowHtml(s){
-    var level = Number(s.level_m);
-    var warn = Number(s.warning_m);
-    var danger = Number(s.danger_m);
-    var washed = !!s.washed;
-    var silent = !!s.silent;
-    if (!washed && !silent && s.observed_at) {
-      silent = (Date.now() - new Date(s.observed_at).getTime()) > 30 * 60 * 1000;
-    }
-    var b = badgeOf(s.steady, level, warn, danger, silent, washed);
-    var when = s.observed_npt || npt(s.observed_at);
-    var max = Math.max(danger || 0, warn || 0, level || 0) * 1.15 || 1;
-    var fillCls = "wl-fill";
-    if (!washed && !silent) {
-      if (danger && level >= danger) fillCls += " danger";
-      else if (warn && level >= warn) fillCls += " warn";
-    } else if (washed) {
-      fillCls += " danger";
-    }
-    var marks = "";
-    var en = document.documentElement.lang === "en";
-    if (warn) marks += '<i style="left:' + ((warn/max)*100) + '%">' + tt("warning") + " " + fmtM(warn) + '</i>';
-    if (danger) marks += '<i style="left:' + ((danger/max)*100) + '%">' + tt("danger") + " " + fmtM(danger) + '</i>';
-    var dist = en ? (s.district || s.district_np || "") : (s.district_np || s.district || "");
-    var meta = dist + (when ? " · " + when : "");
-    if (washed) meta += " · " + tt("last_not_live");
-    else if (silent) meta += " · " + tt("silent_after");
-    var href = s.source || ("https://www.dhm.gov.np/hydrology/hms-Single/" + s.station_id);
-    var sname = en ? (s.name || s.name_np) : (s.name_np || s.name);
-    return '<article class="wl-row' + (washed ? " washed" : "") + '">' +
-      '<div class="wl-row-top"><h4>' + sname +
-      '<small><a href="' + href + '" target="_blank" rel="noopener">' + dist + ' · DHM</a></small></h4>' +
-      '<span class="wl-badge ' + b.cls + '">' + b.label + '</span></div>' +
-      '<div class="wl-num">' + fmtM(level) + '<span>' + tt("meter") + '</span></div>' +
-      '<p class="wl-meta">' + meta + '</p>' +
-      '<div class="wl-track" aria-hidden="true"><div class="' + fillCls + '" style="width:' + Math.min(100,(level/max)*100) + '%"></div></div>' +
-      '<div class="wl-marks">' + marks + '</div></article>';
-  }
-  var lastData = null;
-  function paint(data){
-    if (data) lastData = data;
-    data = lastData;
-    if (!data) return;
-    var stations = data.stations || (data.level_m != null ? [data] : []);
-    if (!stations.length) return;
-    listEl.innerHTML = stations.map(rowHtml).join("");
-    if (srcEl) {
-      var en = document.documentElement.lang === "en";
-      var link = ' <a href="https://www.hydrology.gov.np/" target="_blank" rel="noopener">hydrology.gov.np</a>';
-      if (en) {
-        var bits = stations.map(function(s){
-          return (s.name || s.name_np || "") + " " + fmtM(s.level_m) + " " + tt("meter");
-        });
-        srcEl.innerHTML = bits.join(" · ") + ". " + tt("src_word") + ":" + link;
-      } else if (data.note_np) {
-        srcEl.innerHTML = data.note_np + " स्रोत:" + link;
-      }
-    }
-  }
-  function load(){
-    var url = root.getAttribute("data-src") || "./dhm-rivers.json";
-    fetch(url + (url.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" })
-      .then(function(r){ return r.ok ? r.json() : null; })
-      .then(paint)
-      .catch(function(){});
-  }
-  if (window.__addLangHook) window.__addLangHook(function(){ paint(lastData); });
-  load();
-  setInterval(load, 60000);
-})();
 </script>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-(function(){
-  var el = document.getElementById("flood-map");
-  if (!el || typeof L === "undefined") return;
-  var confirmed = [
-    {name:"टिमुरे", name_en:"Timure", t:"~९:१५", t_en:"~9:15", note:"तिब्बतबाट नेपाल प्रवेश", note_en:"Entered Nepal from Tibet", lat:28.250, lng:85.357, kind:"start"},
-    {name:"स्याफ्रुबेसी", name_en:"Syaphrubesi", t:"बिहान", t_en:"morning", note:"बजार र पूर्वाधार क्षति", note_en:"Bazaar and infrastructure damage", lat:28.163, lng:85.345, kind:"hit"},
-    {name:"बेत्रावती / विदुर", name_en:"Betrawati / Bidur", t:"~९:००", t_en:"~9:00", note:"त्रिशूली, नुवाकोट देवीघाट, जेल", note_en:"Trishuli, Nuwakot Devighat, jail", lat:27.967, lng:85.184, kind:"hit"},
-    {name:"गल्छी", name_en:"Galchhi", t:"१०:२८", t_en:"10:28", note:"धादिङ · महाशाखा पुष्टि", note_en:"Dhading · DHM confirmed", lat:27.811, lng:85.001, kind:"hit"},
-    {name:"गजुरी", name_en:"Gajuri", t:"ताजा", t_en:"latest", note:"सडक रोकियो", note_en:"Road stopped", lat:27.748, lng:84.978, kind:"hit"},
-    {name:"आदमघाट", name_en:"Adamghat", t:"ताजा", t_en:"latest", note:"बाढी पार", note_en:"Flood passed", lat:27.803, lng:84.887, kind:"hit"},
-    {name:"फुर्के / मलेखु", name_en:"Furke / Malekhu", t:"११:५०", t_en:"11:50", note:"१०.८ मिटर · पुल बग्यो", note_en:"10.8 m · bridge washed away", lat:27.804, lng:84.837, kind:"hit"},
-    {name:"बैरेनी", name_en:"Baireni", t:"ताजा", t_en:"latest", note:"बजार क्षति", note_en:"Bazaar damage", lat:27.793, lng:84.762, kind:"hit"},
-    {name:"मुग्लिन", name_en:"Mugling", t:"~१३:४२", t_en:"~13:42", note:"बाढी पुग्यो · सडक बन्द", note_en:"Flood arrived · road closed", lat:27.857, lng:84.557, kind:"hit"},
-    {name:"फिस्लिङअघि", name_en:"Before Fishings", t:"~१२:५८", t_en:"~12:58", note:"चितवन · प्रजिअ अर्याल", note_en:"Chitwan · CDO Aryal", lat:27.820, lng:84.502, kind:"hit"},
-    {name:"चितवन देवघाट", name_en:"Chitwan Devghat", t:"~१५:२०", t_en:"~15:20", note:"महाशाखा हाई अलर्ट · बाढी पुग्यो, सतह बढ्दो", note_en:"DHM high alert · flood arrived, level rising", lat:27.711, lng:84.419, kind:"hit"}
-  ];
-  var risk = [
-    {name:"सुस्ता", name_en:"Susta", t:"~१५:४५", t_en:"~15:45", note:"करिब ७०% सारिए · बाढी पुगेको होइन", note_en:"About 70% moved · flood has not arrived", lat:27.452, lng:83.909, kind:"risk"}
-  ];
-  var map = L.map(el, {scrollWheelZoom:false, tap:true});
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 16,
-    attribution: "&copy; <a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener'>OpenStreetMap</a>"
-  }).addTo(map);
-  var confLatLng = confirmed.map(function(p){ return [p.lat, p.lng]; });
-  var riskLatLng = [[confirmed[confirmed.length-1].lat, confirmed[confirmed.length-1].lng]].concat(
-    risk.map(function(p){ return [p.lat, p.lng]; })
-  );
-  L.polyline(confLatLng, {color:"#c41e3a", weight:4, opacity:.9, lineJoin:"round"}).addTo(map);
-  L.polyline(riskLatLng, {color:"#d97706", weight:3, opacity:.85, dashArray:"8 8", lineJoin:"round"}).addTo(map);
-  var pointMarks = [];
-  function pointLabel(p){
-    var en = document.documentElement.lang === "en";
-    var nm = en ? (p.name_en || p.name) : p.name;
-    var tm = en ? (p.t_en || p.t) : p.t;
-    var nt = en ? (p.note_en || p.note) : p.note;
-    return {nm: nm, html: "<b>" + nm + "</b><span>" + tm + " · " + nt + "</span>"};
-  }
-  function pin(p, n) {
-    var icon = L.divIcon({
-      className: "",
-      html: '<div class="map-pin ' + p.kind + '">' + n + "</div>",
-      iconSize: [26, 26],
-      iconAnchor: [13, 13],
-      popupAnchor: [0, -14]
-    });
-    var lab = pointLabel(p);
-    var m = L.marker([p.lat, p.lng], {icon: icon, keyboard: true, title: lab.nm})
-      .bindPopup(lab.html)
-      .addTo(map);
-    pointMarks.push({m: m, p: p});
-  }
-  confirmed.forEach(function(p, i){ pin(p, i + 1); });
-  risk.forEach(function(p, i){ pin(p, confirmed.length + i + 1); });
-  map.fitBounds(confLatLng.concat(risk.map(function(p){ return [p.lat, p.lng]; })), {padding: [28, 28], maxZoom: 10});
-  var GAUGE_XY = {
-    4657: [28.098163, 85.318589],
-    52: [27.97, 85.18],
-    5611: [27.804, 84.837],
-    4781: [27.833, 84.546],
-    265: [27.71, 84.43]
-  };
-  function npNum(s){ return window.fmtNum ? fmtNum(s) : s; }
-  function fmtM(v){
-    if (v == null || v === "" || isNaN(v)) return "—";
-    var n = Number(v).toFixed(2);
-    return window.fmtNum ? fmtNum(n) : n;
-  }
-  function tt(k){ return window.t ? t(k) : k; }
-  var gaugeMarks = [];
-  function gaugePopup(s){
-    var level = Number(s.level_m);
-    var warn = Number(s.warning_m);
-    var danger = Number(s.danger_m);
-    var washed = !!s.washed;
-    var silent = !!s.silent;
-    if (!washed && !silent && s.observed_at) {
-      silent = (Date.now() - new Date(s.observed_at).getTime()) > 30 * 60 * 1000;
-    }
-    var when = s.observed_npt || "";
-    var line;
-    var en = document.documentElement.lang === "en";
-    var sname = en ? (s.name || s.name_np) : (s.name_np || s.name);
-    if (washed) line = fmtM(level) + " " + tt("meter") + " · " + tt("washed") + " · " + tt("last_not_live") + (when ? " · " + when : "");
-    else if (silent) line = fmtM(level) + " " + tt("meter") + " · " + tt("silent_gauge") + (when ? " · " + when : "") + (warn ? " · " + tt("warning") + " " + fmtM(warn) : "");
-    else {
-      var trend = s.steady === "RISING" ? tt("rising") : (s.steady === "FALLING" ? tt("falling") : tt("steady"));
-      var wd = (warn ? tt("warning") + " " + fmtM(warn) : "") + (danger ? " / " + tt("danger") + " " + fmtM(danger) : "");
-      line = fmtM(level) + " " + tt("meter") + " " + trend + (wd ? " · " + wd : "") + (when ? " · " + when : "");
-    }
-    return "<b>" + sname + "</b><span>" + line + "</span>";
-  }
-  function gaugeClass(s){
-    var level = Number(s.level_m);
-    var warn = Number(s.warning_m);
-    var danger = Number(s.danger_m);
-    var washed = !!s.washed;
-    var silent = !!s.silent;
-    if (!washed && !silent && s.observed_at) {
-      silent = (Date.now() - new Date(s.observed_at).getTime()) > 30 * 60 * 1000;
-    }
-    var cls = "map-pin gauge";
-    if (washed) cls += " washed";
-    else if (silent) cls += " silent";
-    else if (danger && level >= danger) cls += " danger";
-    else if (warn && level >= warn) cls += " warn";
-    return cls;
-  }
-  fetch("./dhm-rivers.json?t=" + Date.now(), { cache: "no-store" })
-    .then(function(r){ return r.ok ? r.json() : null; })
-    .then(function(data){
-      if (!data || !data.stations) return;
-      data.stations.forEach(function(s){
-        var xy = GAUGE_XY[s.station_id];
-        if (!xy) return;
-        var gch = document.documentElement.lang === "en" ? "G" : "ग";
-        var icon = L.divIcon({
-          className: "",
-          html: '<div class="' + gaugeClass(s) + '">' + gch + "</div>",
-          iconSize: [22, 22],
-          iconAnchor: [11, 11],
-          popupAnchor: [0, -12]
-        });
-        var en = document.documentElement.lang === "en";
-        var sname = en ? (s.name || s.name_np) : (s.name_np || s.name);
-        var m = L.marker(xy, {icon: icon, keyboard: true, title: sname + " DHM", zIndexOffset: 200})
-          .bindPopup(gaugePopup(s))
-          .addTo(map);
-        gaugeMarks.push({m: m, s: s});
-      });
-    })
-    .catch(function(){});
-  function refreshMapLang(){
-    pointMarks.forEach(function(x){
-      var lab = pointLabel(x.p);
-      x.m.setPopupContent(lab.html);
-      x.m.options.title = lab.nm;
-    });
-    gaugeMarks.forEach(function(x){
-      x.m.setPopupContent(gaugePopup(x.s));
-      var en = document.documentElement.lang === "en";
-      var sname = en ? (x.s.name || x.s.name_np) : (x.s.name_np || x.s.name);
-      x.m.options.title = sname + " DHM";
-    });
-  }
-  if (window.__addLangHook) window.__addLangHook(refreshMapLang);
-  function fix() { map.invalidateSize(); }
-  window.__fixFloodMap = fix;
-  setTimeout(fix, 0);
-  setTimeout(fix, 400);
-  window.addEventListener("resize", fix);
-  window.addEventListener("hashchange", function(){ if (location.hash === "#map" || location.hash === "#path") setTimeout(fix, 300); });
-  if (location.hash === "#map" || location.hash === "#path") setTimeout(fix, 300);
-  document.querySelectorAll('a[href="#map"]').forEach(function(a){
-    a.addEventListener("click", function(){ setTimeout(fix, 350); });
-  });
-})();
-
 (function(){
   function np(s){ return window.fmtNum ? fmtNum(s) : s; }
   function tt(k){ return window.t ? t(k) : k; }
@@ -4130,11 +3821,6 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (show) back.removeAttribute("hidden");
     else back.setAttribute("hidden", "");
   }
-  function fixMap(id){
-    if (id !== "map") return;
-    setTimeout(function(){ if (window.__fixFloodMap) window.__fixFloodMap(); }, 80);
-    setTimeout(function(){ if (window.__fixFloodMap) window.__fixFloodMap(); }, 350);
-  }
   function commitHash(id){
     if (!id || document.body.classList.contains("desk-screen")) return;
     if (id === last) return;
@@ -4143,7 +3829,6 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (location.hash !== next) {
       try { history.replaceState(null, "", location.pathname + location.search + next); } catch (e) {}
     }
-    fixMap(id);
   }
   function spyTo(id){
     if (!id || document.body.classList.contains("desk-screen")) return;
@@ -4191,7 +3876,6 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
       var target = document.getElementById(id);
       if (target && target.scrollIntoView) target.scrollIntoView({block:"start", behavior:"auto"});
       else window.scrollTo(0, 0);
-      fixMap(id);
     });
   });
 })();
@@ -4392,10 +4076,6 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
         if (target && target.scrollIntoView) target.scrollIntoView({block: "start", behavior: "auto"});
         else window.scrollTo(0, 0);
       }
-      if (tid === "map" || location.hash === "#path" || location.hash === "#map") {
-        setTimeout(function(){ if (window.__fixFloodMap) window.__fixFloodMap(); }, 80);
-        setTimeout(function(){ if (window.__fixFloodMap) window.__fixFloodMap(); }, 350);
-      }
       return;
     }
     list.forEach(function(s){
@@ -4419,10 +4099,6 @@ document.querySelectorAll(".feed-tabs button").forEach(function(btn){
     if (!opts || opts.scroll !== false) {
       if (main) main.scrollTop = 0;
       window.scrollTo(0, 0);
-    }
-    if (tid === "map" || location.hash === "#path" || location.hash === "#map") {
-      setTimeout(function(){ if (window.__fixFloodMap) window.__fixFloodMap(); }, 80);
-      setTimeout(function(){ if (window.__fixFloodMap) window.__fixFloodMap(); }, 350);
     }
   }
 
