@@ -80,7 +80,7 @@ window.I18N = {
 "hero_cash_sub": "अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोष",
 "hero_ems_h": "Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard · स्याफ्रुबेसी क्षति · Copernicus EMSR927",
 "hero_ems_sub": "Copernicus EMSR927 · २७ अगस्ट ०५:०५ UTC · स्याफ्रुबेसी — NDRRMA शव ७३४ / सम्पर्कविहीन २,४९८ / उद्धार ८१८६ माथि होइन।",
-"hero_ems_more": "पूरा तालिका र नक्सा",
+"hero_ems_more": "पूरा तालिका",
 "ems_k_built": "भवन",
 "ems_k_built_sub": "४३३ / ५५९ · ७७.५%",
 "ems_k_road": "सडक",
@@ -652,12 +652,14 @@ window.I18N = {
 "ig_madhesh": "मधेश प्रहरी",
 "ig_pub": "प्रकाशित स्रोत",
 "ig_official": "आधिकारिक रिपोर्ट",
+"ig_off_miss": "सम्पर्कविहीन",
+"ig_miss_split": "प्रहरी २७ · सेना ४५ · सशस्त्र १३ · भन्सार १५ · अध्यागमन ४ · रसुवा DEOC ५६२ · नुवाकोट DEOC ११५ · जलविद्युत ९३३ · मकवानपुर DEOC ६५ · विदेशी ५८९ · NRN १२७ · लाङटाङ ३",
 "ig_found_note": "फारम भेटिएको मात्र। NDRRMA २१८९ · टिमुरे ७३ · भारतीय २१ · त्रिशूली-१ ६३ · सेना-हेलि ६५४ · विदेशी १५२ · आज ५४ · चीनबाट १४९ · उद्धार ८१८६ यो संख्यामा होइन।",
-"ig_miss_note": "आधिकारिक सम्पर्कविहीन २,४९८ अलग। फारम, हेलो सरकार र मधेश यसमा जोडिएको छैन — तीन लाइन जोडेर आधिकारिक जम्मा बनाइएको छैन।",
+"ig_miss_note": "फारम, हेलो सरकार १४० र मधेश ३० यो २,४९८ मा जोडिएको छैन — तीन लाइन जोडेर आधिकारिक जम्मा बनाइएको छैन।",
 "ig_res_ndrrma": "NDRRMA",
 "ig_res_ndrrma_split": "नेपाली २०३४ · विदेशी १५५",
 "ig_res_sub": "विदेशी / प्रवेश",
-"ig_res_note": "यी सूची जोडेर उद्धार जम्मा बनाइएको छैन। फारम भेटिएको २१८९ मा होइन। SitRep हेलि १९७६ / NDRRMA ग्राफिक ८१८६ अलग लेबल।",
+"ig_res_note": "यी सूची जोडेर उद्धार जम्मा बनाइएको छैन। सम्पर्कविहीन २,४९८ अलग लेबल — २१८९/४२/७१४ मा जोडिएको छैन। फारम भेटिएको २१८९ मा होइन। SitRep हेलि १९७६ / NDRRMA ग्राफिक ८१८६ अलग लेबल।",
 "ig_cross": "चीनबाट प्रवेश",
 "ig_inj_ndrrma": "NDRRMA घाइते",
 "ig_inj_dhunche": "रसुवा अस्पताल धुन्चे",
@@ -811,7 +813,7 @@ window.I18N = {
 "cash_suryanepal": "सूर्य नेपाल प्रालि",
 "cash_suryanepal_cap": "सूर्य नेपाल प्रालि · १५ करोड",
 "cash_suryanepal_note": "प्रधानमन्त्री दैवी प्रकोप उद्धार कोषलाई सूर्य नेपाल प्रालिले १५ करोड रुपैयाँ सहयोग। जम्मा ४ अर्ब २४ करोडमा — फेरि नजोड्नुहोस्।",
-"cash_sheet_lead": "अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष · १२ भदौ — जम्मा <strong>रु. ६ अर्ब ५५ करोड</strong> (६,५५,३३,६२,०११)। विपद्पछि संकलित <strong>४ अर्ब ३८ करोड</strong> (४,३८,०८,५२,२५२)। विपद्अघि मौज्दात <strong>२ अर्ब १७ करोड</strong> (२,१७,२५,०९,७५९) — जम्माभित्र, फेरि नजोड्नुहोस्। अघिल्लो ११ भदौ जम्मा ४ अर्ब ९ करोड (४,०९,११,६०,६७०) / विपद्पछि १ अर्ब ९१ करोड इतिहास। सूर्य नेपाल १५ / शुक्रबार ३८.५५ यसै ६ अर्ब ५५ करोडभित्र। डलर <strong>६,८०,६१८</strong> अलग लेबल — नेपाली जम्मामा होइन। मित्र राष्ट्र घोषणा समावेश छैन। स्रोत: <a href=\"img/today-2026-08-29-pmdrf-banks-0512.jpg\" target=\"_blank\" rel=\"noopener\">९ बैंक तालिका</a>।",
+"cash_sheet_lead": "अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष · १२ भदौ — जम्मा <strong>रु. ६ अर्ब ५५ करोड</strong> (६,५५,३३,६२,०११)। विपद्पछि संकलित <strong>४ अर्ब ३८ करोड</strong> (४,३८,०८,५२,२५२)। विपद्अघि मौज्दात <strong>२ अर्ब १७ करोड</strong> (२,१७,२५,०९,७५९) — जम्माभित्र, फेरि नजोड्नुहोस्। अघिल्लो ११ भदौ जम्मा ४ अर्ब ९ करोड (४,०९,११,६०,६७०) / विपद्पछि १ अर्ब ९१ करोड इतिहास। सूर्य नेपाल १५ / शुक्रबार ३८.५५ यसै ६ अर्ब ५५ करोडभित्र। डलर <strong>६,८०,६१८</strong> अलग लेबल — नेपाली जम्मामा होइन। मित्र राष्ट्र घोषणा समावेश छैन। स्रोत: ९ बैंक तालिका।",
 "cash_named_lead": "शुक्रबार अर्थमन्त्री डा. स्वर्णिम वाग्लेमार्फत २७ संस्था/व्यक्ति — एकै दिन <strong>३८ करोड ५५ लाख</strong> (३८,५६,६४,२२२)। सूर्य नेपाल १५ यसै सूचीमा। अब ६ अर्ब ५५ करोडभित्र — फेरि नजोड्नुहोस्। अर्थमार्फत निजी क्षेत्र २७.३३ करोड अघिल्लो इतिहास मात्र।",
 "cash_balance_note": "विपद्अघि मौज्दात <strong>२,१७,२५,०९,७५९</strong> ६ अर्ब ५५ करोडभित्र — अलग कोष होइन। डलर ६,८०,६१८ (हिमालयन ५,९१,४५१ + लक्ष्मी सनराइज ८९,१६७) नेपाली जम्मामा होइन। मित्र राष्ट्र घोषणा समावेश छैन।",
 "ndrrma_rahat_1500": "NDRRMA / गृह १२ भदौ १९:०० — सरकारबाट जिल्लालाई नगद: रसुवा <strong>१ करोड</strong> · नुवाकोट <strong>१ करोड</strong> · धादिङ <strong>५० लाख</strong> · <strong>१५ पालिका ६ करोड ७५ लाख</strong> (प्रधानमन्त्री कोष होइन · जिल्ला/पालिका नगद · ६ अर्ब ५५ करोडमाथि नजोड्नुहोस्)। सामग्री: ३२ ट्रक; हेलि राहत ६ उडान; सञ्चार सेट। नुवाकोट: डिजेल ४१,००० · पेट्रोल २४,००० मौज्दात; हवाई इन्धन <strong>१७,०००</strong> लि पठाइएको।",
@@ -1074,7 +1076,7 @@ window.I18N = {
 "hero_cash_sub": "Ministry of Finance / PM Disaster Relief Fund / PM Relief Fund (same pot)",
 "hero_ems_h": "Rasuwa–Bhotekoshi Flood Damage Assessment Dashboard · Syaphrubesi damage · Copernicus EMSR927",
 "hero_ems_sub": "Copernicus EMSR927 · 27 Aug 05:05 UTC · Syaphrubesi — not added into official dead 669 / uncontacted 2,426 / rescued 4451.",
-"hero_ems_more": "Full table and maps",
+"hero_ems_more": "Full table",
 "ems_k_built": "Built-up",
 "ems_k_built_sub": "433 / 559 · 77.5%",
 "ems_k_road": "Road",
@@ -1638,12 +1640,14 @@ window.I18N = {
 "ig_madhesh": "Madhesh Police",
 "ig_pub": "Published sources",
 "ig_official": "Official reports",
+"ig_off_miss": "Uncontacted",
+"ig_miss_split": "Police 27 · Army 45 · APF 13 · Customs 15 · Immigration 4 · Rasuwa DEOC 562 · Nuwakot DEOC 115 · hydropower 933 · Makwanpur DEOC 65 · foreign 589 · NRN 127 · Langtang 3",
 "ig_found_note": "Form found only. NDRRMA 2189 · Timure 73 · Indian 21 · Trishuli-1 63 · army/heli 654 · foreign 152 · today 54 · from China 149 · rescued 8186 are not in this number.",
-"ig_miss_note": "Official uncontacted 2,498 stays separate. Form, Hello Sarkar and Madhesh are not added into it — the three lines are not summed into a fake official total.",
+"ig_miss_note": "Form, Hello Sarkar 140 and Madhesh 30 are not added into this 2,498 — the three lines are not summed into a fake official total.",
 "ig_res_ndrrma": "NDRRMA",
 "ig_res_ndrrma_split": "Nepali 2034 · foreign 155",
 "ig_res_sub": "Foreign / crossing",
-"ig_res_note": "These lists are not added into one rescued total. Form found is not inside NDRRMA 2189. SitRep heli 1976 / NDRRMA graphic 8186 stay labeled elsewhere.",
+"ig_res_note": "These lists are not added into one rescued total. Uncontacted 2,498 is a separate label — not summed with 2189/42/714. Form found is not inside NDRRMA 2189. SitRep heli 1976 / NDRRMA graphic 8186 stay labeled elsewhere.",
 "ig_cross": "Entered from China",
 "ig_inj_ndrrma": "NDRRMA injured",
 "ig_inj_dhunche": "Rasuwa Hospital Dhunche",
@@ -1798,7 +1802,7 @@ window.I18N = {
 "cash_suryanepal": "Surya Nepal Pvt. Ltd.",
 "cash_suryanepal_cap": "Surya Nepal Pvt. Ltd. · 15 crore",
 "cash_suryanepal_note": "Surya Nepal Pvt. Ltd. contributed 15 crore rupees to the Prime Minister’s Disaster Relief Fund. Included in the NPR 4.24 billion total — do not add again.",
-"cash_sheet_lead": "Ministry of Finance / PMDRF · 12 Bhadra — total <strong>NPR 6.55 billion</strong> (6,55,33,62,011). Collected after the disaster <strong>NPR 4.38 billion</strong> (4,38,08,52,252). Balance before the disaster <strong>NPR 2.17 billion</strong> (2,17,25,09,759) — already inside the total, do not add again. Previous 11 Bhadra total 4.09 billion (4,09,11,60,670) / post-disaster 1.91 billion is history. Surya Nepal 15 / Friday 38.55 are inside this 6.55 billion. USD <strong>680,618</strong> labeled separately — not in the NPR total. Friendly-nation pledges not included. Source: <a href=\"img/today-2026-08-29-pmdrf-banks-0512.jpg\" target=\"_blank\" rel=\"noopener\">9-bank table</a>.",
+"cash_sheet_lead": "Ministry of Finance / PMDRF · 12 Bhadra — total <strong>NPR 6.55 billion</strong> (6,55,33,62,011). Collected after the disaster <strong>NPR 4.38 billion</strong> (4,38,08,52,252). Balance before the disaster <strong>NPR 2.17 billion</strong> (2,17,25,09,759) — already inside the total, do not add again. Previous 11 Bhadra total 4.09 billion (4,09,11,60,670) / post-disaster 1.91 billion is history. Surya Nepal 15 / Friday 38.55 are inside this 6.55 billion. USD <strong>680,618</strong> labeled separately — not in the NPR total. Friendly-nation pledges not included. Source: 9-bank table.",
 "cash_named_lead": "Friday, via Finance Minister Dr Swarnim Wagle: 27 institutions/individuals — same-day <strong>NPR 38.55 crore</strong> (38,56,64,222) into the Prime Minister’s Disaster Relief Fund. Inside the NPR 6.55 billion — do not add again. Surya Nepal 15 is on this list. Earlier MoF private-sector 27.33 crore is history only.",
 "cash_balance_note": "Prior balance <strong>2,17,25,09,759</strong> is inside the NPR 6.55 billion — not a second pot. USD 680,618 (Himalayan 591,451 + Laxmi Sunrise 89,167) is not in the NPR total. Friendly-nation pledges not included.",
 "ndrrma_rahat_1500": "NDRRMA / MoHA 12 Bhadra 19:00 — government cash to districts: Rasuwa <strong>1 crore</strong> · Nuwakot <strong>1 crore</strong> · Dhading <strong>50 lakh</strong> · <strong>15 palikas NPR 6.75 crore</strong> (district/palika cash, not the PMDRF — do not add on top of NPR 4.24 billion). Goods: 32 trucks; 6 heli relief flights; comms sets. Nuwakot: diesel 41,000 · petrol 24,000 in stock; aviation fuel <strong>17,000</strong> L sent.",
@@ -2168,17 +2172,8 @@ window.I18N_LISTS = {
 ],
 "photos": [
 "<strong>US State · $3.6 million</strong>Life-saving aid · 10,000 households · 3 months food · not on NPR 6.55bn",
-"<strong>NDRRMA / MoHA · 14 Bhadra 09:00</strong>Dead 734 · uncontacted 2498 · rescued 8186 · deployed 19895",
-"<strong>Copernicus EMSR927 · overview</strong>Syaphrubesi AOI · built-up 433 · 27 August 05:05 UTC",
-"<strong>Copernicus EMSR927 · detail 02</strong>Syaphrubesi AOI · grading",
-"<strong>Copernicus EMSR927 · detail 03</strong>Syaphrubesi AOI · grading",
-"<strong>Copernicus EMSR927 · consequences table</strong>Within the AOI · residential affected 392",
-"<strong>NDRRMA / MoHA · 13 Bhadra 10:00</strong>Dead 626 · uncontacted 2426 · rescued 4451 · deployed 15224",
 "<strong>Nepal Police · 13 Bhadra 07:00</strong>Dead 616 · injured and rescued 2301 · police 4811 · uncontacted 27",
-"<strong>NDRRMA / MoHA · 12 Bhadra 19:00</strong>Dead 579 · uncontacted 1924 · rescued 4451 · deployed 15431",
 "<strong>Nepal Police · 12 Bhadra 15:00</strong>Dead 547 · injured and rescued 1473 · police 4473 · uncontacted 27",
-"<strong>NDRRMA / MoHA · 12 Bhadra 15:00</strong>Dead 538 · rescued 3742 · deployed 14829 · heli flights 78",
-"<strong>NDRRMA SitRep #06</strong>NDRRMA · 22:00 · 11 Bhadra · lake warning",
 "<strong>Trishuli-1 · Indian rescued 63</strong>List of Indians rescued from the Trishuli-I Project",
 "<strong>Nepal Police · Dead 389</strong>Police · 21:00 · 11 Bhadra · official infographic",
 "<strong>India · second HADR flight</strong>Jaishankar · 11 Bhadra · 37.5 tonnes",
@@ -2235,7 +2230,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "NDRRMA/MoHA 14 Bhadra 09:00 — dead 734",
-"p": "NDRRMA / MoHA graphic, 09:00: dead <strong>734</strong> (including body parts) — Chitwan 259, Nawalparasi East 184, West 82, Gorkha 58, Nuwakot 52, Dhading 50, Tanahun 36, Rasuwa 13. Uncontacted <strong>2,498</strong> unchanged. Injured <strong>242</strong>. Rescued <strong>8,186</strong> (Army 2,974 · Police 2,699 · APF 2,513 · tunnel heli 279 · heli foreign 227). Deployed <strong>19,895</strong> (Police 7,293 · Army 8,399 · APF 4,203). Unidentified bodies at 21 hospitals. SitRep heli 1976 stays labeled. Previous 13 Bhadra 18:30 675/219/7514/18708 is history. Source: <a href=\"img/today-2026-08-30-ndrrma-0900.jpg\" target=\"_blank\" rel=\"noopener\">graphic</a>."
+"p": "NDRRMA / MoHA graphic, 09:00: dead <strong>734</strong> (including body parts) — Chitwan 259, Nawalparasi East 184, West 82, Gorkha 58, Nuwakot 52, Dhading 50, Tanahun 36, Rasuwa 13. Uncontacted <strong>2,498</strong> unchanged. Injured <strong>242</strong>. Rescued <strong>8,186</strong> (Army 2,974 · Police 2,699 · APF 2,513 · tunnel heli 279 · heli foreign 227). Deployed <strong>19,895</strong> (Police 7,293 · Army 8,399 · APF 4,203). Unidentified bodies at 21 hospitals. SitRep heli 1976 stays labeled. Previous 13 Bhadra 18:30 675/219/7514/18708 is history. Source: graphic."
 },
 {
 "h": "Timure: girl rescued alive",
@@ -2301,7 +2296,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "NDRRMA/MoHA 13 Bhadra 10:00 — dead 626",
-"p": "NDRRMA / Ministry of Home Affairs graphic, 10:00: bodies <strong>626</strong> — Chitwan 233, Nawalparasi East 158, Nuwakot 51, Gorkha 48, Nawalparasi West 47, Dhading 45, Tanahun 31, Rasuwa 13. Uncontacted <strong>2,426</strong> (Police 27 · Army 45 · APF 13 · Customs 15 · Immigration 4 · Rasuwa DEOC 562 · Nuwakot DEOC 115 · hydropower 933 · Makwanpur DEOC 65 · foreign 517 · Nepalis living abroad 127 · Langtang National Park 3) — Hello Sarkar 140 / Madhesh 30 / form not added. Injured under treatment <strong>101</strong>. Rescued <strong>4,451</strong> (including tunnel 191 + today air 517 · foreign 129). Deployed <strong>15,224</strong> (Police 4,811 · Army 6,755 · APF 3,658). Helis 16 · flights 99. Relief goods 37 trucks / 7 heli flights. Previous police 07:00 dead 616 is history. SitRep heli 1976 / citizens 1552 / aircraft 14 stay separate. Source: <a href=\"img/today-2026-08-29-ndrrma-1000.jpg\" target=\"_blank\" rel=\"noopener\">NDRRMA / MoHA graphic</a>."
+"p": "NDRRMA / Ministry of Home Affairs graphic, 10:00: bodies <strong>626</strong> — Chitwan 233, Nawalparasi East 158, Nuwakot 51, Gorkha 48, Nawalparasi West 47, Dhading 45, Tanahun 31, Rasuwa 13. Uncontacted <strong>2,426</strong> (Police 27 · Army 45 · APF 13 · Customs 15 · Immigration 4 · Rasuwa DEOC 562 · Nuwakot DEOC 115 · hydropower 933 · Makwanpur DEOC 65 · foreign 517 · Nepalis living abroad 127 · Langtang National Park 3) — Hello Sarkar 140 / Madhesh 30 / form not added. Injured under treatment <strong>101</strong>. Rescued <strong>4,451</strong> (including tunnel 191 + today air 517 · foreign 129). Deployed <strong>15,224</strong> (Police 4,811 · Army 6,755 · APF 3,658). Helis 16 · flights 99. Relief goods 37 trucks / 7 heli flights. Previous police 07:00 dead 616 is history. SitRep heli 1976 / citizens 1552 / aircraft 14 stay separate. Source: NDRRMA / MoHA graphic."
 },
 {
 "h": "Copernicus Syaphrubesi damage infographic dashboard",
@@ -2329,7 +2324,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "NDRRMA/MoHA 12 Bhadra 19:00 — dead 579",
-"p": "NDRRMA / Ministry of Home Affairs graphic, 19:00: bodies <strong>579</strong> — Chitwan 233, Nawalparasi East 154, Gorkha 46 (including various human remains), Dhading 40, Nuwakot 37, Tanahun 30, Nawalparasi West 27, Rasuwa 12. Uncontacted <strong>1,924</strong> (Police 28 · Army 45 · APF 13 · Customs 15 · Immigration 15 · Rasuwa DEOC 161 · Nuwakot DEOC 1 · hydropower 933 · Makwanpur DEOC 66 · foreign 517 · Nepalis living abroad (travel) 127 · Langtang National Park 3) — Hello Sarkar 140 / Madhesh 30 / form not added. Injured under treatment <strong>101</strong>. Rescued <strong>4,451</strong> (including tunnel 191 + today air 517 · foreign 129). Deployed <strong>15,431</strong> (Police 4,473 · Army 6,755 · APF 4,203). Helis 16 · flights 99. Previous police 17:00 dead 553 is history. Previous NDRRMA 15:00 dead 538 / uncontacted 977 / injured 73 / rescued 3742 / deployed 14,829 is older history. SitRep heli 1976 / citizens 1552 / aircraft 14 stay separate. Army 924 stays separate. Name tables 529 / Timure 73 / Indian 21 / Trishuli-1 63 / heli-names 654 unchanged — 4451 and 654 are not in the found total. PMDRF NPR 4.24 billion unchanged. District cash Rasuwa 1 crore · Nuwakot 1 crore · Dhading 50 lakh · 15 palikas NPR 6.75 crore (not added on the fund); 32 trucks; 6 heli relief flights; Nuwakot fuel diesel 41,000 · petrol 24,000 in stock · aviation 17,000 L sent. Source: <a href=\"img/today-2026-08-28-ndrrma-moha-1900.jpg\" target=\"_blank\" rel=\"noopener\">NDRRMA / MoHA graphic</a>."
+"p": "NDRRMA / Ministry of Home Affairs graphic, 19:00: bodies <strong>579</strong> — Chitwan 233, Nawalparasi East 154, Gorkha 46 (including various human remains), Dhading 40, Nuwakot 37, Tanahun 30, Nawalparasi West 27, Rasuwa 12. Uncontacted <strong>1,924</strong> (Police 28 · Army 45 · APF 13 · Customs 15 · Immigration 15 · Rasuwa DEOC 161 · Nuwakot DEOC 1 · hydropower 933 · Makwanpur DEOC 66 · foreign 517 · Nepalis living abroad (travel) 127 · Langtang National Park 3) — Hello Sarkar 140 / Madhesh 30 / form not added. Injured under treatment <strong>101</strong>. Rescued <strong>4,451</strong> (including tunnel 191 + today air 517 · foreign 129). Deployed <strong>15,431</strong> (Police 4,473 · Army 6,755 · APF 4,203). Helis 16 · flights 99. Previous police 17:00 dead 553 is history. Previous NDRRMA 15:00 dead 538 / uncontacted 977 / injured 73 / rescued 3742 / deployed 14,829 is older history. SitRep heli 1976 / citizens 1552 / aircraft 14 stay separate. Army 924 stays separate. Name tables 529 / Timure 73 / Indian 21 / Trishuli-1 63 / heli-names 654 unchanged — 4451 and 654 are not in the found total. PMDRF NPR 4.24 billion unchanged. District cash Rasuwa 1 crore · Nuwakot 1 crore · Dhading 50 lakh · 15 palikas NPR 6.75 crore (not added on the fund); 32 trucks; 6 heli relief flights; Nuwakot fuel diesel 41,000 · petrol 24,000 in stock · aviation 17,000 L sent. Source: NDRRMA / MoHA graphic."
 },
 {
 "h": "ADB $5 million emergency grant (APDRF)",
@@ -2373,7 +2368,7 @@ window.I18N_LISTS = {
 },
 {
 "h": "NDRRMA/MoHA 12 Bhadra 15:00 — dead 538",
-"p": "NDRRMA / Ministry of Home Affairs graphic, 15:00: bodies <strong>538</strong> — Chitwan 221, Nawalparasi East 134, Gorkha 46 (including various human remains), Nuwakot 37, Dhading 33, Tanahun 28, Nawalparasi West 27, Rasuwa 12. Rescued <strong>3,742</strong> (foreign 25). Deployed <strong>14,829</strong> (Army 6,698 · Police 4,473 · APF 3,658). Heli flights <strong>78</strong> (Army + private). Uncontacted 977 · injured 73 unchanged. Previous police 489 is history. SitRep heli 1976 / citizens 1552 / aircraft 14 stay separate. PMDRF cash 40.34 crore unchanged. District cash Rasuwa 1 crore · Nuwakot 1 crore · Dhading 50 lakh; 10+20 trucks; 4 heli relief flights; Nuwakot fuel diesel 41,000 · petrol 24,000 · aviation 9,000 L. Source: <a href=\"img/today-2026-08-28-ndrrma-moha-1500.jpg\" target=\"_blank\" rel=\"noopener\">NDRRMA / MoHA graphic</a>."
+"p": "NDRRMA / Ministry of Home Affairs graphic, 15:00: bodies <strong>538</strong> — Chitwan 221, Nawalparasi East 134, Gorkha 46 (including various human remains), Nuwakot 37, Dhading 33, Tanahun 28, Nawalparasi West 27, Rasuwa 12. Rescued <strong>3,742</strong> (foreign 25). Deployed <strong>14,829</strong> (Army 6,698 · Police 4,473 · APF 3,658). Heli flights <strong>78</strong> (Army + private). Uncontacted 977 · injured 73 unchanged. Previous police 489 is history. SitRep heli 1976 / citizens 1552 / aircraft 14 stay separate. PMDRF cash 40.34 crore unchanged. District cash Rasuwa 1 crore · Nuwakot 1 crore · Dhading 50 lakh; 10+20 trucks; 4 heli relief flights; Nuwakot fuel diesel 41,000 · petrol 24,000 · aviation 9,000 L. Source: NDRRMA / MoHA graphic."
 },
 {
 "h": "Nuwakot DAO rescued list 771",
@@ -2866,7 +2861,7 @@ window.I18N_LISTS = {
 "The flood had already passed Bidur; the Division said it reached Galchhi at 10:28."
 ],
 "stats_src": [
-"<b>Deaths total 669</b> — Nepal Police, 13 Bhadra 16:00 (OnlineKhabar). Chitwan 248, Nawalparasi East 158, Nawalparasi West 75, Gorkha 54, Dhading 49, Nuwakot 41, Tanahun 31, Rasuwa 13. Previous NDRRMA / MoHA 10:00 dead 626 / police 07:00 dead 616 are history. Previous NDRRMA 12 Bhadra 19:00 dead 579 / police 17:00 dead 553 / NDRRMA 15:00 dead 538 are older history. Source: <a href=\"https://www.onlinekhabar.com/2026/08/2006464/rasuwa-flood-669-bodies-found-as-of-4-pm-on-saturday\" target=\"_blank\" rel=\"noopener\">police 16:00 · 669</a> · <a href=\"img/today-2026-08-29-ndrrma-1000.jpg\" target=\"_blank\" rel=\"noopener\">NDRRMA / MoHA 10:00 · 626</a> · <a href=\"img/today-2026-08-29-nepal-police-0700.jpg\" target=\"_blank\" rel=\"noopener\">police 07:00 · 616</a> · <a href=\"img/today-2026-08-28-ndrrma-moha-1900.jpg\" target=\"_blank\" rel=\"noopener\">NDRRMA / MoHA 19:00 · 579</a> · <a href=\"https://nepalpolice.gov.np/\" target=\"_blank\" rel=\"noopener\">police 17:00 · 553</a> · <a href=\"img/today-2026-08-28-nepal-police-1500.jpg\" target=\"_blank\" rel=\"noopener\">police 15:00 · 547</a> · <a href=\"img/today-2026-08-28-ndrrma-moha-1500.jpg\" target=\"_blank\" rel=\"noopener\">NDRRMA 15:00 · 538</a>.",
+"<b>Deaths total 669</b> — Nepal Police, 13 Bhadra 16:00 (OnlineKhabar). Chitwan 248, Nawalparasi East 158, Nawalparasi West 75, Gorkha 54, Dhading 49, Nuwakot 41, Tanahun 31, Rasuwa 13. Previous NDRRMA / MoHA 10:00 dead 626 / police 07:00 dead 616 are history. Previous NDRRMA 12 Bhadra 19:00 dead 579 / police 17:00 dead 553 / NDRRMA 15:00 dead 538 are older history. Source: <a href=\"https://www.onlinekhabar.com/2026/08/2006464/rasuwa-flood-669-bodies-found-as-of-4-pm-on-saturday\" target=\"_blank\" rel=\"noopener\">police 16:00 · 669</a> · NDRRMA / MoHA 10:00 · 626 · <a href=\"img/today-2026-08-29-nepal-police-0700.jpg\" target=\"_blank\" rel=\"noopener\">police 07:00 · 616</a> · NDRRMA / MoHA 19:00 · 579 · <a href=\"https://nepalpolice.gov.np/\" target=\"_blank\" rel=\"noopener\">police 17:00 · 553</a> · <a href=\"img/today-2026-08-28-nepal-police-1500.jpg\" target=\"_blank\" rel=\"noopener\">police 15:00 · 547</a> · NDRRMA 15:00 · 538.",
 "<b>Injured</b> — NDRRMA / MoHA 13 Bhadra 10:00: under treatment <strong>101</strong>. Previous NDRRMA 15:00 total 73 (Rasuwa 43, Nuwakot 27, Dhading 3) is history. PMO: Kathmandu <strong>36</strong>, Rasuwa Hospital <strong>21</strong> labeled. Nepal Police in treatment <strong>63</strong> labeled. Nepal Police 13 Bhadra 07:00 injured and rescued combined <strong>2,301</strong> — Rasuwa 676, Nuwakot 1622, Dhading 3 labeled only. Kathmandu valley hospitals treated/discharged 140 (not added on top). Previous police 1,473 / Kathmandu 94 is history. DEOC Kathmandu 88 labeled only.",
 "<b>Uncontacted</b> — NDRRMA / MoHA 13 Bhadra 10:00: <strong>2,426</strong> (Police 27, Army 45, APF 13, Customs 15, Immigration 4, Rasuwa DEOC 562, Nuwakot DEOC 115, hydropower 933, Makwanpur DEOC 65, foreign 517, Nepalis living abroad 127, Langtang National Park 3). Do not add the split on top of 2,426. Police 27 is now inside official 2,426. Previous 1,924 / 977 is history. <a href=\"#family\">Public reports</a> form, Hello Sarkar 140, Madhesh 30 are not inside 2,426. Tourist list 14:15: <strong>668</strong> (Nepali 127, foreign 541) separate. Langtang project 60 / bus 34 / banks 26 separate. Not deaths.",
 "<b>Tourist list 668</b> — Tourist list (out of contact) in Bhotekoshi Flood · 14:15, 27 August. Total <strong>668</strong> (male 341 · female 327 · Nepali 127 · foreign 541). NDRRMA 10:00 official 2,426 separate.",

@@ -676,8 +676,8 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
 .cash-snap .cash-sub{width:100%;margin-top:2px;font-size:13px;font-weight:700;color:var(--muted)}
 .ems-snap{
   display:grid;
-  grid-template-columns:minmax(128px,170px) 1fr;
-  grid-template-areas:"k k" "m t" "g g" "p p" "c c";
+  grid-template-columns:1fr;
+  grid-template-areas:"k" "t" "p" "c";
   gap:10px 12px;align-items:start;
   margin:10px 0 0;padding:14px 14px 12px;
   background:linear-gradient(180deg,#fff7ed,#fff 55%);
@@ -720,11 +720,8 @@ html.desk:not(.desk-ready) .page-main .stats-src{display:none}
 .ems-snap > .cash-sub{grid-area:c;width:100%;margin-top:2px;font-size:13px;font-weight:700;color:var(--muted)}
 .ems-home-cap a{font-weight:800;color:#c2410c;margin-left:.4em}
 @media(max-width:760px){
-  .ems-snap{grid-template-columns:1fr;grid-template-areas:"k" "m" "t" "g" "p" "c"}
-  .ems-snap-map{max-width:280px}
+  .ems-snap{grid-template-columns:1fr;grid-template-areas:"k" "t" "p" "c"}
   .ems-kpis8{grid-template-columns:1fr 1fr}
-  .ems-ig-row{grid-template-columns:1fr 1fr}
-  .ems-ig-row img{max-height:240px}
 }
 #ems927 .ems-kpis8, .ems-home .ems-kpis8{margin:10px 0 12px}
 #ems927 .ems-kpi, .ems-home .ems-kpi{cursor:default}
@@ -1128,6 +1125,10 @@ section{scroll-margin-top:0}
   background:var(--paper);color:var(--ink);font-size:13px;line-height:1.35;
 }
 .src-group a:hover{background:var(--teal-soft);text-decoration:none}
+.src-group .src-plain{
+  display:block;padding:9px 10px;margin:0;border-radius:10px;
+  background:var(--paper);color:var(--ink);font-size:13px;line-height:1.35;
+}
 @media (max-width:760px){
   .sources{grid-template-columns:repeat(2,1fr)}
 }
@@ -1704,6 +1705,7 @@ a.portal-fab-donate{
 .nig-treat.on{box-shadow:0 0 0 3px #cffafe}
 .nig-lead{margin:0 0 8px;font-size:15px;font-weight:700;line-height:1.45}
 .nig-lead strong{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+.nig-miss .nig-lead strong{color:var(--crimson)}
 .nig-lines{list-style:none;margin:0 0 8px;padding:0}
 .nig-lines li{
   display:flex;justify-content:space-between;align-items:baseline;gap:8px;
