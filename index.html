@@ -27,6 +27,8 @@
   else if (id === "alert") location.replace("notices.html" + q + "#alert");
   else if (id === "history") location.replace("notices.html" + q + "#history");
   else if (id === "roads") location.replace("notices.html" + q + "#roads");
+  else if (id === "helpline") location.replace("contact.html" + q + "#helpline");
+  else if (id === "contacts") location.replace("contact.html" + q + "#contacts");
   else if (D[id]) location.replace("donate.html" + q + "#" + id);
   else if (H[id]) location.replace("names.html" + location.hash);
 })();
@@ -49,7 +51,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1427">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-30-1434">
 </head>
 <body>
 <div class="head-stick">
@@ -98,8 +100,7 @@
     <a href="need.html" data-i18n="nav_need">राहत सामग्री / गोदाम</a>
     <a href="map.html" data-i18n="nav_map">नक्सा / समयरेखा</a>
     <a href="notices.html" data-i18n="nav_notices">सूचना / सडक स्थिति</a>
-    <a href="#helpline" data-i18n="nav_helpline">हेल्पलाइन</a>
-    <a href="#contacts" data-i18n="nav_contacts">सम्पर्क</a>
+    <a href="contact.html" data-i18n="nav_helpline">हेल्पलाइन / सम्पर्क</a>
     <a href="gov.html" data-i18n="nav_gov">सरकारबाट भएका पहल</a>
     <a href="#photos" data-i18n="nav_photos">तस्बिर</a>
     <a href="damage.html" data-i18n="nav_damage">क्षति ड्यासबोर्ड</a>
@@ -497,72 +498,6 @@
   </div>
 </div>
 <div class="wrap">
-<aside class="ndrrma-hl" id="helpline">
-  <div class="hl-head">
-    <b data-i18n="hl_title">आपत्कालीन सहायता / हेल्पलाइन</b>
-    <span data-i18n="hl_sub">NDRRMA · गृह मन्त्रालय · सिंहदरबार</span>
-  </div>
-  <div class="hl-nat">
-    <a href="tel:1114">१११४<small data-i18n="apf">सशस्त्र प्रहरी</small></a>
-    <a href="tel:100">१००<small data-i18n="np_police">नेपाल प्रहरी</small></a>
-    <a href="tel:102">१०२<small data-i18n="ambulance">एम्बुलेन्स</small></a>
-    <a href="tel:1234">१२३४<small>DEOC / <span data-i18n="nav_rescue">उद्धार</span></small></a>
-    <a href="tel:1144">११४४<small>NEOC</small></a>
-  </div>
-  <div class="hl-dist">
-    <article>
-      <b>रसुवा</b>
-      <a href="tel:+9779851277777"><span data-i18n="cdo">प्रजिअ</span><em>9851277777</em></a>
-      <a href="tel:+9779851164422"><span data-i18n="acdo">सहायक प्रजिअ</span><em>9851164422</em></a>
-      <a href="tel:1234"><span>DEOC</span><em>1234</em></a>
-      <a href="tel:+9779851282801"><span data-i18n="police">प्रहरी</span><em>9851282801</em></a>
-      <a href="tel:+9779851272275"><span data-i18n="armed">सशस्त्र</span><em>9851272275</em></a>
-    </article>
-    <article>
-      <b>नुवाकोट</b>
-      <a href="tel:+9779851147777"><span data-i18n="cdo">प्रजिअ</span><em>9851147777</em></a>
-      <a href="tel:+9779851248777"><span data-i18n="acdo">सहायक प्रजिअ</span><em>9851248777</em></a>
-      <a href="tel:1234"><span>DEOC</span><em>1234</em></a>
-      <a href="tel:+9779851282811"><span data-i18n="police">प्रहरी</span><em>9851282811</em></a>
-      <a href="tel:+9779851272535"><span data-i18n="armed">सशस्त्र</span><em>9851272535</em></a>
-    </article>
-    <article>
-      <b>धादिङ</b>
-      <a href="tel:+9779851247777"><span data-i18n="cdo">प्रजिअ</span><em>9851247777</em></a>
-      <a href="tel:+9779851119131"><span data-i18n="acdo">सहायक प्रजिअ</span><em>9851119131</em></a>
-      <a href="tel:1234"><span>DEOC</span><em>1234</em></a>
-      <a href="tel:+9779851113921"><span data-i18n="police">प्रहरी</span><em>9851113921</em></a>
-      <a href="tel:+9779851272491"><span data-i18n="armed">सशस्त्र</span><em>9851272491</em></a>
-    </article>
-    <article>
-      <b>चितवन</b>
-      <a href="tel:+9779855017777"><span data-i18n="cdo">प्रजिअ</span><em>9855017777</em></a>
-      <a href="tel:+9779855088891"><span data-i18n="acdo">सहायक प्रजिअ</span><em>9855088891</em></a>
-      <a href="tel:1234"><span>DEOC</span><em>1234</em></a>
-      <a href="tel:+9779855090133"><span data-i18n="police">प्रहरी</span><em>9855090133</em></a>
-      <a href="tel:+9779851272134"><span data-i18n="armed">सशस्त्र</span><em>9851272134</em></a>
-    </article>
-    <article>
-      <b>गोरखा</b>
-      <a href="tel:+9779856057777"><span data-i18n="cdo">प्रजिअ</span><em>9856057777</em></a>
-      <a href="tel:+9779856057778"><span data-i18n="acdo">सहायक प्रजिअ</span><em>9856057778</em></a>
-      <a href="tel:1234"><span>DEOC</span><em>1234</em></a>
-      <a href="tel:+9779856090255"><span data-i18n="police">प्रहरी</span><em>9856090255</em></a>
-      <a href="tel:+9779851272271"><span data-i18n="armed">सशस्त्र</span><em>9851272271</em></a>
-    </article>
-    <article>
-      <b>तनहुँ</b>
-      <a href="tel:+9779856067777"><span data-i18n="cdo">प्रजिअ</span><em>9856067777</em></a>
-      <a href="tel:+9779856001111"><span data-i18n="acdo">सहायक प्रजिअ</span><em>9856001111</em></a>
-      <a href="tel:1234"><span>DEOC</span><em>1234</em></a>
-      <a href="tel:+9779856090178"><span data-i18n="police">प्रहरी</span><em>9856090178</em></a>
-      <a href="tel:+9779851272099"><span data-i18n="armed">सशस्त्र</span><em>9851272099</em></a>
-    </article>
-  </div>
-  <p class="hl-extra" data-i18n-html="hl_extra">स्वास्थ्य <a href="tel:1115">1115</a> · बाढी पूर्वानुमान <a href="tel:1155">1155</a> (विकल्प २) · ट्राफिक <a href="tel:103">103</a> · राष्ट्रिय आपत्कालीन <a href="tel:1144">1144</a>। सबै जिल्लाको DEOC <a href="tel:1234">1234</a>।</p>
-  <p class="hl-foot" data-i18n="hl_foot">आपत्का बेला नआत्तिऔं, सजग र पूर्वतयार रहौं। यो जानकारी सेयर गरी सुरक्षित रहन सहयोग गरौं।</p>
-</aside>
-
     <ul class="stats-src" aria-label="स्रोत" data-i18n-aria="src_word" data-i18n-list="stats_src">
       <li><b>मृतक जम्मा ७५२</b> — NDRRMA / गृह, १४ भदौ १३:०० (विभिन्न मानव अङ्ग सहित)। चितवन २५९, नवलपरासी पूर्व १८४, नवलपरासी पश्चिम १००, गोरखा ५८, नुवाकोट ५२, धादिङ ५०, तनहुँ ३६, रसुवा १३। अघिल्लो NDRRMA १४ भदौ ०९:०० शव ७३४ / १३ भदौ १८:३० शव ६७५ / प्रहरी १६:०० शव ६६९ / NDRRMA १०:०० शव ६२६ / प्रहरी ०७:०० शव ६१६ इतिहास। अघिल्लो NDRRMA १२ भदौ १९:०० शव ५७९ / प्रहरी १७:०० शव ५५३ / NDRRMA १५:०० शव ५३८ पुरानो इतिहास। पहिचान नखुलेका शव २१ अस्पतालमा — <a href="https://udb.nepalpolice.gov.np/disaster" target="_blank" rel="noopener">udb.nepalpolice.gov.np/disaster</a>। स्रोत: NDRRMA / गृह १३:०० · ७५२ · NDRRMA / गृह ०९:०० · ७३४ · NDRRMA / गृह १८:३० · ६७५ · <a href="https://www.onlinekhabar.com/2026/08/2006464/rasuwa-flood-669-bodies-found-as-of-4-pm-on-saturday" target="_blank" rel="noopener">प्रहरी १६:०० · ६६९</a> · NDRRMA / गृह १०:०० · ६२६ · <a href="img/today-2026-08-29-nepal-police-0700.jpg" target="_blank" rel="noopener">प्रहरी ०७:०० · ६१६</a> · NDRRMA / गृह १९:०० · ५७९ · <a href="https://nepalpolice.gov.np/" target="_blank" rel="noopener">प्रहरी १७:०० · ५५३</a> · <a href="img/today-2026-08-28-nepal-police-1500.jpg" target="_blank" rel="noopener">प्रहरी १५:०० · ५४७</a> · NDRRMA १५:०० · ५३८।</li>
       <li><b>घाइते</b> — NDRRMA / गृह १४ भदौ १३:००: <strong>२३९</strong> (उपचाररत र डिस्चार्ज सहित)। अघिल्लो २४२ / उपचाररत १०१ इतिहास। अघिल्लो NDRRMA १५:०० जम्मा ७३ (रसुवा ४३, नुवाकोट २७, धादिङ ३) पुरानो इतिहास। प्रधानमन्त्री कार्यालय: काठमाडौं <strong>३६</strong>, रसुवा अस्पताल <strong>२१</strong> लेबल। नेपाल प्रहरी जम्मा उपचाररत <strong>६३</strong> लेबल। नेपाल प्रहरी १३ भदौ ०७:०० घाइते तथा उद्धार जम्मा <strong>२,३०१</strong> — रसुवा ६७६, नुवाकोट १६२२, धादिङ ३ लेबल मात्र, २३९ को सट्टा होइन। काठमाडौं उपत्यका अस्पताल उपचार/डिस्चार्ज १४० (जम्मामाथि नजोड्नुहोस्)। DEOC काठमाडौं ८८ र रसुवा अस्पताल धुन्चे ७४ लेबल मात्र।</li>
@@ -583,79 +518,6 @@
 </div>
 
 <main class="wrap">
-
-<section id="contacts">
-  <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_contacts">स्थानीय तह सम्पर्क</h2></div>
-  <p class="cao-lead" data-i18n="cao_lead">प्रभावित जिल्लाका प्रमुख प्रशासकीय अधिकृत। उद्धार/राहत समन्वयका लागि नम्बरमा ट्याप गर्नुहोस्।</p>
-  <div class="cao-grid">
-    <article>
-      <h3>रसुवा <small>5</small></h3>
-        <a href="tel:+9779851091534"><span>उत्तरगया गाउँपालिका <b>जय राम उप्रेती</b></span><em>9851091534</em></a>
-        <a href="tel:+9779849649384"><span>कालिका गाउँपालिका <b>धर्मराज न्यौपाने</b></span><em>9849649384</em></a>
-        <a href="tel:+9779841421988"><span>गोसाईकुण्ड गाउँपालिका <b>सुरेश भट्टराई</b></span><em>9841421988</em></a>
-        <a href="tel:+9779860084067"><span>नौकुण्ड गाउँपालिका <b>सूर्य बहादुर तामाङ्ग</b></span><em>9860084067</em></a>
-        <a href="tel:+9779842897586"><span>आमाछोदिङ्मो गाउँपालिका <b>बिष्णु राई</b></span><em>9842897586</em></a>
-    </article>
-    <article>
-      <h3>नुवाकोट <small>2</small></h3>
-        <a href="tel:+9779857015186"><span>बेलकोटगढी नगरपालिका <b>नेत्र प्रसाद घिमिरे</b></span><em>9857015186</em></a>
-        <a href="tel:+9779851145672"><span>विदुर नगरपालिका <b>सुभाकर पौडेल</b></span><em>9851145672</em></a>
-    </article>
-    <article>
-      <h3>धादिङ <small>13</small></h3>
-        <a href="tel:+9779860155380"><span>निलकण्ठ नगरपालिका <b>हरी दत्त कँडेल</b></span><em>9860155380</em></a>
-        <a href="tel:+9779841454204"><span>धुनीबेंशी नगरपालिका <b>विनोद कुमार खनाल</b></span><em>9841454204</em></a>
-        <a href="tel:+9779851169720"><span>खनियाबास गाउँपालिका <b>पदम बहादुर बस्नेत</b></span><em>9851169720</em></a>
-        <a href="tel:+9779848841745"><span>गजुरी गाउँपालिका <b>जगदिश प्रसाद जोशी</b></span><em>9848841745</em></a>
-        <a href="tel:+9779851090662"><span>गल्छी गाउँपालिका <b>पूर्ण प्रसाद दुलाल</b></span><em>9851090662</em></a>
-        <a href="tel:+9779860807145"><span>गंगाजमुना गाउँपालिका <b>सुदिप ढुंगाना</b></span><em>9860807145</em></a>
-        <a href="tel:+9779851152377"><span>ज्वालामुखी गाउँपालिका <b>हरेराम साह</b></span><em>9851152377</em></a>
-        <a href="tel:+9779852835344"><span>थाक्रे गाउँपालिका <b>बलराम लम्साल</b></span><em>9852835344</em></a>
-        <a href="tel:+9779851223541"><span>नेत्रावती डबजोङ गाउँपालिका <b>सन्देश प्रसाद जोशी</b></span><em>9851223541</em></a>
-        <a href="tel:+9779855063224"><span>बेनीघाट रोराङ्ग गाउँपालिका <b>रामबाबु पौडेल</b></span><em>9855063224</em></a>
-        <a href="tel:+9779843559038"><span>रुवी भ्याली गाउँपालिका <b>छोइसाङ तामाङ</b></span><em>9843559038</em></a>
-        <a href="tel:+9779842506819"><span>सिद्धलेक गाउँपालिका <b>अनिशा आचार्य</b></span><em>9842506819</em></a>
-        <a href="tel:+9779847836676"><span>त्रिपुरासुन्दरी गाउँपालिका <b>विर सिंह भण्डारी</b></span><em>9847836676</em></a>
-    </article>
-    <article>
-      <h3>चितवन <small>7</small></h3>
-        <a href="tel:+9779851275547"><span>भरतपुर महानगरपालिका <b>वीरेन्द्र देव भारती</b></span><em>9851275547</em></a>
-        <a href="tel:+9779841579668"><span>खैरहनी नगरपालिका <b>सुशीला अधिकारी</b></span><em>9841579668</em></a>
-        <a href="tel:+9779851040759"><span>रत्ननगर नगरपालिका <b>प्रकाश खनाल</b></span><em>9851040759</em></a>
-        <a href="tel:+9779841468511"><span>राप्ती नगरपालिका <b>प्रदीप पौडेल</b></span><em>9841468511</em></a>
-        <a href="tel:+9779855085565"><span>कालिका नगरपालिका <b>देवराज चौलागाई</b></span><em>9855085565</em></a>
-        <a href="tel:+9779857035509"><span>माडी नगरपालिका <b>जगत प्रसाद भुसाल</b></span><em>9857035509</em></a>
-        <a href="tel:+9779844842204"><span>इच्छाकामना गाउँपालिका <b>लोक राज खत्री</b></span><em>9844842204</em></a>
-    </article>
-    <article>
-      <h3>गोरखा <small>11</small></h3>
-        <a href="tel:+9779841941056"><span>गोरखा नगरपालिका <b>एक देव खनाल</b></span><em>9841941056</em></a>
-        <a href="tel:+9779851192434"><span>पालुङटार नगरपालिका <b>शेर बहादुर बागचन्द वि.सी.</b></span><em>9851192434</em></a>
-        <a href="tel:+9779851102610"><span>बारपाक सुलीकोट गाउँपालिका <b>सुवास आले</b></span><em>9851102610</em></a>
-        <a href="tel:+9779841968173"><span>सिरानचोक गाउँपालिका <b>ठाकुर प्रसाद अर्याल</b></span><em>9841968173</em></a>
-        <a href="tel:+9779841673634"><span>अजिरकोट गाउँपालिका <b>जानुराम पन्थी</b></span><em>9841673634</em></a>
-        <a href="tel:+9779841730480"><span>आरुघाट गाउँपालिका <b>भिमसेन श्रेष्ठ</b></span><em>9841730480</em></a>
-        <a href="tel:+9779857676967"><span>गण्डकी गाउँपालिका <b>तुलसी राम आचार्य</b></span><em>9857676967</em></a>
-        <a href="tel:+9779841730480"><span>चुमनुव्री गाउँपालिका <b>मनोज लामिछाने</b></span><em>9841730480</em></a>
-        <a href="tel:+9779846055020"><span>धार्चे गाउँपालिका <b>बुद्धीराम बस्नेत</b></span><em>9846055020</em></a>
-        <a href="tel:+9779847023376"><span>भिमसेनथापा गाउँपालिका <b>चित्र बहादुर अधिकारी</b></span><em>9847023376</em></a>
-        <a href="tel:+9779841148425"><span>शहिद लखन गाउँपालिका <b>बाबुराम मगर</b></span><em>9841148425</em></a>
-    </article>
-    <article>
-      <h3>तनहुँ <small>10</small></h3>
-        <a href="tel:+9779856033616"><span>भिमाद नगरपालिका <b>शोभाखर पोखरेल</b></span><em>9856033616</em></a>
-        <a href="tel:+9779851154555"><span>व्यास नगरपालिका <b>सुकदेव लम्साल</b></span><em>9851154555</em></a>
-        <a href="tel:+9779846083582"><span>शुक्लागण्डकी नगरपालिका <b>शिशिर पौडेल</b></span><em>9846083582</em></a>
-        <a href="tel:+9779851061619"><span>भानु नगरपालिका <b>सुरज श्रेष्ठ</b></span><em>9851061619</em></a>
-        <a href="tel:+9779841615495"><span>आँबुखैरेनी गाउँपालिका <b>विकास चन्द्र शर्मा</b></span><em>9841615495</em></a>
-        <a href="tel:+9779846270665"><span>ऋषिङ्ग गाउँपालिका <b>अनिल अंगाई</b></span><em>9846270665</em></a>
-        <a href="tel:+9779846240770"><span>घिरिङ गाउँपालिका <b>कृष्ण प्रसाद ढकाल</b></span><em>9846240770</em></a>
-        <a href="tel:+9779845050685"><span>देवघाट गाउँपालिका <b>प्रद्युम्न कुमार खड्का</b></span><em>9845050685</em></a>
-        <a href="tel:+9779856080091"><span>म्याग्दे गाउँपालिका <b>नारायण प्रसाद अधिकारी</b></span><em>9856080091</em></a>
-        <a href="tel:+9779856036315"><span>वन्दिपुर गाउँपालिका <b>कमल बहादुर के.सी.</b></span><em>9856036315</em></a>
-    </article>
-  </div>
-</section>
 
 <section id="photos">
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_photos">तस्बिर · आज २६ अगस्ट २०२६ मात्र</h2></div>
@@ -1350,8 +1212,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-08-30-1427"></script>
-<script src="names-index.js?v=2026-08-30-1427"></script>
+<script src="i18n.js?v=2026-08-30-1434"></script>
+<script src="names-index.js?v=2026-08-30-1434"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -1374,6 +1236,7 @@
     if (file === "gov.html") return CANON + "gov.html" + (location.hash || "");
     if (file === "damage.html") return CANON + "damage.html" + (location.hash || "");
     if (file === "notices.html") return CANON + "notices.html" + (location.hash || "");
+    if (file === "contact.html") return CANON + "contact.html" + (location.hash || "");
     return CANON + (location.hash || "");
   }
   function toast(msg){
@@ -1417,7 +1280,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-08-30-1427";</script>
+<script>window.PAGE_VER="2026-08-30-1434";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }

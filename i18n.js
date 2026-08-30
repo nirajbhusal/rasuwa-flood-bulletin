@@ -32,7 +32,7 @@ window.I18N = {
 "dash_heli_sep": "SitRep हेलि · अलग लेबल",
 "dash_ndrrma_g": "NDRRMA १४ भदौ १३:००",
 "ndrrma_0900_alt": "NDRRMA स्थिति बोर्ड, १४ भदौ १३:००",
-"nav_helpline": "हेल्पलाइन",
+"nav_helpline": "हेल्पलाइन / सम्पर्क",
 "nav_donate": "राहत कोष",
 "nav_need": "राहत सामग्री / गोदाम",
 "nav_aid": "वैदेशिक सहयोग",
@@ -495,6 +495,7 @@ window.I18N = {
 "fd_jump_mad": "सूची हेर्नुहोस् → मधेश",
 
 "h_contacts": "स्थानीय तह सम्पर्क",
+"h_contact_page": "आपत्कालीन सहायता र सम्पर्क",
 "h_alert": "सतर्कता",
 "h_notices": "सूचना र सडक स्थिति",
 "h_gov": "विपद्पछि सरकारबाट सरकारी पहल",
@@ -999,6 +1000,9 @@ window.I18N = {
 "notices_title": "सूचना र सडक स्थिति · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "notices_meta": "बाटो, पुल, नाका र सतर्कता। उद्धार १२३४।",
 "notices_sub": "बाटो, पुल, नाका र सतर्कता",
+"contact_title": "आपत्कालीन सहायता र सम्पर्क · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"contact_meta": "हेल्पलाइन, उद्धार नम्बर र कार्यालय। उद्धार १२३४।",
+"contact_sub": "हेल्पलाइन, उद्धार नम्बर र कार्यालय",
 "ems_src": "स्रोत: Copernicus EMSR927",
 "about_sub": "बारेमा · स्वतन्त्र नागरिक बुलेटिन",
 "about_back": "← बुलेटिन",
@@ -1054,7 +1058,7 @@ window.I18N = {
 "dash_heli_sep": "SitRep heli · separate label",
 "dash_ndrrma_g": "NDRRMA 14 Bhadra 13:00",
 "ndrrma_0900_alt": "NDRRMA situation board, 14 Bhadra 13:00",
-"nav_helpline": "Helpline",
+"nav_helpline": "Helpline / Contact",
 "nav_donate": "Relief funds",
 "nav_need": "Relief goods / warehouses",
 "nav_aid": "Foreign aid",
@@ -1509,6 +1513,7 @@ window.I18N = {
 "fd_jump_mad": "See list → Madhesh",
 
 "h_contacts": "Local government contacts",
+"h_contact_page": "Emergency help and contacts",
 "h_alert": "Alert",
 "h_notices": "Alerts, Notices and road status",
 "h_gov": "Government action after the disaster",
@@ -2014,6 +2019,9 @@ window.I18N = {
 "notices_title": "Alerts, Notices and road status · Rasuwa–Bhotekoshi flood bulletin",
 "notices_meta": "Highways, bridges, border road and alerts. Rescue 1234.",
 "notices_sub": "Highways, bridges, border road and alerts",
+"contact_title": "Emergency help and contacts · Rasuwa–Bhotekoshi flood bulletin",
+"contact_meta": "Helplines, rescue numbers and offices. Rescue 1234.",
+"contact_sub": "Helplines, rescue numbers and offices",
 "ems_src": "Source: Copernicus EMSR927",
 "about_sub": "About · independent civic bulletin",
 "about_back": "← Bulletin",
@@ -3253,6 +3261,7 @@ window.I18N_LISTS = {
     var govPg = file === "gov.html" || document.documentElement.classList.contains("gov-page");
     var damagePg = file === "damage.html" || document.documentElement.classList.contains("damage-page");
     var noticesPg = file === "notices.html" || document.documentElement.classList.contains("notices-page");
+    var contactPg = file === "contact.html" || document.documentElement.classList.contains("contact-page");
     if (aboutPg) {
       if (p.about_title) document.title = p.about_title;
     } else if (mapPg) {
@@ -3267,6 +3276,8 @@ window.I18N_LISTS = {
       if (p.damage_title) document.title = p.damage_title;
     } else if (noticesPg) {
       if (p.notices_title) document.title = p.notices_title;
+    } else if (contactPg) {
+      if (p.contact_title) document.title = p.contact_title;
     } else if (p.title) document.title = p.title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) {
@@ -3277,6 +3288,7 @@ window.I18N_LISTS = {
       else if (govPg && p.gov_meta) meta.setAttribute("content", p.gov_meta);
       else if (damagePg && p.damage_meta) meta.setAttribute("content", p.damage_meta);
       else if (noticesPg && p.notices_meta) meta.setAttribute("content", p.notices_meta);
+      else if (contactPg && p.contact_meta) meta.setAttribute("content", p.contact_meta);
       else if (p.meta) meta.setAttribute("content", p.meta);
     }
     applyKeyed(lang);
