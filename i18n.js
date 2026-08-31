@@ -3008,6 +3008,7 @@ window.I18N_LISTS = {
 }
 ],
 "alert": [
+"<strong>Flood Forecasting Division · 15 Bhadra 20:40:</strong> At the Bishnumati River <strong>Gongabu</strong> gauge in Kathmandu, the water level is <strong>near the danger mark</strong> and still rising. Residents of the lower riparian area should stay on <strong>high alert until morning</strong>.",
 "<strong>Kathmandu–Mugling / Prithvi reopened:</strong> Nepal Police — Kathmandu–Prithvi open from this morning. About <strong>1 km</strong> one-way at Baireni Bazaar; the rest two-way. Earlier road-closed line is history. Traffic <a href=\"tel:103\">103</a>. Source: <a href=\"https://www.nepalpress.com/2026/08/29/758233/traffic-operation-on-kathmandu-mugling-road-section-after-three-days/\" target=\"_blank\" rel=\"noopener\">Nepal Press</a>.",
 "<strong>China · lake burst risk eased:</strong> Water Resources/CCTV — lake slowly draining, burst threat down (Saturday morning ~99,000 sq m). Nepal Flood Forecasting Division “risk remains” stays separate. Stay off the banks.",
 "<strong>Today 12 Bhadra · Jirong lake burst:</strong> a dammed lake in Tibet burst, sending a second-wave flood to <strong>Syafrubesi</strong>. Flood Forecasting Division: impact may reach <strong>Mugling</strong>. Police: leave the Bhotekoshi–Trishuli banks immediately. Rescuers and dozers pulled from Bidur and Trishuli Bazaar. Source: <a href=\"https://www.ratopati.com/story/588109/floods-that-started-after-a-dam-burst-in-tibet-reach-syafrubesi\" target=\"_blank\" rel=\"noopener\">Ratopati 13:04</a>.",
