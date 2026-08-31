@@ -61,7 +61,7 @@
     return document.documentElement.classList.contains("names-page") || /names\.html(?:$|\?)/.test(location.pathname || "");
   }
   function afterSearchHash() {
-    return isNamesPage() ? "" : "#home";
+    return "";
   }
 
 
