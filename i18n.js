@@ -80,7 +80,9 @@ window.I18N = {
 "cash_can_cap": "घोषणा · प्रधानमन्त्री कोष · ६ अर्ब ५५ करोडमाथि होइन",
 "cash_can_note": "CAN ले प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>३० लाख</strong> (NPR ३ मिलियन) घोषणा। ९ बैंक जम्मा ६,५५,३३,६२,०११ माथि होइन। कोषमा आएको बैंक तालिकामा देखिएको छैन।",
 "cash_sbl": "सिद्धार्थ बैंक",
+"cash_ebl_p": "एभरेस्ट बैंक",
 "cash_sbl_note": "सिद्धार्थ बैंकले प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>२ करोड ५१ लाख</strong> बुझायो — १४ भदौ। १२ भदौ ९-बैंक तालिकामा छैन। ६ अर्ब ५५ करोडमाथि होइन। स्रोत: <a href=\"https://newsofnepal.com/2026/08/30/784845/\" target=\"_blank\" rel=\"noopener\">News of Nepal</a>।",
+"cash_ebl_note": "एभरेस्ट बैंकले प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमा <strong>२ करोड ५१ लाख</strong> (रु. २,५१,००,०००) बुझायो — चेक १४ भदौ २०८३। ९-बैंक खाता १,९५,२७,१८,१८५ र नेपाल लाइफ/सिद्धार्थ २.५१ अलग। ६ अर्ब ५५ करोडमाथि होइन।",
 
 "cash_friday_cap": "शुक्रबार एकै दिन · अर्थमन्त्रीमार्फत २७ · ६ अर्ब ५५ करोडभित्र",
 "pmdrf_sheet_h": "कोष · ९ बैंक · १२ भदौ",
@@ -1137,7 +1139,9 @@ window.I18N = {
 "cash_can_cap": "Pledge · PMDRF · not added on NPR 6.55 billion",
 "cash_can_note": "CAN pledged <strong>NPR 3 million</strong> (30 lakh) to the Prime Minister’s Disaster Relief Fund. Not added on the 9-bank total 6,55,33,62,011. Not yet on the bank sheet.",
 "cash_sbl": "Siddharth Bank",
+"cash_ebl_p": "Everest Bank",
 "cash_sbl_note": "Siddharth Bank handed <strong>NPR 2.51 crore</strong> to the Prime Minister’s Disaster Relief Fund on 14 Bhadra. Not in the 12 Bhadra 9-bank table. Not added on NPR 6.55 billion. Source: <a href=\"https://english.deshsanchar.com/siddharth-bank-pledges-rs-25-1-million-to-prime-ministers-relief-fund/\" target=\"_blank\" rel=\"noopener\">Desh Sanchar</a>.",
+"cash_ebl_note": "Everest Bank handed <strong>NPR 2.51 crore</strong> (NPR 2,51,00,000) to the Prime Minister’s Disaster Relief Fund — cheque dated 14 Bhadra 2083. Separate from the 9-bank Everest balance 1,95,27,18,185 and from Nepal Life / Siddharth 2.51. Not added on NPR 6.55 billion.",
 
 "cash_friday_cap": "Friday same-day · 27 via the Finance Minister · inside NPR 6.55 billion",
 "pmdrf_sheet_h": "Fund · 9 banks · 12 Bhadra",
