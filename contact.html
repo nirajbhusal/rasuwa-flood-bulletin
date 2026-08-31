@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-08-31-1830">
+<link rel="stylesheet" href="bulletin.css?v=2026-08-31-1940">
 </head>
 <body class="contact-page">
 <div class="head-stick">
@@ -273,8 +273,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-08-31-1830"></script>
-<script src="names-index.js?v=2026-08-31-1830"></script>
+<script src="i18n.js?v=2026-08-31-1940"></script>
+<script src="names-index.js?v=2026-08-31-1940"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -351,14 +351,16 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-08-31-1830";
+window.PAGE_VER="2026-08-31-1940";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){
     if (!stale(id)) return;
     var key = "rasuwa-refreshed-" + id;
     try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch (e) {}
-    location.reload();
+    var u = new URL(location.href);
+    u.searchParams.set("v", id);
+    location.replace(u.href);
   }
   function check(){
     fetch("latest.json?t=" + Date.now(), { cache: "no-store" })
@@ -367,10 +369,11 @@ window.PAGE_VER="2026-08-31-1830";
       .catch(function(){});
   }
   check();
-  setInterval(check, 45000);
+  setInterval(check, 15000);
   document.addEventListener("visibilitychange", function(){ if (!document.hidden) check(); });
   window.addEventListener("pageshow", function(ev){ if (ev.persisted) check(); });
   if (navigator.serviceWorker) {
+    try { navigator.serviceWorker.register("sw.js?v=" + (window.PAGE_VER || ""), { updateViaCache: "none" }); } catch (e) {}
     navigator.serviceWorker.addEventListener("message", function(ev){
       if (ev.data && ev.data.type === "page-refresh") refresh(ev.data.id);
     });

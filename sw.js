@@ -1,10 +1,10 @@
-/* रसुवा बाढी · सूचना · SW_VER 2026-08-27-1629 */
+/* रसुवा बाढी · सूचना · SW_VER 2026-08-31-1940 */
 const SCOPE = self.registration.scope;
 const LATEST = new URL('latest.json', SCOPE).href;
 const ICON = new URL('icon-192.png', SCOPE).href;
 const SEEN_CACHE = 'rasuwa-seen-v2';
 const MUTE_CACHE = 'rasuwa-mute-v1';
-const SW_VER = '2026-08-27-1629';
+const SW_VER = '2026-08-31-1940';
 
 self.addEventListener('install', (e) => { self.skipWaiting(); });
 self.addEventListener('activate', (e) => {
@@ -24,7 +24,11 @@ self.addEventListener('fetch', (e) => {
     /\.(html|js|json|webmanifest)$/.test(p) || p.endsWith('/');
   if (!live) return;
   e.respondWith(
-    fetch(e.request, { cache: 'no-store' }).catch(function () { return fetch(e.request); })
+    fetch(e.request, { cache: 'no-store' }).then(function (res) {
+      var h = new Headers(res.headers);
+      h.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+      return new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
+    }).catch(function () { return fetch(e.request); })
   );
 });
 
