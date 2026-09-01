@@ -1,9 +1,9 @@
 window.I18N = {
 "ne": {
-"title": "रसुवा–भोटेकोशी बाढी · ३१ अगस्ट २०२६",
-"meta": "३१ अगस्ट २०२६ / १५ भदौ २०८३ लाइभ। घटना १० भदौ (२६ अगस्ट) रसुवा–भोटेकोशी–त्रिशूली बाढी। सतर्कता, उद्धार र स्रोत।",
+"title": "रसुवा–भोटेकोशी बाढी · १ सेप्टेम्बर २०२६",
+"meta": "१ सेप्टेम्बर २०२६ / १६ भदौ २०८३ लाइभ। घटना १० भदौ (२६ अगस्ट) रसुवा–भोटेकोशी–त्रिशूली बाढी। सतर्कता, उद्धार र स्रोत।",
 "brand": "रसुवा–भोटेकोशी बाढी",
-"brand_date": "३१ अगस्ट २०२६ · १५ भदौ २०८३ · घटना १० भदौ / २६ अगस्ट",
+"brand_date": "१ सेप्टेम्बर २०२६ · १६ भदौ २०८३ · घटना १० भदौ / २६ अगस्ट",
 "live": "लाइभ",
 "share": "सेयर",
 "share_copied": "लिंक कपी भयो",
@@ -1071,10 +1071,10 @@ window.I18N = {
 
 },
 "en": {
-"title": "Rasuwa–Bhotekoshi Flood · 31 August 2026",
-"meta": "Live 31 August 2026 / 15 Bhadra 2083. Incident 10 Bhadra (26 August) Rasuwa–Bhotekoshi–Trishuli flood. Alerts, rescue and sources.",
+"title": "Rasuwa–Bhotekoshi Flood · 1 September 2026",
+"meta": "Live 1 September 2026 / 16 Bhadra 2083. Incident 10 Bhadra (26 August) Rasuwa–Bhotekoshi–Trishuli flood. Alerts, rescue and sources.",
 "brand": "Rasuwa–Bhotekoshi Flood",
-"brand_date": "31 August 2026 · 15 Bhadra 2083 · incident 10 Bhadra / 26 August",
+"brand_date": "1 September 2026 · 16 Bhadra 2083 · incident 10 Bhadra / 26 August",
 "live": "Live",
 "share": "Share",
 "share_copied": "Link copied",
