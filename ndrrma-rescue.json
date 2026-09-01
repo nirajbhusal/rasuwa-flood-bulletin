@@ -1,14 +1,14 @@
 {
-  "pulled_at": "2026-09-01T11:34:18+05:45",
-  "api_count": 3122,
+  "pulled_at": "2026-09-01T14:34:32+05:45",
+  "api_count": 3118,
   "nepali": 2913,
-  "foreign": 209,
-  "table_count": 3122,
+  "foreign": 205,
+  "table_count": 3118,
   "evening_rescued_total": 11814,
   "status_counts": {
-    "total_count": 3122,
-    "nepali_count": 2913,
-    "foreign_count": 209,
+    "total_count": 3117,
+    "nepali_count": 2912,
+    "foreign_count": 205,
     "status_counts": [
       {
         "id": 1,
@@ -26,7 +26,7 @@
         "id": 4,
         "title": "Obtained Rescued Name List",
         "title_ne": "उद्दार गरिएको प्राप्त नामावली",
-        "count": 3122
+        "count": 3117
       }
     ]
   },
@@ -39,8 +39,8 @@
   },
   "countries": {
     "ne": {
-      "भारत": 83,
-      "चीन": 13,
+      "भारत": 90,
+      "चीन": 14,
       "माल्टा": 4,
       "अमेरिका": 3,
       "इटाली": 3,
@@ -49,11 +49,11 @@
       "ओमान": 1,
       "रुस": 1,
       "स्विट्जरल्याण्ड": 1,
-      "नखुलेको": 95
+      "नखुलेको": 83
     },
     "en": {
-      "India": 83,
-      "China": 13,
+      "India": 90,
+      "China": 14,
       "Malta": 4,
       "Italy": 3,
       "USA": 3,
@@ -62,13 +62,13 @@
       "Russia": 1,
       "Switzerland": 1,
       "Oman": 1,
-      "Unspecified": 95
+      "Unspecified": 83
     }
   },
   "locations": [
     {
       "title_ne": "(खाली)",
-      "count": 1439
+      "count": 1435
     },
     {
       "title_ne": "रसुवा",
@@ -12160,8 +12160,8 @@
     },
     {
       "id": 22238,
-      "name": "",
-      "name_ne": "बरुण सिंहा ",
+      "name": "Barun Sinha",
+      "name_ne": "बरुण सिंहा",
       "age": 45,
       "rescued_location": null,
       "stationed_location": null,
@@ -12172,13 +12172,13 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": ""
     },
     {
       "id": 22237,
-      "name": "",
+      "name": "Sahadh Amir",
       "name_ne": "सहद्य अमिर",
       "age": 45,
       "rescued_location": null,
@@ -12190,14 +12190,14 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": ""
     },
     {
       "id": 22236,
-      "name": "",
-      "name_ne": "अजय सहनी ",
+      "name": "Ajay Sahani",
+      "name_ne": "अजय सहनी",
       "age": 30,
       "rescued_location": {
         "id": 56,
@@ -12213,13 +12213,13 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": ""
     },
     {
       "id": 22235,
-      "name": "",
+      "name": "Satya Narayan Sahani",
       "name_ne": "सत्य नारायण सहनी",
       "age": 41,
       "rescued_location": {
@@ -12236,13 +12236,13 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": ""
     },
     {
       "id": 22234,
-      "name": "",
+      "name": "Sanjaya Sahani",
       "name_ne": "सन्जय सहनी",
       "age": 38,
       "rescued_location": {
@@ -12259,13 +12259,13 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": ""
     },
     {
       "id": 22233,
-      "name": "",
+      "name": "Chandra Shekhar Sharma",
       "name_ne": "चन्द्र शेखर शर्मा",
       "age": 30,
       "rescued_location": {
@@ -12282,13 +12282,13 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": ""
     },
     {
       "id": 22232,
-      "name": "",
+      "name": "Pintu Kumar",
       "name_ne": "पिन्टु कुमार",
       "age": 19,
       "rescued_location": {
@@ -12305,7 +12305,7 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": ""
     },
@@ -12964,7 +12964,7 @@
     {
       "id": 21374,
       "name": "Guo Yu Chuan",
-      "name_ne": "",
+      "name_ne": null,
       "age": 46,
       "rescued_location": null,
       "stationed_location": null,
@@ -12975,7 +12975,7 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "China",
       "gender": "male",
       "remarks": ""
     },
@@ -13882,7 +13882,7 @@
     {
       "id": 21147,
       "name": "Gong Yu",
-      "name_ne": "",
+      "name_ne": null,
       "age": 25,
       "rescued_location": null,
       "stationed_location": null,
@@ -13893,7 +13893,7 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "China",
       "gender": "male",
       "remarks": ""
     },
@@ -14330,46 +14330,10 @@
       "remarks": ""
     },
     {
-      "id": 21087,
-      "name": "zyang chang Lin",
-      "name_ne": "",
-      "age": 43,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": null,
-      "nationality": "foreign",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
       "id": 21086,
       "name": "wang won xiao",
       "name_ne": "",
       "age": 31,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": null,
-      "nationality": "foreign",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
-      "id": 21085,
-      "name": "Xin Zhi giang",
-      "name_ne": "",
-      "age": 52,
       "rescued_location": null,
       "stationed_location": null,
       "status": {
@@ -18371,27 +18335,9 @@
       "remarks": ", Address: सोलुखुम्बु"
     },
     {
-      "id": 19708,
-      "name": "Xin Zhi Qiang",
-      "name_ne": "",
-      "age": 52,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": null,
-      "nationality": "foreign",
-      "country": null,
-      "gender": "male",
-      "remarks": "विदेशी, Address: China"
-    },
-    {
       "id": 19707,
       "name": "Zhang Chang Lin",
-      "name_ne": "",
+      "name_ne": null,
       "age": 43,
       "rescued_location": null,
       "stationed_location": null,
@@ -18402,7 +18348,7 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "China",
       "gender": "male",
       "remarks": "विदेशी, Address: China"
     },
@@ -24036,25 +23982,7 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
-      "gender": "male",
-      "remarks": "विदेशी, Address: भारत"
-    },
-    {
-      "id": 19382,
-      "name": "Umesh Gupta",
-      "name_ne": "उमेश गुप्ता",
-      "age": 6,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": null,
-      "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "विदेशी, Address: भारत"
     },
@@ -24168,8 +24096,8 @@
     },
     {
       "id": 19375,
-      "name": "Salman Allah",
-      "name_ne": "सलमान अल्लाह",
+      "name": "Salman Aalam",
+      "name_ne": "सलमान आलम",
       "age": 16,
       "rescued_location": null,
       "stationed_location": null,
@@ -24180,7 +24108,7 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "विदेशी, Address: भारत"
     },
@@ -24205,7 +24133,7 @@
     {
       "id": 19373,
       "name": "Myadi Hasan",
-      "name_ne": "म्यादी हसन",
+      "name_ne": "म्यादि हसन",
       "age": 38,
       "rescued_location": null,
       "stationed_location": null,
@@ -24216,7 +24144,7 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "विदेशी, Address: भारत"
     },
@@ -24414,7 +24342,7 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "विदेशी, Address: India"
     },
@@ -24853,7 +24781,7 @@
     {
       "id": 19328,
       "name": "Cai Xiu Bin",
-      "name_ne": "",
+      "name_ne": null,
       "age": 53,
       "rescued_location": null,
       "stationed_location": null,
@@ -24864,7 +24792,7 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "China",
       "gender": "male",
       "remarks": "विदेशी, Address: China"
     },
@@ -24889,7 +24817,7 @@
     {
       "id": 19326,
       "name": "Cuan Li Ting",
-      "name_ne": "",
+      "name_ne": null,
       "age": 55,
       "rescued_location": null,
       "stationed_location": null,
@@ -24900,7 +24828,7 @@
       },
       "rescued_date": null,
       "nationality": "foreign",
-      "country": null,
+      "country": "China",
       "gender": "male",
       "remarks": "विदेशी, Address: China"
     },
@@ -47657,7 +47585,7 @@
     {
       "id": 20978,
       "name": "Tharadai Kan Saabai",
-      "name_ne": "",
+      "name_ne": null,
       "age": 64,
       "rescued_location": {
         "id": 26,
@@ -47673,14 +47601,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": ""
     },
     {
       "id": 20977,
       "name": "Satya",
-      "name_ne": "",
+      "name_ne": null,
       "age": 59,
       "rescued_location": {
         "id": 26,
@@ -47696,14 +47624,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "female",
       "remarks": "Address: भारत; Approx. age: 59; Country: India"
     },
     {
       "id": 20976,
       "name": "Maithali",
-      "name_ne": "",
+      "name_ne": null,
       "age": 39,
       "rescued_location": {
         "id": 26,
@@ -47719,7 +47647,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "female",
       "remarks": "Address: भारत; Approx. age: 39; Country: India"
     },
@@ -47772,7 +47700,7 @@
     {
       "id": 20973,
       "name": "Kripa Hari",
-      "name_ne": "",
+      "name_ne": null,
       "age": 49,
       "rescued_location": {
         "id": 26,
@@ -47788,14 +47716,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "female",
       "remarks": "Address: भारत; Approx. age: 49; Country: India"
     },
     {
       "id": 20972,
       "name": "Aasutosh Upadhyay",
-      "name_ne": "",
+      "name_ne": null,
       "age": 23,
       "rescued_location": {
         "id": 26,
@@ -47811,7 +47739,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 23; Country: India"
     },
@@ -47864,7 +47792,7 @@
     {
       "id": 20969,
       "name": "Yogesh Kamar",
-      "name_ne": "",
+      "name_ne": null,
       "age": 3,
       "rescued_location": {
         "id": 26,
@@ -47880,14 +47808,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 3; Country: India"
     },
     {
       "id": 20968,
       "name": "Md Inzamamun",
-      "name_ne": "",
+      "name_ne": null,
       "age": 24,
       "rescued_location": {
         "id": 26,
@@ -47903,14 +47831,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 24; Country: India"
     },
     {
       "id": 20967,
       "name": "Rahul Kumar TAT",
-      "name_ne": "",
+      "name_ne": null,
       "age": 26,
       "rescued_location": {
         "id": 26,
@@ -47926,14 +47854,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 26; Country: India"
     },
     {
       "id": 20966,
       "name": "Niraj Kumar Thakur",
-      "name_ne": "",
+      "name_ne": null,
       "age": 28,
       "rescued_location": {
         "id": 26,
@@ -47949,14 +47877,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 28; Country: India"
     },
     {
       "id": 20965,
       "name": "Sajin Kumar Ram",
-      "name_ne": "",
+      "name_ne": null,
       "age": 32,
       "rescued_location": {
         "id": 26,
@@ -47972,7 +47900,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 32; Country: India"
     },
@@ -48041,7 +47969,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 32; Country: India"
     },
@@ -48461,7 +48389,7 @@
     },
     {
       "id": 20943,
-      "name": "",
+      "name": "Saruk",
       "name_ne": "सारुक",
       "age": 28,
       "rescued_location": {
@@ -48478,7 +48406,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 28; Country: India"
     },
@@ -48507,9 +48435,9 @@
     },
     {
       "id": 20941,
-      "name": "",
+      "name": null,
       "name_ne": "मान सिंह",
-      "age": 5,
+      "age": 50,
       "rescued_location": {
         "id": 26,
         "title": "रसुवा",
@@ -48524,13 +48452,13 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 5; Country: India"
     },
     {
       "id": 20940,
-      "name": "",
+      "name": null,
       "name_ne": "लक्ष्मण तिवारी",
       "age": 48,
       "rescued_location": {
@@ -48547,13 +48475,13 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 48; Country: India"
     },
     {
       "id": 20939,
-      "name": "",
+      "name": null,
       "name_ne": "ईन्द्रजित कुमार",
       "age": 2,
       "rescued_location": {
@@ -48570,7 +48498,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 2; Country: India"
     },
@@ -48800,7 +48728,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 38; Country: India"
     },
@@ -48823,7 +48751,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 45; Country: India"
     },
@@ -48846,7 +48774,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 6; Country: India"
     },
@@ -48869,7 +48797,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 18; Country: India"
     },
@@ -48945,7 +48873,7 @@
     {
       "id": 20922,
       "name": "Xin Zhi Qiang",
-      "name_ne": "",
+      "name_ne": null,
       "age": 52,
       "rescued_location": {
         "id": 26,
@@ -48961,14 +48889,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
-      "gender": "other",
+      "country": "China",
+      "gender": "male",
       "remarks": "Address: China; Approx. age: 52; Country: China"
     },
     {
       "id": 20921,
       "name": "Tian Zu",
-      "name_ne": "",
+      "name_ne": null,
       "age": 35,
       "rescued_location": {
         "id": 26,
@@ -48984,14 +48912,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "China",
       "gender": "male",
       "remarks": "Address: China; Approx. age: 35; Country: China"
     },
     {
       "id": 20920,
       "name": "Fang Guo Tav",
-      "name_ne": "",
+      "name_ne": null,
       "age": 48,
       "rescued_location": {
         "id": 26,
@@ -49007,14 +48935,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "China",
       "gender": "male",
       "remarks": "Address: China; Approx. age: 48; Country: China"
     },
     {
       "id": 20919,
       "name": "Peng Guany Xiu",
-      "name_ne": "",
+      "name_ne": null,
       "age": 45,
       "rescued_location": {
         "id": 26,
@@ -49030,7 +48958,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "China",
       "gender": "female",
       "remarks": "Address: China; Approx. age: 45; Country: China"
     },
@@ -49060,7 +48988,7 @@
     {
       "id": 20917,
       "name": "Anjana Raja",
-      "name_ne": "",
+      "name_ne": null,
       "age": 54,
       "rescued_location": {
         "id": 26,
@@ -49076,14 +49004,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "USA",
       "gender": "female",
       "remarks": "Address: USA; Approx. age: 54; Country: United States"
     },
     {
       "id": 20916,
       "name": "Pattabiraman Venkatesan",
-      "name_ne": "",
+      "name_ne": null,
       "age": 63,
       "rescued_location": {
         "id": 26,
@@ -49099,14 +49027,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "USA",
       "gender": "male",
       "remarks": "Address: USA; Approx. age: 63; Country: United States"
     },
     {
       "id": 20915,
       "name": "Stefano Lotumolo",
-      "name_ne": "",
+      "name_ne": null,
       "age": 39,
       "rescued_location": {
         "id": 26,
@@ -49122,7 +49050,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "Italy",
       "gender": "male",
       "remarks": "Address: Italiana; Approx. age: 39; Country: Italy"
     },
@@ -49145,7 +49073,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत चैनई; Approx. age: 69; Country: India"
     },
@@ -49175,7 +49103,7 @@
     {
       "id": 20912,
       "name": "Kanagasabai",
-      "name_ne": "",
+      "name_ne": null,
       "age": 68,
       "rescued_location": {
         "id": 26,
@@ -49191,14 +49119,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत चैनई; Approx. age: 68; Country: India"
     },
     {
       "id": 20911,
       "name": "Rethina Kumar",
-      "name_ne": "",
+      "name_ne": null,
       "age": 65,
       "rescued_location": {
         "id": 26,
@@ -49214,14 +49142,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत चैनई; Approx. age: 65; Country: India"
     },
     {
       "id": 20910,
       "name": "Vijaya bhuvaneswari",
-      "name_ne": "",
+      "name_ne": null,
       "age": null,
       "rescued_location": {
         "id": 26,
@@ -49237,14 +49165,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "female",
       "remarks": "Address: भारत चैनई; Country: India"
     },
     {
       "id": 20909,
       "name": "Sivaranjani",
-      "name_ne": "",
+      "name_ne": null,
       "age": 46,
       "rescued_location": {
         "id": 26,
@@ -49260,14 +49188,14 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "female",
       "remarks": "Address: भारत चैनई; Approx. age: 46; Country: India"
     },
     {
       "id": 20908,
       "name": "Thiyagarajan",
-      "name_ne": "",
+      "name_ne": null,
       "age": null,
       "rescued_location": {
         "id": 26,
@@ -49283,13 +49211,13 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत चैनई; Country: India"
     },
     {
       "id": 20907,
-      "name": "Nitesh Kumar Singh",
+      "name": "Nitesh Kumar Sinha",
       "name_ne": "नितेश कुमार सिंह",
       "age": 3,
       "rescued_location": {
@@ -49306,7 +49234,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 3; Country: India"
     },
@@ -49329,7 +49257,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 31; Country: India"
     },
@@ -49352,7 +49280,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत; Approx. age: 32; Country: India"
     },
@@ -55061,7 +54989,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत देश; Approx. age: 25; Country: India"
     },
@@ -55090,7 +55018,7 @@
       },
       "rescued_date": "2026-08-27",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": "Address: भारत देश; Approx. age: 4; Country: India"
     },
