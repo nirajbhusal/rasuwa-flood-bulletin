@@ -494,7 +494,20 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
 .hero h2.vis-title{font-size:clamp(22px,4vw,30px);margin:0 0 12px}
 .hero-title{text-align:center}
 .snap-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
+.snap-row.snap-row-3{grid-template-columns:1fr 1fr 1fr}
 .overview > .snap-row{margin-top:10px}
+@media(max-width:900px){.snap-row.snap-row-3{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.snap-row.snap-row-3{grid-template-columns:1fr}}
+.cash-snap[data-tone="comms"]{
+  background:linear-gradient(180deg,#eff6ff,#fff 55%);
+  border-color:#93c5fd;
+}
+.cash-snap[data-tone="comms"]:hover{border-color:#1d4ed8;box-shadow:0 0 0 3px #dbeafe}
+.cash-snap[data-tone="comms"] .kpi-k{color:#1e40af}
+.cash-snap[data-tone="comms"] .cash-list{width:100%;margin:6px 0 4px}
+.cash-snap[data-tone="comms"] .cash-list li{font-size:14px;font-weight:700;color:var(--ink);border-bottom-color:#dbeafe;padding:4px 0}
+.cash-snap[data-tone="comms"] .cash-sub{color:#1e3a8a}
+
 .roads-snap{
   display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;
   margin:10px 0 0;padding:12px 16px 10px;
