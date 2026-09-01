@@ -522,7 +522,7 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
 .cash-snap .kpi-k{width:100%;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
 
 .cash-snap .kpi-k{white-space:normal;line-height:1.35;letter-spacing:.02em;font-size:13px}
-.cash-snap .cash-usd{width:100%;margin-top:4px;font-size:15px;font-weight:800;color:var(--forest)}
+.cash-snap .cash-usd{width:100%;margin-top:6px;font-size:clamp(18px,3.4vw,22px);font-weight:800;line-height:1.35;color:var(--forest)}
 .aid-grand{width:100%;margin:0 0 12px;padding:12px 14px;background:#ecfeff;border:1px solid #67e8f9;border-radius:14px}
 .aid-grand strong{display:block;font-size:clamp(26px,5vw,36px);font-weight:800;color:#0e7490;line-height:1.15}
 .aid-grand .cash-sub{display:block;margin-top:4px;font-size:13px;font-weight:700;color:#0e7490}
