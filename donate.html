@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-01-1538">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-01-1550">
 </head>
 <body class="donate-page">
 <div class="head-stick">
@@ -124,6 +124,7 @@
             <span class="kpi-k" data-i18n="hero_cash_h">अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोषमा जम्मा राहत रकम</span>
             <strong data-i18n="hero_cash_num">रु. ७ अर्ब १५ करोड</strong>
             <span class="cash-unit" data-i18n="hero_cash_usd">अमेरिकी डलर खाता · USD ३१.९ लाख (~रु. ४८.६ करोड) · NRB खरिद १५२.५७ · २८ अगस्ट</span>
+            <span class="cash-unit cash-fonepay" data-i18n="hero_fonepay">फोनपे QR · रु. १ अर्ब ९६ करोड · ८,०३,२५९ कारोबार · २६–३१ अगस्ट · जम्मामा होइन</span>
           </button>
           <button type="button" class="cash-kpi" data-cash="door" aria-selected="false">
             <span class="kpi-k" data-i18n="cash_door_k">प्रणाली</span>
@@ -150,6 +151,39 @@
               <li><span data-i18n="bank_before">विपद्अघि मौज्दात</span><strong>२,१७,२५,०९,७५९</strong></li>
               <li><span data-i18n="bank_usd">अमेरिकी डलर खाता</span><strong data-i18n="bank_usd_amt">USD ३१.९ लाख (~रु. ४८.६ करोड)</strong></li>
             </ul>
+            
+        <div class="fonepay-in-cash" id="fonepay">
+          <p class="ov-cap" data-i18n="fonepay_sec_h">फोनपे QR संकलन</p>
+          <p class="cash-note" data-i18n-html="fonepay_lead">फोनपे QR संकलन (अलग श्रेणी) — <strong>२६–३१ अगस्ट २०२६</strong>। जम्मा <strong>रु. १ अर्ब ९६ करोड ५५ लाख</strong> (१,९६,५५,५४,३६१) · कारोबार <strong>८,०३,२५९</strong>। अर्थ मन्त्रालय / प्रधानमन्त्री कोषको नेपाली जम्मा <strong>७ अर्ब १५ करोड</strong> मा <strong>जोडिएको छैन</strong>।</p>
+          <ul class="cash-list">
+            <li><span data-i18n="fonepay_h">फोनपे QR · संकलन</span><strong>१,९६,५५,५४,३६१</strong></li>
+            <li><span data-i18n="fonepay_dom">घरेलु QR (फोनपे)</span><strong>१,९०,४०,६५,०५४</strong></li>
+            <li><span data-i18n="fonepay_npci">NPCI</span><strong>३,२८,९३,६७२</strong></li>
+            <li><span data-i18n="fonepay_p2p">P2P</span><strong>१,५५,१४,४२७</strong></li>
+            <li><span data-i18n="fonepay_ali">Alipay+</span><strong>१,३०,८१,२०९</strong></li>
+          </ul>
+          <p class="ov-cap" data-i18n="fonepay_day_cap">दैनिक संकलन</p>
+          <table class="fonepay-day">
+            <thead>
+              <tr>
+                <th data-i18n="fonepay_th_date">मिति</th>
+                <th data-i18n="fonepay_th_txn">कारोबार</th>
+                <th data-i18n="fonepay_th_amt">रकम (रु.)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>२६ अगस्ट</td><td>६१,९५६</td><td>६,७०,४१,९०९</td></tr>
+              <tr><td>२७ अगस्ट</td><td>३,४०,३०४</td><td>७३,३४,९५,२३९</td></tr>
+              <tr><td>२८ अगस्ट</td><td>२,०७,१५४</td><td>५५,६१,०३,८३६</td></tr>
+              <tr><td>२९ अगस्ट</td><td>९५,०३६</td><td>२७,७०,७०,०५१</td></tr>
+              <tr><td>३० अगस्ट</td><td>६०,२३१</td><td>१८,६५,३७,५३६</td></tr>
+              <tr><td>३१ अगस्ट</td><td>३८,५७८</td><td>१४,५३,०५,७९१</td></tr>
+              <tr><td><strong data-i18n="bank_grand">जम्मा</strong></td><td><strong>८,०३,२५९</strong></td><td><strong>१,९६,५५,५४,३६१</strong></td></tr>
+            </tbody>
+          </table>
+          <p class="cash-note" data-i18n="fonepay_src">स्रोत: फोनपे संकलन तालिका · २६–३१ अगस्ट २०२६। जम्मा ७ अर्ब १५ करोडमा जोडिएको छैन।</p>
+        </div>
+
             <p class="ov-cap" data-i18n="cash_can_cap">घोषणा · प्रधानमन्त्री कोष · ६ अर्ब ५५ करोडमाथि होइन</p>
             <ul class="cash-list" id="pmdrf-pledges">
               <li><span data-i18n="cash_can">क्रिकेट संघ नेपाल (CAN)</span><strong>३० लाख</strong></li>
@@ -213,48 +247,7 @@
         </div>
       </article>
       
-      <article class="fonepay-box" id="fonepay">
-        <h3 data-i18n="fonepay_sec_h">फोनपे QR संकलन</h3>
-        <p class="cash-lead" data-i18n-html="fonepay_lead">फोनपेमार्फत प्रधानमन्त्री दैवी प्रकोप उद्धार कोष QR संकलन — <strong>२६–३१ अगस्ट २०२६</strong>। जम्मा <strong>रु. १ अर्ब ९६ करोड ५५ लाख</strong> (१,९६,५५,५४,३६१) · कारोबार <strong>८,०३,२५९</strong>। अर्थ मन्त्रालयको नेपाली जम्मा <strong>७ अर्ब १५ करोड</strong> माथि <strong>नजोड्नुहोस्</strong> — अलग लेबल (भुक्तानी च्यानल)।</p>
-        <div class="fonepay-hero">
-          <a class="qr-open" href="img/pm-disaster-qr.png" target="_blank" rel="noopener">
-            <img src="img/pm-disaster-qr.png" width="220" height="220" alt="प्रधानमन्त्री दैवी प्रकोप उद्धार कोष · फोनपे QR" data-i18n-alt="fonepay_qr_alt">
-          </a>
-          <div>
-            <strong class="cash-lead" data-i18n="fonepay_num">रु. १ अर्ब ९६ करोड</strong>
-            <p class="cash-note" data-i18n="fonepay_scan">फोनपे / नेपालपे एपबाट स्क्यान गरेर दान गर्नुहोस्।</p>
-            <p class="ov-cap" data-i18n="fonepay_ch_cap">च्यानल विभाजन</p>
-            <ul class="cash-list">
-              <li><span data-i18n="fonepay_dom">घरेलु QR (फोनपे)</span><strong>१,९०,४०,६५,०५४</strong></li>
-              <li><span data-i18n="fonepay_npci">NPCI</span><strong>३,२८,९३,६७२</strong></li>
-              <li><span data-i18n="fonepay_p2p">P2P</span><strong>१,५५,१४,४२७</strong></li>
-              <li><span data-i18n="fonepay_ali">Alipay+</span><strong>१,३०,८१,२०९</strong></li>
-              <li><span data-i18n="bank_grand">जम्मा</span><strong>१,९६,५५,५४,३६१</strong></li>
-            </ul>
-          </div>
-        </div>
-        <p class="ov-cap" data-i18n="fonepay_day_cap">दैनिक संकलन</p>
-        <table>
-          <thead>
-            <tr>
-              <th data-i18n="fonepay_th_date">मिति</th>
-              <th data-i18n="fonepay_th_txn">कारोबार</th>
-              <th data-i18n="fonepay_th_amt">रकम (रु.)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>२६ अगस्ट</td><td>६१,९५६</td><td>६,७०,४१,९०९</td></tr>
-            <tr><td>२७ अगस्ट</td><td>३,४०,३०४</td><td>७३,३४,९५,२३९</td></tr>
-            <tr><td>२८ अगस्ट</td><td>२,०७,१५४</td><td>५५,६१,०३,८३६</td></tr>
-            <tr><td>२९ अगस्ट</td><td>९५,०३६</td><td>२७,७०,७०,०५१</td></tr>
-            <tr><td>३० अगस्ट</td><td>६०,२३१</td><td>१८,६५,३७,५३६</td></tr>
-            <tr><td>३१ अगस्ट</td><td>३८,५७८</td><td>१४,५३,०५,७९१</td></tr>
-            <tr><td><strong data-i18n="bank_grand">जम्मा</strong></td><td><strong>८,०३,२५९</strong></td><td><strong>१,९६,५५,५४,३६१</strong></td></tr>
-          </tbody>
-        </table>
-        <p class="cash-note" data-i18n="fonepay_src">स्रोत: फोनपे संकलन तालिका · २६–३१ अगस्ट २०२६।</p>
-      </article>
-
+      
 <article class="pledge-box" id="donate-pledges">
         <h3 data-i18n="aid_pledge_h">वैदेशिक घोषणा</h3>
         <p class="cash-note" data-i18n="aid_pledge_lead">देश/निकाय, रकम, माध्यम।</p>
@@ -493,8 +486,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-09-01-1538"></script>
-<script src="names-index.js?v=2026-09-01-1538"></script>
+<script src="i18n.js?v=2026-09-01-1550"></script>
+<script src="names-index.js?v=2026-09-01-1550"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -571,7 +564,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-01-1538";
+window.PAGE_VER="2026-09-01-1550";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){

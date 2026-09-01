@@ -523,6 +523,7 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
 
 .cash-snap .kpi-k{white-space:normal;line-height:1.35;letter-spacing:.02em;font-size:13px}
 .cash-snap .cash-usd{width:100%;margin-top:6px;font-size:clamp(18px,3.4vw,22px);font-weight:800;line-height:1.35;color:var(--forest)}
+.cash-snap .cash-fonepay{width:100%;margin-top:6px;font-size:clamp(16px,3vw,20px);font-weight:800;line-height:1.35;color:#1d4ed8}
 .fonepay-snap{
   display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;
   margin:10px 0 0;padding:14px 16px 12px;
@@ -2082,3 +2083,12 @@ a.home-ig-names{cursor:pointer}
     min-width:0;flex:0 0 20px;
   }
 }
+
+.fonepay-in-cash{margin:14px 0 8px;padding-top:10px;border-top:1px dashed #93c5fd}
+.fonepay-in-cash .ov-cap{color:#1d4ed8}
+.fonepay-in-cash .cash-list strong{color:#1d4ed8}
+.fonepay-in-cash table.fonepay-day{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}
+.fonepay-in-cash table.fonepay-day th,.fonepay-in-cash table.fonepay-day td{padding:8px 10px;border-bottom:1px solid #dbeafe;text-align:right}
+.fonepay-in-cash table.fonepay-day th:first-child,.fonepay-in-cash table.fonepay-day td:first-child{text-align:left}
+.fonepay-in-cash table.fonepay-day th{font-size:12px;font-weight:800;color:#1e40af;background:#eff6ff}
+.cash-kpi .cash-unit.cash-fonepay{display:block;width:100%;margin-top:4px;font-size:13px;color:#1d4ed8}
