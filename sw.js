@@ -1,10 +1,10 @@
-/* रसुवा बाढी · सूचना · SW_VER 2026-08-31-1940 */
+/* रसुवा बाढी · सूचना · SW_VER 2026-09-01-1105 */
 const SCOPE = self.registration.scope;
 const LATEST = new URL('latest.json', SCOPE).href;
 const ICON = new URL('icon-192.png', SCOPE).href;
 const SEEN_CACHE = 'rasuwa-seen-v2';
 const MUTE_CACHE = 'rasuwa-mute-v1';
-const SW_VER = '2026-08-31-1940';
+const SW_VER = '2026-09-01-1105';
 
 self.addEventListener('install', (e) => { self.skipWaiting(); });
 self.addEventListener('activate', (e) => {
