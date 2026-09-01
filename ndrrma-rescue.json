@@ -1,13 +1,13 @@
 {
-  "pulled_at": "2026-09-01T08:47:56+05:45",
-  "api_count": 3141,
-  "nepali": 2932,
+  "pulled_at": "2026-09-01T11:34:18+05:45",
+  "api_count": 3122,
+  "nepali": 2913,
   "foreign": 209,
-  "table_count": 3141,
-  "evening_rescued_total": 11379,
+  "table_count": 3122,
+  "evening_rescued_total": 11814,
   "status_counts": {
-    "total_count": 3141,
-    "nepali_count": 2932,
+    "total_count": 3122,
+    "nepali_count": 2913,
     "foreign_count": 209,
     "status_counts": [
       {
@@ -26,13 +26,13 @@
         "id": 4,
         "title": "Obtained Rescued Name List",
         "title_ne": "उद्दार गरिएको प्राप्त नामावली",
-        "count": 3141
+        "count": 3122
       }
     ]
   },
   "api_statistics": {
     "rescued_count": 7514,
-    "force_deployed": 20618,
+    "force_deployed": 21008,
     "out_of_reach": 2498,
     "tower": "Connectivity Fully Restored",
     "active": true
@@ -68,7 +68,7 @@
   "locations": [
     {
       "title_ne": "(खाली)",
-      "count": 1460
+      "count": 1439
     },
     {
       "title_ne": "रसुवा",
@@ -80,7 +80,7 @@
     },
     {
       "title_ne": "कोलोनी",
-      "count": 153
+      "count": 154
     },
     {
       "title_ne": "मैलुङ",
@@ -100,7 +100,7 @@
     },
     {
       "title_ne": "त्रिशुली",
-      "count": 37
+      "count": 38
     },
     {
       "title_ne": "टिमुरे, रसुवा",
@@ -37501,10 +37501,15 @@
     },
     {
       "id": 21629,
-      "name": "",
+      "name": null,
       "name_ne": "एरियाना पाण्डे",
       "age": 6,
-      "rescued_location": null,
+      "rescued_location": {
+        "id": 85,
+        "title": "कोलोनी",
+        "title_ne": "कोलोनी",
+        "centroid": null
+      },
       "stationed_location": null,
       "status": {
         "id": 4,
@@ -37514,8 +37519,8 @@
       "rescued_date": "2026-08-28",
       "nationality": "nepali",
       "country": null,
-      "gender": "male",
-      "remarks": ""
+      "gender": "female",
+      "remarks": "Permanent address: नुवाकोट"
     },
     {
       "id": 21628,
@@ -37645,10 +37650,15 @@
     },
     {
       "id": 21620,
-      "name": "",
+      "name": null,
       "name_ne": "यूनिसा आमात्य",
       "age": 16,
-      "rescued_location": null,
+      "rescued_location": {
+        "id": 53,
+        "title": "त्रिशुली",
+        "title_ne": "त्रिशुली",
+        "centroid": null
+      },
       "stationed_location": null,
       "status": {
         "id": 4,
@@ -37658,8 +37668,8 @@
       "rescued_date": "2026-08-28",
       "nationality": "nepali",
       "country": null,
-      "gender": "male",
-      "remarks": ""
+      "gender": "female",
+      "remarks": "Permanent Location: नुवाकोट"
     },
     {
       "id": 21619,
@@ -46385,24 +46395,6 @@
       "remarks": ""
     },
     {
-      "id": 21539,
-      "name": "",
-      "name_ne": "ईसिका परमा",
-      "age": 7,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
       "id": 21532,
       "name": null,
       "name_ne": "कौथिला अधिकारी",
@@ -46781,24 +46773,6 @@
       "remarks": ""
     },
     {
-      "id": 21488,
-      "name": "",
-      "name_ne": "ल्हमी तामाङ",
-      "age": 7,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
       "id": 21486,
       "name": "",
       "name_ne": "सान्ता तामाङ",
@@ -46961,42 +46935,6 @@
       "remarks": ""
     },
     {
-      "id": 21476,
-      "name": "",
-      "name_ne": "नितु डंगोल",
-      "age": 17,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
-      "id": 21475,
-      "name": "",
-      "name_ne": "दिनिसा मल्ल",
-      "age": 15,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
       "id": 21474,
       "name": "",
       "name_ne": "टिङजेङ सापु",
@@ -47141,24 +47079,6 @@
       "remarks": ""
     },
     {
-      "id": 21466,
-      "name": "",
-      "name_ne": "छेवाङ ल्हामु",
-      "age": 2,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
       "id": 21464,
       "name": "",
       "name_ne": "पालनाङ शेर्पा",
@@ -47213,24 +47133,6 @@
       "remarks": ""
     },
     {
-      "id": 21460,
-      "name": "",
-      "name_ne": "रेबिका नगरकोटी ",
-      "age": 9,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
       "id": 21458,
       "name": "",
       "name_ne": "कान्छी घले",
@@ -47264,42 +47166,6 @@
       "nationality": "nepali",
       "country": null,
       "gender": "female",
-      "remarks": ""
-    },
-    {
-      "id": 21456,
-      "name": "",
-      "name_ne": "सुस्मा तामाङ",
-      "age": 15,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
-      "id": 21455,
-      "name": "",
-      "name_ne": "हसिना तामाङ",
-      "age": 13,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
       "remarks": ""
     },
     {
@@ -47411,24 +47277,6 @@
       "remarks": ""
     },
     {
-      "id": 21447,
-      "name": "",
-      "name_ne": "निर्जना लामा",
-      "age": 14,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
       "id": 21446,
       "name": "",
       "name_ne": "बुद्धमाया तामाङ",
@@ -47451,24 +47299,6 @@
       "name": "",
       "name_ne": "कबि तामाङ",
       "age": 30,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
-      "id": 21444,
-      "name": "",
-      "name_ne": "रोबि वि.क.",
-      "age": 15,
       "rescued_location": null,
       "stationed_location": null,
       "status": {
@@ -47627,42 +47457,6 @@
       "remarks": ""
     },
     {
-      "id": 21434,
-      "name": "",
-      "name_ne": "रस्मी वि.क.",
-      "age": 12,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
-      "id": 21433,
-      "name": "",
-      "name_ne": "रोसनी वि.क.",
-      "age": 6,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
       "id": 21432,
       "name": "",
       "name_ne": "सरोज सुनार",
@@ -47714,24 +47508,6 @@
       "nationality": "nepali",
       "country": null,
       "gender": "female",
-      "remarks": ""
-    },
-    {
-      "id": 21429,
-      "name": "",
-      "name_ne": "दिक्षा मल्ल",
-      "age": 12,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
       "remarks": ""
     },
     {
@@ -47843,100 +47619,10 @@
       "remarks": ""
     },
     {
-      "id": 21421,
-      "name": "",
-      "name_ne": "दिपा रेग्मी ",
-      "age": 13,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
-      "id": 21420,
-      "name": "",
-      "name_ne": "पुर्णीमा तामाङ",
-      "age": 8,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
       "id": 21419,
       "name": "",
       "name_ne": "नारायण रेती तामाङ",
       "age": 50,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
-      "id": 21413,
-      "name": "",
-      "name_ne": "आशिकि तामाङ",
-      "age": 11,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
-      "id": 21411,
-      "name": "",
-      "name_ne": "यूरानी तामाङ",
-      "age": 9,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
-      "remarks": ""
-    },
-    {
-      "id": 21410,
-      "name": "",
-      "name_ne": "सोफिया सारु मगर",
-      "age": 5,
       "rescued_location": null,
       "stationed_location": null,
       "status": {
@@ -47966,24 +47652,6 @@
       "nationality": "nepali",
       "country": null,
       "gender": "female",
-      "remarks": ""
-    },
-    {
-      "id": 21408,
-      "name": "",
-      "name_ne": "दुर्गा अर्याल",
-      "age": 9,
-      "rescued_location": null,
-      "stationed_location": null,
-      "status": {
-        "id": 4,
-        "title": "Obtained Rescued Name List",
-        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
-      },
-      "rescued_date": "2026-08-27",
-      "nationality": "nepali",
-      "country": null,
-      "gender": "male",
       "remarks": ""
     },
     {
