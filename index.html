@@ -59,7 +59,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-01-1610">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-01-1630">
 </head>
 <body>
 <div class="head-stick">
@@ -168,6 +168,16 @@
           <li><span data-i18n="d_heli">हेलि</span><strong class="num">१४</strong></li>
         </ul>
         </div>
+        <div class="kpi-box" data-tone="comms" id="hero-comms">
+          <div class="kpi kpi-static">
+            <span class="kpi-k" data-i18n="hero_comms_h">सञ्चार</span>
+            <strong class="num" data-i18n="hero_comms_lead">११० · ७५</strong>
+          </div>
+          <ul class="cash-list kpi-split">
+            <li><span data-i18n="hero_comms_ntc_k">NTC</span><strong class="num">११०/११०</strong></li>
+            <li><span data-i18n="hero_comms_ncell_k">Ncell</span><strong class="num">७५/७८</strong></li>
+          </ul>
+        </div>
       </div>
       <a class="roads-snap" href="notices.html#roads" id="hero-roads">
         <span class="kpi-k" data-i18n="home_roads_h">सूचना / सडक स्थिति</span>
@@ -179,15 +189,7 @@
         <span class="cash-sub" data-i18n="home_roads_src">NDRRMA / गृह · १६ भदौ</span>
         <span class="roads-cta" data-i18n="home_roads_cta">पूरा सूचना</span>
       </a>
-      <div class="snap-row snap-row-3">
-      <div class="cash-snap" id="hero-comms" data-tone="comms">
-        <span class="kpi-k" data-i18n="hero_comms_h">सञ्चार</span>
-        <ul class="cash-list">
-          <li><span data-i18n="hero_comms_ntc">NTC: क्षति ११० · सबै सञ्चालन</span></li>
-          <li><span data-i18n="hero_comms_ncell">Ncell: ७८ मध्ये ७५ सञ्चालन</span></li>
-        </ul>
-        <span class="cash-sub" data-i18n="hero_comms_src">NDRRMA / गृह · १६ भदौ १३:००</span>
-      </div>
+      <div class="snap-row">
         <a class="cash-snap" href="donate.html#fonepay" id="hero-cash">
           <span class="kpi-k" data-i18n="hero_cash_h">अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोषमा जम्मा राहत रकम</span>
           <strong class="cash-lead" data-i18n="hero_cash_num">रु. ७ अर्ब १५ करोड</strong>
@@ -631,8 +633,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-09-01-1610"></script>
-<script src="names-index.js?v=2026-09-01-1610"></script>
+<script src="i18n.js?v=2026-09-01-1630"></script>
+<script src="names-index.js?v=2026-09-01-1630"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -701,7 +703,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-01-1610";</script>
+<script>window.PAGE_VER="2026-09-01-1630";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
