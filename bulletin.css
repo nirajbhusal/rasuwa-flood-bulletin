@@ -523,6 +523,45 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
 
 .cash-snap .kpi-k{white-space:normal;line-height:1.35;letter-spacing:.02em;font-size:13px}
 .cash-snap .cash-usd{width:100%;margin-top:6px;font-size:clamp(18px,3.4vw,22px);font-weight:800;line-height:1.35;color:var(--forest)}
+.fonepay-snap{
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;
+  margin:10px 0 0;padding:14px 16px 12px;
+  background:linear-gradient(180deg,#eff6ff,#fff 55%);
+  border:1px solid #93c5fd;border-radius:16px;
+  box-shadow:var(--shadow);text-decoration:none;color:inherit;
+}
+.fonepay-snap:hover{text-decoration:none;border-color:#1d4ed8;box-shadow:0 0 0 3px #dbeafe}
+.fonepay-snap .kpi-k{width:100%;font-size:13px;font-weight:800;color:#1e40af;letter-spacing:.02em}
+.fonepay-snap .cash-lead{font-size:clamp(24px,4.6vw,34px);font-weight:800;color:#1d4ed8;line-height:1.15;letter-spacing:-.02em}
+.fonepay-snap .cash-sub{width:100%;margin-top:2px;font-size:14px;font-weight:700;color:#1e3a8a;line-height:1.4}
+.fonepay-snap .fonepay-qr{
+  flex:0 0 auto;width:72px;height:72px;object-fit:contain;
+  border-radius:10px;border:1px solid #bfdbfe;background:#fff;padding:4px;
+}
+.fonepay-snap .fonepay-copy{flex:1 1 12em;min-width:0}
+.fonepay-box{
+  margin:0 0 18px;padding:18px 18px 16px;
+  background:linear-gradient(180deg,#eff6ff,#fff 42%);
+  border:1px solid #93c5fd;border-radius:18px;box-shadow:var(--shadow);
+}
+.fonepay-box h3{margin:0 0 8px;font-size:20px;font-weight:800;color:#1d4ed8}
+.fonepay-box .fonepay-hero{
+  display:flex;flex-wrap:wrap;align-items:flex-start;gap:16px 20px;margin:10px 0 14px;
+}
+.fonepay-box .fonepay-hero img{
+  width:min(220px,46vw);height:auto;border-radius:14px;border:1px solid #bfdbfe;
+  background:#fff;padding:8px;box-shadow:0 6px 18px rgba(29,78,216,.12);
+}
+.fonepay-box .fonepay-hero .cash-lead{font-size:clamp(26px,5vw,36px);color:#1d4ed8}
+.fonepay-box .cash-list strong{color:#1d4ed8}
+.fonepay-box table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+.fonepay-box th,.fonepay-box td{padding:8px 10px;border-bottom:1px solid #dbeafe;text-align:right}
+.fonepay-box th:first-child,.fonepay-box td:first-child{text-align:left}
+.fonepay-box th{font-size:12px;font-weight:800;color:#1e40af;background:#eff6ff}
+@media(max-width:640px){
+  .fonepay-snap .fonepay-qr{width:64px;height:64px}
+}
+
 .aid-grand{width:100%;margin:0 0 12px;padding:12px 14px;background:#ecfeff;border:1px solid #67e8f9;border-radius:14px}
 .aid-grand strong{display:block;font-size:clamp(26px,5vw,36px);font-weight:800;color:#0e7490;line-height:1.15}
 .aid-grand .cash-sub{display:block;margin-top:4px;font-size:13px;font-weight:700;color:#0e7490}

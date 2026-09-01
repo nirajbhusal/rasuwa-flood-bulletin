@@ -5,7 +5,7 @@
 <script>
 (function(){
   var H = {"names":1,"family":1,"fam-public":1,"fam-found-h":1,"hello-sarkar":1,"madhesh":1,"dao-res":1,"rasuwa-res":1,"shelter":1,"suryagadhi":1,"army-heli-res":1,"heli-ktm":1,"foreign-res":1,"foreign-today":1,"india-res":1,"trishuli1-res":1,"india-cross":1,"treat":1,"treat-dhunche":1,"lists-dash":1,"fd":1,"names-ig":1,"search":1};
-  var D = {"cash":1,"pmdrf":1,"pmdrf-banks":1,"pmdrf-pledges":1,"donate-pledges":1};
+  var D = {"cash":1,"pmdrf":1,"pmdrf-banks":1,"pmdrf-pledges":1,"donate-pledges":1,"fonepay":1};
   var id = (location.hash || "").replace(/^#/, "");
   var q = location.search || "";
   if (id === "about") location.replace("about.html" + q);
@@ -13,6 +13,7 @@
   else if (id === "path") location.replace("map.html" + q + "#path");
   else if (id === "donate") location.replace("donate.html" + q);
   else if (id === "aid") location.replace("donate.html" + q + "#aid");
+  else if (id === "fonepay") location.replace("donate.html" + q + "#fonepay");
   else if (id === "aid-ig") location.replace("donate.html" + q + "#aid-ig");
   else if (id === "rahat-need") location.replace("need.html" + q + "#rahat-need");
   else if (id === "rahat-collect") location.replace("need.html" + q + "#rahat-collect");
@@ -58,7 +59,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-01-1434">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-01-1538">
 </head>
 <body>
 <div class="head-stick">
@@ -222,6 +223,15 @@
           </span>
         </a>
       </div>
+        <a class="cash-snap fonepay-snap" href="donate.html#fonepay" id="hero-fonepay">
+          <img class="fonepay-qr" src="img/pm-disaster-qr.png" width="72" height="72" alt="फोनपे QR" data-i18n-alt="fonepay_qr_alt">
+          <span class="fonepay-copy">
+            <span class="kpi-k" data-i18n="fonepay_h">फोनपे QR · संकलन</span>
+            <strong class="cash-lead" data-i18n="fonepay_num">रु. १ अर्ब ९६ करोड</strong>
+            <span class="cash-sub" data-i18n="fonepay_sub">८,०३,२५९ कारोबार · २६–३१ अगस्ट · ७.१५ अर्बमाथि होइन</span>
+          </span>
+        </a>
+
       <div class="home-ig" id="home-ig">
         <article class="home-ig-card home-ig-human nig-card">
           <div class="nig-card-h">
@@ -620,8 +630,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-09-01-1434"></script>
-<script src="names-index.js?v=2026-09-01-1434"></script>
+<script src="i18n.js?v=2026-09-01-1538"></script>
+<script src="names-index.js?v=2026-09-01-1538"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -690,7 +700,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-01-1434";</script>
+<script>window.PAGE_VER="2026-09-01-1538";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
