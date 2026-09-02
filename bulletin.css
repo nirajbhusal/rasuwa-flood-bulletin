@@ -189,16 +189,13 @@ img{max-width:100%;display:block}
 .topbar::before{
   content:"";
   position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-color:transparent;
-  background-image:
-    linear-gradient(180deg,rgba(8,30,40,.42) 0%,rgba(8,30,40,.12) 46%,rgba(6,24,34,.28) 100%),
-    url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201440%20160%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22%235e93a3%22%20d%3D%22M0%20160V78l70-22%2086%2030%20118-54%2074%2028%2096-48%2070%2022%20108-40%2088%2026%20122-44%2080%2024%20110-32%2096%2028%20122-36%20100%2022V160z%22%2F%3E%3Cpath%20fill%3D%22%23e8f2f6%22%20fill-opacity%3D%22.55%22%20d%3D%22M274%2032l28%2018-14-2-14-16zm280-20%2032%2022-16-3-16-19zm430-8%2036%2024-18-3-18-21z%22%2F%3E%3Cpath%20fill%3D%22%231b5364%22%20d%3D%22M0%20160V96l96-28%20128%2040%20148-52%20102%2034%20154-46%20124%2038%20168-42%20130%2032%20170-30%20120%2028V160z%22%2F%3E%3Cpath%20fill%3D%22%23071c26%22%20d%3D%22M0%20160V118l130-22%20176%2026%20210-32%20164%2024%20220-28%20188%2026%20232-20%20120%2018V160z%22%2F%3E%3Cpath%20fill%3D%22%233ec0e0%22%20fill-opacity%3D%22.7%22%20d%3D%22M500%20160c56-46%20128-74%20230-82%20110-8%20176%2016%20250%2052%2016%208-20%2030-52%2030H500z%22%2F%3E%3Cpath%20fill%3D%22%23127a99%22%20d%3D%22M0%20132c160-16%20300%208%20460%200%20170-8%20310-22%20480-6%20180%2016%20250-6%20340%204%2080%208%20120%202%20160-8V160H0z%22%2F%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23b8ecfb%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%222%22%20d%3D%22M0%20142c200-12%20360%2010%20560%202%20200-8%20380-16%20580-2%20160%2010%20220%204%20300%200%22%2F%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23e0f6fd%22%20stroke-opacity%3D%22.28%22%20stroke-width%3D%221.4%22%20d%3D%22M0%20150c220%206%20400-8%20620-2%20220%206%20360%2010%20540%202%20140-4%20200-6%20280-2%22%2F%3E%3C%2Fsvg%3E");
-  background-repeat:no-repeat;
-  background-position:center, center bottom;
-  background-size:100% 100%, 100% 118px;
+  background:linear-gradient(180deg,rgba(8,30,40,.42) 0%,rgba(8,30,40,.12) 46%,rgba(6,24,34,.28) 100%);
+}
+.topbar-art{
+  position:absolute;left:0;right:0;bottom:0;width:100%;height:118px;z-index:0;pointer-events:none;display:block
 }
 @media (max-width:760px){
-  .topbar::before{background-size:100% 100%, 100% 72px}
+  .topbar-art{height:72px}
 }
 .topbar-inner{
   position:relative;z-index:1;
@@ -2290,7 +2287,7 @@ a.home-ig-names{cursor:pointer}
 .cash-kpi .cash-unit.cash-fonepay{display:block;width:100%;margin-top:4px;font-size:13px;color:#1d4ed8}
 
 
-/* 2026-09-02-1345 header art full-width bottom band + square KPI tiles */
+/* 2026-09-02-1355 header ridges to x=1440, inline .topbar-art + square KPI tiles */
 /* 2026-09-02-1205 readability / rahat categories */
 .cash-kpi{
   padding:14px 14px 12px;
