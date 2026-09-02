@@ -595,6 +595,8 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
 }
 .cash-snap .rahat-amt-fp,
 .cash-kpi .rahat-amt-fp{color:#1d4ed8}
+.cash-snap .rahat-amt-np,
+.cash-kpi .rahat-amt-np{color:#e31e24}
 .fonepay-snap{
   display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;
   margin:10px 0 0;padding:14px 16px 12px;
@@ -654,9 +656,16 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
   color:#1b75bc;
 }
 .dir-card.dir-np{border-left-color:#e31e24}
-.dir-card.dir-np h3{color:#e31e24}
-.dir-card.dir-np .dir-kicker{color:#1b75bc;margin-top:8px;line-height:1.5}
-.dir-card.dir-np .nepalpay-mark{margin:2px 0 4px}
+.dir-card.dir-np h3{color:#e31e24;margin-bottom:6px}
+.dir-card.dir-np .dir-kicker{color:#1b75bc;margin:0 0 8px;line-height:1.5}
+.dir-card.dir-np .rahat-amt-np{
+  display:block;width:100%;margin:2px 0 4px;
+  font-size:clamp(22px,3.8vw,30px);font-weight:800;line-height:1.2;
+  letter-spacing:0;font-variant-numeric:tabular-nums;color:#e31e24
+}
+.dir-card.dir-np .cash-unit.cash-nepalpay{
+  display:block;margin:0 0 10px;font-size:15px;font-weight:700;color:#1b75bc;line-height:1.45
+}
 
 .aid-grand{width:100%;margin:0 0 12px;padding:12px 14px;background:#ecfeff;border:1px solid #67e8f9;border-radius:14px}
 .aid-grand strong{display:block;font-size:clamp(26px,5vw,36px);font-weight:800;color:#0e7490;line-height:1.15}
@@ -2468,6 +2477,7 @@ a.home-ig-names{cursor:pointer}
   font-size:15px;font-weight:700;color:#334155;line-height:1.5;
 }
 .cash-kpi .cash-unit.cash-fonepay{display:block;width:100%;font-size:15px;color:#1d4ed8;margin-top:2px}
+.cash-kpi .cash-unit.cash-nepalpay{display:block;width:100%;font-size:15px;color:#1b75bc;margin-top:2px}
 #cash .cash-kpi > strong.num{font-size:clamp(26px,4.6vw,36px);letter-spacing:0}
 #cash .cash-kpi .rahat-amt{font-size:clamp(20px,3.6vw,28px)}
 .aid-ig .cash-kpi .kpi-k{font-size:14px}
@@ -2705,6 +2715,7 @@ a.home-ig-names{cursor:pointer}
 .cash-kpis-dash .fp-kpi strong{color:#1d4ed8}
 .cash-kpis-dash .np-kpi{border-color:#f5a3a6}
 .cash-kpis-dash .np-kpi .kpi-k{color:#e31e24}
+.cash-kpis-dash .np-kpi strong{color:#e31e24}
 .cash-kpis-dash .np-kpi .cash-unit{color:#1b75bc}
 @media(max-width:760px){
   #cash .cash-kpis-dash,.cash-kpis-dash{grid-template-columns:1fr}
