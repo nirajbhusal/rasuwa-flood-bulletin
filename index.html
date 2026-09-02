@@ -5,7 +5,7 @@
 <script>
 (function(){
   var H = {"names":1,"family":1,"fam-public":1,"fam-found-h":1,"hello-sarkar":1,"madhesh":1,"dao-res":1,"rasuwa-res":1,"shelter":1,"suryagadhi":1,"army-heli-res":1,"heli-ktm":1,"foreign-res":1,"foreign-today":1,"india-res":1,"trishuli1-res":1,"india-cross":1,"treat":1,"treat-dhunche":1,"lists-dash":1,"fd":1,"names-ig":1,"search":1};
-  var D = {"cash":1,"pmdrf":1,"pmdrf-banks":1,"pmdrf-pledges":1,"donate-pledges":1,"fonepay":1,"nepalpay":1};
+  var D = {"cash":1,"pmdrf":1,"pmdrf-banks":1,"pmdrf-pledges":1,"donate-pledges":1,"fonepay":1,"nepalpay":1,"nchl":1,"nchl-hist":1};
   var id = (location.hash || "").replace(/^#/, "");
   var q = location.search || "";
   if (id === "about") location.replace("about.html" + q);
@@ -14,6 +14,7 @@
   else if (id === "donate") location.replace("donate.html" + q);
   else if (id === "aid") location.replace("donate.html" + q + "#aid");
   else if (id === "fonepay") location.replace("donate.html" + q + "#fonepay");
+  else if (id === "nchl") location.replace("donate.html" + q + "#nchl");
   else if (id === "nepalpay") location.replace("donate.html" + q + "#nepalpay");
   else if (id === "aid-ig") location.replace("donate.html" + q + "#aid-ig");
   else if (id === "rahat-need") location.replace("need.html" + q + "#rahat-need");
@@ -60,7 +61,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-02-1913">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-02-1952">
 </head>
 <body>
 <div class="head-stick">
@@ -230,20 +231,26 @@
         <span class="roads-cta" data-i18n="home_roads_cta">पूरा सूचना</span>
       </a>
       <div class="snap-row">
-        <a class="cash-snap" href="donate.html#fonepay" id="hero-cash">
+        <div class="cash-snap" id="hero-cash">
+          <a class="cash-part" href="donate.html#cash">
           <span class="rahat-rule" data-i18n="hero_cash_cat">नेपाली राहत कोष</span>
           <strong class="cash-lead num" data-i18n="hero_cash_num">रु. ७ अर्ब १५ करोड</strong>
           <span class="cash-sub" data-i18n="hero_cash_sub">अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोष</span>
           <span class="rahat-rule" data-i18n="hero_usd_cat">USD खाता</span>
           <strong class="num rahat-amt" data-i18n="hero_cash_usd_num">USD ३१.९ लाख</strong>
           <span class="cash-sub" data-i18n="hero_cash_usd_src">~रु. ४८.६ करोड · NRB १५२.५७ · २८ अगस्ट</span>
+          </a>
+          <a class="cash-part" href="donate.html#nchl">
+          <span class="rahat-rule rahat-rule-nchl" data-i18n="hero_nchl_cat">NCHL</span>
+          <strong class="num rahat-amt rahat-amt-nchl" data-i18n="hero_nchl_num">रु. ३ अर्ब ११ करोड</strong>
+          <span class="cash-sub" data-i18n="hero_nchl_src">२,२९,५८९ कारोबार · २ सेप्टेम्बर १६:००</span>
+          </a>
+          <a class="cash-part" href="donate.html#nchl-hist">
           <span class="rahat-rule rahat-rule-fp" data-i18n="hero_fonepay_cat">फोनपे QR</span>
-          <strong class="num rahat-amt rahat-amt-fp" data-i18n="hero_fonepay_num">रु. ३ अर्ब ११ करोड</strong>
-          <span class="cash-sub" data-i18n="hero_fonepay_src">२,२९,५८९ कारोबार · २ सेप्टेम्बर १६:००</span>
-          <span class="rahat-rule rahat-rule-np" data-i18n="hero_nepalpay_cat">नेपालपे QR</span>
-          <strong class="num rahat-amt rahat-amt-np" data-i18n="hero_nepalpay_num">रु. ३ अर्ब ११ करोड</strong>
-          <span class="cash-sub" data-i18n="hero_nepalpay_src">२,२९,५८९ कारोबार · २ सेप्टेम्बर १६:००</span>
-        </a>
+          <strong class="num rahat-amt rahat-amt-fp" data-i18n="hero_fonepay_num">रु. १ अर्ब ९६ करोड</strong>
+          <span class="cash-sub" data-i18n="hero_fonepay_src">८,०३,२५९ कारोबार · २६–३१ अगस्ट</span>
+          </a>
+        </div>
         <a class="cash-snap aid-snap" href="donate.html#aid" id="hero-aid">
           <span class="rahat-rule" data-i18n="hero_aid_h">वैदेशिक सहयोग</span>
           <span class="rahat-rule rahat-rule-sent" data-i18n="aid_sent">पठाइएको</span>
@@ -626,8 +633,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-09-02-1913"></script>
-<script src="names-index.js?v=2026-09-02-1913"></script>
+<script src="i18n.js?v=2026-09-02-1952"></script>
+<script src="names-index.js?v=2026-09-02-1952"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -696,7 +703,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-02-1913";</script>
+<script>window.PAGE_VER="2026-09-02-1952";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }

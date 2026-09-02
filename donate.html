@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-02-1913">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-02-1952">
 </head>
 <body class="donate-page">
 <div class="head-stick">
@@ -109,7 +109,7 @@
               <span class="pay-chip"><img src="img/pay/unionpay.webp" alt="UnionPay" width="80" height="28"></span>
               <span class="pay-chip"><img src="img/pay/alipay.webp" alt="Alipay" width="96" height="28"></span>
               <span class="pay-chip"><img src="img/pay/fonepay.webp" alt="Fonepay" width="88" height="28"></span>
-              <span class="pay-chip pay-chip-np"><img src="img/pay/nepalpay.png" alt="NepalPay QR" width="110" height="28"></span>
+              <span class="pay-chip pay-chip-np" id="nepalpay"><img src="img/pay/nepalpay.png" alt="NepalPay QR" width="110" height="28"></span>
               <span class="pay-chip"><img src="img/pay/upi.webp" alt="UPI" width="80" height="28"></span>
               <span class="pay-chip pay-chip-app"><img src="img/pay/unionpay-app.png" alt="UnionPay" width="28" height="28"></span>
             </span>
@@ -132,15 +132,15 @@
             <strong class="num rahat-amt" data-i18n="hero_cash_usd_num">USD ३१.९ लाख</strong>
             <span class="cash-unit" data-i18n="hero_cash_usd_src">~रु. ४८.६ करोड · NRB १५२.५७ · २८ अगस्ट</span>
           </div>
+          <div class="cash-kpi nchl-kpi">
+            <span class="kpi-k" data-i18n="hero_nchl_cat">NCHL</span>
+            <strong class="num rahat-amt rahat-amt-nchl" data-i18n="hero_nchl_num">रु. ३ अर्ब ११ करोड</strong>
+            <span class="cash-unit cash-nchl" data-i18n="hero_nchl_src">२,२९,५८९ कारोबार · २ सेप्टेम्बर १६:००</span>
+          </div>
           <div class="cash-kpi fp-kpi">
             <span class="kpi-k" data-i18n="hero_fonepay_cat">फोनपे QR</span>
-            <strong class="num rahat-amt rahat-amt-fp" data-i18n="hero_fonepay_num">रु. ३ अर्ब ११ करोड</strong>
-            <span class="cash-unit cash-fonepay" data-i18n="hero_fonepay_src">२,२९,५८९ कारोबार · २ सेप्टेम्बर १६:००</span>
-          </div>
-          <div class="cash-kpi np-kpi">
-            <span class="kpi-k" data-i18n="hero_nepalpay_cat">नेपालपे QR</span>
-            <strong class="num rahat-amt rahat-amt-np" data-i18n="hero_nepalpay_num">रु. ३ अर्ब ११ करोड</strong>
-            <span class="cash-unit cash-nepalpay" data-i18n="hero_nepalpay_src">२,२९,५८९ कारोबार · २ सेप्टेम्बर १६:००</span>
+            <strong class="num rahat-amt rahat-amt-fp" data-i18n="hero_fonepay_num">रु. १ अर्ब ९६ करोड</strong>
+            <span class="cash-unit cash-fonepay" data-i18n="hero_fonepay_src">८,०३,२५९ कारोबार · २६–३१ अगस्ट</span>
           </div>
         </div>
 
@@ -322,9 +322,10 @@
           </table>
         </div>
 
-        <div class="dir-card dir-fp" id="fonepay">
-          <h3 data-i18n="fonepay_sec_h">फोनपे QR</h3>
-          <p class="dir-kicker" data-i18n="fonepay_kicker">NCHL · प्रधानमन्त्री दैवी प्रकोप उद्धार कोष · २ सेप्टेम्बर १६:००</p>
+        <div class="dir-card dir-nchl" id="nchl">
+          <span id="fonepay"></span>
+          <h3 data-i18n="nchl_sec_h">NCHL</h3>
+          <p class="dir-kicker" data-i18n="nchl_kicker">NCHL · प्रधानमन्त्री दैवी प्रकोप उद्धार कोष · २ सेप्टेम्बर १६:००</p>
           <table class="dir-table fonepay-nchl">
             <thead>
               <tr>
@@ -344,51 +345,45 @@
               <tr class="dir-total"><td data-i18n="bank_grand">जम्मा</td><td>२,२९,५८९</td><td>३,१०,७६,५०,७९१.४३</td></tr>
             </tbody>
           </table>
-          <details class="dir-hist">
-            <summary data-i18n="fonepay_hist">अघिल्लो २६–३१ अगस्ट · इतिहास</summary>
-            <p class="dir-kicker" data-i18n="fonepay_hist_k">१,९६,५५,५४,३६१ · ८,०३,२५९ कारोबार</p>
-            <table class="dir-table">
-              <thead>
-                <tr>
-                  <th data-i18n="dir_th_name">नाम / Name</th>
-                  <th data-i18n="dir_th_amt">रकम / Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="dir-total"><td data-i18n="fonepay_h">फोनपे QR · संकलन</td><td>१,९६,५५,५४,३६१</td></tr>
-                <tr><td data-i18n="fonepay_dom">घरेलु QR (फोनपे)</td><td>१,९०,४०,६५,०५४</td></tr>
-                <tr><td data-i18n="fonepay_npci">NPCI</td><td>३,२८,९३,६७२</td></tr>
-                <tr><td data-i18n="fonepay_p2p">P2P</td><td>१,५५,१४,४२७</td></tr>
-                <tr><td data-i18n="fonepay_ali">Alipay+</td><td>१,३०,८१,२०९</td></tr>
-              </tbody>
-            </table>
-            <p class="ov-cap" data-i18n="fonepay_day_cap">दैनिक संकलन</p>
-            <table class="dir-table fonepay-day">
-              <thead>
-                <tr>
-                  <th data-i18n="fonepay_th_date">मिति</th>
-                  <th data-i18n="fonepay_th_txn">कारोबार</th>
-                  <th data-i18n="fonepay_th_amt">रकम (रु.)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>२६ अगस्ट</td><td>६१,९५६</td><td>६,७०,४१,९०९</td></tr>
-                <tr><td>२७ अगस्ट</td><td>३,४०,३०४</td><td>७३,३४,९५,२३९</td></tr>
-                <tr><td>२८ अगस्ट</td><td>२,०७,१५४</td><td>५५,६१,०३,८३६</td></tr>
-                <tr><td>२९ अगस्ट</td><td>९५,०३६</td><td>२७,७०,७०,०५१</td></tr>
-                <tr><td>३० अगस्ट</td><td>६०,२३१</td><td>१८,६५,३७,५३६</td></tr>
-                <tr><td>३१ अगस्ट</td><td>३८,५७८</td><td>१४,५३,०५,७९१</td></tr>
-                <tr class="dir-total"><td data-i18n="bank_grand">जम्मा</td><td>८,०३,२५९</td><td>१,९६,५५,५४,३६१</td></tr>
-              </tbody>
-            </table>
-          </details>
         </div>
 
-        <div class="dir-card dir-np" id="nepalpay">
-          <h3 data-i18n="nepalpay_sec_h">नेपालपे QR</h3>
-          <p class="dir-kicker" data-i18n="nepalpay_kicker">NCHL · प्रधानमन्त्री दैवी प्रकोप उद्धार कोष · २ सेप्टेम्बर १६:००</p>
-          <strong class="num rahat-amt rahat-amt-np" data-i18n="nepalpay_num">रु. ३ अर्ब ११ करोड</strong>
-          <p class="cash-unit cash-nepalpay" data-i18n="nepalpay_exact">३,१०,७६,५०,७९१.४३ · २,२९,५८९ कारोबार</p>
+        <div class="dir-card dir-fp" id="nchl-hist">
+          <h3 data-i18n="fonepay_sec_h">फोनपे QR</h3>
+          <p class="dir-kicker" data-i18n="fonepay_hist_k">१,९६,५५,५४,३६१ · ८,०३,२५९ कारोबार</p>
+          <table class="dir-table">
+            <thead>
+              <tr>
+                <th data-i18n="dir_th_name">नाम / Name</th>
+                <th data-i18n="dir_th_amt">रकम / Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="dir-total"><td data-i18n="fonepay_h">फोनपे QR · संकलन</td><td>१,९६,५५,५४,३६१</td></tr>
+              <tr><td data-i18n="fonepay_dom">घरेलु QR (फोनपे)</td><td>१,९०,४०,६५,०५४</td></tr>
+              <tr><td data-i18n="fonepay_npci">NPCI</td><td>३,२८,९३,६७२</td></tr>
+              <tr><td data-i18n="fonepay_p2p">P2P</td><td>१,५५,१४,४२७</td></tr>
+              <tr><td data-i18n="fonepay_ali">Alipay+</td><td>१,३०,८१,२०९</td></tr>
+            </tbody>
+          </table>
+          <p class="ov-cap" data-i18n="fonepay_day_cap">दैनिक संकलन</p>
+          <table class="dir-table fonepay-day">
+            <thead>
+              <tr>
+                <th data-i18n="fonepay_th_date">मिति</th>
+                <th data-i18n="fonepay_th_txn">कारोबार</th>
+                <th data-i18n="fonepay_th_amt">रकम (रु.)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>२६ अगस्ट</td><td>६१,९५६</td><td>६,७०,४१,९०९</td></tr>
+              <tr><td>२७ अगस्ट</td><td>३,४०,३०४</td><td>७३,३४,९५,२३९</td></tr>
+              <tr><td>२८ अगस्ट</td><td>२,०७,१५४</td><td>५५,६१,०३,८३६</td></tr>
+              <tr><td>२९ अगस्ट</td><td>९५,०३६</td><td>२७,७०,७०,०५१</td></tr>
+              <tr><td>३० अगस्ट</td><td>६०,२३१</td><td>१८,६५,३७,५३६</td></tr>
+              <tr><td>३१ अगस्ट</td><td>३८,५७८</td><td>१४,५३,०५,७९१</td></tr>
+              <tr class="dir-total"><td data-i18n="bank_grand">जम्मा</td><td>८,०३,२५९</td><td>१,९६,५५,५४,३६१</td></tr>
+            </tbody>
+          </table>
         </div>
 
         <details class="dir-notes">
@@ -399,7 +394,8 @@
           <p class="cash-note" data-i18n-html="ndrrma_rahat_1500">NDRRMA / गृह १२ भदौ १९:०० — सरकारबाट जिल्लालाई नगद: रसुवा <strong>१ करोड</strong> · नुवाकोट <strong>१ करोड</strong> · धादिङ <strong>५० लाख</strong> · <strong>१५ पालिका ६ करोड ७५ लाख</strong> (जिल्ला/पालिका नगद)। सामग्री: ३२ ट्रक; हेलि राहत ६ उडान; सञ्चार सेट। नुवाकोट: डिजेल ४१,००० · पेट्रोल २४,००० मौज्दात; हवाई इन्धन <strong>१७,०००</strong> लि पठाइएको।</p>
           <p class="cash-note" data-i18n="cash_all_note">९ बैंकको योग ६,५५,३३,६२,०११ = विपद्पछि ४,३८,०८,५२,२५२ + मौज्दात २,१७,२५,०९,७५९। शुक्रबार ३८.५५ र सूर्य १५ यसैभित्र। अमेरिकी डलर खाता USD ३१.९ लाख (~रु. ४८.६ करोड)।</p>
           <p class="cash-note" data-i18n-html="cash_door_note">राहत, उद्धार, खोज तथा पुनर्स्थापनाको सहयोग प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमार्फत। अर्थमन्त्रीले बुझ्दै हुनुहुन्छ। तलका सरकारी खाता मात्र आधिकारिक।</p>
-          <p class="cash-note" data-i18n-html="fonepay_lead">फोनपे QR संकलन (अलग श्रेणी) — NCHL <strong>२ सेप्टेम्बर २०२६ १६:००</strong>। जम्मा <strong>रु. ३ अर्ब ११ करोड</strong> (३,१०,७६,५०,७९१) · कारोबार <strong>२,२९,५८९</strong>। अर्थ मन्त्रालय / प्रधानमन्त्री कोषको नेपाली जम्मा <strong>७ अर्ब १५ करोड</strong>। अघिल्लो २६–३१ अगस्ट १,९६,५५,५४,३६१ · ८,०३,२५९ कारोबार इतिहास।</p>
+          <p class="cash-note" data-i18n-html="nchl_lead">NCHL संकलन — प्रधानमन्त्री दैवी प्रकोप उद्धार कोष <strong>२ सेप्टेम्बर २०२६ १६:००</strong>। सबै च्यानल जम्मा <strong>रु. ३ अर्ब ११ करोड</strong> (३,१०,७६,५०,७९१.४३) · कारोबार <strong>२,२९,५८९</strong>। अर्थ मन्त्रालय / प्रधानमन्त्री कोषको नेपाली जम्मा <strong>७ अर्ब १५ करोड</strong> अलग।</p>
+          <p class="cash-note" data-i18n-html="fonepay_lead">फोनपे QR संकलन <strong>२६–३१ अगस्ट</strong>। जम्मा <strong>रु. १ अर्ब ९६ करोड</strong> (१,९६,५५,५४,३६१) · कारोबार <strong>८,०३,२५९</strong>। घरेलु QR फोनपे १,९०,४०,६५,०५४ + NPCI + P2P + Alipay+।</p>
         </details>
       </article>
       <p class="funds-lead" data-i18n-html="funds_lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन नयाँ अनलाइन पोर्टल वा SWIFT प्रयोग गर्न सकिन्छ। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
@@ -485,8 +481,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-09-02-1913"></script>
-<script src="names-index.js?v=2026-09-02-1913"></script>
+<script src="i18n.js?v=2026-09-02-1952"></script>
+<script src="names-index.js?v=2026-09-02-1952"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -563,7 +559,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-02-1913";
+window.PAGE_VER="2026-09-02-1952";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){
