@@ -111,7 +111,7 @@ window.I18N = {
 "cash_mon_days": "अर्थमन्त्रीमार्फत चार दिन <strong>१ अर्ब ३० करोड ७५ लाख</strong> (१,३०,७५,०८,६६१) — ११ भदौ २७.३३ · १२ भदौ ३८.६० · १४ भदौ ४.७९ + USD २ लाख · सोमबार ६०.०२। ११/१२ भदौ ६५५ भित्र; १४ भदौ र सोमबार ६५५ माथि। ६५५+१.३१ नबनाउनुहोस्। नगद ८० हजार, बाँकी एकाउन्ट पेयी चेक।",
 "hero_cash_mon": "सोमबार अर्थमन्त्रीमार्फत + रु. ६० करोड २ लाख · ९-बैंक ६५५ माथि होइन",
 "cash_friday_cap": "शुक्रबार २७",
-"pmdrf_sheet_h": "कोष · ९ बैंक · १२ भदौ",
+"pmdrf_sheet_h": "प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोषमा जम्मा भएको रकम तथा सहयोगकर्ताको विवरण",
 "pmdrf_sheet_c": "जम्मा ६,५५,३३,६२,०११ · विपद्पछि ४,३८,०८,५२,२५२",
 "pmdrf_sheet_alt": "प्रधानमन्त्री दैवी प्रकोप उद्धार कोष, ९ बैंक, १२ भदौ",
 
@@ -524,6 +524,7 @@ window.I18N = {
 "dir_pdf": "PDF / Print",
 "dir_th_name": "नाम / Name",
 "dir_th_amt": "रकम / Amount",
+"dir_contributors": "सहयोगकर्ता",
 "dir_notes": "टिप्पणी / Notes",
 "fonepay_h": "फोनपे QR · संकलन",
 "fonepay_num": "रु. १ अर्ब ९६ करोड",
@@ -1269,7 +1270,7 @@ window.I18N = {
 "cash_mon_days": "Four days via the Finance Minister <strong>NPR 1.3075 billion</strong> (1,30,75,08,661) — 11 Bhadra 27.33 · 12 Bhadra 38.60 · 14 Bhadra 4.79 + USD 200,000 · Monday 60.02. 11/12 Bhadra sit inside 6.55; 14 Bhadra and Monday sit above it. Do not make 6.55+1.31. Cash NPR 80,000; the rest account-payee cheques.",
 "hero_cash_mon": "Monday via the Finance Minister + NPR 60.02 crore · not added on the 9-bank 6.55",
 "cash_friday_cap": "Friday · 27",
-"pmdrf_sheet_h": "Fund · 9 banks · 12 Bhadra",
+"pmdrf_sheet_h": "Amounts deposited in the Prime Minister’s Disaster Relief Fund / Prime Minister Relief Fund, and contributor details",
 "pmdrf_sheet_c": "Total 6,55,33,62,011 · after disaster 4,38,08,52,252",
 "pmdrf_sheet_alt": "PM Disaster Relief Fund, 9 banks, 12 Bhadra",
 
@@ -1677,6 +1678,7 @@ window.I18N = {
 "dir_pdf": "PDF / Print",
 "dir_th_name": "Name",
 "dir_th_amt": "Amount",
+"dir_contributors": "Contributors",
 "dir_notes": "Notes",
 "fonepay_h": "Fonepay QR · collected",
 "fonepay_num": "NPR 1.97 billion",
