@@ -2325,7 +2325,7 @@ a.home-ig-names{cursor:pointer}
 .cash-kpi .cash-unit.cash-fonepay{display:block;width:100%;margin-top:4px;font-size:13px;color:#1d4ed8}
 
 
-/* 2026-09-02-1655 names search dock · category tabs · result cards */
+/* 2026-09-02-1700 names search dock · category tabs · result cards */
 /* 2026-09-02-1355 header ridges to x=1440, inline .topbar-art + square KPI tiles */
 /* 2026-09-02-1205 readability / rahat categories */
 .cash-kpi{
@@ -2451,7 +2451,7 @@ a.home-ig-names{cursor:pointer}
 #cash .cash-kpi{display:flex;flex-direction:column;align-items:stretch;gap:2px}
 .aid-snap .aid-pair .cash-sub{width:100%;font-size:14px;line-height:1.5;color:#0e7490}
 
-/* 2026-09-02-1655 donate directory · merged contributors · payment logos */
+/* 2026-09-02-1700 donate directory · merged contributors · payment logos */
 .pmdrf-banner{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
   gap:16px 22px;
@@ -2493,6 +2493,26 @@ a.home-ig-names{cursor:pointer}
   border-radius:999px;box-shadow:0 3px 0 #a16207;
   white-space:normal;
 }
+
+/* 2026-09-02-1700 official rescue portal banner · teal/crimson */
+.rescue-banner{
+  background:linear-gradient(135deg,#042f3a 0%,#0e4d5c 36%,#155e75 68%,#0e7490 100%);
+  border-color:#164e63;
+  box-shadow:0 16px 40px rgba(8,47,73,.45), inset 0 1px 0 rgba(255,255,255,.14);
+}
+.rescue-banner .pmdrf-banner-k{color:#a5f3fc}
+.rescue-banner .pmdrf-banner-sub{color:#ecfeff}
+.rescue-banner .pmdrf-banner-url{
+  color:#fff;background:#e11d48;
+}
+.rescue-banner .pmdrf-banner-cta{
+  background:#e11d48;color:#fff;
+  box-shadow:0 3px 0 #9f1239;
+}
+.rescue-banner:hover,.rescue-banner:focus-visible{
+  outline-color:#fb7185;
+}
+
 .pay-row{display:block;margin-top:12px}
 .pay-row-k{
   display:block;font-size:12px;font-weight:800;letter-spacing:.04em;
