@@ -2414,7 +2414,7 @@ a.home-ig-names{cursor:pointer}
 .cash-kpi .cash-unit.cash-fonepay{display:block;width:100%;margin-top:4px;font-size:13px;color:#1d4ed8}
 
 
-/* 2026-09-02-1805 names search dock · category tabs · result cards */
+/* 2026-09-02-1810 names search dock · category tabs · result cards */
 /* 2026-09-02-1355 header ridges to x=1440, inline .topbar-art + square KPI tiles */
 /* 2026-09-02-1205 readability / rahat categories */
 .cash-kpi{
@@ -2540,7 +2540,7 @@ a.home-ig-names{cursor:pointer}
 #cash .cash-kpi{display:flex;flex-direction:column;align-items:stretch;gap:2px}
 .aid-snap .aid-pair .cash-sub{width:100%;font-size:14px;line-height:1.5;color:#0e7490}
 
-/* 2026-09-02-1805 donate directory · pmdrf table export · spreadsheet */
+/* 2026-09-02-1810 donate directory · NCHL fonepay 16:00 · pmdrf export */
 .pmdrf-banner{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
   gap:16px 22px;
@@ -2583,7 +2583,7 @@ a.home-ig-names{cursor:pointer}
   white-space:normal;
 }
 
-/* 2026-09-02-1805 official rescue portal banner · teal/crimson */
+/* 2026-09-02-1810 official rescue portal banner · teal/crimson */
 .rescue-banner{
   background:linear-gradient(135deg,#042f3a 0%,#0e4d5c 36%,#155e75 68%,#0e7490 100%);
   border-color:#164e63;
@@ -2709,7 +2709,20 @@ a.home-ig-names{cursor:pointer}
   color:var(--forest);white-space:nowrap;
 }
 .dir-table tbody tr:nth-child(even):not(.dir-sec):not(.dir-total){background:#f8fafc}
-.dir-table.fonepay-day td:nth-child(2),.dir-table.fonepay-day th:nth-child(2){text-align:right;font-variant-numeric:tabular-nums}
+.dir-table.fonepay-day td:nth-child(2),.dir-table.fonepay-day th:nth-child(2),
+.dir-table.fonepay-nchl td:nth-child(2),.dir-table.fonepay-nchl th:nth-child(2){
+  text-align:right;font-variant-numeric:tabular-nums;font-weight:800;
+}
+.dir-card details.dir-hist{
+  margin:10px 0 6px;padding:8px 10px 4px;
+  background:#f8fafc;border:1px solid #dbeafe;border-radius:12px;
+}
+.dir-card details.dir-hist summary{
+  cursor:pointer;font-weight:800;font-size:14px;color:#1e3a8a;
+  min-height:36px;display:flex;align-items:center;
+}
+.dir-card details.dir-hist .dir-kicker{margin:8px 0 8px}
+.dir-card details.dir-hist .ov-cap{margin:12px 0 8px}
 .dir-card.dir-fp .dir-table td:last-child{color:#1d4ed8}
 .dir-table tr.dir-total{background:#ecfdf5;font-weight:800}
 .dir-table tr.dir-usd td:last-child{color:#0e7490}
@@ -2805,7 +2818,7 @@ details.dir-notes .cash-note{margin-top:10px}
   .dir-btn{flex:1 1 140px}
 }
 
-/* 2026-09-02-1805 about: centered column · समाचार list not cards */
+/* 2026-09-02-1810 about: centered column · समाचार list not cards */
 .about-page .sec-head{
   justify-content:center;
   text-align:center;
