@@ -645,6 +645,32 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
 #ems927 .photo img.ems-ig{aspect-ratio:1075/1521;max-height:280px}
 #ems927 .ems-links{margin:10px 0 0;font-size:15px;font-weight:700}
 #ems927 .ems-links a{font-weight:800}
+.ems-aoi-tag{
+  display:block;width:fit-content;margin-top:6px;
+  padding:2px 10px;border-radius:999px;
+  background:#ffedd5;color:#9a3412;
+  font-size:12px;font-weight:800;letter-spacing:.02em;
+}
+.ems-snap > a.kpi-k .ems-aoi-tag{text-decoration:none}
+#ems927 .ems-aoi-h{
+  margin:0 0 8px;font-size:18px;font-weight:800;color:#9a3412;
+}
+#ems927 .card + .card{margin-top:16px}
+#ems927 .ems-aoi-fig{
+  max-width:min(100%,440px);
+  margin:10px 0 14px;
+  border:1px solid #fed7aa;border-radius:12px;overflow:hidden;
+  background:#fff;
+}
+#ems927 .ems-aoi-fig img{
+  aspect-ratio:auto;max-height:200px;height:auto;object-fit:contain;background:#0f172a;
+}
+#ems927 .ems-hist{
+  margin:10px 0 0;padding:8px 10px;
+  background:#fff7ed;border-radius:10px;
+  font-size:13px;font-weight:700;color:var(--muted);
+}
+
 
 .pmdrf-banner{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
