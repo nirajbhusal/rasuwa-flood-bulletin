@@ -2325,7 +2325,7 @@ a.home-ig-names{cursor:pointer}
 .cash-kpi .cash-unit.cash-fonepay{display:block;width:100%;margin-top:4px;font-size:13px;color:#1d4ed8}
 
 
-/* 2026-09-02-1610 names search dock · category tabs · result cards */
+/* 2026-09-02-1630 names search dock · category tabs · result cards */
 /* 2026-09-02-1355 header ridges to x=1440, inline .topbar-art + square KPI tiles */
 /* 2026-09-02-1205 readability / rahat categories */
 .cash-kpi{
@@ -2451,7 +2451,7 @@ a.home-ig-names{cursor:pointer}
 #cash .cash-kpi{display:flex;flex-direction:column;align-items:stretch;gap:2px}
 .aid-snap .aid-pair .cash-sub{width:100%;font-size:14px;line-height:1.5;color:#0e7490}
 
-/* 2026-09-02-1610 donate directory · payment logos · stronger donate.gov.np banner */
+/* 2026-09-02-1630 donate directory · payment logos · stronger donate.gov.np banner */
 .pmdrf-banner{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
   gap:16px 22px;
@@ -2510,6 +2510,9 @@ a.home-ig-names{cursor:pointer}
   object-fit:contain;background:transparent;
 }
 .pay-chip-mc img{height:30px;max-width:70px}
+.pay-chip-np{padding:2px 6px;max-width:110px}
+.pay-chip-np img{height:28px;max-width:110px}
+.pay-chip-app img{height:28px;width:28px;max-width:28px}
 .pay-chip-text{
   height:36px;padding:0 10px;
   font-size:11px;font-weight:800;letter-spacing:.05em;
@@ -2529,8 +2532,11 @@ a.home-ig-names{cursor:pointer}
   }
   .pay-row{width:100%;margin-top:8px}
   .pay-chip{height:32px;padding:2px 6px}
-  .pay-chip img{height:24px;max-width:78px}
-  .pay-chip-mc img{height:26px;max-width:58px}
+  .pay-chip img{height:22px;max-width:64px}
+  .pay-chip-mc img{height:24px;max-width:52px}
+  .pay-chip-np{max-width:88px}
+  .pay-chip-np img{height:22px;max-width:88px}
+  .pay-chip-app img{height:24px;width:24px;max-width:24px}
   .pay-chip-text{height:32px;font-size:10px;padding:0 8px}
 }
 
