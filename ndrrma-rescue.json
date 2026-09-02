@@ -1,13 +1,13 @@
 {
-  "pulled_at": "2026-09-01T17:30:54+05:45",
-  "api_count": 4248,
-  "nepali": 3918,
+  "pulled_at": "2026-09-02T17:37:08+05:45",
+  "api_count": 4305,
+  "nepali": 3975,
   "foreign": 330,
-  "table_count": 4248,
-  "evening_rescued_total": 11884,
+  "table_count": 4305,
+  "evening_rescued_total": 11993,
   "status_counts": {
-    "total_count": 4248,
-    "nepali_count": 3918,
+    "total_count": 4305,
+    "nepali_count": 3975,
     "foreign_count": 330,
     "status_counts": [
       {
@@ -26,7 +26,7 @@
         "id": 4,
         "title": "Obtained Rescued Name List",
         "title_ne": "उद्दार गरिएको प्राप्त नामावली",
-        "count": 4248
+        "count": 4305
       }
     ]
   },
@@ -39,7 +39,7 @@
   },
   "countries": {
     "ne": {
-      "भारत": 89,
+      "भारत": 90,
       "चीन": 14,
       "माल्टा": 4,
       "अमेरिका": 3,
@@ -49,10 +49,10 @@
       "ओमान": 1,
       "रुस": 1,
       "स्विट्जरल्याण्ड": 1,
-      "नखुलेको": 209
+      "नखुलेको": 208
     },
     "en": {
-      "India": 89,
+      "India": 90,
       "China": 14,
       "Malta": 4,
       "USA": 3,
@@ -62,7 +62,7 @@
       "Oman": 1,
       "Russia": 1,
       "Switzerland": 1,
-      "Unspecified": 209
+      "Unspecified": 208
     }
   },
   "locations": [
@@ -76,11 +76,11 @@
     },
     {
       "title_ne": "धुन्चे",
-      "count": 221
+      "count": 224
     },
     {
       "title_ne": "कोलोनी",
-      "count": 154
+      "count": 159
     },
     {
       "title_ne": "मैलुङ",
@@ -99,6 +99,10 @@
       "count": 68
     },
     {
+      "title_ne": "धुुन्चे",
+      "count": 46
+    },
+    {
       "title_ne": "त्रिशुली",
       "count": 38
     },
@@ -109,10 +113,6 @@
     {
       "title_ne": "नुवाकोट",
       "count": 27
-    },
-    {
-      "title_ne": "धुुन्चे",
-      "count": 24
     },
     {
       "title_ne": "हाकुबेशी",
@@ -143,6 +143,14 @@
       "count": 11
     },
     {
+      "title_ne": "शान्तिबजार",
+      "count": 10
+    },
+    {
+      "title_ne": "स्याफ्रुवेशी",
+      "count": 10
+    },
+    {
       "title_ne": "अक्कटे",
       "count": 7
     },
@@ -156,6 +164,10 @@
     },
     {
       "title_ne": "मैलुुङ",
+      "count": 4
+    },
+    {
+      "title_ne": "सिरखाली",
       "count": 4
     },
     {
@@ -176,6 +188,10 @@
     },
     {
       "title_ne": "चण्डेश्वरी",
+      "count": 3
+    },
+    {
+      "title_ne": "कुसुमटार",
       "count": 3
     },
     {
@@ -203,7 +219,7 @@
       "count": 1
     },
     {
-      "title_ne": "स्याफ्रुवेशी",
+      "title_ne": "शान्तिबजाार",
       "count": 1
     },
     {
@@ -26386,6 +26402,1317 @@
       "remarks": "हाकुबेशी, Address: रामेछाप"
     },
     {
+      "id": 26958,
+      "name": "",
+      "name_ne": "मिन कुमारी सापकोटा",
+      "age": 76,
+      "rescued_location": {
+        "id": 102,
+        "title": "शान्तिबजार",
+        "title_ne": "शान्तिबजार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-22",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26957,
+      "name": "",
+      "name_ne": "मेघ कुमारी भट्ट",
+      "age": 76,
+      "rescued_location": {
+        "id": 103,
+        "title": "शान्तिबजाार",
+        "title_ne": "शान्तिबजाार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-21",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26956,
+      "name": "",
+      "name_ne": "अनायरा श्रेष्ठ",
+      "age": 2,
+      "rescued_location": {
+        "id": 85,
+        "title": "कोलोनी",
+        "title_ne": "कोलोनी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-20",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26955,
+      "name": "",
+      "name_ne": "लालमाया श्रेष्ठ",
+      "age": 35,
+      "rescued_location": {
+        "id": 85,
+        "title": "कोलोनी",
+        "title_ne": "कोलोनी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-19",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26954,
+      "name": "",
+      "name_ne": "ईसा तामाङ",
+      "age": 12,
+      "rescued_location": {
+        "id": 85,
+        "title": "कोलोनी",
+        "title_ne": "कोलोनी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-18",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26953,
+      "name": "",
+      "name_ne": "बिन्दु गुरुङ",
+      "age": 30,
+      "rescued_location": {
+        "id": 85,
+        "title": "कोलोनी",
+        "title_ne": "कोलोनी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-17",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26952,
+      "name": "",
+      "name_ne": "सलिना गुरुङ",
+      "age": 2,
+      "rescued_location": {
+        "id": 85,
+        "title": "कोलोनी",
+        "title_ne": "कोलोनी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-16",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26951,
+      "name": "",
+      "name_ne": "चादनी तामाङ",
+      "age": 16,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-15",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26950,
+      "name": "",
+      "name_ne": "खेन्चुङ घले",
+      "age": 60,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-14",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26949,
+      "name": "",
+      "name_ne": "देेवी मेन्दो तामाङ",
+      "age": 32,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-13",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26948,
+      "name": "",
+      "name_ne": "सेर्साेङ तामाङ",
+      "age": 70,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-12",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26947,
+      "name": "",
+      "name_ne": "कान्छी माया भण्डारी",
+      "age": 66,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-11",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26946,
+      "name": "",
+      "name_ne": "अम्बिका भण्डारी",
+      "age": 41,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-10",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26945,
+      "name": "",
+      "name_ne": "खुसी तामाङ",
+      "age": 12,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-09",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26944,
+      "name": "",
+      "name_ne": "डिकी तामाङ",
+      "age": 32,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-08",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26943,
+      "name": "",
+      "name_ne": "मेन डोल्मा तामाङ",
+      "age": 34,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-07",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26942,
+      "name": "",
+      "name_ne": "छेकी शेर्पा",
+      "age": 59,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-06",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26941,
+      "name": "",
+      "name_ne": "मिङमार तामाङ",
+      "age": 57,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-05",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26940,
+      "name": "",
+      "name_ne": "करसिङ तामाङ",
+      "age": 60,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-04",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26939,
+      "name": "",
+      "name_ne": "छेवाङमो तामाङ",
+      "age": 63,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-03",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26938,
+      "name": "",
+      "name_ne": "सोफिया घले",
+      "age": 18,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-02",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26937,
+      "name": "",
+      "name_ne": "सिता घले",
+      "age": 40,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-09-01",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26936,
+      "name": "",
+      "name_ne": "छेिरिङ्ग तामाङ",
+      "age": 53,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26935,
+      "name": "",
+      "name_ne": "किपु ग्याल्मो तामाङ",
+      "age": 60,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26934,
+      "name": "",
+      "name_ne": "कर्मभुट्टी तामाङ",
+      "age": 60,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26933,
+      "name": "",
+      "name_ne": "पासाङ लामा",
+      "age": 20,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26932,
+      "name": "",
+      "name_ne": "रोशनी तामाङ",
+      "age": 33,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26931,
+      "name": "",
+      "name_ne": "सेराप साङमुत्ताङ",
+      "age": 78,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26930,
+      "name": "",
+      "name_ne": "लाक्पा याण्डिड तामाङ",
+      "age": 30,
+      "rescued_location": {
+        "id": 76,
+        "title": "धुुन्चे",
+        "title_ne": "धुुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26929,
+      "name": "",
+      "name_ne": "सुमित्रा अधिकारी",
+      "age": 34,
+      "rescued_location": {
+        "id": 102,
+        "title": "शान्तिबजार",
+        "title_ne": "शान्तिबजार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26928,
+      "name": "",
+      "name_ne": "तेन्जेन कुन्साङ तामाङ",
+      "age": 3,
+      "rescued_location": {
+        "id": 102,
+        "title": "शान्तिबजार",
+        "title_ne": "शान्तिबजार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26927,
+      "name": "",
+      "name_ne": "शान्ति घले",
+      "age": 26,
+      "rescued_location": {
+        "id": 102,
+        "title": "शान्तिबजार",
+        "title_ne": "शान्तिबजार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26926,
+      "name": "",
+      "name_ne": "ट्डाेल्मा घले",
+      "age": 50,
+      "rescued_location": {
+        "id": 102,
+        "title": "शान्तिबजार",
+        "title_ne": "शान्तिबजार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26925,
+      "name": "",
+      "name_ne": "सिता फुयाल न्याैपाने",
+      "age": 30,
+      "rescued_location": {
+        "id": 102,
+        "title": "शान्तिबजार",
+        "title_ne": "शान्तिबजार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26924,
+      "name": "",
+      "name_ne": "विभा माया तामाङ",
+      "age": 34,
+      "rescued_location": {
+        "id": 102,
+        "title": "शान्तिबजार",
+        "title_ne": "शान्तिबजार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26923,
+      "name": "",
+      "name_ne": "सविता तामाङ",
+      "age": 43,
+      "rescued_location": {
+        "id": 102,
+        "title": "शान्तिबजार",
+        "title_ne": "शान्तिबजार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26922,
+      "name": "",
+      "name_ne": "सिसाङ तामाङ",
+      "age": 11,
+      "rescued_location": {
+        "id": 102,
+        "title": "शान्तिबजार",
+        "title_ne": "शान्तिबजार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26921,
+      "name": "",
+      "name_ne": "सञ्चिता तामाङ",
+      "age": 8,
+      "rescued_location": {
+        "id": 102,
+        "title": "शान्तिबजार",
+        "title_ne": "शान्तिबजार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26920,
+      "name": "",
+      "name_ne": "स्याङ्बो तामाङ",
+      "age": 36,
+      "rescued_location": {
+        "id": 56,
+        "title": "धुन्चे",
+        "title_ne": "धुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Sindhupalchok"
+    },
+    {
+      "id": 26919,
+      "name": "",
+      "name_ne": "फुुर्पा तामाङ",
+      "age": 47,
+      "rescued_location": {
+        "id": 56,
+        "title": "धुन्चे",
+        "title_ne": "धुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26918,
+      "name": "",
+      "name_ne": "निमा घले",
+      "age": 41,
+      "rescued_location": {
+        "id": 56,
+        "title": "धुन्चे",
+        "title_ne": "धुन्चे",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26917,
+      "name": "",
+      "name_ne": "कमल खड्का",
+      "age": 67,
+      "rescued_location": {
+        "id": 50,
+        "title": "स्याफ्रुवेशी",
+        "title_ne": "स्याफ्रुवेशी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26916,
+      "name": "",
+      "name_ne": "सिला खड्का",
+      "age": 58,
+      "rescued_location": {
+        "id": 50,
+        "title": "स्याफ्रुवेशी",
+        "title_ne": "स्याफ्रुवेशी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26915,
+      "name": "",
+      "name_ne": "रितिमा खड्का",
+      "age": 9,
+      "rescued_location": {
+        "id": 50,
+        "title": "स्याफ्रुवेशी",
+        "title_ne": "स्याफ्रुवेशी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26914,
+      "name": "",
+      "name_ne": "देवकी आचार्य",
+      "age": 48,
+      "rescued_location": {
+        "id": 50,
+        "title": "स्याफ्रुवेशी",
+        "title_ne": "स्याफ्रुवेशी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26913,
+      "name": "",
+      "name_ne": "पाल्मा तामाङ",
+      "age": 53,
+      "rescued_location": {
+        "id": 50,
+        "title": "स्याफ्रुवेशी",
+        "title_ne": "स्याफ्रुवेशी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26912,
+      "name": "",
+      "name_ne": "फुर्पा ल्यामु तामाङ",
+      "age": 73,
+      "rescued_location": {
+        "id": 50,
+        "title": "स्याफ्रुवेशी",
+        "title_ne": "स्याफ्रुवेशी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26911,
+      "name": "",
+      "name_ne": "पासाङ्ग तामाङ",
+      "age": 66,
+      "rescued_location": {
+        "id": 50,
+        "title": "स्याफ्रुवेशी",
+        "title_ne": "स्याफ्रुवेशी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26910,
+      "name": "",
+      "name_ne": "बाङमो तामाङ",
+      "age": 37,
+      "rescued_location": {
+        "id": 50,
+        "title": "स्याफ्रुवेशी",
+        "title_ne": "स्याफ्रुवेशी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26909,
+      "name": "",
+      "name_ne": "छेन्जोम तामाङ",
+      "age": 12,
+      "rescued_location": {
+        "id": 50,
+        "title": "स्याफ्रुवेशी",
+        "title_ne": "स्याफ्रुवेशी",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Rasuwa"
+    },
+    {
+      "id": 26908,
+      "name": "",
+      "name_ne": "सुचित्रा श्रेष्ठ",
+      "age": 15,
+      "rescued_location": {
+        "id": 101,
+        "title": "कुसुमटार",
+        "title_ne": "कुसुमटार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26907,
+      "name": "",
+      "name_ne": "प्रिति चाैधरी",
+      "age": 17,
+      "rescued_location": {
+        "id": 101,
+        "title": "कुसुमटार",
+        "title_ne": "कुसुमटार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26906,
+      "name": "",
+      "name_ne": "युनिशा पुडासैनी",
+      "age": 15,
+      "rescued_location": {
+        "id": 101,
+        "title": "कुसुमटार",
+        "title_ne": "कुसुमटार",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26905,
+      "name": "",
+      "name_ne": "सदिक्षा श्रेष्ठ",
+      "age": 14,
+      "rescued_location": {
+        "id": 100,
+        "title": "सिरखाली",
+        "title_ne": "सिरखाली",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26904,
+      "name": "",
+      "name_ne": "शिवा मगर",
+      "age": 4,
+      "rescued_location": {
+        "id": 100,
+        "title": "सिरखाली",
+        "title_ne": "सिरखाली",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26903,
+      "name": "",
+      "name_ne": "सिमा मगर",
+      "age": 33,
+      "rescued_location": {
+        "id": 100,
+        "title": "सिरखाली",
+        "title_ne": "सिरखाली",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
+      "id": 26902,
+      "name": "",
+      "name_ne": "विशाना चाैधरी",
+      "age": 9,
+      "rescued_location": {
+        "id": 100,
+        "title": "सिरखाली",
+        "title_ne": "सिरखाली",
+        "centroid": null
+      },
+      "stationed_location": null,
+      "status": {
+        "id": 4,
+        "title": "Obtained Rescued Name List",
+        "title_ne": "उद्दार गरिएको प्राप्त नामावली"
+      },
+      "rescued_date": "2026-08-31",
+      "nationality": "nepali",
+      "country": null,
+      "gender": "female",
+      "remarks": "Nuwakot"
+    },
+    {
       "id": 26844,
       "name": "Barun Sinha",
       "name_ne": "बरुण सिन्हा",
@@ -47863,7 +49190,7 @@
       },
       "rescued_date": "2026-08-28",
       "nationality": "foreign",
-      "country": null,
+      "country": "India",
       "gender": "male",
       "remarks": ""
     },
