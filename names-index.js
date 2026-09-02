@@ -15,20 +15,20 @@
 
   var CHIP_DEFS = [
     { id: "all", group: "all", i18n: "chip_all", row: "main" },
-    { id: "rescue", group: "status", i18n: "chip_res", row: "main" },
-    { id: "treat", group: "status", i18n: "chip_treat", row: "main" },
-    { id: "miss", group: "status", i18n: "chip_miss", row: "main" },
-    { id: "found", group: "status", i18n: "chip_found", row: "main", hide: true },
-    { id: "foreign", group: "nation", i18n: "chip_foreign", row: "main" },
+    { id: "rescue", group: "status", i18n: "cat_rescue", row: "status" },
+    { id: "treat", group: "status", i18n: "cat_treat", row: "status" },
+    { id: "miss", group: "status", i18n: "cat_miss", row: "status" },
+    { id: "found", group: "status", i18n: "chip_found", row: "status", hide: true },
+    { id: "np", group: "nation", i18n: "chip_np", row: "nat" },
+    { id: "foreign", group: "nation", i18n: "chip_foreign", row: "nat" },
+    { id: "in", group: "nation", i18n: "chip_in", row: "nat", extra: true },
+    { id: "cn", group: "nation", i18n: "chip_cn", row: "nat", extra: true },
     { id: "ndrrma", group: "source", i18n: "chip_ndrrma", row: "src" },
     { id: "timure", group: "source", i18n: "chip_timure", row: "src" },
     { id: "army", group: "source", i18n: "chip_army", row: "src" },
     { id: "hello", group: "source", i18n: "chip_hello", row: "src" },
     { id: "t1", group: "source", i18n: "chip_t1", row: "src" },
-    { id: "ftoday", group: "source", i18n: "chip_ftoday", row: "src" },
-    { id: "np", group: "nation", i18n: "chip_np", row: "nat" },
-    { id: "in", group: "nation", i18n: "chip_in", row: "nat" },
-    { id: "cn", group: "nation", i18n: "chip_cn", row: "nat" }
+    { id: "ftoday", group: "source", i18n: "chip_ftoday", row: "src" }
   ];
 
   var SRC_META = {
@@ -845,12 +845,36 @@
     });
   }
 
+  function nationOn() {
+    return !!(filters.np || filters.foreign || filters.in || filters.cn);
+  }
+
   function renderChips(root, row) {
     if (!root) return;
     root.innerHTML = "";
+    if (row === "main") row = "status";
+    if (row === "nat") {
+      var allBtn = document.createElement("button");
+      allBtn.type = "button";
+      allBtn.className = "ns-chip" + (nationOn() ? "" : " on");
+      allBtn.setAttribute("data-chip", "natall");
+      allBtn.setAttribute("aria-pressed", nationOn() ? "false" : "true");
+      allBtn.textContent = tt("chip_nat_all", "सबै");
+      allBtn.addEventListener("click", function () {
+        delete filters.np;
+        delete filters.foreign;
+        delete filters.in;
+        delete filters.cn;
+        shown = PAGE;
+        paintChips();
+        renderResults();
+      });
+      root.appendChild(allBtn);
+    }
     CHIP_DEFS.forEach(function (c) {
       if (c.hide) return;
-      if (row && c.row !== row) return;
+      var crow = c.row === "main" ? "status" : c.row;
+      if (row && crow !== row) return;
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "ns-chip";
@@ -861,6 +885,7 @@
       if (c.id === "miss") btn.classList.add("tone-miss");
       if (c.id === "found" || c.id === "rescue") btn.classList.add("tone-ok");
       if (c.id === "treat") btn.classList.add("tone-treat");
+      if (c.extra) btn.classList.add("ns-chip-extra");
       btn.textContent = tt(c.i18n, c.id);
       btn.addEventListener("click", function () {
         if (c.id === "all") filters = {};
@@ -870,11 +895,18 @@
           filters = {};
           if (turn) filters[sid] = true;
           if (turn && window.__namesSetCat) window.__namesSetCat(sid, { filter: false });
-        } else {
-          filters[c.id] = !filters[c.id];
+        } else if (c.group === "nation") {
+          var was = !!filters[c.id];
+          delete filters.np;
+          delete filters.foreign;
+          delete filters.in;
+          delete filters.cn;
+          if (!was) filters[c.id] = true;
           if (c.id === "foreign" && filters.foreign && window.__namesSetCat) {
             window.__namesSetCat("rescue", { filter: false, foreign: true });
           }
+        } else {
+          filters[c.id] = !filters[c.id];
         }
         shown = PAGE;
         paintChips();
@@ -885,13 +917,88 @@
     });
   }
 
+  function paintOverlayCats(root) {
+    if (!root) return;
+    var cats = [
+      { id: "rescue", i18n: "cat_rescue", fb: "उद्धार / भेटिएको" },
+      { id: "miss", i18n: "cat_miss", fb: "हराएको / सम्पर्कविहीन" },
+      { id: "treat", i18n: "cat_treat", fb: "घाइते / उपचाररत" }
+    ];
+    cats.forEach(function (c) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "names-cat-btn";
+      btn.setAttribute("data-names-cat", c.id);
+      btn.setAttribute("role", "tab");
+      var on = !!filters[c.id] || (c.id === "rescue" && !!filters.found);
+      btn.classList.toggle("on", on);
+      btn.setAttribute("aria-selected", on ? "true" : "false");
+      btn.textContent = tt(c.i18n, c.fb);
+      root.appendChild(btn);
+    });
+  }
+
   function paintChips() {
-    renderChips(document.getElementById("names-ov-chips"));
-    renderChips(document.getElementById("names-home-chips"), "main");
-    renderChips(document.getElementById("fam-search-chips"), "main");
-    renderChips(document.getElementById("names-sec-chips"), "main");
+    var ov = document.getElementById("names-ov-chips");
+    if (ov) {
+      ov.innerHTML = "";
+      var segs = document.createElement("div");
+      segs.className = "names-cat-tabs names-ov-cats";
+      segs.setAttribute("role", "tablist");
+      paintOverlayCats(segs);
+      ov.appendChild(segs);
+      var natWrap = document.createElement("div");
+      natWrap.className = "names-filter-sec";
+      var natK = document.createElement("span");
+      natK.className = "names-filter-k";
+      natK.textContent = tt("ns_nation", "राष्ट्र");
+      natWrap.appendChild(natK);
+      var nat = document.createElement("div");
+      nat.className = "names-chips names-chips-nat";
+      renderChips(nat, "nat");
+      natWrap.appendChild(nat);
+      ov.appendChild(natWrap);
+      var det = document.createElement("details");
+      det.className = "names-more-filters";
+      var sum = document.createElement("summary");
+      sum.textContent = tt("ns_more_filters", "थप फिल्टर");
+      det.appendChild(sum);
+      var srcWrap = document.createElement("div");
+      srcWrap.className = "names-filter-sec";
+      var srcK = document.createElement("span");
+      srcK.className = "names-filter-k";
+      srcK.textContent = tt("ns_source", "स्रोत");
+      srcWrap.appendChild(srcK);
+      var src = document.createElement("div");
+      src.className = "names-chips names-chips-src";
+      renderChips(src, "src");
+      srcWrap.appendChild(src);
+      det.appendChild(srcWrap);
+      ov.appendChild(det);
+    }
+    renderChips(document.getElementById("names-home-chips"), "status");
+    renderChips(document.getElementById("fam-search-chips"), "status");
     renderChips(document.getElementById("names-src-chips"), "src");
     renderChips(document.getElementById("names-nat-chips"), "nat");
+  }
+
+  function phoneLink(phone) {
+    var raw = String(phone || "").trim();
+    if (!raw) return "";
+    var d = onlyDigits(raw);
+    if (d.length < 7) return '<span class="ns-phone">' + esc(raw) + "</span>";
+    var href;
+    if (/^\+/.test(raw) || d.length > 10) href = "tel:+" + d.replace(/^00/, "");
+    else if (d.length === 10) href = "tel:+977" + d;
+    else href = "tel:" + d;
+    return '<a class="ns-phone" href="' + esc(href) + '">' + esc(raw) + "</a>";
+  }
+
+  function hitStatusClass(r) {
+    if (r.status === "missing") return "missing";
+    if (r.status === "treat") return "treat";
+    if (r.status === "found") return "found";
+    return "rescue";
   }
 
   function resultHtml(r) {
@@ -900,7 +1007,7 @@
     var bits = [];
     if (r.age) bits.push(tt("ns_age", "उमेर") + " " + esc(asciiDigits(r.age)));
     if (r.place) bits.push(esc(r.place));
-    if (r.phone) bits.push('<span class="ns-phone">' + esc(r.phone) + "</span>");
+    if (r.phone) bits.push(phoneLink(r.phone));
     var pills = [];
     pills.push('<span class="ns-pill ns-st-' + r.status + '">' + esc(statusLabel(r)) + "</span>");
     pills.push('<span class="ns-pill ns-src-' + r.source + '">' + esc(tt((SRC_META[r.source] || {}).i18n || "", r.source)) + "</span>");
@@ -917,7 +1024,7 @@
     });
     var title = esc(r.name);
     var sub = en ? "<small>" + esc(en) + "</small>" : (ne && ne !== r.name ? "<small>" + esc(ne) + "</small>" : "");
-    return '<article class="ns-hit" data-id="' + esc(r.id) + '">' +
+    return '<article class="ns-hit ns-hit-' + hitStatusClass(r) + '" data-id="' + esc(r.id) + '">' +
       "<h3>" + title + sub + "</h3>" +
       (bits.length ? "<p class=\"ns-meta\">" + bits.join(" · ") + "</p>" : "") +
       '<div class="ns-pills">' + pills.join("") + "</div>" +
@@ -977,7 +1084,9 @@
         return;
       }
       if (!lastHits.length) {
-        target.innerHTML = '<p class="ns-empty">' + esc(tt("ns_empty", "यो खोजसँग मिल्ने नाम भेटिएन।")) + "</p>";
+        target.innerHTML = '<div class="ns-empty"><p>' + esc(tt("ns_empty", "कुनै नाम मिलेन")) +
+          "</p><p class=\"ns-empty-hint\">" + esc(tt("ns_empty_hint", "फोनका पछिल्ला १० अंक वा अर्को श्रेणी कोशिश गर्नुहोस्।")) +
+          "</p></div>";
         return;
       }
       var bit = lastHits.slice(0, limit);
@@ -986,7 +1095,7 @@
         var more = document.createElement("button");
         more.type = "button";
         more.className = "ns-more";
-        more.textContent = tt("ns_more", "थप देखाउनुहोस्") + " · " + fmtNum(lastHits.length - limit);
+        more.textContent = tt("ns_more", "थप हेर्नुहोस्") + " · " + fmtNum(lastHits.length - limit);
         more.addEventListener("click", function () {
           shown += PAGE;
           renderResults();
@@ -1095,7 +1204,7 @@
     syncInputs(q, e.target.id);
     shown = PAGE;
     renderResults();
-    if (e.target.id === "names-home-q" && q.trim() && window.matchMedia && window.matchMedia("(min-width:960px)").matches) {
+    if (e.target.id === "names-home-q" && q.trim()) {
       openOverlay(q);
     }
   }
@@ -1166,10 +1275,36 @@
         if (e.target === ov) closeOverlay();
       });
     }
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest("#search .names-cat-btn");
+      if (!btn) return;
+      var cat = btn.getAttribute("data-names-cat");
+      if (!cat) return;
+      if (isNamesPage() && window.__namesSetCat) return;
+      e.preventDefault();
+      filters = {};
+      filters[cat] = true;
+      shown = PAGE;
+      paintChips();
+      renderResults();
+    });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && overlayOpen) {
-        e.preventDefault();
-        closeOverlay();
+      if (e.key === "Escape") {
+        if (overlayOpen) {
+          e.preventDefault();
+          closeOverlay();
+          return;
+        }
+        var field = e.target;
+        if (field && (field.id === "names-q" || field.id === "names-home-q" || field.id === "names-ov-q" || field.id === "fam-search")) {
+          if (field.value) {
+            e.preventDefault();
+            field.value = "";
+            syncInputs("", field.id);
+            shown = PAGE;
+            renderResults();
+          }
+        }
         return;
       }
       if (e.key === "/" && !e.ctrlKey && !e.metaKey && !e.altKey) {

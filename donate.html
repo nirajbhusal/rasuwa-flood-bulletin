@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-02-1355">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-02-1540">
 </head>
 <body class="donate-page">
 <div class="head-stick">
@@ -468,9 +468,9 @@
       <h2 id="names-ov-h" data-i18n="ns_h">नाम खोज्नुहोस्</h2>
       <button type="button" class="names-ov-x" id="names-ov-x" data-i18n-aria="close" aria-label="बन्द">×</button>
     </div>
-    <label class="vis-clip" for="names-ov-q" data-i18n="search_label">नाम वा नम्बर खोज्नुहोस्</label>
-    <input id="names-ov-q" type="search" placeholder="नाम, ठेगाना वा नम्बर…" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
-    <div class="names-chips" id="names-ov-chips"></div>
+    <label class="names-q-label" for="names-ov-q" data-i18n="nav_search">नाम खोज्नुहोस्</label>
+    <input id="names-ov-q" type="search" placeholder="नाम / ठेगाना / फोन" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
+    <div class="names-ov-filters" id="names-ov-chips"></div>
     <p class="names-count" id="names-ov-count"></p>
     <div class="names-results" id="names-ov-results"></div>
   </div>
@@ -501,8 +501,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-09-02-1355"></script>
-<script src="names-index.js?v=2026-09-02-1355"></script>
+<script src="i18n.js?v=2026-09-02-1540"></script>
+<script src="names-index.js?v=2026-09-02-1540"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -579,7 +579,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-02-1355";
+window.PAGE_VER="2026-09-02-1540";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){

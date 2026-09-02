@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-02-1355">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-02-1540">
 </head>
 <body class="names-page">
 <div class="head-stick">
@@ -95,6 +95,34 @@
 <div class="wrap">
     <section id="names">
   <div class="sec-head names-sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_names">रसुवा–भोटेकोशी बाढीमा उद्धार गरिएका, फेला परेका र सम्पर्कविहीन व्यक्तिहरूको नामावली</h2></div>
+  <div class="names-search-stick" id="names-search-stick">
+    <label class="names-q-label" for="names-q" data-i18n="nav_search">नाम खोज्नुहोस्</label>
+    <div class="names-home-field names-sec-field">
+      <input id="names-q" type="search" placeholder="नाम / ठेगाना / फोन" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
+    </div>
+    <p class="names-home-count" id="names-sec-count" aria-live="polite"></p>
+    <div class="names-cat-tabs" role="tablist" aria-label="नाम श्रेणी" data-i18n-aria="names_cats_aria">
+      <button type="button" class="names-cat-btn on" role="tab" data-names-cat="rescue" aria-selected="true" data-i18n="cat_rescue">उद्धार / भेटिएको</button>
+      <button type="button" class="names-cat-btn" role="tab" data-names-cat="miss" aria-selected="false" data-i18n="cat_miss">हराएको / सम्पर्कविहीन</button>
+      <button type="button" class="names-cat-btn" role="tab" data-names-cat="treat" aria-selected="false" data-i18n="cat_treat">घाइते / उपचाररत</button>
+    </div>
+    <div class="names-filter-sec">
+      <span class="names-filter-k" data-i18n="ns_nation">राष्ट्र</span>
+      <div class="names-chips names-chips-nat" id="names-nat-chips"></div>
+    </div>
+    <details class="names-more-filters">
+      <summary data-i18n="ns_more_filters">थप फिल्टर</summary>
+      <div class="names-filter-sec">
+        <span class="names-filter-k" data-i18n="ns_source">स्रोत</span>
+        <div class="names-chips names-chips-src" id="names-src-chips"></div>
+      </div>
+    </details>
+  </div>
+  <div class="names-master" id="names-master">
+    <div class="names-sec-results" id="names-sec-results"></div>
+  </div>
+  <details class="names-stats-fold" id="names-stats-fold">
+    <summary><span data-i18n="ns_stats">तथ्यांक</span></summary>
 <article class="names-ig names-dash" id="names-ig">
   <div id="lists-dash">
   <div class="nig-grid nig-grid-2" id="fd">
@@ -273,23 +301,7 @@
   </div>
   </div>
 </article>
-  <div class="names-search-stick" id="names-search-stick">
-    <label class="vis-clip" for="names-q" data-i18n="search_label">नाम वा नम्बर खोज्नुहोस्</label>
-    <div class="names-home-field names-sec-field">
-      <input id="names-q" type="search" placeholder="नाम, ठेगाना वा नम्बर…" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
-    </div>
-    <div class="names-chips names-chips-main" id="names-sec-chips"></div>
-    <div class="names-chips names-chips-src" id="names-src-chips"></div>
-    <div class="names-chips names-chips-nat" id="names-nat-chips"></div>
-    <p class="names-home-count" id="names-sec-count"></p>
-  </div>
-  <div class="names-cat-tabs names-cat-tabs-compact" role="tablist" aria-label="नाम श्रेणी" data-i18n-aria="names_cats_aria">
-    <button type="button" class="names-cat-btn on" role="tab" data-names-cat="rescue" aria-selected="true" data-i18n="cat_rescue">उद्धार / भेटिएको</button>
-    <button type="button" class="names-cat-btn" role="tab" data-names-cat="miss" aria-selected="false" data-i18n="cat_miss">हराएको / सम्पर्कविहीन</button>
-  </div>
-  <div class="names-master" id="names-master">
-    <div class="names-sec-results" id="names-sec-results"></div>
-  </div>
+  </details>
   <div class="names-pane names-src-tables" data-names-cat="miss" hidden>
 <article class="names-block" id="family">
 
@@ -7415,9 +7427,9 @@
       <h2 id="names-ov-h" data-i18n="ns_h">नाम खोज्नुहोस्</h2>
       <button type="button" class="names-ov-x" id="names-ov-x" data-i18n-aria="close" aria-label="बन्द">×</button>
     </div>
-    <label class="vis-clip" for="names-ov-q" data-i18n="search_label">नाम वा नम्बर खोज्नुहोस्</label>
-    <input id="names-ov-q" type="search" placeholder="नाम, ठेगाना वा नम्बर…" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
-    <div class="names-chips" id="names-ov-chips"></div>
+    <label class="names-q-label" for="names-ov-q" data-i18n="nav_search">नाम खोज्नुहोस्</label>
+    <input id="names-ov-q" type="search" placeholder="नाम / ठेगाना / फोन" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
+    <div class="names-ov-filters" id="names-ov-chips"></div>
     <p class="names-count" id="names-ov-count"></p>
     <div class="names-results" id="names-ov-results"></div>
   </div>
@@ -7448,8 +7460,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-09-02-1355"></script>
-<script src="names-index.js?v=2026-09-02-1355"></script>
+<script src="i18n.js?v=2026-09-02-1540"></script>
+<script src="names-index.js?v=2026-09-02-1540"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -7526,7 +7538,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-02-1355";
+window.PAGE_VER="2026-09-02-1540";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){
@@ -8010,7 +8022,7 @@ window.PAGE_VER="2026-09-02-1355";
     if (!root || !cat) return;
     root.querySelectorAll(".names-cat-btn").forEach(function(b){
       var bc = b.getAttribute("data-names-cat");
-      var on = bc === cat || ((cat === "treat" || cat === "found") && bc === "rescue");
+      var on = bc === cat || (cat === "found" && bc === "rescue");
       b.classList.toggle("on", on);
       b.setAttribute("aria-selected", on ? "true" : "false");
     });
@@ -8023,10 +8035,6 @@ window.PAGE_VER="2026-09-02-1355";
       c.classList.toggle("on", on);
       c.setAttribute("aria-selected", on ? "true" : "false");
     });
-    var src = document.getElementById("names-src-chips");
-    if (src) src.hidden = !(cat === "rescue");
-    var nat = document.getElementById("names-nat-chips");
-    if (nat) nat.hidden = !(cat === "rescue");
     if (opts.filter !== false && window.__namesOnCat) window.__namesOnCat(cat, opts);
     if (opts.showPane) {
       root.querySelectorAll(".names-pane").forEach(function(p){
@@ -8056,6 +8064,8 @@ window.PAGE_VER="2026-09-02-1355";
     var skipPane = { names:1, "lists-dash":1, "names-ig":1, fd:1, rd:1, "fam-found-h":1, "fam-found":1, "stat-found":1 };
     var sourceJump = !!(id && !skipPane[id]);
     setCat(cat, { filter: true, hashId: id, showPane: sourceJump });
+    var fold = document.getElementById("names-stats-fold");
+    if (fold && (id === "names-ig" || id === "lists-dash" || id === "fd" || id === "rd")) fold.open = true;
     if (id && id !== "names" && el && el.scrollIntoView) {
       setTimeout(function(){
         var t = document.getElementById(id);
@@ -8064,6 +8074,10 @@ window.PAGE_VER="2026-09-02-1355";
     }
   }
   window.__namesSetCat = setCat;
+  (function(){
+    var fold = document.getElementById("names-stats-fold");
+    if (fold && window.matchMedia && window.matchMedia("(min-width:960px)").matches) fold.open = true;
+  })();
   window.__namesFromHash = fromHash;
   document.addEventListener("click", function(e){
     var btn = e.target.closest(".names-cat-btn");
