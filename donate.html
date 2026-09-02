@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-02-1745">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-02-1755">
 </head>
 <body class="donate-page">
 <div class="head-stick">
@@ -139,80 +139,80 @@
           </div>
         </div>
 
-        <div class="dir-toolbar">
-          <span class="dir-export-k" data-i18n="dir_export">निर्यात / Export</span>
-          <button type="button" class="dir-btn" id="dir-csv" data-i18n="dir_csv">CSV डाउनलोड / Download CSV</button>
-          <button type="button" class="dir-btn" id="dir-pdf" data-i18n="dir_pdf">PDF / Print</button>
-        </div>
-
         <div class="dir-card" id="pmdrf-banks-wrap">
           <h3 data-i18n="pmdrf_sheet_h">प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोषमा जम्मा भएको रकम तथा सहयोगकर्ताको विवरण</h3>
+          <div class="dir-toolbar">
+            <span class="dir-export-k" data-i18n="dir_export">निर्यात / Export</span>
+            <button type="button" class="dir-btn" id="dir-csv" data-i18n="dir_csv">CSV डाउनलोड / Download CSV</button>
+            <button type="button" class="dir-btn" id="dir-pdf" data-i18n="dir_pdf">PDF / Print</button>
+          </div>
           <span id="pmdrf-pledges"></span><span id="pmdrf-friday"></span>
           <table class="dir-table" id="pmdrf-banks" data-dir="banks">
             <thead>
               <tr>
+                <th data-i18n="dir_th_sn">सि.नं.</th>
                 <th data-i18n="dir_th_name">नाम / Name</th>
                 <th data-i18n="dir_th_amt">रकम / Amount</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td data-i18n="bank_rbb">राष्ट्रिय वाणिज्य बैंक</td><td>३,२७,९९,०२,३३५</td></tr>
-              <tr><td data-i18n="bank_ebl">एभरेस्ट बैंक</td><td>१,९५,२७,१८,१८५</td></tr>
-              <tr><td data-i18n="bank_scb">स्ट्यान्डर्ड चार्टर्ड</td><td>३०,६२,८८,७५०</td></tr>
-              <tr><td data-i18n="bank_lsbl">लक्ष्मी सनराइज</td><td>३०,०८,५८,७५१</td></tr>
-              <tr><td data-i18n="bank_hbl">हिमालयन बैंक</td><td>२३,१७,१४,९५३</td></tr>
-              <tr><td data-i18n="bank_nabil">नबिल बैंक</td><td>१६,४०,४७,७०८</td></tr>
-              <tr><td data-i18n="bank_global">ग्लोबल आइएमई</td><td>१३,०१,८०,०००</td></tr>
-              <tr><td data-i18n="bank_adbl">कृषि विकास बैंक</td><td>९,५२,६२,७१५</td></tr>
-              <tr><td data-i18n="bank_nbl">नेपाल बैंक</td><td>९,२३,८८,६१४</td></tr>
-              <tr><td data-i18n="bank_total">जम्मा (रु.)</td><td>६,५५,३३,६२,०११</td></tr>
-              <tr><td data-i18n="bank_mon">१५ भदौ</td><td>६०,०२,२०,१०६</td></tr>
-              <tr class="dir-total"><td data-i18n="bank_grand">जम्मा</td><td>७,१५,३५,८२,११७</td></tr>
-              <tr><td data-i18n="bank_after">विपद्पछि संकलित</td><td>४,९८,१०,७२,३५८</td></tr>
-              <tr><td data-i18n="bank_before">विपद्अघि मौज्दात</td><td>२,१७,२५,०९,७५९</td></tr>
-              <tr class="dir-usd"><td data-i18n="bank_usd">अमेरिकी डलर खाता</td><td data-i18n="bank_usd_amt">USD ३१.९ लाख (~रु. ४८.६ करोड)</td></tr>
-              <tr class="dir-sec"><td colspan="2" data-i18n="dir_contributors">नाम-सूची</td></tr>
-              <tr><td data-i18n="cash_can">क्रिकेट संघ नेपाल (CAN)</td><td>३० लाख</td></tr>
-              <tr><td data-i18n="cash_sbl">सिद्धार्थ बैंक</td><td>२ करोड ५१ लाख</td></tr>
-              <tr><td data-i18n="cash_ebl_p">एभरेस्ट बैंक</td><td>२ करोड ५१ लाख</td></tr>
-              <tr><td data-i18n="cash_suryanepal">सूर्य नेपाल प्रालि</td><td>१५ करोड</td></tr>
-              <tr><td data-i18n="cash_prime">प्राइम बैंक</td><td>३ करोड १० लाख</td></tr>
-              <tr><td data-i18n="cash_krishi">कृषि विकास बैंक</td><td>३ करोड</td></tr>
-              <tr><td data-i18n="cash_nlic">नेपाल लाइफ इन्स्योरेन्स</td><td>२ करोड ५१ लाख</td></tr>
-              <tr><td data-i18n="cash_hbullion">हिमालयन बुलियन कम्पनी</td><td>१ करोड १ लाख</td></tr>
-              <tr><td data-i18n="cash_agrothai">एग्रो थाईफुड्स प्राइभेट लिमिटेड</td><td>१ करोड</td></tr>
-              <tr><td data-i18n="cash_asianlife">एसियन लाइफ इन्स्योरेन्स</td><td>१ करोड १ लाख</td></tr>
-              <tr><td data-i18n="cash_suryajyoti">सूर्यज्योति लाइफ इन्स्योरेन्स</td><td>१ करोड</td></tr>
-              <tr><td data-i18n="cash_vijayshah">विजयकुमार शाह</td><td>१ करोड</td></tr>
-              <tr><td data-i18n="cash_syakar">स्याकार ट्रेडिङ (पद्मज्योति समूह)</td><td>१ करोड</td></tr>
-              <tr><td data-i18n="cash_rajirana">राजी राणा</td><td>१ करोड ९ लाख</td></tr>
-              <tr><td data-i18n="cash_wwf">WWF नेपाल</td><td>१ करोड</td></tr>
-              <tr><td data-i18n="cash_maw">मोरङ अटो वर्क्स</td><td>१ करोड ११ लाख</td></tr>
-              <tr><td data-i18n="cash_jawlakhel">जावलाखेल डिस्टिलरी</td><td>१ करोड</td></tr>
-              <tr><td data-i18n="cash_hdist">हिमालयन डिस्टिलरी</td><td>१ करोड</td></tr>
-              <tr><td data-i18n="cash_alpha">अल्फा अटोमोटिभ प्रालि</td><td>१ करोड</td></tr>
-              <tr><td data-i18n="cash_solu">सोलु हाइड्रोपावर</td><td>१ करोड</td></tr>
-              <tr><td data-i18n="cash_cement">नेपाल सिमेन्ट उत्पादक संघ</td><td>५१ लाख</td></tr>
-              <tr><td data-i18n="cash_muktinath">मुक्तिनाथ विकास बैंक</td><td>५० लाख</td></tr>
-              <tr><td data-i18n="cash_lumbini">लुम्बिनी विकास बैंक</td><td>२५ लाख</td></tr>
-              <tr><td data-i18n="cash_ntea">नेपाल चिया विकास कर्पोरेसन</td><td>११ लाख</td></tr>
-              <tr><td data-i18n="cash_abacus">एबाकस इन्साइट्स प्रालि</td><td>१५ लाख</td></tr>
-              <tr><td data-i18n="cash_cas">सीएएस ट्रेडिङ हाउस</td><td>१ लाख ११ हजार</td></tr>
-              <tr><td data-i18n="cash_silver">सिल्भर लाइनिङ प्रालि</td><td>१ लाख ११ हजार</td></tr>
-              <tr><td data-i18n="cash_friday_other">अन्य तिन संस्था</td><td>२६ लाख ६२ हजार</td></tr>
-              <tr><td data-i18n="cash_gorkha">गोर्खा ब्रुअरी</td><td>१० करोड</td></tr>
-              <tr><td data-i18n="cash_byd">BYD · साइमेक्स</td><td>७ करोड</td></tr>
-              <tr><td data-i18n="cash_gibl">ग्लोबल आइएमई</td><td>५ करोड</td></tr>
-              <tr><td data-i18n="cash_nbl">नेपाल बैंक</td><td>३.०१ करोड</td></tr>
-              <tr><td data-i18n="cash_kumari">कुमारी बैंक</td><td>३ करोड</td></tr>
-              <tr><td data-i18n="cash_rbb">राष्ट्रिय वाणिज्य बैंक</td><td>३ करोड</td></tr>
-              <tr><td data-i18n="cash_nifra">निफ्रा</td><td>२.५० करोड</td></tr>
-              <tr><td data-i18n="cash_nica">एनआईसी एशिया</td><td>२.२१ करोड</td></tr>
-              <tr><td data-i18n="cash_saras">सारस बेभरेज (रेडबुल)</td><td>२ करोड</td></tr>
-              <tr><td data-i18n="cash_pandey">विक्रम पाण्डे</td><td>१.०१ करोड</td></tr>
-              <tr><td data-i18n="cash_ncell">एनसेल अक्सियाटा</td><td>१ करोड</td></tr>
-              <tr><td data-i18n="cash_shiv">शिव शक्ति ग्रुप</td><td>५१ लाख</td></tr>
-              <tr><td data-i18n="cash_reliance">रिलायन्स सुगर</td><td>१० लाख</td></tr>
+              <tr><td class="dir-sn">१</td><td data-i18n="bank_rbb">राष्ट्रिय वाणिज्य बैंक</td><td>३,२७,९९,०२,३३५</td></tr>
+              <tr><td class="dir-sn">२</td><td data-i18n="bank_ebl">एभरेस्ट बैंक</td><td>१,९५,२७,१८,१८५</td></tr>
+              <tr><td class="dir-sn">३</td><td data-i18n="bank_scb">स्ट्यान्डर्ड चार्टर्ड</td><td>३०,६२,८८,७५०</td></tr>
+              <tr><td class="dir-sn">४</td><td data-i18n="bank_lsbl">लक्ष्मी सनराइज</td><td>३०,०८,५८,७५१</td></tr>
+              <tr><td class="dir-sn">५</td><td data-i18n="bank_hbl">हिमालयन बैंक</td><td>२३,१७,१४,९५३</td></tr>
+              <tr><td class="dir-sn">६</td><td data-i18n="bank_nabil">नबिल बैंक</td><td>१६,४०,४७,७०८</td></tr>
+              <tr><td class="dir-sn">७</td><td data-i18n="bank_global">ग्लोबल आइएमई</td><td>१३,०१,८०,०००</td></tr>
+              <tr><td class="dir-sn">८</td><td data-i18n="bank_adbl">कृषि विकास बैंक</td><td>९,५२,६२,७१५</td></tr>
+              <tr><td class="dir-sn">९</td><td data-i18n="bank_nbl">नेपाल बैंक</td><td>९,२३,८८,६१४</td></tr>
+              <tr><td class="dir-sn"></td><td data-i18n="bank_total">जम्मा (रु.)</td><td>६,५५,३३,६२,०११</td></tr>
+              <tr><td class="dir-sn"></td><td data-i18n="bank_mon">१५ भदौ</td><td>६०,०२,२०,१०६</td></tr>
+              <tr class="dir-total"><td class="dir-sn"></td><td data-i18n="bank_grand">जम्मा</td><td>७,१५,३५,८२,११७</td></tr>
+              <tr><td class="dir-sn"></td><td data-i18n="bank_after">विपद्पछि संकलित</td><td>४,९८,१०,७२,३५८</td></tr>
+              <tr><td class="dir-sn"></td><td data-i18n="bank_before">विपद्अघि मौज्दात</td><td>२,१७,२५,०९,७५९</td></tr>
+              <tr class="dir-usd"><td class="dir-sn"></td><td data-i18n="bank_usd">अमेरिकी डलर खाता</td><td data-i18n="bank_usd_amt">USD ३१.९ लाख (~रु. ४८.६ करोड)</td></tr>
+              <tr class="dir-sec"><td colspan="3" data-i18n="dir_contributors">नाम-सूची</td></tr>
+              <tr><td class="dir-sn">१</td><td data-i18n="cash_can">क्रिकेट संघ नेपाल (CAN)</td><td>३० लाख</td></tr>
+              <tr><td class="dir-sn">२</td><td data-i18n="cash_sbl">सिद्धार्थ बैंक</td><td>२ करोड ५१ लाख</td></tr>
+              <tr><td class="dir-sn">३</td><td data-i18n="cash_ebl_p">एभरेस्ट बैंक</td><td>२ करोड ५१ लाख</td></tr>
+              <tr><td class="dir-sn">४</td><td data-i18n="cash_suryanepal">सूर्य नेपाल प्रालि</td><td>१५ करोड</td></tr>
+              <tr><td class="dir-sn">५</td><td data-i18n="cash_prime">प्राइम बैंक</td><td>३ करोड १० लाख</td></tr>
+              <tr><td class="dir-sn">६</td><td data-i18n="cash_krishi">कृषि विकास बैंक</td><td>३ करोड</td></tr>
+              <tr><td class="dir-sn">७</td><td data-i18n="cash_nlic">नेपाल लाइफ इन्स्योरेन्स</td><td>२ करोड ५१ लाख</td></tr>
+              <tr><td class="dir-sn">८</td><td data-i18n="cash_hbullion">हिमालयन बुलियन कम्पनी</td><td>१ करोड १ लाख</td></tr>
+              <tr><td class="dir-sn">९</td><td data-i18n="cash_agrothai">एग्रो थाईफुड्स प्राइभेट लिमिटेड</td><td>१ करोड</td></tr>
+              <tr><td class="dir-sn">१०</td><td data-i18n="cash_asianlife">एसियन लाइफ इन्स्योरेन्स</td><td>१ करोड १ लाख</td></tr>
+              <tr><td class="dir-sn">११</td><td data-i18n="cash_suryajyoti">सूर्यज्योति लाइफ इन्स्योरेन्स</td><td>१ करोड</td></tr>
+              <tr><td class="dir-sn">१२</td><td data-i18n="cash_vijayshah">विजयकुमार शाह</td><td>१ करोड</td></tr>
+              <tr><td class="dir-sn">१३</td><td data-i18n="cash_syakar">स्याकार ट्रेडिङ (पद्मज्योति समूह)</td><td>१ करोड</td></tr>
+              <tr><td class="dir-sn">१४</td><td data-i18n="cash_rajirana">राजी राणा</td><td>१ करोड ९ लाख</td></tr>
+              <tr><td class="dir-sn">१५</td><td data-i18n="cash_wwf">WWF नेपाल</td><td>१ करोड</td></tr>
+              <tr><td class="dir-sn">१६</td><td data-i18n="cash_maw">मोरङ अटो वर्क्स</td><td>१ करोड ११ लाख</td></tr>
+              <tr><td class="dir-sn">१७</td><td data-i18n="cash_jawlakhel">जावलाखेल डिस्टिलरी</td><td>१ करोड</td></tr>
+              <tr><td class="dir-sn">१८</td><td data-i18n="cash_hdist">हिमालयन डिस्टिलरी</td><td>१ करोड</td></tr>
+              <tr><td class="dir-sn">१९</td><td data-i18n="cash_alpha">अल्फा अटोमोटिभ प्रालि</td><td>१ करोड</td></tr>
+              <tr><td class="dir-sn">२०</td><td data-i18n="cash_solu">सोलु हाइड्रोपावर</td><td>१ करोड</td></tr>
+              <tr><td class="dir-sn">२१</td><td data-i18n="cash_cement">नेपाल सिमेन्ट उत्पादक संघ</td><td>५१ लाख</td></tr>
+              <tr><td class="dir-sn">२२</td><td data-i18n="cash_muktinath">मुक्तिनाथ विकास बैंक</td><td>५० लाख</td></tr>
+              <tr><td class="dir-sn">२३</td><td data-i18n="cash_lumbini">लुम्बिनी विकास बैंक</td><td>२५ लाख</td></tr>
+              <tr><td class="dir-sn">२४</td><td data-i18n="cash_ntea">नेपाल चिया विकास कर्पोरेसन</td><td>११ लाख</td></tr>
+              <tr><td class="dir-sn">२५</td><td data-i18n="cash_abacus">एबाकस इन्साइट्स प्रालि</td><td>१५ लाख</td></tr>
+              <tr><td class="dir-sn">२६</td><td data-i18n="cash_cas">सीएएस ट्रेडिङ हाउस</td><td>१ लाख ११ हजार</td></tr>
+              <tr><td class="dir-sn">२७</td><td data-i18n="cash_silver">सिल्भर लाइनिङ प्रालि</td><td>१ लाख ११ हजार</td></tr>
+              <tr><td class="dir-sn">२८</td><td data-i18n="cash_friday_other">अन्य तिन संस्था</td><td>२६ लाख ६२ हजार</td></tr>
+              <tr><td class="dir-sn">२९</td><td data-i18n="cash_gorkha">गोर्खा ब्रुअरी</td><td>१० करोड</td></tr>
+              <tr><td class="dir-sn">३०</td><td data-i18n="cash_byd">BYD · साइमेक्स</td><td>७ करोड</td></tr>
+              <tr><td class="dir-sn">३१</td><td data-i18n="cash_gibl">ग्लोबल आइएमई</td><td>५ करोड</td></tr>
+              <tr><td class="dir-sn">३२</td><td data-i18n="cash_nbl">नेपाल बैंक</td><td>३.०१ करोड</td></tr>
+              <tr><td class="dir-sn">३३</td><td data-i18n="cash_kumari">कुमारी बैंक</td><td>३ करोड</td></tr>
+              <tr><td class="dir-sn">३४</td><td data-i18n="cash_rbb">राष्ट्रिय वाणिज्य बैंक</td><td>३ करोड</td></tr>
+              <tr><td class="dir-sn">३५</td><td data-i18n="cash_nifra">निफ्रा</td><td>२.५० करोड</td></tr>
+              <tr><td class="dir-sn">३६</td><td data-i18n="cash_nica">एनआईसी एशिया</td><td>२.२१ करोड</td></tr>
+              <tr><td class="dir-sn">३७</td><td data-i18n="cash_saras">सारस बेभरेज (रेडबुल)</td><td>२ करोड</td></tr>
+              <tr><td class="dir-sn">३८</td><td data-i18n="cash_pandey">विक्रम पाण्डे</td><td>१.०१ करोड</td></tr>
+              <tr><td class="dir-sn">३९</td><td data-i18n="cash_ncell">एनसेल अक्सियाटा</td><td>१ करोड</td></tr>
+              <tr><td class="dir-sn">४०</td><td data-i18n="cash_shiv">शिव शक्ति ग्रुप</td><td>५१ लाख</td></tr>
+              <tr><td class="dir-sn">४१</td><td data-i18n="cash_reliance">रिलायन्स सुगर</td><td>१० लाख</td></tr>
             </tbody>
           </table>
         </div>
@@ -498,8 +498,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-09-02-1745"></script>
-<script src="names-index.js?v=2026-09-02-1745"></script>
+<script src="i18n.js?v=2026-09-02-1755"></script>
+<script src="names-index.js?v=2026-09-02-1755"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -576,7 +576,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-02-1745";
+window.PAGE_VER="2026-09-02-1755";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){
@@ -783,27 +783,26 @@ window.PAGE_VER="2026-09-02-1745";
   var csvBtn = document.getElementById("dir-csv");
   if (csvBtn) {
     csvBtn.addEventListener("click", function(){
-      var tables = document.querySelectorAll("table[data-dir]");
-      var rows = [["section", "name", "amount"]];
-      tables.forEach(function(t){
-        var sec = t.getAttribute("data-dir") || "";
-        var head = t.closest(".dir-card");
-        var h = head && head.querySelector("h3");
-        if (h) sec = cellText(h);
-        t.querySelectorAll("tbody tr").forEach(function(tr){
-          if (tr.classList.contains("dir-sec")) return;
-          var cells = [].slice.call(tr.querySelectorAll("td"));
-          if (!cells.length) return;
-          var name = cellText(cells[0]);
-          var amt = cellText(cells[cells.length - 1]);
-          rows.push([sec, name, amt]);
-        });
+      var t = document.getElementById("pmdrf-banks");
+      if (!t) return;
+      var rows = [["sn", "name", "amount"]];
+      t.querySelectorAll("tbody tr").forEach(function(tr){
+        var cells = [].slice.call(tr.querySelectorAll("td"));
+        if (!cells.length) return;
+        if (tr.classList.contains("dir-sec")) {
+          rows.push(["", cellText(cells[0]), ""]);
+          return;
+        }
+        var sn = cells.length > 2 ? cellText(cells[0]) : "";
+        var name = cellText(cells.length > 2 ? cells[1] : cells[0]);
+        var amt = cellText(cells[cells.length - 1]);
+        rows.push([sn, name, amt]);
       });
       var csv = rows.map(function(r){ return r.map(csvEscape).join(","); }).join("\n");
       var blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8" });
       var a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
-      a.download = "rahat-kosh-directory.csv";
+      a.download = "pmdrf-namelist.csv";
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -812,7 +811,20 @@ window.PAGE_VER="2026-09-02-1745";
   }
   var pdfBtn = document.getElementById("dir-pdf");
   if (pdfBtn) {
-    pdfBtn.addEventListener("click", function(){ window.print(); });
+    pdfBtn.addEventListener("click", function(){
+      var html = document.documentElement;
+      html.classList.add("print-pmdrf");
+      var done = false;
+      function cleanup(){
+        if (done) return;
+        done = true;
+        html.classList.remove("print-pmdrf");
+        window.removeEventListener("afterprint", cleanup);
+      }
+      window.addEventListener("afterprint", cleanup);
+      window.print();
+      setTimeout(cleanup, 60000);
+    });
   }
 })();
 </script>
