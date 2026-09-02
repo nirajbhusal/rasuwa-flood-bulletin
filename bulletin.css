@@ -2325,7 +2325,7 @@ a.home-ig-names{cursor:pointer}
 .cash-kpi .cash-unit.cash-fonepay{display:block;width:100%;margin-top:4px;font-size:13px;color:#1d4ed8}
 
 
-/* 2026-09-02-1645 names search dock · category tabs · result cards */
+/* 2026-09-02-1650 names search dock · category tabs · result cards */
 /* 2026-09-02-1355 header ridges to x=1440, inline .topbar-art + square KPI tiles */
 /* 2026-09-02-1205 readability / rahat categories */
 .cash-kpi{
@@ -2451,7 +2451,7 @@ a.home-ig-names{cursor:pointer}
 #cash .cash-kpi{display:flex;flex-direction:column;align-items:stretch;gap:2px}
 .aid-snap .aid-pair .cash-sub{width:100%;font-size:14px;line-height:1.5;color:#0e7490}
 
-/* 2026-09-02-1645 donate directory · merged contributors · payment logos */
+/* 2026-09-02-1650 donate directory · merged contributors · payment logos */
 .pmdrf-banner{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
   gap:16px 22px;
