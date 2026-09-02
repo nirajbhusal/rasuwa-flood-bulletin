@@ -59,7 +59,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-02-1540">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-02-1600">
 </head>
 <body>
 <div class="head-stick">
@@ -137,13 +137,25 @@
         <button type="button" class="names-full-btn" data-open-names data-i18n="ns_go">खोज</button>
       </div>
     </div>
-    <a class="pmdrf-banner" href="https://donate.gov.np/" target="_blank" rel="noopener" id="pmdrf-banner">
-      <span class="pmdrf-banner-copy">
-        <span class="pmdrf-banner-k" data-i18n="pmdrf_k">प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</span>
-        <strong class="pmdrf-banner-h" data-i18n="pmdrf_banner_h">आधिकारिक पोर्टलबाट दान गर्नुहोस्</strong>
-        <span class="pmdrf-banner-sub" data-i18n="pmdrf_banner_sub">कार्ड · मोबाइल बैंकिङ · नेपालपे QR · फोनपे — नेपाल र विदेशबाट</span>
-      </span>
-      <span class="pmdrf-banner-cta" data-i18n="pmdrf_banner_cta">अहिले दान गर्नुहोस्</span>
+    <a class="pmdrf-banner pmdrf-banner-lg" href="https://donate.gov.np/" target="_blank" rel="noopener" id="pmdrf-banner">
+        <span class="pmdrf-banner-copy">
+          <span class="pmdrf-banner-k" data-i18n="pmdrf_k">प्रधानमन्त्री दैवी प्रकोप उद्धार कोष</span>
+          <strong class="pmdrf-banner-h" data-i18n="pmdrf_banner_h">आधिकारिक पोर्टलबाट दान गर्नुहोस्</strong>
+          <span class="pmdrf-banner-url">donate.gov.np</span>
+          <span class="pmdrf-banner-sub" data-i18n="pmdrf_banner_sub">कार्ड · मोबाइल बैंकिङ · नेपालपे QR · फोनपे — नेपाल र विदेशबाट</span>
+          <span class="pay-row">
+            <span class="pay-row-k" data-i18n="pay_via">दान गर्ने तरिका / Donate via</span>
+            <span class="pay-logos">
+              <span class="pay-chip"><img src="img/pay/visa.webp" alt="VISA" width="80" height="28"></span>
+              <span class="pay-chip pay-chip-mc"><img src="img/pay/mastercard.png" alt="Mastercard" width="56" height="28"></span>
+              <span class="pay-chip"><img src="img/pay/unionpay.webp" alt="UnionPay" width="80" height="28"></span>
+              <span class="pay-chip"><img src="img/pay/alipay.webp" alt="Alipay" width="96" height="28"></span>
+              <span class="pay-chip"><img src="img/pay/fonepay.webp" alt="Fonepay" width="88" height="28"></span>
+              <span class="pay-chip pay-chip-text" aria-label="NepalPay QR">NEPALPAY QR</span>
+            </span>
+          </span>
+        </span>
+        <span class="pmdrf-banner-cta" data-i18n="pmdrf_banner_cta">आधिकारिक पोर्टलबाट दान गर्नुहोस्</span>
     </a>
     <div class="overview" id="overview">
       <div class="kpi-row" role="tablist" aria-label="मुख्य आंकडा" data-i18n-aria="kpi_aria">
@@ -607,8 +619,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-09-02-1540"></script>
-<script src="names-index.js?v=2026-09-02-1540"></script>
+<script src="i18n.js?v=2026-09-02-1600"></script>
+<script src="names-index.js?v=2026-09-02-1600"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -677,7 +689,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-02-1540";</script>
+<script>window.PAGE_VER="2026-09-02-1600";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }

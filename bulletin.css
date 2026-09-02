@@ -2325,7 +2325,7 @@ a.home-ig-names{cursor:pointer}
 .cash-kpi .cash-unit.cash-fonepay{display:block;width:100%;margin-top:4px;font-size:13px;color:#1d4ed8}
 
 
-/* 2026-09-02-1540 names search dock · category tabs · result cards */
+/* 2026-09-02-1600 names search dock · category tabs · result cards */
 /* 2026-09-02-1355 header ridges to x=1440, inline .topbar-art + square KPI tiles */
 /* 2026-09-02-1205 readability / rahat categories */
 .cash-kpi{
@@ -2450,3 +2450,171 @@ a.home-ig-names{cursor:pointer}
 }
 #cash .cash-kpi{display:flex;flex-direction:column;align-items:stretch;gap:2px}
 .aid-snap .aid-pair .cash-sub{width:100%;font-size:14px;line-height:1.5;color:#0e7490}
+
+/* 2026-09-02-1600 donate directory · payment logos · stronger donate.gov.np banner */
+.pmdrf-banner{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:16px 22px;
+  margin:0 0 18px;padding:22px 24px;
+  background:linear-gradient(135deg,#052e16 0%,#14532d 40%,#166534 72%,#15803d 100%);
+  color:#fff;border-radius:20px;text-decoration:none;
+  box-shadow:0 16px 40px rgba(5,46,22,.45), inset 0 1px 0 rgba(255,255,255,.14);
+  border:1px solid #14532d;
+}
+.pmdrf-banner-lg{padding:24px 26px}
+.pmdrf-banner:hover,.pmdrf-banner:focus-visible{
+  text-decoration:none;filter:brightness(1.05);
+  outline:3px solid #facc15;outline-offset:3px;
+}
+.pmdrf-banner-copy{flex:1 1 280px;min-width:0}
+.pmdrf-banner-k{
+  display:block;font-size:13px;font-weight:800;letter-spacing:.04em;
+  color:#bbf7d0;
+}
+.pmdrf-banner-h{
+  display:block;margin:6px 0 8px;
+  font-size:clamp(22px,4.8vw,34px);font-weight:800;line-height:1.2;color:#fff;
+}
+.pmdrf-banner-url{
+  display:inline-block;margin:0 0 8px;
+  font-size:16px;font-weight:800;letter-spacing:.03em;
+  color:#14532d;background:#facc15;
+  padding:4px 12px;border-radius:999px;
+}
+.pmdrf-banner-sub{
+  display:block;font-size:14px;font-weight:700;line-height:1.45;color:#ecfdf5;
+}
+.pmdrf-banner-cta{
+  flex:0 0 auto;
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:56px;padding:14px 26px;max-width:16em;
+  background:#facc15;color:#14532d;
+  font-size:18px;font-weight:800;line-height:1.25;text-align:center;
+  border-radius:999px;box-shadow:0 3px 0 #a16207;
+  white-space:normal;
+}
+.pay-row{display:block;margin-top:12px}
+.pay-row-k{
+  display:block;font-size:12px;font-weight:800;letter-spacing:.04em;
+  color:#bbf7d0;margin-bottom:8px;
+}
+.pay-logos{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.pay-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:36px;padding:3px 8px;
+  background:#fff;border-radius:8px;
+  box-shadow:0 1px 0 rgba(0,0,0,.16);
+}
+.pay-chip img{
+  display:block;height:28px;width:auto;max-width:96px;
+  object-fit:contain;background:transparent;
+}
+.pay-chip-mc img{height:30px;max-width:70px}
+.pay-chip-text{
+  height:36px;padding:0 10px;
+  font-size:11px;font-weight:800;letter-spacing:.05em;
+  color:#1e3a8a;white-space:nowrap;
+}
+@media (max-width:640px){
+  .pmdrf-banner,.pmdrf-banner-lg{
+    flex-wrap:wrap;align-items:flex-start;gap:10px 12px;
+    margin:0 0 14px;padding:16px 14px;border-radius:16px;
+  }
+  .pmdrf-banner-k{font-size:11px}
+  .pmdrf-banner-h{margin:4px 0 6px;font-size:clamp(18px,5.4vw,22px)}
+  .pmdrf-banner-sub{display:none}
+  .pmdrf-banner-url{font-size:13px;margin-bottom:4px}
+  .pmdrf-banner-cta{
+    width:100%;max-width:none;min-height:48px;padding:10px 14px;font-size:16px;
+  }
+  .pay-row{width:100%;margin-top:8px}
+  .pay-chip{height:32px;padding:2px 6px}
+  .pay-chip img{height:24px;max-width:78px}
+  .pay-chip-mc img{height:26px;max-width:58px}
+  .pay-chip-text{height:32px;font-size:10px;padding:0 8px}
+}
+
+.cash-kpis-dash{grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 16px}
+#cash .cash-kpis-dash{grid-template-columns:repeat(3,1fr)}
+.cash-kpis-dash .cash-kpi{
+  cursor:default;background:#fff;
+}
+.cash-kpis-dash .cash-kpi.on{
+  border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5;
+}
+.cash-kpis-dash .usd-kpi{border-color:#67e8f9}
+.cash-kpis-dash .usd-kpi strong{color:#0e7490}
+.cash-kpis-dash .usd-kpi .cash-unit{color:#0e7490}
+.cash-kpis-dash .fp-kpi{border-color:#93c5fd}
+.cash-kpis-dash .fp-kpi strong{color:#1d4ed8}
+@media(max-width:760px){
+  #cash .cash-kpis-dash,.cash-kpis-dash{grid-template-columns:1fr}
+}
+
+.dir-toolbar{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  margin:0 0 14px;
+}
+.dir-export-k{font-size:13px;font-weight:800;color:#14532d;letter-spacing:.03em;margin-right:4px}
+.dir-btn{
+  appearance:none;font:inherit;font-weight:800;font-size:14px;
+  min-height:40px;padding:8px 14px;border-radius:999px;cursor:pointer;
+  border:1px solid #86efac;background:#fff;color:#14532d;
+}
+.dir-btn:hover,.dir-btn:focus-visible{background:#ecfdf5;border-color:var(--forest);outline:2px solid #facc15;outline-offset:2px}
+.dir-card{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:16px 16px 10px;margin:0 0 14px;box-shadow:var(--shadow);
+  border-left:4px solid var(--forest);
+}
+.dir-card h3{
+  margin:0 0 10px;font-size:clamp(16px,2.4vw,20px);font-weight:800;
+  color:var(--forest);line-height:1.3;
+}
+.dir-card.dir-fp{border-left-color:#1d4ed8}
+.dir-card.dir-fp h3{color:#1d4ed8}
+.dir-card.dir-pledge{border-left-color:#b45309}
+.dir-card.dir-pledge h3{color:#b45309}
+.dir-kicker{margin:0 0 10px;font-size:14px;font-weight:700;color:#1d4ed8}
+.dir-table{width:100%;border-collapse:collapse;font-size:16px}
+.dir-table th,.dir-table td{
+  padding:10px 8px;border-bottom:1px solid #d1fae5;
+  text-align:left;vertical-align:top;line-height:1.4;
+}
+.dir-table th{font-size:13px;font-weight:800;color:#334155;background:#f8fafc}
+.dir-table td:last-child,.dir-table th:last-child{
+  text-align:right;font-variant-numeric:tabular-nums;font-weight:800;
+  color:var(--forest);white-space:nowrap;
+}
+.dir-table.fonepay-day td:nth-child(2),.dir-table.fonepay-day th:nth-child(2){text-align:right}
+.dir-card.dir-fp .dir-table td:last-child{color:#1d4ed8}
+.dir-table tr.dir-total{background:#ecfdf5;font-weight:800}
+.dir-table tr.dir-usd td:last-child{color:#0e7490}
+.dir-table tbody tr:last-child td{border-bottom:0}
+details.dir-notes{
+  margin:4px 0 8px;padding:10px 14px;
+  background:#f8fafc;border:1px solid var(--line);border-radius:12px;
+}
+details.dir-notes summary{
+  cursor:pointer;font-weight:800;font-size:15px;color:#334155;
+  min-height:36px;display:flex;align-items:center;
+}
+details.dir-notes .cash-note{margin-top:10px}
+
+@media print{
+  .head-stick, nav.chips, .fab-dock, .screen-back, .names-ov, footer,
+  .pmdrf-banner, .funds-warn, .dir-toolbar, .dir-notes, .swift-faq, #aid,
+  .safety-banner, .top-actions, .live, .portal-fab, #search, .pledge-box{
+    display:none !important;
+  }
+  .dir-card, .fund, .cash-dash, .cash-kpis-dash{break-inside:avoid;box-shadow:none}
+  .page-body, .wrap, body{background:#fff}
+  a{color:inherit;text-decoration:none}
+  .dir-table td:last-child{color:#000}
+}
+
+@media(max-width:640px){
+  .dir-table{font-size:15px}
+  .dir-table th,.dir-table td{padding:8px 6px}
+  .dir-btn{flex:1 1 140px}
+}
