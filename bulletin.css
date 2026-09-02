@@ -564,6 +564,7 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
   background:linear-gradient(180deg,#ecfdf5,#fff 55%);
   border:1px solid #86efac;border-radius:16px;
   box-shadow:var(--shadow);text-decoration:none;color:inherit;
+  overflow:visible;max-height:none;
 }
 .cash-snap:hover{text-decoration:none;border-color:var(--forest);box-shadow:0 0 0 3px #d1fae5}
 .cash-snap .kpi-k{width:100%;font-size:14px;font-weight:800;color:#14532d;letter-spacing:.02em;white-space:normal;line-height:1.4}
@@ -583,6 +584,7 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
 .cash-kpi > .rahat-rule:first-child{margin-top:0}
 .aid-snap .rahat-rule{color:#0e7490}
 .rahat-rule.rahat-rule-fp{color:#1d4ed8}
+.rahat-rule.rahat-rule-np{color:#e31e24}
 .rahat-rule.rahat-rule-sent{color:#0f766e}
 .rahat-rule.rahat-rule-pledge{color:#0e7490}
 .cash-snap .rahat-amt,
@@ -631,6 +633,30 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
 @media(max-width:640px){
   .fonepay-snap .fonepay-qr{width:64px;height:64px}
 }
+
+.nepalpay-row{
+  display:flex;align-items:center;gap:10px;
+  width:100%;margin:2px 0 4px;
+}
+.nepalpay-mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:44px;padding:4px 8px;
+  background:#0a0a0a;border-radius:10px;
+  border:1px solid #1b75bc;
+  box-shadow:0 1px 0 rgba(27,117,188,.28);
+}
+.nepalpay-mark img{
+  display:block;height:36px;width:auto;max-height:36px;
+  object-fit:contain;
+}
+.cash-snap .cash-sub.cash-nepalpay,
+.cash-kpi .cash-unit.cash-nepalpay{
+  color:#1b75bc;
+}
+.dir-card.dir-np{border-left-color:#e31e24}
+.dir-card.dir-np h3{color:#e31e24}
+.dir-card.dir-np .dir-kicker{color:#1b75bc;margin-top:8px;line-height:1.5}
+.dir-card.dir-np .nepalpay-mark{margin:2px 0 4px}
 
 .aid-grand{width:100%;margin:0 0 12px;padding:12px 14px;background:#ecfeff;border:1px solid #67e8f9;border-radius:14px}
 .aid-grand strong{display:block;font-size:clamp(26px,5vw,36px);font-weight:800;color:#0e7490;line-height:1.15}
@@ -2426,7 +2452,7 @@ a.home-ig-names{cursor:pointer}
 .cash-kpi .cash-unit.cash-fonepay{display:block;width:100%;margin-top:4px;font-size:13px;color:#1d4ed8}
 
 
-/* 2026-09-02-1830 names search dock · category tabs · result cards */
+/* 2026-09-02-1845 names search dock · category tabs · result cards */
 /* 2026-09-02-1355 header ridges to x=1440, inline .topbar-art + square KPI tiles */
 /* 2026-09-02-1205 readability / rahat categories */
 .cash-kpi{
@@ -2552,7 +2578,7 @@ a.home-ig-names{cursor:pointer}
 #cash .cash-kpi{display:flex;flex-direction:column;align-items:stretch;gap:2px}
 .aid-snap .aid-pair .cash-sub{width:100%;font-size:14px;line-height:1.5;color:#0e7490}
 
-/* 2026-09-02-1830 donate directory · foreign-aid dash under cash KPIs */
+/* 2026-09-02-1845 donate directory · foreign-aid dash under cash KPIs */
 .pmdrf-banner{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
   gap:16px 22px;
@@ -2595,7 +2621,7 @@ a.home-ig-names{cursor:pointer}
   white-space:normal;
 }
 
-/* 2026-09-02-1830 official rescue portal banner · teal/crimson */
+/* 2026-09-02-1845 official rescue portal banner · teal/crimson */
 .rescue-banner{
   background:linear-gradient(135deg,#042f3a 0%,#0e4d5c 36%,#155e75 68%,#0e7490 100%);
   border-color:#164e63;
@@ -2661,8 +2687,11 @@ a.home-ig-names{cursor:pointer}
   .pay-chip-text{height:32px;font-size:10px;padding:0 8px}
 }
 
-.cash-kpis-dash{grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 16px}
-#cash .cash-kpis-dash{grid-template-columns:repeat(3,1fr)}
+.cash-kpis-dash{grid-template-columns:repeat(2,1fr);gap:10px;margin:0 0 16px}
+#cash .cash-kpis-dash{grid-template-columns:repeat(2,1fr)}
+@media(min-width:1100px){
+  .cash-kpis-dash,#cash .cash-kpis-dash{grid-template-columns:repeat(4,1fr)}
+}
 .cash-kpis-dash .cash-kpi{
   cursor:default;background:#fff;
 }
@@ -2674,6 +2703,9 @@ a.home-ig-names{cursor:pointer}
 .cash-kpis-dash .usd-kpi .cash-unit{color:#0e7490}
 .cash-kpis-dash .fp-kpi{border-color:#93c5fd}
 .cash-kpis-dash .fp-kpi strong{color:#1d4ed8}
+.cash-kpis-dash .np-kpi{border-color:#f5a3a6}
+.cash-kpis-dash .np-kpi .kpi-k{color:#e31e24}
+.cash-kpis-dash .np-kpi .cash-unit{color:#1b75bc}
 @media(max-width:760px){
   #cash .cash-kpis-dash,.cash-kpis-dash{grid-template-columns:1fr}
 }
@@ -2791,6 +2823,7 @@ details.dir-notes .cash-note{margin-top:10px}
   html.print-pmdrf #cash > h3,
   html.print-pmdrf .sec-head,
   html.print-pmdrf #fonepay,
+  html.print-pmdrf #nepalpay,
   html.print-pmdrf .pledge-box,
   html.print-pmdrf article.fund,
   html.print-pmdrf .swift-faq,
@@ -2831,7 +2864,7 @@ details.dir-notes .cash-note{margin-top:10px}
   .dir-btn{flex:1 1 140px}
 }
 
-/* 2026-09-02-1830 about: centered column · समाचार list not cards */
+/* 2026-09-02-1845 about: centered column · समाचार list not cards */
 .about-page .sec-head{
   justify-content:center;
   text-align:center;
