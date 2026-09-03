@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /_shot_
+Sitemap: https://nirajbhusal.github.io/rasuwa-flood-bulletin/sitemap.xml
