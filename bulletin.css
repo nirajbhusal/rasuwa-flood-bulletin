@@ -1239,6 +1239,18 @@ section{padding:22px 0}
   text-align:center;
 }
 .about-page .about-prose > h3:first-child{margin-top:0.15em}
+.about-page .about-motto{
+  margin:0.1em 0 1.15em;
+  font-size:1.62em;
+  font-weight:800;
+  line-height:1.35;
+  letter-spacing:-0.01em;
+  text-align:center;
+  color:var(--ink);
+}
+.about-page .about-motto::after{
+  width:3.2em;
+}
 .about-page .about-prose > h3::after,
 .about-page .about-contact > h3::after,
 .about-page .coffee-card > h3::after{
