@@ -45,7 +45,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-04-1505">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-04-1535">
 </head>
 <body class="map-page">
 <div class="head-stick">
@@ -207,8 +207,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-09-04-1505"></script>
-<script src="names-index.js?v=2026-09-04-1505"></script>
+<script src="i18n.js?v=2026-09-04-1535"></script>
+<script src="names-index.js?v=2026-09-04-1535"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -285,7 +285,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-04-1505";
+window.PAGE_VER="2026-09-04-1535";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){
@@ -320,6 +320,7 @@ window.PAGE_VER="2026-09-04-1505";
   var nav = document.querySelector("nav.chips");
   var btn = document.getElementById("nav-toggle");
   if (!nav || !btn) return;
+  var openedAt = 0;
   function close(){
     nav.classList.remove("is-open");
     btn.setAttribute("aria-expanded", "false");
@@ -328,6 +329,7 @@ window.PAGE_VER="2026-09-04-1505";
     var on = !nav.classList.contains("is-open");
     nav.classList.toggle("is-open", on);
     btn.setAttribute("aria-expanded", on ? "true" : "false");
+    if (on) openedAt = Date.now();
   }
   btn.addEventListener("click", function(e){
     e.preventDefault();
@@ -338,7 +340,8 @@ window.PAGE_VER="2026-09-04-1505";
     a.addEventListener("click", close);
   });
   document.addEventListener("click", function(e){
-    if (!nav.contains(e.target)) close();
+    if (Date.now() - openedAt < 50) return;
+    if (!e.target.closest("nav.chips")) close();
   });
   window.addEventListener("resize", function(){
     if (window.matchMedia("(min-width:761px)").matches) close();
