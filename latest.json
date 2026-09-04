@@ -1,7 +1,7 @@
 {
-  "id": "2026-09-04-1545",
-  "title": "Live Share Search बार sticky",
-  "body": "शीर्षक/मिति/माउन्टेन स्क्रोल · Live/Share/Search/भाषा/हेल्पलाइन sticky · chips तल।",
+  "id": "2026-09-04-1555",
+  "title": "हेडर: logo सहित sticky · पहिलेको लेआउट",
+  "body": "head-stick मा logo+actions+safety+chips सँगै sticky · action-stick/head-brand हटाइयो।",
   "url": "index.html",
-  "updated_at": "2026-09-04T15:45:00+05:45"
+  "updated_at": "2026-09-04T15:55:00+05:45"
 }

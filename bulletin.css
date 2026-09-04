@@ -1,42 +1,15 @@
 .stick{position:sticky;top:0;z-index:40;background:var(--paper)}
-.head-brand{
-  position:relative;top:auto;z-index:48;
+.head-stick{
+  position:sticky;top:0;z-index:52;width:100%;
   background:var(--paper);
+  box-shadow:0 6px 16px rgba(15,23,42,.1);
   overflow:visible;
 }
-.action-stick{
-  position:sticky;top:0;z-index:52;
-  width:100%;
-  background:#0e7490;
-  background-color:#0e7490;
-  color:#f8fafc;
-  box-shadow:0 6px 16px rgba(15,23,42,.14);
-  padding:8px 12px;
-  box-sizing:border-box;
-}
-.action-stick .top-actions{max-width:var(--max);margin:0 auto}
-.action-stick .share-btn{
-  background:rgba(255,255,255,.12);
-  color:#f8fafc;
-  border-color:rgba(248,250,252,.42);
-}
-.action-stick .share-btn:hover{background:rgba(255,255,255,.2);text-decoration:none}
-.action-stick .lang-switch{
-  background:rgba(255,255,255,.12);
-  border-color:rgba(248,250,252,.42);
-}
-.action-stick .lang-switch button{background:transparent;color:#e2e8f0}
-.action-stick .lang-switch button[aria-pressed="true"]{background:#f8fafc;color:#0c2f3c}
-.action-stick .helpline{
-  background:rgba(253,232,236,.94);
-  color:#9f1239;
-}
 @media(max-width:760px){
-  .head-brand .topbar-inner{padding:8px 12px 8px;gap:6px}
-  .head-brand .brand h1{font-size:clamp(20px,5.4vw,30px)}
-  .head-brand .brand-date{font-size:12px;margin-top:2px}
-  .action-stick{padding:8px 10px}
-  .action-stick .helpline{font-size:12px;padding:5px 8px}
+  .head-stick .topbar-inner{padding:8px 12px 8px;gap:6px}
+  .head-stick .brand h1{font-size:clamp(20px,5.4vw,30px)}
+  .head-stick .brand-date{font-size:12px;margin-top:2px}
+  .head-stick .helpline{font-size:12px;padding:5px 8px}
 }
 .safety-banner{
   margin:0;padding:10px 16px;
@@ -327,12 +300,11 @@ a.js-found-row[hidden]{display:none}
   border-bottom:1px solid var(--line);
   overflow:visible;white-space:normal;
 }
-.chips.stick{
-  position:sticky;top:var(--action-h,0px);z-index:51;
-  width:100%;
-  background:var(--paper);
-  background-color:var(--paper);
-  box-shadow:0 8px 20px rgba(15,23,42,.14);
+.head-stick .chips,
+.head-stick .chips.stick{
+  position:relative;top:auto;z-index:47;
+  width:auto;
+  box-shadow:none;
 }
 .chips-inner{
   width:100%;min-width:0;margin:0 auto;padding:8px 16px;
@@ -450,7 +422,7 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
     overflow:visible;
   }
   html.desk body{display:block}
-  html.desk .head-brand,
+  html.desk .head-stick,
   html.desk .safety-banner{flex:none}
   html.desk .page-body{
     display:block;
@@ -458,24 +430,15 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
     height:auto;
     min-height:0;
   }
-  html.desk .chips{
+  html.desk .chips,
+  html.desk .chips.stick{
     position:relative;
     top:auto;
     height:auto;
     max-height:none;
     width:auto;
     flex:none;
-  }
-  html.desk .chips.stick{
-    position:sticky;
-    top:var(--action-h,0px);
-    z-index:51;
-    height:auto;
-    max-height:none;
-    width:100%;
-    flex:none;
-    background:var(--paper);
-    box-shadow:0 8px 20px rgba(15,23,42,.14);
+    box-shadow:none;
   }
   html.desk .page-main{
     overflow:visible;
@@ -1949,10 +1912,9 @@ a.portal-fab-donate{
   margin:0;box-shadow:none;
 }
 @media (min-width:761px){
-  .action-stick{position:sticky}
-  .action-stick .top-actions{position:relative;padding-right:88px}
-  .action-stick .lang-switch{
-    position:absolute;top:50%;right:4px;transform:translateY(-50%);
+  .topbar-inner{position:relative}
+  .top-actions .lang-switch{
+    position:absolute;top:14px;right:16px;
   }
 }
 .lang-switch button{
@@ -1978,8 +1940,7 @@ a.portal-fab-donate{
   .helpline{font-size:11px}
 }
 @media (max-height:500px) and (max-width:959px){
-  .stick,.action-stick{position:static}
-  .chips.stick{top:auto}
+  .stick,.head-stick{position:static}
   html{scroll-padding-top:8px}
 }
 
@@ -2885,7 +2846,7 @@ details.dir-notes summary{
 details.dir-notes .cash-note{margin-top:10px}
 
 @media print{
-  .head-brand, .action-stick, nav.chips, .fab-dock, .screen-back, .names-ov, footer,
+  .head-stick, nav.chips, .fab-dock, .screen-back, .names-ov, footer,
   .pmdrf-banner, .funds-warn, .dir-toolbar, .dir-notes, .swift-faq, #aid,
   .safety-banner, .top-actions, .live, .portal-fab, #search, .pledge-box{
     display:none !important;
@@ -2895,8 +2856,7 @@ details.dir-notes .cash-note{margin-top:10px}
   a{color:inherit;text-decoration:none}
   .dir-table td:last-child{color:#000}
 
-  html.print-pmdrf .head-brand,
-  html.print-pmdrf .action-stick,
+  html.print-pmdrf .head-stick,
   html.print-pmdrf nav.chips,
   html.print-pmdrf .fab-dock,
   html.print-pmdrf .portal-fab,
