@@ -1,6 +1,6 @@
 .stick{position:sticky;top:0;z-index:40;background:var(--paper)}
 .head-stick{
-  position:sticky;top:0;z-index:48;
+  position:relative;top:auto;z-index:48;
   background:var(--paper);
   box-shadow:0 6px 16px rgba(15,23,42,.1);
   overflow:visible;
@@ -156,7 +156,7 @@
   --rail-off:48px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:auto;scroll-padding-top:var(--stick, 240px);overflow-x:clip}
+html{scroll-behavior:auto;scroll-padding-top:var(--stick, 72px);overflow-x:clip}
 body{
   margin:0;
   font-family:Mukta,"Noto Sans Devanagari",system-ui,sans-serif;
@@ -297,9 +297,10 @@ a.js-found-row[hidden]{display:none}
   border-bottom:1px solid var(--line);
   overflow:visible;white-space:normal;
 }
-.head-stick .chips,
-.head-stick .chips.stick{
-  position:relative;top:auto;z-index:47;
+.chips.stick{
+  position:sticky;top:0;z-index:47;
+  background:var(--paper);
+  box-shadow:0 6px 16px rgba(15,23,42,.1);
 }
 .chips-inner{
   width:100%;min-width:0;margin:0 auto;padding:8px 16px;
@@ -423,10 +424,18 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
     height:auto;
     min-height:0;
   }
-  html.desk .chips,
-  html.desk .chips.stick{
+  html.desk .chips{
     position:relative;
     top:auto;
+    height:auto;
+    max-height:none;
+    width:auto;
+    flex:none;
+  }
+  html.desk .chips.stick{
+    position:sticky;
+    top:0;
+    z-index:47;
     height:auto;
     max-height:none;
     width:auto;
@@ -3038,3 +3047,19 @@ details.dir-notes .cash-note{margin-top:10px}
 .cash-kpis-dash .nv-kpi .kpi-k{color:#0f766e}
 .cash-kpis-dash .nv-kpi strong{color:#0f766e}
 .cash-kpis-dash .nv-kpi .cash-unit{color:#115e59}
+
+/* homepage long-scroll: no sticky mega-header, no max-height traps */
+html:not([class*="-page"]),
+html:not([class*="-page"]) body,
+html:not([class*="-page"]) .page-body,
+html:not([class*="-page"]) .page-main,
+html:not([class*="-page"]) #home{
+  overflow:visible;
+  height:auto;
+  max-height:none;
+}
+html:not([class*="-page"]).desk,
+html:not([class*="-page"]).desk body{
+  height:auto;
+  overflow:visible;
+}

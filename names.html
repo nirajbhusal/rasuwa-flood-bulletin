@@ -44,7 +44,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-04-1415">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-04-1505">
 </head>
 <body class="names-page">
 <div class="head-stick">
@@ -85,6 +85,7 @@
   </div>
 </header>
 <p class="safety-banner" role="alert" data-i18n-html="safety">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर<br>अन्तिम बोर्ड · १९ भदौ १२:००</p>
+</div>
 <nav class="chips stick" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
   <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-chips" aria-label="मेनु" data-i18n-aria="nav_menu">
     <svg class="ico-h" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
@@ -108,7 +109,6 @@
     <a class="nav-about" href="about.html" data-i18n="nav_about">हाम्रो बारेमा</a>
   </div>
 </nav>
-</div>
 <div class="page-body">
 
 <div class="page-main">
@@ -7539,8 +7539,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-09-04-1415"></script>
-<script src="names-index.js?v=2026-09-04-1415"></script>
+<script src="i18n.js?v=2026-09-04-1505"></script>
+<script src="names-index.js?v=2026-09-04-1505"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -7617,7 +7617,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-04-1415";
+window.PAGE_VER="2026-09-04-1505";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){
@@ -7762,10 +7762,10 @@ window.PAGE_VER="2026-09-04-1415";
   }
   window.__bindPager = bindPager;
   function setStick() {
-    var head = document.querySelector(".head-stick");
-    var headH = head ? head.offsetHeight : 0;
-    document.documentElement.style.setProperty("--head", headH + "px");
-    document.documentElement.style.setProperty("--stick", (headH + 8) + "px");
+    var nav = document.querySelector("nav.chips");
+    var navH = nav ? nav.offsetHeight : 0;
+    document.documentElement.style.setProperty("--head", navH + "px");
+    document.documentElement.style.setProperty("--stick", (navH + 8) + "px");
   }
   setStick();
   window.addEventListener("resize", setStick);
@@ -8141,15 +8141,29 @@ window.PAGE_VER="2026-09-04-1415";
     }
     if (!cat) return;
     var skipPane = { names:1, "lists-dash":1, "names-ig":1, fd:1, rd:1, "fam-found-h":1, "fam-found":1, "stat-found":1 };
-    var sourceJump = !!(id && !skipPane[id]);
-    setCat(cat, { filter: true, hashId: id, showPane: sourceJump });
+    /* Card/directory UX: keep panes hidden; filter + section results are the UI */
+    setCat(cat, { filter: true, hashId: id, showPane: false });
     var fold = document.getElementById("names-stats-fold");
     if (fold && (id === "names-ig" || id === "lists-dash" || id === "fd" || id === "rd")) fold.open = true;
-    if (id && id !== "names" && el && el.scrollIntoView) {
-      setTimeout(function(){
-        var t = document.getElementById(id);
-        if (t && t.scrollIntoView) t.scrollIntoView({ block: "start", behavior: "auto" });
-      }, 60);
+    if (id === "names" || skipPane[id]) {
+      var master = document.getElementById("names-master");
+      if (master && master.scrollIntoView) {
+        setTimeout(function(){ master.scrollIntoView({ block: "start", behavior: "auto" }); }, 60);
+      }
+    } else if (id && el && el.scrollIntoView) {
+      /* Legacy hash: still scroll if element is visible in stats/cards, not hidden panes */
+      var pane = el.closest(".names-pane");
+      if (!pane || !pane.hasAttribute("hidden")) {
+        setTimeout(function(){
+          var t = document.getElementById(id);
+          if (t && t.scrollIntoView) t.scrollIntoView({ block: "start", behavior: "auto" });
+        }, 60);
+      } else {
+        var master2 = document.getElementById("names-master");
+        if (master2 && master2.scrollIntoView) {
+          setTimeout(function(){ master2.scrollIntoView({ block: "start", behavior: "auto" }); }, 60);
+        }
+      }
     }
   }
   window.__namesSetCat = setCat;
@@ -8161,6 +8175,7 @@ window.PAGE_VER="2026-09-04-1415";
   document.addEventListener("click", function(e){
     var btn = e.target.closest(".names-cat-btn");
     if (btn) {
+      if (btn.closest("#search")) return;
       e.preventDefault();
       var cat = btn.getAttribute("data-names-cat");
       setCat(cat, { filter: true });

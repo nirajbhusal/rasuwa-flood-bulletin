@@ -83,7 +83,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-04-1415">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-04-1505">
 </head>
 <body>
 <div class="head-stick">
@@ -124,6 +124,7 @@
   </div>
 </header>
 <p class="safety-banner" role="alert" data-i18n-html="safety">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर<br>अन्तिम बोर्ड · १९ भदौ १२:००</p>
+</div>
 <nav class="chips stick" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
   <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-chips" aria-label="मेनु" data-i18n-aria="nav_menu">
     <svg class="ico-h" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
@@ -147,7 +148,6 @@
     <a class="nav-about" href="about.html" data-i18n="nav_about">हाम्रो बारेमा</a>
   </div>
 </nav>
-</div>
 <div class="page-body">
 <div class="page-main">
 <a id="screen-back" class="screen-back" href="index.html" hidden><span data-i18n="nav_back_dash">« ड्यासबोर्ड</span></a>
@@ -591,9 +591,6 @@
 
 </div>
 
-<main class="wrap">
-
-</main>
 <footer>
   <p class="foot-contact" data-i18n-html="foot_contact">सुझाव / सच्याउन: निरज भुसाल · <a href="tel:+9779851175115">9851175115</a> · <a href="mailto:neerajbhusal@gmail.com">neerajbhusal@gmail.com</a></p>
   <p class="foot-about"><a href="about.html" data-i18n="nav_about">हाम्रो बारेमा</a></p>
@@ -659,8 +656,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-09-04-1415"></script>
-<script src="names-index.js?v=2026-09-04-1415"></script>
+<script src="i18n.js?v=2026-09-04-1505"></script>
+<script src="names-index.js?v=2026-09-04-1505"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -729,7 +726,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-04-1415";</script>
+<script>window.PAGE_VER="2026-09-04-1505";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -964,10 +961,10 @@
   }
   window.__bindPager = bindPager;
   function setStick() {
-    var head = document.querySelector(".head-stick");
-    var headH = head ? head.offsetHeight : 0;
-    document.documentElement.style.setProperty("--head", headH + "px");
-    document.documentElement.style.setProperty("--stick", (headH + 8) + "px");
+    var nav = document.querySelector("nav.chips");
+    var navH = nav ? nav.offsetHeight : 0;
+    document.documentElement.style.setProperty("--head", navH + "px");
+    document.documentElement.style.setProperty("--stick", (navH + 8) + "px");
   }
   setStick();
   window.addEventListener("resize", setStick);
@@ -1275,97 +1272,8 @@
 })();
 
 
-(function(){
-  var nav = document.querySelector("nav.chips");
-  if (!nav || !window.IntersectionObserver) return;
-  var links = Array.prototype.slice.call(nav.querySelectorAll(".chips-inner a[href^='#']"));
-  if (!links.length) return;
-  var back = document.getElementById("screen-back");
-  var SPY = {home:1, names:1, ems927:1, photos:1, history:1};
-  var secs = [];
-  links.forEach(function(a){
-    var id = (a.getAttribute("href") || "").slice(1);
-    if (!SPY[id]) return;
-    var el = id ? document.getElementById(id) : null;
-    if (!el) return;
-    secs.push(el);
-  });
-  if (!secs.length) return;
-  var last = "";
-  var pending = "";
-  var hashTimer = 0;
-  function paint(id){
-    links.forEach(function(a){
-      var on = (a.getAttribute("href") || "") === "#" + id;
-      a.classList.toggle("is-current", on);
-      if (on) a.setAttribute("aria-current", "location");
-      else a.removeAttribute("aria-current");
-    });
-  }
-  function setBack(id){
-    if (!back) return;
-    var show = id !== "home";
-    back.classList.toggle("is-on", show);
-    if (show) back.removeAttribute("hidden");
-    else back.setAttribute("hidden", "");
-  }
-  function commitHash(id){
-    if (!id || document.body.classList.contains("desk-screen")) return;
-    if (id === last) return;
-    last = id;
-    var next = "#" + id;
-    if (location.hash !== next) {
-      try { history.replaceState(null, "", location.pathname + location.search + next); } catch (e) {}
-    }
-  }
-  function spyTo(id){
-    if (!id || document.body.classList.contains("desk-screen")) return;
-    paint(id);
-    pending = id;
-    if (hashTimer) clearTimeout(hashTimer);
-    hashTimer = setTimeout(function(){
-      hashTimer = 0;
-      commitHash(pending);
-    }, 200);
-  }
-  var vis = {};
-  var io = new IntersectionObserver(function(entries){
-    if (document.body.classList.contains("desk-screen")) return;
-    entries.forEach(function(e){
-      if (e.isIntersecting) vis[e.target.id] = true;
-      else delete vis[e.target.id];
-    });
-    var pick = null;
-    secs.forEach(function(el){ if (vis[el.id]) pick = el.id; });
-    if (pick) spyTo(pick);
-  }, { rootMargin: "80px 0px 80px 0px", threshold: 0 });
-  secs.forEach(function(el){
-    if (document.body.classList.contains("desk-screen")) return;
-    if (el.classList.contains("is-screen-off")) return;
-    var st = window.getComputedStyle ? getComputedStyle(el) : null;
-    if (st && st.display === "none") return;
-    io.observe(el);
-  });
-  links.forEach(function(a){
-    a.addEventListener("click", function(e){
-      var id = (a.getAttribute("href") || "").slice(1);
-      if (!id) return;
-      last = id;
-      pending = id;
-      if (hashTimer) { clearTimeout(hashTimer); hashTimer = 0; }
-      paint(id);
-      if (document.body.classList.contains("desk-screen")) return;
-      e.preventDefault();
-      setBack(id);
-      var next = "#" + id;
-      if (location.hash !== next) {
-        try { history.pushState(null, "", location.pathname + location.search + next); } catch (err) {}
-      }
-      var target = document.getElementById(id);
-      if (target && target.scrollIntoView) target.scrollIntoView({block:"start", behavior:"auto"});
-      else window.scrollTo(0, 0);
-    });
-  });
+/* scroll-spy removed: nav is page links; homepage is long scroll */
+
 })();
 
 (function(){
@@ -1501,96 +1409,16 @@
 
 (function(){
   var mq = window.matchMedia("(min-width:960px)");
-  var home = document.getElementById("home");
-  var main = document.querySelector(".page-main");
-  var nav = document.querySelector("nav.chips");
-  var links = nav ? Array.prototype.slice.call(nav.querySelectorAll(".chips-inner a[href^='#']")) : [];
-  var src = document.querySelector(".stats-src");
-  var back = document.getElementById("screen-back");
-
-  function allScreens(){
-    var list = [];
-    if (home) list.push(home);
-    var hl = document.getElementById("helpline");
-    if (hl) list.push(hl);
-    Array.prototype.forEach.call(document.querySelectorAll(".page-main section[id]"), function(s){ list.push(s); });
-    return list;
-  }
-
-  function resolve(hash){
-    var id = (hash || "").replace(/^#/, "");
-    if (!id || id === "home") return home;
-    var el = document.getElementById(id);
-    if (!el) return home;
-    if (el === home) return home;
-    if (el.id === "helpline") return el;
-    var sec = el.closest("section[id]");
-    if (sec) return sec;
-    var aside = el.closest("#helpline");
-    if (aside) return aside;
-    if (home && home.contains(el)) return home;
-    return home;
-  }
-
-  function markNav(id){
-    links.forEach(function(a){
-      var on = (a.getAttribute("href") || "") === "#" + id;
-      a.classList.toggle("is-current", on);
-      if (on) a.setAttribute("aria-current", "location");
-      else a.removeAttribute("aria-current");
-    });
-  }
-
-  function apply(opts){
+  function apply(){
     var desk = mq.matches;
     document.documentElement.classList.toggle("desk", desk);
-    document.body.classList.toggle("desk-screen", desk);
-    var list = allScreens();
-    var target = resolve(location.hash);
-    if (!target) target = home;
-    var tid = (target && target.id) ? target.id : "home";
-    if (!desk) {
-      list.forEach(function(s){ s.classList.remove("is-screen-on", "is-screen-off"); });
-      if (src) src.classList.remove("is-screen-on", "is-screen-off");
-      document.documentElement.classList.add("desk-ready");
-      markNav(tid);
-      if (back) {
-        var showMob = tid !== "home";
-        back.classList.toggle("is-on", showMob);
-        if (showMob) back.removeAttribute("hidden");
-        else back.setAttribute("hidden", "");
-      }
-      if (!opts || opts.scroll !== false) {
-        if (target && target.scrollIntoView) target.scrollIntoView({block: "start", behavior: "auto"});
-        else window.scrollTo(0, 0);
-      }
-      return;
-    }
-    list.forEach(function(s){ s.classList.remove("is-screen-on", "is-screen-off"); });
-    if (src) src.classList.remove("is-screen-on", "is-screen-off");
     document.documentElement.classList.add("desk-ready");
-    markNav(tid);
-    if (back) {
-      var showBack = target !== home;
-      back.classList.toggle("is-on", showBack);
-      if (showBack) back.removeAttribute("hidden");
-      else back.setAttribute("hidden", "");
-    }
-    if (!opts || opts.scroll !== false) {
-      if (main) main.scrollTop = 0;
-      window.scrollTo(0, 0);
-    }
+    document.body.classList.remove("desk-screen");
   }
-
-  function syncScrollRestore(){
-    try { history.scrollRestoration = mq.matches ? "auto" : "manual"; } catch (e) {}
-  }
-  syncScrollRestore();
-  apply({scroll: true});
-  window.addEventListener("hashchange", function(){ apply({scroll: true}); if (window.__namesFromHash) window.__namesFromHash(); });
-  if (mq.addEventListener) mq.addEventListener("change", function(){ syncScrollRestore(); apply({scroll: false}); if (window.__namesFromHash) window.__namesFromHash(); });
-  else if (mq.addListener) mq.addListener(function(){ syncScrollRestore(); apply({scroll: false}); if (window.__namesFromHash) window.__namesFromHash(); });
-  if (window.__namesFromHash) window.__namesFromHash();
+  try { history.scrollRestoration = "auto"; } catch (e) {}
+  apply();
+  if (mq.addEventListener) mq.addEventListener("change", apply);
+  else if (mq.addListener) mq.addListener(apply);
 })();
 
 (function(){

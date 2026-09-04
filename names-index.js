@@ -917,6 +917,22 @@
     });
   }
 
+  function overlayCatOn(id) {
+    return !!filters[id] || (id === "rescue" && !!filters.found);
+  }
+
+  function syncOverlayCatButtons() {
+    var root = document.querySelector("#names-ov-chips .names-ov-cats");
+    if (!root) return false;
+    root.querySelectorAll(".names-cat-btn").forEach(function (btn) {
+      var id = btn.getAttribute("data-names-cat");
+      var on = overlayCatOn(id);
+      btn.classList.toggle("on", on);
+      btn.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    return true;
+  }
+
   function paintOverlayCats(root) {
     if (!root) return;
     var cats = [
@@ -930,7 +946,7 @@
       btn.className = "names-cat-btn";
       btn.setAttribute("data-names-cat", c.id);
       btn.setAttribute("role", "tab");
-      var on = !!filters[c.id] || (c.id === "rescue" && !!filters.found);
+      var on = overlayCatOn(c.id);
       btn.classList.toggle("on", on);
       btn.setAttribute("aria-selected", on ? "true" : "false");
       btn.textContent = tt(c.i18n, c.fb);
@@ -938,44 +954,61 @@
     });
   }
 
+  function ensureOverlayChrome(ov) {
+    var segs = ov.querySelector(".names-ov-cats");
+    if (segs) {
+      syncOverlayCatButtons();
+      var nat = ov.querySelector(".names-chips-nat");
+      if (nat) renderChips(nat, "nat");
+      var src = ov.querySelector(".names-chips-src");
+      if (src) renderChips(src, "src");
+      var natK = ov.querySelector(".names-filter-sec > .names-filter-k");
+      if (natK) natK.textContent = tt("ns_nation", "राष्ट्र");
+      var srcK = ov.querySelector(".names-more-filters .names-filter-k");
+      if (srcK) srcK.textContent = tt("ns_source", "स्रोत");
+      var sum = ov.querySelector(".names-more-filters > summary");
+      if (sum) sum.textContent = tt("ns_more_filters", "थप फिल्टर");
+      return;
+    }
+    ov.innerHTML = "";
+    segs = document.createElement("div");
+    segs.className = "names-cat-tabs names-ov-cats";
+    segs.setAttribute("role", "tablist");
+    paintOverlayCats(segs);
+    ov.appendChild(segs);
+    var natWrap = document.createElement("div");
+    natWrap.className = "names-filter-sec";
+    var natK = document.createElement("span");
+    natK.className = "names-filter-k";
+    natK.textContent = tt("ns_nation", "राष्ट्र");
+    natWrap.appendChild(natK);
+    var nat = document.createElement("div");
+    nat.className = "names-chips names-chips-nat";
+    renderChips(nat, "nat");
+    natWrap.appendChild(nat);
+    ov.appendChild(natWrap);
+    var det = document.createElement("details");
+    det.className = "names-more-filters";
+    var sum = document.createElement("summary");
+    sum.textContent = tt("ns_more_filters", "थप फिल्टर");
+    det.appendChild(sum);
+    var srcWrap = document.createElement("div");
+    srcWrap.className = "names-filter-sec";
+    var srcK = document.createElement("span");
+    srcK.className = "names-filter-k";
+    srcK.textContent = tt("ns_source", "स्रोत");
+    srcWrap.appendChild(srcK);
+    var src = document.createElement("div");
+    src.className = "names-chips names-chips-src";
+    renderChips(src, "src");
+    srcWrap.appendChild(src);
+    det.appendChild(srcWrap);
+    ov.appendChild(det);
+  }
+
   function paintChips() {
     var ov = document.getElementById("names-ov-chips");
-    if (ov) {
-      ov.innerHTML = "";
-      var segs = document.createElement("div");
-      segs.className = "names-cat-tabs names-ov-cats";
-      segs.setAttribute("role", "tablist");
-      paintOverlayCats(segs);
-      ov.appendChild(segs);
-      var natWrap = document.createElement("div");
-      natWrap.className = "names-filter-sec";
-      var natK = document.createElement("span");
-      natK.className = "names-filter-k";
-      natK.textContent = tt("ns_nation", "राष्ट्र");
-      natWrap.appendChild(natK);
-      var nat = document.createElement("div");
-      nat.className = "names-chips names-chips-nat";
-      renderChips(nat, "nat");
-      natWrap.appendChild(nat);
-      ov.appendChild(natWrap);
-      var det = document.createElement("details");
-      det.className = "names-more-filters";
-      var sum = document.createElement("summary");
-      sum.textContent = tt("ns_more_filters", "थप फिल्टर");
-      det.appendChild(sum);
-      var srcWrap = document.createElement("div");
-      srcWrap.className = "names-filter-sec";
-      var srcK = document.createElement("span");
-      srcK.className = "names-filter-k";
-      srcK.textContent = tt("ns_source", "स्रोत");
-      srcWrap.appendChild(srcK);
-      var src = document.createElement("div");
-      src.className = "names-chips names-chips-src";
-      renderChips(src, "src");
-      srcWrap.appendChild(src);
-      det.appendChild(srcWrap);
-      ov.appendChild(det);
-    }
+    if (ov) ensureOverlayChrome(ov);
     renderChips(document.getElementById("names-home-chips"), "status");
     renderChips(document.getElementById("fam-search-chips"), "status");
     renderChips(document.getElementById("names-src-chips"), "src");
@@ -1109,7 +1142,7 @@
         el.querySelectorAll(".ns-jump").forEach(function (a) {
           a.addEventListener("click", function (e) {
             e.preventDefault();
-            goJump(rec.jump, rec.name, rec.domId);
+            goJump(rec.jump, rec.name, rec.id);
           });
         });
       });
@@ -1135,33 +1168,83 @@
     return "rescue";
   }
 
-  function goJump(hash, name, domId) {
-    closeOverlay(true);
-    var target = (hash || "").replace(/^#/, "");
-    if (!isNamesPage()) {
-      location.href = "names.html" + (target ? "#" + target : "");
+  function findRec(hash, name, idOrDom) {
+    var rec = null;
+    if (idOrDom) {
+      rec = recs.filter(function (r) { return r.id === idOrDom || r.domId === idOrDom; })[0];
+    }
+    if (!rec && hash) {
+      rec = recs.filter(function (r) { return r.jump === hash || r.domId === (hash || "").replace(/^#/, ""); })[0];
+    }
+    if (!rec && name) {
+      var nn = normName(name);
+      rec = recs.filter(function (r) { return normName(r.name) === nn || normName(r.name_ne) === nn || normName(r.name_en) === nn; })[0];
+    }
+    return rec || null;
+  }
+
+  function applyStatusFilter(cat, opts) {
+    opts = opts || {};
+    var sid = cat === "found" ? "rescue" : (cat || "rescue");
+    filters = {};
+    filters[sid] = true;
+    if (opts.foreign) filters.foreign = true;
+    shown = PAGE;
+    if (window.__namesSetCat) window.__namesSetCat(sid, { filter: false, foreign: !!opts.foreign });
+    syncOverlayCatButtons();
+  }
+
+  function flashSecHit(recId) {
+    var box = document.getElementById("names-sec-results");
+    if (!box || !recId) {
+      var master = document.getElementById("names-master") || document.getElementById("names");
+      if (master && master.scrollIntoView) master.scrollIntoView({ block: "start", behavior: "auto" });
       return;
     }
-    var fam = document.getElementById("fam-search");
-    if (fam && name) {
-      fam.value = name;
-      fam.dispatchEvent(new Event("input", { bubbles: true }));
+    var el = box.querySelector('.ns-hit[data-id="' + recId.replace(/"/g, "") + '"]');
+    if (!el) {
+      var master2 = document.getElementById("names-master") || document.getElementById("names");
+      if (master2 && master2.scrollIntoView) master2.scrollIntoView({ block: "start", behavior: "auto" });
+      return;
     }
-    var rec = recs.filter(function (r) { return r.domId === domId || r.jump === hash; })[0];
-    if (window.__namesSetCat) window.__namesSetCat(catOfRec(rec, hash), { filter: true });
-    if (target) {
-      try {
-        history.pushState(null, "", location.pathname + location.search + "#" + target);
-      } catch (err) {}
-      try { window.dispatchEvent(new Event("hashchange")); } catch (err) {}
+    if (el.scrollIntoView) el.scrollIntoView({ block: "center", behavior: "auto" });
+    el.classList.add("ns-flash");
+    setTimeout(function () { el.classList.remove("ns-flash"); }, 1600);
+  }
+
+  function ensureHitInPage(recId) {
+    if (!recId) return;
+    var idx = -1;
+    for (var i = 0; i < lastHits.length; i++) {
+      if (lastHits[i].id === recId) { idx = i; break; }
     }
+    if (idx >= 0 && idx >= shown) {
+      shown = idx + 1;
+      renderResults();
+    }
+  }
+
+  function goJump(hash, name, idOrDom) {
+    closeOverlay(true);
+    var rec = findRec(hash, name, idOrDom);
+    var cat = catOfRec(rec, hash);
+    var q = (name || (rec && rec.name) || currentQuery() || "").trim();
+    if (!isNamesPage()) {
+      var parts = [];
+      if (q) parts.push("q=" + encodeURIComponent(q));
+      if (cat) parts.push("cat=" + encodeURIComponent(cat === "found" ? "rescue" : cat));
+      location.href = "names.html" + (parts.length ? "?" + parts.join("&") : "") + "#names";
+      return;
+    }
+    if (q) syncInputs(q);
+    applyStatusFilter(cat);
+    renderResults();
+    if (rec && rec.id) ensureHitInPage(rec.id);
+    try { history.replaceState(null, "", location.pathname + location.search + "#names"); } catch (err) {}
     setTimeout(function () {
-      var el = (domId && document.getElementById(domId)) || document.getElementById(target);
-      if (el && el.scrollIntoView) el.scrollIntoView({ block: "start", behavior: "auto" });
-      if (el) {
-        el.classList.add("ns-flash");
-        setTimeout(function () { el.classList.remove("ns-flash"); }, 1600);
-      }
+      flashSecHit(rec && rec.id);
+      var focus = document.getElementById("names-q");
+      if (focus) { try { focus.focus(); } catch (e) {} }
     }, 80);
   }
 
@@ -1186,12 +1269,13 @@
   }
 
   function closeOverlay(keepHash) {
-    var ov = document.getElementById("search");
-    if (!ov) return;
     overlayOpen = false;
-    ov.hidden = true;
-    ov.classList.remove("on");
     document.body.classList.remove("names-ov-lock");
+    var ov = document.getElementById("search");
+    if (ov) {
+      ov.hidden = true;
+      ov.classList.remove("on");
+    }
     if (!keepHash && location.hash === "#search") {
       try {
         history.replaceState(null, "", location.pathname + location.search + afterSearchHash());
@@ -1280,14 +1364,19 @@
       if (!btn) return;
       var cat = btn.getAttribute("data-names-cat");
       if (!cat) return;
-      if (isNamesPage() && window.__namesSetCat) return;
       e.preventDefault();
+      e.stopPropagation();
       filters = {};
       filters[cat] = true;
       shown = PAGE;
-      paintChips();
+      document.querySelectorAll("#search .names-cat-btn").forEach(function (b) {
+        var on = b.getAttribute("data-names-cat") === cat;
+        b.classList.toggle("on", on);
+        b.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      if (window.__namesSetCat) window.__namesSetCat(cat, { filter: false });
       renderResults();
-    });
+    }, true);
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
         if (overlayOpen) {
@@ -1367,7 +1456,26 @@
       scrapeDom();
       computeMatches();
       ready = true;
+      try {
+        var sp = new URLSearchParams(location.search || "");
+        var qParam = sp.get("q");
+        var catParam = sp.get("cat");
+        if (qParam) syncInputs(qParam);
+        if (catParam === "miss" || catParam === "treat" || catParam === "rescue" || catParam === "found") {
+          filters = {};
+          filters[catParam === "found" ? "rescue" : catParam] = true;
+          if (window.__namesSetCat) {
+            window.__namesSetCat(catParam === "found" ? "rescue" : catParam, { filter: false });
+          }
+          syncOverlayCatButtons();
+        } else if (!hasActiveFilter()) {
+          filters = { rescue: true };
+        }
+      } catch (err) {
+        if (!hasActiveFilter()) filters = { rescue: true };
+      }
       if (!hasActiveFilter()) filters = { rescue: true };
+      paintChips();
       renderResults();
       decorateCards();
       var n = 0;
@@ -1390,6 +1498,8 @@
     else if (cat === "rescue") {
       filters.rescue = true;
       if (opts && opts.foreign) filters.foreign = true;
+    } else {
+      filters.rescue = true;
     }
     shown = PAGE;
     paintChips();
