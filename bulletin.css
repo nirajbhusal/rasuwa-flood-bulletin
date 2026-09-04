@@ -3025,3 +3025,16 @@ details.dir-notes .cash-note{margin-top:10px}
   text-decoration:none;
   background:none;
 }
+
+/* NVIDIA cash label — distinct from Fonepay */
+.rahat-rule.rahat-rule-nv{color:#0f766e}
+.cash-snap .rahat-amt-nv,
+.cash-kpi .rahat-amt-nv{color:#0f766e}
+.cash-snap .cash-sub.cash-nvidia,
+.cash-kpi .cash-unit.cash-nvidia{
+  display:block;width:100%;margin-top:2px;font-size:15px;font-weight:800;color:#115e59
+}
+.cash-kpis-dash .nv-kpi{border-color:#5eead4}
+.cash-kpis-dash .nv-kpi .kpi-k{color:#0f766e}
+.cash-kpis-dash .nv-kpi strong{color:#0f766e}
+.cash-kpis-dash .nv-kpi .cash-unit{color:#115e59}
