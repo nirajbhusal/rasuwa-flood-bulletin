@@ -44,10 +44,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-04-1535">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-04-1545">
 </head>
 <body class="need-page">
-<div class="head-stick">
+<div class="head-brand">
 <header class="topbar">
   <svg class="topbar-art" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
     <path fill="#5e93a3" d="M0 160V78l70-22 86 30 118-54 74 28 96-48 70 22 108-40 88 26 122-44 80 24 110-32 96 28 122-36 100 22H1440V160z"/>
@@ -66,8 +66,13 @@
       </div>
     </div>
     <p class="brand-date" data-i18n="brand_date">४ सेप्टेम्बर २०२६ · १९ भदौ २०८३ · घटना १० भदौ / २६ अगस्ट</p>
-    <div class="top-actions">
-      <span class="live"><i></i> <span data-i18n="live">लाइभ</span></span>
+  </div>
+</header>
+<p class="safety-banner" role="alert" data-i18n-html="safety">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर<br>अन्तिम बोर्ड · १९ भदौ १२:००</p>
+</div>
+<div class="action-stick" id="action-stick">
+  <div class="top-actions">
+<span class="live"><i></i> <span data-i18n="live">लाइभ</span></span>
       <button type="button" class="share-btn" id="share-btn" data-i18n-aria="share" aria-label="सेयर">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="18" cy="5" r="2.7"/><circle cx="6" cy="12" r="2.7"/><circle cx="18" cy="19" r="2.7"/><path d="M8.5 13.4 15.4 17.5M15.5 6.5 8.5 10.6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg>
         <span data-i18n="share">सेयर</span>
@@ -81,10 +86,7 @@
         <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
       </div>
       <div class="helpline" data-i18n="hl_bar">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४</div>
-    </div>
   </div>
-</header>
-<p class="safety-banner" role="alert" data-i18n-html="safety">तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर<br>अन्तिम बोर्ड · १९ भदौ १२:००</p>
 </div>
 <nav class="chips stick" aria-label="खण्डहरू" data-i18n-aria="nav_sections">
   <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-chips" aria-label="मेनु" data-i18n-aria="nav_menu">
@@ -235,8 +237,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-09-04-1535"></script>
-<script src="names-index.js?v=2026-09-04-1535"></script>
+<script src="i18n.js?v=2026-09-04-1545"></script>
+<script src="names-index.js?v=2026-09-04-1545"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -313,7 +315,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-04-1535";
+window.PAGE_VER="2026-09-04-1545";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){
@@ -345,6 +347,21 @@ window.PAGE_VER="2026-09-04-1535";
   }
 })();
 (function(){
+  function setStick() {
+    var action = document.getElementById("action-stick");
+    var nav = document.querySelector("nav.chips");
+    var actionH = action ? action.offsetHeight : 0;
+    var navH = nav ? nav.offsetHeight : 0;
+    var root = document.documentElement;
+    root.style.setProperty("--action-h", actionH + "px");
+    root.style.setProperty("--head", (actionH + navH) + "px");
+    root.style.setProperty("--stick", (actionH + navH + 8) + "px");
+  }
+  setStick();
+  window.addEventListener("resize", setStick);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setStick);
+  if (window.__addLangHook) window.__addLangHook(setStick);
+
   var nav = document.querySelector("nav.chips");
   var btn = document.getElementById("nav-toggle");
   if (!nav || !btn) return;
