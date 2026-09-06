@@ -3127,3 +3127,19 @@ html:not([class*="-page"]).desk body{
   html,body{overflow-x:hidden;max-width:100%;width:100%}
   .page-main,.overview,.hero .wrap,.home-ig,.head-stick,.topbar,.chips,.safety-banner{overflow-x:clip;max-width:100%}
 }
+
+
+/* human loss block above names/police */
+.home-ig-human-wrap{margin:12px 0 4px}
+.home-ig-human{border-color:#f9a8d4}
+.home-ig-human .nig-ico{color:var(--crimson)}
+.home-ig-human .nig-cat{border-color:#fecdd3;background:#fff7f8}
+.home-ig-human .nig-cat-h{color:#9f1239}
+.home-ig-human .nig-cat-h > .num{color:var(--crimson)}
+.home-ig-human .ibar i{background:var(--crimson)}
+.home-ig-human .nig-subh{margin:10px 0 4px;font-size:12px;font-weight:800;color:#9f1239}
+@media(min-width:960px){
+  .home-ig-human .nig-cats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .home-ig-human .nig-cat:nth-child(1),
+  .home-ig-human .nig-cat:nth-child(4){grid-column:1/-1}
+}
