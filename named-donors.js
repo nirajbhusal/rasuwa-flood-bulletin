@@ -74,4 +74,17 @@
     });
   var inp = document.getElementById("named-q");
   if (inp) inp.addEventListener("input", function(){ q = inp.value.trim(); page = 0; render(); });
+  var csvBtn = document.getElementById("named-csv");
+  if (csvBtn) csvBtn.addEventListener("click", function(){
+    var rows = filtered();
+    var lines = ["sn,date,name,type,cheque,npr,usd"];
+    rows.forEach(function(d){
+      lines.push([d.sn, d.date, JSON.stringify(d.name||""), d.type||"", d.cheque||"", d.npr||"", d.usd||""].join(","));
+    });
+    var blob = new Blob([lines.join("\n")], {type:"text/csv"});
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "pmdrf-named-donors.csv";
+    a.click();
+  });
 })();
