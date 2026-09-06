@@ -377,7 +377,8 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
   background:rgba(15,23,42,.48);
   cursor:pointer;-webkit-tap-highlight-color:transparent;
 }
-html.nav-drawer-open .nav-backdrop{display:block}
+html.nav-drawer-open .nav-backdrop{display:block;z-index:200}
+html.nav-drawer-open{overflow:hidden !important}
 html.nav-drawer-open,html.nav-drawer-open body{overscroll-behavior:none}
 
 @media (max-width:760px){
@@ -408,21 +409,21 @@ html.nav-drawer-open,html.nav-drawer-open body{overscroll-behavior:none}
     padding:12px;gap:8px;
     scrollbar-width:thin;
   }
-  /* Fixed popup sheet — escapes overflow-x:clip on .chips / .head-stick / html */
-  .chips.is-open{
-    overflow:visible !important;
-    z-index:220;
-  }
+  .chips.is-open{overflow:visible !important;z-index:220}
+  /* Hamburger above backdrop (200) and panel (230) */
+  html.nav-drawer-open #nav-toggle,
   .chips.is-open .nav-toggle{
-    position:relative;z-index:220;
+    position:relative;z-index:240;
     box-shadow:0 0 0 1px var(--line),0 8px 20px rgba(15,23,42,.18);
   }
-  .chips.is-open .chips-inner{
-    display:flex;
+  /* Body-portal bottom sheet — not a child of sticky/clip nav */
+  body > .chips-inner.nav-drawer-panel,
+  .chips-inner.nav-drawer-panel{
+    display:flex !important;
     position:fixed;
     left:12px;right:12px;bottom:12px;top:auto;
     inset:auto 12px 12px 12px;
-    z-index:210;
+    z-index:230;
     width:auto;min-width:0;
     max-height:min(80vh,640px);
     overflow:auto;-webkit-overflow-scrolling:touch;
@@ -434,14 +435,26 @@ html.nav-drawer-open,html.nav-drawer-open body{overscroll-behavior:none}
     box-shadow:0 18px 48px rgba(15,23,42,.28);
     padding:14px;gap:8px;
     scrollbar-width:thin;
+    pointer-events:auto !important;
+    -webkit-transform:translateZ(0);
+    transform:translateZ(0);
   }
-  html.nav-drawer-open .chips,
-  html.nav-drawer-open .head-stick,
-  html.nav-drawer-open .topbar,
-  html.nav-drawer-open .safety-banner,
-  html.nav-drawer-open .page-main{
-    overflow:visible !important;
-    overflow-x:visible !important;
+  body > .chips-inner.nav-drawer-panel a,
+  .chips-inner.nav-drawer-panel a{
+    pointer-events:auto !important;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+  }
+  html.nav-drawer-open{
+    overflow:hidden !important;
+  }
+  html.nav-drawer-open body{
+    overflow:hidden !important;
+  }
+  html.nav-drawer-open .nav-backdrop{z-index:200;display:block}
+  html.nav-drawer-open .fab-dock{
+    pointer-events:none !important;
+    visibility:hidden !important;
   }
   .chips a{white-space:nowrap}
 }
@@ -3219,7 +3232,8 @@ html:not([class*="-page"]).desk body{
   .home-ig-card .ibar-row{grid-template-columns:minmax(4.5em,36%) minmax(0,1fr) minmax(2.6em,3.2em)}
   html,body{overflow-x:hidden;max-width:100%;width:100%}
   .page-main,.overview,.hero .wrap,.home-ig,.head-stick,.topbar,.chips,.safety-banner{overflow-x:clip;max-width:100%}
-  html.nav-drawer-open,html.nav-drawer-open body{overflow-x:hidden;overflow-y:hidden}
+  html.nav-drawer-open{overflow:hidden !important}
+  html.nav-drawer-open,html.nav-drawer-open body{overflow:hidden !important;overflow-x:hidden !important;overflow-y:hidden !important}
   html.nav-drawer-open .head-stick,
   html.nav-drawer-open .topbar,
   html.nav-drawer-open .chips,

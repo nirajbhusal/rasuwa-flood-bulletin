@@ -1,7 +1,7 @@
 {
-  "id": "2026-09-07-0110",
-  "title": "मोबाइल नेभ मेनु · फिक्स्ड पपअप ड्रअर",
-  "body": "overflow-x:clip ले क्लिप हुने absolute ड्रपडाउन हटाई fixed bottom sheet + backdrop; nav-menu.js साझा; स्क्रोल लक / Escape / लिंकमा बन्द।",
+  "id": "2026-09-07-0145",
+  "title": "मोबाइल नेभ · body portal ड्रअर",
+  "body": "chips-inner लाई खुल्दा body मा portal; overflow-x:clip hit-test फिक्स; capture click हटाई; z-index 200/230/240; fab लुकाउने।",
   "url": "index.html",
-  "updated_at": "2026-09-07T01:10:00+05:45"
+  "updated_at": "2026-09-07T01:45:00+05:45"
 }
