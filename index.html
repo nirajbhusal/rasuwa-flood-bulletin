@@ -97,7 +97,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-06-2315">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-06-2345">
 </head>
 <body>
 <div class="head-stick">
@@ -209,26 +209,72 @@
     </a>
     <div class="overview" id="overview">
       <div class="kpi-row" role="tablist" aria-label="मुख्य आंकडा" data-i18n-aria="kpi_aria">
+        <div class="kpi-box" data-tone="dead">
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="dead" id="kpi-dead">
           <span class="kpi-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c.9 1.7 1.1 3.1.4 4.3-.4.7-.3 1.3.3 1.9.9.9.7 2.3-.4 2.8-1.1.5-2.4-.3-2.6-1.5C9.4 8.1 10.6 6.7 11.6 5.4c.3-.4.2-1.1-.2-1.5.2-.6.4-1.2.6-1.7z"/><path d="M9.2 11.4h5.6c.6 0 1 .4 1 1V20H8.2v-7.6c0-.6.4-1 1-1zm1.4 2.1v5h1.5v-5H10.6zm2.5 0v5H14.6v-5h-1.5z"/><path d="M7 20.4h10v1.5H7z"/></svg></span>
           <span class="kpi-k" data-i18n="kpi_dead">मृतक संख्या</span>
           <strong class="num">१,३४२</strong>
         </button>
+        <ul class="cash-list kpi-split">
+          <li><span data-i18n="d_chitwan">चितवन</span><strong class="num">३६२</strong></li>
+          <li><span data-i18n="d_nawal">न.प. पूर्व</span><strong class="num">२२२</strong></li>
+          <li><span data-i18n="d_nawal_w">न.प. पश्चिम</span><strong class="num">२२०</strong></li>
+          <li><span data-i18n="d_nuwakot">नुवाकोट</span><strong class="num">१९५</strong></li>
+          <li><span data-i18n="d_rasuwa">रसुवा</span><strong class="num">१६३</strong></li>
+          <li><span data-i18n="ov_dead_hand">हस्तान्तरण ९८</span><strong class="num">९८</strong></li>
+        </ul>
+        <div class="kpi-mini-chart" aria-hidden="true" title="District deaths">
+          <span class="kmc-bar" style="--h:100%"></span><span class="kmc-bar" style="--h:61%"></span><span class="kmc-bar" style="--h:61%"></span><span class="kmc-bar" style="--h:54%"></span><span class="kmc-bar" style="--h:45%"></span><span class="kmc-bar" style="--h:20%"></span><span class="kmc-bar" style="--h:19%"></span><span class="kmc-bar" style="--h:10%"></span>
+        </div>
+        </div>
+        <div class="kpi-box" data-tone="injured">
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="injured" id="kpi-injured">
           <span class="kpi-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm6.1 3.2v3.7H7.4v2.2h3.7v3.7h2.2v-3.7h3.7v-2.2h-3.7V7.2z"/></svg></span>
           <span class="kpi-k" data-i18n="kpi_injured">हालसम्म घाइते</span>
           <strong class="num">६,०८३</strong>
         </button>
+        <ul class="cash-list kpi-split">
+          <li><span data-i18n="d_army">सेना</span><strong class="num">३,२९८</strong></li>
+          <li><span data-i18n="d_apf">सशस्त्र</span><strong class="num">२,४६२</strong></li>
+          <li><span data-i18n="ig_inj_ndrrma">NDRRMA</span><strong class="num">३२३</strong></li>
+          <li><span data-i18n="d_discharged">डिस्चार्ज</span><strong class="num">२२८</strong></li>
+        </ul>
+        <div class="kpi-mini-chart" aria-hidden="true">
+          <span class="kmc-bar" style="--h:100%"></span><span class="kmc-bar" style="--h:75%"></span><span class="kmc-bar" style="--h:10%"></span><span class="kmc-bar" style="--h:7%"></span>
+        </div>
+        </div>
+        <div class="kpi-box" data-tone="miss">
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="miss" id="kpi-miss">
           <span class="kpi-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="7.1" r="3.1"/><path d="M3.4 19.6v-1.3C3.4 15.8 5.8 14.4 9 14.4c1.2 0 2.3.2 3.2.6"/><circle cx="16.2" cy="15.4" r="3.3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M18.6 17.9 21.3 20.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
           <span class="kpi-k" data-i18n="kpi_miss">सम्पर्कविहीन करिब</span>
           <strong class="num">४,९९६</strong>
         </button>
+        <ul class="cash-list kpi-split">
+          <li><span data-i18n="d_nuwakot">DAO नुवाकोट</span><strong class="num">२,३४०</strong></li>
+          <li><span data-i18n="d_rasuwa">DAO रसुवा</span><strong class="num">१,९६७</strong></li>
+          <li><span data-i18n="d_foreign">विदेशी</span><strong class="num">५८९</strong></li>
+          <li><span data-i18n="hold_total_k">होल्डिङ</span><strong class="num">३,९१२</strong></li>
+          <li><span data-i18n="hold_nuw_k">होल्ड · नुवाकोट</span><strong class="num">२,७१४</strong></li>
+          <li><span data-i18n="hold_ras_k">होल्ड · रसुवा</span><strong class="num">९६०</strong></li>
+        </ul>
+        </div>
+        <div class="kpi-box" data-tone="air">
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="air" id="kpi-air">
           <span class="kpi-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.2 6.4h19.6v1.5H13v1.4h5.4c.5 0 1 .3 1.2.7l1.5 2.7H19v3.2h-1.6v-3.2h-4.2V19.6h-1.6v-7h-2.6L7.2 19.6H5.5l1.7-7H4.4c-.9 0-1.5-.9-1.1-1.7l1.3-3.1H2.2V6.4zm9.2 2.9v2.5H7.8l.5-2.5h3.1zM4.4 20.2h15.2v1.4H4.4z"/></svg></span>
           <span class="kpi-k" data-i18n="kpi_air">हालसम्म उद्धार गरिएको संख्या</span>
           <strong class="num">१३,३९१</strong>
         </button>
+        <ul class="cash-list kpi-split">
+          <li><span data-i18n="d_heli_flights">हेलि उडान</span><strong class="num">१,०४९</strong></li>
+          <li><span data-i18n="d_private_ktm">निजी काठमाडौं</span><strong class="num">१२९</strong></li>
+          <li><span data-i18n="d_heli_n">हेलिकप्टर</span><strong class="num">१४</strong></li>
+          <li><span data-i18n="air_tunnel_note_k">सुरुङ्ग अलग</span><strong class="num">२७९</strong></li>
+        </ul>
+        <div class="kpi-mini-chart kpi-mini-chart-air" aria-hidden="true">
+          <span class="kmc-pair"><i style="--h:100%"></i><b data-i18n="chart_rescued_short">उद्धार</b></span>
+          <span class="kmc-pair"><i style="--h:8%"></i><b data-i18n="chart_flights_short">उडान</b></span>
+        </div>
+        </div>
         <div class="kpi-box" data-tone="police">
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="police" id="kpi-police">
           <span class="kpi-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 5v6c0 5.2 3.4 10 8 11 4.6-1 8-5.8 8-11V5l-8-3zm0 2.2 6 2.2v4.6c0 4.1-2.6 8-6 8.9-3.4-.9-6-4.8-6-8.9V6.4l6-2.2zM11 7h2v5h-2zm0 6h2v2h-2z"/></svg></span>
@@ -298,11 +344,26 @@
           <span class="roads-rt" data-i18n="home_roads_r1">धादिङ · पृथ्वी राजमार्ग</span>
           <span class="roads-rt" data-i18n="home_roads_r2">रसुवा · बिदुर–धुन्चे, साना ४ चक्के मात्र</span>
         </span>
+        <ul class="cash-list kpi-split roads-split">
+          <li><span data-i18n="roads_alt_k">वैकल्पिक मार्ग</span><strong data-i18n="roads_alt_v">खुला</strong></li>
+          <li><span data-i18n="roads_heli_k">हेली उद्धार</span><strong data-i18n="roads_heli_v">अत्यावश्यक मात्र</strong></li>
+          <li><span data-i18n="roads_bidur_k">बिदुर–धुन्चे</span><strong data-i18n="roads_bidur_v">साना ४ चक्के</strong></li>
+          <li><span data-i18n="roads_prithvi_k">पृथ्वी राजमार्ग</span><strong data-i18n="roads_prithvi_v">धादिङ खुला</strong></li>
+        </ul>
         <span class="cash-sub" data-i18n="home_roads_src">NDRRMA / गृह · १७ भदौ</span>
         <span class="roads-cta" data-i18n="home_roads_cta">पूरा सूचना</span>
       </a>
       <div class="snap-row">
         <div class="cash-snap" id="hero-cash">
+          <p class="chart-h" data-i18n="cash_mix_h">नगद च्यानल · लेबल अलग (जम्मा होइन)</p>
+          <div class="cash-mix" role="img" aria-label="Cash channels labeled separately">
+            <div class="ibar-row"><span data-i18n="hero_named_cat">नेपाली राहत कोष / नाम-हस्तान्तरण</span><b class="ibar"><i style="width:26%"></i></b><em class="num" data-i18n="cash_mix_named">१.९२ अर्ब</em></div>
+            <div class="ibar-row"><span data-i18n="hero_mof_stock_cat">MoF मौज्दात / बैंक स्टक</span><b class="ibar"><i style="width:100%"></i></b><em class="num" data-i18n="cash_mix_mof">७.३० अर्ब</em></div>
+            <div class="ibar-row"><span data-i18n="hero_nchl_fp_cat">NCHL + फोनपे जम्मा</span><b class="ibar"><i style="width:90%"></i></b><em class="num" data-i18n="cash_mix_nchlfp">६.६० अर्ब</em></div>
+            <div class="ibar-row"><span data-i18n="hero_nchl_cat">NCHL</span><b class="ibar"><i style="width:58%"></i></b><em class="num" data-i18n="cash_mix_nchl">४.२६ अर्ब</em></div>
+            <div class="ibar-row"><span data-i18n="hero_fonepay_cat">फोनपे QR</span><b class="ibar"><i style="width:32%"></i></b><em class="num" data-i18n="cash_mix_fp">२.३४ अर्ब</em></div>
+          </div>
+          <p class="nig-note cash-mix-note" data-i18n="cash_mix_note">नाम-हस्तान्तरण · MoF मौज्दात · NCHL+फोनपे अलग लेबल — एउटै महा-जम्मा छैन। NVIDIA अलग।</p>
           <a class="cash-part" href="donate.html#pmdrf-named-list">
           <span class="rahat-rule" data-i18n="hero_named_cat">नेपाली राहत कोष / नाम-हस्तान्तरण</span>
           <strong class="cash-lead num" data-i18n="hero_named_num">रु. १ अर्ब ९२ करोड</strong>
@@ -383,6 +444,17 @@
             <details class="nig-cat" open>
               <summary class="nig-cat-h"><span data-i18n="kpi_dead">मृतक संख्या</span><strong class="num">१,३४२</strong></summary>
               <div class="nig-cat-body">
+                <p class="chart-h" data-i18n="chart_dead_dist_h">जिल्ला मृतक · बार चार्ट</p>
+                <div class="vchart vchart-sm" role="img" aria-label="District deaths">
+                  <div class="vchart-col"><span class="vchart-bar" style="--h:100%"></span><em class="num">३६२</em><b data-i18n="d_chitwan">चितवन</b></div>
+                  <div class="vchart-col"><span class="vchart-bar" style="--h:61%"></span><em class="num">२२२</em><b data-i18n="d_nawal_short">न.प.पू.</b></div>
+                  <div class="vchart-col"><span class="vchart-bar" style="--h:61%"></span><em class="num">२२०</em><b data-i18n="d_nawal_w_short">न.प.प.</b></div>
+                  <div class="vchart-col"><span class="vchart-bar" style="--h:54%"></span><em class="num">१९५</em><b data-i18n="d_nuwakot">नुवाकोट</b></div>
+                  <div class="vchart-col"><span class="vchart-bar" style="--h:45%"></span><em class="num">१६३</em><b data-i18n="d_rasuwa">रसुवा</b></div>
+                  <div class="vchart-col"><span class="vchart-bar" style="--h:20%"></span><em class="num">७४</em><b data-i18n="d_gorkha">गोरखा</b></div>
+                  <div class="vchart-col"><span class="vchart-bar" style="--h:19%"></span><em class="num">६८</em><b data-i18n="d_dhading">धादिङ</b></div>
+                  <div class="vchart-col"><span class="vchart-bar" style="--h:10%"></span><em class="num">३८</em><b data-i18n="d_tanahun">तनहुँ</b></div>
+                </div>
                 <div class="ibar-row"><span data-i18n="d_chitwan">चितवन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">३६२</em></div>
                 <div class="ibar-row"><span data-i18n="d_nawal">नवलपरासी पूर्व</span><b class="ibar"><i style="width:62%"></i></b><em class="num">२२२</em></div>
                 <div class="ibar-row"><span data-i18n="d_nawal_w">नवलपरासी पश्चिम</span><b class="ibar"><i style="width:61%"></i></b><em class="num">२२०</em></div>
@@ -410,6 +482,10 @@
                 <div class="ibar-row"><span data-i18n="np_miss_ne_mf">नेपाली · पुरुष / महिला</span><b class="ibar"><i style="width:83%"></i></b><em class="num">२,८२७ · ५६७</em></div>
                 <div class="ibar-row"><span data-i18n="np_miss_foreign">विदेशी</span><b class="ibar"><i style="width:15%"></i></b><em class="num">५०८</em></div>
                 <div class="ibar-row"><span data-i18n="np_miss_foreign_mfo">विदेशी · पु/म/अन्य</span><b class="ibar"><i style="width:10%"></i></b><em class="num">२६७ · २३९ · २</em></div>
+                <p class="nig-subh" data-i18n="chart_hold_h">होल्डिङ जिल्ला · NDRRMA ३,९१२</p>
+                <div class="ibar-row"><span data-i18n="hold_nuw_k">नुवाकोट</span><b class="ibar"><i style="width:69%"></i></b><em class="num">२,७१४</em></div>
+                <div class="ibar-row"><span data-i18n="hold_ras_k">रसुवा</span><b class="ibar"><i style="width:25%"></i></b><em class="num">९६०</em></div>
+                <div class="ibar-row"><span data-i18n="hold_dha_k">धादिङ</span><b class="ibar"><i style="width:6%"></i></b><em class="num">२३८</em></div>
               </div>
             </details>
             <details class="nig-cat" open>
@@ -485,6 +561,23 @@
                 <p class="nig-note" data-i18n="ig_res_note">सम्पर्कविहीन करिब ४,९९६। NDRRMA उद्धार १३,३९१ — यस बोर्डमा सेना/प्रहरी/सशस्त्र विभाजन छैन। NDRRMA नाम-सूची ५,००६ अलग।</p>
               </div>
             </div>
+            <div class="nig-cat nig-cat-static">
+              <div class="nig-cat-h"><span data-i18n="chart_air_ctx_h">उद्धार · उडान सन्दर्भ</span></div>
+              <div class="nig-cat-body">
+                <div class="ibar-row"><span data-i18n="d_ndrrma_res">NDRRMA उद्धार</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१३,३९१</em></div>
+                <div class="ibar-row"><span data-i18n="d_heli_flights">हेलि उडान</span><b class="ibar"><i style="width:8%"></i></b><em class="num">१,०४९</em></div>
+                <div class="ibar-row"><span data-i18n="ig_res_ndrrma">नाम-सूची</span><b class="ibar"><i style="width:37%"></i></b><em class="num">५,००६</em></div>
+                <p class="nig-note" data-i18n="names_ig_ctx_note">नाम-सूची ५,००६ ≠ नायक उद्धार १३,३९१ · सुरुङ्ग २७९ अलग।</p>
+              </div>
+            </div>
+            <div class="nig-cat nig-cat-static">
+              <div class="nig-cat-h"><span data-i18n="chart_hold_h">होल्डिङ जिल्ला · ३,९१२</span></div>
+              <div class="nig-cat-body">
+                <div class="ibar-row"><span data-i18n="hold_nuw_k">नुवाकोट</span><b class="ibar"><i style="width:69%"></i></b><em class="num">२,७१४</em></div>
+                <div class="ibar-row"><span data-i18n="hold_ras_k">रसुवा</span><b class="ibar"><i style="width:25%"></i></b><em class="num">९६०</em></div>
+                <div class="ibar-row"><span data-i18n="hold_dha_k">धादिङ</span><b class="ibar"><i style="width:6%"></i></b><em class="num">२३८</em></div>
+              </div>
+            </div>
           </div>
           <span class="home-ig-cta" data-i18n="dash_names_cta">नामावली हेर्नुहोस्</span>
         </a>
@@ -520,6 +613,7 @@
         <span class="ems-kpis8">
           <span class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 20h20L13.2 7.8l-2.8 3.8-2.5-2.2L2 20zm10.4-12.6L15 3.8 22 20h-3.6L12.4 7.4zM4.8 8.6l1.7-1.3 1.3 1.7-1.7 1.3zm3-3.2 1.4-1.1 1.1 1.4-1.4 1.1z"/></svg></span><span class="kpi-k" data-i18n="ems_k_slide">पहिरो</span><strong class="num">७०१.५</strong><span class="cash-unit" data-i18n="ems_k_ha">हे</span><span class="cash-sub" data-i18n="ems_k_slide_sub">पहिरो / बाढी क्षेत्र</span></span><span class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 11a3.2 3.2 0 1 0-3.2-3.2A3.2 3.2 0 0 0 9 11zm7.2 0a2.7 2.7 0 1 0-2.7-2.7A2.7 2.7 0 0 0 16.2 11zM2.8 19.5v-1.3C2.8 15.4 5.6 14 9 14s6.2 1.4 6.2 4.2v1.3zm11.2 0v-1.3c0-1.2-.4-2.2-1.2-3 2.5.3 5 1.3 5 3.2v1.1z"/></svg></span><span class="kpi-k" data-i18n="ems_k_pop">जनसंख्या</span><strong class="num">~५,०००</strong><span class="cash-sub" data-i18n="ems_bidur_k_pop_sub">~५,००० / ~२५,००० · २०%</span></span><span class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 21V7l6-3 6 3v3h6v11H3zm2-2h4v-4H5zm6 0h4v-4h-4zm6 0h2v-7h-4v7h2zM5 13h4V9H5zm6 0h4V8.2l-2-1-2 1z"/></svg></span><span class="kpi-k" data-i18n="ems_k_built">भवन</span><strong class="num">३,०५८</strong><span class="cash-sub" data-i18n="ems_bidur_k_built_sub">३,०५८ / ११,४८६ · २६.६%</span></span><span class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 3 11h2.2V21h5.4v-6.2h2.8V21h5.4V11H21z"/></svg></span><span class="kpi-k" data-i18n="ems_k_res">आवासीय</span><strong class="num">३,००१</strong><span class="cash-sub" data-i18n="ems_bidur_k_res_sub">३,००१ / ११,४२९ · २६.३%</span></span><span class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.6 3h6.8l3.2 18h-4.2l-.7-4.2H10.3L9.6 21H5.4zm3.6 4.2-.5 3.2h.6l-.5 3.2h1.6l-.5-3.2h.6l-.5-3.2z"/></svg></span><span class="kpi-k" data-i18n="ems_k_road">सडक</span><strong class="num">४९.८</strong><span class="cash-unit" data-i18n="ems_k_km">किमि</span><span class="cash-sub" data-i18n="ems_bidur_k_road_sub">३७.१ + ६.१ + ६.६</span></span><span class="ems-kpi"><span class="ems-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 16h2v5H2zm18 0h2v5h-2zM3 14h18v2H3zm1-2c0-3.2 2.6-5.8 8-6.3 5.4.5 8 3.1 8 6.3H4zm4.6-1.4A6.2 6.2 0 0 1 12 9.2a6.2 6.2 0 0 1 3.4 1.4z"/></svg></span><span class="kpi-k" data-i18n="ems_k_br">पुल</span><strong class="num">२६/२६</strong><span class="cash-sub" data-i18n="ems_bidur_k_br_sub">ध्वस्त २४ · सम्भावित २</span></span>
         </span>
+        <p class="chart-h" data-i18n="ems_chart_h">बाढी क्षति · लेबल बार</p>
         <div class="ems-panels">
       <div class="ems-panel">
         <h3 data-i18n="ems_p_built">भवन</h3>
@@ -582,6 +676,10 @@
               <div class="ibar-row"><span data-i18n="d_nuwakot">DAO नुवाकोट</span><b class="ibar"><i style="width:100%"></i></b><em class="num">२,३४०</em></div>
               <div class="ibar-row"><span data-i18n="d_rasuwa">DAO रसुवा</span><b class="ibar"><i style="width:84%"></i></b><em class="num">१,९६७</em></div>
               <div class="ibar-row"><span data-i18n="d_foreign">विदेशी</span><b class="ibar"><i style="width:25%"></i></b><em class="num">५८९</em></div>
+              <p class="nig-subh" data-i18n="chart_hold_h">होल्डिङ · ३,९१२</p>
+              <div class="ibar-row"><span data-i18n="hold_nuw_k">नुवाकोट</span><b class="ibar"><i style="width:69%"></i></b><em class="num">२,७१४</em></div>
+              <div class="ibar-row"><span data-i18n="hold_ras_k">रसुवा</span><b class="ibar"><i style="width:25%"></i></b><em class="num">९६०</em></div>
+              <div class="ibar-row"><span data-i18n="hold_dha_k">धादिङ</span><b class="ibar"><i style="width:6%"></i></b><em class="num">२३८</em></div>
               <p class="ov-note" data-i18n="ov_mini_miss_note">NDRRMA / गृह २१ भदौ १८:०० · करिब ४,९९६</p>
             </div>
             <div class="ov-mini" data-tone="air">
@@ -598,6 +696,11 @@
             </div>
             <div class="ov-mini" data-tone="deploy">
               <h3 data-i18n-html="ov_mini_deploy">खटिएको जनशक्ति <em>२१,४६५</em></h3>
+              <div class="split-stack split-stack-sm" role="img" aria-label="Deploy split">
+                <span class="ss-seg ss-army" style="flex:9287"><em data-i18n="d_army">सेना</em></span>
+                <span class="ss-seg ss-police" style="flex:7975"><em data-i18n="d_police">प्रहरी</em></span>
+                <span class="ss-seg ss-apf" style="flex:4203"><em data-i18n="d_apf">सशस्त्र</em></span>
+              </div>
               <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९२८७</em></div>
               <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:86%"></i></b><em class="num">७९७५</em></div>
               <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:45%"></i></b><em class="num">४२०३</em></div>
@@ -609,6 +712,17 @@
         </div>
         <div class="ov-pane" data-panel="dead">
           <p class="ov-cap" data-i18n="ov_dead_cap">NDRRMA / गृह २१ भदौ १८:०० जिल्ला · जम्मा १,३४२</p>
+          <p class="chart-h" data-i18n="chart_dead_dist_h">जिल्ला मृतक · बार चार्ट</p>
+          <div class="vchart" role="img" aria-label="District deaths bar chart">
+            <div class="vchart-col"><span class="vchart-bar" style="--h:100%"></span><em class="num">३६२</em><b data-i18n="d_chitwan">चितवन</b></div>
+            <div class="vchart-col"><span class="vchart-bar" style="--h:61%"></span><em class="num">२२२</em><b data-i18n="d_nawal_short">न.प.पू.</b></div>
+            <div class="vchart-col"><span class="vchart-bar" style="--h:61%"></span><em class="num">२२०</em><b data-i18n="d_nawal_w_short">न.प.प.</b></div>
+            <div class="vchart-col"><span class="vchart-bar" style="--h:54%"></span><em class="num">१९५</em><b data-i18n="d_nuwakot">नुवाकोट</b></div>
+            <div class="vchart-col"><span class="vchart-bar" style="--h:45%"></span><em class="num">१६३</em><b data-i18n="d_rasuwa">रसुवा</b></div>
+            <div class="vchart-col"><span class="vchart-bar" style="--h:20%"></span><em class="num">७४</em><b data-i18n="d_gorkha">गोरखा</b></div>
+            <div class="vchart-col"><span class="vchart-bar" style="--h:19%"></span><em class="num">६८</em><b data-i18n="d_dhading">धादिङ</b></div>
+            <div class="vchart-col"><span class="vchart-bar" style="--h:10%"></span><em class="num">३८</em><b data-i18n="d_tanahun">तनहुँ</b></div>
+          </div>
           <div class="ibar-row"><span data-i18n="d_chitwan">चितवन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">३६२</em></div>
           <div class="ibar-row"><span data-i18n="d_nawal">नवलपरासी पूर्व</span><b class="ibar"><i style="width:62%"></i></b><em class="num">२२२</em></div>
           <div class="ibar-row"><span data-i18n="d_nawal_w">नवलपरासी पश्चिम</span><b class="ibar"><i style="width:61%"></i></b><em class="num">२२०</em></div>
@@ -642,10 +756,22 @@
           <div class="ibar-row"><span data-i18n="d_local_rep">स्थानीय जनप्रतिनिधि</span><b class="ibar"><i style="width:1%"></i></b><em class="num">७</em></div>
           <div class="ibar-row"><span data-i18n="d_local_staff">स्थानीय तह कर्मचारी</span><b class="ibar"><i style="width:2%"></i></b><em class="num">३२</em></div>
           <div class="ibar-row"><span data-i18n="d_priv_teacher">निजी विद्यालय शिक्षक</span><b class="ibar"><i style="width:1%"></i></b><em class="num">१</em></div>
+          <p class="chart-h" data-i18n="chart_hold_h">होल्डिङ जिल्ला · NDRRMA ३,९१२</p>
+          <div class="ibar-row"><span data-i18n="hold_nuw_k">नुवाकोट</span><b class="ibar"><i style="width:69%"></i></b><em class="num">२,७१४</em></div>
+          <div class="ibar-row"><span data-i18n="hold_ras_k">रसुवा</span><b class="ibar"><i style="width:25%"></i></b><em class="num">९६०</em></div>
+          <div class="ibar-row"><span data-i18n="hold_dha_k">धादिङ</span><b class="ibar"><i style="width:6%"></i></b><em class="num">२३८</em></div>
+          <p class="nig-note" data-i18n="hold_note">होल्डिङ ३,९१२ = नुवाकोट २,७१४ · रसुवा ९६० · धादिङ २३८ · प्रहरी होल्डिङ ३,१८० अलग।</p>
           <p class="ov-note" data-i18n="ov_miss_note">आधिकारिक शीर्षक करिब ४,९९६। DAO रसुवा करिब १,९६७ · DAO नुवाकोट करिब २,३४० · विदेशी ५८९ लेबल। सुरक्षाकर्मी तथा सरकारी कर्मचारी करिब १००। पहिचान नखुलेका शव / उद्धार समावेश हुन सक्ने। फारम, हेलो सरकार १४०, मधेश ३० र पर्यटक ६६८ अलग।</p>
         </div>
         <div class="ov-pane" data-panel="air">
           <p class="ov-cap" data-i18n="ov_air_cap">NDRRMA / गृह २१ भदौ १८:०० उद्धार · जम्मा १३,३९१</p>
+          <p class="chart-h" data-i18n="chart_air_ctx_h">उद्धार · उडान सन्दर्भ (अलग लेबल)</p>
+          <div class="ctx-bars">
+            <div class="ctx-row"><span data-i18n="d_ndrrma_res">NDRRMA उद्धार</span><b class="ctx-track"><i style="width:100%"></i></b><em class="num">१३,३९१</em></div>
+            <div class="ctx-row"><span data-i18n="d_heli_flights">हेलि उडान</span><b class="ctx-track"><i style="width:8%"></i></b><em class="num">१,०४९</em></div>
+            <div class="ctx-row"><span data-i18n="d_private_ktm">निजी काठमाडौं</span><b class="ctx-track"><i style="width:1%"></i></b><em class="num">१२९</em></div>
+            <div class="ctx-row"><span data-i18n="air_tunnel_note_k">सुरुङ्ग हेलि (१३३९१ मा जोडिँदैन)</span><b class="ctx-track"><i style="width:2%"></i></b><em class="num">२७९</em></div>
+          </div>
           <div class="ibar-row"><span data-i18n="d_ndrrma_res">NDRRMA १८:०० उद्धार</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१३,३९१</em></div>
           <div class="ibar-row"><span data-i18n="d_tunnel_heli">सुरुङ्ग हेलि</span><b class="ibar"><i style="width:3%"></i></b><em class="num">२७९</em></div>
           <div class="ibar-row"><span data-i18n="d_chinese_today">३० अगस्ट चिनियाँ+भारतीय</span><b class="ibar"><i style="width:1%"></i></b><em class="num">१५+७</em></div>
@@ -693,6 +819,12 @@
         </div>
         <div class="ov-pane" data-panel="deploy">
           <p class="ov-cap" data-i18n="ov_deploy_cap">सुरक्षा परिचालन · जम्मा २१,४६५</p>
+          <p class="chart-h" data-i18n="chart_deploy_h">परिचालन विभाजन</p>
+          <div class="split-stack" role="img" aria-label="Deploy force split">
+            <span class="ss-seg ss-army" style="flex:9287" title="Army 9287"><em data-i18n="d_army">सेना</em> <b class="num">९,२८७</b></span>
+            <span class="ss-seg ss-police" style="flex:7975" title="Police 7975"><em data-i18n="d_police">प्रहरी</em> <b class="num">७,९७५</b></span>
+            <span class="ss-seg ss-apf" style="flex:4203" title="APF 4203"><em data-i18n="d_apf">सशस्त्र</em> <b class="num">४,२०३</b></span>
+          </div>
           <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९२८७</em></div>
           <div class="ibar-row"><span data-i18n="d_police">प्रहरी</span><b class="ibar"><i style="width:86%"></i></b><em class="num">७९७५</em></div>
           <div class="ibar-row"><span data-i18n="d_apf">सशस्त्र</span><b class="ibar"><i style="width:45%"></i></b><em class="num">४२०३</em></div>
@@ -775,8 +907,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-09-06-2315"></script>
-<script src="names-index.js?v=2026-09-06-2315"></script>
+<script src="i18n.js?v=2026-09-06-2345"></script>
+<script src="names-index.js?v=2026-09-06-2345"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -845,7 +977,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-06-2315";</script>
+<script>window.PAGE_VER="2026-09-06-2345";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
@@ -883,7 +1015,7 @@
 (function(){
   var root = document.getElementById("overview");
   if (!root) return;
-  var kpis = [].slice.call(root.querySelectorAll(".kpi"));
+  var kpis = [].slice.call(root.querySelectorAll(".kpi[data-panel]"));
   var panes = [].slice.call(root.querySelectorAll(".ov-pane"));
   function show(id){
     kpis.forEach(function(k){
