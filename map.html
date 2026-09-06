@@ -45,7 +45,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-06-2145">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-06-2230">
 </head>
 <body class="map-page">
 <div class="head-stick">
@@ -149,9 +149,9 @@
   <div class="card teal">
     <div class="path" role="list" data-i18n-list="path" data-i18n-kind="step">
       <div class="step" role="listitem"><span class="t">०८:३७</span><i class="rail" aria-hidden="true"></i><div><b>भूकम्प ४.४</b><span>खानी तथा भूगर्भ</span></div></div>
-      <div class="step" role="listitem"><span class="t">०८:५०</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेसी गेज मौन</b><span>अन्तिम १.६२ मि @ ०८:४०</span></div></div>
+      <div class="step" role="listitem"><span class="t">०८:५०</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेँसी गेज मौन</b><span>अन्तिम १.६२ मि @ ०८:४०</span></div></div>
       <div class="step" role="listitem"><span class="t">~९:१५</span><i class="rail" aria-hidden="true"></i><div><b>टिमुरे</b><span>तिब्बतबाट नेपाल प्रवेश</span></div></div>
-      <div class="step" role="listitem"><span class="t">बिहान</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेसी</b><span>बजार र पूर्वाधार क्षति</span></div></div>
+      <div class="step" role="listitem"><span class="t">बिहान</span><i class="rail" aria-hidden="true"></i><div><b>स्याफ्रुबेँसी</b><span>बजार र पूर्वाधार क्षति</span></div></div>
       <div class="step" role="listitem"><span class="t">~९:००</span><i class="rail" aria-hidden="true"></i><div><b>विदुर / नुवाकोट</b><span>बेत्रावती, त्रिशूली, देवीघाट, जेल</span></div></div>
       <div class="step" role="listitem"><span class="t">१०:२८</span><i class="rail" aria-hidden="true"></i><div><b>गल्छी</b><span>धादिङ · महाशाखा पुष्टि, झोलुङ्गे पुल बग्यो</span></div></div>
       <div class="step" role="listitem"><span class="t">ताजा</span><i class="rail" aria-hidden="true"></i><div><b>गजुरी</b><span>धादिङ · मुग्लिन प्रहरी, सडक रोकियो</span></div></div>
@@ -208,8 +208,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-09-06-2145"></script>
-<script src="names-index.js?v=2026-09-06-2145"></script>
+<script src="i18n.js?v=2026-09-06-2230"></script>
+<script src="names-index.js?v=2026-09-06-2230"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -286,7 +286,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-06-2145";
+window.PAGE_VER="2026-09-06-2230";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){
@@ -475,7 +475,7 @@ window.PAGE_VER="2026-09-06-2145";
   if (!el || typeof L === "undefined") return;
   var confirmed = [
     {name:"टिमुरे", name_en:"Timure", t:"~९:१५", t_en:"~9:15", note:"तिब्बतबाट नेपाल प्रवेश", note_en:"Entered Nepal from Tibet", lat:28.250, lng:85.357, kind:"start"},
-    {name:"स्याफ्रुबेसी", name_en:"Syaphrubesi", t:"बिहान", t_en:"morning", note:"बजार र पूर्वाधार क्षति", note_en:"Bazaar and infrastructure damage", lat:28.163, lng:85.345, kind:"hit"},
+    {name:"स्याफ्रुबेँसी", name_en:"Syaphrubesi", t:"बिहान", t_en:"morning", note:"बजार र पूर्वाधार क्षति", note_en:"Bazaar and infrastructure damage", lat:28.163, lng:85.345, kind:"hit"},
     {name:"बेत्रावती / विदुर", name_en:"Betrawati / Bidur", t:"~९:००", t_en:"~9:00", note:"त्रिशूली, नुवाकोट देवीघाट, जेल", note_en:"Trishuli, Nuwakot Devighat, jail", lat:27.967, lng:85.184, kind:"hit"},
     {name:"गल्छी", name_en:"Galchhi", t:"१०:२८", t_en:"10:28", note:"धादिङ · महाशाखा पुष्टि", note_en:"Dhading · DHM confirmed", lat:27.811, lng:85.001, kind:"hit"},
     {name:"गजुरी", name_en:"Gajuri", t:"ताजा", t_en:"latest", note:"सडक रोकियो", note_en:"Road stopped", lat:27.748, lng:84.978, kind:"hit"},

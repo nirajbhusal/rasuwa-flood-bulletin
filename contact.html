@@ -44,7 +44,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-06-2145">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-06-2230">
 </head>
 <body class="contact-page">
 <div class="head-stick">
@@ -117,17 +117,25 @@
 <div class="wrap">
 <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_contact_page">आपत्कालीन सहायता र सम्पर्क</h2></div>
 <p class="kicker" data-i18n="contact_sub">हेल्पलाइन, उद्धार नम्बर र कार्यालय</p>
-<aside class="ndrrma-hl" id="helpline">
+<aside class="ndrrma-hl hl-directory" id="helpline">
   <div class="hl-head">
     <b data-i18n="hl_title">आपत्कालीन सहायता / हेल्पलाइन</b>
-    <span data-i18n="hl_sub">NDRRMA · गृह मन्त्रालय · सिंहदरबार</span>
+    <span data-i18n="hl_sub">निर्देशिका · ट्याप गरेर कल</span>
   </div>
-  <div class="hl-nat">
-    <a href="tel:1114">१११४<small data-i18n="apf">सशस्त्र प्रहरी</small></a>
-    <a href="tel:100">१००<small data-i18n="np_police">नेपाल प्रहरी</small></a>
-    <a href="tel:102">१०२<small data-i18n="ambulance">एम्बुलेन्स</small></a>
-    <a href="tel:1234">१२३४<small>DEOC / <span data-i18n="nav_rescue">उद्धार</span></small></a>
-    <a href="tel:1144">११४४<small>NEOC</small></a>
+  <div class="hl-dir-group">
+    <h3 class="hl-dir-h" data-i18n="hl_dir_nat">राष्ट्रिय आपत्कालीन</h3>
+    <div class="hl-dir" role="list">
+      <a class="hl-row" href="tel:1234" role="listitem"><span data-i18n="hl_deoc">उद्धार / DEOC</span><em>1234</em></a>
+      <a class="hl-row" href="tel:100" role="listitem"><span data-i18n="np_police">नेपाल प्रहरी</span><em>100</em></a>
+      <a class="hl-row" href="tel:102" role="listitem"><span data-i18n="ambulance">एम्बुलेन्स</span><em>102</em></a>
+      <a class="hl-row" href="tel:1144" role="listitem"><span>NEOC</span><em>1144</em></a>
+      <a class="hl-row" href="tel:1114" role="listitem"><span data-i18n="apf">सशस्त्र प्रहरी</span><em>1114</em></a>
+      <a class="hl-row" href="tel:1115" role="listitem"><span data-i18n="hl_health">स्वास्थ्य</span><em>1115</em></a>
+      <a class="hl-row" href="tel:1155" role="listitem"><span data-i18n="hl_flood">बाढी पूर्वानुमान</span><em>1155</em></a>
+      <a class="hl-row" href="tel:103" role="listitem"><span data-i18n="hl_traffic">ट्राफिक</span><em>103</em></a>
+      <a class="hl-row" href="tel:1111" role="listitem"><span data-i18n="hl_army">नेपाली सेना</span><em>1111</em></a>
+      <a class="hl-row" href="tel:1148" role="listitem"><span data-i18n="hl_risk">जोखिम सूचना</span><em>1148</em></a>
+    </div>
   </div>
   <div class="hl-dist">
     <article>
@@ -179,7 +187,7 @@
       <a href="tel:+9779851272099"><span data-i18n="armed">सशस्त्र</span><em>9851272099</em></a>
     </article>
   </div>
-  <p class="hl-extra" data-i18n-html="hl_extra">स्वास्थ्य <a href="tel:1115">1115</a> · बाढी पूर्वानुमान <a href="tel:1155">1155</a> (विकल्प २) · ट्राफिक <a href="tel:103">103</a> · राष्ट्रिय आपत्कालीन <a href="tel:1144">1144</a>। सबै जिल्लाको DEOC <a href="tel:1234">1234</a>।</p>
+  <p class="hl-extra" data-i18n-html="hl_extra_dir">सबै जिल्लाको DEOC <a href="tel:1234">1234</a>। बाढी पूर्वानुमान <a href="tel:1155">1155</a> (विकल्प २)। बुलेटिन सम्पर्क फुटरमा मात्र।</p>
   <p class="hl-foot" data-i18n="hl_foot">आपत्का बेला नआत्तिऔं, सजग र पूर्वतयार रहौं। यो जानकारी सेयर गरी सुरक्षित रहन सहयोग गरौं।</p>
 </aside>
 
@@ -297,8 +305,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-09-06-2145"></script>
-<script src="names-index.js?v=2026-09-06-2145"></script>
+<script src="i18n.js?v=2026-09-06-2230"></script>
+<script src="names-index.js?v=2026-09-06-2230"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -375,7 +383,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-06-2145";
+window.PAGE_VER="2026-09-06-2230";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){

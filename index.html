@@ -97,7 +97,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-06-2145">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-06-2230">
 </head>
 <body>
 <div class="head-stick">
@@ -133,7 +133,7 @@
         <button type="button" data-lang="ne" aria-pressed="true" lang="ne" title="नेपाली">ने</button>
         <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
       </div>
-      <div class="helpline" data-i18n="hl_bar">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४</div>
+      <div class="helpline"><a href="contact.html#helpline" data-i18n="hl_bar">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४ · निर्देशिका</a></div>
   </div>
 
   </div>
@@ -229,6 +229,11 @@
           <span class="kpi-k" data-i18n="kpi_air">हालसम्म उद्धार गरिएको संख्या</span>
           <strong class="num">१३,३९१</strong>
         </button>
+        <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="police" id="kpi-police">
+          <span class="kpi-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 5v6c0 5.2 3.4 10 8 11 4.6-1 8-5.8 8-11V5l-8-3zm0 2.2 6 2.2v4.6c0 4.1-2.6 8-6 8.9-3.4-.9-6-4.8-6-8.9V6.4l6-2.2zM11 7h2v5h-2zm0 6h2v2h-2z"/></svg></span>
+          <span class="kpi-k" data-i18n="kpi_police">नेपाल प्रहरी</span>
+          <strong class="num">१,३५३</strong>
+        </button>
         <div class="kpi-box" data-tone="deploy">
         <button type="button" class="kpi" role="tab" aria-selected="false" data-panel="deploy" id="kpi-deploy">
           <span class="kpi-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.1 4.6 6.2v5.2c0 4.5 3.1 8.6 7.4 9.7 4.3-1.1 7.4-5.2 7.4-9.7V6.2L12 3.1zm0 3.8a2.3 2.3 0 1 1 0 4.6 2.3 2.3 0 0 1 0-4.6zM8.8 16.9c.5-1.7 1.7-2.8 3.2-2.8s2.7 1.1 3.2 2.8z"/></svg></span>
@@ -287,8 +292,8 @@
           </a>
           <a class="cash-part" href="donate.html#nchl-hist">
           <span class="rahat-rule rahat-rule-fp" data-i18n="hero_fonepay_cat">फोनपे QR</span>
-          <strong class="num rahat-amt rahat-amt-fp" data-i18n="hero_fonepay_num">रु. १ अर्ब ९६ करोड</strong>
-          <span class="cash-sub" data-i18n="hero_fonepay_src">८,०३,२५९ कारोबार · २६–३१ अगस्ट</span>
+          <strong class="num rahat-amt rahat-amt-fp" data-i18n="hero_fonepay_num">रु. २ अर्ब ३४ करोड</strong>
+          <span class="cash-sub" data-i18n="hero_fonepay_src">८,९६,३५४ कारोबार · हालसम्म</span>
           </a>
           <a class="cash-part" href="donate.html#nvidia">
           <span class="rahat-rule rahat-rule-nv" data-i18n="hero_nvidia_cash_cat">NVIDIA योगदान</span>
@@ -623,6 +628,24 @@
           <p class="ov-note" data-i18n="ov_india_cross_extra">भारतीय · चीनबाट नेपाल प्रवेश १४९ — रसुवा विदेशी १५२ / भारत ९८ यथावत्।</p>
           <p class="ov-note" data-i18n="ov_air_note">NDRRMA २१ भदौ १८:०० उद्धार जम्मा १३,३९१ — यस बोर्डमा सेना/प्रहरी/सशस्त्र विभाजन छैन। उडान १,०४९ (आज ७३) · निजी काठमाडौं १२९। अघिल्लो २१ भदौ ११:०० उद्धार १३,१०४: सेना ४,१६२ · प्रहरी ४,०६८ · सशस्त्र ४,८७४ · उडान ९७३ इतिहास।</p>
         </div>
+        <div class="ov-pane" data-panel="police">
+          <p class="ov-cap" data-i18n="ov_police_cap">नेपाल प्रहरी · २१ भदौ २०:०० · NDRRMA शव १,३४२ अलग</p>
+          <div class="ibar-row"><span data-i18n="np_dead_total">प्रहरी शव</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१,३५३</em></div>
+          <div class="ibar-row"><span data-i18n="np_male">पुरुष</span><b class="ibar"><i style="width:100%"></i></b><em class="num">५३०</em></div>
+          <div class="ibar-row"><span data-i18n="np_female">महिला</span><b class="ibar"><i style="width:62%"></i></b><em class="num">३२८</em></div>
+          <div class="ibar-row"><span data-i18n="np_partial">आंशिक अंग</span><b class="ibar"><i style="width:93%"></i></b><em class="num">४९५</em></div>
+          <div class="ibar-row"><span data-i18n="np_miss_h">सम्पर्कविहीन · प्रहरी</span><b class="ibar"><i style="width:100%"></i></b><em class="num">३,९०२</em></div>
+          <div class="ibar-row"><span data-i18n="np_miss_ne_mf">नेपाली · पुरुष / महिला</span><b class="ibar"><i style="width:87%"></i></b><em class="num">३,३९४ · २,८२७/५६७</em></div>
+          <div class="ibar-row"><span data-i18n="np_miss_foreign">विदेशी</span><b class="ibar"><i style="width:13%"></i></b><em class="num">५०८</em></div>
+          <div class="ibar-row"><span data-i18n="np_inj_h">घाइते तथा उद्धार · प्रहरी</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९,१५९</em></div>
+          <div class="ibar-row"><span data-i18n="np_dna_h">DNA सङ्कलन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">२,३३६</em></div>
+          <div class="ibar-row"><span data-i18n="np_holding_h">होल्डिङ · प्रहरी</span><b class="ibar"><i style="width:100%"></i></b><em class="num">३,१८०</em></div>
+          <div class="ibar-row"><span data-i18n="np_body_mgmt_h">शव व्यवस्थापन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१,०४४</em></div>
+          <div class="ibar-row"><span data-i18n="np_udb_h">पहिचान नभएको · udb</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१,२९०</em></div>
+          <div class="ibar-row"><span data-i18n="np_awareness_h">जनचेतना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१३२ / ४२,७३८</em></div>
+          <div class="ibar-row"><span data-i18n="np_deploy">प्रहरी परिचालन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">७,२१२</em></div>
+          <p class="ov-note" data-i18n="ov_police_note">स्रोत: नेपाल प्रहरी · २१ भदौ २०:००। NDRRMA नायक KPI (शव १,३४२ · सम्पर्कविहीन ४,९९६ · उद्धार १३,३९१) अलग। नाम-सूची ५,००६ अलग।</p>
+        </div>
         <div class="ov-pane" data-panel="deploy">
           <p class="ov-cap" data-i18n="ov_deploy_cap">सुरक्षा परिचालन · जम्मा २१,४६५</p>
           <div class="ibar-row"><span data-i18n="d_army">सेना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९२८७</em></div>
@@ -655,7 +678,7 @@
       <li><b>हेलि उद्धार ४३६४</b> — नेपाली सेना हवाई उद्धार <strong>४,३६४</strong> (विदेशी <strong>२७३</strong> · नेपाली <strong>४,०९१</strong>) — विस्तृत प्यानल, SitRep-6 हेलि <strong>१९७६</strong> / नागरिक <strong>१५५२</strong> / विमान १४ इतिहास। सेना ०९:०० हेलि <strong>७२४</strong> (विदेशी १०१) + जमिन २०० — सुरुङ्ग हेलि २७९ र ३० अगस्ट चिनियाँ १५ · भारतीय ७ — ४३६४ वा ११९९३ अघिल्लो सेना हवाई ३,७८२ (२७३/३,५०९) / ३,७०२ (२५३/३,४४९) इतिहास।</li>
       <li><b>NDRRMA उद्धार १३,३९१</b> — NDRRMA / गृह २१ भदौ १८:०० जम्मा; यस बोर्डमा सेना/प्रहरी/सशस्त्र विभाजन छैन। नाम-तालिका ५,००६ अलग। अघिल्लो २१ भदौ ११:०० उद्धार १३,१०४: सेना ४,१६२ · प्रहरी ४,०६८ · सशस्त्र ४,८७४ इतिहास।</li>
       <li><b>हेलि उडान १,०४९</b> — NDRRMA / गृह २१ भदौ १८:०० (आज ७३)। निजी क्षेत्र काठमाडौं उडान १२९। अघिल्लो २१ भदौ ११:०० उडान ९७३ इतिहास।</li>
-      <li><b>बैंक कर्मचारी सम्पर्कविहीन २६</b> — नेपाल बैंकर्स संघ १६:२५। आठ बैंक: प्रभु, हिमालयन, ग्लोबल आइएमई, सानिमा, नेपाल इन्भेस्टमेन्ट मेगा, लक्ष्मी सनराइज, एनएमबी, माछापुच्छ्रे। टिमुरे, स्याफ्रुबेसी, बेत्रावती शाखा बगे (३ ठाउँ)। मृत्यु होइन।</li>
+      <li><b>बैंक कर्मचारी सम्पर्कविहीन २६</b> — नेपाल बैंकर्स संघ १६:२५। आठ बैंक: प्रभु, हिमालयन, ग्लोबल आइएमई, सानिमा, नेपाल इन्भेस्टमेन्ट मेगा, लक्ष्मी सनराइज, एनएमबी, माछापुच्छ्रे। टिमुरे, स्याफ्रुबेँसी, बेत्रावती शाखा बगे (३ ठाउँ)। मृत्यु होइन।</li>
       <li><b>कैदीबन्दी सुरक्षित १०००</b> — नुवाकोट केन्द्रीय कारागार प्रमुख भेषबहादुर कुँवर (अनलाइनखबर)। विदुर–३ खम्पाक्याम्प; प्रशासन भवन र प्रहरी इकाइ क्षति। करिब एक हजार।</li>
       <li><b>पूर्वाधार</b> — NDRRMA २१ भदौ १८:००: NTC ११७/१२० · Ncell ७६/७८। विद्युत घरधुरी: रसुवा ७८% · नुवाकोट ९६.७% · धादिङ ९९.८%। होल्डिङ ३,९१२ (रसुवा ९६० · नुवाकोट २,७१४ · धादिङ २३८)। गल्छीमा बाढी मापन केन्द्र १।</li>
       <li><b>NEA कर्मचारी १३३+</b> — नेपाल विद्युत् प्राधिकरण (<a href="https://www.ratopati.com/story/587664/more-than-133-hydropower-employees-and-workers-left-without-contact-in-rasuwa-flood" target="_blank" rel="noopener">रातोपाटी</a>): विभिन्न जलविद्युत् आयोजनाका कर्मचारी/कामदार <strong>१३३ भन्दा बढी</strong> सम्पर्कविहीन। लाङटाङ आयोजना ६० यथावत्।</li>
@@ -727,8 +750,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-09-06-2145"></script>
-<script src="names-index.js?v=2026-09-06-2145"></script>
+<script src="i18n.js?v=2026-09-06-2230"></script>
+<script src="names-index.js?v=2026-09-06-2230"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -797,7 +820,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-06-2145";</script>
+<script>window.PAGE_VER="2026-09-06-2230";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }

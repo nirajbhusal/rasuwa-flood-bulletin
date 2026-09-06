@@ -1,0 +1,2739 @@
+{
+  "updated": "2026-09-06",
+  "source": "PMDRF named handover Excel",
+  "totals": {
+    "npr": 1929372838.25,
+    "institutional": 1881529839.25,
+    "personal": 47842999,
+    "usd": 200000,
+    "cheque": 1488831519.25,
+    "non_cheque": 440541319,
+    "label_ne": "रु. १ अर्ब ९२ करोड",
+    "donors": 331
+  },
+  "days": [
+    {
+      "date": "भदौ ११",
+      "institutional": 273300000,
+      "personal": 0,
+      "total": 273300000,
+      "cheque": 0,
+      "non_cheque": 273300000,
+      "usd": 0
+    },
+    {
+      "date": "भदौ १२",
+      "institutional": 365084324,
+      "personal": 20980000,
+      "total": 386064324,
+      "cheque": 340984324,
+      "non_cheque": 45080000,
+      "usd": 0
+    },
+    {
+      "date": "भदौ १४",
+      "institutional": 47146454,
+      "personal": 777777,
+      "total": 47924231,
+      "cheque": 47813120,
+      "non_cheque": 111111,
+      "usd": 200000
+    },
+    {
+      "date": "भदौ १५",
+      "institutional": 584268995.62,
+      "personal": 15951111,
+      "total": 600220106.62,
+      "cheque": 585597701.62,
+      "non_cheque": 14622405,
+      "usd": 0
+    },
+    {
+      "date": "भदौ १६",
+      "institutional": 258963697.72,
+      "personal": 2921000,
+      "total": 261884697.72,
+      "cheque": 261884697.72,
+      "non_cheque": 0,
+      "usd": 0
+    },
+    {
+      "date": "भदौ १७",
+      "institutional": 147162045.91,
+      "personal": 5000000,
+      "total": 152162045.91,
+      "cheque": 113366450.91,
+      "non_cheque": 38795595,
+      "usd": 0
+    },
+    {
+      "date": "भदौ १८",
+      "institutional": 153713821,
+      "personal": 2213111,
+      "total": 155926932,
+      "cheque": 88794724,
+      "non_cheque": 67132208,
+      "usd": 0
+    },
+    {
+      "date": "भदौ १९",
+      "institutional": 51890501,
+      "personal": 0,
+      "total": 51890501,
+      "cheque": 50390501,
+      "non_cheque": 1500000,
+      "usd": 0
+    }
+  ],
+  "donors": [
+    {
+      "sn": 1,
+      "date": "भदौ ११",
+      "name": "Kumari Bank Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 30000000
+    },
+    {
+      "sn": 2,
+      "date": "भदौ ११",
+      "name": "Gorkha Brewery",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 100000000
+    },
+    {
+      "sn": 3,
+      "date": "भदौ ११",
+      "name": "Ncell Axiata",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 4,
+      "date": "भदौ ११",
+      "name": "NIC Asia Bank",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 22100000
+    },
+    {
+      "sn": 5,
+      "date": "भदौ ११",
+      "name": "Reliance Sugar and Chemical Industries",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 6,
+      "date": "भदौ ११",
+      "name": "Shiv Shakti Group",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 5100000
+    },
+    {
+      "sn": 7,
+      "date": "भदौ ११",
+      "name": "NIFRA Bank",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 25000000
+    },
+    {
+      "sn": 8,
+      "date": "भदौ ११",
+      "name": "Saras Beverage (Redbull)",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 20000000
+    },
+    {
+      "sn": 9,
+      "date": "भदौ ११",
+      "name": "Rastriya Banijya Bank",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 30000000
+    },
+    {
+      "sn": 10,
+      "date": "भदौ ११",
+      "name": "Nepal Bank Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 30100000
+    },
+    {
+      "sn": 11,
+      "date": "भदौ १२",
+      "name": "Narayani Ispat Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500001
+    },
+    {
+      "sn": 12,
+      "date": "भदौ १२",
+      "name": "Cement Manufacturers Association of Nepal",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5100000
+    },
+    {
+      "sn": 13,
+      "date": "भदौ १२",
+      "name": "Agro Thai Foods Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 14,
+      "date": "भदौ १२",
+      "name": "Asian Life Insurance Co. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10100000
+    },
+    {
+      "sn": 15,
+      "date": "भदौ १२",
+      "name": "Surya Jyoti Life Insurance Co. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 16,
+      "date": "भदौ १२",
+      "name": "Muktinath Development Bank Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 17,
+      "date": "भदौ १२",
+      "name": "Himalayan Bullion Company Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10100000
+    },
+    {
+      "sn": 18,
+      "date": "भदौ १२",
+      "name": "World Wildlife Fund Inc. Nepal",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 19,
+      "date": "भदौ १२",
+      "name": "M.A.W. Rides Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 11100000
+    },
+    {
+      "sn": 20,
+      "date": "भदौ १२",
+      "name": "Surya Nepal Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 150000000
+    },
+    {
+      "sn": 21,
+      "date": "भदौ १२",
+      "name": "Lumbini Bikas Bank Ltd. (Manager Cheque)",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 22,
+      "date": "भदौ १२",
+      "name": "Glocal Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 50000
+    },
+    {
+      "sn": 23,
+      "date": "भदौ १२",
+      "name": "Jawalakhel Distillery Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 24,
+      "date": "भदौ १२",
+      "name": "CAS Trading House Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 111111
+    },
+    {
+      "sn": 25,
+      "date": "भदौ १२",
+      "name": "Himalayan Distillery Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 26,
+      "date": "भदौ १२",
+      "name": "Silver Lining Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 111111
+    },
+    {
+      "sn": 27,
+      "date": "भदौ १२",
+      "name": "Agricultural Development Bank Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 30000000
+    },
+    {
+      "sn": 28,
+      "date": "भदौ १२",
+      "name": "Alpha Automotive Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 29,
+      "date": "भदौ १२",
+      "name": "Solu Hydropower Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 30,
+      "date": "भदौ १२",
+      "name": "Nepal Tea Development Coorperation Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1100000
+    },
+    {
+      "sn": 31,
+      "date": "भदौ १२",
+      "name": "Nepal Life Insurance Co. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 25100000
+    },
+    {
+      "sn": 32,
+      "date": "भदौ १२",
+      "name": "Prime Commercial Bank Ltd. (Manager Cheque)",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 30100000
+    },
+    {
+      "sn": 33,
+      "date": "भदौ १२",
+      "name": "Vijay Kumar Shah",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 34,
+      "date": "भदौ १२",
+      "name": "Langtang Ri Trekking and Expedition Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 112000
+    },
+    {
+      "sn": 35,
+      "date": "भदौ १२",
+      "name": "Raji Rana",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 10900000
+    },
+    {
+      "sn": 36,
+      "date": "भदौ १२",
+      "name": "Syakar Trading Company Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 37,
+      "date": "भदौ १२",
+      "name": "Abacus Insights Nepal Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1500000
+    },
+    {
+      "sn": 38,
+      "date": "भदौ १२",
+      "name": "Krishna Kandel Indreni Foundation",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500101
+    },
+    {
+      "sn": 39,
+      "date": "भदौ १४",
+      "name": "Jayshree Foods Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 40,
+      "date": "भदौ १४",
+      "name": "Lions Club International",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10111111
+    },
+    {
+      "sn": 41,
+      "date": "भदौ १४",
+      "name": "Dhanapati Bhandari",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 777777
+    },
+    {
+      "sn": 42,
+      "date": "भदौ १४",
+      "name": "Softy Hygiene Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2111111
+    },
+    {
+      "sn": 43,
+      "date": "भदौ १४",
+      "name": "Embassy of the People's Republic of China",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": null,
+      "usd": 200000
+    },
+    {
+      "sn": 44,
+      "date": "भदौ १४",
+      "name": "Arghakhanchi Cement Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 11100000
+    },
+    {
+      "sn": 45,
+      "date": "भदौ १४",
+      "name": "Poshak Breeder Farm Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2600000
+    },
+    {
+      "sn": 46,
+      "date": "भदौ १४",
+      "name": "Om Chaobiro Pellet Feed",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 47,
+      "date": "भदौ १४",
+      "name": "Om Chaobiro Feed Industries Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 48,
+      "date": "भदौ १४",
+      "name": "Om Agro Products Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 49,
+      "date": "भदौ १४",
+      "name": "O.C.B. Foods and Feeds Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 7500000
+    },
+    {
+      "sn": 50,
+      "date": "भदौ १४",
+      "name": "Bizcare Nepal Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 111111
+    },
+    {
+      "sn": 51,
+      "date": "भदौ १४",
+      "name": "Gamnangtar Social Service Okhaldhunga-Kathmandu",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 111111
+    },
+    {
+      "sn": 52,
+      "date": "भदौ १४",
+      "name": "Asia Technoplast Industries Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 501005
+    },
+    {
+      "sn": 53,
+      "date": "भदौ १४",
+      "name": "Mahalaxmi Paint Udhyog",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 501005
+    },
+    {
+      "sn": 54,
+      "date": "भदौ १५",
+      "name": "Sipradi Trading Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 25100000
+    },
+    {
+      "sn": 55,
+      "date": "भदौ १५",
+      "name": "Bhote Koshi Power Company Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 25000000
+    },
+    {
+      "sn": 56,
+      "date": "भदौ १५",
+      "name": "Nerude Mirmire Laghubitta Bittiya Sanstha Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 2820249
+    },
+    {
+      "sn": 57,
+      "date": "भदौ १५",
+      "name": "Varun Beverages (Nepal) Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10100000
+    },
+    {
+      "sn": 58,
+      "date": "भदौ १५",
+      "name": "Patanjali Ayurved Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 21100000
+    },
+    {
+      "sn": 59,
+      "date": "भदौ १५",
+      "name": "Grace International Group Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 60,
+      "date": "भदौ १५",
+      "name": "Education Consultancy Association of Nepal ECAN",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1520555
+    },
+    {
+      "sn": 61,
+      "date": "भदौ १५",
+      "name": "Nagarik Stock Dealer Company Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 25887
+    },
+    {
+      "sn": 62,
+      "date": "भदौ १५",
+      "name": "Nagarik Stock Dealer Company Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2000000
+    },
+    {
+      "sn": 63,
+      "date": "भदौ १५",
+      "name": "Karmachari Sanchaya Kosh H/E Loan",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 25000000
+    },
+    {
+      "sn": 64,
+      "date": "भदौ १५",
+      "name": "Jasmine Paints Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 65,
+      "date": "भदौ १५",
+      "name": "Asmita Publication Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 66,
+      "date": "भदौ १५",
+      "name": "Asmita Books Pub. & Di. Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 7611111
+    },
+    {
+      "sn": 67,
+      "date": "भदौ १५",
+      "name": "Nepse Operating Account",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 11111111
+    },
+    {
+      "sn": 68,
+      "date": "भदौ १५",
+      "name": "Neeta Films Production Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1103270
+    },
+    {
+      "sn": 69,
+      "date": "भदौ १५",
+      "name": "Pashupati Khadya Tel Udyog Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 6100000
+    },
+    {
+      "sn": 70,
+      "date": "भदौ १५",
+      "name": "Pashupati Synpack Inds P (L)",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1500000
+    },
+    {
+      "sn": 71,
+      "date": "भदौ १५",
+      "name": "Premier Wires Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1500000
+    },
+    {
+      "sn": 72,
+      "date": "भदौ १५",
+      "name": "Premier Distillery Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 73,
+      "date": "भदौ १५",
+      "name": "Shivam Holdings Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2100000
+    },
+    {
+      "sn": 74,
+      "date": "भदौ १५",
+      "name": "Gopi Prasad Pudasaini",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 5151111
+    },
+    {
+      "sn": 75,
+      "date": "भदौ १५",
+      "name": "NLG Insurance Company Limited (Claim)",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 76,
+      "date": "भदौ १५",
+      "name": "National Life Insurance Co. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 15100000
+    },
+    {
+      "sn": 77,
+      "date": "भदौ १५",
+      "name": "Kalinchowk Darshan Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1111111
+    },
+    {
+      "sn": 78,
+      "date": "भदौ १५",
+      "name": "Everest Sugar & Chemical Ind. Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 5100000
+    },
+    {
+      "sn": 79,
+      "date": "भदौ १५",
+      "name": "KIEC Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1555555
+    },
+    {
+      "sn": 80,
+      "date": "भदौ १५",
+      "name": "Himalayan Mottrox Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 81,
+      "date": "भदौ १५",
+      "name": "Reliance Spinning Mills Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 82,
+      "date": "भदौ १५",
+      "name": "Panchakanya Rotomould P. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5500000
+    },
+    {
+      "sn": 83,
+      "date": "भदौ १५",
+      "name": "Panchakanya Plast Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1500000
+    },
+    {
+      "sn": 84,
+      "date": "भदौ १५",
+      "name": "Gorkha Lahari Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 6365000
+    },
+    {
+      "sn": 85,
+      "date": "भदौ १५",
+      "name": "Midas Technologies Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 301001
+    },
+    {
+      "sn": 86,
+      "date": "भदौ १५",
+      "name": "Shahid Paribaar Kalyankari Samaj",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 301155
+    },
+    {
+      "sn": 87,
+      "date": "भदौ १५",
+      "name": "Sari Securities Company",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 88,
+      "date": "भदौ १५",
+      "name": "Citizen Investment Trust",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10100000
+    },
+    {
+      "sn": 89,
+      "date": "भदौ १५",
+      "name": "Mangala Amatya",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 10800000
+    },
+    {
+      "sn": 90,
+      "date": "भदौ १५",
+      "name": "Smart Choice Technologies P. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 300000
+    },
+    {
+      "sn": 91,
+      "date": "भदौ १५",
+      "name": "IME Motors Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 200000
+    },
+    {
+      "sn": 92,
+      "date": "भदौ १५",
+      "name": "Info Developers Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 100000
+    },
+    {
+      "sn": 93,
+      "date": "भदौ १५",
+      "name": "Rigo Technologies Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 150000
+    },
+    {
+      "sn": 94,
+      "date": "भदौ १५",
+      "name": "IME Travels Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 111111
+    },
+    {
+      "sn": 95,
+      "date": "भदौ १५",
+      "name": "One Point Financial Services Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 100000
+    },
+    {
+      "sn": 96,
+      "date": "भदौ १५",
+      "name": "My Mart Industries Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 100000
+    },
+    {
+      "sn": 97,
+      "date": "भदौ १५",
+      "name": "I.M.E. Electric Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 100000
+    },
+    {
+      "sn": 98,
+      "date": "भदौ १५",
+      "name": "Ashok Lt Engineering Services Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 100000
+    },
+    {
+      "sn": 99,
+      "date": "भदौ १५",
+      "name": "IME Auto Motives Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 100000
+    },
+    {
+      "sn": 100,
+      "date": "भदौ १५",
+      "name": "Global Insurance and Reinsurance Broker Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 100000
+    },
+    {
+      "sn": 101,
+      "date": "भदौ १५",
+      "name": "Global IME Bank Limited (MC A/C)",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 50000000
+    },
+    {
+      "sn": 102,
+      "date": "भदौ १५",
+      "name": "Global IME Bank Limited (MC A/C)",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 7592634
+    },
+    {
+      "sn": 103,
+      "date": "भदौ १५",
+      "name": "IME Life Insurance Company Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 104,
+      "date": "भदौ १५",
+      "name": "IGI Prudential Insurance Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 7500000
+    },
+    {
+      "sn": 105,
+      "date": "भदौ १५",
+      "name": "IGI Prudential Insurance Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 878045
+    },
+    {
+      "sn": 106,
+      "date": "भदौ १५",
+      "name": "IME Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 7600000
+    },
+    {
+      "sn": 107,
+      "date": "भदौ १५",
+      "name": "IME Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 413895
+    },
+    {
+      "sn": 108,
+      "date": "भदौ १५",
+      "name": "Chandragiri Hills Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 109,
+      "date": "भदौ १५",
+      "name": "Chandragiri Hills Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 251088.62
+    },
+    {
+      "sn": 110,
+      "date": "भदौ १५",
+      "name": "IME Co-Operative Service Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1111111
+    },
+    {
+      "sn": 111,
+      "date": "भदौ १५",
+      "name": "Swift Technology Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 112,
+      "date": "भदौ १५",
+      "name": "Swift Technology Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 307711
+    },
+    {
+      "sn": 113,
+      "date": "भदौ १५",
+      "name": "Hathway Invstment Nepal Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 76731
+    },
+    {
+      "sn": 114,
+      "date": "भदौ १५",
+      "name": "Hathway Stock Dealer Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 24869
+    },
+    {
+      "sn": 115,
+      "date": "भदौ १५",
+      "name": "Hathway Invstment Nepal Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 116,
+      "date": "भदौ १५",
+      "name": "Eshare Solutions Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 117,
+      "date": "भदौ १५",
+      "name": "Lumbini Cablecar Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 118,
+      "date": "भदौ १५",
+      "name": "Venture Hire Purchase Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 119,
+      "date": "भदौ १५",
+      "name": "IME Khalti Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 120,
+      "date": "भदौ १५",
+      "name": "IME Khalti Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 503795
+    },
+    {
+      "sn": 121,
+      "date": "भदौ १५",
+      "name": "Nepal Development Public Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 122,
+      "date": "भदौ १५",
+      "name": "Multi Infrastructure Development Company Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 123,
+      "date": "भदौ १५",
+      "name": "NAFEA",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 15000000
+    },
+    {
+      "sn": 124,
+      "date": "भदौ १५",
+      "name": "Nepal Plywood Manufacturers' Association",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2201000
+    },
+    {
+      "sn": 125,
+      "date": "भदौ १५",
+      "name": "Satsang Nepal",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 126,
+      "date": "भदौ १५",
+      "name": "Cimex Inc Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 70000000
+    },
+    {
+      "sn": 127,
+      "date": "भदौ १५",
+      "name": "Yeti Distillery Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 13500000
+    },
+    {
+      "sn": 128,
+      "date": "भदौ १५",
+      "name": "Yak Brewing Company Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1500000
+    },
+    {
+      "sn": 129,
+      "date": "भदौ १५",
+      "name": "Rastriya Jeewan Beema Company Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 130,
+      "date": "भदौ १५",
+      "name": "Nepal Insurance Authority",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 100000000
+    },
+    {
+      "sn": 131,
+      "date": "भदौ १५",
+      "name": "Jagdamba Steels Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 132,
+      "date": "भदौ १५",
+      "name": "Jagdamba Auto Group Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 133,
+      "date": "भदौ १५",
+      "name": "Jagdamba Motors Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 20000000
+    },
+    {
+      "sn": 134,
+      "date": "भदौ १५",
+      "name": "Highland Distillery Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 135,
+      "date": "भदौ १५",
+      "name": "Continental Trading Enterprises Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 136,
+      "date": "भदौ १५",
+      "name": "Reliable Nepal Life Insurance Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 5100000
+    },
+    {
+      "sn": 137,
+      "date": "भदौ १५",
+      "name": "Republica International Education Foundation Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 621000
+    },
+    {
+      "sn": 138,
+      "date": "भदौ १६",
+      "name": "Kalpana K.C.",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 21000
+    },
+    {
+      "sn": 139,
+      "date": "भदौ १६",
+      "name": "Ashtanga Education Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 9665
+    },
+    {
+      "sn": 140,
+      "date": "भदौ १६",
+      "name": "Kathmandu World School Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 254660
+    },
+    {
+      "sn": 141,
+      "date": "भदौ १६",
+      "name": "Kathmandu World School Bhaktapur Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 30475
+    },
+    {
+      "sn": 142,
+      "date": "भदौ १६",
+      "name": "Suzuki Body Works Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 8962
+    },
+    {
+      "sn": 143,
+      "date": "भदौ १६",
+      "name": "Suzuki Body Works Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 144,
+      "date": "भदौ १६",
+      "name": "Suzuki Service Center Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 11737
+    },
+    {
+      "sn": 145,
+      "date": "भदौ १६",
+      "name": "AIT Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1444
+    },
+    {
+      "sn": 146,
+      "date": "भदौ १६",
+      "name": "AIT Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 147,
+      "date": "भदौ १६",
+      "name": "Shri Himalayan Enterprises P. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 524811
+    },
+    {
+      "sn": 148,
+      "date": "भदौ १६",
+      "name": "Shri Himalayan Enterprises P. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 59240
+    },
+    {
+      "sn": 149,
+      "date": "भदौ १६",
+      "name": "Lube Vista Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 15098
+    },
+    {
+      "sn": 150,
+      "date": "भदौ १६",
+      "name": "Millennials Media Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 18336
+    },
+    {
+      "sn": 151,
+      "date": "भदौ १६",
+      "name": "Reliable Clearing & Forewarding P. Lt.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 23323
+    },
+    {
+      "sn": 152,
+      "date": "भदौ १६",
+      "name": "Wheels Auto Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 40404
+    },
+    {
+      "sn": 153,
+      "date": "भदौ १६",
+      "name": "Wheels Auto Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 154,
+      "date": "भदौ १६",
+      "name": "Associated Automobiles P. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 155,
+      "date": "भदौ १६",
+      "name": "Associated Automobiles P. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 44395
+    },
+    {
+      "sn": 156,
+      "date": "भदौ १६",
+      "name": "Surya Automobiles Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 157,
+      "date": "भदौ १६",
+      "name": "Surya Automobiles Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 43168
+    },
+    {
+      "sn": 158,
+      "date": "भदौ १६",
+      "name": "K.M.C. Automobiles Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 159,
+      "date": "भदौ १६",
+      "name": "K.M.C. Automobiles Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 39635
+    },
+    {
+      "sn": 160,
+      "date": "भदौ १६",
+      "name": "Nepal Lube Oil Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 161,
+      "date": "भदौ १६",
+      "name": "Nepal Lube Oil Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 212002
+    },
+    {
+      "sn": 162,
+      "date": "भदौ १६",
+      "name": "Tiger Land Safari Resort Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 42497
+    },
+    {
+      "sn": 163,
+      "date": "भदौ १६",
+      "name": "National Holding Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 21311
+    },
+    {
+      "sn": 164,
+      "date": "भदौ १६",
+      "name": "C.G. Processing Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 6308
+    },
+    {
+      "sn": 165,
+      "date": "भदौ १६",
+      "name": "C.G. Square Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 4838.72
+    },
+    {
+      "sn": 166,
+      "date": "भदौ १६",
+      "name": "World Educational Foundation P. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 19996
+    },
+    {
+      "sn": 167,
+      "date": "भदौ १६",
+      "name": "Premier International College P. L.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 29600
+    },
+    {
+      "sn": 168,
+      "date": "भदौ १६",
+      "name": "C G Oil and Derivatives Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 168000
+    },
+    {
+      "sn": 169,
+      "date": "भदौ १६",
+      "name": "C G Oil and Derivatives Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 4500000
+    },
+    {
+      "sn": 170,
+      "date": "भदौ १६",
+      "name": "C.G. Agro Products (P) Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 100000
+    },
+    {
+      "sn": 171,
+      "date": "भदौ १६",
+      "name": "Sushil Vanaspati Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 4000000
+    },
+    {
+      "sn": 172,
+      "date": "भदौ १६",
+      "name": "D.A.V. Sushil Kedia Vishwa Bharati Private Trust",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2000000
+    },
+    {
+      "sn": 173,
+      "date": "भदौ १६",
+      "name": "Krishna Devi Kedia",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 174,
+      "date": "भदौ १६",
+      "name": "Indushankar Chini Udyog Ltd",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 3500000
+    },
+    {
+      "sn": 175,
+      "date": "भदौ १६",
+      "name": "Himalayan Bank Limited (Manager's Cheque)",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 30100000
+    },
+    {
+      "sn": 176,
+      "date": "भदौ १६",
+      "name": "Himalayan Brewery Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 169005
+    },
+    {
+      "sn": 177,
+      "date": "भदौ १६",
+      "name": "Signature Events Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 64764
+    },
+    {
+      "sn": 178,
+      "date": "भदौ १६",
+      "name": "Meraki Holistic Wellness Retreat PL",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 34384
+    },
+    {
+      "sn": 179,
+      "date": "भदौ १६",
+      "name": "Narendra Builders & Contractor P. Lt.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 102000
+    },
+    {
+      "sn": 180,
+      "date": "भदौ १६",
+      "name": "The Art of Living Nepal Disaster Relif Fund",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 181,
+      "date": "भदौ १६",
+      "name": "Daya Foundation",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 182,
+      "date": "भदौ १६",
+      "name": "Rita Shrestha (Vaidya)",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 400000
+    },
+    {
+      "sn": 183,
+      "date": "भदौ १६",
+      "name": "Yin Dawei",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 2000000
+    },
+    {
+      "sn": 184,
+      "date": "भदौ १६",
+      "name": "Janakpur Agro Farm Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 185,
+      "date": "भदौ १६",
+      "name": "Universal Institute of Advanced Studies and Research Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 186,
+      "date": "भदौ १६",
+      "name": "Gandaki Medical C. T. Hos. & Res. Cen",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 187,
+      "date": "भदौ १६",
+      "name": "Lord Buddha Educational Academy Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 188,
+      "date": "भदौ १६",
+      "name": "Sharma and Company Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2600000
+    },
+    {
+      "sn": 189,
+      "date": "भदौ १६",
+      "name": "The Cliff Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1100000
+    },
+    {
+      "sn": 190,
+      "date": "भदौ १६",
+      "name": "Yeti Pharmachem Dist. P.L.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 3000005
+    },
+    {
+      "sn": 191,
+      "date": "भदौ १६",
+      "name": "Yetichem Distributors P.L.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2000005
+    },
+    {
+      "sn": 192,
+      "date": "भदौ १६",
+      "name": "Yeti Healthcare Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500005
+    },
+    {
+      "sn": 193,
+      "date": "भदौ १६",
+      "name": "Nuga International Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 194,
+      "date": "भदौ १६",
+      "name": "Uddar Shanti Kendra Nepal",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1201000
+    },
+    {
+      "sn": 195,
+      "date": "भदौ १६",
+      "name": "Nepal Reinsurance Company Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 11111111
+    },
+    {
+      "sn": 196,
+      "date": "भदौ १६",
+      "name": "Everest Hospital Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 634587
+    },
+    {
+      "sn": 197,
+      "date": "भदौ १६",
+      "name": "Professinal Holdings Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2100000
+    },
+    {
+      "sn": 198,
+      "date": "भदौ १६",
+      "name": "Nepal Eye Program, FHF",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2181200
+    },
+    {
+      "sn": 199,
+      "date": "भदौ १६",
+      "name": "Nepal Eye Program, Surgi Center",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 851351
+    },
+    {
+      "sn": 200,
+      "date": "भदौ १६",
+      "name": "Nepal Eye Program",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10100001
+    },
+    {
+      "sn": 201,
+      "date": "भदौ १६",
+      "name": "Sanjeevani College of Medical Sciences Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 202,
+      "date": "भदौ १६",
+      "name": "National Fund Management Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 203,
+      "date": "भदौ १६",
+      "name": "Education Planet Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1111000
+    },
+    {
+      "sn": 204,
+      "date": "भदौ १६",
+      "name": "Deprosc Laghubitta Bittiya Sanstha Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 205,
+      "date": "भदौ १६",
+      "name": "Himalayan Reinsurance Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 206,
+      "date": "भदौ १६",
+      "name": "Prabhu Bank (Manager Cheque)",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 21111111
+    },
+    {
+      "sn": 207,
+      "date": "भदौ १६",
+      "name": "Purba Samsad Manch Nepal",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 151151
+    },
+    {
+      "sn": 208,
+      "date": "भदौ १६",
+      "name": "St Marys Sec School Expenditure AC",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000001
+    },
+    {
+      "sn": 209,
+      "date": "भदौ १६",
+      "name": "Yeti Brewery Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5100000
+    },
+    {
+      "sn": 210,
+      "date": "भदौ १६",
+      "name": "Vishal Group Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 4900000
+    },
+    {
+      "sn": 211,
+      "date": "भदौ १६",
+      "name": "United Distributors Nepal Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5100000
+    },
+    {
+      "sn": 212,
+      "date": "भदौ १६",
+      "name": "Mainawati Steel Industries Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 213,
+      "date": "भदौ १६",
+      "name": "Kamala Rolling Mills Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 214,
+      "date": "भदौ १६",
+      "name": "Shaurya Cement Industries Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 215,
+      "date": "भदौ १६",
+      "name": "Riddhisiddhi Cement Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5100000
+    },
+    {
+      "sn": 216,
+      "date": "भदौ १६",
+      "name": "Sun Nepal Life Insurance Co. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 6000000
+    },
+    {
+      "sn": 217,
+      "date": "भदौ १६",
+      "name": "NMB Bank Limited (Manager's Cheque)",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 35100000
+    },
+    {
+      "sn": 218,
+      "date": "भदौ १६",
+      "name": "Isha Nepal",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 219,
+      "date": "भदौ १६",
+      "name": "Hotel The Kingsbury Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 11111111
+    },
+    {
+      "sn": 220,
+      "date": "भदौ १६",
+      "name": "Jagdamba Entp. Pvt. Ltd",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5100000
+    },
+    {
+      "sn": 221,
+      "date": "भदौ १७",
+      "name": "Lok Nath Devkota",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 222,
+      "date": "भदौ १७",
+      "name": "Siddhivinayak Oils Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1100000
+    },
+    {
+      "sn": 223,
+      "date": "भदौ १७",
+      "name": "Nepal Vegetable Ghee Oil Manufacturers Association",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10100000
+    },
+    {
+      "sn": 224,
+      "date": "भदौ १७",
+      "name": "Nepali Jaame Masjid",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 600000
+    },
+    {
+      "sn": 225,
+      "date": "भदौ १७",
+      "name": "Nepal College of Information Techni",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 555555
+    },
+    {
+      "sn": 226,
+      "date": "भदौ १७",
+      "name": "Trinity International College Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1555555
+    },
+    {
+      "sn": 227,
+      "date": "भदौ १७",
+      "name": "Nepal Kist College Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 555555
+    },
+    {
+      "sn": 228,
+      "date": "भदौ १७",
+      "name": "Triyog Higher Secondary School",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 555555
+    },
+    {
+      "sn": 229,
+      "date": "भदौ १७",
+      "name": "Nepal Overseas Chinese Association",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 5455339
+    },
+    {
+      "sn": 230,
+      "date": "भदौ १७",
+      "name": "Benchen Phuntsok Dargyeling Monastry",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 231,
+      "date": "भदौ १७",
+      "name": "Manakamana Darshan Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 12500000
+    },
+    {
+      "sn": 232,
+      "date": "भदौ १७",
+      "name": "Hotel Smart Durbar Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 555555
+    },
+    {
+      "sn": 233,
+      "date": "भदौ १७",
+      "name": "Smart Darbar Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 222222
+    },
+    {
+      "sn": 234,
+      "date": "भदौ १७",
+      "name": "Century Food Packaging & Processing Ud.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1501000
+    },
+    {
+      "sn": 235,
+      "date": "भदौ १७",
+      "name": "Chitawon Milk Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 236,
+      "date": "भदौ १७",
+      "name": "Sekuwa By Kilo Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2011111
+    },
+    {
+      "sn": 237,
+      "date": "भदौ १७",
+      "name": "The Nepal Distilleries Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 170000
+    },
+    {
+      "sn": 238,
+      "date": "भदौ १७",
+      "name": "The Nepal Distilleries Pvt. Ltd.-CSR",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 239,
+      "date": "भदौ १७",
+      "name": "BLC Globar Logistics Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 240,
+      "date": "भदौ १७",
+      "name": "Prince Polymers Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 241,
+      "date": "भदौ १७",
+      "name": "Norvic International Hospital & Medical College Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 242,
+      "date": "भदौ १७",
+      "name": "Center for Democracy & Development",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1154989
+    },
+    {
+      "sn": 243,
+      "date": "भदौ १७",
+      "name": "Jeevan Vigyan Foundation",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 244,
+      "date": "भदौ १७",
+      "name": "General Insurance Association of Nepal",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 245,
+      "date": "भदौ १७",
+      "name": "Siddhartha Premier Insurance Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10100000
+    },
+    {
+      "sn": 246,
+      "date": "भदौ १७",
+      "name": "Siddhartha Premier Insurance Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1906335.91
+    },
+    {
+      "sn": 247,
+      "date": "भदौ १७",
+      "name": "Sagarmatha Lumbini Insurance Company Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5100000
+    },
+    {
+      "sn": 248,
+      "date": "भदौ १७",
+      "name": "Sagarmatha Lumbini Insurance Company Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1100000
+    },
+    {
+      "sn": 249,
+      "date": "भदौ १७",
+      "name": "Neco Insurance Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 3500000
+    },
+    {
+      "sn": 250,
+      "date": "भदौ १७",
+      "name": "Prabhu Insurance Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 251,
+      "date": "भदौ १७",
+      "name": "United Ajod Insurance Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 252,
+      "date": "भदौ १७",
+      "name": "United Ajod Insurance Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 670000
+    },
+    {
+      "sn": 253,
+      "date": "भदौ १७",
+      "name": "Sanima GIC Insurance Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 254,
+      "date": "भदौ १७",
+      "name": "Himalayan Everest Insurance Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 255,
+      "date": "भदौ १७",
+      "name": "Himalayan Everest Insurance Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 853018
+    },
+    {
+      "sn": 256,
+      "date": "भदौ १७",
+      "name": "Rural Health and Education Service Trust",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 257,
+      "date": "भदौ १७",
+      "name": "National Path Lab and Research Center Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 1555555
+    },
+    {
+      "sn": 258,
+      "date": "भदौ १७",
+      "name": "Nepal Feed Industries Association",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 31784701
+    },
+    {
+      "sn": 259,
+      "date": "भदौ १८",
+      "name": "Vigen Nepal Health Tech Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2611111
+    },
+    {
+      "sn": 260,
+      "date": "भदौ १८",
+      "name": "Patan Metal Shop",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 111111
+    },
+    {
+      "sn": 261,
+      "date": "भदौ १८",
+      "name": "Nepal Liquors Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 10100000
+    },
+    {
+      "sn": 262,
+      "date": "भदौ १८",
+      "name": "Sankhuwasabha Learning Ground",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 650000
+    },
+    {
+      "sn": 263,
+      "date": "भदौ १८",
+      "name": "J.K.R. Herbs Distill Extract and Rosin Industry Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1011111
+    },
+    {
+      "sn": 264,
+      "date": "भदौ १८",
+      "name": "Sagar Man Shrestha",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 1111111
+    },
+    {
+      "sn": 265,
+      "date": "भदौ १८",
+      "name": "Shubha Charisma Emporium Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1500000
+    },
+    {
+      "sn": 266,
+      "date": "भदौ १८",
+      "name": "Prakash Chandra Subedi",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 400000
+    },
+    {
+      "sn": 267,
+      "date": "भदौ १८",
+      "name": "Binod Kumar Mainali",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 101000
+    },
+    {
+      "sn": 268,
+      "date": "भदौ १८",
+      "name": "Joshna Phuyal",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 51000
+    },
+    {
+      "sn": 269,
+      "date": "भदौ १८",
+      "name": "Suman Giri",
+      "type": "Personnal",
+      "cheque": "Non Cheque",
+      "npr": 400000
+    },
+    {
+      "sn": 270,
+      "date": "भदौ १८",
+      "name": "Anil Kumar Pandey",
+      "type": "Personnal",
+      "cheque": "Cheque",
+      "npr": 150000
+    },
+    {
+      "sn": 271,
+      "date": "भदौ १८",
+      "name": "B.R. Production Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 272,
+      "date": "भदौ १८",
+      "name": "NMB Bank Limited (Manager's Cheque)",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1011111
+    },
+    {
+      "sn": 273,
+      "date": "भदौ १८",
+      "name": "Nirdhan Utthan Laghubitta Bittiya Sanstha Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 3432208
+    },
+    {
+      "sn": 274,
+      "date": "भदौ १८",
+      "name": "National Laghubitta Bittiya Sanstha Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 7000000
+    },
+    {
+      "sn": 275,
+      "date": "भदौ १८",
+      "name": "Sah Laliguras Agro Industries Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 151000
+    },
+    {
+      "sn": 276,
+      "date": "भदौ १८",
+      "name": "Dwarika's Foundation - OPR Rural",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 277,
+      "date": "भदौ १८",
+      "name": "Dwarika's Kathmandu Villege Hotel Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 850000
+    },
+    {
+      "sn": 278,
+      "date": "भदौ १८",
+      "name": "Fed. of Nepal Gold and Silver D.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 11111111
+    },
+    {
+      "sn": 279,
+      "date": "भदौ १८",
+      "name": "Healthy Living Nepal Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2000000
+    },
+    {
+      "sn": 280,
+      "date": "भदौ १८",
+      "name": "Salt Trading Corporation Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 281,
+      "date": "भदौ १८",
+      "name": "Salt Trading Corporation Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 282,
+      "date": "भदौ १८",
+      "name": "Maruti Cements Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 11100000
+    },
+    {
+      "sn": 283,
+      "date": "भदौ १८",
+      "name": "Himalayan Life Insurance Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5100000
+    },
+    {
+      "sn": 284,
+      "date": "भदौ १८",
+      "name": "Ahmadiyya Sangh Nepal",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 600000
+    },
+    {
+      "sn": 285,
+      "date": "भदौ १८",
+      "name": "Birgunj Dristhi Eye and E.N.T. Hospital Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 610000
+    },
+    {
+      "sn": 286,
+      "date": "भदौ १८",
+      "name": "Dristhi Eye Care Center Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 390000
+    },
+    {
+      "sn": 287,
+      "date": "भदौ १८",
+      "name": "Mechi Drishti Eye Hospital and Research Center Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 601000
+    },
+    {
+      "sn": 288,
+      "date": "भदौ १८",
+      "name": "Pranic Healing Yoga Nepal Trust",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 3100000
+    },
+    {
+      "sn": 289,
+      "date": "भदौ १८",
+      "name": "Flextecs Nepal Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1500000
+    },
+    {
+      "sn": 290,
+      "date": "भदौ १८",
+      "name": "Ishwor and Associates",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 44444
+    },
+    {
+      "sn": 291,
+      "date": "भदौ १८",
+      "name": "Dugar Spices and Food Products Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 3100000
+    },
+    {
+      "sn": 292,
+      "date": "भदौ १८",
+      "name": "Dugar Spices and Food Products Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2000000
+    },
+    {
+      "sn": 293,
+      "date": "भदौ १८",
+      "name": "Mahalaxmi Bikas Bank Ltd. (Manager's Cheque)",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5100000
+    },
+    {
+      "sn": 294,
+      "date": "भदौ १८",
+      "name": "Auditors Association of Nepal",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 700000
+    },
+    {
+      "sn": 295,
+      "date": "भदौ १८",
+      "name": "Nepal Surveyors Association",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 111111
+    },
+    {
+      "sn": 296,
+      "date": "भदौ १८",
+      "name": "Pancha Kasmir Takiya",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 297,
+      "date": "भदौ १८",
+      "name": "Jaya Janata J K P",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 111111
+    },
+    {
+      "sn": 298,
+      "date": "भदौ १८",
+      "name": "Yoga Premi Pariwar Nepal",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 600000
+    },
+    {
+      "sn": 299,
+      "date": "भदौ १८",
+      "name": "Hospital for Advanced Medicine and Surgery Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2500000
+    },
+    {
+      "sn": 300,
+      "date": "भदौ १८",
+      "name": "Gayatri Distributors Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2100000
+    },
+    {
+      "sn": 301,
+      "date": "भदौ १८",
+      "name": "Bhaktapur Chamber of Commerce and Industry",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 506392
+    },
+    {
+      "sn": 302,
+      "date": "भदौ १८",
+      "name": "M.A.W. Rides Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1500000
+    },
+    {
+      "sn": 303,
+      "date": "भदौ १८",
+      "name": "NADA Automobiles Association of Nepal",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1000000
+    },
+    {
+      "sn": 304,
+      "date": "भदौ १८",
+      "name": "STC Auto Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5001000
+    },
+    {
+      "sn": 305,
+      "date": "भदौ १८",
+      "name": "The Holistic Healing Nepal Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 100000
+    },
+    {
+      "sn": 306,
+      "date": "भदौ १८",
+      "name": "Om Shree Trikuta Gurudham Nepal",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 307,
+      "date": "भदौ १८",
+      "name": "Life Insurance Corporation Nepal Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 12500000
+    },
+    {
+      "sn": 308,
+      "date": "भदौ १८",
+      "name": "Laxmi Sunrise bank Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 32400000
+    },
+    {
+      "sn": 309,
+      "date": "भदौ १८",
+      "name": "Mahuli Laghubitta Bittiya Sanstha Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 1300000
+    },
+    {
+      "sn": 310,
+      "date": "भदौ १९",
+      "name": "Asian Paints Nepal Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 10000000
+    },
+    {
+      "sn": 311,
+      "date": "भदौ १९",
+      "name": "Asian Paints Nepal Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 750000
+    },
+    {
+      "sn": 312,
+      "date": "भदौ १९",
+      "name": "Berger Jensen & Nicholson (Nepal) Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5000000
+    },
+    {
+      "sn": 313,
+      "date": "भदौ १९",
+      "name": "Stream Peak International Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 3030000
+    },
+    {
+      "sn": 314,
+      "date": "भदौ १९",
+      "name": "Soaltee Hotel Ltd A/C#2",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 7070000
+    },
+    {
+      "sn": 315,
+      "date": "भदौ १९",
+      "name": "Federation of International Nepali Youth Entrepreneurs",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 2000000
+    },
+    {
+      "sn": 316,
+      "date": "भदौ १९",
+      "name": "Bichuten Data Vault Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1111111
+    },
+    {
+      "sn": 317,
+      "date": "भदौ १९",
+      "name": "Sonapur Minerals and Oil Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 489624
+    },
+    {
+      "sn": 318,
+      "date": "भदौ १९",
+      "name": "Sonapur Minerals and Oil Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 5100000
+    },
+    {
+      "sn": 319,
+      "date": "भदौ १९",
+      "name": "Meromicrofinance Laghubitta Bittiya Sanstha L",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1455000
+    },
+    {
+      "sn": 320,
+      "date": "भदौ १९",
+      "name": "Ananda Sangh",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 3800000
+    },
+    {
+      "sn": 321,
+      "date": "भदौ १९",
+      "name": "Neoteric Nepal Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 3600000
+    },
+    {
+      "sn": 322,
+      "date": "भदौ १९",
+      "name": "Lord Buddha Reinsurance Broking Company Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 323,
+      "date": "भदौ १९",
+      "name": "EON Technology Private Limited",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 324,
+      "date": "भदौ १९",
+      "name": "Supply Box Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 500000
+    },
+    {
+      "sn": 325,
+      "date": "भदौ १९",
+      "name": "Neoteric Nepal Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 211544
+    },
+    {
+      "sn": 326,
+      "date": "भदौ १९",
+      "name": "Kalika Bhagwati Guthi Management Co",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1111111
+    },
+    {
+      "sn": 327,
+      "date": "भदौ १९",
+      "name": "Himal Tea Industries Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1111111
+    },
+    {
+      "sn": 328,
+      "date": "भदौ १९",
+      "name": "Gorkha District Gurung Samaj UK",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 1500000
+    },
+    {
+      "sn": 329,
+      "date": "भदौ १९",
+      "name": "Himalayan Cataract Project",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 750000
+    },
+    {
+      "sn": 330,
+      "date": "भदौ १९",
+      "name": "Himalayan Cataract Project",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 750000
+    },
+    {
+      "sn": 331,
+      "date": "भदौ १९",
+      "name": "Osho Tapoban",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 1551000
+    }
+  ]
+}

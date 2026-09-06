@@ -943,7 +943,7 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
 .rd-jump:hover{text-decoration:underline}
 @media(max-width:760px){.rd-kpis{grid-template-columns:1fr 1fr}}
 .overview{margin:0 0 8px}
-.kpi-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:start}
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:12px;align-items:start}
 .kpi-box{
   background:#fff;border:1px solid var(--line);border-radius:16px;
   padding:0 0 8px;min-width:0;
@@ -3143,3 +3143,51 @@ html:not([class*="-page"]).desk body{
   .home-ig-human .nig-cat:nth-child(1),
   .home-ig-human .nig-cat:nth-child(4){grid-column:1/-1}
 }
+
+
+/* --- 2026-09-06 unify + police / named / BRP / helpline dir --- */
+.kpi[aria-selected="true"]{outline:2px solid var(--crimson);outline-offset:2px}
+.dir-card.dir-named{border-left-color:#0f766e}
+.dir-card.dir-named h3{color:#0f766e}
+.dir-card.dir-named .dir-kicker{line-height:1.55}
+.named-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 10px}
+.named-q{flex:1 1 12em;min-width:10em;padding:8px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+.cash-kpi.named-kpi .num{color:#0f766e}
+.brp-grid,.sr16-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0 20px}
+.brp-card,.sr16-card{
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;
+  box-shadow:var(--shadow);min-height:0
+}
+.brp-card h3,.sr16-card h3{margin:0 0 6px;font-size:16px;font-weight:800;color:var(--ink);line-height:1.35}
+.brp-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.04em;color:#0f766e;background:#ecfdf5;border-radius:999px;padding:3px 8px;margin-bottom:8px}
+.brp-agency{margin:0 0 8px;font-size:12px;font-weight:700;color:var(--muted)}
+.brp-card ul,.sr16-card ul{margin:0;padding:0 0 0 1.1em;font-size:13px;line-height:1.45;color:#334155}
+.brp-card li{margin:0 0 4px}
+.sr16-kpis{list-style:none;padding:0;margin:8px 0;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.sr16-kpis li{display:flex;justify-content:space-between;gap:8px;padding:6px 8px;background:#f8fafc;border-radius:10px;border:1px solid #eef2f6;font-size:13px}
+.sr16-kpis span{color:var(--muted);font-weight:700}
+.sr16-kpis strong{font-variant-numeric:tabular-nums;color:var(--crimson)}
+.hl-directory .hl-dir-group{padding:12px 16px 4px}
+.hl-directory .hl-dir-h{margin:0 0 8px;font-size:14px;font-weight:800;color:var(--ink)}
+.hl-directory .hl-dir{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:12px}
+.hl-directory .hl-row{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:11px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:14px;
+  border-bottom:1px solid #eef2f6;background:#fff
+}
+.hl-directory .hl-row:last-child{border-bottom:0}
+.hl-directory .hl-row:hover{background:var(--crimson-soft)}
+.hl-directory .hl-row span{color:var(--muted);font-weight:700}
+.hl-directory .hl-row em{
+  font-style:normal;font-weight:800;font-size:16px;letter-spacing:.03em;color:var(--crimson);
+  font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace
+}
+@media (min-width:640px){
+  .hl-directory .hl-dir{grid-template-columns:1fr 1fr}
+  .hl-directory .hl-row:nth-child(odd){border-right:1px solid #eef2f6}
+}
+.gov-new .kicker{margin:0 0 8px;line-height:1.55}
+.dir-card,.cash-kpi,.home-ig-card,.brp-card,.sr16-card{border-radius:16px}
+
+.helpline a{color:inherit;text-decoration:none}
+.helpline a:hover{text-decoration:underline}
