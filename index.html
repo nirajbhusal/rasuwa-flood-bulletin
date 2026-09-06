@@ -94,10 +94,11 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-06-2345">
+<link rel="preload" href="fonts/mukta-500-deva.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts.css?v=2026-09-07-0015" as="style">
+<link rel="preload" href="bulletin.css?v=2026-09-07-0015" as="style">
+<link rel="stylesheet" href="fonts.css?v=2026-09-07-0015">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-07-0015">
 </head>
 <body>
 <div class="head-stick">
@@ -194,14 +195,14 @@
           <span class="pay-row">
             <span class="pay-row-k" data-i18n="pay_via">दान गर्ने तरिका / Donate via</span>
             <span class="pay-logos">
-              <span class="pay-chip"><img src="img/pay/visa.webp" alt="VISA" width="80" height="28"></span>
-              <span class="pay-chip pay-chip-mc"><img src="img/pay/mastercard.svg" alt="Mastercard" width="56" height="28"></span>
-              <span class="pay-chip"><img src="img/pay/unionpay.webp" alt="UnionPay" width="80" height="28"></span>
-              <span class="pay-chip"><img src="img/pay/alipay.webp" alt="Alipay" width="96" height="28"></span>
-              <span class="pay-chip"><img src="img/pay/fonepay.webp" alt="Fonepay" width="88" height="28"></span>
-              <span class="pay-chip pay-chip-np"><img src="img/pay/nepalpay.png" alt="NepalPay QR" width="110" height="28"></span>
-              <span class="pay-chip"><img src="img/pay/upi.webp" alt="UPI" width="80" height="28"></span>
-              <span class="pay-chip pay-chip-app"><img src="img/pay/unionpay-app.png" alt="UnionPay" width="28" height="28"></span>
+              <span class="pay-chip"><img loading="lazy" src="img/pay/visa.webp" alt="VISA" width="80" height="28"></span>
+              <span class="pay-chip pay-chip-mc"><img loading="lazy" src="img/pay/mastercard.svg" alt="Mastercard" width="56" height="28"></span>
+              <span class="pay-chip"><img loading="lazy" src="img/pay/unionpay.webp" alt="UnionPay" width="80" height="28"></span>
+              <span class="pay-chip"><img loading="lazy" src="img/pay/alipay.webp" alt="Alipay" width="96" height="28"></span>
+              <span class="pay-chip"><img loading="lazy" src="img/pay/fonepay.webp" alt="Fonepay" width="88" height="28"></span>
+              <span class="pay-chip pay-chip-np"><img loading="lazy" src="img/pay/nepalpay.png" alt="NepalPay QR" width="110" height="28"></span>
+              <span class="pay-chip"><img loading="lazy" src="img/pay/upi.webp" alt="UPI" width="80" height="28"></span>
+              <span class="pay-chip pay-chip-app"><img loading="lazy" src="img/pay/unionpay-app.png" alt="UnionPay" width="28" height="28"></span>
             </span>
           </span>
         </span>
@@ -286,11 +287,16 @@
           <li><span data-i18n="np_dead_split_k">पु/म/आंशिक</span><strong class="num">५३० · ३२८ · ४९५</strong></li>
           <li><span data-i18n="np_miss_h">सम्पर्कविहीन</span><strong class="num">३,९०२</strong></li>
           <li><span data-i18n="np_inj_h">घाइते/उद्धार</span><strong class="num">९,१५९</strong></li>
-          <li><span data-i18n="np_dna_h">DNA</span><strong class="num">२,३३६</strong></li>
+          <li><span data-i18n="np_dna_h">DNA जम्मा</span><strong class="num">२,३३६</strong></li>
+          <li><span data-i18n="np_dna_split_k">DNA · मृतक/आफन्त</span><strong class="num">१,१८१ · १,१५५</strong></li>
           <li><span data-i18n="np_holding_h">होल्डिङ</span><strong class="num">३,१८०</strong></li>
+          <li><span data-i18n="np_body_mgmt_h">शव व्यवस्थापन</span><strong class="num">१,०४४</strong></li>
+          <li><span data-i18n="np_handover">हस्तान्तरण</span><strong class="num">९८</strong></li>
+          <li><span data-i18n="np_udb_h">udb पहिचान नभएको</span><strong class="num">१,२९०</strong></li>
           <li><span data-i18n="np_deploy">परिचालन</span><strong class="num">७,२१२</strong></li>
           <li><span data-i18n="np_affected">प्रभावित</span><strong class="num">६५</strong></li>
           <li><span data-i18n="np_out_contact">सम्पर्कविहीन प्रहरी</span><strong class="num">२५</strong></li>
+          <li><span data-i18n="np_awareness_h">जनचेतना</span><strong class="num">१३२ · ४२,७३८</strong></li>
         </ul>
         </div>
         <div class="kpi-box" data-tone="tunnel">
@@ -586,8 +592,52 @@
             <span class="nig-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2 4 5v6c0 5.2 3.4 10 8 11 4.6-1 8-5.8 8-11V5l-8-3zm0 2.2 6 2.2v4.6c0 4.1-2.6 8-6 8.9-3.4-.9-6-4.8-6-8.9V6.4l6-2.2zM11 7h2v5h-2zm0 6h2v2h-2z"/></svg></span>
             <h3 data-i18n="np_card_title">नेपाल प्रहरी · २१ भदौ २०:००</h3>
           </div>
-          <div class="nig-cats" role="list">
+          <div class="nig-cats np-board-grid" role="list">
             <details class="nig-cat" open>
+              <summary class="nig-cat-h"><span data-i18n="np_dead_split_h">शव · लिङ्ग/अङ्ग</span><strong class="num">१,३५३</strong></summary>
+              <div class="nig-cat-body">
+                <div class="ibar-row"><span data-i18n="np_male">पुरुष</span><b class="ibar"><i style="width:100%"></i></b><em class="num">५३०</em></div>
+                <div class="ibar-row"><span data-i18n="np_female">महिला</span><b class="ibar"><i style="width:62%"></i></b><em class="num">३२८</em></div>
+                <div class="ibar-row"><span data-i18n="np_partial">आंशिक अंग</span><b class="ibar"><i style="width:93%"></i></b><em class="num">४९५</em></div>
+                <p class="nig-note" data-i18n="np_dead_split_note">प्रहरी जम्मा १,३५३ · NDRRMA शव १,३४२ अलग</p>
+              </div>
+            </details>
+            <details class="nig-cat" open>
+              <summary class="nig-cat-h"><span data-i18n="np_miss_h">सम्पर्कविहीन</span><strong class="num">३,९०२</strong></summary>
+              <div class="nig-cat-body">
+                <div class="ibar-row"><span data-i18n="np_miss_ne">नेपाली</span><b class="ibar"><i style="width:100%"></i></b><em class="num">३,३९४</em></div>
+                <div class="ibar-row"><span data-i18n="np_miss_ne_mf">नेपाली · पुरुष / महिला</span><b class="ibar"><i style="width:83%"></i></b><em class="num">२,८२७ · ५६७</em></div>
+                <div class="ibar-row"><span data-i18n="np_miss_foreign">विदेशी</span><b class="ibar"><i style="width:15%"></i></b><em class="num">५०८</em></div>
+                <div class="ibar-row"><span data-i18n="np_miss_foreign_mfo">विदेशी · पु/म/अन्य</span><b class="ibar"><i style="width:10%"></i></b><em class="num">२६७ · २३९ · २</em></div>
+              </div>
+            </details>
+            <details class="nig-cat" open>
+              <summary class="nig-cat-h"><span data-i18n="np_inj_h">घाइते / उद्धार</span><strong class="num">९,१५९</strong></summary>
+              <div class="nig-cat-body">
+                <div class="ibar-row"><span data-i18n="np_male">पुरुष</span><b class="ibar"><i style="width:100%"></i></b><em class="num">६,३२४</em></div>
+                <div class="ibar-row"><span data-i18n="np_female">महिला</span><b class="ibar"><i style="width:44%"></i></b><em class="num">२,७८१</em></div>
+                <div class="ibar-row"><span data-i18n="np_undisclosed">नखुलेको</span><b class="ibar"><i style="width:1%"></i></b><em class="num">५४</em></div>
+              </div>
+            </details>
+            <details class="nig-cat" open>
+              <summary class="nig-cat-h"><span data-i18n="np_dna_h">DNA सङ्कलन</span><strong class="num">२,३३६</strong></summary>
+              <div class="nig-cat-body">
+                <div class="ibar-row"><span data-i18n="np_dna_deceased">मृतक</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१,१८१</em></div>
+                <div class="ibar-row"><span data-i18n="np_dna_relatives">आफन्त</span><b class="ibar"><i style="width:98%"></i></b><em class="num">१,१५५</em></div>
+              </div>
+            </details>
+            <details class="nig-cat">
+              <summary class="nig-cat-h"><span data-i18n="np_mgmt_group_h">व्यवस्थापन / पहिचान</span><strong class="num">१,०४४</strong></summary>
+              <div class="nig-cat-body">
+                <div class="ibar-row"><span data-i18n="np_body_mgmt_h">शव व्यवस्थापन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१,०४४</em></div>
+                <p class="nig-note" data-i18n="np_body_mgmt_note">जमिनमुनि सुरक्षित राखिएको</p>
+                <div class="ibar-row"><span data-i18n="np_handover">हस्तान्तरण</span><b class="ibar"><i style="width:9%"></i></b><em class="num">९८</em></div>
+                <div class="ibar-row"><span data-i18n="np_holding_h">होल्डिङ</span><b class="ibar"><i style="width:100%"></i></b><em class="num">३,१८०</em></div>
+                <div class="ibar-row"><span data-i18n="np_udb_h">पहिचान नभएको · udb</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१,२९०</em></div>
+                <p class="nig-note"><a href="https://udb.nepalpolice.gov.np/disaster" target="_blank" rel="noopener" data-i18n="np_udb_link">udb.nepalpolice.gov.np/disaster</a></p>
+              </div>
+            </details>
+            <details class="nig-cat">
               <summary class="nig-cat-h"><span data-i18n="np_personnel_h">प्रहरी जनशक्ति</span><strong class="num">७,२१२</strong></summary>
               <div class="nig-cat-body">
                 <div class="ibar-row"><span data-i18n="np_deploy">परिचालन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">७,२१२</em></div>
@@ -595,7 +645,7 @@
                 <div class="ibar-row"><span data-i18n="np_out_contact">सम्पर्कविहीन</span><b class="ibar"><i style="width:1%"></i></b><em class="num">२५</em></div>
               </div>
             </details>
-            <details class="nig-cat" open>
+            <details class="nig-cat">
               <summary class="nig-cat-h"><span data-i18n="np_awareness_h">जनचेतना</span><strong class="num">१३२</strong></summary>
               <div class="nig-cat-body">
                 <div class="ibar-row"><span data-i18n="np_programs">कार्यक्रम</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१३२</em></div>
@@ -603,7 +653,7 @@
               </div>
             </details>
           </div>
-          <p class="nig-note nig-src"><a href="#home-human" data-i18n="np_see_human">मानवीय क्षतिमा प्रहरी विवरण</a> · <span data-i18n="np_src">स्रोत: नेपाल प्रहरी · २१ भदौ २०:०० / ६ सेप्टेम्बर २०२६ २०:००</span></p>
+          <p class="nig-note nig-src"><a href="gov.html#police" data-i18n="np_see_gov">पूर्ण प्रहरी बोर्ड</a> · <span data-i18n="np_src">स्रोत: नेपाल प्रहरी · २१ भदौ २०:०० / ६ सेप्टेम्बर २०२६ २०:००</span></p>
         </article>
       </div>
 
@@ -770,7 +820,7 @@
             <div class="ctx-row"><span data-i18n="d_ndrrma_res">NDRRMA उद्धार</span><b class="ctx-track"><i style="width:100%"></i></b><em class="num">१३,३९१</em></div>
             <div class="ctx-row"><span data-i18n="d_heli_flights">हेलि उडान</span><b class="ctx-track"><i style="width:8%"></i></b><em class="num">१,०४९</em></div>
             <div class="ctx-row"><span data-i18n="d_private_ktm">निजी काठमाडौं</span><b class="ctx-track"><i style="width:1%"></i></b><em class="num">१२९</em></div>
-            <div class="ctx-row"><span data-i18n="air_tunnel_note_k">सुरुङ्ग हेलि (१३३९१ मा जोडिँदैन)</span><b class="ctx-track"><i style="width:2%"></i></b><em class="num">२७९</em></div>
+            <div class="ctx-row"><span data-i18n="air_tunnel_note_k">सुरुङ्ग हेलि (NDRRMA १३,३९१ अलग)</span><b class="ctx-track"><i style="width:2%"></i></b><em class="num">२७९</em></div>
           </div>
           <div class="ibar-row"><span data-i18n="d_ndrrma_res">NDRRMA १८:०० उद्धार</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१३,३९१</em></div>
           <div class="ibar-row"><span data-i18n="d_tunnel_heli">सुरुङ्ग हेलि</span><b class="ibar"><i style="width:3%"></i></b><em class="num">२७९</em></div>
@@ -788,34 +838,59 @@
         </div>
         <div class="ov-pane" data-panel="police">
           <p class="ov-cap" data-i18n="ov_police_cap">नेपाल प्रहरी · २१ भदौ २०:०० · NDRRMA शव १,३४२ अलग</p>
-          <div class="ibar-row"><span data-i18n="np_dead_total">प्रहरी शव</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१,३५३</em></div>
-          <div class="ibar-row"><span data-i18n="np_male">पुरुष</span><b class="ibar"><i style="width:100%"></i></b><em class="num">५३०</em></div>
-          <div class="ibar-row"><span data-i18n="np_female">महिला</span><b class="ibar"><i style="width:62%"></i></b><em class="num">३२८</em></div>
-          <div class="ibar-row"><span data-i18n="np_partial">आंशिक अंग</span><b class="ibar"><i style="width:93%"></i></b><em class="num">४९५</em></div>
-          <div class="ibar-row"><span data-i18n="np_miss_h">सम्पर्कविहीन · प्रहरी</span><b class="ibar"><i style="width:100%"></i></b><em class="num">३,९०२</em></div>
-          <div class="ibar-row"><span data-i18n="np_miss_ne_mf">नेपाली · पुरुष / महिला</span><b class="ibar"><i style="width:87%"></i></b><em class="num">३,३९४ · २,८२७/५६७</em></div>
-          <div class="ibar-row"><span data-i18n="np_miss_foreign">विदेशी</span><b class="ibar"><i style="width:13%"></i></b><em class="num">५०८</em></div>
-          <div class="ibar-row"><span data-i18n="np_inj_h">घाइते तथा उद्धार · प्रहरी</span><b class="ibar"><i style="width:100%"></i></b><em class="num">९,१५९</em></div>
-          <div class="ibar-row"><span data-i18n="np_dna_h">DNA सङ्कलन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">२,३३६</em></div>
-          <div class="ibar-row"><span data-i18n="np_holding_h">होल्डिङ · प्रहरी</span><b class="ibar"><i style="width:100%"></i></b><em class="num">३,१८०</em></div>
-          <div class="ibar-row"><span data-i18n="np_body_mgmt_h">शव व्यवस्थापन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१,०४४</em></div>
-          <div class="ibar-row"><span data-i18n="np_udb_h">पहिचान नभएको · udb</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१,२९०</em></div>
-          <div class="ibar-row"><span data-i18n="np_awareness_h">जनचेतना</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१३२ / ४२,७३८</em></div>
-          <div class="ibar-row"><span data-i18n="np_miss_foreign_mfo">विदेशी · पु/म/अन्य</span><b class="ibar"><i style="width:13%"></i></b><em class="num">५०८ · २६७/२३९/२</em></div>
-          <div class="ibar-row"><span data-i18n="np_inj_mfu">घाइते/उद्धार · पु/म/नखुलेको</span><b class="ibar"><i style="width:100%"></i></b><em class="num">६,३२४ / २,७८१ / ५४</em></div>
-          <div class="ibar-row"><span data-i18n="np_handover">हस्तान्तरण</span><b class="ibar"><i style="width:8%"></i></b><em class="num">९८</em></div>
-          <div class="ibar-row"><span data-i18n="np_deploy">प्रहरी परिचालन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">७,२१२</em></div>
-          <div class="ibar-row"><span data-i18n="np_affected">प्रभावित</span><b class="ibar"><i style="width:1%"></i></b><em class="num">६५</em></div>
-          <div class="ibar-row"><span data-i18n="np_out_contact">सम्पर्कविहीन प्रहरी</span><b class="ibar"><i style="width:1%"></i></b><em class="num">२५</em></div>
-          <p class="ov-note" data-i18n="ov_police_note">स्रोत: नेपाल प्रहरी · २१ भदौ २०:००। NDRRMA नायक KPI (शव १,३४२ · सम्पर्कविहीन ४,९९६ · उद्धार १३,३९१) अलग। नाम-सूची ५,००६ अलग।</p>
+          <div class="ov-group">
+            <p class="ov-group-h" data-i18n="np_dead_split_h">शव · लिङ्ग/अङ्ग · जम्मा १,३५३</p>
+            <div class="ibar-row"><span data-i18n="np_male">पुरुष</span><b class="ibar"><i style="width:100%"></i></b><em class="num">५३०</em></div>
+            <div class="ibar-row"><span data-i18n="np_female">महिला</span><b class="ibar"><i style="width:62%"></i></b><em class="num">३२८</em></div>
+            <div class="ibar-row"><span data-i18n="np_partial">आंशिक अंग</span><b class="ibar"><i style="width:93%"></i></b><em class="num">४९५</em></div>
+          </div>
+          <div class="ov-group">
+            <p class="ov-group-h" data-i18n="np_miss_h">सम्पर्कविहीन · जम्मा ३,९०२</p>
+            <div class="ibar-row"><span data-i18n="np_miss_ne">नेपाली</span><b class="ibar"><i style="width:100%"></i></b><em class="num">३,३९४</em></div>
+            <div class="ibar-row"><span data-i18n="np_miss_ne_mf">नेपाली · पुरुष / महिला</span><b class="ibar"><i style="width:83%"></i></b><em class="num">२,८२७ · ५६७</em></div>
+            <div class="ibar-row"><span data-i18n="np_miss_foreign">विदेशी</span><b class="ibar"><i style="width:15%"></i></b><em class="num">५०८</em></div>
+            <div class="ibar-row"><span data-i18n="np_miss_foreign_mfo">विदेशी · पु/म/अन्य</span><b class="ibar"><i style="width:10%"></i></b><em class="num">२६७ · २३९ · २</em></div>
+          </div>
+          <div class="ov-group">
+            <p class="ov-group-h" data-i18n="np_inj_h">घाइते / उद्धार · जम्मा ९,१५९</p>
+            <div class="ibar-row"><span data-i18n="np_male">पुरुष</span><b class="ibar"><i style="width:100%"></i></b><em class="num">६,३२४</em></div>
+            <div class="ibar-row"><span data-i18n="np_female">महिला</span><b class="ibar"><i style="width:44%"></i></b><em class="num">२,७८१</em></div>
+            <div class="ibar-row"><span data-i18n="np_undisclosed">नखुलेको</span><b class="ibar"><i style="width:1%"></i></b><em class="num">५४</em></div>
+          </div>
+          <div class="ov-group">
+            <p class="ov-group-h" data-i18n="np_dna_h">DNA सङ्कलन · जम्मा २,३३६</p>
+            <div class="ibar-row"><span data-i18n="np_dna_deceased">मृतक</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१,१८१</em></div>
+            <div class="ibar-row"><span data-i18n="np_dna_relatives">आफन्त</span><b class="ibar"><i style="width:98%"></i></b><em class="num">१,१५५</em></div>
+          </div>
+          <div class="ov-group">
+            <p class="ov-group-h" data-i18n="np_mgmt_group_h">व्यवस्थापन / पहिचान</p>
+            <div class="ibar-row"><span data-i18n="np_holding_h">होल्डिङ</span><b class="ibar"><i style="width:100%"></i></b><em class="num">३,१८०</em></div>
+            <div class="ibar-row"><span data-i18n="np_body_mgmt_h">शव व्यवस्थापन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१,०४४</em></div>
+            <p class="nig-note" data-i18n="np_body_mgmt_note">जमिनमुनि सुरक्षित राखिएको</p>
+            <div class="ibar-row"><span data-i18n="np_handover">हस्तान्तरण</span><b class="ibar"><i style="width:9%"></i></b><em class="num">९८</em></div>
+            <div class="ibar-row"><span data-i18n="np_udb_h">पहिचान नभएको · udb</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१,२९०</em></div>
+            <p class="nig-note"><a href="https://udb.nepalpolice.gov.np/disaster" target="_blank" rel="noopener" data-i18n="np_udb_link">udb.nepalpolice.gov.np/disaster</a></p>
+          </div>
+          <div class="ov-group">
+            <p class="ov-group-h" data-i18n="np_personnel_h">प्रहरी जनशक्ति</p>
+            <div class="ibar-row"><span data-i18n="np_deploy">परिचालन</span><b class="ibar"><i style="width:100%"></i></b><em class="num">७,२१२</em></div>
+            <div class="ibar-row"><span data-i18n="np_affected">प्रभावित</span><b class="ibar"><i style="width:1%"></i></b><em class="num">६५</em></div>
+            <div class="ibar-row"><span data-i18n="np_out_contact">सम्पर्कविहीन प्रहरी</span><b class="ibar"><i style="width:1%"></i></b><em class="num">२५</em></div>
+          </div>
+          <div class="ov-group">
+            <p class="ov-group-h" data-i18n="np_awareness_h">जनचेतना</p>
+            <div class="ibar-row"><span data-i18n="np_programs">कार्यक्रम</span><b class="ibar"><i style="width:100%"></i></b><em class="num">१३२</em></div>
+            <div class="ibar-row"><span data-i18n="np_participants">सहभागी</span><b class="ibar"><i style="width:100%"></i></b><em class="num">४२,७३८</em></div>
+          </div>
+          <p class="ov-note" data-i18n="ov_police_note">स्रोत: नेपाल प्रहरी · २१ भदौ २०:००। NDRRMA मुख्य KPI (शव १,३४२ · सम्पर्कविहीन ४,९९६ · उद्धार १३,३९१) अलग।</p>
         </div>
         <div class="ov-pane" data-panel="tunnel">
-          <p class="ov-cap" data-i18n="ov_tunnel_cap">सुरुङ्ग उद्धार · लेबल मात्र · NDRRMA १३,३९१ मा जोडिँदैन</p>
+          <p class="ov-cap" data-i18n="ov_tunnel_cap">सुरुङ्ग उद्धार · लेबल मात्र · NDRRMA १३,३९१ अलग</p>
           <div class="ibar-row"><span data-i18n="d_tunnel_heli">सुरुङ्ग हेलि</span><b class="ibar"><i style="width:100%"></i></b><em class="num">२७९</em></div>
           <div class="ibar-row"><span data-i18n="tun_lu">Upper Trishuli-1 · Lu Haitao</span><b class="ibar"><i style="width:10%"></i></b><em data-i18n="tun_lu_v">जीवित उद्धार · SitRep #16</em></div>
           <div class="ibar-row"><span data-i18n="tun_t3a">त्रिशूली ३ए</span><b class="ibar"><i style="width:5%"></i></b><em data-i18n="tun_t3a_v">२ जीवित उद्धार</em></div>
           <div class="ibar-row"><span data-i18n="tun_search">खोजी जारी</span><b class="ibar"><i style="width:40%"></i></b><em data-i18n="tun_search_v">रसुवागढी · चिलिमे · लाङटाङ</em></div>
-          <p class="ov-note" data-i18n="ov_tunnel_note">लेबल गरिएका तथ्य मात्र। जाली जम्मा बनाइएको छैन। NDRRMA उद्धार १३,३९१ अलग। स्रोत: SitRep #16 / सरकारी नोट।</p>
+          <p class="ov-note" data-i18n="ov_tunnel_note">लेबल गरिएका तथ्य। NDRRMA उद्धार १३,३९१ अलग। स्रोत: SitRep #16 / सरकारी नोट।</p>
         </div>
         <div class="ov-pane" data-panel="deploy">
           <p class="ov-cap" data-i18n="ov_deploy_cap">सुरक्षा परिचालन · जम्मा २१,४६५</p>
@@ -842,7 +917,7 @@
   <p class="foot-contact" data-i18n-html="foot_contact">सुझाव / सच्याउन: निरज भुसाल · <a href=\"tel:+9779851175115\">9851175115</a> · <a href=\"mailto:neerajbhusal@gmail.com\">neerajbhusal@gmail.com</a></p>
   <p class="foot-about"><a href="about.html" data-i18n="nav_about">हाम्रो बारेमा</a></p>
   <div class="foot-coffee">
-    <a href="https://www.buymeacoffee.com/helloniraz" target="_blank" rel="noopener" class="bmc-btn"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=helloniraz&button_colour=FF5F5F&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" alt="Buy me a coffee" width="180" height="42"></a>
+        <a href="https://www.buymeacoffee.com/helloniraz" target="_blank" rel="noopener" class="bmc-btn"><span class="bmc-ico" aria-hidden="true">☕</span><span data-i18n="bmc_label">Buy me a coffee</span></a>
     <p class="foot-coffee-note" data-i18n-html="foot_coffee_note">कफी = समय/होस्टिङ · राहत होइन · <a href="donate.html">राहत कोष</a></p>
   </div>
   <span data-i18n-html="footer">Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
@@ -907,8 +982,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script src="i18n.js?v=2026-09-06-2345"></script>
-<script src="names-index.js?v=2026-09-06-2345"></script>
+<script defer src="i18n.js?v=2026-09-07-0015"></script>
+<script defer src="names-index.js?v=2026-09-07-0015"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -977,7 +1052,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-06-2345";</script>
+<script>window.PAGE_VER="2026-09-07-0015";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }

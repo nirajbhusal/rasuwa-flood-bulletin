@@ -41,10 +41,11 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-06-2345">
+<link rel="preload" href="fonts/mukta-500-deva.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts.css?v=2026-09-07-0015" as="style">
+<link rel="preload" href="bulletin.css?v=2026-09-07-0015" as="style">
+<link rel="stylesheet" href="fonts.css?v=2026-09-07-0015">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-07-0015">
 </head>
 <body class="donate-page">
 <div class="head-stick">
@@ -516,9 +517,36 @@
   </div>
 </div>
 
-<script src="named-donors.js?v=2026-09-06-2345"></script>
-<script src="i18n.js?v=2026-09-06-2345"></script>
-<script src="names-index.js?v=2026-09-06-2345"></script>
+<script src="named-donors.js?v=2026-09-07-0015"></script>
+<script>
+(function(){
+  var loading=false,q=[];
+  function run(cb){ if(window.__openNamesSearch){cb&&cb();return;} q.push(cb); }
+  function flush(){ var a=q.splice(0); for(var i=0;i<a.length;i++) try{a[i]&&a[i]();}catch(e){} }
+  function load(cb){
+    run(cb);
+    if(window.__openNamesSearch){ flush(); return; }
+    if(loading) return;
+    loading=true;
+    var s=document.createElement("script");
+    s.src="names-index.js?v="+(window.PAGE_VER||"");
+    s.onload=function(){ flush(); };
+    s.onerror=function(){ loading=false; };
+    document.head.appendChild(s);
+  }
+  document.addEventListener("click",function(e){
+    var t=e.target.closest("[data-open-names],a[href=\"#search\"],a[href$=\"#search\"]");
+    if(!t) return;
+    if(window.__openNamesSearch) return;
+    e.preventDefault();
+    e.stopPropagation();
+    load(function(){ if(window.__openNamesSearch) window.__openNamesSearch(); });
+  },true);
+  if(location.hash==="#search") load(function(){ if(window.__openNamesSearch) window.__openNamesSearch(); });
+  window.__ensureNamesIndex=load;
+})();
+</script>
+<script defer src="i18n.js?v=2026-09-07-0015"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -595,7 +623,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-06-2345";
+window.PAGE_VER="2026-09-07-0015";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){

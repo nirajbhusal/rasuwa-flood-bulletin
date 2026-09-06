@@ -41,10 +41,11 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-06-2345">
+<link rel="preload" href="fonts/mukta-500-deva.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts.css?v=2026-09-07-0015" as="style">
+<link rel="preload" href="bulletin.css?v=2026-09-07-0015" as="style">
+<link rel="stylesheet" href="fonts.css?v=2026-09-07-0015">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-07-0015">
 </head>
 <body class="names-page">
 <div class="head-stick">
@@ -8241,8 +8242,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=2026-09-06-2345"></script>
-<script src="names-index.js?v=2026-09-06-2345"></script>
+<script defer src="i18n.js?v=2026-09-07-0015"></script>
+<script defer src="names-index.js?v=2026-09-07-0015"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -8319,7 +8320,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-06-2345";
+window.PAGE_VER="2026-09-07-0015";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){

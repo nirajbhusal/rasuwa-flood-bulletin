@@ -1,14 +1,42 @@
-/* रसुवा बाढी · सूचना · SW_VER 2026-09-02-1952 */
+/* रसुवा बाढी · सूचना · SW_VER 2026-09-07-0015 */
 const SCOPE = self.registration.scope;
 const LATEST = new URL('latest.json', SCOPE).href;
 const ICON = new URL('icon-192.png', SCOPE).href;
 const SEEN_CACHE = 'rasuwa-seen-v2';
 const MUTE_CACHE = 'rasuwa-mute-v1';
-const SW_VER = '2026-09-02-1952';
+const STATIC_CACHE = 'rasuwa-static-2026-09-07-0015';
+const SW_VER = '2026-09-07-0015';
+const PAGE_VER = '2026-09-07-0015';
 
-self.addEventListener('install', (e) => { self.skipWaiting(); });
+const STATIC_EXT = /\.(?:css|woff2|png|jpg|jpeg|webp|svg|ico|webmanifest)$/i;
+const STATIC_PATH = /\/(?:fonts\.css|bulletin\.css|fonts\/|img\/pay\/)/i;
+
+self.addEventListener('install', (e) => {
+  e.waitUntil((async () => {
+    try {
+      const c = await caches.open(STATIC_CACHE);
+      await c.addAll([
+        new URL('fonts.css?v=' + PAGE_VER, SCOPE).href,
+        new URL('bulletin.css?v=' + PAGE_VER, SCOPE).href,
+        new URL('fonts/mukta-500-deva.woff2', SCOPE).href,
+        new URL('fonts/mukta-500-latn.woff2', SCOPE).href,
+        new URL('fonts/mukta-700-deva.woff2', SCOPE).href,
+        new URL('fonts/mukta-700-latn.woff2', SCOPE).href,
+        new URL('fonts/mukta-800-deva.woff2', SCOPE).href,
+        new URL('fonts/mukta-800-latn.woff2', SCOPE).href,
+        new URL('icon-192.png', SCOPE).href
+      ]);
+    } catch (err) {}
+    self.skipWaiting();
+  })());
+});
+
 self.addEventListener('activate', (e) => {
   e.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.map((k) => {
+      if (k.startsWith('rasuwa-static-') && k !== STATIC_CACHE) return caches.delete(k);
+    }));
     await self.clients.claim();
     const clients = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
     await Promise.all(clients.map((c) => (c.navigate ? c.navigate(c.url) : Promise.resolve())));
@@ -18,18 +46,42 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
   if (url.origin !== self.location.origin) return;
+
+  // Live board: never cache latest.json / HTML / JS / JSON with stale data
   const dest = e.request.destination;
   const p = url.pathname;
+  const isLatest = /\/latest\.json$/i.test(p);
   const live = e.request.mode === 'navigate' || dest === 'document' || dest === 'script' || dest === 'manifest' ||
-    /\.(html|js|json|webmanifest)$/.test(p) || p.endsWith('/');
-  if (!live) return;
-  e.respondWith(
-    fetch(e.request, { cache: 'no-store' }).then(function (res) {
-      var h = new Headers(res.headers);
-      h.set('Cache-Control', 'no-store, no-cache, must-revalidate');
-      return new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
-    }).catch(function () { return fetch(e.request); })
-  );
+    isLatest || /\.(html|js|json|webmanifest)$/i.test(p) || p.endsWith('/');
+
+  if (live) {
+    e.respondWith(
+      fetch(e.request, { cache: 'no-store' }).then(function (res) {
+        var h = new Headers(res.headers);
+        h.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+        return new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
+      }).catch(function () { return fetch(e.request); })
+    );
+    return;
+  }
+
+  // Static CSS/fonts/pay chips: cache-first with PAGE_VER awareness via cache name
+  if (dest === 'style' || dest === 'font' || dest === 'image' || STATIC_EXT.test(p) || STATIC_PATH.test(p)) {
+    e.respondWith((async () => {
+      const cache = await caches.open(STATIC_CACHE);
+      const hit = await cache.match(e.request);
+      if (hit) return hit;
+      try {
+        const res = await fetch(e.request);
+        if (res && res.ok) {
+          try { await cache.put(e.request, res.clone()); } catch (err) {}
+        }
+        return res;
+      } catch (err) {
+        return hit || Response.error();
+      }
+    })());
+  }
 });
 
 async function getSeen() {
