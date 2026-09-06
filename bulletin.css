@@ -2311,8 +2311,10 @@ body.names-ov-lock{overflow:hidden}
 /* home infographic dash */
 .home-ig{
   display:grid;grid-template-columns:1fr;gap:12px;
-  margin:12px 0 10px;
+  margin:12px 0 10px;width:100%;max-width:100%;
+  box-sizing:border-box;
 }
+.home-ig > .home-ig-card{width:100%;max-width:100%;min-width:0;box-sizing:border-box}
 .home-ig-card{
   background:#fff;border:1px solid var(--line);border-radius:16px;
   padding:16px 16px 14px;box-shadow:0 10px 24px rgba(15,23,42,.08);min-width:0;
@@ -2367,14 +2369,59 @@ a.home-ig-names:hover{text-decoration:none;border-color:var(--crimson);box-shado
 .home-ig-tile .nig-ico svg{width:18px;height:18px;display:block}
 .home-ig-tile .kpi-k{display:block;font-size:12px;font-weight:800;color:var(--muted);margin:0 0 2px;line-height:1.3}
 .home-ig-tile strong{display:block;font-size:15px;font-weight:800;color:var(--ink);line-height:1.35}
-@media(min-width:960px){
-  .home-ig{grid-template-columns:1fr 1fr;align-items:stretch}
+/* always one column: names then full-width police categories */
+.home-ig{
+  grid-template-columns:1fr !important;
+  width:100% !important;
+  max-width:100% !important;
 }
-@media(min-width:1280px){
-  .home-ig{grid-template-columns:1.05fr 1fr .95fr .95fr;align-items:stretch}
+@media(min-width:960px){
+  .home-ig{gap:16px}
+  .home-ig-police .nig-cats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .home-ig-police .nig-cat:first-child{grid-column:1/-1}
 }
 @media(max-width:959px){
-  .home-ig{grid-template-columns:1fr}
+  .home-ig{grid-template-columns:1fr !important}
+}
+
+/* shared category blocks (police, names, align with ems-panel language) */
+.nig-cats{display:flex;flex-direction:column;gap:8px;margin:0}
+.nig-cat{
+  margin:0;border:1px solid #dbeafe;border-radius:12px;background:#f8fbff;
+  overflow:hidden;
+}
+.home-ig-names .nig-cat{border-color:#fecdd3;background:#fff7f8}
+.nig-cat-h{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin:0;padding:10px 12px;font-size:13px;font-weight:800;color:#1e3a8a;
+  letter-spacing:.02em;line-height:1.35;cursor:pointer;list-style:none;
+  user-select:none;
+}
+.nig-cat-static .nig-cat-h{cursor:default}
+.home-ig-names .nig-cat-h{color:#9f1239}
+.nig-cat-h::-webkit-details-marker{display:none}
+.nig-cat-h::after{
+  content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+  transform:rotate(45deg);opacity:.55;flex:0 0 auto;margin-left:4px;transition:transform .15s ease;
+}
+.nig-cat-static .nig-cat-h::after{display:none}
+.nig-cat[open] > .nig-cat-h::after{transform:rotate(225deg);margin-top:4px}
+.nig-cat-h > span{min-width:0;flex:1 1 auto}
+.nig-cat-h > .num{
+  font-size:clamp(16px,2.6vw,20px);font-weight:800;font-variant-numeric:tabular-nums;
+  color:#1d4ed8;letter-spacing:-.02em;flex:0 0 auto;
+}
+.home-ig-names .nig-cat-h > .num{color:var(--crimson)}
+.nig-cat-body{padding:0 12px 10px}
+.nig-cat-body .nig-note{margin-top:6px}
+.nig-src{margin-top:12px;padding-top:10px;border-top:1px dashed #bfdbfe}
+.home-ig-police .nig-cat .ibar i{background:#2563eb}
+.ems-panel h3,.nig-cat-h{
+  /* shared section-title weight */
+}
+@media(min-width:960px){
+  .home-ig-police .nig-cats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .home-ig-police .nig-cat:first-child{grid-column:1/-1}
 }
 
 /* names.html / about.html / map.html / donate.html / need.html / gov.html / damage.html / notices.html / contact.html / photos.html long-scroll; do not one-screen-off */
@@ -3068,4 +3115,15 @@ html:not([class*="-page"]).desk,
 html:not([class*="-page"]).desk body{
   height:auto;
   overflow:visible;
+}
+
+
+/* home-ig overflow guard */
+.home-ig,.home-ig-card,.nig-cats,.nig-cat{max-width:100%}
+.nig-cat-h{overflow-wrap:anywhere;word-break:break-word}
+.home-ig .ibar-row{max-width:100%}
+@media(max-width:959px){
+  .home-ig-card .ibar-row{grid-template-columns:minmax(4.5em,36%) minmax(0,1fr) minmax(2.6em,3.2em)}
+  html,body{overflow-x:hidden;max-width:100%;width:100%}
+  .page-main,.overview,.hero .wrap,.home-ig,.head-stick,.topbar,.chips,.safety-banner{overflow-x:clip;max-width:100%}
 }

@@ -947,6 +947,8 @@ window.I18N = {
 "np_udb_h": "पहिचान नभएको · udb",
 "np_udb_link": "udb.nepalpolice.gov.np/disaster",
 "np_holding_h": "होल्डिङ · प्रहरी",
+"np_holding_note": "प्रहरी होल्डिङ जम्मा",
+"ig_cat_forms": "फारम",
 "np_dna_h": "DNA सङ्कलन",
 "np_dna_deceased": "मृतक",
 "np_dna_relatives": "आफन्त",
