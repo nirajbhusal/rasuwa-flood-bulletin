@@ -370,6 +370,16 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
 .chips.is-open .nav-toggle .ico-h{display:none}
 .chips.is-open .nav-toggle .ico-x{display:block}
 
+.nav-backdrop{
+  display:none;
+  position:fixed;inset:0;z-index:200;
+  margin:0;padding:0;border:0;appearance:none;-webkit-appearance:none;
+  background:rgba(15,23,42,.48);
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+}
+html.nav-drawer-open .nav-backdrop{display:block}
+html.nav-drawer-open,html.nav-drawer-open body{overscroll-behavior:none}
+
 @media (max-width:760px){
   .chips{
     overflow:visible;white-space:normal;
@@ -398,7 +408,41 @@ html:not([class*="-page"]) .is-screen-off{display:revert!important}
     padding:12px;gap:8px;
     scrollbar-width:thin;
   }
-  .chips.is-open .chips-inner{display:flex}
+  /* Fixed popup sheet — escapes overflow-x:clip on .chips / .head-stick / html */
+  .chips.is-open{
+    overflow:visible !important;
+    z-index:220;
+  }
+  .chips.is-open .nav-toggle{
+    position:relative;z-index:220;
+    box-shadow:0 0 0 1px var(--line),0 8px 20px rgba(15,23,42,.18);
+  }
+  .chips.is-open .chips-inner{
+    display:flex;
+    position:fixed;
+    left:12px;right:12px;bottom:12px;top:auto;
+    inset:auto 12px 12px 12px;
+    z-index:210;
+    width:auto;min-width:0;
+    max-height:min(80vh,640px);
+    overflow:auto;-webkit-overflow-scrolling:touch;
+    flex-wrap:wrap;align-content:flex-start;
+    white-space:normal;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 18px 48px rgba(15,23,42,.28);
+    padding:14px;gap:8px;
+    scrollbar-width:thin;
+  }
+  html.nav-drawer-open .chips,
+  html.nav-drawer-open .head-stick,
+  html.nav-drawer-open .topbar,
+  html.nav-drawer-open .safety-banner,
+  html.nav-drawer-open .page-main{
+    overflow:visible !important;
+    overflow-x:visible !important;
+  }
   .chips a{white-space:nowrap}
 }
 
@@ -3175,6 +3219,11 @@ html:not([class*="-page"]).desk body{
   .home-ig-card .ibar-row{grid-template-columns:minmax(4.5em,36%) minmax(0,1fr) minmax(2.6em,3.2em)}
   html,body{overflow-x:hidden;max-width:100%;width:100%}
   .page-main,.overview,.hero .wrap,.home-ig,.head-stick,.topbar,.chips,.safety-banner{overflow-x:clip;max-width:100%}
+  html.nav-drawer-open,html.nav-drawer-open body{overflow-x:hidden;overflow-y:hidden}
+  html.nav-drawer-open .head-stick,
+  html.nav-drawer-open .topbar,
+  html.nav-drawer-open .chips,
+  html.nav-drawer-open .safety-banner{overflow:visible;overflow-x:visible;max-width:100%}
 }
 
 

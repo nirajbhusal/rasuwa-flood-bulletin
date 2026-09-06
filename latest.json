@@ -1,7 +1,7 @@
 {
-  "id": "2026-09-07-0045",
-  "title": "मानवीय प्रतिक्रिया पाना · ग्याप / क्लस्टर",
-  "body": "response.html: स्थान ग्याप तालिका (NDRRMA/प्रहरी होल्डिङ, OCHA #3, Flash Appeal, IOM, Logistics, WHO) · ११ UN क्लस्टर · Sphere/CHS/DPNet · व्यक्तिगत बुलेटिन अस्वीकरण।",
-  "url": "response.html",
-  "updated_at": "2026-09-07T00:45:00+05:45"
+  "id": "2026-09-07-0110",
+  "title": "मोबाइल नेभ मेनु · फिक्स्ड पपअप ड्रअर",
+  "body": "overflow-x:clip ले क्लिप हुने absolute ड्रपडाउन हटाई fixed bottom sheet + backdrop; nav-menu.js साझा; स्क्रोल लक / Escape / लिंकमा बन्द।",
+  "url": "index.html",
+  "updated_at": "2026-09-07T01:10:00+05:45"
 }
