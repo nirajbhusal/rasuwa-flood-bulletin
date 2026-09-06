@@ -37,6 +37,7 @@
   else if (id === "photos") location.replace("photos.html" + q);
   else if (id === "videos") location.replace("photos.html" + q + "#videos");
   else if (id === "sources") location.replace("about.html" + q + "#sources");
+  else if (id === "response" || id === "gaps" || id === "clusters" || id === "standards") location.replace("response.html" + q + (id === "response" ? "" : "#" + id));
   else if (id === "feeds") location.replace("index.html" + q);
   else if (D[id]) location.replace("donate.html" + q + "#" + id);
   else if (H[id]) location.replace("names.html" + location.hash);
@@ -95,10 +96,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="preload" href="fonts/mukta-500-deva.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts.css?v=2026-09-07-0015" as="style">
-<link rel="preload" href="bulletin.css?v=2026-09-07-0015" as="style">
-<link rel="stylesheet" href="fonts.css?v=2026-09-07-0015">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-07-0015">
+<link rel="preload" href="fonts.css?v=2026-09-07-0045" as="style">
+<link rel="preload" href="bulletin.css?v=2026-09-07-0045" as="style">
+<link rel="stylesheet" href="fonts.css?v=2026-09-07-0045">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-07-0045">
 </head>
 <body>
 <div class="head-stick">
@@ -158,6 +159,7 @@
     <a href="notices.html" data-i18n="nav_notices">सूचना / सडक स्थिति</a>
     <a href="contact.html" data-i18n="nav_helpline">हेल्पलाइन / सम्पर्क</a>
     <a href="gov.html" data-i18n="nav_gov">सरकारबाट भएका पहल</a>
+    <a href="response.html" data-i18n="nav_response">मानवीय प्रतिक्रिया</a>
     <a href="photos.html" data-i18n="nav_photos">तस्बिर / भिडियो</a>
     <a href="damage.html" data-i18n="nav_damage">क्षति मूल्यांकन</a>
     <a class="nav-about" href="about.html" data-i18n="nav_about">हाम्रो बारेमा</a>
@@ -655,6 +657,26 @@
           </div>
           <p class="nig-note nig-src"><a href="gov.html#police" data-i18n="np_see_gov">पूर्ण प्रहरी बोर्ड</a> · <span data-i18n="np_src">स्रोत: नेपाल प्रहरी · २१ भदौ २०:०० / ६ सेप्टेम्बर २०२६ २०:००</span></p>
         </article>
+
+        <a class="home-ig-card home-ig-response nig-card" href="response.html" id="home-response">
+          <div class="nig-card-h">
+            <span class="nig-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 15h-2v-2h2zm0-4h-2V7h2z"/></svg></span>
+            <h3 data-i18n="nav_response">मानवीय प्रतिक्रिया</h3>
+          </div>
+          <div class="nig-cats" role="list">
+            <div class="nig-cat nig-cat-static">
+              <div class="nig-cat-h"><span data-i18n="home_resp_hold">NDRRMA होल्डिङ</span><strong class="num">३,९१२</strong></div>
+              <div class="nig-cat-body">
+                <div class="ibar-row"><span data-i18n="hold_nuw_k">नुवाकोट</span><b class="ibar"><i style="width:69%"></i></b><em class="num">२,७१४</em></div>
+                <div class="ibar-row"><span data-i18n="hold_ras_k">रसुवा</span><b class="ibar"><i style="width:25%"></i></b><em class="num">९६०</em></div>
+                <div class="ibar-row"><span data-i18n="hold_dha_k">धादिङ</span><b class="ibar"><i style="width:6%"></i></b><em class="num">२३८</em></div>
+                <p class="nig-note" data-i18n="home_resp_note">प्रहरी होल्डिङ ३,१८० अलग · Flash Appeal ८४,२७० · ११ क्लस्टर · Sphere/CHS</p>
+              </div>
+            </div>
+          </div>
+          <span class="home-ig-cta" data-i18n="home_resp_cta">ग्याप तालिका / क्लस्टर</span>
+        </a>
+
       </div>
 
       <div class="ems-snap ems-home" id="hero-ems">
@@ -982,8 +1004,8 @@
   <p id="lb-cap"></p>
 </div>
 
-<script defer src="i18n.js?v=2026-09-07-0015"></script>
-<script defer src="names-index.js?v=2026-09-07-0015"></script>
+<script defer src="i18n.js?v=2026-09-07-0045"></script>
+<script defer src="names-index.js?v=2026-09-07-0045"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -1008,6 +1030,7 @@
     if (file === "notices.html") return CANON + "notices.html" + (location.hash || "");
     if (file === "contact.html") return CANON + "contact.html" + (location.hash || "");
     if (file === "photos.html") return CANON + "photos.html" + (location.hash || "");
+    if (file === "response.html") return CANON + "response.html" + (location.hash || "");
     return CANON;
   }
   function toast(msg){
@@ -1052,7 +1075,7 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-07-0015";</script>
+<script>window.PAGE_VER="2026-09-07-0045";</script>
 <script>
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }

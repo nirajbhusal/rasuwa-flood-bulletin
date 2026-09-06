@@ -3480,3 +3480,21 @@ html:not([class*="-page"]){scroll-snap-type:none}
 .bmc-btn .bmc-ico{font-size:18px;line-height:1}
 .bmc-btn img{display:none}
 .about-page .bmc-btn,.bmc-btn{display:inline-flex}
+
+/* response.html · gaps + clusters */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -2px;padding:0 2px}
+.resp-gaps-table{font-size:14px;min-width:920px}
+.resp-gaps-table th,.resp-gaps-table td{text-align:left;vertical-align:top;white-space:normal}
+.resp-gaps-table td:last-child,.resp-gaps-table th:last-child{text-align:left;white-space:normal;font-weight:700;color:#334155;font-size:12px}
+.resp-gaps-table td.num,.resp-gaps-table .num{font-variant-numeric:tabular-nums;font-weight:800;color:var(--ink)}
+.resp-gaps-card{padding:12px 10px 14px;border-color:#99f6e4}
+.resp-cluster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:10px 0 18px}
+.resp-cluster .ibar-row{grid-template-columns:minmax(6em,32%) 1fr;gap:6px 10px;align-items:start}
+.resp-cluster .ibar-row em{font-style:normal;font-weight:700;color:#0f172a;line-height:1.35;text-align:left}
+.resp-cluster .nig-note{margin:0 0 8px;line-height:1.4}
+.resp-standards{margin-top:8px}
+.home-ig-response .home-ig-cta{display:inline-block;margin-top:10px}
+@media(max-width:720px){
+  .resp-gaps-table{font-size:13px;min-width:780px}
+  .resp-cluster-grid{grid-template-columns:1fr}
+}
