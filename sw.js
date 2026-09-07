@@ -1,12 +1,12 @@
-/* रसुवा बाढी · सूचना · SW_VER 2026-09-07-1730 */
+/* रसुवा बाढी · सूचना · SW_VER 2026-09-07-1845 */
 const SCOPE = self.registration.scope;
 const LATEST = new URL('latest.json', SCOPE).href;
 const ICON = new URL('icon-192.png', SCOPE).href;
 const SEEN_CACHE = 'rasuwa-seen-v2';
 const MUTE_CACHE = 'rasuwa-mute-v1';
-const STATIC_CACHE = 'rasuwa-static-2026-09-07-1730';
-const SW_VER = '2026-09-07-1730';
-const PAGE_VER = '2026-09-07-1730';
+const STATIC_CACHE = 'rasuwa-static-2026-09-07-1845';
+const SW_VER = '2026-09-07-1845';
+const PAGE_VER = '2026-09-07-1845';
 
 const STATIC_EXT = /\.(?:css|woff2|png|jpg|jpeg|webp|svg|ico|webmanifest)$/i;
 const STATIC_PATH = /\/(?:fonts\.css|bulletin\.css|fonts\/|img\/pay\/)/i;
@@ -35,11 +35,13 @@ self.addEventListener('activate', (e) => {
   e.waitUntil((async () => {
     const keys = await caches.keys();
     await Promise.all(keys.map((k) => {
-      if (k.startsWith('rasuwa-static-') && k !== STATIC_CACHE) return caches.delete(k);
+      if (k === STATIC_CACHE || k === SEEN_CACHE || k === MUTE_CACHE) return;
+      if (k.startsWith('rasuwa-static-')) return caches.delete(k);
+      if (/html|document|pages?|shell|precache|workbox|runtime|js-?/i.test(k)) return caches.delete(k);
     }));
     await self.clients.claim();
     const clients = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
-    await Promise.all(clients.map((c) => (c.navigate ? c.navigate(c.url) : Promise.resolve())));
+    await Promise.all(clients.map((c) => c.postMessage({ type: 'page-refresh', id: PAGE_VER })));
   })());
 });
 
@@ -154,6 +156,12 @@ self.addEventListener('message', (e) => {
   if (msg.type === 'unmute') e.waitUntil(setMuted(false));
   if (msg.type === 'check') {
     e.waitUntil(checkLatest(!!msg.welcome));
+  }
+  if (msg.type === 'force-refresh') {
+    e.waitUntil((async () => {
+      const clients = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+      for (const c of clients) c.postMessage({ type: 'page-refresh', id: PAGE_VER });
+    })());
   }
 });
 
