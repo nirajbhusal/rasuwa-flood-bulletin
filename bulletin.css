@@ -381,30 +381,18 @@ html.nav-drawer-open #nav-toggle .ico-x,
   cursor:pointer;-webkit-tap-highlight-color:transparent;
 }
 html.nav-drawer-open .nav-backdrop{display:block;z-index:200}
-html.nav-drawer-open .head-stick{z-index:250}
 html.nav-drawer-open{overflow:hidden !important}
 html.nav-drawer-open,html.nav-drawer-open body{overscroll-behavior:none}
 
 @media (max-width:760px){
-  /* Hide empty chips strip — hamburger lives in sticky header */
+  /* Compact sticky chips strip with hamburger below header/safety */
   nav.chips{
-    display:none !important;
-    height:0 !important;min-height:0 !important;
-    padding:0 !important;margin:0 !important;border:0 !important;
-    overflow:hidden !important;
+    overflow:visible;white-space:normal;
+    mask-image:none;
+    display:flex;align-items:center;gap:8px;
+    padding:6px 10px;
+    position:sticky;top:0;z-index:50;
   }
-  .brand-row{
-    justify-content:space-between;
-    align-items:center;
-    gap:8px;
-  }
-  .brand-row .brand{
-    flex:1 1 auto;
-    width:auto;
-    max-width:calc(100% - 96px);
-    text-align:left;
-  }
-  .brand-row .brand h1{text-align:left}
   .nav-toggle{
     display:inline-flex;align-items:center;justify-content:center;gap:6px;
     width:auto;min-width:44px;height:40px;border-radius:12px;padding:0 10px;flex:none;
@@ -412,14 +400,14 @@ html.nav-drawer-open,html.nav-drawer-open body{overscroll-behavior:none}
     cursor:pointer;touch-action:manipulation;
     -webkit-tap-highlight-color:transparent;
     position:relative;z-index:61;pointer-events:auto;
-    margin-inline-start:auto;
   }
   .nav-toggle .nav-toggle-label{display:inline}
   .nav-toggle:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
   .chips-inner{
     display:none;
   }
-  /* Hamburger above backdrop (200) and panel (230); stays in header */
+  /* Hamburger above backdrop (200) and panel (230) */
+  html.nav-drawer-open nav.chips{z-index:250}
   html.nav-drawer-open #nav-toggle,
   .chips.is-open .nav-toggle{
     position:relative;z-index:240;
@@ -1731,9 +1719,9 @@ footer .foot-about a{color:var(--teal);font-weight:800}
   .photo img{height:200px}
   .helpline{width:auto;max-width:100%;font-size:12px;line-height:1.45;white-space:normal;text-align:center}
   .top-actions{width:100%;justify-content:center}
-  .brand-row{justify-content:space-between;gap:8px}
-  .brand{max-width:calc(100% - 96px);text-align:left}
-  .brand h1{font-size:clamp(20px,6vw,30px);text-align:left}
+  .brand-row{justify-content:center;gap:0}
+  .brand{max-width:100%;text-align:center}
+  .brand h1{font-size:clamp(20px,6vw,30px);text-align:center}
   .brand-date{font-size:12px;line-height:1.4;text-align:center}
   .top-actions .helpline{flex:1 0 100%}
   .top-actions .lang-switch{position:static;top:auto;right:auto}

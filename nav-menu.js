@@ -8,8 +8,6 @@
   var body = document.body;
   var inner = document.getElementById("nav-chips") || nav.querySelector(".chips-inner");
   var deskBtn = document.getElementById("desk-nav-toggle");
-  var brandRow = document.querySelector(".brand-row");
-  var topActions = document.querySelector(".top-actions");
   var mq = window.matchMedia("(max-width:760px)");
   var backdrop = document.querySelector(".nav-backdrop");
   if (!backdrop) {
@@ -34,29 +32,14 @@
     return mq.matches;
   }
 
+  /* Always keep #nav-toggle as first child of nav.chips (before desk-nav / chips-inner) */
   function placeToggle() {
-    if (isMobile()) {
-      if (brandRow) {
-        var brand = brandRow.querySelector(".brand");
-        if (brand && brand.parentNode === brandRow) {
-          if (btn.parentNode !== brandRow || btn.previousSibling !== brand) {
-            if (brand.nextSibling) brandRow.insertBefore(btn, brand.nextSibling);
-            else brandRow.appendChild(btn);
-          }
-        } else if (btn.parentNode !== brandRow) {
-          brandRow.insertBefore(btn, brandRow.firstChild);
-        }
-      } else if (topActions && btn.parentNode !== topActions) {
-        topActions.insertBefore(btn, topActions.firstChild);
-      }
-    } else if (btn.parentNode !== nav) {
-      if (deskBtn && deskBtn.parentNode === nav) {
-        nav.insertBefore(btn, deskBtn);
-      } else if (inner && inner.parentNode === nav) {
-        nav.insertBefore(btn, inner);
-      } else {
-        nav.insertBefore(btn, nav.firstChild);
-      }
+    var before = null;
+    if (deskBtn && deskBtn.parentNode === nav) before = deskBtn;
+    else if (inner && inner.parentNode === nav) before = inner;
+    if (btn.parentNode !== nav || (before && btn.nextSibling !== before) || (!before && btn !== nav.firstChild)) {
+      if (before) nav.insertBefore(btn, before);
+      else nav.insertBefore(btn, nav.firstChild);
     }
   }
 
