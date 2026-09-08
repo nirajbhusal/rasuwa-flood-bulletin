@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview API · रसुवा–भोटेकोशी बाढी बुलेटिन</title>
+<meta name="description" content="Public JSON API for the Rasuwa–Bhotekoshi flood bulletin homepage #overview KPIs. Independent citizen bulletin by Niraj Bhusal.">
+<link rel="canonical" href="https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/">
+<meta name="robots" content="index,follow">
+<style>
+  :root { color-scheme: light dark; --ink:#1a1a1a; --muted:#555; --bg:#f7f5f0; --card:#fff; --line:#ddd; --accent:#8b1a1a; --btn:#1a4d7c; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#f2f2f2; --muted:#aaa; --bg:#121212; --card:#1c1c1c; --line:#333; --accent:#e07070; --btn:#6db3f2; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Noto Sans Devanagari", "Noto Sans", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; }
+  main { max-width: 42rem; margin: 0 auto; padding: 1.5rem 1.1rem 3rem; }
+  h1 { font-size: 1.35rem; margin: 0 0 .4rem; }
+  h2 { font-size: 1.05rem; margin: 1.6rem 0 .5rem; }
+  .muted { color: var(--muted); font-size: .92rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; margin: 1rem 0; }
+  .credit { border-left: 4px solid var(--accent); padding-left: .9rem; }
+  .cta { display: inline-block; margin: .35rem .5rem .35rem 0; padding: .7rem 1.1rem; border-radius: 999px; background: var(--btn); color: #fff !important; text-decoration: none; font-weight: 700; }
+  .cta.sec { background: transparent; color: var(--btn) !important; border: 2px solid var(--btn); }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .86rem; }
+  pre { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .9rem 1rem; overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
+  a { color: var(--btn); }
+  .note { font-size: .88rem; color: var(--muted); }
+  ul { padding-left: 1.2rem; }
+  .lang { font-size: .8rem; letter-spacing: .02em; text-transform: uppercase; color: var(--muted); margin-bottom: .15rem; }
+</style>
+<script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search || "");
+    if (q.get("go") === "1") {
+      location.replace("../index.html#overview");
+    }
+  } catch (e) {}
+})();
+</script>
+</head>
+<body>
+<main>
+  <p class="lang">ne · en</p>
+  <h1>Overview JSON API · मुख्य आंकडा API</h1>
+  <p class="muted">Homepage <code>#overview</code> KPIs as stable public JSON for newsrooms and partner portals.</p>
+
+  <div class="card credit">
+    <p><strong>नेपाली:</strong> स्वतन्त्र नागरिक बुलेटिन · निरज भुसाल। सरकारी साइट होइन। आधिकारिक स्थिति एनडीआरआरएमए / नेपाल प्रहरीबाट।</p>
+    <p><strong>English:</strong> Independent citizen bulletin by Niraj Bhusal. Not a government website. Official status rests with NDRRMA / Nepal Police.</p>
+  </div>
+
+  <p>
+    <a class="cta" href="../index.html#overview">बुलेटिन होम · #overview</a>
+    <a class="cta sec" href="overview.json">overview.json</a>
+    <a class="cta sec" href="../about.html#sources">about · sources</a>
+  </p>
+  <p class="note">Optional auto-redirect: <a href="?go=1"><code>api/?go=1</code></a> → bulletin <code>#overview</code>. This docs page stays readable by default (no instant bounce).</p>
+
+  <h2>Endpoint</h2>
+  <ul>
+    <li><a href="overview.json"><code>api/overview.json</code></a> — bilingual (ne + en), primary</li>
+    <li><a href="overview.ne.json"><code>api/overview.ne.json</code></a> — Nepali flattened (convenience)</li>
+    <li><a href="overview.en.json"><code>api/overview.en.json</code></a> — English flattened (convenience)</li>
+  </ul>
+  <p class="muted">Canonical bulletin: <a href="https://nirajbhusal.github.io/rasuwa-flood-bulletin/">https://nirajbhusal.github.io/rasuwa-flood-bulletin/</a></p>
+
+  <h2>CORS / caching</h2>
+  <p>GitHub Pages serves these as static <strong>GET</strong> files. Browser <code>fetch()</code> from other origins works for simple GET (no custom auth). Prefer <code>cache: 'no-store'</code> so portals pick up board refreshes. The site service worker already treats <code>.json</code> as live (no-store).</p>
+
+  <h2>Example</h2>
+  <pre>fetch('https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/overview.json', {
+  cache: 'no-store'
+})
+  .then(r => r.json())
+  .then(data => {
+    // data.cards[0].value → deaths, etc.
+    // Always show data.credit[lang] + link to data.links.overview
+    console.log(data.as_of.en, data.cards.map(c => [c.id, c.value]));
+  });</pre>
+
+  <pre># curl
+curl -sS 'https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/overview.json' | head</pre>
+
+  <h2>Schema notes</h2>
+  <ul>
+    <li>Eight cards in homepage order: <code>dead</code>, <code>injured</code>, <code>miss</code>, <code>rescued</code>, <code>police</code>, <code>tunnel</code>, <code>deploy</code>, <code>comms</code>.</li>
+    <li>Do <strong>not</strong> re-sum labeled splits (especially missing / holding).</li>
+    <li>Nepal Police card is a <strong>separate</strong> source from NDRRMA hero KPIs.</li>
+    <li>Name-list rescue count on the names page is <strong>not</strong> the homepage rescued total.</li>
+    <li><code>comms.value</code> is <code>null</code> (composite lead <code>117 · 76</code>); use <code>value_display</code>.</li>
+    <li>Please keep <code>credit</code> / <code>attribution_html</code> visible when republishing figures.</li>
+  </ul>
+
+  <h2>Process note · अद्यावधिक</h2>
+  <!-- When NDRRMA / Nepal Police boards update, refresh api/overview.json alongside homepage #overview KPIs. -->
+  <p class="note">When the NDRRMA board (or labeled Nepal Police board) updates, refresh <code>api/overview.json</code> <strong>alongside</strong> the homepage <code>#overview</code> KPI cards — same numbers, same as-of stamp. Do not invent figures.</p>
+  <p class="note">NDRRMA बोर्ड (वा नेपाल प्रहरी कार्ड) अपडेट हुँदा होमपेज <code>#overview</code> सँगै <code>api/overview.json</code> पनि ताजा पार्नुहोस्। अंक नबनाउनुहोस्।</p>
+</main>
+</body>
+</html>

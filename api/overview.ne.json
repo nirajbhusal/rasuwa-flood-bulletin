@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "id": "overview",
+  "updated_at": "2026-09-08T13:00:00+05:45",
+  "as_of": "८ सेप्टेम्बर / २३ भदौ २०८३ · १३:००",
+  "title": "रसुवा–भोटेकोशी बाढी · मुख्य आंकडा",
+  "credit": "स्वतन्त्र नागरिक बुलेटिन · निरज भुसाल। सरकारी साइट होइन। आधिकारिक स्थिति एनडीआरआरएमए / नेपाल प्रहरीबाट।",
+  "attribution_html": "स्रोत: <a href=\"https://nirajbhusal.github.io/rasuwa-flood-bulletin/\">रसुवा–भोटेकोशी बाढी बुलेटिन</a>",
+  "links": {
+    "home": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/",
+    "overview": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
+    "redirect": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/",
+    "json": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/overview.json"
+  },
+  "notes": [
+    "विभाजनहरू लेबल मात्र — जम्मा नगर्नुहोस्",
+    "नाम-सूची गणना होम उद्धार जम्मा होइन",
+    "नेपाल प्रहरी कार्ड छुट्टै स्रोत"
+  ],
+  "cards": [
+    {
+      "id": "dead",
+      "label": "मृतक संख्या",
+      "value": 1357,
+      "value_display": "१,३५७",
+      "tone": "dead",
+      "source": "NDRRMA / गृह · २३ भदौ १३:००",
+      "items": [
+        {
+          "id": "chitwan",
+          "label": "चितवन",
+          "value": 363,
+          "value_display": "३६३"
+        },
+        {
+          "id": "nawal_e",
+          "label": "नवलपरासी पूर्व",
+          "value": 223,
+          "value_display": "२२३"
+        },
+        {
+          "id": "nawal_w",
+          "label": "नवलपरासी पश्चिम",
+          "value": 222,
+          "value_display": "२२२"
+        },
+        {
+          "id": "nuwakot",
+          "label": "नुवाकोट",
+          "value": 197,
+          "value_display": "१९७"
+        },
+        {
+          "id": "rasuwa",
+          "label": "रसुवा",
+          "value": 169,
+          "value_display": "१६९"
+        },
+        {
+          "id": "handover",
+          "label": "हस्तान्तरण (लेबल)",
+          "value": 102,
+          "value_display": "१०२"
+        }
+      ]
+    },
+    {
+      "id": "injured",
+      "label": "हालसम्म घाइते",
+      "value": 6827,
+      "value_display": "६,८२७",
+      "tone": "injured",
+      "source": "NDRRMA / गृह · २३ भदौ १३:००",
+      "items": [
+        {
+          "id": "army",
+          "label": "सेना",
+          "value": 3404,
+          "value_display": "३,४०४"
+        },
+        {
+          "id": "apf",
+          "label": "सशस्त्र",
+          "value": 3096,
+          "value_display": "३,०९६"
+        },
+        {
+          "id": "ndrrma_hosp",
+          "label": "NDRRMA घाइते",
+          "value": 327,
+          "value_display": "३२७"
+        },
+        {
+          "id": "discharged",
+          "label": "डिस्चार्ज (लेबल)",
+          "value": 242,
+          "value_display": "२४२"
+        }
+      ]
+    },
+    {
+      "id": "miss",
+      "label": "सम्पर्कविहीन करिब",
+      "value": 5326,
+      "value_display": "५,३२६",
+      "tone": "miss",
+      "source": "NDRRMA / गृह · २३ भदौ १३:००",
+      "items": [
+        {
+          "id": "rasuwa_total",
+          "label": "रसुवा जम्मा",
+          "value": 2860,
+          "value_display": "२,८६०"
+        },
+        {
+          "id": "dao_nuwakot",
+          "label": "DAO नुवाकोट",
+          "value": 1981,
+          "value_display": "१,९८१"
+        },
+        {
+          "id": "foreign",
+          "label": "विदेशी",
+          "value": 587,
+          "value_display": "५८७"
+        },
+        {
+          "id": "holding",
+          "label": "होल्डिङ",
+          "value": 3533,
+          "value_display": "३,५३३"
+        },
+        {
+          "id": "hold_nuwakot",
+          "label": "होल्ड · नुवाकोट",
+          "value": 2651,
+          "value_display": "२,६५१"
+        },
+        {
+          "id": "hold_rasuwa",
+          "label": "होल्ड · रसुवा",
+          "value": 669,
+          "value_display": "६६९"
+        }
+      ]
+    },
+    {
+      "id": "rescued",
+      "label": "हालसम्म उद्धार गरिएको संख्या",
+      "value": 13583,
+      "value_display": "१३,५८३",
+      "tone": "air",
+      "source": "NDRRMA / गृह · २३ भदौ १३:००",
+      "items": [
+        {
+          "id": "army_flights",
+          "label": "सेना उडान",
+          "value": 1157,
+          "value_display": "१,१५७"
+        },
+        {
+          "id": "apf_flights",
+          "label": "सशस्त्र उडान",
+          "value": 203,
+          "value_display": "२०३"
+        },
+        {
+          "id": "private_ktm",
+          "label": "निजी काठमाडौं",
+          "value": 129,
+          "value_display": "१२९"
+        },
+        {
+          "id": "heli",
+          "label": "हेलिकप्टर",
+          "value": 14,
+          "value_display": "१४"
+        },
+        {
+          "id": "tunnel_separate",
+          "label": "सुरुङ्ग अलग",
+          "value": 279,
+          "value_display": "२७९"
+        }
+      ]
+    },
+    {
+      "id": "police",
+      "label": "नेपाल प्रहरी",
+      "value": 1353,
+      "value_display": "१,३५३",
+      "tone": "police",
+      "source": "नेपाल प्रहरी · २१ भदौ २०:००",
+      "items": [
+        {
+          "id": "dead",
+          "label": "शव",
+          "value": 1353,
+          "value_display": "१,३५३"
+        },
+        {
+          "id": "dead_split",
+          "label": "पु/म/आंशिक",
+          "value": null,
+          "value_display": "५३० · ३२८ · ४९५"
+        },
+        {
+          "id": "missing",
+          "label": "सम्पर्कविहीन",
+          "value": 3902,
+          "value_display": "३,९०२"
+        },
+        {
+          "id": "injured_rescued",
+          "label": "घाइते/उद्धार",
+          "value": 9159,
+          "value_display": "९,१५९"
+        },
+        {
+          "id": "dna_total",
+          "label": "DNA जम्मा",
+          "value": 2336,
+          "value_display": "२,३३६"
+        },
+        {
+          "id": "dna_split",
+          "label": "DNA · मृतक/आफन्त",
+          "value": null,
+          "value_display": "१,१८१ · १,१५५"
+        },
+        {
+          "id": "holding",
+          "label": "होल्डिङ",
+          "value": 3180,
+          "value_display": "३,१८०"
+        },
+        {
+          "id": "body_mgmt",
+          "label": "शव व्यवस्थापन",
+          "value": 1044,
+          "value_display": "१,०४४"
+        },
+        {
+          "id": "handover",
+          "label": "हस्तान्तरण",
+          "value": 98,
+          "value_display": "९८"
+        },
+        {
+          "id": "udb",
+          "label": "udb पहिचान नभएको",
+          "value": 1290,
+          "value_display": "१,२९०"
+        },
+        {
+          "id": "deploy",
+          "label": "परिचालन",
+          "value": 7212,
+          "value_display": "७,२१२"
+        },
+        {
+          "id": "affected",
+          "label": "प्रभावित",
+          "value": 65,
+          "value_display": "६५"
+        },
+        {
+          "id": "out_contact",
+          "label": "सम्पर्कविहीन प्रहरी",
+          "value": 25,
+          "value_display": "२५"
+        },
+        {
+          "id": "awareness",
+          "label": "जनचेतना",
+          "value": null,
+          "value_display": "१३२ · ४२,७३८"
+        }
+      ]
+    },
+    {
+      "id": "tunnel",
+      "label": "सुरुङ्ग उद्धार",
+      "value": 279,
+      "value_display": "२७९",
+      "tone": "tunnel",
+      "source": "SitRep #16 / सरकारी नोट · NDRRMA उद्धार अलग",
+      "items": [
+        {
+          "id": "tunnel_heli",
+          "label": "सुरुङ्ग हेलि",
+          "value": 279,
+          "value_display": "२७९"
+        },
+        {
+          "id": "lu_haitao",
+          "label": "UT-1 · Lu Haitao",
+          "value": null,
+          "value_display": "जीवित"
+        },
+        {
+          "id": "trishuli_3a",
+          "label": "त्रिशूली ३ए",
+          "value": 2,
+          "value_display": "२"
+        },
+        {
+          "id": "search",
+          "label": "खोजी जारी",
+          "value": null,
+          "value_display": "रसुवागढी · चिलिमे · लाङटाङ"
+        }
+      ]
+    },
+    {
+      "id": "deploy",
+      "label": "खटिएको जनशक्ति",
+      "value": 21402,
+      "value_display": "२१,४०२",
+      "tone": "deploy",
+      "source": "NDRRMA / गृह · २३ भदौ १३:००",
+      "items": [
+        {
+          "id": "total",
+          "label": "जम्मा",
+          "value": 21402,
+          "value_display": "२१,४०२"
+        },
+        {
+          "id": "army",
+          "label": "सेना",
+          "value": 9287,
+          "value_display": "९,२८७"
+        },
+        {
+          "id": "apf",
+          "label": "सशस्त्र",
+          "value": 4203,
+          "value_display": "४,२०३"
+        },
+        {
+          "id": "police",
+          "label": "प्रहरी",
+          "value": 7912,
+          "value_display": "७,९१२"
+        },
+        {
+          "id": "medical",
+          "label": "मेडिकल",
+          "value": null,
+          "value_display": "२००+"
+        },
+        {
+          "id": "surgical",
+          "label": "सर्जिकल टोली",
+          "value": 6,
+          "value_display": "६"
+        },
+        {
+          "id": "heli",
+          "label": "हेलि",
+          "value": 14,
+          "value_display": "१४"
+        }
+      ]
+    },
+    {
+      "id": "comms",
+      "label": "सञ्चार",
+      "value": null,
+      "value_display": "११७ · ७६",
+      "tone": "comms",
+      "source": "NDRRMA / गृह · २३ भदौ १३:००",
+      "items": [
+        {
+          "id": "ntc",
+          "label": "NTC",
+          "value": null,
+          "value_display": "११७/१२०"
+        },
+        {
+          "id": "ncell",
+          "label": "Ncell",
+          "value": null,
+          "value_display": "७६/७८"
+        },
+        {
+          "id": "elec_rasuwa",
+          "label": "विद्युत · रसुवा",
+          "value": null,
+          "value_display": "७८%"
+        },
+        {
+          "id": "elec_nuwakot",
+          "label": "विद्युत · नुवाकोट",
+          "value": null,
+          "value_display": "९६.७%"
+        },
+        {
+          "id": "elec_dhading",
+          "label": "विद्युत · धादिङ",
+          "value": null,
+          "value_display": "९९.८%"
+        }
+      ]
+    }
+  ],
+  "lang": "ne"
+}

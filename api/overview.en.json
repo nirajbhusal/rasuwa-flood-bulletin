@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "id": "overview",
+  "updated_at": "2026-09-08T13:00:00+05:45",
+  "as_of": "8 September 2026 · 13:00 NPT",
+  "title": "Rasuwa–Bhotekoshi flood · key figures",
+  "credit": "Independent citizen bulletin by Niraj Bhusal. Not a government website. Official status rests with NDRRMA / Nepal Police.",
+  "attribution_html": "Source: <a href=\"https://nirajbhusal.github.io/rasuwa-flood-bulletin/\">Rasuwa–Bhotekoshi Flood Bulletin</a>",
+  "links": {
+    "home": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/",
+    "overview": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
+    "redirect": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/",
+    "json": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/overview.json"
+  },
+  "notes": [
+    "Splits are labeled only — do not re-sum",
+    "Name-list count is not the hero rescued total",
+    "Nepal Police card is a separate source"
+  ],
+  "cards": [
+    {
+      "id": "dead",
+      "label": "Deaths count",
+      "value": 1357,
+      "value_display": "1,357",
+      "tone": "dead",
+      "source": "NDRRMA / MoHA · 23 Bhadra 13:00",
+      "items": [
+        {
+          "id": "chitwan",
+          "label": "Chitwan",
+          "value": 363,
+          "value_display": "363"
+        },
+        {
+          "id": "nawal_e",
+          "label": "Nawalparasi East",
+          "value": 223,
+          "value_display": "223"
+        },
+        {
+          "id": "nawal_w",
+          "label": "Nawalparasi West",
+          "value": 222,
+          "value_display": "222"
+        },
+        {
+          "id": "nuwakot",
+          "label": "Nuwakot",
+          "value": 197,
+          "value_display": "197"
+        },
+        {
+          "id": "rasuwa",
+          "label": "Rasuwa",
+          "value": 169,
+          "value_display": "169"
+        },
+        {
+          "id": "handover",
+          "label": "Handover (labeled)",
+          "value": 102,
+          "value_display": "102"
+        }
+      ]
+    },
+    {
+      "id": "injured",
+      "label": "Injured so far",
+      "value": 6827,
+      "value_display": "6,827",
+      "tone": "injured",
+      "source": "NDRRMA / MoHA · 23 Bhadra 13:00",
+      "items": [
+        {
+          "id": "army",
+          "label": "Army",
+          "value": 3404,
+          "value_display": "3,404"
+        },
+        {
+          "id": "apf",
+          "label": "Armed Police",
+          "value": 3096,
+          "value_display": "3,096"
+        },
+        {
+          "id": "ndrrma_hosp",
+          "label": "NDRRMA injured",
+          "value": 327,
+          "value_display": "327"
+        },
+        {
+          "id": "discharged",
+          "label": "Discharged (labeled)",
+          "value": 242,
+          "value_display": "242"
+        }
+      ]
+    },
+    {
+      "id": "miss",
+      "label": "Missing around",
+      "value": 5326,
+      "value_display": "5,326",
+      "tone": "miss",
+      "source": "NDRRMA / MoHA · 23 Bhadra 13:00",
+      "items": [
+        {
+          "id": "rasuwa_total",
+          "label": "Rasuwa total",
+          "value": 2860,
+          "value_display": "2,860"
+        },
+        {
+          "id": "dao_nuwakot",
+          "label": "DAO Nuwakot",
+          "value": 1981,
+          "value_display": "1,981"
+        },
+        {
+          "id": "foreign",
+          "label": "Foreign",
+          "value": 587,
+          "value_display": "587"
+        },
+        {
+          "id": "holding",
+          "label": "Holding",
+          "value": 3533,
+          "value_display": "3,533"
+        },
+        {
+          "id": "hold_nuwakot",
+          "label": "Hold · Nuwakot",
+          "value": 2651,
+          "value_display": "2,651"
+        },
+        {
+          "id": "hold_rasuwa",
+          "label": "Hold · Rasuwa",
+          "value": 669,
+          "value_display": "669"
+        }
+      ]
+    },
+    {
+      "id": "rescued",
+      "label": "Rescued so far",
+      "value": 13583,
+      "value_display": "13,583",
+      "tone": "air",
+      "source": "NDRRMA / MoHA · 23 Bhadra 13:00",
+      "items": [
+        {
+          "id": "army_flights",
+          "label": "Army flights",
+          "value": 1157,
+          "value_display": "1,157"
+        },
+        {
+          "id": "apf_flights",
+          "label": "APF flights",
+          "value": 203,
+          "value_display": "203"
+        },
+        {
+          "id": "private_ktm",
+          "label": "Private Kathmandu",
+          "value": 129,
+          "value_display": "129"
+        },
+        {
+          "id": "heli",
+          "label": "Helicopters",
+          "value": 14,
+          "value_display": "14"
+        },
+        {
+          "id": "tunnel_separate",
+          "label": "Tunnel separate",
+          "value": 279,
+          "value_display": "279"
+        }
+      ]
+    },
+    {
+      "id": "police",
+      "label": "Nepal Police",
+      "value": 1353,
+      "value_display": "1,353",
+      "tone": "police",
+      "source": "Nepal Police · 21 Bhadra 20:00",
+      "items": [
+        {
+          "id": "dead",
+          "label": "Dead",
+          "value": 1353,
+          "value_display": "1,353"
+        },
+        {
+          "id": "dead_split",
+          "label": "M/F/partial",
+          "value": null,
+          "value_display": "530 · 328 · 495"
+        },
+        {
+          "id": "missing",
+          "label": "Missing",
+          "value": 3902,
+          "value_display": "3,902"
+        },
+        {
+          "id": "injured_rescued",
+          "label": "Injured/rescued",
+          "value": 9159,
+          "value_display": "9,159"
+        },
+        {
+          "id": "dna_total",
+          "label": "DNA total",
+          "value": 2336,
+          "value_display": "2,336"
+        },
+        {
+          "id": "dna_split",
+          "label": "DNA · deceased/relatives",
+          "value": null,
+          "value_display": "1,181 · 1,155"
+        },
+        {
+          "id": "holding",
+          "label": "Holding",
+          "value": 3180,
+          "value_display": "3,180"
+        },
+        {
+          "id": "body_mgmt",
+          "label": "Dead body management",
+          "value": 1044,
+          "value_display": "1,044"
+        },
+        {
+          "id": "handover",
+          "label": "Handover",
+          "value": 98,
+          "value_display": "98"
+        },
+        {
+          "id": "udb",
+          "label": "Unidentified · udb",
+          "value": 1290,
+          "value_display": "1,290"
+        },
+        {
+          "id": "deploy",
+          "label": "Deployed",
+          "value": 7212,
+          "value_display": "7,212"
+        },
+        {
+          "id": "affected",
+          "label": "Affected",
+          "value": 65,
+          "value_display": "65"
+        },
+        {
+          "id": "out_contact",
+          "label": "Police out of contact",
+          "value": 25,
+          "value_display": "25"
+        },
+        {
+          "id": "awareness",
+          "label": "Public awareness",
+          "value": null,
+          "value_display": "132 · 42,738"
+        }
+      ]
+    },
+    {
+      "id": "tunnel",
+      "label": "Tunnel rescue",
+      "value": 279,
+      "value_display": "279",
+      "tone": "tunnel",
+      "source": "SitRep #16 / government note · NDRRMA rescued separate",
+      "items": [
+        {
+          "id": "tunnel_heli",
+          "label": "Tunnel heli",
+          "value": 279,
+          "value_display": "279"
+        },
+        {
+          "id": "lu_haitao",
+          "label": "UT-1 · Lu Haitao",
+          "value": null,
+          "value_display": "Alive"
+        },
+        {
+          "id": "trishuli_3a",
+          "label": "Trishuli 3A",
+          "value": 2,
+          "value_display": "2"
+        },
+        {
+          "id": "search",
+          "label": "Search ongoing",
+          "value": null,
+          "value_display": "Rasuwagadhi · Chilime · Langtang"
+        }
+      ]
+    },
+    {
+      "id": "deploy",
+      "label": "Deployed personnel",
+      "value": 21402,
+      "value_display": "21,402",
+      "tone": "deploy",
+      "source": "NDRRMA / MoHA · 23 Bhadra 13:00",
+      "items": [
+        {
+          "id": "total",
+          "label": "Total",
+          "value": 21402,
+          "value_display": "21,402"
+        },
+        {
+          "id": "army",
+          "label": "Army",
+          "value": 9287,
+          "value_display": "9,287"
+        },
+        {
+          "id": "apf",
+          "label": "Armed Police",
+          "value": 4203,
+          "value_display": "4,203"
+        },
+        {
+          "id": "police",
+          "label": "Police",
+          "value": 7912,
+          "value_display": "7,912"
+        },
+        {
+          "id": "medical",
+          "label": "Medical",
+          "value": null,
+          "value_display": "200+"
+        },
+        {
+          "id": "surgical",
+          "label": "Surgical teams",
+          "value": 6,
+          "value_display": "6"
+        },
+        {
+          "id": "heli",
+          "label": "Heli",
+          "value": 14,
+          "value_display": "14"
+        }
+      ]
+    },
+    {
+      "id": "comms",
+      "label": "Communications",
+      "value": null,
+      "value_display": "117 · 76",
+      "tone": "comms",
+      "source": "NDRRMA / MoHA · 23 Bhadra 13:00",
+      "items": [
+        {
+          "id": "ntc",
+          "label": "NTC",
+          "value": null,
+          "value_display": "117/120"
+        },
+        {
+          "id": "ncell",
+          "label": "Ncell",
+          "value": null,
+          "value_display": "76/78"
+        },
+        {
+          "id": "elec_rasuwa",
+          "label": "Power · Rasuwa",
+          "value": null,
+          "value_display": "78%"
+        },
+        {
+          "id": "elec_nuwakot",
+          "label": "Power · Nuwakot",
+          "value": null,
+          "value_display": "96.7%"
+        },
+        {
+          "id": "elec_dhading",
+          "label": "Power · Dhading",
+          "value": null,
+          "value_display": "99.8%"
+        }
+      ]
+    }
+  ],
+  "lang": "en"
+}
