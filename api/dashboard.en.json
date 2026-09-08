@@ -2,16 +2,16 @@
   "schema_version": 2,
   "id": "dashboard",
   "lang": "en",
-  "updated_at": "2026-09-08T13:00:00+05:45",
-  "as_of": "8 September 2026 · 13:00 NPT",
+  "updated_at": "2026-09-08T18:00:00+05:45",
+  "as_of": "8 September 2026 · 18:00 NPT",
   "credit": "Niraj Bhusal",
   "link": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
   "cards": [
     {
       "id": "dead",
       "label": "Deaths count",
-      "value": 1357,
-      "value_display": "1,357",
+      "value": 1358,
+      "value_display": "1,358",
       "items": [
         {
           "id": "chitwan",
@@ -40,8 +40,8 @@
         {
           "id": "rasuwa",
           "label": "Rasuwa",
-          "value": 169,
-          "value_display": "169"
+          "value": 170,
+          "value_display": "170"
         },
         {
           "id": "handover",
@@ -54,32 +54,32 @@
     {
       "id": "injured",
       "label": "Injured so far",
-      "value": 6827,
-      "value_display": "6,827",
+      "value": 7037,
+      "value_display": "7,037",
       "items": [
         {
           "id": "army",
           "label": "Army",
-          "value": 3404,
-          "value_display": "3,404"
+          "value": 3421,
+          "value_display": "3,421"
         },
         {
           "id": "apf",
           "label": "Armed Police",
-          "value": 3096,
-          "value_display": "3,096"
+          "value": 3287,
+          "value_display": "3,287"
         },
         {
           "id": "ndrrma_hosp",
           "label": "NDRRMA injured",
-          "value": 327,
-          "value_display": "327"
+          "value": 329,
+          "value_display": "329"
         },
         {
           "id": "discharged",
           "label": "Discharged (labeled)",
-          "value": 242,
-          "value_display": "242"
+          "value": 252,
+          "value_display": "252"
         }
       ]
     },
@@ -110,20 +110,20 @@
         {
           "id": "holding",
           "label": "Holding",
-          "value": 3533,
-          "value_display": "3,533"
+          "value": 3628,
+          "value_display": "3,628"
         },
         {
           "id": "hold_nuwakot",
           "label": "Hold · Nuwakot",
-          "value": 2651,
-          "value_display": "2,651"
+          "value": 2699,
+          "value_display": "2,699"
         },
         {
           "id": "hold_rasuwa",
           "label": "Hold · Rasuwa",
-          "value": 669,
-          "value_display": "669"
+          "value": 733,
+          "value_display": "733"
         }
       ]
     },
@@ -142,8 +142,8 @@
         {
           "id": "apf_flights",
           "label": "APF flights",
-          "value": 203,
-          "value_display": "203"
+          "value": 210,
+          "value_display": "210"
         },
         {
           "id": "private_ktm",
@@ -168,74 +168,74 @@
     {
       "id": "police",
       "label": "Nepal Police",
-      "value": 1353,
-      "value_display": "1,353",
+      "value": 1372,
+      "value_display": "1,372",
       "items": [
         {
           "id": "dead",
           "label": "Dead",
-          "value": 1353,
-          "value_display": "1,353"
+          "value": 1372,
+          "value_display": "1,372"
         },
         {
           "id": "dead_split",
           "label": "M/F/partial",
           "value": null,
-          "value_display": "530 · 328 · 495"
+          "value_display": "535 · 334 · 503"
         },
         {
           "id": "missing",
           "label": "Missing",
-          "value": 3902,
-          "value_display": "3,902"
+          "value": 4079,
+          "value_display": "4,079"
         },
         {
           "id": "injured_rescued",
           "label": "Injured/rescued",
-          "value": 9159,
-          "value_display": "9,159"
+          "value": 9254,
+          "value_display": "9,254"
         },
         {
           "id": "dna_total",
           "label": "DNA total",
-          "value": 2336,
-          "value_display": "2,336"
+          "value": 2711,
+          "value_display": "2,711"
         },
         {
           "id": "dna_split",
           "label": "DNA · deceased/relatives",
           "value": null,
-          "value_display": "1,181 · 1,155"
+          "value_display": "1,293 · 1,418"
         },
         {
           "id": "holding",
           "label": "Holding",
-          "value": 3180,
-          "value_display": "3,180"
+          "value": 3030,
+          "value_display": "3,030"
         },
         {
           "id": "body_mgmt",
           "label": "Dead body management",
-          "value": 1044,
-          "value_display": "1,044"
+          "value": 1153,
+          "value_display": "1,153"
         },
         {
           "id": "handover",
           "label": "Handover",
-          "value": 98,
-          "value_display": "98"
+          "value": 102,
+          "value_display": "102"
         },
         {
           "id": "udb",
           "label": "Unidentified · udb",
-          "value": 1290,
-          "value_display": "1,290"
+          "value": 1312,
+          "value_display": "1,312"
         },
         {
           "id": "deploy",
           "label": "Deployed",
-          "value": 7212,
-          "value_display": "7,212"
+          "value": 7975,
+          "value_display": "7,975"
         },
         {
           "id": "affected",
@@ -253,7 +253,7 @@
           "id": "awareness",
           "label": "Public awareness",
           "value": null,
-          "value_display": "132 · 42,738"
+          "value_display": "168 · 43,943"
         }
       ]
     },
@@ -292,20 +292,20 @@
     {
       "id": "deploy",
       "label": "Deployed personnel",
-      "value": 21402,
-      "value_display": "21,402",
+      "value": 21146,
+      "value_display": "21,146",
       "items": [
         {
           "id": "total",
           "label": "Total",
-          "value": 21402,
-          "value_display": "21,402"
+          "value": 21146,
+          "value_display": "21,146"
         },
         {
           "id": "army",
           "label": "Army",
-          "value": 9287,
-          "value_display": "9,287"
+          "value": 9031,
+          "value_display": "9,031"
         },
         {
           "id": "apf",
