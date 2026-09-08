@@ -1,7 +1,7 @@
 {
-  "id": "2026-09-08-1815",
-  "title": "API · dashboard मात्र (मृतक→सञ्चार)",
-  "body": "नयाँ api/dashboard.json — होमपेज KPI ८ कार्ड मात्र; पूरा साइट होइन।",
+  "id": "2026-09-08-1820",
+  "title": "API · overview.json हटाइयो",
+  "body": "पोर्टल endpoint: api/dashboard.json मात्र।",
   "url": "api/dashboard.json",
-  "updated_at": "2026-09-08T18:15:00+05:45"
+  "updated_at": "2026-09-08T18:20:00+05:45"
 }

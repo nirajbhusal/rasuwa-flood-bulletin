@@ -8,8 +8,8 @@ Public page: https://nirajbhusal.github.io/rasuwa-flood-bulletin/
 
 Portals can read homepage `#overview` KPIs from:
 
-- https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/overview.json
+- https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/dashboard.json
 - Docs / credit: https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/
 
-When the NDRRMA board updates, refresh `api/overview.json` alongside homepage KPIs.
+When the NDRRMA board updates, refresh `api/dashboard.json` alongside homepage KPIs.
 
