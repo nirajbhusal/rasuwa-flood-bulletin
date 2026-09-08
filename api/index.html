@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Overview API · रसुवा–भोटेकोशी बाढी बुलेटिन</title>
-<meta name="description" content="Public JSON API for the Rasuwa–Bhotekoshi flood bulletin homepage #overview KPIs. Credit: Niraj Bhusal.">
+<meta name="description" content="Public JSON API for the Rasuwa–Bhotekoshi flood bulletin homepage #dashboard KPIs (मृतक → सञ्चार). Credit: Niraj Bhusal.">
 <link rel="canonical" href="https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/">
 <meta name="robots" content="index,follow">
 <style>
@@ -60,7 +60,7 @@
 
   <h2>Endpoint</h2>
   <ul>
-    <li><a href="overview.json"><code>api/overview.json</code></a> — bilingual (ne + en), primary</li>
+    <li><a href="overview.json"><code>api/dashboard.json</code></a> — bilingual (ne + en), primary</li>
     <li><a href="overview.ne.json"><code>api/overview.ne.json</code></a> — Nepali flattened (convenience)</li>
     <li><a href="overview.en.json"><code>api/overview.en.json</code></a> — English flattened (convenience)</li>
   </ul>
@@ -70,7 +70,7 @@
   <p>GitHub Pages serves these as static <strong>GET</strong> files. Browser <code>fetch()</code> from other origins works for simple GET (no custom auth). Prefer <code>cache: 'no-store'</code> so portals pick up board refreshes. The site service worker already treats <code>.json</code> as live (no-store).</p>
 
   <h2>Example</h2>
-  <pre>fetch('https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/overview.json', {
+  <pre>fetch('https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/dashboard.json', {
   cache: 'no-store'
 })
   .then(r => r.json())
@@ -81,7 +81,7 @@
   });</pre>
 
   <pre># curl
-curl -sS 'https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/overview.json' | head</pre>
+curl -sS 'https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/dashboard.json' | head</pre>
 
   <h2>Schema notes</h2>
   <ul>
@@ -94,9 +94,9 @@ curl -sS 'https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/overview.json'
   </ul>
 
   <h2>Process note · अद्यावधिक</h2>
-  <!-- When NDRRMA / Nepal Police boards update, refresh api/overview.json alongside homepage #overview KPIs. -->
-  <p class="note">When the NDRRMA board (or labeled Nepal Police board) updates, refresh <code>api/overview.json</code> <strong>alongside</strong> the homepage <code>#overview</code> KPI cards — same numbers, same as-of stamp. Do not invent figures.</p>
-  <p class="note">NDRRMA बोर्ड (वा नेपाल प्रहरी कार्ड) अपडेट हुँदा होमपेज <code>#overview</code> सँगै <code>api/overview.json</code> पनि ताजा पार्नुहोस्। अंक नबनाउनुहोस्।</p>
+  <!-- When NDRRMA / Nepal Police boards update, refresh api/dashboard.json alongside homepage #dashboard KPIs (मृतक → सञ्चार). -->
+  <p class="note">When the NDRRMA board (or labeled Nepal Police board) updates, refresh <code>api/dashboard.json</code> <strong>alongside</strong> the homepage <code>#overview</code> KPI cards — same numbers, same as-of stamp. Do not invent figures.</p>
+  <p class="note">NDRRMA बोर्ड (वा नेपाल प्रहरी कार्ड) अपडेट हुँदा होमपेज <code>#overview</code> सँगै <code>api/dashboard.json</code> पनि ताजा पार्नुहोस्। अंक नबनाउनुहोस्।</p>
 </main>
 </body>
 </html>
