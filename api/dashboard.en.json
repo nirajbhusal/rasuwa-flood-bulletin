@@ -2,16 +2,16 @@
   "schema_version": 2,
   "id": "dashboard",
   "lang": "en",
-  "updated_at": "2026-09-08T18:00:00+05:45",
-  "as_of": "8 September 2026 · 18:00 NPT",
+  "updated_at": "2026-09-09T11:00:00+05:45",
+  "as_of": "9 September 2026 · 11:00 NPT",
   "credit": "Niraj Bhusal",
   "link": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
   "cards": [
     {
       "id": "dead",
       "label": "Deaths count",
-      "value": 1358,
-      "value_display": "1,358",
+      "value": 1367,
+      "value_display": "1,367",
       "items": [
         {
           "id": "chitwan",
@@ -22,8 +22,8 @@
         {
           "id": "nawal_e",
           "label": "Nawalparasi East",
-          "value": 223,
-          "value_display": "223"
+          "value": 226,
+          "value_display": "226"
         },
         {
           "id": "nawal_w",
@@ -40,8 +40,8 @@
         {
           "id": "rasuwa",
           "label": "Rasuwa",
-          "value": 170,
-          "value_display": "170"
+          "value": 174,
+          "value_display": "174"
         },
         {
           "id": "handover",
@@ -54,14 +54,14 @@
     {
       "id": "injured",
       "label": "Injured so far",
-      "value": 7037,
-      "value_display": "7,037",
+      "value": 7151,
+      "value_display": "7,151",
       "items": [
         {
           "id": "army",
           "label": "Army",
-          "value": 3421,
-          "value_display": "3,421"
+          "value": 3535,
+          "value_display": "3,535"
         },
         {
           "id": "apf",
@@ -86,8 +86,8 @@
     {
       "id": "miss",
       "label": "Missing around",
-      "value": 5326,
-      "value_display": "5,326",
+      "value": 5132,
+      "value_display": "5,132",
       "items": [
         {
           "id": "rasuwa_total",
@@ -97,9 +97,9 @@
         },
         {
           "id": "dao_nuwakot",
-          "label": "DAO Nuwakot",
-          "value": 1981,
-          "value_display": "1,981"
+          "label": "Nuwakot",
+          "value": 1787,
+          "value_display": "1,787"
         },
         {
           "id": "foreign",
@@ -130,20 +130,20 @@
     {
       "id": "rescued",
       "label": "Rescued so far",
-      "value": 13583,
-      "value_display": "13,583",
+      "value": 13646,
+      "value_display": "13,646",
       "items": [
         {
           "id": "army_flights",
           "label": "Army flights",
-          "value": 1157,
-          "value_display": "1,157"
+          "value": 1264,
+          "value_display": "1,264"
         },
         {
           "id": "apf_flights",
           "label": "APF flights",
-          "value": 210,
-          "value_display": "210"
+          "value": 258,
+          "value_display": "258"
         },
         {
           "id": "private_ktm",
@@ -292,20 +292,20 @@
     {
       "id": "deploy",
       "label": "Deployed personnel",
-      "value": 21146,
-      "value_display": "21,146",
+      "value": 21185,
+      "value_display": "21,185",
       "items": [
         {
           "id": "total",
           "label": "Total",
-          "value": 21146,
-          "value_display": "21,146"
+          "value": 21185,
+          "value_display": "21,185"
         },
         {
           "id": "army",
           "label": "Army",
-          "value": 9031,
-          "value_display": "9,031"
+          "value": 9007,
+          "value_display": "9,007"
         },
         {
           "id": "apf",
@@ -316,8 +316,8 @@
         {
           "id": "police",
           "label": "Police",
-          "value": 7912,
-          "value_display": "7,912"
+          "value": 7975,
+          "value_display": "7,975"
         },
         {
           "id": "medical",
