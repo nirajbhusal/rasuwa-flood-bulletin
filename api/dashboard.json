@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "id": "dashboard",
   "updated_at": "2026-09-09T11:00:00+05:45",
   "as_of": {
@@ -750,5 +750,17 @@
     "en": "Source · Niraj Bhusal"
   },
   "attribution_required": true,
-  "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html"
+  "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html",
+  "source_line": {
+    "ne": "स्रोत: निरज भुसाल · रसुवा–भोटेकोशी बाढी बुलेटिन",
+    "en": "Source: Niraj Bhusal · Rasuwa–Bhotekoshi Flood Bulletin"
+  },
+  "attribution_html": {
+    "ne": "स्रोत: <a href=\"https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview\">निरज भुसाल · रसुवा–भोटेकोशी बाढी बुलेटिन</a>",
+    "en": "Source: <a href=\"https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview\">Niraj Bhusal · Rasuwa–Bhotekoshi Flood Bulletin</a>"
+  },
+  "attribution_note": {
+    "ne": "अंक पुनःप्रकाश गर्दा credit / watermark / source_line / attribution_html र link अनिवार्य देखाउनुहोस्।",
+    "en": "When republishing figures, you must display credit / watermark / source_line / attribution_html and link."
+  }
 }

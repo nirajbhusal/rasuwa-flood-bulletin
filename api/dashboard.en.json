@@ -1,10 +1,15 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "id": "dashboard",
   "lang": "en",
   "updated_at": "2026-09-09T11:00:00+05:45",
   "as_of": "9 September 2026 · 11:00 NPT",
   "credit": "Niraj Bhusal",
+  "watermark": "Source · Niraj Bhusal",
+  "source_line": "Source: Niraj Bhusal · Rasuwa–Bhotekoshi Flood Bulletin",
+  "attribution_html": "Source: <a href=\"https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview\">Niraj Bhusal · Rasuwa–Bhotekoshi Flood Bulletin</a>",
+  "attribution_required": true,
+  "attribution_note": "When republishing figures, you must display credit / watermark / source_line / attribution_html and link.",
   "link": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
   "cards": [
     {
@@ -255,9 +260,7 @@
           "value": null,
           "value_display": "158 · 43,943"
         }
-      ],
-      "as_of": "24 Bhadra 11:00 / 9 September 2026 11:00",
-      "history_note": "Previous 23 Bhadra 20:00: police dead 1,372 · missing 4,079 · DNA 2,711 · body mgmt 1,153 · udb 1,312 · awareness 168/43,943 is history."
+      ]
     },
     {
       "id": "tunnel",
@@ -379,8 +382,5 @@
         }
       ]
     }
-  ],
-  "watermark": "Source · Niraj Bhusal",
-  "attribution_required": true,
-  "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html"
+  ]
 }

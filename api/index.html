@@ -91,21 +91,19 @@ curl -sS 'https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/dashboard.json
     <li>Nepal Police card is a <strong>separate</strong> source from NDRRMA hero KPIs.</li>
     <li>Name-list rescue count on the names page is <strong>not</strong> the homepage rescued total.</li>
     <li><code>comms.value</code> is <code>null</code> (composite lead <code>117 · 76</code>); use <code>value_display</code>.</li>
-    <li>Please keep <code>credit</code> / <code>watermark</code> visible when republishing figures. Prefer the <a href="../embed/dashboard.html">embed widget</a> (<code>attribution_required: true</code>).</li>
+    <li>Please keep <code>credit</code> / <code>watermark</code> / <code>source_line</code> / <code>attribution_html</code> and <code>link</code> visible when republishing (<code>attribution_required: true</code>).</li>
   </ul>
 
 
   <h2>Embed widget · एम्बेड (recommended)</h2>
-  <p>Portals that only fetch JSON often drop <code>credit</code> / <code>link</code>. Use this iframe instead — the watermark is baked into the widget and always visible:</p>
-  <ul>
-    <li><a href="../embed/dashboard.html"><code>embed/dashboard.html</code></a> — primary embed URL</li>
-    <li><a href="embed.html"><code>api/embed.html</code></a> — short redirect (keeps query string)</li>
-    <li>Query: <code>?lang=ne|en</code> (default <code>ne</code>), optional <code>?theme=light|dark</code></li>
-    <li>JSON fields: <code>embed</code>, <code>watermark</code>, <code>attribution_required: true</code></li>
-  </ul>
-  <pre>&lt;iframe src="https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html?lang=ne" title="रसुवा बाढी ड्यासबोर्ड · निरज भुसाल" style="width:100%;min-height:420px;border:0" loading="lazy"&gt;&lt;/iframe&gt;
-&lt;p&gt;स्रोत: &lt;a href="https://nirajbhusal.github.io/rasuwa-flood-bulletin/"&gt;निरज भुसाल · रसुवा–भोटेकोशी बाढी बुलेटिन&lt;/a&gt;&lt;/p&gt;</pre>
-  <p class="note">GitHub Pages does not send a blocking <code>X-Frame-Options</code> for this site, so partner iframes work. Always keep the footer credit visible; do not crop it out of the iframe.</p>
+  <p><strong>Required when using this API:</strong> show <code>credit</code> (or <code>watermark</code> / <code>source_line</code>) and link <code>link</code> next to the figures. Example:</p>
+  <pre>fetch('https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/dashboard.json')
+  .then(r =&gt; r.json())
+  .then(data =&gt; {
+    // render data.cards …
+    el.innerHTML = data.attribution_html.ne; // or data.source_line.ne + link
+  });</pre>
+  <p class="note">JSON cannot force a watermark on another site — the portal must render these fields. Optional iframe: <a href="../embed/dashboard.html"><code>embed/dashboard.html</code></a> (baked-in credit).</p>
 
   <h2>Process note · अद्यावधिक</h2>
   <!-- When NDRRMA / Nepal Police boards update, refresh api/dashboard.json alongside homepage #dashboard KPIs (मृतक → सञ्चार). -->
