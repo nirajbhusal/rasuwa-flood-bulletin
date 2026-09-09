@@ -326,10 +326,10 @@
         "ne": "नेपाल प्रहरी",
         "en": "Nepal Police"
       },
-      "value": 1372,
+      "value": 1367,
       "value_display": {
-        "ne": "१,३७२",
-        "en": "1,372"
+        "ne": "१,३६७",
+        "en": "1,367"
       },
       "items": [
         {
@@ -338,10 +338,10 @@
             "ne": "शव",
             "en": "Dead"
           },
-          "value": 1372,
+          "value": 1367,
           "value_display": {
-            "ne": "१,३७२",
-            "en": "1,372"
+            "ne": "१,३६७",
+            "en": "1,367"
           }
         },
         {
@@ -352,8 +352,8 @@
           },
           "value": null,
           "value_display": {
-            "ne": "५३५ · ३३४ · ५०३",
-            "en": "535 · 334 · 503"
+            "ne": "५३३ · ३३१ · ५०३",
+            "en": "533 · 331 · 503"
           }
         },
         {
@@ -362,10 +362,10 @@
             "ne": "सम्पर्कविहीन",
             "en": "Missing"
           },
-          "value": 4079,
+          "value": 4077,
           "value_display": {
-            "ne": "४,०७९",
-            "en": "4,079"
+            "ne": "४,०७७",
+            "en": "4,077"
           }
         },
         {
@@ -386,10 +386,10 @@
             "ne": "DNA जम्मा",
             "en": "DNA total"
           },
-          "value": 2711,
+          "value": 2698,
           "value_display": {
-            "ne": "२,७११",
-            "en": "2,711"
+            "ne": "२,६९८",
+            "en": "2,698"
           }
         },
         {
@@ -400,8 +400,8 @@
           },
           "value": null,
           "value_display": {
-            "ne": "१,२९३ · १,४१८",
-            "en": "1,293 · 1,418"
+            "ne": "१,२८६ · १,४१२",
+            "en": "1,286 · 1,412"
           }
         },
         {
@@ -422,10 +422,10 @@
             "ne": "शव व्यवस्थापन",
             "en": "Dead body management"
           },
-          "value": 1153,
+          "value": 1147,
           "value_display": {
-            "ne": "१,१५३",
-            "en": "1,153"
+            "ne": "१,१४७",
+            "en": "1,147"
           }
         },
         {
@@ -446,10 +446,10 @@
             "ne": "udb पहिचान नभएको",
             "en": "Unidentified · udb"
           },
-          "value": 1312,
+          "value": 1310,
           "value_display": {
-            "ne": "१,३१२",
-            "en": "1,312"
+            "ne": "१,३१०",
+            "en": "1,310"
           }
         },
         {
@@ -496,11 +496,19 @@
           },
           "value": null,
           "value_display": {
-            "ne": "१६८ · ४३,९४३",
-            "en": "168 · 43,943"
+            "ne": "१५८ · ४३,९४३",
+            "en": "158 · 43,943"
           }
         }
-      ]
+      ],
+      "as_of": {
+        "ne": "२४ भदौ ११:०० / ९ सेप्टेम्बर २०२६ ११:००",
+        "en": "24 Bhadra 11:00 / 9 September 2026 11:00"
+      },
+      "history_note": {
+        "ne": "अघिल्लो २३ भदौ २०:००: शव प्रहरी १,३७२ · सम्पर्कविहीन ४,०७९ · DNA २,७११ · शव व्यवस्थापन १,१५३ · udb १,३१२ · जनचेतना १६८/४३,९४३ इतिहास।",
+        "en": "Previous 23 Bhadra 20:00: police dead 1,372 · missing 4,079 · DNA 2,711 · body mgmt 1,153 · udb 1,312 · awareness 168/43,943 is history."
+      }
     },
     {
       "id": "tunnel",
@@ -736,5 +744,11 @@
         }
       ]
     }
-  ]
+  ],
+  "watermark": {
+    "ne": "स्रोत · निरज भुसाल",
+    "en": "Source · Niraj Bhusal"
+  },
+  "attribution_required": true,
+  "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html"
 }

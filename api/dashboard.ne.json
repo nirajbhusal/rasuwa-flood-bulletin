@@ -168,26 +168,26 @@
     {
       "id": "police",
       "label": "नेपाल प्रहरी",
-      "value": 1372,
-      "value_display": "१,३७२",
+      "value": 1367,
+      "value_display": "१,३६७",
       "items": [
         {
           "id": "dead",
           "label": "शव",
-          "value": 1372,
-          "value_display": "१,३७२"
+          "value": 1367,
+          "value_display": "१,३६७"
         },
         {
           "id": "dead_split",
           "label": "पु/म/आंशिक",
           "value": null,
-          "value_display": "५३५ · ३३४ · ५०३"
+          "value_display": "५३३ · ३३१ · ५०३"
         },
         {
           "id": "missing",
           "label": "सम्पर्कविहीन",
-          "value": 4079,
-          "value_display": "४,०७९"
+          "value": 4077,
+          "value_display": "४,०७७"
         },
         {
           "id": "injured_rescued",
@@ -198,14 +198,14 @@
         {
           "id": "dna_total",
           "label": "DNA जम्मा",
-          "value": 2711,
-          "value_display": "२,७११"
+          "value": 2698,
+          "value_display": "२,६९८"
         },
         {
           "id": "dna_split",
           "label": "DNA · मृतक/आफन्त",
           "value": null,
-          "value_display": "१,२९३ · १,४१८"
+          "value_display": "१,२८६ · १,४१२"
         },
         {
           "id": "holding",
@@ -216,8 +216,8 @@
         {
           "id": "body_mgmt",
           "label": "शव व्यवस्थापन",
-          "value": 1153,
-          "value_display": "१,१५३"
+          "value": 1147,
+          "value_display": "१,१४७"
         },
         {
           "id": "handover",
@@ -228,8 +228,8 @@
         {
           "id": "udb",
           "label": "udb पहिचान नभएको",
-          "value": 1312,
-          "value_display": "१,३१२"
+          "value": 1310,
+          "value_display": "१,३१०"
         },
         {
           "id": "deploy",
@@ -253,9 +253,11 @@
           "id": "awareness",
           "label": "जनचेतना",
           "value": null,
-          "value_display": "१६८ · ४३,९४३"
+          "value_display": "१५८ · ४३,९४३"
         }
-      ]
+      ],
+      "as_of": "२४ भदौ ११:०० / ९ सेप्टेम्बर २०२६ ११:००",
+      "history_note": "अघिल्लो २३ भदौ २०:००: शव प्रहरी १,३७२ · सम्पर्कविहीन ४,०७९ · DNA २,७११ · शव व्यवस्थापन १,१५३ · udb १,३१२ · जनचेतना १६८/४३,९४३ इतिहास।"
     },
     {
       "id": "tunnel",
@@ -377,5 +379,8 @@
         }
       ]
     }
-  ]
+  ],
+  "watermark": "स्रोत · निरज भुसाल",
+  "attribution_required": true,
+  "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html"
 }

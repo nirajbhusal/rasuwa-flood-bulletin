@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>रसुवा बाढी ड्यासबोर्ड · निरज भुसाल</title>
+<meta name="description" content="Embeddable Rasuwa–Bhotekoshi flood KPI dashboard with required attribution to Niraj Bhusal.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html">
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1a1a1a;
+    --muted: #5a5a5a;
+    --bg: #f7f5f0;
+    --card: #ffffff;
+    --line: #e2ddd3;
+    --accent: #8b1a1a;
+    --link: #1a4d7c;
+    --shadow: 0 1px 2px rgba(0,0,0,.04);
+  }
+  html.theme-dark {
+    color-scheme: dark;
+    --ink: #f2f2f2;
+    --muted: #a8a8a8;
+    --bg: #121212;
+    --card: #1c1c1c;
+    --line: #333;
+    --accent: #e07070;
+    --link: #6db3f2;
+    --shadow: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    html:not(.theme-light):not(.theme-dark) {
+      color-scheme: dark;
+      --ink: #f2f2f2;
+      --muted: #a8a8a8;
+      --bg: #121212;
+      --card: #1c1c1c;
+      --line: #333;
+      --accent: #e07070;
+      --link: #6db3f2;
+      --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+  body {
+    font-family: system-ui, -apple-system, "Noto Sans Devanagari", "Noto Sans", "Segoe UI", sans-serif;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { padding: .7rem .75rem .55rem; max-width: 920px; margin: 0 auto; }
+  header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .35rem .75rem; margin-bottom: .55rem; }
+  .title { font-size: .82rem; font-weight: 800; letter-spacing: .01em; margin: 0; }
+  .asof { font-size: .72rem; color: var(--muted); font-weight: 600; margin: 0; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .45rem;
+  }
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 360px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: .55rem .6rem .5rem;
+    box-shadow: var(--shadow);
+    min-width: 0;
+  }
+  .card.hero { border-top: 3px solid var(--accent); }
+  .label {
+    display: block;
+    font-size: .68rem;
+    font-weight: 700;
+    color: var(--muted);
+    line-height: 1.3;
+    margin-bottom: .2rem;
+  }
+  .value {
+    display: block;
+    font-size: clamp(1.15rem, 3.6vw, 1.55rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: .01em;
+    color: var(--ink);
+    line-height: 1.15;
+    word-break: break-word;
+  }
+  .err {
+    margin: .5rem 0;
+    padding: .65rem .75rem;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--muted);
+    font-size: .85rem;
+  }
+  footer.wm {
+    margin-top: .65rem;
+    padding: .55rem .65rem;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    background: var(--card);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .25rem .75rem;
+  }
+  footer.wm a {
+    color: var(--link);
+    font-weight: 800;
+    text-decoration: none;
+    font-size: .88rem;
+  }
+  footer.wm a:hover, footer.wm a:focus { text-decoration: underline; }
+  .wm-en { font-size: .72rem; color: var(--muted); font-weight: 600; }
+  .skel .card { min-height: 3.4rem; opacity: .55; }
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <header>
+    <h1 class="title" id="title">रसुवा–भोटेकोशी बाढी · मुख्य आंकडा</h1>
+    <p class="asof" id="asof">…</p>
+  </header>
+  <div class="grid skel" id="grid" aria-busy="true" aria-live="polite">
+    <div class="card hero"><span class="label">…</span><span class="value">—</span></div>
+    <div class="card hero"><span class="label">…</span><span class="value">—</span></div>
+    <div class="card hero"><span class="label">…</span><span class="value">—</span></div>
+    <div class="card hero"><span class="label">…</span><span class="value">—</span></div>
+  </div>
+  <footer class="wm" id="wm">
+    <a id="wm-ne" href="https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview" target="_blank" rel="noopener noreferrer">स्रोत · निरज भुसाल</a>
+    <span class="wm-en" id="wm-en">Source · Niraj Bhusal</span>
+  </footer>
+</div>
+<script>
+(function () {
+  var ABS_JSON = 'https://nirajbhusal.github.io/rasuwa-flood-bulletin/api/dashboard.json';
+  var FALLBACK_LINK = 'https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview';
+  var HEADLINE = { dead: 1, miss: 1, rescued: 1, injured: 1, deploy: 1 };
+  var TITLE = {
+    ne: 'रसुवा–भोटेकोशी बाढी · मुख्य आंकडा',
+    en: 'Rasuwa–Bhotekoshi flood · headline figures'
+  };
+
+  function qs() {
+    try { return new URLSearchParams(location.search || ''); }
+    catch (e) { return { get: function () { return null; } }; }
+  }
+
+  var params = qs();
+  var lang = (params.get('lang') || 'ne').toLowerCase();
+  if (lang !== 'en' && lang !== 'ne') lang = 'ne';
+  var theme = (params.get('theme') || '').toLowerCase();
+  if (theme === 'dark') document.documentElement.classList.add('theme-dark');
+  if (theme === 'light') document.documentElement.classList.add('theme-light');
+  document.documentElement.lang = lang;
+  document.getElementById('title').textContent = TITLE[lang];
+
+  function pick(obj, key) {
+    if (obj == null) return '';
+    if (typeof obj === 'string' || typeof obj === 'number') return obj;
+    if (obj[key] != null) return obj[key];
+    if (obj.ne != null) return obj.ne;
+    if (obj.en != null) return obj.en;
+    return '';
+  }
+
+  function creditText(data) {
+    var wm = data && data.watermark;
+    if (wm) {
+      var t = pick(wm, lang);
+      if (t) return String(t);
+    }
+    var c = data && data.credit;
+    var name = pick(c, lang) || (lang === 'en' ? 'Niraj Bhusal' : 'निरज भुसाल');
+    return (lang === 'en' ? 'Source · ' : 'स्रोत · ') + name;
+  }
+
+  function render(data) {
+    var grid = document.getElementById('grid');
+    var asof = pick(data.as_of, lang) || '';
+    document.getElementById('asof').textContent = asof;
+
+    var link = data.link || FALLBACK_LINK;
+    var wmNe = document.getElementById('wm-ne');
+    var wmEn = document.getElementById('wm-en');
+    wmNe.href = link;
+    wmNe.textContent = creditText(data);
+    // Always keep a small English line visible when Nepali is primary
+    if (lang === 'ne') {
+      wmEn.hidden = false;
+      wmEn.textContent = (data.watermark && data.watermark.en) || 'Source · Niraj Bhusal';
+    } else {
+      // English primary: show Nepali as secondary small line
+      wmEn.hidden = false;
+      wmEn.textContent = (data.watermark && data.watermark.ne) || 'स्रोत · निरज भुसाल';
+      // Primary link text already English via creditText
+    }
+
+    var cards = Array.isArray(data.cards) ? data.cards : [];
+    grid.classList.remove('skel');
+    grid.setAttribute('aria-busy', 'false');
+    grid.innerHTML = '';
+    if (!cards.length) {
+      grid.innerHTML = '<p class="err">No cards in dashboard.json</p>';
+      return;
+    }
+    cards.forEach(function (c) {
+      var el = document.createElement('div');
+      el.className = 'card' + (HEADLINE[c.id] ? ' hero' : '');
+      var label = pick(c.label, lang) || c.id;
+      var val = pick(c.value_display, lang);
+      if (val === '' || val == null) {
+        val = (c.value == null ? '—' : String(c.value));
+      }
+      el.innerHTML = '<span class="label"></span><span class="value"></span>';
+      el.querySelector('.label').textContent = label;
+      el.querySelector('.value').textContent = val;
+      grid.appendChild(el);
+    });
+
+    // Resize hint for parent iframe (best-effort)
+    try {
+      var h = Math.ceil(document.documentElement.scrollHeight);
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ type: 'rasuwa-embed-size', height: h }, '*');
+      }
+    } catch (e) {}
+  }
+
+  function fail(msg) {
+    var grid = document.getElementById('grid');
+    grid.classList.remove('skel');
+    grid.innerHTML = '<p class="err">' + msg + '</p>';
+  }
+
+  function load(url) {
+    return fetch(url, { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
+  }
+
+  var rel = '../api/dashboard.json';
+  load(rel).catch(function () { return load(ABS_JSON); })
+    .then(render)
+    .catch(function () {
+      fail(lang === 'en' ? 'Could not load dashboard.json' : 'dashboard.json लोड हुन सकेन');
+    });
+})();
+</script>
+</body>
+</html>

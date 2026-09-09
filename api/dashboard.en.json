@@ -168,26 +168,26 @@
     {
       "id": "police",
       "label": "Nepal Police",
-      "value": 1372,
-      "value_display": "1,372",
+      "value": 1367,
+      "value_display": "1,367",
       "items": [
         {
           "id": "dead",
           "label": "Dead",
-          "value": 1372,
-          "value_display": "1,372"
+          "value": 1367,
+          "value_display": "1,367"
         },
         {
           "id": "dead_split",
           "label": "M/F/partial",
           "value": null,
-          "value_display": "535 · 334 · 503"
+          "value_display": "533 · 331 · 503"
         },
         {
           "id": "missing",
           "label": "Missing",
-          "value": 4079,
-          "value_display": "4,079"
+          "value": 4077,
+          "value_display": "4,077"
         },
         {
           "id": "injured_rescued",
@@ -198,14 +198,14 @@
         {
           "id": "dna_total",
           "label": "DNA total",
-          "value": 2711,
-          "value_display": "2,711"
+          "value": 2698,
+          "value_display": "2,698"
         },
         {
           "id": "dna_split",
           "label": "DNA · deceased/relatives",
           "value": null,
-          "value_display": "1,293 · 1,418"
+          "value_display": "1,286 · 1,412"
         },
         {
           "id": "holding",
@@ -216,8 +216,8 @@
         {
           "id": "body_mgmt",
           "label": "Dead body management",
-          "value": 1153,
-          "value_display": "1,153"
+          "value": 1147,
+          "value_display": "1,147"
         },
         {
           "id": "handover",
@@ -228,8 +228,8 @@
         {
           "id": "udb",
           "label": "Unidentified · udb",
-          "value": 1312,
-          "value_display": "1,312"
+          "value": 1310,
+          "value_display": "1,310"
         },
         {
           "id": "deploy",
@@ -253,9 +253,11 @@
           "id": "awareness",
           "label": "Public awareness",
           "value": null,
-          "value_display": "168 · 43,943"
+          "value_display": "158 · 43,943"
         }
-      ]
+      ],
+      "as_of": "24 Bhadra 11:00 / 9 September 2026 11:00",
+      "history_note": "Previous 23 Bhadra 20:00: police dead 1,372 · missing 4,079 · DNA 2,711 · body mgmt 1,153 · udb 1,312 · awareness 168/43,943 is history."
     },
     {
       "id": "tunnel",
@@ -377,5 +379,8 @@
         }
       ]
     }
-  ]
+  ],
+  "watermark": "Source · Niraj Bhusal",
+  "attribution_required": true,
+  "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html"
 }
