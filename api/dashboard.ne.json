@@ -2,8 +2,8 @@
   "schema_version": 3,
   "id": "dashboard",
   "lang": "ne",
-  "updated_at": "2026-09-09T11:00:00+05:45",
-  "as_of": "९ सेप्टेम्बर / २४ भदौ २०८३ · ११:००",
+  "updated_at": "2026-09-09T18:00:00+05:45",
+  "as_of": "९ सेप्टेम्बर / २४ भदौ २०८३ · १८:००",
   "credit": "निरज भुसाल",
   "watermark": "स्रोत · निरज भुसाल",
   "source_line": "स्रोत: निरज भुसाल · रसुवा–भोटेकोशी बाढी बुलेटिन",
@@ -15,8 +15,8 @@
     {
       "id": "dead",
       "label": "मृतक संख्या",
-      "value": 1367,
-      "value_display": "१,३६७",
+      "value": 1369,
+      "value_display": "१,३६९",
       "items": [
         {
           "id": "chitwan",
@@ -27,8 +27,8 @@
         {
           "id": "nawal_e",
           "label": "नवलपरासी पूर्व",
-          "value": 226,
-          "value_display": "२२६"
+          "value": 227,
+          "value_display": "२२७"
         },
         {
           "id": "nawal_w",
@@ -39,8 +39,8 @@
         {
           "id": "nuwakot",
           "label": "नुवाकोट",
-          "value": 197,
-          "value_display": "१९७"
+          "value": 198,
+          "value_display": "१९८"
         },
         {
           "id": "rasuwa",
@@ -59,8 +59,8 @@
     {
       "id": "injured",
       "label": "हालसम्म घाइते",
-      "value": 7151,
-      "value_display": "७,१५१",
+      "value": 7474,
+      "value_display": "७,४७४",
       "items": [
         {
           "id": "army",
@@ -71,20 +71,26 @@
         {
           "id": "apf",
           "label": "सशस्त्र",
-          "value": 3287,
-          "value_display": "३,२८७"
+          "value": 3606,
+          "value_display": "३,६०६"
         },
         {
           "id": "ndrrma_hosp",
-          "label": "NDRRMA घाइते",
-          "value": 329,
-          "value_display": "३२९"
+          "label": "अस्पताल (१९)",
+          "value": 333,
+          "value_display": "३३३"
         },
         {
           "id": "discharged",
           "label": "डिस्चार्ज (लेबल)",
-          "value": 252,
-          "value_display": "२५२"
+          "value": 256,
+          "value_display": "२५६"
+        },
+        {
+          "id": "hospital_count",
+          "label": "अस्पताल संख्या",
+          "value": 19,
+          "value_display": "१९"
         }
       ]
     },
@@ -115,20 +121,32 @@
         {
           "id": "holding",
           "label": "होल्डिङ",
-          "value": 3628,
-          "value_display": "३,६२८"
+          "value": 3591,
+          "value_display": "३,५९१"
         },
         {
           "id": "hold_nuwakot",
           "label": "होल्ड · नुवाकोट",
-          "value": 2699,
-          "value_display": "२,६९९"
+          "value": 2694,
+          "value_display": "२,६९४"
         },
         {
           "id": "hold_rasuwa",
           "label": "होल्ड · रसुवा",
-          "value": 733,
-          "value_display": "७३३"
+          "value": 634,
+          "value_display": "६३४"
+        },
+        {
+          "id": "hold_dhading",
+          "label": "होल्ड · धादिङ",
+          "value": 263,
+          "value_display": "२६३"
+        },
+        {
+          "id": "holding_centers",
+          "label": "होल्डिङ सेन्टर",
+          "value": 37,
+          "value_display": "३७"
         }
       ]
     },
@@ -139,10 +157,10 @@
       "value_display": "१३,६४६",
       "items": [
         {
-          "id": "army_flights",
-          "label": "सेना उडान",
-          "value": 1264,
-          "value_display": "१,२६४"
+          "id": "heli_flights",
+          "label": "हेलि उडान जम्मा",
+          "value": 1348,
+          "value_display": "१,३४८"
         },
         {
           "id": "apf_flights",
@@ -167,6 +185,12 @@
           "label": "सुरुङ्ग अलग",
           "value": 279,
           "value_display": "२७९"
+        },
+        {
+          "id": "flights_today",
+          "label": "आज उडान",
+          "value": 84,
+          "value_display": "८४"
         }
       ]
     },

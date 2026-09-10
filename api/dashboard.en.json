@@ -2,8 +2,8 @@
   "schema_version": 3,
   "id": "dashboard",
   "lang": "en",
-  "updated_at": "2026-09-09T11:00:00+05:45",
-  "as_of": "9 September 2026 · 11:00 NPT",
+  "updated_at": "2026-09-09T18:00:00+05:45",
+  "as_of": "9 September 2026 · 18:00 NPT",
   "credit": "Niraj Bhusal",
   "watermark": "Source · Niraj Bhusal",
   "source_line": "Source: Niraj Bhusal · Rasuwa–Bhotekoshi Flood Bulletin",
@@ -15,8 +15,8 @@
     {
       "id": "dead",
       "label": "Deaths count",
-      "value": 1367,
-      "value_display": "1,367",
+      "value": 1369,
+      "value_display": "1,369",
       "items": [
         {
           "id": "chitwan",
@@ -27,8 +27,8 @@
         {
           "id": "nawal_e",
           "label": "Nawalparasi East",
-          "value": 226,
-          "value_display": "226"
+          "value": 227,
+          "value_display": "227"
         },
         {
           "id": "nawal_w",
@@ -39,8 +39,8 @@
         {
           "id": "nuwakot",
           "label": "Nuwakot",
-          "value": 197,
-          "value_display": "197"
+          "value": 198,
+          "value_display": "198"
         },
         {
           "id": "rasuwa",
@@ -59,8 +59,8 @@
     {
       "id": "injured",
       "label": "Injured so far",
-      "value": 7151,
-      "value_display": "7,151",
+      "value": 7474,
+      "value_display": "7,474",
       "items": [
         {
           "id": "army",
@@ -71,20 +71,26 @@
         {
           "id": "apf",
           "label": "Armed Police",
-          "value": 3287,
-          "value_display": "3,287"
+          "value": 3606,
+          "value_display": "3,606"
         },
         {
           "id": "ndrrma_hosp",
-          "label": "NDRRMA injured",
-          "value": 329,
-          "value_display": "329"
+          "label": "Hospitals (19)",
+          "value": 333,
+          "value_display": "333"
         },
         {
           "id": "discharged",
           "label": "Discharged (labeled)",
-          "value": 252,
-          "value_display": "252"
+          "value": 256,
+          "value_display": "256"
+        },
+        {
+          "id": "hospital_count",
+          "label": "Hospital count",
+          "value": 19,
+          "value_display": "19"
         }
       ]
     },
@@ -115,20 +121,32 @@
         {
           "id": "holding",
           "label": "Holding",
-          "value": 3628,
-          "value_display": "3,628"
+          "value": 3591,
+          "value_display": "3,591"
         },
         {
           "id": "hold_nuwakot",
           "label": "Hold · Nuwakot",
-          "value": 2699,
-          "value_display": "2,699"
+          "value": 2694,
+          "value_display": "2,694"
         },
         {
           "id": "hold_rasuwa",
           "label": "Hold · Rasuwa",
-          "value": 733,
-          "value_display": "733"
+          "value": 634,
+          "value_display": "634"
+        },
+        {
+          "id": "hold_dhading",
+          "label": "Hold · Dhading",
+          "value": 263,
+          "value_display": "263"
+        },
+        {
+          "id": "holding_centers",
+          "label": "Holding centers",
+          "value": 37,
+          "value_display": "37"
         }
       ]
     },
@@ -139,10 +157,10 @@
       "value_display": "13,646",
       "items": [
         {
-          "id": "army_flights",
-          "label": "Army flights",
-          "value": 1264,
-          "value_display": "1,264"
+          "id": "heli_flights",
+          "label": "Total heli flights",
+          "value": 1348,
+          "value_display": "1,348"
         },
         {
           "id": "apf_flights",
@@ -167,6 +185,12 @@
           "label": "Tunnel separate",
           "value": 279,
           "value_display": "279"
+        },
+        {
+          "id": "flights_today",
+          "label": "Flights today",
+          "value": 84,
+          "value_display": "84"
         }
       ]
     },

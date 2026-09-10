@@ -1,10 +1,10 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-09T11:00:00+05:45",
+  "updated_at": "2026-09-09T18:00:00+05:45",
   "as_of": {
-    "ne": "९ सेप्टेम्बर / २४ भदौ २०८३ · ११:००",
-    "en": "9 September 2026 · 11:00 NPT"
+    "ne": "९ सेप्टेम्बर / २४ भदौ २०८३ · १८:००",
+    "en": "9 September 2026 · 18:00 NPT"
   },
   "credit": {
     "ne": "निरज भुसाल",
@@ -18,10 +18,10 @@
         "ne": "मृतक संख्या",
         "en": "Deaths count"
       },
-      "value": 1367,
+      "value": 1369,
       "value_display": {
-        "ne": "१,३६७",
-        "en": "1,367"
+        "ne": "१,३६९",
+        "en": "1,369"
       },
       "items": [
         {
@@ -42,10 +42,10 @@
             "ne": "नवलपरासी पूर्व",
             "en": "Nawalparasi East"
           },
-          "value": 226,
+          "value": 227,
           "value_display": {
-            "ne": "२२६",
-            "en": "226"
+            "ne": "२२७",
+            "en": "227"
           }
         },
         {
@@ -66,10 +66,10 @@
             "ne": "नुवाकोट",
             "en": "Nuwakot"
           },
-          "value": 197,
+          "value": 198,
           "value_display": {
-            "ne": "१९७",
-            "en": "197"
+            "ne": "१९८",
+            "en": "198"
           }
         },
         {
@@ -104,10 +104,10 @@
         "ne": "हालसम्म घाइते",
         "en": "Injured so far"
       },
-      "value": 7151,
+      "value": 7474,
       "value_display": {
-        "ne": "७,१५१",
-        "en": "7,151"
+        "ne": "७,४७४",
+        "en": "7,474"
       },
       "items": [
         {
@@ -128,22 +128,22 @@
             "ne": "सशस्त्र",
             "en": "Armed Police"
           },
-          "value": 3287,
+          "value": 3606,
           "value_display": {
-            "ne": "३,२८७",
-            "en": "3,287"
+            "ne": "३,६०६",
+            "en": "3,606"
           }
         },
         {
           "id": "ndrrma_hosp",
           "label": {
-            "ne": "NDRRMA घाइते",
-            "en": "NDRRMA injured"
+            "ne": "अस्पताल (१९)",
+            "en": "Hospitals (19)"
           },
-          "value": 329,
+          "value": 333,
           "value_display": {
-            "ne": "३२९",
-            "en": "329"
+            "ne": "३३३",
+            "en": "333"
           }
         },
         {
@@ -152,10 +152,22 @@
             "ne": "डिस्चार्ज (लेबल)",
             "en": "Discharged (labeled)"
           },
-          "value": 252,
+          "value": 256,
           "value_display": {
-            "ne": "२५२",
-            "en": "252"
+            "ne": "२५६",
+            "en": "256"
+          }
+        },
+        {
+          "id": "hospital_count",
+          "label": {
+            "ne": "अस्पताल संख्या",
+            "en": "Hospital count"
+          },
+          "value": 19,
+          "value_display": {
+            "ne": "१९",
+            "en": "19"
           }
         }
       ]
@@ -214,10 +226,10 @@
             "ne": "होल्डिङ",
             "en": "Holding"
           },
-          "value": 3628,
+          "value": 3591,
           "value_display": {
-            "ne": "३,६२८",
-            "en": "3,628"
+            "ne": "३,५९१",
+            "en": "3,591"
           }
         },
         {
@@ -226,10 +238,10 @@
             "ne": "होल्ड · नुवाकोट",
             "en": "Hold · Nuwakot"
           },
-          "value": 2699,
+          "value": 2694,
           "value_display": {
-            "ne": "२,६९९",
-            "en": "2,699"
+            "ne": "२,६९४",
+            "en": "2,694"
           }
         },
         {
@@ -238,10 +250,34 @@
             "ne": "होल्ड · रसुवा",
             "en": "Hold · Rasuwa"
           },
-          "value": 733,
+          "value": 634,
           "value_display": {
-            "ne": "७३३",
-            "en": "733"
+            "ne": "६३४",
+            "en": "634"
+          }
+        },
+        {
+          "id": "hold_dhading",
+          "label": {
+            "ne": "होल्ड · धादिङ",
+            "en": "Hold · Dhading"
+          },
+          "value": 263,
+          "value_display": {
+            "ne": "२६३",
+            "en": "263"
+          }
+        },
+        {
+          "id": "holding_centers",
+          "label": {
+            "ne": "होल्डिङ सेन्टर",
+            "en": "Holding centers"
+          },
+          "value": 37,
+          "value_display": {
+            "ne": "३७",
+            "en": "37"
           }
         }
       ]
@@ -259,15 +295,15 @@
       },
       "items": [
         {
-          "id": "army_flights",
+          "id": "heli_flights",
           "label": {
-            "ne": "सेना उडान",
-            "en": "Army flights"
+            "ne": "हेलि उडान जम्मा",
+            "en": "Total heli flights"
           },
-          "value": 1264,
+          "value": 1348,
           "value_display": {
-            "ne": "१,२६४",
-            "en": "1,264"
+            "ne": "१,३४८",
+            "en": "1,348"
           }
         },
         {
@@ -316,6 +352,18 @@
           "value_display": {
             "ne": "२७९",
             "en": "279"
+          }
+        },
+        {
+          "id": "flights_today",
+          "label": {
+            "ne": "आज उडान",
+            "en": "Flights today"
+          },
+          "value": 84,
+          "value_display": {
+            "ne": "८४",
+            "en": "84"
           }
         }
       ]

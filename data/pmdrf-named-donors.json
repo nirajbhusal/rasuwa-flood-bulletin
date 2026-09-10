@@ -1,15 +1,15 @@
 {
-  "updated": "2026-09-06",
-  "source": "PMDRF named handover Excel",
+  "updated": "2026-09-10",
+  "source": "PMDRF named handover Excel · भदौ २४ थप (SN ३८७–४४५, रु. २२,३२,४९,४७१) · SN ३३२–३८६ यस फाइलमा छैन",
   "totals": {
-    "npr": 1929372838.25,
-    "institutional": 1881529839.25,
-    "personal": 47842999,
+    "npr": 2152622309.25,
+    "institutional": 2099761101.25,
+    "personal": 52861208,
     "usd": 200000,
-    "cheque": 1488831519.25,
-    "non_cheque": 440541319,
-    "label_ne": "रु. १ अर्ब ९२ करोड",
-    "donors": 331
+    "cheque": 1501931519.25,
+    "non_cheque": 650690790,
+    "label_ne": "रु. २ अर्ब १५ करोड",
+    "donors": 390
   },
   "days": [
     {
@@ -82,6 +82,15 @@
       "total": 51890501,
       "cheque": 50390501,
       "non_cheque": 1500000,
+      "usd": 0
+    },
+    {
+      "date": "भदौ २४",
+      "institutional": 218231262,
+      "personal": 5018209,
+      "total": 223249471,
+      "cheque": 13100000,
+      "non_cheque": 210149471,
       "usd": 0
     }
   ],
@@ -2734,6 +2743,478 @@
       "type": "Institutional",
       "cheque": "Cheque",
       "npr": 1551000
+    },
+    {
+      "sn": 387,
+      "date": "भदौ २४",
+      "name": "Nar Bahadur Khadka Kamal Bahadur Raut Gajindra Bahadur Malla",
+      "type": "Personnal",
+      "cheque": "Non Cheque",
+      "npr": 107913.0
+    },
+    {
+      "sn": 388,
+      "date": "भदौ २४",
+      "name": "G 2.2 Biratnagar Met Morang",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 10001000.0
+    },
+    {
+      "sn": 389,
+      "date": "भदौ २४",
+      "name": "Bhupendra Kumar Gurung",
+      "type": "Personnal",
+      "cheque": "Non Cheque",
+      "npr": 110000.0
+    },
+    {
+      "sn": 390,
+      "date": "भदौ २४",
+      "name": "Upendra Ale",
+      "type": "Personnal",
+      "cheque": "Non Cheque",
+      "npr": 1000195.0
+    },
+    {
+      "sn": 391,
+      "date": "भदौ २४",
+      "name": "Mainali Samaj Nepal",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 901111.0
+    },
+    {
+      "sn": 392,
+      "date": "भदौ २४",
+      "name": "Pasang Lhamu Mountaineering Foundation",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 3250000.0
+    },
+    {
+      "sn": 393,
+      "date": "भदौ २४",
+      "name": "I.N.D. Mobile Pvt Ltd (inDrive) via Global IME Bank Limited (MC A/C)",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 75000000.0
+    },
+    {
+      "sn": 394,
+      "date": "भदौ २४",
+      "name": "Eshoriya Marga Bhajan Mandal Sachai Kendra",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 4100000.0
+    },
+    {
+      "sn": 395,
+      "date": "भदौ २४",
+      "name": "Suchila Kattel Gaire and Prakesh Deep Gaire (Eshoriya Marga Bhajan Mandal Sachai Kendra)",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 1001100.0
+    },
+    {
+      "sn": 396,
+      "date": "भदौ २४",
+      "name": "Nepal SBI Bank Ltd. (Banker's Cheque)",
+      "type": "Institutional",
+      "cheque": "Cheque",
+      "npr": 13100000.0
+    },
+    {
+      "sn": 397,
+      "date": "भदौ २४",
+      "name": "Nepal Netra Jyoti Sangh",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 12534621.0
+    },
+    {
+      "sn": 398,
+      "date": "भदौ २४",
+      "name": "R.M. Kedia Eye Hospital",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 194161.0
+    },
+    {
+      "sn": 399,
+      "date": "भदौ २४",
+      "name": "Lumbini Eye Institute",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 1412359.0
+    },
+    {
+      "sn": 400,
+      "date": "भदौ २४",
+      "name": "Golden Voice Premdhoj Pradhan Memorial Foundation",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 202000.0
+    },
+    {
+      "sn": 401,
+      "date": "भदौ २४",
+      "name": "Nepal Shipping & Air Logistics Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 1051000.0
+    },
+    {
+      "sn": 402,
+      "date": "भदौ २४",
+      "name": "Hamro Kosheli Bachat Tatha Rin Sahakari Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 422067.0
+    },
+    {
+      "sn": 403,
+      "date": "भदौ २४",
+      "name": "Via Hamro Patro Remit Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 12500000.0
+    },
+    {
+      "sn": 404,
+      "date": "भदौ २४",
+      "name": "Gramin Bikash Laghubitta Bittiya Sanstha Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 5555555.0
+    },
+    {
+      "sn": 405,
+      "date": "भदौ २४",
+      "name": "Air Expers Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 3100000.0
+    },
+    {
+      "sn": 406,
+      "date": "भदौ २४",
+      "name": "Devyani International Nepal Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 3100000.0
+    },
+    {
+      "sn": 407,
+      "date": "भदौ २४",
+      "name": "Jip Tshering Lama",
+      "type": "Personnal",
+      "cheque": "Non Cheque",
+      "npr": 1300000.0
+    },
+    {
+      "sn": 408,
+      "date": "भदौ २४",
+      "name": "Nepal Sherpa Sangh Aapatkalin Rahat",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 2000000.0
+    },
+    {
+      "sn": 409,
+      "date": "भदौ २४",
+      "name": "Elite Solutions (P) Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 1000000.0
+    },
+    {
+      "sn": 410,
+      "date": "भदौ २४",
+      "name": "Purushottam Poudyal",
+      "type": "Personnal",
+      "cheque": "Non Cheque",
+      "npr": 2500101.0
+    },
+    {
+      "sn": 411,
+      "date": "भदौ २४",
+      "name": "Lama Construction Company Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 2500000.0
+    },
+    {
+      "sn": 412,
+      "date": "भदौ २४",
+      "name": "Ghattekulo Namunanagar Tol Sudhar",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 209300.0
+    },
+    {
+      "sn": 413,
+      "date": "भदौ २४",
+      "name": "Discovery Support Company Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 1000000.0
+    },
+    {
+      "sn": 414,
+      "date": "भदौ २४",
+      "name": "Mahalaxmi Mobiles Pvt. Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 1000000.0
+    },
+    {
+      "sn": 415,
+      "date": "भदौ २४",
+      "name": "Nepal Valuers Association",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 1000000.0
+    },
+    {
+      "sn": 416,
+      "date": "भदौ २४",
+      "name": "Nepal Land and Housing Developers' Federation",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 3100000.0
+    },
+    {
+      "sn": 417,
+      "date": "भदौ २४",
+      "name": "Chez Maya Private Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 955000.0
+    },
+    {
+      "sn": 418,
+      "date": "भदौ २४",
+      "name": "Shikhar Insurance Company Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 11111111.0
+    },
+    {
+      "sn": 419,
+      "date": "भदौ २४",
+      "name": "Sara Children Home Nepal",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 501100.0
+    },
+    {
+      "sn": 420,
+      "date": "भदौ २४",
+      "name": "Sara Mission Center Nepal",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 500000.0
+    },
+    {
+      "sn": 421,
+      "date": "भदौ २४",
+      "name": "Butwal Hospital Pvt. Ltd Pharmacy Unit",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 777777.0
+    },
+    {
+      "sn": 422,
+      "date": "भदौ २४",
+      "name": "Shree Ram Tobacco Udyog Pvt Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 20000000.0
+    },
+    {
+      "sn": 423,
+      "date": "भदौ २४",
+      "name": "Yashoda Foods (P.) Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 15151000.0
+    },
+    {
+      "sn": 424,
+      "date": "भदौ २४",
+      "name": "Varun Beverages Nepal P. Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 801000.0
+    },
+    {
+      "sn": 425,
+      "date": "भदौ २४",
+      "name": "Mobile Phone Importers Association",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 3100000.0
+    },
+    {
+      "sn": 426,
+      "date": "भदौ २४",
+      "name": "Ullens Education Foundation",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 2000000.0
+    },
+    {
+      "sn": 427,
+      "date": "भदौ २४",
+      "name": "Agrawal Sewa Kendra",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 2815000.0
+    },
+    {
+      "sn": 428,
+      "date": "भदौ २४",
+      "name": "Jyoti Shree Nepal Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 200000.0
+    },
+    {
+      "sn": 429,
+      "date": "भदौ २४",
+      "name": "S.K Traders",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 101000.0
+    },
+    {
+      "sn": 430,
+      "date": "भदौ २४",
+      "name": "Kavish Enterprises Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 101000.0
+    },
+    {
+      "sn": 431,
+      "date": "भदौ २४",
+      "name": "Shiv Shakti Agri Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 100000.0
+    },
+    {
+      "sn": 432,
+      "date": "भदौ २४",
+      "name": "Chemical House Private Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 100000.0
+    },
+    {
+      "sn": 433,
+      "date": "भदौ २४",
+      "name": "Shrimaa Distribution Nepal Pvt.Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 100000.0
+    },
+    {
+      "sn": 434,
+      "date": "भदौ २४",
+      "name": "Nuplast Industries Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 100000.0
+    },
+    {
+      "sn": 435,
+      "date": "भदौ २४",
+      "name": "Durga International",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 51000.0
+    },
+    {
+      "sn": 436,
+      "date": "भदौ २४",
+      "name": "Arnica Textile Ind Private Limited",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 51000.0
+    },
+    {
+      "sn": 437,
+      "date": "भदौ २४",
+      "name": "S.S. Balaji Metals Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 51000.0
+    },
+    {
+      "sn": 438,
+      "date": "भदौ २४",
+      "name": "Silver Estate Pvt.Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 51000.0
+    },
+    {
+      "sn": 439,
+      "date": "भदौ २४",
+      "name": "Anand Jewellers",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 51000.0
+    },
+    {
+      "sn": 440,
+      "date": "भदौ २४",
+      "name": "Gaurav Trade Link Enterprises",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 51000.0
+    },
+    {
+      "sn": 441,
+      "date": "भदौ २४",
+      "name": "The Sagtani Exim Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 51000.0
+    },
+    {
+      "sn": 442,
+      "date": "भदौ २४",
+      "name": "Tanuj International Pvt.Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 51000.0
+    },
+    {
+      "sn": 443,
+      "date": "भदौ २४",
+      "name": "L.B.E.F. Vidyapeeth Pvt. Ltd.",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 25000.0
+    },
+    {
+      "sn": 444,
+      "date": "भदौ २४",
+      "name": "Shiva Polymers Ind. P.Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 25000.0
+    },
+    {
+      "sn": 445,
+      "date": "भदौ २४",
+      "name": "Ruchika Trade Pvt Ltd",
+      "type": "Institutional",
+      "cheque": "Non Cheque",
+      "npr": 25000.0
     }
   ]
 }
