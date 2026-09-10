@@ -1086,6 +1086,16 @@
     return tt("chip_np", "नेपाली");
   }
 
+  function scrollNamesChrome(fallback) {
+    if (overlayOpen) {
+      var sc = document.getElementById("names-ov-scroll");
+      if (sc) { sc.scrollTop = 0; return; }
+    }
+    var stick = document.getElementById("names-search-stick");
+    var el = stick || fallback;
+    if (el && el.scrollIntoView) el.scrollIntoView({ block: "start", behavior: "smooth" });
+  }
+
   function renderResults() {
     var q = currentQuery();
     lastHits = ready ? search(q) : [];
@@ -1101,7 +1111,8 @@
     var box = document.getElementById("names-ov-results");
     var count = document.getElementById("names-ov-count");
     var homeCount = document.getElementById("names-home-count");
-    var emptyQ = false;
+    var qRaw = (q || "").trim();
+    var emptyQ = !qRaw && !hasActiveFilter() && overlayOpen;
     function countText() {
       if (!ready) return tt("ns_loading", "नाम तयार हुँदै…");
       if (emptyQ) return fmtNum(recs.length) + " " + tt("ns_names", "नाम");
@@ -1160,7 +1171,7 @@
         if (pageIdx <= 0) return;
         pageIdx--;
         renderResults();
-        try { (document.getElementById("names-search-stick") || pagerEl).scrollIntoView({ block: "start", behavior: "smooth" }); } catch (e) {}
+        try { scrollNamesChrome(pagerEl); } catch (e) {}
       });
       var nextBtn = document.createElement("button");
       nextBtn.type = "button";
@@ -1172,7 +1183,7 @@
         if (pageIdx >= pages - 1) return;
         pageIdx++;
         renderResults();
-        try { (document.getElementById("names-search-stick") || pagerEl).scrollIntoView({ block: "start", behavior: "smooth" }); } catch (e) {}
+        try { scrollNamesChrome(pagerEl); } catch (e) {}
       });
       var keep = {};
       function mark(n) { if (n >= 0 && n < pages) keep[n] = true; }
@@ -1196,7 +1207,7 @@
           b.addEventListener("click", function () {
             pageIdx = idx;
             renderResults();
-            try { (document.getElementById("names-search-stick") || pagerEl).scrollIntoView({ block: "start", behavior: "smooth" }); } catch (e) {}
+            try { scrollNamesChrome(pagerEl); } catch (e) {}
           });
         })(n);
         pagesEl.appendChild(b);
@@ -1339,10 +1350,12 @@
   function openOverlay(q) {
     var ov = document.getElementById("search");
     if (!ov) return;
+    var wasOpen = overlayOpen;
     overlayOpen = true;
     ov.hidden = false;
     ov.classList.add("on");
     document.body.classList.add("names-ov-lock");
+    document.documentElement.classList.add("names-ov-lock");
     if (q != null) {
       var inp = document.getElementById("names-ov-q");
       if (inp) inp.value = q;
@@ -1350,15 +1363,24 @@
     syncInputs((document.getElementById("names-ov-q") || {}).value || "", "names-ov-q");
     shown = PAGE; pageIdx = 0;
     renderResults();
+    var sc = document.getElementById("names-ov-scroll");
+    if (sc) sc.scrollTop = 0;
     var inp2 = document.getElementById("names-ov-q");
     if (inp2) {
-      try { inp2.focus(); inp2.select(); } catch (e) {}
+      try {
+        if (!wasOpen || document.activeElement !== inp2) {
+          inp2.focus({ preventScroll: true });
+        }
+      } catch (e) {
+        try { inp2.focus(); } catch (e2) {}
+      }
     }
   }
 
   function closeOverlay(keepHash) {
     overlayOpen = false;
     document.body.classList.remove("names-ov-lock");
+    document.documentElement.classList.remove("names-ov-lock");
     var ov = document.getElementById("search");
     if (ov) {
       ov.hidden = true;
@@ -1376,6 +1398,10 @@
     syncInputs(q, e.target.id);
     shown = PAGE; pageIdx = 0;
     renderResults();
+    if (overlayOpen) {
+      var sc = document.getElementById("names-ov-scroll");
+      if (sc) sc.scrollTop = 0;
+    }
     if (e.target.id === "names-home-q" && q.trim()) {
       openOverlay(q);
     }
@@ -1464,6 +1490,8 @@
       });
       if (window.__namesSetCat) window.__namesSetCat(cat, { filter: false });
       renderResults();
+      var sc2 = document.getElementById("names-ov-scroll");
+      if (sc2) sc2.scrollTop = 0;
     }, true);
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {

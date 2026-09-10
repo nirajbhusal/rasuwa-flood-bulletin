@@ -3768,3 +3768,177 @@ html:not([class*="-page"]){scroll-snap-type:none}
 .pbox:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 .pbox.active{box-shadow:0 0 0 2px color-mix(in srgb, var(--crimson) 25%, transparent)}
 .pcount{font-variant-numeric:tabular-nums}
+
+/* --- 2026-09-10 phone-book directory + names scroll fixes --- */
+.pb-sec{margin:0 0 14px}
+.pb-letter{
+  margin:0 0 0;padding:10px 14px 8px;
+  font-size:13px;font-weight:800;letter-spacing:.04em;
+  color:#64748b;background:#f1f5f9;
+  border-bottom:1px solid #e2e8f0;
+  text-transform:none;
+}
+.pb-letter b{font-size:15px;color:var(--ink);letter-spacing:0;font-weight:800}
+.pb-letter small{
+  font-size:11px;font-weight:800;background:var(--teal-soft);color:var(--teal);
+  padding:1px 7px;border-radius:8px;margin-left:8px;vertical-align:middle;
+}
+.pb-list{
+  display:flex;flex-direction:column;margin:0;padding:0;
+  background:#fff;border:1px solid var(--line);border-radius:0 0 14px 14px;
+  overflow:hidden;
+}
+.hl-directory .hl-dir.pb-list,
+.hl-directory .pb-list{
+  border-radius:0 0 14px 14px;margin-bottom:0;
+  grid-template-columns:1fr !important;
+}
+.hl-directory .pb-sec .pb-letter,
+.hl-directory .hl-dir-h.pb-letter{
+  border:1px solid var(--line);border-bottom:0;border-radius:14px 14px 0 0;
+  margin:0;
+}
+.pb-dist{column-count:1;column-gap:0;padding:4px 12px 14px;display:grid;gap:12px}
+@media(min-width:700px){
+  .pb-dist{grid-template-columns:1fr 1fr}
+  .cao-grid{column-count:1;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+}
+.pb-dist-card{
+  background:transparent;border:0;box-shadow:none;padding:0;margin:0;
+  display:block;width:100%;break-inside:avoid;
+}
+.ndrrma-hl .hl-dist.pb-dist article.pb-dist-card,
+.cao-grid article.pb-dist-card{
+  background:transparent;border:0;box-shadow:none;padding:0;margin:0;
+  display:block;width:100%;
+}
+.pb-row{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 14px;min-height:56px;
+  text-decoration:none;color:inherit;
+  border-bottom:1px solid #eef2f6;
+  -webkit-tap-highlight-color:transparent;
+}
+.pb-row:last-child{border-bottom:0}
+.pb-row:hover,.pb-row:focus-visible{background:#fff5f6}
+.pb-row:focus-visible{outline:2px solid var(--teal);outline-offset:-2px}
+.pb-av{
+  flex:none;width:40px;height:40px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:800;color:#fff;
+  background:linear-gradient(145deg,#94a3b8,#64748b);
+  line-height:1;
+}
+.pb-name{
+  flex:1;min-width:0;font-size:15px;font-weight:700;color:var(--ink);
+  line-height:1.35;overflow-wrap:anywhere;
+}
+.pb-name b{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:2px}
+.pb-tel,.pb-row em.pb-tel{
+  flex:none;font-style:normal;font-weight:800;font-size:17px;
+  letter-spacing:.02em;color:var(--crimson);
+  font-variant-numeric:tabular-nums;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;
+}
+/* override old dense 2-col / table-ish helpline rows inside phonebook */
+.hl-directory .hl-row.pb-row{
+  display:flex;border-right:0 !important;border-bottom:1px solid #eef2f6;
+  padding:12px 14px;gap:12px;align-items:center;
+}
+.hl-directory .hl-row.pb-row:last-child{border-bottom:0}
+.hl-directory .hl-row.pb-row span.pb-name{color:var(--ink);font-weight:700;font-size:15px}
+.hl-directory .hl-row.pb-row em.pb-tel{font-size:17px}
+@media(min-width:700px){
+  .hl-directory .hl-dir.pb-list{grid-template-columns:1fr !important}
+  .hl-directory .hl-row.pb-row:nth-child(odd){border-right:0}
+}
+.cao-grid .pb-row span.pb-name{font-size:14px}
+.cao-grid .pb-row .pb-tel{font-size:16px}
+
+/* Names: sticky under chips; overlay internal scroll; no double-scroll trap */
+html.names-page, html.names-page body{
+  overflow-x:clip;
+}
+html.names-page body.names-ov-lock,
+html.names-page.names-ov-lock,
+body.names-ov-lock,
+html.names-ov-lock{
+  overflow:hidden !important;
+  overscroll-behavior:none;
+}
+#names .names-search-stick{
+  position:sticky;
+  top:var(--head, 0px);
+  z-index:32;
+  background:var(--paper);
+  padding:8px 0 10px;
+  margin:0 0 8px;
+  border-bottom:1px solid var(--line);
+  box-shadow:0 8px 16px rgba(250,247,242,.95);
+}
+#names .names-master{
+  overflow:visible;
+  max-height:none;
+  padding-bottom:max(48px, env(safe-area-inset-bottom, 0px));
+}
+#names .names-sec-results{
+  overflow:visible;
+}
+/* Overlay: chrome stays put; results scroll inside */
+#search.names-ov{
+  position:fixed;inset:0;z-index:80;
+  background:rgba(28,25,23,.46);
+  display:flex;align-items:stretch;justify-content:center;
+  padding:max(8px, env(safe-area-inset-top, 0px)) 10px max(8px, env(safe-area-inset-bottom, 0px));
+  overflow:hidden;
+  overscroll-behavior:none;
+  -webkit-overflow-scrolling:auto;
+}
+#search.names-ov[hidden]{display:none!important}
+.names-ov-panel{
+  width:min(880px,100%);
+  max-height:100%;
+  margin:0;
+  background:var(--paper);border:1px solid var(--line);border-radius:18px;
+  box-shadow:0 18px 50px rgba(15,23,42,.28);
+  padding:0;
+  display:flex;flex-direction:column;
+  min-height:0;overflow:hidden;
+}
+.names-ov-chrome{
+  flex:none;
+  padding:14px 14px 8px;
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+  position:relative;z-index:2;
+}
+.names-ov-chrome #names-ov-q{
+  width:100%;box-sizing:border-box;
+}
+.names-ov-scroll{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  padding:10px 14px 16px;
+}
+.names-ov-scroll .names-results{
+  display:grid;grid-template-columns:1fr;gap:10px;
+}
+.names-ov-scroll .ns-dir-pager{
+  position:sticky;bottom:0;
+  background:linear-gradient(180deg, transparent, var(--paper) 28%);
+  padding:10px 0 4px;margin-top:8px;
+}
+@media (min-width:960px){
+  .names-ov-scroll .names-results{grid-template-columns:1fr 1fr}
+  html.desk #names .names-search-stick{top:0;z-index:32}
+}
+@media (max-width:959px){
+  #names .names-search-stick{top:var(--head,0px)}
+  /* keep sticky usable: slightly denser filters on small screens */
+  #names .names-search-stick .names-cat-btn{min-height:42px;padding:8px 6px;font-size:12.5px}
+  #names .names-search-stick .names-q-label{margin-bottom:4px;font-size:15px}
+}
