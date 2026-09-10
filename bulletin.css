@@ -3942,3 +3942,142 @@ html.names-ov-lock{
   #names .names-search-stick .names-cat-btn{min-height:42px;padding:8px 6px;font-size:12.5px}
   #names .names-search-stick .names-q-label{margin-bottom:4px;font-size:15px}
 }
+
+
+/* --- 2026-09-10 rahat dashboard + named directory --- */
+.cash-viz-grid{
+  display:grid;gap:12px;margin:0 0 18px;
+  grid-template-columns:1fr;
+}
+@media(min-width:900px){
+  .cash-viz-grid{grid-template-columns:1.2fr 1fr .9fr}
+}
+.cash-viz-panel{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:12px 14px 12px;box-shadow:0 1px 0 rgba(15,23,42,.03);
+  min-width:0;
+}
+.cash-viz-panel .chart-h{margin:0 0 8px;font-size:13px;font-weight:800;color:#334155}
+.cash-viz-panel .nig-note{margin:8px 0 0;font-size:12px;line-height:1.45;color:#64748b}
+.cash-mix-dash .ibar-row{grid-template-columns:minmax(7em,46%) 1fr 4.8em;margin:5px 0;font-size:12.5px}
+.cash-mix .ibar.ibar-nv i,
+.ibar.ibar-nv i{background:#0f766e}
+.vchart-days{
+  min-height:132px;
+  grid-template-columns:repeat(9,minmax(0,1fr));
+  gap:4px;
+}
+.vchart-days .vchart-bar{background:linear-gradient(180deg,#14b8a6,#0f766e)}
+.vchart-days .vchart-col em{font-size:9px;color:#0f766e}
+.vchart-days .vchart-col b{font-size:9px}
+@media(max-width:700px){
+  .vchart-days{grid-template-columns:repeat(5,minmax(0,1fr));min-height:150px}
+}
+.named-split{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.named-donut{
+  flex:none;width:112px;height:112px;border-radius:50%;
+  background:conic-gradient(#0f766e 0 97.5%, #f59e0b 97.5% 100%);
+  box-shadow:inset 0 0 0 18px #fff, 0 0 0 1px #e2e8f0;
+}
+.named-split-leg{flex:1;min-width:10em;display:flex;flex-direction:column;gap:8px}
+.nd-leg-row{display:grid;grid-template-columns:14px 1fr auto;gap:6px 8px;align-items:center;font-size:13px}
+.nd-leg-row strong{grid-column:2;font-size:14px;color:#0f766e}
+.nd-leg-row em{grid-column:3;font-style:normal;font-weight:800;color:#64748b;font-variant-numeric:tabular-nums}
+.nd-leg-row.nd-leg-total{border-top:1px dashed #e2e8f0;padding-top:8px;margin-top:2px}
+.nd-leg-row.nd-leg-total strong{color:var(--ink)}
+.nd-swatch{width:12px;height:12px;border-radius:4px;display:inline-block}
+.nd-swatch-i{background:#0f766e}
+.nd-swatch-p{background:#f59e0b}
+
+.cash-kpis-dash .named-kpi{border-color:#5eead4}
+.cash-kpis-dash .mof-stock-kpi{border-color:#86efac}
+.cash-kpis-dash .avail-kpi{border-color:#fcd34d}
+.cash-kpis-dash .nchl-fp-kpi{border-color:#93c5fd}
+.cash-kpis-dash .named-kpi .kpi-k{color:#0f766e}
+.cash-kpis-dash .avail-kpi .kpi-k{color:#92400e}
+.cash-kpis-dash .avail-kpi strong{color:#b45309}
+
+.dir-banks-modern{border-left-color:#16a34a}
+.dir-banks-modern h3{color:#166534}
+.dir-banks-modern .dir-kicker{margin:0 0 10px;font-size:13px;color:#64748b}
+.dir-banks-modern .dir-table{border-radius:12px;overflow:hidden}
+.dir-banks-modern .dir-table td:last-child,
+.dir-banks-modern .dir-table th:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.cash-note-soft{margin:8px 0 0;font-size:12px;color:#64748b}
+
+/* Named donors phonebook directory */
+.dir-named .named-dir-stick{
+  position:sticky;top:var(--head,0px);z-index:28;
+  background:linear-gradient(180deg,var(--paper) 70%, rgba(250,247,242,.92));
+  padding:4px 0 10px;margin:0 0 8px;
+  border-bottom:1px solid #e2e8f0;
+}
+.named-filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.named-chips{display:flex;flex-wrap:wrap;gap:6px}
+.nd-chip{
+  appearance:none;border:1px solid var(--line);background:#fff;color:#334155;
+  border-radius:999px;padding:7px 12px;font:inherit;font-size:13px;font-weight:700;
+  cursor:pointer;min-height:40px;
+}
+.nd-chip.on{background:#0f766e;border-color:#0f766e;color:#fff}
+.nd-chip:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.named-dir-list{
+  display:flex;flex-direction:column;
+  background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+}
+.nd-row{
+  display:grid;grid-template-columns:3.2em 1fr auto;gap:10px 12px;
+  align-items:center;padding:12px 14px;border-bottom:1px solid #eef2f6;
+  min-height:56px;
+}
+.nd-row:last-child{border-bottom:0}
+.nd-row:hover{background:#f0fdfa}
+.nd-sn{
+  font-weight:800;font-variant-numeric:tabular-nums;color:#94a3b8;font-size:13px;
+}
+.nd-main{min-width:0}
+.nd-name{display:block;font-weight:750;font-size:15px;color:var(--ink);line-height:1.35;overflow-wrap:anywhere}
+.nd-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.nd-date,.nd-type,.nd-cheque{
+  display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;
+  font-size:11px;font-weight:800;line-height:1.4;
+}
+.nd-date{background:#ecfdf5;color:#0f766e}
+.nd-type-i{background:#e0f2fe;color:#075985}
+.nd-type-p{background:#fff7ed;color:#c2410c}
+.nd-cheque{background:#f1f5f9;color:#475569}
+.nd-amt{
+  font-weight:800;font-size:14px;color:#0f766e;text-align:right;
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.nd-empty{margin:0;padding:18px;text-align:center;color:#64748b;font-weight:700}
+@media(max-width:640px){
+  .nd-row{grid-template-columns:2.6em 1fr;gap:6px 10px}
+  .nd-amt{grid-column:2;text-align:left;font-size:15px}
+  .nd-sn{align-self:start;padding-top:2px}
+}
+@media(min-width:900px){
+  .nd-row{grid-template-columns:3.6em 1fr 12em;padding:10px 14px;min-height:48px}
+  .nd-name{font-size:14.5px}
+  .nd-amt{font-size:13.5px}
+}
+
+/* Homepage cash denser KPI strip */
+.cash-snap-dash .hero-cash-kpis{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 10px;
+}
+@media(min-width:700px){
+  .cash-snap-dash .hero-cash-kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+.cash-snap-dash .hck{
+  display:flex;flex-direction:column;gap:2px;text-decoration:none;color:inherit;
+  background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px 10px;
+  min-width:0;
+}
+.cash-snap-dash .hck span{font-size:11px;font-weight:800;color:#64748b;line-height:1.25}
+.cash-snap-dash .hck strong{font-size:15px;font-weight:800;color:#0f766e;line-height:1.2}
+.cash-snap-dash .hck em{font-style:normal;font-size:11px;font-weight:700;color:#94a3b8;line-height:1.3}
+.cash-snap-dash .hck-sum strong{color:#1d4ed8}
+.cash-snap-dash .hck-nv strong{color:#0f766e}
+.cash-snap-dash .cash-snap-head{text-decoration:none;color:inherit}
+.cash-snap-dash .cash-mix{margin-top:2px}

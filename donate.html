@@ -42,10 +42,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="preload" href="fonts/mukta-500-deva.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts.css?v=2026-09-10-1100" as="style">
-<link rel="preload" href="bulletin.css?v=2026-09-10-1100" as="style">
-<link rel="stylesheet" href="fonts.css?v=2026-09-10-1100">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-10-1100">
+<link rel="preload" href="fonts.css?v=2026-09-10-2100" as="style">
+<link rel="preload" href="bulletin.css?v=2026-09-10-2100" as="style">
+<link rel="stylesheet" href="fonts.css?v=2026-09-10-2100">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-10-2100">
 </head>
 <body class="donate-page">
 <div class="head-stick">
@@ -188,6 +188,33 @@
           </div>
         </div>
 
+        <div class="cash-viz-grid" aria-label="नगद राहत चित्र">
+          <div class="cash-viz-panel">
+            <p class="chart-h" data-i18n="cash_mix_h">नगद च्यानल · लेबल अलग (जम्मा होइन)</p>
+            <div class="cash-mix cash-mix-dash" role="img" aria-label="Cash channels labeled separately">
+              <div class="ibar-row"><span data-i18n="hero_named_cat">नेपाली राहत कोष / नाम-हस्तान्तरण</span><b class="ibar"><i style="width:24%"></i></b><em class="num" data-i18n="cash_mix_named">२.१५ अर्ब</em></div>
+              <div class="ibar-row"><span data-i18n="hero_mof_stock_cat">MoF मौज्दात / बैंक स्टक</span><b class="ibar"><i style="width:100%"></i></b><em class="num" data-i18n="cash_mix_mof">८.७९ अर्ब</em></div>
+              <div class="ibar-row"><span data-i18n="hero_nchl_fp_cat">NCHL + फोनपे जम्मा</span><b class="ibar"><i style="width:80%"></i></b><em class="num" data-i18n="cash_mix_nchlfp">७.०२ अर्ब</em></div>
+              <div class="ibar-row"><span data-i18n="hero_nchl_cat">NCHL</span><b class="ibar"><i style="width:53%"></i></b><em class="num" data-i18n="cash_mix_nchl">४.६८ अर्ब</em></div>
+              <div class="ibar-row"><span data-i18n="hero_fonepay_cat">फोनपे QR</span><b class="ibar"><i style="width:27%"></i></b><em class="num" data-i18n="cash_mix_fp">२.३४ अर्ब</em></div>
+              <div class="ibar-row"><span data-i18n="hero_nvidia_cash_cat">NVIDIA योगदान</span><b class="ibar ibar-nv"><i style="width:17%"></i></b><em class="num" data-i18n="cash_mix_nv">≈ १.५२ अर्ब</em></div>
+            </div>
+            <p class="nig-note cash-mix-note" data-i18n="cash_mix_note">नाम-हस्तान्तरण · MoF मौज्दात · NCHL+फोनपे अलग लेबल — एउटै महा-जम्मा छैन। NVIDIA अलग।</p>
+          </div>
+          <div class="cash-viz-panel">
+            <p class="chart-h" data-i18n="named_day_h">नाम-हस्तान्तरण · दिनअनुसार (भदौ ११–२४)</p>
+            <div class="vchart vchart-days" id="named-day-chart" role="img" aria-label="Named donors by day"></div>
+            <p class="nig-note" data-i18n="named_day_note">स्रोत: PMDRF नाम-हस्तान्तरण · रु. २ अर्ब १५ करोड · ३९० दाता</p>
+          </div>
+          <div class="cash-viz-panel cash-viz-split">
+            <p class="chart-h" data-i18n="named_split_h">नाम-हस्तान्तरण · संस्था vs व्यक्तिगत</p>
+            <div class="named-split">
+              <div class="named-donut" id="named-split-donut" role="img" aria-label="Institutional vs personal"></div>
+              <div class="named-split-leg" id="named-split-leg"></div>
+            </div>
+          </div>
+        </div>
+
         <article class="aid-ig aid-dash" id="aid-ig">
           <span id="aid"></span><span id="donate-pledges"></span><span id="aid-pledges"></span>
           <h3 data-i18n="aid_ig_h">वैदेशिक सहायता अपडेट</h3>
@@ -289,8 +316,9 @@
           </details>
         </article>
 
-        <div class="dir-card" id="pmdrf-banks-wrap">
-          <h3 data-i18n="pmdrf_sheet_h">प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोषमा जम्मा भएको रकम तथा सहयोगकर्ताको विवरण</h3>
+        <div class="dir-card dir-banks-modern" id="pmdrf-banks-wrap">
+          <h3 data-i18n="pmdrf_sheet_h">MoF मौज्दात · ९ बैंक</h3>
+          <p class="dir-kicker" data-i18n-html="bank_src_line">स्रोत: OPMCM PMDRF Daily Deposit · २४ भदौ ०९:०० (२०८३/०५/२४ ९:०० AM)।</p>
           <div class="dir-toolbar">
             <span class="dir-export-k" data-i18n="dir_export">निर्यात / Export</span>
             <button type="button" class="dir-btn" id="dir-csv" data-i18n="dir_csv">CSV डाउनलोड / Download CSV</button>
@@ -323,54 +351,51 @@
               <tr class="dir-usd"><td class="dir-sn"></td><td data-i18n="bank_usd">अमेरिकी डलर खाता</td><td data-i18n="bank_usd_amt">USD २.११ करोड (२१,१४३,४२७) · ~रु. ३.२० अर्ब @१५१.४२</td></tr>
               <tr><td class="dir-sn"></td><td data-i18n="bank_usd_eq">USD समकक्ष NPR</td><td>३,२०,१५,३७,७८०</td></tr>
               <tr class="dir-total"><td class="dir-sn"></td><td data-i18n="bank_avail">कुल उपलब्ध (लेबल)</td><td>११,९८,९७,९६,०८४</td></tr>
-              <tr><td colspan="3" class="cash-note" data-i18n-html="bank_src_line">स्रोत: OPMCM PMDRF Daily Deposit · २४ भदौ ०९:०० (२०८३/०५/२४ ९:०० AM)।</td></tr>
-              <tr class="dir-sec"><td colspan="3" data-i18n="dir_contributors">नाम-सूची</td></tr>
-              <tr><td colspan="3" class="cash-note" data-i18n-html="named_list_moved">पूरा नाम-हस्तान्तरण सूची तल <strong>३९० दाता</strong> · रु. <strong>२ अर्ब १५ करोड</strong> (२,१५,२६,२२,३०९.२५) — MoF मौज्दात ८.७९ अर्बमा जोडिँदैन। NCHL / फोनपे / नेपालपे / NVIDIA अलग।</td></tr>
 </tbody>
           </table>
         </div>
 
         <div class="dir-card dir-named" id="pmdrf-named-list">
           <h3 data-i18n="named_sec_h">नेपाली राहत कोष / नाम-हस्तान्तरण · नाम-सूची</h3>
-          <p class="dir-kicker" data-i18n-html="named_kicker">नेपाली राहत कोष = नाम-हस्तान्तरण। जम्मा <strong>रु. २ अर्ब १५ करोड</strong> (२,१५,२६,२२,३०९.२५) · संस्था २,०९,९७,६१,१०१.२५ · व्यक्तिगत ५,२८,६१,२०८ · USD २,००,००० · दाता <strong>३९०</strong> · भदौ ११–२४। SN ३३२–३८६ यस फाइलमा छैन। <em>MoF मौज्दात ८.७९ · NCHL · फोनपे · नेपालपे · NVIDIA अलग लेबल।</em></p>
-          <div class="dir-toolbar named-toolbar">
-            <label class="dir-export-k" for="named-q" data-i18n="named_search">खोज</label>
-            <input type="search" id="named-q" class="named-q" placeholder="नाम…" autocomplete="off">
-            <span class="pcount" id="named-count"></span>
-            <button type="button" class="dir-btn" id="named-csv" data-i18n="dir_csv">CSV डाउनलोड</button>
+          <p class="dir-kicker" data-i18n-html="named_kicker">रु. <strong>२ अर्ब १५ करोड</strong> (२,१५,२६,२२,३०९.२५) · <strong>३९०</strong> दाता · भदौ ११–२४ · संस्था / व्यक्तिगत</p>
+          <div class="named-dir-stick">
+            <div class="dir-toolbar named-toolbar">
+              <label class="dir-export-k" for="named-q" data-i18n="named_search">खोज</label>
+              <input type="search" id="named-q" class="named-q" placeholder="नाम / मिति / SN…" autocomplete="off">
+              <span class="pcount" id="named-count"></span>
+              <button type="button" class="dir-btn" id="named-csv" data-i18n="dir_csv">CSV डाउनलोड</button>
+            </div>
+            <div class="named-filters" role="group" aria-label="फिल्टर">
+              <div class="named-chips" data-named-filter="type">
+                <button type="button" class="nd-chip on" data-val="all" aria-pressed="true" data-i18n="named_filter_all">सबै</button>
+                <button type="button" class="nd-chip" data-val="inst" aria-pressed="false" data-i18n="named_filter_inst">संस्था</button>
+                <button type="button" class="nd-chip" data-val="pers" aria-pressed="false" data-i18n="named_filter_pers">व्यक्तिगत</button>
+              </div>
+              <div class="named-chips" data-named-filter="cheque">
+                <button type="button" class="nd-chip on" data-val="all" aria-pressed="true" data-i18n="named_filter_mode_all">सबै मोड</button>
+                <button type="button" class="nd-chip" data-val="cheque" aria-pressed="false" data-i18n="named_filter_cheque">चेक</button>
+                <button type="button" class="nd-chip" data-val="non" aria-pressed="false" data-i18n="named_filter_noncheque">गैर-चेक</button>
+              </div>
+            </div>
+            <div class="pager" data-pager="named">
+              <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
+              <div class="pboxes pager-pages"></div>
+              <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
+              <span class="pcount pager-count"></span>
+            </div>
           </div>
-          <div class="pager" data-pager="named">
-            <button type="button" class="pbox pager-prev" aria-label="अघिल्लो पेज" data-i18n-aria="prev_page">‹</button>
-            <div class="pboxes pager-pages"></div>
-            <button type="button" class="pbox pager-next" aria-label="पछिल्लो पेज" data-i18n-aria="next_page">›</button>
-            <span class="pcount pager-count"></span>
-          </div>
-          <table class="dir-table" id="named-donors-table">
-            <thead>
-              <tr>
-                <th data-i18n="dir_th_sn">सि.नं.</th>
-                <th data-i18n="named_th_date">मिति</th>
-                <th data-i18n="dir_th_name">नाम / Name</th>
-                <th data-i18n="named_th_type">प्रकार</th>
-                <th data-i18n="named_th_mode">चेक</th>
-                <th data-i18n="dir_th_amt">रकम / Amount</th>
-              </tr>
-            </thead>
-            <tbody id="named-donors-body">
-              <tr><td colspan="6" data-i18n="named_loading">लोड हुँदै…</td></tr>
-            </tbody>
-          </table>
+          <div class="named-dir-list" id="named-donors-body" data-i18n="named_loading">लोड हुँदै…</div>
         </div>
 
         <div class="dir-card dir-nchl-fp" id="nchl-fp-sum-sec">
           <h3 data-i18n="nchl_fp_sec_h">NCHL + फोनपे जम्मा</h3>
-          <p class="dir-kicker" data-i18n-html="nchl_fp_kicker">लेबल जम्मा <strong>रु. ७ अर्ब २ करोड</strong> (७,०२,०९,४०,१५४.०५) = NCHL <strong>४,६७,५३,२६,२००.०५</strong> (२,५४,९०९) + फोनपे <strong>२,३४,५६,१३,९५४</strong> (८,९६,३५४)। नाम-हस्तान्तरण / NVIDIA / नेपालपे अलग।</p>
+          <p class="dir-kicker" data-i18n-html="nchl_fp_kicker"><strong>रु. ७ अर्ब २ करोड</strong> (७,०२,०९,४०,१५४.०५) = NCHL ४.६८ + फोनपे २.३४</p>
         </div>
 
         <div class="dir-card dir-nchl" id="nchl">
           <span id="fonepay"></span>
           <h3 data-i18n="nchl_sec_h">NCHL</h3>
-          <p class="dir-kicker" data-i18n="nchl_kicker">NCHL · प्रधानमन्त्री दैवी प्रकोप उद्धार कोष · ५ सेप्टेम्बर १४:००</p>
+          <p class="dir-kicker" data-i18n="nchl_kicker">NCHL · ९ सेप्टेम्बर ००:०० · रु. ४ अर्ब ६८ करोड · २,५४,९०९ कारोबार</p>
           <table class="dir-table fonepay-nchl">
             <thead>
               <tr>
@@ -395,8 +420,7 @@
         <div class="dir-card dir-fp" id="nchl-hist">
           <span id="fonepay-core"></span>
           <h3 data-i18n="fonepay_sec_h">फोनपे QR</h3>
-          <p class="dir-kicker" data-i18n="fonepay_hist_k">२,३४,५६,१३,९५४ · ८,९६,३५४ कारोबार · हालसम्म</p>
-          <p class="cash-note" data-i18n-html="fonepay_yest">हिजो <strong>५ सेप्टेम्बर २०२६</strong>: कारोबार <strong>७,४५८</strong> · रु. <strong>३,५१,६६,२३२</strong></p>
+          <p class="dir-kicker" data-i18n="fonepay_hist_k">रु. २ अर्ब ३४ करोड · ८,९६,३५४ कारोबार · हालसम्म</p>
           <table class="dir-table fonepay-core">
             <thead>
               <tr>
@@ -414,32 +438,18 @@
               <tr class="dir-total"><td data-i18n="bank_grand">जम्मा</td><td>८,९६,३५४</td><td>२,३४,५६,१३,९५४</td></tr>
             </tbody>
           </table>
-          <p class="ov-cap" data-i18n="fonepay_yest_cap">हिजो · ५ सेप्टेम्बर २०२६</p>
-          <table class="dir-table fonepay-day">
-            <thead>
-              <tr>
-                <th data-i18n="fonepay_th_date">मिति</th>
-                <th data-i18n="fonepay_th_txn">कारोबार</th>
-                <th data-i18n="fonepay_th_amt">रकम (रु.)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td data-i18n="fonepay_yest_row">हिजो · ५ सेप्टेम्बर</td><td>७,४५८</td><td>३,५१,६६,२३२</td></tr>
-              <tr class="dir-total"><td data-i18n="fonepay_till">हालसम्म जम्मा</td><td>८,९६,३५४</td><td>२,३४,५६,१३,९५४</td></tr>
-            </tbody>
-          </table>
-          <p class="cash-note" data-i18n="fonepay_sep_note">NCHL रु. ४ अर्ब ६८ करोड · नेपालपे · NVIDIA अलग — फोनपेमा जोडिँदैन।</p>
+          <p class="cash-note cash-note-soft" data-i18n="fonepay_sep_note">NCHL · नेपालपे · NVIDIA अलग लेबल</p>
         </div>
 
         <details class="dir-notes">
           <summary data-i18n="dir_notes">टिप्पणी / Notes</summary>
-          <p class="cash-note" data-i18n-html="cash_sheet_lead">OPMCM PMDRF Daily Deposit · <strong>२४ भदौ ०९:००</strong> — ९ बैंक NPR जम्मा <strong>रु. ८ अर्ब ७९ करोड</strong> (८,७८,८२,५८,३०४)। विपद्पछि संकलित <strong>७,७०,५८,३५,८९९</strong> · दैनिक <strong>२,१३,४८,६६५</strong> · विपद्अघि मौज्दात <strong>२,०८,२४,२२,४०५</strong> (जम्माभित्र) · कोष उपयोग —। USD <strong>२१,१४३,४२७</strong> (~रु. ३,२०,१५,३७,७८० @१५१.४२) — अलग लेबल। कुल उपलब्ध लेबल <strong>११,९८,९७,९६,०८४</strong> (NPR+USD समकक्ष) — नाम/NCHL/फोनपे/NVIDIA मा जोडिँदैन। मित्र राष्ट्र घोषणा समावेश छैन।</p>
-          <p class="cash-note" data-i18n-html="cash_balance_note">विपद्अघि मौज्दात <strong>२,०८,२४,२२,४०५</strong> ८ अर्ब ७९ करोडभित्र। USD २१,१४३,४२७ (~रु. ३.२० अर्ब @१५१.४२) · विपद्अघि USD ५८६,०४८ · विपद्पछि USD २०,५५७,३७९ · दैनिक USD ३४,९५७। मित्र राष्ट्र घोषणा समावेश छैन।</p>
-          <p class="cash-note" data-i18n-html="cash_hist_note">इतिहास: अघिल्लो MoF मौज्दात ८.४६ अर्ब (८,४६,०६,६२,४२७ · २२ भदौ १७:००) · USD २.१० करोड (२०,९९६,४३८ · ~रु. ३.१७ अर्ब @१५०.८८) · कुल ११.६३ अर्ब। अझ अघि ७.३० अर्ब · USD ३१.९ लाख (~रु. ४८.६ करोड · NRB १५२.५७ · २८ अगस्ट) · २१ भदौ जम्मा ८,१५८,६७५,३८८। अघिल्लो NCHL ४.२६ अर्ब (४,२६,३५,६५,१७४.८५ · २,४६,६१४ · ५ सेप्टेम्बर १४:००)।</p>
-          <p class="cash-note" data-i18n-html="ndrrma_rahat_1500">NDRRMA / गृह १२ भदौ १९:०० — सरकारबाट जिल्लालाई नगद: रसुवा <strong>१ करोड</strong> · नुवाकोट <strong>१ करोड</strong> · धादिङ <strong>५० लाख</strong> · <strong>१५ पालिका ६ करोड ७५ लाख</strong> (जिल्ला/पालिका नगद)। सामग्री: ३२ ट्रक; हेलि राहत ६ उडान; सञ्चार सेट। नुवाकोट: डिजेल ४१,००० · पेट्रोल २४,००० मौज्दात; हवाई इन्धन <strong>१७,०००</strong> लि पठाइएको।</p>
-          <p class="cash-note" data-i18n-html="cash_door_note">राहत, उद्धार, खोज तथा पुनर्स्थापनाको सहयोग प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमार्फत। अर्थमन्त्रीले बुझ्दै हुनुहुन्छ। तलका सरकारी खाता मात्र आधिकारिक।</p>
-          <p class="cash-note" data-i18n-html="nchl_lead">NCHL संकलन — प्रधानमन्त्री दैवी प्रकोप उद्धार कोष <strong>९ सेप्टेम्बर २०२६ ००:००</strong>। सबै च्यानल जम्मा <strong>रु. ४ अर्ब ६८ करोड</strong> (४,६७,५३,२६,२००.०५) · कारोबार <strong>२,५४,९०९</strong>। अर्थ मन्त्रालय / प्रधानमन्त्री कोषको नेपाली जम्मा <strong>८ अर्ब ७९ करोड</strong> अलग। अघिल्लो NCHL ४.२६ अर्ब (४,२६,३५,६५,१७४.८५ · २,४६,६१४ · ५ सेप्टेम्बर १४:००) इतिहास।</p>
-          <p class="cash-note" data-i18n-html="fonepay_lead">फोनपे QR संकलन · हालसम्म। जम्मा <strong>रु. २ अर्ब ३४ करोड</strong> (२,३४,५६,१३,९५४) · कारोबार <strong>८,९६,३५४</strong>। हिजो ५ सेप्टेम्बर: ७,४५८ · ३,५१,६६,२३२। CORE: Domestic QR · Fonepay Bills · NPCI · ALIPAY · IBFT। NCHL / नेपालपे / NVIDIA अलग।</p>
+          <p class="cash-note" data-i18n-html="cash_sheet_lead">OPMCM PMDRF Daily Deposit · <strong>२४ भदौ ०९:००</strong> — ९ बैंक NPR <strong>रु. ८ अर्ब ७९ करोड</strong> (८,७८,८२,५८,३०४)। USD <strong>२१,१४३,४२७</strong> (~रु. ३.२० अर्ब @१५१.४२) अलग। कुल उपलब्ध लेबल <strong>११,९८,९७,९६,०८४</strong>। नाम / NCHL / फोनपे / NVIDIA अलग।</p>
+          <p class="cash-note" data-i18n-html="cash_balance_note">विपद्अघि मौज्दात <strong>२,०८,२४,२२,४०५</strong> ८.७९ अर्बभित्र · विपद्पछि <strong>७,७०,५८,३५,८९९</strong> · दैनिक <strong>२,१३,४८,६६५</strong>।</p>
+          <p class="cash-note" data-i18n-html="named_footnote">नाम-हस्तान्तरण स्रोत: भदौ २४ थप · ३९० दाता · रु. २ अर्ब १५ करोड — MoF मौज्दातमा जोडिएको छैन।</p>
+          <p class="cash-note" data-i18n-html="ndrrma_rahat_1500">NDRRMA / गृह १२ भदौ १९:०० — जिल्ला नगद: रसुवा <strong>१ करोड</strong> · नुवाकोट <strong>१ करोड</strong> · धादिङ <strong>५० लाख</strong> · <strong>१५ पालिका ६ करोड ७५ लाख</strong>।</p>
+          <p class="cash-note" data-i18n-html="cash_door_note">राहत, उद्धार, खोज तथा पुनर्स्थापनाको सहयोग प्रधानमन्त्री दैवी प्रकोप उद्धार कोषमार्फत। तलका सरकारी खाता मात्र आधिकारिक।</p>
+          <p class="cash-note" data-i18n-html="nchl_lead">NCHL · <strong>९ सेप्टेम्बर २०२६ ००:००</strong> · <strong>रु. ४ अर्ब ६८ करोड</strong> (४,६७,५३,२६,२००.०५) · <strong>२,५४,९०९</strong> कारोबार। MoF ८.७९ अर्ब अलग।</p>
+          <p class="cash-note" data-i18n-html="fonepay_lead">फोनपे QR · हालसम्म · <strong>रु. २ अर्ब ३४ करोड</strong> (२,३४,५६,१३,९५४) · <strong>८,९६,३५४</strong> कारोबार। NCHL / नेपालपे / NVIDIA अलग।</p>
         </details>
       </article>
       <p class="funds-lead" data-i18n-html="funds_lead">बाढीपीडित सहयोगका लागि प्रधानमन्त्री कार्यालयका सरकारी खाता। QR स्क्यान वा खाता नम्बर ट्याप गरेर कपी गर्नुहोस्। विदेशबाट पठाउन नयाँ अनलाइन पोर्टल वा SWIFT प्रयोग गर्न सकिन्छ। आधिकारिक पाना: <a href="https://giwmscdnone.gov.np/media/pdf_upload/QR%20code%20all%20bank_lawfbcq.pdf" target="_blank" rel="noopener">प्रधानमन्त्री कार्यालय PDF</a></p>
@@ -525,7 +535,7 @@
   </div>
 </div>
 
-<script src="named-donors.js?v=2026-09-10-1100"></script>
+<script src="named-donors.js?v=2026-09-10-2100"></script>
 <script>
 (function(){
   var loading=false,q=[];
@@ -554,8 +564,8 @@
   window.__ensureNamesIndex=load;
 })();
 </script>
-<script defer src="i18n.js?v=2026-09-10-1100"></script>
-<script defer src="nav-menu.js?v=2026-09-10-1100"></script>
+<script defer src="i18n.js?v=2026-09-10-2100"></script>
+<script defer src="nav-menu.js?v=2026-09-10-2100"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -633,7 +643,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-10-1100";
+window.PAGE_VER="2026-09-10-2100";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){
