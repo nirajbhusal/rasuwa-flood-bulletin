@@ -2,8 +2,8 @@
   "schema_version": 3,
   "id": "dashboard",
   "lang": "en",
-  "updated_at": "2026-09-09T18:00:00+05:45",
-  "as_of": "9 September 2026 · 18:00 NPT",
+  "updated_at": "2026-09-10T11:00:00+05:45",
+  "as_of": "10 September 2026 · 11:00 NPT",
   "credit": "Niraj Bhusal",
   "watermark": "Source · Niraj Bhusal",
   "source_line": "Source: Niraj Bhusal · Rasuwa–Bhotekoshi Flood Bulletin",
@@ -15,20 +15,20 @@
     {
       "id": "dead",
       "label": "Deaths count",
-      "value": 1369,
-      "value_display": "1,369",
+      "value": 1377,
+      "value_display": "1,377",
       "items": [
         {
           "id": "chitwan",
           "label": "Chitwan",
-          "value": 363,
-          "value_display": "363"
+          "value": 364,
+          "value_display": "364"
         },
         {
           "id": "nawal_e",
           "label": "Nawalparasi East",
-          "value": 227,
-          "value_display": "227"
+          "value": 228,
+          "value_display": "228"
         },
         {
           "id": "nawal_w",
@@ -45,28 +45,28 @@
         {
           "id": "rasuwa",
           "label": "Rasuwa",
-          "value": 174,
-          "value_display": "174"
+          "value": 178,
+          "value_display": "178"
         },
         {
           "id": "handover",
           "label": "Handover (labeled)",
-          "value": 102,
-          "value_display": "102"
+          "value": 104,
+          "value_display": "104"
         }
       ]
     },
     {
       "id": "injured",
       "label": "Injured so far",
-      "value": 7474,
-      "value_display": "7,474",
+      "value": 7498,
+      "value_display": "7,498",
       "items": [
         {
           "id": "army",
           "label": "Army",
-          "value": 3535,
-          "value_display": "3,535"
+          "value": 3559,
+          "value_display": "3,559"
         },
         {
           "id": "apf",
@@ -97,21 +97,9 @@
     {
       "id": "miss",
       "label": "Missing around",
-      "value": 5132,
-      "value_display": "5,132",
+      "value": 5130,
+      "value_display": "5,130",
       "items": [
-        {
-          "id": "rasuwa_total",
-          "label": "Rasuwa total",
-          "value": 2860,
-          "value_display": "2,860"
-        },
-        {
-          "id": "dao_nuwakot",
-          "label": "Nuwakot",
-          "value": 1787,
-          "value_display": "1,787"
-        },
         {
           "id": "foreign",
           "label": "Foreign",
@@ -119,42 +107,102 @@
           "value_display": "587"
         },
         {
+          "id": "ras_local",
+          "label": "Rasuwa · locals",
+          "value": 1393,
+          "value_display": "1,393"
+        },
+        {
+          "id": "ras_other",
+          "label": "Rasuwa · other districts",
+          "value": 1286,
+          "value_display": "1,286"
+        },
+        {
+          "id": "ras_army",
+          "label": "Rasuwa · Army",
+          "value": 45,
+          "value_display": "45"
+        },
+        {
+          "id": "ras_police",
+          "label": "Rasuwa · Police",
+          "value": 12,
+          "value_display": "12"
+        },
+        {
+          "id": "ras_apf",
+          "label": "Rasuwa · APF",
+          "value": 26,
+          "value_display": "26"
+        },
+        {
+          "id": "nuw_local",
+          "label": "Nuwakot · locals",
+          "value": 651,
+          "value_display": "651"
+        },
+        {
+          "id": "nuw_other",
+          "label": "Nuwakot · other districts",
+          "value": 1136,
+          "value_display": "1,136"
+        },
+        {
+          "id": "nuw_gov",
+          "label": "Nuwakot · gov",
+          "value": 25,
+          "value_display": "25"
+        },
+        {
+          "id": "nuw_bank",
+          "label": "Nuwakot · bank/FI",
+          "value": 73,
+          "value_display": "73"
+        },
+        {
           "id": "holding",
           "label": "Holding",
-          "value": 3591,
-          "value_display": "3,591"
+          "value": 3685,
+          "value_display": "3,685"
         },
         {
           "id": "hold_nuwakot",
           "label": "Hold · Nuwakot",
-          "value": 2694,
-          "value_display": "2,694"
+          "value": 2615,
+          "value_display": "2,615"
         },
         {
           "id": "hold_rasuwa",
           "label": "Hold · Rasuwa",
-          "value": 634,
-          "value_display": "634"
+          "value": 775,
+          "value_display": "775"
         },
         {
           "id": "hold_dhading",
           "label": "Hold · Dhading",
-          "value": 263,
-          "value_display": "263"
+          "value": 295,
+          "value_display": "295"
         },
         {
           "id": "holding_centers",
           "label": "Holding centers",
           "value": 37,
           "value_display": "37"
+        },
+        {
+          "id": "handover_deduct",
+          "label": "Identified deduct (label)",
+          "value": 104,
+          "value_display": "104"
         }
       ]
     },
     {
       "id": "rescued",
       "label": "Rescued so far",
-      "value": 13646,
-      "value_display": "13,646",
+      "value": 13656,
+      "value_display": "13,656",
       "items": [
         {
           "id": "heli_flights",
@@ -165,8 +213,8 @@
         {
           "id": "apf_flights",
           "label": "APF flights",
-          "value": 258,
-          "value_display": "258"
+          "value": 272,
+          "value_display": "272"
         },
         {
           "id": "private_ktm",
@@ -185,12 +233,6 @@
           "label": "Tunnel separate",
           "value": 279,
           "value_display": "279"
-        },
-        {
-          "id": "flights_today",
-          "label": "Flights today",
-          "value": 84,
-          "value_display": "84"
         }
       ]
     },
@@ -284,7 +326,9 @@
           "value": null,
           "value_display": "158 · 43,943"
         }
-      ]
+      ],
+      "as_of": "24 Bhadra 11:00 / 9 September 2026 11:00",
+      "history_note": "Previous 23 Bhadra 20:00: police dead 1,372 · missing 4,079 · DNA 2,711 · body mgmt 1,153 · udb 1,312 · awareness 168/43,943 is history."
     },
     {
       "id": "tunnel",
@@ -321,20 +365,20 @@
     {
       "id": "deploy",
       "label": "Deployed personnel",
-      "value": 21185,
-      "value_display": "21,185",
+      "value": 21063,
+      "value_display": "21,063",
       "items": [
         {
           "id": "total",
           "label": "Total",
-          "value": 21185,
-          "value_display": "21,185"
+          "value": 21063,
+          "value_display": "21,063"
         },
         {
           "id": "army",
           "label": "Army",
-          "value": 9007,
-          "value_display": "9,007"
+          "value": 8885,
+          "value_display": "8,885"
         },
         {
           "id": "apf",
@@ -406,5 +450,6 @@
         }
       ]
     }
-  ]
+  ],
+  "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html"
 }

@@ -2,8 +2,8 @@
   "schema_version": 3,
   "id": "dashboard",
   "lang": "ne",
-  "updated_at": "2026-09-09T18:00:00+05:45",
-  "as_of": "९ सेप्टेम्बर / २४ भदौ २०८३ · १८:००",
+  "updated_at": "2026-09-10T11:00:00+05:45",
+  "as_of": "१० सेप्टेम्बर / २५ भदौ २०८३ · ११:००",
   "credit": "निरज भुसाल",
   "watermark": "स्रोत · निरज भुसाल",
   "source_line": "स्रोत: निरज भुसाल · रसुवा–भोटेकोशी बाढी बुलेटिन",
@@ -15,20 +15,20 @@
     {
       "id": "dead",
       "label": "मृतक संख्या",
-      "value": 1369,
-      "value_display": "१,३६९",
+      "value": 1377,
+      "value_display": "१,३७७",
       "items": [
         {
           "id": "chitwan",
           "label": "चितवन",
-          "value": 363,
-          "value_display": "३६३"
+          "value": 364,
+          "value_display": "३६४"
         },
         {
           "id": "nawal_e",
           "label": "नवलपरासी पूर्व",
-          "value": 227,
-          "value_display": "२२७"
+          "value": 228,
+          "value_display": "२२८"
         },
         {
           "id": "nawal_w",
@@ -45,28 +45,28 @@
         {
           "id": "rasuwa",
           "label": "रसुवा",
-          "value": 174,
-          "value_display": "१७४"
+          "value": 178,
+          "value_display": "१७८"
         },
         {
           "id": "handover",
           "label": "हस्तान्तरण (लेबल)",
-          "value": 102,
-          "value_display": "१०२"
+          "value": 104,
+          "value_display": "१०४"
         }
       ]
     },
     {
       "id": "injured",
       "label": "हालसम्म घाइते",
-      "value": 7474,
-      "value_display": "७,४७४",
+      "value": 7498,
+      "value_display": "७,४९८",
       "items": [
         {
           "id": "army",
           "label": "सेना",
-          "value": 3535,
-          "value_display": "३,५३५"
+          "value": 3559,
+          "value_display": "३,५५९"
         },
         {
           "id": "apf",
@@ -97,21 +97,9 @@
     {
       "id": "miss",
       "label": "सम्पर्कविहीन करिब",
-      "value": 5132,
-      "value_display": "५,१३२",
+      "value": 5130,
+      "value_display": "५,१३०",
       "items": [
-        {
-          "id": "rasuwa_total",
-          "label": "रसुवा जम्मा",
-          "value": 2860,
-          "value_display": "२,८६०"
-        },
-        {
-          "id": "dao_nuwakot",
-          "label": "नुवाकोट",
-          "value": 1787,
-          "value_display": "१,७८७"
-        },
         {
           "id": "foreign",
           "label": "विदेशी",
@@ -119,42 +107,102 @@
           "value_display": "५८७"
         },
         {
+          "id": "ras_local",
+          "label": "रसुवा · स्थानीय",
+          "value": 1393,
+          "value_display": "१,३९३"
+        },
+        {
+          "id": "ras_other",
+          "label": "रसुवा · अन्य जिल्ला",
+          "value": 1286,
+          "value_display": "१,२८६"
+        },
+        {
+          "id": "ras_army",
+          "label": "रसुवा · सेना",
+          "value": 45,
+          "value_display": "४५"
+        },
+        {
+          "id": "ras_police",
+          "label": "रसुवा · प्रहरी",
+          "value": 12,
+          "value_display": "१२"
+        },
+        {
+          "id": "ras_apf",
+          "label": "रसुवा · सशस्त्र",
+          "value": 26,
+          "value_display": "२६"
+        },
+        {
+          "id": "nuw_local",
+          "label": "नुवाकोट · स्थानीय",
+          "value": 651,
+          "value_display": "६५१"
+        },
+        {
+          "id": "nuw_other",
+          "label": "नुवाकोट · अन्य जिल्ला",
+          "value": 1136,
+          "value_display": "१,१३६"
+        },
+        {
+          "id": "nuw_gov",
+          "label": "नुवाकोट · सरकारी",
+          "value": 25,
+          "value_display": "२५"
+        },
+        {
+          "id": "nuw_bank",
+          "label": "नुवाकोट · बैंक/वित्तीय",
+          "value": 73,
+          "value_display": "७३"
+        },
+        {
           "id": "holding",
           "label": "होल्डिङ",
-          "value": 3591,
-          "value_display": "३,५९१"
+          "value": 3685,
+          "value_display": "३,६८५"
         },
         {
           "id": "hold_nuwakot",
           "label": "होल्ड · नुवाकोट",
-          "value": 2694,
-          "value_display": "२,६९४"
+          "value": 2615,
+          "value_display": "२,६१५"
         },
         {
           "id": "hold_rasuwa",
           "label": "होल्ड · रसुवा",
-          "value": 634,
-          "value_display": "६३४"
+          "value": 775,
+          "value_display": "७७५"
         },
         {
           "id": "hold_dhading",
           "label": "होल्ड · धादिङ",
-          "value": 263,
-          "value_display": "२६३"
+          "value": 295,
+          "value_display": "२९५"
         },
         {
           "id": "holding_centers",
           "label": "होल्डिङ सेन्टर",
           "value": 37,
           "value_display": "३७"
+        },
+        {
+          "id": "handover_deduct",
+          "label": "पहिचान कट्टी (लेबल)",
+          "value": 104,
+          "value_display": "१०४"
         }
       ]
     },
     {
       "id": "rescued",
       "label": "हालसम्म उद्धार गरिएको संख्या",
-      "value": 13646,
-      "value_display": "१३,६४६",
+      "value": 13656,
+      "value_display": "१३,६५६",
       "items": [
         {
           "id": "heli_flights",
@@ -165,8 +213,8 @@
         {
           "id": "apf_flights",
           "label": "सशस्त्र उडान",
-          "value": 258,
-          "value_display": "२५८"
+          "value": 272,
+          "value_display": "२७२"
         },
         {
           "id": "private_ktm",
@@ -185,12 +233,6 @@
           "label": "सुरुङ्ग अलग",
           "value": 279,
           "value_display": "२७९"
-        },
-        {
-          "id": "flights_today",
-          "label": "आज उडान",
-          "value": 84,
-          "value_display": "८४"
         }
       ]
     },
@@ -284,7 +326,9 @@
           "value": null,
           "value_display": "१५८ · ४३,९४३"
         }
-      ]
+      ],
+      "as_of": "२४ भदौ ११:०० / ९ सेप्टेम्बर २०२६ ११:००",
+      "history_note": "अघिल्लो २३ भदौ २०:००: शव प्रहरी १,३७२ · सम्पर्कविहीन ४,०७९ · DNA २,७११ · शव व्यवस्थापन १,१५३ · udb १,३१२ · जनचेतना १६८/४३,९४३ इतिहास।"
     },
     {
       "id": "tunnel",
@@ -321,20 +365,20 @@
     {
       "id": "deploy",
       "label": "खटिएको जनशक्ति",
-      "value": 21185,
-      "value_display": "२१,१८५",
+      "value": 21063,
+      "value_display": "२१,०६३",
       "items": [
         {
           "id": "total",
           "label": "जम्मा",
-          "value": 21185,
-          "value_display": "२१,१८५"
+          "value": 21063,
+          "value_display": "२१,०६३"
         },
         {
           "id": "army",
           "label": "सेना",
-          "value": 9007,
-          "value_display": "९,००७"
+          "value": 8885,
+          "value_display": "८,८८५"
         },
         {
           "id": "apf",
@@ -406,5 +450,6 @@
         }
       ]
     }
-  ]
+  ],
+  "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html"
 }

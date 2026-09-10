@@ -1,10 +1,10 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-09T18:00:00+05:45",
+  "updated_at": "2026-09-10T11:00:00+05:45",
   "as_of": {
-    "ne": "९ सेप्टेम्बर / २४ भदौ २०८३ · १८:००",
-    "en": "9 September 2026 · 18:00 NPT"
+    "ne": "१० सेप्टेम्बर / २५ भदौ २०८३ · ११:००",
+    "en": "10 September 2026 · 11:00 NPT"
   },
   "credit": {
     "ne": "निरज भुसाल",
@@ -18,10 +18,10 @@
         "ne": "मृतक संख्या",
         "en": "Deaths count"
       },
-      "value": 1369,
+      "value": 1377,
       "value_display": {
-        "ne": "१,३६९",
-        "en": "1,369"
+        "ne": "१,३७७",
+        "en": "1,377"
       },
       "items": [
         {
@@ -30,10 +30,10 @@
             "ne": "चितवन",
             "en": "Chitwan"
           },
-          "value": 363,
+          "value": 364,
           "value_display": {
-            "ne": "३६३",
-            "en": "363"
+            "ne": "३६४",
+            "en": "364"
           }
         },
         {
@@ -42,10 +42,10 @@
             "ne": "नवलपरासी पूर्व",
             "en": "Nawalparasi East"
           },
-          "value": 227,
+          "value": 228,
           "value_display": {
-            "ne": "२२७",
-            "en": "227"
+            "ne": "२२८",
+            "en": "228"
           }
         },
         {
@@ -78,10 +78,10 @@
             "ne": "रसुवा",
             "en": "Rasuwa"
           },
-          "value": 174,
+          "value": 178,
           "value_display": {
-            "ne": "१७४",
-            "en": "174"
+            "ne": "१७८",
+            "en": "178"
           }
         },
         {
@@ -90,10 +90,10 @@
             "ne": "हस्तान्तरण (लेबल)",
             "en": "Handover (labeled)"
           },
-          "value": 102,
+          "value": 104,
           "value_display": {
-            "ne": "१०२",
-            "en": "102"
+            "ne": "१०४",
+            "en": "104"
           }
         }
       ]
@@ -104,10 +104,10 @@
         "ne": "हालसम्म घाइते",
         "en": "Injured so far"
       },
-      "value": 7474,
+      "value": 7498,
       "value_display": {
-        "ne": "७,४७४",
-        "en": "7,474"
+        "ne": "७,४९८",
+        "en": "7,498"
       },
       "items": [
         {
@@ -116,10 +116,10 @@
             "ne": "सेना",
             "en": "Army"
           },
-          "value": 3535,
+          "value": 3559,
           "value_display": {
-            "ne": "३,५३५",
-            "en": "3,535"
+            "ne": "३,५५९",
+            "en": "3,559"
           }
         },
         {
@@ -178,36 +178,12 @@
         "ne": "सम्पर्कविहीन करिब",
         "en": "Missing around"
       },
-      "value": 5132,
+      "value": 5130,
       "value_display": {
-        "ne": "५,१३२",
-        "en": "5,132"
+        "ne": "५,१३०",
+        "en": "5,130"
       },
       "items": [
-        {
-          "id": "rasuwa_total",
-          "label": {
-            "ne": "रसुवा जम्मा",
-            "en": "Rasuwa total"
-          },
-          "value": 2860,
-          "value_display": {
-            "ne": "२,८६०",
-            "en": "2,860"
-          }
-        },
-        {
-          "id": "dao_nuwakot",
-          "label": {
-            "ne": "नुवाकोट",
-            "en": "Nuwakot"
-          },
-          "value": 1787,
-          "value_display": {
-            "ne": "१,७८७",
-            "en": "1,787"
-          }
-        },
         {
           "id": "foreign",
           "label": {
@@ -221,15 +197,123 @@
           }
         },
         {
+          "id": "ras_local",
+          "label": {
+            "ne": "रसुवा · स्थानीय",
+            "en": "Rasuwa · locals"
+          },
+          "value": 1393,
+          "value_display": {
+            "ne": "१,३९३",
+            "en": "1,393"
+          }
+        },
+        {
+          "id": "ras_other",
+          "label": {
+            "ne": "रसुवा · अन्य जिल्ला",
+            "en": "Rasuwa · other districts"
+          },
+          "value": 1286,
+          "value_display": {
+            "ne": "१,२८६",
+            "en": "1,286"
+          }
+        },
+        {
+          "id": "ras_army",
+          "label": {
+            "ne": "रसुवा · सेना",
+            "en": "Rasuwa · Army"
+          },
+          "value": 45,
+          "value_display": {
+            "ne": "४५",
+            "en": "45"
+          }
+        },
+        {
+          "id": "ras_police",
+          "label": {
+            "ne": "रसुवा · प्रहरी",
+            "en": "Rasuwa · Police"
+          },
+          "value": 12,
+          "value_display": {
+            "ne": "१२",
+            "en": "12"
+          }
+        },
+        {
+          "id": "ras_apf",
+          "label": {
+            "ne": "रसुवा · सशस्त्र",
+            "en": "Rasuwa · APF"
+          },
+          "value": 26,
+          "value_display": {
+            "ne": "२६",
+            "en": "26"
+          }
+        },
+        {
+          "id": "nuw_local",
+          "label": {
+            "ne": "नुवाकोट · स्थानीय",
+            "en": "Nuwakot · locals"
+          },
+          "value": 651,
+          "value_display": {
+            "ne": "६५१",
+            "en": "651"
+          }
+        },
+        {
+          "id": "nuw_other",
+          "label": {
+            "ne": "नुवाकोट · अन्य जिल्ला",
+            "en": "Nuwakot · other districts"
+          },
+          "value": 1136,
+          "value_display": {
+            "ne": "१,१३६",
+            "en": "1,136"
+          }
+        },
+        {
+          "id": "nuw_gov",
+          "label": {
+            "ne": "नुवाकोट · सरकारी",
+            "en": "Nuwakot · gov"
+          },
+          "value": 25,
+          "value_display": {
+            "ne": "२५",
+            "en": "25"
+          }
+        },
+        {
+          "id": "nuw_bank",
+          "label": {
+            "ne": "नुवाकोट · बैंक/वित्तीय",
+            "en": "Nuwakot · bank/FI"
+          },
+          "value": 73,
+          "value_display": {
+            "ne": "७३",
+            "en": "73"
+          }
+        },
+        {
           "id": "holding",
           "label": {
             "ne": "होल्डिङ",
             "en": "Holding"
           },
-          "value": 3591,
+          "value": 3685,
           "value_display": {
-            "ne": "३,५९१",
-            "en": "3,591"
+            "ne": "३,६८५",
+            "en": "3,685"
           }
         },
         {
@@ -238,10 +322,10 @@
             "ne": "होल्ड · नुवाकोट",
             "en": "Hold · Nuwakot"
           },
-          "value": 2694,
+          "value": 2615,
           "value_display": {
-            "ne": "२,६९४",
-            "en": "2,694"
+            "ne": "२,६१५",
+            "en": "2,615"
           }
         },
         {
@@ -250,10 +334,10 @@
             "ne": "होल्ड · रसुवा",
             "en": "Hold · Rasuwa"
           },
-          "value": 634,
+          "value": 775,
           "value_display": {
-            "ne": "६३४",
-            "en": "634"
+            "ne": "७७५",
+            "en": "775"
           }
         },
         {
@@ -262,10 +346,10 @@
             "ne": "होल्ड · धादिङ",
             "en": "Hold · Dhading"
           },
-          "value": 263,
+          "value": 295,
           "value_display": {
-            "ne": "२६३",
-            "en": "263"
+            "ne": "२९५",
+            "en": "295"
           }
         },
         {
@@ -279,6 +363,18 @@
             "ne": "३७",
             "en": "37"
           }
+        },
+        {
+          "id": "handover_deduct",
+          "label": {
+            "ne": "पहिचान कट्टी (लेबल)",
+            "en": "Identified deduct (label)"
+          },
+          "value": 104,
+          "value_display": {
+            "ne": "१०४",
+            "en": "104"
+          }
         }
       ]
     },
@@ -288,10 +384,10 @@
         "ne": "हालसम्म उद्धार गरिएको संख्या",
         "en": "Rescued so far"
       },
-      "value": 13646,
+      "value": 13656,
       "value_display": {
-        "ne": "१३,६४६",
-        "en": "13,646"
+        "ne": "१३,६५६",
+        "en": "13,656"
       },
       "items": [
         {
@@ -312,10 +408,10 @@
             "ne": "सशस्त्र उडान",
             "en": "APF flights"
           },
-          "value": 258,
+          "value": 272,
           "value_display": {
-            "ne": "२५८",
-            "en": "258"
+            "ne": "२७२",
+            "en": "272"
           }
         },
         {
@@ -352,18 +448,6 @@
           "value_display": {
             "ne": "२७९",
             "en": "279"
-          }
-        },
-        {
-          "id": "flights_today",
-          "label": {
-            "ne": "आज उडान",
-            "en": "Flights today"
-          },
-          "value": 84,
-          "value_display": {
-            "ne": "८४",
-            "en": "84"
           }
         }
       ]
@@ -626,10 +710,10 @@
         "ne": "खटिएको जनशक्ति",
         "en": "Deployed personnel"
       },
-      "value": 21185,
+      "value": 21063,
       "value_display": {
-        "ne": "२१,१८५",
-        "en": "21,185"
+        "ne": "२१,०६३",
+        "en": "21,063"
       },
       "items": [
         {
@@ -638,10 +722,10 @@
             "ne": "जम्मा",
             "en": "Total"
           },
-          "value": 21185,
+          "value": 21063,
           "value_display": {
-            "ne": "२१,१८५",
-            "en": "21,185"
+            "ne": "२१,०६३",
+            "en": "21,063"
           }
         },
         {
@@ -650,10 +734,10 @@
             "ne": "सेना",
             "en": "Army"
           },
-          "value": 9007,
+          "value": 8885,
           "value_display": {
-            "ne": "९,००७",
-            "en": "9,007"
+            "ne": "८,८८५",
+            "en": "8,885"
           }
         },
         {
