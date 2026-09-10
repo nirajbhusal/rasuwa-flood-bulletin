@@ -154,10 +154,26 @@
   --card:#ffffff;
   --shadow:0 8px 28px rgba(15,23,42,.07);
   --shadow-lg:0 14px 40px rgba(15,23,42,.1);
+  --shadow-sm:0 1px 0 rgba(15,23,42,.04);
   --radius:16px;
+  --radius-sm:12px;
+  --radius-xs:10px;
+  --gap:12px;
+  --gap-sm:8px;
   --max:980px;
   --rail:244px;
   --rail-off:48px;
+  /* unified viz / KPI accents (crimson · teal · ink family) */
+  --viz-1:var(--crimson);
+  --viz-2:var(--teal);
+  --viz-3:var(--forest);
+  --viz-4:#1d4ed8;
+  --viz-5:var(--saffron);
+  --viz-track:#e8eef3;
+  --viz-bar:linear-gradient(90deg,var(--teal),var(--forest));
+  --viz-bar-accent:linear-gradient(90deg,#e11d48,var(--crimson));
+  --kpi-pad:12px 14px 12px;
+  --card-pad:18px 18px 16px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:auto;scroll-padding-top:var(--stick, 72px);overflow-x:clip}
@@ -4081,3 +4097,142 @@ html.names-ov-lock{
 .cash-snap-dash .hck-nv strong{color:#0f766e}
 .cash-snap-dash .cash-snap-head{text-decoration:none;color:inherit}
 .cash-snap-dash .cash-mix{margin-top:2px}
+
+/* === 2026-09-10-2200 unified viz / KPI / card polish (all pages) === */
+.card,
+.dir-card,
+.cash-viz-panel,
+.cash-kpi,
+.kpi-box,
+.fund,
+.need-box,
+.cash-ig,
+.aid-ig,
+.fd-ig,
+.rd-ig,
+.stat,
+.log-item,
+.ov-mini,
+.pledge-tot-card,
+.home-ig-card,
+.nig-card{
+  border-radius:var(--radius);
+}
+.cash-kpi,
+.kpi-box,
+.pledge-tot-card,
+.cash-snap-dash .hck{
+  box-shadow:var(--shadow-sm);
+}
+.card,
+.dir-card,
+.fund,
+.cash-ig,
+.aid-ig,
+.need-box,
+.home-ig-card,
+.nig-card{
+  box-shadow:var(--shadow);
+}
+.sec-head .dot{
+  width:10px;height:10px;border-radius:50%;
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--crimson) 18%, transparent);
+}
+/* default human/overview bars stay crimson; cash channels use teal/forest */
+.ibar{
+  display:block !important;height:10px;border-radius:99px;
+  background:var(--viz-track);overflow:hidden;min-width:0;
+  box-shadow:inset 0 1px 2px rgba(15,23,42,.05);
+}
+.ibar i{
+  display:block !important;height:100%;border-radius:99px;min-width:2px;
+  background:var(--viz-bar-accent);
+}
+.cash-ig .ibar,
+.cash-mix .ibar,
+.bank-mix .ibar,
+.aid-ig .ibar{background:var(--viz-track)}
+.cash-ig .ibar i,
+.cash-mix .ibar i{background:var(--viz-bar)}
+.bank-mix .ibar i{background:linear-gradient(90deg,var(--forest),#059669)}
+.aid-ig .ibar i{background:linear-gradient(90deg,var(--teal),#0891b2)}
+.ibar.ibar-nv i,
+.cash-mix .ibar.ibar-nv i{background:linear-gradient(90deg,#0f766e,#115e59)}
+.ov-mini[data-tone="miss"] .ibar i,
+.ov-pane[data-panel="miss"] .ibar i{background:var(--viz-2)}
+.ov-pane[data-panel="police"] .ibar i{background:linear-gradient(90deg,#1d4ed8,#2563eb)}
+.vchart-bar{
+  background:linear-gradient(180deg,var(--teal),var(--forest));
+  border-radius:8px 8px 2px 2px;
+}
+.vchart-days .vchart-bar{background:linear-gradient(180deg,#14b8a6,var(--forest))}
+.cash-viz-panel{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px 14px 12px;box-shadow:var(--shadow-sm);
+}
+.cash-viz-panel .chart-h{color:var(--ink);letter-spacing:.01em}
+.cash-viz-panel .nig-note,
+.cash-mix-note,
+.cash-note-soft{color:var(--muted)}
+.cash-kpis-dash .cash-kpi,
+.cash-kpis .cash-kpi{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+}
+.cash-kpis-dash .named-kpi{border-color:color-mix(in srgb, var(--teal) 45%, var(--line))}
+.cash-kpis-dash .mof-stock-kpi{border-color:color-mix(in srgb, var(--forest) 55%, var(--line))}
+.cash-kpis-dash .avail-kpi{border-color:color-mix(in srgb, var(--saffron) 55%, var(--line))}
+.cash-kpis-dash .nchl-fp-kpi,
+.cash-kpis-dash .nchl-kpi,
+.cash-kpis-dash .fp-kpi{border-color:color-mix(in srgb, var(--viz-4) 40%, var(--line))}
+.cash-kpis-dash .usd-kpi,
+.cash-kpis-dash .nv-kpi{border-color:color-mix(in srgb, var(--teal) 35%, var(--line))}
+.cash-kpis-dash .named-kpi .kpi-k,
+.cash-kpis-dash .named-kpi .num,
+.cash-kpi.named-kpi .num{color:var(--teal)}
+.cash-kpis-dash .mof-stock-kpi .num{color:var(--forest)}
+.cash-kpis-dash .avail-kpi .kpi-k{color:#92400e}
+.cash-kpis-dash .avail-kpi strong{color:#b45309}
+.dir-banks-modern{border-left-color:var(--forest)}
+.dir-banks-modern h3{color:var(--forest)}
+.dir-banks-modern .dir-kicker{color:var(--muted)}
+.dir-banks-modern .dir-table{border-radius:var(--radius-sm);overflow:hidden}
+.dir-table .dir-total td{font-weight:800;background:var(--forest-soft);color:var(--ink)}
+.dir-table .dir-before td{background:var(--saffron-soft);color:#92400e;font-weight:700}
+.dir-table .dir-usd td{background:var(--teal-soft)}
+.bank-mix-panel{margin:12px 0 0}
+.bank-mix{
+  border:1px solid color-mix(in srgb, var(--forest) 35%, var(--line));
+  border-radius:var(--radius-sm);padding:10px 12px;background:#fff;
+}
+.bank-mix .ibar-row{grid-template-columns:minmax(7em,46%) 1fr 4.8em;margin:4px 0;font-size:12.5px}
+.bank-derive-note{margin:10px 0 0;font-size:13.5px;line-height:1.5}
+.named-donut{
+  background:conic-gradient(var(--forest) 0 97.5%, var(--saffron) 97.5% 100%);
+  box-shadow:inset 0 0 0 18px var(--card), 0 0 0 1px var(--line);
+}
+.nd-chip.on{background:var(--forest);border-color:var(--forest);color:#fff}
+.nd-date{background:var(--forest-soft);color:var(--forest)}
+.nd-amt{color:var(--forest)}
+.nd-row:hover{background:color-mix(in srgb, var(--teal-soft) 70%, #fff)}
+.cash-snap-dash .hck{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+  box-shadow:var(--shadow-sm);padding:8px 10px;
+}
+.cash-snap-dash .hck strong{color:var(--forest)}
+.cash-snap-dash .hck-sum strong{color:var(--viz-4)}
+.cash-snap-dash .hck-nv strong{color:var(--teal)}
+.cash-snap-dash .hck span{color:var(--muted)}
+.cash-snap-dash .hck em{color:#94a3b8}
+.pledge-tot-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+}
+.pbox.active{background:var(--crimson);border-color:var(--crimson)}
+.chips a.is-current{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.sec-head{margin:22px 0 12px;gap:var(--gap-sm)}
+.cash-viz-grid{gap:var(--gap)}
+.cash-kpis,
+.cash-kpis-dash{gap:var(--gap-sm)}
+@media(max-width:760px){
+  .card,.dir-card,.cash-ig,.aid-ig,.fund{padding:16px 14px 14px}
+  .cash-viz-panel{padding:12px}
+}
