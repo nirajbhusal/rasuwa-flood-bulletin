@@ -11,10 +11,41 @@
   .head-stick .brand-date{font-size:12px;margin-top:2px}
   .head-stick .helpline{font-size:12px;padding:5px 8px}
 }
-.safety-banner{
-  margin:0;padding:10px 16px;
-  background:#9f1239;color:#fff;
-  font-weight:700;font-size:16px;line-height:1.55;text-align:center;
+/* Legacy class neutralized — crimson strip removed from menu stack */
+.safety-banner{display:none !important}
+
+/* Relocated safety text — quiet sit-chip (not full-width alert) */
+.sit-chip.safety-reloc,
+.safety-reloc{
+  display:block;
+  width:fit-content;
+  max-width:min(100%, 34rem);
+  margin:8px auto 0;
+  padding:6px 14px;
+  background:#f8fafc;
+  color:#475569;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  font-weight:600;
+  font-size:12.5px;
+  line-height:1.5;
+  letter-spacing:.01em;
+  text-align:center;
+  box-shadow:0 1px 2px rgba(15,23,42,.04);
+}
+.topbar .sit-chip.safety-reloc,
+.topbar .safety-reloc{
+  margin-top:6px;
+  background:rgba(255,255,255,.92);
+  color:#334155;
+  border-color:rgba(226,232,240,.95);
+}
+.overview > .sit-chip.safety-reloc{
+  margin:0 0 14px;
+  background:#fff;
+  border-color:#e2e8f0;
+  color:#475569;
+  box-shadow:var(--shadow-sm);
 }
 .police-alert{
   margin:18px 0 10px;
@@ -153,7 +184,7 @@
   --ink:#0f172a;
   --muted:#475569;
   --line:#e2e8f0;
-  --paper:#f4f1ec;
+  --paper:#f6f4ef;
   --card:#ffffff;
   --shadow:0 8px 28px rgba(15,23,42,.07);
   --shadow-lg:0 14px 40px rgba(15,23,42,.1);
@@ -236,29 +267,11 @@
   --caveat-border:#cbd5e1;
 }
 
-/* Dark scheme variables — careful overlays; light remains default */
+/* Dark scheme DISABLED — force light civic surfaces (paper/card never charcoal) */
 @media (prefers-color-scheme: dark){
   :root{
-    --ink:#e8eef5;
-    --muted:#94a3b8;
-    --line:#334155;
-    --paper:#0f172a;
-    --card:#1e293b;
-    --shadow:0 8px 28px rgba(0,0,0,.35);
-    --shadow-lg:0 14px 40px rgba(0,0,0,.45);
-    --shadow-sm:0 1px 0 rgba(0,0,0,.2);
-    --crimson-soft:#3f1219;
-    --teal-soft:#0c3a44;
-    --saffron-soft:#3b2a0a;
-    --forest-soft:#0c2f24;
-    --blue-soft:#1e293b;
-    --viz-track:#334155;
-    --caveat-bg:#1e293b;
-    --caveat-ink:#94a3b8;
-    --caveat-border:#475569;
-    --sem-miss-soft:#334155;
-    --sem-aid-soft:#134e4a;
-    color-scheme:dark;
+    /* keep light tokens; neutralize OS dark preference */
+    color-scheme:light;
   }
 }
 *{box-sizing:border-box}
@@ -4660,14 +4673,8 @@ a{color:var(--teal)}
   --ring-on:0 0 0 3px color-mix(in srgb, var(--teal) 30%, transparent);
 }
 
-/* --- 1. Banners: Nepal civic crimson / blue-green (keep polish rhythm) --- */
-.safety-banner{
-  margin:0;padding:12px 16px;
-  background:#9f1239;color:#fff;
-  border-bottom:2px solid #facc15;
-  font-weight:650;font-size:15px;line-height:1.55;letter-spacing:.01em;
-  text-align:center;
-}
+/* --- 1. Banners: safety strip retired from chrome; police/gov alerts keep rhythm --- */
+.safety-banner{display:none !important}
 .police-alert,
 .ov-warn{
   margin:16px 0 12px;
@@ -5414,18 +5421,9 @@ details.dup-acc > summary::after{
 details.dup-acc[open] > summary::after{transform:rotate(225deg)}
 details.dup-acc > *:not(summary){padding:0 12px 12px}
 
-/* Dark: keep banners / alerts readable without wiping light */
+/* Dark component overrides disabled — light surfaces only */
 @media (prefers-color-scheme: dark){
-  .kpi-box,.home-ig-card,.nig-card,.rahat-dash,.cash-ig,.need-box{
-    background:var(--card);color:var(--ink);
-  }
-  .home-cat-nav{background:color-mix(in srgb, var(--paper) 88%, transparent)}
-  .home-cat-nav a{background:var(--card);color:var(--ink)}
-  .chips a{background:var(--card);color:var(--ink)}
-  .pay-chip{background:#fff}
-  .caveat,.info-note,.nig-note,.ov-note,.cash-mix-note{
-    background:var(--caveat-bg);color:var(--caveat-ink);border-color:var(--caveat-border);
-  }
+  /* no-op: body/paper/card stay light */
 }
 
 /* === 2026-09-11 Phase 2 — names + secondary chrome (text unchanged) === */
@@ -5597,4 +5595,86 @@ table.names-table th{
 @media(max-width:400px){
   .treat-wrap{margin-left:0;margin-right:0}
   .names-search-stick{padding-left:0;padding-right:0}
+}
+
+/* === 2026-09-11 PAGE_VER 1915 — light civic polish (not MoF clone) === */
+html{color-scheme:light}
+body{
+  background:var(--paper);
+  color:var(--ink);
+}
+.page-body,.page-main{
+  background:transparent;
+}
+.head-stick{
+  background:var(--paper);
+  box-shadow:0 1px 0 var(--line), 0 8px 20px rgba(15,23,42,.05);
+}
+.chips,
+.head-stick .chips,
+.head-stick .chips.stick{
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+.chips a{
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:none;
+}
+.chips a:hover{
+  border-color:color-mix(in srgb, var(--teal) 55%, var(--line));
+  background:var(--teal-soft);
+}
+.chips a.is-current{
+  background:var(--teal-soft);
+  border-color:var(--teal);
+}
+section{padding:var(--space-4) 0}
+.sec-head{margin:0 0 var(--space-2)}
+.card,
+.kpi-box,
+.home-ig-card,
+.nig-card,
+.need-box,
+.cash-ig,
+.dir-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+}
+.card:hover,
+.home-ig-card:hover{
+  box-shadow:var(--shadow);
+}
+/* Helpline useful, not screaming */
+.helpline,
+.topbar .helpline{
+  font-size:12.5px;
+  font-weight:650;
+  letter-spacing:.01em;
+  border:1px solid color-mix(in srgb, var(--teal) 22%, transparent);
+  box-shadow:none;
+}
+.topbar .helpline{
+  background:rgba(240,253,250,.94);
+  color:#0f766e;
+}
+/* Source / update chips — calm */
+.src,
+.ov-cap,
+.rahat-chip,
+.home-cat-nav a{
+  border-radius:999px;
+}
+.overview{
+  margin-top:4px;
+}
+@media (max-width:640px){
+  .sit-chip.safety-reloc,
+  .safety-reloc{
+    font-size:12px;
+    padding:6px 12px;
+    border-radius:10px;
+  }
+  .safety-banner{display:none !important;padding:0}
 }

@@ -1,5 +1,20 @@
 # Changelog — design / layout
 
+## 2026-09-11 · PAGE_VER 1915 — light civic polish · safety strip relocated
+
+### Chrome
+- Removed crimson `.safety-banner` from sticky menu stack on all pages (header → chips)
+- Relocated `data-i18n-html="safety"` wording unchanged:
+  - `index.html`: muted `.sit-chip.safety-reloc` at top of `#overview`
+  - secondary pages: muted sit-chip under `.brand-date` (not a full-width alert)
+- `@media (prefers-color-scheme: dark)` neutralized — body/paper/card stay light (no charcoal)
+- Light civic polish: soft paper, white cards, hairline borders, calm chip/nav shadows; helpline useful not screaming
+- KPI figures / cash channels / MoF mega-total stacking: untouched
+
+### Version
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-11-1915`
+
+
 ## 2026-09-11 · PAGE_VER 1900 — Phase 2 names + secondary landmarks
 
 Content freeze: no reader-visible text, figures, labels, caveats, sources, or i18n string bodies changed. DIFF vs `/workspace/rasuwa-ui-audit/before/` = CLEAN.
