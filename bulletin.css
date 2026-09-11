@@ -208,20 +208,22 @@ img{max-width:100%;display:block}
 }
 .topbar::before{
   content:"";
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(8,30,40,.42) 0%,rgba(8,30,40,.12) 46%,rgba(6,24,34,.28) 100%);
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(6,22,32,.72) 0%,rgba(6,22,32,.48) 42%,rgba(4,16,24,.78) 100%);
 }
 .topbar-art{
-  position:absolute;left:0;right:0;bottom:0;width:100%;height:118px;z-index:0;pointer-events:none;display:block
-}
-@media (max-width:760px){
-  .topbar-art{height:72px}
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:50% 72%;
+  z-index:0;pointer-events:none;display:block
 }
 .topbar-inner{
-  position:relative;z-index:1;
-  max-width:var(--max);margin:0 auto;padding:14px 16px 12px;
+  position:relative;z-index:2;
+  max-width:var(--max);margin:0 auto;padding:18px 16px 16px;
   display:flex;flex-direction:column;align-items:center;gap:10px;
   text-align:center;
+}
+@media (min-width:761px){
+  .topbar-inner{padding:22px 16px 20px;min-height:118px;justify-content:center}
 }
 .topbar .brand h1{
   color:#f8fafc;
@@ -4236,3 +4238,18 @@ html.names-ov-lock{
   .card,.dir-card,.cash-ig,.aid-ig,.fund{padding:16px 14px 14px}
   .cash-viz-panel{padding:12px}
 }
+
+
+.share-banners-note{margin:0 0 10px;color:var(--muted);font-size:15px;line-height:1.55}
+.share-banners{
+  list-style:none;margin:0 0 18px;padding:0;
+  display:flex;flex-wrap:wrap;gap:10px;
+}
+.share-banners a{
+  display:inline-block;
+  padding:10px 14px;border-radius:999px;
+  background:var(--teal-soft);color:var(--teal);
+  font-weight:700;font-size:14px;text-decoration:none;
+  border:1px solid rgba(14,116,144,.22);
+}
+.share-banners a:hover{background:var(--teal);color:#fff;text-decoration:none}
