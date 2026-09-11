@@ -1,10 +1,10 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-10T11:00:00+05:45",
+  "updated_at": "2026-09-11T11:00:00+05:45",
   "as_of": {
-    "ne": "१० सेप्टेम्बर / २५ भदौ २०८३ · ११:००",
-    "en": "10 September 2026 · 11:00 NPT"
+    "ne": "११ सेप्टेम्बर / २६ भदौ २०८३ · ११:००",
+    "en": "11 September 2026 · 11:00 NPT"
   },
   "credit": {
     "ne": "निरज भुसाल",
@@ -18,10 +18,10 @@
         "ne": "मृतक संख्या",
         "en": "Deaths count"
       },
-      "value": 1377,
+      "value": 1385,
       "value_display": {
-        "ne": "१,३७७",
-        "en": "1,377"
+        "ne": "१,३८५",
+        "en": "1,385"
       },
       "items": [
         {
@@ -66,10 +66,10 @@
             "ne": "नुवाकोट",
             "en": "Nuwakot"
           },
-          "value": 198,
+          "value": 199,
           "value_display": {
-            "ne": "१९८",
-            "en": "198"
+            "ne": "१९९",
+            "en": "199"
           }
         },
         {
@@ -78,10 +78,10 @@
             "ne": "रसुवा",
             "en": "Rasuwa"
           },
-          "value": 178,
+          "value": 185,
           "value_display": {
-            "ne": "१७८",
-            "en": "178"
+            "ne": "१८५",
+            "en": "185"
           }
         },
         {
@@ -101,13 +101,13 @@
     {
       "id": "injured",
       "label": {
-        "ne": "हालसम्म घाइते",
-        "en": "Injured so far"
+        "ne": "उपचार (अस्पताल)",
+        "en": "Treated (hospitals)"
       },
-      "value": 7498,
+      "value": 337,
       "value_display": {
-        "ne": "७,४९८",
-        "en": "7,498"
+        "ne": "३३७",
+        "en": "337"
       },
       "items": [
         {
@@ -128,22 +128,22 @@
             "ne": "सशस्त्र",
             "en": "Armed Police"
           },
-          "value": 3606,
+          "value": 3759,
           "value_display": {
-            "ne": "३,६०६",
-            "en": "3,606"
+            "ne": "३,७५९",
+            "en": "3,759"
           }
         },
         {
           "id": "ndrrma_hosp",
           "label": {
-            "ne": "अस्पताल (१९)",
-            "en": "Hospitals (19)"
+            "ne": "अस्पताल उपचार (१९)",
+            "en": "Hospital treated (19)"
           },
-          "value": 333,
+          "value": 337,
           "value_display": {
-            "ne": "३३३",
-            "en": "333"
+            "ne": "३३७",
+            "en": "337"
           }
         },
         {
@@ -152,10 +152,10 @@
             "ne": "डिस्चार्ज (लेबल)",
             "en": "Discharged (labeled)"
           },
-          "value": 256,
+          "value": 261,
           "value_display": {
-            "ne": "२५६",
-            "en": "256"
+            "ne": "२६१",
+            "en": "261"
           }
         },
         {
@@ -170,7 +170,11 @@
             "en": "19"
           }
         }
-      ]
+      ],
+      "history_note": {
+        "ne": "अघिल्लो घाइते महा-जम्मा ७,४९८ (२५ भदौ ११:००) इतिहास — यस बोर्डमा घाइते महा-जम्मा छैन।",
+        "en": "Previous injured total 7,498 (25 Bhadra 11:00) is history — this board has no injured grand total."
+      }
     },
     {
       "id": "miss",
@@ -384,22 +388,22 @@
         "ne": "हालसम्म उद्धार गरिएको संख्या",
         "en": "Rescued so far"
       },
-      "value": 13656,
+      "value": 13676,
       "value_display": {
-        "ne": "१३,६५६",
-        "en": "13,656"
+        "ne": "१३,६७६",
+        "en": "13,676"
       },
       "items": [
         {
           "id": "heli_flights",
           "label": {
-            "ne": "हेलि उडान जम्मा",
-            "en": "Total heli flights"
+            "ne": "सेना हेलि उडान",
+            "en": "Army heli flights"
           },
-          "value": 1348,
+          "value": 1407,
           "value_display": {
-            "ne": "१,३४८",
-            "en": "1,348"
+            "ne": "१,४०७",
+            "en": "1,407"
           }
         },
         {
@@ -408,10 +412,10 @@
             "ne": "सशस्त्र उडान",
             "en": "APF flights"
           },
-          "value": 272,
+          "value": 299,
           "value_display": {
-            "ne": "२७२",
-            "en": "272"
+            "ne": "२९९",
+            "en": "299"
           }
         },
         {
@@ -710,10 +714,10 @@
         "ne": "खटिएको जनशक्ति",
         "en": "Deployed personnel"
       },
-      "value": 21063,
+      "value": 21022,
       "value_display": {
-        "ne": "२१,०६३",
-        "en": "21,063"
+        "ne": "२१,०२२",
+        "en": "21,022"
       },
       "items": [
         {
@@ -722,10 +726,10 @@
             "ne": "जम्मा",
             "en": "Total"
           },
-          "value": 21063,
+          "value": 21022,
           "value_display": {
-            "ne": "२१,०६३",
-            "en": "21,063"
+            "ne": "२१,०२२",
+            "en": "21,022"
           }
         },
         {
@@ -734,10 +738,10 @@
             "ne": "सेना",
             "en": "Army"
           },
-          "value": 8885,
+          "value": 8844,
           "value_display": {
-            "ne": "८,८८५",
-            "en": "8,885"
+            "ne": "८,८४४",
+            "en": "8,844"
           }
         },
         {

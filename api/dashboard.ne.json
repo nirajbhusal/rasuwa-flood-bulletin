@@ -2,21 +2,16 @@
   "schema_version": 3,
   "id": "dashboard",
   "lang": "ne",
-  "updated_at": "2026-09-10T11:00:00+05:45",
-  "as_of": "१० सेप्टेम्बर / २५ भदौ २०८३ · ११:००",
+  "updated_at": "2026-09-11T11:00:00+05:45",
+  "as_of": "११ सेप्टेम्बर / २६ भदौ २०८३ · ११:००",
   "credit": "निरज भुसाल",
-  "watermark": "स्रोत · निरज भुसाल",
-  "source_line": "स्रोत: निरज भुसाल · रसुवा–भोटेकोशी बाढी बुलेटिन",
-  "attribution_html": "स्रोत: <a href=\"https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview\">निरज भुसाल · रसुवा–भोटेकोशी बाढी बुलेटिन</a>",
-  "attribution_required": true,
-  "attribution_note": "अंक पुनःप्रकाश गर्दा credit / watermark / source_line / attribution_html र link अनिवार्य देखाउनुहोस्।",
   "link": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
   "cards": [
     {
       "id": "dead",
       "label": "मृतक संख्या",
-      "value": 1377,
-      "value_display": "१,३७७",
+      "value": 1385,
+      "value_display": "१,३८५",
       "items": [
         {
           "id": "chitwan",
@@ -39,14 +34,14 @@
         {
           "id": "nuwakot",
           "label": "नुवाकोट",
-          "value": 198,
-          "value_display": "१९८"
+          "value": 199,
+          "value_display": "१९९"
         },
         {
           "id": "rasuwa",
           "label": "रसुवा",
-          "value": 178,
-          "value_display": "१७८"
+          "value": 185,
+          "value_display": "१८५"
         },
         {
           "id": "handover",
@@ -58,9 +53,9 @@
     },
     {
       "id": "injured",
-      "label": "हालसम्म घाइते",
-      "value": 7498,
-      "value_display": "७,४९८",
+      "label": "उपचार (अस्पताल)",
+      "value": 337,
+      "value_display": "३३७",
       "items": [
         {
           "id": "army",
@@ -71,20 +66,20 @@
         {
           "id": "apf",
           "label": "सशस्त्र",
-          "value": 3606,
-          "value_display": "३,६०६"
+          "value": 3759,
+          "value_display": "३,७५९"
         },
         {
           "id": "ndrrma_hosp",
-          "label": "अस्पताल (१९)",
-          "value": 333,
-          "value_display": "३३३"
+          "label": "अस्पताल उपचार (१९)",
+          "value": 337,
+          "value_display": "३३७"
         },
         {
           "id": "discharged",
           "label": "डिस्चार्ज (लेबल)",
-          "value": 256,
-          "value_display": "२५६"
+          "value": 261,
+          "value_display": "२६१"
         },
         {
           "id": "hospital_count",
@@ -92,7 +87,8 @@
           "value": 19,
           "value_display": "१९"
         }
-      ]
+      ],
+      "history_note": "अघिल्लो घाइते महा-जम्मा ७,४९८ (२५ भदौ ११:००) इतिहास — यस बोर्डमा घाइते महा-जम्मा छैन।"
     },
     {
       "id": "miss",
@@ -201,20 +197,20 @@
     {
       "id": "rescued",
       "label": "हालसम्म उद्धार गरिएको संख्या",
-      "value": 13656,
-      "value_display": "१३,६५६",
+      "value": 13676,
+      "value_display": "१३,६७६",
       "items": [
         {
           "id": "heli_flights",
-          "label": "हेलि उडान जम्मा",
-          "value": 1348,
-          "value_display": "१,३४८"
+          "label": "सेना हेलि उडान",
+          "value": 1407,
+          "value_display": "१,४०७"
         },
         {
           "id": "apf_flights",
           "label": "सशस्त्र उडान",
-          "value": 272,
-          "value_display": "२७२"
+          "value": 299,
+          "value_display": "२९९"
         },
         {
           "id": "private_ktm",
@@ -365,20 +361,20 @@
     {
       "id": "deploy",
       "label": "खटिएको जनशक्ति",
-      "value": 21063,
-      "value_display": "२१,०६३",
+      "value": 21022,
+      "value_display": "२१,०२२",
       "items": [
         {
           "id": "total",
           "label": "जम्मा",
-          "value": 21063,
-          "value_display": "२१,०६३"
+          "value": 21022,
+          "value_display": "२१,०२२"
         },
         {
           "id": "army",
           "label": "सेना",
-          "value": 8885,
-          "value_display": "८,८८५"
+          "value": 8844,
+          "value_display": "८,८४४"
         },
         {
           "id": "apf",
@@ -451,5 +447,10 @@
       ]
     }
   ],
-  "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html"
+  "watermark": "स्रोत · निरज भुसाल",
+  "attribution_required": true,
+  "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html",
+  "source_line": "स्रोत: निरज भुसाल · रसुवा–भोटेकोशी बाढी बुलेटिन",
+  "attribution_html": "स्रोत: <a href=\"https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview\">निरज भुसाल · रसुवा–भोटेकोशी बाढी बुलेटिन</a>",
+  "attribution_note": "अंक पुनःप्रकाश गर्दा credit / watermark / source_line / attribution_html र link अनिवार्य देखाउनुहोस्।"
 }

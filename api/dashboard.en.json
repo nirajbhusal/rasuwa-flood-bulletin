@@ -2,21 +2,16 @@
   "schema_version": 3,
   "id": "dashboard",
   "lang": "en",
-  "updated_at": "2026-09-10T11:00:00+05:45",
-  "as_of": "10 September 2026 · 11:00 NPT",
+  "updated_at": "2026-09-11T11:00:00+05:45",
+  "as_of": "11 September 2026 · 11:00 NPT",
   "credit": "Niraj Bhusal",
-  "watermark": "Source · Niraj Bhusal",
-  "source_line": "Source: Niraj Bhusal · Rasuwa–Bhotekoshi Flood Bulletin",
-  "attribution_html": "Source: <a href=\"https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview\">Niraj Bhusal · Rasuwa–Bhotekoshi Flood Bulletin</a>",
-  "attribution_required": true,
-  "attribution_note": "When republishing figures, you must display credit / watermark / source_line / attribution_html and link.",
   "link": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
   "cards": [
     {
       "id": "dead",
       "label": "Deaths count",
-      "value": 1377,
-      "value_display": "1,377",
+      "value": 1385,
+      "value_display": "1,385",
       "items": [
         {
           "id": "chitwan",
@@ -39,14 +34,14 @@
         {
           "id": "nuwakot",
           "label": "Nuwakot",
-          "value": 198,
-          "value_display": "198"
+          "value": 199,
+          "value_display": "199"
         },
         {
           "id": "rasuwa",
           "label": "Rasuwa",
-          "value": 178,
-          "value_display": "178"
+          "value": 185,
+          "value_display": "185"
         },
         {
           "id": "handover",
@@ -58,9 +53,9 @@
     },
     {
       "id": "injured",
-      "label": "Injured so far",
-      "value": 7498,
-      "value_display": "7,498",
+      "label": "Treated (hospitals)",
+      "value": 337,
+      "value_display": "337",
       "items": [
         {
           "id": "army",
@@ -71,20 +66,20 @@
         {
           "id": "apf",
           "label": "Armed Police",
-          "value": 3606,
-          "value_display": "3,606"
+          "value": 3759,
+          "value_display": "3,759"
         },
         {
           "id": "ndrrma_hosp",
-          "label": "Hospitals (19)",
-          "value": 333,
-          "value_display": "333"
+          "label": "Hospital treated (19)",
+          "value": 337,
+          "value_display": "337"
         },
         {
           "id": "discharged",
           "label": "Discharged (labeled)",
-          "value": 256,
-          "value_display": "256"
+          "value": 261,
+          "value_display": "261"
         },
         {
           "id": "hospital_count",
@@ -92,7 +87,8 @@
           "value": 19,
           "value_display": "19"
         }
-      ]
+      ],
+      "history_note": "Previous injured total 7,498 (25 Bhadra 11:00) is history — this board has no injured grand total."
     },
     {
       "id": "miss",
@@ -201,20 +197,20 @@
     {
       "id": "rescued",
       "label": "Rescued so far",
-      "value": 13656,
-      "value_display": "13,656",
+      "value": 13676,
+      "value_display": "13,676",
       "items": [
         {
           "id": "heli_flights",
-          "label": "Total heli flights",
-          "value": 1348,
-          "value_display": "1,348"
+          "label": "Army heli flights",
+          "value": 1407,
+          "value_display": "1,407"
         },
         {
           "id": "apf_flights",
           "label": "APF flights",
-          "value": 272,
-          "value_display": "272"
+          "value": 299,
+          "value_display": "299"
         },
         {
           "id": "private_ktm",
@@ -365,20 +361,20 @@
     {
       "id": "deploy",
       "label": "Deployed personnel",
-      "value": 21063,
-      "value_display": "21,063",
+      "value": 21022,
+      "value_display": "21,022",
       "items": [
         {
           "id": "total",
           "label": "Total",
-          "value": 21063,
-          "value_display": "21,063"
+          "value": 21022,
+          "value_display": "21,022"
         },
         {
           "id": "army",
           "label": "Army",
-          "value": 8885,
-          "value_display": "8,885"
+          "value": 8844,
+          "value_display": "8,844"
         },
         {
           "id": "apf",
@@ -451,5 +447,10 @@
       ]
     }
   ],
-  "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html"
+  "watermark": "Source · Niraj Bhusal",
+  "attribution_required": true,
+  "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html",
+  "source_line": "Source: Niraj Bhusal · Rasuwa–Bhotekoshi Flood Bulletin",
+  "attribution_html": "Source: <a href=\"https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview\">Niraj Bhusal · Rasuwa–Bhotekoshi Flood Bulletin</a>",
+  "attribution_note": "When republishing figures, you must display credit / watermark / source_line / attribution_html and link."
 }
