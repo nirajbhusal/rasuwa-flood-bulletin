@@ -1,5 +1,31 @@
 # Changelog — design / layout
 
+## 2026-09-11 · PAGE_VER 1900 — Phase 2 names + secondary landmarks
+
+Content freeze: no reader-visible text, figures, labels, caveats, sources, or i18n string bodies changed. DIFF vs `/workspace/rasuwa-ui-audit/before/` = CLEAN.
+
+### names.html
+- Name-card / `.ns-hit` status accents via `--sem-miss` / `--sem-relief` / `--sem-rescue` / `--sem-inj` / `--sem-dead` (badge text unchanged)
+- Tables (`.treat-wrap`): sticky thead, zebra rows, horizontal scroll on mobile; search/filter behaviour untouched
+- Shared `.ui-search` look for header / body / overlay / fam search inputs
+- Empty-state polish on existing `.ns-empty` / `.fam-empty` hooks only (no invented copy)
+- Skip-to-content + `<main id="main">`; focus/touch targets on names controls
+
+### Secondary pages (donate, map, notices, contact, gov, response, photos, damage, about)
+- Skip-to-content + `<main id="main" class="page-main">` landmarks
+- Nav `is-current`: fixed erroneous about highlight on `response.html` (nav-menu.js still marks the real page)
+- `.sec-head` polish using existing headings only
+- Footer `href` escapes: confirmed clean in HTML footers (i18n.js JS-string escapes left as-is)
+- Overflow / shared tokens only
+
+### Version
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-11-1900`
+
+### Deferred
+- Duplicate-board accordion (needs confirmed 1:1 duplicates)
+- Do not invent loading/empty i18n keys beyond existing hooks
+- family.json content untouched
+
 ## 2026-09-11 · PAGE_VER 1815 — Phase 1 UI system
 
 Content freeze: no reader-visible text, figures, labels, caveats, sources, or i18n string bodies changed (footer `href` escape bug fixed only).

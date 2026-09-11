@@ -5428,7 +5428,9 @@ details.dup-acc > *:not(summary){padding:0 12px 12px}
   }
 }
 
-/* === Phase 2 light — names tokens (text unchanged) === */
+/* === 2026-09-11 Phase 2 — names + secondary chrome (text unchanged) === */
+
+/* Name-card / hit component */
 .name-card,
 .ns-hit,
 .ns-card{
@@ -5438,39 +5440,161 @@ details.dup-acc > *:not(summary){padding:0 12px 12px}
   box-shadow:var(--shadow-sm);
   padding:var(--space-2) var(--space-3);
 }
-.ns-hit-missing{border-left:4px solid var(--sem-miss)}
+.ns-hit{border-left:4px solid var(--sem-rescue)}
+
+/* Status accent via semantic tokens — badge TEXT untouched */
+.ns-hit-missing{border-left-color:var(--sem-miss)!important}
+.ns-hit-found{border-left-color:var(--sem-relief)!important}
+.ns-hit-rescue{border-left-color:var(--sem-rescue)!important}
+.ns-hit-treat{border-left-color:var(--sem-inj)!important}
+.ns-hit-dead,
+.ns-hit-deceased{border-left-color:var(--sem-dead)!important}
+
+.ns-st-badge{
+  display:inline-flex;align-items:center;flex:none;
+  font-size:11px;font-weight:800;letter-spacing:.02em;
+  padding:4px 8px;border-radius:999px;line-height:1.2;
+  background:var(--sem-rescue-soft);color:var(--sem-rescue);
+}
+.ns-hit-missing .ns-st-badge,
+.ns-pill.ns-st-missing{
+  background:var(--sem-miss-soft);color:var(--sem-miss);
+}
+.ns-hit-found .ns-st-badge,
+.ns-pill.ns-st-found{
+  background:var(--sem-relief-soft);color:var(--sem-relief);
+}
+.ns-hit-rescue .ns-st-badge,
+.ns-pill.ns-st-rescue{
+  background:var(--sem-rescue-soft);color:var(--sem-rescue);
+}
+.ns-hit-treat .ns-st-badge,
+.ns-pill.ns-st-treat{
+  background:var(--sem-inj-soft);color:var(--sem-inj);
+}
+.ns-hit-dead .ns-st-badge,
+.ns-hit-deceased .ns-st-badge,
+.ns-pill.ns-st-dead,
+.ns-pill.ns-st-deceased{
+  background:var(--sem-dead-soft);color:var(--sem-dead);
+}
+
+.fam-card .tag{background:var(--sem-miss-soft);color:var(--sem-miss)}
+.fam-card .tag.ok{background:var(--sem-relief-soft);color:var(--sem-relief)}
+.fam-card .tag.pair{background:var(--sem-inj-soft);color:var(--sem-inj)}
+.fam-tbl tr.rescued td{background:color-mix(in srgb, var(--sem-rescue-soft) 70%, #fff)}
+.treat tr.treat-dead td{background:color-mix(in srgb, var(--sem-dead-soft) 55%, #fff)}
+
+/* Tables: sticky thead, zebra, horizontal scroll (mobile) */
+.treat-wrap,
 .names-table-wrap,
 .ns-table-scroll,
 .dir-table-wrap{
-  overflow:auto;-webkit-overflow-scrolling:touch;
-  border:1px solid var(--line);border-radius:var(--radius-sm);
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  max-width:100%;
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
   background:var(--card);
 }
+.treat-wrap{mask-image:none} /* keep scroll affordance via overflow; avoid clipping sticky */
+.treat-wrap table.plants thead th,
 .names-table thead th,
 .dir-table thead th,
 table.names-table th{
   position:sticky;top:0;z-index:2;
-  background:var(--card);box-shadow:0 1px 0 var(--line);
-  font-size:var(--fs-label);letter-spacing:var(--label-ls);
+  background:var(--card);
+  box-shadow:0 1px 0 var(--line);
+  font-size:var(--fs-label);
+  letter-spacing:var(--label-ls);
 }
-.names-table tbody tr:nth-child(even),
-.dir-table tbody tr:nth-child(even){background:color-mix(in srgb, var(--paper) 65%, var(--card))}
-.names-empty,
-.ns-empty,
-.names-loading{
-  padding:var(--space-4);text-align:center;
-  color:var(--muted);font-size:var(--fs-caption);font-weight:650;
-  border:1px dashed var(--line);border-radius:var(--radius-sm);
-  background:var(--caveat-bg);
+.treat-wrap table.plants tbody tr:nth-child(even):not(.rescued):not(.treat-dead) td{
+  background:color-mix(in srgb, var(--paper) 70%, var(--card));
 }
+
+/* Shared search field look (header / body / overlay / fam) — behaviour unchanged */
+.ui-search,
 .names-home-field input,
+.names-sec-field input,
+#names-q,
 #names-ov-q,
-.names-q{
+#names-home-q,
+#fam-search,
+.fam-search input{
   min-height:var(--touch);
   border-radius:var(--radius-xs);
   border:1px solid var(--line);
   padding:10px 12px;
   font:inherit;
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  background:var(--card);
+  color:var(--ink);
+  -webkit-appearance:none;appearance:none;
 }
+.ui-search:focus-visible,
 .names-home-field input:focus-visible,
-#names-ov-q:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.names-sec-field input:focus-visible,
+#names-q:focus-visible,
+#names-ov-q:focus-visible,
+#names-home-q:focus-visible,
+#fam-search:focus-visible,
+.fam-search input:focus-visible{
+  outline:2px solid var(--focus);
+  outline-offset:2px;
+  border-color:var(--teal);
+}
+
+/* Existing empty / loading hooks only — no invented copy */
+.names-empty,
+.ns-empty,
+.names-loading,
+.fam-empty{
+  padding:var(--space-4);
+  text-align:center;
+  color:var(--muted);
+  font-size:var(--fs-caption);
+  font-weight:650;
+  border:1px dashed var(--line);
+  border-radius:var(--radius-sm);
+  background:var(--caveat-bg);
+}
+
+/* Secondary page landmarks + section header polish (existing text) */
+.page-main{min-width:0}
+.sec-head{
+  display:flex;align-items:flex-start;gap:10px;
+  margin:0 0 var(--space-3);
+}
+.sec-head h2{
+  margin:0;
+  font-size:var(--fs-h2);
+  line-height:var(--lh-h2);
+  font-weight:800;
+  min-width:0;
+}
+.sec-head .dot{
+  flex:none;width:10px;height:10px;border-radius:50%;margin-top:.55em;
+}
+
+/* Focus / touch on names controls */
+.ns-hit:focus-visible,
+.ns-jump:focus-visible,
+.names-cat-btn:focus-visible,
+.ns-chip:focus-visible{
+  outline:2px solid var(--focus);outline-offset:2px;
+}
+.ns-jump,
+.names-cat-btn,
+.ns-more,
+.names-full-btn{
+  min-height:var(--touch);
+  touch-action:manipulation;
+}
+
+/* No horizontal overflow on secondary pages */
+.page-body,.page-main,.wrap{max-width:100%;min-width:0}
+@media(max-width:400px){
+  .treat-wrap{margin-left:0;margin-right:0}
+  .names-search-stick{padding-left:0;padding-right:0}
+}
