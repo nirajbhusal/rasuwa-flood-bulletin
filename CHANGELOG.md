@@ -1,5 +1,17 @@
 # Changelog — design / layout
 
+## 2026-09-11 · PAGE_VER 2145 — RDNA infographics (NPC–NDRRMA)
+
+### Content
+- Homepage `#cat-infographics` / `#infographics`: RDNA KPI tiles, sector donuts (effects + recovery), impacted HH strip, labeled qualitative bullets
+- `damage.html#rdna`: full summary table (4 sectors + sub-rows + total), HH strip, source line
+- Figures as printed from RDNA summary table; not merged into NDRRMA casualty KPIs or cash/PMDRF channels
+- Catalog chip + nav chip «इन्फोग्राफिक / RDNA»; i18n NE+EN
+- Archived slides under `img/today-2026-09-11-rdna-*.jpg` (not live board graphics)
+
+### Version
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-11-2145`
+
 ## 2026-09-11 · PAGE_VER 1915 — light civic polish · safety strip relocated
 
 ### Chrome
