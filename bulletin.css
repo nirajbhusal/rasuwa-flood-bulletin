@@ -6,7 +6,7 @@
   overflow:visible;
 }
 @media(max-width:760px){
-  .head-stick .topbar-inner{padding:8px 12px 8px;gap:6px}
+  .head-stick .topbar-inner{padding:14px 12px 14px;gap:8px;min-height:155px}
   .head-stick .brand h1{font-size:clamp(20px,5.4vw,30px)}
   .head-stick .brand-date{font-size:12px;margin-top:2px}
   .head-stick .helpline{font-size:12px;padding:5px 8px}
@@ -209,11 +209,17 @@ img{max-width:100%;display:block}
 .topbar::before{
   content:"";
   position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,rgba(6,22,32,.72) 0%,rgba(6,22,32,.48) 42%,rgba(4,16,24,.78) 100%);
+  /* Lightened so greenery/river colors read; title still relies on text-shadow */
+  background:linear-gradient(180deg,rgba(6,22,32,.42) 0%,rgba(6,22,32,.28) 45%,rgba(4,16,24,.38) 100%);
+}
+.topbar::after{
+  content:"";
+  position:absolute;left:0;right:0;bottom:0;height:42%;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(4,16,24,0) 0%,rgba(4,16,24,.45) 100%);
 }
 .topbar-art{
   position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:50% 72%;
+  object-fit:cover;object-position:50% 45%;
   z-index:0;pointer-events:none;display:block
 }
 .topbar-inner{
@@ -221,9 +227,10 @@ img{max-width:100%;display:block}
   max-width:var(--max);margin:0 auto;padding:18px 16px 16px;
   display:flex;flex-direction:column;align-items:center;gap:10px;
   text-align:center;
+  min-height:155px;justify-content:center;
 }
 @media (min-width:761px){
-  .topbar-inner{padding:22px 16px 20px;min-height:118px;justify-content:center}
+  .topbar-inner{padding:28px 16px 26px;min-height:220px;justify-content:center}
 }
 .topbar .brand h1{
   color:#f8fafc;
@@ -1743,7 +1750,7 @@ footer .foot-about a{color:var(--teal);font-weight:800}
   .brand-date{font-size:12px;line-height:1.4;text-align:center}
   .top-actions .helpline{flex:1 0 100%}
   .top-actions .lang-switch{position:static;top:auto;right:auto}
-  .topbar-inner{padding:10px 12px}
+  .topbar-inner{padding:14px 12px;min-height:155px;justify-content:center}
   .wrap{padding:0 12px}
   .stat{padding:14px 14px 12px}
   .stat ul.mini{font-size:16px}
