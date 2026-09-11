@@ -150,5 +150,25 @@
   }
   window.addEventListener("resize", onViewportChange);
 
+
+  /* Active page chip */
+  (function markCurrent() {
+    try {
+      var file = (location.pathname || "").split("/").pop() || "index.html";
+      if (!file) file = "index.html";
+      var root = inner || nav;
+      if (!root) return;
+      root.querySelectorAll("a[href]").forEach(function (a) {
+        var href = (a.getAttribute("href") || "").split("#")[0];
+        if (!href) return;
+        var base = href.split("/").pop();
+        if (base === file || (file === "index.html" && (base === "index.html" || base === ""))) {
+          a.classList.add("is-current");
+          a.setAttribute("aria-current", "page");
+        }
+      });
+    } catch (e) {}
+  })();
+
   placeToggle();
 })();
