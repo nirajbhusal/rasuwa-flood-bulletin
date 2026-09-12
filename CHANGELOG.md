@@ -1,5 +1,17 @@
 # Changelog — design / layout
 
+## 2026-09-12 · PAGE_VER 1045 — chart layout · RDNA palette · donut hole
+
+### Design / layout
+- Mobile (≤720px): all `.viz-pie-row` stack — donut centered above, legend full-width below
+- Donut size: mobile ≥152px (RDNA ≥156px); desktop ~168–172px side-by-side
+- `.viz-donut-hole` solid white disc + dark ink (`clamp` for long crore figures) — no transparent center over blue ring
+- RDNA sectors: Social `#f59e0b` · Productive `#dc2626` · Infra `#1d4ed8` · Cross `#0f766e` (stops/figures unchanged)
+- Legend swatches ≥10px; cash/ops/named donut hole contrast
+
+### Version
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-12-1045`
+
 ## 2026-09-12 · PAGE_VER 0945 — RDNA/LPG separate pages · live header clock
 
 ### Pages / IA
