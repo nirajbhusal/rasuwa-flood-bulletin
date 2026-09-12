@@ -1,5 +1,9 @@
 # Changelog — design / layout
 
+## 2026-09-12 · PAGE_VER 0930 — brand-date last update · remove sit-chip
+
+- Removed muted sit-chip (`safety-reloc`) from overview + secondary pages; latest NDRRMA board time now in `.brand-date` (NE/EN). `PAGE_VER` → `2026-09-12-0930`.
+
 ## 2026-09-12 · PAGE_VER 0915 — color grading · semantic chart tones
 
 ### Design / layout
