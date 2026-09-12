@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://nirajbhusal.github.io/rasuwa-flood-bulletin/damage.html</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -65,6 +65,12 @@
     <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nirajbhusal.github.io/rasuwa-flood-bulletin/supply.html</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nirajbhusal.github.io/rasuwa-flood-bulletin/response.html</loc>

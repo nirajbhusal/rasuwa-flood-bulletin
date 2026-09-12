@@ -1324,6 +1324,14 @@ window.I18N = {
 "damage_title": "बाढी क्षति मूल्यांकन ड्यासबोर्ड · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "damage_meta": "विदुर GRA_MONIT01, स्याफ्रुबेँसी र टिमुरे क्षति मूल्यांकन। Copernicus EMSR927। उद्धार १२३४।",
 "damage_sub": "विदुर GRA_MONIT01 · स्याफ्रुबेँसी · टिमुरे — अलग AOI",
+"supply_title": "एलपीजी आयात · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"supply_meta": "एलपीजी आयात · भन्सार प्रवेश नाका दैनिक सारांश · २०८३/०५/२५–२६। उद्धार १२३४।",
+"overview_h": "मानवीय स्थिति",
+"overview_sub": "शव · सम्पर्कविहीन · उपचार · उद्धार",
+"home_supply_lead": "दैनिक आयात ▼ ४०.८% · २०८३/०५/२५–२६",
+"home_supply_cta": "पूरा बोर्ड",
+"home_rdna_lead": "कुल प्रभाव ४०,८२८.९१ करोड · पुनर्लाभ ७२,३३१.५२ करोड",
+"home_rdna_cta": "पूर्ण बोर्ड + तालिका",
 "notices_title": "सूचना र सडक स्थिति · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "notices_meta": "बाटो, पुल, नाका र सतर्कता। उद्धार १२३४।",
 "notices_sub": "बाटो, पुल, नाका र सतर्कता",
@@ -3073,6 +3081,14 @@ window.I18N = {
 "damage_title": "Flood damage assessment dashboard · Rasuwa–Bhotekoshi flood bulletin",
 "damage_meta": "Bidur GRA_MONIT01, Syaphrubesi and Timure damage assessment. Copernicus EMSR927. Rescue 1234.",
 "damage_sub": "Bidur GRA_MONIT01 · Syaphrubesi · Timure — separate AOIs",
+"supply_title": "LPG import · Rasuwa–Bhotekoshi flood bulletin",
+"supply_meta": "LPG import · customs entry-point daily summary · BS 2083/05/25–26. Rescue 1234.",
+"overview_h": "Humanitarian situation",
+"overview_sub": "Deaths · uncontacted · treatment · rescued",
+"home_supply_lead": "Daily import ▼ 40.8% · BS 2083/05/25–26",
+"home_supply_cta": "Full board",
+"home_rdna_lead": "Total effects 40,828.91 crore · recovery 72,331.52 crore",
+"home_rdna_cta": "Full board + table",
 "notices_title": "Alerts, Notices and road status · Rasuwa–Bhotekoshi flood bulletin",
 "notices_meta": "Highways, bridges, border road and alerts. Rescue 1234.",
 "notices_sub": "Highways, bridges, border road and alerts",
@@ -4784,6 +4800,7 @@ window.I18N_LISTS = {
     var contactPg = file === "contact.html" || document.documentElement.classList.contains("contact-page");
     var photosPg = file === "photos.html" || document.documentElement.classList.contains("photos-page");
     var responsePg = file === "response.html" || document.documentElement.classList.contains("response-page");
+    var supplyPg = file === "supply.html" || document.documentElement.classList.contains("supply-page");
     if (aboutPg) {
       if (p.about_title) document.title = p.about_title;
     } else if (mapPg) {
@@ -4804,6 +4821,8 @@ window.I18N_LISTS = {
       if (p.photos_title) document.title = p.photos_title;
     } else if (responsePg) {
       if (p.response_title) document.title = p.response_title;
+    } else if (supplyPg) {
+      if (p.supply_title) document.title = p.supply_title;
     } else if (p.title) document.title = p.title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) {
@@ -4817,6 +4836,7 @@ window.I18N_LISTS = {
       else if (contactPg && p.contact_meta) meta.setAttribute("content", p.contact_meta);
       else if (photosPg && p.photos_meta) meta.setAttribute("content", p.photos_meta);
       else if (responsePg && p.response_meta) meta.setAttribute("content", p.response_meta);
+      else if (supplyPg && p.supply_meta) meta.setAttribute("content", p.supply_meta);
       else if (p.meta) meta.setAttribute("content", p.meta);
     }
     applyKeyed(lang);
@@ -4873,4 +4893,53 @@ window.I18N_LISTS = {
   window.__addLangHook = addLangHook;
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initLang);
   else initLang();
+
+  /* Live Kathmandu clock under brand H1 */
+  (function brandNowClock(){
+    var MONTHS_NE = ["जनवरी","फेब्रुअरी","मार्च","अप्रिल","मे","जुन","जुलाई","अगस्ट","सेप्टेम्बर","अक्टोबर","नोभेम्बर","डिसेम्बर"];
+    var MONTHS_EN = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    function partsNow(){
+      var d = new Date();
+      var f = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Asia/Kathmandu",
+        year: "numeric", month: "numeric", day: "numeric",
+        hour: "2-digit", minute: "2-digit", hour12: false
+      });
+      var map = {};
+      f.formatToParts(d).forEach(function(p){ if (p.type !== "literal") map[p.type] = p.value; });
+      return map;
+    }
+    function dig(s){
+      return String(s).replace(/[0-9]/g, function(d){ return DIG[d]; });
+    }
+    function render(){
+      var el = document.getElementById("brand-now");
+      if (!el) return;
+      var p = partsNow();
+      var day = parseInt(p.day, 10);
+      var month = parseInt(p.month, 10) - 1;
+      var year = p.year;
+      var hm = String(p.hour || "00").padStart(2, "0") + ":" + String(p.minute || "00").padStart(2, "0");
+      var iso;
+      try {
+        iso = new Date().toLocaleString("sv-SE", { timeZone: "Asia/Kathmandu" }).replace(" ", "T");
+      } catch (e) { iso = ""; }
+      if (iso) el.setAttribute("datetime", iso);
+      var en = isEn();
+      if (en) {
+        el.textContent = "Today · " + day + " " + MONTHS_EN[month] + " " + year + " · " + hm;
+      } else {
+        el.textContent = "आज · " + dig(day) + " " + MONTHS_NE[month] + " " + dig(year) + " · " + dig(hm);
+      }
+    }
+    function start(){
+      render();
+      if (window.__brandNowTimer) clearInterval(window.__brandNowTimer);
+      window.__brandNowTimer = setInterval(render, 30000);
+    }
+    addLangHook(render);
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
+    else start();
+  })();
+
 })();

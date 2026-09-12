@@ -6410,3 +6410,33 @@ a.pmdrf-banner-lg{
 
 /* Light theme only — keep paper/card */
 html{color-scheme:light}
+
+
+/* Live now + last-updated stack under brand H1 */
+.brand-date-stack{
+  display:flex;flex-direction:column;align-items:center;gap:1px;
+  margin:4px 0 0;width:100%;line-height:1.35;text-align:center;
+}
+.brand-date-stack .brand-now,
+.brand-date-stack .brand-updated{
+  display:block;width:100%;font-size:12px;font-weight:600;letter-spacing:.01em;
+  color:#d8e8ef;
+}
+.brand-date-stack .brand-now{opacity:.95}
+.brand-date-stack .brand-updated{opacity:.88;font-weight:600}
+@media (min-width:960px){
+  .brand-date-stack .brand-now,
+  .brand-date-stack .brand-updated{font-size:13px}
+}
+
+/* Overview KPI section title (hero) */
+.overview-head{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;
+  margin:0 0 10px;padding:0 2px;
+}
+.overview-head h2{
+  margin:0;font-size:clamp(17px,2.4vw,20px);font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.25;
+}
+.overview-head p{
+  margin:0;font-size:13px;font-weight:600;color:var(--muted);line-height:1.35;
+}

@@ -1,5 +1,21 @@
 # Changelog — design / layout
 
+## 2026-09-12 · PAGE_VER 0945 — RDNA/LPG separate pages · live header clock
+
+### Pages / IA
+- New `supply.html`: full LPG customs board moved off homepage
+- `damage.html#rdna`: homepage `.rdna-board` (KPIs, donuts, HH, bullets) above summary table
+- Homepage: compact snaps → `supply.html` / `damage.html#rdna`; catalog chips to real pages
+- Sitewide nav: `nav_rdna` → `damage.html#rdna`, `nav_supply` → `supply.html` on all pages
+- Hash redirects: `#cat-supply`/`#supply`/`#lpg` → supply; `#cat-infographics`/`#infographics` → `damage.html#rdna`
+
+### Header / overview
+- Brand stack: live Asia/Kathmandu `brand-now` + `brand_date` last board update (all pages)
+- Overview KPI title above `.kpi-row` (`overview_h` / `overview_sub`)
+
+### Version
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-12-0945`
+
 ## 2026-09-12 · PAGE_VER 0930 — brand-date last update · remove sit-chip
 
 - Removed muted sit-chip (`safety-reloc`) from overview + secondary pages; latest NDRRMA board time now in `.brand-date` (NE/EN). `PAGE_VER` → `2026-09-12-0930`.
