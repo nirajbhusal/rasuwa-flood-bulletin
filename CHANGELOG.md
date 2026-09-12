@@ -1,5 +1,17 @@
 # Changelog — design / layout
 
+## 2026-09-12 · PAGE_VER 0915 — color grading · semantic chart tones
+
+### Design / layout
+- Death pie + district column chart + progress bars now share the crimson family (no more forest-green death bars)
+- `.vchart-bar` default is slate; tones inherit via `.vchart-dead` / `data-tone` / panel context
+- Rescue/air teal · injured saffron · missing slate · cash/days teal→forest · relief forest
+- Cat nav / menu chips: teal global active, inactive white/gray
+- `--viz-dead-1..5` crimson ramp for death donut + legend (percentages unchanged)
+
+### Version
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-12-0915`
+
 ## 2026-09-12 · PAGE_VER 0900 — portal CTA cards + KPI type scale
 
 ### Design / layout

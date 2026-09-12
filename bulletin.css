@@ -259,6 +259,12 @@
   --viz-track:#e8eef3;
   --viz-bar:linear-gradient(90deg,var(--teal),var(--forest));
   --viz-bar-accent:linear-gradient(90deg,#e11d48,var(--crimson));
+  /* crimson ramp for death pie / bars (same hue family) */
+  --viz-dead-1:var(--sem-dead);
+  --viz-dead-2:#e11d48;
+  --viz-dead-3:#be123c;
+  --viz-dead-4:#9f1239;
+  --viz-dead-5:#881337;
   --kpi-pad:12px 14px 12px;
   --card-pad:18px 18px 16px;
   --accent:var(--teal);
@@ -6198,3 +6204,209 @@ a.pmdrf-banner-lg{
   nav.chips{padding-top:4px;padding-bottom:4px}
   .names-home{margin-top:8px;margin-bottom:10px}
 }
+
+/* 2026-09-12 color grading */
+/* Authoritative semantic chart / bar / chip tones — last-wins over earlier green vchart-bar */
+
+/* Default column bars: calm slate, never forest */
+.vchart-bar{
+  background:linear-gradient(180deg,#64748b,#475569);
+  box-shadow:none;opacity:1;
+  border-radius:6px 6px 2px 2px;
+}
+.vchart{
+  background:linear-gradient(180deg,#f8fafc 0%,#fff 72%);
+  border-color:var(--line);
+}
+
+/* Death — pie, column, progress: crimson family only */
+.vchart-dead,
+.kpi-box[data-tone="dead"] .vchart,
+.nig-cat[data-tone="dead"] .vchart,
+.ov-mini[data-tone="dead"] .vchart,
+.ov-pane[data-panel="dead"] .vchart{
+  background:linear-gradient(180deg,#faf6f6,#fff 70%);
+  border-color:#e8d4d4;
+}
+.vchart-dead .vchart-bar,
+.kpi-box[data-tone="dead"] .vchart-bar,
+.nig-cat[data-tone="dead"] .vchart-bar,
+.ov-mini[data-tone="dead"] .vchart-bar,
+.ov-pane[data-panel="dead"] .vchart-bar,
+.viz-pie-dead ~ .vchart .vchart-bar,
+.home-ig-human .vchart-dead .vchart-bar{
+  background:linear-gradient(180deg,#e11d48,#9f1239);
+  box-shadow:none;opacity:1;
+}
+
+/* Cash / day timeline stays teal → forest (ops/cash) */
+.vchart-days .vchart-bar{
+  background:linear-gradient(180deg,#14b8a6,var(--forest));
+}
+.vchart-days .vchart-col em{color:var(--teal)}
+
+/* Rescue / air / flights */
+.vchart-rescue .vchart-bar,
+.kpi-box[data-tone="air"] .vchart-bar,
+.ov-mini[data-tone="air"] .vchart-bar,
+.ov-pane[data-panel="air"] .vchart-bar{
+  background:linear-gradient(180deg,var(--teal),#155e75);
+}
+
+/* Injured / roads — saffron */
+.vchart-inj .vchart-bar,
+.kpi-box[data-tone="injured"] .vchart-bar,
+.nig-cat[data-tone="injured"] .vchart-bar,
+.ov-mini[data-tone="injured"] .vchart-bar,
+.ov-pane[data-panel="injured"] .vchart-bar{
+  background:linear-gradient(180deg,#f59e0b,var(--saffron));
+}
+
+/* Missing — slate */
+.vchart-miss .vchart-bar,
+.kpi-box[data-tone="miss"] .vchart-bar,
+.nig-cat[data-tone="miss"] .vchart-bar,
+.ov-mini[data-tone="miss"] .vchart-bar,
+.ov-pane[data-panel="miss"] .vchart-bar{
+  background:linear-gradient(180deg,#64748b,#334155);
+}
+
+/* Default progress fill: slate (not leftover green) */
+.ibar i{
+  background:linear-gradient(90deg,#64748b,#475569);
+  box-shadow:none;min-width:3px;
+}
+
+/* Death ibars — crimson (pie + vchart + ibar same family) */
+.kpi-box[data-tone="dead"] .ibar i,
+.nig-cat[data-tone="dead"] .ibar i,
+.nig-cat.nig-dead .ibar i,
+.ov-mini[data-tone="dead"] .ibar i,
+.ov-pane[data-panel="dead"] .ibar i,
+.home-ig-human .nig-cat[data-tone="dead"] .ibar i,
+.home-ig-names .ibar i,
+.fd-ig .ibar i{
+  background:linear-gradient(90deg,#e11d48,var(--sem-dead));
+}
+
+/* Missing ibars — slate (not crimson, not green) */
+.kpi-box[data-tone="miss"] .ibar i,
+.nig-cat[data-tone="miss"] .ibar i,
+.nig-miss .ibar i,
+.ov-mini[data-tone="miss"] .ibar i,
+.ov-pane[data-panel="miss"] .ibar i,
+.home-ig-human .nig-cat[data-tone="miss"] .ibar i{
+  background:linear-gradient(90deg,#64748b,#475569);
+}
+
+/* Injured ibars — saffron */
+.kpi-box[data-tone="injured"] .ibar i,
+.nig-cat[data-tone="injured"] .ibar i,
+.nig-inj .ibar i,
+.ov-mini[data-tone="injured"] .ibar i,
+.ov-pane[data-panel="injured"] .ibar i,
+.home-ig-human .nig-cat[data-tone="injured"] .ibar i,
+.ems-lc .ibar i{
+  background:linear-gradient(90deg,#f59e0b,var(--sem-inj));
+}
+
+/* Rescue / air / flights — teal */
+.kpi-box[data-tone="air"] .ibar i,
+.nig-rescue .ibar i,
+.home-ig-rescue .ibar i,
+.home-ig-police .ibar i,
+.ov-mini[data-tone="air"] .ibar i,
+.ov-pane[data-panel="air"] .ibar i,
+.ov-pane[data-panel="police"] .ibar i,
+.stat-tourist .ibar i,
+.ctx-track i{
+  background:linear-gradient(90deg,var(--teal),#155e75);
+}
+
+/* Relief / cash / deploy — forest */
+.cash-ig .ibar i,
+.cash-mix .ibar i,
+.bank-mix .ibar i,
+.kpi-box[data-tone="deploy"] .ibar i,
+.ov-mini[data-tone="deploy"] .ibar i,
+.ov-pane[data-panel="deploy"] .ibar i,
+.rd-ig .ibar i,
+.home-ig-human .nig-cat[data-tone="deploy"] .ibar i{
+  background:linear-gradient(90deg,var(--forest),#166534);
+}
+.aid-ig .ibar i,
+.ibar.ibar-nv i,
+.cash-mix .ibar.ibar-nv i{
+  background:linear-gradient(90deg,var(--sem-aid),#0f766e);
+}
+
+/* Human-card headings: tone per section (no blanket crimson / no green) */
+.home-ig-human .nig-cat[data-tone="dead"] .nig-cat-h,
+.home-ig-human .nig-cat[data-tone="dead"] .nig-cat-h > .num{color:var(--sem-dead)}
+.home-ig-human .nig-cat[data-tone="miss"] .nig-cat-h,
+.home-ig-human .nig-cat[data-tone="miss"] .nig-cat-h > .num{color:var(--sem-miss)}
+.home-ig-human .nig-cat[data-tone="injured"] .nig-cat-h,
+.home-ig-human .nig-cat[data-tone="injured"] .nig-cat-h > .num{color:var(--sem-inj)}
+
+/* KPI mini-charts follow semantic mapping */
+.kpi-box[data-tone="dead"] .kpi-mini-chart{color:var(--sem-dead)}
+.kpi-box[data-tone="injured"] .kpi-mini-chart{color:var(--sem-inj)}
+.kpi-box[data-tone="miss"] .kpi-mini-chart{color:var(--sem-miss)}
+.kpi-box[data-tone="air"] .kpi-mini-chart{color:var(--sem-rescue)}
+.kpi-box[data-tone="deploy"] .kpi-mini-chart{color:var(--sem-relief)}
+.kpi-box[data-tone="police"] .kpi-mini-chart,
+.kpi-box[data-tone="comms"] .kpi-mini-chart{color:var(--sem-rescue)}
+.kpi-box[data-tone="tunnel"] .kpi-mini-chart{color:var(--sem-miss)}
+
+/* Death KPI numbers stay crimson — never inherit forest */
+.kpi-box[data-tone="dead"] .kpi strong,
+.kpi-box[data-tone="dead"] .kpi .num,
+.kpi-box[data-tone="dead"] .cash-list strong{color:var(--sem-dead)}
+.kpi-box[data-tone="miss"] .kpi strong,
+.kpi-box[data-tone="miss"] .kpi .num,
+.kpi-box[data-tone="miss"] .cash-list strong{color:var(--sem-miss)}
+.kpi-box[data-tone="injured"] .kpi strong,
+.kpi-box[data-tone="injured"] .kpi .num,
+.kpi-box[data-tone="injured"] .cash-list strong{color:var(--sem-inj)}
+
+/* Menu / cat chips: teal global active; inactive calm white/gray */
+.chips a,
+.home-cat-nav a{
+  background:#fff;
+  border:1px solid var(--line);
+  color:#334155;
+  box-shadow:none;
+}
+.chips a:hover,
+.home-cat-nav a:hover{
+  border-color:var(--teal);
+  color:var(--teal);
+  background:var(--teal-soft);
+}
+.chips a.is-current{
+  background:var(--teal-soft);
+  border-color:var(--teal);
+  color:var(--teal);
+  font-weight:750;
+}
+.home-cat-nav a.is-active,
+.home-cat-nav a[aria-current="true"]{
+  border-color:var(--teal);
+  background:var(--teal);
+  color:#fff;
+  box-shadow:none;
+}
+.chips a.home-btn{
+  background:var(--teal);
+  color:#fff;
+  border-color:var(--teal);
+}
+.chips a.home-btn:hover,
+.chips a.home-btn.is-current{
+  background:#155e75;
+  color:#fff;
+  border-color:#155e75;
+}
+
+/* Light theme only — keep paper/card */
+html{color-scheme:light}
