@@ -1,5 +1,19 @@
 # Changelog — design / layout
 
+## 2026-09-12 · PAGE_VER 1230 — LPG search + filter tracker
+
+### supply.html
+- Name-list-style search (`.ui-search`) above `.lpg-rows`: filter by Nepali/English office name
+- Filter chips: All / Up ▲ / Down ▼ / No entry (Dhangadhi)
+- Status tracker strip: कुल नाका ६ · बढेको ३ · घटेको २ · प्रवेश छैन १
+- Highlight pills: biggest drop Birgunj ▼62.6% · biggest rise Mechi (existing figures only)
+- Row `data-office` / `data-name-ne` / `data-name-en` / `data-trend` + empty state
+- Inline filter script only — no Customs auto-fetch; MT/cylinder figures unchanged
+
+### Version
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-12-1230`
+
+
 ## 2026-09-12 · PAGE_VER 1045 — chart layout · RDNA palette · donut hole
 
 ### Design / layout
