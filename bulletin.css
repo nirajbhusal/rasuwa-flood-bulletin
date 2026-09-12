@@ -5925,6 +5925,68 @@ section{padding:var(--space-4) 0}
 }
 
 
+
+/* LPG icon graphics (inline SVG · civic flat · PAGE_VER 1245) */
+.lpg-ico{display:inline-block;vertical-align:middle;flex:none;shape-rendering:geometricPrecision}
+.lpg-kpi-ico{width:36px;height:44px}
+.lpg-sec-ico{width:22px;height:28px}
+.lpg-off-ico{width:14px;height:14px}
+.lpg-gate-ico{width:16px;height:16px}
+.lpg-track-ico{width:16px;height:16px}
+.lpg-home-ico{width:18px;height:22px}
+.lpg-mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  flex:none;margin-top:.15em;width:28px;height:32px;
+}
+.lpg-src{display:flex;align-items:flex-start;gap:8px}
+.lpg-src-ico{display:inline-flex;margin-top:2px;flex:none}
+.lpg-kpi{position:relative}
+.lpg-kpi-top{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin:0 0 8px;
+}
+.lpg-kpi-top .lpg-day{margin:0}
+.lpg-kpi-mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:40px;height:44px;border-radius:12px;
+  background:rgba(255,255,255,.72);border:1px solid rgba(148,163,184,.35);
+}
+.lpg-kpi-d25 .lpg-kpi-mark{background:#dbeafe;border-color:#93c5fd}
+.lpg-kpi-d26 .lpg-kpi-mark{background:#ffe4e6;border-color:#fda4af}
+.lpg-off{
+  display:inline-flex;align-items:center;gap:6px;min-width:0;
+}
+.lpg-off-mark{display:inline-flex;flex:none;opacity:.9}
+.lpg-track-card{position:relative}
+.lpg-track-top{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:8px;margin:0 0 6px;
+  background:rgba(255,255,255,.75);border:1px solid rgba(148,163,184,.3);
+}
+.lpg-track-up .lpg-track-top{background:#dcfce7;border-color:#86efac}
+.lpg-track-down .lpg-track-top{background:#ffe4e6;border-color:#fda4af}
+.lpg-track-zero .lpg-track-top{background:#fef3c7;border-color:#fcd34d}
+.home-cat-dot.lpg-home-mark{
+  width:22px;height:26px;border-radius:8px;background:#fff1f2;
+  box-shadow:0 0 0 3px color-mix(in srgb, #c41e3a 18%, transparent);
+  display:inline-flex;align-items:center;justify-content:center;
+  overflow:visible;
+}
+.home-cat-dot.lpg-home-mark .lpg-home-ico{display:block}
+.supply-snap-k{
+  display:flex;align-items:center;gap:8px;width:100%;
+}
+.supply-snap-k .kpi-k{width:auto}
+.lpg-snap-mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:32px;border-radius:10px;flex:none;
+  background:#fff1f2;border:1px solid #fecdd3;
+}
+@media(max-width:400px){
+  .lpg-kpi-ico{width:28px;height:34px}
+  .lpg-kpi-mark{width:34px;height:38px}
+}
+
 /* 2026-09-12 CTA + type scale */
 /* Authoritative portal CTA cards — win over historical .pmdrf-banner* blocks */
 .hero .cta-pair{

@@ -1,5 +1,26 @@
 # Changelog — design / layout
 
+## 2026-09-12 · PAGE_VER 1245 — LPG cylinder icon graphics
+
+### supply.html
+- KPI day cards: flat crimson LPG cylinder SVG (`.lpg-kpi-ico`) beside date chip
+- Section head: forest dot → cylinder mark (`.lpg-sec-ico`)
+- Source line: teal customs-gate icon before source text
+- Office rows: map-pin icon before office name (sibling of `data-i18n` span)
+- Tracker strip: offices / up / down / stop icons on status cards
+- Archive PNG links unchanged; MT/cylinder figures and search/filter unchanged
+
+### index.html
+- Home LPG category mark + snap mini cylinder for consistency
+
+### CSS
+- `.lpg-ico` / `.lpg-kpi-ico` / `.lpg-off-ico` / `.lpg-track-ico` (~28–40px KPI, ~14–16px rows)
+- Nepal crimson `#c41e3a` cylinder body; teal accents; light chip backgrounds only
+- Inline SVG only (no new binary assets)
+
+### Version
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-12-1245`
+
 ## 2026-09-12 · PAGE_VER 1230 — LPG search + filter tracker
 
 ### supply.html
