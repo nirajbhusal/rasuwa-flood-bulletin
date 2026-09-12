@@ -1,5 +1,16 @@
 # Changelog — design / layout
 
+## 2026-09-12 · PAGE_VER 0900 — portal CTA cards + KPI type scale
+
+### Design / layout
+- Portal rescue + donate CTA cards: compact stack (kicker → headline → URL → pay logos → yellow CTA); `justify-content: flex-start`; drop equal-height void (`height:100%` / `space-between`)
+- Solid saffron `#facc15` CTA chrome; pay logos single compact row; mobile bottom padding clears FAB / browser chrome
+- Unified number type scale via `--fs-kpi` / `--fs-kpi-2` / `--fs-kpi-meta` (hero / secondary / meta); tabular-nums + weight 800
+- Touch targets ≥44px on CTAs/chips; light hero/menu rhythm tighten (CSS only)
+
+### Version
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-12-0900`
+
 ## 2026-09-12 · PAGE_VER 0830 — LPG customs import day-compare
 
 ### Content

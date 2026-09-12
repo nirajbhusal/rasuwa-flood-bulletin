@@ -218,8 +218,12 @@
   --lh-h3:1.45;
   --fs-h4:15px;
   --lh-h4:1.45;
-  --fs-kpi:clamp(26px,5.5vw,40px);
+  --fs-kpi:clamp(26px,7vw,34px);
   --lh-kpi:1.1;
+  --fs-kpi-2:clamp(20px,4.2vw,28px);
+  --lh-kpi-2:1.15;
+  --fs-kpi-meta:clamp(13px,2.4vw,15px);
+  --lh-kpi-meta:1.35;
   --fs-label:12px;
   --lh-label:1.35;
   --fs-caption:13px;
@@ -5872,4 +5876,325 @@ section{padding:var(--space-4) 0}
 }
 @media(max-width:400px){
   .lpg-kpis{grid-template-columns:1fr;gap:8px}
+}
+
+
+/* 2026-09-12 CTA + type scale */
+/* Authoritative portal CTA cards — win over historical .pmdrf-banner* blocks */
+.hero .cta-pair{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  margin:0 0 12px;
+  padding-bottom:max(12px, env(safe-area-inset-bottom, 0px));
+}
+@media(min-width:760px){
+  .hero .cta-pair{
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    align-items:start;
+  }
+  .hero .cta-pair > a{
+    height:auto !important;
+    min-height:0;
+  }
+}
+@media(max-width:759px){
+  .hero .cta-pair{
+    /* clear fixed FAB + mobile browser chrome when logos sit near stack bottom */
+    padding-bottom:max(80px, calc(env(safe-area-inset-bottom, 0px) + 56px));
+  }
+}
+
+.pmdrf-banner,
+.pmdrf-banner-lg,
+a.pmdrf-banner,
+a.pmdrf-banner-lg{
+  display:flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  align-items:stretch;
+  justify-content:flex-start;
+  gap:10px;
+  height:auto;
+  min-height:0;
+  margin:0;
+  padding:14px 14px 12px;
+  border-radius:var(--radius, 16px);
+  text-decoration:none;
+  box-sizing:border-box;
+}
+.pmdrf-banner-lg{padding:14px 14px 12px}
+@media(min-width:760px){
+  .pmdrf-banner,
+  .pmdrf-banner-lg,
+  a.pmdrf-banner,
+  a.pmdrf-banner-lg{
+    padding:16px 18px 14px;
+    gap:12px;
+  }
+}
+
+.pmdrf-banner-copy{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:6px;
+  flex:0 1 auto;
+  min-width:0;
+  width:100%;
+}
+.pmdrf-banner-k{
+  display:block;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:var(--label-ls, .045em);
+  line-height:1.3;
+  color:#bbf7d0;
+}
+.rescue-banner .pmdrf-banner-k{color:#a5f3fc}
+.pmdrf-banner-h{
+  display:block;
+  margin:0;
+  font-size:clamp(17px,4.2vw,24px);
+  font-weight:800;
+  line-height:1.25;
+  color:#fff;
+}
+.pmdrf-banner-url{
+  display:inline-flex;
+  align-items:center;
+  margin:0;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.02em;
+  color:#14532d;
+  background:#facc15;
+  padding:4px 12px;
+  border-radius:999px;
+  line-height:1.3;
+}
+.rescue-banner .pmdrf-banner-url{
+  color:#0e7490;
+  background:#fde68a;
+}
+.pmdrf-banner-sub{
+  display:block;
+  font-size:13px;
+  font-weight:650;
+  line-height:1.45;
+  color:#ecfdf5;
+  margin:0;
+}
+@media(max-width:640px){
+  .pmdrf-banner-sub{display:none !important}
+}
+
+/* Solid saffron CTA — readable on teal/forest gradients */
+.pmdrf-banner-cta,
+.pmdrf-banner .pmdrf-banner-cta,
+.pmdrf-banner-lg .pmdrf-banner-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  align-self:stretch;
+  width:100%;
+  max-width:none;
+  flex:0 0 auto;
+  margin:0;
+  min-height:var(--touch, 44px);
+  padding:11px 16px;
+  background:#facc15 !important;
+  color:#14532d !important;
+  font-size:14.5px;
+  font-weight:800;
+  line-height:1.25;
+  text-align:center;
+  border-radius:var(--radius-pill, 999px);
+  box-shadow:0 2px 0 #a16207;
+  white-space:normal;
+}
+.rescue-banner .pmdrf-banner-cta{
+  background:#facc15 !important;
+  color:#0f766e !important;
+  box-shadow:0 2px 0 #a16207;
+}
+.pmdrf-banner:hover .pmdrf-banner-cta,
+.pmdrf-banner:focus-visible .pmdrf-banner-cta{
+  filter:brightness(1.03);
+}
+@media(min-width:760px){
+  .pmdrf-banner-cta,
+  .pmdrf-banner .pmdrf-banner-cta,
+  .pmdrf-banner-lg .pmdrf-banner-cta{
+    font-size:15px;
+    padding:12px 18px;
+  }
+}
+
+/* Compact pay logos — single wrapping row */
+.pay-row{
+  display:block;
+  width:100%;
+  margin:2px 0 0;
+}
+.pay-row-k{
+  display:block;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.03em;
+  color:#bbf7d0;
+  margin:0 0 6px;
+}
+.pay-logos{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px;
+  margin:0;
+}
+.pay-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:26px;
+  padding:2px 6px;
+  border-radius:8px;
+  background:rgba(255,255,255,.95);
+  box-shadow:0 1px 0 rgba(0,0,0,.12);
+}
+.pay-chip img{
+  display:block;
+  height:18px;
+  width:auto;
+  max-width:88px;
+  object-fit:contain;
+}
+.pay-chip-mc img{height:20px;max-width:64px}
+.pay-chip-np{padding:2px 5px;max-width:96px}
+.pay-chip-np img{height:18px;max-width:96px}
+.pay-chip-app img{height:20px;width:20px;max-width:20px}
+@media(max-width:400px){
+  .pay-logos{gap:4px}
+  .pay-chip{padding:2px 4px;height:24px}
+  .pay-chip img{height:16px}
+}
+
+/* Donate / rescue page banners outside hero — same compact stack */
+#pmdrf.pmdrf-banner,
+#pmdrf-banner.pmdrf-banner,
+#rescue-banner.pmdrf-banner{
+  margin:0 0 14px;
+}
+
+/* --- Unified KPI / number type scale (visual only) --- */
+.num,
+.kpi .num,
+.kpi strong.num,
+.kpi-row .kpi .num,
+.cash-kpi strong,
+.cash-kpi strong.num,
+.cash-snap strong,
+.cash-snap-dash .hck strong,
+.rahat-dash .hck strong,
+.rdna-kpi strong.num,
+.lpg-kpi strong.num,
+.ems-kpi strong,
+.rahat-stat b,
+.rdna-hh-tile strong,
+.nig-cat-h > .num{
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum" 1;
+  letter-spacing:0;
+  font-family:inherit;
+}
+
+/* Primary hero KPIs */
+.kpi-row .kpi .num,
+.kpi .num{
+  font-size:var(--fs-kpi);
+  line-height:var(--lh-kpi);
+}
+@media(max-width:640px){
+  .kpi-row .kpi .num,
+  .kpi .num{
+    font-size:clamp(24px,7vw,32px);
+  }
+}
+
+/* Secondary KPIs — cash / rahat / RDNA / LPG / EMS */
+.cash-kpi strong,
+.cash-kpi strong.num,
+#cash .cash-kpi > strong.num,
+.cash-snap strong,
+.cash-snap strong.cash-lead,
+.rdna-kpi strong.num,
+.lpg-kpi strong.num,
+.ems-kpi strong,
+.rdna-hh-tile strong,
+.rdna-kpis-sm .rdna-kpi strong.num{
+  font-size:var(--fs-kpi-2);
+  line-height:var(--lh-kpi-2);
+}
+.cash-snap-dash .hck strong,
+.rahat-dash .hck strong{
+  font-size:clamp(16px,2.6vw,20px);
+  line-height:var(--lh-kpi-2);
+}
+.lpg-kpi .cash-sub strong.num{
+  font-size:inherit;
+  line-height:inherit;
+}
+
+/* Meta / split / ibar numbers */
+.kpi-split li > strong,
+.kpi-split li > strong.num,
+.hero .kpi-split li > strong,
+.ibar-row em,
+.cash-list li strong,
+.cash-list li strong.num{
+  font-size:var(--fs-kpi-meta);
+  line-height:var(--lh-kpi-meta);
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum" 1;
+  letter-spacing:0;
+}
+
+/* White KPI card chrome consistency */
+.kpi-box,
+.cash-kpi,
+.rdna-kpi,
+.lpg-kpi,
+.cash-snap-dash .hck,
+.rahat-dash .hck{
+  border-radius:var(--radius-sm, 12px);
+}
+
+/* Touch targets — CTAs + chips */
+.pmdrf-banner-cta,
+.share-btn,
+.names-open-btn,
+.nav-toggle,
+.chips a,
+.lang-switch button{
+  min-height:var(--touch, 44px);
+}
+@media(max-width:760px){
+  .share-btn,
+  .names-open-btn,
+  .lang-switch button{
+    min-height:var(--touch, 44px);
+    padding-top:8px;
+    padding-bottom:8px;
+  }
+  .nav-toggle{
+    min-width:var(--touch, 44px);
+    min-height:var(--touch, 44px);
+  }
+  /* slightly tighter rhythm under hero photo / menu */
+  .head-stick .topbar-inner{padding:12px 12px 10px;gap:6px;min-height:0}
+  nav.chips{padding-top:4px;padding-bottom:4px}
+  .names-home{margin-top:8px;margin-bottom:10px}
 }
