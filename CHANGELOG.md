@@ -1,5 +1,16 @@
 # Changelog — design / layout
 
+## 2026-09-12 · PAGE_VER 0830 — LPG customs import day-compare
+
+### Content
+- Homepage `#cat-supply` / `#supply`: LPG import KPI cards (BS 2083/05/25 vs 05/26), entry-point compare bars, Dhangadhi zero-entry note
+- Source: Department of Customs, Ministry of Finance — not merged into NDRRMA fuel stock or cash/PMDRF KPIs
+- Catalog chip + optional nav chip «एलपीजी आयात»; i18n NE+EN
+- Archived source graphics under `img/today-2026-09-12-lpg-*` (not live board embeds)
+
+### Version
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-12-0830`
+
 ## 2026-09-11 · PAGE_VER 2145 — RDNA infographics (NPC–NDRRMA)
 
 ### Content

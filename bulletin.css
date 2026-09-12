@@ -5759,3 +5759,117 @@ section{padding:var(--space-4) 0}
   .rdna-kpis{grid-template-columns:1fr;gap:8px}
   .rdna-qs{grid-template-columns:1fr}
 }
+
+/* LPG customs import — light civic day-compare (not fuel-stock / cash) */
+.home-cat-dot-supply{background:var(--teal);box-shadow:0 0 0 3px color-mix(in srgb, var(--teal) 22%, transparent)}
+#cat-supply .home-cat-dot{background:var(--teal);box-shadow:0 0 0 3px color-mix(in srgb, var(--teal) 22%, transparent)}
+#cat-supply,#supply,#lpg{scroll-margin-top:calc(var(--stick,72px) + 56px)}
+.lpg-board{
+  margin:0 0 16px;padding:16px 16px 14px;
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:var(--shadow-sm);
+}
+.lpg-src{margin:0 0 12px}
+.lpg-kpis{
+  display:grid;grid-template-columns:1fr;gap:10px;margin:0 0 14px;
+}
+@media(min-width:560px){
+  .lpg-kpis{grid-template-columns:1fr 1fr;gap:12px}
+}
+.lpg-kpi{
+  background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;
+  padding:12px 12px 10px;min-width:0;
+}
+.lpg-kpi .lpg-day{
+  display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.02em;
+  padding:3px 9px;border-radius:999px;margin:0 0 8px;background:#e2e8f0;color:#334155;
+}
+.lpg-kpi .kpi-k{display:block;font-size:12px;font-weight:800;color:#64748b;margin:0 0 4px;line-height:1.3}
+.lpg-kpi strong.num{
+  display:inline;font-size:clamp(20px,4.2vw,28px);font-weight:800;color:var(--ink);
+  font-variant-numeric:tabular-nums;line-height:1.15;letter-spacing:0;
+}
+.lpg-kpi .cash-unit{display:inline;font-size:12px;font-weight:750;color:#64748b;margin-left:4px}
+.lpg-kpi .cash-sub{display:block;font-size:12px;font-weight:650;color:#64748b;margin-top:6px;line-height:1.4}
+.lpg-kpi .cash-sub strong.num{font-size:inherit;color:var(--ink)}
+.lpg-kpi-d25{background:#eff6ff;border-color:#bfdbfe}
+.lpg-kpi-d25 .lpg-day{background:#1e40af;color:#fff}
+.lpg-kpi-d25 strong.num{color:#1e3a8a}
+.lpg-kpi-d26{background:#fff1f2;border-color:#fecdd3}
+.lpg-kpi-d26 .lpg-day{background:#be123c;color:#fff}
+.lpg-kpi-d26 strong.num{color:#9f1239}
+.lpg-kpi .lpg-chg{display:inline-flex;margin-top:8px}
+.lpg-chg{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;line-height:1.2;
+  white-space:nowrap;
+}
+.lpg-chg-down{background:#ffe4e6;color:#9f1239}
+.lpg-chg-up{background:#dcfce7;color:#166534}
+.lpg-chg-none{background:#f1f5f9;color:#475569}
+.lpg-leg{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin:0 0 8px;font-size:12px;font-weight:700;color:#64748b;
+}
+.lpg-sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:4px;vertical-align:middle}
+.lpg-sw-25{background:#1e40af}
+.lpg-sw-26{background:#be123c}
+.lpg-rows{display:flex;flex-direction:column;gap:8px;margin:0 0 12px}
+.lpg-row-h,.lpg-row{
+  display:grid;
+  grid-template-columns:minmax(72px,0.9fr) minmax(120px,2.2fr) minmax(64px,0.7fr) minmax(64px,0.7fr) minmax(72px,0.7fr);
+  gap:8px;align-items:center;
+}
+.lpg-row-h{
+  font-size:11px;font-weight:800;color:#64748b;
+  padding:0 2px 4px;border-bottom:1px solid #e2e8f0;
+}
+.lpg-row{
+  background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;
+  padding:10px 10px 8px;
+}
+.lpg-row-zero{background:#fffbeb;border-color:#fde68a}
+.lpg-off{font-size:13.5px;font-weight:800;color:var(--ink);line-height:1.25}
+.lpg-bars{display:flex;flex-direction:column;gap:4px;min-width:0}
+.lpg-bar{
+  position:relative;display:block;height:18px;max-width:100%;
+  width:var(--w,0%);min-width:0;border-radius:6px;
+  background:#cbd5e1;
+}
+.lpg-bar em{
+  position:absolute;left:6px;top:50%;transform:translateY(-50%);
+  font-size:11px;font-weight:800;font-style:normal;color:#fff;
+  text-shadow:0 1px 1px rgba(0,0,0,.25);white-space:nowrap;
+}
+.lpg-bar-25{background:#1e40af}
+.lpg-bar-26{background:#be123c}
+.lpg-bar-na{background:#e2e8f0;min-width:28px;width:28px !important}
+.lpg-bar-na em{color:#64748b;text-shadow:none}
+.lpg-bar[style*="--w:0%"]:not(.lpg-bar-na){min-width:28px;width:28px !important;background:#fda4af}
+.lpg-cyln{font-size:12.5px;font-weight:750;text-align:right;font-variant-numeric:tabular-nums;color:#334155}
+.lpg-row .lpg-chg{justify-self:end}
+.lpg-alert{
+  margin:0 0 10px;padding:10px 12px;border-radius:12px;
+  background:#fff7ed;border:1px solid #fed7aa;
+  font-size:13px;font-weight:650;line-height:1.45;color:#9a3412;
+}
+.lpg-archive{margin:8px 0 0}
+.lpg-archive a{
+  font-size:12.5px;font-weight:750;color:var(--teal);text-decoration:underline;text-underline-offset:2px;
+}
+.lpg-archive a:hover{color:#0f766e}
+@media(max-width:640px){
+  .lpg-row-h{display:none}
+  .lpg-row,.lpg-row-zero{
+    grid-template-columns:1fr auto;
+    gap:6px 10px;
+  }
+  .lpg-off{grid-column:1}
+  .lpg-row .lpg-chg{grid-column:2;justify-self:end}
+  .lpg-bars{grid-column:1 / -1}
+  .lpg-cyln{grid-column:auto;text-align:left;font-size:12px}
+  .lpg-cyln + .lpg-cyln{text-align:right}
+}
+@media(max-width:400px){
+  .lpg-kpis{grid-template-columns:1fr;gap:8px}
+}
