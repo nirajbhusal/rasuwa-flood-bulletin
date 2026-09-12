@@ -6731,3 +6731,31 @@ html{color-scheme:light}
     height:172px;
   }
 }
+
+/* LPG scope + hoarding transparency */
+.lpg-scope{
+  margin:0 0 14px;padding:12px 14px;border-radius:14px;
+  background:#fff7ed;border:1px solid #fdba74;color:#9a3412;
+}
+.lpg-scope-kicker{margin:0 0 6px;font-weight:800;font-size:.82rem;letter-spacing:.02em;text-transform:none;color:#c2410c}
+.lpg-scope p{margin:0;font-size:.92rem;line-height:1.45;color:#7c2d12}
+.lpg-hoard{margin-top:16px}
+.lpg-hoard-lead{margin:0 0 12px;font-size:.95rem;color:#334155;line-height:1.45}
+.lpg-hoard-grid{display:grid;gap:12px}
+@media (min-width:860px){
+  .lpg-hoard-grid{grid-template-columns:1fr 1fr;gap:12px}
+}
+.lpg-hoard-card{
+  background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:12px 14px;
+}
+.lpg-hoard-card h4{margin:0 0 8px;font-size:1rem;color:#0f172a}
+.lpg-hoard-card p{margin:0 0 8px;font-size:.9rem;line-height:1.45;color:#475569}
+.lpg-placeholder{
+  margin:8px 0 10px;padding:10px 12px;border-radius:10px;border:1px dashed #94a3b8;
+  background:#f8fafc;color:#64748b;font-size:.88rem;font-weight:600;text-align:center;
+}
+.lpg-ask-contact{font-size:.9rem}
+.lpg-complain-list,.lpg-wont-list{margin:6px 0 0;padding-left:1.15rem;color:#334155;font-size:.9rem;line-height:1.5}
+.lpg-wont{background:#fef2f2;border-color:#fecaca}
+.lpg-wont h4{color:#9f1239}
+.lpg-dist-note{margin:10px 0 0;font-size:.85rem;color:#64748b;line-height:1.4}

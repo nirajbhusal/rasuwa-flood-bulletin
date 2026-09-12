@@ -1,3 +1,8 @@
+## 2026-09-12-1400 · LPG hoarding transparency
+
+- `supply.html`: `#lpg-scope` disclaimer (Customs totals ≠ hoarding); `#lpg-hoarding` cards for distribution framework + NOC sources, official-source ask, complaint pointers (100 / 1234 / contact helpline), and explicit won’t-do list.
+- i18n NE/EN keys; CSS for scope/hoard cards; `latest.json` → `#lpg-hoarding`.
+
 # Changelog — design / layout
 
 ## 2026-09-12 · PAGE_VER 1300 — LPG distribution official sources
