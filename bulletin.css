@@ -5987,6 +5987,59 @@ section{padding:var(--space-4) 0}
   .lpg-kpi-mark{width:34px;height:38px}
 }
 
+
+/* LPG distribution sources card (NOC · separate from Customs day-compare · PAGE_VER 1300) */
+.lpg-info{
+  margin:14px 0 0;padding:14px 14px 12px;
+  background:#f0fdfa;border:1px solid #99f6e4;border-radius:14px;
+}
+.lpg-info-head{
+  display:flex;align-items:flex-start;gap:10px;margin:0 0 10px;
+}
+.lpg-info-mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  flex:none;width:28px;height:32px;margin-top:.1em;
+}
+.lpg-info-head h3{
+  margin:0;font-size:15px;font-weight:800;color:#134e4a;line-height:1.35;
+}
+.lpg-info-channels{
+  display:grid;grid-template-columns:1fr;gap:8px;margin:0 0 10px;
+}
+@media(min-width:560px){
+  .lpg-info-channels{grid-template-columns:1fr 1fr;gap:10px}
+}
+.lpg-info-ch{
+  background:#fff;border:1px solid #ccfbf1;border-radius:12px;
+  padding:10px 12px 9px;
+}
+.lpg-info-ch .src-kicker{
+  display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.02em;
+  color:#0f766e;margin:0 0 4px;line-height:1.25;
+}
+.lpg-info-ch p{
+  margin:0;font-size:13px;font-weight:650;color:#334155;line-height:1.45;
+}
+.lpg-src-list{
+  list-style:none;margin:0;padding:0;
+  border-top:1px dashed #99f6e4;
+}
+.lpg-src-list li{
+  display:block;margin:0;padding:10px 0 9px;
+  border-bottom:1px solid #ccfbf1;
+  font-size:13px;line-height:1.45;
+}
+.lpg-src-list li:last-child{border-bottom:0;padding-bottom:2px}
+.lpg-src-list .src-kicker{
+  display:inline;font-size:12px;font-weight:800;color:#0f766e;
+}
+.lpg-src-list .src-kicker::after{content:" · ";font-weight:800;color:#64748b}
+.lpg-src-list a{
+  color:var(--teal);font-weight:750;text-decoration:underline;text-underline-offset:2px;
+}
+.lpg-src-list a:hover{color:#0f766e}
+#lpg-sources{scroll-margin-top:calc(var(--stick,72px) + 56px)}
+
 /* 2026-09-12 CTA + type scale */
 /* Authoritative portal CTA cards — win over historical .pmdrf-banner* blocks */
 .hero .cta-pair{

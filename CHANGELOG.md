@@ -1,5 +1,22 @@
 # Changelog — design / layout
 
+## 2026-09-12 · PAGE_VER 1300 — LPG distribution official sources
+
+### supply.html
+- New `#lpg-sources` / `.lpg-info` card below customs table/archive
+- Labeled channels: Customs import (this page) vs NOC distribution/bottling (separate)
+- Links: NOC bottler directory · NOC storage (depot capacity ≠ LPG cylinder stock) · Onlinekhabar news citing NOC (~87,877 cylinders Bhadra 18–20) marked secondary
+- Cylinder icon; search/tracker/MT figures unchanged; no auto-fetch; news numbers not merged into KPIs
+
+### i18n
+- NE default + EN keys for title, channel labels, and three source links
+
+### CSS
+- `.lpg-info` teal source card · dual channel chips · `.lpg-src-list` link list
+
+### Version
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-12-1300`
+
 ## 2026-09-12 · PAGE_VER 1245 — LPG cylinder icon graphics
 
 ### supply.html
