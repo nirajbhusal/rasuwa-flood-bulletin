@@ -73,10 +73,10 @@ window.I18N = {
 "hero_comms_ncell": "Ncell: ७८ मध्ये ७६ सञ्चालन",
 "hero_comms_src": "NDRRMA / गृह · २६ भदौ ११:००",
 "home_roads_h": "सूचना / सडक स्थिति",
-"home_roads_lead": "वैकल्पिक सडक मार्ग खुला — अत्यावश्यक भएको बाहेक हेली उद्धार नमाग्नुहोस्",
-"home_roads_r1": "धादिङ · पृथ्वी राजमार्ग",
-"home_roads_r2": "रसुवा · बिदुर–धुन्चे, साना ४ चक्के मात्र",
-"home_roads_src": "NDRRMA / गृह · १७ भदौ",
+"home_roads_lead": "नेपाल प्रहरी · मुख्य राजमार्ग अवरोध · २७ भदौ ०६:४०",
+"home_roads_r1": "धादिङ · कृष्णाभीर पूर्ण बन्द",
+"home_roads_r2": "रसुवा · मुख्य राजमार्ग बन्द",
+"home_roads_src": "नेपाल प्रहरी · २७ भदौ ०६:४०",
 "home_roads_cta": "पूरा सूचना",
 "hero_cash_h": "अर्थ मन्त्रालय / प्रधानमन्त्री दैवी प्रकोप उद्धार कोष / प्रधानमन्त्री राहत कोषमा जम्मा राहत रकम",
 "hero_cash_cat": "MoF मौज्दात / बैंक स्टक",
@@ -1882,10 +1882,10 @@ window.I18N = {
 "hero_comms_ncell": "Ncell: 76 of 78 operational",
 "hero_comms_src": "NDRRMA / MoHA · 26 Bhadra 11:00",
 "home_roads_h": "Notices / Road status",
-"home_roads_lead": "Alternative roads open — request helicopter rescue only in emergencies",
-"home_roads_r1": "Dhading · Prithvi Highway",
-"home_roads_r2": "Rasuwa · Bidur–Dhunche, small 4-wheel only",
-"home_roads_src": "NDRRMA / MoHA · 17 Bhadra",
+"home_roads_lead": "Nepal Police · main highway blockages · 27 Bhadra 06:40",
+"home_roads_r1": "Dhading · Krishnabhir fully closed",
+"home_roads_r2": "Rasuwa · main highways closed",
+"home_roads_src": "Nepal Police · 27 Bhadra 06:40",
 "home_roads_cta": "Full notice",
 "hero_cash_h": "Total relief in the Ministry of Finance / PM Disaster Relief Fund / PM Relief Fund",
 "hero_cash_cat": "MoF stock / bank balance",
@@ -3884,6 +3884,8 @@ window.I18N_LISTS = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{"h": "Nepal Police · main highway blockage board", "p": "Police board BS 2083/05/27 06:40: Krishnabhir / Rasuwa main highways / Pasang Lhamu Simtar / Arniko Ghattekhola / Karnali Gagane Khola <strong>fully closed</strong>; some Prithvi stretches <strong>one-way</strong>; time limits on B.P. and Tokha–Chhahare. Details <a href=\"#roads\">#roads</a>. <a href=\"img/today-2026-09-12-nepal-police-highway-0640.jpg\" target=\"_blank\" rel=\"noopener\">Source board</a>.", "when": "06:40 · 27 Bhadra / 12 Sep"},
+
 {"h": "NDRRMA/MoHA 26 Bhadra 11:00 — dead 1,385 · rescued 13,676", "p": "NDRRMA / MoHA 11:00 board: dead <strong>1,385</strong> (Chitwan 364 · Nawal E 228 · West 222 · Nuwakot 199 · Rasuwa 185 · Gorkha 77 · Dhading 70 · Tanahun 38 · Kathmandu during treatment 2). Including unidentified remains. Missing around <strong>5,130</strong> (104 identified bodies deducted, label; do not re-sum splits): Rasuwa locals 1,393 · other districts 1,286 · Army 45 · Police 12 · APF 26 · Nuwakot locals 651 · other districts 1,136 · gov 25 · bank/FI 73 · foreign around 587 — no Rasuwa/Nuwakot grand on board. No injured grand total on this board — treated <strong>337</strong> (19 hospitals) · discharged 261 · Army medical 3,559 · APF medical 3,759; previous injured 7,498 is history. Rescued <strong>13,676</strong>. Army heli flights <strong>1,407</strong> · APF 299 (total 1,706). Deployed <strong>21,022</strong> (Army 8,844 · Police 7,975 · APF 4,203). Holding <strong>3,685</strong> (37 centers · Nuwakot 2,615 · Rasuwa 775 · Dhading 295). Fuel diesel 45,000 · petrol 23,000 · aviation 13,000 · LPG 457. District cash 10M/10M/5M/135M unchanged. Temporary Acrow bridge at Devighat, Nuwakot in operation. Comms/power prior unchanged. Nepal Police 24 Bhadra 11:00 and tunnel details separate/unchanged. Previous 25 Bhadra 11:00 dead 1,377 · missing ~5,130 · injured 7,498 · rescued 13,656 · deploy 21,063 · Army flights 1,348 · APF 272 · holding 3,685/37 · handover 104 is history. Archive img/today-2026-09-11-ndrrma-1100.jpg. Source: NDRRMA / MoHA."},
 {"h": "NCHL 11 Sep 00:00 — NPR 5.10 billion · 259,459 txns", "p": "NCHL channels for PM Disaster Relief Fund at 00:00 11 Sep 2026: total <strong>5,100,441,053.72</strong> (NPR 5.10 billion) · <strong>259,459</strong> transactions (IPS/Cheque 2,062 · Card-Int’l 99,763 · Online 14,246 · Domestic QR 115,454 · Remittance 26,789 · Int’l QR 700 · Card-Domestic 445). Labeled NCHL+Fonepay <strong>7,569,891,645.72</strong> (7.57bn) with Fonepay 2.47bn till date. MoF stock / named ~2.15 / NepalPay / NVIDIA separate. Previous NCHL 4.68bn (254,909 · 9 Sep 00:00) is history. Archive img/today-2026-09-11-nchl-0000.jpg. <a href=\"donate.html#nchl\">Relief</a>."},
 {"h": "Fonepay core till date — NPR 2.47 billion · 919,164 txns (report 10 Sep)", "p": "Fonepay core channels till date (report dated 10 Sep 2026): total <strong>2,469,450,592</strong> (NPR 2.47 billion) · <strong>919,164</strong> txns (Domestic QR 831,514 · Bills 57,048 · NPCI 23,259 · ALIPAY 3,924 · IBFT 3,419). Optional day line 10 Sep: 3,121 · 18,402,866. Labeled NCHL+Fonepay <strong>7,569,891,645.72</strong> (7.57bn) with NCHL 5.10bn. MoF / named / NepalPay / NVIDIA separate. Previous Fonepay 2.34bn · 896,354 is history. Archive img/today-2026-09-10-fonepay-core.png. <a href=\"donate.html#nchl-hist\">Relief</a>."},
@@ -4646,6 +4648,7 @@ window.I18N_LISTS = {
 "National Disaster Council / NDRRMA chief Dr Dharmaraj Upreti: through district disaster committees, Rasuwa and Nuwakot <strong>NPR 10 million each</strong>, Dhading <strong>NPR 5 million</strong> (total NPR 2.5 crore)."
 ],
 "roads": [
+"<strong>Nepal Police · main highway blockages</strong> (BS 2083/05/27 · as of 06:40). <strong>Fully closed:</strong> Rasuwa — Uttargaya–5 Khalte · Trishuli–Mailung–Syaphrubesi (long-term); Rasuwa main highways until further notice. Nuwakot — Betrawati–10 Simtar · Pasang Lhamu closed. Dhading — Benighat Rorang–07 Krishnabhir · Prithvi fully closed. Sindhupalchok — Bhotekoshi–2 Ghattekhola · Arniko fully closed. Kalikot — Shubhakalika–1 Gagane Khola · Karnali fully closed. <strong>One-way:</strong> Dhading Jawang Khola and Shitalbazar (Prithvi); Chitwan row also lists Jawang Khola one-way (as on board). <strong>Time limits:</strong> Kavre B.P. Highway — freight ≤10t 19:00–05:00; other vehicles 04:00–18:00 as conditions allow. Nuwakot Tokha–Chhahare · no vehicles 22:00–05:00. Info: Police <a href=\"tel:100\">100</a> · Traffic <a href=\"tel:103\">103</a>. <a href=\"img/today-2026-09-12-nepal-police-highway-0640.jpg\" target=\"_blank\" rel=\"noopener\">Source board</a> · Nepal Police. Prior alternate-route / NDRRMA 15 Bhadra notice is history.",
 "<strong>Alternative roads open — request helicopter rescue only in emergencies</strong> (15 Bhadra). Road routes into the flood-affected areas are reopening. NDRRMA asks anyone not in urgent need to use these roads instead of requesting helicopter evacuation, so helicopters stay available for essential search, rescue and relief delivery. So far 3,596 people (252 foreign nationals, 3,344 Nepalis) have been airlifted. <strong>Open routes · To Dhading:</strong> Dhading Besi – Parewatar – Nepaltar – Gajuritar – Pipaltar – Adamtar – Belintar – Keurinitar – Mastar – Prithvi Highway. <strong>To Rasuwa:</strong> Bidur – Dhikure – Chaughada – Apra – Narja – Lachyang – Saramthali – Patikharka – Bogatitar (Pasang Lhamu Highway) – Kalikasthan – Dhunche, small four-wheel vehicles only. Most affected: 15 local units across Rasuwa, Nuwakot, Dhading, Gorkha and Tanahun — full ward list in the original notice. Contact: NDRRMA <a href=\"tel:+97714211197\">01-4211197</a> / <a href=\"tel:+97714211195\">4211195</a> / <a href=\"tel:+97714211483\">4211483</a>, toll-free <a href=\"tel:1149\">1149</a>, <a href=\"mailto:ndrrma@gmail.com\">ndrrma@gmail.com</a>, <a href=\"https://www.bipad.gov.np\" target=\"_blank\" rel=\"noopener\">www.bipad.gov.np</a>. Source: NDRRMA, Ministry of Home Affairs — 15 Bhadra 2083 (31 Aug 2026).",
 "NDRRMA SitRep-6 (22:00, 11 Bhadra): Devghat road obstruction cleared. Work continues on Galchhi–Bidur–Trishuli and Baireni–Muglin. Dhunche–Grad: 1 wheel excavator, 1 wheel loader, 1 tipper. Devghat 2 machines. Bidur–Trishuli–Dunge 3 machines. Baireni–Muglin 1 backhoe.",
 "NESRA FloodWatch (27 August 03:31, DoR / Kantipur): Betrawati–Rasuwagadhi about <strong>42 km</strong> damaged — several motorable bridges washed away; open/closed not officially confirmed. Rasuwagadhi–Timure / Timure–Syaphrubesi / Syaphrubesi–Betrawati are part of this damage. Repairs started (heavy equipment). Bridges <strong>80</strong> / paved 40 km NDRRMA SitRep-3 unchanged. Source: <a href=\"https://nesraspace.org/floodwatch/rasuwa-2026/\" target=\"_blank\" rel=\"noopener\">NESRA FloodWatch</a>.",

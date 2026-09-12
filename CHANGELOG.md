@@ -1,3 +1,7 @@
+## 2026-09-12-1515 · Nepal Police highway blockages
+
+- `notices.html` `#roads`: prepend Nepal Police main-highway board as of BS 2083/05/27 06:40 (archive `img/today-2026-09-12-nepal-police-highway-0640.jpg`); history log + home roads chips; i18n EN roads/hist.
+
 ## 2026-09-12-1400 · LPG hoarding transparency
 
 - `supply.html`: `#lpg-scope` disclaimer (Customs totals ≠ hoarding); `#lpg-hoarding` cards for distribution framework + NOC sources, official-source ask, complaint pointers (100 / 1234 / contact helpline), and explicit won’t-do list.
