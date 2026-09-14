@@ -1,10 +1,10 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-11T11:00:00+05:45",
+  "updated_at": "2026-09-13T19:00:00+05:45",
   "as_of": {
-    "ne": "११ सेप्टेम्बर / २६ भदौ २०८३ · ११:००",
-    "en": "11 September 2026 · 11:00 NPT"
+    "ne": "१३ सेप्टेम्बर / २८ भदौ २०८३ · १९:००",
+    "en": "13 September 2026 · 19:00 NPT"
   },
   "credit": {
     "ne": "निरज भुसाल",
@@ -18,10 +18,10 @@
         "ne": "मृतक संख्या",
         "en": "Deaths count"
       },
-      "value": 1385,
+      "value": 1388,
       "value_display": {
-        "ne": "१,३८५",
-        "en": "1,385"
+        "ne": "१,३८८",
+        "en": "1,388"
       },
       "items": [
         {
@@ -42,10 +42,10 @@
             "ne": "नवलपरासी पूर्व",
             "en": "Nawalparasi East"
           },
-          "value": 228,
+          "value": 230,
           "value_display": {
-            "ne": "२२८",
-            "en": "228"
+            "ne": "२३०",
+            "en": "230"
           }
         },
         {
@@ -95,6 +95,54 @@
             "ne": "१०४",
             "en": "104"
           }
+        },
+        {
+          "id": "gorkha",
+          "label": {
+            "ne": "गोरखा",
+            "en": "Gorkha"
+          },
+          "value": 77,
+          "value_display": {
+            "ne": "७७",
+            "en": "77"
+          }
+        },
+        {
+          "id": "dhading",
+          "label": {
+            "ne": "धादिङ",
+            "en": "Dhading"
+          },
+          "value": 71,
+          "value_display": {
+            "ne": "७१",
+            "en": "71"
+          }
+        },
+        {
+          "id": "demo",
+          "label": {
+            "ne": "महिला / पुरुष / अवशेष",
+            "en": "Female / male / remains"
+          },
+          "value": null,
+          "value_display": {
+            "ne": "३३४ · ५४२ · ५१२",
+            "en": "334 · 542 · 512"
+          }
+        },
+        {
+          "id": "dna",
+          "label": {
+            "ne": "DNA मृतक / आफन्त",
+            "en": "DNA deceased / relatives"
+          },
+          "value": null,
+          "value_display": {
+            "ne": "१,२८६ · १,८४६",
+            "en": "1,286 · 1,846"
+          }
         }
       ]
     },
@@ -104,34 +152,22 @@
         "ne": "उपचार (अस्पताल)",
         "en": "Treated (hospitals)"
       },
-      "value": 337,
+      "value": 339,
       "value_display": {
-        "ne": "३३७",
-        "en": "337"
+        "ne": "३३९",
+        "en": "339"
       },
       "items": [
         {
-          "id": "army",
+          "id": "security",
           "label": {
-            "ne": "सेना",
-            "en": "Army"
+            "ne": "सुरक्षा निकाय उपचार",
+            "en": "Security-agency treatment"
           },
-          "value": 3559,
+          "value": 9314,
           "value_display": {
-            "ne": "३,५५९",
-            "en": "3,559"
-          }
-        },
-        {
-          "id": "apf",
-          "label": {
-            "ne": "सशस्त्र",
-            "en": "Armed Police"
-          },
-          "value": 3759,
-          "value_display": {
-            "ne": "३,७५९",
-            "en": "3,759"
+            "ne": "९,३१४",
+            "en": "9,314"
           }
         },
         {
@@ -140,10 +176,10 @@
             "ne": "अस्पताल उपचार (१९)",
             "en": "Hospital treated (19)"
           },
-          "value": 337,
+          "value": 339,
           "value_display": {
-            "ne": "३३७",
-            "en": "337"
+            "ne": "३३९",
+            "en": "339"
           }
         },
         {
@@ -152,10 +188,10 @@
             "ne": "डिस्चार्ज (लेबल)",
             "en": "Discharged (labeled)"
           },
-          "value": 261,
+          "value": 271,
           "value_display": {
-            "ne": "२६१",
-            "en": "261"
+            "ne": "२७१",
+            "en": "271"
           }
         },
         {
@@ -172,8 +208,8 @@
         }
       ],
       "history_note": {
-        "ne": "अघिल्लो घाइते महा-जम्मा ७,४९८ (२५ भदौ ११:००) इतिहास — यस बोर्डमा घाइते महा-जम्मा छैन।",
-        "en": "Previous injured total 7,498 (25 Bhadra 11:00) is history — this board has no injured grand total."
+        "ne": "अघिल्लो उपचार ३३७ / डिस्चार्ज २६१ / सेना ३,५५९ / सशस्त्र ३,७५९ (२६ भदौ ११:००) इतिहास — यस बोर्डमा घाइते महा-जम्मा छैन।",
+        "en": "Previous treated 337 / discharged 261 / Army 3,559 / APF 3,759 (26 Bhadra 11:00) is history — this board has no injured grand total."
       }
     },
     {
@@ -285,10 +321,10 @@
           }
         },
         {
-          "id": "nuw_gov",
+          "id": "gov",
           "label": {
-            "ne": "नुवाकोट · सरकारी",
-            "en": "Nuwakot · gov"
+            "ne": "सरकारी",
+            "en": "Gov"
           },
           "value": 25,
           "value_display": {
@@ -297,10 +333,10 @@
           }
         },
         {
-          "id": "nuw_bank",
+          "id": "bank",
           "label": {
-            "ne": "नुवाकोट · बैंक/वित्तीय",
-            "en": "Nuwakot · bank/FI"
+            "ne": "बैंक/वित्तीय",
+            "en": "Bank/FI"
           },
           "value": 73,
           "value_display": {
@@ -311,13 +347,13 @@
         {
           "id": "holding",
           "label": {
-            "ne": "होल्डिङ",
-            "en": "Holding"
+            "ne": "होल्डिङ (३ जिल्ला लेबल योग)",
+            "en": "Holding (3-district labeled sum)"
           },
-          "value": 3685,
+          "value": 2532,
           "value_display": {
-            "ne": "३,६८५",
-            "en": "3,685"
+            "ne": "२,५३२",
+            "en": "2,532"
           }
         },
         {
@@ -326,10 +362,10 @@
             "ne": "होल्ड · नुवाकोट",
             "en": "Hold · Nuwakot"
           },
-          "value": 2615,
+          "value": 1613,
           "value_display": {
-            "ne": "२,६१५",
-            "en": "2,615"
+            "ne": "१,६१३",
+            "en": "1,613"
           }
         },
         {
@@ -338,10 +374,10 @@
             "ne": "होल्ड · रसुवा",
             "en": "Hold · Rasuwa"
           },
-          "value": 775,
+          "value": 825,
           "value_display": {
-            "ne": "७७५",
-            "en": "775"
+            "ne": "८२५",
+            "en": "825"
           }
         },
         {
@@ -350,10 +386,10 @@
             "ne": "होल्ड · धादिङ",
             "en": "Hold · Dhading"
           },
-          "value": 295,
+          "value": 94,
           "value_display": {
-            "ne": "२९५",
-            "en": "295"
+            "ne": "९४",
+            "en": "94"
           }
         },
         {
@@ -362,10 +398,10 @@
             "ne": "होल्डिङ सेन्टर",
             "en": "Holding centers"
           },
-          "value": 37,
+          "value": 33,
           "value_display": {
-            "ne": "३७",
-            "en": "37"
+            "ne": "३३",
+            "en": "33"
           }
         },
         {
@@ -388,10 +424,10 @@
         "ne": "हालसम्म उद्धार गरिएको संख्या",
         "en": "Rescued so far"
       },
-      "value": 13676,
+      "value": 13728,
       "value_display": {
-        "ne": "१३,६७६",
-        "en": "13,676"
+        "ne": "१३,७२८",
+        "en": "13,728"
       },
       "items": [
         {
@@ -400,10 +436,10 @@
             "ne": "सेना हेलि उडान",
             "en": "Army heli flights"
           },
-          "value": 1407,
+          "value": 1516,
           "value_display": {
-            "ne": "१,४०७",
-            "en": "1,407"
+            "ne": "१,५१६",
+            "en": "1,516"
           }
         },
         {
@@ -412,10 +448,10 @@
             "ne": "सशस्त्र उडान",
             "en": "APF flights"
           },
-          "value": 299,
+          "value": 320,
           "value_display": {
-            "ne": "२९९",
-            "en": "299"
+            "ne": "३२०",
+            "en": "320"
           }
         },
         {
