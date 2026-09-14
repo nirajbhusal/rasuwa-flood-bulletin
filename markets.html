@@ -714,13 +714,6 @@ window.PAGE_VER="2026-09-14-2345";
     if (jump && root.contains(jump)) {
       theme = ""; agency = ""; deadline = "";
       apply();
-      var id = (jump.getAttribute("href") || "").split("#")[1];
-      var target = id && document.getElementById(id);
-      if (target) {
-        e.preventDefault();
-        try { history.replaceState(null, "", "#" + id); } catch (err) {}
-        target.scrollIntoView({ block: "start", behavior: "smooth" });
-      }
       return;
     }
     var btn = e.target.closest("[data-mkt-filter]");
