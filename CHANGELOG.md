@@ -1,3 +1,11 @@
+## 2026-09-14-0915 · NDRRMA SitRep #11 + cash boards
+
+- NDRRMA / MoHA SitRep #11 · 28 Bhadra 19:00 / 13 Sep: dead **1,388** · rescued **13,728** · treated **339** (19 hospitals) · discharged **271** · security-agency treatment **9,314** · missing ~**5,130** (do not re-sum). Army heli **1,516** (34 today) · APF **320**. Holding **33** centers (Nuwakot 1,613 · Rasuwa 825 · Dhading 94). Fuel 33k/18k/15k · LPG **502**. Archive `img/today-2026-09-13-ndrrma-sitrep11-1900.jpg`.
+- OPMCM PMDRF 2083/05/28 17:00: 9-bank NPR **9,995,024,994** (~9.99bn) · USD **23,441,854** · equiv NPR **3,576,992,569** @152.59 · available **13,572,017,563** (~13.57bn). Not stacked with NCHL/Fonepay/named.
+- NCHL 14 Sep 00:00: **263,267** / **5,521,433,368.22** (~5.52bn).
+- Fonepay CORE till date: **925,407** / **2,507,249,462** (~2.51bn). Yesterday 13 Sep 1,512 / 8,942,981 (subtitle).
+- Labeled NCHL+Fonepay **8,028,682,830.22** (~8.03bn) — not a mega-total with MoF.
+
 ## 2026-09-12-1515 · Nepal Police highway blockages
 
 - `notices.html` `#roads`: prepend Nepal Police main-highway board as of BS 2083/05/27 06:40 (archive `img/today-2026-09-12-nepal-police-highway-0640.jpg`); history log + home roads chips; i18n EN roads/hist.
