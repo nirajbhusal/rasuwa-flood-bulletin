@@ -6871,7 +6871,7 @@ html.damage-page.desk #map{
 .mkt-theme{
   display:flex;align-items:center;gap:10px;width:100%;text-align:left;
   padding:10px 12px;border-radius:12px;cursor:pointer;
-  background:#fff;border:1px solid #e2e8f0;color:#1e293b;
+  background:#f8fafc;border:1px solid #e2e8f0;color:#1e293b;
   font:inherit;font-size:13.5px;font-weight:750;line-height:1.35;
 }
 .mkt-theme:hover{border-color:#93c5fd;background:#eff6ff}
