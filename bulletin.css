@@ -6776,3 +6776,109 @@ html.damage-page.desk #map{
 }
 .damage-jump a:hover{border-color:var(--teal);color:var(--teal);background:#f0fdfa}
 .damage-jump a.is-current{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+
+/* MoF capital-market recovery plan · PAGE_VER 2026-09-14-2200 */
+.home-cat-dot-markets{
+  background:#1e40af;
+  box-shadow:0 0 0 3px color-mix(in srgb, #1e40af 22%, transparent);
+}
+.home-cat-dot.mkt-home-mark{
+  width:22px;height:26px;border-radius:8px;background:#eff6ff;
+  box-shadow:0 0 0 3px color-mix(in srgb, #1e40af 18%, transparent);
+  display:inline-flex;align-items:center;justify-content:center;
+  overflow:visible;
+}
+#cat-markets,.mkt-card{scroll-margin-top:calc(var(--stick,72px) + 56px)}
+.mkt-mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  flex:none;margin-top:.15em;width:28px;height:32px;
+}
+.mkt-ico{display:inline-block;vertical-align:middle;flex:none}
+.mkt-board{
+  margin:0 0 16px;padding:16px 16px 14px;
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:var(--shadow-sm);
+}
+.mkt-kpis{
+  display:grid;grid-template-columns:1fr;gap:10px;margin:0 0 14px;
+}
+@media(min-width:640px){
+  .mkt-kpis{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+}
+.mkt-kpi{
+  background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;
+  padding:12px 12px 10px;min-width:0;
+}
+.mkt-kpi .kpi-k{display:block;font-size:12px;font-weight:800;color:#64748b;margin:0 0 4px;line-height:1.3}
+.mkt-kpi strong.num{
+  display:inline;font-size:clamp(20px,4.2vw,28px);font-weight:800;color:var(--ink);
+  font-variant-numeric:tabular-nums;line-height:1.15;
+}
+.mkt-kpi .cash-unit{display:inline;font-size:12px;font-weight:750;color:#64748b;margin-left:4px}
+.mkt-kpi .cash-sub{display:block;font-size:12px;font-weight:650;color:#64748b;margin-top:6px;line-height:1.4}
+.mkt-kpi .cash-sub strong.num{font-size:inherit;color:var(--ink)}
+.mkt-kpi-date{background:#eff6ff;border-color:#bfdbfe}
+.mkt-kpi-date strong.num{color:#1e3a8a}
+.mkt-kpi-cgt{background:#fff1f2;border-color:#fecdd3}
+.mkt-kpi-cgt strong.num{color:#9f1239}
+.mkt-kpi-hold{background:#ecfdf5;border-color:#bbf7d0}
+.mkt-kpi-hold strong.num{color:#047857}
+.mkt-track{margin:0 0 14px}
+.mkt-dead-pills,.mkt-pills,.mkt-theme-pills{
+  display:flex;flex-wrap:wrap;gap:6px;margin:0;
+}
+.mkt-pill{
+  display:inline-flex;align-items:center;font-size:12px;font-weight:800;
+  padding:5px 10px;border-radius:999px;line-height:1.25;
+  background:#e0f2fe;color:#075985;
+}
+.mkt-pill-now{background:#ffe4e6;color:#9f1239}
+.mkt-pill-tax{background:#fff1f2;color:#9f1239}
+.mkt-pill-hold{background:#dcfce7;color:#166534}
+.mkt-toc{
+  display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px;
+}
+.mkt-toc a{
+  display:inline-flex;align-items:center;padding:6px 11px;border-radius:999px;
+  border:1px solid var(--line);background:#fff;color:#334155;
+  font-size:12.5px;font-weight:800;text-decoration:none;line-height:1.25;
+  box-shadow:var(--shadow-sm);
+}
+.mkt-toc a:hover{border-color:var(--teal);color:var(--teal);background:#f0fdfa}
+.mkt-card{
+  margin:0 0 12px;padding:14px 14px 12px;
+  background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;
+}
+.mkt-card-h{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
+  flex-wrap:wrap;margin:0 0 8px;
+}
+.mkt-card-h h3{
+  margin:0;font-size:16px;font-weight:800;color:#1e3a8a;line-height:1.35;
+}
+.mkt-gist{
+  margin:0 0 10px;padding:8px 10px;border-radius:10px;
+  background:#eff6ff;border:1px solid #bfdbfe;
+  font-size:13.5px;font-weight:650;line-height:1.5;color:#1e3a8a;
+}
+.mkt-list{margin:0;padding:0 0 0 1.15em}
+.mkt-list li{
+  margin:0 0 8px;font-size:14px;font-weight:600;line-height:1.55;color:#334155;
+}
+.mkt-list li:last-child{margin-bottom:0}
+.mkt-archive{display:flex;flex-wrap:wrap;gap:4px 0;align-items:center}
+.markets-snap{border-color:#bfdbfe}
+.markets-snap:hover{border-color:#1e40af;box-shadow:0 0 0 3px #dbeafe}
+.markets-snap .kpi-k{color:#1e3a8a}
+.markets-snap .roads-lead{color:#1e3a8a}
+.markets-snap-k{display:flex;align-items:center;gap:8px;width:100%}
+.markets-snap-k .kpi-k{width:auto}
+.mkt-snap-mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:32px;border-radius:10px;flex:none;
+  background:#eff6ff;border:1px solid #bfdbfe;
+}
+.markets-snap .mkt-theme-pills{width:100%;margin:6px 0 4px}
+.markets-snap .mkt-dead-pills{width:100%;margin:2px 0 6px}
+.markets-snap .mkt-pill{font-size:11.5px}
+.markets-snap .roads-split strong{color:#1e40af}

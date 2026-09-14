@@ -13,6 +13,10 @@
   if (id === "path") h = "#path";
   else if (id === "rdna" || id === "infographics" || id === "cat-infographics") h = "#rdna";
   else if (id === "ems927" || id === "power" || id === "damage") h = "#" + id;
+  else if (id === "markets" || id === "cat-markets" || id === "capital") {
+    location.replace("markets.html" + q);
+    return;
+  }
   location.replace("damage.html" + q + h);
 })();
 </script>
