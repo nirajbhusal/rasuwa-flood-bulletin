@@ -6777,7 +6777,7 @@ html.damage-page.desk #map{
 .damage-jump a:hover{border-color:var(--teal);color:var(--teal);background:#f0fdfa}
 .damage-jump a.is-current{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
 
-/* Capital-market plan · PAGE_VER 2026-09-14-2345 · MoF /plans/ IA, citizen bulletin */
+/* Capital-market plan · PAGE_VER 2026-09-15-0015 · MoF /plans/ IA, citizen bulletin */
 .home-cat-dot-markets{
   background:#1e40af;
   box-shadow:0 0 0 3px color-mix(in srgb, #1e40af 22%, transparent);
