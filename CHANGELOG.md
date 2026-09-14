@@ -1,3 +1,13 @@
+## 2026-09-14-1330 · Merge damage + RDNA + map/timeline
+
+- One `damage.html` page: existing EMS/damage/power, then `#rdna` (unchanged), then `#map` / `#path` moved from `map.html` (unchanged)
+- Sitewide nav: single **क्षति मूल्यांकन** chip → `damage.html`; removed top-level `nav_rdna` and `nav_map`
+- In-page jump on `damage.html` only: `#ems927` · `#rdna` · `#map`
+- Hash redirects: `#map` / `#path` → `damage.html#map` / `#path`; `#rdna` / `#infographics` stay on `damage.html#rdna`
+- Thin `map.html` shim → `damage.html#map` (keeps `#path`)
+- Title/meta labels cover damage + RDNA + map/timeline; personal bulletin; figures untouched
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-14-1330`
+
 ## 2026-09-14-0915 · NDRRMA SitRep #11 + cash boards
 
 - NDRRMA / MoHA SitRep #11 · 28 Bhadra 19:00 / 13 Sep: dead **1,388** · rescued **13,728** · treated **339** (19 hospitals) · discharged **271** · security-agency treatment **9,314** · missing ~**5,130** (do not re-sum). Army heli **1,516** (34 today) · APF **320**. Holding **33** centers (Nuwakot 1,613 · Rasuwa 825 · Dhading 94). Fuel 33k/18k/15k · LPG **502**. Archive `img/today-2026-09-13-ndrrma-sitrep11-1900.jpg`.
