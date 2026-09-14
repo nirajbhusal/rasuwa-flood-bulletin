@@ -1,3 +1,7 @@
+## 2026-09-14-2230 · Everest Gas labeled distribution source
+
+- `supply.html` / i18n: Everest Gas Udhyog / Everest Gas Sansar as a **labeled-separate** bottler reference (official site + Facebook). Not Customs import; not dealer-stock KPI.
+
 ## 2026-09-14-2200 · MoF capital-market recovery plan
 
 - New `markets.html`: Government of Nepal, Ministry of Finance **पुँजी बजार सुधार एवं पुनरुत्थान कार्ययोजना** dated **२०८३।०५।२९** (after 10 Bhadra Bhotekoshi flood). Full Nepali plan text in thematic cards (IPO / bonds-ETF-MF / NEPSE / benchmark / NRN / brokers-Act / institutional / tax-CDS-NRB) with deadline chips. EN gists via i18n. Citizen bulletin — not a government site. No invented figures.
