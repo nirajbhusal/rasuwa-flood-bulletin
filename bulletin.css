@@ -2765,7 +2765,7 @@ html.map-page.desk #map{
 .gov-page #rescue, .gov-page #rahat, .gov-page #event, .gov-page #gov{display:block;max-height:none;overflow:visible}
 .gov-page .kicker{margin:0 0 16px}
 .damage-page .page-main{overflow:visible}
-.damage-page #ems927, .damage-page #damage{display:block;max-height:none;overflow:visible}
+.damage-page #ems927, .damage-page #damage, .damage-page #rdna, .damage-page #map, .damage-page #power{display:block;max-height:none;overflow:visible}
 .damage-page .kicker{margin:0 0 6px}
 .damage-page .source{margin:0 0 16px;font-size:14px;font-weight:700;color:var(--muted)}
 .notices-page .page-main{overflow:visible}
@@ -6759,3 +6759,20 @@ html{color-scheme:light}
 .lpg-wont{background:#fef2f2;border-color:#fecaca}
 .lpg-wont h4{color:#9f1239}
 .lpg-dist-note{margin:10px 0 0;font-size:.85rem;color:#64748b;line-height:1.4}
+
+html.damage-page.desk #map{
+  display:block;overflow:visible;max-height:none;
+}
+.damage-page #map{display:block;max-height:none;overflow:visible}
+#map,#path{scroll-margin-top:calc(var(--stick,72px) + 56px)}
+.damage-jump{
+  display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:0;
+}
+.damage-jump a{
+  display:inline-flex;align-items:center;padding:7px 12px;border-radius:999px;
+  border:1px solid var(--line);background:#fff;color:#334155;
+  font-size:12.5px;font-weight:800;text-decoration:none;line-height:1.2;
+  box-shadow:var(--shadow-sm);
+}
+.damage-jump a:hover{border-color:var(--teal);color:var(--teal);background:#f0fdfa}
+.damage-jump a.is-current{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
