@@ -1,3 +1,16 @@
+## 2026-09-15-0015 · Rebase onto main (Everest Gas + markets restyle)
+
+- Rebased markets MoF `/plans/` restyle onto latest `main` (Everest Gas labeled source `2026-09-14-2230`, plus `_shot_*` cleanup).
+- Kept both: `markets.html` / homepage `#cat-markets` restyle **and** Everest Gas links on `supply.html` + i18n. SitRep #12 / cash KPIs unchanged.
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-15-0015`
+
+## 2026-09-14-2345 · Markets page follows MoF /plans/ IA
+
+- Restyle `markets.html` to the official MoF `/plans/` information design: hero (title · २०८३ भदौ २९ / 14 Sep 2026 · lead), labeled KPI strip (२१ बुँदा · ९ विषय · ६ निकाय · तत्काल ४ · असोज मसान्त · CGT ३.७५%/५% · ४५ दिन), **किन यो कार्ययोजना** preamble, navigable विषय grid, जिम्मेवार निकाय counts (dual-agency counted once each), मार्गचित्र timeline with per-deadline item numbers, and **numbered २१ action items** with agency + deadline chips. Filters click-to-narrow. Official MoF plans page linked as reference.
+- Citizen bulletin stays explicit: no MoF logos/branding; source line **नेपाल सरकार, अर्थ मन्त्रालय · मिति २०८३।०५।२९ · यो स्वतन्त्र नागरिक बुलेटिन हो।** SitRep KPIs, cash totals, LPG/Everest source unchanged.
+- Homepage `#cat-markets` snap now uses the same KPI language (२१ बुँदा / विषय / CGT / ४५ दिन) plus theme counts.
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-14-2345`
+
 ## 2026-09-14-2230 · Everest Gas labeled distribution source
 
 - `supply.html` / i18n: Everest Gas Udhyog / Everest Gas Sansar as a **labeled-separate** bottler reference (official site + Facebook). Not Customs import; not dealer-stock KPI.
