@@ -1,3 +1,8 @@
+## 2026-09-14-1700 · Named handover Excel through Bhadra 28
+
+- `data/pmdrf-named-donors.json`: 492 donors · Rs. 2,737,630,633.82 (Bhadra 11–28); days/totals from Total sheet; MoF/NCHL/Fonepay unchanged and separately labeled.
+- donate/index/i18n hero + directory kickers updated; Excel archived under `data/`.
+
 ## 2026-09-14-1330 · Merge damage + RDNA + map/timeline
 
 - One `damage.html` page: existing EMS/damage/power, then `#rdna` (unchanged), then `#map` / `#path` moved from `map.html` (unchanged)
