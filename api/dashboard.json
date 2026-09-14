@@ -1,10 +1,10 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-13T19:00:00+05:45",
+  "updated_at": "2026-09-14T19:00:00+05:45",
   "as_of": {
-    "ne": "१३ सेप्टेम्बर / २८ भदौ २०८३ · १९:००",
-    "en": "13 September 2026 · 19:00 NPT"
+    "ne": "१४ सेप्टेम्बर / २९ भदौ २०८३ · १९:००",
+    "en": "14 September 2026 · 19:00 NPT"
   },
   "credit": {
     "ne": "निरज भुसाल",
@@ -18,10 +18,10 @@
         "ne": "मृतक संख्या",
         "en": "Deaths count"
       },
-      "value": 1388,
+      "value": 1395,
       "value_display": {
-        "ne": "१,३८८",
-        "en": "1,388"
+        "ne": "१,३९५",
+        "en": "1,395"
       },
       "items": [
         {
@@ -42,10 +42,10 @@
             "ne": "नवलपरासी पूर्व",
             "en": "Nawalparasi East"
           },
-          "value": 230,
+          "value": 232,
           "value_display": {
-            "ne": "२३०",
-            "en": "230"
+            "ne": "२३२",
+            "en": "232"
           }
         },
         {
@@ -66,10 +66,10 @@
             "ne": "नुवाकोट",
             "en": "Nuwakot"
           },
-          "value": 199,
+          "value": 202,
           "value_display": {
-            "ne": "१९९",
-            "en": "199"
+            "ne": "२०२",
+            "en": "202"
           }
         },
         {
@@ -78,10 +78,10 @@
             "ne": "रसुवा",
             "en": "Rasuwa"
           },
-          "value": 185,
+          "value": 186,
           "value_display": {
-            "ne": "१८५",
-            "en": "185"
+            "ne": "१८६",
+            "en": "186"
           }
         },
         {
@@ -114,10 +114,10 @@
             "ne": "धादिङ",
             "en": "Dhading"
           },
-          "value": 71,
+          "value": 72,
           "value_display": {
-            "ne": "७१",
-            "en": "71"
+            "ne": "७२",
+            "en": "72"
           }
         },
         {
@@ -140,8 +140,8 @@
           },
           "value": null,
           "value_display": {
-            "ne": "१,२८६ · १,८४६",
-            "en": "1,286 · 1,846"
+            "ne": "१,२८६ · १,८५३",
+            "en": "1,286 · 1,853"
           }
         }
       ]
@@ -152,10 +152,10 @@
         "ne": "उपचार (अस्पताल)",
         "en": "Treated (hospitals)"
       },
-      "value": 339,
+      "value": 341,
       "value_display": {
-        "ne": "३३९",
-        "en": "339"
+        "ne": "३४१",
+        "en": "341"
       },
       "items": [
         {
@@ -164,10 +164,10 @@
             "ne": "सुरक्षा निकाय उपचार",
             "en": "Security-agency treatment"
           },
-          "value": 9314,
+          "value": 9358,
           "value_display": {
-            "ne": "९,३१४",
-            "en": "9,314"
+            "ne": "९,३५८",
+            "en": "9,358"
           }
         },
         {
@@ -176,10 +176,10 @@
             "ne": "अस्पताल उपचार (१९)",
             "en": "Hospital treated (19)"
           },
-          "value": 339,
+          "value": 341,
           "value_display": {
-            "ne": "३३९",
-            "en": "339"
+            "ne": "३४१",
+            "en": "341"
           }
         },
         {
@@ -188,10 +188,10 @@
             "ne": "डिस्चार्ज (लेबल)",
             "en": "Discharged (labeled)"
           },
-          "value": 271,
+          "value": 278,
           "value_display": {
-            "ne": "२७१",
-            "en": "271"
+            "ne": "२७८",
+            "en": "278"
           }
         },
         {
@@ -208,8 +208,8 @@
         }
       ],
       "history_note": {
-        "ne": "अघिल्लो उपचार ३३७ / डिस्चार्ज २६१ / सेना ३,५५९ / सशस्त्र ३,७५९ (२६ भदौ ११:००) इतिहास — यस बोर्डमा घाइते महा-जम्मा छैन।",
-        "en": "Previous treated 337 / discharged 261 / Army 3,559 / APF 3,759 (26 Bhadra 11:00) is history — this board has no injured grand total."
+        "ne": "अघिल्लो उपचार ३३९ / डिस्चार्ज २७१ / सुरक्षा निकाय ९,३१४ (२८ भदौ १९:००) इतिहास — यस बोर्डमा घाइते महा-जम्मा छैन।",
+        "en": "Previous treated 339 / discharged 271 / security-agency 9,314 (28 Bhadra 19:00) is history — this board has no injured grand total."
       }
     },
     {
@@ -266,10 +266,10 @@
             "ne": "रसुवा · सेना",
             "en": "Rasuwa · Army"
           },
-          "value": 45,
+          "value": 25,
           "value_display": {
-            "ne": "४५",
-            "en": "45"
+            "ne": "२५",
+            "en": "25"
           }
         },
         {
@@ -278,10 +278,10 @@
             "ne": "रसुवा · प्रहरी",
             "en": "Rasuwa · Police"
           },
-          "value": 12,
+          "value": 73,
           "value_display": {
-            "ne": "१२",
-            "en": "12"
+            "ne": "७३",
+            "en": "73"
           }
         },
         {
@@ -290,10 +290,10 @@
             "ne": "रसुवा · सशस्त्र",
             "en": "Rasuwa · APF"
           },
-          "value": 26,
+          "value": 45,
           "value_display": {
-            "ne": "२६",
-            "en": "26"
+            "ne": "४५",
+            "en": "45"
           }
         },
         {
@@ -326,10 +326,10 @@
             "ne": "सरकारी",
             "en": "Gov"
           },
-          "value": 25,
+          "value": 12,
           "value_display": {
-            "ne": "२५",
-            "en": "25"
+            "ne": "१२",
+            "en": "12"
           }
         },
         {
@@ -338,10 +338,10 @@
             "ne": "बैंक/वित्तीय",
             "en": "Bank/FI"
           },
-          "value": 73,
+          "value": 26,
           "value_display": {
-            "ne": "७३",
-            "en": "73"
+            "ne": "२६",
+            "en": "26"
           }
         },
         {
@@ -350,10 +350,10 @@
             "ne": "होल्डिङ (३ जिल्ला लेबल योग)",
             "en": "Holding (3-district labeled sum)"
           },
-          "value": 2532,
+          "value": 2418,
           "value_display": {
-            "ne": "२,५३२",
-            "en": "2,532"
+            "ne": "२,४१८",
+            "en": "2,418"
           }
         },
         {
@@ -362,10 +362,10 @@
             "ne": "होल्ड · नुवाकोट",
             "en": "Hold · Nuwakot"
           },
-          "value": 1613,
+          "value": 1499,
           "value_display": {
-            "ne": "१,६१३",
-            "en": "1,613"
+            "ne": "१,४९९",
+            "en": "1,499"
           }
         },
         {
@@ -424,10 +424,10 @@
         "ne": "हालसम्म उद्धार गरिएको संख्या",
         "en": "Rescued so far"
       },
-      "value": 13728,
+      "value": 13737,
       "value_display": {
-        "ne": "१३,७२८",
-        "en": "13,728"
+        "ne": "१३,७३७",
+        "en": "13,737"
       },
       "items": [
         {
@@ -436,10 +436,10 @@
             "ne": "सेना हेलि उडान",
             "en": "Army heli flights"
           },
-          "value": 1516,
+          "value": 1531,
           "value_display": {
-            "ne": "१,५१६",
-            "en": "1,516"
+            "ne": "१,५३१",
+            "en": "1,531"
           }
         },
         {

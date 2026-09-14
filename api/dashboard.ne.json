@@ -1,16 +1,16 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-13T19:00:00+05:45",
-  "as_of": "१३ सेप्टेम्बर / २८ भदौ २०८३ · १९:००",
+  "updated_at": "2026-09-14T19:00:00+05:45",
+  "as_of": "१४ सेप्टेम्बर / २९ भदौ २०८३ · १९:००",
   "credit": "निरज भुसाल",
   "link": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
   "cards": [
     {
       "id": "dead",
       "label": "मृतक संख्या",
-      "value": 1388,
-      "value_display": "१,३८८",
+      "value": 1395,
+      "value_display": "१,३९५",
       "items": [
         {
           "id": "chitwan",
@@ -21,8 +21,8 @@
         {
           "id": "nawal_e",
           "label": "नवलपरासी पूर्व",
-          "value": 230,
-          "value_display": "२३०"
+          "value": 232,
+          "value_display": "२३२"
         },
         {
           "id": "nawal_w",
@@ -33,14 +33,14 @@
         {
           "id": "nuwakot",
           "label": "नुवाकोट",
-          "value": 199,
-          "value_display": "१९९"
+          "value": 202,
+          "value_display": "२०२"
         },
         {
           "id": "rasuwa",
           "label": "रसुवा",
-          "value": 185,
-          "value_display": "१८५"
+          "value": 186,
+          "value_display": "१८६"
         },
         {
           "id": "handover",
@@ -57,8 +57,8 @@
         {
           "id": "dhading",
           "label": "धादिङ",
-          "value": 71,
-          "value_display": "७१"
+          "value": 72,
+          "value_display": "७२"
         },
         {
           "id": "demo",
@@ -70,33 +70,33 @@
           "id": "dna",
           "label": "DNA मृतक / आफन्त",
           "value": null,
-          "value_display": "१,२८६ · १,८४६"
+          "value_display": "१,२८६ · १,८५३"
         }
       ]
     },
     {
       "id": "injured",
       "label": "उपचार (अस्पताल)",
-      "value": 339,
-      "value_display": "३३९",
+      "value": 341,
+      "value_display": "३४१",
       "items": [
         {
           "id": "security",
           "label": "सुरक्षा निकाय उपचार",
-          "value": 9314,
-          "value_display": "९,३१४"
+          "value": 9358,
+          "value_display": "९,३५८"
         },
         {
           "id": "ndrrma_hosp",
           "label": "अस्पताल उपचार (१९)",
-          "value": 339,
-          "value_display": "३३९"
+          "value": 341,
+          "value_display": "३४१"
         },
         {
           "id": "discharged",
           "label": "डिस्चार्ज (लेबल)",
-          "value": 271,
-          "value_display": "२७१"
+          "value": 278,
+          "value_display": "२७८"
         },
         {
           "id": "hospital_count",
@@ -105,7 +105,7 @@
           "value_display": "१९"
         }
       ],
-      "history_note": "अघिल्लो उपचार ३३७ / डिस्चार्ज २६१ / सेना ३,५५९ / सशस्त्र ३,७५९ (२६ भदौ ११:००) इतिहास — यस बोर्डमा घाइते महा-जम्मा छैन।"
+      "history_note": "अघिल्लो उपचार ३३९ / डिस्चार्ज २७१ / सुरक्षा निकाय ९,३१४ (२८ भदौ १९:००) इतिहास — यस बोर्डमा घाइते महा-जम्मा छैन।"
     },
     {
       "id": "miss",
@@ -134,20 +134,20 @@
         {
           "id": "ras_army",
           "label": "रसुवा · सेना",
-          "value": 45,
-          "value_display": "४५"
+          "value": 25,
+          "value_display": "२५"
         },
         {
           "id": "ras_police",
           "label": "रसुवा · प्रहरी",
-          "value": 12,
-          "value_display": "१२"
+          "value": 73,
+          "value_display": "७३"
         },
         {
           "id": "ras_apf",
           "label": "रसुवा · सशस्त्र",
-          "value": 26,
-          "value_display": "२६"
+          "value": 45,
+          "value_display": "४५"
         },
         {
           "id": "nuw_local",
@@ -164,26 +164,26 @@
         {
           "id": "gov",
           "label": "सरकारी",
-          "value": 25,
-          "value_display": "२५"
+          "value": 12,
+          "value_display": "१२"
         },
         {
           "id": "bank",
           "label": "बैंक/वित्तीय",
-          "value": 73,
-          "value_display": "७३"
+          "value": 26,
+          "value_display": "२६"
         },
         {
           "id": "holding",
           "label": "होल्डिङ (३ जिल्ला लेबल योग)",
-          "value": 2532,
-          "value_display": "२,५३२"
+          "value": 2418,
+          "value_display": "२,४१८"
         },
         {
           "id": "hold_nuwakot",
           "label": "होल्ड · नुवाकोट",
-          "value": 1613,
-          "value_display": "१,६१३"
+          "value": 1499,
+          "value_display": "१,४९९"
         },
         {
           "id": "hold_rasuwa",
@@ -214,14 +214,14 @@
     {
       "id": "rescued",
       "label": "हालसम्म उद्धार गरिएको संख्या",
-      "value": 13728,
-      "value_display": "१३,७२८",
+      "value": 13737,
+      "value_display": "१३,७३७",
       "items": [
         {
           "id": "heli_flights",
           "label": "सेना हेलि उडान",
-          "value": 1516,
-          "value_display": "१,५१६"
+          "value": 1531,
+          "value_display": "१,५३१"
         },
         {
           "id": "apf_flights",
