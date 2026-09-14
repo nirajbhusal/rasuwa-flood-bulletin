@@ -1,3 +1,9 @@
+## 2026-09-14-2015 · NDRRMA SitRep #12
+
+- NDRRMA / MoHA SitRep #12 · 29 Bhadra 19:00 / 14 Sep: dead **1,395** · rescued **13,737** · treated **341** (19 hospitals) · discharged **278** · security-agency treatment **9,358** · missing ~**5,130** (do not re-sum). Army heli **1,531** (15 today) · APF **320**. Holding **33** centers (Nuwakot 1,499 · Rasuwa 825 · Dhading 94). Fuel 47k/16k/11k · LPG **502**. District deaths: Chitwan 364 · Nawal E 232 · West 222 · Nuwakot 202 · Rasuwa 186 · Gorkha 77 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2. Missing labels this board: Army 25 · Police 73 · APF 45 · gov 12 · bank/FI 26. DNA relatives **1,853**. SAR equipment budget (million NPR): Army 90 · Police 60 · APF 60. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member. Archive `img/today-2026-09-14-ndrrma-sitrep12-1900.jpg`.
+- Previous SitRep #11 (1,388 / 13,728 / 339 / 1,516 / Nuwakot holding 1,613) moved to history. Cash channels (MoF / NCHL / Fonepay / named handover) unchanged and separately labeled.
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-14-2015`
+
 ## 2026-09-14-1700 · Named handover Excel through Bhadra 28
 
 - `data/pmdrf-named-donors.json`: 492 donors · Rs. 2,737,630,633.82 (Bhadra 11–28); days/totals from Total sheet; MoF/NCHL/Fonepay unchanged and separately labeled.
