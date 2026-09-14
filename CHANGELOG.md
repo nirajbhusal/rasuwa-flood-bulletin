@@ -1,3 +1,11 @@
+## 2026-09-14-2200 · MoF capital-market recovery plan
+
+- New `markets.html`: Government of Nepal, Ministry of Finance **पुँजी बजार सुधार एवं पुनरुत्थान कार्ययोजना** dated **२०८३।०५।२९** (after 10 Bhadra Bhotekoshi flood). Full Nepali plan text in thematic cards (IPO / bonds-ETF-MF / NEPSE / benchmark / NRN / brokers-Act / institutional / tax-CDS-NRB) with deadline chips. EN gists via i18n. Citizen bulletin — not a government site. No invented figures.
+- Homepage `#cat-markets` infographic (date · CGT ३.७५%/५% · ४५-दिन floor · theme + month chips) links to `markets.html`.
+- Sitewide nav chip **पुँजी बजार पुनरुत्थान** / **Capital market recovery**; hash redirects `#markets` / `#cat-markets` / `#capital` → `markets.html`.
+- Archive: `data/mof-capital-market-plan-2083-05-29.md` + `.docx`. SitRep #12 KPIs and cash channels unchanged.
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-14-2200`
+
 ## 2026-09-14-2015 · NDRRMA SitRep #12
 
 - NDRRMA / MoHA SitRep #12 · 29 Bhadra 19:00 / 14 Sep: dead **1,395** · rescued **13,737** · treated **341** (19 hospitals) · discharged **278** · security-agency treatment **9,358** · missing ~**5,130** (do not re-sum). Army heli **1,531** (15 today) · APF **320**. Holding **33** centers (Nuwakot 1,499 · Rasuwa 825 · Dhading 94). Fuel 47k/16k/11k · LPG **502**. District deaths: Chitwan 364 · Nawal E 232 · West 222 · Nuwakot 202 · Rasuwa 186 · Gorkha 77 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2. Missing labels this board: Army 25 · Police 73 · APF 45 · gov 12 · bank/FI 26. DNA relatives **1,853**. SAR equipment budget (million NPR): Army 90 · Police 60 · APF 60. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member. Archive `img/today-2026-09-14-ndrrma-sitrep12-1900.jpg`.

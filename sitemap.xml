@@ -73,6 +73,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://nirajbhusal.github.io/rasuwa-flood-bulletin/markets.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://nirajbhusal.github.io/rasuwa-flood-bulletin/response.html</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>daily</changefreq>

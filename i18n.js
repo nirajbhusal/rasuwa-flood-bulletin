@@ -1413,6 +1413,60 @@ window.I18N = {
 "cat_supply": "एलपीजी आयात",
 "cat_supply_sub": "भन्सार प्रवेश नाका · दैनिक सारांश · २०८३/०५/२५–२६",
 "nav_supply": "एलपीजी आयात",
+"nav_markets": "पुँजी बजार पुनरुत्थान",
+"cat_markets": "पुँजी बजार पुनरुत्थान",
+"cat_markets_sub": "अर्थ मन्त्रालय · २०८३।०५।२९ · भोटेकोशी बाढीपछि",
+"h_markets": "पुँजी बजार सुधार एवं पुनरुत्थान कार्ययोजना",
+"markets_title": "पुँजी बजार सुधार एवं पुनरुत्थान कार्ययोजना · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"markets_meta": "अर्थ मन्त्रालयको पुँजी बजार सुधार एवं पुनरुत्थान कार्ययोजना · २०८३।०५।२९ · भोटेकोशी बाढीपछि। उद्धार १२३४।",
+"mkt_src": "स्रोत: नेपाल सरकार, अर्थ मन्त्रालय · मिति २०८३।०५।२९",
+"mkt_scope_k": "दायरा · MoF कार्ययोजना",
+"mkt_scope_body": "यो पाना <strong>नेपाल सरकार, अर्थ मन्त्रालय</strong>को पुँजी बजार सुधार एवं पुनरुत्थान कार्ययोजना (मिति <strong>२०८३।०५।२९</strong>) को नागरिक सार हो। सरकारी साइट होइन। अंक आविष्कार गरिएको छैन। NDRRMA SitRep / राहत नगद च्यानल अलग।",
+"mkt_kpi_date": "घोषणा मिति",
+"mkt_kpi_date_sub": "२९ भदौ २०८३ · ~१४ सेप्टेम्बर २०२६",
+"mkt_kpi_cgt": "CGT · सूचीकृत हित · बासिन्दा प्राकृतिक व्यक्ति",
+"mkt_cgt_long": "· >३६५ दिन",
+"mkt_cgt_short_k": "छोटो होल्ड ≤३६५ दिन",
+"mkt_kpi_hold": "सट्टा जोखिम · BFI आवधिक सीमा",
+"mkt_hold_unit": "दिन · कम्तीमा",
+"mkt_hold_sub": "NRB यथाशीघ्र · दोस्रो बजार लगानी",
+"mkt_dead_h": "मुख्य म्याद · महिना चिप्स",
+"mkt_dl_now": "तत्काल",
+"mkt_toc_aria": "कार्ययोजना विषय",
+"mkt_t0": "पृष्ठभूमि",
+"mkt_t1": "IPO / मूल्य अन्वेषण",
+"mkt_t2": "ऋणपत्र / ETF / MF",
+"mkt_t3": "नेप्से पुनर्संरचना",
+"mkt_t4": "आधारभूत सूचकांक",
+"mkt_t5": "NRN दोस्रो बजार",
+"mkt_t6": "दलाल / धितोपत्र ऐन",
+"mkt_t7": "संस्थागत लगानीकर्ता",
+"mkt_t8": "कर / CDS / NRB",
+"mkt_g0": "शिथिलता र १० भदौ भोटेकोशी बाढीको थप चापपछि अर्थ मन्त्रालयले तत्कालीन सुधार एवं पुनरूत्थान कार्ययोजना घोषणा गरेको छ।",
+"mkt_g1": "बोर्डले IPO सामान्य योग्यता निर्देशिका तत्काल जारी गर्ने। क्षेत्रगत मूल्य अन्वेषण (जलविद्युत, उत्पादन, होटल/पर्यटन, कृषि, औषधी) पुस मसान्तभित्र। Share Split / Buy Back पूर्वाधार माघ मसान्तभित्र।",
+"mkt_g2": "म्युचुअल फण्ड/ETF नीति तत्काल; निर्देशिका मंसिर मसान्तभित्र। संस्थागत ऋणपत्र, हरित/विपद/सामाजिक ऋणपत्र र ट्रेजरी बिल दोस्रो बजार — असोज मसान्तभित्र। मार्जिन ऋण कारोबार पुस मसान्तभित्र सञ्चालन।",
+"mkt_g3": "नेपाल सरकार कार्यदलको २०८२ पुस २५ प्रतिवेदन अनुरूप नेप्सेको संस्थागत सुदृढीकरण, संरचनात्मक सुधार र क्षमता अभिवृद्धि तत्काल अगाडि बढाउने।",
+"mkt_g4": "नेप्से सूचकाङ्क All Equity Index कायम राखी नयाँ Benchmark Index — कारोबारयोग्य शेयर, बजार पुँजीकरण, वित्तीय अवस्था, तरलता, सुशासन, सूचना प्रवाह — २०८३ मंसिर मसान्तभित्र प्रयोगमा।",
+"mkt_g5": "गैरआवासीय नेपालीलाई दोस्रो बजारमा सहभागी गराउन FITTA २०७५ र विदेशी विनिमय ऐन २०१९ संशोधन प्रस्ताव २०८३ असोज मसान्तभित्र मन्त्रिपरिषद्मा पेश गर्ने।",
+"mkt_g6": "दलाल व्यवसाय सुधार नीति तत्काल। धितोपत्र ऐन २०६३ मा नियामकीय र बजार पूर्वाधारका छुट्टाछुट्टै विधेयक — मार्जिन लेण्डिङ्ग, अन्तरदिवसीय कारोबार, सापटी/उधारो, सर्ट सेलिङ्ग। ऐन संशोधन अगाडि (कसूर अनुसन्धान बोर्डबाट; प्राइभेट कम्पनी ऋणपत्र)।",
+"mkt_g7": "असोज मसान्तभित्र नीति/कानून/पूर्वाधार; मंसिर मसान्तभित्र लगानी नीति र कारोबार संरचना; प्राथमिक बजार सहजीकरण; EPF / CIT / SSF / बीमा / MF पोर्टफोलियो पुनर्संतुलन मंसिर मसान्तभित्र।",
+"mkt_g8": "सूचीकृत हित निःसर्ग: >३६५ दिन ३.७५% · ≤३६५ दिन ५% (बासिन्दा प्राकृतिक व्यक्ति)। नोक्सानी समायोजन अध्ययन। BFI सट्टा सीमा कम्तीमा ४५ दिन — NRB यथाशीघ्र। CDS अध्ययन फागुन; PE/VC ढाँचा पुस; BFI सीमा/जोखिम भार बोर्ड+NRB कार्तिक।",
+"mkt_note": "स्वतन्त्र नागरिक बुलेटिन · सरकारी साइट होइन। कार्ययोजना पाठ जस्ताको तस्तै — अंक आविष्कार गरिएको छैन। NDRRMA SitRep / MoF–NCHL–फोनपे नगद च्यानल अलग।",
+"mkt_archive": "पूर्ण पाठ आर्काइभ · Markdown",
+"mkt_archive_docx": "DOCX",
+"home_markets_lead": "अर्थ · २०८३।०५।२९ · CGT ३.७५% / ५% · सट्टा ४५ दिन",
+"home_markets_cta": "पूर्ण कार्ययोजना",
+"home_markets_src": "स्रोत: नेपाल सरकार, अर्थ मन्त्रालय · २०८३।०५।२९",
+"mkt_chip_ipo": "IPO / मूल्य अन्वेषण",
+"mkt_chip_bond": "ऋणपत्र / ETF / MF",
+"mkt_chip_nepse": "नेप्से पुनर्संरचना",
+"mkt_chip_index": "आधारभूत सूचकांक",
+"mkt_chip_nrn": "NRN दोस्रो बजार",
+"mkt_chip_broker": "दलाल / ऐन",
+"mkt_chip_inst": "संस्थागत लगानीकर्ता",
+"mkt_chip_tax": "कर ३.७५% / ५%",
+"mkt_chip_infra": "PE/VC · CDS/NRB",
+
 "lpg_src": "स्रोत: भन्सार विभाग, अर्थ मन्त्रालय · २०८३/०५/२५–२६",
 "lpg_day_25": "२०८३/०५/२५",
 "lpg_day_26": "२०८३/०५/२६",
@@ -3219,6 +3273,60 @@ window.I18N = {
 "cat_supply": "LPG import",
 "cat_supply_sub": "Customs entry points · daily summary · BS 2083/05/25–26",
 "nav_supply": "LPG import",
+"nav_markets": "Capital market recovery",
+"cat_markets": "Capital market recovery",
+"cat_markets_sub": "Ministry of Finance · 2083-05-29 · after the Bhotekoshi flood",
+"h_markets": "Capital market reform and recovery action plan",
+"markets_title": "Capital market reform and recovery plan · Rasuwa–Bhotekoshi flood bulletin",
+"markets_meta": "MoF capital-market reform and recovery action plan · 2083-05-29 · after the Bhotekoshi flood. Rescue 1234.",
+"mkt_src": "Source: Government of Nepal, Ministry of Finance · dated 2083-05-29",
+"mkt_scope_k": "Scope · MoF action plan",
+"mkt_scope_body": "This page is a citizen summary of the <strong>Government of Nepal, Ministry of Finance</strong> capital-market reform and recovery plan (dated <strong>2083-05-29</strong>). Not a government site. No invented figures. NDRRMA SitRep / relief cash channels stay separate.",
+"mkt_kpi_date": "Announcement date",
+"mkt_kpi_date_sub": "29 Bhadra 2083 · ~14 Sep 2026",
+"mkt_kpi_cgt": "CGT · listed securities · resident natural person",
+"mkt_cgt_long": "· >365 days",
+"mkt_cgt_short_k": "Short hold ≤365 days",
+"mkt_kpi_hold": "Speculative risk · BFI holding floor",
+"mkt_hold_unit": "days · at least",
+"mkt_hold_sub": "NRB as soon as possible · secondary-market investment",
+"mkt_dead_h": "Key deadlines · month chips",
+"mkt_dl_now": "Immediate",
+"mkt_toc_aria": "Plan themes",
+"mkt_t0": "Background",
+"mkt_t1": "IPO / price discovery",
+"mkt_t2": "Bonds / ETF / MF",
+"mkt_t3": "NEPSE restructure",
+"mkt_t4": "Benchmark index",
+"mkt_t5": "NRN secondary market",
+"mkt_t6": "Brokers / Securities Act",
+"mkt_t7": "Institutional investors",
+"mkt_t8": "Tax / CDS / NRB",
+"mkt_g0": "After years of slowdown plus extra pressure from the 10 Bhadra Bhotekoshi flood, MoF announced an immediate reform and recovery action plan for the capital market.",
+"mkt_g1": "SEBON to issue general IPO eligibility guidelines immediately. Sector price-discovery (hydro, manufacturing, hotel/tourism, agri, pharma) by Poush-end. Share-split / buy-back rules by Magh-end.",
+"mkt_g2": "Mutual-fund / ETF policy immediately; guidelines by Mangsir-end. Corporate, green/disaster/social bonds and T-bill secondary market by Ashoj-end. Margin lending live by Poush-end.",
+"mkt_g3": "Advance NEPSE institutional strengthening and restructuring immediately, following the government task-force report of 25 Poush 2082.",
+"mkt_g4": "Keep the NEPSE All Equity Index and launch a new Benchmark Index (tradable shares, market cap, finances, liquidity, governance, disclosure) by Mangsir-end 2083.",
+"mkt_g5": "To let NRNs join the secondary market, submit FITTA 2075 and Foreign Exchange Act 2019 amendment proposals to Cabinet by Ashoj-end 2083.",
+"mkt_g6": "Broker-reform policy immediately. Separate Securities Act 2063 bills for regulation and market infrastructure — margin lending, intraday, securities lending, short selling. Advance the Act amendment (Board-led offence investigation; private-company bonds).",
+"mkt_g7": "Policy / legal / infrastructure by Ashoj-end; investment policy and trading structure by Mangsir-end; ease primary-market access; EPF / CIT / SSF / insurers / MF portfolio rebalancing by Mangsir-end.",
+"mkt_g8": "Listed-securities CGT for resident individuals: 3.75% if held >365 days · 5% if ≤365 days. Loss-offset study. BFI speculative-holding floor at least 45 days — NRB ASAP. CDS study by Falgun; PE/VC framework by Poush; BFI limits/risk weights SEBON+NRB by Kartik.",
+"mkt_note": "Independent citizen bulletin · not a government site. Plan text as published — no invented figures. NDRRMA SitRep / MoF–NCHL–Fonepay cash channels stay separate.",
+"mkt_archive": "Full text archive · Markdown",
+"mkt_archive_docx": "DOCX",
+"home_markets_lead": "MoF · 2083-05-29 · CGT 3.75% / 5% · speculative floor 45 days",
+"home_markets_cta": "Full action plan",
+"home_markets_src": "Source: Government of Nepal, Ministry of Finance · 2083-05-29",
+"mkt_chip_ipo": "IPO / price discovery",
+"mkt_chip_bond": "Bond / ETF / MF",
+"mkt_chip_nepse": "NEPSE restructure",
+"mkt_chip_index": "Benchmark index",
+"mkt_chip_nrn": "NRN secondary",
+"mkt_chip_broker": "Brokers / Act",
+"mkt_chip_inst": "Institutional investors",
+"mkt_chip_tax": "Tax 3.75% / 5%",
+"mkt_chip_infra": "PE/VC · CDS/NRB",
+
 "lpg_src": "Source: Department of Customs, Ministry of Finance · BS 2083/05/25–26",
 "lpg_day_25": "2083/05/25",
 "lpg_day_26": "2083/05/26",
@@ -4908,6 +5016,7 @@ window.I18N_LISTS = {
     var photosPg = file === "photos.html" || document.documentElement.classList.contains("photos-page");
     var responsePg = file === "response.html" || document.documentElement.classList.contains("response-page");
     var supplyPg = file === "supply.html" || document.documentElement.classList.contains("supply-page");
+    var marketsPg = file === "markets.html" || document.documentElement.classList.contains("markets-page");
     if (aboutPg) {
       if (p.about_title) document.title = p.about_title;
     } else if (mapPg) {
@@ -4930,6 +5039,8 @@ window.I18N_LISTS = {
       if (p.response_title) document.title = p.response_title;
     } else if (supplyPg) {
       if (p.supply_title) document.title = p.supply_title;
+    } else if (marketsPg) {
+      if (p.markets_title) document.title = p.markets_title;
     } else if (p.title) document.title = p.title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) {
@@ -4944,6 +5055,7 @@ window.I18N_LISTS = {
       else if (photosPg && p.photos_meta) meta.setAttribute("content", p.photos_meta);
       else if (responsePg && p.response_meta) meta.setAttribute("content", p.response_meta);
       else if (supplyPg && p.supply_meta) meta.setAttribute("content", p.supply_meta);
+      else if (marketsPg && p.markets_meta) meta.setAttribute("content", p.markets_meta);
       else if (p.meta) meta.setAttribute("content", p.meta);
     }
     applyKeyed(lang);
