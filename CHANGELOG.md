@@ -1,3 +1,9 @@
+## 2026-09-16-2000 · NDRRMA SitRep #13
+
+- NDRRMA / MoHA SitRep #13 · 31 Bhadra 19:00 / 16 Sep: dead **1,403** · rescued **13,742** · treated **344** (19 hospitals) · discharged **289** · security-agency treatment **9,496** · missing ~**6,150** (do not re-sum; revised after deducting **105** identified bodies). Army heli **1,603** (42 today) · APF **320**. Holding **29** centers (Nuwakot 1,185 · Rasuwa 817 · Dhading 94). Fuel 59k/15k/6k · LPG **502**. District deaths: Chitwan 364 · Nawal E 232 · West 222 · Nuwakot 202 · Rasuwa 193 · Gorkha 78 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2. Female 336 · Male 544 · human remains 523. DNA relatives **1,889**. This board prints no Army/Police/APF/gov/bank missing bars (SitRep #12 agency labels history). Acrow bridge Devighat, Nuwakot operational. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member. Archive `img/today-2026-09-16-ndrrma-sitrep13-1900.jpg`.
+- Previous SitRep #12 (1,395 / 13,737 / 341 / 1,531 / holding 33 / Nuwakot 1,499) moved to history. Cash channels (MoF / NCHL / Fonepay / named handover) and markets/LPG/Everest unchanged and separately labeled.
+- `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-16-2000`
+
 ## 2026-09-15-0015 · Rebase onto main (Everest Gas + markets restyle)
 
 - Rebased markets MoF `/plans/` restyle onto latest `main` (Everest Gas labeled source `2026-09-14-2230`, plus `_shot_*` cleanup).
