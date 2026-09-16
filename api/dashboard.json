@@ -1,10 +1,10 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-14T19:00:00+05:45",
+  "updated_at": "2026-09-16T19:00:00+05:45",
   "as_of": {
-    "ne": "१४ सेप्टेम्बर / २९ भदौ २०८३ · १९:००",
-    "en": "14 September 2026 · 19:00 NPT"
+    "ne": "१६ सेप्टेम्बर / ३१ भदौ २०८३ · १९:००",
+    "en": "16 September 2026 · 19:00 NPT"
   },
   "credit": {
     "ne": "निरज भुसाल",
@@ -18,10 +18,10 @@
         "ne": "मृतक संख्या",
         "en": "Deaths count"
       },
-      "value": 1395,
+      "value": 1403,
       "value_display": {
-        "ne": "१,३९५",
-        "en": "1,395"
+        "ne": "१,४०३",
+        "en": "1,403"
       },
       "items": [
         {
@@ -78,10 +78,10 @@
             "ne": "रसुवा",
             "en": "Rasuwa"
           },
-          "value": 186,
+          "value": 193,
           "value_display": {
-            "ne": "१८६",
-            "en": "186"
+            "ne": "१९३",
+            "en": "193"
           }
         },
         {
@@ -90,10 +90,10 @@
             "ne": "हस्तान्तरण (लेबल)",
             "en": "Handover (labeled)"
           },
-          "value": 104,
+          "value": 105,
           "value_display": {
-            "ne": "१०४",
-            "en": "104"
+            "ne": "१०५",
+            "en": "105"
           }
         },
         {
@@ -102,10 +102,10 @@
             "ne": "गोरखा",
             "en": "Gorkha"
           },
-          "value": 77,
+          "value": 78,
           "value_display": {
-            "ne": "७७",
-            "en": "77"
+            "ne": "७८",
+            "en": "78"
           }
         },
         {
@@ -128,8 +128,8 @@
           },
           "value": null,
           "value_display": {
-            "ne": "३३४ · ५४२ · ५१२",
-            "en": "334 · 542 · 512"
+            "ne": "३३६ · ५४४ · ५२३",
+            "en": "336 · 544 · 523"
           }
         },
         {
@@ -140,8 +140,8 @@
           },
           "value": null,
           "value_display": {
-            "ne": "१,२८६ · १,८५३",
-            "en": "1,286 · 1,853"
+            "ne": "१,२८६ · १,८८९",
+            "en": "1,286 · 1,889"
           }
         }
       ]
@@ -152,10 +152,10 @@
         "ne": "उपचार (अस्पताल)",
         "en": "Treated (hospitals)"
       },
-      "value": 341,
+      "value": 344,
       "value_display": {
-        "ne": "३४१",
-        "en": "341"
+        "ne": "३४४",
+        "en": "344"
       },
       "items": [
         {
@@ -164,10 +164,10 @@
             "ne": "सुरक्षा निकाय उपचार",
             "en": "Security-agency treatment"
           },
-          "value": 9358,
+          "value": 9496,
           "value_display": {
-            "ne": "९,३५८",
-            "en": "9,358"
+            "ne": "९,४९६",
+            "en": "9,496"
           }
         },
         {
@@ -176,10 +176,10 @@
             "ne": "अस्पताल उपचार (१९)",
             "en": "Hospital treated (19)"
           },
-          "value": 341,
+          "value": 344,
           "value_display": {
-            "ne": "३४१",
-            "en": "341"
+            "ne": "३४४",
+            "en": "344"
           }
         },
         {
@@ -188,10 +188,10 @@
             "ne": "डिस्चार्ज (लेबल)",
             "en": "Discharged (labeled)"
           },
-          "value": 278,
+          "value": 289,
           "value_display": {
-            "ne": "२७८",
-            "en": "278"
+            "ne": "२८९",
+            "en": "289"
           }
         },
         {
@@ -208,8 +208,8 @@
         }
       ],
       "history_note": {
-        "ne": "अघिल्लो उपचार ३३९ / डिस्चार्ज २७१ / सुरक्षा निकाय ९,३१४ (२८ भदौ १९:००) इतिहास — यस बोर्डमा घाइते महा-जम्मा छैन।",
-        "en": "Previous treated 339 / discharged 271 / security-agency 9,314 (28 Bhadra 19:00) is history — this board has no injured grand total."
+        "ne": "अघिल्लो उपचार ३४१ / डिस्चार्ज २७८ / सुरक्षा निकाय ९,३५८ (२९ भदौ १९:०० SitRep #12) इतिहास — यस बोर्डमा घाइते महा-जम्मा छैन।",
+        "en": "Previous treated 341 / discharged 278 / security-agency 9,358 (29 Bhadra 19:00 SitRep #12) is history — this board has no injured grand total."
       }
     },
     {
@@ -218,10 +218,10 @@
         "ne": "सम्पर्कविहीन करिब",
         "en": "Missing around"
       },
-      "value": 5130,
+      "value": 6150,
       "value_display": {
-        "ne": "५,१३०",
-        "en": "5,130"
+        "ne": "६,१५०",
+        "en": "6,150"
       },
       "items": [
         {
@@ -261,42 +261,6 @@
           }
         },
         {
-          "id": "ras_army",
-          "label": {
-            "ne": "रसुवा · सेना",
-            "en": "Rasuwa · Army"
-          },
-          "value": 25,
-          "value_display": {
-            "ne": "२५",
-            "en": "25"
-          }
-        },
-        {
-          "id": "ras_police",
-          "label": {
-            "ne": "रसुवा · प्रहरी",
-            "en": "Rasuwa · Police"
-          },
-          "value": 73,
-          "value_display": {
-            "ne": "७३",
-            "en": "73"
-          }
-        },
-        {
-          "id": "ras_apf",
-          "label": {
-            "ne": "रसुवा · सशस्त्र",
-            "en": "Rasuwa · APF"
-          },
-          "value": 45,
-          "value_display": {
-            "ne": "४५",
-            "en": "45"
-          }
-        },
-        {
           "id": "nuw_local",
           "label": {
             "ne": "नुवाकोट · स्थानीय",
@@ -321,39 +285,15 @@
           }
         },
         {
-          "id": "gov",
-          "label": {
-            "ne": "सरकारी",
-            "en": "Gov"
-          },
-          "value": 12,
-          "value_display": {
-            "ne": "१२",
-            "en": "12"
-          }
-        },
-        {
-          "id": "bank",
-          "label": {
-            "ne": "बैंक/वित्तीय",
-            "en": "Bank/FI"
-          },
-          "value": 26,
-          "value_display": {
-            "ne": "२६",
-            "en": "26"
-          }
-        },
-        {
           "id": "holding",
           "label": {
             "ne": "होल्डिङ (३ जिल्ला लेबल योग)",
             "en": "Holding (3-district labeled sum)"
           },
-          "value": 2418,
+          "value": 2096,
           "value_display": {
-            "ne": "२,४१८",
-            "en": "2,418"
+            "ne": "२,०९६",
+            "en": "2,096"
           }
         },
         {
@@ -362,10 +302,10 @@
             "ne": "होल्ड · नुवाकोट",
             "en": "Hold · Nuwakot"
           },
-          "value": 1499,
+          "value": 1185,
           "value_display": {
-            "ne": "१,४९९",
-            "en": "1,499"
+            "ne": "१,१८५",
+            "en": "1,185"
           }
         },
         {
@@ -374,10 +314,10 @@
             "ne": "होल्ड · रसुवा",
             "en": "Hold · Rasuwa"
           },
-          "value": 825,
+          "value": 817,
           "value_display": {
-            "ne": "८२५",
-            "en": "825"
+            "ne": "८१७",
+            "en": "817"
           }
         },
         {
@@ -398,10 +338,10 @@
             "ne": "होल्डिङ सेन्टर",
             "en": "Holding centers"
           },
-          "value": 33,
+          "value": 29,
           "value_display": {
-            "ne": "३३",
-            "en": "33"
+            "ne": "२९",
+            "en": "29"
           }
         },
         {
@@ -410,10 +350,10 @@
             "ne": "पहिचान कट्टी (लेबल)",
             "en": "Identified deduct (label)"
           },
-          "value": 104,
+          "value": 105,
           "value_display": {
-            "ne": "१०४",
-            "en": "104"
+            "ne": "१०५",
+            "en": "105"
           }
         }
       ]
@@ -424,10 +364,10 @@
         "ne": "हालसम्म उद्धार गरिएको संख्या",
         "en": "Rescued so far"
       },
-      "value": 13737,
+      "value": 13742,
       "value_display": {
-        "ne": "१३,७३७",
-        "en": "13,737"
+        "ne": "१३,७४२",
+        "en": "13,742"
       },
       "items": [
         {
@@ -436,10 +376,10 @@
             "ne": "सेना हेलि उडान",
             "en": "Army heli flights"
           },
-          "value": 1531,
+          "value": 1603,
           "value_display": {
-            "ne": "१,५३१",
-            "en": "1,531"
+            "ne": "१,६०३",
+            "en": "1,603"
           }
         },
         {
