@@ -1,16 +1,16 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-16T19:00:00+05:45",
-  "as_of": "16 September 2026 · 19:00 NPT",
+  "updated_at": "2026-09-17T19:00:00+05:45",
+  "as_of": "17 September 2026 · 19:00 NPT",
   "credit": "Niraj Bhusal",
   "link": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
   "cards": [
     {
       "id": "dead",
       "label": "Deaths count",
-      "value": 1403,
-      "value_display": "1,403",
+      "value": 1410,
+      "value_display": "1,410",
       "items": [
         {
           "id": "chitwan",
@@ -33,20 +33,20 @@
         {
           "id": "nuwakot",
           "label": "Nuwakot",
-          "value": 202,
-          "value_display": "202"
+          "value": 203,
+          "value_display": "203"
         },
         {
           "id": "rasuwa",
           "label": "Rasuwa",
-          "value": 193,
-          "value_display": "193"
+          "value": 199,
+          "value_display": "199"
         },
         {
           "id": "handover",
           "label": "Handover (labeled)",
-          "value": 105,
-          "value_display": "105"
+          "value": 110,
+          "value_display": "110"
         },
         {
           "id": "gorkha",
@@ -64,13 +64,13 @@
           "id": "demo",
           "label": "Female / male / remains",
           "value": null,
-          "value_display": "336 · 544 · 523"
+          "value_display": "336 · 549 · 525"
         },
         {
           "id": "dna",
           "label": "DNA deceased / relatives",
           "value": null,
-          "value_display": "1,286 · 1,889"
+          "value_display": "1,286 · 1,944"
         }
       ]
     },
@@ -83,8 +83,8 @@
         {
           "id": "security",
           "label": "Security-agency treatment",
-          "value": 9496,
-          "value_display": "9,496"
+          "value": 9820,
+          "value_display": "9,820"
         },
         {
           "id": "ndrrma_hosp",
@@ -95,8 +95,8 @@
         {
           "id": "discharged",
           "label": "Discharged (labeled)",
-          "value": 289,
-          "value_display": "289"
+          "value": 290,
+          "value_display": "290"
         },
         {
           "id": "hospital_count",
@@ -105,13 +105,13 @@
           "value_display": "19"
         }
       ],
-      "history_note": "Previous treated 341 / discharged 278 / security-agency 9,358 (29 Bhadra 19:00 SitRep #12) is history — this board has no injured grand total."
+      "history_note": "Previous treated 344 / discharged 289 / security-agency 9,496 (31 Bhadra 19:00 SitRep #13) is history — this board has no injured grand total."
     },
     {
       "id": "miss",
       "label": "Missing around",
-      "value": 6150,
-      "value_display": "6,150",
+      "value": 6145,
+      "value_display": "6,145",
       "items": [
         {
           "id": "foreign",
@@ -146,14 +146,14 @@
         {
           "id": "holding",
           "label": "Holding (3-district labeled sum)",
-          "value": 2096,
-          "value_display": "2,096"
+          "value": 1743,
+          "value_display": "1,743"
         },
         {
           "id": "hold_nuwakot",
           "label": "Hold · Nuwakot",
-          "value": 1185,
-          "value_display": "1,185"
+          "value": 832,
+          "value_display": "832"
         },
         {
           "id": "hold_rasuwa",
@@ -170,28 +170,28 @@
         {
           "id": "holding_centers",
           "label": "Holding centers",
-          "value": 29,
-          "value_display": "29"
+          "value": 27,
+          "value_display": "27"
         },
         {
           "id": "handover_deduct",
           "label": "Identified deduct (label)",
-          "value": 105,
-          "value_display": "105"
+          "value": 110,
+          "value_display": "110"
         }
       ]
     },
     {
       "id": "rescued",
       "label": "Rescued so far",
-      "value": 13742,
-      "value_display": "13,742",
+      "value": 13756,
+      "value_display": "13,756",
       "items": [
         {
           "id": "heli_flights",
           "label": "Army heli flights",
-          "value": 1603,
-          "value_display": "1,603"
+          "value": 1634,
+          "value_display": "1,634"
         },
         {
           "id": "apf_flights",
