@@ -1,16 +1,16 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-16T19:00:00+05:45",
-  "as_of": "१६ सेप्टेम्बर / ३१ भदौ २०८३ · १९:००",
+  "updated_at": "2026-09-17T19:00:00+05:45",
+  "as_of": "१७ सेप्टेम्बर / १ असोज २०८३ · १९:००",
   "credit": "निरज भुसाल",
   "link": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
   "cards": [
     {
       "id": "dead",
       "label": "मृतक संख्या",
-      "value": 1403,
-      "value_display": "१,४०३",
+      "value": 1410,
+      "value_display": "१,४१०",
       "items": [
         {
           "id": "chitwan",
@@ -33,20 +33,20 @@
         {
           "id": "nuwakot",
           "label": "नुवाकोट",
-          "value": 202,
-          "value_display": "२०२"
+          "value": 203,
+          "value_display": "२०३"
         },
         {
           "id": "rasuwa",
           "label": "रसुवा",
-          "value": 193,
-          "value_display": "१९३"
+          "value": 199,
+          "value_display": "१९९"
         },
         {
           "id": "handover",
           "label": "हस्तान्तरण (लेबल)",
-          "value": 105,
-          "value_display": "१०५"
+          "value": 110,
+          "value_display": "११०"
         },
         {
           "id": "gorkha",
@@ -64,13 +64,13 @@
           "id": "demo",
           "label": "महिला / पुरुष / अवशेष",
           "value": null,
-          "value_display": "३३६ · ५४४ · ५२३"
+          "value_display": "३३६ · ५४९ · ५२५"
         },
         {
           "id": "dna",
           "label": "DNA मृतक / आफन्त",
           "value": null,
-          "value_display": "१,२८६ · १,८८९"
+          "value_display": "१,२८६ · १,९४४"
         }
       ]
     },
@@ -83,8 +83,8 @@
         {
           "id": "security",
           "label": "सुरक्षा निकाय उपचार",
-          "value": 9496,
-          "value_display": "९,४९६"
+          "value": 9820,
+          "value_display": "९,८२०"
         },
         {
           "id": "ndrrma_hosp",
@@ -95,8 +95,8 @@
         {
           "id": "discharged",
           "label": "डिस्चार्ज (लेबल)",
-          "value": 289,
-          "value_display": "२८९"
+          "value": 290,
+          "value_display": "२९०"
         },
         {
           "id": "hospital_count",
@@ -105,13 +105,13 @@
           "value_display": "१९"
         }
       ],
-      "history_note": "अघिल्लो उपचार ३४१ / डिस्चार्ज २७८ / सुरक्षा निकाय ९,३५८ (२९ भदौ १९:०० SitRep #12) इतिहास — यस बोर्डमा घाइते महा-जम्मा छैन।"
+      "history_note": "अघिल्लो उपचार ३४४ / डिस्चार्ज २८९ / सुरक्षा निकाय ९,४९६ (३१ भदौ १९:०० SitRep #13) इतिहास — यस बोर्डमा घाइते महा-जम्मा छैन।"
     },
     {
       "id": "miss",
       "label": "सम्पर्कविहीन करिब",
-      "value": 6150,
-      "value_display": "६,१५०",
+      "value": 6145,
+      "value_display": "६,१४५",
       "items": [
         {
           "id": "foreign",
@@ -146,14 +146,14 @@
         {
           "id": "holding",
           "label": "होल्डिङ (३ जिल्ला लेबल योग)",
-          "value": 2096,
-          "value_display": "२,०९६"
+          "value": 1743,
+          "value_display": "१,७४३"
         },
         {
           "id": "hold_nuwakot",
           "label": "होल्ड · नुवाकोट",
-          "value": 1185,
-          "value_display": "१,१८५"
+          "value": 832,
+          "value_display": "८३२"
         },
         {
           "id": "hold_rasuwa",
@@ -170,28 +170,28 @@
         {
           "id": "holding_centers",
           "label": "होल्डिङ सेन्टर",
-          "value": 29,
-          "value_display": "२९"
+          "value": 27,
+          "value_display": "२७"
         },
         {
           "id": "handover_deduct",
           "label": "पहिचान कट्टी (लेबल)",
-          "value": 105,
-          "value_display": "१०५"
+          "value": 110,
+          "value_display": "११०"
         }
       ]
     },
     {
       "id": "rescued",
       "label": "हालसम्म उद्धार गरिएको संख्या",
-      "value": 13742,
-      "value_display": "१३,७४२",
+      "value": 13756,
+      "value_display": "१३,७५६",
       "items": [
         {
           "id": "heli_flights",
           "label": "सेना हेलि उडान",
-          "value": 1603,
-          "value_display": "१,६०३"
+          "value": 1634,
+          "value_display": "१,६३४"
         },
         {
           "id": "apf_flights",
