@@ -6573,14 +6573,17 @@ html{color-scheme:light}
   margin:4px 0 0;width:100%;line-height:1.35;text-align:center;
 }
 .brand-date-stack .brand-now,
+.brand-date-stack .brand-incident,
 .brand-date-stack .brand-updated{
   display:block;width:100%;font-size:12px;font-weight:600;letter-spacing:.01em;
   color:#d8e8ef;
 }
 .brand-date-stack .brand-now{opacity:.95}
+.brand-date-stack .brand-incident{opacity:.92;font-weight:700}
 .brand-date-stack .brand-updated{opacity:.88;font-weight:600}
 @media (min-width:960px){
   .brand-date-stack .brand-now,
+  .brand-date-stack .brand-incident,
   .brand-date-stack .brand-updated{font-size:13px}
 }
 

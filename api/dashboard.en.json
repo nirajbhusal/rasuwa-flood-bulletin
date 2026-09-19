@@ -1,16 +1,16 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-17T19:00:00+05:45",
-  "as_of": "17 September 2026 · 19:00 NPT",
+  "updated_at": "2026-09-19T19:00:00+05:45",
+  "as_of": "19 September 2026 · 19:00 NPT",
   "credit": "Niraj Bhusal",
   "link": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
   "cards": [
     {
       "id": "dead",
       "label": "Deaths count",
-      "value": 1410,
-      "value_display": "1,410",
+      "value": 1411,
+      "value_display": "1,411",
       "items": [
         {
           "id": "chitwan",
@@ -51,8 +51,8 @@
         {
           "id": "gorkha",
           "label": "Gorkha",
-          "value": 78,
-          "value_display": "78"
+          "value": 79,
+          "value_display": "79"
         },
         {
           "id": "dhading",
@@ -64,114 +64,114 @@
           "id": "demo",
           "label": "Female / male / remains",
           "value": null,
-          "value_display": "336 · 549 · 525"
+          "value_display": "336 · 549 · 526"
         },
         {
           "id": "dna",
           "label": "DNA deceased / relatives",
           "value": null,
-          "value_display": "1,286 · 1,944"
+          "value_display": "1,286 · 1,991"
         }
       ]
     },
     {
       "id": "injured",
-      "label": "Treated (hospitals)",
-      "value": 344,
-      "value_display": "344",
+      "label": "Currently in treatment",
+      "value": 18,
+      "value_display": "18",
       "items": [
         {
           "id": "security",
           "label": "Security-agency treatment",
-          "value": 9820,
-          "value_display": "9,820"
+          "value": 10041,
+          "value_display": "10,041"
         },
         {
           "id": "ndrrma_hosp",
-          "label": "Hospital treated (19)",
-          "value": 344,
-          "value_display": "344"
+          "label": "Hospital treated (6)",
+          "value": 18,
+          "value_display": "18"
         },
         {
           "id": "discharged",
-          "label": "Discharged (labeled)",
+          "label": "Discharged (history)",
           "value": 290,
           "value_display": "290"
         },
         {
           "id": "hospital_count",
           "label": "Hospital count",
-          "value": 19,
-          "value_display": "19"
+          "value": 6,
+          "value_display": "6"
         }
       ],
-      "history_note": "Previous treated 344 / discharged 289 / security-agency 9,496 (31 Bhadra 19:00 SitRep #13) is history — this board has no injured grand total."
+      "history_note": "Previous treated 344 / discharged 290 / security-agency 9,820 (1 Ashwin 19:00 SitRep #14) is history — this board prints currently in treatment 18 (6 hospitals)."
     },
     {
       "id": "miss",
       "label": "Missing around",
-      "value": 6145,
-      "value_display": "6,145",
+      "value": 5875,
+      "value_display": "5,875",
       "items": [
         {
           "id": "foreign",
           "label": "Foreign",
-          "value": 587,
-          "value_display": "587"
+          "value": 636,
+          "value_display": "636"
         },
         {
           "id": "ras_local",
           "label": "Rasuwa · locals",
-          "value": 1393,
-          "value_display": "1,393"
+          "value": 1677,
+          "value_display": "1,677"
         },
         {
           "id": "ras_other",
           "label": "Rasuwa · other districts",
-          "value": 1286,
-          "value_display": "1,286"
+          "value": 1836,
+          "value_display": "1,836"
         },
         {
           "id": "nuw_local",
           "label": "Nuwakot · locals",
-          "value": 651,
-          "value_display": "651"
+          "value": 657,
+          "value_display": "657"
         },
         {
           "id": "nuw_other",
           "label": "Nuwakot · other districts",
-          "value": 1136,
-          "value_display": "1,136"
+          "value": 1179,
+          "value_display": "1,179"
         },
         {
           "id": "holding",
           "label": "Holding (3-district labeled sum)",
-          "value": 1743,
-          "value_display": "1,743"
+          "value": 1342,
+          "value_display": "1,342"
         },
         {
           "id": "hold_nuwakot",
           "label": "Hold · Nuwakot",
-          "value": 832,
-          "value_display": "832"
+          "value": 427,
+          "value_display": "427"
         },
         {
           "id": "hold_rasuwa",
           "label": "Hold · Rasuwa",
-          "value": 817,
-          "value_display": "817"
+          "value": 794,
+          "value_display": "794"
         },
         {
           "id": "hold_dhading",
           "label": "Hold · Dhading",
-          "value": 94,
-          "value_display": "94"
+          "value": 121,
+          "value_display": "121"
         },
         {
           "id": "holding_centers",
           "label": "Holding centers",
-          "value": 27,
-          "value_display": "27"
+          "value": 24,
+          "value_display": "24"
         },
         {
           "id": "handover_deduct",
@@ -184,14 +184,14 @@
     {
       "id": "rescued",
       "label": "Rescued so far",
-      "value": 13756,
-      "value_display": "13,756",
+      "value": 13784,
+      "value_display": "13,784",
       "items": [
         {
           "id": "heli_flights",
           "label": "Army heli flights",
-          "value": 1634,
-          "value_display": "1,634"
+          "value": 1692,
+          "value_display": "1,692"
         },
         {
           "id": "apf_flights",
@@ -348,14 +348,14 @@
     {
       "id": "deploy",
       "label": "Deployed personnel",
-      "value": 21022,
-      "value_display": "21,022",
+      "value": 20935,
+      "value_display": "20,935",
       "items": [
         {
           "id": "total",
           "label": "Total",
-          "value": 21022,
-          "value_display": "21,022"
+          "value": 20935,
+          "value_display": "20,935"
         },
         {
           "id": "army",
@@ -393,7 +393,8 @@
           "value": 14,
           "value_display": "14"
         }
-      ]
+      ],
+      "history_note": "This board prints security forces 20,935 only (no agency split). Previous 21,022 = Army 8,844 · Police 7,975 · APF 4,203 (26 Bhadra) is history."
     },
     {
       "id": "comms",
