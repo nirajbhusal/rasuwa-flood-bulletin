@@ -42,10 +42,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="preload" href="fonts/mukta-500-deva.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts.css?v=2026-09-20-2030" as="style">
-<link rel="preload" href="bulletin.css?v=2026-09-20-2030" as="style">
-<link rel="stylesheet" href="fonts.css?v=2026-09-20-2030">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-20-2030">
+<link rel="preload" href="fonts.css?v=2026-09-20-weather-12284" as="style">
+<link rel="preload" href="bulletin.css?v=2026-09-20-weather-12284" as="style">
+<link rel="stylesheet" href="fonts.css?v=2026-09-20-weather-12284">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-20-weather-12284">
 </head>
 <body class="notices-page">
 <a class="skip-link" href="#main" aria-label="मुख्य सामग्री"></a>
@@ -76,6 +76,13 @@
       <div class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="भाषा">
         <button type="button" data-lang="ne" aria-pressed="true" lang="ne" title="नेपाली">ने</button>
         <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
+      </div>
+      <div class="notify-slot">
+        <p class="notify-hint" id="notify-hint" hidden></p>
+        <button type="button" class="notify-btn" id="notify-btn" aria-pressed="false" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट" data-i18n-aria="notify_aria_off" data-i18n-title="notify_title">
+          <span class="notify-k" data-i18n="notify_title">अपडेट अलर्ट</span>
+          <span class="notify-label" data-i18n="notify_off_label">बन्द</span>
+        </button>
       </div>
       <div class="helpline" data-i18n="hl_bar">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४</div>
   </div>
@@ -148,6 +155,30 @@
 
 <section id="alert">
   <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_alert">सतर्कता</h2></div>
+  <article class="wx-card" id="wx-12284">
+    <p class="k" data-i18n="wx_kicker">नेपाल मौसम विज्ञान विभाग · मौसम पूर्वानुमान महाशाखा</p>
+    <h3 data-i18n="wx_h">आगामी तीन दिनका लागि मौसम चेतावनी</h3>
+    <p class="wx-issued" data-i18n="wx_issued">जारी · ४ असोज २०८३ साँझ ६:०० / २० सेप्टेम्बर १८:०० · चेतावनी #12284</p>
+    <p data-i18n-html="wx_lead">नक्सामा आधारित तीन-दिन चेतावनी (weather_type_id 3)। आधिकारिक पाठ खाली — नक्सा तल जस्ताको तस्तै। यो स्वतन्त्र नागरिक पुनर्मुद्रण हो; सरकारी साइट होइन।</p>
+    <div class="wx-maps">
+      <figure>
+        <a href="img/dhm/warning-12284-day1.png" target="_blank" rel="noopener"><img src="img/dhm/warning-12284-day1.png" alt="DHM warning map day 1 · 20 Sep 2026" width="1300" height="800" loading="eager"></a>
+        <figcaption data-i18n="wx_day1">दिन १ · ४ असोज / २० सेप्टेम्बर</figcaption>
+      </figure>
+      <figure>
+        <a href="img/dhm/warning-12284-day2.png" target="_blank" rel="noopener"><img src="img/dhm/warning-12284-day2.png" alt="DHM warning map day 2" width="1300" height="800" loading="lazy"></a>
+        <figcaption data-i18n="wx_day2">दिन २ · ५ असोज / २१ सेप्टेम्बर</figcaption>
+      </figure>
+      <figure>
+        <a href="img/dhm/warning-12284-day3.png" target="_blank" rel="noopener"><img src="img/dhm/warning-12284-day3.png" alt="DHM warning map day 3" width="1300" height="800" loading="lazy"></a>
+        <figcaption data-i18n="wx_day3">दिन ३ · ६ असोज / २२ सेप्टेम्बर</figcaption>
+      </figure>
+    </div>
+    <h4 data-i18n="wx_b22_h">विशेष मौसम बुलेटिन-२२ · भोटेकोशी प्रभावित क्षेत्र</h4>
+    <p class="wx-issued" data-i18n="wx_b22_issued">जारी · ४ असोज २०८३ दिउँसो ४:३० / २० सेप्टेम्बर १६:३० · बुलेटिन #12283</p>
+    <p data-i18n-html="wx_b22_p">पछिल्लो २४ घण्टामा गोरखा, रसुवा, नुवाकोट, धादिङ र चितवन आसपास थोरै ठाउँमा मध्यमसम्म वर्षा मापन। ४ असोज रातिदेखि ७ असोज बिहानसम्म रसुवा, नुवाकोट, धादिङ, गोरखा र चितवन आसपासका केही स्थानमा <strong>मध्यम वर्षा</strong> सम्भावना; गोरखा, रसुवा, नुवाकोट र धादिङका <strong>एक-दुई स्थानमा भारी वर्षा</strong> समेत सम्भावना। हल्का ≤१० मि.मि. · मध्यम १०–५० · भारी ५०–१००।</p>
+    <p class="note" data-i18n-html="wx_src">स्रोत: <a href="https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12284" target="_blank" rel="noopener">चेतावनी #12284</a> · <a href="https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12283" target="_blank" rel="noopener">बुलेटिन-२२ #12283</a> · DHM MFD। नागरिक पुनर्मुद्रण। अभिलेख <code>img/dhm/warning-12284-day1.png</code>।</p>
+  </article>
   <div class="card red">
     <ul data-i18n-list="alert">
       <li><strong>बाढी पूर्वानुमान महाशाखा · १५ भदौ राती २०:४०:</strong> काठमाडौँ स्थित विष्णुमती नदी <strong>गोङ्गबु</strong> जलमापन केन्द्रमा जलसतह <strong>खतरा तह नजिक</strong> रहेको र बाढी बढिरहेकाले नदीको तल्लो तटीय क्षेत्रका बासिन्दा <strong>बिहानसम्मै उच्च सतर्क</strong> रहनुहोला। DHM AWS अवलोकन (<a href="https://dhm.gov.np/mfd/#/weather/observation/map-view">नक्सा</a> · २१:३५): उपत्यका ६ घण्टा वर्षा — नगरकोट <strong>४९.२</strong> मिमि · कपन <strong>३७.२</strong> · सुन्दरीजल <strong>२९.६</strong> · थानकोट <strong>२२.६</strong> · काठमाडौँ विमानस्थल <strong>२१.२</strong>। उपत्यकामा वर्षा चेतावनी छैन। गोङ्गबु जलसतह यो मौसम नक्सामा रिपोर्ट छैन। बागमती गौरीघाट <strong>२.०८</strong> मि (सतर्कता २.१ · बढ्दो · २१:४०) — खतरा २.७ मा पुगेको छैन।</li>
@@ -1419,8 +1450,9 @@
   window.__ensureNamesIndex=load;
 })();
 </script>
-<script defer src="i18n.js?v=2026-09-20-2030"></script>
-<script defer src="nav-menu.js?v=2026-09-20-2030"></script>
+<script defer src="i18n.js?v=2026-09-20-weather-12284"></script>
+<script defer src="notify.js?v=2026-09-20-weather-12284"></script>
+<script defer src="nav-menu.js?v=2026-09-20-weather-12284"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -1500,7 +1532,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-20-2030";
+window.PAGE_VER="2026-09-20-weather-12284";
 (function(){
   function stale(id){ return !!(id && id !== window.PAGE_VER); }
   function refresh(id){

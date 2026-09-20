@@ -1,3 +1,12 @@
+## 2026-09-20-weather-12284 · DHM weather warning #12284 + notify
+
+- DHM MFD **मौसम चेतावनी #12284** (4 Ashwin 18:00 / 20 Sep): map-based 3-day warning; official text empty. Maps archived `img/dhm/warning-12284-day{1,2,3}.png`. Citizen reprint with DHM links.
+- Same-day **Special Weather Bulletin-22** (#12283, 16:30): medium rain possible Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan through 7 Ashwin morning; heavy rain possible 1–2 places in Gorkha/Rasuwa/Nuwakot/Dhading. Full text `data/dhm12283.txt`.
+- New **मौसम सतर्कता** card at top of `notices.html#alert`; homepage strip links there. Older #alert items stay as history. SitRep #16 KPIs unchanged.
+- Restored discreet header **अपडेट अलर्ट On/Off** (`notify.js` + i18n `notify_*`): Notification permission, SW `{type:'check', welcome:true}`, mute/unmute, periodicsync `rasuwa-updates`.
+- `latest.json` id **2026-09-20-weather-12284** so opted-in users get a weather push (title/body/url `notices.html#alert`). New notices/SitReps/weather must bump `latest.json` to push.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-20-weather-12284`
+
 ## 2026-09-20-2030 · NDRRMA SitRep #16
 
 - NDRRMA / MoHA SitRep #16 · 4 Ashwin 19:00 / 20 Sep: dead **1,451** · rescued **13,784** · currently in treatment **15** (5 hospitals) · security-agency treatment **10,163** · missing ~**5,786** (do not re-sum; 110 identified handovers deducted). Army heli **today 33** (no cumulative printed) · previous Army **1,692** / APF **320** is SitRep #15 history. Holding **20** centers (Rasuwa 786 · Nuwakot 324 · Dhading 121). Security forces mobilised **20,929** (no agency split on this board). Fuel/LPG not printed — previous SitRep #14 60k/12k/4k · LPG **502** is history. District deaths: Chitwan 367 · Nawal E 232 · West 222 · Nuwakot 236 · Rasuwa 203 · Gorkha 79 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2 (sum 1,451). Female 336 · Male 585 · human remains 530. DNA relatives **1,997**. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member · max 6 months · process sent to local governments. Archive `img/today-2026-09-20-ndrrma-sitrep16-1900.jpg`.
