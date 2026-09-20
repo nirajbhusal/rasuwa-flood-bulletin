@@ -1,7 +1,7 @@
 ## 2026-09-20-weather-12284 · DHM weather warning #12284 + notify
 
 - DHM MFD **मौसम चेतावनी #12284** (4 Ashwin 18:00 / 20 Sep): map-based 3-day warning; official text empty. Maps archived `img/dhm/warning-12284-day{1,2,3}.png`. Citizen reprint with DHM links.
-- Same-day **Special Weather Bulletin-22** (#12283, 16:30): medium rain possible Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan through 7 Ashwin morning; heavy rain possible 1–2 places in Gorkha/Rasuwa/Nuwakot/Dhading. Full text `data/dhm12283.txt`.
+- Same-day **Special Weather Bulletin-22** (#12283, 16:30): medium rain possible Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan through 7 Ashwin morning; heavy rain possible 1–2 places in Gorkha/Rasuwa/Nuwakot/Dhading. Official 5-district map `img/dhm/bulletin-12283-districts.png` + day/night table on `notices.html#alert`. Full text `data/dhm12283.txt`.
 - New **मौसम सतर्कता** card at top of `notices.html#alert`; homepage strip links there. Older #alert items stay as history. SitRep #16 KPIs unchanged.
 - Restored discreet header **अपडेट अलर्ट On/Off** (`notify.js` + i18n `notify_*`): Notification permission, SW `{type:'check', welcome:true}`, mute/unmute, periodicsync `rasuwa-updates`.
 - `latest.json` id **2026-09-20-weather-12284** so opted-in users get a weather push (title/body/url `notices.html#alert`). New notices/SitReps/weather must bump `latest.json` to push.

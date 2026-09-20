@@ -399,6 +399,16 @@ img{max-width:100%;display:block}
 .wx-maps figure{margin:0}
 .wx-maps img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#fff}
 .wx-maps figcaption{margin:6px 0 0;font-size:12px;font-weight:800;color:var(--muted)}
+.wx-b22-map{margin:12px 0}
+.wx-b22-map img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#fff}
+.wx-b22-map figcaption{margin:6px 0 0;font-size:12px;font-weight:800;color:var(--muted)}
+.wx-table-wrap{overflow:auto;margin:10px 0 4px;-webkit-overflow-scrolling:touch}
+.wx-table{width:100%;min-width:640px;border-collapse:collapse;font-size:13px}
+.wx-table caption{caption-side:top;text-align:left;font-size:12px;font-weight:800;color:var(--muted);padding:0 0 6px}
+.wx-table th,.wx-table td{border:1px solid #fde68a;padding:7px 8px;text-align:left;vertical-align:top;line-height:1.35}
+.wx-table thead th{background:#fff7ed;font-size:11px;font-weight:800}
+.wx-table tbody th{background:#fffbeb;white-space:nowrap}
+.wx-table strong{color:#9a3412}
 @media (max-width:760px){
   .wx-maps{grid-template-columns:1fr}
   .notify-btn .notify-k{display:none}
