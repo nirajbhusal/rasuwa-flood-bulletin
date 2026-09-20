@@ -1,22 +1,22 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-19T19:00:00+05:45",
-  "as_of": "१९ सेप्टेम्बर / ३ असोज २०८३ · १९:००",
+  "updated_at": "2026-09-20T19:00:00+05:45",
+  "as_of": "२० सेप्टेम्बर / ४ असोज २०८३ · १९:००",
   "credit": "निरज भुसाल",
   "link": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
   "cards": [
     {
       "id": "dead",
       "label": "मृतक संख्या",
-      "value": 1411,
-      "value_display": "१,४११",
+      "value": 1451,
+      "value_display": "१,४५१",
       "items": [
         {
           "id": "chitwan",
           "label": "चितवन",
-          "value": 364,
-          "value_display": "३६४"
+          "value": 367,
+          "value_display": "३६७"
         },
         {
           "id": "nawal_e",
@@ -33,14 +33,14 @@
         {
           "id": "nuwakot",
           "label": "नुवाकोट",
-          "value": 203,
-          "value_display": "२०३"
+          "value": 236,
+          "value_display": "२३६"
         },
         {
           "id": "rasuwa",
           "label": "रसुवा",
-          "value": 199,
-          "value_display": "१९९"
+          "value": 203,
+          "value_display": "२०३"
         },
         {
           "id": "handover",
@@ -64,33 +64,33 @@
           "id": "demo",
           "label": "महिला / पुरुष / अवशेष",
           "value": null,
-          "value_display": "३३६ · ५४९ · ५२६"
+          "value_display": "३३६ · ५८५ · ५३०"
         },
         {
           "id": "dna",
           "label": "DNA मृतक / आफन्त",
           "value": null,
-          "value_display": "१,२८६ · १,९९१"
+          "value_display": "१,२८६ · १,९९७"
         }
       ]
     },
     {
       "id": "injured",
       "label": "हाल उपचाररत",
-      "value": 18,
-      "value_display": "१८",
+      "value": 15,
+      "value_display": "१५",
       "items": [
         {
           "id": "security",
           "label": "सुरक्षा निकाय उपचार",
-          "value": 10041,
-          "value_display": "१०,०४१"
+          "value": 10163,
+          "value_display": "१०,१६३"
         },
         {
           "id": "ndrrma_hosp",
-          "label": "अस्पताल उपचार (६)",
-          "value": 18,
-          "value_display": "१८"
+          "label": "अस्पताल उपचार (५)",
+          "value": 15,
+          "value_display": "१५"
         },
         {
           "id": "discharged",
@@ -101,17 +101,17 @@
         {
           "id": "hospital_count",
           "label": "अस्पताल संख्या",
-          "value": 6,
-          "value_display": "६"
+          "value": 5,
+          "value_display": "५"
         }
       ],
-      "history_note": "अघिल्लो उपचार ३४४ / डिस्चार्ज २९० / सुरक्षा निकाय ९,८२० (१ असोज १९:०० SitRep #14) इतिहास — यस बोर्डमा हाल उपचाररत १८ (६ अस्पताल)।"
+      "history_note": "अघिल्लो उपचाररत १८ (६ अस्पताल) / सुरक्षा निकाय १०,०४१ (३ असोज SitRep #15) · उपचार ३४४ / डिस्चार्ज २९० / सुरक्षा निकाय ९,८२० (SitRep #14) इतिहास — यस बोर्डमा हाल उपचाररत १५ (५ अस्पताल)।"
     },
     {
       "id": "miss",
       "label": "सम्पर्कविहीन करिब",
-      "value": 5875,
-      "value_display": "५,८७५",
+      "value": 5786,
+      "value_display": "५,७८६",
       "items": [
         {
           "id": "foreign",
@@ -140,26 +140,26 @@
         {
           "id": "nuw_other",
           "label": "नुवाकोट · अन्य जिल्ला",
-          "value": 1179,
-          "value_display": "१,१७९"
+          "value": 1090,
+          "value_display": "१,०९०"
         },
         {
           "id": "holding",
           "label": "होल्डिङ (३ जिल्ला लेबल योग)",
-          "value": 1342,
-          "value_display": "१,३४२"
+          "value": 1231,
+          "value_display": "१,२३१"
         },
         {
           "id": "hold_nuwakot",
           "label": "होल्ड · नुवाकोट",
-          "value": 427,
-          "value_display": "४२७"
+          "value": 324,
+          "value_display": "३२४"
         },
         {
           "id": "hold_rasuwa",
           "label": "होल्ड · रसुवा",
-          "value": 794,
-          "value_display": "७९४"
+          "value": 786,
+          "value_display": "७८६"
         },
         {
           "id": "hold_dhading",
@@ -170,8 +170,8 @@
         {
           "id": "holding_centers",
           "label": "होल्डिङ सेन्टर",
-          "value": 24,
-          "value_display": "२४"
+          "value": 20,
+          "value_display": "२०"
         },
         {
           "id": "handover_deduct",
@@ -189,13 +189,13 @@
       "items": [
         {
           "id": "heli_flights",
-          "label": "सेना हेलि उडान",
-          "value": 1692,
-          "value_display": "१,६९२"
+          "label": "सेना हेलि उडान · आज",
+          "value": 33,
+          "value_display": "३३"
         },
         {
           "id": "apf_flights",
-          "label": "सशस्त्र उडान",
+          "label": "सशस्त्र उडान (इतिहास)",
           "value": 320,
           "value_display": "३२०"
         },
@@ -217,7 +217,8 @@
           "value": 279,
           "value_display": "२७९"
         }
-      ]
+      ],
+      "history_note": "यस बोर्डमा सेना हेलि उडान आज ३३ मात्र (संचयी जम्मा छैन)। अघिल्लो सेना १,६९२ (४१ त्यो दिन) · सशस्त्र ३२० (जम्मा २,०१२) SitRep #15 इतिहास।"
     },
     {
       "id": "police",
@@ -310,8 +311,8 @@
           "value_display": "१५८ · ४३,९४३"
         }
       ],
-      "as_of": "२४ भदौ ११:०० / ९ सेप्टेम्बर २०२६ ११:००",
-      "history_note": "अघिल्लो २३ भदौ २०:००: शव प्रहरी १,३७२ · सम्पर्कविहीन ४,०७९ · DNA २,७११ · शव व्यवस्थापन १,१५३ · udb १,३१२ · जनचेतना १६८/४३,९४३ इतिहास।"
+      "history_note": "अघिल्लो २३ भदौ २०:००: शव प्रहरी १,३७२ · सम्पर्कविहीन ४,०७९ · DNA २,७११ · शव व्यवस्थापन १,१५३ · udb १,३१२ · जनचेतना १६८/४३,९४३ इतिहास।",
+      "as_of": "२४ भदौ ११:०० / ९ सेप्टेम्बर २०२६ ११:००"
     },
     {
       "id": "tunnel",
@@ -348,14 +349,14 @@
     {
       "id": "deploy",
       "label": "खटिएको जनशक्ति",
-      "value": 20935,
-      "value_display": "२०,९३५",
+      "value": 20929,
+      "value_display": "२०,९२९",
       "items": [
         {
           "id": "total",
           "label": "जम्मा",
-          "value": 20935,
-          "value_display": "२०,९३५"
+          "value": 20929,
+          "value_display": "२०,९२९"
         },
         {
           "id": "army",
@@ -394,7 +395,7 @@
           "value_display": "१४"
         }
       ],
-      "history_note": "यस बोर्डमा सुरक्षा परिचालन २०,९३५ मात्र (निकाय विभाजन छैन)। अघिल्लो २१,०२२ = सेना ८,८४४ · प्रहरी ७,९७५ · सशस्त्र ४,२०३ (२६ भदौ) इतिहास।"
+      "history_note": "यस बोर्डमा सुरक्षा परिचालन २०,९२९ मात्र (निकाय विभाजन छैन)। अघिल्लो २०,९३५ (३ असोज SitRep #15) · २१,०२२ = सेना ८,८४४ · प्रहरी ७,९७५ · सशस्त्र ४,२०३ (२६ भदौ) इतिहास।"
     },
     {
       "id": "comms",
@@ -440,6 +441,5 @@
   "embed": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/embed/dashboard.html",
   "source_line": "स्रोत: निरज भुसाल · रसुवा–भोटेकोशी बाढी बुलेटिन",
   "attribution_html": "स्रोत: <a href=\"https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview\">निरज भुसाल · रसुवा–भोटेकोशी बाढी बुलेटिन</a>",
-  "attribution_note": "अंक पुनःप्रकाश गर्दा credit / watermark / source_line / attribution_html र link अनिवार्य देखाउनुहोस्।",
-  "lang": "ne"
+  "attribution_note": "अंक पुनःप्रकाश गर्दा credit / watermark / source_line / attribution_html र link अनिवार्य देखाउनुहोस्।"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-20-weather-12284",
+  "source": "DHM Meteorological Forecasting Division (citizen reprint)",
+  "warning": {
+    "page_id": 12284,
+    "title_ne": "आगामी तीन दिनका लागि मौसम चेतावनी (जारी मिति: २०८३-०६-०४ गते साझँ ६:०० बजे)",
+    "issued_at": "2026-09-20T18:00:00+05:45",
+    "issue_date_utc": "2026-09-20T12:15:00.000Z",
+    "content": "",
+    "weather_type_id": 3,
+    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12284",
+    "api": "https://dhm.gov.np/mfd/api/page/12284",
+    "maps": [
+      {
+        "day": 1,
+        "file": "img/dhm/warning-12284-day1.png",
+        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/20/warning-map-day-1-1789905950785.png"
+      },
+      {
+        "day": 2,
+        "file": "img/dhm/warning-12284-day2.png",
+        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/20/warning-map-day-2-1789905954713.png"
+      },
+      {
+        "day": 3,
+        "file": "img/dhm/warning-12284-day3.png",
+        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/20/warning-map-day-3-1789905958282.png"
+      }
+    ]
+  },
+  "bulletin_22": {
+    "page_id": 12283,
+    "title_ne": "भोटेकोशी बाढी प्रभावित क्षेत्रको लागि विशेष मौसम बुलेटिन -२२",
+    "title_en": "Bhotekoshi Flood Affected Area’s Special Weather Bulletin - 22",
+    "issued_at": "2026-09-20T16:30:00+05:45",
+    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12283",
+    "api": "https://dhm.gov.np/mfd/api/page/12283",
+    "past_24h": "गोरखा, रसुवा, नुवाकोट, धादिङ र चितवन आसपास थोरै ठाउँमा मध्यम सम्म वर्षा मापन",
+    "forecast_window": "२०८३-०६-०४ राति देखि २०८३-०६-०७ बिहान सम्म",
+    "medium_rain_districts": ["रसुवा", "नुवाकोट", "धादिङ", "गोरखा", "चितवन"],
+    "heavy_rain_possible_1_2_places": ["गोरखा", "रसुवा", "नुवाकोट", "धादिङ"],
+    "rain_scale_mm": { "light": "≤10", "medium": "10–50", "heavy": "50–100" }
+  }
+}
