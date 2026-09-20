@@ -1,10 +1,10 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-19T19:00:00+05:45",
+  "updated_at": "2026-09-20T19:00:00+05:45",
   "as_of": {
-    "ne": "१९ सेप्टेम्बर / ३ असोज २०८३ · १९:००",
-    "en": "19 September 2026 · 19:00 NPT"
+    "ne": "२० सेप्टेम्बर / ४ असोज २०८३ · १९:००",
+    "en": "20 September 2026 · 19:00 NPT"
   },
   "credit": {
     "ne": "निरज भुसाल",
@@ -18,10 +18,10 @@
         "ne": "मृतक संख्या",
         "en": "Deaths count"
       },
-      "value": 1411,
+      "value": 1451,
       "value_display": {
-        "ne": "१,४११",
-        "en": "1,411"
+        "ne": "१,४५१",
+        "en": "1,451"
       },
       "items": [
         {
@@ -30,10 +30,10 @@
             "ne": "चितवन",
             "en": "Chitwan"
           },
-          "value": 364,
+          "value": 367,
           "value_display": {
-            "ne": "३६४",
-            "en": "364"
+            "ne": "३६७",
+            "en": "367"
           }
         },
         {
@@ -66,10 +66,10 @@
             "ne": "नुवाकोट",
             "en": "Nuwakot"
           },
-          "value": 203,
+          "value": 236,
           "value_display": {
-            "ne": "२०३",
-            "en": "203"
+            "ne": "२३६",
+            "en": "236"
           }
         },
         {
@@ -78,10 +78,10 @@
             "ne": "रसुवा",
             "en": "Rasuwa"
           },
-          "value": 199,
+          "value": 203,
           "value_display": {
-            "ne": "१९९",
-            "en": "199"
+            "ne": "२०३",
+            "en": "203"
           }
         },
         {
@@ -128,8 +128,8 @@
           },
           "value": null,
           "value_display": {
-            "ne": "३३६ · ५४९ · ५२६",
-            "en": "336 · 549 · 526"
+            "ne": "३३६ · ५८५ · ५३०",
+            "en": "336 · 585 · 530"
           }
         },
         {
@@ -140,8 +140,8 @@
           },
           "value": null,
           "value_display": {
-            "ne": "१,२८६ · १,९९१",
-            "en": "1,286 · 1,991"
+            "ne": "१,२८६ · १,९९७",
+            "en": "1,286 · 1,997"
           }
         }
       ]
@@ -152,10 +152,10 @@
         "ne": "हाल उपचाररत",
         "en": "Currently in treatment"
       },
-      "value": 18,
+      "value": 15,
       "value_display": {
-        "ne": "१८",
-        "en": "18"
+        "ne": "१५",
+        "en": "15"
       },
       "items": [
         {
@@ -164,22 +164,22 @@
             "ne": "सुरक्षा निकाय उपचार",
             "en": "Security-agency treatment"
           },
-          "value": 10041,
+          "value": 10163,
           "value_display": {
-            "ne": "१०,०४१",
-            "en": "10,041"
+            "ne": "१०,१६३",
+            "en": "10,163"
           }
         },
         {
           "id": "ndrrma_hosp",
           "label": {
-            "ne": "अस्पताल उपचार (६)",
-            "en": "Hospital treated (6)"
+            "ne": "अस्पताल उपचार (५)",
+            "en": "Hospital treated (5)"
           },
-          "value": 18,
+          "value": 15,
           "value_display": {
-            "ne": "१८",
-            "en": "18"
+            "ne": "१५",
+            "en": "15"
           }
         },
         {
@@ -200,16 +200,16 @@
             "ne": "अस्पताल संख्या",
             "en": "Hospital count"
           },
-          "value": 6,
+          "value": 5,
           "value_display": {
-            "ne": "६",
-            "en": "6"
+            "ne": "५",
+            "en": "5"
           }
         }
       ],
       "history_note": {
-        "ne": "अघिल्लो उपचार ३४४ / डिस्चार्ज २९० / सुरक्षा निकाय ९,८२० (१ असोज १९:०० SitRep #14) इतिहास — यस बोर्डमा हाल उपचाररत १८ (६ अस्पताल)।",
-        "en": "Previous treated 344 / discharged 290 / security-agency 9,820 (1 Ashwin 19:00 SitRep #14) is history — this board prints currently in treatment 18 (6 hospitals)."
+        "ne": "अघिल्लो उपचाररत १८ (६ अस्पताल) / सुरक्षा निकाय १०,०४१ (३ असोज SitRep #15) · उपचार ३४४ / डिस्चार्ज २९० / सुरक्षा निकाय ९,८२० (SitRep #14) इतिहास — यस बोर्डमा हाल उपचाररत १५ (५ अस्पताल)।",
+        "en": "Previous in treatment 18 (6 hospitals) / security-agency 10,041 (3 Ashwin SitRep #15) · treated 344 / discharged 290 / security-agency 9,820 (SitRep #14) is history — this board prints currently in treatment 15 (5 hospitals)."
       }
     },
     {
@@ -218,10 +218,10 @@
         "ne": "सम्पर्कविहीन करिब",
         "en": "Missing around"
       },
-      "value": 5875,
+      "value": 5786,
       "value_display": {
-        "ne": "५,८७५",
-        "en": "5,875"
+        "ne": "५,७८६",
+        "en": "5,786"
       },
       "items": [
         {
@@ -278,10 +278,10 @@
             "ne": "नुवाकोट · अन्य जिल्ला",
             "en": "Nuwakot · other districts"
           },
-          "value": 1179,
+          "value": 1090,
           "value_display": {
-            "ne": "१,१७९",
-            "en": "1,179"
+            "ne": "१,०९०",
+            "en": "1,090"
           }
         },
         {
@@ -290,10 +290,10 @@
             "ne": "होल्डिङ (३ जिल्ला लेबल योग)",
             "en": "Holding (3-district labeled sum)"
           },
-          "value": 1342,
+          "value": 1231,
           "value_display": {
-            "ne": "१,३४२",
-            "en": "1,342"
+            "ne": "१,२३१",
+            "en": "1,231"
           }
         },
         {
@@ -302,10 +302,10 @@
             "ne": "होल्ड · नुवाकोट",
             "en": "Hold · Nuwakot"
           },
-          "value": 427,
+          "value": 324,
           "value_display": {
-            "ne": "४२७",
-            "en": "427"
+            "ne": "३२४",
+            "en": "324"
           }
         },
         {
@@ -314,10 +314,10 @@
             "ne": "होल्ड · रसुवा",
             "en": "Hold · Rasuwa"
           },
-          "value": 794,
+          "value": 786,
           "value_display": {
-            "ne": "७९४",
-            "en": "794"
+            "ne": "७८६",
+            "en": "786"
           }
         },
         {
@@ -338,10 +338,10 @@
             "ne": "होल्डिङ सेन्टर",
             "en": "Holding centers"
           },
-          "value": 24,
+          "value": 20,
           "value_display": {
-            "ne": "२४",
-            "en": "24"
+            "ne": "२०",
+            "en": "20"
           }
         },
         {
@@ -373,20 +373,20 @@
         {
           "id": "heli_flights",
           "label": {
-            "ne": "सेना हेलि उडान",
-            "en": "Army heli flights"
+            "ne": "सेना हेलि उडान · आज",
+            "en": "Army heli flights · today"
           },
-          "value": 1692,
+          "value": 33,
           "value_display": {
-            "ne": "१,६९२",
-            "en": "1,692"
+            "ne": "३३",
+            "en": "33"
           }
         },
         {
           "id": "apf_flights",
           "label": {
-            "ne": "सशस्त्र उडान",
-            "en": "APF flights"
+            "ne": "सशस्त्र उडान (इतिहास)",
+            "en": "APF flights (history)"
           },
           "value": 320,
           "value_display": {
@@ -430,7 +430,11 @@
             "en": "279"
           }
         }
-      ]
+      ],
+      "history_note": {
+        "ne": "यस बोर्डमा सेना हेलि उडान आज ३३ मात्र (संचयी जम्मा छैन)। अघिल्लो सेना १,६९२ (४१ त्यो दिन) · सशस्त्र ३२० (जम्मा २,०१२) SitRep #15 इतिहास।",
+        "en": "This board prints Army heli flights today 33 only (no cumulative). Previous Army 1,692 (41 that day) · APF 320 (total 2,012) is SitRep #15 history."
+      }
     },
     {
       "id": "police",
@@ -690,10 +694,10 @@
         "ne": "खटिएको जनशक्ति",
         "en": "Deployed personnel"
       },
-      "value": 20935,
+      "value": 20929,
       "value_display": {
-        "ne": "२०,९३५",
-        "en": "20,935"
+        "ne": "२०,९२९",
+        "en": "20,929"
       },
       "items": [
         {
@@ -702,10 +706,10 @@
             "ne": "जम्मा",
             "en": "Total"
           },
-          "value": 20935,
+          "value": 20929,
           "value_display": {
-            "ne": "२०,९३५",
-            "en": "20,935"
+            "ne": "२०,९२९",
+            "en": "20,929"
           }
         },
         {
@@ -782,8 +786,8 @@
         }
       ],
       "history_note": {
-        "ne": "यस बोर्डमा सुरक्षा परिचालन २०,९३५ मात्र (निकाय विभाजन छैन)। अघिल्लो २१,०२२ = सेना ८,८४४ · प्रहरी ७,९७५ · सशस्त्र ४,२०३ (२६ भदौ) इतिहास।",
-        "en": "This board prints security forces 20,935 only (no agency split). Previous 21,022 = Army 8,844 · Police 7,975 · APF 4,203 (26 Bhadra) is history."
+        "ne": "यस बोर्डमा सुरक्षा परिचालन २०,९२९ मात्र (निकाय विभाजन छैन)। अघिल्लो २०,९३५ (३ असोज SitRep #15) · २१,०२२ = सेना ८,८४४ · प्रहरी ७,९७५ · सशस्त्र ४,२०३ (२६ भदौ) इतिहास।",
+        "en": "This board prints security forces 20,929 only (no agency split). Previous 20,935 (3 Ashwin SitRep #15) · 21,022 = Army 8,844 · Police 7,975 · APF 4,203 (26 Bhadra) is history."
       }
     },
     {
