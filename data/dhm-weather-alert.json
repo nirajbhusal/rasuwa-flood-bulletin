@@ -1,44 +1,58 @@
 {
-  "id": "2026-09-20-weather-12284",
+  "id": "2026-09-22-weather-12290",
   "source": "DHM Meteorological Forecasting Division (citizen reprint)",
   "warning": {
-    "page_id": 12284,
-    "title_ne": "आगामी तीन दिनका लागि मौसम चेतावनी (जारी मिति: २०८३-०६-०४ गते साझँ ६:०० बजे)",
-    "issued_at": "2026-09-20T18:00:00+05:45",
-    "issue_date_utc": "2026-09-20T12:15:00.000Z",
+    "page_id": 12290,
+    "title_ne": "आगामी तीन दिनका लागि मौसम चेतावनी (जारी मिति: २०८३-०६-०६ गते बिहान ८:०० बजे)",
+    "issued_at": "2026-09-22T08:00:00+05:45",
+    "issue_date_utc": "2026-09-22T02:15:00.000Z",
     "content": "",
     "weather_type_id": 3,
-    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12284",
-    "api": "https://dhm.gov.np/mfd/api/page/12284",
+    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12290",
+    "api": "https://dhm.gov.np/mfd/api/page/12290",
     "maps": [
       {
         "day": 1,
-        "file": "img/dhm/warning-12284-day1.png",
-        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/20/warning-map-day-1-1789905950785.png"
+        "file": "img/dhm/warning-12290-day1.png",
+        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/22/warning-map-day-1-1790060699822.png"
       },
       {
         "day": 2,
-        "file": "img/dhm/warning-12284-day2.png",
-        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/20/warning-map-day-2-1789905954713.png"
+        "file": "img/dhm/warning-12290-day2.png",
+        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/22/warning-map-day-2-1790060703998.png"
       },
       {
         "day": 3,
-        "file": "img/dhm/warning-12284-day3.png",
-        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/20/warning-map-day-3-1789905958282.png"
+        "file": "img/dhm/warning-12290-day3.png",
+        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/22/warning-map-day-3-1790060707761.png"
       }
     ]
   },
-  "bulletin_22": {
-    "page_id": 12283,
-    "title_ne": "भोटेकोशी बाढी प्रभावित क्षेत्रको लागि विशेष मौसम बुलेटिन -२२",
-    "title_en": "Bhotekoshi Flood Affected Area’s Special Weather Bulletin - 22",
-    "issued_at": "2026-09-20T16:30:00+05:45",
-    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12283",
-    "api": "https://dhm.gov.np/mfd/api/page/12283",
+  "bulletin_24": {
+    "page_id": 12291,
+    "title_ne": "भोटेकोशी बाढी प्रभावित क्षेत्रको लागि विशेष मौसम बुलेटिन -२४",
+    "title_en": "Bhotekoshi Flood Affected Area’s Special Weather Bulletin - 24",
+    "issued_at": "2026-09-22T17:00:00+05:45",
+    "issue_date_utc": "2026-09-22T11:20:00.000Z",
+    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12291",
+    "api": "https://dhm.gov.np/mfd/api/page/12291",
     "past_24h": "गोरखा, रसुवा, नुवाकोट, धादिङ र चितवन आसपास थोरै ठाउँमा मध्यम सम्म वर्षा मापन",
-    "forecast_window": "२०८३-०६-०४ राति देखि २०८३-०६-०७ बिहान सम्म",
+    "forecast_window": "२०८३-०६-०६ राति देखि २०८३-०६-०९ बिहान सम्म",
     "medium_rain_districts": ["रसुवा", "नुवाकोट", "धादिङ", "गोरखा", "चितवन"],
-    "heavy_rain_possible_1_2_places": ["गोरखा", "रसुवा", "नुवाकोट", "धादिङ"],
-    "rain_scale_mm": { "light": "≤10", "medium": "10–50", "heavy": "50–100" }
+    "heavy_rain_possible_1_2_places": ["रसुवा", "नुवाकोट", "धादिङ", "गोरखा", "चितवन"],
+    "rain_scale_mm": { "light": "≤10", "medium": "10–50", "heavy": "50–100" },
+    "district_map": "img/dhm/bulletin-12291-districts.png"
+  },
+  "history": {
+    "warning_12284": {
+      "page_id": 12284,
+      "issued_at": "2026-09-20T18:00:00+05:45",
+      "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12284"
+    },
+    "bulletin_22": {
+      "page_id": 12283,
+      "issued_at": "2026-09-20T16:30:00+05:45",
+      "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12283"
+    }
   }
 }
