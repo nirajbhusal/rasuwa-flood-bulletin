@@ -1,3 +1,11 @@
+## 2026-09-22-weather-12290 · DHM warning #12290 + Bulletin-24
+
+- DHM MFD **मौसम चेतावनी #12290** (6 Ashwin 08:00 / 22 Sep): map-based 3-day warning; official text empty. Maps archived `img/dhm/warning-12290-day{1,2,3}.png`. Citizen reprint with DHM links.
+- Same-day **Special Weather Bulletin-24** (#12291, 17:00): medium rain possible Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan from night of 6 Ashwin through morning of 9 Ashwin; **heavy rain possible in 1–2 places in all five districts**. Official district map `img/dhm/bulletin-12291-districts.png` + day/night table on `notices.html#alert`. Full text `data/dhm-12291.txt`.
+- Homepage weather strip points to `notices.html#alert` with #12290 / Bulletin-24. Older #12284 / Bulletin-22 kept as a labeled history card. SitRep KPIs, MoF/NCHL/Fonepay, markets, LPG unchanged.
+- `latest.json` id **2026-09-22-weather-12290** (official DHM only; url `notices.html#alert`). brand_incident + notify unchanged.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-22-weather-12290`
+
 ## 2026-09-22-fonepay-21 · Fonepay core till date (yesterday 21 Sep)
 
 - Fonepay CORE CHANNELS for the Prime Minister's Disaster Relief Fund, board dated yesterday **2026-09-21**. Till date: **934,063** txns · **Rs. 2,565,077,401** (~२.५७ अर्ब / रु. २ अर्ब ५७ करोड). Domestic QR 838,162 / 2,255,745,331 · Fonepay Bills 64,065 / 205,134,047 · NPCI 24,012 / 62,000,386 · ALIPAY 4,371 / 22,789,669 · IBFT 3,453 / 19,407,969.

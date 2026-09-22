@@ -391,6 +391,12 @@ img{max-width:100%;display:block}
   border-left:6px solid #d97706;background:linear-gradient(90deg,#fff7ed,#fff 32%);
   border:1px solid #fde68a;
 }
+.wx-card-hist{
+  border-left-color:#94a3b8;border-color:#e2e8f0;
+  background:linear-gradient(90deg,#f8fafc,#fff 32%);
+}
+.wx-card-hist .k{color:#64748b}
+.wx-card-hist h3{font-size:17px;color:var(--muted)}
 .wx-card h3{margin:2px 0 6px;font-size:20px;line-height:1.3}
 .wx-card h4{margin:14px 0 4px;font-size:16px}
 .wx-card .k{margin:0 0 2px;font-size:12px;font-weight:800;color:#9a3412}
