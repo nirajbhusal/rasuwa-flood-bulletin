@@ -1,3 +1,12 @@
+## 2026-09-22-fonepay-21 · Fonepay core till date (yesterday 21 Sep)
+
+- Fonepay CORE CHANNELS for the Prime Minister's Disaster Relief Fund, board dated yesterday **2026-09-21**. Till date: **934,063** txns · **Rs. 2,565,077,401** (~२.५७ अर्ब / रु. २ अर्ब ५७ करोड). Domestic QR 838,162 / 2,255,745,331 · Fonepay Bills 64,065 / 205,134,047 · NPCI 24,012 / 62,000,386 · ALIPAY 4,371 / 22,789,669 · IBFT 3,453 / 19,407,969.
+- Yesterday 21 Sep: **760** txns · **Rs. 6,523,383**. Domestic QR 278 / 3,027,981 · Bills 403 / 2,783,450 · NPCI 36 / 529,029 · ALIPAY 43 / 182,923 · IBFT 0 / 0.
+- Labeled NCHL+Fonepay **8,999,626,914.61** (~९.०० अर्ब) = live NCHL **6,434,549,513.61** (22 Sep, unchanged) + new Fonepay till-date **2,565,077,401**. Not a mega-total with MoF. MoF 9.99 / USD 23.4m / available 13.57, named handover 2.74, and NCHL's own total stay separately labeled.
+- The board TOTAL row is **2,565,077,401**. The five channel amounts as printed sum to 2,565,077,402 (1 rupee). The table and headline use the board's printed figures, including that total row.
+- Previous Fonepay (~२.५१ अर्ब · 925,407 / 2,507,249,462) is history. Archive `img/today-2026-09-21-fonepay-core.jpg`. SitRep KPIs, weather, markets, LPG, and named donors unchanged.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-22-fonepay-21`
+
 ## 2026-09-22-nchl-0000 · NCHL 22 Sep 00:00
 
 - NCHL channels for the Prime Minister's Disaster Relief Fund at **22 Sep 2026 00:00**: **272,248** txns · **Rs. 6,434,549,513.61** (~६.४३ अर्ब). IPS/Cheque 5,668 / 2,879,233,119.80 · Card-International 103,608 / 1,755,487,707.88 · Online Transfer 17,761 / 1,051,569,724.32 · Domestic QR 116,779 / 425,036,433.55 · Remittance 27,237 / 313,527,437.55 · Int'l QR 730 / 6,380,842.74 · Card-Domestic 465 / 3,314,247.77.
