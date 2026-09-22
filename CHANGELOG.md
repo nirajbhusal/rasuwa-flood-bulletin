@@ -1,3 +1,10 @@
+## 2026-09-22-nchl-0000 · NCHL 22 Sep 00:00
+
+- NCHL channels for the Prime Minister's Disaster Relief Fund at **22 Sep 2026 00:00**: **272,248** txns · **Rs. 6,434,549,513.61** (~६.४३ अर्ब). IPS/Cheque 5,668 / 2,879,233,119.80 · Card-International 103,608 / 1,755,487,707.88 · Online Transfer 17,761 / 1,051,569,724.32 · Domestic QR 116,779 / 425,036,433.55 · Remittance 27,237 / 313,527,437.55 · Int'l QR 730 / 6,380,842.74 · Card-Domestic 465 / 3,314,247.77.
+- Labeled NCHL+Fonepay **8,941,798,975.61** (~८.९४ अर्ब) = new NCHL 6.43 + Fonepay till-date **2.51 unchanged**. Not a mega-total with MoF. MoF 9.99 / USD 23.4m / available 13.57, named handover 2.74, and Fonepay's own total stay separately labeled.
+- Previous NCHL 14 Sep 00:00 (263,267 / 5,521,433,368.22) is history. Archive `img/today-2026-09-22-nchl-0000.jpg`. SitRep KPIs, weather, markets, and LPG unchanged.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-22-nchl-0000`
+
 ## 2026-09-20-weather-12284 · DHM weather warning #12284 + notify
 
 - DHM MFD **मौसम चेतावनी #12284** (4 Ashwin 18:00 / 20 Sep): map-based 3-day warning; official text empty. Maps archived `img/dhm/warning-12284-day{1,2,3}.png`. Citizen reprint with DHM links.
