@@ -1,0 +1,32 @@
+{
+  "id": "12294",
+  "title": "\tआगामी तीन दिनका लागि मौसम चेतावनी (जारी मिति: २०८३-०६-०७ गते बिहान ८:०० बजे)",
+  "thumbnail": null,
+  "description": "",
+  "content": "",
+  "user_id": "80",
+  "create_at": "2026-09-23T02:24:54.783Z",
+  "update_at": "2026-09-23T02:55:23.824Z",
+  "status": "1",
+  "update_by": "80",
+  "expired_at": null,
+  "weather_map_status": true,
+  "issue_date": "2026-09-23T02:15:00.000Z",
+  "weather_map_images": [
+    {
+      "filepath": "weather-map/2026/09/23/warning-map-day-1-1790132124721.png",
+      "weather_type_id": 3,
+      "weather_type_day_id": 1
+    },
+    {
+      "filepath": "weather-map/2026/09/23/warning-map-day-2-1790132128921.png",
+      "weather_type_id": 3,
+      "weather_type_day_id": 2
+    },
+    {
+      "filepath": "weather-map/2026/09/23/warning-map-day-3-1790132132809.png",
+      "weather_type_id": 3,
+      "weather_type_day_id": 3
+    }
+  ]
+}

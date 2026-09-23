@@ -1,58 +1,69 @@
 {
-  "id": "2026-09-22-weather-12290",
+  "id": "2026-09-23-weather-12294",
   "source": "DHM Meteorological Forecasting Division (citizen reprint)",
   "warning": {
-    "page_id": 12290,
-    "title_ne": "आगामी तीन दिनका लागि मौसम चेतावनी (जारी मिति: २०८३-०६-०६ गते बिहान ८:०० बजे)",
-    "issued_at": "2026-09-22T08:00:00+05:45",
-    "issue_date_utc": "2026-09-22T02:15:00.000Z",
+    "page_id": 12294,
+    "title_ne": "आगामी तीन दिनका लागि मौसम चेतावनी (जारी मिति: २०८३-०६-०७ गते बिहान ८:०० बजे)",
+    "issued_at": "2026-09-23T08:00:00+05:45",
+    "issue_date_utc": "2026-09-23T02:15:00.000Z",
     "content": "",
     "weather_type_id": 3,
-    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12290",
-    "api": "https://dhm.gov.np/mfd/api/page/12290",
+    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12294",
+    "api": "https://dhm.gov.np/mfd/api/page/12294",
     "maps": [
       {
         "day": 1,
-        "file": "img/dhm/warning-12290-day1.png",
-        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/22/warning-map-day-1-1790060699822.png"
+        "label": "७ असोज / 23 Sep",
+        "file": "img/dhm/warning-12294-day1.png",
+        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/23/warning-map-day-1-1790132124721.png"
       },
       {
         "day": 2,
-        "file": "img/dhm/warning-12290-day2.png",
-        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/22/warning-map-day-2-1790060703998.png"
+        "label": "८ असोज / 24 Sep",
+        "file": "img/dhm/warning-12294-day2.png",
+        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/23/warning-map-day-2-1790132128921.png"
       },
       {
         "day": 3,
-        "file": "img/dhm/warning-12290-day3.png",
-        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/22/warning-map-day-3-1790060707761.png"
+        "label": "९ असोज / 25 Sep",
+        "file": "img/dhm/warning-12294-day3.png",
+        "src": "https://dhm.gov.np/mfd/api/image/weather-map/2026/09/23/warning-map-day-3-1790132132809.png"
       }
-    ]
+    ],
+    "shared_by": "https://x.com/NDRRMA_Nepal/status/2102614091085107360"
   },
-  "bulletin_24": {
-    "page_id": 12291,
-    "title_ne": "भोटेकोशी बाढी प्रभावित क्षेत्रको लागि विशेष मौसम बुलेटिन -२४",
-    "title_en": "Bhotekoshi Flood Affected Area’s Special Weather Bulletin - 24",
-    "issued_at": "2026-09-22T17:00:00+05:45",
-    "issue_date_utc": "2026-09-22T11:20:00.000Z",
-    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12291",
-    "api": "https://dhm.gov.np/mfd/api/page/12291",
-    "past_24h": "गोरखा, रसुवा, नुवाकोट, धादिङ र चितवन आसपास थोरै ठाउँमा मध्यम सम्म वर्षा मापन",
-    "forecast_window": "२०८३-०६-०६ राति देखि २०८३-०६-०९ बिहान सम्म",
+  "bulletin_25": {
+    "page_id": 12296,
+    "title_ne": "भोटेकोशी बाढी प्रभावित क्षेत्रको लागि विशेष मौसम बुलेटिन -२५",
+    "title_en": "Bhotekoshi Flood Affected Area’s Special Weather Bulletin - 25",
+    "issued_at": "2026-09-23T16:40:00+05:45",
+    "issue_date_utc": "2026-09-23T12:15:00.000Z",
+    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12296",
+    "api": "https://dhm.gov.np/mfd/api/page/12296",
+    "past_24h": "गोरखा, रसुवा, नुवाकोट, धादिङ र चितवन आसपास केही ठाउँमा मध्यम; धादिङको एक-दुई ठाउँमा भारी वर्षा मापन",
+    "forecast_window": "२०८३-०६-०७ राति देखि २०८३-०६-१० बिहान सम्म",
     "medium_rain_districts": ["रसुवा", "नुवाकोट", "धादिङ", "गोरखा", "चितवन"],
     "heavy_rain_possible_1_2_places": ["रसुवा", "नुवाकोट", "धादिङ", "गोरखा", "चितवन"],
     "rain_scale_mm": { "light": "≤10", "medium": "10–50", "heavy": "50–100" },
-    "district_map": "img/dhm/bulletin-12291-districts.png"
+    "district_map": "img/dhm/bulletin-12296-districts.png"
+  },
+  "monsoon_bulletin_3_update": {
+    "page_id": 12293,
+    "issued_at": "2026-09-22T18:00:00+05:45",
+    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12293",
+    "window": "असोज ९ शुक्रबार देखि असोज ११ आइतबार",
+    "note": "Gandaki and Lumbini: some places heavy to very heavy with thunder, lightning and wind; 1–2 places extreme heavy possible. Madhesh and some places in Koshi, Bagmati and Sudurpaschim: heavy to very heavy. Karnali: some places heavy."
   },
   "history": {
-    "warning_12284": {
-      "page_id": 12284,
-      "issued_at": "2026-09-20T18:00:00+05:45",
-      "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12284"
+    "warning_12290": {
+      "page_id": 12290,
+      "issued_at": "2026-09-22T08:00:00+05:45",
+      "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12290"
     },
-    "bulletin_22": {
-      "page_id": 12283,
-      "issued_at": "2026-09-20T16:30:00+05:45",
-      "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12283"
+    "bulletin_24": {
+      "page_id": 12291,
+      "issued_at": "2026-09-22T17:00:00+05:45",
+      "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12291"
     }
   }
 }

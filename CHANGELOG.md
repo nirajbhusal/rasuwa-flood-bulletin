@@ -1,3 +1,11 @@
+## 2026-09-23-weather-12294 · DHM warning #12294 + Bulletin-25
+
+- DHM MFD **मौसम चेतावनी #12294** (7 Ashwin 08:00 / 23 Sep): map-based 3-day warning (Ashwin 7–9); official text empty. Maps archived `img/dhm/warning-12294-day{1,2,3}.png`. Citizen reprint with DHM links. NDRRMA shared the maps.
+- Same-day **Special Weather Bulletin-25** (#12296, 16:40): many places medium rain Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan from the night of 7 Ashwin through the morning of 10 Ashwin; **heavy rain possible in 1–2 places in each district**. Past 24h: some medium in those districts; Dhading 1–2 places heavy measured. Official district map `img/dhm/bulletin-12296-districts.png` + day/night table on `notices.html#alert`.
+- Short notices update (not a long post) points at `#alert` and mentions Monsoon Bulletin-3 update **#12293** (Ashwin 9–11 heavy-rain risk). Homepage weather strip updated. Previous #12290 / Bulletin-24 kept as the labeled history card. SitRep KPIs, MoF/NCHL/Fonepay, markets, LPG unchanged.
+- `latest.json` id **2026-09-23-weather-12294** (official DHM only; url `notices.html#alert`). brand_date chip → 7 Ashwin / 23 Sep. No new SitRep figures.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-23-weather-12294`
+
 ## 2026-09-22-weather-12290 · DHM warning #12290 + Bulletin-24
 
 - DHM MFD **मौसम चेतावनी #12290** (6 Ashwin 08:00 / 22 Sep): map-based 3-day warning; official text empty. Maps archived `img/dhm/warning-12290-day{1,2,3}.png`. Citizen reprint with DHM links.
