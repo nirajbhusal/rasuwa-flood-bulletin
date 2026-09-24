@@ -17,9 +17,10 @@
     },
     "roads": {
       "label": {"ne": "सडक", "en": "Roads"},
-      "followups": ["road-map", "wx-map", "hl", "weather"],
+      "followups": ["rd-nh17", "road-map", "hl", "weather"],
       "faq": [
         {"id": "rd-now", "featured": true, "route": "roads", "q": {"ne": "सडक अहिले कस्तो छ?", "en": "What is the road status?"}},
+        {"id": "rd-nh17", "route": "roads", "q": {"ne": "पृथ्वी राजमार्ग / NH17 अहिले कस्तो छ?", "en": "What is the status of Prithvi Highway / NH17?"}},
         {"id": "rd-map", "route": "map", "q": {"ne": "सडक नक्सा कहाँ छ?", "en": "Where is the road map?"}},
         {"id": "rd-src", "route": "about", "static": {"ne": "सडक खण्ड सडक विभागको प्रकाशित सूचीबाट आउँछ। ताजा खण्ड सोध्दा त्यही फाइल पढिन्छ।", "en": "Road sections come from the Department of Roads list published on this site. A fresh question reads that file again."}, "q": {"ne": "सडकको स्रोत के हो?", "en": "What is the source for roads?"}}
       ]
@@ -91,6 +92,7 @@
     "wx-map": {"route": "weather", "q": {"ne": "आजको नक्सा?", "en": "Today’s map?"}},
     "weather": {"route": "weather", "q": {"ne": "आजको मौसम?", "en": "Today’s weather?"}},
     "roads": {"route": "roads", "q": {"ne": "सडक?", "en": "Roads?"}},
+    "rd-nh17": {"route": "roads", "q": {"ne": "NH17 / पृथ्वी राजमार्ग?", "en": "NH17 / Prithvi Highway?"}},
     "road-map": {"route": "map", "q": {"ne": "सडक नक्सा?", "en": "Road map?"}},
     "hl": {"route": "helpline", "q": {"ne": "हेल्पलाइन?", "en": "Helpline?"}},
     "rescue": {"route": "rescue", "q": {"ne": "उद्धार संख्या?", "en": "Rescue numbers?"}},

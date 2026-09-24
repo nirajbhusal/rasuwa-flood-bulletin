@@ -7,7 +7,7 @@
 (function () {
   "use strict";
 
-  var VER = window.PAGE_VER || "2026-09-24-dhm-12300";
+  var VER = window.PAGE_VER || "2026-09-24-portal-ux";
   var HL_ORDER = ["1234", "100", "1148", "1111", "1114", "102", "1144", "1155"];
   var HL_FALLBACK = [
     { tel: "1234", key: "hl_deoc" },
@@ -831,28 +831,51 @@
     row.appendChild(em);
     host.appendChild(row);
   }
+  function topicLabel(topic) {
+    var models = chipModels();
+    for (var i = 0; i < models.length; i++) {
+      if (models[i].id === topic) return models[i].label;
+    }
+    return "";
+  }
   function renderCard(host, built, topic, isNew) {
     var art = el("article", "ask-card" + (topic ? " is-" + topic : "") + (isNew ? " is-new" : ""));
+    var label = topicLabel(topic);
+    if (label) {
+      var kicker = el("p", "ask-card-k");
+      kicker.textContent = label;
+      art.appendChild(kicker);
+    }
+    var body = el("div", "ask-card-body");
     (built.lines || []).forEach(function (item) {
       if (!item || !item.text) return;
-      renderLine(art, item);
+      renderLine(body, item);
     });
+    art.appendChild(body);
+    var foot = null;
+    function ensureFoot() {
+      if (!foot) {
+        foot = el("div", "ask-card-foot");
+        art.appendChild(foot);
+      }
+      return foot;
+    }
     if (built.source) {
       var src = el("p", "ask-src");
       src.textContent = built.source;
-      art.appendChild(src);
+      ensureFoot().appendChild(src);
     }
     if (built.extra && built.extra.names != null) {
       var btn = el("button", "ask-go");
       btn.type = "button";
       btn.textContent = built.cta || t("ask_go_names");
       btn.addEventListener("click", function () { openNames(built.extra.names); });
-      art.appendChild(btn);
+      ensureFoot().appendChild(btn);
     } else if (built.href && built.cta) {
       var link = el("a", "ask-go");
       link.href = built.href;
       link.textContent = built.cta;
-      art.appendChild(link);
+      ensureFoot().appendChild(link);
     }
     if (built.extra && built.extra.suggest) {
       var sug = el("div", "ask-suggest");
@@ -906,7 +929,7 @@
       toggle.setAttribute("aria-label", t("ask_faq"));
       toggle.textContent = faqOpen ? "–" : "+";
     }
-    box.classList.toggle("is-open", faqOpen);
+    box.classList.toggle("is-open", !!(faqOpen || norm(faqQuery)));
     var qn = norm(faqQuery);
     list.replaceChildren();
     var shown = 0;
@@ -1024,6 +1047,8 @@
       row.appendChild(b);
     });
     chips.appendChild(row);
+    var sheet = document.getElementById("ask-sheet");
+    if (sheet) sheet.classList.toggle("is-thread", thread.length > 0);
     var title = document.getElementById("ask-h");
     if (title) title.textContent = t("ask_title");
     var sub = document.getElementById("ask-sub");
@@ -1285,7 +1310,6 @@
   }
   function mount() {
     if (document.getElementById("ask-fab")) return;
-    var dock = document.querySelector(".fab-dock") || document.body;
     var fab = el("button", "ask-fab");
     fab.id = "ask-fab";
     fab.type = "button";
@@ -1294,7 +1318,7 @@
     fab.setAttribute("aria-haspopup", "dialog");
     fab.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg><span class="ask-fab-lab"></span>';
     fab.addEventListener("click", function () { setOpen(!open); });
-    dock.insertBefore(fab, dock.firstChild);
+    document.body.appendChild(fab);
 
     var sheet = el("div", "ask-sheet");
     sheet.id = "ask-sheet";
@@ -1313,13 +1337,15 @@
         '<div class="ask-log" id="ask-log" role="log" aria-live="polite"></div>' +
         '<section class="ask-faq" id="ask-faq">' +
           '<div class="ask-faq-bar">' +
-            '<h3 id="ask-faq-h"></h3>' +
-            '<button type="button" class="ask-faq-toggle" id="ask-faq-toggle" aria-expanded="false">+</button>' +
+            '<div class="ask-faq-title">' +
+              '<h3 id="ask-faq-h"></h3>' +
+              '<button type="button" class="ask-faq-toggle" id="ask-faq-toggle" aria-expanded="false" aria-controls="ask-faq-body">+</button>' +
+            "</div>" +
+            '<label class="sr-only" for="ask-faq-q" id="ask-faq-lab"></label>' +
+            '<input id="ask-faq-q" type="search" autocomplete="off" enterkeyhint="search">' +
           "</div>" +
           '<div class="ask-faq-body" id="ask-faq-body">' +
             '<p class="ask-faq-note" id="ask-faq-note"></p>' +
-            '<label class="sr-only" for="ask-faq-q" id="ask-faq-lab"></label>' +
-            '<input id="ask-faq-q" type="search" autocomplete="off" enterkeyhint="search">' +
             '<ul class="ask-faq-list" id="ask-faq-list"></ul>' +
             '<p class="ask-faq-empty" id="ask-faq-empty" hidden></p>' +
             '<div class="ask-faq-suggest" id="ask-faq-suggest" hidden></div>' +
@@ -1358,8 +1384,13 @@
     });
     var faqInput = document.getElementById("ask-faq-q");
     if (faqInput) {
+      faqInput.addEventListener("focus", function () {
+        faqOpen = true;
+        renderFaq();
+      });
       faqInput.addEventListener("input", function () {
         faqQuery = faqInput.value || "";
+        if (norm(faqQuery)) faqOpen = true;
         renderFaq();
       });
       faqInput.addEventListener("keydown", function (e) {
