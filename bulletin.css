@@ -7711,3 +7711,89 @@ html.ask-lock body{position:fixed;left:0;right:0;width:100%}
   .wxb-foot.is-home .wxb-src{text-align:left}
   .wxb-panel{margin-left:8px;margin-right:8px;padding:10px}
 }
+
+/* 2026-09-24 nav + Ask FAQ */
+.chips a.is-parent{box-shadow:inset 0 -3px 0 #1e40af}
+.mkt-parent{margin:0 0 8px;font-weight:800;font-size:14px;color:#1e3a8a}
+.mkt-parent a{color:inherit;font-weight:800}
+.gov-subnav{
+  display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px;
+}
+.gov-subnav a{
+  display:inline-flex;align-items:center;min-height:40px;padding:8px 12px;
+  border-radius:999px;border:1px solid #bfdbfe;background:#eff6ff;color:#1e3a8a;
+  font-weight:800;font-size:14px;text-decoration:none;line-height:1.2;
+}
+.gov-subnav a:hover,.gov-subnav a:focus-visible{background:#1e40af;color:#fff;text-decoration:none}
+#gov-markets{scroll-margin-top:96px}
+.home-cat-sub{margin-top:0;margin-left:16px}
+.home-cat-sub h2{font-size:1.05rem}
+.ask-panel{width:min(480px,100%);overflow:hidden}
+.ask-log{scroll-padding-bottom:12px;min-height:72px}
+.ask-chips{max-height:148px;overflow:auto}
+.ask-user{box-shadow:0 1px 0 rgba(15,23,42,.04)}
+.ask-card{box-shadow:0 8px 20px rgba(15,23,42,.05)}
+.ask-error{
+  margin:0;padding:8px 10px;border-radius:12px;
+  background:#fff7ed;color:#9a3412;font-weight:800;font-size:14px;line-height:1.4;
+}
+.ask-retry{
+  appearance:none;border:0;background:transparent;color:#9a3412;
+  font:inherit;font-weight:800;text-decoration:underline;cursor:pointer;min-height:44px;
+}
+.ask-suggest{display:flex;flex-wrap:wrap;gap:8px}
+.ask-follow{margin:2px 0 8px}
+.ask-chip-next{background:#ecfeff;border-color:#99f6e4}
+.ask-faq{border-top:1px solid var(--line);background:#f8fafc}
+.ask-faq-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:8px 14px;cursor:pointer;
+}
+.ask-faq-bar h3{margin:0;font-size:14px;font-weight:800;letter-spacing:.02em}
+.ask-faq-toggle{
+  appearance:none;border:1px solid var(--line);background:#fff;color:var(--ink);
+  width:36px;height:36px;border-radius:999px;font:inherit;font-weight:800;font-size:20px;
+  line-height:1;cursor:pointer;
+}
+.ask-faq-toggle:focus-visible,.ask-faq-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.ask-faq-body{padding:0 14px 10px}
+.ask-faq:not(.is-open) .ask-faq-body{display:none}
+.ask-faq-note{margin:0 0 8px;color:var(--muted);font-size:12.5px;font-weight:700;line-height:1.4}
+.ask-faq-body input{
+  width:100%;box-sizing:border-box;font:inherit;font-size:16px;font-weight:650;
+  padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);
+}
+.ask-faq-body input:focus{outline:2px solid var(--teal);border-color:var(--teal)}
+.ask-faq-list{
+  list-style:none;margin:8px 0 0;padding:0;max-height:168px;overflow:auto;
+  -webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+}
+.ask-faq-list li{margin:0}
+.ask-faq-btn{
+  appearance:none;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);
+  background:transparent;color:var(--ink);font:inherit;font-weight:750;font-size:14.5px;
+  line-height:1.35;padding:10px 2px;min-height:44px;cursor:pointer;
+}
+.ask-faq-btn:hover{color:#0f766e}
+.ask-faq-empty{margin:8px 0 0;color:var(--muted);font-weight:800;font-size:14px}
+@media (min-width:760px){
+  .ask-panel{
+    width:min(500px,calc(100vw - 48px));
+    max-height:min(70vh,680px);
+    margin:0 20px 72px 0;
+  }
+  .ask-faq-list{max-height:132px}
+}
+@media (max-width:759px){
+  .ask-sheet.is-typing .ask-faq,
+  .ask-sheet.is-typing .ask-chips{display:none}
+  .ask-panel{
+    max-height:min(92dvh, calc(100dvh - env(safe-area-inset-top, 0px) - 6px));
+    padding-bottom:env(safe-area-inset-bottom, 0px);
+  }
+  .ask-form{
+    padding-bottom:max(12px, env(safe-area-inset-bottom, 0px));
+  }
+  .ask-faq-list{max-height:30dvh}
+  .ask-chip-next{min-height:44px}
+}

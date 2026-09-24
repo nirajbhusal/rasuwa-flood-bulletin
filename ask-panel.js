@@ -1,8 +1,13 @@
-/*! Rasuwa flood bulletin · homepage Ask panel. Answers only from published JSON / pages. */
+/*! Rasuwa flood bulletin · homepage Ask panel.
+    Answers only from published JSON / pages.
+    data/ask-kb.json holds FAQ questions, follow-ups, routing, and static text.
+    It is maintained with bulletin updates. Weather, roads, rescue, names, funds,
+    helpline, and LPG figures are read from live files each time the panel opens —
+    the KB does not store NDRRMA, DHM, or DoR numbers. Ask does not scrape DHM. */
 (function () {
   "use strict";
 
-  var VER = window.PAGE_VER || "2026-09-24-dhm-12299";
+  var VER = window.PAGE_VER || "2026-09-24-nav-ask";
   var HL_ORDER = ["1234", "100", "1148", "1111", "1114", "102", "1144", "1155"];
   var HL_FALLBACK = [
     { tel: "1234", key: "hl_deoc" },
@@ -30,7 +35,9 @@
     { id: "fund", key: "ask_chip_fund" },
     { id: "helpline", key: "ask_chip_hl" },
     { id: "lpg", key: "ask_chip_lpg" },
-    { id: "map", key: "ask_chip_map" }
+    { id: "map", key: "ask_chip_map" },
+    { id: "markets", key: "ask_chip_mkt" },
+    { id: "about", key: "ask_chip_about" }
   ];
   var PROVINCES = [
     { id: "koshi", keys: ["koshi", "kosi", "कोशी", "कोसी"] },
@@ -70,11 +77,14 @@
     के: 1, हो: 1, छ: 1, नाम: 1, खोज: 1, उद्धार: 1, राहत: 1, कोष: 1
   };
 
-  var cache = { wx: null, roads: null, dash: null, lpg: null, hl: null };
+  var cache = { wx: null, roads: null, dash: null, lpg: null, hl: null, kb: null };
   var failed = {};
   var thread = [];
   var open = false;
   var askScrollY = 0;
+  var inflight = null;
+  var faqQuery = "";
+  var faqOpen = true;
 
   function lang() {
     return (document.documentElement.getAttribute("lang") || "ne").slice(0, 2) === "en" ? "en" : "ne";
@@ -277,7 +287,9 @@
     var q = norm(raw);
     if (!q) return { type: "empty" };
     var compact = q.replace(/\s+/g, "");
-    if (HL_ORDER.indexOf(compact) >= 0) return { type: "helpline" };
+    if (HL_ORDER.indexOf(compact) >= 0) return { type: "helpline", topic: "helpline", raw: raw };
+    var kbHit = matchKb(raw);
+    if (kbHit) return kbHit;
 
     var weatherKw = has(q, /weather|forecast|mausam|mousam|barkha|barsha|varsha|monsoon|rainfall|\brain\b|मौसम|वर्षा|मनसुन|चेतावनी/);
     var roadKw = has(q, /road|highway|sadak|baato|\bbato\b|navigate|सडक|बाटो|राजमार्ग|blocked|closure|band\b|बन्द/);
@@ -295,26 +307,105 @@
     var nameRest = raw.match(/(?:नाम\s*खोज|naam\s*khoj|name\s*search|search\s+(?:a\s+)?name)\s+(.+)$/i);
     if (!nameRest) nameRest = raw.match(/^(?:नाम|naam|name)\s+(.+)$/i);
 
-    if (mapKw && !province && !nh && !roads.length && !weatherKw) return { type: "map" };
-    if ((nh || roadKw || (roads.length && !province)) && !weatherKw && !rescueKw && !fundKw && !lpgKw) {
-      return { type: mapKw && !roads.length && !nh ? "map" : "roads", roads: roads, map: mapKw };
+    var mktKw = has(q, /punji|capital market|share market|\bnepse\b|पूँजी|पुँजी|सेयर बजार|नेप्से/);
+    var aboutKw = has(q, /about (?:this|the) bulletin|what is this|यो बुलेटिन|हाम्रो बारे|बारेमा/);
+    if (mapKw && !province && !nh && !roads.length && !weatherKw) return { type: "map", topic: "map", raw: raw };
+    if ((nh || roadKw || (roads.length && !province)) && !weatherKw && !rescueKw && !fundKw && !lpgKw && !mktKw) {
+      return { type: mapKw && !roads.length && !nh ? "map" : "roads", roads: roads, map: mapKw, topic: mapKw && !roads.length && !nh ? "map" : "roads", raw: raw };
     }
-    if ((weatherKw || province || (day && !roadKw)) && !rescueKw && !fundKw && !lpgKw) {
-      return { type: "weather", province: province, day: day };
+    if ((weatherKw || province || (day && !roadKw)) && !rescueKw && !fundKw && !lpgKw && !mktKw) {
+      return { type: "weather", province: province, day: day, topic: "weather", raw: raw };
     }
-    if (rescueKw) return { type: "rescue", q: q };
-    if (fundKw) return { type: "fund" };
-    if (hlKw) return { type: "helpline" };
-    if (lpgKw) return { type: "lpg" };
+    if (rescueKw) return { type: "rescue", q: q, topic: "rescue", raw: raw };
+    if (mktKw) return { type: "markets", topic: "markets", raw: raw };
+    if (fundKw) return { type: "fund", topic: "fund", raw: raw };
+    if (hlKw) return { type: "helpline", topic: "helpline", raw: raw };
+    if (lpgKw) return { type: "lpg", topic: "lpg", raw: raw };
+    if (aboutKw) return { type: "about", topic: "about", raw: raw };
     if (nameKw) {
       var rest = nameRest && nameRest[1] ? nameRest[1].trim() : "";
       if (/^(khoj|search|खोज)$/i.test(rest)) rest = "";
-      return { type: "names", query: rest };
+      return { type: "names", query: rest, topic: "names", raw: raw };
     }
-    if (roads.length && !unmatchedTokens(raw).length) return { type: "roads", roads: roads, map: mapKw };
-    if (province) return { type: "weather", province: province, day: day };
-    if (looksLikeName(raw)) return { type: "names", query: raw.trim() };
-    return { type: "fallback" };
+    if (roads.length && !unmatchedTokens(raw).length) return { type: "roads", roads: roads, map: mapKw, topic: "roads", raw: raw };
+    if (province) return { type: "weather", province: province, day: day, topic: "weather", raw: raw };
+    if (looksLikeName(raw)) return { type: "names", query: raw.trim(), topic: "names", raw: raw };
+    return { type: "fallback", topic: "about", raw: raw };
+  }
+  function faqList() {
+    var kb = cache.kb;
+    var out = [];
+    if (!kb || !kb.topics) return out;
+    Object.keys(kb.topics).forEach(function (id) {
+      var topic = kb.topics[id] || {};
+      (topic.faq || []).forEach(function (item) {
+        out.push({ topic: id, item: item });
+      });
+    });
+    return out;
+  }
+  function specFromRoute(route, raw, extra) {
+    var spec = { type: route || "fallback", topic: route || "about", raw: raw || "" };
+    if (route === "map") spec.map = true;
+    if (route === "names") spec.query = "";
+    if (extra && extra.static) spec.staticText = extra.static;
+    if (extra && extra.topic) spec.topic = extra.topic;
+    if (extra && extra.query != null) spec.query = extra.query;
+    return spec;
+  }
+  function matchKb(raw) {
+    var q = norm(raw);
+    if (!q) return null;
+    var items = faqList();
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i].item;
+      var candidates = [tx(item.q), tx(item.prompt)];
+      for (var c = 0; c < candidates.length; c++) {
+        if (candidates[c] && norm(candidates[c]) === q) {
+          return specFromRoute(item.route || items[i].topic, raw, {
+            static: item.static,
+            topic: item.route || items[i].topic,
+            query: item.route === "names" ? "" : undefined
+          });
+        }
+      }
+    }
+    var prompts = (cache.kb && cache.kb.prompts) || {};
+    var keys = Object.keys(prompts);
+    for (var p = 0; p < keys.length; p++) {
+      var prompt = prompts[keys[p]];
+      if (prompt && norm(tx(prompt.q)) === q) {
+        return specFromRoute(prompt.route || keys[p], raw, { topic: prompt.route || keys[p], query: prompt.route === "names" ? "" : undefined });
+      }
+    }
+    return null;
+  }
+  function followupsFor(topic) {
+    var kb = cache.kb;
+    if (!kb || !kb.topics || !kb.prompts) return [];
+    var topicRow = kb.topics[topic] || kb.topics.about;
+    if (!topicRow) return [];
+    var ids = topicRow.followups || [];
+    var out = [];
+    ids.forEach(function (id) {
+      var prompt = kb.prompts[id];
+      if (!prompt) return;
+      out.push({ id: id, route: prompt.route || id, q: prompt.q, topic: prompt.route || id });
+    });
+    return out.slice(0, 4);
+  }
+  function chipModels() {
+    var kb = cache.kb;
+    if (kb && kb.topics && kb.chip_order) {
+      return kb.chip_order.map(function (id) {
+        var topic = kb.topics[id];
+        if (!topic || !topic.label) return null;
+        return { id: id === "map" ? "map" : id, label: tx(topic.label) };
+      }).filter(Boolean);
+    }
+    return CHIPS.map(function (c) {
+      return { id: c.id, label: t(c.key) };
+    });
   }
   function looksLikeName(raw) {
     var q = norm(raw);
@@ -370,6 +461,7 @@
     var ui = wx.ui || {};
     var provinceId = spec.province || null;
     var day = spec.day || null;
+    if (!day && spec.raw) day = findDay(spec.raw, wx);
     if (!day && !provinceId) {
       var todayIso = ktmISO(0);
       if (warningDay(wx, todayIso)) day = { date: todayIso, meta: timelineDay(wx, todayIso) };
@@ -451,6 +543,10 @@
     return lines;
   }
   function answerRoads(spec) {
+    if (spec && spec.raw && !(spec.roads && spec.roads.length)) {
+      var found = findRoads(spec.raw);
+      if (found.length) spec.roads = found;
+    }
     var data = cache.roads;
     if (!data) return nodata(spec && spec.map ? "notices.html#dor-map" : "notices.html#roads", spec && spec.map ? t("ask_go_map") : t("ask_go_road"));
     var ui = data.ui || {};
@@ -500,6 +596,7 @@
     (dash.cards || []).forEach(function (c) { cards[c.id] = c; });
     var order = ["rescued", "dead", "miss", "injured"];
     var q = (spec && spec.q) || "";
+    if (!q && spec && spec.raw) q = norm(spec.raw);
     var deadQ = has(q, /मृतक|मृत्यु|\bdeaths?\b/);
     var missQ = has(q, /सम्पर्कविहीन|बेपत्ता|missing/);
     var injQ = has(q, /उपचार|घाइते|injured|treatment/);
@@ -568,6 +665,23 @@
   function answerFallback() {
     return card([line(t("ask_fallback"))], "", "", "");
   }
+  function answerMarkets(spec) {
+    var lines = [];
+    if (spec && spec.staticText) lines.push(line(tx(spec.staticText)));
+    lines.push(line(t("nav_gov") + " · " + t("nav_markets")));
+    var lead = t("home_markets_lead");
+    if (lead && lead !== "home_markets_lead") lines.push(line(lead));
+    var src = t("home_markets_src");
+    if (src && src !== "home_markets_src") lines.push(line(src));
+    return card(lines, "", "gov.html#gov-markets", t("ask_go_mkt"));
+  }
+  function answerAbout(spec) {
+    var text = spec && spec.staticText ? tx(spec.staticText) : t("ask_about");
+    var note = cache.kb && cache.kb.maintain ? tx(cache.kb.maintain) : t("ask_kb_note");
+    var lines = [line(text)];
+    if (note && note !== text) lines.push(line(note));
+    return card(lines, "", "about.html", t("ask_go_about"));
+  }
   function build(spec) {
     if (!spec || spec.type === "empty") return null;
     if (spec.type === "weather") return answerWeather(spec);
@@ -577,6 +691,8 @@
     if (spec.type === "helpline") return answerHelpline();
     if (spec.type === "lpg") return answerLpg();
     if (spec.type === "names") return answerNames(spec);
+    if (spec.type === "markets") return answerMarkets(spec);
+    if (spec.type === "about") return answerAbout(spec);
     return answerFallback();
   }
   function needs(spec) {
@@ -588,26 +704,39 @@
     return false;
   }
 
+  function bust(url) {
+    return url + (url.indexOf("?") >= 0 ? "&" : "?") + "v=" + encodeURIComponent(VER);
+  }
   function load() {
+    if (inflight) return inflight;
+    failed = {};
     function getJSON(url, key) {
-      return fetch(url + "?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+      return fetch(bust(url), { cache: "no-store" })
         .then(function (r) { if (!r.ok) throw new Error(key); return r.json(); })
-        .then(function (j) { cache[key] = j; })
+        .then(function (j) { cache[key] = j; failed[key] = 0; })
         .catch(function () { failed[key] = 1; });
     }
     function getHTML(url, key, parse) {
-      return fetch(url + "?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+      return fetch(bust(url), { cache: "no-store" })
         .then(function (r) { if (!r.ok) throw new Error(key); return r.text(); })
-        .then(function (html) { cache[key] = parse(html); })
+        .then(function (html) { cache[key] = parse(html); failed[key] = 0; })
         .catch(function () { failed[key] = 1; });
     }
-    return Promise.all([
+    inflight = Promise.all([
+      getJSON("data/ask-kb.json", "kb"),
       getJSON("data/weather-alert.json", "wx"),
       getJSON("data/roads-dor.json", "roads"),
       getJSON("api/dashboard.json", "dash"),
       getHTML("supply.html", "lpg", parseSupply),
       getHTML("contact.html", "hl", parseHelpline)
-    ]).then(render);
+    ]).then(function () {
+      inflight = null;
+      render();
+    }, function () {
+      inflight = null;
+      render();
+    });
+    return inflight;
   }
   function textOf(node) {
     return node ? String(node.textContent || "").replace(/\s+/g, " ").trim() : "";
@@ -693,54 +822,167 @@
     }
     host.appendChild(art);
   }
+  function askSpec(route, raw, extra) {
+    var spec = specFromRoute(route, raw, extra || {});
+    if (!spec.raw) spec.raw = raw || "";
+    return spec;
+  }
+  function renderFollow(host, topic) {
+    var items = followupsFor(topic);
+    if (!items.length) return;
+    var wrap = el("div", "ask-follow");
+    var cap = el("p", "ask-chips-h");
+    cap.textContent = t("ask_follow");
+    wrap.appendChild(cap);
+    var row = el("div", "ask-chip-row");
+    items.forEach(function (f) {
+      var b = el("button", "ask-chip ask-chip-next");
+      b.type = "button";
+      b.textContent = tx(f.q);
+      b.addEventListener("click", function () {
+        submit(tx(f.q), askSpec(f.route, tx(f.q), { topic: f.topic, query: f.route === "names" ? "" : undefined }));
+      });
+      row.appendChild(b);
+    });
+    wrap.appendChild(row);
+    host.appendChild(wrap);
+  }
+  function renderFaq() {
+    var box = document.getElementById("ask-faq");
+    var list = document.getElementById("ask-faq-list");
+    var empty = document.getElementById("ask-faq-empty");
+    var h = document.getElementById("ask-faq-h");
+    var input = document.getElementById("ask-faq-q");
+    var note = document.getElementById("ask-faq-note");
+    var toggle = document.getElementById("ask-faq-toggle");
+    if (!box || !list) return;
+    if (h) h.textContent = t("ask_faq");
+    if (input && document.activeElement !== input) input.setAttribute("placeholder", t("ask_faq_ph"));
+    if (note) {
+      var stamp = cache.kb && cache.kb.updated_at ? cache.kb.updated_at : "";
+      note.textContent = t("ask_kb_note") + (stamp ? " · " + stamp : "");
+    }
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", faqOpen ? "true" : "false");
+      toggle.setAttribute("aria-label", t("ask_faq"));
+      toggle.textContent = faqOpen ? "–" : "+";
+    }
+    box.classList.toggle("is-open", faqOpen);
+    var qn = norm(faqQuery);
+    list.replaceChildren();
+    var shown = 0;
+    faqList().forEach(function (entry) {
+      var label = tx(entry.item.q);
+      var bag = entry.item.q || {};
+      var hay = norm((bag.ne || "") + " " + (bag.en || "") + " " + label);
+      if (qn && hay.indexOf(qn) < 0) return;
+      shown += 1;
+      var li = el("li");
+      var b = el("button", "ask-faq-btn");
+      b.type = "button";
+      b.textContent = label;
+      b.addEventListener("click", function () {
+        submit(label, askSpec(entry.item.route || entry.topic, label, {
+          static: entry.item.static,
+          topic: entry.item.route || entry.topic,
+          query: (entry.item.route || entry.topic) === "names" ? "" : undefined
+        }));
+      });
+      li.appendChild(b);
+      list.appendChild(li);
+    });
+    if (empty) {
+      empty.hidden = shown !== 0;
+      empty.textContent = failed.kb && !cache.kb ? t("ask_err") : t("ask_faq_empty");
+    }
+  }
   function render() {
     var log = document.getElementById("ask-log");
     var chips = document.getElementById("ask-chips");
     if (!log || !chips) return;
     log.replaceChildren();
+    if ((failed.kb && !cache.kb) || (failed.wx && !cache.wx && thread.length)) {
+      var err = el("p", "ask-error");
+      err.textContent = t("ask_err");
+      var retry = el("button", "ask-retry");
+      retry.type = "button";
+      retry.textContent = t("ask_retry");
+      retry.addEventListener("click", function () { load(); });
+      err.appendChild(document.createTextNode(" "));
+      err.appendChild(retry);
+      log.appendChild(err);
+    }
     if (!thread.length) {
       var greet = el("p", "ask-greet");
       greet.textContent = t("ask_greet");
       log.appendChild(greet);
+      var suggest = el("div", "ask-suggest");
+      faqList().forEach(function (entry) {
+        if (!entry.item.featured) return;
+        var b = el("button", "ask-chip");
+        b.type = "button";
+        var label = tx(entry.item.q);
+        b.textContent = label;
+        b.addEventListener("click", function () {
+          submit(label, askSpec(entry.item.route || entry.topic, label, {
+            static: entry.item.static,
+            topic: entry.item.route || entry.topic,
+            query: (entry.item.route || entry.topic) === "names" ? "" : undefined
+          }));
+        });
+        suggest.appendChild(b);
+      });
+      if (suggest.childNodes.length) log.appendChild(suggest);
     }
-    thread.forEach(function (msg) {
+    thread.forEach(function (msg, idx) {
       if (msg.kind === "user") {
         var bubble = el("p", "ask-user");
         bubble.textContent = msg.text;
         log.appendChild(bubble);
         return;
       }
+      var last = idx === thread.length - 1;
       if (needs(msg.spec)) {
         renderCard(log, null, true);
         return;
       }
-      renderCard(log, build(msg.spec), false);
+      var built = build(msg.spec);
+      renderCard(log, built || answerFallback(), false);
+      if (last) renderFollow(log, (msg.spec && (msg.spec.topic || msg.spec.type)) || "about");
     });
+    renderFaq();
     chips.replaceChildren();
     var cap = el("p", "ask-chips-h");
     cap.textContent = t("ask_chips");
     chips.appendChild(cap);
     var row = el("div", "ask-chip-row");
-    CHIPS.forEach(function (c) {
+    chipModels().forEach(function (c) {
       var b = el("button", "ask-chip");
       b.type = "button";
-      b.textContent = t(c.key);
-      b.addEventListener("click", function () { submit(t(c.key), { type: c.id === "map" ? "map" : c.id, query: "" }); });
+      b.textContent = c.label;
+      b.addEventListener("click", function () {
+        submit(c.label, askSpec(c.id, c.label, { topic: c.id, query: c.id === "names" ? "" : undefined }));
+      });
       row.appendChild(b);
     });
     chips.appendChild(row);
     var title = document.getElementById("ask-h");
     if (title) title.textContent = t("ask_title");
     var sub = document.getElementById("ask-sub");
-    if (sub) sub.textContent = t("ask_sub");
+    if (sub) {
+      var stamp = cache.kb && cache.kb.updated_at ? " · " + cache.kb.updated_at : "";
+      sub.textContent = t("ask_sub") + stamp;
+    }
     var input = document.getElementById("ask-q");
-    if (input) input.setAttribute("placeholder", t("ask_ph"));
+    if (input && document.activeElement !== input) input.setAttribute("placeholder", t("ask_ph"));
     var send = document.getElementById("ask-send");
     if (send) send.textContent = t("ask_send");
     var x = document.getElementById("ask-x");
     if (x) x.setAttribute("aria-label", t("ask_close"));
     var qLab = document.getElementById("ask-q-lab");
     if (qLab) qLab.textContent = t("ask_title");
+    var faqLab = document.getElementById("ask-faq-lab");
+    if (faqLab) faqLab.textContent = t("ask_faq");
     var fab = document.getElementById("ask-fab");
     if (fab) {
       var lab = fab.querySelector(".ask-fab-lab");
@@ -753,15 +995,17 @@
     var q = String(text || "").trim();
     if (!q && !(spec && spec.type)) return;
     var resolved = spec && spec.type ? spec : classify(q);
+    if (!resolved.raw) resolved.raw = q;
+    if (!resolved.topic) resolved.topic = resolved.type;
     if (resolved.type === "empty") return;
     if (resolved.type === "names") resolved.query = resolved.query != null ? resolved.query : q;
     thread.push({ kind: "user", text: q });
     thread.push({ kind: "card", spec: resolved });
-    if (thread.length > 16) thread = thread.slice(thread.length - 16);
+    if (thread.length > 24) thread = thread.slice(thread.length - 24);
     render();
     if (resolved.type === "names") openNames(resolved.query || "");
     var input = document.getElementById("ask-q");
-    if (input && spec && spec.type) input.value = "";
+    if (input) input.value = "";
   }
   function openNames(q) {
     if (typeof window.__openNamesSearch === "function" && document.getElementById("search")) {
@@ -833,6 +1077,7 @@
       });
       var input = document.getElementById("ask-q");
       window.setTimeout(function () { if (open) focusEl(input); }, 60);
+      load();
     } else {
       sheet.classList.remove("is-open");
       placeSheet();
@@ -869,7 +1114,20 @@
           '<div><h2 id="ask-h"></h2><p id="ask-sub"></p></div>' +
           '<button type="button" class="ask-x" id="ask-x" data-ask-close>×</button>' +
         "</header>" +
-        '<div class="ask-log" id="ask-log" aria-live="polite"></div>' +
+        '<div class="ask-log" id="ask-log" role="log" aria-live="polite"></div>' +
+        '<section class="ask-faq is-open" id="ask-faq">' +
+          '<div class="ask-faq-bar">' +
+            '<h3 id="ask-faq-h"></h3>' +
+            '<button type="button" class="ask-faq-toggle" id="ask-faq-toggle" aria-expanded="true">–</button>' +
+          "</div>" +
+          '<div class="ask-faq-body" id="ask-faq-body">' +
+            '<p class="ask-faq-note" id="ask-faq-note"></p>' +
+            '<label class="sr-only" for="ask-faq-q" id="ask-faq-lab"></label>' +
+            '<input id="ask-faq-q" type="search" autocomplete="off" enterkeyhint="search">' +
+            '<ul class="ask-faq-list" id="ask-faq-list"></ul>' +
+            '<p class="ask-faq-empty" id="ask-faq-empty" hidden></p>' +
+          "</div>" +
+        "</section>" +
         '<div class="ask-chips" id="ask-chips"></div>' +
         '<form class="ask-form" id="ask-form">' +
           '<label class="sr-only" for="ask-q" id="ask-q-lab"></label>' +
@@ -890,6 +1148,31 @@
       submit(value, null);
       if (input) input.value = "";
     });
+    var faqToggle = document.getElementById("ask-faq-toggle");
+    var faqHead = document.querySelector(".ask-faq-bar");
+    function flipFaq() {
+      faqOpen = !faqOpen;
+      render();
+    }
+    if (faqToggle) faqToggle.addEventListener("click", flipFaq);
+    if (faqHead) faqHead.addEventListener("click", function (e) {
+      if (e.target && e.target.id === "ask-faq-toggle") return;
+      flipFaq();
+    });
+    var faqInput = document.getElementById("ask-faq-q");
+    if (faqInput) {
+      faqInput.addEventListener("input", function () {
+        faqQuery = faqInput.value || "";
+        renderFaq();
+      });
+      faqInput.addEventListener("keydown", function (e) {
+        if (e.key !== "Enter") return;
+        e.preventDefault();
+        var first = document.querySelector("#ask-faq-list button");
+        if (first) first.click();
+      });
+    }
+    faqOpen = !window.matchMedia("(max-width: 759px)").matches;
     sheet.addEventListener("keydown", function (e) {
       if (!open) return;
       if (e.key === "Escape") {
@@ -926,8 +1209,17 @@
     var askInput = document.getElementById("ask-q");
     if (askInput) {
       askInput.addEventListener("focus", function () {
+        sheet.classList.add("is-typing");
         window.setTimeout(placeSheet, 40);
         window.setTimeout(placeSheet, 280);
+        window.setTimeout(function () {
+          var log = document.getElementById("ask-log");
+          if (log) log.scrollTop = log.scrollHeight;
+        }, 320);
+      });
+      askInput.addEventListener("blur", function () {
+        sheet.classList.remove("is-typing");
+        window.setTimeout(placeSheet, 80);
       });
     }
     if (window.visualViewport) {
@@ -937,6 +1229,9 @@
     window.addEventListener("resize", placeSheet);
     document.querySelectorAll(".fab-dock details, #portal-contact").forEach(function (d) {
       d.addEventListener("toggle", function () { if (d.open) setOpen(false); });
+    });
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden && open) load();
     });
     render();
   }
