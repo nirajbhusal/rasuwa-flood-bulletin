@@ -42,9 +42,25 @@
     "api": "https://dhm.gov.np/mfd/api/page/12296",
     "past_24h": "गोरखा, रसुवा, नुवाकोट, धादिङ र चितवन आसपास केही ठाउँमा मध्यम; धादिङको एक-दुई ठाउँमा भारी वर्षा मापन",
     "forecast_window": "२०८३-०६-०७ राति देखि २०८३-०६-१० बिहान सम्म",
-    "medium_rain_districts": ["रसुवा", "नुवाकोट", "धादिङ", "गोरखा", "चितवन"],
-    "heavy_rain_possible_1_2_places": ["रसुवा", "नुवाकोट", "धादिङ", "गोरखा", "चितवन"],
-    "rain_scale_mm": { "light": "≤10", "medium": "10–50", "heavy": "50–100" },
+    "medium_rain_districts": [
+      "रसुवा",
+      "नुवाकोट",
+      "धादिङ",
+      "गोरखा",
+      "चितवन"
+    ],
+    "heavy_rain_possible_1_2_places": [
+      "रसुवा",
+      "नुवाकोट",
+      "धादिङ",
+      "गोरखा",
+      "चितवन"
+    ],
+    "rain_scale_mm": {
+      "light": "≤10",
+      "medium": "10–50",
+      "heavy": "50–100"
+    },
     "district_map": "img/dhm/bulletin-12296-districts.png"
   },
   "monsoon_bulletin_3_update": {
@@ -65,5 +81,8 @@
       "issued_at": "2026-09-22T17:00:00+05:45",
       "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12291"
     }
-  }
+  },
+  "status": "history",
+  "superseded_by": "data/weather-alert.json",
+  "live_lead": 12297
 }

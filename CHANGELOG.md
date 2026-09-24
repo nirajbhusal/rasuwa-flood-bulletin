@@ -1,3 +1,13 @@
+## 2026-09-24-weather-12297 · DHM Monsoon Bulletin-3 update #12297
+
+- Live lead is DHM **#12297** Monsoon Special Bulletin-3 UPDATE (issued Asoj 7 / 23 Sep 2026, 18:00 NPT), a five-day warning for Asoj 7–11. Homepage and `notices.html#alert` share one infographic from `data/weather-alert.json`: province choropleth, Bhotekoshi corridor callout (#12296), and the same Gantt timeline in Nepali and English.
+- Province outlook for the Friday–Sunday peak: Gandaki and Lumbini very heavy with isolated extremely heavy; Koshi, Madhesh, Bagmati and Sudurpaschim heavy to very heavy in a few places; Karnali heavy in a few places. No river-gauge figures.
+- Official day maps archived as `img/dhm/warning-12297-day{1,2,3,4,5}.png` and shown on the notices alert section. Short notices update only. Helpline 1155 → `contact.html#helpline`.
+- Previous live card #12294 / Bulletin-25 #12296 moved to a history card. Both stay on the timeline (#12294 Asoj 7–9, #12296 Asoj 7 night–10 morning). #12293 is superseded for the Friday–Sunday window. #12290 / Bulletin-24 remain the older history card. SitRep KPIs and cash boards unchanged.
+- `index.html#alert`, `#weather` and `#wx` redirect to `notices.html#alert`. Badge is Weather Alert / मौसम चेतावनी. Citizen-bulletin disclaimer stays.
+- Last-updated chip is 8 Asoj / 24 Sep. Issue stamp on the card stays 23 Sep 18:00.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-weather-12297`
+
 ## 2026-09-23-weather-12294 · DHM warning #12294 + Bulletin-25
 
 - DHM MFD **मौसम चेतावनी #12294** (7 Ashwin 08:00 / 23 Sep): map-based 3-day warning (Ashwin 7–9); official text empty. Maps archived `img/dhm/warning-12294-day{1,2,3}.png`. Citizen reprint with DHM links. NDRRMA shared the maps.
