@@ -438,10 +438,10 @@ img{max-width:100%;display:block}
 }
 .live{
   display:inline-flex;align-items:center;gap:7px;
-  background:#166534;color:#fff;
+  background:#B91C1C;color:#fff;
   font-weight:800;font-size:12px;letter-spacing:.04em;
   padding:5px 10px;border-radius:999px;
-  border:1px solid #14532d;
+  border:1px solid #7f1d1d;
 }
 .live i{
   width:8px;height:8px;border-radius:50%;background:#fff;
@@ -1855,6 +1855,8 @@ footer{
 footer .foot-contact{margin:0 0 14px;color:var(--ink);font-size:15px;line-height:1.55}
 footer .foot-contact a{color:var(--teal);font-weight:800;text-decoration:none}
 footer .foot-contact a:hover{text-decoration:underline}
+footer .foot-msg{margin:0 0 14px;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;justify-content:center}
+footer .foot-msg .foot-msg-more{color:var(--teal);font-weight:800}
 footer .foot-about{margin:0 0 12px}
 footer .foot-about a{color:var(--teal);font-weight:800}
 .feed-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
@@ -7527,7 +7529,7 @@ html.ask-lock body{position:fixed;left:0;right:0;width:100%}
   .ask-fab,.ask-sheet{display:none !important}
 }
 
-/* 2026-09-24 ui polish · top find band, helpline under the header, live green, maps, Ask */
+/* 2026-09-24 ui polish · top find band, helpline under the header, maps, Ask */
 .sr-only{
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
   clip:rect(0,0,0,0);white-space:nowrap;border:0;
@@ -7551,23 +7553,17 @@ html.ask-lock body{position:fixed;left:0;right:0;width:100%}
 }
 .top-names-q::placeholder{color:#64748b;font-weight:700}
 .top-names-q:focus{outline:3px solid #86efac;outline-offset:2px}
-.top-message{position:relative;flex:none}
-.top-message summary{
-  list-style:none;cursor:pointer;
-  min-height:46px;padding:0 14px;
-  display:inline-flex;align-items:center;gap:8px;
-  border-radius:999px;border:2px solid #fff;
-  background:#fff;color:#0f172a;
-  font:inherit;font-weight:800;font-size:15px;line-height:1.1;
-  box-shadow:0 6px 18px rgba(0,0,0,.18);
+.msg-link{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:44px;padding:8px 16px;
+  background:#B91C1C;color:#fff;
+  font-weight:800;font-size:15px;line-height:1.2;
+  border-radius:999px;border:2px solid #7f1d1d;
+  text-decoration:none;
 }
-.top-message summary::-webkit-details-marker{display:none}
-.top-message summary svg{width:20px;height:20px;flex:none}
-.top-message[open] summary{background:#166534;color:#fff;border-color:#166534}
-.top-message .portal-panel{
-  position:absolute;top:calc(100% + 8px);right:0;bottom:auto;
-  z-index:30;text-align:left;
-}
+.msg-link:hover,.msg-link:focus-visible{color:#fff;text-decoration:none;filter:brightness(1.08)}
+.msg-link:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.about-msg{margin:10px 0 12px;text-align:center}
 .hl-strip{
   background:#ecfdf5;color:#14532d;
   border-bottom:1px solid #86efac;
@@ -7639,7 +7635,6 @@ html.ask-lock body{position:fixed;left:0;right:0;width:100%}
 @media (max-width:760px){
   .hl-strip{font-size:12.5px;padding:7px 10px}
   .top-find{width:100%}
-  .top-message summary span{max-width:9.5rem}
 }
 @media (max-width:759px){
   .ask-sheet{align-items:flex-end;justify-content:stretch}
