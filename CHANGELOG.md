@@ -1,3 +1,12 @@
+## 2026-09-24-wx-label · Weather warning title, district cards, nowcast
+
+- Homepage weather card heading is **मौसम चेतावनी** / **Weather warning**. It no longer says “पाँच दिनको मौसम चेतावनी” / “Five-day weather warning”, including the no-JS fallback. On `notices.html#alert` the same title frames the district cards. The section heading stays **भारी वर्षा चेतावनी** / Heavy Rain Alert. Timeline bars still name the DHM products.
+- The weather board footer no longer prints the Sources / स्रोत line (Monsoon Bulletin-3 #12297 · 4-day warning #12299 · Bhotekoshi corridor #12307 · 5-day warning #12300) on the homepage or `notices.html#alert`. Those bulletin names stay on the timeline.
+- District impact cards from @NMD_Weather (24 Sep ~19:03 NPT): **सिन्धुपाल्चोक** high impact · medium likelihood; **बागलुङ** and **म्याग्दी** medium impact · medium likelihood. Validity Asoj 8, 6:00 PM through Asoj 11, 6:00 AM. No invented MFD page IDs. Images: `img/dhm/impact-sindhupalchok.jpg`, `impact-baglung.jpg`, `impact-myagdi.jpg`. Links go to the X post and dhm.gov.np/mfd.
+- Nowcast at 7:40 PM Asoj 8: light to moderate rain in some places of Koshi, Bagmati and Lumbini; a few places in Madhesh, Gandaki and Karnali; past-hour maximum **9.6 mm** at Jhapa Kechana. Image: `img/dhm/rainfall-now-1h.jpg`.
+- #12300 five-day province maps and #12307 corridor stay the map and timeline. Ask weather answers read the same district and nowcast fields.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-wx-label`
+
 ## 2026-09-24-portal-ux · Portal design system, Ask sheet, refresh banner
 
 - Light civic tokens (type scale, card radius, shadow, spacing, semantic colours) apply across pages that share `bulletin.css`. Primary accent `#c41e3a` stays on the brand, the Live chip, and actions. KPI numbers share one size. Notices history cards and pager chips use the same card language. Dark full-bleed alert blocks on the page are light cards.

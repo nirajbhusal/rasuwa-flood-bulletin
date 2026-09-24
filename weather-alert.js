@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-24-portal-ux";
+  var VER = window.PAGE_VER || "2026-09-24-wx-label";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -868,6 +868,96 @@
     });
   }
 
+  function buildCite(links) {
+    var row = el("p", "wxb-dcite");
+    (links || []).forEach(function (item, i) {
+      if (!item || !item.url) return;
+      if (row.childNodes.length) row.appendChild(document.createTextNode(" · "));
+      var a = document.createElement("a");
+      a.href = item.url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = tx(item);
+      row.appendChild(a);
+    });
+    return row.childNodes.length ? row : null;
+  }
+  function buildDistrictCard(card) {
+    var art = el("article", "wxb-dcard is-" + (card.tone || "medium"));
+    var body = el("div", "wxb-dcard-body");
+    var name = el("h3", "wxb-dname", tx(card.name));
+    body.appendChild(name);
+    if (tx(card.province)) body.appendChild(el("p", "wxb-dprov", tx(card.province)));
+    if (tx(card.risk)) body.appendChild(el("p", "wxb-drisk", tx(card.risk)));
+    if (tx(card.window)) body.appendChild(el("p", "wxb-dwin", tx(card.window)));
+    if (tx(card.forecast)) body.appendChild(el("p", "wxb-dfore", tx(card.forecast)));
+    var impacts = (card.impacts && (card.impacts[lang()] || card.impacts.ne)) || [];
+    if (impacts.length) {
+      var ul = el("ul", "wxb-dimpacts");
+      impacts.forEach(function (line) { ul.appendChild(el("li", null, line)); });
+      body.appendChild(ul);
+    }
+    if (tx(card.note)) body.appendChild(el("p", "wxb-dnote", tx(card.note)));
+    art.appendChild(body);
+    if (card.image) {
+      var fig = el("figure", "wxb-dfig");
+      var a = document.createElement("a");
+      a.href = card.image;
+      a.target = "_blank";
+      a.rel = "noopener";
+      var img = document.createElement("img");
+      img.src = card.image;
+      img.width = card.image_w || 800;
+      img.height = card.image_h || 1000;
+      img.alt = tx(card.image_alt) || tx(card.name);
+      img.loading = "lazy";
+      a.appendChild(img);
+      fig.appendChild(a);
+      art.appendChild(fig);
+    }
+    return art;
+  }
+  function buildDistrictBlock(mode) {
+    var cards = data.district_warnings || [];
+    if (!cards.length) return null;
+    var sec = el("section", "wxb-districts");
+    var head = el("div", "wxb-dhead");
+    if (mode === "section") head.appendChild(el("h3", "wxb-dh", tx(data.ui.title)));
+    sec.appendChild(head);
+    var grid = el("div", "wxb-dgrid");
+    cards.forEach(function (card) { grid.appendChild(buildDistrictCard(card)); });
+    sec.appendChild(grid);
+    var cite = buildCite(data.district_cite);
+    if (cite) sec.appendChild(cite);
+    return sec;
+  }
+  function buildNowcast() {
+    var n = data.nowcast;
+    if (!n) return null;
+    var sec = el("section", "wxb-now");
+    sec.appendChild(el("h3", "wxb-dh", tx((data.ui && data.ui.now_h) || { ne: "हालको वर्षा", en: "Rainfall now" })));
+    if (tx(n.when)) sec.appendChild(el("p", "wxb-dwin", tx(n.when)));
+    if (tx(n.body)) sec.appendChild(el("p", "wxb-dfore", tx(n.body)));
+    if (tx(n.max)) sec.appendChild(el("p", "wxb-dmax", tx(n.max)));
+    if (n.image) {
+      var a = document.createElement("a");
+      a.href = n.image;
+      a.target = "_blank";
+      a.rel = "noopener";
+      var img = document.createElement("img");
+      img.src = n.image;
+      img.width = n.image_w || 1200;
+      img.height = n.image_h || 600;
+      img.alt = tx(n.image_alt);
+      img.loading = "lazy";
+      a.appendChild(img);
+      sec.appendChild(a);
+    }
+    var cite = buildCite(n.cite);
+    if (cite) sec.appendChild(cite);
+    return sec;
+  }
+
   function renderMount(root) {
     var mode = root.getAttribute("data-wx-mode") || "home";
     var ui = data.ui;
@@ -892,6 +982,10 @@
     head.appendChild(titles);
     head.appendChild(art());
     board.appendChild(head);
+    var districtBlock = buildDistrictBlock(mode);
+    if (districtBlock) board.appendChild(districtBlock);
+    var nowBlock = buildNowcast();
+    if (nowBlock) board.appendChild(nowBlock);
     board.appendChild(buildHigh());
 
     var mapPanel = el("section", "wxb-panel wxb-map-panel");
@@ -1039,20 +1133,8 @@
     site.target = "_blank";
     site.rel = "noopener";
     site.textContent = data.links.site_label;
-    var src = el("p", "wxb-src");
-    src.appendChild(document.createTextNode(tx(ui.sources_label) + ": "));
-    (data.timeline.bars || []).forEach(function (bar, i) {
-      if (i) src.appendChild(document.createTextNode(" · "));
-      var link = document.createElement("a");
-      link.href = bar.url;
-      link.target = "_blank";
-      link.rel = "noopener";
-      link.textContent = tx(bar.name);
-      src.appendChild(link);
-    });
     if (mode === "section") foot.appendChild(qrA);
     foot.appendChild(site);
-    foot.appendChild(src);
     board.appendChild(foot);
     root.appendChild(board);
     paintPressed();

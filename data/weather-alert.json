@@ -2,7 +2,7 @@
   "id": "2026-09-24-weather-12300",
   "page_ver": "2026-09-24-dhm-12300",
   "source": "DHM Meteorological Forecasting Division",
-  "updated_at": "2026-09-24T19:15:00+05:45",
+  "updated_at": "2026-09-24T19:41:00+05:45",
   "links": {
     "section": "notices.html#alert",
     "helpline": "contact.html#helpline",
@@ -40,8 +40,8 @@
       "en": "Issued: Asoj 8, Thu · 6:00 PM (24 Sep 2026)"
     },
     "title": {
-      "ne": "पाँच दिनको मौसम चेतावनी",
-      "en": "Five-day weather warning"
+      "ne": "मौसम चेतावनी",
+      "en": "Weather warning"
     },
     "sub": {
       "ne": "असोज ८ देखि १२ (२४–२८ सेप्टेम्बर २०२६)",
@@ -190,6 +190,10 @@
     "high_day": {
       "ne": "यो दिन · रातो पहिले, त्यसपछि सुन्तला",
       "en": "This day · red first, then orange"
+    },
+    "now_h": {
+      "ne": "हालको वर्षा",
+      "en": "Rainfall now"
     }
   },
   "levels": {
@@ -327,6 +331,131 @@
         "ne": "चितवन",
         "en": "Chitwan"
       }
+    ]
+  },
+  "district_warnings": [
+    {
+      "id": "sindhupalchok",
+      "province_id": "bagmati",
+      "tone": "high",
+      "name": { "ne": "सिन्धुपाल्चोक", "en": "Sindhupalchok" },
+      "province": { "ne": "बागमती", "en": "Bagmati" },
+      "risk": { "ne": "उच्च प्रभावको मध्यम सम्भावना", "en": "High impact · medium likelihood" },
+      "window": { "ne": "असोज ८ साँझ ६:०० – असोज ११ बिहान ६:००", "en": "Asoj 8, 6:00 PM – Asoj 11, 6:00 AM" },
+      "forecast": {
+        "ne": "केही स्थानमा भारीदेखि धेरै भारी वर्षा, र एक–दुई स्थानमा अति भारी वर्षाको सम्भावना।",
+        "en": "Heavy to very heavy rain in some places, and extremely heavy rain in one or two places."
+      },
+      "impacts": {
+        "ne": [
+          "खोलानाला र खहरेमा बहाव बढ्ने र कटान हुने उच्च सम्भावना।",
+          "घर, विद्यालय, स्वास्थ्य चौकी र अन्य संरचनामा पहिरो तथा ढुङ्गा खसेर क्षति हुने उच्च सम्भावना।",
+          "बालीनाली र कृषि क्षेत्रमा क्षति हुने उच्च सम्भावना।"
+        ],
+        "en": [
+          "High chance that streams and gullies rise and cut their banks.",
+          "High chance of landslide and rockfall damage to houses, schools, health posts and other structures.",
+          "High chance of damage to crops and farmland."
+        ]
+      },
+      "note": {
+        "ne": "भोटेकोशी गाउँपालिका र अरनिको–कोदारी करिडोरका बस्ती समेटिएका छन्।",
+        "en": "Includes settlements in Bhotekoshi rural municipality and along the Araniko–Kodari corridor."
+      },
+      "image": "img/dhm/impact-sindhupalchok.jpg",
+      "image_w": 847,
+      "image_h": 1200,
+      "image_alt": {
+        "ne": "सिन्धुपाल्चोक प्रभावमा आधारित मौसम चेतावनी · असोज ८ साँझ",
+        "en": "Sindhupalchok impact-based weather warning · Asoj 8 evening"
+      }
+    },
+    {
+      "id": "baglung",
+      "province_id": "gandaki",
+      "tone": "medium",
+      "name": { "ne": "बागलुङ", "en": "Baglung" },
+      "province": { "ne": "गण्डकी", "en": "Gandaki" },
+      "risk": { "ne": "मध्यम प्रभावको मध्यम सम्भावना", "en": "Medium impact · medium likelihood" },
+      "window": { "ne": "असोज ८ साँझ ६:०० – असोज ११ बिहान ६:००", "en": "Asoj 8, 6:00 PM – Asoj 11, 6:00 AM" },
+      "forecast": {
+        "ne": "धेरै स्थानमा हल्कादेखि मध्यम वर्षा, थोरै स्थानमा भारी वर्षा, र एक–दुई स्थानमा धेरै भारी वर्षाको सम्भावना।",
+        "en": "Light to moderate rain in many places, heavy rain in a few places, and very heavy rain in one or two places."
+      },
+      "impacts": {
+        "ne": [
+          "विद्युत्, सञ्चार, खानेपानी र सडक केही समय अवरुद्ध हुन सक्ने मध्यम सम्भावना।",
+          "खोलानालामा बहाव बढ्ने, कटान हुने र सडक अवरुद्ध हुन सक्ने मध्यम सम्भावना।",
+          "पहिरो जाने र बालीनालीमा क्षति हुने मध्यम सम्भावना।"
+        ],
+        "en": [
+          "Medium chance that electricity, communications, drinking water and roads are disrupted for some time.",
+          "Medium chance that streams rise, banks are cut, and roads are blocked.",
+          "Medium chance of landslides and damage to crops."
+        ]
+      },
+      "image": "img/dhm/impact-baglung.jpg",
+      "image_w": 1033,
+      "image_h": 1200,
+      "image_alt": {
+        "ne": "बागलुङ प्रभावमा आधारित मौसम चेतावनी · असोज ८ साँझ",
+        "en": "Baglung impact-based weather warning · Asoj 8 evening"
+      }
+    },
+    {
+      "id": "myagdi",
+      "province_id": "gandaki",
+      "tone": "medium",
+      "name": { "ne": "म्याग्दी", "en": "Myagdi" },
+      "province": { "ne": "गण्डकी", "en": "Gandaki" },
+      "risk": { "ne": "मध्यम प्रभावको मध्यम सम्भावना", "en": "Medium impact · medium likelihood" },
+      "window": { "ne": "असोज ८ साँझ ६:०० – असोज ११ बिहान ६:००", "en": "Asoj 8, 6:00 PM – Asoj 11, 6:00 AM" },
+      "forecast": {
+        "ne": "धेरै स्थानमा हल्कादेखि मध्यम वर्षा, थोरै स्थानमा भारी वर्षा, र एक–दुई स्थानमा धेरै भारी वर्षाको सम्भावना।",
+        "en": "Light to moderate rain in many places, heavy rain in a few places, and very heavy rain in one or two places."
+      },
+      "impacts": {
+        "ne": [
+          "विद्युत्, सञ्चार, खानेपानी र सडक केही समय अवरुद्ध हुन सक्ने मध्यम सम्भावना।",
+          "खोलानालामा बहाव बढ्ने, कटान हुने र सडक अवरुद्ध हुन सक्ने मध्यम सम्भावना।",
+          "पहिरो जाने र बालीनालीमा क्षति हुने मध्यम सम्भावना।"
+        ],
+        "en": [
+          "Medium chance that electricity, communications, drinking water and roads are disrupted for some time.",
+          "Medium chance that streams rise, banks are cut, and roads are blocked.",
+          "Medium chance of landslides and damage to crops."
+        ]
+      },
+      "image": "img/dhm/impact-myagdi.jpg",
+      "image_w": 1126,
+      "image_h": 1200,
+      "image_alt": {
+        "ne": "म्याग्दी प्रभावमा आधारित मौसम चेतावनी · असोज ८ साँझ",
+        "en": "Myagdi impact-based weather warning · Asoj 8 evening"
+      }
+    }
+  ],
+  "district_cite": [
+    { "ne": "NMD Weather", "en": "NMD Weather", "url": "https://x.com/NMD_Weather/status/2103111953631822258" },
+    { "ne": "DHM MFD", "en": "DHM MFD", "url": "https://dhm.gov.np/mfd/" }
+  ],
+  "nowcast": {
+    "when": { "ne": "असोज ८ · साँझ ७:४० (२४ सेप्टेम्बर २०२६)", "en": "Asoj 8 · 7:40 PM (24 Sep 2026)" },
+    "body": {
+      "ne": "कोशी, बागमती र लुम्बिनीका केही स्थानमा हल्कादेखि मध्यम वर्षा जारी छ। मधेश, गण्डकी र कर्णालीका थोरै स्थानमा वर्षा छ।",
+      "en": "Light to moderate rain is falling in some places of Koshi, Bagmati and Lumbini. A few places in Madhesh, Gandaki and Karnali have rain."
+    },
+    "max": { "ne": "पछिल्लो १ घण्टाको उच्चतम ९.६ मि.मि. · झापा केचना", "en": "Past hour maximum 9.6 mm · Jhapa Kechana" },
+    "image": "img/dhm/rainfall-now-1h.jpg",
+    "image_w": 1200,
+    "image_h": 614,
+    "image_alt": {
+      "ne": "पछिल्लो १ घण्टाको वर्षा · उच्चतम ९.६ मि.मि. झापा केचना",
+      "en": "Past 1 hour rainfall · maximum 9.6 mm at Jhapa Kechana"
+    },
+    "cite": [
+      { "ne": "NMD Weather", "en": "NMD Weather", "url": "https://x.com/NMD_Weather/status/2103121469010235642" },
+      { "ne": "DHM MFD", "en": "DHM MFD", "url": "https://dhm.gov.np/mfd/" }
     ]
   },
   "timeline": {
