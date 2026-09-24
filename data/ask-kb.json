@@ -1,0 +1,103 @@
+{
+  "updated_at": "2026-09-24",
+  "maintain": {
+    "ne": "FAQ बुलेटिन अपडेटसँगै राखिन्छ। मौसम, सडक, उद्धार, नाम, कोष, हेल्पलाइन र एलपीजीका अंक यहाँ लेखिँदैनन् — सोध्नुहोस् प्यानलले ताजा फाइल पढ्छ।",
+    "en": "This FAQ is maintained with bulletin updates. Weather, road, rescue, name, fund, helpline, and LPG figures are not stored here — Ask reads the latest files."
+  },
+  "chip_order": ["weather", "roads", "rescue", "names", "fund", "helpline", "lpg", "markets", "about"],
+  "topics": {
+    "weather": {
+      "label": {"ne": "आजको मौसम", "en": "Today’s weather"},
+      "followups": ["wx-map", "hl", "roads", "rescue"],
+      "faq": [
+        {"id": "wx-today", "featured": true, "route": "weather", "q": {"ne": "आजको मौसम के छ?", "en": "What is today’s weather?"}},
+        {"id": "wx-tmw", "route": "weather", "q": {"ne": "भोलिको मौसम?", "en": "Tomorrow’s weather?"}},
+        {"id": "wx-src", "route": "about", "static": {"ne": "मौसम चेतावनी प्रकाशित DHM फाइलबाट आउँछ। सोध्नुहोस्ले DHM साइट आफै स्क्र्याप गर्दैन।", "en": "The weather alert comes from the published DHM file. Ask does not scrape the DHM site."}, "q": {"ne": "मौसम कहाँबाट आउँछ?", "en": "Where does the weather answer come from?"}}
+      ]
+    },
+    "roads": {
+      "label": {"ne": "सडक", "en": "Roads"},
+      "followups": ["road-map", "wx-map", "hl", "weather"],
+      "faq": [
+        {"id": "rd-now", "featured": true, "route": "roads", "q": {"ne": "सडक अहिले कस्तो छ?", "en": "What is the road status?"}},
+        {"id": "rd-map", "route": "map", "q": {"ne": "सडक नक्सा कहाँ छ?", "en": "Where is the road map?"}},
+        {"id": "rd-src", "route": "about", "static": {"ne": "सडक खण्ड सडक विभागको प्रकाशित सूचीबाट आउँछ। ताजा खण्ड सोध्दा त्यही फाइल पढिन्छ।", "en": "Road sections come from the Department of Roads list published on this site. A fresh question reads that file again."}, "q": {"ne": "सडकको स्रोत के हो?", "en": "What is the source for roads?"}}
+      ]
+    },
+    "rescue": {
+      "label": {"ne": "उद्धार संख्या", "en": "Rescue numbers"},
+      "followups": ["names", "hl", "fund", "weather"],
+      "faq": [
+        {"id": "rs-kpi", "featured": true, "route": "rescue", "q": {"ne": "उद्धार संख्या कति हो?", "en": "What are the rescue numbers?"}},
+        {"id": "rs-dead", "route": "rescue", "q": {"ne": "मृतक संख्या?", "en": "Deaths?"}},
+        {"id": "rs-src", "route": "about", "static": {"ne": "उद्धार, मृतक, सम्पर्कविहीन र उपचारका अंक प्रकाशित NDRRMA बोर्डबाट आउँछन्। यहाँ ती अंक लेखिँदैनन्।", "en": "Rescue, death, uncontacted, and treatment figures come from the published NDRRMA board. They are not written into this FAQ."}, "q": {"ne": "उद्धार अंक कहाँबाट?", "en": "Where do rescue figures come from?"}}
+      ]
+    },
+    "names": {
+      "label": {"ne": "नाम खोज", "en": "Search a name"},
+      "followups": ["rescue", "hl", "roads"],
+      "faq": [
+        {"id": "nm-how", "featured": true, "route": "names", "q": {"ne": "नाम कसरी खोज्ने?", "en": "How do I search a name?"}},
+        {"id": "nm-src", "route": "about", "static": {"ne": "नाम प्रकाशित सूचीमा खोजिन्छ। मिल्दो नाम च्याटमा लेखिँदैन। अटो-फेच NDRRMA नाममा मात्र हो।", "en": "Names are looked up in the published list. Matches are not written in the chat. Auto-fetch is NDRRMA names only."}, "q": {"ne": "नाम सूची कहाँबाट?", "en": "Where does the name list come from?"}}
+      ]
+    },
+    "fund": {
+      "label": {"ne": "राहत कोष", "en": "Relief fund"},
+      "followups": ["hl", "markets", "about"],
+      "faq": [
+        {"id": "fd-now", "featured": true, "route": "fund", "q": {"ne": "राहत कोष कति छ?", "en": "What is in the relief fund?"}},
+        {"id": "fd-src", "route": "about", "static": {"ne": "कोषका अंक प्रकाशित राहत बोर्ड (अर्थ मन्त्रालय, NCHL, फोनपे) बाट आउँछन्। FAQ मा ती रकम लेखिँदैनन्।", "en": "Fund figures come from the published relief board (Ministry of Finance, NCHL, Fonepay). Those amounts are not stored in the FAQ."}, "q": {"ne": "कोषको स्रोत के हो?", "en": "What is the source for the fund?"}}
+      ]
+    },
+    "helpline": {
+      "label": {"ne": "हेल्पलाइन", "en": "Helpline"},
+      "followups": ["roads", "weather", "rescue", "names"],
+      "faq": [
+        {"id": "hl-list", "featured": true, "route": "helpline", "q": {"ne": "हेल्पलाइन नम्बर के हुन्?", "en": "What are the helpline numbers?"}},
+        {"id": "hl-1234", "route": "helpline", "q": {"ne": "उद्धार नम्बर?", "en": "Rescue number?"}}
+      ]
+    },
+    "lpg": {
+      "label": {"ne": "एलपीजी", "en": "LPG"},
+      "followups": ["roads", "fund", "hl"],
+      "faq": [
+        {"id": "lpg-now", "route": "lpg", "q": {"ne": "एलपीजी आयात कति?", "en": "How much LPG was imported?"}},
+        {"id": "lpg-src", "route": "about", "static": {"ne": "एलपीजी दैनिक सारांश आपूर्ति पानाको प्रकाशित तालिकाबाट आउँछ। FAQ मा टन लेखिँदैन।", "en": "The LPG daily summary comes from the published table on the supply page. Tonnes are not stored in the FAQ."}, "q": {"ne": "एलपीजी कहाँबाट?", "en": "Where does the LPG figure come from?"}}
+      ]
+    },
+    "markets": {
+      "label": {"ne": "पुँजी बजार", "en": "Capital markets"},
+      "followups": ["fund", "about", "hl"],
+      "faq": [
+        {"id": "mkt-where", "featured": true, "route": "markets", "q": {"ne": "पुँजी बजार कहाँ छ?", "en": "Where are capital markets?"}},
+        {"id": "mkt-what", "route": "markets", "static": {"ne": "पुँजी बजार सरकारबाट भएका पहल अन्तर्गत छ। पूर्ण कार्ययोजना अलग पानामा छ। अंक त्यही पानाबाट — FAQ मा नयाँ अंक छैन।", "en": "Capital markets sit under government initiatives. The full action plan is its own page. Figures stay on that page — the FAQ does not add new numbers."}, "q": {"ne": "पुँजी बजार के हो?", "en": "What is the capital-markets page?"}}
+      ]
+    },
+    "about": {
+      "label": {"ne": "बारेमा", "en": "About"},
+      "followups": ["weather", "hl", "markets"],
+      "faq": [
+        {"id": "ab-what", "route": "about", "static": {"ne": "यो रसुवा–भोटेकोशी बाढीको स्वतन्त्र नागरिक बुलेटिन हो। सरकारी साइट होइन।", "en": "This is an independent citizen bulletin for the Rasuwa–Bhotekoshi flood. It is not a government site."}, "q": {"ne": "यो बुलेटिन के हो?", "en": "What is this bulletin?"}},
+        {"id": "ab-ask", "route": "about", "static": {"ne": "सोध्नुहोस् क्लाइन्टमै मिलान गर्छ। मौसम र सडकको लागि छुट्टै सर्भर वा भाषा मोडेल छैन।", "en": "Ask matches on this device. There is no separate server or language model for weather and roads."}, "q": {"ne": "सोध्नुहोस् कसरी जवाफ दिन्छ?", "en": "How does Ask answer?"}}
+      ]
+    },
+    "map": {
+      "label": {"ne": "सडक नक्सा", "en": "Road map"},
+      "followups": ["roads", "weather", "hl"],
+      "faq": []
+    }
+  },
+  "prompts": {
+    "wx-map": {"route": "weather", "q": {"ne": "आजको नक्सा?", "en": "Today’s map?"}},
+    "weather": {"route": "weather", "q": {"ne": "आजको मौसम?", "en": "Today’s weather?"}},
+    "roads": {"route": "roads", "q": {"ne": "सडक?", "en": "Roads?"}},
+    "road-map": {"route": "map", "q": {"ne": "सडक नक्सा?", "en": "Road map?"}},
+    "hl": {"route": "helpline", "q": {"ne": "हेल्पलाइन?", "en": "Helpline?"}},
+    "rescue": {"route": "rescue", "q": {"ne": "उद्धार संख्या?", "en": "Rescue numbers?"}},
+    "names": {"route": "names", "q": {"ne": "नाम खोज?", "en": "Search a name?"}},
+    "fund": {"route": "fund", "q": {"ne": "राहत कोष?", "en": "Relief fund?"}},
+    "lpg": {"route": "lpg", "q": {"ne": "एलपीजी?", "en": "LPG?"}},
+    "markets": {"route": "markets", "q": {"ne": "पुँजी बजार?", "en": "Capital markets?"}},
+    "about": {"route": "about", "q": {"ne": "बारेमा?", "en": "About?"}}
+  }
+}
