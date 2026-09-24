@@ -7,7 +7,7 @@
 (function () {
   "use strict";
 
-  var VER = window.PAGE_VER || "2026-09-24-wx-districts-tiles";
+  var VER = window.PAGE_VER || "2026-09-24-ask-ux";
   var HL_ORDER = ["1234", "100", "1148", "1111", "1114", "102", "1144", "1155"];
   var HL_FALLBACK = [
     { tel: "1234", key: "hl_deoc" },
@@ -84,7 +84,8 @@
   var askScrollY = 0;
   var inflight = null;
   var faqQuery = "";
-  var faqOpen = true;
+  var faqOpen = false;
+  var thinkToken = 0;
 
   function lang() {
     return (document.documentElement.getAttribute("lang") || "ne").slice(0, 2) === "en" ? "en" : "ne";
@@ -329,7 +330,7 @@
     }
     if (roads.length && !unmatchedTokens(raw).length) return { type: "roads", roads: roads, map: mapKw, topic: "roads", raw: raw };
     if (province) return { type: "weather", province: province, day: day, topic: "weather", raw: raw };
-    if (looksLikeName(raw)) return { type: "names", query: raw.trim(), topic: "names", raw: raw };
+    if (looksLikeName(raw)) return { type: "names", query: raw.trim(), topic: "names", raw: raw, guessed: true };
     return { type: "fallback", topic: "about", raw: raw };
   }
   function faqList() {
@@ -660,10 +661,12 @@
   function answerNames(spec) {
     var q = (spec && spec.query) || "";
     var body = q ? t("ask_names_body") : t("ask_names_empty");
-    return card([line(body)], srcLine(t("ask_src_names"), ""), "", t("ask_go_names"), { names: q });
+    var extra = { names: q };
+    if (spec && spec.guessed) extra.suggest = true;
+    return card([line(body)], srcLine(t("ask_src_names"), ""), "", t("ask_go_names"), extra);
   }
   function answerFallback() {
-    return card([line(t("ask_fallback"))], "", "", "");
+    return card([line(t("ask_fallback"))], "", "", "", { suggest: true });
   }
   function answerMarkets(spec) {
     var lines = [];
@@ -775,6 +778,33 @@
     return rows.length ? rows : null;
   }
 
+  function narrowAsk() {
+    return window.matchMedia("(max-width: 759px)").matches;
+  }
+  function lastTopic() {
+    for (var i = thread.length - 1; i >= 0; i--) {
+      if (thread[i].kind === "card" && thread[i].spec) return thread[i].spec.topic || thread[i].spec.type || "";
+    }
+    return "";
+  }
+  function wireChip(btn, label, spec) {
+    btn.type = "button";
+    btn.textContent = label;
+    btn.addEventListener("click", function () { submit(label, spec); });
+  }
+  function fillSuggest(host, limit) {
+    host.replaceChildren();
+    var cap = el("p", "ask-chips-h");
+    cap.textContent = t("ask_suggest");
+    host.appendChild(cap);
+    var row = el("div", "ask-chip-row");
+    chipModels().slice(0, limit || 5).forEach(function (c) {
+      var b = el("button", "ask-chip ask-chip-next");
+      wireChip(b, c.label, askSpec(c.id, c.label, { topic: c.id, query: c.id === "names" ? "" : undefined }));
+      row.appendChild(b);
+    });
+    host.appendChild(row);
+  }
   function renderLine(host, item) {
     var p = el("p", "ask-line");
     if (item.color) {
@@ -792,13 +822,17 @@
     }
     host.appendChild(p);
   }
-  function renderCard(host, built, pending) {
-    var art = el("article", "ask-card");
-    if (pending) {
-      renderLine(art, line(t("ask_loading")));
-      host.appendChild(art);
-      return;
-    }
+  function renderTyping(host, isNew) {
+    var row = el("div", "ask-typing" + (isNew ? " is-new" : ""));
+    row.setAttribute("role", "status");
+    row.innerHTML = "<span></span><span></span><span></span>";
+    var em = el("em");
+    em.textContent = t("ask_thinking");
+    row.appendChild(em);
+    host.appendChild(row);
+  }
+  function renderCard(host, built, topic, isNew) {
+    var art = el("article", "ask-card" + (topic ? " is-" + topic : "") + (isNew ? " is-new" : ""));
     (built.lines || []).forEach(function (item) {
       if (!item || !item.text) return;
       renderLine(art, item);
@@ -819,6 +853,11 @@
       link.href = built.href;
       link.textContent = built.cta;
       art.appendChild(link);
+    }
+    if (built.extra && built.extra.suggest) {
+      var sug = el("div", "ask-suggest");
+      fillSuggest(sug, 5);
+      art.appendChild(sug);
     }
     host.appendChild(art);
   }
@@ -895,8 +934,14 @@
       empty.hidden = shown !== 0;
       empty.textContent = failed.kb && !cache.kb ? t("ask_err") : t("ask_faq_empty");
     }
+    var sug = document.getElementById("ask-faq-suggest");
+    if (sug) {
+      sug.hidden = shown !== 0;
+      if (shown === 0) fillSuggest(sug, 4);
+      else sug.replaceChildren();
+    }
   }
-  function render() {
+  function render(opts) {
     var log = document.getElementById("ask-log");
     var chips = document.getElementById("ask-chips");
     if (!log || !chips) return;
@@ -934,21 +979,30 @@
       });
       if (suggest.childNodes.length) log.appendChild(suggest);
     }
+    var topicNow = lastTopic();
+    var fresh = !!(opts && opts.stick);
+    var lastUser = -1;
+    for (var u = thread.length - 1; u >= 0; u--) {
+      if (thread[u].kind === "user") { lastUser = u; break; }
+    }
     thread.forEach(function (msg, idx) {
+      var last = idx === thread.length - 1;
       if (msg.kind === "user") {
-        var bubble = el("p", "ask-user");
+        var mine = idx === lastUser;
+        var bubble = el("p", "ask-user" + (fresh && mine ? " is-new" : ""));
+        if (mine) bubble.setAttribute("data-ask-anchor", "1");
         bubble.textContent = msg.text;
         log.appendChild(bubble);
         return;
       }
-      var last = idx === thread.length - 1;
-      if (needs(msg.spec)) {
-        renderCard(log, null, true);
+      var topic = (msg.spec && (msg.spec.topic || msg.spec.type)) || "about";
+      if (msg.pending || needs(msg.spec)) {
+        renderTyping(log, fresh && last);
         return;
       }
       var built = build(msg.spec);
-      renderCard(log, built || answerFallback(), false);
-      if (last) renderFollow(log, (msg.spec && (msg.spec.topic || msg.spec.type)) || "about");
+      renderCard(log, built || answerFallback(), topic, fresh && last);
+      if (last) renderFollow(log, topic);
     });
     renderFaq();
     chips.replaceChildren();
@@ -957,12 +1011,8 @@
     chips.appendChild(cap);
     var row = el("div", "ask-chip-row");
     chipModels().forEach(function (c) {
-      var b = el("button", "ask-chip");
-      b.type = "button";
-      b.textContent = c.label;
-      b.addEventListener("click", function () {
-        submit(c.label, askSpec(c.id, c.label, { topic: c.id, query: c.id === "names" ? "" : undefined }));
-      });
+      var b = el("button", "ask-chip" + (topicNow && topicNow === c.id ? " is-on" : ""));
+      wireChip(b, c.label, askSpec(c.id, c.label, { topic: c.id, query: c.id === "names" ? "" : undefined }));
       row.appendChild(b);
     });
     chips.appendChild(row);
@@ -989,7 +1039,80 @@
       if (lab) lab.textContent = t("ask_fab");
       fab.setAttribute("aria-label", t("ask_fab_aria"));
     }
-    log.scrollTop = log.scrollHeight;
+    log.setAttribute("aria-busy", thread.some(function (m) { return m.pending; }) ? "true" : "false");
+    if (fresh) {
+      var anchor = log.querySelector("[data-ask-anchor]");
+      if (anchor) {
+        var lr = log.getBoundingClientRect();
+        var ar = anchor.getBoundingClientRect();
+        log.scrollTop += ar.top - lr.top - 6;
+      }
+    }
+  }
+  function reveal(msg, token, started, spec) {
+    var wait = Math.max(0, 280 - (Date.now() - started));
+    window.setTimeout(function () {
+      if (!msg.pending) return;
+      msg.pending = false;
+      render({ stick: token === thinkToken });
+      if (token === thinkToken && spec && spec.type === "names" && spec.query) openNames(spec.query);
+    }, wait);
+  }
+  function bindDrag(sheet) {
+    var panel = sheet.querySelector(".ask-panel");
+    var grab = document.getElementById("ask-grab");
+    var head = sheet.querySelector(".ask-head");
+    if (!panel || !grab) return;
+    var dragging = false;
+    var startY = 0;
+    var dy = 0;
+    var pointerId = null;
+    function reset() {
+      dragging = false;
+      dy = 0;
+      panel.style.transition = "";
+      panel.style.transform = "";
+    }
+    function down(e) {
+      if (!open || !narrowAsk()) return;
+      if (e.button != null && e.button !== 0) return;
+      var t = e.target;
+      if (t && t.closest && t.closest("button, a, input, textarea")) return;
+      dragging = true;
+      pointerId = e.pointerId;
+      startY = e.clientY;
+      dy = 0;
+      panel.style.transition = "none";
+      try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) {}
+    }
+    function move(e) {
+      if (!dragging || e.pointerId !== pointerId) return;
+      dy = Math.max(0, e.clientY - startY);
+      panel.style.transform = "translateY(" + dy + "px)";
+    }
+    function up(e) {
+      if (!dragging || (e && e.pointerId != null && e.pointerId !== pointerId)) return;
+      var drop = dy;
+      dragging = false;
+      pointerId = null;
+      if (drop > 88) {
+        panel.style.transition = "";
+        setOpen(false);
+        window.requestAnimationFrame(function () { panel.style.transform = ""; });
+        return;
+      }
+      reset();
+    }
+    [grab, head].forEach(function (node) {
+      node.addEventListener("pointerdown", down);
+      node.addEventListener("pointermove", move);
+      node.addEventListener("pointerup", up);
+      node.addEventListener("pointercancel", up);
+    });
+    var backdrop = sheet.querySelector(".ask-backdrop");
+    if (backdrop) {
+      backdrop.addEventListener("touchmove", function (e) { if (open) e.preventDefault(); }, { passive: false });
+    }
   }
   function submit(text, spec) {
     var q = String(text || "").trim();
@@ -999,13 +1122,23 @@
     if (!resolved.topic) resolved.topic = resolved.type;
     if (resolved.type === "empty") return;
     if (resolved.type === "names") resolved.query = resolved.query != null ? resolved.query : q;
+    faqOpen = false;
+    faqQuery = "";
+    var faqIn = document.getElementById("ask-faq-q");
+    if (faqIn) faqIn.value = "";
+    var msg = { kind: "card", spec: resolved, pending: true };
     thread.push({ kind: "user", text: q });
-    thread.push({ kind: "card", spec: resolved });
+    thread.push(msg);
     if (thread.length > 24) thread = thread.slice(thread.length - 24);
-    render();
-    if (resolved.type === "names") openNames(resolved.query || "");
+    thinkToken += 1;
+    var token = thinkToken;
+    var started = Date.now();
+    render({ stick: true });
     var input = document.getElementById("ask-q");
     if (input) input.value = "";
+    function go() { reveal(msg, token, started, resolved); }
+    if (needs(resolved) || (!cache.kb && !failed.kb)) load().then(go, go);
+    else go();
   }
   function openNames(q) {
     if (typeof window.__openNamesSearch === "function" && document.getElementById("search")) {
@@ -1015,16 +1148,19 @@
     location.href = "names.html" + (q ? "?q=" + encodeURIComponent(q) : "") + "#names";
   }
   function lockPage() {
+    if (document.documentElement.classList.contains("ask-lock")) return;
     askScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.body.style.top = "-" + askScrollY + "px";
     document.documentElement.classList.add("ask-lock");
     document.body.classList.add("ask-lock");
-    document.body.style.top = "-" + askScrollY + "px";
   }
   function unlockPage() {
+    if (!document.documentElement.classList.contains("ask-lock")) return;
+    var y = askScrollY;
     document.documentElement.classList.remove("ask-lock");
     document.body.classList.remove("ask-lock");
     document.body.style.top = "";
-    window.scrollTo(0, askScrollY);
+    window.scrollTo(0, y);
   }
   function placeSheet() {
     var sheet = document.getElementById("ask-sheet");
@@ -1064,6 +1200,14 @@
     if (!sheet || !fab) return;
     fab.setAttribute("aria-expanded", open ? "true" : "false");
     fab.classList.toggle("is-open", open);
+    var panel = sheet.querySelector(".ask-panel");
+    if (panel && !open) {
+      panel.style.transition = "";
+    }
+    if (open && panel) {
+      panel.style.transform = "";
+      panel.style.transition = "";
+    }
     if (open) {
       var msg = document.getElementById("portal-contact");
       if (msg && msg.open) msg.open = false;
@@ -1076,7 +1220,7 @@
         placeSheet();
       });
       var input = document.getElementById("ask-q");
-      window.setTimeout(function () { if (open) focusEl(input); }, 60);
+      if (!narrowAsk()) window.setTimeout(function () { if (open) focusEl(input); }, 80);
       load();
     } else {
       sheet.classList.remove("is-open");
@@ -1110,15 +1254,16 @@
     sheet.innerHTML =
       '<div class="ask-backdrop" data-ask-close></div>' +
       '<div class="ask-panel" role="document">' +
+        '<div class="ask-grab" id="ask-grab" aria-hidden="true"></div>' +
         '<header class="ask-head">' +
           '<div><h2 id="ask-h"></h2><p id="ask-sub"></p></div>' +
           '<button type="button" class="ask-x" id="ask-x" data-ask-close>×</button>' +
         "</header>" +
         '<div class="ask-log" id="ask-log" role="log" aria-live="polite"></div>' +
-        '<section class="ask-faq is-open" id="ask-faq">' +
+        '<section class="ask-faq" id="ask-faq">' +
           '<div class="ask-faq-bar">' +
             '<h3 id="ask-faq-h"></h3>' +
-            '<button type="button" class="ask-faq-toggle" id="ask-faq-toggle" aria-expanded="true">–</button>' +
+            '<button type="button" class="ask-faq-toggle" id="ask-faq-toggle" aria-expanded="false">+</button>' +
           "</div>" +
           '<div class="ask-faq-body" id="ask-faq-body">' +
             '<p class="ask-faq-note" id="ask-faq-note"></p>' +
@@ -1126,6 +1271,7 @@
             '<input id="ask-faq-q" type="search" autocomplete="off" enterkeyhint="search">' +
             '<ul class="ask-faq-list" id="ask-faq-list"></ul>' +
             '<p class="ask-faq-empty" id="ask-faq-empty" hidden></p>' +
+            '<div class="ask-faq-suggest" id="ask-faq-suggest" hidden></div>' +
           "</div>" +
         "</section>" +
         '<div class="ask-chips" id="ask-chips"></div>' +
@@ -1168,11 +1314,10 @@
       faqInput.addEventListener("keydown", function (e) {
         if (e.key !== "Enter") return;
         e.preventDefault();
-        var first = document.querySelector("#ask-faq-list button");
+        var first = document.querySelector("#ask-faq-list button") || document.querySelector("#ask-faq-suggest button");
         if (first) first.click();
       });
     }
-    faqOpen = !window.matchMedia("(max-width: 759px)").matches;
     sheet.addEventListener("keydown", function (e) {
       if (!open) return;
       if (e.key === "Escape") {
@@ -1186,7 +1331,11 @@
       var nodes = sheet.querySelectorAll("button, a[href], input, select, textarea");
       var list = [];
       for (var i = 0; i < nodes.length; i++) {
-        if (!nodes[i].disabled && nodes[i].offsetParent !== null) list.push(nodes[i]);
+        var node = nodes[i];
+        if (node.disabled || node.getAttribute("aria-hidden") === "true") continue;
+        var rect = node.getBoundingClientRect();
+        if (rect.width < 1 || rect.height < 1) continue;
+        list.push(node);
       }
       if (!list.length) return;
       var first = list[0];
@@ -1209,19 +1358,16 @@
     var askInput = document.getElementById("ask-q");
     if (askInput) {
       askInput.addEventListener("focus", function () {
-        sheet.classList.add("is-typing");
+        if (narrowAsk()) sheet.classList.add("is-typing");
         window.setTimeout(placeSheet, 40);
         window.setTimeout(placeSheet, 280);
-        window.setTimeout(function () {
-          var log = document.getElementById("ask-log");
-          if (log) log.scrollTop = log.scrollHeight;
-        }, 320);
       });
       askInput.addEventListener("blur", function () {
         sheet.classList.remove("is-typing");
         window.setTimeout(placeSheet, 80);
       });
     }
+    bindDrag(sheet);
     if (window.visualViewport) {
       window.visualViewport.addEventListener("resize", placeSheet);
       window.visualViewport.addEventListener("scroll", placeSheet);
