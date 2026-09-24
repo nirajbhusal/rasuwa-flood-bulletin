@@ -2306,19 +2306,9 @@ a.portal-fab-donate{
 .names-home-top h3{margin:0;font-size:18px;font-weight:800;color:var(--crimson);line-height:1.25}
 .names-home-sub{margin:0;font-size:13px;font-weight:700;color:var(--muted);line-height:1.35}
 .names-home-field{display:flex;gap:8px;align-items:stretch}
-.home-search{
-  margin:14px 0 18px;padding:18px 18px 16px;
-  background:#fff;border:1px solid var(--line);border-radius:16px;
-  box-shadow:var(--shadow);
-}
-.home-search > label,
 .names-q-label{
   display:block;margin:0 0 8px;
   font-size:18px;font-weight:800;color:var(--crimson);line-height:1.3;
-}
-.home-search .names-full-btn{min-width:max-content;font-size:16px;padding:12px 18px;min-height:52px}
-@media (max-width:640px){
-  .home-search .names-home-field{flex-direction:column}
 }
 .names-home-field input,
 #names-ov-q{
@@ -5233,10 +5223,8 @@ body{line-height:1.75;letter-spacing:.005em}
 /* banner stack gap when consecutive */
 .rescue-banner + .pmdrf-banner,
 .pmdrf-banner + .pmdrf-banner{margin-top:0}
-.home-search + .pmdrf-banner,
-.home-search + .rescue-banner{margin-top:12px}
 /* names search field stays usable */
-.home-search,.names-home-field{position:relative;z-index:1}
+.names-home-field{position:relative;z-index:1}
 
 /* === 2026-09-11 Phase 1 — design system chrome (layout only) === */
 
@@ -5599,7 +5587,6 @@ table.names-table th{
 .names-sec-field input,
 #names-q,
 #names-ov-q,
-#names-home-q,
 #fam-search,
 .fam-search input{
   min-height:var(--touch);
@@ -5619,7 +5606,6 @@ table.names-table th{
 .names-sec-field input:focus-visible,
 #names-q:focus-visible,
 #names-ov-q:focus-visible,
-#names-home-q:focus-visible,
 #fam-search:focus-visible,
 .fam-search input:focus-visible{
   outline:2px solid var(--focus);

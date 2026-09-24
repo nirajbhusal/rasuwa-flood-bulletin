@@ -819,23 +819,20 @@
 
   function currentQuery() {
     var ov = document.getElementById("names-ov-q");
-    var home = document.getElementById("names-home-q");
     var sec = document.getElementById("names-q");
     var fam = document.getElementById("fam-search");
     if (overlayOpen && ov) return ov.value || "";
     var active = document.activeElement;
     if (sec && active === sec) return sec.value || "";
-    if (home && active === home) return home.value || "";
     if (fam && active === fam) return fam.value || "";
     if (sec && sec.value) return sec.value;
     if (ov && ov.value) return ov.value;
-    if (home && home.value) return home.value;
     if (fam && fam.value) return fam.value;
     return (ov && ov.value) || "";
   }
 
   function syncInputs(q, except) {
-    ["names-ov-q", "names-home-q", "names-q", "fam-search"].forEach(function (id) {
+    ["names-ov-q", "names-q", "fam-search"].forEach(function (id) {
       if (id === except) return;
       var el = document.getElementById(id);
       if (el && el.value !== q) {
@@ -1402,14 +1399,11 @@
       var sc = document.getElementById("names-ov-scroll");
       if (sc) sc.scrollTop = 0;
     }
-    if (e.target.id === "names-home-q" && q.trim()) {
-      openOverlay(q);
-    }
   }
 
   function bindUi() {
     paintChips();
-    ["names-ov-q", "names-home-q", "names-q"].forEach(function (id) {
+    ["names-ov-q", "names-q"].forEach(function (id) {
       var el = document.getElementById(id);
       if (!el) return;
       el.addEventListener("input", onQueryInput);
@@ -1423,34 +1417,17 @@
         renderResults();
       });
     }
-    var homeQ = document.getElementById("names-home-q");
-    if (homeQ) {
-      homeQ.addEventListener("focus", function () {
-        if (window.matchMedia && window.matchMedia("(min-width:960px)").matches) {
-          openOverlay(homeQ.value || "");
-        }
-      });
-      homeQ.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          openOverlay(homeQ.value || "");
-        }
-      });
-      homeQ.addEventListener("search", function () {
-        openOverlay(homeQ.value || "");
-      });
-    }
     document.querySelectorAll("[data-open-names]").forEach(function (el) {
       el.addEventListener("click", function (e) {
         e.preventDefault();
-        var q = (document.getElementById("names-home-q") || document.getElementById("names-q") || document.getElementById("fam-search") || {}).value || "";
+        var q = (document.getElementById("names-q") || document.getElementById("fam-search") || document.getElementById("names-ov-q") || {}).value || "";
         openOverlay(q);
       });
     });
     document.querySelectorAll("[data-jump-names]").forEach(function (el) {
       el.addEventListener("click", function (e) {
         e.preventDefault();
-        var q = (document.getElementById("names-home-q") || document.getElementById("fam-search") || {}).value || "";
+        var q = (document.getElementById("fam-search") || document.getElementById("names-q") || {}).value || "";
         var inp = document.getElementById("names-q");
         if (inp && q) inp.value = q;
         syncInputs(q, "names-q");
@@ -1501,7 +1478,7 @@
           return;
         }
         var field = e.target;
-        if (field && (field.id === "names-q" || field.id === "names-home-q" || field.id === "names-ov-q" || field.id === "fam-search")) {
+        if (field && (field.id === "names-q" || field.id === "names-ov-q" || field.id === "fam-search")) {
           if (field.value) {
             e.preventDefault();
             field.value = "";
