@@ -171,6 +171,14 @@
       "ne": "नक्सा लाइब्रेरी लोड भएन। सूची तल छ।",
       "en": "The map library did not load. The list is below."
     },
+    "districts": {
+      "ne": "जिल्ला",
+      "en": "Districts"
+    },
+    "map_plain": {
+      "ne": "नक्साको पृष्ठभूमि अहिले देखिएन। कोरिडोर र स्थिति चिन्ह उपलब्ध छन्।",
+      "en": "The basemap is not available right now. The corridor and status markers are still shown."
+    },
     "snapshot": {
       "ne": "२४ सेप्टेम्बर २०२६, ०९:४२",
       "en": "24 Sep 2026, 09:42"

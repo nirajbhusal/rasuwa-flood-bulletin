@@ -8,7 +8,8 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-24-ask-panel";
+  var VER = window.PAGE_VER || "2026-09-24-ui-ask-fix";
+  var showDistricts = true;
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
 
@@ -145,6 +146,12 @@
     focus.textContent = tx(ui.focus_nh42);
     focus.addEventListener("click", function () { selectRoad(data.priority_id, true); });
     tools.appendChild(focus);
+    var distBtn = document.createElement("button");
+    distBtn.type = "button";
+    distBtn.className = "dor-dist-toggle" + (showDistricts ? " is-on" : "");
+    distBtn.setAttribute("aria-pressed", showDistricts ? "true" : "false");
+    distBtn.textContent = tx(ui.districts || { ne: "जिल्ला", en: "Districts" });
+    tools.appendChild(distBtn);
     host.appendChild(tools);
     var box = el("div", "dor-map" + (mode === "section" ? " is-tall" : ""));
     if (mode === "section") box.id = "dor-map";
@@ -172,14 +179,96 @@
     }
     var token = mapGen;
     var coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-    var map = window.L.map(box, { scrollWheelZoom: false, dragging: !coarse, touchZoom: true, tap: true });
+    var map = window.L.map(box, {
+      scrollWheelZoom: false,
+      dragging: !coarse,
+      touchZoom: true,
+      tap: true,
+      zoomControl: true,
+      attributionControl: true
+    });
     mapInstances.push(map);
-    window.L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      subdomains: "abc",
-      maxZoom: 19
-    }).addTo(map);
+    map.setView([28.15, 85.15], 8);
+    var blankTile = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+    var tileErrors = 0;
+    var tilesDead = false;
+    var tiles = window.L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: "abcd",
+      maxZoom: 19,
+      errorTileUrl: blankTile
+    });
+    function plainBasemap() {
+      if (tilesDead) return;
+      tilesDead = true;
+      try { map.removeLayer(tiles); } catch (e) {}
+      box.classList.add("is-plain");
+      if (!box.querySelector(".dor-map-plain")) box.appendChild(el("p", "dor-map-plain", tx(ui.map_plain)));
+    }
+    tiles.on("tileerror", function () {
+      tileErrors += 1;
+      if (tileErrors >= 4) plainBasemap();
+    });
+    tiles.addTo(map);
     var bounds = [];
+    var corridorBounds = null;
+    var districtLayer = null;
+    function applyDistricts(on) {
+      if (!districtLayer) return;
+      if (on) {
+        if (!map.hasLayer(districtLayer)) districtLayer.addTo(map);
+      } else if (map.hasLayer(districtLayer)) {
+        map.removeLayer(districtLayer);
+      }
+    }
+    distBtn.addEventListener("click", function () {
+      showDistricts = !showDistricts;
+      distBtn.classList.toggle("is-on", showDistricts);
+      distBtn.setAttribute("aria-pressed", showDistricts ? "true" : "false");
+      document.querySelectorAll(".dor-dist-toggle").forEach(function (b) {
+        b.classList.toggle("is-on", showDistricts);
+        b.setAttribute("aria-pressed", showDistricts ? "true" : "false");
+      });
+      mapInstances.forEach(function (m) {
+        if (m._districtLayer) {
+          if (showDistricts) { if (!m.hasLayer(m._districtLayer)) m._districtLayer.addTo(m); }
+          else if (m.hasLayer(m._districtLayer)) m.removeLayer(m._districtLayer);
+        }
+      });
+    });
+    fetch("data/nepal-districts.geojson?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("districts"); return r.json(); })
+      .then(function (geo) {
+        if (token !== mapGen || !window.L) return;
+        if (!map.getPane("districts")) {
+          map.createPane("districts");
+          map.getPane("districts").style.zIndex = 350;
+        }
+        districtLayer = window.L.geoJSON(geo, {
+          pane: "districts",
+          interactive: true,
+          style: { color: "#0f172a", weight: 1, opacity: 0.5, fillOpacity: 0 },
+          onEachFeature: function (feat, layer) {
+            var props = (feat && feat.properties) || {};
+            var name = lang() === "en" ? (props.en || "") : (props.ne || props.en || "");
+            layer.bindPopup(name, { closeButton: true, autoPan: true });
+            layer.on("click", function (ev) {
+              if (ev && ev.originalEvent) window.L.DomEvent.stopPropagation(ev);
+            });
+          }
+        });
+        map._districtLayer = districtLayer;
+        applyDistricts(showDistricts);
+      })
+      .catch(function () {});
+    function frame(target) {
+      if (token !== mapGen) return;
+      try { map.invalidateSize(); } catch (e) {}
+      var b = target || corridorBounds;
+      if (b && b.isValid && b.isValid()) {
+        map.fitBounds(b, { padding: [36, 36], maxZoom: 9, animate: false });
+      }
+    }
     function addMarker(road) {
       if (!road.point) return;
       var ll = [road.point.lat, road.point.lng];
@@ -219,16 +308,19 @@
         }).addTo(map);
         try {
           var b = layer.getBounds();
-          if (b && b.isValid()) bounds.push(b.getSouthWest(), b.getNorthEast());
+          if (b && b.isValid()) corridorBounds = b.pad(0.45);
         } catch (e) {}
-        if (bounds.length) map.fitBounds(bounds, { padding: [18, 18], maxZoom: 8 });
-        window.setTimeout(function () { if (token === mapGen) try { map.invalidateSize(); } catch (e) {} }, 80);
+        try { layer.bringToFront(); } catch (e2) {}
+        frame(corridorBounds);
+        window.setTimeout(function () { frame(corridorBounds); }, 120);
+        window.setTimeout(function () { frame(corridorBounds); }, 420);
       })
       .catch(function () {
-        if (token === mapGen && bounds.length) map.fitBounds(bounds, { padding: [18, 18], maxZoom: 8 });
+        if (token !== mapGen) return;
+        try { map.invalidateSize(); } catch (e) {}
+        map.fitBounds([[26.35, 80.05], [30.45, 88.2]], { padding: [16, 16], maxZoom: 7, animate: false });
       });
-    if (bounds.length) map.fitBounds(bounds, { padding: [18, 18], maxZoom: 8 });
-    window.setTimeout(function () { if (token === mapGen) try { map.invalidateSize(); } catch (e) {} }, 200);
+    window.setTimeout(function () { frame(corridorBounds); }, 240);
   }
   function links(host, withSection) {
     var ui = data.ui;

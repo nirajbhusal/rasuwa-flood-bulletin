@@ -4,7 +4,7 @@
 <script>if(window.matchMedia&&window.matchMedia("(min-width:960px)").matches)document.documentElement.classList.add("desk");document.documentElement.classList.add("gov-page","desk-ready");</script>
 <script>(function(){var id=(location.hash||"").replace(/^#/,"");if(!id)return;var q=location.search||"";var file="";try{file=(location.pathname||"").split("/").pop()||"";}catch(e){}var dest=null;if(id==="about")dest="about.html"+q;else if(id==="map")dest="damage.html"+q+"#map";else if(id==="path")dest="damage.html"+q+"#path";else if(id==="donate")dest="donate.html"+q;else if(id==="aid")dest="donate.html"+q+"#aid";else if(id==="aid-ig")dest="donate.html"+q+"#aid-ig";else if(id==="cash"||id==="pmdrf"||id==="pmdrf-banks"||id==="pmdrf-pledges"||id==="donate-pledges")dest="donate.html"+q+"#"+id;else if(id==="rahat-need")dest="contact.html"+q+"#rahat-need";else if(id==="rahat-collect")dest="contact.html"+q+"#rahat-collect";else if(id==="gov")dest="gov.html"+q;else if(id==="rescue")dest="gov.html"+q+"#rescue";else if(id==="police")dest="gov.html"+q+"#police";else if(id==="rahat")dest="gov.html"+q+"#rahat";else if(id==="event")dest="gov.html"+q+"#event";else if(id==="damage")dest="damage.html"+q;else if(id==="ems927")dest="damage.html"+q+"#ems927";else if(id==="power")dest="damage.html"+q+"#power";else if(id==="rdna")dest="damage.html"+q+"#rdna";else if(id==="infographics"||id==="cat-infographics")dest="damage.html"+q+"#rdna";else if(id==="cat-supply"||id==="supply"||id==="lpg")dest="supply.html"+q;else if(id==="cat-markets"||id==="markets"||id==="capital")dest="markets.html"+q;else if(id==="notices")dest="notices.html"+q;else if(id==="alert")dest="notices.html"+q+"#alert";else if(id==="history")dest="notices.html"+q+"#history";else if(id==="roads")dest="notices.html"+q+"#roads";else if(id==="helpline")dest="contact.html"+q+"#helpline";else if(id==="contacts")dest="contact.html"+q+"#contacts";else if(id==="photos")dest="photos.html"+q;else if(id==="videos")dest="photos.html"+q+"#videos";else if(id==="sources")dest="about.html"+q+"#sources";else if(id==="response"||id==="gaps"||id==="clusters"||id==="standards")dest="response.html"+q+(id==="response"?"":"#"+id);else if(id==="feeds"||id==="home")dest="index.html"+q;else if({"names":1,"family":1,"fam-public":1,"fam-found-h":1,"hello-sarkar":1,"madhesh":1,"dao-res":1,"rasuwa-res":1,"shelter":1,"suryagadhi":1,"army-heli-res":1,"heli-ktm":1,"foreign-res":1,"foreign-today":1,"india-res":1,"trishuli1-res":1,"india-cross":1,"treat":1,"treat-dhunche":1,"lists-dash":1,"fd":1,"names-ig":1,"search":1}[id])dest="names.html"+location.hash;if(!dest)return;var destFile=dest.split("#")[0].split("?")[0];if(destFile===file){var dh=dest.indexOf("#")>=0?dest.split("#").slice(1).join("#"):"";if(dh&&dh!==id)location.replace(dest);return;}location.replace(dest);})();</script>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -55,10 +55,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="preload" href="fonts/mukta-500-deva.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts.css?v=2026-09-24-ask-panel" as="style">
-<link rel="preload" href="bulletin.css?v=2026-09-24-ask-panel" as="style">
-<link rel="stylesheet" href="fonts.css?v=2026-09-24-ask-panel">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-24-ask-panel">
+<link rel="preload" href="fonts.css?v=2026-09-24-ui-ask-fix" as="style">
+<link rel="preload" href="bulletin.css?v=2026-09-24-ui-ask-fix" as="style">
+<link rel="stylesheet" href="fonts.css?v=2026-09-24-ui-ask-fix">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-24-ui-ask-fix">
 </head>
 <body class="gov-page">
 <a class="skip-link" href="#main" aria-label="मुख्य सामग्री"></a>
@@ -76,15 +76,30 @@
   <span class="brand-incident" data-i18n="brand_incident">घटना · १० भदौ २०८३ (२६ अगस्ट २०२६)</span>
   <span class="brand-updated" data-i18n="brand_date">अन्तिम अपडेट · ८ असोज / २४ सेप्टेम्बर</span>
 </p>
+<div class="top-find">
+  <form class="top-search" role="search" action="names.html" method="get">
+    <label class="sr-only" for="top-names-q" data-i18n="nav_search">नाम खोज्नुहोस्</label>
+    <input id="top-names-q" class="top-names-q" name="q" type="search" placeholder="नाम / ठेगाना / फोन" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
+  </form>
+  <details class="top-message" id="portal-contact">
+    <summary data-i18n="msg_me" data-i18n-aria="msg_me_aria" aria-label="मलाई सन्देश">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+      <span data-i18n="msg_me">मलाई सन्देश</span>
+    </summary>
+    <div class="portal-panel">
+      <p data-i18n-html="portal_p"><b>रसुवा बाढी बुलेटिन</b>स्वतन्त्र नागरिक पाना। सरकार होइन। हराएको/भेटिएको फारम, WhatsApp वा इमेल। उद्धारका लागि १२३४।</p>
+      <a class="miss" href="https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform" target="_blank" rel="noopener" data-i18n="report_missing">हराएको रिपोर्ट</a>
+      <a class="found" href="https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform" target="_blank" rel="noopener" data-i18n="update_form">अपडेट गर्नुहोस्</a>
+      <a class="wa" href="https://wa.me/9779701010000?text=%E0%A4%B0%E0%A4%B8%E0%A5%81%E0%A4%B5%E0%A4%BE%20%E0%A4%AC%E0%A4%BE%E0%A4%A2%E0%A5%80%20%E0%A4%AC%E0%A5%81%E0%A4%B2%E0%A5%87%E0%A4%9F%E0%A4%BF%E0%A4%A8" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="mail" href="mailto:neerajbhusal@gmail.com?subject=Rasuwa%20flood%20bulletin" data-i18n="portal_mail">इमेल</a>
+    </div>
+  </details>
+</div>
 <div class="top-actions">
 <span class="live"><i></i> <span data-i18n="live">लाइभ</span></span>
       <button type="button" class="share-btn" id="share-btn" data-i18n-aria="share" aria-label="सेयर">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="18" cy="5" r="2.7"/><circle cx="6" cy="12" r="2.7"/><circle cx="18" cy="19" r="2.7"/><path d="M8.5 13.4 15.4 17.5M15.5 6.5 8.5 10.6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg>
         <span data-i18n="share">सेयर</span>
-      </button>
-      <button type="button" class="share-btn names-open-btn" id="names-open-btn" data-open-names data-i18n-aria="search_aria" aria-label="नाम खोज्नुहोस्">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.4 3.6a6.8 6.8 0 1 1 0 13.6 6.8 6.8 0 0 1 0-13.6m0-2.1a8.9 8.9 0 1 0 5.5 15.8l4.4 4.4 1.5-1.5-4.4-4.4A8.9 8.9 0 0 0 10.4 1.5z"/></svg>
-        <span class="names-open-label" data-i18n="nav_search">नाम खोज्नुहोस्</span>
       </button>
       <div class="lang-switch" role="group" data-i18n-aria="lang_group" aria-label="भाषा">
         <button type="button" data-lang="ne" aria-pressed="true" lang="ne" title="नेपाली">ने</button>
@@ -97,7 +112,6 @@
           <span class="notify-label" data-i18n="notify_off_label">बन्द</span>
         </button>
       </div>
-      <div class="helpline" data-i18n="hl_bar">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४</div>
   </div>
 
   </div>
@@ -126,6 +140,9 @@
     <a class="nav-about" href="about.html" data-i18n="nav_about">हाम्रो बारेमा</a>
   </div>
 </nav>
+</div>
+<div class="hl-strip" id="hl-strip">
+  <a href="contact.html#helpline" data-i18n="hl_bar">उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४ · ११५५ · निर्देशिका</a>
 </div>
 <div class="page-body">
 
@@ -527,22 +544,7 @@
   </div>
 </div>
 
-<div class="fab-dock">
-<div class="portal-fab">
-  <details id="portal-contact">
-    <summary aria-label="सम्पर्क · WhatsApp र इमेल" data-i18n-aria="portal_aria">
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-    </summary>
-    <div class="portal-panel">
-      <p data-i18n-html="portal_p"><b>रसुवा बाढी बुलेटिन</b>स्वतन्त्र नागरिक पाना। सरकार होइन। हराएको/भेटिएको फारम, WhatsApp वा इमेल। उद्धारका लागि १२३४।</p>
-      <a class="miss" href="https://docs.google.com/forms/d/e/1FAIpQLSeJNLyRB005L1IZi97CQAHCnlI9wI4nCDB6z6yTV5fU4YovcA/viewform" target="_blank" rel="noopener" data-i18n="report_missing">हराएको रिपोर्ट</a>
-      <a class="found" href="https://docs.google.com/forms/d/e/1FAIpQLSe4Ak-cgiKP4gTYxuK-6CwPFS9eAhLZhiAelwMsquuz148ExA/viewform" target="_blank" rel="noopener" data-i18n="update_form">अपडेट गर्नुहोस्</a>
-      <a class="wa" href="https://wa.me/9779701010000?text=%E0%A4%B0%E0%A4%B8%E0%A5%81%E0%A4%B5%E0%A4%BE%20%E0%A4%AC%E0%A4%BE%E0%A4%A2%E0%A5%80%20%E0%A4%AC%E0%A5%81%E0%A4%B2%E0%A5%87%E0%A4%9F%E0%A4%BF%E0%A4%A8" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="mail" href="mailto:neerajbhusal@gmail.com?subject=Rasuwa%20flood%20bulletin" data-i18n="portal_mail">इमेल</a>
-    </div>
-  </details>
-  </div>
-</div>
+<div class="fab-dock"></div>
 
 <script>
 (function(){
@@ -560,6 +562,12 @@
     s.onerror=function(){ loading=false; };
     document.head.appendChild(s);
   }
+  document.addEventListener("input",function(e){
+    var t=e.target;
+    if(!t||t.id!=="top-names-q") return;
+    var val=t.value||"";
+    load(function(){ if(window.__openNamesSearch) window.__openNamesSearch(val); });
+  },true);
   document.addEventListener("click",function(e){
     var t=e.target.closest("[data-open-names],a[href=\"#search\"],a[href$=\"#search\"]");
     if(!t) return;
@@ -572,9 +580,9 @@
   window.__ensureNamesIndex=load;
 })();
 </script>
-<script defer src="i18n.js?v=2026-09-24-ask-panel"></script>
-<script defer src="notify.js?v=2026-09-24-ask-panel"></script>
-<script defer src="nav-menu.js?v=2026-09-24-ask-panel"></script>
+<script defer src="i18n.js?v=2026-09-24-ui-ask-fix"></script>
+<script defer src="notify.js?v=2026-09-24-ui-ask-fix"></script>
+<script defer src="nav-menu.js?v=2026-09-24-ui-ask-fix"></script>
 <script>
 (function(){
   var fabs = document.querySelectorAll(".fab-dock details");
@@ -654,21 +662,59 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-24-ask-panel";
+window.PAGE_VER="2026-09-24-ui-ask-fix";
 (function(){
-  function stale(id){ return !!(id && id !== window.PAGE_VER); }
-  function refresh(id){
-    if (!stale(id)) return;
-    var key = "rasuwa-refreshed-" + id;
-    try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch (e) {}
+  function hardReload(){
+    var k = "rasuwa-hard-" + (window.PAGE_VER || "");
+    try { if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, "1"); } catch (e) {}
     var u = new URL(location.href);
-    u.searchParams.set("v", id);
+    u.searchParams.set("v", window.PAGE_VER || "1");
+    u.searchParams.set("_", String(Date.now()));
     location.replace(u.href);
+  }
+  function banner(){
+    var el = document.getElementById("ver-banner");
+    if (!el) {
+      el = document.createElement("button");
+      el.id = "ver-banner";
+      el.type = "button";
+      el.className = "ver-banner";
+      el.setAttribute("aria-live", "polite");
+      el.textContent = "नयाँ संस्करण · New version — tap to refresh";
+      el.hidden = true;
+      el.addEventListener("click", function(){
+        try { sessionStorage.removeItem("rasuwa-hard-" + (window.PAGE_VER || "")); } catch (e) {}
+        var go = function(){ hardReload(); };
+        if (navigator.serviceWorker && navigator.serviceWorker.getRegistration) {
+          navigator.serviceWorker.getRegistration().then(function(reg){
+            if (reg && reg.waiting) {
+              try { reg.waiting.postMessage({ type: "skip-waiting" }); } catch (e2) {}
+            }
+            go();
+          }).catch(go);
+        } else go();
+      });
+      (document.body || document.documentElement).appendChild(el);
+    }
+    el.hidden = false;
+  }
+  function watchReg(reg){
+    if (!reg) return;
+    if (reg.waiting) banner();
+    if (reg.__askWatch) return;
+    reg.__askWatch = true;
+    reg.addEventListener("updatefound", function(){
+      var nw = reg.installing;
+      if (!nw) return;
+      nw.addEventListener("statechange", function(){
+        if (nw.state === "installed" && navigator.serviceWorker.controller) banner();
+      });
+    });
   }
   function check(){
     fetch("latest.json?t=" + Date.now(), { cache: "no-store" })
       .then(function(r){ return r.json(); })
-      .then(function(d){ if (d) refresh(d.id); })
+      .then(function(d){ if (d && d.id && d.id !== window.PAGE_VER) banner(); })
       .catch(function(){});
   }
   check();
@@ -676,17 +722,20 @@ window.PAGE_VER="2026-09-24-ask-panel";
   document.addEventListener("visibilitychange", function(){ if (!document.hidden) check(); });
   window.addEventListener("pageshow", function(ev){ if (ev.persisted) check(); });
   if (navigator.serviceWorker) {
-    try { navigator.serviceWorker.register("sw.js?v=" + (window.PAGE_VER || ""), { updateViaCache: "none" }).then(function(reg){ try { reg.update(); } catch (e) {} }); } catch (e) {}
+    try {
+      navigator.serviceWorker.register("sw.js?v=" + (window.PAGE_VER || ""), { updateViaCache: "none" }).then(function(reg){
+        try { reg.update(); } catch (e) {}
+        watchReg(reg);
+      });
+    } catch (e) {}
     navigator.serviceWorker.addEventListener("message", function(ev){
-      if (ev.data && ev.data.type === "page-refresh") refresh(ev.data.id);
+      if (!ev.data) return;
+      if (ev.data.type === "page-refresh" || ev.data.type === "force-refresh") hardReload();
     });
-    navigator.serviceWorker.addEventListener("controllerchange", function(){
-      var k = "rasuwa-sw-ctrl-" + (window.PAGE_VER || "");
-      try { if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, "1"); } catch (e) {}
-      location.href = location.href;
-    });
+    navigator.serviceWorker.addEventListener("controllerchange", function(){ hardReload(); });
     navigator.serviceWorker.ready.then(function(reg){
       try { reg.update(); } catch (e) {}
+      watchReg(reg);
     });
   }
 })();

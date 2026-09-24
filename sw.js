@@ -1,12 +1,12 @@
-/* रसुवा बाढी · सूचना · SW_VER 2026-09-24-ask-panel */
+/* रसुवा बाढी · सूचना · SW_VER 2026-09-24-ui-ask-fix */
 const SCOPE = self.registration.scope;
 const LATEST = new URL('latest.json', SCOPE).href;
 const ICON = new URL('icon-192.png', SCOPE).href;
 const SEEN_CACHE = 'rasuwa-seen-v2';
 const MUTE_CACHE = 'rasuwa-mute-v1';
-const STATIC_CACHE = 'rasuwa-static-2026-09-24-ask-panel';
-const SW_VER = '2026-09-24-ask-panel';
-const PAGE_VER = '2026-09-24-ask-panel';
+const STATIC_CACHE = 'rasuwa-static-2026-09-24-ui-ask-fix';
+const SW_VER = '2026-09-24-ui-ask-fix';
+const PAGE_VER = '2026-09-24-ui-ask-fix';
 
 const STATIC_EXT = /\.(?:css|woff2|png|jpg|jpeg|webp|svg|ico|webmanifest)$/i;
 const STATIC_PATH = /\/(?:fonts\.css|bulletin\.css|fonts\/|img\/pay\/)/i;
@@ -67,7 +67,15 @@ self.addEventListener('fetch', (e) => {
     return;
   }
 
-  // Static CSS/fonts/pay chips: cache-first with PAGE_VER awareness via cache name
+  // CSS ?v= must match this worker. A stale query is network-only so an old
+  // STATIC_CACHE name cannot keep serving yesterday's stylesheet.
+  const qv = url.searchParams.get('v');
+  if (qv && qv !== PAGE_VER && (dest === 'style' || /\.css$/i.test(p))) {
+    e.respondWith(fetch(e.request, { cache: 'no-store' }).catch(function () { return fetch(e.request); }));
+    return;
+  }
+
+  // Static CSS/fonts/pay chips: cache-first inside THIS version's cache only
   if (dest === 'style' || dest === 'font' || dest === 'image' || STATIC_EXT.test(p) || STATIC_PATH.test(p)) {
     e.respondWith((async () => {
       const cache = await caches.open(STATIC_CACHE);
@@ -157,6 +165,7 @@ self.addEventListener('message', (e) => {
   if (msg.type === 'check') {
     e.waitUntil(checkLatest(!!msg.welcome));
   }
+  if (msg.type === 'skip-waiting') self.skipWaiting();
   if (msg.type === 'force-refresh') {
     e.waitUntil((async () => {
       const clients = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
