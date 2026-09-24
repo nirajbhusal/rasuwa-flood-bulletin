@@ -1,3 +1,9 @@
+## 2026-09-24-ask-panel · Homepage Ask / सोध्नुहोस्
+
+- Homepage FAB **सोध्नुहोस् / Ask** opens a mobile-first sheet. Eight chips (weather, roads, rescue, name search, relief fund, helplines, LPG, road map) and a free-text box answer from the published boards: `data/weather-alert.json`, `data/roads-dor.json`, `api/dashboard.json`, the supply and helpline pages, and the existing names index. No external model and no new figures.
+- Relief lines stay the labeled MoF, USD, NCHL, Fonepay, named-handover, and NVIDIA amounts. They are not added together. Name queries open the existing search. Weather and road answers follow province, day, highway code, and place.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-ask-panel`
+
 ## 2026-09-24-map-colors · Alert colours, clean map face
 
 - Weather choropleth (homepage and `notices.html#alert`) has no names or figures drawn on the provinces. Hover or tap opens a card with the province, the warning colour, and the existing rainfall or day text. Tap elsewhere or Escape closes it. Day chips still recolor the map; colours ease between red, orange, yellow, and green. Zoom buttons, mouse drag, and a two-finger pinch change the scale. One-finger scroll still moves the page.
