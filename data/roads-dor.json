@@ -2,9 +2,9 @@
   "id": "2026-09-24-dor-navigate",
   "page_ver": "2026-09-24-map-colors",
   "as_of": {
-    "iso": "2026-09-24T09:42:49+05:45",
-    "en": "24 Sep 2026, 09:42 NPT",
-    "ne": "२४ सेप्टेम्बर २०२६, ०९:४२ NPT"
+    "iso": "2026-09-24T19:33:00+05:45",
+    "en": "24 Sep 2026, 19:33 NPT",
+    "ne": "२४ सेप्टेम्बर २०२६, १९:३३ NPT"
   },
   "source": {
     "name": "Department of Roads NAVIGATE",
@@ -12,8 +12,8 @@
     "section": "notices.html#roads"
   },
   "counts": {
-    "total": 9,
-    "closed": 5,
+    "total": 10,
+    "closed": 6,
     "opened": 4,
     "partial": 0
   },
@@ -88,16 +88,16 @@
       "en": "Counts change — check NAVIGATE before you travel."
     },
     "count_note": {
-      "ne": "चिप NAVIGATE का जम्मा अङ्क हुन् (९ जम्मा / ५ बन्द / ४ खुला / ० आंशिक)। बन्द फिडमा NH08 दोहोरिएको छ, त्यसैले तल ४ वटा फरक खण्ड छन्। आंशिक चिप ० छ; टिकरमा NH03 आंशिक खुला अझै छ। खुला चिप भर्खर खोलिएका ४ खण्ड हुन्। टिकरका अरू “खुल्यो” हरफ छुट्टै छन्।",
-      "en": "Chips are the NAVIGATE totals (9 total / 5 closed / 4 opened / 0 partial). The closed feed repeats NH08, so four unique closures are listed. The partial chip is 0; the ticker still carries an NH03 partial-open record. The opened chip is four recently opened sections. Other ticker “has opened” lines are listed separately."
+      "ne": "चिप NAVIGATE का जम्मा अङ्क हुन् (१० जम्मा / ६ बन्द / ४ खुला / ० आंशिक), २४ सेप्टेम्बर १९:३३। बन्द फिडमा NH08 दोहोरिएको छ, त्यसैले तल ५ वटा फरक खण्ड छन्। नयाँ बन्द: NH17 जरेखेत (गल्छी–त्रिशूली पुल), पहिरो, १८:३०। आंशिक चिप ० छ; टिकरमा NH03 आंशिक खुला अझै छ। खुला चिप भर्खर खोलिएका ४ खण्ड हुन्।",
+      "en": "Chips are the NAVIGATE totals (10 total / 6 closed / 4 opened / 0 partial) at 19:33 on 24 Sep. The closed feed repeats NH08, so five unique closures are listed. New closure: NH17 Jarekhet (Galchhi–Trisuli bridge), landslide, 18:30. The partial chip is 0; the ticker still carries an NH03 partial-open record. The opened chip is four recently opened sections."
     },
     "nh17": {
-      "ne": "टिकरले NH17 (पृथ्वी राजमार्ग) को एक खण्ड खुल्यो भन्छ। त्यो ज्वाङ खोला लगायत पहिले खोलिएका अवरोध हुन्। शीतल बजार (चेनेज ४६+७४०) अझै बन्द छ — बाढीले टुक्को काटेको, अनुमानित खुल्ने २५ सेप्टेम्बर २०२६, १६:००। सम्पर्क इ. धीरज धकाल, ९८४१३७०९८३।",
-      "en": "The ticker says a section of NH17 (Prithvi Highway) has opened. That matches cleared blockages, including Jawang Khola. Shital Bazaar (chainage 46+740) is still closed — flood toe-cutting, estimated open 25 Sep 2026, 16:00. Contact Er. Dhiraj Dhakal, 9841370983."
+      "ne": "२४ सेप्टेम्बर १८:३० देखि NH17 जरेखेत (गल्छी–जंक्शन त्रिशूली पुल, NH17-002) पहिरोले बन्द छ। अनुमानित २०:३३; अभिलेखमा २१:३७ को अन्त्य छाप पनि छ र बन्द फिडमै छ। सम्पर्क रामेश भण्डारी ९८०२८७७३०३ वा ९८०२८७७३०५, रामेश थापा। शीतल बजार (चेनेज ४६+७४०) अझै बन्द — अनुमानित खुल्ने २५ सेप्टेम्बर १६:००।",
+      "en": "From 18:30 on 24 Sep, NH17 at Jarekhet (Galchhi–Junction Trisuli bridge, NH17-002) is closed by a landslide. Estimate 20:33; the record also carries a 21:37 end stamp and is still on the closed feed. Contact Ramesh Bhandari 9802877303 or 9802877305, Ramesh Thapa. Shital Bazaar (chainage 46+740) is still closed — estimated open 25 Sep, 16:00."
     },
     "also": {
-      "ne": "अन्य बन्द: NH17 शीतल बजार (अनुमानित २५ सेप्टेम्बर १६:००), NH08 कोशी, NH02 मेची।",
-      "en": "Also closed: NH17 Shital Bazaar (est. 25 Sep, 16:00), NH08 Koshi, NH02 Mechi."
+      "ne": "अन्य बन्द: NH17 जरेखेत (२४ सेप्टेम्बर १८:३०, पहिरो), NH17 शीतल बजार (अनुमानित २५ सेप्टेम्बर १६:००), NH08 कोशी, NH02 मेची।",
+      "en": "Also closed: NH17 Jarekhet (24 Sep 18:30, landslide), NH17 Shital Bazaar (est. 25 Sep, 16:00), NH08 Koshi, NH02 Mechi."
     },
     "g_closed": {
       "ne": "अहिले बन्द",
@@ -180,8 +180,8 @@
       "en": "The basemap is not available right now. The corridor and status markers are still shown."
     },
     "snapshot": {
-      "ne": "२४ सेप्टेम्बर २०२६, ०९:४२",
-      "en": "24 Sep 2026, 09:42"
+      "ne": "२४ सेप्टेम्बर २०२६, १९:३३",
+      "en": "24 Sep 2026, 19:33"
     }
   },
   "roads": [
@@ -235,6 +235,55 @@
         "lng": 85.380123,
         "lock": true,
         "source": "DoR SRN NH42-014 northern endpoint (Shyaphrubesi–Rasuwagadhi IB). OSM Rasuwagadhi hamlet 28.277775, 85.377779. NAVIGATE closure pin 28.1650, 85.3384 is Syaphrubesi and is not this border point."
+      }
+    },
+    {
+      "id": "899",
+      "ref": "NH17",
+      "link": "NH17-002",
+      "status": "closed",
+      "lists": ["closed"],
+      "priority": false,
+      "name": {
+        "en": "Galchhi–Junction Trisuli bridge",
+        "ne": "गल्छी–जंक्शन त्रिशूली पुल"
+      },
+      "section": {
+        "en": "Jarekhet",
+        "ne": "जरेखेत"
+      },
+      "reason": {
+        "en": "Landslide",
+        "ne": "पहिरो"
+      },
+      "district": {
+        "en": "Dhading",
+        "ne": "धादिङ"
+      },
+      "place": {
+        "en": "Jarekhet, chainage 0+000",
+        "ne": "जरेखेत, चेनेज ०+०००"
+      },
+      "contact": "Ramesh Bhandari 9802877303 or 9802877305, Ramesh Thapa",
+      "closed": {
+        "iso": "2026-09-24T18:30:00+05:45",
+        "en": "24 Sep 2026, 18:30",
+        "ne": "२४ सेप्टेम्बर २०२६, १८:३०"
+      },
+      "opened": null,
+      "estimate": {
+        "iso": "2026-09-24T20:33:00+05:45",
+        "en": "24 Sep 2026, 20:33",
+        "ne": "२४ सेप्टेम्बर २०२६, २०:३३"
+      },
+      "note": {
+        "en": "NAVIGATE closure 899, still on the closed feed at 19:33. Landslide. Division: Nuwakot. DoR also records an end stamp of 21:37 while closure_type remains CLOSED. Efforts: machines already mobilized.",
+        "ne": "NAVIGATE बन्द ८९९, १९:३३ मा बन्द फिडमै। पहिरो। डिभिजन: नुवाकोट। सडक विभागको अभिलेखमा २१:३७ को अन्त्य छाप छ र closure_type अझै CLOSED छ। मेशिन खटाइएको।"
+      },
+      "point": {
+        "lat": 27.7686,
+        "lng": 84.9408,
+        "source": "DoR Map_data_api getRoadClosureMapData id 899"
       }
     },
     {
@@ -330,8 +379,8 @@
         "ne": "७ सेप्टेम्बर २०२६, ०९:४३"
       },
       "note": {
-        "en": "DoR’s closed count repeats this same section, so the chip says 5 closed while this list shows it once. The estimated reopening (7 Sep) has passed; the section is still listed closed.",
-        "ne": "सडक विभागको बन्द गणनाले यही खण्ड दोहोर्‍याएको छ, त्यसैले चिप ५ बन्द देखाउँछ र यो सूचीमा एक पटक मात्र छ। अनुमानित खुल्ने मिति (७ सेप्टेम्बर) बितिसकेको छ; खण्ड अझै बन्द सूचीमा छ।"
+        "en": "DoR’s closed count repeats this same section, so the chip says 6 closed while this list shows it once. The estimated reopening (7 Sep) has passed; the section is still listed closed.",
+        "ne": "सडक विभागको बन्द गणनाले यही खण्ड दोहोर्‍याएको छ, त्यसैले चिप ६ बन्द देखाउँछ र यो सूचीमा एक पटक मात्र छ। अनुमानित खुल्ने मिति (७ सेप्टेम्बर) बितिसकेको छ; खण्ड अझै बन्द सूचीमा छ।"
       },
       "point": {
         "lat": 27.6218,
@@ -986,7 +1035,7 @@
   ],
   "map": {
     "corridor": "data/nh42-corridor.geojson",
-    "tiles": "OpenStreetMap France (tile.openstreetmap.fr/osmfr), © OpenStreetMap contributors",
+    "tiles": "OpenStreetMap (tile.openstreetmap.org), © OpenStreetMap contributors",
     "dashboard": "https://navigate.dor.gov.np/app/dashboard",
     "live": {
       "aggregate": "https://navigate.dor.gov.np/api/Dashboard_api/getAggregateData",
@@ -994,8 +1043,8 @@
       "opened": "https://navigate.dor.gov.np/api/Map_data_api/getRecentlyOpenedRoadsMapData"
     },
     "note": {
-      "ne": "अन्य बिन्दु NAVIGATE को सार्वजनिक नक्सा निर्देशाङ्क हुन् (स्न्यापसट २४ सेप्टेम्बर २०२६, ०९:४२)। NH42-014 चिन्ह सडक विभागको रणनीतिक सडकको उत्तरी छेउ हो — रसुवागढी अध्यागमन / चुच्चे नाका (२८.२७८, ८५.३८०)। NAVIGATE को बन्द पिन (२८.१६५, ८५.३३८) स्याफ्रुबेँसी हो, त्यो सीमा बिन्दु होइन। स्थिति अझै बन्द। टिकरको NH03 आंशिक खुलाको सार्वजनिक निर्देशाङ्क छैन, त्यसैले सूचीमा छ, नक्सामा छैन।",
-      "en": "Other points are public NAVIGATE map coordinates (snapshot 24 Sep 2026, 09:42). The NH42-014 marker is the northern end of the Department of Roads strategic road — Rasuwagadhi IB / Chuchhe Naka (28.278, 85.380). The NAVIGATE closure pin (28.165, 85.338) is Syaphrubesi, not that border point. The section is still closed. Ticker partial NH03 has no public coordinate, so it stays in the list and is not plotted."
+      "ne": "अन्य बिन्दु NAVIGATE को सार्वजनिक नक्सा निर्देशाङ्क हुन् (स्न्यापसट २४ सेप्टेम्बर २०२६, १९:३३)। NH17 जरेखेत (२७.७६९, ८४.९४१) बन्द फिडबाट। NH42-014 चिन्ह सडक विभागको रणनीतिक सडकको उत्तरी छेउ हो — रसुवागढी अध्यागमन / चुच्चे नाका (२८.२७८, ८५.३८०)। NAVIGATE को बन्द पिन (२८.१६५, ८५.३३८) स्याफ्रुबेँसी हो, त्यो सीमा बिन्दु होइन। स्थिति अझै बन्द। टिकरको NH03 आंशिक खुलाको सार्वजनिक निर्देशाङ्क छैन, त्यसैले सूचीमा छ, नक्सामा छैन।",
+      "en": "Other points are public NAVIGATE map coordinates (snapshot 24 Sep 2026, 19:33). NH17 Jarekhet (27.769, 84.941) is from the closed feed. The NH42-014 marker is the northern end of the Department of Roads strategic road — Rasuwagadhi IB / Chuchhe Naka (28.278, 85.380). The NAVIGATE closure pin (28.165, 85.338) is Syaphrubesi, not that border point. The section is still closed. Ticker partial NH03 has no public coordinate, so it stays in the list and is not plotted."
     }
   }
 }

@@ -1,3 +1,11 @@
+## 2026-09-24-portal-ux · Portal design system, Ask sheet, refresh banner
+
+- Light civic tokens (type scale, card radius, shadow, spacing, semantic colours) apply across pages that share `bulletin.css`. Primary accent `#c41e3a` stays on the brand, the Live chip, and actions. KPI numbers share one size. Notices history cards and pager chips use the same card language. Dark full-bleed alert blocks on the page are light cards.
+- Ask is a sheet above the map and the sticky header. The button sits on the left so it does not cover the right-hand fab dock. Answers are a user bubble, then a card with a topic line, source, and action, then follow-ups. FAQ search is always visible and filters as you type; a tap adds that question to the thread.
+- A dismissible banner appears when `latest.json` or a waiting service worker is newer than this page: “नयाँ अपडेट उपलब्ध छ। New update available — tap to refresh.” Dismiss lasts for that version in the tab session. The page does not reload by itself.
+- DoR NAVIGATE rechecked at 19:33 NPT on 24 Sep 2026 (`getAggregateData`: total 10, closed 6, opened 4, partial 0). New closed section id 899: NH17-002 Jarekhet, Dhading, landslide from 18:30, estimate 20:33, point 27.7686, 84.9408. NH08 is still duplicated on the closed feed, so the chip is 6 and the list shows five unique closures. Weather lead stays DHM **#12300** from `main` (not rewritten). SitRep #16, NCHL (22 Sep 00:00), Fonepay (21 Sep), MoF PMDRF, and name lists were not changed: no newer official board could be verified.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-portal-ux`
+
 ## 2026-09-24-dhm-12300 · DHM five-day weather warning #12300
 
 - Live lead is DHM **#12300** (issued Asoj 8 / 24 Sep 2026, 18:00 NPT): five-day weather warning for Asoj 8–12. Official page text is empty; the product is the five day maps. Homepage and `notices.html#alert` read `data/weather-alert.json`. No citizen-reprint line and no bulletin-number badge on the live card.
