@@ -7893,3 +7893,138 @@ html.ask-lock body{position:fixed;left:0;right:0;width:100%}
   .ask-faq-list{max-height:30dvh}
   .ask-chip-next{min-height:44px}
 }
+
+/* 2026-09-24 ask ux · sheet layout, chips, thinking */
+.ask-faq{padding:0}
+.ask-panel{
+  display:flex;flex-direction:column;min-height:0;overflow:hidden;
+  padding-bottom:0;
+}
+.ask-grab{display:none;flex:none}
+.ask-head,.ask-form{flex:0 0 auto}
+.ask-log{
+  flex:1 1 auto;min-height:168px;overflow:auto;
+}
+.ask-faq{flex:0 1 auto;min-height:0}
+.ask-faq.is-open{
+  display:flex;flex-direction:column;overflow:hidden;
+  max-height:min(240px,42%);
+}
+.ask-faq.is-open .ask-faq-body{
+  display:flex;flex-direction:column;min-height:0;flex:1 1 auto;overflow:hidden;
+}
+.ask-faq-list{flex:1 1 auto;min-height:0;max-height:none}
+.ask-chips{
+  flex:0 0 auto;max-height:none;overflow:visible;
+  padding:2px 0 8px;
+}
+.ask-chips-h{margin:6px 14px}
+.ask-chip-row{
+  display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;
+  overscroll-behavior-x:contain;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;padding:0 14px 2px;
+  scroll-snap-type:x proximity;
+}
+.ask-chip-row::-webkit-scrollbar{display:none}
+.ask-chips .ask-chip,.ask-follow .ask-chip,.ask-suggest .ask-chip{
+  flex:none;white-space:nowrap;scroll-snap-align:start;
+}
+.ask-suggest .ask-chips-h,.ask-follow .ask-chips-h{margin:8px 0 6px}
+.ask-suggest .ask-chip-row,.ask-follow .ask-chip-row{padding:0 0 2px}
+.ask-chip.is-on{background:#0f766e;color:#fff;border-color:#0f766e}
+.ask-chip.is-on:hover,.ask-chip.is-on:focus-visible{background:#115e59;color:#fff}
+.ask-card.is-weather,.ask-card.is-helpline{border-left-color:#0f766e}
+.ask-card.is-roads,.ask-card.is-map,.ask-card.is-markets{border-left-color:#1d4ed8}
+.ask-card.is-rescue{border-left-color:#b42318}
+.ask-card.is-fund{border-left-color:#047857}
+.ask-card.is-names{border-left-color:#6d28d9}
+.ask-card.is-lpg{border-left-color:#c2410c}
+.ask-typing{
+  display:flex;align-items:center;gap:6px;width:max-content;max-width:100%;
+  margin:0;padding:10px 12px;border-radius:14px;
+  background:#fff;border:1px solid var(--line);border-left:4px solid #0f766e;
+}
+.ask-typing span{
+  width:7px;height:7px;border-radius:50%;background:#0f766e;flex:none;
+  animation:ask-dot 1s infinite ease-in-out;
+}
+.ask-typing span:nth-child(2){animation-delay:.15s}
+.ask-typing span:nth-child(3){animation-delay:.3s}
+.ask-typing em{font-style:normal;font-size:13.5px;font-weight:800;color:#0f766e;margin-left:4px}
+@keyframes ask-dot{
+  0%,80%,100%{transform:translateY(0);opacity:.35}
+  40%{transform:translateY(-3px);opacity:1}
+}
+.ask-user.is-new,.ask-card.is-new,.ask-typing.is-new{animation:ask-in .28s ease}
+@keyframes ask-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ask-faq-suggest{margin:0 0 4px}
+.ask-faq-suggest[hidden]{display:none}
+.ask-form{position:relative;bottom:auto}
+html.ask-lock .fab-dock{visibility:hidden;pointer-events:none}
+html.ask-lock,html.ask-lock body{height:auto}
+.ask-sheet{z-index:74}
+@media (min-width:760px){
+  .ask-panel{
+    margin:0 20px 16px 0;
+    max-height:min(78vh,740px);
+  }
+}
+@media (max-width:759px){
+  .ask-grab{
+    display:block;width:46px;height:5px;border-radius:999px;
+    background:#cbd5e1;margin:8px auto 0;touch-action:none;
+  }
+  .ask-head{cursor:grab;touch-action:none}
+  .ask-panel{
+    padding-bottom:0;
+    max-height:min(92dvh, calc(100dvh - env(safe-area-inset-top, 0px) - 8px));
+  }
+  .ask-log{min-height:132px}
+  .ask-sheet.is-typing .ask-log{min-height:88px}
+  .ask-form{
+    position:relative;
+    padding:8px 14px max(10px, env(safe-area-inset-bottom, 0px));
+  }
+  .ask-faq.is-open{max-height:min(220px,38dvh)}
+}
+@media (prefers-reduced-motion:reduce){
+  .ask-typing span,.ask-user.is-new,.ask-card.is-new,.ask-typing.is-new{animation:none}
+}
+.ask-faq.is-open .ask-faq-body{display:block;overflow:auto}
+.ask-faq-list{flex:none;max-height:132px;overflow:auto}
+.ask-faq-list:empty{display:none}
+.ask-faq-suggest,.ask-faq-empty,.ask-faq-note{flex:none}
+
+/* Ask thread height and a solid open/close — no fading panel */
+.ask-panel{
+  opacity:1;
+  height:min(84vh,800px);
+  max-height:min(84vh,800px);
+  transform:translateY(110%);
+  transition:transform .26s ease;
+}
+.ask-sheet.is-open .ask-panel{transform:none;opacity:1}
+.ask-sheet:not(.is-open){pointer-events:none}
+.ask-sheet.is-open{pointer-events:auto}
+.ask-backdrop{transition:opacity .18s ease}
+.ask-log{
+  flex:1 1 0;
+  min-height:0;
+  overflow:auto;
+  overflow-anchor:none;
+}
+.ask-card,.ask-typing,.ask-user,.ask-follow{overflow-anchor:none}
+@media (max-width:759px){
+  .ask-panel{
+    height:min(94dvh, calc(100dvh - env(safe-area-inset-top, 0px) - 6px));
+    max-height:min(94dvh, calc(100dvh - env(safe-area-inset-top, 0px) - 6px));
+    padding-bottom:0;
+    transform:translateY(110%);
+  }
+  .ask-sheet.is-open .ask-panel{transform:none}
+  .ask-log{min-height:0}
+  .ask-faq.is-open{max-height:32%}
+}
+@media (prefers-reduced-motion:reduce){
+  .ask-panel,.ask-backdrop{transition:none}
+}
