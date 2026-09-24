@@ -1,0 +1,882 @@
+{
+  "id": "2026-09-24-dor-navigate",
+  "page_ver": "2026-09-24-weather-12297",
+  "as_of": {
+    "iso": "2026-09-24T09:42:49+05:45",
+    "en": "24 Sep 2026, 09:42 NPT",
+    "ne": "२४ सेप्टेम्बर २०२६, ०९:४२ NPT"
+  },
+  "source": {
+    "name": "Department of Roads NAVIGATE",
+    "url": "https://navigate.dor.gov.np/app/dashboard",
+    "section": "notices.html#roads"
+  },
+  "counts": {
+    "total": 9,
+    "closed": 5,
+    "opened": 4,
+    "partial": 0
+  },
+  "priority_id": "866",
+  "ui": {
+    "kicker": {
+      "ne": "सडक विभाग · NAVIGATE",
+      "en": "Department of Roads · NAVIGATE"
+    },
+    "title": {
+      "ne": "सडक स्थिति",
+      "en": "Road status"
+    },
+    "asof": {
+      "ne": "यतिबेला",
+      "en": "As of"
+    },
+    "total": {
+      "ne": "जम्मा",
+      "en": "Total"
+    },
+    "closed": {
+      "ne": "बन्द",
+      "en": "Closed"
+    },
+    "opened": {
+      "ne": "खुला",
+      "en": "Opened"
+    },
+    "partial": {
+      "ne": "आंशिक खुला",
+      "en": "Partially opened"
+    },
+    "corridor": {
+      "ne": "मुख्य रसुवा–भोटेकोशी करिडोर",
+      "en": "Primary Rasuwa–Bhotekoshi corridor"
+    },
+    "closed_on": {
+      "ne": "बन्द",
+      "en": "Closed"
+    },
+    "opened_on": {
+      "ne": "खुल्यो",
+      "en": "Opened"
+    },
+    "estimate": {
+      "ne": "अनुमानित खुल्ने",
+      "en": "Estimated open"
+    },
+    "contact": {
+      "ne": "सम्पर्क",
+      "en": "Contact"
+    },
+    "place": {
+      "ne": "स्थान",
+      "en": "Place"
+    },
+    "more": {
+      "ne": "पूर्ण सूची",
+      "en": "Full list"
+    },
+    "dor": {
+      "ne": "सडक विभाग ड्यासबोर्ड",
+      "en": "DoR dashboard"
+    },
+    "check": {
+      "ne": "संख्या बदलिन्छ — हिँड्नु अघि NAVIGATE हेर्नुहोस्।",
+      "en": "Counts change — check NAVIGATE before you travel."
+    },
+    "disclaimer": {
+      "ne": "स्वतन्त्र नागरिक पुनर्मुद्रण। आधिकारिक स्थिति सडक विभागको NAVIGATE हो। यो सरकारी साइट होइन।",
+      "en": "Independent citizen reprint. Official status is the Department of Roads NAVIGATE dashboard. This is not a government site."
+    },
+    "count_note": {
+      "ne": "चिप NAVIGATE का जम्मा अङ्क हुन् (९ जम्मा / ५ बन्द / ४ खुला / ० आंशिक)। बन्द फिडमा NH08 दोहोरिएको छ, त्यसैले तल ४ वटा फरक खण्ड छन्। आंशिक चिप ० छ; टिकरमा NH03 आंशिक खुला अझै छ। खुला चिप भर्खर खोलिएका ४ खण्ड हुन्। टिकरका अरू “खुल्यो” हरफ छुट्टै छन्।",
+      "en": "Chips are the NAVIGATE totals (9 total / 5 closed / 4 opened / 0 partial). The closed feed repeats NH08, so four unique closures are listed. The partial chip is 0; the ticker still carries an NH03 partial-open record. The opened chip is four recently opened sections. Other ticker “has opened” lines are listed separately."
+    },
+    "nh17": {
+      "ne": "टिकरले NH17 (पृथ्वी राजमार्ग) को एक खण्ड खुल्यो भन्छ। त्यो ज्वाङ खोला लगायत पहिले खोलिएका अवरोध हुन्। शीतल बजार (चेनेज ४६+७४०) अझै बन्द छ — बाढीले टुक्को काटेको, अनुमानित खुल्ने २५ सेप्टेम्बर २०२६, १६:००। सम्पर्क इ. धीरज धकाल, ९८४१३७०९८३।",
+      "en": "The ticker says a section of NH17 (Prithvi Highway) has opened. That matches cleared blockages, including Jawang Khola. Shital Bazaar (chainage 46+740) is still closed — flood toe-cutting, estimated open 25 Sep 2026, 16:00. Contact Er. Dhiraj Dhakal, 9841370983."
+    },
+    "also": {
+      "ne": "अन्य बन्द: NH17 शीतल बजार (अनुमानित २५ सेप्टेम्बर १६:००), NH08 कोशी, NH02 मेची।",
+      "en": "Also closed: NH17 Shital Bazaar (est. 25 Sep, 16:00), NH08 Koshi, NH02 Mechi."
+    },
+    "g_closed": {
+      "ne": "अहिले बन्द",
+      "en": "Closed now"
+    },
+    "g_partial": {
+      "ne": "आंशिक खुला (टिकर)",
+      "en": "Partially opened (ticker)"
+    },
+    "g_opened": {
+      "ne": "भर्खर खुला — चिपका ४",
+      "en": "Recently opened — the 4 on the chip"
+    },
+    "g_ticker": {
+      "ne": "टिकरले खुल्यो भनेका अरू खण्ड",
+      "en": "Other sections the ticker says have opened"
+    },
+    "section_h": {
+      "ne": "खण्ड",
+      "en": "Section"
+    }
+  },
+  "roads": [
+    {
+      "id": "866",
+      "ref": "NH42",
+      "link": "NH42-014",
+      "status": "closed",
+      "lists": [
+        "closed"
+      ],
+      "priority": true,
+      "name": {
+        "en": "Thori–Bhandara–Malekhu, Galchi–Trishuli–Betrawati–Mailung–Syaphrubesi–Rasuwagadhi",
+        "ne": "ठोरी–भण्डारा–मालेखु, गल्छी–त्रिशूली–बेत्रावती–मैलुङ–स्याफ्रुबेँसी–रसुवागढी"
+      },
+      "section": {
+        "en": "Syaphrubesi–Rasuwagadhi",
+        "ne": "स्याफ्रुबेँसी–रसुवागढी"
+      },
+      "reason": {
+        "en": "Huge flood from Tibet swept away the river-route road",
+        "ne": "तिब्बतबाट आएको ठूलो बाढीले नदी किनारको सडक बगाएको"
+      },
+      "district": {
+        "en": "Rasuwa",
+        "ne": "रसुवा"
+      },
+      "place": {
+        "en": "Khalte, Syaphrubesi, Timure",
+        "ne": "खल्ते, स्याफ्रुबेँसी, टिमुरे"
+      },
+      "contact": "",
+      "closed": {
+        "iso": "2026-08-26T11:30:00+05:45",
+        "en": "26 Aug 2026, 11:30",
+        "ne": "२६ अगस्ट २०२६, ११:३०"
+      },
+      "opened": null,
+      "estimate": {
+        "iso": "2026-08-31T11:33:00+05:45",
+        "en": "31 Aug 2026, 11:33",
+        "ne": "३१ अगस्ट २०२६, ११:३३"
+      },
+      "note": {
+        "en": "Primary Rasuwa–Bhotekoshi corridor. DoR still lists this section closed. The estimated reopening on the record (31 Aug) has passed.",
+        "ne": "मुख्य रसुवा–भोटेकोशी करिडोर। सडक विभागले यो खण्ड अझै बन्द देखाएको छ। अभिलेखको अनुमानित खुल्ने मिति (३१ अगस्ट) बितिसकेको छ।"
+      }
+    },
+    {
+      "id": "894",
+      "ref": "NH17",
+      "link": "NH17-003",
+      "status": "closed",
+      "lists": [
+        "closed"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Naubise–Mugling–Pokhara (Prithvi Highway)",
+        "ne": "नौबिसे–मुग्लिन–पोखरा (पृथ्वी राजमार्ग)"
+      },
+      "section": {
+        "en": "Trisuli bridge–Mawa Khola",
+        "ne": "त्रिशूली पुल–मावा खोला"
+      },
+      "reason": {
+        "en": "River flood caused toe cutting and washed out half the road width",
+        "ne": "नदीको बाढीले सडकको टुक्को काट्यो र आधा चौडाइ बगायो"
+      },
+      "district": {
+        "en": "Dhading",
+        "ne": "धादिङ"
+      },
+      "place": {
+        "en": "Chainage 46+740, Shital Bazaar",
+        "ne": "चेनेज ४६+७४०, शीतल बजार"
+      },
+      "contact": "Er. Dhiraj Dhakal (9841370983)",
+      "closed": {
+        "iso": "2026-08-30T17:00:00+05:45",
+        "en": "30 Aug 2026, 17:00",
+        "ne": "३० अगस्ट २०२६, १७:००"
+      },
+      "opened": null,
+      "estimate": {
+        "iso": "2026-09-25T16:00:00+05:45",
+        "en": "25 Sep 2026, 16:00",
+        "ne": "२५ सेप्टेम्बर २०२६, १६:००"
+      },
+      "note": {
+        "en": "Still closed on the live map. The ticker line that NH17 “has opened” is a different, already cleared blockage — not this section. Blasting of hillside rock is noted on the record (Nepal Army).",
+        "ne": "लाइभ नक्सामा अझै बन्द। टिकरको “NH17 खुल्यो” अर्को, पहिले नै खोलिएको अवरोध हो — यो खण्ड होइन। अभिलेखमा पहाडतिरको चट्टान ब्लास्टिङ (नेपाली सेना) उल्लेख छ।"
+      }
+    },
+    {
+      "id": "884",
+      "ref": "NH08",
+      "link": "NH08-016",
+      "status": "closed",
+      "lists": [
+        "closed"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Rani–Biratnagar–Itahari–Dharan–Dhankuta–Hile, Leguwaghat–Tumlingtar–Khandbari–Num–Kimathanka (Koshi Highway)",
+        "ne": "रानी–विराटनगर–इटहरी–धरान–धनकुटा–हिले, लेगुवाघाट–तुम्लिङटार–खाँदबारी–नुम–किमाथाङ्का (कोशी राजमार्ग)"
+      },
+      "section": {
+        "en": "Num–Kimathanka",
+        "ne": "नुम–किमाथाङ्का"
+      },
+      "reason": {
+        "en": "Landslide",
+        "ne": "पहिरो"
+      },
+      "district": {
+        "en": "Sankhuwasabha",
+        "ne": "संखुवासभा"
+      },
+      "place": {
+        "en": "Alphate, chainage 68+500",
+        "ne": "अल्फाटे, चेनेज ६८+५००"
+      },
+      "contact": "9851246925",
+      "closed": {
+        "iso": "2026-09-05T09:43:00+05:45",
+        "en": "5 Sep 2026, 09:43",
+        "ne": "५ सेप्टेम्बर २०२६, ०९:४३"
+      },
+      "opened": null,
+      "estimate": {
+        "iso": "2026-09-07T09:43:00+05:45",
+        "en": "7 Sep 2026, 09:43",
+        "ne": "७ सेप्टेम्बर २०२६, ०९:४३"
+      },
+      "note": {
+        "en": "DoR’s closed count repeats this same section, so the chip says 5 closed while this list shows it once. The estimated reopening (7 Sep) has passed; the section is still listed closed.",
+        "ne": "सडक विभागको बन्द गणनाले यही खण्ड दोहोर्‍याएको छ, त्यसैले चिप ५ बन्द देखाउँछ र यो सूचीमा एक पटक मात्र छ। अनुमानित खुल्ने मिति (७ सेप्टेम्बर) बितिसकेको छ; खण्ड अझै बन्द सूचीमा छ।"
+      }
+    },
+    {
+      "id": "693",
+      "ref": "NH02",
+      "link": "NH02-007",
+      "status": "closed",
+      "lists": [
+        "closed"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Kechana–Chandragadhi–Charali–Ilam–Phidim, Ganeshchok–Taplejung–Olangchungola (Mechi Highway)",
+        "ne": "केचना–चन्द्रगढी–चराली–इलाम–फिदिम, गणेशचोक–ताप्लेजुङ–ओलाङचुङगोला (मेची राजमार्ग)"
+      },
+      "section": {
+        "en": "Mai Khola–Biblyante Bazaar",
+        "ne": "माई खोला–बिब्ल्यान्टे बजार"
+      },
+      "reason": {
+        "en": "Landslide",
+        "ne": "पहिरो"
+      },
+      "district": {
+        "en": "Ilam",
+        "ne": "इलाम"
+      },
+      "place": {
+        "en": "Rajduwali",
+        "ne": "राजदुवाली"
+      },
+      "contact": "",
+      "closed": {
+        "iso": "2026-07-09T05:00:00+05:45",
+        "en": "9 Jul 2026, 05:00",
+        "ne": "९ जुलाई २०२६, ०५:००"
+      },
+      "opened": null,
+      "estimate": {
+        "iso": "2026-08-09T10:00:00+05:45",
+        "en": "9 Aug 2026, 10:00",
+        "ne": "९ अगस्ट २०२६, १०:००"
+      },
+      "note": {
+        "en": "Record notes the road has collapsed beside a settlement, with work disturbed by rain. Estimated reopening (9 Aug) has passed; still listed closed.",
+        "ne": "अभिलेखअनुसार बस्ती छेउको सडक भत्किएको छ र वर्षाले काम रोकिएको छ। अनुमानित खुल्ने मिति (९ अगस्ट) बितिसकेको छ; अझै बन्द सूचीमा छ।"
+      }
+    },
+    {
+      "id": "872",
+      "ref": "NH03",
+      "link": "NH03-058",
+      "status": "partial",
+      "lists": [
+        "partial"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Pushpalal Mid Hill Highway",
+        "ne": "पुष्पलाल मध्यपहाडी राजमार्ग"
+      },
+      "section": {
+        "en": "Lukumgaon–Rukumkot",
+        "ne": "लुकुमगाउँ–रुकुमकोट"
+      },
+      "reason": {
+        "en": "Landslide",
+        "ne": "पहिरो"
+      },
+      "district": {
+        "en": "Rukum East",
+        "ne": "रुकुम पूर्व"
+      },
+      "place": {
+        "en": "Near Kakri",
+        "ne": "काक्री नजिक"
+      },
+      "contact": "Dilli Raj Sharma",
+      "closed": {
+        "iso": "2026-08-26T16:30:00+05:45",
+        "en": "26 Aug 2026, 16:30",
+        "ne": "२६ अगस्ट २०२६, १६:३०"
+      },
+      "opened": {
+        "iso": "2026-08-27T12:04:00+05:45",
+        "en": "27 Aug 2026, 12:04",
+        "ne": "२७ अगस्ट २०२६, १२:०४"
+      },
+      "estimate": {
+        "iso": "2026-08-27T12:30:00+05:45",
+        "en": "27 Aug 2026, 12:30",
+        "ne": "२७ अगस्ट २०२६, १२:३०"
+      },
+      "note": {
+        "en": "Ticker still says partially open. The dashboard partial chip is 0. The record says about 200 m was fully blocked and the road is partly open.",
+        "ne": "टिकरले अझै आंशिक खुला भन्छ। ड्यासबोर्डको आंशिक चिप ० छ। अभिलेखअनुसार करिब २०० मिटर पूर्ण अवरुद्ध थियो र सडक आंशिक खुला छ।"
+      }
+    },
+    {
+      "id": "898",
+      "ref": "NH17",
+      "link": "NH17-004",
+      "status": "opened",
+      "lists": [
+        "opened"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Naubise–Mugling–Pokhara (Prithvi Highway)",
+        "ne": "नौबिसे–मुग्लिन–पोखरा (पृथ्वी राजमार्ग)"
+      },
+      "section": {
+        "en": "Mawa Khola–Mugling",
+        "ne": "मावा खोला–मुग्लिन"
+      },
+      "reason": {
+        "en": "Landslide",
+        "ne": "पहिरो"
+      },
+      "district": {
+        "en": "Chitwan",
+        "ne": "चितवन"
+      },
+      "place": {
+        "en": "Chainage 81+600, near Mugling",
+        "ne": "चेनेज ८१+६००, मुग्लिन नजिक"
+      },
+      "contact": "Er. Dhiraj Dhakal (9841370983)",
+      "closed": {
+        "iso": "2026-09-22T17:30:00+05:45",
+        "en": "22 Sep 2026, 17:30",
+        "ne": "२२ सेप्टेम्बर २०२६, १७:३०"
+      },
+      "opened": {
+        "iso": "2026-09-22T18:00:00+05:45",
+        "en": "22 Sep 2026, 18:00",
+        "ne": "२२ सेप्टेम्बर २०२६, १८:००"
+      },
+      "estimate": {
+        "iso": "2026-09-22T18:10:00+05:45",
+        "en": "22 Sep 2026, 18:10",
+        "ne": "२२ सेप्टेम्बर २०२६, १८:१०"
+      },
+      "note": null
+    },
+    {
+      "id": "897",
+      "ref": "NH17",
+      "link": "NH17-003",
+      "status": "opened",
+      "lists": [
+        "opened"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Naubise–Mugling–Pokhara (Prithvi Highway)",
+        "ne": "नौबिसे–मुग्लिन–पोखरा (पृथ्वी राजमार्ग)"
+      },
+      "section": {
+        "en": "Trisuli bridge–Mawa Khola",
+        "ne": "त्रिशूली पुल–मावा खोला"
+      },
+      "reason": {
+        "en": "Landslide",
+        "ne": "पहिरो"
+      },
+      "district": {
+        "en": "Dhading",
+        "ne": "धादिङ"
+      },
+      "place": {
+        "en": "Chainage 59+100, Chauki Bhir",
+        "ne": "चेनेज ५९+१००, चौकी भीर"
+      },
+      "contact": "Er. Dhiraj Dhakal (9841370983)",
+      "closed": {
+        "iso": "2026-09-18T07:00:00+05:45",
+        "en": "18 Sep 2026, 07:00",
+        "ne": "१८ सेप्टेम्बर २०२६, ०७:००"
+      },
+      "opened": {
+        "iso": "2026-09-18T10:10:00+05:45",
+        "en": "18 Sep 2026, 10:10",
+        "ne": "१८ सेप्टेम्बर २०२६, १०:१०"
+      },
+      "estimate": {
+        "iso": "2026-09-18T09:30:00+05:45",
+        "en": "18 Sep 2026, 09:30",
+        "ne": "१८ सेप्टेम्बर २०२६, ०९:३०"
+      },
+      "note": {
+        "en": "A short landslide on this link, cleared the same morning. The older flood closure at Shital Bazaar on the same link is still closed.",
+        "ne": "यही लिंकको छोटो पहिरो, त्यही बिहान खोलियो। यही लिंकको शीतल बजार बाढी बन्द अझै कायम छ।"
+      }
+    },
+    {
+      "id": "896",
+      "ref": "NH44",
+      "link": "NH44-004",
+      "status": "opened",
+      "lists": [
+        "opened"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Thori–Bharatpur–Mugling, Aanbukhaireni–Gorkha–Ghyampesal, Aarughat–Sirdibas–Roila Bhanjyang",
+        "ne": "ठोरी–भरतपुर–मुग्लिन, आँबुखैरेनी–गोरखा–घ्याम्पेसल, आरुघाट–सिर्दिबास–रोइला भञ्ज्याङ"
+      },
+      "section": {
+        "en": "Ramnagar–Mugling",
+        "ne": "रामनगर–मुग्लिन"
+      },
+      "reason": {
+        "en": "Debris from uphill",
+        "ne": "माथिबाट खसेको भग्नावशेष"
+      },
+      "district": {
+        "en": "Chitwan",
+        "ne": "चितवन"
+      },
+      "place": {
+        "en": "Chainage 15+000",
+        "ne": "चेनेज १५+०००"
+      },
+      "contact": "Er. Arjun Ghimire",
+      "closed": {
+        "iso": "2026-09-18T07:00:00+05:45",
+        "en": "18 Sep 2026, 07:00",
+        "ne": "१८ सेप्टेम्बर २०२६, ०७:००"
+      },
+      "opened": {
+        "iso": "2026-09-18T09:30:00+05:45",
+        "en": "18 Sep 2026, 09:30",
+        "ne": "१८ सेप्टेम्बर २०२६, ०९:३०"
+      },
+      "estimate": {
+        "iso": "2026-09-18T08:30:00+05:45",
+        "en": "18 Sep 2026, 08:30",
+        "ne": "१८ सेप्टेम्बर २०२६, ०८:३०"
+      },
+      "note": null
+    },
+    {
+      "id": "874",
+      "ref": "NH17",
+      "link": "NH17-003",
+      "status": "opened",
+      "lists": [
+        "opened"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Naubise–Mugling–Pokhara (Prithvi Highway)",
+        "ne": "नौबिसे–मुग्लिन–पोखरा (पृथ्वी राजमार्ग)"
+      },
+      "section": {
+        "en": "Trisuli bridge–Mawa Khola",
+        "ne": "त्रिशूली पुल–मावा खोला"
+      },
+      "reason": {
+        "en": "Landslide — road washed out by toe cutting from the Trishuli",
+        "ne": "पहिरो — त्रिशूलीको टुक्को काटिएर सडक बगेको"
+      },
+      "district": {
+        "en": "Dhading",
+        "ne": "धादिङ"
+      },
+      "place": {
+        "en": "Chainage 57+150, Krishna Bhir",
+        "ne": "चेनेज ५७+१५०, कृष्णाभीर"
+      },
+      "contact": "Er. Dhiraj Dhakal (9841370983), Er. Sachendra Mishra (9855092276)",
+      "closed": {
+        "iso": "2026-08-30T08:10:00+05:45",
+        "en": "30 Aug 2026, 08:10",
+        "ne": "३० अगस्ट २०२६, ०८:१०"
+      },
+      "opened": {
+        "iso": "2026-09-17T06:00:00+05:45",
+        "en": "17 Sep 2026, 06:00",
+        "ne": "१७ सेप्टेम्बर २०२६, ०६:००"
+      },
+      "estimate": {
+        "iso": "2026-09-18T06:00:00+05:45",
+        "en": "18 Sep 2026, 06:00",
+        "ne": "१८ सेप्टेम्बर २०२६, ०६:००"
+      },
+      "note": null
+    },
+    {
+      "id": "871",
+      "ref": "NH17",
+      "link": "NH17-003",
+      "status": "opened",
+      "lists": [
+        "ticker"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Naubise–Mugling–Pokhara (Prithvi Highway)",
+        "ne": "नौबिसे–मुग्लिन–पोखरा (पृथ्वी राजमार्ग)"
+      },
+      "section": {
+        "en": "Trisuli bridge–Mawa Khola",
+        "ne": "त्रिशूली पुल–मावा खोला"
+      },
+      "reason": {
+        "en": "GLOF debris on the road at Bhotekoshi, Timure — flood debris over about 300 m",
+        "ne": "भोटेकोशी, टिमुरेको हिमताल विस्फोटको भग्नावशेष — करिब ३०० मिटर सडकमा बाढीको लेदो"
+      },
+      "district": {
+        "en": "Dhading",
+        "ne": "धादिङ"
+      },
+      "place": {
+        "en": "Chainage 64+100 to 64+400, Jawang Khola",
+        "ne": "चेनेज ६४+१०० देखि ६४+४००, ज्वाङ खोला"
+      },
+      "contact": "Er. Dhiraj Dhakal (9841370983)",
+      "closed": {
+        "iso": "2026-08-26T13:30:00+05:45",
+        "en": "26 Aug 2026, 13:30",
+        "ne": "२६ अगस्ट २०२६, १३:३०"
+      },
+      "opened": {
+        "iso": "2026-08-26T19:00:00+05:45",
+        "en": "26 Aug 2026, 19:00",
+        "ne": "२६ अगस्ट २०२६, १९:००"
+      },
+      "estimate": {
+        "iso": "2026-08-26T06:30:00+05:45",
+        "en": "26 Aug 2026, 06:30",
+        "ne": "२६ अगस्ट २०२६, ०६:३०"
+      },
+      "note": {
+        "en": "This is the ticker item that says a section of NH17 has opened. It was cleared on 26 Aug. It is not the Shital Bazaar closure, which is still closed.",
+        "ne": "टिकरको “NH17 को एक खण्ड खुल्यो” यही हो। २६ अगस्टमा खोलियो। शीतल बजारको बन्द यो होइन; त्यो अझै बन्द छ।"
+      }
+    },
+    {
+      "id": "891",
+      "ref": "NH20",
+      "link": "NH20-007",
+      "status": "opened",
+      "lists": [
+        "ticker"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Madar–Chauharwa, Mirchaiya–Katari–Ghurmi, Hilepani–Okhaldhunga–Salleri",
+        "ne": "मडर–चौहरवा, मिर्चैया–कटारी–घुर्मी, हिलेपानी–ओखलढुङ्गा–सल्लेरी"
+      },
+      "section": {
+        "en": "Okhaldhunga–Mudhe Bisana",
+        "ne": "ओखलढुङ्गा–मुढे बिसाना"
+      },
+      "reason": {
+        "en": "Landslide",
+        "ne": "पहिरो"
+      },
+      "district": {
+        "en": "Okhaldhunga",
+        "ne": "ओखलढुङ्गा"
+      },
+      "place": {
+        "en": "Near Chitre Bazaar",
+        "ne": "चित्रे बजार नजिक"
+      },
+      "contact": "",
+      "closed": {
+        "iso": "2026-09-09T06:30:00+05:45",
+        "en": "9 Sep 2026, 06:30",
+        "ne": "९ सेप्टेम्बर २०२६, ०६:३०"
+      },
+      "opened": {
+        "iso": "2026-09-09T10:00:00+05:45",
+        "en": "9 Sep 2026, 10:00",
+        "ne": "९ सेप्टेम्बर २०२६, १०:००"
+      },
+      "estimate": {
+        "iso": "2026-09-09T09:00:00+05:45",
+        "en": "9 Sep 2026, 09:00",
+        "ne": "९ सेप्टेम्बर २०२६, ०९:००"
+      },
+      "note": null
+    },
+    {
+      "id": "878",
+      "ref": "NH34",
+      "link": "NH34-016",
+      "status": "opened",
+      "lists": [
+        "ticker"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Kathmandu–Dhulikhel–Dolalghat–Khadichaur–Kodari (Arniko Highway)",
+        "ne": "काठमाडौं–धुलिखेल–दोलालघाट–खादिचौर–कोदारी (अरनिको राजमार्ग)"
+      },
+      "section": {
+        "en": "Barhabise–Kodari",
+        "ne": "बाह्रबिसे–कोदारी"
+      },
+      "reason": {
+        "en": "Landslide",
+        "ne": "पहिरो"
+      },
+      "district": {
+        "en": "Sindhupalchok",
+        "ne": "सिन्धुपाल्चोक"
+      },
+      "place": {
+        "en": "Kodari, chainage 113+000",
+        "ne": "कोदारी, चेनेज ११३+०००"
+      },
+      "contact": "Surendra Kumar Singh",
+      "closed": {
+        "iso": "2026-09-02T04:30:00+05:45",
+        "en": "2 Sep 2026, 04:30",
+        "ne": "२ सेप्टेम्बर २०२६, ०४:३०"
+      },
+      "opened": {
+        "iso": "2026-09-02T12:30:00+05:45",
+        "en": "2 Sep 2026, 12:30",
+        "ne": "२ सेप्टेम्बर २०२६, १२:३०"
+      },
+      "estimate": {
+        "iso": "2026-09-03T10:30:00+05:45",
+        "en": "3 Sep 2026, 10:30",
+        "ne": "३ सेप्टेम्बर २०२६, १०:३०"
+      },
+      "note": null
+    },
+    {
+      "id": "876",
+      "ref": "NH37",
+      "link": "NH37-003",
+      "status": "opened",
+      "lists": [
+        "ticker"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Hetauda–Bagmati–Tikabhairav–Bhaisepati–Ekantakuna (Kanti Highway)",
+        "ne": "हेटौंडा–बागमती–टिकाभैरव–भैँसेपाटी–एकान्तकुना (कान्ति राजमार्ग)"
+      },
+      "section": {
+        "en": "Bagmati River–Tikabhairab",
+        "ne": "बागमती नदी–टिकाभैरव"
+      },
+      "reason": {
+        "en": "Landslide",
+        "ne": "पहिरो"
+      },
+      "district": {
+        "en": "Lalitpur",
+        "ne": "ललितपुर"
+      },
+      "place": {
+        "en": "Chhapeli cliff, chainage 62+000",
+        "ne": "छापेली पहरो, चेनेज ६२+०००"
+      },
+      "contact": "",
+      "closed": {
+        "iso": "2026-08-31T18:00:00+05:45",
+        "en": "31 Aug 2026, 18:00",
+        "ne": "३१ अगस्ट २०२६, १८:००"
+      },
+      "opened": {
+        "iso": "2026-09-01T07:15:00+05:45",
+        "en": "1 Sep 2026, 07:15",
+        "ne": "१ सेप्टेम्बर २०२६, ०७:१५"
+      },
+      "estimate": {
+        "iso": "2026-09-01T06:00:00+05:45",
+        "en": "1 Sep 2026, 06:00",
+        "ne": "१ सेप्टेम्बर २०२६, ०६:००"
+      },
+      "note": null
+    },
+    {
+      "id": "882",
+      "ref": "NH52",
+      "link": "NH52-006",
+      "status": "opened",
+      "lists": [
+        "ticker"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Kakarhawa (IB)–Rudrapur, Saljhandi–Sandhikharka–Devisthan, Burtibang–Dhorpatan",
+        "ne": "ककरहवा (सीमा)–रुद्रपुर, सल्झण्डी–सन्धिखर्क–देवीस्थान, बुर्तिबाङ–ढोरपाटन"
+      },
+      "section": {
+        "en": "Badahare River–Khachi River",
+        "ne": "बडहरे नदी–खाची नदी"
+      },
+      "reason": {
+        "en": "Landslide",
+        "ne": "पहिरो"
+      },
+      "district": {
+        "en": "Arghakhanchi",
+        "ne": "अर्घाखाँची"
+      },
+      "place": {
+        "en": "Dhungrekhola, chainage 23+850",
+        "ne": "ढुङ्ग्रेखोला, चेनेज २३+८५०"
+      },
+      "contact": "Supervisor Keshab Pandey (9844894367)",
+      "closed": {
+        "iso": "2026-09-03T16:05:00+05:45",
+        "en": "3 Sep 2026, 16:05",
+        "ne": "३ सेप्टेम्बर २०२६, १६:०५"
+      },
+      "opened": {
+        "iso": "2026-09-04T10:00:00+05:45",
+        "en": "4 Sep 2026, 10:00",
+        "ne": "४ सेप्टेम्बर २०२६, १०:००"
+      },
+      "estimate": {
+        "iso": "2026-09-04T10:05:00+05:45",
+        "en": "4 Sep 2026, 10:05",
+        "ne": "४ सेप्टेम्बर २०२६, १०:०५"
+      },
+      "note": null
+    },
+    {
+      "id": "881",
+      "ref": "NH58",
+      "link": "NH58-020",
+      "status": "opened",
+      "lists": [
+        "ticker"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Jamunaha–Nepalgunj–Kohalpur–Surkhet–Khulalu–Hilsa (Karnali Highway)",
+        "ne": "जमुनाहा–नेपालगञ्ज–कोहलपुर–सुर्खेत–खुल्लु–हिल्सा (कर्णाली राजमार्ग)"
+      },
+      "section": {
+        "en": "Dulya–Simikot",
+        "ne": "दुल्या–सिमिकोट"
+      },
+      "reason": {
+        "en": "Landslide",
+        "ne": "पहिरो"
+      },
+      "district": {
+        "en": "Humla",
+        "ne": "हुम्ला"
+      },
+      "place": {
+        "en": "Sarkegad-1, Khachcha, Humla (chainage 383+600)",
+        "ne": "सर्केगाड-१, खच्चा, हुम्ला (चेनेज ३८३+६००)"
+      },
+      "contact": "Liladhar Bhatt",
+      "closed": {
+        "iso": "2026-09-04T02:19:00+05:45",
+        "en": "4 Sep 2026, 02:19",
+        "ne": "४ सेप्टेम्बर २०२६, ०२:१९"
+      },
+      "opened": {
+        "iso": "2026-09-04T14:53:00+05:45",
+        "en": "4 Sep 2026, 14:53",
+        "ne": "४ सेप्टेम्बर २०२६, १४:५३"
+      },
+      "estimate": {
+        "iso": "2026-09-04T15:50:00+05:45",
+        "en": "4 Sep 2026, 15:50",
+        "ne": "४ सेप्टेम्बर २०२६, १५:५०"
+      },
+      "note": null
+    },
+    {
+      "id": "889",
+      "ref": "NH61",
+      "link": "NH61-004",
+      "status": "opened",
+      "lists": [
+        "ticker"
+      ],
+      "priority": false,
+      "name": {
+        "en": "Surkhet Tallo Dundeshwor–Saatkhamba–Dullu–Pipalkot–Khulalu–Manma–Jumla road",
+        "ne": "सुर्खेत तल्लो दुन्देश्वोर–सातखम्बा–दुल्लु–पिपलकोट–खुल्लु–मान्मा–जुम्ला सडक"
+      },
+      "section": {
+        "en": "Ghodena–Nagma",
+        "ne": "घोडेना–नाग्मा"
+      },
+      "reason": {
+        "en": "Landslide",
+        "ne": "पहिरो"
+      },
+      "district": {
+        "en": "Kalikot",
+        "ne": "कालिकोट"
+      },
+      "place": {
+        "en": "Pili landslide, chainage 176+000",
+        "ne": "पिली पहिरो, चेनेज १७६+०००"
+      },
+      "contact": "Er Top Narayan Paudel 9851237408",
+      "closed": {
+        "iso": "2026-09-06T16:55:00+05:45",
+        "en": "6 Sep 2026, 16:55",
+        "ne": "६ सेप्टेम्बर २०२६, १६:५५"
+      },
+      "opened": {
+        "iso": "2026-09-08T00:45:00+05:45",
+        "en": "8 Sep 2026, 00:45",
+        "ne": "८ सेप्टेम्बर २०२६, ००:४५"
+      },
+      "estimate": {
+        "iso": "2026-09-09T15:56:00+05:45",
+        "en": "9 Sep 2026, 15:56",
+        "ne": "९ सेप्टेम्बर २०२६, १५:५६"
+      },
+      "note": null
+    }
+  ]
+}

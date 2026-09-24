@@ -7,6 +7,7 @@
 - `index.html#alert`, `#weather` and `#wx` redirect to `notices.html#alert`. Badge is Weather Alert / मौसम चेतावनी. Citizen-bulletin disclaimer stays.
 - Last-updated chip is 8 Asoj / 24 Sep. Issue stamp on the card stays 23 Sep 18:00.
 - `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-weather-12297`
+- Department of Roads NAVIGATE snapshot in `data/roads-dor.json` (as of 24 Sep 2026, 09:42 NPT): chips 9 total / 5 closed / 4 opened / 0 partial. Homepage card highlights **NH42 closed** (Galchi–Trishuli–Betrawati–Mailung–Syaphrubesi–Rasuwagadhi, Tibet flood, 26 Aug). `notices.html#roads` lists closed, partial, recently opened, and other ticker openings. NH17 Shital Bazaar stays closed (est. 25 Sep 16:00, Er. Dhiraj Dhakal); the ticker “opened” line is a different cleared section. Citizen reprint; official status is DoR. `index.html#roads` already redirects here.
 
 ## 2026-09-23-weather-12294 · DHM warning #12294 + Bulletin-25
 

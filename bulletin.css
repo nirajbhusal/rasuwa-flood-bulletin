@@ -7265,3 +7265,57 @@ html.damage-page.desk #map{
   .wxb-head{padding:14px 12px 0}
   .hero .wxb-title,.wxb-title,.wxb-sub,.wxb-disc,.wxb-more{margin-left:12px;margin-right:12px}
 }
+
+/* DoR NAVIGATE road status */
+.dor{
+  margin:14px 0 8px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;
+  box-shadow:0 8px 24px rgba(12,35,64,.06);overflow:hidden;
+}
+.dor-head{display:flex;justify-content:space-between;gap:8px;align-items:baseline;padding:12px 14px 0}
+.dor-kicker{margin:0;font-weight:800;color:#0c2340;font-size:13px;letter-spacing:.02em}
+.dor-asof{margin:0;font-size:12px;font-weight:800;color:#64748b;text-align:right}
+.dor-title{margin:4px 14px 8px;font-size:22px;color:#0c2340}
+.dor-chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;list-style:none;margin:0 14px 10px;padding:0}
+.dor-chip{border-radius:12px;padding:8px 8px 6px;background:#f8fafc;border:1px solid #e2e8f0}
+.dor-chip-k{display:block;font-size:11px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:#475569}
+.dor-chip-n{display:block;font-size:26px;line-height:1.1;color:#0c2340}
+.dor-chip-closed{background:#fde8e8;border-color:#f3c1c1}
+.dor-chip-closed .dor-chip-n{color:#b42318}
+.dor-chip-open{background:#e7f6ee;border-color:#b7e4c7}
+.dor-chip-open .dor-chip-n{color:#067647}
+.dor-chip-part{background:#fff4e5;border-color:#f5d7a8}
+.dor-chip-part .dor-chip-n{color:#b54708}
+.dor-priority{margin:0 14px 10px;padding:12px;border-radius:14px;background:#fff5f5;border:1.5px solid #e11d2e}
+.dor-pri-top{display:flex;align-items:center;gap:8px;margin:0 0 4px;font-size:18px;color:#0c2340}
+.dor-pri-name{margin:0 0 4px;font-weight:800;color:#0c2340;font-size:15px;line-height:1.35}
+.dor-pri-why{margin:0 0 4px;font-weight:700;color:#1e293b;font-size:14px;line-height:1.4}
+.dor-pri-meta{margin:0;font-weight:800;font-size:13px;color:#9f1239}
+.dor-pill{
+  display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;
+  font-size:11px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:#fff;
+}
+.dor-pill-closed{background:#b42318}
+.dor-pill-opened{background:#067647}
+.dor-pill-partial{background:#b54708}
+.dor-also,.dor-call,.dor-count,.dor-disc{margin:0 14px 8px;font-size:13.5px;font-weight:700;line-height:1.45;color:#334155}
+.dor-call{padding:10px 12px;background:#fff7ed;border:1px solid #fdba74;border-radius:12px}
+.dor-disc{color:#64748b;font-size:12.5px}
+.dor-links{margin:0 14px 14px;font-weight:800}
+.dor-links a{color:#9a3412}
+.dor-gh{margin:16px 14px 8px;font-size:16px;color:#0c2340}
+.dor-list{list-style:none;margin:0 14px 8px;padding:0;display:grid;gap:8px}
+.dor-row{border:1px solid #e2e8f0;border-radius:12px;padding:10px 12px;background:#fff}
+.dor-row-closed{border-left:4px solid #b42318}
+.dor-row-opened{border-left:4px solid #067647}
+.dor-row-partial{border-left:4px solid #b54708}
+.dor-row-h{display:flex;align-items:center;gap:8px;margin:0 0 4px;color:#0c2340}
+.dor-row-name,.dor-row-sec,.dor-row-why,.dor-row-time,.dor-row-place,.dor-row-contact,.dor-row-note{margin:0 0 3px;font-size:13.5px;font-weight:700;line-height:1.4;color:#1e293b}
+.dor-row-note{color:#475569}
+.dor-row-contact a{color:#0c2340}
+.dor-hist-h{margin:18px 0 8px;font-size:16px;color:#0c2340}
+@media (max-width:760px){
+  .dor-chips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dor-head{flex-direction:column;align-items:flex-start}
+  .dor-asof{text-align:left}
+  .dor-chip-n{font-size:22px}
+}
