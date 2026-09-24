@@ -734,7 +734,7 @@ window.I18N = {
 
 "h_contacts": "स्थानीय तह सम्पर्क",
 "h_contact_page": "आपत्कालीन सहायता र सम्पर्क",
-"h_alert": "सतर्कता",
+"h_alert": "भारी वर्षा चेतावनी",
 "h_notices": "सूचना",
 "h_gov": "विपद्पछि सरकारबाट सरकारी पहल",
 "h_aid": "वैदेशिक सहयोग",
@@ -2784,7 +2784,7 @@ window.I18N = {
 
 "h_contacts": "Local government contacts",
 "h_contact_page": "Emergency help and contacts",
-"h_alert": "Alert",
+"h_alert": "Heavy Rain Alert",
 "h_notices": "Notices",
 "h_gov": "Government action after the disaster",
 "h_aid": "Foreign aid",

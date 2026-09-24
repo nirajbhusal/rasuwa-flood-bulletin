@@ -1,3 +1,11 @@
+## 2026-09-24-wx-districts-tiles · High-alert areas and OSM roads
+
+- Homepage and `notices.html#alert` show a compact high-alert card: red areas first, then orange, from the focused day or the four-day highest reading in `data/weather-alert.json`. The Bhotekoshi corridor districts (Rasuwa, Nuwakot, Dhading, Gorkha, Chitwan) stay on that card while companion bulletin #12296 is still inside its timeline window. Names and levels are the published ones, in Nepali and English.
+- The weather section heading is **भारी वर्षा चेतावनी** / Heavy Rain Alert. The card itself still uses the published product name from `ui.title`. The card no longer repeats the brand, badge, and issued stack. The issued line stays once, smaller. The no-JS homepage fallback no longer links “पूर्ण बुलेटिन र आधिकारिक नक्सा”; the board replaces that static copy.
+- Day chips carry the day's highest warning colour. The timeline fits the phone width.
+- DoR NAVIGATE maps use OpenStreetMap tiles from the first paint. Carto Voyager is gone (it was drawing an API-key watermark on HTTP 200). If OSM tiles fail, the map falls back to a plain grid, not another keyed basemap.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-wx-districts-tiles`
+
 ## 2026-09-24-dhm-12299 · DHM four-day weather warning #12299
 
 - Live lead is DHM **#12299** (issued Asoj 8 / 24 Sep 2026, 08:00 NPT): four-day weather warning for Asoj 8–11. Official page text is empty; the product is the four day maps. Homepage and `notices.html#alert` read `data/weather-alert.json`. No citizen-reprint line and no `#12299` badge on the live card. Timeline rows cite #12299, #12298, #12297 and #12296.
