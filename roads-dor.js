@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-24-live-red-msg";
+  var VER = window.PAGE_VER || "2026-09-24-chuchhe-naka";
   var showDistricts = true;
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
@@ -119,13 +119,28 @@
         m.classList.toggle("is-on", m.getAttribute("data-id") === id);
       });
     });
+    openRoadPopup(id);
     if (pan) {
       mapInstances.forEach(function (map) {
         try {
-          if (road.point && window.L) map.flyTo([road.point.lat, road.point.lng], Math.max(map.getZoom(), 9), { duration: 0.6 });
+          if (road.point && window.L) map.flyTo([road.point.lat, road.point.lng], Math.max(map.getZoom(), 11), { duration: 0.6 });
         } catch (e) {}
       });
     }
+  }
+  function popupHtml(road) {
+    var ui = data.ui;
+    var status = tx(ui[road.status] || road.status);
+    return "<strong>" + road.ref + (road.link ? " · " + road.link : "") + "</strong><span>" + status + "</span><span>" + tx(road.section) + "</span>";
+  }
+  function openRoadPopup(id) {
+    mapInstances.forEach(function (map) {
+      map.eachLayer(function (layer) {
+        if (layer._roadId === id && layer.getPopup && layer.getPopup()) {
+          try { layer.openPopup(); } catch (e) {}
+        }
+      });
+    });
   }
   function markerIcon(road) {
     var cls = "dor-marker dor-marker-" + road.status + (road.id === selectedId ? " is-on" : "") + (road.id === data.priority_id ? " is-nh42" : "");
@@ -268,6 +283,7 @@
       if (b && b.isValid && b.isValid()) {
         map.fitBounds(b, { padding: [36, 36], maxZoom: 9, animate: false });
       }
+      if (selectedId) openRoadPopup(selectedId);
     }
     function addMarker(road) {
       if (!road.point) return;
@@ -276,8 +292,11 @@
       var marker = window.L.marker(ll, {
         icon: markerIcon(road),
         keyboard: true,
-        alt: road.ref + " " + tx(road.section)
+        alt: road.ref + " " + tx(road.section),
+        zIndexOffset: road.id === data.priority_id ? 400 : 0
       });
+      marker._roadId = road.id;
+      marker.bindPopup(popupHtml(road), { closeButton: true, autoPan: true, maxWidth: 260 });
       marker.on("click", function () { selectRoad(road.id, false); });
       marker.on("add", function () {
         var node = marker.getElement();
@@ -435,6 +454,7 @@
     if (!isFinite(lat) || !isFinite(lng)) return;
     var road = roadById(String(p.id));
     if (road) {
+      if (road.point && road.point.lock) return;
       road.point = { lat: lat, lng: lng, source: "DoR Map_data_api" };
       return;
     }

@@ -195,12 +195,12 @@
       ],
       "priority": true,
       "name": {
-        "en": "Thori–Bhandara–Malekhu, Galchi–Trishuli–Betrawati–Mailung–Syaphrubesi–Rasuwagadhi",
-        "ne": "ठोरी–भण्डारा–मालेखु, गल्छी–त्रिशूली–बेत्रावती–मैलुङ–स्याफ्रुबेँसी–रसुवागढी"
+        "en": "Thori–Bhandara–Malekhu, Galchi–Trishuli–Betrawati–Mailung–Syaphrubesi–Rasuwagadhi (Chuchhe Naka)",
+        "ne": "ठोरी–भण्डारा–मालेखु, गल्छी–त्रिशूली–बेत्रावती–मैलुङ–स्याफ्रुबेँसी–रसुवागढी (चुच्चे नाका)"
       },
       "section": {
-        "en": "Syaphrubesi–Rasuwagadhi",
-        "ne": "स्याफ्रुबेँसी–रसुवागढी"
+        "en": "Syaphrubesi–Rasuwagadhi (Chuchhe Naka)",
+        "ne": "स्याफ्रुबेँसी–रसुवागढी (चुच्चे नाका)"
       },
       "reason": {
         "en": "Huge flood from Tibet swept away the river-route road",
@@ -227,13 +227,14 @@
         "ne": "३१ अगस्ट २०२६, ११:३३"
       },
       "note": {
-        "en": "Primary Rasuwa–Bhotekoshi corridor. DoR still lists this section closed. The estimated reopening on the record (31 Aug) has passed.",
-        "ne": "मुख्य रसुवा–भोटेकोशी करिडोर। सडक विभागले यो खण्ड अझै बन्द देखाएको छ। अभिलेखको अनुमानित खुल्ने मिति (३१ अगस्ट) बितिसकेको छ।"
+        "en": "Primary Rasuwa–Bhotekoshi corridor. DoR still lists this section closed. The estimated reopening on the record (31 Aug) has passed. The marker is the northern end, Rasuwagadhi IB (Chuchhe Naka).",
+        "ne": "मुख्य रसुवा–भोटेकोशी करिडोर। सडक विभागले यो खण्ड अझै बन्द देखाएको छ। अभिलेखको अनुमानित खुल्ने मिति (३१ अगस्ट) बितिसकेको छ। चिन्ह उत्तरी छेउ, रसुवागढी अध्यागमन (चुच्चे नाका) मा छ।"
       },
       "point": {
-        "lat": 28.165,
-        "lng": 85.3384,
-        "source": "DoR Map_data_api getRoadClosureMapData / getRecentlyOpenedRoadsMapData"
+        "lat": 28.278275,
+        "lng": 85.380123,
+        "lock": true,
+        "source": "DoR SRN NH42-014 northern endpoint (Shyaphrubesi–Rasuwagadhi IB). OSM Rasuwagadhi hamlet 28.277775, 85.377779. NAVIGATE closure pin 28.1650, 85.3384 is Syaphrubesi and is not this border point."
       }
     },
     {
@@ -993,8 +994,8 @@
       "opened": "https://navigate.dor.gov.np/api/Map_data_api/getRecentlyOpenedRoadsMapData"
     },
     "note": {
-      "ne": "बिन्दु NAVIGATE को सार्वजनिक नक्सा निर्देशाङ्क हुन् (स्न्यापसट २४ सेप्टेम्बर २०२६, ०९:४२)। पृष्ठले ती API फेरि जाँच्छ। NH42 रेखा सडक विभागको रणनीतिक सडक सञ्जाल हो; NH42-014 (स्याफ्रुबेँसी–रसुवागढी) बन्द खण्ड हो। टिकरको NH03 आंशिक खुलाको सार्वजनिक निर्देशाङ्क छैन, त्यसैले सूचीमा छ, नक्सामा छैन।",
-      "en": "Points are public NAVIGATE map coordinates (snapshot 24 Sep 2026, 09:42). The page rechecks those APIs. NH42 lines are the Department of Roads strategic road network; NH42-014 (Syaphrubesi–Rasuwagadhi) is the closed section. Ticker partial NH03 has no public coordinate, so it stays in the list and is not plotted."
+      "ne": "अन्य बिन्दु NAVIGATE को सार्वजनिक नक्सा निर्देशाङ्क हुन् (स्न्यापसट २४ सेप्टेम्बर २०२६, ०९:४२)। NH42-014 चिन्ह सडक विभागको रणनीतिक सडकको उत्तरी छेउ हो — रसुवागढी अध्यागमन / चुच्चे नाका (२८.२७८, ८५.३८०)। NAVIGATE को बन्द पिन (२८.१६५, ८५.३३८) स्याफ्रुबेँसी हो, त्यो सीमा बिन्दु होइन। स्थिति अझै बन्द। टिकरको NH03 आंशिक खुलाको सार्वजनिक निर्देशाङ्क छैन, त्यसैले सूचीमा छ, नक्सामा छैन।",
+      "en": "Other points are public NAVIGATE map coordinates (snapshot 24 Sep 2026, 09:42). The NH42-014 marker is the northern end of the Department of Roads strategic road — Rasuwagadhi IB / Chuchhe Naka (28.278, 85.380). The NAVIGATE closure pin (28.165, 85.338) is Syaphrubesi, not that border point. The section is still closed. Ticker partial NH03 has no public coordinate, so it stays in the list and is not plotted."
     }
   }
 }

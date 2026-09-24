@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  var VER = window.PAGE_VER || "2026-09-24-live-red-msg";
+  var VER = window.PAGE_VER || "2026-09-24-chuchhe-naka";
   var HL_ORDER = ["1234", "100", "1148", "1111", "1114", "102", "1144", "1155"];
   var HL_FALLBACK = [
     { tel: "1234", key: "hl_deoc" },
@@ -42,6 +42,7 @@
     { id: "sudurpaschim", keys: ["sudurpaschim", "sudurpashchim", "sudur paschim", "far west", "farwest", "सुदूरपश्चिम", "सुदुरपश्चिम"] }
   ];
   var PLACE_ALIASES = [
+    { re: /chu[c]+h*e(?:\s*(?:naka|naska))?|चुच्चे(?:\s*नाका)?|चुचे(?:\s*नाका)?/, needle: "chuchhe" },
     { re: /syaphru|syabru|syafru|स्याफ्रु/, needle: "syaphrubesi" },
     { re: /rasuwagadhi|rasuwa\s*gadhi|rasuwagadi|रसुवागढी|रसुवा गढी/, needle: "rasuwagadhi" },
     { re: /timure|timur\b|टिमुरे|तिमुरे/, needle: "timure" },
