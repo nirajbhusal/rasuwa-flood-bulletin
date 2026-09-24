@@ -1,6 +1,6 @@
 {
   "id": "2026-09-24-weather-12297",
-  "page_ver": "2026-09-24-weather-12297",
+  "page_ver": "2026-09-24-live-maps",
   "source": "DHM Meteorological Forecasting Division (citizen reprint)",
   "updated_at": "2026-09-24T08:40:00+05:45",
   "links": {
@@ -23,7 +23,8 @@
     "window": {
       "start": "2026-09-23",
       "end": "2026-09-27"
-    }
+    },
+    "api_update_at": "2026-09-23T12:31:16.068Z"
   },
   "ui": {
     "brand": {
@@ -71,8 +72,8 @@
       "en": "On the DHM maps: red = take action · orange = be prepared · yellow = be updated · green = no warning."
     },
     "hint": {
-      "ne": "प्रदेश छान्नुहोस् — होभर, क्लिक, वा किबोर्ड (ट्याब, तीर, इन्टर)।",
-      "en": "Choose a province — hover, click, or keyboard (Tab, arrows, Enter)."
+      "ne": "प्रदेश थिच्नुहोस् — तलको विवरण बदलिन्छ। होभर, क्लिक, वा किबोर्ड (ट्याब, तीर, इन्टर)।",
+      "en": "Tap a province — the detail below changes. Hover, click, or keyboard (Tab, arrows, Enter)."
     },
     "more": {
       "ne": "पूर्ण बुलेटिन र आधिकारिक नक्सा",
@@ -127,6 +128,54 @@
         "For paddy harvest, follow advice from agriculture specialists.",
         "Press reports on this bulletin have relayed DHM guidance to avoid long-distance road travel on Friday–Sunday (25–27 September). Take the precautions DHM #12297 asks for."
       ]
+    },
+    "tap": {
+      "ne": "प्रदेश थिच्नुहोस्",
+      "en": "Tap a province"
+    },
+    "days_h": {
+      "ne": "कुन दिनको नक्सा",
+      "en": "Which day's map"
+    },
+    "day_overview": {
+      "ne": "शुक्र–आइत शिखर",
+      "en": "Fri–Sun peak"
+    },
+    "day_switch_hint": {
+      "ne": "दिन छान्नुहोस्। शिखर मोड शुक्र–आइतको वर्षा विवरण हो। दिनको चिपले आधिकारिक #12297 नक्साको चेतावनी रङ (रातो · सुन्तला · पहेँलो · हरियो) देखाउँछ।",
+      "en": "Pick a day. Peak mode is the Friday–Sunday rainfall outlook. A day chip recolors the map from the official #12297 warning colours (red · orange · yellow · green)."
+    },
+    "day_method": {
+      "ne": "दिनको रङ आधिकारिक नक्सा img/dhm/warning-12297-dayN.png बाट पढिएको हो — प्रत्येक प्रदेशभित्र देखिएको सबैभन्दा माथिल्लो चेतावनी। मिश्रित प्रदेशमा अरू रङ पनि उल्लेख छ। यो नयाँ मिलिमिटर अङ्क होइन।",
+      "en": "Day colours are the highest warning read from the official map img/dhm/warning-12297-dayN.png inside each province. Mixed provinces also name the other colours. This is not a new millimetre figure."
+    },
+    "day_detail": {
+      "ne": "{when}: आधिकारिक #12297 नक्सामा {name} को सबैभन्दा माथिल्लो रङ {level} हो।",
+      "en": "{when}: on the official #12297 map, the highest colour in {name} is {level}."
+    },
+    "day_also": {
+      "ne": " नक्सामा यी रङ पनि छन्: {also}।",
+      "en": " These colours also appear on the map: {also}."
+    },
+    "bulletin_ref": {
+      "ne": "बुलेटिन",
+      "en": "Bulletin"
+    },
+    "corridor_ref": {
+      "ne": "करिडोर बुलेटिन",
+      "en": "Corridor bulletin"
+    },
+    "live_same": {
+      "ne": "DHM API ले #12297 यथावत् देखाउँछ (अपडेट {when})। नक्साको पाठ यही पुनर्मुद्रण हो।",
+      "en": "The DHM API still shows #12297 unchanged (updated {when}). Map text is this reprint."
+    },
+    "live_changed": {
+      "ne": "DHM API मा #12297 अपडेट भएको देखिन्छ ({when})। रङ र अङ्क आफैँ बदलिएका छैनन् — आधिकारिक पृष्ठ हेर्नुहोस्।",
+      "en": "The DHM API shows a newer #12297 update ({when}). Colours and figures here were not changed automatically — check the official page."
+    },
+    "gantt_btn": {
+      "ne": "यो पङ्क्तिले नक्सा मोड खोल्छ",
+      "en": "This row focuses the map"
     }
   },
   "levels": {
@@ -320,7 +369,8 @@
           "ne": "असोज ७ राति – १० बिहान",
           "en": "Asoj 7 night – 10 morning"
         },
-        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12296"
+        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12296",
+        "focus": "bagmati"
       },
       {
         "page_id": 12297,
@@ -337,7 +387,8 @@
           "ne": "असोज ७–११",
           "en": "Asoj 7–11"
         },
-        "url": "https://dhm.gov.np/mfd/#/weather/pages/special-weather/12297"
+        "url": "https://dhm.gov.np/mfd/#/weather/pages/special-weather/12297",
+        "focus": "overview"
       }
     ]
   },
@@ -474,5 +525,231 @@
         "ly": 118
       }
     ]
-  }
+  },
+  "warn_levels": {
+    "red": {
+      "color": "#d7191c",
+      "ne": "रातो · कारबाही गर्नुहोस्",
+      "en": "Red · take action"
+    },
+    "orange": {
+      "color": "#e65c00",
+      "ne": "सुन्तला · तयार रहनुहोस्",
+      "en": "Orange · be prepared"
+    },
+    "yellow": {
+      "color": "#e6b800",
+      "ne": "पहेँलो · अपडेट हुनुहोस्",
+      "en": "Yellow · be updated"
+    },
+    "green": {
+      "color": "#1b7f3a",
+      "ne": "हरियो · चेतावनी छैन",
+      "en": "Green · no warning"
+    }
+  },
+  "warning_days": [
+    {
+      "date": "2026-09-23",
+      "provinces": {
+        "sudurpaschim": {
+          "level": "green",
+          "also": []
+        },
+        "karnali": {
+          "level": "green",
+          "also": []
+        },
+        "lumbini": {
+          "level": "yellow",
+          "also": [
+            "green"
+          ]
+        },
+        "gandaki": {
+          "level": "yellow",
+          "also": [
+            "green"
+          ]
+        },
+        "bagmati": {
+          "level": "yellow",
+          "also": [
+            "green"
+          ]
+        },
+        "madhesh": {
+          "level": "yellow",
+          "also": []
+        },
+        "koshi": {
+          "level": "yellow",
+          "also": []
+        }
+      }
+    },
+    {
+      "date": "2026-09-24",
+      "provinces": {
+        "sudurpaschim": {
+          "level": "green",
+          "also": []
+        },
+        "karnali": {
+          "level": "yellow",
+          "also": [
+            "green"
+          ]
+        },
+        "lumbini": {
+          "level": "orange",
+          "also": [
+            "yellow",
+            "green"
+          ]
+        },
+        "gandaki": {
+          "level": "orange",
+          "also": [
+            "yellow",
+            "green"
+          ]
+        },
+        "bagmati": {
+          "level": "orange",
+          "also": []
+        },
+        "madhesh": {
+          "level": "orange",
+          "also": [
+            "yellow"
+          ]
+        },
+        "koshi": {
+          "level": "orange",
+          "also": []
+        }
+      }
+    },
+    {
+      "date": "2026-09-25",
+      "provinces": {
+        "sudurpaschim": {
+          "level": "orange",
+          "also": []
+        },
+        "karnali": {
+          "level": "orange",
+          "also": []
+        },
+        "lumbini": {
+          "level": "orange",
+          "also": []
+        },
+        "gandaki": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        },
+        "bagmati": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        },
+        "madhesh": {
+          "level": "orange",
+          "also": []
+        },
+        "koshi": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-26",
+      "provinces": {
+        "sudurpaschim": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        },
+        "karnali": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        },
+        "lumbini": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        },
+        "gandaki": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        },
+        "bagmati": {
+          "level": "red",
+          "also": [
+            "orange",
+            "yellow"
+          ]
+        },
+        "madhesh": {
+          "level": "yellow",
+          "also": []
+        },
+        "koshi": {
+          "level": "yellow",
+          "also": []
+        }
+      }
+    },
+    {
+      "date": "2026-09-27",
+      "provinces": {
+        "sudurpaschim": {
+          "level": "yellow",
+          "also": []
+        },
+        "karnali": {
+          "level": "yellow",
+          "also": []
+        },
+        "lumbini": {
+          "level": "yellow",
+          "also": []
+        },
+        "gandaki": {
+          "level": "yellow",
+          "also": []
+        },
+        "bagmati": {
+          "level": "yellow",
+          "also": [
+            "green"
+          ]
+        },
+        "madhesh": {
+          "level": "yellow",
+          "also": [
+            "green"
+          ]
+        },
+        "koshi": {
+          "level": "green",
+          "also": []
+        }
+      }
+    }
+  ]
 }

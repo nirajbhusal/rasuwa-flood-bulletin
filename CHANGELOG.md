@@ -1,3 +1,12 @@
+## 2026-09-24-live-maps · Weather day switcher and DoR map
+
+- Homepage and `notices.html#alert` province map stays on the Friday–Sunday peak outlook by default (Gandaki and Lumbini very heavy with isolated extremely heavy; Koshi, Madhesh, Bagmati and Sudurpaschim heavy to very heavy; Karnali heavy). Provinces are buttons with a clear selected outline. Tapping one updates the detail, including bulletin #12297 and, for Bagmati, corridor #12296.
+- Day chips for Asoj 7–11 recolor the choropleth from the official #12297 day maps (`img/dhm/warning-12297-day1.png` … `day5.png`). The colour is the highest DHM warning read inside each province: red take action, orange be prepared, yellow be updated, green no warning. Mixed provinces name the other colours. No new rainfall millimetres. The Gantt stays; #12297 focuses the peak overview and #12296 focuses Bagmati.
+- A quiet check of `https://dhm.gov.np/mfd/api/page/12297` compares `update_at` with the cached stamp. A newer stamp shows a notice and the official link. It does not rewrite the reprint.
+- `notices.html#roads` and the homepage card plot NAVIGATE closures on a map (Leaflet, Carto/OSM tiles). NH42 is the strategic-road line, with NH42-014 (Syaphrubesi–Rasuwagadhi) in red and the closure point from DoR. Closed and recently opened points open reason, times, and contact. Chips stay 9 / 5 closed / 4 opened / 0 partial unless a live recheck of `Dashboard_api/getAggregateData` disagrees, in which case the chips follow the live feed and say so. Ticker partial NH03 has no public coordinate, so it stays in the list only. Snapshot as of 24 Sep 2026, 09:42 NPT. Dashboard: https://navigate.dor.gov.np/app/dashboard
+- Strings for the new controls are Nepali and English in `data/weather-alert.json` and `data/roads-dor.json` and follow the language toggle. SitRep and cash boards unchanged.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-live-maps`
+
 ## 2026-09-24-weather-12297 · DHM Monsoon Bulletin-3 update #12297
 
 - Live lead is DHM **#12297** Monsoon Special Bulletin-3 UPDATE (issued Asoj 7 / 23 Sep 2026, 18:00 NPT), a five-day warning for Asoj 7–11. Homepage and `notices.html#alert` share one infographic from `data/weather-alert.json`: province choropleth, Bhotekoshi corridor callout (#12296), and the same Gantt timeline in Nepali and English.
