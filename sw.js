@@ -1,12 +1,12 @@
-/* रसुवा बाढी · सूचना · SW_VER 2026-09-24-wx-label */
+/* रसुवा बाढी · सूचना · SW_VER 2026-09-25-gallery-path */
 const SCOPE = self.registration.scope;
 const LATEST = new URL('latest.json', SCOPE).href;
 const ICON = new URL('icon-192.png', SCOPE).href;
 const SEEN_CACHE = 'rasuwa-seen-v2';
 const MUTE_CACHE = 'rasuwa-mute-v1';
-const STATIC_CACHE = 'rasuwa-static-2026-09-24-wx-label';
-const SW_VER = '2026-09-24-wx-label';
-const PAGE_VER = '2026-09-24-wx-label';
+const STATIC_CACHE = 'rasuwa-static-2026-09-25-gallery-path';
+const SW_VER = '2026-09-25-gallery-path';
+const PAGE_VER = '2026-09-25-gallery-path';
 
 const STATIC_EXT = /\.(?:css|woff2|png|jpg|jpeg|webp|svg|ico|webmanifest)$/i;
 const STATIC_PATH = /\/(?:fonts\.css|bulletin\.css|fonts\/|img\/pay\/)/i;
@@ -24,7 +24,24 @@ self.addEventListener('install', (e) => {
         new URL('fonts/mukta-700-latn.woff2', SCOPE).href,
         new URL('fonts/mukta-800-deva.woff2', SCOPE).href,
         new URL('fonts/mukta-800-latn.woff2', SCOPE).href,
-        new URL('icon-192.png', SCOPE).href
+        new URL('icon-192.png', SCOPE).href,
+        new URL('gallery-path.js?v=' + PAGE_VER, SCOPE).href,
+        new URL('data/gallery-path.json', SCOPE).href,
+        new URL('img/gallery-path/esa-s2-trishuli-after-2026-08-27.jpg', SCOPE).href,
+        new URL('img/gallery-path/esa-s2-trishuli-before-2026-08-12.jpg', SCOPE).href,
+        new URL('img/gallery-path/esa-swir-after-landsat9-2026-08-26.jpg', SCOPE).href,
+        new URL('img/gallery-path/esa-swir-before-s2-2026-08-24.jpg', SCOPE).href,
+        new URL('img/gallery-path/s2-betrawati-trishuli-after-2026-09-21.jpg', SCOPE).href,
+        new URL('img/gallery-path/s2-betrawati-trishuli-before-2026-08-12.jpg', SCOPE).href,
+        new URL('img/gallery-path/s2-betrawati-trishuli-dayafter-2026-08-27.jpg', SCOPE).href,
+        new URL('img/gallery-path/s2-lhende-source-after-2026-09-21.jpg', SCOPE).href,
+        new URL('img/gallery-path/s2-lhende-source-before-2025-10-26.jpg', SCOPE).href,
+        new URL('img/gallery-path/s2-rasuwagadhi-timure-after-2026-09-21.jpg', SCOPE).href,
+        new URL('img/gallery-path/s2-rasuwagadhi-timure-before-2026-08-12.jpg', SCOPE).href,
+        new URL('img/gallery-path/s2-rasuwagadhi-timure-dayafter-2026-08-27.jpg', SCOPE).href,
+        new URL('img/gallery-path/s2-syaphrubesi-after-2026-09-21.jpg', SCOPE).href,
+        new URL('img/gallery-path/s2-syaphrubesi-before-2026-08-12.jpg', SCOPE).href,
+        new URL('img/gallery-path/s2-syaphrubesi-dayafter-2026-08-27.jpg', SCOPE).href
       ]);
     } catch (err) {}
     self.skipWaiting();
