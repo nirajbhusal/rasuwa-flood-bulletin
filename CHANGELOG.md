@@ -1,3 +1,9 @@
+## 2026-09-25-gallery-path · Disaster path on the gallery
+
+- `photos.html` keeps the existing photo grid and videos, and adds **विपद्को मार्ग: उद्गमदेखि प्रभावित क्षेत्रसम्म** / Disaster path: source to flood areas from `data/gallery-path.json`. Stage chips filter upstream to downstream. Before/after sliders, YouTube click-to-load, and link cards use only the manifest. Open images sit in `img/gallery-path/`. A Leaflet map plots `map_points` with names in popups.
+- Nepal Police video caption on the gallery is **भोटेकोशीमा आएको बाढी** / Flood in the Bhotekoshi. The same neutral wording replaces the bulletin’s own “from Tibet” lines on the about page, the corridor kicker, the Timure path step, and the 08:40 relief timeline. Attributed official quotes and document titles are unchanged, including the DoR NH42 reason.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-25-gallery-path`
+
 ## 2026-09-24-wx-label · Weather warning title, district cards, nowcast
 
 - Homepage weather card heading is **मौसम चेतावनी** / **Weather warning**. It no longer says “पाँच दिनको मौसम चेतावनी” / “Five-day weather warning”, including the no-JS fallback. On `notices.html#alert` the same title frames the district cards. The section heading stays **भारी वर्षा चेतावनी** / Heavy Rain Alert. Timeline bars still name the DHM products.

@@ -68,7 +68,7 @@ window.I18N = {
 "hl_bar": "उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४ · ११५५ · निर्देशिका",
 "msg_me": "मलाई सन्देश",
 "msg_me_aria": "मलाई सन्देश · इमेल",
-"safety": "तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर<br>अन्तिम बोर्ड · ४ असोज १९:००",
+"safety": "भोटेकोशी–त्रिशूली आकस्मिक बाढी · त्रिशूली करिडोर<br>अन्तिम बोर्ड · ४ असोज १९:००",
 "nav_home": "होम",
 "nav_dash": "ड्यासबोर्ड",
 "nav_back_dash": "« ड्यासबोर्ड",
@@ -110,7 +110,7 @@ window.I18N = {
 "nav_feeds": "लाइभ फिड",
 "nav_videos": "भिडियो",
 "nav_sources": "स्रोत",
-"kicker": "तिब्बतबाट आएको आकस्मिक बाढी · त्रिशूली करिडोर",
+"kicker": "भोटेकोशी–त्रिशूली आकस्मिक बाढी",
 "dead_162": "मृतक ६७५",
 "hero_overview": "अन्तिम बोर्ड · ४ असोज १९:००",
 "hero_comms_h": "सञ्चार",
@@ -1174,7 +1174,7 @@ window.I18N = {
 "feed_note": "X को एम्बेड रेट-लिमिटले थम्बनेल लोड हुँदैनथ्यो, त्यसैले X खाता सीधै खोल्ने लिंक राखिएको छ। फेसबुक पेज फिड यहाँ नै चल्छ।",
 "video_note": "बिजपाटी · TEN TV · गोपनीयता-सुरक्षित युट्युब एम्बेड",
 "vid_police": "नेपाल प्रहरी आधिकारिक भिडियो",
-"vid_police_sub": "@NepalPoliceHQ · भोटेकोशीमा तिब्बततर्फबाट आएको बाढी",
+"vid_police_sub": "@NepalPoliceHQ · भोटेकोशीमा आएको बाढी",
 "vid_citizen": "नागरिक भिडियो",
 "vid_citizen_sub": "@saalik3783 · बस्तीछेउ भीषण बाढी",
 "vid_biz": "बिजपाटी बाढी भिडियो",
@@ -1434,7 +1434,7 @@ window.I18N = {
 "about_h": "हाम्रो बारेमा",
 "about_motto": "आफ्नै परिवार भए जस्तो बनाउनुहोस्।",
 "about_this_h": "यस बुलेटिनबारे",
-"about_p1": "२६ अगस्ट २०२६ / १० भदौ २०८३ बिहान तिब्बतबाट भोटेकोशी हुँदै रसुवातिर पानीको पर्खाल आयो। बाढी करिब १६८ किलोमिटर बग्यो — टिमुरे, स्याफ्रुबेँसी, त्रिशूली, मालेखु, देवघाट।",
+"about_p1": "२६ अगस्ट २०२६ / १० भदौ २०८३ बिहान भोटेकोशी हुँदै रसुवातिर पानीको पर्खाल आयो। बाढी करिब १६८ किलोमिटर बग्यो — टिमुरे, स्याफ्रुबेँसी, त्रिशूली, मालेखु, देवघाट।",
 "about_p2": "त्यही दिन यो एउटा पाना बनाइयो। आधिकारिक संख्या, हराएको / भेटिएको / उद्धार, एउटै नाम खोज, राहत खाता, छ जिल्लाका हेल्पलाइन, सरकारी निर्णय, वैदेशिक सहयोग, उपग्रह क्षति — नेपाली र अंग्रेजीमा। प्रत्येक अंकमा निकाय र समयछाप।",
 "about_p3": "यो पाना एक जनाले चलाउँछ — निरज भुसाल, नेपाल सरकारका कर्मचारी, <strong>व्यक्तिगत क्षमतामा</strong>, कार्यालय समयको बीचमा। AI एजेन्टले संकलनको मस्यौदा बनाउँछन्; <strong>प्रत्येक अंक मानिसले जाँच्छ</strong>। यो सरकारी वेबसाइट होइन। आधिकारिक स्थिति सधैं NDRRMA र नेपाल प्रहरीको हो।",
 "about_p4": "नियम: प्रत्येक अंकमा स्रोत र समय। निकायका संख्या छेउछाउ राखिन्छ, कहिल्यै मिसिँदैन। नाम प्रकाशित आधिकारिक सूची र जाँचिएका रिपोर्टबाट मात्र। बाँचेकाको सम्पर्क राखिँदैन, ट्र्याकिङ छैन, विज्ञापन छैन।",
@@ -2133,7 +2133,7 @@ window.I18N = {
 "hl_bar": "Rescue 1234 · Police 100 · 1148 · 1111 · 1114 · Ambulance 102 · NEOC 1144 · 1155 · directory",
 "msg_me": "Message to me",
 "msg_me_aria": "Message to me by email",
-"safety": "Sudden flood from Tibet · Trishuli corridor<br>Latest board · 4 Ashwin 19:00",
+"safety": "Bhotekoshi–Trishuli flash flood · Trishuli corridor<br>Latest board · 4 Ashwin 19:00",
 "nav_home": "Home",
 "nav_dash": "Dashboard",
 "nav_back_dash": "Back to dashboard",
@@ -2175,7 +2175,7 @@ window.I18N = {
 "nav_feeds": "Live feeds",
 "nav_videos": "Video",
 "nav_sources": "Sources",
-"kicker": "Flash flood from Tibet · Trishuli corridor",
+"kicker": "Bhotekoshi–Trishuli flash flood",
 "dead_162": "Deaths 626",
 "hero_overview": "Latest board · 4 Ashwin 19:00",
 "hero_comms_h": "Communications",
@@ -3225,7 +3225,7 @@ window.I18N = {
 "feed_note": "X embeds were not loading thumbnails because of rate limits, so accounts open directly. Facebook page feeds still run here.",
 "video_note": "Bizpati · TEN TV · privacy-safe YouTube embeds",
 "vid_police": "Nepal Police official video",
-"vid_police_sub": "@NepalPoliceHQ · flood in the Bhotekoshi from the Tibet side",
+"vid_police_sub": "@NepalPoliceHQ · Flood in the Bhotekoshi",
 "vid_citizen": "Citizen video",
 "vid_citizen_sub": "@saalik3783 · severe flood beside homes",
 "vid_biz": "Bizpati flood video",
@@ -3485,7 +3485,7 @@ window.I18N = {
 "about_h": "About Us",
 "about_motto": "Build what you'd want if it were your family.",
 "about_this_h": "ABOUT THIS BULLETIN",
-"about_p1": "On the morning of 26 August 2026 / 10 Bhadra 2083, a wall of water came down the Bhotekoshi from Tibet into Rasuwa. The flood ran about 168 km — Timure, Syabrubesi, Trishuli, Malekhu, Devghat.",
+"about_p1": "On the morning of 26 August 2026 / 10 Bhadra 2083, a wall of water came down the Bhotekoshi into Rasuwa. The flood ran about 168 km — Timure, Syabrubesi, Trishuli, Malekhu, Devghat.",
 "about_p2": "It was built that day as the one page: official numbers, missing / found / rescued, one name search, relief accounts, six-district helplines, government decisions, foreign aid, satellite damage — in Nepali and English. Every figure carries the agency and a timestamp.",
 "about_p3": "It is run by one person — Niraj Bhusal, a civil servant at the Government of Nepal, in a <strong>personal capacity</strong>, between working hours. AI agents draft the compilations; a <strong>human checks every figure</strong>. This is not a government website. Official status is always NDRRMA and Nepal Police.",
 "about_p4": "Rules: source and time on every figure. Agencies sit side by side and are never merged. Names only from published official lists and verified reports. No survivor contacts, no tracking, no ads.",
@@ -4226,7 +4226,7 @@ window.I18N = {
 },
 {
 "b": "Timure",
-"s": "Entered Nepal from Tibet"
+"s": "Flood in the Bhotekoshi"
 },
 {
 "b": "Syaphrubesi",
@@ -4278,7 +4278,7 @@ window.I18N = {
 }
 ],
 "rahat_tl": [
-"<time>०८:४०</time> A landslide/snow dam in the upper Tibet catchment burst; a severe flood down the Bhotekoshi–Timure–Syaphrubesi–Betrawati–Trishuli–Bidur–Devighat.",
+"<time>०८:४०</time> A severe flood down the Bhotekoshi–Timure–Syaphrubesi–Betrawati–Trishuli–Bidur–Devighat.",
 "<time>०९:००</time> First flood notice received.",
 "<time>०९:१०</time> Risk notice issued through the media.",
 "<time>०९:३५</time> Province–district–local alert; Nepal Telecom/Ncell SMS.",
@@ -5030,8 +5030,8 @@ window.I18N = {
 "p": "Flood Forecasting Division: flood reached Galchhi in Dhading. Asked to evacuate settlements along the Prithvi and Mugling–Narayangadh highways and the Trishuli banks."
 },
 {
-"h": "Flood entered Bhotekoshi from Tibet via Timure",
-"p": "A severe flood entered Nepal at Timure from Tibet and into Lende Khola/Bhotekoshi. Division: not local rain; a glacial-lake outburst was suspected but is not confirmed yet."
+"h": "Flood in the Bhotekoshi via Timure",
+"p": "A severe flood reached Timure along Lende Khola/Bhotekoshi. Division: not local rain; a glacial-lake outburst was suspected but is not confirmed yet."
 }
 ],
 "alert": [
@@ -5074,7 +5074,7 @@ window.I18N = {
 "event": [
 "NESRA FloodWatch (27 August 03:31): cause still under study — no scientific/government agency has confirmed a GLOF. Rasuwa CDO Narendra Pariyar: cannot yet say glacial-lake outburst or another cause. Ice avalanche is a suspected cause; trigger on the Tibet side. Post-event Sentinel-1 mapping not yet available. Keep alongside Foreign Minister Khanal’s earthquake-then-landslide-dam. Source: <a href=\"https://nesraspace.org/floodwatch/rasuwa-2026/\" target=\"_blank\" rel=\"noopener\">NESRA FloodWatch</a>.",
 "Foreign Minister Shishir Khanal (parliament ~15:54): after the Tibet earthquake at <strong>08:37</strong> a landslide formed a temporary dam and the flood came ~<strong>08:40</strong>. Keep this alongside Mahabir Pun’s glacial-lake breach and DHM’s GLOF suspicion — not a replacement, preliminary. The danger is not over.",
-"About <strong>9:00–9:15</strong> the flood entered Nepal at Timure from Tibet into Lende Khola/Bhotekoshi, then moved toward the Trishuli.",
+"About <strong>9:00–9:15</strong> the flood reached Timure along Lende Khola/Bhotekoshi, then moved toward the Trishuli.",
 "Flood Forecasting Division’s Binod Parajuli: the flood came <strong>suddenly</strong>, <strong>not from local rain</strong>. A glacial-lake outburst (GLOF) was suspected.",
 "NDRRMA spokesperson Shanti Mahat (~12:52): preliminary word from China that an <strong>avalanche in Tibet</strong> caused the Bhotekoshi flood; she called it <strong>unofficial</strong>, more confirmation pending. DHM information officer Dinkar Kayastha: detailed confirmation ongoing.",
 "China / NDRRMA / Nepal flood info (~13:35, Ratopati): after the avalanche, the <strong>lake at the dammed river site in Tibet is still not fully open</strong>. Flood risk on the Bhotekoshi–Trishuli remains — the danger is not over.",
