@@ -7,7 +7,7 @@
 (function () {
   "use strict";
 
-  var VER = window.PAGE_VER || "2026-09-24-portal-ux";
+  var VER = window.PAGE_VER || "2026-09-24-wx-label";
   var HL_ORDER = ["1234", "100", "1148", "1111", "1114", "102", "1144", "1155"];
   var HL_FALLBACK = [
     { tel: "1234", key: "hl_deoc" },
@@ -524,6 +524,23 @@
     var showCorridor = !provinceId || provinceId === "bagmati" || provinceId === (wx.focus_province || "bagmati");
     if (showCorridor && wx.callout && tx(wx.callout.body)) {
       lines.push(line(tx(wx.callout.title) + ": " + tx(wx.callout.body) + (tx(wx.callout.meta) ? " · " + tx(wx.callout.meta) : "")));
+    }
+    var rawQ = (spec && spec.raw ? String(spec.raw) : "").toLowerCase();
+    var warnings = wx.district_warnings || [];
+    var namedCards = warnings.filter(function (card) {
+      var nameNe = (card.name && card.name.ne) || "";
+      var nameEn = ((card.name && card.name.en) || "").toLowerCase();
+      return !!rawQ && ((nameNe && rawQ.indexOf(nameNe) !== -1) || (nameEn && rawQ.indexOf(nameEn) !== -1));
+    });
+    var showCards = namedCards.length ? namedCards : warnings.filter(function (card) {
+      return !provinceId || !card.province_id || card.province_id === provinceId;
+    });
+    showCards.forEach(function (card) {
+      lines.push(line(tx(card.name) + " · " + tx(card.risk) + " · " + tx(card.window) + " · " + tx(card.forecast)));
+    });
+    var nowProvinces = { koshi: 1, madhesh: 1, bagmati: 1, gandaki: 1, lumbini: 1, karnali: 1 };
+    if (wx.nowcast && (!provinceId || nowProvinces[provinceId])) {
+      lines.push(line(tx(wx.nowcast.when) + " · " + tx(wx.nowcast.body) + " " + tx(wx.nowcast.max)));
     }
     var wxSrc = t("ask_src") + ": " + t("ask_src_dhm") + (issued ? " · " + issued : "");
     return card(lines, wxSrc, "notices.html#alert", t("ask_go_wx"));

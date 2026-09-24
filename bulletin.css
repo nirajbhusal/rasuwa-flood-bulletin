@@ -7773,6 +7773,40 @@ html.ask-lock body{position:fixed;left:0;right:0;width:100%}
 .wxb-high-corridor{margin-top:2px;padding-top:8px;border-top:1px dashed #93c5fd}
 .wxb-high-corridor .wxb-high-chip{background:#eff6ff;border-color:#bfdbfe;color:#1e3a8a}
 .wxb-high-meta{margin:6px 0 0;font-size:12px;font-weight:800;color:#1d4ed8}
+.wxb-districts{margin:0 12px 12px}
+.wxb-dhead:empty{display:none}
+.wxb-dh{margin:0 0 8px;font-size:20px;line-height:1.25;color:#0c2340}
+.wxb-dgrid{display:grid;gap:10px}
+.wxb-dcard{
+  display:flex;flex-direction:column;background:#fff;border:1px solid #e2e8f0;
+  border-radius:14px;overflow:hidden;
+}
+.wxb-dcard.is-high{border-color:#f3c1c1;background:#fff5f5}
+.wxb-dcard.is-medium{border-color:#f5d7a8;background:#fffaf3}
+.wxb-dcard-body{padding:12px 12px 8px}
+.wxb-dname{margin:0 0 2px;font-size:20px;line-height:1.2;color:#0c2340}
+.wxb-dprov{margin:0 0 6px;font-size:12px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:#64748b}
+.wxb-drisk{margin:0 0 6px;font-size:14px;font-weight:800;line-height:1.35}
+.wxb-dcard.is-high .wxb-drisk{color:#9f1239}
+.wxb-dcard.is-medium .wxb-drisk{color:#9a3412}
+.wxb-dwin,.wxb-dfore,.wxb-dnote,.wxb-dmax{margin:0 0 6px;font-size:14px;font-weight:700;line-height:1.45;color:#1e293b}
+.wxb-dmax{font-weight:800;color:#0c2340}
+.wxb-dimpacts{margin:0 0 6px;padding-left:1.1rem}
+.wxb-dimpacts li{margin:0 0 3px;font-size:13.5px;font-weight:700;line-height:1.4}
+.wxb-dfig{margin:0}
+.wxb-dfig img,.wxb-now > a img{width:100%;height:auto;display:block;background:#fff}
+.wxb-dcite{margin:8px 0 0;font-size:12.5px;font-weight:800}
+.wxb-districts > .wxb-dcite{margin:8px 2px 0}
+.wxb-dcite a{color:#9a3412}
+.wxb-now{
+  margin:0 12px 12px;padding:12px;border-radius:14px;
+  border:1px solid #bfdbfe;background:#f8fbff;
+}
+.wxb-now .wxb-dh{margin-bottom:4px;font-size:18px}
+.wxb-now > a{display:block;margin:4px 0 0}
+@media (min-width:900px){
+  .wxb-dgrid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+}
 .wxb-map-panel{
   background:linear-gradient(180deg,#f8fbff 0%,#fff 120px);
   box-shadow:inset 0 1px 0 #fff;
@@ -8037,7 +8071,7 @@ html.ask-lock,html.ask-lock body{height:auto}
   .ask-panel,.ask-backdrop{transition:none}
 }
 
-/* === 2026-09-24-portal-ux · one light civic system === */
+/* === 2026-09-24-wx-label · one light civic system === */
 :root{
   --radius:14px;
   --radius-sm:14px;

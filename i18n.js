@@ -1002,7 +1002,7 @@ window.I18N = {
 "wx_hist_day3": "दिन ३ · ८ असोज / २४ सेप्टेम्बर",
 "wx_hist_src": "स्रोत (इतिहास): <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12290\" target=\"_blank\" rel=\"noopener\">DHM</a> · <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12291\" target=\"_blank\" rel=\"noopener\">DHM</a>।",
 "wx_home_h": "मौसम चेतावनी · असोज ८ साँझ ६:००",
-"wx_home_sub": "पाँच दिनको मौसम चेतावनी (असोज ८–१२)। रङ आधिकारिक नक्साबाट। करिडोर असोज ८ रातिदेखि असोज ११ बिहानसम्म।",
+"wx_home_sub": "मौसम चेतावनी (असोज ८–१२)। रङ आधिकारिक नक्साबाट। करिडोर असोज ८ रातिदेखि असोज ११ बिहानसम्म।",
 "wx_more": "पूर्ण बुलेटिन र आधिकारिक नक्सा",
 
 "portal_aria": "सम्पर्क · WhatsApp र इमेल",
@@ -3055,7 +3055,7 @@ window.I18N = {
 "wx_hist_day3": "Day 3 · 8 Ashwin / 24 September",
 "wx_hist_src": "Source (history): <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12290\" target=\"_blank\" rel=\"noopener\">DHM</a> · <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12291\" target=\"_blank\" rel=\"noopener\">DHM</a>.",
 "wx_home_h": "Weather Alert · Asoj 8, 6:00 PM",
-"wx_home_sub": "Five-day weather warning (Asoj 8–12). Colours are read from the official maps. Corridor from the night of Asoj 8 through the morning of Asoj 11.",
+"wx_home_sub": "Weather warning (Asoj 8–12). Colours are read from the official maps. Corridor from the night of Asoj 8 through the morning of Asoj 11.",
 "wx_more": "Full bulletin and official maps",
 
 "portal_aria": "Contact · WhatsApp and email",
