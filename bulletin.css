@@ -7994,3 +7994,37 @@ html.ask-lock,html.ask-lock body{height:auto}
 .ask-faq-list{flex:none;max-height:132px;overflow:auto}
 .ask-faq-list:empty{display:none}
 .ask-faq-suggest,.ask-faq-empty,.ask-faq-note{flex:none}
+
+/* Ask thread height and a solid open/close — no fading panel */
+.ask-panel{
+  opacity:1;
+  height:min(84vh,800px);
+  max-height:min(84vh,800px);
+  transform:translateY(110%);
+  transition:transform .26s ease;
+}
+.ask-sheet.is-open .ask-panel{transform:none;opacity:1}
+.ask-sheet:not(.is-open){pointer-events:none}
+.ask-sheet.is-open{pointer-events:auto}
+.ask-backdrop{transition:opacity .18s ease}
+.ask-log{
+  flex:1 1 0;
+  min-height:0;
+  overflow:auto;
+  overflow-anchor:none;
+}
+.ask-card,.ask-typing,.ask-user,.ask-follow{overflow-anchor:none}
+@media (max-width:759px){
+  .ask-panel{
+    height:min(94dvh, calc(100dvh - env(safe-area-inset-top, 0px) - 6px));
+    max-height:min(94dvh, calc(100dvh - env(safe-area-inset-top, 0px) - 6px));
+    padding-bottom:0;
+    transform:translateY(110%);
+  }
+  .ask-sheet.is-open .ask-panel{transform:none}
+  .ask-log{min-height:0}
+  .ask-faq.is-open{max-height:32%}
+}
+@media (prefers-reduced-motion:reduce){
+  .ask-panel,.ask-backdrop{transition:none}
+}

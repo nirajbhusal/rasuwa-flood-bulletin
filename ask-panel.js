@@ -998,11 +998,19 @@
       var topic = (msg.spec && (msg.spec.topic || msg.spec.type)) || "about";
       if (msg.pending || needs(msg.spec)) {
         renderTyping(log, fresh && last);
+        if (last) {
+          var tip = log.lastElementChild;
+          if (tip) tip.setAttribute("data-ask-latest", "1");
+        }
         return;
       }
       var built = build(msg.spec);
       renderCard(log, built || answerFallback(), topic, fresh && last);
-      if (last) renderFollow(log, topic);
+      if (last) {
+        var latest = log.querySelector(".ask-card:last-of-type");
+        if (latest) latest.setAttribute("data-ask-latest", "1");
+        renderFollow(log, topic);
+      }
     });
     renderFaq();
     chips.replaceChildren();
@@ -1040,14 +1048,33 @@
       fab.setAttribute("aria-label", t("ask_fab_aria"));
     }
     log.setAttribute("aria-busy", thread.some(function (m) { return m.pending; }) ? "true" : "false");
-    if (fresh) {
-      var anchor = log.querySelector("[data-ask-anchor]");
-      if (anchor) {
-        var lr = log.getBoundingClientRect();
-        var ar = anchor.getBoundingClientRect();
-        log.scrollTop += ar.top - lr.top - 6;
+    if (fresh) pinLog(log);
+  }
+  function pinLog(log) {
+    function place() {
+      if (!log || !log.isConnected) return;
+      var card = log.querySelector("[data-ask-latest]");
+      var bubble = log.querySelector("[data-ask-anchor]");
+      if (!card && !bubble) return;
+      var base = log.getBoundingClientRect().top;
+      function y(node) {
+        return node.getBoundingClientRect().top - base + log.scrollTop;
+      }
+      var view = log.clientHeight;
+      if (card && bubble) {
+        var by = y(bubble);
+        var cy = y(card);
+        var span = card.offsetHeight + (cy - by);
+        log.scrollTop = span <= view - 12 ? Math.max(0, by - 4) : Math.max(0, cy - 4);
+      } else {
+        log.scrollTop = Math.max(0, y(card || bubble) - 4);
       }
     }
+    place();
+    window.requestAnimationFrame(function () {
+      place();
+      window.requestAnimationFrame(place);
+    });
   }
   function reveal(msg, token, started, spec) {
     var wait = Math.max(0, 280 - (Date.now() - started));
@@ -1171,6 +1198,7 @@
       sheet.style.bottom = "";
       sheet.style.height = "";
       panel.style.maxHeight = "";
+      panel.style.height = "";
       return;
     }
     var vv = window.visualViewport;
@@ -1180,56 +1208,79 @@
       sheet.style.bottom = "";
       sheet.style.height = "";
       panel.style.maxHeight = "";
+      panel.style.height = "";
       return;
     }
     var top = vv.offsetTop || 0;
     var h = vv.height || window.innerHeight;
+    var panelH = Math.max(280, Math.round(h - 8));
     sheet.style.top = top + "px";
     sheet.style.bottom = "auto";
     sheet.style.height = h + "px";
-    panel.style.maxHeight = Math.max(220, h - 8) + "px";
+    panel.style.height = panelH + "px";
+    panel.style.maxHeight = panelH + "px";
   }
   function focusEl(node) {
     if (!node || !node.focus) return;
     try { node.focus({ preventScroll: true }); } catch (e) { try { node.focus(); } catch (e2) {} }
+  }
+  var closeTimer = 0;
+  function finishClose(sheet, panel, fab) {
+    if (open) return;
+    sheet.hidden = true;
+    sheet.classList.remove("is-closing");
+    if (panel) {
+      panel.style.transform = "";
+      panel.style.transition = "";
+      panel.style.height = "";
+      panel.style.maxHeight = "";
+    }
+    unlockPage();
+    focusEl(fab);
   }
   function setOpen(next) {
     open = !!next;
     var sheet = document.getElementById("ask-sheet");
     var fab = document.getElementById("ask-fab");
     if (!sheet || !fab) return;
+    var panel = sheet.querySelector(".ask-panel");
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     fab.setAttribute("aria-expanded", open ? "true" : "false");
     fab.classList.toggle("is-open", open);
-    var panel = sheet.querySelector(".ask-panel");
-    if (panel && !open) {
-      panel.style.transition = "";
-    }
-    if (open && panel) {
-      panel.style.transform = "";
-      panel.style.transition = "";
-    }
+    window.clearTimeout(closeTimer);
     if (open) {
+      if (panel) {
+        panel.style.transform = "";
+        panel.style.transition = "";
+      }
       var msg = document.getElementById("portal-contact");
       if (msg && msg.open) msg.open = false;
       document.querySelectorAll(".fab-dock details[open]").forEach(function (d) { d.open = false; });
       lockPage();
+      sheet.classList.remove("is-closing");
       sheet.hidden = false;
       placeSheet();
-      window.requestAnimationFrame(function () {
+      if (reduceMotion) {
         sheet.classList.add("is-open");
-        placeSheet();
-      });
+      } else {
+        window.requestAnimationFrame(function () {
+          if (!open) return;
+          sheet.classList.add("is-open");
+          placeSheet();
+        });
+      }
       var input = document.getElementById("ask-q");
       if (!narrowAsk()) window.setTimeout(function () { if (open) focusEl(input); }, 80);
       load();
     } else {
       sheet.classList.remove("is-open");
-      placeSheet();
-      window.setTimeout(function () {
-        if (!open) sheet.hidden = true;
-      }, 240);
-      unlockPage();
-      focusEl(fab);
+      sheet.classList.add("is-closing");
+      if (panel) panel.style.transition = "";
+      if (reduceMotion) {
+        finishClose(sheet, panel, fab);
+        return;
+      }
+      closeTimer = window.setTimeout(function () { finishClose(sheet, panel, fab); }, 280);
     }
   }
   function mount() {
