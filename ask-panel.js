@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  var VER = window.PAGE_VER || "2026-09-24-wx-map-ux";
+  var VER = window.PAGE_VER || "2026-09-24-dhm-12299";
   var HL_ORDER = ["1234", "100", "1148", "1111", "1114", "102", "1144", "1155"];
   var HL_FALLBACK = [
     { tel: "1234", key: "hl_deoc" },
