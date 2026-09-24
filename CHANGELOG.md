@@ -1,3 +1,9 @@
+## 2026-09-24-dhm-12300 · DHM five-day weather warning #12300
+
+- Live lead is DHM **#12300** (issued Asoj 8 / 24 Sep 2026, 18:00 NPT): five-day weather warning for Asoj 8–12. Official page text is empty; the product is the five day maps. Homepage and `notices.html#alert` read `data/weather-alert.json`. No citizen-reprint line and no bulletin-number badge on the live card.
+- Day chips for Asoj 8–12 recolor the map from `img/dhm/warning-12300-day{1,2,3,4,5}.png`. The colour is the highest DHM warning read inside each province. #12299 stays on the timeline as the prior map lead. Corridor companion is Bulletin-26 **#12307** (Asoj 8 night through Asoj 11 morning; Rasuwa, Nuwakot, Dhading, Gorkha, Chitwan). #12296 is off the live timeline. No river gauges.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-dhm-12300`
+
 ## 2026-09-24-wx-districts-tiles · High-alert areas and OSM roads
 
 - Homepage and `notices.html#alert` show a compact high-alert card: red areas first, then orange, from the focused day or the four-day highest reading in `data/weather-alert.json`. The Bhotekoshi corridor districts (Rasuwa, Nuwakot, Dhading, Gorkha, Chitwan) stay on that card while companion bulletin #12296 is still inside its timeline window. Names and levels are the published ones, in Nepali and English.

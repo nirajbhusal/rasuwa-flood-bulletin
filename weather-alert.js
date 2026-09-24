@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-24-ask-ux";
+  var VER = window.PAGE_VER || "2026-09-24-dhm-12300";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
