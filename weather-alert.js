@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-24-live-maps-ui";
+  var VER = window.PAGE_VER || "2026-09-24-map-colors";
 
   function lang() {
     return document.documentElement.lang === "en" ? "en" : "ne";
@@ -47,12 +47,25 @@
     for (var i = 0; i < days.length; i++) if (days[i].date === dayMode) return days[i];
     return null;
   }
-  function levelOf(p) {
+  function alertKey(p) {
     var day = activeDay();
-    if (day && day.provinces && day.provinces[p.id] && data.warn_levels) {
-      return data.warn_levels[day.provinces[p.id].level] || { color: "#cbd5e1", ne: "", en: "" };
-    }
-    return (data.levels && data.levels[p.level]) || { color: "#cbd5e1", ne: "", en: "" };
+    var raw = day && day.provinces && day.provinces[p.id] && day.provinces[p.id].level;
+    if (raw === "red" || raw === "orange" || raw === "yellow" || raw === "green") return raw;
+    if (p.level === "very_heavy_extreme") return "red";
+    if (p.level === "heavy_very_heavy") return "orange";
+    if (p.level === "heavy") return "yellow";
+    return "green";
+  }
+  function levelOf(p) {
+    var key = alertKey(p);
+    return (data.warn_levels && data.warn_levels[key]) || { color: "#1b7f3a", ne: "हरियो", en: "Green" };
+  }
+  function districtLine(p) {
+    var day = activeDay();
+    var rec = day && day.provinces && day.provinces[p.id];
+    var list = (rec && rec.districts) || p.districts;
+    if (!list || !list.length) return "";
+    return list.map(function (d) { return tx(d); }).filter(Boolean).join(", ");
   }
   function fmt(tpl, map) {
     return String(tpl || "").replace(/\{(\w+)\}/g, function (_, k) {
@@ -90,37 +103,54 @@
   }
 
   function paintPressed() {
+    var tab = selected || (order()[0] || "");
     document.querySelectorAll(".wxb-prov").forEach(function (path) {
-      var on = path.getAttribute("data-id") === selected;
+      var id = path.getAttribute("data-id");
+      var on = !!(selected && id === selected);
       path.setAttribute("aria-pressed", on ? "true" : "false");
       path.classList.toggle("is-on", on);
-      path.setAttribute("tabindex", on ? "0" : "-1");
+      path.setAttribute("tabindex", id === tab ? "0" : "-1");
     });
   }
-
-  function fillDetail(root, id) {
-    var box = root.querySelector(".wxb-detail");
-    if (!box) return;
+  function paintPop(root, id) {
+    var pop = root && root.querySelector(".wxb-pop");
+    if (!pop) return;
+    if (!id) {
+      pop.hidden = true;
+      return;
+    }
     var p = provinceById(id);
-    if (!p) return;
+    if (!p) { pop.hidden = true; return; }
     var lv = levelOf(p);
-    box.replaceChildren();
-    var k = el("p", "wxb-detail-k", tx(data.ui.map_h));
-    var h = el("h4", null, tx(p));
-    var row = el("p", "wxb-detail-lv");
-    var sw = el("i", "wxb-sw");
-    sw.style.background = lv.color;
-    row.appendChild(sw);
-    row.appendChild(document.createTextNode(tx(lv)));
-    var body = el("p", "wxb-detail-p", detailText(p));
-    box.appendChild(k);
-    box.appendChild(h);
-    box.appendChild(row);
-    box.appendChild(body);
+    var name = pop.querySelector(".wxb-pop-name");
+    var row = pop.querySelector(".wxb-pop-lv");
+    var body = pop.querySelector(".wxb-pop-body");
+    var dist = pop.querySelector(".wxb-pop-dist");
+    var x = pop.querySelector(".wxb-pop-x");
+    if (name) name.textContent = tx(p);
+    if (row) {
+      row.replaceChildren();
+      var sw = el("i", "wxb-sw wxb-sw-" + alertKey(p));
+      row.appendChild(sw);
+      row.appendChild(document.createTextNode((lv.ne || "") + " / " + (lv.en || "")));
+    }
+    if (body) body.textContent = detailText(p);
+    if (dist) {
+      var line = districtLine(p);
+      dist.hidden = !line;
+      dist.textContent = line;
+    }
+    if (x) x.setAttribute("aria-label", tx(data.ui.pop_close));
+    pop.hidden = false;
+  }
+  function clearSelect() {
+    selected = null;
+    paintPressed();
+    document.querySelectorAll("[data-wx-mount]").forEach(function (root) { paintPop(root, null); });
   }
 
   function show(root, id) {
-    fillDetail(root, id);
+    paintPop(root, id);
   }
 
   function focusBar(bar) {
@@ -142,7 +172,7 @@
     selected = id;
     paintPressed();
     document.querySelectorAll("[data-wx-mount]").forEach(function (root) {
-      fillDetail(root, id);
+      paintPop(root, id);
     });
     if (focus) {
       var path = document.querySelector('.wxb-prov[data-id="' + id + '"]');
@@ -179,6 +209,10 @@
     svg.setAttribute("viewBox", geo.viewBox || "0 0 672.5 391.7");
     svg.setAttribute("role", "group");
     svg.setAttribute("aria-label", tx(data.ui.map_h));
+    var layer = svgEl("g");
+    layer.setAttribute("class", "wxb-zoom");
+    svg._layer = layer;
+    svg.appendChild(layer);
     var ring = geo.ring;
     if (ring) {
       var ell = svgEl("ellipse");
@@ -187,29 +221,22 @@
       ell.setAttribute("rx", ring.rx);
       ell.setAttribute("ry", ring.ry);
       ell.setAttribute("class", "wxb-ring");
-      svg.appendChild(ell);
+      layer.appendChild(ell);
     }
     (geo.provinces || []).forEach(function (g) {
       var p = provinceById(g.id);
       if (!p) return;
-      var lv = levelOf(p);
+      var key = alertKey(p);
       var path = svgEl("path");
       path.setAttribute("d", g.d);
-      path.setAttribute("class", "wxb-prov");
+      path.setAttribute("class", "wxb-prov wxb-lv-" + key);
       path.setAttribute("data-id", g.id);
-      path.setAttribute("fill", lv.color);
+      path.setAttribute("data-alert", key);
       path.setAttribute("role", "button");
-      path.setAttribute("tabindex", g.id === selected ? "0" : "-1");
+      path.setAttribute("tabindex", (selected ? g.id === selected : g.id === (order()[0] || "")) ? "0" : "-1");
       path.setAttribute("aria-pressed", g.id === selected ? "true" : "false");
-      path.setAttribute("aria-label", tx(p) + ". " + tx(lv) + ". " + detailText(p));
-      svg.appendChild(path);
-      var text = svgEl("text");
-      text.setAttribute("x", g.lx);
-      text.setAttribute("y", g.ly);
-      text.setAttribute("class", "wxb-label" + (g.id === "sudurpaschim" || g.id === "madhesh" ? " is-tight" : ""));
-      text.setAttribute("aria-hidden", "true");
-      text.textContent = tx(p);
-      svg.appendChild(text);
+      path.setAttribute("aria-label", tx(p) + ". " + tx(levelOf(p)) + ". " + detailText(p));
+      layer.appendChild(path);
     });
     var pin = geo.pin;
     if (pin) {
@@ -219,7 +246,7 @@
       line.setAttribute("x2", 668);
       line.setAttribute("y2", 78);
       line.setAttribute("class", "wxb-connector");
-      svg.appendChild(line);
+      layer.appendChild(line);
       var mark = svgEl("g");
       mark.setAttribute("class", "wxb-pin");
       mark.setAttribute("transform", "translate(" + pin.x + " " + pin.y + ")");
@@ -231,27 +258,32 @@
       dot.setAttribute("r", "4.2");
       mark.appendChild(drop);
       mark.appendChild(dot);
-      svg.appendChild(mark);
+      layer.appendChild(mark);
     }
     svg.addEventListener("click", function (e) {
       var path = e.target.closest && e.target.closest(".wxb-prov");
-      if (!path) return;
+      if (!path) { clearSelect(); return; }
+      if (svg._dragged) { svg._dragged = false; return; }
       select(path.getAttribute("data-id"), false);
     });
-    svg.addEventListener("pointerenter", function (e) {
+    svg.addEventListener("pointerover", function (e) {
       var path = e.target.closest && e.target.closest(".wxb-prov");
-      if (!path || e.pointerType !== "mouse") return;
+      if (!path || (e.pointerType && e.pointerType !== "mouse")) return;
       svg.querySelectorAll(".wxb-prov.is-hot").forEach(function (n) { n.classList.remove("is-hot"); });
       path.classList.add("is-hot");
       var root = svg.closest("[data-wx-mount]");
       if (root) show(root, path.getAttribute("data-id"));
-    }, true);
-    svg.addEventListener("pointerleave", function (e) {
-      if (e.pointerType !== "mouse") return;
+    });
+    svg.addEventListener("pointerout", function (e) {
+      if (e.pointerType && e.pointerType !== "mouse") return;
+      var path = e.target.closest && e.target.closest(".wxb-prov");
+      if (!path) return;
+      var next = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest(".wxb-prov");
+      if (next) return;
       svg.querySelectorAll(".wxb-prov.is-hot").forEach(function (n) { n.classList.remove("is-hot"); });
       var root = svg.closest("[data-wx-mount]");
       if (root) show(root, selected);
-    }, true);
+    });
     svg.addEventListener("focusin", function (e) {
       var path = e.target.closest && e.target.closest(".wxb-prov");
       if (!path) return;
@@ -282,7 +314,8 @@
       var row = el("div", "wxb-gantt-row");
       row.setAttribute("role", "listitem");
       var meta = el("div", "wxb-meta");
-      var bid = el("span", "wxb-bid wxb-bid-" + bar.tone, "#" + bar.page_id);
+      var tone = { yellow: "yellow", blue: "orange", magenta: "red", red: "red", orange: "orange", green: "green" }[bar.tone] || "yellow";
+      var bid = el("span", "wxb-bid wxb-bid-" + tone, "#" + bar.page_id);
       var name = el("span", "wxb-bname", tx(bar.name));
       if (bar.live) name.appendChild(el("em", "wxb-live", tx(data.ui.live)));
       meta.appendChild(bid);
@@ -291,7 +324,7 @@
       track.setAttribute("aria-hidden", "true");
       var left = (bar.start / span) * 100;
       var width = ((bar.end - bar.start) / span) * 100;
-      var b = el("div", "wxb-bar wxb-bar-" + bar.tone + " wxb-arr-" + (bar.arrows || "end"));
+      var b = el("div", "wxb-bar wxb-bar-" + tone + " wxb-arr-" + (bar.arrows || "end"));
       b.style.left = left + "%";
       b.style.width = width + "%";
       b.appendChild(el("span", null, tx(bar.span)));
@@ -305,6 +338,7 @@
         row.tabIndex = 0;
         row.setAttribute("role", "button");
         row.classList.add("is-btn");
+        if (bar.focus) row.setAttribute("data-focus", bar.focus);
         if (bar.focus === "overview" && dayMode === "overview") row.classList.add("is-on");
         row.addEventListener("click", function () { focusBar(bar); });
         row.addEventListener("keydown", function (e) {
@@ -382,6 +416,178 @@
     return wrap;
   }
 
+  function buildPop() {
+    var pop = el("div", "wxb-pop");
+    pop.hidden = true;
+    pop.setAttribute("role", "dialog");
+    var x = document.createElement("button");
+    x.type = "button";
+    x.className = "wxb-pop-x";
+    x.textContent = "×";
+    x.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      clearSelect();
+    });
+    pop.appendChild(x);
+    pop.appendChild(el("p", "wxb-pop-name"));
+    pop.appendChild(el("p", "wxb-pop-lv"));
+    pop.appendChild(el("p", "wxb-pop-body"));
+    pop.appendChild(el("p", "wxb-pop-dist"));
+    return pop;
+  }
+
+  function applyFills(svg) {
+    svg.querySelectorAll(".wxb-prov").forEach(function (path) {
+      var p = provinceById(path.getAttribute("data-id"));
+      if (!p) return;
+      var key = alertKey(p);
+      path.setAttribute("data-alert", key);
+      ["red", "orange", "yellow", "green"].forEach(function (k) {
+        path.classList.toggle("wxb-lv-" + k, k === key);
+      });
+      path.setAttribute("aria-label", tx(p) + ". " + tx(levelOf(p)) + ". " + detailText(p));
+    });
+  }
+
+  function syncDays() {
+    document.querySelectorAll(".wxb-svg").forEach(function (svg) {
+      svg.classList.add("is-shifting");
+      applyFills(svg);
+    });
+    document.querySelectorAll(".wxb-chip").forEach(function (b) {
+      var on = b.getAttribute("data-day") === dayMode;
+      b.classList.toggle("is-on", on);
+      b.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    document.querySelectorAll(".wxb-dayhint").forEach(function (n) {
+      n.textContent = tx(activeDay() ? data.ui.day_method : data.ui.day_switch_hint);
+    });
+    document.querySelectorAll(".wxb-gantt-row[data-focus]").forEach(function (row) {
+      row.classList.toggle("is-on", row.getAttribute("data-focus") === "overview" && dayMode === "overview");
+    });
+    document.querySelectorAll("[data-wx-mount]").forEach(function (root) {
+      var hot = root.querySelector(".wxb-prov.is-hot");
+      paintPop(root, (hot && hot.getAttribute("data-id")) || selected);
+    });
+    window.setTimeout(function () {
+      document.querySelectorAll(".wxb-svg.is-shifting").forEach(function (n) { n.classList.remove("is-shifting"); });
+    }, 520);
+  }
+
+  function buildZoom(svg) {
+    var ui = data.ui;
+    var bar = el("div", "wxb-zoom-ui");
+    function btn(key, factor) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "wxb-zbtn";
+      b.textContent = tx(ui[key]);
+      b.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (svg._zoomBy) svg._zoomBy(factor);
+      });
+      bar.appendChild(b);
+    }
+    btn("zoom_in", 1.35);
+    btn("zoom_out", 1 / 1.35);
+    var reset = document.createElement("button");
+    reset.type = "button";
+    reset.className = "wxb-zbtn";
+    reset.textContent = tx(ui.zoom_reset);
+    reset.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (svg._zoomReset) svg._zoomReset();
+    });
+    bar.appendChild(reset);
+    return bar;
+  }
+
+  function bindNav(wrap, svg) {
+    var layer = svg._layer;
+    var st = { s: 1, x: 0, y: 0 };
+    function apply() {
+      if (layer) layer.setAttribute("transform", "translate(" + st.x + " " + st.y + ") scale(" + st.s + ")");
+    }
+    function zoomBy(factor) {
+      var box = svg.getBoundingClientRect();
+      var cx = box.width / 2;
+      var cy = box.height / 2;
+      var next = Math.max(1, Math.min(4, st.s * factor));
+      if (next === st.s) return;
+      var k = next / st.s;
+      st.x = cx - (cx - st.x) * k;
+      st.y = cy - (cy - st.y) * k;
+      st.s = next;
+      if (st.s <= 1.01) { st.s = 1; st.x = 0; st.y = 0; }
+      apply();
+    }
+    svg._zoomBy = zoomBy;
+    svg._zoomReset = function () { st.s = 1; st.x = 0; st.y = 0; apply(); };
+    var ptr = {};
+    wrap.addEventListener("pointerdown", function (e) {
+      if (e.target.closest && e.target.closest(".wxb-zoom-ui, .wxb-pop")) return;
+      ptr[e.pointerId] = {
+        x: e.clientX,
+        y: e.clientY,
+        ox: e.clientX,
+        oy: e.clientY,
+        type: e.pointerType || "mouse"
+      };
+      var ids = Object.keys(ptr).filter(function (k) { return k !== "_span" && k !== "_scale"; });
+      if ((e.pointerType || "mouse") !== "touch") {
+        try { wrap.setPointerCapture(e.pointerId); } catch (err) {}
+      } else if (ids.length >= 2) {
+        ids.forEach(function (id) { try { wrap.setPointerCapture(Number(id)); } catch (err) {} });
+        var a = ptr[ids[0]];
+        var b = ptr[ids[1]];
+        ptr._span = Math.hypot(a.x - b.x, a.y - b.y) || 1;
+        ptr._scale = st.s;
+      }
+    });
+    wrap.addEventListener("pointermove", function (e) {
+      var cur = ptr[e.pointerId];
+      if (!cur) return;
+      var ids = Object.keys(ptr).filter(function (k) { return k !== "_span" && k !== "_scale"; });
+      if (cur.type === "touch") {
+        cur.x = e.clientX;
+        cur.y = e.clientY;
+        if (ids.length < 2) return;
+        e.preventDefault();
+        var a = ptr[ids[0]];
+        var b = ptr[ids[1]];
+        var span = Math.hypot(a.x - b.x, a.y - b.y) || 1;
+        var next = Math.max(1, Math.min(4, (ptr._scale || st.s) * (span / (ptr._span || span))));
+        st.s = next;
+        if (st.s <= 1.01) { st.s = 1; st.x = 0; st.y = 0; }
+        apply();
+        return;
+      }
+      if (Math.hypot(e.clientX - cur.ox, e.clientY - cur.oy) > 6) svg._dragged = true;
+      if (!svg._dragged) return;
+      st.x += e.clientX - cur.x;
+      st.y += e.clientY - cur.y;
+      cur.x = e.clientX;
+      cur.y = e.clientY;
+      apply();
+    });
+    function endPtr(e) {
+      delete ptr[e.pointerId];
+      var ids = Object.keys(ptr).filter(function (k) { return k !== "_span" && k !== "_scale"; });
+      if (ids.length < 2) { delete ptr._span; delete ptr._scale; }
+      window.setTimeout(function () { svg._dragged = false; }, 40);
+    }
+    wrap.addEventListener("pointerup", endPtr);
+    wrap.addEventListener("pointercancel", endPtr);
+    wrap.addEventListener("wheel", function (e) {
+      if (!e.ctrlKey && !e.metaKey) return;
+      e.preventDefault();
+      zoomBy(e.deltaY < 0 ? 1.12 : 0.89);
+    }, { passive: false });
+  }
+
   function renderMount(root) {
     var mode = root.getAttribute("data-wx-mode") || "home";
     var ui = data.ui;
@@ -426,6 +632,9 @@
     svg.setAttribute("class", "wxb-svg" + (justShifted ? " is-shifting" : ""));
     buildMap(svg);
     mapWrap.appendChild(svg);
+    mapWrap.appendChild(buildPop());
+    mapWrap.appendChild(buildZoom(svg));
+    bindNav(mapWrap, svg);
     stage.appendChild(mapWrap);
     var call = data.callout || {};
     var aside = el("aside", "wxb-callout");
@@ -448,11 +657,11 @@
       b.setAttribute("role", "tab");
       b.setAttribute("aria-selected", on ? "true" : "false");
       b.textContent = label;
+      b.setAttribute("data-day", id);
       b.addEventListener("click", function () {
         if (dayMode === id) return;
         dayMode = id;
-        justShifted = true;
-        renderAll();
+        syncDays();
       });
       switcher.appendChild(b);
     }
@@ -465,23 +674,16 @@
     mapPanel.appendChild(el("p", "wxb-dayhint", tx(activeDay() ? ui.day_method : ui.day_switch_hint)));
 
     var legend = el("ul", "wxb-legend");
-    var levels = activeDay() ? (data.warn_levels || {}) : (data.levels || {});
-    Object.keys(levels).forEach(function (key) {
-      var lv = levels[key];
+    ["red", "orange", "yellow", "green"].forEach(function (key) {
+      var lv = (data.warn_levels && data.warn_levels[key]) || {};
       var li = el("li");
-      var sw = el("i", "wxb-sw");
-      sw.style.background = lv.color;
-      li.appendChild(sw);
-      li.appendChild(document.createTextNode(tx(lv)));
+      li.appendChild(el("i", "wxb-sw wxb-sw-" + key));
+      li.appendChild(document.createTextNode((lv.ne || key) + " / " + (lv.en || key)));
       legend.appendChild(li);
     });
     mapPanel.appendChild(el("p", "wxb-tap", tx(ui.tap)));
     mapPanel.appendChild(legend);
     mapPanel.appendChild(el("p", "wxb-hint", tx(ui.hint)));
-    var detail = el("div", "wxb-detail");
-    detail.setAttribute("role", "region");
-    detail.setAttribute("aria-live", "polite");
-    mapPanel.appendChild(detail);
     board.appendChild(mapPanel);
 
     var timePanel = el("section", "wxb-panel");
@@ -563,8 +765,8 @@
     foot.appendChild(src);
     board.appendChild(foot);
     root.appendChild(board);
-    fillDetail(root, selected);
     paintPressed();
+    if (selected) paintPop(root, selected);
   }
 
   function paintLive() {
@@ -611,7 +813,6 @@
 
   function renderAll() {
     if (!data) return;
-    if (!selected) selected = data.focus_province || "bagmati";
     mounts.forEach(renderMount);
     if (justShifted) {
       justShifted = false;
@@ -641,6 +842,19 @@
         });
       });
   }
+
+  document.addEventListener("pointerdown", function (e) {
+    if (!data) return;
+    if (e.target.closest && e.target.closest(".wxb-prov, .wxb-pop, .wxb-zoom-ui, .wxb-dayswitch, .wxb-gantt-row")) return;
+    if (!selected) return;
+    clearSelect();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && selected) {
+      e.preventDefault();
+      clearSelect();
+    }
+  });
 
   if (window.__addLangHook) window.__addLangHook(renderAll);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);

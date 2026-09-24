@@ -1,6 +1,6 @@
 {
   "id": "2026-09-24-weather-12297",
-  "page_ver": "2026-09-24-live-maps-ui",
+  "page_ver": "2026-09-24-map-colors",
   "source": "DHM Meteorological Forecasting Division",
   "updated_at": "2026-09-24T08:40:00+05:45",
   "links": {
@@ -160,6 +160,22 @@
     "gantt_btn": {
       "ne": "यो पङ्क्तिले नक्सा मोड खोल्छ",
       "en": "This row focuses the map"
+    },
+    "zoom_in": {
+      "ne": "ठूलो",
+      "en": "Zoom in"
+    },
+    "zoom_out": {
+      "ne": "सानो",
+      "en": "Zoom out"
+    },
+    "zoom_reset": {
+      "ne": "पूरै",
+      "en": "Full"
+    },
+    "pop_close": {
+      "ne": "बन्द",
+      "en": "Close"
     }
   },
   "levels": {
@@ -513,22 +529,22 @@
   "warn_levels": {
     "red": {
       "color": "#d7191c",
-      "ne": "रातो · कारबाही गर्नुहोस्",
-      "en": "Red · take action"
+      "ne": "रातो · खतरा / अति भारी",
+      "en": "Red · danger / very heavy"
     },
     "orange": {
       "color": "#e65c00",
-      "ne": "सुन्तला · तयार रहनुहोस्",
-      "en": "Orange · be prepared"
+      "ne": "सुन्तला · भारी चेतावनी",
+      "en": "Orange · heavy / warning"
     },
     "yellow": {
       "color": "#e6b800",
-      "ne": "पहेँलो · अपडेट हुनुहोस्",
-      "en": "Yellow · be updated"
+      "ne": "पहेँलो · सतर्कता",
+      "en": "Yellow · watch / advisory"
     },
     "green": {
       "color": "#1b7f3a",
-      "ne": "हरियो · चेतावनी छैन",
+      "ne": "हरियो · सामान्य",
       "en": "Green · no warning"
     }
   },

@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-24-live-maps-ui";
+  var VER = window.PAGE_VER || "2026-09-24-map-colors";
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
 
   function lang() {
@@ -129,9 +129,9 @@
     var cls = "dor-marker dor-marker-" + road.status + (road.id === selectedId ? " is-on" : "") + (road.id === data.priority_id ? " is-nh42" : "");
     return window.L.divIcon({
       className: "leaflet-div-icon " + cls,
-      html: "<span>" + road.ref + "</span>",
-      iconSize: road.id === data.priority_id ? [78, 40] : [64, 36],
-      iconAnchor: road.id === data.priority_id ? [39, 20] : [32, 18]
+      html: "<span></span>",
+      iconSize: [22, 22],
+      iconAnchor: [11, 11]
     });
   }
   function mountMap(host, mode) {
@@ -150,10 +150,11 @@
     box.setAttribute("aria-label", tx(ui.map_h));
     host.appendChild(box);
     var legend = el("ul", "dor-map-legend");
-    [["closed", "map_closed"], ["opened", "map_opened"], ["partial", "map_partial"], ["line", "map_line"]].forEach(function (item) {
+    [["closed", "map_closed"], ["partial", "map_partial"], ["opened", "map_opened"]].forEach(function (item) {
       var li = el("li", "dor-leg dor-leg-" + item[0]);
+      var lab = ui[item[1]] || {};
       li.appendChild(el("i"));
-      li.appendChild(document.createTextNode(tx(ui[item[1]])));
+      li.appendChild(document.createTextNode((lab.ne || "") + " / " + (lab.en || "")));
       legend.appendChild(li);
     });
     host.appendChild(legend);
@@ -168,7 +169,8 @@
       return;
     }
     var token = mapGen;
-    var map = window.L.map(box, { scrollWheelZoom: false });
+    var coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+    var map = window.L.map(box, { scrollWheelZoom: false, dragging: !coarse, touchZoom: true, tap: true });
     mapInstances.push(map);
     window.L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -180,7 +182,11 @@
       if (!road.point) return;
       var ll = [road.point.lat, road.point.lng];
       bounds.push(ll);
-      var marker = window.L.marker(ll, { icon: markerIcon(road), keyboard: true, title: road.ref + " " + tx(road.section) });
+      var marker = window.L.marker(ll, {
+        icon: markerIcon(road),
+        keyboard: true,
+        alt: road.ref + " " + tx(road.section)
+      });
       marker.on("click", function () { selectRoad(road.id, false); });
       marker.on("add", function () {
         var node = marker.getElement();
@@ -199,12 +205,10 @@
           style: function (feat) {
             var closed = feat && feat.properties && feat.properties.closed_section;
             return closed
-              ? { color: "#b42318", weight: 6, opacity: 0.95 }
-              : { color: "#1d4ed8", weight: 3, opacity: 0.8 };
+              ? { color: "#d7191c", weight: 6, opacity: 0.95 }
+              : { color: "#1b7f3a", weight: 4, opacity: 0.9 };
           },
           onEachFeature: function (feat, layer) {
-            var name = (feat.properties && (feat.properties.link_code + " " + feat.properties.link_name)) || "NH42";
-            layer.bindTooltip(name, { sticky: true });
             layer.on("click", function () { selectRoad(data.priority_id, false); });
           }
         }).addTo(map);

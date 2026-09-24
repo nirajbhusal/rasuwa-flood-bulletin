@@ -7135,8 +7135,13 @@ html.damage-page.desk #map{
 .wxb-h svg{color:#2563eb}
 .wxb-stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(168px,230px);gap:10px;align-items:start}
 .wxb-mapwrap{min-width:0}
-.wxb-svg{width:100%;height:auto;display:block;overflow:visible;touch-action:manipulation}
-.wxb-prov{stroke:#fff;stroke-width:2.4;stroke-linejoin:round;cursor:pointer}
+.wxb-mapwrap{position:relative;touch-action:pan-y pinch-zoom}
+.wxb-svg{width:100%;height:auto;display:block;overflow:hidden;touch-action:pan-y pinch-zoom;background:#f8fafc;border-radius:12px}
+.wxb-prov{stroke:#fff;stroke-width:2.4;stroke-linejoin:round;cursor:pointer;fill:#1b7f3a}
+.wxb-lv-red{fill:#d7191c}
+.wxb-lv-orange{fill:#e65c00}
+.wxb-lv-yellow{fill:#e6b800}
+.wxb-lv-green{fill:#1b7f3a}
 .wxb-prov.is-on{stroke:#0f172a;stroke-width:3.4}
 .wxb-prov:focus{outline:3px solid #0f172a;outline-offset:2px}
 .wxb-label{
@@ -7177,13 +7182,14 @@ html.damage-page.desk #map{
   flex:none;display:inline-flex;align-items:center;justify-content:center;
   min-width:64px;padding:4px 6px;border-radius:8px;font-weight:800;font-size:12px;
 }
-.wxb-bid-yellow{background:#f6c945;color:#713f12}
-.wxb-bid-blue{background:#2563eb;color:#fff}
-.wxb-bid-magenta{background:#e83e8c;color:#fff}
+.wxb-bid-yellow{background:#e6b800;color:#3f2e00}
+.wxb-bid-orange{background:#e65c00;color:#fff}
+.wxb-bid-red{background:#d7191c;color:#fff}
+.wxb-bid-green{background:#1b7f3a;color:#fff}
 .wxb-bname{font-size:12.5px;font-weight:800;color:#334155;line-height:1.25}
 .wxb-live{
   display:inline-block;margin-left:6px;padding:1px 6px;border-radius:999px;
-  background:#e83e8c;color:#fff;font-style:normal;font-size:10px;font-weight:800;letter-spacing:.04em;
+  background:#d7191c;color:#fff;font-style:normal;font-size:10px;font-weight:800;letter-spacing:.04em;
 }
 .wxb-track{
   position:relative;height:36px;border-radius:8px;margin-right:12px;
@@ -7195,9 +7201,10 @@ html.damage-page.desk #map{
   display:flex;align-items:center;justify-content:center;
   font-size:11.5px;font-weight:800;white-space:nowrap;padding:0 10px;
 }
-.wxb-bar-yellow{background:#f6c945;color:#713f12}
-.wxb-bar-blue{background:#2563eb;color:#fff}
-.wxb-bar-magenta{background:#e83e8c;color:#fff}
+.wxb-bar-yellow{background:#e6b800;color:#3f2e00}
+.wxb-bar-orange{background:#e65c00;color:#fff}
+.wxb-bar-red{background:#d7191c;color:#fff}
+.wxb-bar-green{background:#1b7f3a;color:#fff}
 .wxb-arr-end::after,.wxb-arr-both::after{
   content:"";position:absolute;right:-7px;top:50%;transform:translateY(-50%);
   border-top:7px solid transparent;border-bottom:7px solid transparent;
@@ -7206,10 +7213,11 @@ html.damage-page.desk #map{
   content:"";position:absolute;left:-7px;top:50%;transform:translateY(-50%);
   border-top:7px solid transparent;border-bottom:7px solid transparent;
 }
-.wxb-bar-yellow.wxb-arr-end::after{border-left:8px solid #f6c945}
-.wxb-bar-blue.wxb-arr-end::after,.wxb-bar-blue.wxb-arr-both::after{border-left:8px solid #2563eb}
-.wxb-bar-blue.wxb-arr-both::before{border-right:8px solid #2563eb}
-.wxb-bar-magenta.wxb-arr-end::after{border-left:8px solid #e83e8c}
+.wxb-bar-yellow.wxb-arr-end::after{border-left:8px solid #e6b800}
+.wxb-bar-orange.wxb-arr-end::after,.wxb-bar-orange.wxb-arr-both::after{border-left:8px solid #e65c00}
+.wxb-bar-orange.wxb-arr-both::before{border-right:8px solid #e65c00}
+.wxb-bar-red.wxb-arr-end::after{border-left:8px solid #d7191c}
+.wxb-bar-green.wxb-arr-end::after{border-left:8px solid #1b7f3a}
 .wxb-copy p{margin:0 0 8px;font-size:14.5px;font-weight:700;line-height:1.5}
 .wxb-copy h4{margin:8px 0 4px;font-size:15px}
 .wxb-impacts{margin:0 0 8px;padding-left:1.1rem}
@@ -7319,13 +7327,38 @@ html.damage-page.desk #map{
 .wxb-dayhint,.wxb-tap{margin:6px 0 0;font-size:13px;font-weight:800;color:#0c2340}
 .wxb-tap{display:inline-flex;align-items:center;gap:6px;background:#fff7ed;border:1px solid #fdba74;border-radius:999px;padding:4px 10px}
 .wxb-tap::before{content:"";width:10px;height:10px;border-radius:50%;background:#e10600;box-shadow:0 0 0 3px rgba(225,6,0,.2)}
-.wxb-prov{cursor:pointer;transition:filter .12s ease,stroke-width .12s ease}
+.wxb-prov{cursor:pointer;transition:fill .45s ease,filter .12s ease,stroke-width .12s ease}
+.wxb-sw-red{background:#d7191c}
+.wxb-sw-orange{background:#e65c00}
+.wxb-sw-yellow{background:#e6b800}
+.wxb-sw-green{background:#1b7f3a}
+.wxb-zoom-ui{position:absolute;top:8px;right:8px;display:flex;gap:4px;z-index:2}
+.wxb-zbtn{
+  appearance:none;border:1px solid #cbd5e1;background:#fff;color:#0c2340;
+  border-radius:8px;min-height:36px;min-width:44px;padding:4px 8px;
+  font:inherit;font-size:12px;font-weight:800;cursor:pointer;
+}
+.wxb-pop{
+  position:absolute;left:8px;right:8px;bottom:8px;z-index:3;
+  background:#fff;border:1px solid #e2e8f0;border-radius:12px;
+  box-shadow:0 8px 24px rgba(12,35,64,.16);padding:10px 36px 10px 12px;
+}
+.wxb-pop[hidden]{display:none}
+.wxb-pop-x{
+  position:absolute;top:6px;right:6px;border:0;background:transparent;
+  font-size:22px;line-height:1;min-width:36px;min-height:36px;cursor:pointer;color:#334155;
+}
+.wxb-pop-name{margin:0;font-size:18px;font-weight:800;color:#0c2340}
+.wxb-pop-lv{display:flex;align-items:center;gap:6px;margin:4px 0;font-size:13px;font-weight:800;color:#1e293b}
+.wxb-pop-body,.wxb-pop-dist{margin:0;font-size:13.5px;font-weight:700;line-height:1.4;color:#334155}
+.wxb-pop-dist{margin-top:4px}
 .wxb-prov.is-hot{stroke:#0b1f4d;stroke-width:5;filter:brightness(1.14)}
 .wxb-prov.is-on{stroke:#0b1f4d;stroke-width:6;filter:drop-shadow(0 0 1px #fff) brightness(1.08)}
 .wxb-svg.is-shifting .wxb-prov{animation:wxb-flash .48s ease}
 @keyframes wxb-flash{40%{filter:brightness(1.45)}}
 @media (prefers-reduced-motion:reduce){
   .wxb-svg.is-shifting .wxb-prov{animation:none}
+  .wxb-prov{transition:none}
 }
 .wxb-detail-ref{margin:6px 0 0;font-size:13px;font-weight:800;color:#1d4ed8}
 .wxb-gantt-row.is-btn{cursor:pointer;border-radius:8px}
@@ -7335,7 +7368,8 @@ html.damage-page.desk #map{
 .wxb-live-note a{color:inherit}
 
 /* DoR interactive map */
-.dor-map{height:280px;border-radius:14px;border:1px solid #cbd5e1;margin:0 14px 8px;background:#e2e8f0;z-index:0}
+.dor-map{height:280px;border-radius:14px;border:1px solid #cbd5e1;margin:0 14px 8px;background:#e2e8f0;z-index:0;touch-action:pan-y pinch-zoom}
+.dor-map.leaflet-container{touch-action:pan-y pinch-zoom !important}
 .dor-section .dor-map,.dor-map.is-tall{height:440px}
 .dor-map-tools{margin:0 14px 8px}
 .dor-focus{
@@ -7346,10 +7380,9 @@ html.damage-page.desk #map{
 .dor-map-legend{display:flex;flex-wrap:wrap;gap:8px 14px;list-style:none;margin:0 14px 6px;padding:0}
 .dor-leg{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:#334155}
 .dor-leg i{width:14px;height:14px;border-radius:4px;display:inline-block}
-.dor-leg-closed i{background:#b42318}
-.dor-leg-opened i{background:#067647}
-.dor-leg-partial i{background:#b54708}
-.dor-leg-line i{background:#1d4ed8}
+.dor-leg-closed i{background:#d7191c}
+.dor-leg-opened i{background:#1b7f3a}
+.dor-leg-partial i{background:#e65c00}
 .dor-tap{margin:0 14px 8px}
 .dor-map-detail{margin-top:0}
 .dor-live{margin:0 14px 8px;font-size:12.5px;font-weight:800;color:#14532d}
@@ -7357,14 +7390,13 @@ html.damage-page.desk #map{
 .dor-row{cursor:pointer}
 .dor-row.is-on{outline:2px solid #0b1f4d;background:#f8fafc}
 .leaflet-div-icon.dor-marker{
-  background:#fff;border:2px solid #0b1f4d;border-radius:999px;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;font-size:12px;color:#0b1f4d;box-shadow:0 2px 6px rgba(12,35,64,.25);cursor:pointer;
+  background:#1b7f3a;border:2px solid #fff;border-radius:999px;
+  box-shadow:0 1px 4px rgba(12,35,64,.35);cursor:pointer;
 }
-.leaflet-div-icon.dor-marker span{pointer-events:none;padding:0 4px}
-.leaflet-div-icon.dor-marker-closed{background:#b42318;color:#fff;border-color:#7f1d1d}
-.leaflet-div-icon.dor-marker-opened{background:#067647;color:#fff;border-color:#064e3b}
-.leaflet-div-icon.dor-marker-partial{background:#b54708;color:#fff;border-color:#7c2d12}
+.leaflet-div-icon.dor-marker span{display:none}
+.leaflet-div-icon.dor-marker-closed{background:#d7191c;border-color:#fff}
+.leaflet-div-icon.dor-marker-opened{background:#1b7f3a;border-color:#fff}
+.leaflet-div-icon.dor-marker-partial{background:#e65c00;border-color:#fff}
 .leaflet-div-icon.dor-marker.is-on,.leaflet-div-icon.dor-marker.is-nh42{
   outline:3px solid #0b1f4d;outline-offset:2px;z-index:800!important;
 }
