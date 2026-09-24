@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-24-wx-map-ux";
+  var VER = window.PAGE_VER || "2026-09-24-dhm-12299";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -407,6 +407,8 @@
     var head = el("div", "wxb-gantt-head");
     head.appendChild(el("div", "wxb-gantt-spacer"));
     var days = el("div", "wxb-days");
+    var spanCols = tl.days.length || 5;
+    days.style.gridTemplateColumns = "repeat(" + spanCols + ", 1fr)";
     tl.days.forEach(function (d) {
       var on = d.date === today;
       var cell = el("div", "wxb-day" + (on ? " is-today" : ""));
@@ -428,6 +430,8 @@
       meta.appendChild(name);
       var track = el("div", "wxb-track");
       track.setAttribute("aria-hidden", "true");
+      var stripe = 100 / span;
+      track.style.background = "repeating-linear-gradient(90deg, transparent 0, transparent calc(" + stripe + "% - 1px), #e2e8f0 calc(" + stripe + "% - 1px), #e2e8f0 " + stripe + "%)";
       var left = (bar.start / span) * 100;
       var width = ((bar.end - bar.start) / span) * 100;
       var b = el("div", "wxb-bar wxb-bar-" + tone + " wxb-arr-" + (bar.arrows || "end"));

@@ -1,3 +1,11 @@
+## 2026-09-24-dhm-12299 · DHM four-day weather warning #12299
+
+- Live lead is DHM **#12299** (issued Asoj 8 / 24 Sep 2026, 08:00 NPT): four-day weather warning for Asoj 8–11. Official page text is empty; the product is the four day maps. Homepage and `notices.html#alert` read `data/weather-alert.json`. No citizen-reprint line and no `#12299` badge on the live card. Timeline rows cite #12299, #12298, #12297 and #12296.
+- Day chips for Asoj 8–11 recolor the map from `img/dhm/warning-12299-day{1,2,3,4}.png`. The colour is the highest DHM warning read inside each province (red take action, orange be prepared, yellow be updated, green no warning). Other colours are named only when they cover a clear share of that province, not a thin border. No new rainfall millimetres and no river gauges.
+- Overview is the highest of those four map readings. #12296 (Bhotekoshi corridor, through the morning of Asoj 10) stays on the timeline and the Bagmati callout. #12297 moves to the timeline as the prior lead, not live. #12298 (three-day map, Asoj 7 evening) is on the timeline for Asoj 8–10; its maps are archived. SitRep and cash boards unchanged.
+- Short notices update and `latest.json` point at `notices.html#alert` with the DHM MFD link.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-dhm-12299`
+
 ## 2026-09-24-ask-panel · Homepage Ask / सोध्नुहोस्
 
 - Homepage FAB **सोध्नुहोस् / Ask** opens a mobile-first sheet. Eight chips (weather, roads, rescue, name search, relief fund, helplines, LPG, road map) and a free-text box answer from the published boards: `data/weather-alert.json`, `data/roads-dor.json`, `api/dashboard.json`, the supply and helpline pages, and the existing names index. No external model and no new figures.

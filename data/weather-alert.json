@@ -1,8 +1,8 @@
 {
-  "id": "2026-09-24-weather-12297",
-  "page_ver": "2026-09-24-map-colors",
+  "id": "2026-09-24-weather-12299",
+  "page_ver": "2026-09-24-dhm-12299",
   "source": "DHM Meteorological Forecasting Division",
-  "updated_at": "2026-09-24T08:40:00+05:45",
+  "updated_at": "2026-09-24T13:40:00+05:45",
   "links": {
     "section": "notices.html#alert",
     "helpline": "contact.html#helpline",
@@ -12,19 +12,19 @@
     "qr": "img/dhm/weather-alert-qr.png"
   },
   "lead": {
-    "page_id": 12297,
-    "issued_at": "2026-09-23T18:00:00+05:45",
-    "url": "https://dhm.gov.np/mfd/#/weather/pages/special-weather/12297",
-    "api": "https://dhm.gov.np/mfd/api/page/12297",
+    "page_id": 12299,
+    "issued_at": "2026-09-24T08:00:00+05:45",
+    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12299",
+    "api": "https://dhm.gov.np/mfd/api/page/12299",
     "product": {
-      "ne": "मनसुन विशेष बुलेटिन-३ (अपडेट) · पाँच दिनको मौसम चेतावनी",
-      "en": "Monsoon Special Bulletin-3 UPDATE · 5-day weather warning"
+      "ne": "आगामी चार दिनका लागि मौसम चेतावनी",
+      "en": "Weather warning for the next four days"
     },
     "window": {
-      "start": "2026-09-23",
+      "start": "2026-09-24",
       "end": "2026-09-27"
     },
-    "api_update_at": "2026-09-23T12:31:16.068Z"
+    "api_update_at": "2026-09-24T06:01:29.068Z"
   },
   "ui": {
     "brand": {
@@ -36,16 +36,16 @@
       "en": "Weather Alert"
     },
     "issued": {
-      "ne": "जारी: असोज ७, बुधबार · साँझ ६:०० (२३ सेप्टेम्बर २०२६)",
-      "en": "Issued: Asoj 7, Wed · 6:00 PM (23 Sep 2026)"
+      "ne": "जारी: असोज ८, बिहीबार · बिहान ८:०० (२४ सेप्टेम्बर २०२६)",
+      "en": "Issued: Asoj 8, Thu · 8:00 AM (24 Sep 2026)"
     },
     "title": {
-      "ne": "भारी वर्षा चेतावनी",
-      "en": "Heavy Rain Alert"
+      "ne": "चार दिनको मौसम चेतावनी",
+      "en": "Four-day weather warning"
     },
     "sub": {
-      "ne": "पाँच दिनको मनसुन चेतावनी · असोज ७ देखि ११ (२३–२७ सेप्टेम्बर २०२६)",
-      "en": "5-day monsoon warning · Asoj 7 to 11 (23–27 Sep 2026)"
+      "ne": "असोज ८ देखि ११ (२४–२७ सेप्टेम्बर २०२६)",
+      "en": "Asoj 8 to 11 (24–27 Sep 2026)"
     },
     "map_h": {
       "ne": "प्रदेश अनुसार वर्षाको सम्भावना",
@@ -100,8 +100,8 @@
       "en": "LIVE"
     },
     "system": {
-      "ne": "बंगालको खाडीको पश्चिम-मध्य भागको बलियो न्यूनचापीय क्षेत्र (Deep Depression) पश्चिम-उत्तरपश्चिम सर्दै २३ सेप्टेम्बर राति उत्तरी आन्ध्र प्रदेश र दक्षिणी ओडिशा तट नजिकै गहिरो न्यूनचापकै रूपमा प्रवेश गर्ने सम्भावना DHM ले जनाएको छ। यसको प्रभावले नेपालमा वर्षा बढ्न सक्छ।",
-      "en": "DHM: a deep depression over the west-central Bay of Bengal is expected to move west-northwest and reach the northern Andhra Pradesh / southern Odisha coast on the night of 23 September, still as a deep depression. The system can increase rainfall in Nepal."
+      "ne": "DHM ले असोज ८ बिहान ८:०० (२४ सेप्टेम्बर २०२६) चार दिनको मौसम चेतावनी जारी गरेको छ। आधिकारिक पृष्ठमा नक्सा मात्र छ। दिनको रङ ती नक्साबाट पढिएको हो। यो कार्डमा नदीको जलमापन अंक छैन।",
+      "en": "DHM issued a four-day weather warning on the morning of 24 September 2026 (Asoj 8, 08:00). The official page has the maps only. Day colours are read from those maps. This card does not publish river-gauge numbers."
     },
     "impacts_h": {
       "ne": "जोखिम र सतर्कता",
@@ -109,20 +109,14 @@
     },
     "impacts": {
       "ne": [
-        "पहिरो, बाढी र गेग्रान बहावको जोखिम। तराई र सहरी क्षेत्रमा डुबान हुन सक्छ।",
-        "ठूला तथा साना नदी र खोलामा पानीको सतह बढ्न सक्छ। यो कार्डमा नदीको जलमापन अंक राखिएको छैन।",
-        "दैनिक जनजीवन, कृषि, स्वास्थ्य, पर्यटन, नदी किनारका काम, सडक र हवाई यातायात प्रभावित हुन सक्छन्।",
-        "हिमाली भूभागमा भारीसम्म हिमपात हुन सक्ने भएकाले पर्वतारोही तथा सम्बन्धित सबैलाई उच्च सतर्कता।",
-        "धान भित्र्याउने काम कृषि विज्ञको सल्लाहमा गर्नुहोस्।",
-        "शुक्रबार–आइतबार (२५–२७ सेप्टेम्बर) लामो सडक यात्रा नगर्न यो बुलेटिनबारे प्रेसले DHM को सुझाव भनेर लेखेको छ। आवश्यक सतर्कता र पूर्वतयारी अपनाउनुहोस्।"
+        "नक्साको रङ: रातो = कारबाही गर्नुहोस्, सुन्तला = तयार रहनुहोस्, पहेँलो = अपडेट हुनुहोस्, हरियो = चेतावनी छैन।",
+        "भोटेकोशी करिडोर बुलेटिन असोज १० बिहानसम्म: रसुवा, नुवाकोट, धादिङ, गोरखा र चितवनमा मध्यम वर्षा, प्रत्येक जिल्लाका एक-दुई ठाउँ भारी।",
+        "यो कार्डमा नदीको जलमापन अंक राखिएको छैन।"
       ],
       "en": [
-        "Landslide, flood and debris-flow risk. Inundation is possible in the Tarai and in urban areas.",
-        "Water levels in large and small rivers may rise. This card does not publish river-gauge numbers.",
-        "Daily life, agriculture, health, tourism, riverside works, roads and flights may be affected.",
-        "Snowfall up to heavy is possible in the high Himalaya. Mountaineers and everyone concerned should stay on high alert.",
-        "For paddy harvest, follow advice from agriculture specialists.",
-        "Press reports on this bulletin have relayed DHM guidance to avoid long-distance road travel on Friday–Sunday (25–27 September). Take the precautions DHM asks for."
+        "Map colours: red = take action, orange = be prepared, yellow = be updated, green = no warning.",
+        "Bhotekoshi corridor bulletin through the morning of Asoj 10: moderate rain in Rasuwa, Nuwakot, Dhading, Gorkha and Chitwan, and heavy rain in 1–2 places in each district.",
+        "This card does not publish river-gauge numbers."
       ]
     },
     "tap": {
@@ -134,12 +128,12 @@
       "en": "Which day's map"
     },
     "day_overview": {
-      "ne": "शुक्र–आइत शिखर",
-      "en": "Fri–Sun peak"
+      "ne": "चार दिनको उच्चतम",
+      "en": "4-day highest"
     },
     "day_switch_hint": {
-      "ne": "दिन छान्नुहोस्। शिखर मोड शुक्र–आइतको वर्षा विवरण हो। दिनको चिपले आधिकारिक नक्साको चेतावनी रङ (रातो · सुन्तला · पहेँलो · हरियो) देखाउँछ।",
-      "en": "Pick a day. Peak mode is the Friday–Sunday rainfall outlook. A day chip recolors the map from the official warning colours (red · orange · yellow · green)."
+      "ne": "दिन छान्नुहोस्। उच्चतम मोड चार दिनको नक्सामा देखिएको सबैभन्दा माथिल्लो रङ हो। दिनको चिपले आधिकारिक नक्साको चेतावनी रङ (रातो · सुन्तला · पहेँलो · हरियो) देखाउँछ।",
+      "en": "Pick a day. Highest mode is the top colour read on the four official maps. A day chip recolors the map from the official warning colours (red · orange · yellow · green)."
     },
     "day_method": {
       "ne": "यो दिनको रङ आधिकारिक नक्साको सबैभन्दा माथिल्लो चेतावनी हो। मिश्रित प्रदेशमा अरू रङ पनि छन्।",
@@ -188,19 +182,19 @@
   },
   "levels": {
     "very_heavy_extreme": {
-      "color": "#e83e8c",
-      "ne": "अति भारी, एक-दुई ठाउँ अत्यन्त भारी",
-      "en": "Very heavy, isolated extremely heavy"
+      "color": "#d7191c",
+      "ne": "रातो · कारबाही गर्नुहोस्",
+      "en": "Red · take action"
     },
     "heavy_very_heavy": {
-      "color": "#ff8f1f",
-      "ne": "भारी देखि अति भारी (केही ठाउँ)",
-      "en": "Heavy to very heavy (few places)"
+      "color": "#e65c00",
+      "ne": "सुन्तला · तयार रहनुहोस्",
+      "en": "Orange · be prepared"
     },
     "heavy": {
-      "color": "#f6c945",
-      "ne": "भारी (केही ठाउँ)",
-      "en": "Heavy (few places)"
+      "color": "#e6b800",
+      "ne": "पहेँलो · अपडेट हुनुहोस्",
+      "en": "Yellow · be updated"
     }
   },
   "focus_province": "bagmati",
@@ -216,32 +210,32 @@
   "provinces": [
     {
       "id": "sudurpaschim",
-      "level": "heavy_very_heavy",
+      "level": "very_heavy_extreme",
       "ne": "सुदूरपश्चिम",
       "en": "Sudurpaschim",
       "detail": {
-        "ne": "शुक्रबार–आइतबार (असोज ९–११) केही ठाउँमा मेघ गर्जन, चट्याङ र हावासहित भारीदेखि अति भारी वर्षा।",
-        "en": "Friday–Sunday (Asoj 9–11): heavy to very heavy rain in a few places, with thunder, lightning and wind."
+        "ne": "चार दिनको नक्सामा सबैभन्दा माथिल्लो रङ रातो (असोज १०, सुन्तला पनि)। असोज ८ हरियो, असोज ९ सुन्तला र पहेँलो, असोज ११ पहेँलो।",
+        "en": "Highest colour on the four-day maps is red (Asoj 10, orange also). Asoj 8 green, Asoj 9 orange and yellow, Asoj 11 yellow."
       }
     },
     {
       "id": "karnali",
-      "level": "heavy",
+      "level": "very_heavy_extreme",
       "ne": "कर्णाली",
       "en": "Karnali",
       "detail": {
-        "ne": "शुक्रबार–आइतबार (असोज ९–११) केही ठाउँमा भारी वर्षा।",
-        "en": "Friday–Sunday (Asoj 9–11): heavy rain in a few places."
+        "ne": "चार दिनको नक्सामा सबैभन्दा माथिल्लो रङ रातो (असोज १०, सुन्तला पनि)। असोज ८ पहेँलो र हरियो, असोज ९ सुन्तला, असोज ११ पहेँलो।",
+        "en": "Highest colour on the four-day maps is red (Asoj 10, orange also). Asoj 8 yellow and green, Asoj 9 orange, Asoj 11 yellow."
       }
     },
     {
       "id": "lumbini",
-      "level": "very_heavy_extreme",
+      "level": "heavy_very_heavy",
       "ne": "लुम्बिनी",
       "en": "Lumbini",
       "detail": {
-        "ne": "शुक्रबार–आइतबार (असोज ९–११) मेघ गर्जन, चट्याङ र हावासहित भारीदेखि अति भारी वर्षा। एक-दुई ठाउँमा अत्यन्त भारी वर्षाको सम्भावना।",
-        "en": "Friday–Sunday (Asoj 9–11): heavy to very heavy rain with thunder, lightning and wind. Extremely heavy rain is possible in 1–2 places."
+        "ne": "चार दिनको नक्सामा सबैभन्दा माथिल्लो रङ सुन्तला (असोज ८–१०)। असोज ११ पहेँलो।",
+        "en": "Highest colour on the four-day maps is orange (Asoj 8–10). Asoj 11 yellow."
       }
     },
     {
@@ -250,38 +244,38 @@
       "ne": "गण्डकी",
       "en": "Gandaki",
       "detail": {
-        "ne": "बुधबारदेखि वर्षा बढ्ने क्रम। शुक्रबार–आइतबार (असोज ९–११) मेघ गर्जन, चट्याङ र हावासहित भारीदेखि अति भारी वर्षा। एक-दुई ठाउँमा अत्यन्त भारी वर्षाको सम्भावना।",
-        "en": "Rainfall increasing from Wednesday. Friday–Sunday (Asoj 9–11): heavy to very heavy rain with thunder, lightning and wind. Extremely heavy rain is possible in 1–2 places."
+        "ne": "चार दिनको नक्सामा सबैभन्दा माथिल्लो रङ रातो (असोज ९ र १०, सुन्तला पनि)। असोज ८ सुन्तला, असोज ११ पहेँलो।",
+        "en": "Highest colour on the four-day maps is red (Asoj 9 and 10, orange also). Asoj 8 orange, Asoj 11 yellow."
       }
     },
     {
       "id": "bagmati",
-      "level": "heavy_very_heavy",
+      "level": "very_heavy_extreme",
       "ne": "बागमती",
       "en": "Bagmati",
       "detail": {
-        "ne": "बुधबारदेखि वर्षा बढ्ने क्रम। शुक्रबार–आइतबार केही ठाउँमा मेघ गर्जन, चट्याङ र हावासहित भारीदेखि अति भारी वर्षा। भोटेकोशी करिडोर: असोज ७ रातिदेखि असोज १० बिहानसम्म रसुवा, नुवाकोट, धादिङ, गोरखा र चितवनमा मध्यम वर्षा; प्रत्येक जिल्लाका एक-दुई ठाउँमा भारी।",
-        "en": "Rainfall increasing from Wednesday. Friday–Sunday: heavy to very heavy rain in a few places, with thunder, lightning and wind. Bhotekoshi corridor: moderate rain, and heavy rain in 1–2 places, in Rasuwa, Nuwakot, Dhading, Gorkha and Chitwan from the night of Asoj 7 through the morning of Asoj 10."
+        "ne": "चार दिनको नक्सामा सबैभन्दा माथिल्लो रङ रातो (असोज ९, सुन्तला पनि)। असोज ८ सुन्तला, असोज १० पहेँलो, असोज ११ पहेँलो र हरियो। भोटेकोशी करिडोर असोज ७ रातिदेखि असोज १० बिहानसम्म छुट्टै छ: मध्यम, एक-दुई ठाउँ भारी।",
+        "en": "Highest colour on the four-day maps is red (Asoj 9, orange also). Asoj 8 orange, Asoj 10 yellow, Asoj 11 yellow and green. The Bhotekoshi corridor stays separate from the night of Asoj 7 through the morning of Asoj 10: moderate rain, heavy in 1–2 places."
       }
     },
     {
       "id": "madhesh",
-      "level": "heavy_very_heavy",
+      "level": "heavy",
       "ne": "मधेश",
       "en": "Madhesh",
       "detail": {
-        "ne": "शुक्रबार–आइतबार (असोज ९–११) केही ठाउँमा मेघ गर्जन, चट्याङ र हावासहित भारीदेखि अति भारी वर्षा।",
-        "en": "Friday–Sunday (Asoj 9–11): heavy to very heavy rain in a few places, with thunder, lightning and wind."
+        "ne": "चार दिनको नक्सामा सबैभन्दा माथिल्लो रङ पहेँलो (असोज ८–१०)। असोज ११ हरियो।",
+        "en": "Highest colour on the four-day maps is yellow (Asoj 8–10). Asoj 11 green."
       }
     },
     {
       "id": "koshi",
-      "level": "heavy_very_heavy",
+      "level": "very_heavy_extreme",
       "ne": "कोशी",
       "en": "Koshi",
       "detail": {
-        "ne": "बुधबारदेखि वर्षा बढ्ने क्रम। शुक्रबार–आइतबार केही ठाउँमा मेघ गर्जन, चट्याङ र हावासहित भारीदेखि अति भारी वर्षा।",
-        "en": "Rainfall increasing from Wednesday. Friday–Sunday: heavy to very heavy rain in a few places, with thunder, lightning and wind."
+        "ne": "चार दिनको नक्सामा सबैभन्दा माथिल्लो रङ रातो (असोज ९; सुन्तला र पहेँलो पनि)। असोज ८ सुन्तला र पहेँलो, असोज १० पहेँलो, असोज ११ हरियो।",
+        "en": "Highest colour on the four-day maps is red (Asoj 9; orange and yellow also). Asoj 8 orange and yellow, Asoj 10 yellow, Asoj 11 green."
       }
     }
   ],
@@ -303,14 +297,6 @@
   },
   "timeline": {
     "days": [
-      {
-        "date": "2026-09-23",
-        "ne": "असोज ७",
-        "en": "Asoj 7",
-        "dow_ne": "बुध",
-        "dow_en": "Wed",
-        "dom": "23"
-      },
       {
         "date": "2026-09-24",
         "ne": "असोज ८",
@@ -346,32 +332,32 @@
     ],
     "bars": [
       {
-        "page_id": 12294,
+        "page_id": 12298,
         "tone": "yellow",
         "start": 0,
-        "end": 3,
+        "end": 2.92,
         "arrows": "end",
         "live": false,
         "name": {
-          "ne": "तीन-दिन नक्सा चेतावनी",
-          "en": "3-day warning map"
+          "ne": "तीन-दिन चेतावनी #12298",
+          "en": "3-day warning #12298"
         },
         "span": {
-          "ne": "असोज ७–९",
-          "en": "Asoj 7–9"
+          "ne": "असोज ८–१०",
+          "en": "Asoj 8–10"
         },
-        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12294"
+        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12298"
       },
       {
         "page_id": 12296,
         "tone": "blue",
-        "start": 0.42,
-        "end": 3.38,
+        "start": 0,
+        "end": 2.38,
         "arrows": "both",
         "live": false,
         "name": {
-          "ne": "भोटेकोशी करिडोर",
-          "en": "Bhotekoshi corridor"
+          "ne": "भोटेकोशी करिडोर #12296",
+          "en": "Bhotekoshi corridor #12296"
         },
         "span": {
           "ne": "असोज ७ राति – १० बिहान",
@@ -384,18 +370,35 @@
         "page_id": 12297,
         "tone": "magenta",
         "start": 0,
-        "end": 4.82,
+        "end": 3.85,
         "arrows": "end",
-        "live": true,
+        "live": false,
         "name": {
-          "ne": "मनसुन बुलेटिन-३ (अपडेट)",
-          "en": "Monsoon Bulletin-3 (update)"
+          "ne": "मनसुन बुलेटिन-३ #12297",
+          "en": "Monsoon Bulletin-3 #12297"
         },
         "span": {
           "ne": "असोज ७–११",
           "en": "Asoj 7–11"
         },
-        "url": "https://dhm.gov.np/mfd/#/weather/pages/special-weather/12297",
+        "url": "https://dhm.gov.np/mfd/#/weather/pages/special-weather/12297"
+      },
+      {
+        "page_id": 12299,
+        "tone": "red",
+        "start": 0,
+        "end": 3.85,
+        "arrows": "end",
+        "live": true,
+        "name": {
+          "ne": "चार-दिन चेतावनी #12299",
+          "en": "4-day warning #12299"
+        },
+        "span": {
+          "ne": "असोज ८–११",
+          "en": "Asoj 8–11"
+        },
+        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12299",
         "focus": "overview"
       }
     ]
@@ -403,52 +406,58 @@
   "maps": [
     {
       "day": 1,
-      "file": "img/dhm/warning-12297-day1.png",
-      "w": 1200,
-      "h": 738,
-      "ne": "दिन १ · असोज ७ / २३ सेप्टेम्बर",
-      "en": "Day 1 · Asoj 7 / 23 September"
+      "file": "img/dhm/warning-12299-day1.png",
+      "w": 1300,
+      "h": 800,
+      "ne": "दिन १ · असोज ८ / २४ सेप्टेम्बर",
+      "en": "Day 1 · Asoj 8 / 24 September"
     },
     {
       "day": 2,
-      "file": "img/dhm/warning-12297-day2.png",
-      "w": 1200,
-      "h": 738,
-      "ne": "दिन २ · असोज ८ / २४ सेप्टेम्बर",
-      "en": "Day 2 · Asoj 8 / 24 September"
+      "file": "img/dhm/warning-12299-day2.png",
+      "w": 1300,
+      "h": 800,
+      "ne": "दिन २ · असोज ९ / २५ सेप्टेम्बर",
+      "en": "Day 2 · Asoj 9 / 25 September"
     },
     {
       "day": 3,
-      "file": "img/dhm/warning-12297-day3.png",
-      "w": 1200,
-      "h": 738,
-      "ne": "दिन ३ · असोज ९ / २५ सेप्टेम्बर",
-      "en": "Day 3 · Asoj 9 / 25 September"
+      "file": "img/dhm/warning-12299-day3.png",
+      "w": 1300,
+      "h": 800,
+      "ne": "दिन ३ · असोज १० / २६ सेप्टेम्बर",
+      "en": "Day 3 · Asoj 10 / 26 September"
     },
     {
       "day": 4,
-      "file": "img/dhm/warning-12297-day4.png",
-      "w": 1200,
-      "h": 738,
-      "ne": "दिन ४ · असोज १० / २६ सेप्टेम्बर",
-      "en": "Day 4 · Asoj 10 / 26 September"
-    },
-    {
-      "day": 5,
-      "file": "img/dhm/warning-12297-day5.png",
-      "w": 1200,
-      "h": 738,
-      "ne": "दिन ५ · असोज ११ / २७ सेप्टेम्बर",
-      "en": "Day 5 · Asoj 11 / 27 September"
+      "file": "img/dhm/warning-12299-day4.png",
+      "w": 1300,
+      "h": 800,
+      "ne": "दिन ४ · असोज ११ / २७ सेप्टेम्बर",
+      "en": "Day 4 · Asoj 11 / 27 September"
     }
   ],
   "history": [
+    {
+      "page_id": 12297,
+      "role": "previous_lead",
+      "issued_at": "2026-09-23T18:00:00+05:45",
+      "url": "https://dhm.gov.np/mfd/#/weather/pages/special-weather/12297",
+      "note": "Monsoon Special Bulletin-3 UPDATE (Asoj 7 / 23 Sep 2026, 18:00), five days Asoj 7–11. Stays on the timeline as the prior lead. Not the live card."
+    },
+    {
+      "page_id": 12298,
+      "role": "prior_three_day_map",
+      "issued_at": "2026-09-23T18:00:00+05:45",
+      "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12298",
+      "note": "Three-day warning issued Asoj 7 evening 18:00, earlier the same evening as #12297. Maps archived as img/dhm/warning-12298-day{1,2,3}.png. Timeline bar covers Asoj 8–10. Superseded as the morning map lead by #12299."
+    },
     {
       "page_id": 12294,
       "role": "previous_lead_card",
       "issued_at": "2026-09-23T08:00:00+05:45",
       "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12294",
-      "note": "Three-day warning maps for Asoj 7–9. Still shown on the timeline. The combined live card moved to history when the Monsoon Bulletin-3 update became the lead."
+      "note": "Three-day warning maps for Asoj 7–9. Kept on the history card. The live lead is now the four-day warning."
     },
     {
       "page_id": 12296,
@@ -537,65 +546,26 @@
   "warn_levels": {
     "red": {
       "color": "#d7191c",
-      "ne": "रातो · खतरा / अति भारी",
-      "en": "Red · danger / very heavy"
+      "ne": "रातो · कारबाही गर्नुहोस्",
+      "en": "Red · take action"
     },
     "orange": {
       "color": "#e65c00",
-      "ne": "सुन्तला · भारी चेतावनी",
-      "en": "Orange · heavy / warning"
+      "ne": "सुन्तला · तयार रहनुहोस्",
+      "en": "Orange · be prepared"
     },
     "yellow": {
       "color": "#e6b800",
-      "ne": "पहेँलो · सतर्कता",
-      "en": "Yellow · watch / advisory"
+      "ne": "पहेँलो · अपडेट हुनुहोस्",
+      "en": "Yellow · be updated"
     },
     "green": {
       "color": "#1b7f3a",
-      "ne": "हरियो · सामान्य",
+      "ne": "हरियो · चेतावनी छैन",
       "en": "Green · no warning"
     }
   },
   "warning_days": [
-    {
-      "date": "2026-09-23",
-      "provinces": {
-        "sudurpaschim": {
-          "level": "green",
-          "also": []
-        },
-        "karnali": {
-          "level": "green",
-          "also": []
-        },
-        "lumbini": {
-          "level": "yellow",
-          "also": [
-            "green"
-          ]
-        },
-        "gandaki": {
-          "level": "yellow",
-          "also": [
-            "green"
-          ]
-        },
-        "bagmati": {
-          "level": "yellow",
-          "also": [
-            "green"
-          ]
-        },
-        "madhesh": {
-          "level": "yellow",
-          "also": []
-        },
-        "koshi": {
-          "level": "yellow",
-          "also": []
-        }
-      }
-    },
     {
       "date": "2026-09-24",
       "provinces": {
@@ -611,31 +581,25 @@
         },
         "lumbini": {
           "level": "orange",
-          "also": [
-            "yellow",
-            "green"
-          ]
+          "also": []
         },
         "gandaki": {
           "level": "orange",
-          "also": [
-            "yellow",
-            "green"
-          ]
+          "also": []
         },
         "bagmati": {
           "level": "orange",
           "also": []
         },
         "madhesh": {
+          "level": "yellow",
+          "also": []
+        },
+        "koshi": {
           "level": "orange",
           "also": [
             "yellow"
           ]
-        },
-        "koshi": {
-          "level": "orange",
-          "also": []
         }
       }
     },
@@ -644,7 +608,9 @@
       "provinces": {
         "sudurpaschim": {
           "level": "orange",
-          "also": []
+          "also": [
+            "yellow"
+          ]
         },
         "karnali": {
           "level": "orange",
@@ -667,13 +633,14 @@
           ]
         },
         "madhesh": {
-          "level": "orange",
+          "level": "yellow",
           "also": []
         },
         "koshi": {
           "level": "red",
           "also": [
-            "orange"
+            "orange",
+            "yellow"
           ]
         }
       }
@@ -694,10 +661,8 @@
           ]
         },
         "lumbini": {
-          "level": "red",
-          "also": [
-            "orange"
-          ]
+          "level": "orange",
+          "also": []
         },
         "gandaki": {
           "level": "red",
@@ -706,11 +671,8 @@
           ]
         },
         "bagmati": {
-          "level": "red",
-          "also": [
-            "orange",
-            "yellow"
-          ]
+          "level": "yellow",
+          "also": []
         },
         "madhesh": {
           "level": "yellow",
@@ -748,10 +710,8 @@
           ]
         },
         "madhesh": {
-          "level": "yellow",
-          "also": [
-            "green"
-          ]
+          "level": "green",
+          "also": []
         },
         "koshi": {
           "level": "green",
