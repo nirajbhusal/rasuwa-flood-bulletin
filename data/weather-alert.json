@@ -1,7 +1,7 @@
 {
   "id": "2026-09-24-weather-12297",
-  "page_ver": "2026-09-24-live-maps",
-  "source": "DHM Meteorological Forecasting Division (citizen reprint)",
+  "page_ver": "2026-09-24-live-maps-ui",
+  "source": "DHM Meteorological Forecasting Division",
   "updated_at": "2026-09-24T08:40:00+05:45",
   "links": {
     "section": "notices.html#alert",
@@ -44,12 +44,8 @@
       "en": "Heavy Rain Alert"
     },
     "sub": {
-      "ne": "पाँच दिनको मनसुन चेतावनी · असोज ७ देखि ११ (२३–२७ सेप्टेम्बर २०२६) · बुलेटिन",
-      "en": "5-day monsoon warning · Asoj 7 to 11 (23–27 Sep 2026) · Bulletin"
-    },
-    "disclaimer": {
-      "ne": "स्वतन्त्र नागरिक पुनर्मुद्रण। यो सरकारी साइट होइन — आधिकारिक बुलेटिन मौसम पूर्वानुमान महाशाखा (DHM) मा हेर्नुहोस्।",
-      "en": "Independent citizen reprint. This is not a government site — check the Meteorological Forecasting Division (DHM) for the official bulletin."
+      "ne": "पाँच दिनको मनसुन चेतावनी · असोज ७ देखि ११ (२३–२७ सेप्टेम्बर २०२६)",
+      "en": "5-day monsoon warning · Asoj 7 to 11 (23–27 Sep 2026)"
     },
     "map_h": {
       "ne": "प्रदेश अनुसार वर्षाको सम्भावना",
@@ -64,8 +60,8 @@
       "en": "Rain details"
     },
     "maps_h": {
-      "ne": "आधिकारिक चेतावनी नक्सा · #12297",
-      "en": "Official warning maps · #12297"
+      "ne": "आधिकारिक चेतावनी नक्सा",
+      "en": "Official warning maps"
     },
     "maps_legend": {
       "ne": "DHM नक्सामा रातो = कारबाही गर्नुहोस् · सुन्तला = तयार रहनुहोस् · पहेँलो = अपडेट हुनुहोस् · हरियो = चेतावनी छैन।",
@@ -104,8 +100,8 @@
       "en": "LIVE"
     },
     "system": {
-      "ne": "बंगालको खाडीको पश्चिम-मध्य भागको बलियो न्यूनचापीय क्षेत्र (Deep Depression) पश्चिम-उत्तरपश्चिम सर्दै २३ सेप्टेम्बर राति उत्तरी आन्ध्र प्रदेश र दक्षिणी ओडिशा तट नजिकै गहिरो न्यूनचापकै रूपमा प्रवेश गर्ने सम्भावना DHM #12297 ले जनाएको छ। यसको प्रभावले नेपालमा वर्षा बढ्न सक्छ।",
-      "en": "DHM #12297: a deep depression over the west-central Bay of Bengal is expected to move west-northwest and reach the northern Andhra Pradesh / southern Odisha coast on the night of 23 September, still as a deep depression. The system can increase rainfall in Nepal."
+      "ne": "बंगालको खाडीको पश्चिम-मध्य भागको बलियो न्यूनचापीय क्षेत्र (Deep Depression) पश्चिम-उत्तरपश्चिम सर्दै २३ सेप्टेम्बर राति उत्तरी आन्ध्र प्रदेश र दक्षिणी ओडिशा तट नजिकै गहिरो न्यूनचापकै रूपमा प्रवेश गर्ने सम्भावना DHM ले जनाएको छ। यसको प्रभावले नेपालमा वर्षा बढ्न सक्छ।",
+      "en": "DHM: a deep depression over the west-central Bay of Bengal is expected to move west-northwest and reach the northern Andhra Pradesh / southern Odisha coast on the night of 23 September, still as a deep depression. The system can increase rainfall in Nepal."
     },
     "impacts_h": {
       "ne": "जोखिम र सतर्कता",
@@ -126,7 +122,7 @@
         "Daily life, agriculture, health, tourism, riverside works, roads and flights may be affected.",
         "Snowfall up to heavy is possible in the high Himalaya. Mountaineers and everyone concerned should stay on high alert.",
         "For paddy harvest, follow advice from agriculture specialists.",
-        "Press reports on this bulletin have relayed DHM guidance to avoid long-distance road travel on Friday–Sunday (25–27 September). Take the precautions DHM #12297 asks for."
+        "Press reports on this bulletin have relayed DHM guidance to avoid long-distance road travel on Friday–Sunday (25–27 September). Take the precautions DHM asks for."
       ]
     },
     "tap": {
@@ -142,36 +138,24 @@
       "en": "Fri–Sun peak"
     },
     "day_switch_hint": {
-      "ne": "दिन छान्नुहोस्। शिखर मोड शुक्र–आइतको वर्षा विवरण हो। दिनको चिपले आधिकारिक #12297 नक्साको चेतावनी रङ (रातो · सुन्तला · पहेँलो · हरियो) देखाउँछ।",
-      "en": "Pick a day. Peak mode is the Friday–Sunday rainfall outlook. A day chip recolors the map from the official #12297 warning colours (red · orange · yellow · green)."
+      "ne": "दिन छान्नुहोस्। शिखर मोड शुक्र–आइतको वर्षा विवरण हो। दिनको चिपले आधिकारिक नक्साको चेतावनी रङ (रातो · सुन्तला · पहेँलो · हरियो) देखाउँछ।",
+      "en": "Pick a day. Peak mode is the Friday–Sunday rainfall outlook. A day chip recolors the map from the official warning colours (red · orange · yellow · green)."
     },
     "day_method": {
-      "ne": "दिनको रङ आधिकारिक नक्सा img/dhm/warning-12297-dayN.png बाट पढिएको हो — प्रत्येक प्रदेशभित्र देखिएको सबैभन्दा माथिल्लो चेतावनी। मिश्रित प्रदेशमा अरू रङ पनि उल्लेख छ। यो नयाँ मिलिमिटर अङ्क होइन।",
-      "en": "Day colours are the highest warning read from the official map img/dhm/warning-12297-dayN.png inside each province. Mixed provinces also name the other colours. This is not a new millimetre figure."
+      "ne": "यो दिनको रङ आधिकारिक नक्साको सबैभन्दा माथिल्लो चेतावनी हो। मिश्रित प्रदेशमा अरू रङ पनि छन्।",
+      "en": "This day's colour is the highest warning on the official map. Mixed provinces also show the other colours."
     },
     "day_detail": {
-      "ne": "{when}: आधिकारिक #12297 नक्सामा {name} को सबैभन्दा माथिल्लो रङ {level} हो।",
-      "en": "{when}: on the official #12297 map, the highest colour in {name} is {level}."
+      "ne": "{when}: {name} को सबैभन्दा माथिल्लो रङ {level} हो।",
+      "en": "{when}: the highest colour in {name} is {level}."
     },
     "day_also": {
       "ne": " नक्सामा यी रङ पनि छन्: {also}।",
       "en": " These colours also appear on the map: {also}."
     },
-    "bulletin_ref": {
-      "ne": "बुलेटिन",
-      "en": "Bulletin"
-    },
-    "corridor_ref": {
-      "ne": "करिडोर बुलेटिन",
-      "en": "Corridor bulletin"
-    },
-    "live_same": {
-      "ne": "DHM API ले #12297 यथावत् देखाउँछ (अपडेट {when})। नक्साको पाठ यही पुनर्मुद्रण हो।",
-      "en": "The DHM API still shows #12297 unchanged (updated {when}). Map text is this reprint."
-    },
     "live_changed": {
-      "ne": "DHM API मा #12297 अपडेट भएको देखिन्छ ({when})। रङ र अङ्क आफैँ बदलिएका छैनन् — आधिकारिक पृष्ठ हेर्नुहोस्।",
-      "en": "The DHM API shows a newer #12297 update ({when}). Colours and figures here were not changed automatically — check the official page."
+      "ne": "DHM मा नयाँ अपडेट छ ({when})।",
+      "en": "DHM has a newer update ({when})."
     },
     "gantt_btn": {
       "ne": "यो पङ्क्तिले नक्सा मोड खोल्छ",
@@ -252,8 +236,8 @@
       "ne": "बागमती",
       "en": "Bagmati",
       "detail": {
-        "ne": "बुधबारदेखि वर्षा बढ्ने क्रम। शुक्रबार–आइतबार केही ठाउँमा मेघ गर्जन, चट्याङ र हावासहित भारीदेखि अति भारी वर्षा। भोटेकोशी करिडोर (#12296): असोज ७ रातिदेखि असोज १० बिहानसम्म रसुवा, नुवाकोट, धादिङ, गोरखा र चितवनमा मध्यम वर्षा; प्रत्येक जिल्लाका एक-दुई ठाउँमा भारी।",
-        "en": "Rainfall increasing from Wednesday. Friday–Sunday: heavy to very heavy rain in a few places, with thunder, lightning and wind. Bhotekoshi corridor (#12296): moderate rain, and heavy rain in 1–2 places, in Rasuwa, Nuwakot, Dhading, Gorkha and Chitwan from the night of Asoj 7 through the morning of Asoj 10."
+        "ne": "बुधबारदेखि वर्षा बढ्ने क्रम। शुक्रबार–आइतबार केही ठाउँमा मेघ गर्जन, चट्याङ र हावासहित भारीदेखि अति भारी वर्षा। भोटेकोशी करिडोर: असोज ७ रातिदेखि असोज १० बिहानसम्म रसुवा, नुवाकोट, धादिङ, गोरखा र चितवनमा मध्यम वर्षा; प्रत्येक जिल्लाका एक-दुई ठाउँमा भारी।",
+        "en": "Rainfall increasing from Wednesday. Friday–Sunday: heavy to very heavy rain in a few places, with thunder, lightning and wind. Bhotekoshi corridor: moderate rain, and heavy rain in 1–2 places, in Rasuwa, Nuwakot, Dhading, Gorkha and Chitwan from the night of Asoj 7 through the morning of Asoj 10."
       }
     },
     {
@@ -289,8 +273,8 @@
       "en": "Moderate rain, isolated heavy"
     },
     "meta": {
-      "ne": "#12296 · असोज ७ राति देखि असोज १० बिहान",
-      "en": "#12296 · Asoj 7 night to Asoj 10 morning"
+      "ne": "असोज ७ राति देखि असोज १० बिहान",
+      "en": "Asoj 7 night to Asoj 10 morning"
     }
   },
   "timeline": {

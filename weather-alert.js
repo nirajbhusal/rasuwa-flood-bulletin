@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-24-live-maps";
+  var VER = window.PAGE_VER || "2026-09-24-live-maps-ui";
 
   function lang() {
     return document.documentElement.lang === "en" ? "en" : "ne";
@@ -113,16 +113,10 @@
     row.appendChild(sw);
     row.appendChild(document.createTextNode(tx(lv)));
     var body = el("p", "wxb-detail-p", detailText(p));
-    var refs = el("p", "wxb-detail-ref");
-    refs.appendChild(document.createTextNode(tx(data.ui.bulletin_ref) + " #" + data.lead.page_id));
-    if (p.id === "bagmati" && data.callout && data.callout.page_id) {
-      refs.appendChild(document.createTextNode(" · " + tx(data.ui.corridor_ref) + " #" + data.callout.page_id));
-    }
     box.appendChild(k);
     box.appendChild(h);
     box.appendChild(row);
     box.appendChild(body);
-    box.appendChild(refs);
   }
 
   function show(root, id) {
@@ -391,7 +385,6 @@
   function renderMount(root) {
     var mode = root.getAttribute("data-wx-mode") || "home";
     var ui = data.ui;
-    var lead = data.lead;
     root.replaceChildren();
     var board = el("article", "wxb" + (mode === "section" ? " wxb-section" : " wxb-home"));
     var titleId = "wxb-title-" + mode + "-" + Math.random().toString(36).slice(2, 6);
@@ -420,12 +413,7 @@
     var h2 = el("h2", "wxb-title", tx(ui.title));
     h2.id = titleId;
     board.appendChild(h2);
-    var sub = el("p", "wxb-sub");
-    sub.appendChild(document.createTextNode(tx(ui.sub) + " "));
-    var bid = el("b", null, "#" + lead.page_id);
-    sub.appendChild(bid);
-    board.appendChild(sub);
-    board.appendChild(el("p", "wxb-disc", tx(ui.disclaimer)));
+    board.appendChild(el("p", "wxb-sub", tx(ui.sub)));
 
     var mapPanel = el("section", "wxb-panel");
     var mh = el("h3", "wxb-h");
@@ -580,23 +568,24 @@
   }
 
   function paintLive() {
-    if (!liveNote || !data) return;
+    if (!liveNote || !liveNote.changed || !data) return;
     document.querySelectorAll("[data-wx-mount]").forEach(function (root) {
       var board = root.querySelector(".wxb");
       if (!board || board.querySelector(".wxb-live-note")) return;
-      var note = el("p", "wxb-live-note" + (liveNote.changed ? " is-changed" : ""));
-      var tpl = liveNote.changed ? tx(data.ui.live_changed) : tx(data.ui.live_same);
-      note.appendChild(document.createTextNode(fmt(tpl, { when: liveNote.when })));
-      if (liveNote.changed && data.lead.url) {
+      var note = el("p", "wxb-live-note is-changed");
+      note.appendChild(document.createTextNode(fmt(tx(data.ui.live_changed), { when: liveNote.when })));
+      if (data.lead.url) {
+        note.appendChild(document.createTextNode(" "));
         var a = document.createElement("a");
         a.href = data.lead.url;
         a.target = "_blank";
         a.rel = "noopener";
-        a.textContent = " DHM #" + data.lead.page_id;
+        a.textContent = tx(data.ui.sources_label) + ": DHM";
         note.appendChild(a);
       }
-      var disc = board.querySelector(".wxb-disc");
-      if (disc && disc.parentNode) disc.parentNode.insertBefore(note, disc.nextSibling);
+      var foot = board.querySelector(".wxb-foot");
+      if (foot) board.insertBefore(note, foot);
+      else board.appendChild(note);
     });
   }
 

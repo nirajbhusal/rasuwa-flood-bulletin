@@ -5,7 +5,8 @@
 - A quiet check of `https://dhm.gov.np/mfd/api/page/12297` compares `update_at` with the cached stamp. A newer stamp shows a notice and the official link. It does not rewrite the reprint.
 - `notices.html#roads` and the homepage card plot NAVIGATE closures on a map (Leaflet, Carto/OSM tiles). NH42 is the strategic-road line, with NH42-014 (Syaphrubesi–Rasuwagadhi) in red and the closure point from DoR. Closed and recently opened points open reason, times, and contact. Chips stay 9 / 5 closed / 4 opened / 0 partial unless a live recheck of `Dashboard_api/getAggregateData` disagrees, in which case the chips follow the live feed and say so. Ticker partial NH03 has no public coordinate, so it stays in the list only. Snapshot as of 24 Sep 2026, 09:42 NPT. Dashboard: https://navigate.dor.gov.np/app/dashboard
 - Strings for the new controls are Nepali and English in `data/weather-alert.json` and `data/roads-dor.json` and follow the language toggle. SitRep and cash boards unchanged.
-- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-live-maps`
+- Live weather and road cards do not print the citizen-reprint line or a `#12297` / `#12296` badge in the subtitle, province detail, or disclaimer. Dates and the product name stay. Timeline rows and history cards still cite official IDs. Source lines are `स्रोत: DHM` and `स्रोत: NAVIGATE`.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-live-maps-ui`
 
 ## 2026-09-24-weather-12297 · DHM Monsoon Bulletin-3 update #12297
 

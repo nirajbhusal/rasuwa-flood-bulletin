@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-24-live-maps";
+  var VER = window.PAGE_VER || "2026-09-24-live-maps-ui";
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
 
   function lang() {
@@ -231,6 +231,7 @@
       p.appendChild(more);
       p.appendChild(document.createTextNode(" · "));
     }
+    p.appendChild(document.createTextNode(tx(ui.sources_label) + ": "));
     var ext = document.createElement("a");
     ext.href = data.source.url;
     ext.target = "_blank";
@@ -292,19 +293,16 @@
     var title = el(mode === "section" ? "h2" : "h2", "dor-title", tx(ui.title));
     board.appendChild(title);
     chips(board);
-    if (data.live) {
-      var liveKey = data.live.failed ? "live_fail" : (data.live.same ? "live_ok" : "live_diff");
+    if (data.live && !data.live.same) {
+      var liveKey = data.live.failed ? "live_fail" : "live_diff";
       board.appendChild(el("p", "dor-live", tx(ui[liveKey])));
     }
     mountMap(board, mode);
     if (mode === "home") {
       board.appendChild(el("p", "dor-also", tx(ui.also)));
-      board.appendChild(el("p", "dor-disc", tx(ui.disclaimer) + " " + tx(ui.check)));
       links(board, true);
     } else {
       board.appendChild(el("p", "dor-call", tx(ui.nh17)));
-      board.appendChild(el("p", "dor-count", tx(ui.count_note)));
-      board.appendChild(el("p", "dor-disc", tx(ui.disclaimer) + " " + tx(ui.check)));
       links(board, false);
       group(board, "closed", ui.g_closed);
       group(board, "partial", ui.g_partial);

@@ -1,6 +1,6 @@
 {
   "id": "2026-09-24-dor-navigate",
-  "page_ver": "2026-09-24-live-maps",
+  "page_ver": "2026-09-24-live-maps-ui",
   "as_of": {
     "iso": "2026-09-24T09:42:49+05:45",
     "en": "24 Sep 2026, 09:42 NPT",
@@ -76,16 +76,16 @@
       "en": "Full list"
     },
     "dor": {
-      "ne": "सडक विभाग ड्यासबोर्ड",
-      "en": "DoR dashboard"
+      "ne": "NAVIGATE",
+      "en": "NAVIGATE"
+    },
+    "sources_label": {
+      "ne": "स्रोत",
+      "en": "Source"
     },
     "check": {
       "ne": "संख्या बदलिन्छ — हिँड्नु अघि NAVIGATE हेर्नुहोस्।",
       "en": "Counts change — check NAVIGATE before you travel."
-    },
-    "disclaimer": {
-      "ne": "स्वतन्त्र नागरिक पुनर्मुद्रण। आधिकारिक स्थिति सडक विभागको NAVIGATE हो। यो सरकारी साइट होइन।",
-      "en": "Independent citizen reprint. Official status is the Department of Roads NAVIGATE dashboard. This is not a government site."
     },
     "count_note": {
       "ne": "चिप NAVIGATE का जम्मा अङ्क हुन् (९ जम्मा / ५ बन्द / ४ खुला / ० आंशिक)। बन्द फिडमा NH08 दोहोरिएको छ, त्यसैले तल ४ वटा फरक खण्ड छन्। आंशिक चिप ० छ; टिकरमा NH03 आंशिक खुला अझै छ। खुला चिप भर्खर खोलिएका ४ खण्ड हुन्। टिकरका अरू “खुल्यो” हरफ छुट्टै छन्।",
@@ -156,12 +156,12 @@
       "en": "Live NAVIGATE matches these chips."
     },
     "live_diff": {
-      "ne": "लाइभ NAVIGATE ले अङ्क बदल्यो। चिप र नक्सा अहिलेको फिड हुन्। पुनर्मुद्रण स्न्यापसट यथावत् लेखिएको छ।",
-      "en": "Live NAVIGATE counts changed. Chips and the map follow the live feed. The reprint snapshot is still noted."
+      "ne": "अङ्क अहिलेको NAVIGATE अनुसार छन्।",
+      "en": "Counts follow live NAVIGATE."
     },
     "live_fail": {
-      "ne": "लाइभ जाँच अहिले भएन। नक्सा स्न्यापसट निर्देशाङ्कमा छ।",
-      "en": "Live check did not finish. The map uses the snapshot coordinates."
+      "ne": "लाइभ जाँच अहिले भएन।",
+      "en": "Live check did not finish."
     },
     "no_point": {
       "ne": "यो रेकर्डको सार्वजनिक नक्सा बिन्दु छैन।",
@@ -172,8 +172,8 @@
       "en": "The map library did not load. The list is below."
     },
     "snapshot": {
-      "ne": "पुनर्मुद्रण स्न्यापसट",
-      "en": "Reprint snapshot"
+      "ne": "२४ सेप्टेम्बर २०२६, ०९:४२",
+      "en": "24 Sep 2026, 09:42"
     }
   },
   "roads": [
