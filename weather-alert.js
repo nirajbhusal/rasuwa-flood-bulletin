@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-24-map-colors";
+  var VER = window.PAGE_VER || "2026-09-24-ask-panel";
   var LIVE_MS = 4000;
 
   function lang() {

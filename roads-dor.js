@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-24-map-colors";
+  var VER = window.PAGE_VER || "2026-09-24-ask-panel";
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
 
@@ -147,6 +147,7 @@
     tools.appendChild(focus);
     host.appendChild(tools);
     var box = el("div", "dor-map" + (mode === "section" ? " is-tall" : ""));
+    if (mode === "section") box.id = "dor-map";
     box.setAttribute("role", "region");
     box.setAttribute("aria-label", tx(ui.map_h));
     host.appendChild(box);
@@ -432,6 +433,12 @@
     if (!selectedId) selectedId = data.priority_id;
     clearMaps();
     mounts.forEach(renderMount);
+    if ((location.hash || "") === "#dor-map") {
+      var mapEl = document.getElementById("dor-map");
+      if (mapEl) {
+        try { mapEl.scrollIntoView({ block: "start" }); } catch (e) {}
+      }
+    }
     afterPaint(checkLive);
   }
   function boot() {
