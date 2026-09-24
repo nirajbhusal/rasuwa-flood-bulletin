@@ -172,10 +172,10 @@
     var coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
     var map = window.L.map(box, { scrollWheelZoom: false, dragging: !coarse, touchZoom: true, tap: true });
     mapInstances.push(map);
-    window.L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: "abcd",
-      maxZoom: 18
+    window.L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      subdomains: "abc",
+      maxZoom: 19
     }).addTo(map);
     var bounds = [];
     function addMarker(road) {

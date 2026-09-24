@@ -977,7 +977,7 @@
   ],
   "map": {
     "corridor": "data/nh42-corridor.geojson",
-    "tiles": "Carto Voyager (OpenStreetMap)",
+    "tiles": "OpenStreetMap France (tile.openstreetmap.fr/osmfr), © OpenStreetMap contributors",
     "dashboard": "https://navigate.dor.gov.np/app/dashboard",
     "live": {
       "aggregate": "https://navigate.dor.gov.np/api/Dashboard_api/getAggregateData",
