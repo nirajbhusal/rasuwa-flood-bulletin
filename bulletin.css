@@ -7706,10 +7706,106 @@ html.ask-lock body{position:fixed;left:0;right:0;width:100%}
   .wxb-legend li{flex:1 1 calc(50% - 10px);min-width:0}
   .wxb-mapwrap{padding:6px}
   .wxb-title{font-size:clamp(24px,7vw,32px)}
-  .wxb-gantt{overflow-x:auto}
+  .wxb-gantt{overflow-x:hidden}
+  .wxb-gantt-head,.wxb-gantt-row{grid-template-columns:minmax(0,1fr);min-width:0}
+  .wxb-gantt-spacer{display:none}
+  .wxb-track{margin-right:10px}
   .wxb-foot.is-home{grid-template-columns:1fr}
   .wxb-foot.is-home .wxb-src{text-align:left}
   .wxb-panel{margin-left:8px;margin-right:8px;padding:10px}
+  .wxb-high{margin-left:8px;margin-right:8px}
+  #alert .sec-head-wx h2{font-size:clamp(26px,7.2vw,34px)}
+}
+
+/* 2026-09-24 high-alert districts · cleaner weather face */
+.wxb-head{
+  background:linear-gradient(180deg,#f3f8ff 0%,#fff 78%);
+  border-bottom:1px solid #e8eef6;
+  padding:14px 16px 12px;
+}
+.wxb-titles{min-width:0}
+.wxb-head .wxb-title,.hero .wxb-head .wxb-title{margin:0 0 4px}
+.wxb-head .wxb-sub{margin:0 0 6px}
+.wxb-issued-meta{
+  display:inline-flex;align-items:center;gap:6px;margin:0;
+  font-size:12.5px;font-weight:700;color:#64748b;line-height:1.35;
+}
+.wxb-issued-meta svg{color:#2563eb;flex:none}
+#alert .sec-head-wx{margin:4px 0 12px}
+#alert .sec-head-wx h2{
+  font-size:clamp(28px,4.4vw,40px);line-height:1.15;font-weight:800;color:#0c2340;
+}
+.wxb-high{
+  margin:0 12px 12px;padding:12px 12px 10px;border-radius:16px;
+  border:1px solid #fecaca;
+  background:
+    radial-gradient(90% 80% at 100% 0%, rgba(230,92,0,.12), transparent 46%),
+    linear-gradient(180deg,#fff5f5 0%,#fff 55%);
+}
+.wxb-high-h{
+  display:flex;align-items:center;gap:8px;margin:0 0 2px;
+  font-size:16px;font-weight:800;color:#9f1239;
+}
+.wxb-high-h svg{color:#d7191c;flex:none}
+.wxb-high-k{margin:0 0 8px;font-size:12.5px;font-weight:700;color:#64748b}
+.wxb-high-row{margin:0 0 8px}
+.wxb-high-row:last-child{margin:0}
+.wxb-high-lv{
+  display:flex;align-items:center;gap:6px;margin:0 0 6px;
+  font-size:12.5px;font-weight:800;color:#0c2340;
+}
+.wxb-high-lv svg{color:#1d4ed8;flex:none}
+.wxb-high-chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.wxb-high-chip{
+  border-radius:999px;padding:5px 10px;font-size:13px;font-weight:800;line-height:1.25;
+  background:#fff;border:1px solid #e2e8f0;color:#0c2340;
+}
+.wxb-high-red .wxb-high-chip{background:#fde8e8;border-color:#f3c1c1;color:#9f1239}
+.wxb-high-orange .wxb-high-chip{background:#fff4e5;border-color:#fdba74;color:#9a3412}
+.wxb-high-corridor{margin-top:2px;padding-top:8px;border-top:1px dashed #93c5fd}
+.wxb-high-corridor .wxb-high-chip{background:#eff6ff;border-color:#bfdbfe;color:#1e3a8a}
+.wxb-high-meta{margin:6px 0 0;font-size:12px;font-weight:800;color:#1d4ed8}
+.wxb-map-panel{
+  background:linear-gradient(180deg,#f8fbff 0%,#fff 120px);
+  box-shadow:inset 0 1px 0 #fff;
+}
+.wxb-mapwrap{
+  background:
+    radial-gradient(80% 60% at 50% 0%, #e0f2fe 0%, transparent 58%),
+    linear-gradient(180deg,#f8fafc 0%,#e7f5ee 100%);
+  border:1px solid #bfdbfe;
+  box-shadow:inset 0 0 0 1px #fff, 0 8px 18px rgba(15,23,42,.05);
+}
+.wxb-callout{
+  background:linear-gradient(180deg,#eff6ff 0%,#fff 70%);
+  border:1.5px solid #93c5fd;
+  box-shadow:0 6px 14px rgba(37,99,235,.08);
+}
+.wxb-chip{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.wxb-chip::before{
+  content:"";width:10px;height:10px;border-radius:50%;flex:none;background:#94a3b8;
+  box-shadow:0 0 0 2px #fff;
+}
+.wxb-chip-red::before{background:#d7191c}
+.wxb-chip-orange::before{background:#e65c00}
+.wxb-chip-yellow::before{background:#e6b800}
+.wxb-chip-green::before{background:#1b7f3a}
+.wxb-chip-peak::before{background:linear-gradient(135deg,#d7191c 50%,#e65c00 50%)}
+.wxb-chip.is-on::before{box-shadow:0 0 0 2px rgba(255,255,255,.9)}
+.wxb-legend{
+  background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:8px;
+}
+.wxb-legend li{
+  background:#f8fafc;border:1px solid #e2e8f0;border-radius:999px;padding:4px 10px 4px 8px;
+}
+.wxb-sw{width:12px;height:12px;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(15,23,42,.12)}
+.wxb-time-panel{background:linear-gradient(180deg,#fff 0%,#f8fafc 100%)}
+.wxb-bar span{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.dor-map.is-plain{background:
+  linear-gradient(#e2e8f0 1px, transparent 1px),
+  linear-gradient(90deg, #e2e8f0 1px, transparent 1px),
+  #f8fafc;
+  background-size:28px 28px;
 }
 
 /* 2026-09-24 nav + Ask FAQ */

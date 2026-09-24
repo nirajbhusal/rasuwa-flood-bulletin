@@ -178,6 +178,18 @@
     "districts_hint": {
       "ne": "जिल्लाको रेखा खोल्न वा बन्द गर्न सकिन्छ। रङ प्रदेशको चेतावनी हो। नाम पपअपमा मात्र।",
       "en": "District lines can be turned on or off. Colour is the province warning. Names stay in the popup."
+    },
+    "high_h": {
+      "ne": "उच्च सतर्कता जिल्ला र क्षेत्र",
+      "en": "High-alert districts and areas"
+    },
+    "high_lead": {
+      "ne": "चार दिनको उच्चतम · रातो पहिले, त्यसपछि सुन्तला",
+      "en": "4-day highest · red first, then orange"
+    },
+    "high_day": {
+      "ne": "यो दिन · रातो पहिले, त्यसपछि सुन्तला",
+      "en": "This day · red first, then orange"
     }
   },
   "levels": {
@@ -293,7 +305,14 @@
     "meta": {
       "ne": "असोज ७ राति देखि असोज १० बिहान",
       "en": "Asoj 7 night to Asoj 10 morning"
-    }
+    },
+    "districts": [
+      { "ne": "रसुवा", "en": "Rasuwa" },
+      { "ne": "नुवाकोट", "en": "Nuwakot" },
+      { "ne": "धादिङ", "en": "Dhading" },
+      { "ne": "गोरखा", "en": "Gorkha" },
+      { "ne": "चितवन", "en": "Chitwan" }
+    ]
   },
   "timeline": {
     "days": [
