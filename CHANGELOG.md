@@ -1,3 +1,12 @@
+## 2026-09-24-map-colors · Alert colours, clean map face
+
+- Weather choropleth (homepage and `notices.html#alert`) has no names or figures drawn on the provinces. Hover or tap opens a card with the province, the warning colour, and the existing rainfall or day text. Tap elsewhere or Escape closes it. Day chips still recolor the map; colours ease between red, orange, yellow, and green. Zoom buttons, mouse drag, and a two-finger pinch change the scale. One-finger scroll still moves the page.
+- Overview colours follow the printed rainfall category: very heavy is red, heavy to very heavy is orange, heavy is yellow. Day mode still uses the official DHM red / orange / yellow / green reading. The legend is those four swatches in Nepali and English. Gantt bars use the same four colours. Rainfall sentences are unchanged.
+- DoR markers are colour dots (closed red, partial orange, open green) with no code printed on the map. The NH42 corridor is green except the closed Syaphrubesi–Rasuwagadhi section in red. Tap still opens the closure card. One-finger drag does not steal page scroll.
+- The road basemap is OpenStreetMap France tiles (`{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png`, max zoom 19), with © OpenStreetMap contributors. `tile.openstreetmap.org` answered this network with an access-blocked tile, and Carto Voyager was drawing an API-key watermark. The weather map stays the province drawing and does not use those tiles.
+- Weather and road cards paint from `data/weather-alert.json` and `data/roads-dor.json` before any DHM or NAVIGATE request. Those live calls abort after 4 seconds and a failure leaves the local map in place. Leaflet for the road card and the damage-page flood map is `vendor/leaflet/` (no CDN). The damage page was missing the script closers around that map, so the Leaflet tag never ran.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-map-colors`
+
 ## 2026-09-24-live-maps · Weather day switcher and DoR map
 
 - Homepage and `notices.html#alert` province map stays on the Friday–Sunday peak outlook by default (Gandaki and Lumbini very heavy with isolated extremely heavy; Koshi, Madhesh, Bagmati and Sudurpaschim heavy to very heavy; Karnali heavy). Provinces are buttons with a clear selected outline. Tapping one updates the detail, including bulletin #12297 and, for Bagmati, corridor #12296.

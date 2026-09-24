@@ -8,7 +8,8 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-24-live-maps-ui";
+  var VER = window.PAGE_VER || "2026-09-24-map-colors";
+  var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
 
   function lang() {
@@ -129,9 +130,9 @@
     var cls = "dor-marker dor-marker-" + road.status + (road.id === selectedId ? " is-on" : "") + (road.id === data.priority_id ? " is-nh42" : "");
     return window.L.divIcon({
       className: "leaflet-div-icon " + cls,
-      html: "<span>" + road.ref + "</span>",
-      iconSize: road.id === data.priority_id ? [78, 40] : [64, 36],
-      iconAnchor: road.id === data.priority_id ? [39, 20] : [32, 18]
+      html: "<span></span>",
+      iconSize: [22, 22],
+      iconAnchor: [11, 11]
     });
   }
   function mountMap(host, mode) {
@@ -150,10 +151,11 @@
     box.setAttribute("aria-label", tx(ui.map_h));
     host.appendChild(box);
     var legend = el("ul", "dor-map-legend");
-    [["closed", "map_closed"], ["opened", "map_opened"], ["partial", "map_partial"], ["line", "map_line"]].forEach(function (item) {
+    [["closed", "map_closed"], ["partial", "map_partial"], ["opened", "map_opened"]].forEach(function (item) {
       var li = el("li", "dor-leg dor-leg-" + item[0]);
+      var lab = ui[item[1]] || {};
       li.appendChild(el("i"));
-      li.appendChild(document.createTextNode(tx(ui[item[1]])));
+      li.appendChild(document.createTextNode((lab.ne || "") + " / " + (lab.en || "")));
       legend.appendChild(li);
     });
     host.appendChild(legend);
@@ -168,19 +170,24 @@
       return;
     }
     var token = mapGen;
-    var map = window.L.map(box, { scrollWheelZoom: false });
+    var coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+    var map = window.L.map(box, { scrollWheelZoom: false, dragging: !coarse, touchZoom: true, tap: true });
     mapInstances.push(map);
-    window.L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: "abcd",
-      maxZoom: 18
+    window.L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      subdomains: "abc",
+      maxZoom: 19
     }).addTo(map);
     var bounds = [];
     function addMarker(road) {
       if (!road.point) return;
       var ll = [road.point.lat, road.point.lng];
       bounds.push(ll);
-      var marker = window.L.marker(ll, { icon: markerIcon(road), keyboard: true, title: road.ref + " " + tx(road.section) });
+      var marker = window.L.marker(ll, {
+        icon: markerIcon(road),
+        keyboard: true,
+        alt: road.ref + " " + tx(road.section)
+      });
       marker.on("click", function () { selectRoad(road.id, false); });
       marker.on("add", function () {
         var node = marker.getElement();
@@ -191,7 +198,10 @@
     }
     (data.roads || []).forEach(addMarker);
     var corridor = (data.map && data.map.corridor) || "data/nh42-corridor.geojson";
-    fetch(corridor + "?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+    var corridorOpts = { cache: "no-cache" };
+    var corridorSignal = liveSignal();
+    if (corridorSignal) corridorOpts.signal = corridorSignal;
+    fetch(corridor + "?v=" + encodeURIComponent(VER), corridorOpts)
       .then(function (r) { if (!r.ok) throw new Error("nh42"); return r.json(); })
       .then(function (geo) {
         if (token !== mapGen) return;
@@ -199,12 +209,10 @@
           style: function (feat) {
             var closed = feat && feat.properties && feat.properties.closed_section;
             return closed
-              ? { color: "#b42318", weight: 6, opacity: 0.95 }
-              : { color: "#1d4ed8", weight: 3, opacity: 0.8 };
+              ? { color: "#d7191c", weight: 6, opacity: 0.95 }
+              : { color: "#1b7f3a", weight: 4, opacity: 0.9 };
           },
           onEachFeature: function (feat, layer) {
-            var name = (feat.properties && (feat.properties.link_code + " " + feat.properties.link_name)) || "NH42";
-            layer.bindTooltip(name, { sticky: true });
             layer.on("click", function () { selectRoad(data.priority_id, false); });
           }
         }).addTo(map);
@@ -365,15 +373,37 @@
     });
   }
   function numEq(a, b) { return Number(a) === Number(b); }
+  function liveSignal() {
+    try {
+      if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+        return AbortSignal.timeout(LIVE_MS);
+      }
+    } catch (e) {}
+    if (typeof AbortController === "undefined") return undefined;
+    var ctrl = new AbortController();
+    window.setTimeout(function () { try { ctrl.abort(); } catch (err) {} }, LIVE_MS);
+    return ctrl.signal;
+  }
+  function afterPaint(fn) {
+    var raf = window.requestAnimationFrame;
+    if (typeof raf === "function") raf(function () { raf(fn); });
+    else window.setTimeout(fn, 0);
+  }
   function checkLive() {
     var live = data.map && data.map.live;
     if (!live) return;
     if (liveState === "done" || liveState === "busy") return;
     liveState = "busy";
+    var signal = liveSignal();
+    function pull(url) {
+      var opts = { cache: "no-store" };
+      if (signal) opts.signal = signal;
+      return fetch(url, opts).then(function (r) { if (!r.ok) throw new Error("dor"); return r.json(); });
+    }
     Promise.all([
-      fetch(live.aggregate, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("agg"); return r.json(); }),
-      fetch(live.closed, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("closed"); return r.json(); }),
-      fetch(live.opened, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("opened"); return r.json(); })
+      pull(live.aggregate),
+      pull(live.closed),
+      pull(live.opened)
     ]).then(function (parts) {
       var agg = (parts[0] && parts[0].data) || {};
       var closed = (parts[1] && parts[1].data) || [];
@@ -395,7 +425,6 @@
     }).catch(function () {
       data.live = { same: true, failed: true };
       liveState = "done";
-      renderAll();
     });
   }
   function renderAll() {
@@ -403,7 +432,7 @@
     if (!selectedId) selectedId = data.priority_id;
     clearMaps();
     mounts.forEach(renderMount);
-    checkLive();
+    afterPaint(checkLive);
   }
   function boot() {
     fetch("data/roads-dor.json?v=" + encodeURIComponent(VER), { cache: "no-cache" })

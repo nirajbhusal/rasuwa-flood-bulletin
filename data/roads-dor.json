@@ -1,6 +1,6 @@
 {
   "id": "2026-09-24-dor-navigate",
-  "page_ver": "2026-09-24-live-maps-ui",
+  "page_ver": "2026-09-24-map-colors",
   "as_of": {
     "iso": "2026-09-24T09:42:49+05:45",
     "en": "24 Sep 2026, 09:42 NPT",
@@ -132,16 +132,16 @@
       "en": "NH42 corridor"
     },
     "map_closed": {
-      "ne": "बन्द बिन्दु",
-      "en": "Closed point"
+      "ne": "रातो · बन्द",
+      "en": "Red · closed"
     },
     "map_opened": {
-      "ne": "भर्खर खुला",
-      "en": "Recently opened"
+      "ne": "हरियो · खुला",
+      "en": "Green · open"
     },
     "map_partial": {
-      "ne": "आंशिक",
-      "en": "Partial"
+      "ne": "सुन्तला · आंशिक",
+      "en": "Orange · partial"
     },
     "map_line": {
       "ne": "NH42 रेखा",
@@ -977,7 +977,7 @@
   ],
   "map": {
     "corridor": "data/nh42-corridor.geojson",
-    "tiles": "Carto Voyager (OpenStreetMap)",
+    "tiles": "OpenStreetMap France (tile.openstreetmap.fr/osmfr), © OpenStreetMap contributors",
     "dashboard": "https://navigate.dor.gov.np/app/dashboard",
     "live": {
       "aggregate": "https://navigate.dor.gov.np/api/Dashboard_api/getAggregateData",
