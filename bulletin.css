@@ -8504,8 +8504,8 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   display:flex;align-items:center;justify-content:center;touch-action:none;
 }
 .ba-handle::before{
-  content:"";position:absolute;top:0;bottom:0;left:50%;width:3px;margin-left:-1.5px;background:#fff;
-  box-shadow:0 0 0 1px rgba(15,23,42,.25);
+  content:"";position:absolute;top:0;bottom:0;left:50%;width:4px;margin-left:-2px;background:#0e7490;
+  box-shadow:0 0 0 2px #fff;
 }
 .ba-handle::after{
   content:"";width:28px;height:28px;border-radius:999px;background:#fff;
