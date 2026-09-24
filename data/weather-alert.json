@@ -176,6 +176,14 @@
     "pop_close": {
       "ne": "बन्द",
       "en": "Close"
+    },
+    "districts": {
+      "ne": "जिल्ला",
+      "en": "Districts"
+    },
+    "districts_hint": {
+      "ne": "जिल्लाको रेखा खोल्न वा बन्द गर्न सकिन्छ। रङ प्रदेशको चेतावनी हो। नाम पपअपमा मात्र।",
+      "en": "District lines can be turned on or off. Colour is the province warning. Names stay in the popup."
     }
   },
   "levels": {
@@ -440,7 +448,7 @@
       "role": "previous_lead_card",
       "issued_at": "2026-09-23T08:00:00+05:45",
       "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12294",
-      "note": "Three-day warning maps for Asoj 7–9. Still shown on the timeline. The combined live card moved to history when #12297 became the lead."
+      "note": "Three-day warning maps for Asoj 7–9. Still shown on the timeline. The combined live card moved to history when the Monsoon Bulletin-3 update became the lead."
     },
     {
       "page_id": 12296,
@@ -454,7 +462,7 @@
       "role": "superseded",
       "issued_at": "2026-09-22T18:00:00+05:45",
       "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12293",
-      "note": "Earlier Monsoon Bulletin-3 update. #12297 supersedes it for the Friday–Sunday window."
+      "note": "Earlier Monsoon Bulletin-3 update. The later Bulletin-3 update supersedes it for the Friday–Sunday window."
     },
     {
       "page_id": 12290,
@@ -470,7 +478,7 @@
     }
   ],
   "geo": {
-    "viewBox": "0 0 672.5 391.7",
+    "viewBox": "-11.5 -10.6 695.6 413",
     "pin": {
       "x": 448,
       "y": 214

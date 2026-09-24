@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  var VER = window.PAGE_VER || "2026-09-24-ask-panel";
+  var VER = window.PAGE_VER || "2026-09-24-ui-ask-fix";
   var HL_ORDER = ["1234", "100", "1148", "1111", "1114", "102", "1144", "1155"];
   var HL_FALLBACK = [
     { tel: "1234", key: "hl_deoc" },
@@ -73,7 +73,7 @@
   var failed = {};
   var thread = [];
   var open = false;
-  var lastFocus = null;
+  var askScrollY = 0;
 
   function lang() {
     return (document.documentElement.getAttribute("lang") || "ne").slice(0, 2) === "en" ? "en" : "ne";
@@ -769,23 +769,77 @@
     }
     location.href = "names.html" + (q ? "?q=" + encodeURIComponent(q) : "") + "#names";
   }
+  function lockPage() {
+    askScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.documentElement.classList.add("ask-lock");
+    document.body.classList.add("ask-lock");
+    document.body.style.top = "-" + askScrollY + "px";
+  }
+  function unlockPage() {
+    document.documentElement.classList.remove("ask-lock");
+    document.body.classList.remove("ask-lock");
+    document.body.style.top = "";
+    window.scrollTo(0, askScrollY);
+  }
+  function placeSheet() {
+    var sheet = document.getElementById("ask-sheet");
+    var panel = sheet && sheet.querySelector(".ask-panel");
+    if (!sheet || !panel) return;
+    if (!open) {
+      sheet.style.top = "";
+      sheet.style.bottom = "";
+      sheet.style.height = "";
+      panel.style.maxHeight = "";
+      return;
+    }
+    var vv = window.visualViewport;
+    var narrow = window.matchMedia("(max-width: 759px)").matches;
+    if (!narrow || !vv) {
+      sheet.style.top = "";
+      sheet.style.bottom = "";
+      sheet.style.height = "";
+      panel.style.maxHeight = "";
+      return;
+    }
+    var top = vv.offsetTop || 0;
+    var h = vv.height || window.innerHeight;
+    sheet.style.top = top + "px";
+    sheet.style.bottom = "auto";
+    sheet.style.height = h + "px";
+    panel.style.maxHeight = Math.max(220, h - 8) + "px";
+  }
+  function focusEl(node) {
+    if (!node || !node.focus) return;
+    try { node.focus({ preventScroll: true }); } catch (e) { try { node.focus(); } catch (e2) {} }
+  }
   function setOpen(next) {
     open = !!next;
     var sheet = document.getElementById("ask-sheet");
     var fab = document.getElementById("ask-fab");
     if (!sheet || !fab) return;
-    sheet.hidden = !open;
     fab.setAttribute("aria-expanded", open ? "true" : "false");
-    document.body.classList.toggle("ask-lock", open);
+    fab.classList.toggle("is-open", open);
     if (open) {
+      var msg = document.getElementById("portal-contact");
+      if (msg && msg.open) msg.open = false;
       document.querySelectorAll(".fab-dock details[open]").forEach(function (d) { d.open = false; });
-      lastFocus = document.activeElement;
+      lockPage();
+      sheet.hidden = false;
+      placeSheet();
+      window.requestAnimationFrame(function () {
+        sheet.classList.add("is-open");
+        placeSheet();
+      });
       var input = document.getElementById("ask-q");
-      if (input) {
-        try { input.focus({ preventScroll: true }); } catch (e) { try { input.focus(); } catch (e2) {} }
-      }
-    } else if (lastFocus && lastFocus.focus) {
-      try { lastFocus.focus(); } catch (e3) {}
+      window.setTimeout(function () { if (open) focusEl(input); }, 60);
+    } else {
+      sheet.classList.remove("is-open");
+      placeSheet();
+      window.setTimeout(function () {
+        if (!open) sheet.hidden = true;
+      }, 240);
+      unlockPage();
+      focusEl(fab);
     }
   }
   function mount() {
@@ -824,7 +878,9 @@
       "</div>";
     document.body.appendChild(sheet);
     sheet.addEventListener("click", function (e) {
-      if (e.target && e.target.getAttribute && e.target.hasAttribute("data-ask-close")) setOpen(false);
+      var t = e.target;
+      if (!t) return;
+      if (t === sheet || (t.getAttribute && t.hasAttribute("data-ask-close"))) setOpen(false);
     });
     document.getElementById("ask-form").addEventListener("submit", function (e) {
       e.preventDefault();
@@ -833,13 +889,52 @@
       submit(value, null);
       if (input) input.value = "";
     });
+    sheet.addEventListener("keydown", function (e) {
+      if (!open) return;
+      if (e.key === "Escape") {
+        var ov = document.getElementById("search");
+        if (ov && !ov.hidden) return;
+        e.preventDefault();
+        setOpen(false);
+        return;
+      }
+      if (e.key !== "Tab") return;
+      var nodes = sheet.querySelectorAll("button, a[href], input, select, textarea");
+      var list = [];
+      for (var i = 0; i < nodes.length; i++) {
+        if (!nodes[i].disabled && nodes[i].offsetParent !== null) list.push(nodes[i]);
+      }
+      if (!list.length) return;
+      var first = list[0];
+      var last = list[list.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        focusEl(last);
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        focusEl(first);
+      }
+    });
     document.addEventListener("keydown", function (e) {
       if (e.key !== "Escape" || !open) return;
+      if (e.target && sheet.contains(e.target)) return;
       var ov = document.getElementById("search");
       if (ov && !ov.hidden) return;
       setOpen(false);
     });
-    document.querySelectorAll(".fab-dock details").forEach(function (d) {
+    var askInput = document.getElementById("ask-q");
+    if (askInput) {
+      askInput.addEventListener("focus", function () {
+        window.setTimeout(placeSheet, 40);
+        window.setTimeout(placeSheet, 280);
+      });
+    }
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", placeSheet);
+      window.visualViewport.addEventListener("scroll", placeSheet);
+    }
+    window.addEventListener("resize", placeSheet);
+    document.querySelectorAll(".fab-dock details, #portal-contact").forEach(function (d) {
       d.addEventListener("toggle", function () { if (d.open) setOpen(false); });
     });
     render();

@@ -832,7 +832,7 @@
   }
 
   function syncInputs(q, except) {
-    ["names-ov-q", "names-q", "fam-search"].forEach(function (id) {
+    ["names-ov-q", "names-q", "fam-search", "top-names-q"].forEach(function (id) {
       if (id === except) return;
       var el = document.getElementById(id);
       if (el && el.value !== q) {
@@ -1409,6 +1409,28 @@
       el.addEventListener("input", onQueryInput);
       el.addEventListener("search", onQueryInput);
     });
+    var topQ = document.getElementById("top-names-q");
+    if (topQ) {
+      var topForm = topQ.form;
+      function openFromTop() {
+        openOverlay(topQ.value || "");
+      }
+      topQ.addEventListener("input", openFromTop);
+      topQ.addEventListener("search", openFromTop);
+      topQ.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          openFromTop();
+        }
+      });
+      if (topForm) {
+        topForm.addEventListener("submit", function (e) {
+          if (!document.getElementById("search")) return;
+          e.preventDefault();
+          openFromTop();
+        });
+      }
+    }
     var famQ = document.getElementById("fam-search");
     if (famQ) {
       famQ.addEventListener("input", function (e) {

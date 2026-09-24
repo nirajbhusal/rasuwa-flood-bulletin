@@ -9,7 +9,10 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-24-ask-panel";
+  var VER = window.PAGE_VER || "2026-09-24-ui-ask-fix";
+  var districts = null;
+  var showDistricts = true;
+  var hotDistrict = null;
   var LIVE_MS = 4000;
 
   function lang() {
@@ -41,6 +44,15 @@
     var list = (data && data.geo && data.geo.provinces) || [];
     for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
     return null;
+  }
+  function districtById(id) {
+    var list = (districts && districts.districts) || [];
+    for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
+    return null;
+  }
+  function districtLabel(d) {
+    if (!d) return "";
+    return lang() === "en" ? d.en : d.ne;
   }
   function activeDay() {
     if (!data || dayMode === "overview") return null;
@@ -113,9 +125,11 @@
       path.setAttribute("tabindex", id === tab ? "0" : "-1");
     });
   }
-  function paintPop(root, id) {
+  function paintPop(root, id, districtId) {
     var pop = root && root.querySelector(".wxb-pop");
     if (!pop) return;
+    var distRec = districtId ? districtById(districtId) : null;
+    if (!id && distRec) id = distRec.province;
     if (!id) {
       pop.hidden = true;
       return;
@@ -128,24 +142,31 @@
     var body = pop.querySelector(".wxb-pop-body");
     var dist = pop.querySelector(".wxb-pop-dist");
     var x = pop.querySelector(".wxb-pop-x");
-    if (name) name.textContent = tx(p);
+    if (name) name.textContent = distRec ? districtLabel(distRec) : tx(p);
     if (row) {
       row.replaceChildren();
       var sw = el("i", "wxb-sw wxb-sw-" + alertKey(p));
       row.appendChild(sw);
       row.appendChild(document.createTextNode((lv.ne || "") + " / " + (lv.en || "")));
     }
-    if (body) body.textContent = detailText(p);
+    if (body) body.textContent = distRec ? tx(p) : detailText(p);
     if (dist) {
-      var line = districtLine(p);
-      dist.hidden = !line;
-      dist.textContent = line;
+      if (distRec) {
+        dist.hidden = false;
+        dist.textContent = detailText(p);
+      } else {
+        var line = districtLine(p);
+        dist.hidden = !line;
+        dist.textContent = line;
+      }
     }
     if (x) x.setAttribute("aria-label", tx(data.ui.pop_close));
     pop.hidden = false;
   }
   function clearSelect() {
     selected = null;
+    hotDistrict = null;
+    document.querySelectorAll(".wxb-dist.is-on").forEach(function (n) { n.classList.remove("is-on"); });
     paintPressed();
     document.querySelectorAll("[data-wx-mount]").forEach(function (root) { paintPop(root, null); });
   }
@@ -205,6 +226,26 @@
     }
   }
 
+  function drawDistricts(svg) {
+    if (!districts || !svg) return;
+    var g = svg.querySelector(".wxb-dists");
+    if (!g || g.childNodes.length) return;
+    (districts.districts || []).forEach(function (d) {
+      var path = svgEl("path");
+      path.setAttribute("d", d.d);
+      path.setAttribute("class", "wxb-dist");
+      path.setAttribute("data-id", d.id);
+      path.setAttribute("data-prov", d.province);
+      var p = provinceById(d.province);
+      var label = districtLabel(d);
+      if (p) label += ". " + tx(p) + ". " + tx(levelOf(p));
+      path.setAttribute("role", "button");
+      path.setAttribute("tabindex", "0");
+      path.setAttribute("aria-label", label);
+      g.appendChild(path);
+    });
+    if (!showDistricts) g.setAttribute("hidden", "");
+  }
   function buildMap(svg) {
     var geo = data.geo || {};
     svg.setAttribute("viewBox", geo.viewBox || "0 0 672.5 391.7");
@@ -239,6 +280,11 @@
       path.setAttribute("aria-label", tx(p) + ". " + tx(levelOf(p)) + ". " + detailText(p));
       layer.appendChild(path);
     });
+    var dlayer = svgEl("g");
+    dlayer.setAttribute("class", "wxb-dists");
+    if (!showDistricts) dlayer.setAttribute("hidden", "");
+    layer.appendChild(dlayer);
+    drawDistricts(svg);
     var pin = geo.pin;
     if (pin) {
       var line = svgEl("line");
@@ -261,35 +307,61 @@
       mark.appendChild(dot);
       layer.appendChild(mark);
     }
+    function markDistrict(id) {
+      document.querySelectorAll(".wxb-dist").forEach(function (n) {
+        n.classList.toggle("is-on", !!(id && n.getAttribute("data-id") === id));
+      });
+    }
     svg.addEventListener("click", function (e) {
+      var dist = e.target.closest && e.target.closest(".wxb-dist");
+      if (dist) {
+        if (svg._dragged) { svg._dragged = false; return; }
+        var did = dist.getAttribute("data-id");
+        var prov = dist.getAttribute("data-prov");
+        hotDistrict = did;
+        selected = prov;
+        paintPressed();
+        markDistrict(did);
+        document.querySelectorAll("[data-wx-mount]").forEach(function (root) { paintPop(root, prov, did); });
+        return;
+      }
       var path = e.target.closest && e.target.closest(".wxb-prov");
-      if (!path) { clearSelect(); return; }
+      if (!path) { hotDistrict = null; markDistrict(null); clearSelect(); return; }
       if (svg._dragged) { svg._dragged = false; return; }
+      hotDistrict = null;
+      markDistrict(null);
       select(path.getAttribute("data-id"), false);
     });
     svg.addEventListener("pointerover", function (e) {
-      var path = e.target.closest && e.target.closest(".wxb-prov");
-      if (!path || (e.pointerType && e.pointerType !== "mouse")) return;
-      svg.querySelectorAll(".wxb-prov.is-hot").forEach(function (n) { n.classList.remove("is-hot"); });
+      if (e.pointerType && e.pointerType !== "mouse") return;
+      var dist = e.target.closest && e.target.closest(".wxb-dist");
+      var path = dist || (e.target.closest && e.target.closest(".wxb-prov"));
+      if (!path) return;
+      svg.querySelectorAll(".wxb-prov.is-hot, .wxb-dist.is-hot").forEach(function (n) { n.classList.remove("is-hot"); });
       path.classList.add("is-hot");
       var root = svg.closest("[data-wx-mount]");
-      if (root) show(root, path.getAttribute("data-id"));
+      if (!root) return;
+      if (dist) paintPop(root, dist.getAttribute("data-prov"), dist.getAttribute("data-id"));
+      else show(root, path.getAttribute("data-id"));
     });
     svg.addEventListener("pointerout", function (e) {
       if (e.pointerType && e.pointerType !== "mouse") return;
-      var path = e.target.closest && e.target.closest(".wxb-prov");
+      var path = e.target.closest && (e.target.closest(".wxb-dist") || e.target.closest(".wxb-prov"));
       if (!path) return;
-      var next = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest(".wxb-prov");
+      var next = e.relatedTarget && e.relatedTarget.closest && (e.relatedTarget.closest(".wxb-dist") || e.relatedTarget.closest(".wxb-prov"));
       if (next) return;
-      svg.querySelectorAll(".wxb-prov.is-hot").forEach(function (n) { n.classList.remove("is-hot"); });
+      svg.querySelectorAll(".wxb-prov.is-hot, .wxb-dist.is-hot").forEach(function (n) { n.classList.remove("is-hot"); });
       var root = svg.closest("[data-wx-mount]");
-      if (root) show(root, selected);
+      if (root) paintPop(root, selected, hotDistrict);
     });
     svg.addEventListener("focusin", function (e) {
-      var path = e.target.closest && e.target.closest(".wxb-prov");
+      var dist = e.target.closest && e.target.closest(".wxb-dist");
+      var path = dist || (e.target.closest && e.target.closest(".wxb-prov"));
       if (!path) return;
       var root = svg.closest("[data-wx-mount]");
-      if (root) show(root, path.getAttribute("data-id"));
+      if (!root) return;
+      if (dist) paintPop(root, dist.getAttribute("data-prov"), dist.getAttribute("data-id"));
+      else show(root, path.getAttribute("data-id"));
     });
     svg.addEventListener("keydown", onKey);
   }
@@ -316,10 +388,8 @@
       row.setAttribute("role", "listitem");
       var meta = el("div", "wxb-meta");
       var tone = { yellow: "yellow", blue: "orange", magenta: "red", red: "red", orange: "orange", green: "green" }[bar.tone] || "yellow";
-      var bid = el("span", "wxb-bid wxb-bid-" + tone, "#" + bar.page_id);
       var name = el("span", "wxb-bname", tx(bar.name));
       if (bar.live) name.appendChild(el("em", "wxb-live", tx(data.ui.live)));
-      meta.appendChild(bid);
       meta.appendChild(name);
       var track = el("div", "wxb-track");
       track.setAttribute("aria-hidden", "true");
@@ -332,7 +402,7 @@
       track.appendChild(b);
       row.appendChild(meta);
       row.appendChild(track);
-      var label = tx(bar.name) + " #" + bar.page_id + " · " + tx(bar.span);
+      var label = tx(bar.name) + " · " + tx(bar.span);
       if (bar.focus) label += ". " + tx(data.ui.gantt_btn);
       row.setAttribute("aria-label", label);
       if (bar.focus) {
@@ -469,7 +539,8 @@
     });
     document.querySelectorAll("[data-wx-mount]").forEach(function (root) {
       var hot = root.querySelector(".wxb-prov.is-hot");
-      paintPop(root, (hot && hot.getAttribute("data-id")) || selected);
+      var hotDist = root.querySelector(".wxb-dist.is-hot");
+      paintPop(root, (hot && hot.getAttribute("data-id")) || selected, hotDist ? hotDist.getAttribute("data-id") : hotDistrict);
     });
     window.setTimeout(function () {
       document.querySelectorAll(".wxb-svg.is-shifting").forEach(function (n) { n.classList.remove("is-shifting"); });
@@ -683,6 +754,27 @@
       legend.appendChild(li);
     });
     mapPanel.appendChild(el("p", "wxb-tap", tx(ui.tap)));
+    var dbtn = document.createElement("button");
+    dbtn.type = "button";
+    dbtn.className = "wxb-dist-toggle" + (showDistricts ? " is-on" : "");
+    dbtn.setAttribute("aria-pressed", showDistricts ? "true" : "false");
+    dbtn.textContent = tx(ui.districts || { ne: "जिल्ला", en: "Districts" });
+    dbtn.addEventListener("click", function () {
+      showDistricts = !showDistricts;
+      document.querySelectorAll(".wxb-dists").forEach(function (g) {
+        if (showDistricts) g.removeAttribute("hidden");
+        else g.setAttribute("hidden", "");
+      });
+      document.querySelectorAll(".wxb-dist-toggle").forEach(function (b) {
+        b.classList.toggle("is-on", showDistricts);
+        b.setAttribute("aria-pressed", showDistricts ? "true" : "false");
+        b.textContent = tx((data.ui && data.ui.districts) || { ne: "जिल्ला", en: "Districts" });
+      });
+    });
+    var drow = el("div", "wxb-dist-row");
+    drow.appendChild(dbtn);
+    drow.appendChild(el("p", "wxb-dist-hint", tx(ui.districts_hint || { ne: "जिल्लाको रेखा खोल्न वा बन्द गर्न सकिन्छ। रङ प्रदेशको चेतावनी हो।", en: "District lines can be turned on or off. Colour is the province warning." })));
+    mapPanel.appendChild(drow);
     mapPanel.appendChild(legend);
     mapPanel.appendChild(el("p", "wxb-hint", tx(ui.hint)));
     board.appendChild(mapPanel);
@@ -758,7 +850,7 @@
       link.href = bar.url;
       link.target = "_blank";
       link.rel = "noopener";
-      link.textContent = "DHM #" + bar.page_id;
+      link.textContent = tx(bar.name);
       src.appendChild(link);
     });
     foot.appendChild(qrA);
@@ -865,7 +957,7 @@
 
   document.addEventListener("pointerdown", function (e) {
     if (!data) return;
-    if (e.target.closest && e.target.closest(".wxb-prov, .wxb-pop, .wxb-zoom-ui, .wxb-dayswitch, .wxb-gantt-row")) return;
+    if (e.target.closest && e.target.closest(".wxb-prov, .wxb-dist, .wxb-dist-toggle, .wxb-pop, .wxb-zoom-ui, .wxb-dayswitch, .wxb-gantt-row")) return;
     if (!selected) return;
     clearSelect();
   });
@@ -877,6 +969,13 @@
   });
 
   if (window.__addLangHook) window.__addLangHook(renderAll);
+  fetch("data/nepal-districts-svg.json?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw new Error("districts"); return r.json(); })
+    .then(function (json) {
+      districts = json;
+      document.querySelectorAll(".wxb-svg").forEach(drawDistricts);
+    })
+    .catch(function () {});
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();
