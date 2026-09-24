@@ -5,7 +5,11 @@
 
   var data = null;
   var selected = null;
-  var VER = window.PAGE_VER || "2026-09-24-weather-12297";
+  var dayMode = "overview";
+  var justShifted = false;
+  var liveState = "idle";
+  var liveNote = null;
+  var VER = window.PAGE_VER || "2026-09-24-live-maps-ui";
 
   function lang() {
     return document.documentElement.lang === "en" ? "en" : "ne";
@@ -37,8 +41,42 @@
     for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
     return null;
   }
+  function activeDay() {
+    if (!data || dayMode === "overview") return null;
+    var days = data.warning_days || [];
+    for (var i = 0; i < days.length; i++) if (days[i].date === dayMode) return days[i];
+    return null;
+  }
   function levelOf(p) {
+    var day = activeDay();
+    if (day && day.provinces && day.provinces[p.id] && data.warn_levels) {
+      return data.warn_levels[day.provinces[p.id].level] || { color: "#cbd5e1", ne: "", en: "" };
+    }
     return (data.levels && data.levels[p.level]) || { color: "#cbd5e1", ne: "", en: "" };
+  }
+  function fmt(tpl, map) {
+    return String(tpl || "").replace(/\{(\w+)\}/g, function (_, k) {
+      return map[k] != null ? map[k] : "";
+    });
+  }
+  function dayLabel(date) {
+    var days = (data.timeline && data.timeline.days) || [];
+    for (var i = 0; i < days.length; i++) if (days[i].date === date) return tx(days[i]);
+    return date;
+  }
+  function detailText(p) {
+    var day = activeDay();
+    if (!day || !day.provinces || !day.provinces[p.id]) return tx(p.detail);
+    var rec = day.provinces[p.id];
+    var lv = (data.warn_levels && data.warn_levels[rec.level]) || { ne: "", en: "" };
+    var body = fmt(tx(data.ui.day_detail), { when: dayLabel(day.date), name: tx(p), level: tx(lv) });
+    if (rec.also && rec.also.length) {
+      var names = rec.also.map(function (k) {
+        return tx((data.warn_levels && data.warn_levels[k]) || {});
+      }).filter(Boolean).join(", ");
+      if (names) body += fmt(tx(data.ui.day_also), { also: names });
+    }
+    return body;
   }
   function kathmanduToday() {
     try {
@@ -74,7 +112,7 @@
     sw.style.background = lv.color;
     row.appendChild(sw);
     row.appendChild(document.createTextNode(tx(lv)));
-    var body = el("p", "wxb-detail-p", tx(p.detail));
+    var body = el("p", "wxb-detail-p", detailText(p));
     box.appendChild(k);
     box.appendChild(h);
     box.appendChild(row);
@@ -83,6 +121,20 @@
 
   function show(root, id) {
     fillDetail(root, id);
+  }
+
+  function focusBar(bar) {
+    if (!bar || !bar.focus) return;
+    if (bar.focus === "overview") {
+      if (dayMode !== "overview") justShifted = true;
+      dayMode = "overview";
+      renderAll();
+      return;
+    }
+    select(bar.focus, false);
+    var root = document.querySelector("[data-wx-mount]");
+    var map = root && root.querySelector(".wxb-mapwrap");
+    if (map && map.scrollIntoView) map.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }
 
   function select(id, focus) {
@@ -149,7 +201,7 @@
       path.setAttribute("role", "button");
       path.setAttribute("tabindex", g.id === selected ? "0" : "-1");
       path.setAttribute("aria-pressed", g.id === selected ? "true" : "false");
-      path.setAttribute("aria-label", tx(p) + ". " + tx(lv) + ". " + tx(p.detail));
+      path.setAttribute("aria-label", tx(p) + ". " + tx(lv) + ". " + detailText(p));
       svg.appendChild(path);
       var text = svgEl("text");
       text.setAttribute("x", g.lx);
@@ -189,11 +241,14 @@
     svg.addEventListener("pointerenter", function (e) {
       var path = e.target.closest && e.target.closest(".wxb-prov");
       if (!path || e.pointerType !== "mouse") return;
+      svg.querySelectorAll(".wxb-prov.is-hot").forEach(function (n) { n.classList.remove("is-hot"); });
+      path.classList.add("is-hot");
       var root = svg.closest("[data-wx-mount]");
       if (root) show(root, path.getAttribute("data-id"));
     }, true);
     svg.addEventListener("pointerleave", function (e) {
       if (e.pointerType !== "mouse") return;
+      svg.querySelectorAll(".wxb-prov.is-hot").forEach(function (n) { n.classList.remove("is-hot"); });
       var root = svg.closest("[data-wx-mount]");
       if (root) show(root, selected);
     }, true);
@@ -244,7 +299,21 @@
       row.appendChild(meta);
       row.appendChild(track);
       var label = tx(bar.name) + " #" + bar.page_id + " · " + tx(bar.span);
+      if (bar.focus) label += ". " + tx(data.ui.gantt_btn);
       row.setAttribute("aria-label", label);
+      if (bar.focus) {
+        row.tabIndex = 0;
+        row.setAttribute("role", "button");
+        row.classList.add("is-btn");
+        if (bar.focus === "overview" && dayMode === "overview") row.classList.add("is-on");
+        row.addEventListener("click", function () { focusBar(bar); });
+        row.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            focusBar(bar);
+          }
+        });
+      }
       host.appendChild(row);
     });
     host.setAttribute("role", "list");
@@ -316,7 +385,6 @@
   function renderMount(root) {
     var mode = root.getAttribute("data-wx-mode") || "home";
     var ui = data.ui;
-    var lead = data.lead;
     root.replaceChildren();
     var board = el("article", "wxb" + (mode === "section" ? " wxb-section" : " wxb-home"));
     var titleId = "wxb-title-" + mode + "-" + Math.random().toString(36).slice(2, 6);
@@ -345,12 +413,7 @@
     var h2 = el("h2", "wxb-title", tx(ui.title));
     h2.id = titleId;
     board.appendChild(h2);
-    var sub = el("p", "wxb-sub");
-    sub.appendChild(document.createTextNode(tx(ui.sub) + " "));
-    var bid = el("b", null, "#" + lead.page_id);
-    sub.appendChild(bid);
-    board.appendChild(sub);
-    board.appendChild(el("p", "wxb-disc", tx(ui.disclaimer)));
+    board.appendChild(el("p", "wxb-sub", tx(ui.sub)));
 
     var mapPanel = el("section", "wxb-panel");
     var mh = el("h3", "wxb-h");
@@ -360,7 +423,7 @@
     var stage = el("div", "wxb-stage");
     var mapWrap = el("div", "wxb-mapwrap");
     var svg = svgEl("svg");
-    svg.setAttribute("class", "wxb-svg");
+    svg.setAttribute("class", "wxb-svg" + (justShifted ? " is-shifting" : ""));
     buildMap(svg);
     mapWrap.appendChild(svg);
     stage.appendChild(mapWrap);
@@ -375,9 +438,36 @@
     stage.appendChild(aside);
     mapPanel.appendChild(stage);
 
+    var switcher = el("div", "wxb-dayswitch");
+    switcher.setAttribute("role", "tablist");
+    switcher.setAttribute("aria-label", tx(ui.days_h));
+    function dayChip(id, label, on) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "wxb-chip" + (on ? " is-on" : "");
+      b.setAttribute("role", "tab");
+      b.setAttribute("aria-selected", on ? "true" : "false");
+      b.textContent = label;
+      b.addEventListener("click", function () {
+        if (dayMode === id) return;
+        dayMode = id;
+        justShifted = true;
+        renderAll();
+      });
+      switcher.appendChild(b);
+    }
+    dayChip("overview", tx(ui.day_overview), dayMode === "overview");
+    ((data.timeline && data.timeline.days) || []).forEach(function (d) {
+      var sub = lang() === "en" ? d.dow_en : d.dow_ne;
+      dayChip(d.date, tx(d) + " · " + sub, dayMode === d.date);
+    });
+    mapPanel.appendChild(switcher);
+    mapPanel.appendChild(el("p", "wxb-dayhint", tx(activeDay() ? ui.day_method : ui.day_switch_hint)));
+
     var legend = el("ul", "wxb-legend");
-    Object.keys(data.levels || {}).forEach(function (key) {
-      var lv = data.levels[key];
+    var levels = activeDay() ? (data.warn_levels || {}) : (data.levels || {});
+    Object.keys(levels).forEach(function (key) {
+      var lv = levels[key];
       var li = el("li");
       var sw = el("i", "wxb-sw");
       sw.style.background = lv.color;
@@ -385,6 +475,7 @@
       li.appendChild(document.createTextNode(tx(lv)));
       legend.appendChild(li);
     });
+    mapPanel.appendChild(el("p", "wxb-tap", tx(ui.tap)));
     mapPanel.appendChild(legend);
     mapPanel.appendChild(el("p", "wxb-hint", tx(ui.hint)));
     var detail = el("div", "wxb-detail");
@@ -476,10 +567,61 @@
     paintPressed();
   }
 
+  function paintLive() {
+    if (!liveNote || !liveNote.changed || !data) return;
+    document.querySelectorAll("[data-wx-mount]").forEach(function (root) {
+      var board = root.querySelector(".wxb");
+      if (!board || board.querySelector(".wxb-live-note")) return;
+      var note = el("p", "wxb-live-note is-changed");
+      note.appendChild(document.createTextNode(fmt(tx(data.ui.live_changed), { when: liveNote.when })));
+      if (data.lead.url) {
+        note.appendChild(document.createTextNode(" "));
+        var a = document.createElement("a");
+        a.href = data.lead.url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = tx(data.ui.sources_label) + ": DHM";
+        note.appendChild(a);
+      }
+      var foot = board.querySelector(".wxb-foot");
+      if (foot) board.insertBefore(note, foot);
+      else board.appendChild(note);
+    });
+  }
+
+  function checkLive() {
+    if (!data || !data.lead || !data.lead.api) return;
+    if (liveState === "done") {
+      paintLive();
+      return;
+    }
+    if (liveState === "busy") return;
+    liveState = "busy";
+    fetch(data.lead.api, { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("dhm"); return r.json(); })
+      .then(function (page) {
+        var seen = data.lead.api_update_at || "";
+        var now = (page && page.update_at) || "";
+        liveNote = { changed: !!(now && seen && now !== seen), when: now };
+        liveState = "done";
+        paintLive();
+      })
+      .catch(function () { liveState = "idle"; });
+  }
+
   function renderAll() {
     if (!data) return;
     if (!selected) selected = data.focus_province || "bagmati";
     mounts.forEach(renderMount);
+    if (justShifted) {
+      justShifted = false;
+      window.setTimeout(function () {
+        document.querySelectorAll(".wxb-svg.is-shifting").forEach(function (n) {
+          n.classList.remove("is-shifting");
+        });
+      }, 520);
+    }
+    checkLive();
   }
 
   function boot() {

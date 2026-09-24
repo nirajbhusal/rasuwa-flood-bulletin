@@ -1,6 +1,6 @@
 {
   "id": "2026-09-24-dor-navigate",
-  "page_ver": "2026-09-24-weather-12297",
+  "page_ver": "2026-09-24-live-maps-ui",
   "as_of": {
     "iso": "2026-09-24T09:42:49+05:45",
     "en": "24 Sep 2026, 09:42 NPT",
@@ -76,16 +76,16 @@
       "en": "Full list"
     },
     "dor": {
-      "ne": "सडक विभाग ड्यासबोर्ड",
-      "en": "DoR dashboard"
+      "ne": "NAVIGATE",
+      "en": "NAVIGATE"
+    },
+    "sources_label": {
+      "ne": "स्रोत",
+      "en": "Source"
     },
     "check": {
       "ne": "संख्या बदलिन्छ — हिँड्नु अघि NAVIGATE हेर्नुहोस्।",
       "en": "Counts change — check NAVIGATE before you travel."
-    },
-    "disclaimer": {
-      "ne": "स्वतन्त्र नागरिक पुनर्मुद्रण। आधिकारिक स्थिति सडक विभागको NAVIGATE हो। यो सरकारी साइट होइन।",
-      "en": "Independent citizen reprint. Official status is the Department of Roads NAVIGATE dashboard. This is not a government site."
     },
     "count_note": {
       "ne": "चिप NAVIGATE का जम्मा अङ्क हुन् (९ जम्मा / ५ बन्द / ४ खुला / ० आंशिक)। बन्द फिडमा NH08 दोहोरिएको छ, त्यसैले तल ४ वटा फरक खण्ड छन्। आंशिक चिप ० छ; टिकरमा NH03 आंशिक खुला अझै छ। खुला चिप भर्खर खोलिएका ४ खण्ड हुन्। टिकरका अरू “खुल्यो” हरफ छुट्टै छन्।",
@@ -118,6 +118,62 @@
     "section_h": {
       "ne": "खण्ड",
       "en": "Section"
+    },
+    "map_h": {
+      "ne": "लाइभ नक्सा",
+      "en": "Live map"
+    },
+    "tap_road": {
+      "ne": "बन्द वा खुला बिन्दु थिच्नुहोस्",
+      "en": "Tap a closed or opened point"
+    },
+    "focus_nh42": {
+      "ne": "NH42 करिडोर",
+      "en": "NH42 corridor"
+    },
+    "map_closed": {
+      "ne": "बन्द बिन्दु",
+      "en": "Closed point"
+    },
+    "map_opened": {
+      "ne": "भर्खर खुला",
+      "en": "Recently opened"
+    },
+    "map_partial": {
+      "ne": "आंशिक",
+      "en": "Partial"
+    },
+    "map_line": {
+      "ne": "NH42 रेखा",
+      "en": "NH42 line"
+    },
+    "map_closed_sec": {
+      "ne": "NH42-014 बन्द खण्ड",
+      "en": "NH42-014 closed section"
+    },
+    "live_ok": {
+      "ne": "लाइभ NAVIGATE अहिलेको चिपसँग मिल्छ।",
+      "en": "Live NAVIGATE matches these chips."
+    },
+    "live_diff": {
+      "ne": "अङ्क अहिलेको NAVIGATE अनुसार छन्।",
+      "en": "Counts follow live NAVIGATE."
+    },
+    "live_fail": {
+      "ne": "लाइभ जाँच अहिले भएन।",
+      "en": "Live check did not finish."
+    },
+    "no_point": {
+      "ne": "यो रेकर्डको सार्वजनिक नक्सा बिन्दु छैन।",
+      "en": "This record has no public map point."
+    },
+    "map_miss": {
+      "ne": "नक्सा लाइब्रेरी लोड भएन। सूची तल छ।",
+      "en": "The map library did not load. The list is below."
+    },
+    "snapshot": {
+      "ne": "२४ सेप्टेम्बर २०२६, ०९:४२",
+      "en": "24 Sep 2026, 09:42"
     }
   },
   "roads": [
@@ -165,6 +221,11 @@
       "note": {
         "en": "Primary Rasuwa–Bhotekoshi corridor. DoR still lists this section closed. The estimated reopening on the record (31 Aug) has passed.",
         "ne": "मुख्य रसुवा–भोटेकोशी करिडोर। सडक विभागले यो खण्ड अझै बन्द देखाएको छ। अभिलेखको अनुमानित खुल्ने मिति (३१ अगस्ट) बितिसकेको छ।"
+      },
+      "point": {
+        "lat": 28.165,
+        "lng": 85.3384,
+        "source": "DoR Map_data_api getRoadClosureMapData / getRecentlyOpenedRoadsMapData"
       }
     },
     {
@@ -211,6 +272,11 @@
       "note": {
         "en": "Still closed on the live map. The ticker line that NH17 “has opened” is a different, already cleared blockage — not this section. Blasting of hillside rock is noted on the record (Nepal Army).",
         "ne": "लाइभ नक्सामा अझै बन्द। टिकरको “NH17 खुल्यो” अर्को, पहिले नै खोलिएको अवरोध हो — यो खण्ड होइन। अभिलेखमा पहाडतिरको चट्टान ब्लास्टिङ (नेपाली सेना) उल्लेख छ।"
+      },
+      "point": {
+        "lat": 27.8097,
+        "lng": 84.8163,
+        "source": "DoR Map_data_api getRoadClosureMapData / getRecentlyOpenedRoadsMapData"
       }
     },
     {
@@ -257,6 +323,11 @@
       "note": {
         "en": "DoR’s closed count repeats this same section, so the chip says 5 closed while this list shows it once. The estimated reopening (7 Sep) has passed; the section is still listed closed.",
         "ne": "सडक विभागको बन्द गणनाले यही खण्ड दोहोर्‍याएको छ, त्यसैले चिप ५ बन्द देखाउँछ र यो सूचीमा एक पटक मात्र छ। अनुमानित खुल्ने मिति (७ सेप्टेम्बर) बितिसकेको छ; खण्ड अझै बन्द सूचीमा छ।"
+      },
+      "point": {
+        "lat": 27.6218,
+        "lng": 87.3537,
+        "source": "DoR Map_data_api getRoadClosureMapData / getRecentlyOpenedRoadsMapData"
       }
     },
     {
@@ -303,6 +374,11 @@
       "note": {
         "en": "Record notes the road has collapsed beside a settlement, with work disturbed by rain. Estimated reopening (9 Aug) has passed; still listed closed.",
         "ne": "अभिलेखअनुसार बस्ती छेउको सडक भत्किएको छ र वर्षाले काम रोकिएको छ। अनुमानित खुल्ने मिति (९ अगस्ट) बितिसकेको छ; अझै बन्द सूचीमा छ।"
+      },
+      "point": {
+        "lat": 26.8847,
+        "lng": 87.9275,
+        "source": "DoR Map_data_api getRoadClosureMapData / getRecentlyOpenedRoadsMapData"
       }
     },
     {
@@ -400,7 +476,12 @@
         "en": "22 Sep 2026, 18:10",
         "ne": "२२ सेप्टेम्बर २०२६, १८:१०"
       },
-      "note": null
+      "note": null,
+      "point": {
+        "lat": 27.8582,
+        "lng": 84.5679,
+        "source": "DoR Map_data_api getRoadClosureMapData / getRecentlyOpenedRoadsMapData"
+      }
     },
     {
       "id": "897",
@@ -450,6 +531,11 @@
       "note": {
         "en": "A short landslide on this link, cleared the same morning. The older flood closure at Shital Bazaar on the same link is still closed.",
         "ne": "यही लिंकको छोटो पहिरो, त्यही बिहान खोलियो। यही लिंकको शीतल बजार बाढी बन्द अझै कायम छ।"
+      },
+      "point": {
+        "lat": 27.8014,
+        "lng": 84.7203,
+        "source": "DoR Map_data_api getRoadClosureMapData / getRecentlyOpenedRoadsMapData"
       }
     },
     {
@@ -497,7 +583,12 @@
         "en": "18 Sep 2026, 08:30",
         "ne": "१८ सेप्टेम्बर २०२६, ०८:३०"
       },
-      "note": null
+      "note": null,
+      "point": {
+        "lat": 27.7854,
+        "lng": 84.4346,
+        "source": "DoR Map_data_api getRoadClosureMapData / getRecentlyOpenedRoadsMapData"
+      }
     },
     {
       "id": "874",
@@ -544,7 +635,12 @@
         "en": "18 Sep 2026, 06:00",
         "ne": "१८ सेप्टेम्बर २०२६, ०६:००"
       },
-      "note": null
+      "note": null,
+      "point": {
+        "lat": 27.796,
+        "lng": 84.7337,
+        "source": "DoR Map_data_api getRoadClosureMapData / getRecentlyOpenedRoadsMapData"
+      }
     },
     {
       "id": "871",
@@ -878,5 +974,19 @@
       },
       "note": null
     }
-  ]
+  ],
+  "map": {
+    "corridor": "data/nh42-corridor.geojson",
+    "tiles": "Carto Voyager (OpenStreetMap)",
+    "dashboard": "https://navigate.dor.gov.np/app/dashboard",
+    "live": {
+      "aggregate": "https://navigate.dor.gov.np/api/Dashboard_api/getAggregateData",
+      "closed": "https://navigate.dor.gov.np/api/Map_data_api/getRoadClosureMapData",
+      "opened": "https://navigate.dor.gov.np/api/Map_data_api/getRecentlyOpenedRoadsMapData"
+    },
+    "note": {
+      "ne": "बिन्दु NAVIGATE को सार्वजनिक नक्सा निर्देशाङ्क हुन् (स्न्यापसट २४ सेप्टेम्बर २०२६, ०९:४२)। पृष्ठले ती API फेरि जाँच्छ। NH42 रेखा सडक विभागको रणनीतिक सडक सञ्जाल हो; NH42-014 (स्याफ्रुबेँसी–रसुवागढी) बन्द खण्ड हो। टिकरको NH03 आंशिक खुलाको सार्वजनिक निर्देशाङ्क छैन, त्यसैले सूचीमा छ, नक्सामा छैन।",
+      "en": "Points are public NAVIGATE map coordinates (snapshot 24 Sep 2026, 09:42). The page rechecks those APIs. NH42 lines are the Department of Roads strategic road network; NH42-014 (Syaphrubesi–Rasuwagadhi) is the closed section. Ticker partial NH03 has no public coordinate, so it stays in the list and is not plotted."
+    }
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "2026-09-24-weather-12297",
-  "page_ver": "2026-09-24-weather-12297",
-  "source": "DHM Meteorological Forecasting Division (citizen reprint)",
+  "page_ver": "2026-09-24-live-maps-ui",
+  "source": "DHM Meteorological Forecasting Division",
   "updated_at": "2026-09-24T08:40:00+05:45",
   "links": {
     "section": "notices.html#alert",
@@ -23,7 +23,8 @@
     "window": {
       "start": "2026-09-23",
       "end": "2026-09-27"
-    }
+    },
+    "api_update_at": "2026-09-23T12:31:16.068Z"
   },
   "ui": {
     "brand": {
@@ -43,12 +44,8 @@
       "en": "Heavy Rain Alert"
     },
     "sub": {
-      "ne": "पाँच दिनको मनसुन चेतावनी · असोज ७ देखि ११ (२३–२७ सेप्टेम्बर २०२६) · बुलेटिन",
-      "en": "5-day monsoon warning · Asoj 7 to 11 (23–27 Sep 2026) · Bulletin"
-    },
-    "disclaimer": {
-      "ne": "स्वतन्त्र नागरिक पुनर्मुद्रण। यो सरकारी साइट होइन — आधिकारिक बुलेटिन मौसम पूर्वानुमान महाशाखा (DHM) मा हेर्नुहोस्।",
-      "en": "Independent citizen reprint. This is not a government site — check the Meteorological Forecasting Division (DHM) for the official bulletin."
+      "ne": "पाँच दिनको मनसुन चेतावनी · असोज ७ देखि ११ (२३–२७ सेप्टेम्बर २०२६)",
+      "en": "5-day monsoon warning · Asoj 7 to 11 (23–27 Sep 2026)"
     },
     "map_h": {
       "ne": "प्रदेश अनुसार वर्षाको सम्भावना",
@@ -63,16 +60,16 @@
       "en": "Rain details"
     },
     "maps_h": {
-      "ne": "आधिकारिक चेतावनी नक्सा · #12297",
-      "en": "Official warning maps · #12297"
+      "ne": "आधिकारिक चेतावनी नक्सा",
+      "en": "Official warning maps"
     },
     "maps_legend": {
       "ne": "DHM नक्सामा रातो = कारबाही गर्नुहोस् · सुन्तला = तयार रहनुहोस् · पहेँलो = अपडेट हुनुहोस् · हरियो = चेतावनी छैन।",
       "en": "On the DHM maps: red = take action · orange = be prepared · yellow = be updated · green = no warning."
     },
     "hint": {
-      "ne": "प्रदेश छान्नुहोस् — होभर, क्लिक, वा किबोर्ड (ट्याब, तीर, इन्टर)।",
-      "en": "Choose a province — hover, click, or keyboard (Tab, arrows, Enter)."
+      "ne": "प्रदेश थिच्नुहोस् — तलको विवरण बदलिन्छ। होभर, क्लिक, वा किबोर्ड (ट्याब, तीर, इन्टर)।",
+      "en": "Tap a province — the detail below changes. Hover, click, or keyboard (Tab, arrows, Enter)."
     },
     "more": {
       "ne": "पूर्ण बुलेटिन र आधिकारिक नक्सा",
@@ -103,8 +100,8 @@
       "en": "LIVE"
     },
     "system": {
-      "ne": "बंगालको खाडीको पश्चिम-मध्य भागको बलियो न्यूनचापीय क्षेत्र (Deep Depression) पश्चिम-उत्तरपश्चिम सर्दै २३ सेप्टेम्बर राति उत्तरी आन्ध्र प्रदेश र दक्षिणी ओडिशा तट नजिकै गहिरो न्यूनचापकै रूपमा प्रवेश गर्ने सम्भावना DHM #12297 ले जनाएको छ। यसको प्रभावले नेपालमा वर्षा बढ्न सक्छ।",
-      "en": "DHM #12297: a deep depression over the west-central Bay of Bengal is expected to move west-northwest and reach the northern Andhra Pradesh / southern Odisha coast on the night of 23 September, still as a deep depression. The system can increase rainfall in Nepal."
+      "ne": "बंगालको खाडीको पश्चिम-मध्य भागको बलियो न्यूनचापीय क्षेत्र (Deep Depression) पश्चिम-उत्तरपश्चिम सर्दै २३ सेप्टेम्बर राति उत्तरी आन्ध्र प्रदेश र दक्षिणी ओडिशा तट नजिकै गहिरो न्यूनचापकै रूपमा प्रवेश गर्ने सम्भावना DHM ले जनाएको छ। यसको प्रभावले नेपालमा वर्षा बढ्न सक्छ।",
+      "en": "DHM: a deep depression over the west-central Bay of Bengal is expected to move west-northwest and reach the northern Andhra Pradesh / southern Odisha coast on the night of 23 September, still as a deep depression. The system can increase rainfall in Nepal."
     },
     "impacts_h": {
       "ne": "जोखिम र सतर्कता",
@@ -125,8 +122,44 @@
         "Daily life, agriculture, health, tourism, riverside works, roads and flights may be affected.",
         "Snowfall up to heavy is possible in the high Himalaya. Mountaineers and everyone concerned should stay on high alert.",
         "For paddy harvest, follow advice from agriculture specialists.",
-        "Press reports on this bulletin have relayed DHM guidance to avoid long-distance road travel on Friday–Sunday (25–27 September). Take the precautions DHM #12297 asks for."
+        "Press reports on this bulletin have relayed DHM guidance to avoid long-distance road travel on Friday–Sunday (25–27 September). Take the precautions DHM asks for."
       ]
+    },
+    "tap": {
+      "ne": "प्रदेश थिच्नुहोस्",
+      "en": "Tap a province"
+    },
+    "days_h": {
+      "ne": "कुन दिनको नक्सा",
+      "en": "Which day's map"
+    },
+    "day_overview": {
+      "ne": "शुक्र–आइत शिखर",
+      "en": "Fri–Sun peak"
+    },
+    "day_switch_hint": {
+      "ne": "दिन छान्नुहोस्। शिखर मोड शुक्र–आइतको वर्षा विवरण हो। दिनको चिपले आधिकारिक नक्साको चेतावनी रङ (रातो · सुन्तला · पहेँलो · हरियो) देखाउँछ।",
+      "en": "Pick a day. Peak mode is the Friday–Sunday rainfall outlook. A day chip recolors the map from the official warning colours (red · orange · yellow · green)."
+    },
+    "day_method": {
+      "ne": "यो दिनको रङ आधिकारिक नक्साको सबैभन्दा माथिल्लो चेतावनी हो। मिश्रित प्रदेशमा अरू रङ पनि छन्।",
+      "en": "This day's colour is the highest warning on the official map. Mixed provinces also show the other colours."
+    },
+    "day_detail": {
+      "ne": "{when}: {name} को सबैभन्दा माथिल्लो रङ {level} हो।",
+      "en": "{when}: the highest colour in {name} is {level}."
+    },
+    "day_also": {
+      "ne": " नक्सामा यी रङ पनि छन्: {also}।",
+      "en": " These colours also appear on the map: {also}."
+    },
+    "live_changed": {
+      "ne": "DHM मा नयाँ अपडेट छ ({when})।",
+      "en": "DHM has a newer update ({when})."
+    },
+    "gantt_btn": {
+      "ne": "यो पङ्क्तिले नक्सा मोड खोल्छ",
+      "en": "This row focuses the map"
     }
   },
   "levels": {
@@ -203,8 +236,8 @@
       "ne": "बागमती",
       "en": "Bagmati",
       "detail": {
-        "ne": "बुधबारदेखि वर्षा बढ्ने क्रम। शुक्रबार–आइतबार केही ठाउँमा मेघ गर्जन, चट्याङ र हावासहित भारीदेखि अति भारी वर्षा। भोटेकोशी करिडोर (#12296): असोज ७ रातिदेखि असोज १० बिहानसम्म रसुवा, नुवाकोट, धादिङ, गोरखा र चितवनमा मध्यम वर्षा; प्रत्येक जिल्लाका एक-दुई ठाउँमा भारी।",
-        "en": "Rainfall increasing from Wednesday. Friday–Sunday: heavy to very heavy rain in a few places, with thunder, lightning and wind. Bhotekoshi corridor (#12296): moderate rain, and heavy rain in 1–2 places, in Rasuwa, Nuwakot, Dhading, Gorkha and Chitwan from the night of Asoj 7 through the morning of Asoj 10."
+        "ne": "बुधबारदेखि वर्षा बढ्ने क्रम। शुक्रबार–आइतबार केही ठाउँमा मेघ गर्जन, चट्याङ र हावासहित भारीदेखि अति भारी वर्षा। भोटेकोशी करिडोर: असोज ७ रातिदेखि असोज १० बिहानसम्म रसुवा, नुवाकोट, धादिङ, गोरखा र चितवनमा मध्यम वर्षा; प्रत्येक जिल्लाका एक-दुई ठाउँमा भारी।",
+        "en": "Rainfall increasing from Wednesday. Friday–Sunday: heavy to very heavy rain in a few places, with thunder, lightning and wind. Bhotekoshi corridor: moderate rain, and heavy rain in 1–2 places, in Rasuwa, Nuwakot, Dhading, Gorkha and Chitwan from the night of Asoj 7 through the morning of Asoj 10."
       }
     },
     {
@@ -240,8 +273,8 @@
       "en": "Moderate rain, isolated heavy"
     },
     "meta": {
-      "ne": "#12296 · असोज ७ राति देखि असोज १० बिहान",
-      "en": "#12296 · Asoj 7 night to Asoj 10 morning"
+      "ne": "असोज ७ राति देखि असोज १० बिहान",
+      "en": "Asoj 7 night to Asoj 10 morning"
     }
   },
   "timeline": {
@@ -320,7 +353,8 @@
           "ne": "असोज ७ राति – १० बिहान",
           "en": "Asoj 7 night – 10 morning"
         },
-        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12296"
+        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12296",
+        "focus": "bagmati"
       },
       {
         "page_id": 12297,
@@ -337,7 +371,8 @@
           "ne": "असोज ७–११",
           "en": "Asoj 7–11"
         },
-        "url": "https://dhm.gov.np/mfd/#/weather/pages/special-weather/12297"
+        "url": "https://dhm.gov.np/mfd/#/weather/pages/special-weather/12297",
+        "focus": "overview"
       }
     ]
   },
@@ -474,5 +509,231 @@
         "ly": 118
       }
     ]
-  }
+  },
+  "warn_levels": {
+    "red": {
+      "color": "#d7191c",
+      "ne": "रातो · कारबाही गर्नुहोस्",
+      "en": "Red · take action"
+    },
+    "orange": {
+      "color": "#e65c00",
+      "ne": "सुन्तला · तयार रहनुहोस्",
+      "en": "Orange · be prepared"
+    },
+    "yellow": {
+      "color": "#e6b800",
+      "ne": "पहेँलो · अपडेट हुनुहोस्",
+      "en": "Yellow · be updated"
+    },
+    "green": {
+      "color": "#1b7f3a",
+      "ne": "हरियो · चेतावनी छैन",
+      "en": "Green · no warning"
+    }
+  },
+  "warning_days": [
+    {
+      "date": "2026-09-23",
+      "provinces": {
+        "sudurpaschim": {
+          "level": "green",
+          "also": []
+        },
+        "karnali": {
+          "level": "green",
+          "also": []
+        },
+        "lumbini": {
+          "level": "yellow",
+          "also": [
+            "green"
+          ]
+        },
+        "gandaki": {
+          "level": "yellow",
+          "also": [
+            "green"
+          ]
+        },
+        "bagmati": {
+          "level": "yellow",
+          "also": [
+            "green"
+          ]
+        },
+        "madhesh": {
+          "level": "yellow",
+          "also": []
+        },
+        "koshi": {
+          "level": "yellow",
+          "also": []
+        }
+      }
+    },
+    {
+      "date": "2026-09-24",
+      "provinces": {
+        "sudurpaschim": {
+          "level": "green",
+          "also": []
+        },
+        "karnali": {
+          "level": "yellow",
+          "also": [
+            "green"
+          ]
+        },
+        "lumbini": {
+          "level": "orange",
+          "also": [
+            "yellow",
+            "green"
+          ]
+        },
+        "gandaki": {
+          "level": "orange",
+          "also": [
+            "yellow",
+            "green"
+          ]
+        },
+        "bagmati": {
+          "level": "orange",
+          "also": []
+        },
+        "madhesh": {
+          "level": "orange",
+          "also": [
+            "yellow"
+          ]
+        },
+        "koshi": {
+          "level": "orange",
+          "also": []
+        }
+      }
+    },
+    {
+      "date": "2026-09-25",
+      "provinces": {
+        "sudurpaschim": {
+          "level": "orange",
+          "also": []
+        },
+        "karnali": {
+          "level": "orange",
+          "also": []
+        },
+        "lumbini": {
+          "level": "orange",
+          "also": []
+        },
+        "gandaki": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        },
+        "bagmati": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        },
+        "madhesh": {
+          "level": "orange",
+          "also": []
+        },
+        "koshi": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-26",
+      "provinces": {
+        "sudurpaschim": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        },
+        "karnali": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        },
+        "lumbini": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        },
+        "gandaki": {
+          "level": "red",
+          "also": [
+            "orange"
+          ]
+        },
+        "bagmati": {
+          "level": "red",
+          "also": [
+            "orange",
+            "yellow"
+          ]
+        },
+        "madhesh": {
+          "level": "yellow",
+          "also": []
+        },
+        "koshi": {
+          "level": "yellow",
+          "also": []
+        }
+      }
+    },
+    {
+      "date": "2026-09-27",
+      "provinces": {
+        "sudurpaschim": {
+          "level": "yellow",
+          "also": []
+        },
+        "karnali": {
+          "level": "yellow",
+          "also": []
+        },
+        "lumbini": {
+          "level": "yellow",
+          "also": []
+        },
+        "gandaki": {
+          "level": "yellow",
+          "also": []
+        },
+        "bagmati": {
+          "level": "yellow",
+          "also": [
+            "green"
+          ]
+        },
+        "madhesh": {
+          "level": "yellow",
+          "also": [
+            "green"
+          ]
+        },
+        "koshi": {
+          "level": "green",
+          "also": []
+        }
+      }
+    }
+  ]
 }
