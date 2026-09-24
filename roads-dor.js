@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-24-chuchhe-naka";
+  var VER = window.PAGE_VER || "2026-09-24-wx-map-ux";
   var showDistricts = true;
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
@@ -262,12 +262,13 @@
         districtLayer = window.L.geoJSON(geo, {
           pane: "districts",
           interactive: true,
-          style: { color: "#0f172a", weight: 1, opacity: 0.5, fillOpacity: 0 },
+          style: { color: "#0f172a", weight: 1, opacity: 0.5, fillColor: "#0f172a", fillOpacity: 0.04 },
           onEachFeature: function (feat, layer) {
             var props = (feat && feat.properties) || {};
             var name = lang() === "en" ? (props.en || "") : (props.ne || props.en || "");
-            layer.bindPopup(name, { closeButton: true, autoPan: true });
+            layer.bindPopup(name, { closeButton: true, autoPan: true, autoClose: true });
             layer.on("click", function (ev) {
+              try { layer.openPopup(ev && ev.latlng); } catch (err) {}
               if (ev && ev.originalEvent) window.L.DomEvent.stopPropagation(ev);
             });
           }

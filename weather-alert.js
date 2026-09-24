@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-24-chuchhe-naka";
+  var VER = window.PAGE_VER || "2026-09-24-wx-map-ux";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -288,10 +288,15 @@
     var pin = geo.pin;
     if (pin) {
       var line = svgEl("line");
+      var vb = (geo.viewBox || "0 0 836 520").trim().split(/[\s,]+/).map(Number);
+      var vx = vb.length === 4 ? vb[0] : 0;
+      var vy = vb.length === 4 ? vb[1] : 0;
+      var vw = vb.length === 4 ? vb[2] : 836;
+      var vh = vb.length === 4 ? vb[3] : 520;
       line.setAttribute("x1", pin.x);
       line.setAttribute("y1", pin.y);
-      line.setAttribute("x2", 668);
-      line.setAttribute("y2", 78);
+      line.setAttribute("x2", vx + vw - 12);
+      line.setAttribute("y2", vy + Math.min(88, vh * 0.16));
       line.setAttribute("class", "wxb-connector");
       layer.appendChild(line);
       var mark = svgEl("g");
@@ -312,10 +317,14 @@
         n.classList.toggle("is-on", !!(id && n.getAttribute("data-id") === id));
       });
     }
-    svg.addEventListener("click", function (e) {
+    var touchPick = null;
+    function armPick(e) {
+      if (svg._dragged || svg._pinching) {
+        svg._dragged = false;
+        return;
+      }
       var dist = e.target.closest && e.target.closest(".wxb-dist");
       if (dist) {
-        if (svg._dragged) { svg._dragged = false; return; }
         var did = dist.getAttribute("data-id");
         var prov = dist.getAttribute("data-prov");
         hotDistrict = did;
@@ -326,11 +335,37 @@
         return;
       }
       var path = e.target.closest && e.target.closest(".wxb-prov");
-      if (!path) { hotDistrict = null; markDistrict(null); clearSelect(); return; }
-      if (svg._dragged) { svg._dragged = false; return; }
+      if (!path) {
+        hotDistrict = null;
+        markDistrict(null);
+        clearSelect();
+        return;
+      }
       hotDistrict = null;
       markDistrict(null);
       select(path.getAttribute("data-id"), false);
+    }
+    svg.addEventListener("pointerdown", function (e) {
+      if ((e.pointerType || "mouse") === "mouse") return;
+      touchPick = { id: e.pointerId, x: e.clientX, y: e.clientY, cancel: false };
+    });
+    svg.addEventListener("pointercancel", function (e) {
+      if (touchPick && e.pointerId === touchPick.id) touchPick.cancel = true;
+    });
+    svg.addEventListener("pointerup", function (e) {
+      if (!touchPick || e.pointerId !== touchPick.id) return;
+      var g = touchPick;
+      touchPick = null;
+      if (g.cancel || svg._pinching) return;
+      if (Math.hypot(e.clientX - g.x, e.clientY - g.y) > 14) return;
+      armPick(e);
+      svg._skipClick = true;
+      window.setTimeout(function () { svg._skipClick = false; }, 500);
+    });
+    svg.addEventListener("click", function (e) {
+      if (svg._skipClick) return;
+      if ((e.pointerType || "mouse") !== "mouse") return;
+      armPick(e);
     });
     svg.addEventListener("pointerover", function (e) {
       if (e.pointerType && e.pointerType !== "mouse") return;
@@ -583,15 +618,19 @@
     function apply() {
       if (layer) layer.setAttribute("transform", "translate(" + st.x + " " + st.y + ") scale(" + st.s + ")");
     }
-    function zoomBy(factor) {
-      var box = svg.getBoundingClientRect();
-      var cx = box.width / 2;
-      var cy = box.height / 2;
+    function userBox() {
+      var vb = svg.viewBox && svg.viewBox.baseVal;
+      if (vb && vb.width) return { x: vb.x, y: vb.y, w: vb.width, h: vb.height };
+      return { x: 0, y: 0, w: 836, h: 520 };
+    }
+    function zoomBy(factor, local) {
+      var box = userBox();
+      var lx = local ? local.x : (box.x + box.w / 2 - st.x) / st.s;
+      var ly = local ? local.y : (box.y + box.h / 2 - st.y) / st.s;
       var next = Math.max(1, Math.min(4, st.s * factor));
-      if (next === st.s) return;
-      var k = next / st.s;
-      st.x = cx - (cx - st.x) * k;
-      st.y = cy - (cy - st.y) * k;
+      if (Math.abs(next - st.s) < 0.001) return;
+      st.x = st.x + lx * (st.s - next);
+      st.y = st.y + ly * (st.s - next);
       st.s = next;
       if (st.s <= 1.01) { st.s = 1; st.x = 0; st.y = 0; }
       apply();
@@ -624,9 +663,21 @@
       if (!cur) return;
       var ids = Object.keys(ptr).filter(function (k) { return k !== "_span" && k !== "_scale"; });
       if (cur.type === "touch") {
+        if (ids.length < 2) {
+          if (st.s > 1.02 && Math.hypot(e.clientX - cur.ox, e.clientY - cur.oy) > 10) {
+            svg._dragged = true;
+            var pan = svg.getScreenCTM();
+            st.x += pan && pan.a ? (e.clientX - cur.x) / pan.a : 0;
+            st.y += pan && pan.d ? (e.clientY - cur.y) / pan.d : 0;
+            apply();
+          }
+          cur.x = e.clientX;
+          cur.y = e.clientY;
+          return;
+        }
         cur.x = e.clientX;
         cur.y = e.clientY;
-        if (ids.length < 2) return;
+        svg._pinching = true;
         e.preventDefault();
         var a = ptr[ids[0]];
         var b = ptr[ids[1]];
@@ -639,8 +690,11 @@
       }
       if (Math.hypot(e.clientX - cur.ox, e.clientY - cur.oy) > 6) svg._dragged = true;
       if (!svg._dragged) return;
-      st.x += e.clientX - cur.x;
-      st.y += e.clientY - cur.y;
+      var m = svg.getScreenCTM();
+      var ux = m && m.a ? (e.clientX - cur.x) / m.a : (e.clientX - cur.x);
+      var uy = m && m.d ? (e.clientY - cur.y) / m.d : (e.clientY - cur.y);
+      st.x += ux;
+      st.y += uy;
       cur.x = e.clientX;
       cur.y = e.clientY;
       apply();
@@ -648,7 +702,11 @@
     function endPtr(e) {
       delete ptr[e.pointerId];
       var ids = Object.keys(ptr).filter(function (k) { return k !== "_span" && k !== "_scale"; });
-      if (ids.length < 2) { delete ptr._span; delete ptr._scale; }
+      if (ids.length < 2) {
+        delete ptr._span;
+        delete ptr._scale;
+        window.setTimeout(function () { svg._pinching = false; }, 80);
+      }
       window.setTimeout(function () { svg._dragged = false; }, 40);
     }
     wrap.addEventListener("pointerup", endPtr);
@@ -656,7 +714,16 @@
     wrap.addEventListener("wheel", function (e) {
       if (!e.ctrlKey && !e.metaKey) return;
       e.preventDefault();
-      zoomBy(e.deltaY < 0 ? 1.12 : 0.89);
+      var local = null;
+      var m = svg.getScreenCTM();
+      if (m && svg.createSVGPoint) {
+        var pt = svg.createSVGPoint();
+        pt.x = e.clientX;
+        pt.y = e.clientY;
+        var u = pt.matrixTransform(m.inverse());
+        local = { x: (u.x - st.x) / st.s, y: (u.y - st.y) / st.s };
+      }
+      zoomBy(e.deltaY < 0 ? 1.12 : 0.89, local);
     }, { passive: false });
   }
 
@@ -698,14 +765,36 @@
     mh.innerHTML = iconCloud();
     mh.appendChild(document.createTextNode(" " + tx(ui.map_h)));
     mapPanel.appendChild(mh);
-    var stage = el("div", "wxb-stage");
-    var mapWrap = el("div", "wxb-mapwrap");
     var svg = svgEl("svg");
     svg.setAttribute("class", "wxb-svg" + (justShifted ? " is-shifting" : ""));
     buildMap(svg);
+    var dbtn = document.createElement("button");
+    dbtn.type = "button";
+    dbtn.className = "wxb-dist-toggle" + (showDistricts ? " is-on" : "");
+    dbtn.setAttribute("aria-pressed", showDistricts ? "true" : "false");
+    dbtn.textContent = tx(ui.districts || { ne: "जिल्ला", en: "Districts" });
+    dbtn.addEventListener("click", function () {
+      showDistricts = !showDistricts;
+      document.querySelectorAll(".wxb-dists").forEach(function (g) {
+        if (showDistricts) g.removeAttribute("hidden");
+        else g.setAttribute("hidden", "");
+      });
+      document.querySelectorAll(".wxb-dist-toggle").forEach(function (b) {
+        b.classList.toggle("is-on", showDistricts);
+        b.setAttribute("aria-pressed", showDistricts ? "true" : "false");
+        b.textContent = tx((data.ui && data.ui.districts) || { ne: "जिल्ला", en: "Districts" });
+      });
+    });
+    var drow = el("div", "wxb-dist-row");
+    drow.appendChild(dbtn);
+    drow.appendChild(el("p", "wxb-dist-hint", tx(ui.districts_hint || { ne: "जिल्लाको रेखा खोल्न वा बन्द गर्न सकिन्छ। रङ प्रदेशको चेतावनी हो।", en: "District lines can be turned on or off. Colour is the province warning." })));
+    var tools = el("div", "wxb-maptools");
+    tools.appendChild(drow);
+    tools.appendChild(buildZoom(svg));
+    mapPanel.appendChild(tools);
+    var stage = el("div", "wxb-stage");
+    var mapWrap = el("div", "wxb-mapwrap");
     mapWrap.appendChild(svg);
-    mapWrap.appendChild(buildPop());
-    mapWrap.appendChild(buildZoom(svg));
     bindNav(mapWrap, svg);
     stage.appendChild(mapWrap);
     var call = data.callout || {};
@@ -718,6 +807,7 @@
     aside.appendChild(el("p", "wxb-call-m", tx(call.meta)));
     stage.appendChild(aside);
     mapPanel.appendChild(stage);
+    mapPanel.appendChild(buildPop());
 
     var switcher = el("div", "wxb-dayswitch");
     switcher.setAttribute("role", "tablist");
@@ -754,27 +844,6 @@
       legend.appendChild(li);
     });
     mapPanel.appendChild(el("p", "wxb-tap", tx(ui.tap)));
-    var dbtn = document.createElement("button");
-    dbtn.type = "button";
-    dbtn.className = "wxb-dist-toggle" + (showDistricts ? " is-on" : "");
-    dbtn.setAttribute("aria-pressed", showDistricts ? "true" : "false");
-    dbtn.textContent = tx(ui.districts || { ne: "जिल्ला", en: "Districts" });
-    dbtn.addEventListener("click", function () {
-      showDistricts = !showDistricts;
-      document.querySelectorAll(".wxb-dists").forEach(function (g) {
-        if (showDistricts) g.removeAttribute("hidden");
-        else g.setAttribute("hidden", "");
-      });
-      document.querySelectorAll(".wxb-dist-toggle").forEach(function (b) {
-        b.classList.toggle("is-on", showDistricts);
-        b.setAttribute("aria-pressed", showDistricts ? "true" : "false");
-        b.textContent = tx((data.ui && data.ui.districts) || { ne: "जिल्ला", en: "Districts" });
-      });
-    });
-    var drow = el("div", "wxb-dist-row");
-    drow.appendChild(dbtn);
-    drow.appendChild(el("p", "wxb-dist-hint", tx(ui.districts_hint || { ne: "जिल्लाको रेखा खोल्न वा बन्द गर्न सकिन्छ। रङ प्रदेशको चेतावनी हो।", en: "District lines can be turned on or off. Colour is the province warning." })));
-    mapPanel.appendChild(drow);
     mapPanel.appendChild(legend);
     mapPanel.appendChild(el("p", "wxb-hint", tx(ui.hint)));
     board.appendChild(mapPanel);
@@ -814,15 +883,9 @@
       var gal = el("section", "wxb-panel wxb-gallery");
       buildGallery(gal);
       board.appendChild(gal);
-    } else {
-      var more = document.createElement("a");
-      more.className = "wxb-more";
-      more.href = data.links.section;
-      more.textContent = tx(ui.more);
-      board.appendChild(more);
     }
 
-    var foot = el("footer", "wxb-foot");
+    var foot = el("footer", "wxb-foot" + (mode === "home" ? " is-home" : ""));
     var qrA = document.createElement("a");
     qrA.className = "wxb-qr";
     qrA.href = data.links.section;
@@ -853,7 +916,7 @@
       link.textContent = tx(bar.name);
       src.appendChild(link);
     });
-    foot.appendChild(qrA);
+    if (mode === "section") foot.appendChild(qrA);
     foot.appendChild(site);
     foot.appendChild(src);
     board.appendChild(foot);
