@@ -9,6 +9,7 @@
   var mapGen = 0;
   var liveState = "idle";
   var VER = window.PAGE_VER || "2026-09-24-map-colors";
+  var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
 
   function lang() {
@@ -197,7 +198,10 @@
     }
     (data.roads || []).forEach(addMarker);
     var corridor = (data.map && data.map.corridor) || "data/nh42-corridor.geojson";
-    fetch(corridor + "?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+    var corridorOpts = { cache: "no-cache" };
+    var corridorSignal = liveSignal();
+    if (corridorSignal) corridorOpts.signal = corridorSignal;
+    fetch(corridor + "?v=" + encodeURIComponent(VER), corridorOpts)
       .then(function (r) { if (!r.ok) throw new Error("nh42"); return r.json(); })
       .then(function (geo) {
         if (token !== mapGen) return;
@@ -369,15 +373,37 @@
     });
   }
   function numEq(a, b) { return Number(a) === Number(b); }
+  function liveSignal() {
+    try {
+      if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+        return AbortSignal.timeout(LIVE_MS);
+      }
+    } catch (e) {}
+    if (typeof AbortController === "undefined") return undefined;
+    var ctrl = new AbortController();
+    window.setTimeout(function () { try { ctrl.abort(); } catch (err) {} }, LIVE_MS);
+    return ctrl.signal;
+  }
+  function afterPaint(fn) {
+    var raf = window.requestAnimationFrame;
+    if (typeof raf === "function") raf(function () { raf(fn); });
+    else window.setTimeout(fn, 0);
+  }
   function checkLive() {
     var live = data.map && data.map.live;
     if (!live) return;
     if (liveState === "done" || liveState === "busy") return;
     liveState = "busy";
+    var signal = liveSignal();
+    function pull(url) {
+      var opts = { cache: "no-store" };
+      if (signal) opts.signal = signal;
+      return fetch(url, opts).then(function (r) { if (!r.ok) throw new Error("dor"); return r.json(); });
+    }
     Promise.all([
-      fetch(live.aggregate, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("agg"); return r.json(); }),
-      fetch(live.closed, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("closed"); return r.json(); }),
-      fetch(live.opened, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("opened"); return r.json(); })
+      pull(live.aggregate),
+      pull(live.closed),
+      pull(live.opened)
     ]).then(function (parts) {
       var agg = (parts[0] && parts[0].data) || {};
       var closed = (parts[1] && parts[1].data) || [];
@@ -399,7 +425,6 @@
     }).catch(function () {
       data.live = { same: true, failed: true };
       liveState = "done";
-      renderAll();
     });
   }
   function renderAll() {
@@ -407,7 +432,7 @@
     if (!selectedId) selectedId = data.priority_id;
     clearMaps();
     mounts.forEach(renderMount);
-    checkLive();
+    afterPaint(checkLive);
   }
   function boot() {
     fetch("data/roads-dor.json?v=" + encodeURIComponent(VER), { cache: "no-cache" })

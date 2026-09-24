@@ -10,6 +10,7 @@
   var liveState = "idle";
   var liveNote = null;
   var VER = window.PAGE_VER || "2026-09-24-map-colors";
+  var LIVE_MS = 4000;
 
   function lang() {
     return document.documentElement.lang === "en" ? "en" : "ne";
@@ -791,6 +792,22 @@
     });
   }
 
+  function liveSignal() {
+    try {
+      if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+        return AbortSignal.timeout(LIVE_MS);
+      }
+    } catch (e) {}
+    if (typeof AbortController === "undefined") return undefined;
+    var ctrl = new AbortController();
+    window.setTimeout(function () { try { ctrl.abort(); } catch (err) {} }, LIVE_MS);
+    return ctrl.signal;
+  }
+  function afterPaint(fn) {
+    var raf = window.requestAnimationFrame;
+    if (typeof raf === "function") raf(function () { raf(fn); });
+    else window.setTimeout(fn, 0);
+  }
   function checkLive() {
     if (!data || !data.lead || !data.lead.api) return;
     if (liveState === "done") {
@@ -799,7 +816,10 @@
     }
     if (liveState === "busy") return;
     liveState = "busy";
-    fetch(data.lead.api, { cache: "no-store" })
+    var opts = { cache: "no-store" };
+    var signal = liveSignal();
+    if (signal) opts.signal = signal;
+    fetch(data.lead.api, opts)
       .then(function (r) { if (!r.ok) throw new Error("dhm"); return r.json(); })
       .then(function (page) {
         var seen = data.lead.api_update_at || "";
@@ -822,7 +842,7 @@
         });
       }, 520);
     }
-    checkLive();
+    afterPaint(checkLive);
   }
 
   function boot() {
