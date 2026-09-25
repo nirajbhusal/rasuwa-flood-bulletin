@@ -2,9 +2,12 @@
 (function () {
   var SEEN = "rfb-open-alert-id";
   var SESSION = "rfb-open-alert-session";
+  var HOLD = 11000;
   var data = null;
   var sheet = null;
   var shownId = "";
+  var timer = 0;
+  var paused = false;
 
   function lang() {
     return document.documentElement.lang === "en" ? "en" : "ne";
@@ -16,6 +19,13 @@
     if (node[l] != null) return node[l];
     if (node.ne != null) return node.ne;
     return node.en || "";
+  }
+  function dig(s) {
+    if (lang() === "en") return String(s);
+    return String(s).replace(/[0-9]/g, function (d) { return "०१२३४५६७८९"[d]; });
+  }
+  function reduceMotion() {
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
   function kathmanduToday() {
     try {
@@ -77,8 +87,11 @@
     });
     var levels = json.warn_levels || {};
     var sentences = [];
+    var top = "";
     ["red", "orange", "yellow"].forEach(function (key) {
-      if (!groups[key].length || sentences.length >= 2) return;
+      if (!groups[key].length) return;
+      if (!top) top = key;
+      if (sentences.length >= 2) return;
       var bits = splitLevel(levels[key] || {});
       if (!bits.color) return;
       var line = joinNames(groups[key]) + ": " + bits.color;
@@ -86,15 +99,17 @@
       line += lang() === "en" ? "." : "।";
       sentences.push(line);
     });
-    if (!sentences.length) return null;
+    if (!sentences.length || !top) return null;
+    var bits = splitLevel(levels[top] || {});
     var en = lang() === "en";
+    var headline = bits.color || (en ? "Weather alert" : "मौसम चेतावनी");
+    if (bits.action) headline += " — " + bits.action;
     return {
       id: bulletinId(json),
+      level: top,
+      headline: headline,
       issued: cleanIssued(tx(json.ui && json.ui.issued)),
       expect: sentences.join(" "),
-      stay: en
-        ? "Stay away from the riverbank. In an emergency call 1234 or police 100."
-        : "नदी किनार नजानुहोस्। आपत्कालमा १२३४ वा प्रहरी १०० मा फोन गर्नुहोस्।",
       more: en ? "Weather details" : "मौसमको विवरण",
       close: en ? "Close" : "बन्द"
     };
@@ -111,10 +126,73 @@
     if (read(window.localStorage, SEEN) === id) return false;
     return true;
   }
+  function clearTimer() {
+    if (timer) window.clearTimeout(timer);
+    timer = 0;
+  }
   function dismiss() {
+    clearTimer();
     if (shownId) write(window.localStorage, SEEN, shownId);
     if (sheet && sheet.parentNode) sheet.parentNode.removeChild(sheet);
     sheet = null;
+    paused = false;
+  }
+  function fadeOut() {
+    if (!sheet || paused) return;
+    if (reduceMotion()) {
+      dismiss();
+      return;
+    }
+    sheet.classList.remove("is-in");
+    sheet.classList.add("is-out");
+    timer = window.setTimeout(dismiss, 380);
+  }
+  function arm() {
+    clearTimer();
+    if (paused || !sheet || reduceMotion()) return;
+    timer = window.setTimeout(fadeOut, HOLD);
+  }
+  function pause() {
+    paused = true;
+    clearTimer();
+  }
+  function resume() {
+    paused = false;
+    arm();
+  }
+  function tel(parent, num, label) {
+    var a = document.createElement("a");
+    a.href = "tel:" + num;
+    a.textContent = label || dig(num);
+    parent.appendChild(a);
+  }
+  function stayLine() {
+    var p = document.createElement("p");
+    p.className = "open-alert-s";
+    if (lang() === "en") {
+      p.appendChild(document.createTextNode("Stay away from the riverbank. In an emergency call "));
+      tel(p, "1234");
+      p.appendChild(document.createTextNode(" or police "));
+      tel(p, "100");
+      p.appendChild(document.createTextNode("."));
+    } else {
+      p.appendChild(document.createTextNode("नदी किनार नजानुहोस्। आपत्कालमा "));
+      tel(p, "1234", "१२३४");
+      p.appendChild(document.createTextNode(" वा प्रहरी "));
+      tel(p, "100", "१००");
+      p.appendChild(document.createTextNode(" मा फोन गर्नुहोस्।"));
+    }
+    return p;
+  }
+  function icon() {
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("width", "28");
+    svg.setAttribute("height", "28");
+    svg.setAttribute("aria-hidden", "true");
+    svg.classList.add("open-alert-ico");
+    svg.innerHTML = '<path d="M12 3.2 2.4 20.2h19.2L12 3.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9.2v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="16.8" r="1" fill="currentColor"/>';
+    return svg;
   }
   function render(pack) {
     if (!pack || !pack.id) return;
@@ -125,35 +203,66 @@
       sheet = document.createElement("aside");
       sheet.className = "open-alert";
       sheet.setAttribute("role", "status");
+      sheet.setAttribute("aria-live", "polite");
       document.body.appendChild(sheet);
+      sheet.addEventListener("pointerenter", pause);
+      sheet.addEventListener("pointerleave", resume);
+      sheet.addEventListener("focusin", pause);
+      sheet.addEventListener("focusout", function (e) {
+        if (sheet && e.relatedTarget && sheet.contains(e.relatedTarget)) return;
+        resume();
+      });
+      sheet.addEventListener("touchstart", pause, { passive: true });
+      sheet.addEventListener("touchend", resume, { passive: true });
+      sheet.addEventListener("touchcancel", resume, { passive: true });
     }
+    sheet.className = "open-alert is-" + pack.level;
     sheet.replaceChildren();
+    var band = document.createElement("div");
+    band.className = "open-alert-band";
+    band.appendChild(icon());
+    var h = document.createElement("p");
+    h.className = "open-alert-h";
+    h.textContent = pack.headline;
+    band.appendChild(h);
     var x = document.createElement("button");
     x.type = "button";
     x.className = "open-alert-x";
     x.setAttribute("aria-label", pack.close);
     x.textContent = "×";
     x.addEventListener("click", dismiss);
-    var kicker = document.createElement("p");
-    kicker.className = "open-alert-k";
-    if (pack.issued) kicker.textContent = pack.issued;
     var body = document.createElement("p");
     body.className = "open-alert-b";
     body.textContent = pack.expect;
-    var stay = document.createElement("p");
-    stay.className = "open-alert-s";
-    stay.textContent = pack.stay;
     var row = document.createElement("p");
     row.className = "open-alert-row";
     var a = document.createElement("a");
     a.href = "weather.html";
     a.textContent = pack.more;
     row.appendChild(a);
+    if (pack.issued) {
+      var kicker = document.createElement("p");
+      kicker.className = "open-alert-k";
+      kicker.textContent = pack.issued;
+      sheet.appendChild(kicker);
+    }
+    sheet.appendChild(band);
     sheet.appendChild(x);
-    if (pack.issued) sheet.appendChild(kicker);
     sheet.appendChild(body);
-    sheet.appendChild(stay);
+    sheet.appendChild(stayLine());
     sheet.appendChild(row);
+    paused = false;
+    if (reduceMotion()) {
+      sheet.classList.add("is-in");
+      return;
+    }
+    sheet.classList.remove("is-in");
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () {
+        if (sheet) sheet.classList.add("is-in");
+      });
+    });
+    arm();
   }
   function paint() {
     if (!data) return;
