@@ -9,7 +9,7 @@
   "use strict";
 
   var INTENTS = [
-    "weather_today", "weather_day", "weather_place", "weather_city", "weather_river", "weather_source",
+    "weather_today", "weather_day", "weather_place", "weather_city", "weather_river", "weather_source", "weather_top_rain",
     "roads", "roads_nh42", "roads_araniko", "roads_code", "roads_place",
     "map",
     "rescue_missing", "rescue_dead", "rescue_rescued", "rescue_overview", "rescue_source",
@@ -530,6 +530,16 @@
       if (sourceQ) spec.meta = "source";
       return finishSpec(spec);
     }
+    var heaviest = hit(q, [
+      "where did it rain the most", "where it rained the most", "rained the most", "rain the most",
+      "heaviest rain", "heaviest 24", "most rain", "highest rainfall", "highest rain", "most rainfall",
+      "sabai bhanda dherai pani", "sabai bhanda badi", "dherai pani paryo",
+      "कहाँ सबैभन्दा धेरै पानी", "सबैभन्दा धेरै पानी", "सबैभन्दा बढी वर्षा", "धेरै पानी पर"
+    ]);
+    if (heaviest) {
+      spec.intent = "weather_top_rain";
+      return finishSpec(spec);
+    }
     if (weather || district || province || spec.asoj != null || spec.dow || spec.dayOffset != null) {
       if (sourceQ && !district) {
         spec.intent = "weather_source";
@@ -810,10 +820,70 @@
     return lead;
   }
 
+  function rainNum(n) {
+    var x = Number(n);
+    if (!isFinite(x)) return "";
+    if (Math.abs(x - Math.round(x)) < 0.05) return String(Math.round(x));
+    return x.toFixed(1);
+  }
+  function nptClock(iso, lang) {
+    var date = new Date(iso);
+    if (!isFinite(date.getTime())) return "";
+    var fmt = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Kathmandu",
+      hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+    });
+    var map = {};
+    fmt.formatToParts(date).forEach(function (part) { map[part.type] = part.value; });
+    var hh = Number(map.hour);
+    var mm = Number(map.minute);
+    var h12 = hh % 12;
+    if (h12 === 0) h12 = 12;
+    var hm = h12 + ":" + (mm < 10 ? "0" : "") + mm;
+    if (lang === "en") return hm + (hh >= 12 ? " PM" : " AM");
+    var part = hh < 12 ? "बिहान" : hh < 17 ? "दिउँसो" : hh < 20 ? "साँझ" : "राति";
+    return part + " " + digits(hm, "ne");
+  }
+  function topRainSentence(row, lang) {
+    var station = lang === "en"
+      ? ((row.station && row.station.en) || "")
+      : ((row.station && (row.station.ne || row.station.en)) || "");
+    var dist = lang === "en"
+      ? ((row.district && row.district.en) || "")
+      : ((row.district && (row.district.ne || row.district.en)) || "");
+    var amount = digits(rainNum(row.rain24), lang);
+    var when = nptClock(row.obs_at, lang);
+    var tail = when ? " (" + when + ")" : "";
+    if (lang === "en") {
+      var where = station + (dist ? ", " + dist : "");
+      return "The heaviest 24-hour rain is " + amount + " mm at " + where + tail + ".";
+    }
+    var whereNe = station + (dist ? ", " + dist : "");
+    return "पछिल्लो २४ घण्टामा सबैभन्दा बढी वर्षा " + whereNe + "मा " + amount + " मि.मि. छ" + tail + "।";
+  }
+  function answerTopRain(ctx) {
+    var lang = ctx.lang === "en" ? "en" : "ne";
+    var href = "weather.html";
+    var rows = (((ctx.wxnow || {}).nepal_now || {}).top_rain) || [];
+    var row = null;
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i] && rows[i].source !== "model" && rows[i].rain24 != null) { row = rows[i]; break; }
+    }
+    var src = sourceLine(lang, "DHM / hydrology.gov.np gauges", "");
+    if (!row) {
+      var missing = lang === "en"
+        ? "A fresh 24-hour rainfall reading isn't available."
+        : "ताजा २४ घण्टे वर्षाको रिडिङ अहिले उपलब्ध छैन।";
+      return pack(lang, missing, src, href, { followups: FOLLOW.weather_today });
+    }
+    return pack(lang, topRainSentence(row, lang), src, href, { followups: FOLLOW.weather_today });
+  }
+
   function answerWeather(spec, ctx) {
     var lang = ctx.lang === "en" ? "en" : "ne";
     var wx = ctx.wx;
     var href = "weather.html";
+    if (spec.intent === "weather_top_rain") return answerTopRain(ctx);
     if (spec.intent === "weather_city") {
       var cityText = cityObsSentence(ctx.wxnow, spec.city || "kathmandu", lang);
       if (!cityText) {

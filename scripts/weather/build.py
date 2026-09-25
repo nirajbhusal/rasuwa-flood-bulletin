@@ -619,6 +619,118 @@ DISTRICT_ALIASES = {
 }
 
 
+_DEV_CONS = {
+    "k": "क", "g": "ग", "c": "क", "j": "ज", "t": "त", "d": "द",
+    "n": "न", "p": "प", "b": "ब", "m": "म", "y": "य", "r": "र",
+    "l": "ल", "v": "व", "w": "व", "s": "स", "h": "ह", "f": "फ",
+    "q": "क", "z": "ज",
+}
+_DEV_DIGRAPHS = (
+    ("ksh", "क्ष"), ("chh", "छ"), ("kh", "ख"), ("gh", "घ"), ("ng", "ङ"),
+    ("ch", "च"), ("jh", "झ"), ("ny", "ञ"), ("th", "थ"), ("dh", "ध"),
+    ("ph", "फ"), ("bh", "भ"), ("sh", "श"),
+)
+_DEV_VOWELS = (
+    ("aa", "आ", "ा"), ("ee", "ई", "ी"), ("ii", "ई", "ी"),
+    ("oo", "ऊ", "ू"), ("uu", "ऊ", "ू"), ("ai", "ऐ", "ै"), ("au", "औ", "ौ"),
+    ("a", "अ", ""), ("e", "ए", "े"), ("i", "इ", "ि"), ("o", "ओ", "ो"), ("u", "उ", "ु"),
+)
+
+
+def has_devanagari(text):
+    return any("\u0900" <= ch <= "\u097f" for ch in (text or ""))
+
+
+def tidy_label(text):
+    text = re.sub(r"\s+", " ", (text or "").strip())
+    text = re.sub(r"\s*\(\s*", " (", text)
+    text = re.sub(r"\s*\)\s*", ") ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def to_devanagari(text):
+    """Latin gauge names to Devanagari. Short a is schwa, so Archale is अर्चले."""
+    raw = tidy_label(text)
+    if not raw:
+        return ""
+    if has_devanagari(raw) and not re.search(r"[A-Za-z]", raw):
+        return raw
+    out = []
+    pending = None
+    i = 0
+    lower = raw.lower()
+    n = len(raw)
+
+    def flush(virama=False):
+        nonlocal pending
+        if pending is None:
+            return
+        out.append(pending + ("्" if virama else ""))
+        pending = None
+
+    while i < n:
+        ch = raw[i]
+        if not ("A" <= ch <= "Z" or "a" <= ch <= "z"):
+            flush(False)
+            out.append(ch)
+            i += 1
+            continue
+        matched = False
+        for token, indep, matra in _DEV_VOWELS:
+            if lower.startswith(token, i):
+                if token == "a" and pending is not None:
+                    nxt = i + len(token)
+                    if nxt >= n or not ("a" <= lower[nxt] <= "z"):
+                        out.append(pending + "ा")
+                    else:
+                        out.append(pending)
+                    pending = None
+                elif token == "i" and pending is not None:
+                    nxt = i + len(token)
+                    matra_use = "ी" if nxt >= n or not ("a" <= lower[nxt] <= "z") else matra
+                    out.append(pending + matra_use)
+                    pending = None
+                elif pending is not None:
+                    out.append(pending + matra)
+                    pending = None
+                else:
+                    out.append(indep)
+                i += len(token)
+                matched = True
+                break
+        if matched:
+            continue
+        for token, sign in _DEV_DIGRAPHS:
+            if lower.startswith(token, i):
+                flush(True)
+                pending = sign
+                i += len(token)
+                matched = True
+                break
+        if matched:
+            continue
+        sign = _DEV_CONS.get(lower[i])
+        if sign:
+            flush(True)
+            pending = sign
+            i += 1
+            continue
+        flush(False)
+        out.append(ch)
+        i += 1
+    flush(False)
+    return "".join(out)
+
+
+def station_label(en, ne):
+    en_t = tidy_label(en or "")
+    ne_t = tidy_label(ne or "")
+    if has_devanagari(ne_t):
+        return {"ne": ne_t, "en": en_t or ne_t}
+    base = en_t or ne_t
+    return {"ne": to_devanagari(base) or base, "en": base}
+
+
 def fold_key(label):
     return re.sub(r"[^a-z]", "", (label or "").lower())
 
@@ -871,6 +983,143 @@ def build_alert_catalog(alert, districts, points_by_id, cities, gauges, models_b
         base["level"] = alert_level(alert, district_id, district.get("province"), today, now)
         places.append(base)
     return catalog, places
+
+
+def district_pair(label, by_id, key_map):
+    raw = tidy_label(label)
+    did = resolve_district(raw, key_map) if raw else None
+    row = by_id.get(did) if did else None
+    if row:
+        return {"ne": row.get("ne") or "", "en": row.get("en") or raw}, row.get("province") or ""
+    if not raw:
+        return {"ne": "", "en": ""}, ""
+    return {"ne": to_devanagari(raw) or raw, "en": raw}, ""
+
+
+def dhm_rain_candidates(obs_packs, cities, points):
+    """DHM manual-observation stations. No model rows."""
+    by_obs = {}
+    for point in points or []:
+        oid = point.get("dhm_obs_id")
+        if oid is not None:
+            by_obs[oid] = point
+    rows = []
+    if obs_packs:
+        for sid, pack in obs_packs.items():
+            pub = obs_public(pack)
+            if not pub or pub.get("rain_24h_mm") is None:
+                continue
+            point = by_obs.get(sid) or {}
+            rows.append({
+                "id": sid,
+                "ne": point.get("ne") or "",
+                "en": point.get("en") or pack.get("name") or "",
+                "name": pack.get("name") or point.get("en") or "",
+                "district_id": DHM_CITY_DISTRICT.get(point.get("id")),
+                "rain24": pub.get("rain_24h_mm"),
+                "obs_at": pub.get("obs_at"),
+                "source": "dhm",
+            })
+        return rows
+    for city in cities or []:
+        obs = city.get("dhm_observed") or {}
+        if obs.get("rain_24h_mm") is None:
+            continue
+        if (obs.get("src") or city.get("source")) == "model":
+            continue
+        rows.append({
+            "id": city.get("id"),
+            "ne": city.get("ne") or "",
+            "en": city.get("en") or "",
+            "name": city.get("en") or "",
+            "district_id": DHM_CITY_DISTRICT.get(city.get("id")),
+            "rain24": obs.get("rain_24h_mm"),
+            "obs_at": obs.get("obs_at"),
+            "source": "dhm",
+        })
+    return rows
+
+
+def retained_gauges(prev):
+    block = (prev or {}).get("rain_stations") or {}
+    cols = block.get("cols") or []
+    out = []
+    for raw in block.get("rows") or []:
+        if not isinstance(raw, list):
+            continue
+        row = dict(zip(cols, raw))
+        name = tidy_label(row.get("name") or "")
+        row["name"] = name
+        row["ne"] = name
+        row["en"] = name
+        row["source"] = "hydrology"
+        out.append(row)
+    return out
+
+
+def top_rain(gauges, dhm_rows, districts, now, limit=3):
+    """Top fresh 24 h totals from DHM and hydrology gauges. Never ECMWF."""
+    key_map = district_key_map(districts)
+    by_id = {row.get("id"): row for row in districts or []}
+    found = []
+
+    def add(source, ident, en, ne, district_label, district_id, rain24, obs_at):
+        if source == "model" or rain24 is None or not obs_at or not age_ok(obs_at, now):
+            return
+        if district_id and district_id in by_id:
+            drow = by_id[district_id]
+            district = {"ne": drow.get("ne") or "", "en": drow.get("en") or ""}
+            province = drow.get("province") or ""
+        else:
+            district, province = district_pair(district_label, by_id, key_map)
+        found.append({
+            "_id": ident,
+            "station": station_label(en, ne),
+            "district": district,
+            "province": province or "",
+            "rain24": r1(rain24),
+            "obs_at": obs_at,
+            "source": source,
+        })
+
+    for gauge in gauges or []:
+        add(
+            "hydrology" if (gauge.get("source") or gauge.get("src")) != "model" else "model",
+            gauge.get("id"),
+            gauge.get("en") or gauge.get("name"),
+            gauge.get("ne"),
+            gauge.get("district"),
+            None,
+            gauge.get("r24") if gauge.get("r24") is not None else gauge.get("rain24"),
+            gauge.get("obs_at"),
+        )
+    for row in dhm_rows or []:
+        add(
+            "dhm" if (row.get("source") or row.get("src")) != "model" else "model",
+            row.get("id"),
+            row.get("en") or row.get("name"),
+            row.get("ne"),
+            row.get("district") or "",
+            row.get("district_id"),
+            row.get("rain24") if row.get("rain24") is not None else row.get("rain_24h_mm"),
+            row.get("obs_at"),
+        )
+    found.sort(
+        key=lambda row: (float(row["rain24"]), row.get("obs_at") or "", (row["station"]["en"] or "").lower()),
+        reverse=True,
+    )
+    seen = set()
+    out = []
+    for row in found:
+        key = (row["source"], row.get("_id"), (row["station"]["en"] or "").lower())
+        if key in seen:
+            continue
+        seen.add(key)
+        row.pop("_id", None)
+        out.append(row)
+        if len(out) >= limit:
+            break
+    return out
 
 
 def build_outlook(icon_doc):
@@ -1285,10 +1534,15 @@ def merge_obs_doc(obs_packs, doc):
     key = "morning" if is_morning_obs(doc.get("issue_date")) else "evening"
     for station in doc.get("stations") or []:
         slot = obs_packs.setdefault(station.get("id"), {})
+        name = tidy_label(station.get("name") or "")
         existing = slot.get(key)
         if existing and not obs_is_newer(issued, existing.get("obs_at")):
+            if name and not slot.get("name"):
+                slot["name"] = name
             continue
         slot[key] = station_obs(station, issued)
+        if name:
+            slot["name"] = name
 
 
 def obs_public(pack):
@@ -1785,9 +2039,12 @@ def main():
     catalog, alert_places = build_alert_catalog(
         alert, districts, points_by_id, cities, gauge_rows, models_by_point, today, now,
     )
+    rain_for_top = rains if rain_ok else retained_gauges(prev)
+    dhm_for_top = dhm_rain_candidates(obs_packs if obs_ok else None, cities, points)
     nepal_now = {
         "date": today,
         "cap": ALERT_CAP,
+        "top_rain": top_rain(rain_for_top, dhm_for_top, districts, now),
         "alert_places": alert_places,
         "catalog": catalog,
         "cities": city_cards,

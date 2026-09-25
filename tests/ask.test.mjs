@@ -172,6 +172,39 @@ test("DAO notice districts match the district GeoJSON", function () {
   assert.equal(roads.roads.length >= 10, true);
 });
 
+test("heaviest rain answers from top_rain", function () {
+  const row = {
+    station: { ne: "अर्चले", en: "Archale" },
+    district: { ne: "पाल्पा", en: "Palpa" },
+    province: "lumbini",
+    rain24: 222,
+    obs_at: "2026-09-25T13:25:00+05:45",
+    source: "hydrology"
+  };
+  const base = {
+    now: "2026-09-25",
+    wx: wx,
+    wxnow: { nepal_now: { top_rain: [row, { source: "model", rain24: 900, station: { en: "ModelHill", ne: "ModelHill" }, district: { en: "Palpa", ne: "पाल्पा" } }] } }
+  };
+  const en = Ask.answer("where did it rain the most", Object.assign({ lang: "en", t: tFor("en") }, base));
+  assert.equal(en.intent, "weather_top_rain");
+  assert.match(en.text, /Archale, Palpa/);
+  assert.match(en.text, /222 mm/);
+  assert.match(en.text, /1:25 PM/);
+  assert.equal(/ECMWF|ModelHill|model/i.test(en.text), false);
+  assert.ok(en.text.length <= 400);
+  const ne = Ask.answer("कहाँ सबैभन्दा धेरै पानी पर्‍यो?", Object.assign({ lang: "ne", t: tFor("ne") }, base));
+  assert.equal(ne.intent, "weather_top_rain");
+  assert.ok(ne.text.includes("अर्चले"), ne.text);
+  assert.ok(ne.text.includes("पाल्पा"), ne.text);
+  assert.ok(ne.text.includes("२२२"), ne.text);
+  assert.ok(ne.text.includes("दिउँसो"), ne.text);
+  const live = wxnow.nepal_now.top_rain;
+  assert.ok(Array.isArray(live) && live.length >= 1 && live.length <= 3);
+  assert.equal(live[0].source === "model", false);
+  assert.equal(typeof live[0].rain24, "number");
+});
+
 test("follow-ups stay on the same subject", function () {
   const wxAns = ask("आजको मौसम के छ?", "ne");
   assert.ok(wxAns.followups.some(function (f) { return /भोलि/.test(f.ne); }));
