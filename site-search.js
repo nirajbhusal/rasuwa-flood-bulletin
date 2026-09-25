@@ -154,15 +154,56 @@
     document.body.appendChild(list);
     return list;
   }
+  var ignoreScrollUntil = 0;
+  function armScrollIgnore(ms) {
+    var until = Date.now() + (ms || 480);
+    if (until > ignoreScrollUntil) ignoreScrollUntil = until;
+  }
+  function viewportBox() {
+    var vv = window.visualViewport;
+    if (!vv) return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+    return { top: vv.offsetTop, left: vv.offsetLeft, width: vv.width, height: vv.height };
+  }
+  function pinHeader(on) {
+    var head = document.querySelector(".head-stick");
+    if (!head) return;
+    if (!on) {
+      head.style.transform = "";
+      head.classList.remove("search-pinned");
+      return;
+    }
+    head.classList.add("search-pinned");
+    var y = viewportBox().top;
+    head.style.transform = y ? "translateY(" + Math.round(y) + "px)" : "";
+  }
   function place() {
     if (!list || list.hidden) return;
+    var vv = viewportBox();
     var r = input.getBoundingClientRect();
     var gap = 6;
-    list.style.left = Math.max(8, r.left) + "px";
-    list.style.width = Math.min(r.width, window.innerWidth - 16) + "px";
-    list.style.top = Math.round(r.bottom + gap) + "px";
-    var room = window.innerHeight - r.bottom - gap - 12;
-    list.style.maxHeight = Math.max(160, Math.min(room, 360)) + "px";
+    var width = Math.min(r.width, Math.max(120, vv.width - 16));
+    var left = r.left;
+    if (left < vv.left + 8) left = vv.left + 8;
+    if (left + width > vv.left + vv.width - 8) left = Math.max(vv.left + 8, vv.left + vv.width - 8 - width);
+    list.style.left = Math.round(left) + "px";
+    list.style.width = Math.round(width) + "px";
+    var bottomLimit = vv.top + vv.height - 8;
+    var fab = document.querySelector(".ask-fab");
+    if (fab) {
+      var fr = fab.getBoundingClientRect();
+      if (fr.width > 0 && fr.height > 0 && fr.top < bottomLimit) bottomLimit = fr.top - 8;
+    }
+    var sheet = document.querySelector(".open-alert");
+    if (sheet && !sheet.hidden) {
+      var sr = sheet.getBoundingClientRect();
+      if (sr.width > 0 && sr.height > 0 && sr.top < bottomLimit) bottomLimit = Math.min(bottomLimit, sr.top - 8);
+    }
+    var below = bottomLimit - r.bottom - gap;
+    var above = r.top - vv.top - gap - 8;
+    var flip = below < 120 && above > below;
+    var room = Math.max(96, Math.min(flip ? above : below, 360));
+    list.style.maxHeight = Math.round(room) + "px";
+    list.style.top = Math.round(flip ? r.top - gap - room : r.bottom + gap) + "px";
   }
   function namesLabel() {
     return en() ? "Search names" : "नाम खोज्नुहोस्";
@@ -199,6 +240,7 @@
       b.appendChild(k);
       b.appendChild(t);
       b.addEventListener("pointerdown", function (e) { e.preventDefault(); });
+      b.addEventListener("mousedown", function (e) { e.preventDefault(); });
       b.addEventListener("click", function () { go(row); });
       list.appendChild(b);
     });
@@ -208,6 +250,7 @@
       names.className = "site-result site-result-names";
       names.textContent = namesLabel();
       names.addEventListener("pointerdown", function (e) { e.preventDefault(); });
+      names.addEventListener("mousedown", function (e) { e.preventDefault(); });
       names.addEventListener("click", openNames);
       list.appendChild(names);
     }
@@ -298,15 +341,38 @@
       if (!a || form.contains(a) || (list && list.contains(a))) return;
       close();
     });
-    window.addEventListener("resize", place);
+    window.addEventListener("resize", function () {
+      armScrollIgnore(480);
+      pinHeader(document.activeElement === input);
+      place();
+    });
     window.addEventListener("scroll", function (e) {
       if (!open) return;
       var t = e.target;
-      if (list && (t === list || (t && list.contains && list.contains(t)))) return;
+      if (list && (t === list || (t && t.nodeType === 1 && list.contains(t)))) return;
+      if (Date.now() < ignoreScrollUntil) {
+        place();
+        return;
+      }
       close();
     }, true);
     window.addEventListener("hashchange", function () { if (open) close(); });
-    if (window.visualViewport) window.visualViewport.addEventListener("resize", place);
+    if (window.visualViewport) {
+      var lastVvH = window.visualViewport.height;
+      var onVvResize = function () {
+        var h = window.visualViewport.height;
+        if (Math.abs(h - lastVvH) > 30) armScrollIgnore(700);
+        lastVvH = h;
+        pinHeader(document.activeElement === input);
+        place();
+      };
+      var onVvScroll = function () {
+        pinHeader(document.activeElement === input);
+        place();
+      };
+      window.visualViewport.addEventListener("resize", onVvResize);
+      window.visualViewport.addEventListener("scroll", onVvScroll);
+    }
   }
 
   form.addEventListener("submit", function (e) {
@@ -336,6 +402,7 @@
     clear.hidden = true;
     clear.textContent = "×";
     clear.addEventListener("pointerdown", function (e) { e.preventDefault(); });
+    clear.addEventListener("mousedown", function (e) { e.preventDefault(); });
     clear.addEventListener("click", function (e) {
       e.preventDefault();
       input.value = "";
@@ -347,6 +414,8 @@
   }
   input.addEventListener("focus", function () {
     window.clearTimeout(blurTimer);
+    armScrollIgnore(520);
+    pinHeader(true);
     seed();
     enrich();
     bindOutside();
@@ -354,7 +423,10 @@
   });
   input.addEventListener("blur", function () {
     window.clearTimeout(blurTimer);
-    blurTimer = window.setTimeout(close, 160);
+    blurTimer = window.setTimeout(function () {
+      pinHeader(false);
+      close();
+    }, 160);
   });
   input.addEventListener("input", function () {
     seed();

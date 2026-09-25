@@ -7,7 +7,6 @@
   var root = document.documentElement;
   var body = document.body;
   var inner = document.getElementById("nav-chips") || nav.querySelector(".chips-inner");
-  var actions = document.querySelector(".top-actions");
   var mq = window.matchMedia("(max-width:760px)");
   var backdrop = document.querySelector(".nav-backdrop");
   var lastFocus = null;
@@ -33,16 +32,30 @@
 
   function placeToggle() {
     btn.classList.remove("is-floating");
-    if (actions) actions.appendChild(btn);
+    var find = document.querySelector(".top-find");
+    var form = find && find.querySelector("form.top-search");
+    if (find && form && btn.parentNode !== find) find.insertBefore(btn, form);
+    else if (find && btn.parentNode !== find) find.insertBefore(btn, find.firstChild);
   }
 
-  function floatToggle(on) {
-    if (on && isMobile()) {
-      btn.classList.add("is-floating");
-      body.appendChild(btn);
+  function floatToggle() {
+    placeToggle();
+  }
+
+  function placePanel() {
+    if (!inner) return;
+    if (isMobile() || !nav.classList.contains("is-open")) {
+      inner.style.left = "";
+      inner.style.right = "";
+      inner.style.top = "";
       return;
     }
-    placeToggle();
+    var r = btn.getBoundingClientRect();
+    var host = nav.getBoundingClientRect();
+    var left = Math.max(8, Math.round(r.left - host.left));
+    inner.style.left = left + "px";
+    inner.style.right = "auto";
+    inner.style.top = "8px";
   }
 
   function ensureDrawerHead() {
@@ -202,6 +215,9 @@
     ensureDrawerHead();
     groupLinks();
     inner.classList.add("nav-drawer-panel");
+    inner.style.left = "";
+    inner.style.right = "";
+    inner.style.top = "";
     body.appendChild(inner);
   }
   function portalIn() {
@@ -249,6 +265,7 @@
         portalIn();
         body.style.overflow = "";
         floatToggle(false);
+        placePanel();
       }
       var first = inner && inner.querySelector("a[href]");
       focusEl(first || btn);
@@ -350,13 +367,17 @@
         body.classList.remove("nav-drawer-open");
         body.style.overflow = "";
         floatToggle(false);
+        placePanel();
       }
     } else placeToggle();
     syncStick();
   }
   if (typeof mq.addEventListener === "function") mq.addEventListener("change", onViewportChange);
   else if (typeof mq.addListener === "function") mq.addListener(onViewportChange);
-  window.addEventListener("resize", syncStick);
+  window.addEventListener("resize", function () {
+    syncStick();
+    placePanel();
+  });
 
   placeToggle();
   groupLinks();
