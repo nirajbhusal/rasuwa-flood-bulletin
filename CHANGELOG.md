@@ -1,3 +1,9 @@
+## 2026-09-25-ask-answers · Ask replies in its own words
+
+- Ask no longer pastes page sections. A question in Nepali, English, or Romanized Nepali maps to an intent (weather today or a named day or district, NH42 / Pasang Lhamu and Araniko, missing / rescued / dead, relief totals and how to give, helplines, name search, LPG, the flood’s cause, gallery, about). The reply is one to three sentences filled from the live JSON, then a source line and a details link.
+- If the file has no figure, the sentence says so. An unknown question gets a short “I don’t have that yet” and three suggestions. Follow-up chips stay on the same subject.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-25-ask-answers`
+
 ## 2026-09-25-wx-visual · Homepage weather is a live view
 
 - The homepage weather card is a short visualization: the date-based province map, day chips, a colour-count strip for the selected day, compact district chips (Sindhupalchok high, Baglung medium, Myagdi medium) with their window, the Bhotekoshi corridor chip, and a one-line rain-now figure. A **पूर्ण विवरण** / Full details link opens `notices.html#alert`. The card has no photos, map thumbnails, or QR image.

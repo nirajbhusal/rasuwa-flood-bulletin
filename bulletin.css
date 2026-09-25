@@ -8586,3 +8586,63 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   .gpath-map{height:240px}
   .gpath-step{font-size:12.5px;padding:8px 10px}
 }
+
+/* Ask replies are a short sentence, not a pasted page section. */
+.ask-log .ask-card.ask-bubble{
+  align-self:flex-start;
+  width:auto;
+  max-width:min(92%, 34rem);
+  margin:0;
+  padding:10px 12px 8px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-left:1px solid var(--line);
+  border-radius:4px 16px 16px 16px;
+  box-shadow:0 1px 0 rgba(15,23,42,.04);
+}
+.ask-answer{
+  margin:0;
+  font-size:var(--fs-body, 15px);
+  font-weight:650;
+  line-height:1.5;
+  color:var(--ink);
+}
+.ask-bubble .ask-src{
+  margin:6px 0 0;
+  flex:none;
+  font-size:12px;
+  font-weight:700;
+  color:var(--muted);
+  line-height:1.35;
+}
+.ask-more{
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px 14px;
+  margin:6px 0 0;
+}
+.ask-bubble .ask-go,
+.ask-bubble .ask-details,
+.ask-bubble .ask-also{
+  display:inline;
+  min-height:0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:#0f766e;
+  font:inherit;
+  font-size:13px;
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:2px;
+  cursor:pointer;
+}
+.ask-bubble .ask-go:hover,
+.ask-bubble .ask-details:hover,
+.ask-bubble .ask-also:hover{
+  color:#0f766e;
+  filter:none;
+  background:transparent;
+  text-decoration:underline;
+}
