@@ -8,6 +8,18 @@
     window.addEventListener("scroll", syncArt, { passive: true });
     syncArt();
   }
+  var homeBtn = document.querySelector(".head-home");
+  if (homeBtn) {
+    var path = location.pathname || "";
+    var onHome = /\/$/.test(path) || /\/index\.html$/.test(path);
+    if (onHome) {
+      homeBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      });
+    }
+  }
   var nav = document.querySelector("nav.chips");
   var btn = document.getElementById("nav-toggle");
   if (!nav || !btn) return;

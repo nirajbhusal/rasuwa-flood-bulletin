@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-maps-live";
+  var VER = window.PAGE_VER || "2026-09-25-header-web";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
