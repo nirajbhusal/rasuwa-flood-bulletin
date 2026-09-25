@@ -556,6 +556,323 @@ def warning_level(alert, date, province):
     return None
 
 
+LEVEL_RANK = {"red": 4, "orange": 3, "yellow": 2, "green": 1}
+FEW_REDS = 8
+ALERT_CAP = 12
+CORRIDOR_PAGE = 12307
+CORRIDOR_ORDER = ["rasuwa", "nuwakot", "dhading", "gorkha", "chitwan"]
+# Representative place. Coordinates come only from points.json via "point".
+PLACE_OVERRIDES = {
+    "rasuwa": {"ne": "धुन्चे", "en": "Dhunche", "point": "dhunche"},
+    "nuwakot": {"ne": "विदुर", "en": "Bidur", "point": "bidur"},
+    "sindhupalchok": {"ne": "चौतारा", "en": "Chautara", "point": "chautara"},
+    "baglung": {"ne": "बागलुङ बजार", "en": "Baglung Bazar"},
+    "myagdi": {"ne": "बेनी", "en": "Beni"},
+    "dhading": {"ne": "धादिङबेसी", "en": "Dhading Besi"},
+    "gorkha": {"ne": "गोरखा", "en": "Gorkha"},
+    "chitwan": {"ne": "भरतपुर", "en": "Bharatpur"},
+}
+DHM_CITY_DISTRICT = {
+    "kathmandu": "kathmandu",
+    "biratnagar": "morang",
+    "janakpur": "dhanusha",
+    "hetauda": "makwanpur",
+    "pokhara": "kaski",
+    "ghorahi": "dang",
+    "birendranagar": "surkhet",
+    "dhangadhi": "kailali",
+    "bhairahawa": "rupandehi",
+    "nepalgunj": "banke",
+    "simara": "bara",
+    "dharan": "sunsari",
+    "jumla": "jumla",
+    "jomsom": "mustang",
+    "dadeldhura": "dadeldhura",
+    "dipayal": "doti",
+    "okhaldhunga": "okhaldhunga",
+    "dhankuta": "dhankuta",
+    "jiri": "dolakha",
+    "taplejung": "taplejung",
+}
+DISTRICT_ALIASES = {
+    "sindhupalchowk": "sindhupalchok",
+    "kavre": "kavrepalanchok",
+    "kavrepalanchowk": "kavrepalanchok",
+    "kabhrepalanchok": "kavrepalanchok",
+    "dhanusa": "dhanusha",
+    "chitawan": "chitwan",
+    "makawanpur": "makwanpur",
+    "tanahun": "tanahu",
+    "kapilvastu": "kapilbastu",
+    "argakhanchi": "arghakhanchi",
+    "arghakhachi": "arghakhanchi",
+    "terathum": "terhathum",
+    "tehrathum": "terhathum",
+    "easternrukum": "rukum-east",
+    "westernrukum": "rukum-west",
+    "rukkumeast": "rukum-east",
+    "rukumwest": "rukum-west",
+    "nawalparasieast": "nawalparasi-east",
+    "nawalparasiwest": "nawalparasi-west",
+    "nawalpur": "nawalparasi-east",
+    "parasi": "nawalparasi-west",
+}
+
+
+def fold_key(label):
+    return re.sub(r"[^a-z]", "", (label or "").lower())
+
+
+def district_key_map(districts):
+    out = {}
+    for row in districts or []:
+        out[fold_key(row.get("id"))] = row.get("id")
+        out[fold_key(row.get("en"))] = row.get("id")
+    out.update(DISTRICT_ALIASES)
+    # Bare names that cover two districts must not pick a side.
+    out.pop("nawalparasi", None)
+    out.pop("rukum", None)
+    return out
+
+
+def window_open(end_iso, now):
+    end = parse_dt(end_iso)
+    if end is None or now is None:
+        return False
+    if end.tzinfo is None:
+        end = end.replace(tzinfo=NPT)
+    if getattr(now, "tzinfo", None) is None:
+        now = now.replace(tzinfo=UTC)
+    return end > now
+
+
+def callout_page_id(call):
+    try:
+        return int((call or {}).get("page_id"))
+    except (TypeError, ValueError):
+        return None
+
+
+def provinces_at(alert, date, level):
+    for day in (alert or {}).get("warning_days") or []:
+        if day.get("date") != date:
+            continue
+        found = []
+        for pid, cell in (day.get("provinces") or {}).items():
+            if (cell or {}).get("level") == level:
+                found.append(pid)
+        return found
+    return []
+
+
+def select_alert_districts(alert, districts, date, now):
+    """Red-province districts, plus impact and #12307 districts while their window is open.
+
+    Orange-province districts are added only when fewer than FEW_REDS districts are red.
+    Rasuwa stays first while bulletin 12307 is active.
+    """
+    by_id = {row.get("id"): row for row in districts or [] if row.get("id")}
+    red_ids = [row["id"] for row in districts or [] if row.get("province") in provinces_at(alert, date, "red")]
+    red_ids.sort(key=lambda i: (by_id[i].get("en") or i))
+    orange_ids = []
+    if len(red_ids) < FEW_REDS:
+        orange_ids = [
+            row["id"] for row in districts or []
+            if row.get("province") in provinces_at(alert, date, "orange") and row.get("id") not in red_ids
+        ]
+        orange_ids.sort(key=lambda i: (by_id[i].get("en") or i))
+    call = (alert or {}).get("callout") or {}
+    call_open = window_open(call.get("window_end"), now)
+    pins = list(CORRIDOR_ORDER) if call_open and callout_page_id(call) == CORRIDOR_PAGE else []
+    extra_call = [row.get("id") for row in (call.get("districts") or []) if call_open and row.get("id")]
+    warns = []
+    for row in (alert or {}).get("district_warnings") or []:
+        if window_open(row.get("window_end"), now) and row.get("id"):
+            warns.append(row["id"])
+    ordered = []
+    seen = set()
+
+    def add(district_id):
+        if not district_id or district_id in seen or district_id not in by_id:
+            return
+        seen.add(district_id)
+        ordered.append(district_id)
+
+    for district_id in pins + warns + extra_call + red_ids + orange_ids:
+        add(district_id)
+    return ordered
+
+
+def alert_level(alert, district_id, province, date, now):
+    found = []
+    day_level = warning_level(alert, date, province)
+    if day_level in LEVEL_RANK:
+        found.append(day_level)
+    for row in (alert or {}).get("district_warnings") or []:
+        if row.get("id") == district_id and window_open(row.get("window_end"), now) and row.get("level") in LEVEL_RANK:
+            found.append(row["level"])
+    call = (alert or {}).get("callout") or {}
+    call_ids = [row.get("id") for row in (call.get("districts") or [])]
+    if district_id in call_ids and window_open(call.get("window_end"), now) and call.get("level") in LEVEL_RANK:
+        found.append(call["level"])
+    if not found:
+        return None
+    return max(found, key=lambda level: LEVEL_RANK[level])
+
+
+def place_for(district, points_by_id, cities):
+    override = PLACE_OVERRIDES.get(district.get("id"))
+    if override:
+        point = points_by_id.get(override.get("point")) or {}
+        return {
+            "ne": override["ne"],
+            "en": override["en"],
+            "lat": point.get("lat"),
+            "lon": point.get("lon"),
+            "point_id": override.get("point"),
+        }
+    for city in cities or []:
+        if DHM_CITY_DISTRICT.get(city.get("id")) != district.get("id"):
+            continue
+        point = points_by_id.get(city.get("id")) or {}
+        return {
+            "ne": city.get("ne") or point.get("ne") or district.get("ne"),
+            "en": city.get("en") or point.get("en") or district.get("en"),
+            "lat": city.get("lat") if city.get("lat") is not None else point.get("lat"),
+            "lon": city.get("lon") if city.get("lon") is not None else point.get("lon"),
+            "point_id": city.get("id"),
+        }
+    return {
+        "ne": district.get("ne"),
+        "en": district.get("en"),
+        "lat": None,
+        "lon": None,
+        "point_id": None,
+    }
+
+
+def resolve_district(label, key_map):
+    key = fold_key(label)
+    if key in key_map:
+        return key_map[key]
+    # DHM labels the split Nawalparasi districts with the old name plus the new one.
+    if "bardaghat" in key and "susta" in key and "east" in key:
+        return "nawalparasi-east"
+    if "bardaghat" in key and "susta" in key and "west" in key:
+        return "nawalparasi-west"
+    return None
+
+
+def pick_gauge(district_id, gauges, key_map, lat, lon):
+    matched = []
+    for gauge in gauges or []:
+        if resolve_district(gauge.get("district"), key_map) != district_id:
+            continue
+        if gauge.get("r24") is None:
+            continue
+        matched.append(gauge)
+    fresh = [row for row in matched if row.get("fresh")]
+    if fresh:
+        if lat is not None and lon is not None:
+            fresh.sort(key=lambda row: (
+                hav_km(lat, lon, row["lat"], row["lon"]) if row.get("lat") is not None and row.get("lon") is not None else 1e9,
+                row.get("id") or 0,
+            ))
+        else:
+            fresh.sort(key=lambda row: row.get("obs_at") or "", reverse=True)
+        return fresh[0], False
+    if not matched:
+        return None, False
+    matched.sort(key=lambda row: row.get("obs_at") or "", reverse=True)
+    return matched[0], True
+
+
+def _obs_pack(rain24, max_c, min_c, temp_c, obs_at, stale, trace=False, station=None):
+    pack = {
+        "rain24": rain24,
+        "max": max_c,
+        "min": min_c,
+        "t": temp_c,
+        "obs_at": obs_at,
+        "stale": bool(stale),
+        "trace": bool(trace),
+    }
+    if station:
+        pack["station"] = station
+    return pack
+
+
+def choose_obs(district_id, place, cities, gauges, key_map, models_by_point, today):
+    """DHM, then a fresh gauge in the district, then a labeled ECMWF gap-fill, then a stale reading."""
+    dhm_stale = None
+    dhm_verify = None
+    for city in cities or []:
+        if DHM_CITY_DISTRICT.get(city.get("id")) != district_id:
+            continue
+        obs = city.get("dhm_observed") or {}
+        has = obs.get("rain_24h_mm") is not None or obs.get("max_c") is not None or obs.get("min_c") is not None
+        if not has:
+            continue
+        pack = _obs_pack(
+            obs.get("rain_24h_mm"), obs.get("max_c"), obs.get("min_c"), None,
+            obs.get("obs_at"), not (obs.get("obs_at") and str(obs.get("obs_at"))[:10] == today),
+            trace=obs.get("trace"),
+        )
+        verify = (city.get("verify") or {}).get("state")
+        if not pack["stale"]:
+            return "dhm", pack, verify
+        dhm_stale = pack
+        dhm_verify = verify
+        break
+    gauge, gauge_stale = pick_gauge(district_id, gauges, key_map, place.get("lat"), place.get("lon"))
+    if gauge and not gauge_stale:
+        station = {"ne": gauge.get("ne") or gauge.get("name") or "", "en": gauge.get("en") or gauge.get("name") or ""}
+        return "hydrology", _obs_pack(gauge.get("r24"), None, None, None, gauge.get("obs_at"), False, station=station), None
+    model = models_by_point.get(place.get("point_id")) or {}
+    now_m = model.get("model_now") or {}
+    rain = model.get("model_24h_past_mm")
+    temp = now_m.get("t")
+    if rain is not None or temp is not None:
+        return "model", _obs_pack(rain, None, None, temp, now_m.get("at"), False), None
+    if dhm_stale:
+        return "dhm", dhm_stale, dhm_verify
+    if gauge and gauge_stale:
+        station = {"ne": gauge.get("ne") or gauge.get("name") or "", "en": gauge.get("en") or gauge.get("name") or ""}
+        return "hydrology", _obs_pack(gauge.get("r24"), None, None, None, gauge.get("obs_at"), True, station=station), None
+    return None, None, None
+
+
+def build_alert_catalog(alert, districts, points_by_id, cities, gauges, models_by_point, today, now):
+    key_map = district_key_map(districts)
+    by_id = {row.get("id"): row for row in districts or []}
+    catalog = []
+    for district in districts or []:
+        place = place_for(district, points_by_id, cities)
+        source, obs, verify = choose_obs(
+            district.get("id"), place, cities, gauges, key_map, models_by_point, today,
+        )
+        catalog.append({
+            "district": district.get("id"),
+            "ne": district.get("ne"),
+            "en": district.get("en"),
+            "province": district.get("province"),
+            "place": {"ne": place.get("ne"), "en": place.get("en")},
+            "source": source,
+            "obs": obs,
+            "obs_at": (obs or {}).get("obs_at"),
+            "verify": verify,
+        })
+    selected = select_alert_districts(alert, districts, today, now)
+    by_cat = {row["district"]: row for row in catalog}
+    places = []
+    for district_id in selected:
+        base = dict(by_cat.get(district_id) or {})
+        district = by_id.get(district_id) or {}
+        base["level"] = alert_level(alert, district_id, district.get("province"), today, now)
+        places.append(base)
+    return catalog, places
+
+
 def build_outlook(icon_doc):
     if not isinstance(icon_doc, dict):
         return None
@@ -1417,7 +1734,7 @@ def main():
         if rid == 390 and not row.get("fresh"):
             continue
         home_rain.append(row)
-    nepal_now = []
+    city_cards = []
     by_city = {row.get("id"): row for row in cities}
     for cid in HOME_CITIES:
         city = by_city.get(cid)
@@ -1431,7 +1748,7 @@ def main():
                 break
         obs = city.get("dhm_observed") or {}
         model_now = city.get("model_now") or {}
-        nepal_now.append({
+        city_cards.append({
             "id": cid,
             "ne": city.get("ne"),
             "en": city.get("en"),
@@ -1454,6 +1771,27 @@ def main():
             "model_now": {"t": model_now.get("t")} if model_now.get("t") is not None else None,
             "verify": (city.get("verify") or {}).get("state"),
         })
+    districts = (load_json(os.path.join(ROOT, "data", "nepal-districts-svg.json")) or {}).get("districts") or []
+    points_by_id = {row.get("id"): row for row in points}
+    models_by_point = {}
+    for row in list(cities) + list(corridor_points):
+        if row.get("id"):
+            models_by_point[row["id"]] = row
+    gauge_rows = rains if rain_ok else []
+    if not gauge_rows:
+        prev_rain = prev.get("rain_stations") or {}
+        cols = prev_rain.get("cols") or []
+        gauge_rows = [dict(zip(cols, row)) for row in (prev_rain.get("rows") or []) if isinstance(row, list)]
+    catalog, alert_places = build_alert_catalog(
+        alert, districts, points_by_id, cities, gauge_rows, models_by_point, today, now,
+    )
+    nepal_now = {
+        "date": today,
+        "cap": ALERT_CAP,
+        "alert_places": alert_places,
+        "catalog": catalog,
+        "cities": city_cards,
+    }
     bulletin = None
     for row in bulletins or []:
         if row.get("corridor"):

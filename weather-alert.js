@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-lang-toggle";
+  var VER = window.PAGE_VER || "2026-09-25-nepal-now-alert";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -681,6 +681,11 @@
     window.setTimeout(function () {
       document.querySelectorAll(".wxb-svg.is-shifting").forEach(function (n) { n.classList.remove("is-shifting"); });
     }, 520);
+    document.querySelectorAll("[data-wx-mount]").forEach(function (root) {
+      try {
+        root.dispatchEvent(new CustomEvent("wx-rendered", { bubbles: true, detail: { date: dayMode, alert: data } }));
+      } catch (err) {}
+    });
   }
 
   function buildZoom(svg) {
@@ -1343,7 +1348,7 @@
     paintPressed();
     if (selected) paintPop(root, selected);
     try {
-      root.dispatchEvent(new CustomEvent("wx-rendered", { bubbles: true }));
+      root.dispatchEvent(new CustomEvent("wx-rendered", { bubbles: true, detail: { date: dayMode, alert: data } }));
     } catch (err) {}
   }
 

@@ -1,12 +1,12 @@
-/* रसुवा बाढी · सूचना · SW_VER 2026-09-25-lang-toggle */
+/* रसुवा बाढी · सूचना · SW_VER 2026-09-25-nepal-now-alert */
 const SCOPE = self.registration.scope;
 const LATEST = new URL('latest.json', SCOPE).href;
 const ICON = new URL('icon-192.png', SCOPE).href;
 const SEEN_CACHE = 'rasuwa-seen-v2';
 const MUTE_CACHE = 'rasuwa-mute-v1';
-const STATIC_CACHE = 'rasuwa-static-2026-09-25-lang-toggle';
-const SW_VER = '2026-09-25-lang-toggle';
-const PAGE_VER = '2026-09-25-lang-toggle';
+const STATIC_CACHE = 'rasuwa-static-2026-09-25-nepal-now-alert';
+const SW_VER = '2026-09-25-nepal-now-alert';
+const PAGE_VER = '2026-09-25-nepal-now-alert';
 
 const STATIC_EXT = /\.(?:css|woff2|png|jpg|jpeg|webp|svg|ico|webmanifest)$/i;
 const STATIC_PATH = /\/(?:fonts\.css|bulletin\.css|fonts\/|img\/pay\/)/i;

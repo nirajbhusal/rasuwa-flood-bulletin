@@ -697,10 +697,63 @@
     return true;
   }
 
+  function cityList(now) {
+    var block = now && now.nepal_now;
+    if (!block) return [];
+    if (Array.isArray(block)) return block;
+    return block.cities || [];
+  }
   function cityRow(now, id) {
-    var list = (now && now.nepal_now) || [];
+    var list = cityList(now);
     for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
     return null;
+  }
+  function weatherNowApi() {
+    var scope = typeof globalThis !== "undefined" ? globalThis : null;
+    if (scope && scope.WeatherNow) return scope.WeatherNow;
+    if (typeof require === "function") {
+      try { return require("./weather-now.js"); } catch (err) { return null; }
+    }
+    return null;
+  }
+  function alertPlaceRows(now, wx, date, nowIso) {
+    var block = now && now.nepal_now;
+    if (!block || Array.isArray(block)) return [];
+    var api = weatherNowApi();
+    if (api && wx && (block.catalog || []).length && date) {
+      return api.selectAlertPlaces(wx, block.catalog, date, nowIso) || [];
+    }
+    return block.alert_places || [];
+  }
+  function alertPlaceSentence(row, wx, lang, when) {
+    var place = lang === "en" ? ((row.place && row.place.en) || row.en) : ((row.place && row.place.ne) || row.ne);
+    var dist = lang === "en" ? row.en : row.ne;
+    var color = colorWord(wx, row.level, lang);
+    var obs = row.obs || {};
+    var where = place && dist && place !== dist ? (lang === "en" ? place + " in " + dist : dist + "को " + place) : (dist || place);
+    var head = lang === "en"
+      ? where + " is on the high-alert list. DHM's warning is " + color + (when ? " for " + when : "") + "."
+      : where + " उच्च सतर्कताको सूचीमा छ। DHM को चेतावनी " + color + " छ" + (when ? " (" + when + ")" : "") + "।";
+    var extra = "";
+    if (row.source === "dhm" && (obs.rain24 != null || obs.max != null)) {
+      extra = lang === "en" ? " DHM observation" : " DHM अवलोकन";
+      if (obs.rain24 != null) extra += lang === "en" ? ": " + obs.rain24 + " mm in 24 hours" : ": २४ घण्टामा " + obs.rain24 + " मि.मि.";
+      if (obs.max != null) extra += (obs.rain24 != null ? (lang === "en" ? ", maximum " : ", अधिकतम ") : (lang === "en" ? ": maximum " : ": अधिकतम ")) + obs.max + " °C";
+      extra += lang === "en" ? "." : "।";
+    } else if (row.source === "hydrology" && obs.rain24 != null) {
+      var station = (obs.station && (lang === "en" ? obs.station.en : (obs.station.ne || obs.station.en))) || "";
+      extra = lang === "en"
+        ? " Gauge " + station + " recorded " + obs.rain24 + " mm in 24 hours."
+        : " स्टेशन " + station + " मा २४ घण्टाको वर्षा " + obs.rain24 + " मि.मि. छ।";
+    } else if (row.source === "model" && (obs.rain24 != null || obs.t != null)) {
+      extra = lang === "en" ? " Open-Meteo ECMWF IFS model" : " Open-Meteo ECMWF IFS मोडेल";
+      if (obs.rain24 != null) extra += (lang === "en" ? " 24-hour rain " : " २४ घण्टा वर्षा ") + obs.rain24 + (lang === "en" ? " mm" : " मि.मि.");
+      if (obs.t != null) extra += (lang === "en" ? ", temperature " : ", तापक्रम ") + obs.t + " °C";
+      extra += lang === "en" ? "." : "।";
+    } else if (!row.source) {
+      extra = lang === "en" ? " No recent reading." : " भर्खरको रिडिङ छैन।";
+    }
+    return (head + extra).replace(/\s+/g, " ").trim();
   }
   function cityObsSentence(now, id, lang) {
     var row = cityRow(now, id);
@@ -774,6 +827,15 @@
     }
 
     var provId = spec.province || (spec.district ? districtProvince(spec.district) : "") || wx.focus_province || "bagmati";
+    if (spec.intent === "weather_place" && spec.district) {
+      var placeRows = alertPlaceRows(ctx.wxnow, wx, iso || issuedISO(wx), (ctx.wxnow && ctx.wxnow.generated_at) || "");
+      var placeRow = null;
+      for (var pi = 0; pi < placeRows.length; pi++) if (placeRows[pi].district === spec.district) placeRow = placeRows[pi];
+      if (placeRow) {
+        var placeText = alertPlaceSentence(placeRow, wx, lang, when);
+        return pack(lang, placeText, src, href, { followups: FOLLOW.weather_place });
+      }
+    }
     var card = districtCard(wx, spec.district);
     if (card && spec.intent === "weather_place") {
       var name = tx(card.name, lang);
