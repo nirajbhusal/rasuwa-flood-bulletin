@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  var VER = window.PAGE_VER || "2026-09-25-header-ask";
+  var VER = window.PAGE_VER || "2026-09-25-polish";
   var HL_ORDER = ["1234", "100", "1148", "1111", "1114", "102", "1144", "1155"];
   var HL_FALLBACK = [
     { tel: "1234", key: "hl_deoc" },
@@ -89,39 +89,82 @@
   }
   var ASK_UI = {
     ne: {
+      ask_fab: "सोध्नुहोस्",
+      ask_fab_aria: "सोध्नुहोस् · Ask",
       ask_title: "सोध्नुहोस्",
       ask_sub: "नेपाली वा English · प्रकाशित तथ्यांक",
       ask_greet: "नमस्ते। आजको मौसम, सडक वा उद्धार सोध्नुहोस्। छोटो उत्तर आउँछ।",
+      ask_ph: "सोध्नुहोस्… मौसम, बाटो, नाम",
       ask_send: "सोध्नुहोस्",
+      ask_close: "बन्द",
       ask_chips: "छिटो प्रश्न",
+      ask_fallback: "यसबारे अहिले जानकारी छैन।",
+      ask_suggest: "यी सोध्नुहोस्",
+      ask_thinking: "प्रकाशित तथ्यांक हेरिँदै…",
+      ask_follow: "अर्को प्रश्न",
       ask_faq: "अक्सर सोधिने",
       ask_faq_ph: "FAQ खोज्नुहोस्",
       ask_faq_empty: "मिल्दो प्रश्न भेटिएन।",
-      ask_follow: "अर्को प्रश्न",
-      ask_err: "तथ्यांक लोड भएन। फेरि प्रयास गर्नुहोस्।"
+      ask_err: "तथ्यांक लोड भएन। फेरि प्रयास गर्नुहोस्।",
+      ask_retry: "फेरि लोड",
+      ask_kb_note: "FAQ बुलेटिन अपडेटसँगै राखिन्छ। मौसम, सडक, उद्धार, नाम र कोष ताजा फाइलबाट।",
+      ask_chip_wx: "आजको मौसम",
+      ask_chip_road: "सडक",
+      ask_chip_rescue: "उद्धार संख्या",
+      ask_chip_name: "नाम खोज",
+      ask_chip_fund: "राहत कोष",
+      ask_chip_hl: "हेल्पलाइन",
+      ask_chip_lpg: "एलपीजी",
+      ask_chip_map: "सडक नक्सा",
+      ask_chip_mkt: "पुँजी बजार",
+      ask_chip_about: "बारेमा"
     },
     en: {
+      ask_fab: "Ask",
+      ask_fab_aria: "Ask · सोध्नुहोस्",
       ask_title: "Ask",
       ask_sub: "Nepali or English · published figures",
       ask_greet: "Hello. Ask about today's weather, the roads, or rescue. Answers stay short.",
+      ask_ph: "Ask… weather, road, a name",
       ask_send: "Ask",
+      ask_close: "Close",
       ask_chips: "Quick asks",
+      ask_fallback: "I don't have that yet.",
+      ask_suggest: "Try one of these",
+      ask_thinking: "Checking published figures…",
+      ask_follow: "Ask next",
       ask_faq: "FAQ",
       ask_faq_ph: "Search FAQ",
       ask_faq_empty: "No matching question.",
-      ask_follow: "Ask next",
-      ask_err: "Figures did not load. Try again."
+      ask_err: "Figures did not load. Try again.",
+      ask_retry: "Reload",
+      ask_kb_note: "FAQ is maintained with bulletin updates. Weather, roads, rescue, names, and funds are read from the latest files.",
+      ask_chip_wx: "Today's weather",
+      ask_chip_road: "Roads",
+      ask_chip_rescue: "Rescue numbers",
+      ask_chip_name: "Search a name",
+      ask_chip_fund: "Relief fund",
+      ask_chip_hl: "Helplines",
+      ask_chip_lpg: "LPG",
+      ask_chip_map: "Road map",
+      ask_chip_mkt: "Capital markets",
+      ask_chip_about: "About"
     }
   };
+  function keyish(s) {
+    return typeof s === "string" && /^[a-z][a-z0-9_]*$/.test(s);
+  }
   function t(key) {
     if (window.t) {
       var s = window.t(key);
-      if (s && s !== key) return s;
+      if (s && s !== key && !keyish(s)) return s;
     }
     var pack = (window.I18N && (window.I18N[lang()] || window.I18N.ne)) || {};
-    if (pack[key] != null) return pack[key];
+    if (pack[key] != null && pack[key] !== key && !keyish(pack[key])) return pack[key];
     var local = (ASK_UI[lang()] || ASK_UI.ne)[key];
-    return local || key;
+    if (local) return local;
+    var ne = ASK_UI.ne[key];
+    return ne || "";
   }
   function tx(obj) {
     if (obj == null) return "";
@@ -303,12 +346,16 @@
       return kb.chip_order.map(function (id) {
         var topic = kb.topics[id];
         if (!topic || !topic.label) return null;
-        return { id: id === "map" ? "map" : id, label: tx(topic.label) };
+        var label = tx(topic.label) || t("ask_chip_" + (id === "weather" ? "wx" : id === "roads" ? "road" : id === "rescue" ? "rescue" : id === "names" ? "name" : id === "fund" ? "fund" : id === "helpline" ? "hl" : id === "markets" ? "mkt" : id));
+        if (!label) return null;
+        return { id: id === "map" ? "map" : id, label: label };
       }).filter(Boolean);
     }
     return CHIPS.map(function (c) {
-      return { id: c.id, label: t(c.key) };
-    });
+      var label = t(c.key);
+      if (!label) return null;
+      return { id: c.id, label: label };
+    }).filter(Boolean);
   }
   function greetText() {
     var s = t("ask_greet");
@@ -482,8 +529,12 @@
   }
   function wireChip(btn, label, spec) {
     btn.type = "button";
-    btn.textContent = label;
-    btn.addEventListener("click", function () { submit(label, spec); });
+    btn.textContent = label || "";
+    if (!label) btn.hidden = true;
+    btn.addEventListener("click", function () {
+      if (!label) return;
+      submit(label, spec);
+    });
   }
   function fillSuggest(host, limit) {
     host.replaceChildren();
@@ -977,7 +1028,7 @@
       var msg = document.getElementById("portal-contact");
       if (msg && msg.open) msg.open = false;
       document.querySelectorAll(".fab-dock details[open]").forEach(function (d) { d.open = false; });
-      lockPage();
+      if (narrowAsk()) lockPage();
       sheet.classList.remove("is-closing");
       sheet.hidden = false;
       placeSheet();

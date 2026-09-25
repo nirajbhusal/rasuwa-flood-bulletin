@@ -1,6 +1,6 @@
 /*! Site rain overlay. Auto while today's DHM warning or a district alert is active. */
 (function () {
-  var VER = window.PAGE_VER || "2026-09-25-header-ask";
+  var VER = window.PAGE_VER || "2026-09-25-polish";
   var enabled = false;
   var canvas = null;
   var ctx = null;
@@ -157,7 +157,15 @@
     enabled = !reduce && autoOn(json);
     applyState();
   }
+  function ensureCss() {
+    if (document.querySelector('link[href*="rain-theme.css"]')) return;
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "rain-theme.css?v=" + encodeURIComponent(VER);
+    document.head.appendChild(link);
+  }
   function boot() {
+    ensureCss();
     readReduce();
     var url = "data/weather-alert.json?v=" + encodeURIComponent(VER);
     fetch(url, { cache: "no-cache" })

@@ -5296,7 +5296,10 @@ window.I18N = {
   function t(key){
     var p = pack();
     var ne = (window.I18N && window.I18N.ne) || {};
-    return p[key] != null ? p[key] : (ne[key] != null ? ne[key] : key);
+    function ok(v){ return v != null && v !== "" && v !== key; }
+    if (ok(p[key])) return p[key];
+    if (ok(ne[key])) return ne[key];
+    return "";
   }
   function fmtNum(s){
     s = String(s);
@@ -5310,7 +5313,7 @@ window.I18N = {
     function set(sel, attr, html){
       document.querySelectorAll(sel).forEach(function(el){
         var k = el.getAttribute(attr);
-        if (k && p[k] != null) {
+        if (k && p[k] != null && p[k] !== "" && p[k] !== k) {
           if (html) el.innerHTML = p[k];
           else el.textContent = p[k];
         }
@@ -5320,19 +5323,19 @@ window.I18N = {
     set("[data-i18n-html]", "data-i18n-html", true);
     document.querySelectorAll("[data-i18n-aria]").forEach(function(el){
       var k = el.getAttribute("data-i18n-aria");
-      if (k && p[k] != null) el.setAttribute("aria-label", p[k]);
+      if (k && p[k] != null && p[k] !== "" && p[k] !== k) el.setAttribute("aria-label", p[k]);
     });
     document.querySelectorAll("[data-i18n-title]").forEach(function(el){
       var k = el.getAttribute("data-i18n-title");
-      if (k && p[k] != null) el.setAttribute("title", p[k]);
+      if (k && p[k] != null && p[k] !== "" && p[k] !== k) el.setAttribute("title", p[k]);
     });
     document.querySelectorAll("[data-i18n-placeholder]").forEach(function(el){
       var k = el.getAttribute("data-i18n-placeholder");
-      if (k && p[k] != null) el.setAttribute("placeholder", p[k]);
+      if (k && p[k] != null && p[k] !== "" && p[k] !== k) el.setAttribute("placeholder", p[k]);
     });
     document.querySelectorAll("[data-i18n-alt]").forEach(function(el){
       var k = el.getAttribute("data-i18n-alt");
-      if (k && p[k] != null) el.setAttribute("alt", p[k]);
+      if (k && p[k] != null && p[k] !== "" && p[k] !== k) el.setAttribute("alt", p[k]);
     });
   }
   function applyList(lang){

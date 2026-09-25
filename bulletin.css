@@ -9037,7 +9037,7 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   .open-alert-b,.open-alert-s{font-size:14px}
 }
 
-/* 2026-09-25-header-ask — light header, search, menu, alert, ask */
+/* 2026-09-25-polish — light header, search, menu, alert, ask */
 .head-stick{
   position:sticky;
   top:0;
@@ -9583,22 +9583,21 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 .dor-dao-date{margin:0 14px 8px;font-size:13px;font-weight:700;color:#64748b}
 .dor-head{flex-direction:column;align-items:center}
 .dor-title{margin-left:auto;margin-right:auto}
+.dor-map-host{min-height:300px}
 .dor-map{
   border:0 !important;
   margin:8px 14px;
   border-radius:12px;
   overflow:hidden;
   box-shadow:none;
-  height:auto !important;
-  width:auto;
-  max-width:calc(100% - 28px);
-  aspect-ratio:880 / 500;
-  min-height:200px;
+  width:calc(100% - 28px) !important;
+  height:clamp(280px, 48vw, 520px) !important;
+  min-height:280px;
+  background:#e8eef4;
 }
 .dor-section .dor-map,.dor-map.is-tall{
-  height:auto !important;
-  aspect-ratio:880 / 560;
-  min-height:280px;
+  height:clamp(360px, 56vw, 640px) !important;
+  min-height:360px;
 }
 .dor-map.is-plain{
   background:#eef2f6 !important;
@@ -9646,7 +9645,66 @@ html.ask-lock body,html.ask-lock body.ask-lock{
   text-align:left;
 }
 .wxb-nepal-now .wxdb-h,.wxb-nepal-now .wxdb-kicker{text-align:center}
+.ask-chip.is-on,.ask-chip.is-on:hover,.ask-chip.is-on:focus-visible{
+  background:#c41e3a !important;
+  color:#fff !important;
+  border-color:#c41e3a !important;
+}
+@media (min-width:900px){
+  .ask-sheet{
+    inset:auto;
+    top:auto;
+    left:auto;
+    right:16px;
+    bottom:16px;
+    width:min(420px, calc(100vw - 32px));
+    height:auto;
+    background:transparent;
+    z-index:90;
+    pointer-events:none;
+  }
+  .ask-sheet.is-open{pointer-events:none}
+  .ask-backdrop{display:none}
+  .ask-sheet .ask-panel{
+    width:100%;
+    margin:0;
+    height:min(64vh, 560px);
+    max-height:min(64vh, 560px);
+    pointer-events:auto;
+  }
+}
+@media (max-width:760px){
+  .wxb-dayswitch{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    justify-content:flex-start;
+    gap:6px;
+    margin:8px 0 4px;
+    padding:0 0 4px;
+    scrollbar-width:none;
+  }
+  .wxb-dayswitch::-webkit-scrollbar{display:none}
+  .wxb-chip{
+    flex:0 0 auto !important;
+    width:auto;
+    min-height:34px;
+    padding:4px 10px;
+    font-size:12.5px;
+    white-space:nowrap;
+  }
+  .wxb-legend{
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    gap:4px 8px;
+    padding-right:96px;
+    margin:6px 0 4px;
+  }
+  .wxb-legend li{flex:0 1 auto !important;font-size:12px;white-space:nowrap}
+  .wxb-home{margin-bottom:8px}
+  .wxb-mapwrap{padding:4px !important}
+}
 .wxb-callout{border-style:solid !important;border-color:#e2e8f0 !important}
+.dor-map .leaflet-container,.dor-map.leaflet-container{background:#e8eef4;width:100%;height:100%}
 .wxb-svg text{display:none}
 .wxb,.dor{overflow:hidden}
 .wxb-mapwrap,.dor-map{overflow:hidden}
