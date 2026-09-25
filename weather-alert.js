@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-wx-bydate";
+  var VER = window.PAGE_VER || "2026-09-25-wx-visual";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -653,6 +653,18 @@
     document.querySelectorAll(".wxb-gantt-row[data-focus='overview']").forEach(function (row) {
       row.classList.remove("is-on");
     });
+    document.querySelectorAll(".wxb-sum-host").forEach(function (n) {
+      n.replaceChildren(buildSummary());
+    });
+    document.querySelectorAll(".wxb-provlist-slot").forEach(function (n) {
+      n.replaceChildren(buildProvList());
+    });
+    document.querySelectorAll(".wxb-matrix-slot").forEach(function (n) {
+      n.replaceChildren(buildMatrix());
+    });
+    document.querySelectorAll(".wxb-home-extra").forEach(function (n) {
+      n.replaceWith(buildHomeExtras());
+    });
     paintHigh();
     document.querySelectorAll("[data-wx-mount]").forEach(function (root) {
       var hot = root.querySelector(".wxb-prov.is-hot");
@@ -972,22 +984,6 @@
     }
     if (tx(card.note)) body.appendChild(el("p", "wxb-dnote", tx(card.note)));
     art.appendChild(body);
-    if (card.image) {
-      var fig = el("figure", "wxb-dfig");
-      var a = document.createElement("a");
-      a.href = card.image;
-      a.target = "_blank";
-      a.rel = "noopener";
-      var img = document.createElement("img");
-      img.src = card.image;
-      img.width = card.image_w || 800;
-      img.height = card.image_h || 1000;
-      img.alt = tx(card.image_alt) || tx(card.name);
-      img.loading = "lazy";
-      a.appendChild(img);
-      fig.appendChild(a);
-      art.appendChild(fig);
-    }
     return art;
   }
   function buildDistrictBlock(mode) {
@@ -1012,23 +1008,142 @@
     if (tx(n.when)) sec.appendChild(el("p", "wxb-dwin", tx(n.when)));
     if (tx(n.body)) sec.appendChild(el("p", "wxb-dfore", tx(n.body)));
     if (tx(n.max)) sec.appendChild(el("p", "wxb-dmax", tx(n.max)));
-    if (n.image) {
-      var a = document.createElement("a");
-      a.href = n.image;
-      a.target = "_blank";
-      a.rel = "noopener";
-      var img = document.createElement("img");
-      img.src = n.image;
-      img.width = n.image_w || 1200;
-      img.height = n.image_h || 600;
-      img.alt = tx(n.image_alt);
-      img.loading = "lazy";
-      a.appendChild(img);
-      sec.appendChild(a);
-    }
     var cite = buildCite(n.cite);
     if (cite) sec.appendChild(cite);
     return sec;
+  }
+
+  function levelShort(key) {
+    var lv = (data.warn_levels && data.warn_levels[key]) || {};
+    var full = tx(lv);
+    var bit = String(full || "").split("·")[0].trim();
+    return bit || key || "";
+  }
+  function colorCounts() {
+    var counts = { red: 0, orange: 0, yellow: 0, green: 0 };
+    order().forEach(function (id) {
+      var p = provinceById(id);
+      if (!p) return;
+      var key = alertKey(p);
+      if (counts[key] != null) counts[key] += 1;
+    });
+    return counts;
+  }
+  function buildSummary() {
+    var counts = colorCounts();
+    var wrap = el("div", "wxb-sum");
+    var bar = el("div", "wxb-sum-bar");
+    var bits = [];
+    ["red", "orange", "yellow", "green"].forEach(function (key) {
+      var n = counts[key];
+      var short = levelShort(key);
+      bits.push(short + " " + n);
+      var seg = el("span", "wxb-sum-seg wxb-sum-" + key + (n ? "" : " is-zero"));
+      seg.style.flexGrow = String(n);
+      seg.textContent = String(n);
+      seg.setAttribute("aria-label", short + " " + n);
+      bar.appendChild(seg);
+    });
+    wrap.appendChild(bar);
+    wrap.setAttribute("aria-label", (shownDateText() ? shownDateText() + " · " : "") + bits.join(", "));
+    return wrap;
+  }
+  function buildProvList() {
+    var ul = el("ul", "wxb-provlist");
+    order().forEach(function (id) {
+      var p = provinceById(id);
+      if (!p) return;
+      var key = alertKey(p);
+      var li = el("li", "wxb-provline");
+      var top = el("p", "wxb-provtop");
+      top.appendChild(el("i", "wxb-sw wxb-sw-" + key));
+      top.appendChild(el("strong", null, tx(p)));
+      top.appendChild(document.createTextNode(" · " + tx(levelOf(p))));
+      li.appendChild(top);
+      var also = alsoLine(p);
+      if (also) li.appendChild(el("p", "wxb-prov-also", also));
+      if (tx(p.detail)) li.appendChild(el("p", "wxb-prov-detail", tx(p.detail)));
+      ul.appendChild(li);
+    });
+    return ul;
+  }
+  function buildMatrix() {
+    var table = el("table", "wxb-matrix");
+    var cap = el("caption", null, lang() === "en" ? "Five-day warning colours" : "पाँच दिनको चेतावनी रङ");
+    table.appendChild(cap);
+    var thead = document.createElement("thead");
+    var hr = document.createElement("tr");
+    hr.appendChild(el("th", null, lang() === "en" ? "Province" : "प्रदेश"));
+    var days = (data.timeline && data.timeline.days) || [];
+    days.forEach(function (d) {
+      var th = el("th", d.date === dayMode ? "is-on" : "", tx(d));
+      th.setAttribute("scope", "col");
+      hr.appendChild(th);
+    });
+    thead.appendChild(hr);
+    table.appendChild(thead);
+    var tb = document.createElement("tbody");
+    order().forEach(function (id) {
+      var p = provinceById(id);
+      if (!p) return;
+      var tr = document.createElement("tr");
+      var rh = el("th", null, tx(p));
+      rh.setAttribute("scope", "row");
+      tr.appendChild(rh);
+      ((data.warning_days) || []).forEach(function (day) {
+        var rec = day.provinces && day.provinces[id];
+        var key = (rec && rec.level) || "green";
+        var lv = (data.warn_levels && data.warn_levels[key]) || {};
+        var td = el("td", "wxb-mx wxb-mx-" + key + (day.date === dayMode ? " is-on" : ""));
+        var vis = el("span", "wxb-mx-t", levelShort(key));
+        vis.setAttribute("aria-hidden", "true");
+        td.appendChild(vis);
+        var when = "";
+        for (var i = 0; i < days.length; i++) if (days[i].date === day.date) when = tx(days[i]);
+        td.appendChild(el("span", "sr-only", tx(p) + ", " + (when || day.date) + ", " + (tx(lv) || key)));
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+    table.appendChild(tb);
+    return table;
+  }
+  function buildHomeExtras() {
+    var ui = data.ui || {};
+    var wrap = el("div", "wxb-home-extra");
+    var chips = el("ul", "wxb-minis");
+    (data.district_warnings || []).forEach(function (card) {
+      var tone = card.tone === "high" ? "high" : "medium";
+      var li = el("li", "wxb-mini is-" + tone);
+      var bits = [tx(card.name), tx(card.risk), tx(card.window)].filter(Boolean);
+      li.textContent = bits.join(" · ");
+      chips.appendChild(li);
+    });
+    if (corridorInFocus()) {
+      var call = data.callout || {};
+      var li2 = el("li", "wxb-mini is-corridor");
+      li2.textContent = [tx(call.title), tx(call.body), tx(call.meta)].filter(Boolean).join(" · ");
+      chips.appendChild(li2);
+    }
+    wrap.appendChild(chips);
+    var n = data.nowcast;
+    if (n) {
+      var line = [tx(ui.now_h), tx(n.when), tx(n.max)].filter(Boolean).join(" · ");
+      wrap.appendChild(el("p", "wxb-nowline", line));
+    }
+    return wrap;
+  }
+  function sectionLink(cls, labelNe, labelEn, href) {
+    var p = el("p", cls);
+    var a = document.createElement("a");
+    a.href = href;
+    if (/^https?:/i.test(href)) {
+      a.target = "_blank";
+      a.rel = "noopener";
+    }
+    a.textContent = lang() === "en" ? labelEn : labelNe;
+    p.appendChild(a);
+    return p;
   }
 
   function renderMount(root) {
@@ -1053,13 +1168,7 @@
     issued.appendChild(document.createTextNode(" " + tx(ui.issued)));
     titles.appendChild(issued);
     head.appendChild(titles);
-    head.appendChild(art());
     board.appendChild(head);
-    var districtBlock = buildDistrictBlock(mode);
-    if (districtBlock) board.appendChild(districtBlock);
-    var nowBlock = buildNowcast();
-    if (nowBlock) board.appendChild(nowBlock);
-    board.appendChild(buildHigh());
 
     var mapPanel = el("section", "wxb-panel wxb-map-panel");
     var mh = el("h3", "wxb-h");
@@ -1107,7 +1216,15 @@
     aside.appendChild(ct);
     aside.appendChild(el("p", "wxb-call-b", tx(call.body)));
     aside.appendChild(el("p", "wxb-call-m", tx(call.meta)));
-    stage.appendChild(aside);
+    if (mode === "section") {
+      var cd = el("ul", "wxb-call-dists");
+      (call.districts || []).forEach(function (d) {
+        var name = bothNames(d);
+        if (name) cd.appendChild(el("li", null, name));
+      });
+      if (cd.childNodes.length) aside.appendChild(cd);
+      stage.appendChild(aside);
+    }
     mapPanel.appendChild(stage);
     mapPanel.appendChild(buildPop());
 
@@ -1137,9 +1254,11 @@
       dayChip(d.date, tx(d) + " · " + sub, dayMode === d.date, isToday);
     });
     mapPanel.appendChild(switcher);
-    var method = tx(ui.day_method);
-    var whenShown = shownDateText();
-    mapPanel.appendChild(el("p", "wxb-dayhint", whenShown ? (whenShown + " — " + method) : method));
+    if (mode === "section") {
+      var method = tx(ui.day_method);
+      var whenShown = shownDateText();
+      mapPanel.appendChild(el("p", "wxb-dayhint", whenShown ? (whenShown + " — " + method) : method));
+    }
 
     var legend = el("ul", "wxb-legend");
     ["red", "orange", "yellow", "green"].forEach(function (key) {
@@ -1152,24 +1271,44 @@
     mapPanel.appendChild(el("p", "wxb-tap", tx(ui.tap)));
     mapPanel.appendChild(el("p", "wxb-shown wxb-legend-date", shownDateText()));
     mapPanel.appendChild(legend);
-    mapPanel.appendChild(el("p", "wxb-hint", tx(ui.hint)));
+    var sumHost = el("div", "wxb-sum-host");
+    sumHost.appendChild(buildSummary());
+    mapPanel.appendChild(sumHost);
+    if (mode === "section") mapPanel.appendChild(el("p", "wxb-hint", tx(ui.hint)));
     board.appendChild(mapPanel);
 
-    var timePanel = el("section", "wxb-panel wxb-time-panel");
-    var th = el("h3", "wxb-h");
-    th.innerHTML = iconClock();
-    th.appendChild(document.createTextNode(" " + tx(ui.timeline_h)));
-    timePanel.appendChild(th);
-    var gantt = el("div", "wxb-gantt");
-    buildTimeline(gantt);
-    timePanel.appendChild(gantt);
-    board.appendChild(timePanel);
-
-    if (mode === "section") {
+    if (mode === "home") {
+      board.appendChild(buildHomeExtras());
+      board.appendChild(sectionLink("wxb-jump", "पूर्ण विवरण", "Full details", (data.links && data.links.section) || "notices.html#alert"));
+    } else {
+      board.appendChild(buildHigh());
+      var listHost = el("section", "wxb-panel wxb-provlist-host");
+      listHost.appendChild(el("h3", "wxb-h", tx(ui.details_h)));
+      var listSlot = el("div", "wxb-provlist-slot");
+      listSlot.appendChild(buildProvList());
+      listHost.appendChild(listSlot);
+      board.appendChild(listHost);
+      var matrixHost = el("section", "wxb-panel wxb-matrix-host");
+      matrixHost.appendChild(el("h3", "wxb-h", lang() === "en" ? "Five-day colours" : "पाँच दिनको रङ"));
+      var matrixSlot = el("div", "wxb-matrix-slot");
+      matrixSlot.appendChild(buildMatrix());
+      matrixHost.appendChild(matrixSlot);
+      board.appendChild(matrixHost);
+      var districtBlock = buildDistrictBlock(mode);
+      if (districtBlock) board.appendChild(districtBlock);
+      var nowBlock = buildNowcast();
+      if (nowBlock) board.appendChild(nowBlock);
+      var timePanel = el("section", "wxb-panel wxb-time-panel");
+      var th = el("h3", "wxb-h");
+      th.innerHTML = iconClock();
+      th.appendChild(document.createTextNode(" " + tx(ui.timeline_h)));
+      timePanel.appendChild(th);
+      var gantt = el("div", "wxb-gantt");
+      buildTimeline(gantt);
+      timePanel.appendChild(gantt);
+      board.appendChild(timePanel);
       var det = el("section", "wxb-panel wxb-copy");
-      det.appendChild(el("h3", "wxb-h", tx(ui.details_h)));
-      det.appendChild(el("p", null, tx(ui.system)));
-      det.appendChild(el("h4", null, tx(ui.impacts_h)));
+      det.appendChild(el("h3", "wxb-h", tx(ui.impacts_h)));
       var ul = el("ul", "wxb-impacts");
       (ui.impacts[lang()] || ui.impacts.ne || []).forEach(function (line) {
         ul.appendChild(el("li", null, line));
@@ -1187,34 +1326,9 @@
       help.appendChild(tel);
       det.appendChild(help);
       board.appendChild(det);
-      var gal = el("section", "wxb-panel wxb-gallery");
-      buildGallery(gal);
-      board.appendChild(gal);
+      var official = (data.lead && data.lead.url) || "https://dhm.gov.np/mfd/";
+      board.appendChild(sectionLink("wxb-official", "आधिकारिक नक्सा हेर्नुहोस्", "View official map", official));
     }
-
-    var foot = el("footer", "wxb-foot" + (mode === "home" ? " is-home" : ""));
-    var qrA = document.createElement("a");
-    qrA.className = "wxb-qr";
-    qrA.href = data.links.section;
-    var qrImg = document.createElement("img");
-    qrImg.src = data.links.qr;
-    qrImg.width = 84;
-    qrImg.height = 84;
-    qrImg.alt = "";
-    var qrLab = el("span", null, tx(ui.qr));
-    var qrSub = el("small", null, tx(ui.qr_sub));
-    qrA.appendChild(qrImg);
-    qrA.appendChild(qrLab);
-    qrA.appendChild(qrSub);
-    var site = document.createElement("a");
-    site.className = "wxb-site";
-    site.href = data.links.site;
-    site.target = "_blank";
-    site.rel = "noopener";
-    site.textContent = data.links.site_label;
-    if (mode === "section") foot.appendChild(qrA);
-    foot.appendChild(site);
-    board.appendChild(foot);
     root.appendChild(board);
     paintPressed();
     if (selected) paintPop(root, selected);
