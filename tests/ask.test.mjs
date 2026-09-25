@@ -7,6 +7,7 @@ const require = createRequire(import.meta.url);
 const Ask = require("../ask-answers.js");
 
 const wx = JSON.parse(readFileSync(new URL("../data/weather-alert.json", import.meta.url), "utf8"));
+const wxnow = JSON.parse(readFileSync(new URL("../data/weather/now.json", import.meta.url), "utf8"));
 const roads = JSON.parse(readFileSync(new URL("../data/roads-dor.json", import.meta.url), "utf8"));
 const dash = JSON.parse(readFileSync(new URL("../api/dashboard.json", import.meta.url), "utf8"));
 const gallery = JSON.parse(readFileSync(new URL("../data/gallery-path.json", import.meta.url), "utf8"));
@@ -35,6 +36,7 @@ function ask(q, lang) {
     lang: lang,
     now: "2026-09-25",
     wx: wx,
+    wxnow: wxnow,
     roads: roads,
     dash: dash,
     gallery: gallery,
@@ -72,6 +74,10 @@ const cases = [
   ["भोलिको मौसम?", "ne", { intent: "weather_day", number: true, has: ["असोज १०"] }],
   ["mausam asoj 10", "en", { intent: "weather_day", number: true, has: ["Asoj 10"] }],
   ["Rasuwa weather", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "red"] }],
+  ["Kathmandu maximum today", "en", { intent: "weather_city", number: true, has: ["Kathmandu", "20.2", "18.4", "DHM"] }],
+  ["काठमाडौँको तापक्रम", "ne", { intent: "weather_city", number: true, has: ["काठमाडौँ", "20.2", "18.4"] }],
+  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["3.02", "3.2", "warning"] }],
+  ["बेत्रावतीको नदी तह", "ne", { intent: "weather_river", has: ["ताजा रिडिङ छैन"] }],
   ["सिन्धुपाल्चोकको मौसम", "ne", { intent: "weather_place", number: true, has: ["सिन्धुपाल्चोक"], not: ["खोलानाला", "विद्यालय"] }],
   ["nuwakot mausam", "ne", { intent: "weather_place", number: true, has: ["नुवाकोट"] }],
   ["सडक अहिले कस्तो छ?", "ne", { intent: "roads", number: true, has: ["NH42", "बन्द"] }],
@@ -117,7 +123,7 @@ test("fallback offers three suggested questions and no page fragment", function 
 test("missing weather file is stated plainly", function () {
   const ans = Ask.answer("आजको मौसम के छ?", { lang: "en", now: "2026-09-25", wx: null, t: tFor("en") });
   assert.match(ans.text, /isn't available/);
-  assert.equal(ans.href, "notices.html#alert");
+  assert.equal(ans.href, "weather.html");
   assert.equal(/\d/.test(ans.text), false);
 });
 

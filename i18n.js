@@ -75,6 +75,7 @@ window.I18N = {
 "nav_sections": "खण्डहरू",
 "nav_map": "नक्सा / समयरेखा",
 "nav_notices": "सूचना",
+"nav_weather": "मौसम",
 "nav_alert": "सतर्कता",
 "nav_rahat": "राहत भिजुअल",
 "nav_treat": "घाइते",
@@ -1421,6 +1422,7 @@ window.I18N = {
 "home_rdna_lead": "कुल प्रभाव ४०,८२८.९१ करोड · पुनर्लाभ ७२,३३१.५२ करोड",
 "home_rdna_cta": "पूर्ण बोर्ड + तालिका",
 "notices_title": "सूचना · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"weather_title": "मौसम · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "notices_meta": "बाटो, पुल, नाका र मौसम चेतावनी। उद्धार १२३४ · हेल्पलाइन ११५५।",
 "notices_sub": "बाटो, पुल, नाका र सतर्कता",
 "contact_title": "आपत्कालीन सहायता र सम्पर्क · रसुवा–भोटेकोशी बाढी बुलेटिन",
@@ -2143,6 +2145,7 @@ window.I18N = {
 "nav_sections": "Sections",
 "nav_map": "Map / Timeline",
 "nav_notices": "Notices",
+"nav_weather": "Weather",
 "nav_alert": "Alert",
 "nav_rahat": "Relief visual",
 "nav_treat": "Injured",
@@ -3475,6 +3478,7 @@ window.I18N = {
 "home_rdna_lead": "Total effects 40,828.91 crore · recovery 72,331.52 crore",
 "home_rdna_cta": "Full board + table",
 "notices_title": "Notices · Rasuwa–Bhotekoshi flood bulletin",
+"weather_title": "Weather · Rasuwa–Bhotekoshi flood bulletin",
 "notices_meta": "Highways, bridges, border road and weather alert. Rescue 1234 · helpline 1155.",
 "notices_sub": "Highways, bridges, border road and alerts",
 "contact_title": "Emergency help and contacts · Rasuwa–Bhotekoshi flood bulletin",
@@ -5415,6 +5419,7 @@ window.I18N = {
     var responsePg = file === "response.html" || document.documentElement.classList.contains("response-page");
     var supplyPg = file === "supply.html" || document.documentElement.classList.contains("supply-page");
     var marketsPg = file === "markets.html" || document.documentElement.classList.contains("markets-page");
+    var weatherPg = file === "weather.html" || document.documentElement.classList.contains("weather-page");
     if (aboutPg) {
       if (p.about_title) document.title = p.about_title;
     } else if (mapPg) {
@@ -5439,6 +5444,8 @@ window.I18N = {
       if (p.supply_title) document.title = p.supply_title;
     } else if (marketsPg) {
       if (p.markets_title) document.title = p.markets_title;
+    } else if (weatherPg) {
+      if (p.weather_title) document.title = p.weather_title;
     } else if (p.title) document.title = p.title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) {

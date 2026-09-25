@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  var VER = window.PAGE_VER || "2026-09-25-district-rain";
+  var VER = window.PAGE_VER || "2026-09-25-weather-db";
   var HL_ORDER = ["1234", "100", "1148", "1111", "1114", "102", "1144", "1155"];
   var HL_FALLBACK = [
     { tel: "1234", key: "hl_deoc" },
@@ -295,6 +295,7 @@
       lang: lang(),
       now: ktmISO(0),
       wx: cache.wx,
+      wxnow: cache.now,
       roads: cache.roads,
       dash: cache.dash,
       gallery: cache.gallery,
@@ -314,7 +315,7 @@
   function needs(spec) {
     if (!spec) return false;
     var f = spec.family || spec.type || "";
-    if (f === "weather") return !cache.wx && !failed.wx;
+    if (f === "weather") return (!cache.wx && !failed.wx) || (!cache.now && !failed.now);
     if (f === "roads" || f === "map") return !cache.roads && !failed.roads;
     if (f === "rescue") return !cache.dash && !failed.dash;
     if (f === "lpg") return !cache.lpg && !failed.lpg;
@@ -343,6 +344,7 @@
     inflight = Promise.all([
       getJSON("data/ask-kb.json", "kb"),
       getJSON("data/weather-alert.json", "wx"),
+      getJSON("data/weather/now.json", "now"),
       getJSON("data/roads-dor.json", "roads"),
       getJSON("api/dashboard.json", "dash"),
       getJSON("data/gallery-path.json", "gallery"),

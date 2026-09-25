@@ -1,0 +1,33 @@
+# Hourly weather database. Scheduled workflows are disabled by GitHub after 60 days
+# without repository activity; the data commits from this workflow count as activity.
+name: weather-db
+on:
+  schedule:
+    - cron: "17 * * * *"
+    - cron: "35 2,4,12 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: weather-db
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build weather database
+        run: python scripts/weather/build.py --out data/weather
+      - name: Commit data files only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/weather
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git commit -m "weather: snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep $((i*10)); done
+          exit 1

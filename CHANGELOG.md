@@ -1,3 +1,10 @@
+## 2026-09-25-weather-db · Nepal weather database
+
+- New `weather.html` (nav मौसम / Weather) holds the full DHM warning board plus the weather database: city observations, a rain map, river watch, the three-day outlook, and a labelled ECMWF IFS outlook. `notices.html#alert` stays as a short summary that links here.
+- The homepage weather block keeps the date-based warning map and adds a Nepal-now city strip and a Rasuwa corridor panel (24-hour rain and river level versus warning). No photos in that block.
+- `data/weather/*.json` is built by `scripts/weather/build.py` and refreshed by the `weather-db` workflow. Ask answers Kathmandu’s DHM max/min and the Trishuli level at Dhunche from `now.json`.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-25-weather-db`
+
 ## 2026-09-25-district-rain · District alerts and rain theme
 
 - The district-line hint is gone from the weather map (homepage and `notices.html#alert`). The district button stays.

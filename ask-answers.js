@@ -9,7 +9,7 @@
   "use strict";
 
   var INTENTS = [
-    "weather_today", "weather_day", "weather_place", "weather_source",
+    "weather_today", "weather_day", "weather_place", "weather_city", "weather_river", "weather_source",
     "roads", "roads_nh42", "roads_araniko", "roads_code", "roads_place",
     "map",
     "rescue_missing", "rescue_dead", "rescue_rescued", "rescue_overview", "rescue_source",
@@ -25,6 +25,24 @@
     yellow: { en: "heavy rain is possible in some places", ne: "केही स्थानमा भारी वर्षा हुन सक्छ" },
     green: { en: "there is no warning", ne: "चेतावनी छैन" }
   };
+  var CITIES = [
+    { id: "kathmandu", keys: ["kathmandu", "काठमाडौ", "काठमान्डौ"] },
+    { id: "pokhara", keys: ["pokhara", "पोखरा"] },
+    { id: "biratnagar", keys: ["biratnagar", "विराटनगर"] },
+    { id: "nepalgunj", keys: ["nepalgunj", "nepalganj", "नेपालगञ्ज", "नेपालगंज"] },
+    { id: "dhangadhi", keys: ["dhangadhi", "धनगढी"] },
+    { id: "janakpur", keys: ["janakpur", "जनकपुर"] }
+  ];
+  var RIVERS = [
+    { id: 4657, keys: ["dhunche", "धुन्चे", "धुनचे"] },
+    { id: 52, keys: ["betrawati", "betravati", "बेत्रावती"] },
+    { id: 4913, keys: ["rasuwagadhi", "रसुवागढी"] },
+    { id: 191, keys: ["syaphrubesi", "स्याफ्रुबेसी"] },
+    { id: 66, keys: ["belkot", "बेलकोट"] },
+    { id: 265, keys: ["devghat", "देवघाट"] },
+    { id: 113, keys: ["bahrabise", "barhabise", "बाह्रबिसे"] },
+    { id: 243, keys: ["khurkot", "खुर्कोट"] }
+  ];
   var PROVINCES = [
     { id: "koshi", keys: ["koshi", "kosi", "कोशी", "कोसी"] },
     { id: "madhesh", keys: ["madhesh", "madhes", "मधेश", "मधेस"] },
@@ -190,6 +208,16 @@
       { ne: "आजको मौसम के छ?", en: "What is today’s weather?" },
       { ne: "सडक अहिले कस्तो छ?", en: "What is the road status?" },
       { ne: "कति जना बेपत्ता छन्?", en: "How many people are missing?" }
+    ]),
+    weather_city: follow([
+      { ne: "त्रिशूली धुन्चेमा कति छ?", en: "What is the Trishuli level at Dhunche?" },
+      { ne: "आजको मौसम के छ?", en: "What is today’s weather?" },
+      { ne: "पोखराको तापक्रम?", en: "Pokhara temperature?" }
+    ]),
+    weather_river: follow([
+      { ne: "काठमाडौँको अधिकतम कति?", en: "What is Kathmandu’s maximum?" },
+      { ne: "आजको मौसम के छ?", en: "What is today’s weather?" },
+      { ne: "बेत्रावतीको नदी तह?", en: "River level at Betrawati?" }
     ]),
     roads: follow([
       { ne: "पासाङ ल्हामु राजमार्ग खुल्यो?", en: "Is the Pasang Lhamu highway open?" },
@@ -461,6 +489,21 @@
       spec.intent = "map";
       return finishSpec(spec);
     }
+    var cityRow = findKey(q, CITIES);
+    var riverRow = findKey(q, RIVERS);
+    var levelWord = hit(q, ["level", "tah", "तह", "river", "khola", "nadi", "खोला", "नदी", "water level", "gauge", "danger level", "warning level"]);
+    var tempWord = hit(q, ["temp", "temperature", "maximum", "minimum", "अधिकतम", "न्यूनतम", "ताप"]);
+    var trishuli = hit(q, ["trishuli", "त्रिशूली"]);
+    if ((riverRow && (levelWord || trishuli || weather)) || (trishuli && (levelWord || weather || riverRow))) {
+      spec.river = riverRow ? riverRow.id : 4657;
+      spec.intent = "weather_river";
+      return finishSpec(spec);
+    }
+    if (cityRow && (weather || tempWord)) {
+      spec.city = cityRow.id;
+      spec.intent = "weather_city";
+      return finishSpec(spec);
+    }
     if ((road || place) && !weather) {
       spec.intent = place ? "roads_place" : "roads";
       if (sourceQ) spec.meta = "source";
@@ -654,10 +697,67 @@
     return true;
   }
 
+  function cityRow(now, id) {
+    var list = (now && now.nepal_now) || [];
+    for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
+    return null;
+  }
+  function cityObsSentence(now, id, lang) {
+    var row = cityRow(now, id);
+    if (!row || !row.obs || (row.obs.max == null && row.obs.min == null)) return "";
+    var name = lang === "en" ? row.en : row.ne;
+    var max = row.obs.max;
+    var min = row.obs.min;
+    if (lang === "en") return name + " DHM observation: maximum " + max + " °C, minimum " + min + " °C.";
+    return name + "को DHM अवलोकन: अधिकतम " + max + " °C, न्यूनतम " + min + " °C।";
+  }
+  function riverRow(now, id) {
+    var list = (now && now.corridor && now.corridor.rivers) || [];
+    for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
+    return null;
+  }
+  function riverSentence(now, id, lang) {
+    var row = riverRow(now, id);
+    if (!row) return "";
+    var name = lang === "en" ? row.en : row.ne;
+    if (!row.fresh || row.level_m == null) {
+      return lang === "en" ? name + " has no fresh reading." : name + "को ताजा रिडिङ छैन।";
+    }
+    var lead = lang === "en"
+      ? name + " is " + row.level_m + " m."
+      : name + " " + row.level_m + " मिटर छ।";
+    if (row.warning_m != null && row.below_warning_m != null && row.level !== "red" && row.level !== "orange") {
+      return lead + (lang === "en"
+        ? " That is " + row.below_warning_m + " m below the warning level of " + row.warning_m + " m."
+        : " चेतावनी तह " + row.warning_m + " मिटरभन्दा " + row.below_warning_m + " मिटर तल छ।");
+    }
+    if (row.level === "red") return lead + (lang === "en" ? " That is danger level." : " यो खतरा तहमा छ।");
+    if (row.level === "orange") return lead + (lang === "en" ? " That is warning level." : " यो चेतावनी तहमा छ।");
+    return lead;
+  }
+
   function answerWeather(spec, ctx) {
     var lang = ctx.lang === "en" ? "en" : "ne";
     var wx = ctx.wx;
-    var href = "notices.html#alert";
+    var href = "weather.html";
+    if (spec.intent === "weather_city") {
+      var cityText = cityObsSentence(ctx.wxnow, spec.city || "kathmandu", lang);
+      if (!cityText) {
+        cityText = lang === "en"
+          ? "That city's DHM observation isn't available."
+          : "त्यो सहरको DHM अवलोकन अहिले उपलब्ध छैन।";
+      }
+      return pack(lang, cityText, sourceLine(lang, "DHM", ""), href, { followups: FOLLOW.weather_city });
+    }
+    if (spec.intent === "weather_river") {
+      var riverText = riverSentence(ctx.wxnow, spec.river || 4657, lang);
+      if (!riverText) {
+        riverText = lang === "en"
+          ? "That river reading isn't available."
+          : "त्यो नदीको रिडिङ अहिले उपलब्ध छैन।";
+      }
+      return pack(lang, riverText, sourceLine(lang, "DHM hydrology", ""), href, { followups: FOLLOW.weather_river });
+    }
     if (!wx) return pack(lang, missingText(lang), "", href, { followups: FOLLOW.weather_today });
     var issued = dayLabel(wx, issuedISO(wx), lang);
     var src = sourceLine(lang, "DHM", issued);
@@ -706,6 +806,10 @@
     var sentence = levelSentence(wx, iso, provId, lang, spec, when);
     if (!sentence) return pack(lang, missingText(lang), src, href, { followups: FOLLOW.weather_today });
     var parts = [sentence];
+    if (spec.intent === "weather_today") {
+      var leadCity = cityObsSentence(ctx.wxnow, "kathmandu", lang);
+      if (leadCity) parts.unshift(leadCity);
+    }
     if (wantsCorridor(spec)) {
       var corr = corridorUntil(wx, lang);
       if (corr) parts.push(corr);

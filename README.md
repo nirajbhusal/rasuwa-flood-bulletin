@@ -13,3 +13,7 @@ Portals can read homepage `#overview` KPIs from:
 
 When the NDRRMA board updates, refresh `api/dashboard.json` alongside homepage KPIs.
 
+## Weather database
+
+`data/weather/` is written by `scripts/weather/build.py` and refreshed by the `weather-db` GitHub Actions workflow: hourly at minute 17, plus 02:35, 04:35, and 12:35 UTC. The workflow commits only files under `data/weather/`. GitHub turns a scheduled workflow off after 60 days without repository activity. A commit from the Actions bot counts as activity.
+
