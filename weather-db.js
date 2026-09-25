@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var VER = window.PAGE_VER || "2026-09-25-npt-date";
+  var VER = window.PAGE_VER || "2026-09-25-map-boards";
   var home = null;
   var full = null;
   var historyDoc = null;

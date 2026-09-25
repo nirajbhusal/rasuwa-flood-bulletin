@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-25-npt-date";
+  var VER = window.PAGE_VER || "2026-09-25-map-boards";
   var showDistricts = true;
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
@@ -244,9 +244,24 @@
     return '<div class="map-pop"><strong class="map-pop-name">' + esc(tx(hit.district)) + '</strong><span class="map-lv map-lv-red">' + esc(closed) + '</span><span class="map-pop-fig">' + esc(tx(hit.province)) + '</span></div>';
   }
   var pendingDistrict = null;
+  var daoFilter = "";
   function markDistrictChips(id) {
     document.querySelectorAll(".dor-dao-chip").forEach(function (b) {
       b.classList.toggle("is-on", b.getAttribute("data-id") === id);
+    });
+  }
+  function setDaoFilter(id) {
+    daoFilter = id || "";
+    document.querySelectorAll(".dor-dao-tile").forEach(function (b) {
+      var on = (b.getAttribute("data-prov") || "") === daoFilter;
+      b.classList.toggle("is-on", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    document.querySelectorAll(".dor-dao-prov").forEach(function (el) {
+      el.hidden = !!(daoFilter && el.getAttribute("data-prov") !== daoFilter);
+    });
+    mapInstances.forEach(function (map) {
+      if (typeof map._applyDaoFilter === "function") map._applyDaoFilter(daoFilter);
     });
   }
   function focusDistrict(id) {
@@ -272,26 +287,58 @@
       try { layer.openPopup(); } catch (e2) {}
     });
   }
-  function renderDao(board, mode) {
+  function renderDao(board) {
     var n = notice();
     var labels = n.labels || {};
-    board.appendChild(el("h2", "dor-title dor-dao-title", tx(n.heading)));
-    board.appendChild(el("p", "dor-asof dor-dao-date", tx(n.published)));
+    var shell = el("div", "dor-dao");
+    shell.appendChild(el("h2", "dor-title dor-dao-title", lang() === "en" ? "Main highways closed" : "मुख्य सडक बन्द"));
     var counts = n.counts || {};
-    var row = el("ul", "dor-chips dor-dao-counts");
-    [["districts", counts.districts, "dor-chip-closed"], ["provinces", counts.provinces, "dor-chip-total"]].forEach(function (item) {
-      var li = el("li", "dor-chip " + item[2]);
-      li.appendChild(el("span", "dor-chip-k", tx(labels[item[0]])));
-      li.appendChild(el("strong", "dor-chip-n", num(item[1])));
-      row.appendChild(li);
+    var sum = el("div", "dor-dao-sum");
+    [["districts", counts.districts], ["provinces", counts.provinces]].forEach(function (item) {
+      var stat = el("p", "dor-dao-stat");
+      stat.appendChild(el("strong", "dor-dao-num", num(item[1])));
+      stat.appendChild(el("span", "dor-dao-lab", tx(labels[item[0]])));
+      sum.appendChild(stat);
     });
-    board.appendChild(row);
+    shell.appendChild(sum);
+    var maxN = 1;
+    (n.provinces || []).forEach(function (p) { maxN = Math.max(maxN, (p.districts || []).length); });
+    var tiles = el("div", "dor-dao-tiles");
+    tiles.setAttribute("role", "group");
+    tiles.setAttribute("aria-label", tx(labels.provinces) || (lang() === "en" ? "Provinces" : "प्रदेश"));
+    function tile(id, count, label) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "dor-dao-tile" + ((daoFilter || "") === id ? " is-on" : "");
+      b.setAttribute("data-prov", id);
+      b.setAttribute("aria-pressed", (daoFilter || "") === id ? "true" : "false");
+      b.appendChild(el("span", "dor-dao-tile-n", num(count)));
+      b.appendChild(el("span", "dor-dao-tile-k", label));
+      if (id) {
+        var bar = el("i", "dor-dao-bar");
+        bar.style.width = Math.max(8, Math.round((count / maxN) * 100)) + "%";
+        b.appendChild(bar);
+      }
+      b.addEventListener("click", function () { setDaoFilter(id); });
+      tiles.appendChild(b);
+    }
+    tile("", counts.districts || 0, lang() === "en" ? "All" : "सबै");
+    (n.provinces || []).forEach(function (prov) {
+      tile(prov.id, (prov.districts || []).length, tx(prov));
+    });
+    shell.appendChild(tiles);
+    var grid = el("div", "dor-dao-grid");
+    var slot = el("div", "dor-dao-mapslot");
+    grid.appendChild(slot);
+    var side = el("div", "dor-dao-side");
     var groups = el("div", "dor-dao-provs");
     (n.provinces || []).forEach(function (prov) {
       var block = el("section", "dor-dao-prov");
+      block.setAttribute("data-prov", prov.id);
+      block.hidden = !!(daoFilter && daoFilter !== prov.id);
       var h = el("h3", "dor-dao-prov-h");
       h.appendChild(document.createTextNode(tx(prov)));
-      h.appendChild(el("span", "dor-dao-prov-n", " · " + num((prov.districts || []).length)));
+      h.appendChild(el("span", "dor-dao-prov-n", " " + num((prov.districts || []).length)));
       block.appendChild(h);
       var ul = el("ul", "dor-dao-chips");
       (prov.districts || []).forEach(function (d) {
@@ -308,24 +355,24 @@
       block.appendChild(ul);
       groups.appendChild(block);
     });
-    board.appendChild(groups);
-    if (mode === "section" && n.source && n.source.graphic) {
-      var fig = el("figure", "dor-dao-fig");
+    side.appendChild(groups);
+    grid.appendChild(side);
+    shell.appendChild(grid);
+    var src = el("p", "dor-dao-src");
+    if (n.source && n.source.url) {
       var a = document.createElement("a");
-      a.href = n.source.graphic;
+      a.href = n.source.url;
       a.target = "_blank";
       a.rel = "noopener";
-      var img = document.createElement("img");
-      img.src = n.source.graphic + "?v=" + encodeURIComponent(VER);
-      img.alt = tx(n.source.graphic_alt || labels.credit);
-      img.width = 960;
-      img.height = 960;
-      img.loading = "lazy";
-      a.appendChild(img);
-      fig.appendChild(a);
-      fig.appendChild(el("figcaption", "dor-dao-credit", tx(labels.credit)));
-      board.appendChild(fig);
+      a.textContent = "NDRRMA";
+      src.appendChild(a);
+      src.appendChild(document.createTextNode(" · " + tx(n.when || n.published)));
+    } else {
+      src.textContent = tx(labels.credit);
     }
+    shell.appendChild(src);
+    board.appendChild(shell);
+    board._mapSlot = slot;
   }
   function fillRoadDetail(box, road) {
     if (!box) return;
@@ -570,6 +617,14 @@
           },
           onEachFeature: function (feat, layer) {
             var props = (feat && feat.properties) || {};
+            layer._provId = "";
+            if (n) {
+              (n.provinces || []).forEach(function (p) {
+                (p.districts || []).forEach(function (d) {
+                  if (d.id === props.id) layer._provId = p.id;
+                });
+              });
+            }
             if (n && closedIds[props.id]) {
               layer.bindPopup(districtPopupHtml(props.id), {
                 closeButton: true,
@@ -590,15 +645,41 @@
               if (districtLayer && districtLayer.resetStyle) districtLayer.resetStyle(layer);
             });
             layer.on("click", function (ev) {
-              pendingDistrict = props.id || pendingDistrict;
-              markDistrictChips(props.id);
-              try { layer.openPopup(ev && ev.latlng); } catch (err) {}
+              if (layer._provId && daoFilter && daoFilter !== layer._provId) setDaoFilter(layer._provId);
+              focusDistrict(props.id);
               if (ev && ev.originalEvent) window.L.DomEvent.stopPropagation(ev);
             });
           }
         });
         map._districtLayer = districtLayer;
+        map._applyDaoFilter = function (provId) {
+          var bounds = null;
+          Object.keys(map._daoById || {}).forEach(function (id) {
+            var layer = map._daoById[id];
+            var on = !provId || layer._provId === provId;
+            var hot = pendingDistrict && pendingDistrict === id && on;
+            layer.setStyle({
+              color: hot ? "#0c2340" : "#d7191c",
+              weight: hot ? 2.6 : 1.25,
+              opacity: on ? 0.95 : 0.28,
+              fillColor: "#d7191c",
+              fillOpacity: on ? (hot ? 0.72 : 0.5) : 0.05
+            });
+            if (on && provId) {
+              try {
+                var b = layer.getBounds();
+                if (b && b.isValid()) bounds = bounds ? bounds.extend(b) : b;
+              } catch (err) {}
+            }
+          });
+          userMoved = !!provId;
+          lastFrame = "";
+          try { map.invalidateSize(false); } catch (err2) {}
+          if (provId && bounds && bounds.isValid()) map.fitBounds(bounds, { padding: [22, 22], maxZoom: 8, animate: true });
+          else if (!provId) kickFrame();
+        };
         applyDistricts(showDistricts);
+        if (daoFilter && map._applyDaoFilter) map._applyDaoFilter(daoFilter);
         try {
           var db = districtLayer.getBounds();
           if (db && db.isValid()) districtBounds = db;
@@ -862,7 +943,8 @@
   }
   function scheduleDorMap(board, mode) {
     var host = el("div", "dor-map-host");
-    board.appendChild(host);
+    if (board._mapSlot) board._mapSlot.appendChild(host);
+    else board.appendChild(host);
     function start() {
       if (!host.isConnected || host._mounted) return;
       host._mounted = true;
@@ -903,7 +985,7 @@
     root.replaceChildren();
     var board = el("article", "dor" + (mode === "section" ? " dor-section" : " dor-home") + (n ? " dor-has-dao" : ""));
     if (n) {
-      renderDao(board, mode);
+      renderDao(board);
     } else {
       var head = el("header", "dor-head");
       head.appendChild(el("p", "dor-kicker", tx(ui.kicker)));
@@ -916,7 +998,7 @@
     }
     scheduleDorMap(board, mode);
     if (mode === "home") {
-      board.appendChild(el("p", "dor-also", tx(ui.also)));
+      if (!n) board.appendChild(el("p", "dor-also", tx(ui.also)));
       links(board, true);
     } else {
       if (n) {
@@ -926,7 +1008,7 @@
         var dorLive = liveNote();
         if (dorLive) board.appendChild(dorLive);
       }
-      board.appendChild(el("p", "dor-call", tx(ui.nh17)));
+      if (!n) board.appendChild(el("p", "dor-call", tx(ui.nh17)));
       links(board, false);
       group(board, "closed", ui.g_closed);
       group(board, "partial", ui.g_partial);

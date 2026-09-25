@@ -25,6 +25,13 @@
 - `notices.html#alert` keeps the full board as text and SVG: map, day chips, legend, province details for the selected day, a five-day colour table, district warning cards, the corridor districts, the rain-now note, and the bulletin timeline. Official maps are a text link to the DHM page. Impact photos and the nowcast picture are not shown.
 - `PAGE_VER` / `?v=` / `sw.js` → `2026-09-25-maps-live` (latest.json id left at `2026-09-25-wx-visual`)
 
+## 2026-09-25-map-boards · Map cards and the highway notice
+
+- The homepage weather map no longer repeats the selected date above the legend.
+- District alerts sit beside the map on a wide screen: equal cards, official level chips, an impact mark, and a full-width countdown.
+- The NDRRMA highway notice is a count strip, province tiles that filter the map, and district chips. A short NDRRMA source line replaces the long heading.
+- `PAGE_VER` / `?v=` / `sw.js` → `2026-09-25-map-boards` (`latest.json` id left at `2026-09-25-npt-date2`)
+
 ## 2026-09-25-wx-bydate · Weather map follows one day
 
 - The province map on the homepage and `notices.html#alert` fills each province from `warning_days` for one selected date. It no longer uses the five-day peak in `provinces[].level` for colour. Province names and the five-day detail stay in the popup.
