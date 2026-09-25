@@ -169,7 +169,7 @@
     });
   }
 
-  fetch("data/pmdrf-named-donors.json?v=" + (window.PAGE_VER || ""))
+  fetch("data/pmdrf-named-donors.json?t=" + Date.now(), { cache: "no-store" })
     .then(function(r){ return r.json(); })
     .then(function(data){
       all = data.donors || [];

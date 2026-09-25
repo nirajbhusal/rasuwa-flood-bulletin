@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
+<script>window.PAGE_VER="2026-09-25-title-size";</script>
+
 <script>if(window.matchMedia&&window.matchMedia("(min-width:960px)").matches)document.documentElement.classList.add("desk");document.documentElement.classList.add("desk-ready");</script>
 <script>
 (function(){
@@ -1302,7 +1304,7 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
     if (started) return;
     started = true;
     var s = document.createElement("script");
-    s.src = "i18n.js?v=" + (window.PAGE_VER || "2026-09-25-police-roads");
+    s.src = ["i18n.js?v", window.PAGE_VER].join("=");
     s.onload = function(){
       var q = waiters.splice(0);
       q.forEach(function(fn){ try { fn(); } catch (e) {} });
@@ -1352,7 +1354,7 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
     if(loading) return;
     loading=true;
     var s=document.createElement("script");
-    s.src="names-index.js?v="+(window.PAGE_VER||"");
+    s.src=["names-index.js?v", window.PAGE_VER].join("=");
     s.onload=function(){ flush(); };
     s.onerror=function(){ loading=false; };
     document.head.appendChild(s);

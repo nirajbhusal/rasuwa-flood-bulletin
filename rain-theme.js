@@ -161,14 +161,14 @@
     if (document.querySelector('link[href*="rain-theme.css"]')) return;
     var link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "rain-theme.css?v=" + encodeURIComponent(VER);
+    link.href = ["rain-theme.css?v", encodeURIComponent(VER)].join("=");
     document.head.appendChild(link);
   }
   function boot() {
     ensureCss();
     readReduce();
-    var url = "data/weather-alert.json?v=" + encodeURIComponent(VER);
-    fetch(url, { cache: "no-cache" })
+    var url = "data/weather-alert.json?t=" + Date.now();
+    fetch(url, { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("wx"); return r.json(); })
       .then(decide)
       .catch(function () { applyState(); });

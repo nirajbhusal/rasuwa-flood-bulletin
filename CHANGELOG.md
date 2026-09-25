@@ -1,3 +1,8 @@
+## 2026-09-25 · Deploy stamp
+
+- Pages publishes from `.github/workflows/pages.yml`. The workflow stamps one build id into asset URLs, `PAGE_VER`, `sw.js`, and `version.json` in the artifact. Do not hand-edit those versions; the next deploy overwrites them.
+- `latest.json` id → `2026-09-25-site-refresh` so a tab still on the previous script can see the update.
+
 ## 2026-09-25-weather-db · Nepal weather database
 
 - New `weather.html` (nav मौसम / Weather) holds the full DHM warning board plus the weather database: city observations, a rain map, river watch, the three-day outlook, and a labelled ECMWF IFS outlook. `notices.html#alert` stays as a short summary that links here.

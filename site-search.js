@@ -121,9 +121,8 @@
   function enrich() {
     if (rich) return;
     rich = true;
-    var ver = window.PAGE_VER || "";
     function get(url) {
-      return fetch(url + "?v=" + encodeURIComponent(ver), { cache: "force-cache" })
+      return fetch(url + "?t=" + Date.now(), { cache: "no-store" })
         .then(function (r) { return r.ok ? r.json() : null; })
         .catch(function () { return null; });
     }

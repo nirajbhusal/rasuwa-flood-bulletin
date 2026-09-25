@@ -1,0 +1,38 @@
+# Publish GitHub Pages from a stamped artifact.
+# The build id is applied only in the artifact. This workflow does not commit,
+# so the hourly weather-db job (which pushes data/weather only) cannot loop.
+name: pages
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check the stamper
+        run: python3 scripts/test_stamp.py
+      - name: Stamp build id into the deploy artifact
+        env:
+          BUILD_SHA: ${{ github.sha }}
+        run: python3 scripts/stamp_build.py --src . --out _site
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
