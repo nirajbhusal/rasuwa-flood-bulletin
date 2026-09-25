@@ -33,7 +33,8 @@
   else if (id === "cat-supply" || id === "supply" || id === "lpg") location.replace("supply.html" + q);
   else if (id === "cat-markets" || id === "markets" || id === "capital") location.replace("markets.html" + q);
   else if (id === "notices") location.replace("notices.html" + q);
-  else if (id === "alert" || id === "weather" || id === "wx") location.replace("notices.html" + q + "#alert");
+  else if (id === "alert") location.replace("notices.html" + q + "#alert");
+  else if (id === "weather" || id === "wx") location.replace("weather.html" + q);
   else if (id === "history") location.replace("notices.html" + q + "#history");
   else if (id === "roads") location.replace("notices.html" + q + "#roads");
   else if (id === "helpline") location.replace("contact.html" + q + "#helpline");
@@ -100,11 +101,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="preload" href="fonts/mukta-500-deva.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts.css?v=2026-09-25-ask-answers" as="style">
-<link rel="preload" href="bulletin.css?v=2026-09-25-ask-answers" as="style">
-<link rel="stylesheet" href="fonts.css?v=2026-09-25-ask-answers">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-25-ask-answers">
-<link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=2026-09-25-ask-answers">
+<link rel="preload" href="fonts.css?v=2026-09-25-weather-db" as="style">
+<link rel="preload" href="bulletin.css?v=2026-09-25-weather-db" as="style">
+<link rel="stylesheet" href="fonts.css?v=2026-09-25-weather-db">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-25-weather-db">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=2026-09-25-weather-db">
 </head>
 <body>
 <a class="skip-link" href="#main" aria-label="मुख्य सामग्री"></a>
@@ -163,6 +164,7 @@
     <a href="names.html" class="nav-names" data-i18n="nav_names">उद्धार / बेपत्ता नामावली</a>
     <a href="donate.html" data-i18n="nav_donate">राहत कोष</a>
     <a href="notices.html" data-i18n="nav_notices">सूचना</a>
+    <a href="weather.html" data-i18n="nav_weather">मौसम</a>
     <a href="contact.html" class="nav-helpline"><span data-i18n="nav_helpline">हेल्पलाइन</span></a>
     <a href="gov.html" data-i18n="nav_gov">सरकारबाट भएका पहल</a>
     <a href="response.html" data-i18n="nav_response">मानवीय प्रतिक्रिया</a>
@@ -186,9 +188,10 @@
       <article class="wxb">
         <h2 class="wxb-title">मौसम चेतावनी</h2>
         <p class="wxb-sub">असोज ८ देखि १२ (२४–२८ सेप्टेम्बर २०२६)</p>
-        <p><a href="notices.html#alert">पूर्ण विवरण</a></p>
+        <p><a href="weather.html">पूर्ण विवरण</a></p>
       </article>
     </div>
+    <div id="wxdb-home" data-wxdb-mount data-wxdb-mode="home"></div>
     <div id="dor-home" class="dor-board" data-dor-mount data-dor-mode="home">
       <article class="dor dor-home">
         <p class="dor-kicker">सडक विभाग · NAVIGATE</p>
@@ -1255,12 +1258,13 @@
   <p id="lb-cap"></p>
 </div>
 
-<script defer src="i18n.js?v=2026-09-25-ask-answers"></script>
-<script defer src="weather-alert.js?v=2026-09-25-ask-answers"></script>
-<script defer src="vendor/leaflet/leaflet.js?v=2026-09-25-ask-answers"></script>
-<script defer src="roads-dor.js?v=2026-09-25-ask-answers"></script>
-<script defer src="notify.js?v=2026-09-25-ask-answers"></script>
-<script defer src="nav-menu.js?v=2026-09-25-ask-answers"></script>
+<script defer src="i18n.js?v=2026-09-25-weather-db"></script>
+<script defer src="weather-alert.js?v=2026-09-25-weather-db"></script>
+<script defer src="weather-db.js?v=2026-09-25-weather-db"></script>
+<script defer src="vendor/leaflet/leaflet.js?v=2026-09-25-weather-db"></script>
+<script defer src="roads-dor.js?v=2026-09-25-weather-db"></script>
+<script defer src="notify.js?v=2026-09-25-weather-db"></script>
+<script defer src="nav-menu.js?v=2026-09-25-weather-db"></script>
 
 <script>
 (function(){
@@ -1304,9 +1308,9 @@
 })();
 </script>
 
-<script defer src="names-index.js?v=2026-09-25-ask-answers"></script>
-<script defer src="ask-answers.js?v=2026-09-25-ask-answers"></script>
-<script defer src="ask-panel.js?v=2026-09-25-ask-answers"></script>
+<script defer src="names-index.js?v=2026-09-25-weather-db"></script>
+<script defer src="ask-answers.js?v=2026-09-25-weather-db"></script>
+<script defer src="ask-panel.js?v=2026-09-25-weather-db"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -1378,8 +1382,8 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-25-ask-answers";</script>
-<script src="refresh.js?v=2026-09-25-ask-answers"></script>
+<script>window.PAGE_VER="2026-09-25-weather-db";</script>
+<script src="refresh.js?v=2026-09-25-weather-db"></script>
 <script>
 
 (function(){

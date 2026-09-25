@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-ask-answers";
+  var VER = window.PAGE_VER || "2026-09-25-weather-db";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -1146,8 +1146,25 @@
     return p;
   }
 
+  function renderSummary(root) {
+    var ui = data.ui || {};
+    root.replaceChildren();
+    var board = el("article", "wxb wxb-home wxdb-sumcard");
+    var h = el("h2", "wxb-title", tx(ui.title));
+    board.appendChild(h);
+    board.appendChild(el("p", "wxb-sub", tx(ui.sub)));
+    board.appendChild(el("p", "wxb-shown", shownDateText()));
+    board.appendChild(buildSummary());
+    board.appendChild(sectionLink("wxb-jump", "पूरा मौसम", "Full weather", "weather.html"));
+    root.appendChild(board);
+  }
+
   function renderMount(root) {
     var mode = root.getAttribute("data-wx-mode") || "home";
+    if (mode === "summary") {
+      renderSummary(root);
+      return;
+    }
     var ui = data.ui;
     root.replaceChildren();
     var board = el("article", "wxb" + (mode === "section" ? " wxb-section" : " wxb-home"));
@@ -1279,7 +1296,7 @@
 
     if (mode === "home") {
       board.appendChild(buildHomeExtras());
-      board.appendChild(sectionLink("wxb-jump", "पूर्ण विवरण", "Full details", (data.links && data.links.section) || "notices.html#alert"));
+      board.appendChild(sectionLink("wxb-jump", "पूर्ण विवरण", "Full details", "weather.html#warnings"));
     } else {
       board.appendChild(buildHigh());
       var listHost = el("section", "wxb-panel wxb-provlist-host");
