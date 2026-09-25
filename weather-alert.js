@@ -883,21 +883,18 @@
     });
   }
   function tuneStrokes(svg) {
-    if (!svg || svg._userZoom) return;
-    var vb = svg.viewBox && svg.viewBox.baseVal;
-    var rect = svg.getBoundingClientRect();
-    if (!vb || !vb.width || rect.width < 40) return;
-    var unit = rect.width / vb.width;
-    if (!unit) return;
-    var dist = (1.15 / unit).toFixed(3);
-    var edge = (2.15 / unit).toFixed(3);
+    if (!svg) return;
     svg.querySelectorAll(".wxb-dist").forEach(function (path) {
       path.style.strokeWidth = "";
-      path.setAttribute("stroke-width", dist);
+      path.setAttribute("vector-effect", "non-scaling-stroke");
+      path.setAttribute("stroke-linejoin", "round");
+      path.setAttribute("stroke-width", "0.55");
     });
     svg.querySelectorAll(".wxb-prov-edge").forEach(function (path) {
       path.style.strokeWidth = "";
-      path.setAttribute("stroke-width", edge);
+      path.setAttribute("vector-effect", "non-scaling-stroke");
+      path.setAttribute("stroke-linejoin", "round");
+      path.setAttribute("stroke-width", "1");
     });
   }
   function applyFills(svg) {
