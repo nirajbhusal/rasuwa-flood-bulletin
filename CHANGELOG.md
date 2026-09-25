@@ -1,6 +1,7 @@
 ## 2026-09-25 · Rain GIF on the weather maps
 
 - Districts DHM marks with rain use a small looping cloud-and-rain GIF on the homepage and weather maps. The icon sits inside the district and follows zoom, pan, and full screen. Reduced motion shows a still frame. The per-day counts stay 21 / 24 / 18 / 18.
+- The site-wide falling-rain overlay (`rain-theme.js`) is unchanged. The GIF replaces only the per-district marks inside the map.
 
 ## 2026-09-25-dhm-12310 · Five-day warning and Bulletin-27
 
