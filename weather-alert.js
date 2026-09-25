@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-no-contact";
+  var VER = window.PAGE_VER || "2026-09-25-maps-live";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -133,6 +133,69 @@
   function neDigits(s) {
     return String(s).replace(/\d/g, function (d) { return "०१२३४५६७८९".charAt(+d); });
   }
+  var REFRESH_MS = 10 * 60 * 1000;
+  function label(key, fb) {
+    if (typeof window.t === "function") {
+      var s = window.t(key);
+      if (s) return s;
+    }
+    return fb || "";
+  }
+  function wxStamp() {
+    if (!data) return "";
+    return data.generated_at || data.updated_at || (data.lead && data.lead.issued_at) || "";
+  }
+  function nptClock(iso) {
+    if (!iso) return "";
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return "";
+    var h = "";
+    var m = "";
+    try {
+      new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Asia/Kathmandu",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23"
+      }).formatToParts(d).forEach(function (p) {
+        if (p.type === "hour") h = p.value;
+        if (p.type === "minute") m = p.value;
+      });
+    } catch (e) {}
+    if (!h || !m) return "";
+    var clock = h + ":" + m;
+    return lang() === "ne" ? neDigits(clock) : clock;
+  }
+  function updatedLabel(iso) {
+    var clock = nptClock(iso);
+    if (!clock) return "";
+    var fb = lang() === "en" ? "Updated {time} NPT" : "अपडेट {time} NPT";
+    return label("map_updated", fb).replace("{time}", clock);
+  }
+  function levelParts(p) {
+    var text = tx(levelOf(p));
+    var bits = String(text).split("·");
+    var chip = (bits[0] || text).trim();
+    var fig = (bits[1] || "").trim();
+    if (!fig) fig = shownDateText();
+    return { chip: chip, fig: fig };
+  }
+  function mapIcon(kind) {
+    var d = {
+      plus: "M12 5v14M5 12h14",
+      minus: "M5 12h14",
+      expand: "M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3",
+      compress: "M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"
+    }[kind] || "";
+    return '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="' + d + '"/></svg>';
+  }
+  function prefersStill() {
+    try { return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches); } catch (e) { return false; }
+  }
+  function markEntered(node) {
+    if (!node || node.classList.contains("is-entered") || prefersStill()) return;
+    node.classList.add("is-entered");
+  }
   function shownDateText() {
     var day = activeDay();
     if (!day) return "";
@@ -197,38 +260,30 @@
     }
     var p = provinceById(id);
     if (!p) { pop.hidden = true; return; }
-    var lv = levelOf(p);
     var name = pop.querySelector(".wxb-pop-name");
     var row = pop.querySelector(".wxb-pop-lv");
     var body = pop.querySelector(".wxb-pop-body");
     var dist = pop.querySelector(".wxb-pop-dist");
     var x = pop.querySelector(".wxb-pop-x");
     if (name) name.textContent = distRec ? districtLabel(distRec) : tx(p);
+    var parts = levelParts(p);
+    var fig = parts.fig;
+    if (distRec) {
+      var pname = tx(p);
+      if (pname) fig = pname + " · " + fig;
+    }
     if (row) {
       row.replaceChildren();
-      var sw = el("i", "wxb-sw wxb-sw-" + alertKey(p));
-      row.appendChild(sw);
-      var lvText = (lv.ne || "") + " / " + (lv.en || "");
-      var when = shownDateText();
-      row.appendChild(document.createTextNode(when ? (when + " · " + lvText) : lvText));
+      row.appendChild(el("span", "map-lv map-lv-" + alertKey(p), parts.chip));
     }
-    var also = alsoLine(p);
     if (body) {
-      body.classList.add("wxb-pop-also");
-      body.hidden = !also;
-      body.textContent = also;
+      body.classList.remove("wxb-pop-also");
+      body.hidden = !fig;
+      body.textContent = fig;
     }
     if (dist) {
-      var detail = tx(p.detail);
-      if (distRec) {
-        var pname = tx(p);
-        detail = pname ? (detail ? pname + " — " + detail : pname) : detail;
-      } else {
-        var line = districtLine(p);
-        if (line) detail = detail ? (detail + " " + line) : line;
-      }
-      dist.hidden = !detail;
-      dist.textContent = detail;
+      dist.hidden = true;
+      dist.textContent = "";
     }
     if (x) x.setAttribute("aria-label", tx(data.ui.pop_close));
     pop.hidden = false;
@@ -317,6 +372,7 @@
         path.setAttribute("data-id", d.id);
         path.setAttribute("data-prov", d.province);
         var p = provinceById(d.province);
+        if (p && alertKey(p) === "red") path.classList.add("is-pulse");
         var label = districtLabel(d);
         if (p) label += ". " + tx(p) + ". " + tx(levelOf(p));
         path.setAttribute("role", "button");
@@ -484,7 +540,7 @@
       var key = alertKey(p);
       var path = svgEl("path");
       path.setAttribute("d", provinceOutline(g.d));
-      path.setAttribute("class", "wxb-prov wxb-lv-" + key);
+      path.setAttribute("class", "wxb-prov wxb-lv-" + key + (key === "red" ? " is-pulse" : ""));
       path.setAttribute("data-id", g.id);
       path.setAttribute("data-alert", key);
       path.setAttribute("role", "button");
@@ -743,6 +799,7 @@
       ["red", "orange", "yellow", "green"].forEach(function (k) {
         path.classList.toggle("wxb-lv-" + k, k === key);
       });
+      path.classList.toggle("is-pulse", key === "red");
       path.setAttribute("aria-label", tx(p) + ". " + shownDateText() + ". " + tx(levelOf(p)) + ". " + detailText(p));
     });
     svg.querySelectorAll(".wxb-dist").forEach(function (path) {
@@ -750,6 +807,7 @@
       var p = d && provinceById(d.province);
       if (!d || !p) return;
       path.setAttribute("aria-label", districtLabel(d) + ". " + tx(p) + ". " + shownDateText() + ". " + tx(levelOf(p)));
+      path.classList.toggle("is-pulse", alertKey(p) === "red");
     });
   }
 
@@ -802,14 +860,103 @@
     });
   }
 
-  function buildZoom(svg) {
-    var ui = data.ui;
-    var bar = el("div", "wxb-zoom-ui");
-    function btn(key, factor) {
+  function nativeFs() {
+    return document.fullscreenElement || document.webkitFullscreenElement || null;
+  }
+  function fsEnabled() {
+    if (document.fullscreenEnabled || document.webkitFullscreenEnabled) return true;
+    return false;
+  }
+  function bindFullscreen(host, onRefit) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "map-ctl-btn map-ctl-fs";
+    function cssOn() { return host.classList.contains("is-map-fs"); }
+    function active() { return nativeFs() === host || cssOn(); }
+    function sync() {
+      var on = active();
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.setAttribute("aria-label", on
+        ? label("map_full_exit", lang() === "en" ? "Exit full screen" : "पूरा स्क्रिन बन्द गर्नुहोस्")
+        : label("map_full", lang() === "en" ? "Full screen" : "पूरा स्क्रिन"));
+      btn.innerHTML = mapIcon(on ? "compress" : "expand");
+    }
+    function refit() {
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () { if (onRefit) onRefit(); });
+      });
+    }
+    function lockPage(on) {
+      if (on) document.documentElement.classList.add("map-fs-lock");
+      else if (!document.querySelector(".is-map-fs") && !nativeFs()) document.documentElement.classList.remove("map-fs-lock");
+    }
+    function enterCss() {
+      host._fsActive = true;
+      host.classList.add("is-map-fs");
+      lockPage(true);
+      sync();
+      refit();
+    }
+    function exitCss() {
+      host.classList.remove("is-map-fs");
+      host._fsActive = false;
+      lockPage(false);
+      sync();
+      refit();
+    }
+    function enter() {
+      host._fsActive = true;
+      var req = host.requestFullscreen || host.webkitRequestFullscreen;
+      if (!req || !fsEnabled()) { enterCss(); return; }
+      var done;
+      try { done = req.call(host); } catch (e) { enterCss(); return; }
+      if (done && typeof done.then === "function") done.then(function () { sync(); refit(); }).catch(enterCss);
+      else window.setTimeout(function () { if (nativeFs() === host) { sync(); refit(); } else enterCss(); }, 350);
+    }
+    function exit() {
+      var cur = nativeFs();
+      if (cur) {
+        var ex = document.exitFullscreen || document.webkitExitFullscreen;
+        if (ex) { try { ex.call(document); } catch (e2) {} }
+      }
+      if (cssOn()) exitCss();
+      else { sync(); refit(); }
+    }
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (active()) exit();
+      else enter();
+    });
+    function onFsEvent() {
+      if (!host.isConnected) return;
+      var cur = nativeFs();
+      if (cur && cur !== host) return;
+      // A failed Fullscreen API request must not tear down the CSS fallback.
+      if (cssOn() && cur !== host) {
+        sync();
+        return;
+      }
+      if (!host._fsActive && cur !== host) return;
+      if (!cur) host._fsActive = false;
+      lockPage(!!nativeFs() || !!document.querySelector(".is-map-fs"));
+      sync();
+      refit();
+    }
+    document.addEventListener("fullscreenchange", onFsEvent);
+    document.addEventListener("webkitfullscreenchange", onFsEvent);
+    host._exitFs = exit;
+    sync();
+    return btn;
+  }
+  function buildMapControls(host, svg) {
+    var bar = el("div", "map-ctl");
+    function zoomBtn(key, fb, icon, factor) {
       var b = document.createElement("button");
       b.type = "button";
-      b.className = "wxb-zbtn";
-      b.textContent = tx(ui[key]);
+      b.className = "map-ctl-btn";
+      b.setAttribute("aria-label", label(key, fb));
+      b.innerHTML = mapIcon(icon);
       b.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -817,18 +964,11 @@
       });
       bar.appendChild(b);
     }
-    btn("zoom_in", 1.35);
-    btn("zoom_out", 1 / 1.35);
-    var reset = document.createElement("button");
-    reset.type = "button";
-    reset.className = "wxb-zbtn";
-    reset.textContent = tx(ui.zoom_reset);
-    reset.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
+    zoomBtn("map_zoom_in", lang() === "en" ? "Zoom in" : "ठूलो पार्नुहोस्", "plus", 1.35);
+    zoomBtn("map_zoom_out", lang() === "en" ? "Zoom out" : "सानो पार्नुहोस्", "minus", 1 / 1.35);
+    bar.appendChild(bindFullscreen(host, function () {
       if (svg._zoomReset) svg._zoomReset();
-    });
-    bar.appendChild(reset);
+    }));
     return bar;
   }
 
@@ -859,8 +999,14 @@
     svg._zoomBy = zoomBy;
     svg._zoomReset = function () { svg._userZoom = false; st.s = 1; st.x = 0; st.y = 0; apply(); fitNepalSvg(svg); };
     var ptr = {};
+    if (!wrap.hasAttribute("tabindex")) wrap.tabIndex = 0;
+    wrap.addEventListener("focusin", function () { wrap._wheelOn = true; });
+    wrap.addEventListener("focusout", function (e) {
+      if (!wrap.contains(e.relatedTarget)) wrap._wheelOn = false;
+    });
     wrap.addEventListener("pointerdown", function (e) {
-      if (e.target.closest && e.target.closest(".wxb-zoom-ui, .wxb-pop")) return;
+      wrap._wheelOn = true;
+      if (e.target.closest && e.target.closest(".map-ctl, .wxb-zoom-ui, .wxb-pop")) return;
       ptr[e.pointerId] = {
         x: e.clientX,
         y: e.clientY,
@@ -933,7 +1079,7 @@
     wrap.addEventListener("pointerup", endPtr);
     wrap.addEventListener("pointercancel", endPtr);
     wrap.addEventListener("wheel", function (e) {
-      if (!e.ctrlKey && !e.metaKey) return;
+      if (!wrap._wheelOn && !e.ctrlKey && !e.metaKey) return;
       e.preventDefault();
       var local = null;
       var m = svg.getScreenCTM();
@@ -1348,11 +1494,17 @@
     var svg = svgEl("svg");
     svg.setAttribute("class", "wxb-svg" + (justShifted ? " is-shifting" : ""));
     svg.setAttribute("viewBox", (data.geo && data.geo.viewBox) || "-18 -12 880 548");
-    var tools = el("div", "wxb-maptools");
-    mapPanel.appendChild(tools);
     var stage = el("div", "wxb-stage");
     var mapWrap = el("div", "wxb-mapwrap");
+    mapWrap.tabIndex = 0;
     mapWrap.appendChild(svg);
+    var live = el("p", "map-live");
+    var dot = el("i", "map-live-dot");
+    dot.setAttribute("aria-hidden", "true");
+    live.appendChild(dot);
+    live.appendChild(el("span", "map-live-t", updatedLabel(wxStamp())));
+    mapWrap.appendChild(live);
+    mapWrap.appendChild(buildPop());
     stage.appendChild(mapWrap);
     var call = data.callout || {};
     var aside = el("aside", "wxb-callout");
@@ -1373,7 +1525,6 @@
       stage.appendChild(aside);
     }
     mapPanel.appendChild(stage);
-    mapPanel.appendChild(buildPop());
 
     var switcher = el("div", "wxb-dayswitch");
     switcher.setAttribute("role", "tablist");
@@ -1415,13 +1566,11 @@
       li.appendChild(document.createTextNode((lv.ne || key) + " / " + (lv.en || key)));
       legend.appendChild(li);
     });
-    mapPanel.appendChild(el("p", "wxb-tap", tx(ui.tap)));
     mapPanel.appendChild(el("p", "wxb-shown wxb-legend-date", shownDateText()));
     mapPanel.appendChild(legend);
     var sumHost = el("div", "wxb-sum-host");
     sumHost.appendChild(buildSummary());
     mapPanel.appendChild(sumHost);
-    if (mode === "section") mapPanel.appendChild(el("p", "wxb-hint", tx(ui.hint)));
     var nowHost = el("div", "wxb-now-host");
     nowHost.setAttribute("data-wx-now-host", "");
     mapPanel.appendChild(nowHost);
@@ -1483,7 +1632,7 @@
       board.appendChild(sectionLink("wxb-official", "आधिकारिक नक्सा हेर्नुहोस्", "View official map", official));
     }
     root.appendChild(board);
-    whenNear(mapWrap, function () { armMap(svg, tools, mapWrap); });
+    whenNear(mapWrap, function () { armMap(svg, mapWrap); });
     paintPressed();
     if (selected) paintPop(root, selected);
     try {
@@ -1529,14 +1678,37 @@
     if (typeof raf === "function") raf(function () { raf(fn); });
     else window.setTimeout(fn, 0);
   }
-  function armMap(svg, tools, mapWrap) {
+  function armMap(svg, mapWrap) {
     if (!svg || !svg.isConnected || svg._armed) return;
     svg._armed = true;
     buildMap(svg);
     watchNepalSvg(svg);
-    if (tools && !tools.querySelector(".wxb-zoom-ui")) tools.appendChild(buildZoom(svg));
+    if (mapWrap && !mapWrap.querySelector(".map-ctl")) mapWrap.appendChild(buildMapControls(mapWrap, svg));
     bindNav(mapWrap, svg);
     ensureDistricts();
+    markEntered(mapWrap);
+  }
+  function recolorMaps() {
+    document.querySelectorAll("[data-wx-mount] .wxb-svg").forEach(applyFills);
+    var stamp = updatedLabel(wxStamp());
+    document.querySelectorAll("[data-wx-mount] .map-live-t").forEach(function (n) { n.textContent = stamp; });
+    document.querySelectorAll("[data-wx-mount]").forEach(function (root) {
+      var hot = root.querySelector(".wxb-prov.is-hot");
+      var hotDist = root.querySelector(".wxb-dist.is-hot");
+      paintPop(root, (hot && hot.getAttribute("data-id")) || selected, hotDist ? hotDist.getAttribute("data-id") : hotDistrict);
+    });
+  }
+  var refreshTimer = 0;
+  function refreshJson() {
+    fetch("data/weather-alert.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("weather-alert"); return r.json(); })
+      .then(function (json) {
+        if (!json || !json.provinces) return;
+        data = json;
+        ensureDay();
+        recolorMaps();
+      })
+      .catch(function () {});
   }
   function whenNear(node, fn) {
     if (!node) return;
@@ -1624,6 +1796,7 @@
       .then(function (json) {
         data = json;
         renderAll();
+        if (!refreshTimer) refreshTimer = window.setInterval(refreshJson, REFRESH_MS);
       })
       .catch(function () {
         mounts.forEach(function (root) {
@@ -1634,12 +1807,20 @@
 
   document.addEventListener("pointerdown", function (e) {
     if (!data) return;
-    if (e.target.closest && e.target.closest(".wxb-prov, .wxb-dist, .wxb-pop, .wxb-zoom-ui, .wxb-dayswitch, .wxb-gantt-row, .wxb-nepal-now, .wxdb-pop")) return;
+    if (e.target.closest && e.target.closest(".wxb-prov, .wxb-dist, .wxb-pop, .map-ctl, .wxb-zoom-ui, .wxb-dayswitch, .wxb-gantt-row, .wxb-nepal-now, .wxdb-pop")) return;
     if (!selected) return;
     clearSelect();
   });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && selected) {
+    if (e.key !== "Escape") return;
+    if (nativeFs()) return;
+    var css = document.querySelector(".wxb-mapwrap.is-map-fs, .dor-map.is-map-fs");
+    if (css && css._exitFs) {
+      e.preventDefault();
+      css._exitFs();
+      return;
+    }
+    if (selected) {
       e.preventDefault();
       clearSelect();
     }

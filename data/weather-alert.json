@@ -67,10 +67,6 @@
       "ne": "DHM नक्सामा रातो = कारबाही गर्नुहोस् · सुन्तला = तयार रहनुहोस् · पहेँलो = अपडेट हुनुहोस् · हरियो = चेतावनी छैन।",
       "en": "On the DHM maps: red = take action · orange = be prepared · yellow = be updated · green = no warning."
     },
-    "hint": {
-      "ne": "प्रदेश थिच्नुहोस् — तलको विवरण बदलिन्छ। होभर, क्लिक, वा किबोर्ड (ट्याब, तीर, इन्टर)।",
-      "en": "Tap a province — the detail below changes. Hover, click, or keyboard (Tab, arrows, Enter)."
-    },
     "more": {
       "ne": "पूर्ण बुलेटिन र आधिकारिक नक्सा",
       "en": "Full bulletin and official maps"
@@ -119,10 +115,6 @@
         "This card does not publish river-gauge numbers."
       ]
     },
-    "tap": {
-      "ne": "प्रदेश थिच्नुहोस्",
-      "en": "Tap a province"
-    },
     "days_h": {
       "ne": "कुन दिनको नक्सा",
       "en": "Which day's map"
@@ -154,18 +146,6 @@
     "gantt_btn": {
       "ne": "यो पङ्क्तिले नक्सा मोड खोल्छ",
       "en": "This row focuses the map"
-    },
-    "zoom_in": {
-      "ne": "ठूलो",
-      "en": "Zoom in"
-    },
-    "zoom_out": {
-      "ne": "सानो",
-      "en": "Zoom out"
-    },
-    "zoom_reset": {
-      "ne": "पूरै",
-      "en": "Full"
     },
     "pop_close": {
       "ne": "बन्द",

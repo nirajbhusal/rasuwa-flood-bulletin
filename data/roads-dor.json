@@ -360,10 +360,6 @@
       "ne": "लाइभ नक्सा",
       "en": "Live map"
     },
-    "tap_road": {
-      "ne": "बन्द वा खुला बिन्दु थिच्नुहोस्",
-      "en": "Tap a closed or opened point"
-    },
     "focus_nh42": {
       "ne": "NH42 करिडोर",
       "en": "NH42 corridor"
@@ -423,10 +419,6 @@
     "dor_layer": {
       "ne": "सडक विभाग · NAVIGATE खण्ड",
       "en": "Department of Roads · NAVIGATE sections"
-    },
-    "tap_dao": {
-      "ne": "रातो जिल्ला वा सडक बिन्दु थिच्नुहोस्",
-      "en": "Tap a red district or a road point"
     }
   },
   "roads": [

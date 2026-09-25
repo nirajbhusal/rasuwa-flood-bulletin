@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-25-no-contact";
+  var VER = window.PAGE_VER || "2026-09-25-maps-live";
   var showDistricts = true;
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
@@ -27,6 +27,148 @@
     var s = String(n);
     if (lang() !== "ne") return s;
     return s.replace(/[0-9]/g, function (d) { return DIGITS[d]; });
+  }
+  var REFRESH_MS = 10 * 60 * 1000;
+  function label(key, fb) {
+    if (typeof window.t === "function") {
+      var s = window.t(key);
+      if (s) return s;
+    }
+    return fb || "";
+  }
+  function dorStamp() {
+    if (!data) return "";
+    var n = notice();
+    var pub = n && n.published;
+    return data.generated_at || (n && n.generated_at) || (pub && (pub.posted_iso || pub.iso)) || (data.as_of && data.as_of.iso) || "";
+  }
+  function nptClock(iso) {
+    if (!iso) return "";
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return "";
+    var h = "";
+    var m = "";
+    try {
+      new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Asia/Kathmandu",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23"
+      }).formatToParts(d).forEach(function (p) {
+        if (p.type === "hour") h = p.value;
+        if (p.type === "minute") m = p.value;
+      });
+    } catch (e) {}
+    if (!h || !m) return "";
+    return lang() === "ne" ? num(h + ":" + m) : (h + ":" + m);
+  }
+  function updatedLabel(iso) {
+    var clock = nptClock(iso);
+    if (!clock) return "";
+    var fb = lang() === "en" ? "Updated {time} NPT" : "अपडेट {time} NPT";
+    return label("map_updated", fb).replace("{time}", clock);
+  }
+  function mapIcon(kind) {
+    var d = {
+      plus: "M12 5v14M5 12h14",
+      minus: "M5 12h14",
+      expand: "M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3",
+      compress: "M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"
+    }[kind] || "";
+    return '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="' + d + '"/></svg>';
+  }
+  function prefersStill() {
+    try { return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches); } catch (e) { return false; }
+  }
+  function markEntered(node) {
+    if (!node || node.classList.contains("is-entered") || prefersStill()) return;
+    node.classList.add("is-entered");
+  }
+  function nativeFs() {
+    return document.fullscreenElement || document.webkitFullscreenElement || null;
+  }
+  function bindFullscreen(host, onRefit) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "map-ctl-btn map-ctl-fs";
+    function cssOn() { return host.classList.contains("is-map-fs"); }
+    function active() { return nativeFs() === host || cssOn(); }
+    function sync() {
+      var on = active();
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.setAttribute("aria-label", on
+        ? label("map_full_exit", lang() === "en" ? "Exit full screen" : "पूरा स्क्रिन बन्द गर्नुहोस्")
+        : label("map_full", lang() === "en" ? "Full screen" : "पूरा स्क्रिन"));
+      btn.innerHTML = mapIcon(on ? "compress" : "expand");
+    }
+    function refit() {
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () { if (onRefit) onRefit(); });
+      });
+    }
+    function lockPage(on) {
+      if (on) document.documentElement.classList.add("map-fs-lock");
+      else if (!document.querySelector(".is-map-fs") && !nativeFs()) document.documentElement.classList.remove("map-fs-lock");
+    }
+    function enterCss() {
+      host._fsActive = true;
+      host.classList.add("is-map-fs");
+      lockPage(true);
+      sync();
+      refit();
+    }
+    function exitCss() {
+      host.classList.remove("is-map-fs");
+      host._fsActive = false;
+      lockPage(false);
+      sync();
+      refit();
+    }
+    function enter() {
+      host._fsActive = true;
+      var req = host.requestFullscreen || host.webkitRequestFullscreen;
+      var enabled = document.fullscreenEnabled || document.webkitFullscreenEnabled;
+      if (!req || !enabled) { enterCss(); return; }
+      var done;
+      try { done = req.call(host); } catch (e) { enterCss(); return; }
+      if (done && typeof done.then === "function") done.then(function () { sync(); refit(); }).catch(enterCss);
+      else window.setTimeout(function () { if (nativeFs() === host) { sync(); refit(); } else enterCss(); }, 350);
+    }
+    function exit() {
+      var cur = nativeFs();
+      if (cur) {
+        var ex = document.exitFullscreen || document.webkitExitFullscreen;
+        if (ex) { try { ex.call(document); } catch (e2) {} }
+      }
+      if (cssOn()) exitCss();
+      else { sync(); refit(); }
+    }
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (active()) exit();
+      else enter();
+    });
+    function onFsEvent() {
+      if (!host.isConnected) return;
+      var cur = nativeFs();
+      if (cur && cur !== host) return;
+      // A failed Fullscreen API request must not tear down the CSS fallback.
+      if (cssOn() && cur !== host) {
+        sync();
+        return;
+      }
+      if (!host._fsActive && cur !== host) return;
+      if (!cur) host._fsActive = false;
+      lockPage(!!nativeFs() || !!document.querySelector(".is-map-fs"));
+      sync();
+      refit();
+    }
+    document.addEventListener("fullscreenchange", onFsEvent);
+    document.addEventListener("webkitfullscreenchange", onFsEvent);
+    host._exitFs = exit;
+    sync();
+    return btn;
   }
   function el(tag, cls, text) {
     var n = document.createElement(tag);
@@ -98,7 +240,8 @@
     var n = notice();
     var hit = daoHit(id);
     if (!n || !hit) return "";
-    return "<strong>" + esc(tx(hit.district)) + "</strong><span>" + esc(tx(hit.province)) + "</span><span>" + esc(tx(n.when || n.published)) + "</span><span>" + esc(tx(n.popup_source)) + "</span>";
+    var closed = tx((data.ui && data.ui.closed) || { ne: "बन्द", en: "Closed" });
+    return '<div class="map-pop"><strong class="map-pop-name">' + esc(tx(hit.district)) + '</strong><span class="map-lv map-lv-red">' + esc(closed) + '</span><span class="map-pop-fig">' + esc(tx(hit.province)) + '</span></div>';
   }
   var pendingDistrict = null;
   function markDistrictChips(id) {
@@ -189,9 +332,10 @@
     var ui = data.ui;
     box.replaceChildren();
     if (!road) {
-      box.appendChild(el("p", "dor-map-empty", tx(ui.tap_road)));
+      box.classList.remove("is-open");
       return;
     }
+    box.classList.add("is-open");
     var top = el("p", "dor-pri-top");
     top.appendChild(el("span", "dor-pill dor-pill-" + road.status, tx(ui[road.status] || road.status)));
     top.appendChild(el("strong", null, road.ref + (road.link ? " · " + road.link : "")));
@@ -237,10 +381,17 @@
       });
     }
   }
+  function statusTone(status) {
+    if (status === "closed") return "red";
+    if (status === "partial") return "orange";
+    return "green";
+  }
   function popupHtml(road) {
     var ui = data.ui;
     var status = tx(ui[road.status] || road.status);
-    return "<strong>" + road.ref + (road.link ? " · " + road.link : "") + "</strong><span>" + status + "</span><span>" + tx(road.section) + "</span>";
+    var name = road.ref + (road.link ? " · " + road.link : "");
+    var fig = tx(road.section) || tx(road.place) || "";
+    return '<div class="map-pop"><strong class="map-pop-name">' + esc(name) + '</strong><span class="map-lv map-lv-' + statusTone(road.status) + '">' + esc(status) + '</span><span class="map-pop-fig">' + esc(fig) + '</span></div>';
   }
   function openRoadPopup(id) {
     mapInstances.forEach(function (map) {
@@ -297,7 +448,6 @@
       legend.appendChild(li);
     });
     host.appendChild(legend);
-    host.appendChild(el("p", "wxb-tap dor-tap", tx(notice() ? (ui.tap_dao || ui.tap_road) : ui.tap_road)));
     var detail = el("div", "dor-map-detail dor-priority");
     detail.setAttribute("role", "region");
     detail.setAttribute("aria-live", "polite");
@@ -315,7 +465,7 @@
       dragging: true,
       touchZoom: true,
       tap: true,
-      zoomControl: true,
+      zoomControl: false,
       attributionControl: true,
       maxBounds: nepalMax,
       maxBoundsViscosity: 0.85,
@@ -330,6 +480,17 @@
     map.on("dragstart", function () { userMoved = true; });
     map.on("zoomstart", function (ev) {
       if (ev && ev.originalEvent) userMoved = true;
+    });
+    box.tabIndex = 0;
+    function armWheel() { try { map.scrollWheelZoom.enable(); } catch (e) {} }
+    function disarmWheel() { try { map.scrollWheelZoom.disable(); } catch (e) {} }
+    box.addEventListener("focusin", armWheel);
+    box.addEventListener("pointerdown", function (ev) {
+      if (ev.target && ev.target.closest && ev.target.closest(".map-ctl")) return;
+      armWheel();
+    });
+    box.addEventListener("focusout", function (ev) {
+      if (!box.contains(ev.relatedTarget)) disarmWheel();
     });
     var blankTile = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
     var tileErrors = 0;
@@ -404,8 +565,8 @@
           interactive: true,
           bubblingMouseEvents: true,
           style: function () {
-            if (n) return { color: "#d7191c", weight: 1.25, opacity: 0.95, fillColor: "#d7191c", fillOpacity: 0.42 };
-            return { color: "#1b7f3a", weight: 1, opacity: 0.45, fillColor: "#1b7f3a", fillOpacity: 0.04 };
+            if (n) return { color: "#d7191c", weight: 1.25, opacity: 0.95, fillColor: "#d7191c", fillOpacity: 0.42, className: "dor-dao-shape" };
+            return { color: "#1b7f3a", weight: 1, opacity: 0.45, fillColor: "#1b7f3a", fillOpacity: 0.04, className: "dor-dist-shape" };
           },
           onEachFeature: function (feat, layer) {
             var props = (feat && feat.properties) || {};
@@ -414,14 +575,20 @@
                 closeButton: true,
                 autoPan: true,
                 autoClose: true,
-                maxWidth: 260,
-                className: "dor-dao-pop"
+                maxWidth: 280,
+                className: "dor-dao-pop map-card-pop"
               });
               map._daoById[props.id] = layer;
             } else if (!n) {
               var name = lang() === "en" ? (props.en || "") : (props.ne || props.en || "");
               layer.bindPopup(esc(name), { closeButton: true, autoPan: true, autoClose: true });
             }
+            layer.on("mouseover", function () {
+              layer.setStyle({ weight: 2.8, color: "#0c2340" });
+            });
+            layer.on("mouseout", function () {
+              if (districtLayer && districtLayer.resetStyle) districtLayer.resetStyle(layer);
+            });
             layer.on("click", function (ev) {
               pendingDistrict = props.id || pendingDistrict;
               markDistrictChips(props.id);
@@ -492,6 +659,49 @@
     window.requestAnimationFrame(kickFrame);
     window.setTimeout(kickFrame, 80);
     window.setTimeout(kickFrame, 400);
+    map._fitNepal = function () {
+      userMoved = false;
+      lastFrame = "";
+      try { map.invalidateSize(false); } catch (e) {}
+      kickFrame();
+    };
+    if (window.L.control) {
+      var chrome = window.L.control({ position: "topright" });
+      chrome.onAdd = function () {
+        var bar = window.L.DomUtil.create("div", "map-ctl");
+        function zbtn(key, fb, icon, delta) {
+          var b = window.L.DomUtil.create("button", "map-ctl-btn", bar);
+          b.type = "button";
+          b.setAttribute("aria-label", label(key, fb));
+          b.innerHTML = mapIcon(icon);
+          window.L.DomEvent.on(b, "click", function (ev) {
+            window.L.DomEvent.stop(ev);
+            userMoved = true;
+            map.setZoom(map.getZoom() + delta);
+          });
+        }
+        zbtn("map_zoom_in", lang() === "en" ? "Zoom in" : "ठूलो पार्नुहोस्", "plus", 1);
+        zbtn("map_zoom_out", lang() === "en" ? "Zoom out" : "सानो पार्नुहोस्", "minus", -1);
+        bar.appendChild(bindFullscreen(box, function () {
+          if (map._fitNepal) map._fitNepal();
+        }));
+        window.L.DomEvent.disableClickPropagation(bar);
+        window.L.DomEvent.disableScrollPropagation(bar);
+        return bar;
+      };
+      chrome.addTo(map);
+      var liveCtl = window.L.control({ position: "topleft" });
+      liveCtl.onAdd = function () {
+        var chip = window.L.DomUtil.create("div", "map-live");
+        chip.innerHTML = '<i class="map-live-dot" aria-hidden="true"></i><span class="map-live-t"></span>';
+        var stamp = chip.querySelector(".map-live-t");
+        if (stamp) stamp.textContent = updatedLabel(dorStamp());
+        window.L.DomEvent.disableClickPropagation(chip);
+        return chip;
+      };
+      liveCtl.addTo(map);
+    }
+    markEntered(box);
     function addMarker(road) {
       if (!road.point) return;
       var ll = [road.point.lat, road.point.lng];
@@ -503,7 +713,15 @@
         zIndexOffset: road.id === data.priority_id ? 400 : 0
       });
       marker._roadId = road.id;
-      marker.bindPopup(popupHtml(road), { closeButton: true, autoPan: true, maxWidth: 260 });
+      marker.bindPopup(popupHtml(road), { closeButton: true, autoPan: true, maxWidth: 280, className: "map-card-pop" });
+      marker.on("mouseover", function () {
+        var node = marker.getElement();
+        if (node) node.classList.add("is-hot");
+      });
+      marker.on("mouseout", function () {
+        var node = marker.getElement();
+        if (node) node.classList.remove("is-hot");
+      });
       marker.on("click", function () { selectRoad(road.id, false); });
       marker.on("add", function () {
         var node = marker.getElement();
@@ -827,9 +1045,49 @@
       liveState = "done";
     });
   }
+  function paintDorStamps() {
+    var text = updatedLabel(dorStamp());
+    document.querySelectorAll(".dor-map .map-live-t").forEach(function (n) { n.textContent = text; });
+  }
+  function recolorRoads() {
+    mapInstances.forEach(function (map) {
+      map.eachLayer(function (layer) {
+        if (!layer._roadId || !layer.setIcon) return;
+        var road = roadById(layer._roadId);
+        if (!road) return;
+        try { layer.setIcon(markerIcon(road)); } catch (e) {}
+        if (layer.setPopupContent) layer.setPopupContent(popupHtml(road));
+      });
+      if (map._districtLayer && map._districtLayer.setStyle) {
+        var n = notice();
+        map._districtLayer.setStyle(function () {
+          if (n) return { color: "#d7191c", weight: 1.25, opacity: 0.95, fillColor: "#d7191c", fillOpacity: 0.42, className: "dor-dao-shape" };
+          return { color: "#1b7f3a", weight: 1, opacity: 0.45, fillColor: "#1b7f3a", fillOpacity: 0.04, className: "dor-dist-shape" };
+        });
+      }
+    });
+    if (selectedId) {
+      document.querySelectorAll("[data-dor-mount] .dor-map-detail").forEach(function (box) {
+        fillRoadDetail(box, roadById(selectedId));
+      });
+    }
+    paintDorStamps();
+  }
+  var refreshTimer = 0;
+  function refreshRoads() {
+    fetch("data/roads-dor.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("roads"); return r.json(); })
+      .then(function (json) {
+        if (!json || !json.roads) return;
+        var keep = selectedId;
+        data = json;
+        selectedId = keep;
+        recolorRoads();
+      })
+      .catch(function () {});
+  }
   function renderAll() {
     if (!data) return;
-    if (!selectedId && !notice()) selectedId = data.priority_id;
     clearMaps();
     mounts.forEach(renderMount);
     if ((location.hash || "") === "#dor-map") {
@@ -846,6 +1104,7 @@
       .then(function (json) {
         data = json;
         renderAll();
+        if (!refreshTimer) refreshTimer = window.setInterval(refreshRoads, REFRESH_MS);
         if (window.__addLangHook) window.__addLangHook(renderAll);
       })
       .catch(function () {
