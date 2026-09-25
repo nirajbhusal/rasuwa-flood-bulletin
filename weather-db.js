@@ -1,10 +1,12 @@
 (function () {
   "use strict";
-  var VER = window.PAGE_VER || "2026-09-25-lang-toggle";
+  var VER = window.PAGE_VER || "2026-09-25-nepal-now-alert";
   var home = null;
   var full = null;
   var geo = null;
   var provinces = null;
+  var alertDoc = null;
+  var selectedDay = "";
   var popEl = null;
 
   function lang() {
@@ -243,73 +245,157 @@
     return node;
   }
 
-  function buildNepalNow() {
-    if (!home || !(home.nepal_now || []).length) return null;
-    var sec = el("section", "wxb-nepal-now");
+  function nepalBlock() {
+    var block = home && home.nepal_now;
+    if (!block) return null;
+    if (Array.isArray(block)) return { cities: block, alert_places: [], catalog: [], cap: 12, date: "" };
+    return block;
+  }
+
+  function alertRows(host) {
+    var block = nepalBlock();
+    if (!block) return [];
+    var date = selectedDay;
+    if (host) {
+      var mount = host.closest("[data-wx-mount]");
+      var chip = mount && mount.querySelector(".wxb-chip.is-on[data-day]");
+      if (chip) date = chip.getAttribute("data-day") || date;
+    }
+    if (!date) date = block.date || "";
+    var api = window.WeatherNow;
+    if (api && alertDoc && (block.catalog || []).length && date) {
+      var nowIso = (home && home.generated_at) || new Date().toISOString();
+      return api.selectAlertPlaces(alertDoc, block.catalog, date, nowIso) || [];
+    }
+    return block.alert_places || [];
+  }
+
+  function hasReading(obs) {
+    if (!obs) return false;
+    return obs.rain24 != null || obs.max != null || obs.min != null || obs.t != null;
+  }
+
+  function placeLines(row) {
+    var lines = [];
+    var obs = row.obs || {};
+    var levelName = lang() === "en"
+      ? (row.level === "red" ? "Red" : row.level === "orange" ? "Orange" : row.level === "yellow" ? "Yellow" : row.level || "")
+      : (row.level === "red" ? "रातो" : row.level === "orange" ? "सुन्तला" : row.level === "yellow" ? "पहेँलो" : row.level || "");
+    if (levelName) lines.push(levelName);
+    if (row.source === "dhm") lines.push(lang() === "en" ? "DHM observation" : "DHM अवलोकन");
+    else if (row.source === "hydrology") {
+      var station = tx((obs.station) || {});
+      lines.push((lang() === "en" ? "Rain gauge" : "वर्षा स्टेशन") + (station ? " " + station : ""));
+    } else if (row.source === "model") lines.push(lang() === "en" ? "Model · ECMWF IFS" : "मोडेल · ECMWF IFS");
+    if (obs.obs_at) lines.push(formatWhen(obs.obs_at, true));
+    if (obs.max != null || obs.min != null) lines.push(fmt(obs.max, 1) + "° / " + fmt(obs.min, 1) + "°");
+    else if (obs.t != null) lines.push((lang() === "en" ? "Temperature " : "तापक्रम ") + fmt(obs.t, 1) + "°");
+    if (obs.trace) lines.push(lang() === "en" ? "Trace" : "ट्रेस");
+    else if (obs.rain24 != null) lines.push((lang() === "en" ? "24-hour rain " : "२४ घण्टा वर्षा ") + fmt(obs.rain24, 1) + (lang() === "en" ? " mm" : " मि.मि."));
+    if (!hasReading(obs)) lines.push(lang() === "en" ? "no recent reading" : "भर्खरको रिडिङ छैन");
+    if (obs.stale) lines.push(lang() === "en" ? "Stale reading" : "पुरानो रिडिङ");
+    return lines;
+  }
+
+  function buildNepalNow(rows, fullList) {
+    if (!rows || !rows.length) return null;
+    var cap = (nepalBlock() && nepalBlock().cap) || (window.WeatherNow && window.WeatherNow.HOME_CAP) || 12;
+    var shown = fullList ? rows : rows.slice(0, cap);
+    var sec = el("section", "wxb-nepal-now" + (fullList ? " is-full" : ""));
     var head = el("h3", "wxdb-h");
     head.textContent = lang() === "en" ? "Nepal now" : "नेपाल अहिले";
     sec.appendChild(head);
-    var forecast = home.forecast || {};
-    if (tx(forecast.text)) {
+    var sub = el("p", "wxdb-kicker");
+    sub.textContent = lang() === "en" ? "High-alert districts" : "उच्च सतर्कताका जिल्ला";
+    sec.appendChild(sub);
+    var forecast = (home && home.forecast) || {};
+    if (!fullList && tx(forecast.text)) {
       var note = el("p", "wxdb-copy");
       note.textContent = tx(forecast.text);
       sec.appendChild(note);
     }
     var strip = el("div", "wxdb-strip");
     strip.setAttribute("role", "list");
-    (home.nepal_now || []).forEach(function (city) {
+    shown.forEach(function (row) {
       var btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "wxdb-city";
+      btn.className = "wxdb-city" + (row.obs && row.obs.stale ? " is-stale" : "");
       btn.setAttribute("role", "listitem");
-      btn.appendChild(iconNode(city.next && city.next.icon));
+      var lv = el("span", "wxdb-lv");
+      var dot = el("i");
+      var color = window.WeatherNow ? window.WeatherNow.levelColor(alertDoc, row.level) : "#9aa3ad";
+      dot.style.background = color;
+      lv.appendChild(dot);
+      lv.appendChild(document.createTextNode(lang() === "en"
+        ? (row.level === "red" ? "Red" : row.level === "orange" ? "Orange" : row.level === "yellow" ? "Yellow" : (row.level || ""))
+        : (row.level === "red" ? "रातो" : row.level === "orange" ? "सुन्तला" : row.level === "yellow" ? "पहेँलो" : (row.level || ""))));
+      btn.appendChild(lv);
+      var place = row.place || row;
       var name = el("span", "wxdb-city-name");
-      name.textContent = tx(city);
+      name.textContent = tx(place);
       btn.appendChild(name);
-      var obs = city.obs || {};
-      var temps = el("span", "wxdb-city-t");
-      temps.textContent = fmt(obs.max, 1) + "° / " + fmt(obs.min, 1) + "°";
-      btn.appendChild(temps);
+      if (tx(place) && tx(row) && tx(place) !== tx(row)) {
+        var dist = el("span", "wxdb-dist");
+        dist.textContent = tx(row);
+        btn.appendChild(dist);
+      }
+      var obs = row.obs || {};
+      if (obs.max != null || obs.min != null) {
+        var temps = el("span", "wxdb-city-t");
+        temps.textContent = fmt(obs.max, 1) + "° / " + fmt(obs.min, 1) + "°";
+        btn.appendChild(temps);
+      } else if (obs.t != null) {
+        var temp = el("span", "wxdb-city-t");
+        temp.textContent = fmt(obs.t, 1) + "°";
+        btn.appendChild(temp);
+      }
       var rain = el("span", "wxdb-rainchip");
-      var dot = el("i", "wxdb-rdot");
+      var rdot = el("i", "wxdb-rdot");
       var rainText;
       if (obs.trace) {
-        dot.style.background = rainColor(0);
+        rdot.style.background = rainColor(0);
         rainText = lang() === "en" ? "T" : "ट्रेस";
       } else if (obs.rain24 == null) {
-        dot.style.background = "#9aa3ad";
+        rdot.style.background = "#9aa3ad";
         rainText = "—";
       } else {
-        dot.style.background = rainColor(obs.rain24);
+        rdot.style.background = row.obs && row.obs.stale ? "#9aa3ad" : rainColor(obs.rain24);
         rainText = fmt(obs.rain24, 1) + (lang() === "en" ? " mm" : " मि.मि.");
       }
-      rain.appendChild(dot);
+      rain.appendChild(rdot);
       rain.appendChild(document.createTextNode(rainText));
       btn.appendChild(rain);
-      if (city.next) {
-        var next = el("span", "wxdb-city-next");
-        next.textContent = fmt(city.next.t_from, 0) + "–" + fmt(city.next.t_to, 0) + "°";
-        btn.appendChild(next);
+      if (!hasReading(obs)) {
+        var empty = el("span", "wxdb-none");
+        empty.textContent = lang() === "en" ? "no recent reading" : "भर्खरको रिडिङ छैन";
+        btn.appendChild(empty);
+      }
+      if (row.source === "model") {
+        var model = el("span", "wxdb-model");
+        model.textContent = lang() === "en" ? "Model · ECMWF IFS" : "मोडेल · ECMWF IFS";
+        btn.appendChild(model);
       }
       btn.addEventListener("click", function () {
-        var lines = [];
-        if (city.next) lines.push(tx(city.next));
-        if (city.next) lines.push((lang() === "en" ? "DHM " : "DHM ") + fmt(city.next.t_from, 0) + "–" + fmt(city.next.t_to, 0) + "°");
-        if (city.model_now && city.model_now.t != null) {
-          lines.push((lang() === "en" ? "Model " : "मोडेल ") + fmt(city.model_now.t, 1) + "°");
-        }
-        openPop(btn, tx(city), lines);
+        openPop(btn, tx(place) + (tx(row) && tx(place) !== tx(row) ? " · " + tx(row) : ""), placeLines(row));
       });
       strip.appendChild(btn);
     });
     sec.appendChild(strip);
+    if (!fullList && rows.length > shown.length) {
+      var more = document.createElement("a");
+      more.className = "wxdb-more";
+      more.href = "weather.html#wx-alert";
+      more.textContent = lang() === "en" ? "See all" : "सबै हेर्नुहोस्";
+      sec.appendChild(more);
+    }
     return sec;
   }
 
   function injectNow() {
     document.querySelectorAll("[data-wx-now-host]").forEach(function (host) {
       host.replaceChildren();
-      var block = buildNepalNow();
+      var fullList = !!(host.closest("[data-wx-mode='section']"));
+      var block = buildNepalNow(alertRows(host), fullList);
       if (block) host.appendChild(block);
     });
   }
@@ -879,13 +965,23 @@
       });
     }
     var wantsNow = wantsHome || !!document.querySelector("[data-wx-mount][data-wx-mode='section']");
-    if (wantsNow) jobs.push(get("data/weather/now.json").then(function (json) { home = json; }).catch(function () {}));
+    if (wantsNow) {
+      jobs.push(get("data/weather/now.json").then(function (json) { home = json; }).catch(function () {}));
+      jobs.push(get("data/weather-alert.json").then(function (json) {
+        alertDoc = json;
+        geo = json.geo || geo;
+        provinces = json.provinces || provinces;
+      }).catch(function () {}));
+    }
     if (wantsFull) {
       jobs.push(get("data/weather/current.json").then(function (json) { full = json; }).catch(function () {}));
-      jobs.push(get("data/weather-alert.json").then(function (json) {
-        geo = json.geo || null;
-        provinces = json.provinces || null;
-      }).catch(function () {}));
+      if (!wantsNow) {
+        jobs.push(get("data/weather-alert.json").then(function (json) {
+          alertDoc = json;
+          geo = json.geo || null;
+          provinces = json.provinces || null;
+        }).catch(function () {}));
+      }
     }
     Promise.all(jobs).then(renderAll);
   }
@@ -898,7 +994,11 @@
     if (e.target.closest && e.target.closest(".wxdb-pop, .wxdb-city, .wxdb-badge, .wxdb-gauge")) return;
     closePop();
   });
-  document.addEventListener("wx-rendered", injectNow);
+  document.addEventListener("wx-rendered", function (e) {
+    if (e.detail && e.detail.alert) alertDoc = e.detail.alert;
+    if (e.detail && e.detail.date) selectedDay = e.detail.date;
+    injectNow();
+  });
   if (window.__addLangHook) window.__addLangHook(renderAll);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();

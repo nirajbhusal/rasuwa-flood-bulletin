@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """Offline checks for source timeouts, last-good retention, and personal-data scrubbing."""
+import json
+import os
 import unittest
+from datetime import datetime, timezone
 from unittest import mock
 
 import build
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 
 class ScrubTests(unittest.TestCase):
@@ -111,6 +116,116 @@ class FetchDeadlineTests(unittest.TestCase):
                 build.fetch_json("https://dhm.gov.np/mfd/api/weather", timeout=12, attempts=4, deadline=3)
         self.assertGreaterEqual(len(calls), 1)
         self.assertLessEqual(len(calls), 2)
+
+
+class AlertPlaceTests(unittest.TestCase):
+    def test_today_pins_corridor_and_skips_orange_provinces(self):
+        with open(os.path.join(ROOT, "data", "weather-alert.json"), encoding="utf-8") as handle:
+            alert = json.load(handle)
+        with open(os.path.join(ROOT, "data", "nepal-districts-svg.json"), encoding="utf-8") as handle:
+            districts = json.load(handle)["districts"]
+        now = datetime(2026, 9, 25, 5, 0, tzinfo=timezone.utc)
+        ids = build.select_alert_districts(alert, districts, "2026-09-25", now)
+        self.assertEqual(
+            ids[:8],
+            ["rasuwa", "nuwakot", "dhading", "gorkha", "chitwan", "sindhupalchok", "baglung", "myagdi"],
+        )
+        self.assertNotIn("dhanusha", ids)
+        self.assertIn("kathmandu", ids)
+        self.assertEqual(len(ids), 38)
+        self.assertEqual(build.alert_level(alert, "rasuwa", "bagmati", "2026-09-25", now), "red")
+        self.assertEqual(build.alert_level(alert, "sindhupalchok", "bagmati", "2026-09-25", now), "red")
+
+    def test_orange_provinces_join_only_when_few_reds(self):
+        districts = [
+            {"id": "rasuwa", "en": "Rasuwa", "ne": "रसुवा", "province": "bagmati"},
+            {"id": "kailali", "en": "Kailali", "ne": "कैलाली", "province": "sudurpaschim"},
+        ]
+        alert = {
+            "warning_days": [{"date": "2026-09-25", "provinces": {
+                "bagmati": {"level": "red"},
+                "sudurpaschim": {"level": "orange"},
+            }}],
+            "callout": {"page_id": 1, "window_end": "2020-01-01T00:00:00+05:45", "districts": []},
+            "district_warnings": [],
+        }
+        now = datetime(2026, 9, 25, 5, 0, tzinfo=timezone.utc)
+        self.assertEqual(
+            build.select_alert_districts(alert, districts, "2026-09-25", now),
+            ["rasuwa", "kailali"],
+        )
+        many = [{"id": f"d{i}", "en": f"D{i:02d}", "ne": f"D{i}", "province": "bagmati"} for i in range(8)]
+        many.append({"id": "orange1", "en": "Orange", "ne": "Orange", "province": "madhesh"})
+        wide = {
+            "warning_days": [{"date": "2026-09-25", "provinces": {
+                "bagmati": {"level": "red"},
+                "madhesh": {"level": "orange"},
+            }}],
+            "callout": {},
+            "district_warnings": [],
+        }
+        ids = build.select_alert_districts(wide, many, "2026-09-25", now)
+        self.assertEqual(len(ids), 8)
+        self.assertNotIn("orange1", ids)
+
+    def test_dhm_beats_a_fresh_gauge_and_null_stays_null(self):
+        cities = [{
+            "id": "kathmandu",
+            "dhm_observed": {
+                "rain_24h_mm": 71.2, "max_c": 20.2, "min_c": 16.2,
+                "obs_at": "2026-09-25T08:45:00+05:45", "trace": False,
+            },
+            "verify": {"state": "ok"},
+        }]
+        gauges = [{
+            "district": "KATHMANDU", "r24": 5, "fresh": True, "name": "X",
+            "ne": "X", "en": "X", "obs_at": "2026-09-25T10:00:00+05:45",
+            "lat": 27.7, "lon": 85.3, "id": 1,
+        }]
+        districts = [{"id": "kathmandu", "en": "Kathmandu", "ne": "काठमाडौं", "province": "bagmati"}]
+        source, obs, verify = build.choose_obs(
+            "kathmandu", {"lat": 27.7, "lon": 85.3, "point_id": "kathmandu"},
+            cities, gauges, build.district_key_map(districts), {}, "2026-09-25",
+        )
+        self.assertEqual(source, "dhm")
+        self.assertEqual(obs["rain24"], 71.2)
+        self.assertIsNone(obs["t"])
+        self.assertFalse(obs["stale"])
+        self.assertEqual(verify, "ok")
+        empty_source, empty_obs, _ = build.choose_obs(
+            "dhading", {"lat": None, "lon": None, "point_id": None}, [], [], {}, {}, "2026-09-25",
+        )
+        self.assertIsNone(empty_source)
+        self.assertIsNone(empty_obs)
+
+    def test_fresh_gauge_replaces_yesterdays_dhm(self):
+        cities = [{
+            "id": "kathmandu",
+            "dhm_observed": {"rain_24h_mm": 1, "max_c": 1, "min_c": 1, "obs_at": "2026-09-24T08:45:00+05:45"},
+        }]
+        gauges = [{
+            "district": "Kathmandu", "r24": 9, "fresh": True, "name": "KTM",
+            "ne": "KTM", "en": "KTM", "obs_at": "2026-09-25T10:00:00+05:45",
+            "lat": 27.7, "lon": 85.3, "id": 2,
+        }]
+        districts = [{"id": "kathmandu", "en": "Kathmandu"}]
+        source, obs, _ = build.choose_obs(
+            "kathmandu", {"lat": 27.7, "lon": 85.3},
+            cities, gauges, build.district_key_map(districts), {}, "2026-09-25",
+        )
+        self.assertEqual(source, "hydrology")
+        self.assertEqual(obs["rain24"], 9)
+        self.assertFalse(obs["stale"])
+
+    def test_sindhupalchowk_alias(self):
+        districts = [{"id": "sindhupalchok", "en": "Sindhupalchok"}]
+        key_map = build.district_key_map(districts)
+        self.assertEqual(key_map.get("sindhupalchowk"), "sindhupalchok")
+        self.assertEqual(
+            build.resolve_district("NAWALPARASI (BARDAGHAT SUSTA EAST)", key_map),
+            "nawalparasi-east",
+        )
+        self.assertIsNone(build.resolve_district("Nawalparasi", key_map))
 
 
 if __name__ == "__main__":

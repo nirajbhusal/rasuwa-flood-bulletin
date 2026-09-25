@@ -1,6 +1,6 @@
 /*! District alerts card. Reads data/weather-alert.json and the district shapes. */
 (function () {
-  var VER = window.PAGE_VER || "2026-09-25-lang-toggle";
+  var VER = window.PAGE_VER || "2026-09-25-nepal-now-alert";
   var data = null;
   var geo = null;
   var selected = "";
