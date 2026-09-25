@@ -19,11 +19,11 @@
 - If the file has no figure, the sentence says so. An unknown question gets a short “I don’t have that yet” and three suggestions. Follow-up chips stay on the same subject.
 - `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-25-ask-answers`
 
-## 2026-09-25-wx-visual · Homepage weather is a live view
+## 2026-09-25-maps-live · Homepage weather is a live view
 
 - The homepage weather card is a short visualization: the date-based province map, day chips, a colour-count strip for the selected day, compact district chips (Sindhupalchok high, Baglung medium, Myagdi medium) with their window, the Bhotekoshi corridor chip, and a one-line rain-now figure. A **पूर्ण विवरण** / Full details link opens `notices.html#alert`. The card has no photos, map thumbnails, or QR image.
 - `notices.html#alert` keeps the full board as text and SVG: map, day chips, legend, province details for the selected day, a five-day colour table, district warning cards, the corridor districts, the rain-now note, and the bulletin timeline. Official maps are a text link to the DHM page. Impact photos and the nowcast picture are not shown.
-- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-25-wx-visual`
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-25-maps-live`
 
 ## 2026-09-25-wx-bydate · Weather map follows one day
 
