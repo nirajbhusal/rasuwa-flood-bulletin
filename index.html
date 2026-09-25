@@ -130,12 +130,13 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 .head-stick .topbar-inner{grid-template-columns:minmax(0,1fr);grid-template-areas:"brand" "actions" "date" "find"}
 .head-stick .top-actions{justify-content:center}
 .head-stick .topbar .brand h1,.head-stick .brand-date{text-align:center}
-}</style>
-<link rel="stylesheet" href="fonts.css?v=2026-09-25-map-boards" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="bulletin.min.css?v=2026-09-25-map-boards" media="print" onload="this.media='all'">
+}
+@media(max-width:767px){.head-stick .head-home{display:none}.head-stick .brand{min-height:44px}.head-stick .header-art{left:50%;right:auto;top:0;width:100%;height:44px;transform:translateX(-50%) scaleX(1.65);transform-origin:center center}}</style>
+<link rel="stylesheet" href="fonts.css?v=2026-09-25-mobile-header-art" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="bulletin.min.css?v=2026-09-25-mobile-header-art" media="print" onload="this.media='all'">
 <noscript>
-<link rel="stylesheet" href="fonts.css?v=2026-09-25-map-boards">
-<link rel="stylesheet" href="bulletin.min.css?v=2026-09-25-map-boards">
+<link rel="stylesheet" href="fonts.css?v=2026-09-25-mobile-header-art">
+<link rel="stylesheet" href="bulletin.min.css?v=2026-09-25-mobile-header-art">
 </noscript>
 </head>
 <body>
@@ -1300,7 +1301,7 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
     if (started) return;
     started = true;
     var s = document.createElement("script");
-    s.src = "i18n.js?v=" + (window.PAGE_VER || "2026-09-25-map-boards");
+    s.src = "i18n.js?v=" + (window.PAGE_VER || "2026-09-25-mobile-header-art");
     s.onload = function(){
       var q = waiters.splice(0);
       q.forEach(function(fn){ try { fn(); } catch (e) {} });
@@ -1327,17 +1328,17 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
   });
 })();
 </script>
-<script defer src="rain-theme.js?v=2026-09-25-map-boards"></script>
-<script defer src="district-alerts.js?v=2026-09-25-map-boards"></script>
-<script defer src="weather-alert.js?v=2026-09-25-map-boards"></script>
-<script defer src="weather-now.js?v=2026-09-25-map-boards"></script>
-<script defer src="weather-db.js?v=2026-09-25-map-boards"></script>
-<script defer src="roads-dor.js?v=2026-09-25-map-boards"></script>
-<script defer src="open-alert.js?v=2026-09-25-map-boards"></script>
-<script defer src="notify.js?v=2026-09-25-map-boards"></script>
-<script defer src="nav-menu.js?v=2026-09-25-map-boards"></script>
-<script defer src="npt-clock.js?v=2026-09-25-map-boards"></script>
-<script defer src="site-search.js?v=2026-09-25-map-boards"></script>
+<script defer src="rain-theme.js?v=2026-09-25-mobile-header-art"></script>
+<script defer src="district-alerts.js?v=2026-09-25-mobile-header-art"></script>
+<script defer src="weather-alert.js?v=2026-09-25-mobile-header-art"></script>
+<script defer src="weather-now.js?v=2026-09-25-mobile-header-art"></script>
+<script defer src="weather-db.js?v=2026-09-25-mobile-header-art"></script>
+<script defer src="roads-dor.js?v=2026-09-25-mobile-header-art"></script>
+<script defer src="open-alert.js?v=2026-09-25-mobile-header-art"></script>
+<script defer src="notify.js?v=2026-09-25-mobile-header-art"></script>
+<script defer src="nav-menu.js?v=2026-09-25-mobile-header-art"></script>
+<script defer src="npt-clock.js?v=2026-09-25-mobile-header-art"></script>
+<script defer src="site-search.js?v=2026-09-25-mobile-header-art"></script>
 
 <script>
 (function(){
@@ -1368,8 +1369,8 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
   window.__ensureNamesIndex=load;
 })();
 </script>
-<script defer src="ask-answers.js?v=2026-09-25-map-boards"></script>
-<script defer src="ask-panel.js?v=2026-09-25-map-boards"></script>
+<script defer src="ask-answers.js?v=2026-09-25-mobile-header-art"></script>
+<script defer src="ask-panel.js?v=2026-09-25-mobile-header-art"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -1441,8 +1442,8 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-25-map-boards";</script>
-<script src="refresh.js?v=2026-09-25-map-boards"></script>
+<script>window.PAGE_VER="2026-09-25-mobile-header-art";</script>
+<script src="refresh.js?v=2026-09-25-mobile-header-art"></script>
 <script>
 
 (function(){
