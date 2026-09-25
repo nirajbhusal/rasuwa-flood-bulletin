@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var VER = window.PAGE_VER || "2026-09-25-nepal-now-alert";
+  var VER = window.PAGE_VER || "2026-09-25-polish3";
   var home = null;
   var full = null;
   var geo = null;
@@ -308,11 +308,24 @@
     var sub = el("p", "wxdb-kicker");
     sub.textContent = lang() === "en" ? "High-alert districts" : "उच्च सतर्कताका जिल्ला";
     sec.appendChild(sub);
-    var forecast = (home && home.forecast) || {};
-    if (!fullList && tx(forecast.text)) {
-      var note = el("p", "wxdb-copy");
-      note.textContent = tx(forecast.text);
-      sec.appendChild(note);
+    if (fullList) {
+      var forecast = (home && home.forecast) || {};
+      var forecastText = tx(forecast.text);
+      if (forecastText) {
+        var det = document.createElement("details");
+        det.className = "wxdb-forecast";
+        var sum = document.createElement("summary");
+        sum.textContent = lang() === "en" ? "Read forecast" : "पूर्वानुमान पढ्नुहोस्";
+        if (typeof window.t === "function") {
+          var label = window.t("wx_forecast_read");
+          if (label && label !== "wx_forecast_read" && !/^[a-z][a-z0-9_]*$/.test(label)) sum.textContent = label;
+        }
+        det.appendChild(sum);
+        var note = el("p", "wxdb-forecast-body");
+        note.textContent = forecastText;
+        det.appendChild(note);
+        sec.appendChild(det);
+      }
     }
     var strip = el("div", "wxdb-strip");
     strip.setAttribute("role", "list");
