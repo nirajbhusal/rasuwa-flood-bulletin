@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var VER = window.PAGE_VER || "2026-09-25-polish3";
+  var VER = window.PAGE_VER || "2026-09-25-toprain";
   var home = null;
   var full = null;
   var geo = null;
@@ -297,6 +297,100 @@
     return lines;
   }
 
+  var topRainSeq = 0;
+  function rainAmount(value) {
+    var n = Number(value);
+    if (!isFinite(n)) return "—";
+    var text = Math.abs(n - Math.round(n)) < 0.05 ? String(Math.round(n)) : n.toFixed(1);
+    return lang() === "en" ? text : dev(text);
+  }
+  function rainClock(iso) {
+    var parts = nptParts(iso);
+    if (!parts) return "";
+    var hh = parts.hh;
+    var mm = parts.mm;
+    var h12 = hh % 12;
+    if (h12 === 0) h12 = 12;
+    var hm = h12 + ":" + (mm < 10 ? "0" : "") + mm;
+    if (lang() === "en") return hm + (hh >= 12 ? " PM" : " AM");
+    return dayPart(hh) + " " + dev(hm);
+  }
+  function rainPlace(row) {
+    var station = tx(row.station || {});
+    var dist = tx(row.district || {});
+    if (station && dist && station !== dist) return station + ", " + dist;
+    return station || dist || "";
+  }
+  function topRainRows() {
+    var block = nepalBlock();
+    var rows = block && block.top_rain;
+    if (!Array.isArray(rows)) return [];
+    return rows.filter(function (row) {
+      return row && row.source !== "model" && row.rain24 != null;
+    }).slice(0, 3);
+  }
+  function fillRainLine(node, row, lead) {
+    if (lead) node.appendChild(document.createTextNode(lead));
+    var where = rainPlace(row);
+    if (where) node.appendChild(document.createTextNode(where + (lang() === "en" ? ", " : " ")));
+    var val = el("span", "wx-toprain-val");
+    val.style.color = rainColor(row.rain24);
+    val.textContent = rainAmount(row.rain24);
+    node.appendChild(val);
+    var tail = lang() === "en" ? " mm" : " मि.मि.";
+    var when = rainClock(row.obs_at);
+    if (when) tail += " (" + when + ")";
+    node.appendChild(document.createTextNode(tail));
+  }
+  function topRainItem(row) {
+    var li = el("li");
+    fillRainLine(li, row, "");
+    return li;
+  }
+  function topRainSource() {
+    var src = el("p", "wx-toprain-src");
+    src.textContent = "DHM / hydrology.gov.np gauges";
+    return src;
+  }
+  function buildTopRainList(rows) {
+    if (!rows || !rows.length) return null;
+    var box = el("div", "wx-toprain-list");
+    var kick = el("p", "wxdb-kicker");
+    kick.textContent = lang() === "en" ? "Heaviest" : "सबैभन्दा बढी";
+    box.appendChild(kick);
+    var list = el("ol", "wx-toprain-more");
+    rows.forEach(function (row) { list.appendChild(topRainItem(row)); });
+    box.appendChild(list);
+    box.appendChild(topRainSource());
+    return box;
+  }
+  function buildTopRainCallout(rows) {
+    if (!rows || !rows.length) return null;
+    topRainSeq += 1;
+    var wrap = el("div", "wx-toprain-wrap");
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "wx-toprain";
+    var listId = "wx-toprain-" + topRainSeq;
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-controls", listId);
+    var lead = lang() === "en" ? "Heaviest 24-hour rain: " : "२४ घण्टामा सबैभन्दा बढी वर्षा: ";
+    fillRainLine(btn, rows[0], lead);
+    var more = el("ol", "wx-toprain-more");
+    more.id = listId;
+    more.hidden = true;
+    rows.forEach(function (row) { more.appendChild(topRainItem(row)); });
+    btn.addEventListener("click", function () {
+      var open = more.hidden;
+      more.hidden = !open;
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    wrap.appendChild(btn);
+    wrap.appendChild(more);
+    wrap.appendChild(topRainSource());
+    return wrap;
+  }
+
   function buildNepalNow(rows, fullList) {
     if (!rows || !rows.length) return null;
     var cap = (nepalBlock() && nepalBlock().cap) || (window.WeatherNow && window.WeatherNow.HOME_CAP) || 12;
@@ -308,6 +402,8 @@
     var sub = el("p", "wxdb-kicker");
     sub.textContent = lang() === "en" ? "High-alert districts" : "उच्च सतर्कताका जिल्ला";
     sec.appendChild(sub);
+    var callout = buildTopRainCallout(topRainRows());
+    if (callout) sec.appendChild(callout);
     if (fullList) {
       var forecast = (home && home.forecast) || {};
       var forecastText = tx(forecast.text);
@@ -618,7 +714,12 @@
     var sec = el("section", "wxdb-block");
     sec.id = "wxdb-rain";
     sec.appendChild(h2("२४ घण्टा वर्षा", "Observed 24 h rain"));
-    if (!sourceOk(full, "hyd_rain") || !geo) return el("section");
+    var heaviest = buildTopRainList(topRainRows());
+    if (heaviest) sec.appendChild(heaviest);
+    if (!sourceOk(full, "hyd_rain") || !geo) {
+      if (heaviest) return sec;
+      return el("section");
+    }
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("viewBox", geo.viewBox || "-18 -12 880 548");
     svg.setAttribute("class", "wxdb-map");

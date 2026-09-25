@@ -228,5 +228,61 @@ class AlertPlaceTests(unittest.TestCase):
         self.assertIsNone(build.resolve_district("Nawalparasi", key_map))
 
 
+class TopRainTests(unittest.TestCase):
+    def test_archale_transliterates_with_schwa(self):
+        self.assertEqual(build.to_devanagari("Archale"), "अर्चले")
+        self.assertEqual(build.to_devanagari("Khopasi"), "खोपसी")
+        self.assertEqual(build.to_devanagari("क्याङजिन"), "क्याङजिन")
+
+    def test_fresh_gauges_beat_stale_dhm_and_ignore_model(self):
+        districts = [
+            {"id": "palpa", "en": "Palpa", "ne": "पाल्पा", "province": "lumbini"},
+            {"id": "kavrepalanchok", "en": "Kavrepalanchok", "ne": "काभ्रेपलाञ्चोक", "province": "bagmati"},
+            {"id": "kathmandu", "en": "Kathmandu", "ne": "काठमाडौं", "province": "bagmati"},
+        ]
+        now = datetime(2026, 9, 25, 8, 9, tzinfo=timezone.utc)
+        gauges = [
+            {"id": 744, "name": "Archale", "ne": "Archale", "en": "Archale", "district": "Palpa", "r24": 222.0, "obs_at": "2026-09-25T13:25:00+05:45"},
+            {"id": 848, "name": "Khopasi(Panauti)", "ne": "Khopasi(Panauti)", "en": "Khopasi(Panauti)", "district": "KAVREPALANCHOK", "r24": 134.6, "obs_at": "2026-09-25T13:35:00+05:45"},
+            {"id": 867, "name": "Gandakot", "ne": "Gandakot", "en": "Gandakot", "district": "Palpa", "r24": 132.0, "obs_at": "2026-09-25T13:25:00+05:45"},
+            {"id": 1, "name": "Old", "ne": "Old", "en": "Old", "district": "Palpa", "r24": 500, "obs_at": "2026-09-25T08:00:00+05:45"},
+            {"id": 2, "name": "ModelHill", "ne": "ModelHill", "en": "ModelHill", "district": "Palpa", "r24": 900, "obs_at": "2026-09-25T13:40:00+05:45", "source": "model"},
+        ]
+        dhm = [{
+            "id": 12, "name": "Kathmandu", "ne": "काठमाडौं", "en": "Kathmandu",
+            "district_id": "kathmandu", "rain24": 71.2, "obs_at": "2026-09-25T08:45:00+05:45", "source": "dhm",
+        }]
+        rows = build.top_rain(gauges, dhm, districts, now)
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["station"]["en"], "Archale")
+        self.assertEqual(rows[0]["station"]["ne"], "अर्चले")
+        self.assertEqual(rows[0]["district"], {"ne": "पाल्पा", "en": "Palpa"})
+        self.assertEqual(rows[0]["province"], "lumbini")
+        self.assertEqual(rows[0]["rain24"], 222.0)
+        self.assertEqual(rows[0]["obs_at"], "2026-09-25T13:25:00+05:45")
+        self.assertEqual(rows[0]["source"], "hydrology")
+        self.assertEqual(rows[1]["district"]["en"], "Kavrepalanchok")
+        self.assertEqual(rows[2]["station"]["en"], "Gandakot")
+        self.assertTrue(all(row["source"] != "model" for row in rows))
+        self.assertNotIn("Old", [row["station"]["en"] for row in rows])
+        self.assertNotIn("Kathmandu", [row["station"]["en"] for row in rows])
+
+    def test_fresh_dhm_can_outrank_a_gauge(self):
+        districts = [{"id": "kathmandu", "en": "Kathmandu", "ne": "काठमाडौं", "province": "bagmati"}]
+        now = datetime(2026, 9, 25, 8, 9, tzinfo=timezone.utc)
+        gauges = [{
+            "id": 744, "name": "Archale", "ne": "Archale", "en": "Archale",
+            "district": "Kathmandu", "r24": 10, "obs_at": "2026-09-25T13:25:00+05:45",
+        }]
+        dhm = [{
+            "id": 12, "ne": "काठमाडौं", "en": "Kathmandu", "district_id": "kathmandu",
+            "rain24": 80, "obs_at": "2026-09-25T13:20:00+05:45", "source": "dhm",
+        }]
+        rows = build.top_rain(gauges, dhm, districts, now)
+        self.assertEqual(rows[0]["source"], "dhm")
+        self.assertEqual(rows[0]["station"]["ne"], "काठमाडौं")
+        self.assertEqual(rows[0]["rain24"], 80)
+
+
 if __name__ == "__main__":
     unittest.main()

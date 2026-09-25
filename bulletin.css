@@ -9068,7 +9068,7 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   .open-alert-b,.open-alert-s{font-size:14px}
 }
 
-/* 2026-09-25-polish3 — light header, search, menu, alert, ask */
+/* 2026-09-25-toprain — light header, search, menu, alert, ask */
 .head-stick{
   position:sticky;
   top:0;
@@ -9746,7 +9746,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 .wxb,.dor{overflow:hidden}
 .wxb-mapwrap,.dor-map{overflow:hidden}
 
-/* 2026-09-25-polish3 — search stays closed, alert is a bottom sheet, date contrast, ask link */
+/* 2026-09-25-toprain — search stays closed, alert is a bottom sheet, date contrast, ask link */
 .head-stick .brand-date,
 .head-stick .brand-date .brand-incident,
 .head-stick .brand-incident{
@@ -9816,3 +9816,15 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 @media (max-width:760px){
   .wxb-legend{padding-right:148px}
 }
+.wx-toprain-wrap,.wx-toprain-list{margin:0 0 10px}
+.wx-toprain{
+  display:block;width:100%;margin:0;padding:8px 10px;min-height:44px;
+  border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc;color:#0f172a;
+  font:inherit;font-size:.92rem;font-weight:700;line-height:1.35;text-align:center;cursor:pointer;
+}
+.wx-toprain-val{font-weight:800}
+.wx-toprain-src{margin:4px 0 0;color:#57534e;font-size:.75rem;line-height:1.3;text-align:center}
+.wx-toprain-more{list-style:none;margin:6px 0 0;padding:0;text-align:center}
+.wx-toprain-more[hidden]{display:none}
+.wx-toprain-more li{font-size:.88rem;font-weight:700;line-height:1.4;padding:2px 0}
+.wx-toprain-list .wxdb-kicker{margin:0 0 4px;text-align:center}
