@@ -1,13 +1,10 @@
 /*! Rasuwa flood bulletin · homepage Ask panel.
-    Answers only from published JSON / pages.
-    data/ask-kb.json holds FAQ questions, follow-ups, routing, and static text.
-    It is maintained with bulletin updates. Weather, roads, rescue, names, funds,
-    helpline, and LPG figures are read from live files each time the panel opens —
-    the KB does not store NDRRMA, DHM, or DoR numbers. Ask does not scrape DHM. */
+    The sheet, chips, and FAQ stay here. Sentences come from ask-answers.js,
+    which reads the published JSON and writes a short reply. */
 (function () {
   "use strict";
 
-  var VER = window.PAGE_VER || "2026-09-25-wx-visual";
+  var VER = window.PAGE_VER || "2026-09-25-ask-answers";
   var HL_ORDER = ["1234", "100", "1148", "1111", "1114", "102", "1144", "1155"];
   var HL_FALLBACK = [
     { tel: "1234", key: "hl_deoc" },
@@ -175,24 +172,6 @@
     for (var i = 0; i < days.length; i++) if (days[i].date === iso) return days[i];
     return null;
   }
-  function warningISOList(wx) {
-    var days = (wx && wx.warning_days) || [];
-    var out = [];
-    for (var i = 0; i < days.length; i++) if (days[i] && days[i].date) out.push(days[i].date);
-    out.sort();
-    return out;
-  }
-  function clampWarningISO(wx, iso) {
-    var dates = warningISOList(wx);
-    if (!dates.length) return "";
-    if (!iso || iso < dates[0]) return dates[0];
-    if (iso > dates[dates.length - 1]) return dates[dates.length - 1];
-    for (var i = 0; i < dates.length; i++) if (dates[i] >= iso) return dates[i];
-    return dates[dates.length - 1];
-  }
-  function isTodayQuery(raw) {
-    return /today|\baaja\b|\baaj\b|आज/.test(norm(raw || ""));
-  }
   function findDay(raw, wx) {
     if (!wx) return null;
     var q = norm(raw);
@@ -227,136 +206,6 @@
     if (off == null) return null;
     var iso = ktmISO(off);
     return { date: iso, meta: timelineDay(wx, iso), missing: !warningDay(wx, iso) && !timelineDay(wx, iso) };
-  }
-  function roadHay(road) {
-    var bits = [road.ref, road.link];
-    ["name", "section", "place", "district", "reason"].forEach(function (k) {
-      var o = road[k];
-      if (!o) return;
-      if (typeof o === "string") bits.push(o);
-      else bits.push(o.en, o.ne);
-    });
-    return norm(bits.join(" \n "));
-  }
-  function placeNeedles() {
-    var set = [];
-    function add(s) {
-      norm(s).split(/[\s,/·|]+/).forEach(function (tok) {
-        if (tok.length >= 4 && set.indexOf(tok) < 0) set.push(tok);
-      });
-    }
-    PROVINCES.forEach(function (p) { p.keys.forEach(add); });
-    PLACE_ALIASES.forEach(function (a) { add(a.needle); });
-    ((cache.roads && cache.roads.roads) || []).forEach(function (r) { add(roadHay(r)); });
-    return set;
-  }
-  function queryTokens(q) {
-    return norm(q).split(/\s+/).filter(function (tok) {
-      return tok.length >= 3 && !TOKEN_STOP[tok];
-    });
-  }
-  function unmatchedTokens(q) {
-    var needles = placeNeedles();
-    return queryTokens(q).filter(function (tok) {
-      if (/^nh\d+$/.test(tok.replace(/\s/g, ""))) return false;
-      for (var i = 0; i < needles.length; i++) {
-        if (needles[i].indexOf(tok) >= 0 || tok.indexOf(needles[i]) >= 0) return false;
-      }
-      return true;
-    });
-  }
-  function findRoads(raw) {
-    var data = cache.roads;
-    if (!data || !data.roads) return [];
-    var q = norm(raw);
-    var nh = [];
-    q.replace(/\bnh\s*0*(\d{1,3})\b/g, function (_, n) {
-      var ref = "NH" + String(parseInt(n, 10));
-      if (nh.indexOf(ref) < 0) nh.push(ref);
-      return _;
-    });
-    var needles = [];
-    PLACE_ALIASES.forEach(function (a) {
-      if (a.re.test(q) && needles.indexOf(a.needle) < 0) needles.push(a.needle);
-    });
-    queryTokens(q).forEach(function (tok) {
-      if (needles.indexOf(tok) < 0) needles.push(tok);
-    });
-    var hits = [];
-    data.roads.forEach(function (road) {
-      var hay = roadHay(road);
-      var score = 0;
-      if (nh.length && nh.indexOf(String(road.ref || "").toUpperCase()) >= 0) score += 12;
-      if (!nh.length) {
-        needles.forEach(function (needle) {
-          if (needle.length >= 4 && hay.indexOf(needle) >= 0) score += Math.min(needle.length, 12);
-        });
-      }
-      if (score > 0) hits.push({ road: road, score: score });
-    });
-    hits.sort(function (a, b) {
-      if (b.score !== a.score) return b.score - a.score;
-      if (!!b.road.priority !== !!a.road.priority) return b.road.priority ? 1 : -1;
-      var rank = { closed: 0, partial: 1, opened: 2 };
-      return (rank[a.road.status] == null ? 9 : rank[a.road.status]) - (rank[b.road.status] == null ? 9 : rank[b.road.status]);
-    });
-    var out = [];
-    var seen = {};
-    hits.forEach(function (h) {
-      if (seen[h.road.id]) return;
-      seen[h.road.id] = 1;
-      out.push(h.road);
-    });
-    return out;
-  }
-  function classify(raw) {
-    var q = norm(raw);
-    if (!q) return { type: "empty" };
-    var compact = q.replace(/\s+/g, "");
-    if (HL_ORDER.indexOf(compact) >= 0) return { type: "helpline", topic: "helpline", raw: raw };
-    var kbHit = matchKb(raw);
-    if (kbHit) return kbHit;
-
-    var weatherKw = has(q, /weather|forecast|mausam|mousam|barkha|barsha|varsha|monsoon|rainfall|\brain\b|मौसम|वर्षा|मनसुन|चेतावनी/);
-    var roadKw = has(q, /road|highway|sadak|baato|\bbato\b|navigate|सडक|बाटो|राजमार्ग|blocked|closure|band\b|बन्द/);
-    var mapKw = has(q, /\bmap\b|naksa|naxa|नक्सा/);
-    var rescueKw = has(q, /rescue|rescued|uddar|uddhar|udhaar|sitrep|death|deaths|missing|injured|मृतक|मृत्यु|बेपत्ता|सम्पर्कविहीन|उपचार|उद्धार|घाइते/);
-    var fundKw = has(q, /fund|rahat|relief|donate|nchl|fonepay|phonepay|pmdrf|कोष|राहत|दान|अर्थ मन्त्रालय|\bmof\b/);
-    var hlKw = has(q, /helpline|help\s*line|hotline|हेल्पलाइन|हेल्पलाइन|आपातकाल|आपत्काल|emergency|\bhelp\b/);
-    var lpgKw = has(q, /\blpg\b|elpiji|एलपीजी|एलपी|ग्यास|\bgas\b|सिलिन्डर|आपूर्ति|cylinder/);
-    var nameKw = has(q, /नाम\s*खोज|naam\s*khoj|name\s*search|search\s+(?:a\s+)?name|(?:^|\s)(?:नाम|naam|name)(?:\s|$)/);
-    var province = findProvince(q);
-    var day = findDay(raw, cache.wx);
-    var nh = /\bnh\s*0*\d{1,3}\b/.test(q);
-    var roads = findRoads(raw);
-
-    var nameRest = raw.match(/(?:नाम\s*खोज|naam\s*khoj|name\s*search|search\s+(?:a\s+)?name)\s+(.+)$/i);
-    if (!nameRest) nameRest = raw.match(/^(?:नाम|naam|name)\s+(.+)$/i);
-
-    var mktKw = has(q, /punji|capital market|share market|\bnepse\b|पूँजी|पुँजी|सेयर बजार|नेप्से/);
-    var aboutKw = has(q, /about (?:this|the) bulletin|what is this|यो बुलेटिन|हाम्रो बारे|बारेमा/);
-    if (mapKw && !province && !nh && !roads.length && !weatherKw) return { type: "map", topic: "map", raw: raw };
-    if ((nh || roadKw || (roads.length && !province)) && !weatherKw && !rescueKw && !fundKw && !lpgKw && !mktKw) {
-      return { type: mapKw && !roads.length && !nh ? "map" : "roads", roads: roads, map: mapKw, topic: mapKw && !roads.length && !nh ? "map" : "roads", raw: raw };
-    }
-    if ((weatherKw || province || (day && !roadKw)) && !rescueKw && !fundKw && !lpgKw && !mktKw) {
-      return { type: "weather", province: province, day: day, topic: "weather", raw: raw };
-    }
-    if (rescueKw) return { type: "rescue", q: q, topic: "rescue", raw: raw };
-    if (mktKw) return { type: "markets", topic: "markets", raw: raw };
-    if (fundKw) return { type: "fund", topic: "fund", raw: raw };
-    if (hlKw) return { type: "helpline", topic: "helpline", raw: raw };
-    if (lpgKw) return { type: "lpg", topic: "lpg", raw: raw };
-    if (aboutKw) return { type: "about", topic: "about", raw: raw };
-    if (nameKw) {
-      var rest = nameRest && nameRest[1] ? nameRest[1].trim() : "";
-      if (/^(khoj|search|खोज)$/i.test(rest)) rest = "";
-      return { type: "names", query: rest, topic: "names", raw: raw };
-    }
-    if (roads.length && !unmatchedTokens(raw).length) return { type: "roads", roads: roads, map: mapKw, topic: "roads", raw: raw };
-    if (province) return { type: "weather", province: province, day: day, topic: "weather", raw: raw };
-    if (looksLikeName(raw)) return { type: "names", query: raw.trim(), topic: "names", raw: raw, guessed: true };
-    return { type: "fallback", topic: "about", raw: raw };
   }
   function faqList() {
     var kb = cache.kb;
@@ -433,312 +282,43 @@
       return { id: c.id, label: t(c.key) };
     });
   }
-  function looksLikeName(raw) {
-    var q = norm(raw);
-    if (!q || q.length < 2 || q.length > 80) return false;
-    if (/^(what|why|how|when|where|who|hello|hi|ok|okay|thanks|thank you|status|update|ke ho|k ho|kasto|कस्तो|के हो|के छ|हेलो|नमस्ते)$/.test(q)) return false;
-    var digits = q.replace(/\D/g, "");
-    if (digits.length >= 7 && digits.length >= q.replace(/\s/g, "").length - 1) return true;
-    if (!/[a-z\u0900-\u097f]/.test(q)) return false;
-    var tokens = queryTokens(q);
-    if (!tokens.length) return false;
-    if (tokens.length > 5) return false;
-    var extra = unmatchedTokens(raw);
-    if (!extra.length) return false;
-    return true;
-  }
-
-  function provinceById(wx, id) {
-    var list = (wx && wx.provinces) || [];
-    for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
-    return null;
-  }
-  function levelLabel(wx, bucket, id) {
-    var bag = (wx && wx[bucket]) || {};
-    var row = bag[id] || {};
-    return { text: tx(row), color: row.color || "" };
-  }
-  function dayLabel(meta, iso) {
-    if (meta) return tx({ ne: (meta.ne || "") + (meta.dow_ne ? " · " + meta.dow_ne : ""), en: (meta.en || "") + (meta.dow_en ? " · " + meta.dow_en : "") });
-    return iso || "";
-  }
-  function fill(tpl, map) {
-    return String(tpl || "").replace(/\{(\w+)\}/g, function (_, k) { return map[k] != null ? map[k] : ""; });
-  }
-  function line(text, color, tel) {
-    return { text: text, color: color || "", tel: tel || "" };
-  }
-  function srcLine(name, asof) {
-    var bits = [];
-    if (name) bits.push(t("ask_src") + ": " + name);
-    if (asof) bits.push(t("ask_asof") + " " + asof);
-    return bits.join(" · ");
-  }
-  function card(lines, source, href, cta, extra) {
-    return { lines: lines, source: source, href: href, cta: cta, extra: extra || null };
-  }
-  function nodata(href, cta) {
-    return card([line(t("ask_nodata"))], "", href, cta);
-  }
-
-  function answerWeather(spec) {
-    var wx = cache.wx;
-    if (!wx) return nodata("notices.html#alert", t("ask_go_wx"));
-    var ui = wx.ui || {};
-    var provinceId = spec.province || null;
-    var raw = (spec && spec.raw) || "";
-    var day = spec.day || null;
-    if (!day && raw) day = findDay(raw, wx);
-    var todayQuery = isTodayQuery(raw) || !day;
-    if (day && day.missing && todayQuery) {
-      var clampedToday = clampWarningISO(wx, ktmISO(0));
-      day = clampedToday ? { date: clampedToday, meta: timelineDay(wx, clampedToday) } : null;
-    } else if (!day) {
-      var useToday = clampWarningISO(wx, ktmISO(0));
-      if (useToday) day = { date: useToday, meta: timelineDay(wx, useToday) };
+  function dataCtx() {
+    var rows = cache.hl && cache.hl.length ? cache.hl : HL_FALLBACK;
+    var lpg = null;
+    if (cache.lpg) {
+      lpg = {
+        d25: cache.lpg.d25 ? { mt: cache.lpg.d25.mt, cyl: cache.lpg.d25.cyl, label: t("lpg_day_25") } : null,
+        d26: cache.lpg.d26 ? { mt: cache.lpg.d26.mt, cyl: cache.lpg.d26.cyl, label: t("lpg_day_26") } : null
+      };
     }
-    var lines = [];
-    lines.push(line(tx(ui.title)));
-    var issued = tx(ui.issued);
-    if (day && day.missing) {
-      lines.push(line(t("ask_noday")));
-      if (tx(ui.sub)) lines.push(line(tx(ui.sub)));
-      if (provinceId) {
-        var missed = provinceById(wx, provinceId);
-        if (missed && missed.detail) lines.push(line(tx(missed.detail)));
-      }
-      day = null;
-    }
-    if (day && warningDay(wx, day.date)) {
-      var wd = warningDay(wx, day.date);
-      var when = dayLabel(day.meta || timelineDay(wx, day.date), day.date);
-      var ids = provinceId ? [provinceId] : (wx.keyboard_order || []).slice();
-      function pushProv(id, withWhen) {
-        var cell = wd.provinces && wd.provinces[id];
-        var prov = provinceById(wx, id);
-        if (!cell || !prov) return "";
-        var lv = levelLabel(wx, "warn_levels", cell.level);
-        var also = (cell.also || []).map(function (a) { return levelLabel(wx, "warn_levels", a).text; }).filter(Boolean);
-        var name = lang() === "en" ? prov.en : prov.ne;
-        var text = name + (withWhen ? " · " + when : "") + " · " + lv.text;
-        if (withWhen && also.length) text += " · " + also.join(", ");
-        if (withWhen) lines.push(line(text, lv.color));
-        return name + " " + lv.text;
-      }
-      if (provinceId) {
-        pushProv(provinceId, true);
-        var named = provinceById(wx, provinceId);
-        if (named && named.detail) lines.push(line(tx(named.detail)));
-      } else {
-        ids.forEach(function (id) { pushProv(id, true); });
-      }
-    } else if (provinceId) {
-      var prov2 = provinceById(wx, provinceId);
-      if (prov2 && prov2.detail) lines.push(line(tx(prov2.detail)));
-      else if (tx(ui.sub)) lines.push(line(tx(ui.sub)));
-    } else if (tx(ui.sub)) {
-      lines.push(line(tx(ui.sub)));
-    }
-    var showCorridor = !provinceId || provinceId === "bagmati" || provinceId === (wx.focus_province || "bagmati");
-    if (showCorridor && wx.callout && tx(wx.callout.body)) {
-      lines.push(line(tx(wx.callout.title) + ": " + tx(wx.callout.body) + (tx(wx.callout.meta) ? " · " + tx(wx.callout.meta) : "")));
-    }
-    var rawQ = (spec && spec.raw ? String(spec.raw) : "").toLowerCase();
-    var warnings = wx.district_warnings || [];
-    var namedCards = warnings.filter(function (card) {
-      var nameNe = (card.name && card.name.ne) || "";
-      var nameEn = ((card.name && card.name.en) || "").toLowerCase();
-      return !!rawQ && ((nameNe && rawQ.indexOf(nameNe) !== -1) || (nameEn && rawQ.indexOf(nameEn) !== -1));
-    });
-    var showCards = namedCards.length ? namedCards : warnings.filter(function (card) {
-      return !provinceId || !card.province_id || card.province_id === provinceId;
-    });
-    showCards.forEach(function (card) {
-      lines.push(line(tx(card.name) + " · " + tx(card.risk) + " · " + tx(card.window) + " · " + tx(card.forecast)));
-    });
-    var nowProvinces = { koshi: 1, madhesh: 1, bagmati: 1, gandaki: 1, lumbini: 1, karnali: 1 };
-    if (wx.nowcast && (!provinceId || nowProvinces[provinceId])) {
-      lines.push(line(tx(wx.nowcast.when) + " · " + tx(wx.nowcast.body) + " " + tx(wx.nowcast.max)));
-    }
-    var wxSrc = t("ask_src") + ": " + t("ask_src_dhm") + (issued ? " · " + issued : "");
-    return card(lines, wxSrc, "notices.html#alert", t("ask_go_wx"));
-  }
-
-  function roadBits(road, ui) {
-    var status = tx(ui[road.status] || { ne: road.status, en: road.status });
-    var lines = [];
-    lines.push(line((road.ref || "") + (road.link ? " · " + road.link : "") + " · " + status));
-    if (tx(road.section)) lines.push(line(tx(road.section)));
-    if (tx(road.reason)) lines.push(line(tx(road.reason)));
-    var place = [tx(road.place), tx(road.district)].filter(Boolean).join(" · ");
-    if (place) lines.push(line(tx(ui.place) + ": " + place));
-    if (road.closed) lines.push(line(tx(ui.closed_on) + " " + tx(road.closed)));
-    if (road.opened) lines.push(line(tx(ui.opened_on) + " " + tx(road.opened)));
-    if (road.estimate && road.status !== "opened") lines.push(line(tx(ui.estimate) + " " + tx(road.estimate)));
-    if (tx(road.note)) lines.push(line(tx(road.note)));
-    return lines;
-  }
-  function answerRoads(spec) {
-    if (spec && spec.raw && !(spec.roads && spec.roads.length)) {
-      var found = findRoads(spec.raw);
-      if (found.length) spec.roads = found;
-    }
-    var data = cache.roads;
-    if (!data) return nodata(spec && spec.map ? "notices.html#dor-map" : "notices.html#roads", spec && spec.map ? t("ask_go_map") : t("ask_go_road"));
-    var ui = data.ui || {};
-    var lines = [];
-    var matches = (spec && spec.roads) || [];
-    if (spec && spec.type === "map" && !matches.length) {
-      var pri = null;
-      (data.roads || []).forEach(function (r) { if (r.priority || r.id === data.priority_id) pri = r; });
-      if (data.counts) {
-        lines.push(line(
-          tx(ui.closed) + " " + fmt(data.counts.closed) + " · " +
-          tx(ui.opened) + " " + fmt(data.counts.opened) + " · " +
-          tx(ui.partial) + " " + fmt(data.counts.partial) + " · " +
-          tx(ui.total) + " " + fmt(data.counts.total)
-        ));
-      }
-      if (pri) roadBits(pri, ui).forEach(function (ln) { lines.push(ln); });
-    } else if (matches.length) {
-      matches.slice(0, 4).forEach(function (road, idx) {
-        if (idx) lines.push(line("—"));
-        roadBits(road, ui).forEach(function (ln) { lines.push(ln); });
-      });
-    } else {
-      if (data.counts) {
-        lines.push(line(
-          tx(ui.closed) + " " + fmt(data.counts.closed) + " · " +
-          tx(ui.opened) + " " + fmt(data.counts.opened) + " · " +
-          tx(ui.partial) + " " + fmt(data.counts.partial) + " · " +
-          tx(ui.total) + " " + fmt(data.counts.total)
-        ));
-      }
-      var priority = null;
-      (data.roads || []).forEach(function (r) { if (r.priority || r.id === data.priority_id) priority = r; });
-      if (priority) roadBits(priority, ui).forEach(function (ln) { lines.push(ln); });
-      if (tx(ui.also)) lines.push(line(tx(ui.also)));
-    }
-    var href = (spec && spec.map) ? "notices.html#dor-map" : "notices.html#roads";
-    var cta = (spec && spec.map) ? t("ask_go_map") : t("ask_go_road");
-    var asof = tx(data.as_of);
-    var sourceName = (data.source && data.source.name) || "NAVIGATE";
-    return card(lines, srcLine(sourceName, asof), href, cta);
-  }
-  function answerRescue(spec) {
-    var dash = cache.dash;
-    if (!dash) return nodata("index.html#overview", t("ask_go_rescue"));
-    var cards = {};
-    (dash.cards || []).forEach(function (c) { cards[c.id] = c; });
-    var order = ["rescued", "dead", "miss", "injured"];
-    var q = (spec && spec.q) || "";
-    if (!q && spec && spec.raw) q = norm(spec.raw);
-    var deadQ = has(q, /मृतक|मृत्यु|\bdeaths?\b/);
-    var missQ = has(q, /सम्पर्कविहीन|बेपत्ता|missing/);
-    var injQ = has(q, /उपचार|घाइते|injured|treatment/);
-    var focus = null;
-    if (deadQ && !missQ && !injQ) focus = "dead";
-    else if (missQ && !deadQ && !injQ) focus = "miss";
-    else if (injQ && !deadQ && !missQ) focus = "injured";
-    var lines = [];
-    var show = focus ? [focus] : order;
-    show.forEach(function (id) {
-      var c = cards[id];
-      if (!c) return;
-      var val = (c.value_display && (c.value_display[lang()] || c.value_display.ne)) || "";
-      lines.push(line(tx(c.label) + " · " + val));
-      if (focus && c.items) {
-        c.items.forEach(function (item) {
-          var label = tx(item.label);
-          var idn = norm(item.id || "");
-          var hit = q.indexOf(norm(label)) >= 0 || (idn && q.indexOf(idn.replace(/_/g, " ")) >= 0);
-          if (!hit) return;
-          var iv = (item.value_display && (item.value_display[lang()] || item.value_display.ne)) || "";
-          if (iv) lines.push(line(label + " · " + iv));
-        });
-      }
-    });
-    var asof = tx(dash.as_of);
-    return card(lines, srcLine(t("ask_src_ndrrma"), asof), "index.html#overview", t("ask_go_rescue"));
-  }
-  function answerFund() {
-    var lines = FUND_ROWS.map(function (row) {
-      return line(t(row[0]) + " · " + t(row[1]) + " · " + t(row[2]));
-    });
-    return card(lines, srcLine(t("ask_src_fund"), ""), "donate.html", t("ask_go_fund"));
-  }
-  function answerHelpline() {
-    var rows = cache.hl && cache.hl.length ? cache.hl : HL_FALLBACK.map(function (row) {
-      return { tel: row.tel, name: row.key ? t(row.key) : row.name };
-    });
-    var lines = rows.map(function (row) {
-      var name = row.key ? t(row.key) : (row.name || row.tel);
-      return line(name, "", row.tel);
-    });
-    return card(lines, srcLine(t("hl_title"), ""), "contact.html#helpline", t("ask_go_hl"));
-  }
-  function answerLpg() {
-    var lpg = cache.lpg;
-    if (!lpg || (!lpg.d25 && !lpg.d26)) return nodata("supply.html#lpg", t("ask_go_lpg"));
-    var lines = [];
-    lines.push(line(t("lpg_scope_k")));
-    function row(dayKey, block) {
-      if (!block || !block.mt) return;
-      var bits = t(dayKey) + " · " + t("lpg_total") + " " + fmt(block.mt) + " " + t("lpg_unit_mt");
-      if (block.cyl) bits += " · " + t("lpg_cyl") + " " + fmt(block.cyl);
-      lines.push(line(bits));
-    }
-    row("lpg_day_25", lpg.d25);
-    row("lpg_day_26", lpg.d26);
-    if (lpg.d26 && lpg.d26.mt) lines.push(line(t("lpg_day_chg")));
-    return card(lines, t("lpg_src"), "supply.html#lpg", t("ask_go_lpg"));
-  }
-  function answerNames(spec) {
-    var q = (spec && spec.query) || "";
-    var body = q ? t("ask_names_body") : t("ask_names_empty");
-    var extra = { names: q };
-    if (spec && spec.guessed) extra.suggest = true;
-    return card([line(body)], srcLine(t("ask_src_names"), ""), "", t("ask_go_names"), extra);
-  }
-  function answerFallback() {
-    return card([line(t("ask_fallback"))], "", "", "", { suggest: true });
-  }
-  function answerMarkets(spec) {
-    var lines = [];
-    if (spec && spec.staticText) lines.push(line(tx(spec.staticText)));
-    lines.push(line(t("nav_gov") + " · " + t("nav_markets")));
-    var lead = t("home_markets_lead");
-    if (lead && lead !== "home_markets_lead") lines.push(line(lead));
-    var src = t("home_markets_src");
-    if (src && src !== "home_markets_src") lines.push(line(src));
-    return card(lines, "", "gov.html#gov-markets", t("ask_go_mkt"));
-  }
-  function answerAbout(spec) {
-    var text = spec && spec.staticText ? tx(spec.staticText) : t("ask_about");
-    var note = cache.kb && cache.kb.maintain ? tx(cache.kb.maintain) : t("ask_kb_note");
-    var lines = [line(text)];
-    if (note && note !== text) lines.push(line(note));
-    return card(lines, "", "about.html", t("ask_go_about"));
+    return {
+      lang: lang(),
+      now: ktmISO(0),
+      wx: cache.wx,
+      roads: cache.roads,
+      dash: cache.dash,
+      gallery: cache.gallery,
+      lpg: lpg,
+      hl: rows.map(function (row) {
+        return { tel: row.tel, name: row.key ? t(row.key) : (row.name || row.tel) };
+      }),
+      t: t
+    };
   }
   function build(spec) {
-    if (!spec || spec.type === "empty") return null;
-    if (spec.type === "weather") return answerWeather(spec);
-    if (spec.type === "roads" || spec.type === "map") return answerRoads(spec);
-    if (spec.type === "rescue") return answerRescue(spec);
-    if (spec.type === "fund") return answerFund();
-    if (spec.type === "helpline") return answerHelpline();
-    if (spec.type === "lpg") return answerLpg();
-    if (spec.type === "names") return answerNames(spec);
-    if (spec.type === "markets") return answerMarkets(spec);
-    if (spec.type === "about") return answerAbout(spec);
-    return answerFallback();
+    if (!window.AskAnswers) {
+      return { text: t("ask_err"), source: "", href: "", cta: "", links: [], followups: [], suggest: false, chips: [] };
+    }
+    return window.AskAnswers.compose(spec, dataCtx());
   }
   function needs(spec) {
     if (!spec) return false;
-    if (spec.type === "weather") return !cache.wx && !failed.wx;
-    if (spec.type === "roads" || spec.type === "map") return !cache.roads && !failed.roads;
-    if (spec.type === "rescue") return !cache.dash && !failed.dash;
-    if (spec.type === "lpg") return !cache.lpg && !failed.lpg;
+    var f = spec.family || spec.type || "";
+    if (f === "weather") return !cache.wx && !failed.wx;
+    if (f === "roads" || f === "map") return !cache.roads && !failed.roads;
+    if (f === "rescue") return !cache.dash && !failed.dash;
+    if (f === "lpg") return !cache.lpg && !failed.lpg;
+    if (f === "cause" || f === "gallery") return !cache.gallery && !failed.gallery;
     return false;
   }
 
@@ -765,6 +345,7 @@
       getJSON("data/weather-alert.json", "wx"),
       getJSON("data/roads-dor.json", "roads"),
       getJSON("api/dashboard.json", "dash"),
+      getJSON("data/gallery-path.json", "gallery"),
       getHTML("supply.html", "lpg", parseSupply),
       getHTML("contact.html", "hl", parseHelpline)
     ]).then(function () {
@@ -874,47 +455,60 @@
     return "";
   }
   function renderCard(host, built, topic, isNew) {
-    var art = el("article", "ask-card" + (topic ? " is-" + topic : "") + (isNew ? " is-new" : ""));
-    var label = topicLabel(topic);
-    if (label) {
-      var kicker = el("p", "ask-card-k");
-      kicker.textContent = label;
-      art.appendChild(kicker);
-    }
-    var body = el("div", "ask-card-body");
-    (built.lines || []).forEach(function (item) {
-      if (!item || !item.text) return;
-      renderLine(body, item);
-    });
+    built = built || { text: t("ask_fallback"), suggest: true, chips: [] };
+    var art = el("article", "ask-card ask-bubble" + (topic ? " is-" + topic : "") + (isNew ? " is-new" : ""));
+    var body = el("p", "ask-answer");
+    body.textContent = built.text || "";
     art.appendChild(body);
-    var foot = null;
-    function ensureFoot() {
-      if (!foot) {
-        foot = el("div", "ask-card-foot");
-        art.appendChild(foot);
-      }
-      return foot;
-    }
     if (built.source) {
       var src = el("p", "ask-src");
       src.textContent = built.source;
-      ensureFoot().appendChild(src);
+      art.appendChild(src);
     }
-    if (built.extra && built.extra.names != null) {
-      var btn = el("button", "ask-go");
+    var more = el("p", "ask-more");
+    var linked = false;
+    if (built.openNames != null) {
+      var btn = el("button", "ask-go ask-details");
       btn.type = "button";
-      btn.textContent = built.cta || t("ask_go_names");
-      btn.addEventListener("click", function () { openNames(built.extra.names); });
-      ensureFoot().appendChild(btn);
+      btn.textContent = built.cta || (lang() === "en" ? "View details" : "विवरण हेर्नुहोस्");
+      btn.addEventListener("click", function () { openNames(built.openNames || ""); });
+      more.appendChild(btn);
+      linked = true;
     } else if (built.href && built.cta) {
-      var link = el("a", "ask-go");
+      var link = el("a", "ask-go ask-details");
       link.href = built.href;
       link.textContent = built.cta;
-      ensureFoot().appendChild(link);
+      more.appendChild(link);
+      linked = true;
     }
-    if (built.extra && built.extra.suggest) {
+    (built.links || []).slice(0, 1).forEach(function (item) {
+      if (!item || !item.href) return;
+      var a = el("a", "ask-also");
+      a.href = item.href;
+      a.textContent = item.label || (lang() === "en" ? "More" : "थप");
+      more.appendChild(a);
+      linked = true;
+    });
+    if (linked) art.appendChild(more);
+    if (built.suggest) {
       var sug = el("div", "ask-suggest");
-      fillSuggest(sug, 5);
+      var chips = built.chips || [];
+      if (chips.length) {
+        sug.replaceChildren();
+        var cap = el("p", "ask-chips-h");
+        cap.textContent = t("ask_suggest");
+        sug.appendChild(cap);
+        var row = el("div", "ask-chip-row");
+        chips.slice(0, 3).forEach(function (c) {
+          var label = lang() === "en" ? c.en : c.ne;
+          var b = el("button", "ask-chip ask-chip-next");
+          b.type = "button";
+          b.textContent = label;
+          b.addEventListener("click", function () { submit(label, null); });
+          row.appendChild(b);
+        });
+        sug.appendChild(row);
+      } else fillSuggest(sug, 3);
       art.appendChild(sug);
     }
     host.appendChild(art);
@@ -924,21 +518,20 @@
     if (!spec.raw) spec.raw = raw || "";
     return spec;
   }
-  function renderFollow(host, topic) {
-    var items = followupsFor(topic);
-    if (!items.length) return;
+  function renderFollow(host, items) {
+    if (!items || !items.length) return;
     var wrap = el("div", "ask-follow");
     var cap = el("p", "ask-chips-h");
     cap.textContent = t("ask_follow");
     wrap.appendChild(cap);
     var row = el("div", "ask-chip-row");
-    items.forEach(function (f) {
+    items.slice(0, 3).forEach(function (f) {
+      var label = f.q ? tx(f.q) : (lang() === "en" ? f.en : f.ne);
+      if (!label) return;
       var b = el("button", "ask-chip ask-chip-next");
       b.type = "button";
-      b.textContent = tx(f.q);
-      b.addEventListener("click", function () {
-        submit(tx(f.q), askSpec(f.route, tx(f.q), { topic: f.topic, query: f.route === "names" ? "" : undefined }));
-      });
+      b.textContent = label;
+      b.addEventListener("click", function () { submit(label, null); });
       row.appendChild(b);
     });
     wrap.appendChild(row);
@@ -1063,11 +656,11 @@
         return;
       }
       var built = build(msg.spec);
-      renderCard(log, built || answerFallback(), topic, fresh && last);
+      renderCard(log, built, topic, fresh && last);
       if (last) {
         var latest = log.querySelector(".ask-card:last-of-type");
         if (latest) latest.setAttribute("data-ask-latest", "1");
-        renderFollow(log, topic);
+        if (!built || !built.suggest) renderFollow(log, built && built.followups);
       }
     });
     renderFaq();
@@ -1142,7 +735,7 @@
       if (!msg.pending) return;
       msg.pending = false;
       render({ stick: token === thinkToken });
-      if (token === thinkToken && spec && spec.type === "names" && spec.query) openNames(spec.query);
+      if (token === thinkToken && spec && spec.intent === "names" && spec.query) openNames(spec.query);
     }, wait);
   }
   function bindDrag(sheet) {
@@ -1203,12 +796,13 @@
   }
   function submit(text, spec) {
     var q = String(text || "").trim();
-    if (!q && !(spec && spec.type)) return;
-    var resolved = spec && spec.type ? spec : classify(q);
+    if (!q && !(spec && (spec.type || spec.hint))) return;
+    var hint = spec && (spec.hint || spec.topic || spec.type) || "";
+    var resolved = window.AskAnswers
+      ? window.AskAnswers.classify(q, { hint: hint })
+      : { intent: "fallback", family: "about", topic: "", raw: q };
     if (!resolved.raw) resolved.raw = q;
-    if (!resolved.topic) resolved.topic = resolved.type;
-    if (resolved.type === "empty") return;
-    if (resolved.type === "names") resolved.query = resolved.query != null ? resolved.query : q;
+    if (resolved.intent === "fallback" && !q) return;
     faqOpen = false;
     faqQuery = "";
     var faqIn = document.getElementById("ask-faq-q");
