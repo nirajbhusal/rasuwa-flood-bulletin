@@ -10564,3 +10564,94 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
     line-height:1.25;
   }
 }
+
+/* 2026-09-25-police-roads — Nepal Police highway board */
+.pr-board{margin:0 0 4px}
+.pr-kicker{margin:2px 14px 0;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#c41e3a}
+.pr-title{margin:2px 14px 4px;font-size:22px;line-height:1.25;color:#0c2340}
+.pr-asof{margin:0 14px 10px;font-size:13px;font-weight:700;color:#64748b}
+.pr-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:8px;list-style:none;margin:0 14px 10px;padding:0}
+.pr-stat{margin:0;padding:8px 8px 7px;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;text-align:center}
+.pr-stat-n{display:block;font-size:22px;line-height:1.05;font-weight:800;color:#0c2340}
+.pr-stat-k{display:block;margin-top:2px;font-size:11px;font-weight:800;color:#475569}
+.pr-sum-full{background:#fde8ea;border-color:#f3c1c7}
+.pr-sum-full .pr-stat-n{color:#c41e3a}
+.pr-sum-night{background:#eef2ff;border-color:#c7d2fe}
+.pr-sum-night .pr-stat-n{color:#312e81}
+.pr-sum-one{background:#fff7ed;border-color:#fdba74}
+.pr-sum-one .pr-stat-n{color:#c2410c}
+.pr-sum-rest{background:#fefce8;border-color:#fde047}
+.pr-sum-rest .pr-stat-n{color:#a16207}
+.pr-pin{margin:0 14px 10px}
+.pr-legend{display:flex;flex-wrap:wrap;gap:8px 12px;list-style:none;margin:0 14px 10px;padding:0}
+.pr-leg{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:#0c2340}
+.pr-leg i{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:99px;flex:0 0 auto}
+.pr-leg-full i{background:#c41e3a}
+.pr-leg-night i{background:#312e81;color:#fff}
+.pr-leg-one i{background:#d97706}
+.pr-leg-rest i{background:#eab308}
+.pr-moon{display:block}
+.pr-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 14px 12px}
+.pr-tile{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:52px;padding:8px 10px;border:1px solid #e2e8f0;border-radius:12px;background:#fff;color:#0c2340;font:inherit;text-align:left;cursor:pointer}
+.pr-tile.is-on{border-color:#c41e3a;background:#fff5f5}
+.pr-tile:focus-visible{outline:2px solid #c41e3a;outline-offset:2px}
+.pr-tile-n{font-size:18px;font-weight:800;line-height:1;color:#c41e3a}
+.pr-tile-k{font-size:12.5px;font-weight:800;line-height:1.2}
+.pr-grid{display:flex;flex-direction:column;gap:12px;margin:0 14px}
+.pr-mapslot,.pr-side{min-width:0}
+.pr-mapslot .pr-map,.pr-mapslot .dor-map{height:300px;width:100%;margin:0;border-radius:14px}
+.pr-side{display:flex;flex-direction:column;gap:12px}
+.pr-gh{margin:0 0 6px;font-size:14px;color:#0c2340}
+.pr-gn{font-weight:800;color:#9f1239}
+.pr-card{display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;margin:0 0 8px;padding:8px 10px 8px 12px;border:1px solid #e2e8f0;border-left:4px solid #c41e3a;border-radius:12px;background:#fff;color:#0c2340;font:inherit;text-align:left;cursor:pointer}
+.pr-card:last-child{margin-bottom:0}
+.pr-card.is-on{box-shadow:0 0 0 2px #c41e3a}
+.pr-card:focus-visible{outline:2px solid #c41e3a;outline-offset:2px}
+.pr-st-night{border-left-color:#312e81}
+.pr-st-one{border-left-color:#d97706}
+.pr-st-rest{border-left-color:#eab308}
+.pr-card.is-rasuwa{border-color:#c41e3a;background:#fff5f5}
+.pr-card-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px;width:100%}
+.pr-hwy{font-size:14.5px;line-height:1.3}
+.pr-badge{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:800;line-height:1.3;color:#fff}
+.pr-badge-full_block{background:#c41e3a}
+.pr-badge-night_ban{background:#312e81}
+.pr-badge-one_way{background:#d97706}
+.pr-badge-restricted{background:#eab308;color:#422006}
+.pr-now{display:inline-flex;border-radius:999px;padding:1px 7px;font-size:11px;font-weight:800;background:#f1f5f9;color:#334155}
+.pr-now.is-closed{background:#fee2e2;color:#9f1239}
+.pr-now.is-open{background:#dcfce7;color:#166534}
+.pr-now.is-one_way{background:#ffedd5;color:#9a3412}
+.pr-now.is-restricted{background:#fef9c3;color:#854d0e}
+.pr-loc,.pr-cause,.pr-since,.pr-until{display:block;font-size:12.5px;font-weight:650;line-height:1.35;color:#334155}
+.pr-cause{display:flex;align-items:center;gap:5px}
+.pr-cause-ico{flex:0 0 auto;color:#475569}
+.pr-until{color:#9f1239}
+.pr-hours{position:relative;width:100%;height:8px;margin-top:4px;border-radius:99px;background:#e2e8f0;overflow:hidden}
+.pr-hours i{position:absolute;top:0;bottom:0;background:#312e81}
+.pr-src{margin:10px 14px 0;font-size:12.5px;font-weight:700;color:#64748b;text-align:center}
+.pr-src a{font-weight:800;color:#c41e3a}
+.dor-has-police .dor-dao{margin-top:16px;padding-top:12px;border-top:1px solid #e2e8f0}
+.pr-lv-full_block{background:#c41e3a}
+.pr-lv-night_ban{background:#312e81}
+.pr-lv-one_way{background:#d97706}
+.pr-lv-restricted{background:#eab308;color:#422006}
+.leaflet-div-icon.pr-dot{background:transparent;border:0}
+.leaflet-div-icon.pr-dot span{display:block;width:14px;height:14px;border-radius:50%;box-shadow:0 0 0 2px #fff}
+.leaflet-div-icon.pr-dot-full_block span{background:#c41e3a}
+.leaflet-div-icon.pr-dot-night_ban span{background:#312e81}
+.leaflet-div-icon.pr-dot-one_way span{background:#d97706}
+.leaflet-div-icon.pr-dot-restricted span{background:#eab308}
+.leaflet-div-icon.pr-dot.is-rasuwa span{width:18px;height:18px;box-shadow:0 0 0 2px #fff,0 0 0 4px #c41e3a}
+.pr-map.is-plain{background:#e8eef5}
+@media (min-width:720px){
+  .pr-tiles{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+@media (min-width:1024px){
+  .pr-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:16px;align-items:start}
+  .pr-mapslot{position:sticky;top:88px}
+  .pr-mapslot .pr-map,.pr-mapslot .dor-map{height:560px}
+}
+@media (prefers-reduced-motion:reduce){
+  .pr-card,.pr-tile{transition:none}
+
