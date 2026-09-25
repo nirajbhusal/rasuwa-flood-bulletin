@@ -244,6 +244,11 @@
       { ne: "राति कुन सडक बन्द छ?", en: "Which roads are closed at night?" },
       { ne: "आजको मौसम के छ?", en: "What is today’s weather?" }
     ]),
+    roads_travel: follow([
+      { ne: "रसुवा जान मिल्छ?", en: "Can I travel in Rasuwa?" },
+      { ne: "राति कुन सडक बन्द छ?", en: "Which roads are closed at night?" },
+      { ne: "सडक अहिले कस्तो छ?", en: "What is the road status?" }
+    ]),
     roads_night: follow([
       { ne: "रसुवाको बाटो खुल्यो?", en: "Is the Rasuwa road open?" },
       { ne: "पृथ्वी राजमार्ग खुला छ?", en: "Is the Prithvi highway open?" },
@@ -532,6 +537,16 @@
     var nightQ = hit(q, ["at night", "overnight", "night ban", "night", "raati", "ratima", "राति", "रातमा", "रातिको", "रातको समय"]);
     if ((road || spec.district) && nightQ && !weather) {
       spec.intent = "roads_night";
+      return finishSpec(spec);
+    }
+    var travelQ = hit(q, [
+      "can i travel", "can i go", "travel to", "travel in", "travelling", "traveling",
+      "jaana", "jana milcha", "jana sakinchha", "gaan sakinchha",
+      "जान मिल्छ", "जान सकिन्छ", "सवारी आवागमन", "सवारी साधन",
+      "vehicle movement", "drive to"
+    ]);
+    if (travelQ && !weather && !fund && !lpg) {
+      spec.intent = "roads_travel";
       return finishSpec(spec);
     }
     var roadish = road || place || (spec.district && hit(q, ["open", "khula", "khulla", "खुला", "blocked", "closure"]));
@@ -1325,6 +1340,84 @@
       " एकतर्फी र " + digits(c.restricted, "ne") + " सीमित, " + digits(c.districts, "ne") +
       " जिल्लामा। रसुवाका मुख्य राजमार्ग अर्को सूचना नभएसम्म पूर्ण अवरोध छन्। यसअघिको NDRRMA सूचनामा २५ जिल्ला छन्।";
   }
+  function vehicleDoc(ctx) {
+    return ctx && ctx.vehicle && ctx.vehicle.districts && ctx.vehicle.districts.length ? ctx.vehicle : null;
+  }
+  function vehicleMatch(doc, spec) {
+    var rows = doc.districts || [];
+    if (spec.district) {
+      var exact = rows.filter(function (d) { return d.id === spec.district; });
+      if (exact.length) return exact;
+    }
+    var q = norm(spec.raw || "");
+    var hits = [];
+    rows.forEach(function (d) {
+      var names = [d.en, d.ne, String(d.id || "").replace(/-/g, " ")].concat(d.keys || []);
+      for (var i = 0; i < names.length; i++) {
+        var n = norm(names[i]);
+        if (n.length > 3 && q.indexOf(n) >= 0) { hits.push(d); return; }
+      }
+    });
+    return hits;
+  }
+  function vehiclePoliceBit(row, ctx, lang) {
+    var pol = policeDoc(ctx);
+    if (!pol || !row) return "";
+    var hits = (pol.rows || []).filter(function (r) { return r.district && r.district.id === row.id; });
+    if (!hits.length) return "";
+    if (row.id === "rasuwa") {
+      return lang === "en"
+        ? " Nepal Police: main highways fully blocked until further notice."
+        : " नेपाल प्रहरी: मुख्य राजमार्ग अर्को सूचना नभएसम्म पूर्ण अवरोध।";
+    }
+    var worst = hits[0];
+    hits.forEach(function (r) { if (r.status_type === "full_block") worst = r; });
+    if (worst.status_type === "full_block") {
+      return lang === "en"
+        ? " Nepal Police also lists a full highway block there."
+        : " नेपाल प्रहरीको सूचनामा त्यहाँ राजमार्ग पूर्ण अवरोध पनि छ।";
+    }
+    if (worst.status_type === "night_ban") {
+      var win = digits((worst.night_start || "") + "–" + (worst.night_end || ""), lang);
+      return lang === "en"
+        ? " Nepal Police also bars vehicles " + win + "."
+        : " नेपाल प्रहरीले पनि " + win + " मा रोक लगाएको छ।";
+    }
+    return "";
+  }
+  function vehicleText(doc, spec, lang, ctx) {
+    var when = tx(doc.valid, lang);
+    var hits = vehicleMatch(doc, spec);
+    if (!hits.length && spec.province) {
+      hits = (doc.districts || []).filter(function (d) { return d.province === spec.province; });
+    }
+    if (!hits.length) {
+      var c = doc.counts || {};
+      return lang === "en"
+        ? "NDRRMA, " + when + ": vehicle movement is fully closed in " + c.red + " districts, closed at night in " + c.orange + ", and on alert in " + c.yellow + "."
+        : "NDRRMA, " + when + ": " + digits(c.red, "ne") + " जिल्लामा सवारी पूर्ण बन्द, " + digits(c.orange, "ne") + " मा राति बन्द, " + digits(c.yellow, "ne") + " मा सतर्क।";
+    }
+    if (hits.length > 4) {
+      var parts = ["red", "orange", "yellow"].map(function (level) {
+        var names = hits.filter(function (d) { return d.level === level; }).map(function (d) { return lang === "en" ? d.en : d.ne; });
+        if (!names.length) return "";
+        var label = lang === "en"
+          ? (level === "red" ? "Fully closed" : level === "orange" ? "Night closure" : "Alert")
+          : (level === "red" ? "पूर्ण बन्द" : level === "orange" ? "राति बन्द" : "सतर्क");
+        return label + ": " + names.join(", ");
+      }).filter(Boolean);
+      var prov = "";
+      (doc.provinces || []).forEach(function (p) { if (p.id === spec.province) prov = lang === "en" ? p.en : p.ne; });
+      return "NDRRMA, " + when + (prov ? ", " + prov : "") + ": " + parts.join(". ") + ".";
+    }
+    var bits = hits.slice(0, 3).map(function (d) {
+      var name = lang === "en" ? d.en : d.ne;
+      var mean = tx(doc.levels[d.level], lang);
+      return name + " — " + mean + "." + vehiclePoliceBit(d, ctx, lang);
+    });
+    var more = hits.length > 3 ? (lang === "en" ? " " + (hits.length - 3) + " more are on the road board." : " थप " + digits(hits.length - 3, "ne") + " सडक बोर्डमा।") : "";
+    return "NDRRMA, " + when + ": " + bits.join(" ") + more;
+  }
   function answerRoads(spec, ctx) {
     var lang = ctx.lang === "en" ? "en" : "ne";
     var data = ctx.roads;
@@ -1333,7 +1426,12 @@
       ? [{ href: "notices.html#dor-map", label: lang === "en" ? "Road map" : "सडक नक्सा" }]
       : [];
     var fu = FOLLOW[spec.intent] || FOLLOW.roads;
-    if (!data && !policeDoc(ctx)) return pack(lang, missingText(lang), "", href, { followups: fu, links: mapLink });
+    if (!data && !policeDoc(ctx) && !vehicleDoc(ctx)) return pack(lang, missingText(lang), "", href, { followups: fu, links: mapLink });
+    var veh = vehicleDoc(ctx);
+    if (veh && spec.intent === "roads_travel") {
+      var srcVeh = sourceLine(lang, "NDRRMA", tx(veh.as_of, lang));
+      return pack(lang, vehicleText(veh, spec, lang, ctx), srcVeh, href, { followups: FOLLOW.roads_travel, links: mapLink });
+    }
     var pol = policeDoc(ctx);
     if (pol && spec.intent === "roads_night") {
       var srcNight = sourceLine(lang, lang === "en" ? "Nepal Police" : "नेपाल प्रहरी", policeWhen(pol, lang));

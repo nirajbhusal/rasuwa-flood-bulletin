@@ -1,0 +1,755 @@
+{
+  "id": "ndrrma-vehicle-2083-06-09",
+  "issuer": {
+    "ne": "राष्ट्रिय विपद् जोखिम न्यूनीकरण तथा व्यवस्थापन प्राधिकरण",
+    "en": "NDRRMA"
+  },
+  "as_of": {
+    "ne": "असोज ९",
+    "en": "Asoj 9",
+    "bs": "२०८३/०६/०९"
+  },
+  "valid": {
+    "ne": "असोज ९–१०",
+    "en": "Asoj 9–10",
+    "bs": "२०८३/०६/०९–१०",
+    "from": "2026-09-25",
+    "to": "2026-09-26"
+  },
+  "source": {
+    "name": {
+      "ne": "NDRRMA",
+      "en": "NDRRMA"
+    },
+    "url": "https://x.com/NDRRMA_Nepal/status/2103471718069367019"
+  },
+  "title": {
+    "ne": "आज र भोलि सवारी आवागमन",
+    "en": "Vehicle movement today and tomorrow"
+  },
+  "levels": {
+    "red": {
+      "ne": "पूर्ण रुपमा सवारी साधन बन्द गर्ने",
+      "en": "Close all vehicle movement"
+    },
+    "orange": {
+      "ne": "रातको समयमा बन्द गर्ने, दिउँसोको समयमा अवस्था हेरी जिल्ला मनसुन प्रतिकार्य कमाण्ड पोष्टले निर्णय लिने",
+      "en": "Close at night. During the day, the District Monsoon Response Command Post decides after checking the situation"
+    },
+    "yellow": {
+      "ne": "सतर्क हुने",
+      "en": "Stay alert"
+    }
+  },
+  "counts": {
+    "red": 25,
+    "orange": 29,
+    "yellow": 23,
+    "districts": 77
+  },
+  "provinces": [
+    {
+      "id": "koshi",
+      "ne": "कोशी",
+      "en": "Koshi"
+    },
+    {
+      "id": "madhesh",
+      "ne": "मधेश",
+      "en": "Madhesh"
+    },
+    {
+      "id": "bagmati",
+      "ne": "बागमती",
+      "en": "Bagmati"
+    },
+    {
+      "id": "gandaki",
+      "ne": "गण्डकी",
+      "en": "Gandaki"
+    },
+    {
+      "id": "lumbini",
+      "ne": "लुम्बिनी",
+      "en": "Lumbini"
+    },
+    {
+      "id": "karnali",
+      "ne": "कर्णाली",
+      "en": "Karnali"
+    },
+    {
+      "id": "sudurpaschim",
+      "ne": "सुदूरपश्चिम",
+      "en": "Sudurpashchim"
+    }
+  ],
+  "districts": [
+    {
+      "id": "jhapa",
+      "en": "Jhapa",
+      "ne": "झापा",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "geometry"
+    },
+    {
+      "id": "ilam",
+      "en": "Ilam",
+      "ne": "इलाम",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "geometry"
+    },
+    {
+      "id": "panchthar",
+      "en": "Panchthar",
+      "ne": "पाँचथर",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "labeled"
+    },
+    {
+      "id": "taplejung",
+      "en": "Taplejung",
+      "ne": "ताप्लेजुङ",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "labeled"
+    },
+    {
+      "id": "morang",
+      "en": "Morang",
+      "ne": "मोरङ",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "geometry"
+    },
+    {
+      "id": "sunsari",
+      "en": "Sunsari",
+      "ne": "सुनसरी",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "labeled"
+    },
+    {
+      "id": "bhojpur",
+      "en": "Bhojpur",
+      "ne": "भोजपुर",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "labeled"
+    },
+    {
+      "id": "dhankuta",
+      "en": "Dhankuta",
+      "ne": "धनकुटा",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "geometry"
+    },
+    {
+      "id": "terhathum",
+      "en": "Terhathum",
+      "ne": "तेह्रथुम",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "geometry",
+      "keys": [
+        "tehrathum",
+        "terathum"
+      ]
+    },
+    {
+      "id": "sankhuwasabha",
+      "en": "Sankhuwasabha",
+      "ne": "सङ्खुवासभा",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "labeled"
+    },
+    {
+      "id": "saptari",
+      "en": "Saptari",
+      "ne": "सप्तरी",
+      "province": "madhesh",
+      "level": "yellow",
+      "read": "labeled"
+    },
+    {
+      "id": "siraha",
+      "en": "Siraha",
+      "ne": "सिराहा",
+      "province": "madhesh",
+      "level": "yellow",
+      "read": "geometry"
+    },
+    {
+      "id": "udayapur",
+      "en": "Udayapur",
+      "ne": "उदयपुर",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "geometry"
+    },
+    {
+      "id": "khotang",
+      "en": "Khotang",
+      "ne": "खोटाङ",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "geometry"
+    },
+    {
+      "id": "okhaldhunga",
+      "en": "Okhaldhunga",
+      "ne": "ओखलढुङ्गा",
+      "province": "koshi",
+      "level": "yellow",
+      "read": "labeled",
+      "keys": [
+        "okhaldunga"
+      ]
+    },
+    {
+      "id": "solukhumbu",
+      "en": "Solukhumbu",
+      "ne": "सोलुखुम्बु",
+      "province": "koshi",
+      "level": "orange",
+      "read": "labeled"
+    },
+    {
+      "id": "dhanusha",
+      "en": "Dhanusha",
+      "ne": "धनुषा",
+      "province": "madhesh",
+      "level": "yellow",
+      "read": "geometry"
+    },
+    {
+      "id": "mahottari",
+      "en": "Mahottari",
+      "ne": "महोत्तरी",
+      "province": "madhesh",
+      "level": "yellow",
+      "read": "labeled"
+    },
+    {
+      "id": "sarlahi",
+      "en": "Sarlahi",
+      "ne": "सर्लाही",
+      "province": "madhesh",
+      "level": "yellow",
+      "read": "labeled"
+    },
+    {
+      "id": "sindhuli",
+      "en": "Sindhuli",
+      "ne": "सिन्धुली",
+      "province": "bagmati",
+      "level": "yellow",
+      "read": "geometry"
+    },
+    {
+      "id": "ramechhap",
+      "en": "Ramechhap",
+      "ne": "रामेछाप",
+      "province": "bagmati",
+      "level": "orange",
+      "read": "geometry"
+    },
+    {
+      "id": "dolakha",
+      "en": "Dolakha",
+      "ne": "दोलखा",
+      "province": "bagmati",
+      "level": "orange",
+      "read": "labeled"
+    },
+    {
+      "id": "bhaktapur",
+      "en": "Bhaktapur",
+      "ne": "भक्तपुर",
+      "province": "bagmati",
+      "level": "orange",
+      "read": "labeled"
+    },
+    {
+      "id": "dhading",
+      "en": "Dhading",
+      "ne": "धादिङ",
+      "province": "bagmati",
+      "level": "orange",
+      "read": "labeled"
+    },
+    {
+      "id": "kathmandu",
+      "en": "Kathmandu",
+      "ne": "काठमाडौं",
+      "province": "bagmati",
+      "level": "orange",
+      "read": "geometry",
+      "keys": [
+        "kathmandu",
+        "काठमाडौं",
+        "काठमाडौँ"
+      ]
+    },
+    {
+      "id": "kavrepalanchok",
+      "en": "Kavrepalanchok",
+      "ne": "काभ्रेपलाञ्चोक",
+      "province": "bagmati",
+      "level": "orange",
+      "read": "labeled",
+      "keys": [
+        "kavre",
+        "kabhre",
+        "काभ्रे"
+      ]
+    },
+    {
+      "id": "lalitpur",
+      "en": "Lalitpur",
+      "ne": "ललितपुर",
+      "province": "bagmati",
+      "level": "orange",
+      "read": "geometry"
+    },
+    {
+      "id": "nuwakot",
+      "en": "Nuwakot",
+      "ne": "नुवाकोट",
+      "province": "bagmati",
+      "level": "orange",
+      "read": "geometry"
+    },
+    {
+      "id": "rasuwa",
+      "en": "Rasuwa",
+      "ne": "रसुवा",
+      "province": "bagmati",
+      "level": "orange",
+      "read": "labeled",
+      "prominent": true
+    },
+    {
+      "id": "sindhupalchok",
+      "en": "Sindhupalchok",
+      "ne": "सिन्धुपाल्चोक",
+      "province": "bagmati",
+      "level": "orange",
+      "read": "labeled",
+      "keys": [
+        "sindhupalchowk"
+      ]
+    },
+    {
+      "id": "bara",
+      "en": "Bara",
+      "ne": "बारा",
+      "province": "madhesh",
+      "level": "yellow",
+      "read": "labeled"
+    },
+    {
+      "id": "parsa",
+      "en": "Parsa",
+      "ne": "पर्सा",
+      "province": "madhesh",
+      "level": "yellow",
+      "read": "labeled"
+    },
+    {
+      "id": "rautahat",
+      "en": "Rautahat",
+      "ne": "रौतहट",
+      "province": "madhesh",
+      "level": "yellow",
+      "read": "labeled"
+    },
+    {
+      "id": "chitwan",
+      "en": "Chitwan",
+      "ne": "चितवन",
+      "province": "bagmati",
+      "level": "orange",
+      "read": "labeled",
+      "keys": [
+        "chitawan"
+      ]
+    },
+    {
+      "id": "makwanpur",
+      "en": "Makwanpur",
+      "ne": "मकवानपुर",
+      "province": "bagmati",
+      "level": "yellow",
+      "read": "labeled",
+      "keys": [
+        "makawanpur",
+        "मकवानपुर"
+      ]
+    },
+    {
+      "id": "gorkha",
+      "en": "Gorkha",
+      "ne": "गोरखा",
+      "province": "gandaki",
+      "level": "red",
+      "read": "geometry"
+    },
+    {
+      "id": "kaski",
+      "en": "Kaski",
+      "ne": "कास्की",
+      "province": "gandaki",
+      "level": "orange",
+      "read": "labeled"
+    },
+    {
+      "id": "lamjung",
+      "en": "Lamjung",
+      "ne": "लमजुङ",
+      "province": "gandaki",
+      "level": "red",
+      "read": "labeled"
+    },
+    {
+      "id": "syangja",
+      "en": "Syangja",
+      "ne": "स्याङ्जा",
+      "province": "gandaki",
+      "level": "red",
+      "read": "geometry"
+    },
+    {
+      "id": "tanahu",
+      "en": "Tanahu",
+      "ne": "तनहुँ",
+      "province": "gandaki",
+      "level": "orange",
+      "read": "geometry"
+    },
+    {
+      "id": "manang",
+      "en": "Manang",
+      "ne": "मनाङ",
+      "province": "gandaki",
+      "level": "red",
+      "read": "labeled"
+    },
+    {
+      "id": "kapilbastu",
+      "en": "Kapilbastu",
+      "ne": "कपिलवस्तु",
+      "province": "lumbini",
+      "level": "red",
+      "read": "labeled"
+    },
+    {
+      "id": "nawalparasi-east",
+      "en": "Nawalparasi East",
+      "ne": "नवलपरासी पूर्व",
+      "province": "gandaki",
+      "level": "orange",
+      "read": "labeled",
+      "keys": [
+        "nawalparasi east",
+        "nawalpur"
+      ]
+    },
+    {
+      "id": "nawalparasi-west",
+      "en": "Nawalparasi West",
+      "ne": "नवलपरासी पश्चिम",
+      "province": "lumbini",
+      "level": "orange",
+      "read": "labeled",
+      "keys": [
+        "nawalparasi west",
+        "parasi"
+      ]
+    },
+    {
+      "id": "rupandehi",
+      "en": "Rupandehi",
+      "ne": "रुपन्देही",
+      "province": "lumbini",
+      "level": "red",
+      "read": "geometry"
+    },
+    {
+      "id": "arghakhanchi",
+      "en": "Arghakhanchi",
+      "ne": "अर्घाखाँची",
+      "province": "lumbini",
+      "level": "red",
+      "read": "labeled"
+    },
+    {
+      "id": "gulmi",
+      "en": "Gulmi",
+      "ne": "गुल्मी",
+      "province": "lumbini",
+      "level": "red",
+      "read": "geometry"
+    },
+    {
+      "id": "palpa",
+      "en": "Palpa",
+      "ne": "पाल्पा",
+      "province": "lumbini",
+      "level": "red",
+      "read": "labeled"
+    },
+    {
+      "id": "baglung",
+      "en": "Baglung",
+      "ne": "बागलुङ",
+      "province": "gandaki",
+      "level": "orange",
+      "read": "geometry"
+    },
+    {
+      "id": "myagdi",
+      "en": "Myagdi",
+      "ne": "म्याग्दी",
+      "province": "gandaki",
+      "level": "orange",
+      "read": "labeled"
+    },
+    {
+      "id": "parbat",
+      "en": "Parbat",
+      "ne": "पर्वत",
+      "province": "gandaki",
+      "level": "orange",
+      "read": "geometry"
+    },
+    {
+      "id": "mustang",
+      "en": "Mustang",
+      "ne": "मुस्ताङ",
+      "province": "gandaki",
+      "level": "red",
+      "read": "labeled"
+    },
+    {
+      "id": "dang",
+      "en": "Dang",
+      "ne": "दाङ",
+      "province": "lumbini",
+      "level": "red",
+      "read": "geometry",
+      "keys": [
+        "deukhuri"
+      ]
+    },
+    {
+      "id": "pyuthan",
+      "en": "Pyuthan",
+      "ne": "प्युठान",
+      "province": "lumbini",
+      "level": "red",
+      "read": "geometry"
+    },
+    {
+      "id": "rolpa",
+      "en": "Rolpa",
+      "ne": "रोल्पा",
+      "province": "lumbini",
+      "level": "orange",
+      "read": "geometry"
+    },
+    {
+      "id": "rukum-east",
+      "en": "Rukum East",
+      "ne": "पूर्वी रुकुम",
+      "province": "lumbini",
+      "level": "orange",
+      "read": "geometry",
+      "keys": [
+        "rukum east",
+        "eastern rukum"
+      ]
+    },
+    {
+      "id": "rukum-west",
+      "en": "Rukum West",
+      "ne": "पश्चिम रुकुम",
+      "province": "karnali",
+      "level": "orange",
+      "read": "labeled",
+      "keys": [
+        "rukum west",
+        "western rukum"
+      ]
+    },
+    {
+      "id": "salyan",
+      "en": "Salyan",
+      "ne": "सल्यान",
+      "province": "karnali",
+      "level": "orange",
+      "read": "labeled"
+    },
+    {
+      "id": "dolpa",
+      "en": "Dolpa",
+      "ne": "डोल्पा",
+      "province": "karnali",
+      "level": "red",
+      "read": "geometry",
+      "keys": [
+        "dolpo"
+      ]
+    },
+    {
+      "id": "humla",
+      "en": "Humla",
+      "ne": "हुम्ला",
+      "province": "karnali",
+      "level": "red",
+      "read": "labeled"
+    },
+    {
+      "id": "jumla",
+      "en": "Jumla",
+      "ne": "जुम्ला",
+      "province": "karnali",
+      "level": "red",
+      "read": "geometry"
+    },
+    {
+      "id": "kalikot",
+      "en": "Kalikot",
+      "ne": "कालिकोट",
+      "province": "karnali",
+      "level": "red",
+      "read": "labeled"
+    },
+    {
+      "id": "mugu",
+      "en": "Mugu",
+      "ne": "मुगु",
+      "province": "karnali",
+      "level": "red",
+      "read": "labeled"
+    },
+    {
+      "id": "banke",
+      "en": "Banke",
+      "ne": "बाँके",
+      "province": "lumbini",
+      "level": "red",
+      "read": "geometry"
+    },
+    {
+      "id": "bardiya",
+      "en": "Bardiya",
+      "ne": "बर्दिया",
+      "province": "lumbini",
+      "level": "red",
+      "read": "geometry"
+    },
+    {
+      "id": "surkhet",
+      "en": "Surkhet",
+      "ne": "सुर्खेत",
+      "province": "karnali",
+      "level": "red",
+      "read": "geometry"
+    },
+    {
+      "id": "dailekh",
+      "en": "Dailekh",
+      "ne": "दैलेख",
+      "province": "karnali",
+      "level": "orange",
+      "read": "geometry"
+    },
+    {
+      "id": "jajarkot",
+      "en": "Jajarkot",
+      "ne": "जाजरकोट",
+      "province": "karnali",
+      "level": "orange",
+      "read": "geometry"
+    },
+    {
+      "id": "kailali",
+      "en": "Kailali",
+      "ne": "कैलाली",
+      "province": "sudurpaschim",
+      "level": "red",
+      "read": "geometry"
+    },
+    {
+      "id": "achham",
+      "en": "Achham",
+      "ne": "अछाम",
+      "province": "sudurpaschim",
+      "level": "orange",
+      "read": "labeled"
+    },
+    {
+      "id": "doti",
+      "en": "Doti",
+      "ne": "डोटी",
+      "province": "sudurpaschim",
+      "level": "orange",
+      "read": "geometry"
+    },
+    {
+      "id": "bajhang",
+      "en": "Bajhang",
+      "ne": "बझाङ",
+      "province": "sudurpaschim",
+      "level": "red",
+      "read": "labeled"
+    },
+    {
+      "id": "bajura",
+      "en": "Bajura",
+      "ne": "बाजुरा",
+      "province": "sudurpaschim",
+      "level": "red",
+      "read": "labeled"
+    },
+    {
+      "id": "kanchanpur",
+      "en": "Kanchanpur",
+      "ne": "कञ्चनपुर",
+      "province": "sudurpaschim",
+      "level": "red",
+      "read": "geometry"
+    },
+    {
+      "id": "dadeldhura",
+      "en": "Dadeldhura",
+      "ne": "डडेलधुरा",
+      "province": "sudurpaschim",
+      "level": "orange",
+      "read": "geometry"
+    },
+    {
+      "id": "baitadi",
+      "en": "Baitadi",
+      "ne": "बैतडी",
+      "province": "sudurpaschim",
+      "level": "orange",
+      "read": "labeled"
+    },
+    {
+      "id": "darchula",
+      "en": "Darchula",
+      "ne": "दार्चुला",
+      "province": "sudurpaschim",
+      "level": "red",
+      "read": "geometry"
+    }
+  ]
+}

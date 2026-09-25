@@ -172,6 +172,39 @@ test("Nepal Police road notice answers night bans and Rasuwa", function () {
   assert.equal(still.text.includes("night bans"), false);
 });
 
+test("NDRRMA vehicle movement answers travel by district", function () {
+  const vehicle = JSON.parse(readFileSync(new URL("../data/ndrrma_vehicle_2083-06-09.json", import.meta.url), "utf8"));
+  const police = JSON.parse(readFileSync(new URL("../data/police_roads_2083-06-09.json", import.meta.url), "utf8"));
+  assert.equal(vehicle.districts.length, 77);
+  assert.equal(vehicle.counts.red + vehicle.counts.orange + vehicle.counts.yellow, 77);
+  function askVehicle(q, lang) {
+    return Ask.answer(q, {
+      lang: lang,
+      now: "2026-09-25",
+      roads: roads,
+      police: police,
+      vehicle: vehicle,
+      t: tFor(lang)
+    });
+  }
+  const ras = askVehicle("Can I travel in Rasuwa today?", "en");
+  assert.equal(ras.intent, "roads_travel");
+  assert.match(ras.text, /Close at night/);
+  assert.match(ras.text, /fully blocked/);
+  assert.ok(ras.text.length <= 400, ras.text);
+  const jhapa = askVehicle("Can I travel in Jhapa tomorrow?", "en");
+  assert.match(jhapa.text, /Stay alert/);
+  assert.equal(/fully blocked|Close at night/.test(jhapa.text), false);
+  const okha = askVehicle("can I travel in Okhaldhunga today", "en");
+  assert.match(okha.text, /Stay alert/);
+  const ne = askVehicle("रसुवा जान मिल्छ?", "ne");
+  assert.match(ne.text, /रातको समयमा बन्द/);
+  assert.match(ne.text, /पूर्ण अवरोध/);
+  const plain = ask("which districts have roads closed", "en");
+  assert.match(plain.text, /Taplejung/);
+  assert.equal(plain.text.includes("Stay alert"), false);
+});
+
 test("NDRRMA road notice answers name the closed districts", function () {
   const roadCases = [
     ["सडक अहिले कस्तो छ?", "ne", { intent: "roads", number: true, has: ["२५", "बन्द", "ताप्लेजुङ", "बैतडी"] }],

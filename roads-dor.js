@@ -13,6 +13,10 @@
   var police = null;
   var policeFilter = "";
   var policeNowTimer = 0;
+  var vehicle = null;
+  var vehicleGeo = null;
+  var vehicleLevel = "";
+  var vehiclePick = "rasuwa";
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
 
@@ -1551,12 +1555,287 @@
     markEntered(box);
   }
 
+  var VV_LEVELS = ["red", "orange", "yellow"];
+  function vvDoc() { return vehicle && vehicle.districts && vehicle.districts.length ? vehicle : null; }
+  function vvById(id) {
+    var rows = (vehicle && vehicle.districts) || [];
+    for (var i = 0; i < rows.length; i++) if (rows[i].id === id) return rows[i];
+    return null;
+  }
+  function vvLevelName(level) {
+    var map = {
+      red: { ne: "रातो", en: "Red" },
+      orange: { ne: "सुन्तला", en: "Orange" },
+      yellow: { ne: "पहेंलो", en: "Yellow" }
+    };
+    return tx(map[level] || { ne: level, en: level });
+  }
+  function vvMeaning(level) {
+    var row = vehicle && vehicle.levels && vehicle.levels[level];
+    return row ? tx(row) : "";
+  }
+  function vvProvince(id) {
+    var list = (vehicle && vehicle.provinces) || [];
+    for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
+    return { id: id, ne: id, en: id };
+  }
+  function vvPoliceNote(row) {
+    if (!row || row.id !== "rasuwa" || !police || !police.rows) return "";
+    var hit = null;
+    for (var i = 0; i < police.rows.length; i++) {
+      if (police.rows[i].id === "rasuwa-highways") hit = police.rows[i];
+    }
+    if (!hit) return "";
+    return lang() === "en"
+      ? "Nepal Police: Rasuwa's main highways are fully blocked until further notice."
+      : "नेपाल प्रहरी: रसुवाका मुख्य राजमार्ग अर्को सूचना नभएसम्म पूर्ण अवरोध छन्।";
+  }
+  function vvDetail(row) {
+    if (!row) return "";
+    var name = lang() === "en" ? row.en : row.ne;
+    var bits = name + " · " + vvLevelName(row.level) + ". " + vvMeaning(row.level);
+    var note = vvPoliceNote(row);
+    return note ? bits + " " + note : bits;
+  }
+  function vvRings(geom) {
+    if (!geom) return [];
+    if (geom.type === "Polygon") return geom.coordinates;
+    if (geom.type === "MultiPolygon") {
+      var out = [];
+      geom.coordinates.forEach(function (poly) { poly.forEach(function (ring) { out.push(ring); }); });
+      return out;
+    }
+    return [];
+  }
+  function renderVehicle(board) {
+    var doc = vvDoc();
+    if (!doc) return;
+    var shell = el("section", "vv-board");
+    shell.id = board.classList.contains("dor-home") ? "vv-home" : "vv-roads";
+    var kick = el("p", "vv-kicker", "NDRRMA");
+    shell.appendChild(kick);
+    shell.appendChild(el("h2", "vv-title", tx(doc.title)));
+    shell.appendChild(el("p", "vv-asof", (lang() === "en" ? "NDRRMA, " : "NDRRMA, ") + tx(doc.as_of) + " · " + tx(doc.valid)));
+    var counts = doc.counts || {};
+    var sum = el("ul", "vv-sum");
+    VV_LEVELS.forEach(function (level) {
+      var li = el("li", "vv-stat vv-stat-" + level);
+      li.appendChild(el("strong", "vv-stat-n", num(counts[level] || 0)));
+      li.appendChild(el("span", "vv-stat-k", vvLevelName(level)));
+      sum.appendChild(li);
+    });
+    shell.appendChild(sum);
+    var ras = vvById("rasuwa");
+    if (ras) {
+      var pin = el("button", "vv-pin");
+      pin.type = "button";
+      pin.id = "vv-rasuwa";
+      pin.appendChild(el("strong", "vv-pin-name", (lang() === "en" ? ras.en : ras.ne) + " · " + vvLevelName(ras.level)));
+      pin.appendChild(el("span", "vv-pin-mean", vvMeaning(ras.level)));
+      var note = vvPoliceNote(ras);
+      if (note) pin.appendChild(el("span", "vv-pin-note", note));
+      pin.addEventListener("click", function () { vvSelect("rasuwa"); });
+      shell.appendChild(pin);
+    }
+    var legend = el("ul", "vv-legend");
+    VV_LEVELS.forEach(function (level) {
+      var li = el("li", "vv-leg vv-leg-" + level);
+      li.appendChild(el("i"));
+      var text = el("span");
+      text.appendChild(el("strong", "", vvLevelName(level)));
+      text.appendChild(document.createTextNode(" — " + vvMeaning(level)));
+      li.appendChild(text);
+      legend.appendChild(li);
+    });
+    shell.appendChild(legend);
+    var filters = el("div", "vv-filters");
+    filters.setAttribute("role", "group");
+    filters.setAttribute("aria-label", lang() === "en" ? "Level" : "स्तर");
+    function chip(id, labelText) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "vv-chip" + (vehicleLevel === id ? " is-on" : "");
+      b.setAttribute("aria-pressed", vehicleLevel === id ? "true" : "false");
+      b.textContent = labelText;
+      b.addEventListener("click", function () {
+        vehicleLevel = id;
+        renderAll();
+      });
+      filters.appendChild(b);
+    }
+    chip("", lang() === "en" ? "All" : "सबै");
+    VV_LEVELS.forEach(function (level) { chip(level, vvLevelName(level)); });
+    shell.appendChild(filters);
+    var grid = el("div", "vv-grid");
+    var slot = el("div", "vv-mapslot");
+    var detail = el("p", "vv-detail");
+    detail.id = shell.id + "-detail";
+    var picked = vvById(vehiclePick);
+    if (picked && (!vehicleLevel || picked.level === vehicleLevel)) detail.textContent = vvDetail(picked);
+    slot.appendChild(detail);
+    grid.appendChild(slot);
+    var side = el("div", "vv-side");
+    VV_LEVELS.forEach(function (level) {
+      if (vehicleLevel && vehicleLevel !== level) return;
+      var block = el("section", "vv-group");
+      block.setAttribute("data-level", level);
+      var items = doc.districts.filter(function (d) { return d.level === level; });
+      var h = el("h3", "vv-gh");
+      h.appendChild(document.createTextNode(vvLevelName(level)));
+      h.appendChild(el("span", "vv-gn", " " + num(items.length)));
+      block.appendChild(h);
+      (doc.provinces || []).forEach(function (prov) {
+        var subset = items.filter(function (d) { return d.province === prov.id; });
+        if (!subset.length) return;
+        var g = el("div", "vv-prov");
+        g.appendChild(el("h4", "vv-ph", lang() === "en" ? prov.en : prov.ne));
+        var ul = el("ul", "vv-dists");
+        subset.forEach(function (d) {
+          var li = document.createElement("li");
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "vv-dist" + (d.id === "rasuwa" ? " is-rasuwa" : "") + (d.id === vehiclePick ? " is-on" : "");
+          b.setAttribute("data-vv", d.id);
+          b.textContent = lang() === "en" ? d.en : d.ne;
+          b.addEventListener("click", function () { vvSelect(d.id); });
+          li.appendChild(b);
+          ul.appendChild(li);
+        });
+        g.appendChild(ul);
+        block.appendChild(g);
+      });
+      side.appendChild(block);
+    });
+    grid.appendChild(side);
+    shell.appendChild(grid);
+    var src = el("p", "vv-src");
+    if (doc.source && doc.source.url) {
+      var a = document.createElement("a");
+      a.href = doc.source.url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = tx(doc.source.name);
+      src.appendChild(a);
+      src.appendChild(document.createTextNode(" · " + tx(doc.as_of)));
+    }
+    shell.appendChild(src);
+    board.appendChild(shell);
+    board._vehicleSlot = slot;
+  }
+  function vvSelect(id) {
+    vehiclePick = id;
+    document.querySelectorAll(".vv-dist").forEach(function (b) {
+      b.classList.toggle("is-on", b.getAttribute("data-vv") === id);
+    });
+    document.querySelectorAll(".vv-d").forEach(function (p) {
+      p.classList.toggle("is-on", p.getAttribute("data-id") === id);
+    });
+    var row = vvById(id);
+    document.querySelectorAll(".vv-detail").forEach(function (n) { n.textContent = vvDetail(row); });
+  }
+  function mountVehicleMap(host) {
+    if (!vehicleGeo || !vvDoc()) return;
+    var byId = {};
+    vehicle.districts.forEach(function (d) { byId[d.id] = d; });
+    var lon0 = 80.05, lon1 = 88.21, lat0 = 26.34, lat1 = 30.45;
+    var W = 1000, H = 560;
+    function xy(lon, lat) {
+      return [(lon - lon0) / (lon1 - lon0) * W, (lat1 - lat) / (lat1 - lat0) * H];
+    }
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    svg.setAttribute("role", "img");
+    svg.setAttribute("aria-label", tx(vehicle.title));
+    var vb = { x: 0, y: 0, w: W, h: H };
+    function applyVb() {
+      svg.setAttribute("viewBox", vb.x + " " + vb.y + " " + vb.w + " " + vb.h);
+    }
+    function zoom(factor) {
+      var nw = vb.w * factor;
+      var nh = vb.h * factor;
+      if (nw > W * 1.05 || nh > H * 1.05) { vb = { x: 0, y: 0, w: W, h: H }; applyVb(); return; }
+      if (nw < W / 8) return;
+      vb.x += (vb.w - nw) / 2;
+      vb.y += (vb.h - nh) / 2;
+      vb.w = nw;
+      vb.h = nh;
+      applyVb();
+    }
+    (vehicleGeo.features || []).forEach(function (f) {
+      var id = f.properties && f.properties.id;
+      var row = byId[id];
+      if (!row) return;
+      var d = "";
+      vvRings(f.geometry).forEach(function (ring) {
+        ring.forEach(function (pt, i) {
+          var p = xy(pt[0], pt[1]);
+          d += (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1);
+        });
+        d += "Z";
+      });
+      var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", d);
+      path.setAttribute("fill-rule", "evenodd");
+      path.setAttribute("data-id", id);
+      path.setAttribute("data-level", row.level);
+      var cls = "vv-d";
+      if (row.id === "rasuwa") cls += " is-rasuwa";
+      if (row.id === vehiclePick) cls += " is-on";
+      if (vehicleLevel && row.level !== vehicleLevel) cls += " is-dim";
+      path.setAttribute("class", cls);
+      path.addEventListener("click", function () { vvSelect(id); });
+      svg.appendChild(path);
+    });
+    var wrap = el("div", "vv-map");
+    wrap.appendChild(svg);
+    var bar = el("div", "map-ctl");
+    function zbtn(kind, delta) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "map-ctl-btn";
+      b.setAttribute("aria-label", kind === "plus"
+        ? label("map_zoom_in", lang() === "en" ? "Zoom in" : "जुम इन")
+        : label("map_zoom_out", lang() === "en" ? "Zoom out" : "जुम आउट"));
+      b.innerHTML = mapIcon(kind);
+      b.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        zoom(delta);
+      });
+      bar.appendChild(b);
+    }
+    zbtn("plus", 0.75);
+    zbtn("minus", 1.33);
+    bar.appendChild(bindFullscreen(wrap, function () { applyVb(); }));
+    wrap.appendChild(bar);
+    var drag = null;
+    svg.addEventListener("pointerdown", function (ev) {
+      if (ev.target && ev.target.closest && ev.target.closest(".map-ctl")) return;
+      drag = { x: ev.clientX, y: ev.clientY, vb: { x: vb.x, y: vb.y }, moved: false };
+      try { svg.setPointerCapture(ev.pointerId); } catch (e) {}
+    });
+    svg.addEventListener("pointermove", function (ev) {
+      if (!drag) return;
+      var rect = svg.getBoundingClientRect();
+      var dx = (ev.clientX - drag.x) / rect.width * vb.w;
+      var dy = (ev.clientY - drag.y) / rect.height * vb.h;
+      if (Math.abs(ev.clientX - drag.x) + Math.abs(ev.clientY - drag.y) > 4) drag.moved = true;
+      vb.x = drag.vb.x - dx;
+      vb.y = drag.vb.y - dy;
+      applyVb();
+    });
+    function endDrag() { drag = null; }
+    svg.addEventListener("pointerup", endDrag);
+    svg.addEventListener("pointercancel", endDrag);
+    host.appendChild(wrap);
+  }
   function renderMount(root) {
     var mode = root.getAttribute("data-dor-mode") || "home";
     var ui = data.ui;
     var n = notice();
     root.replaceChildren();
-    var board = el("article", "dor" + (mode === "section" ? " dor-section" : " dor-home") + (n ? " dor-has-dao" : "") + (police && police.rows ? " dor-has-police" : ""));
+    var board = el("article", "dor" + (mode === "section" ? " dor-section" : " dor-home") + (n ? " dor-has-dao" : "") + (police && police.rows ? " dor-has-police" : "") + (vvDoc() ? " dor-has-vehicle" : ""));
+    if (vvDoc()) renderVehicle(board);
     if (police && police.rows) renderPolice(board, mode);
     if (n) {
       renderDao(board);
@@ -1572,6 +1851,11 @@
     }
     scheduleDorMap(board, mode);
     if (police && police.rows) schedulePoliceMap(board, mode);
+    if (vvDoc() && board._vehicleSlot && vehicleGeo) {
+      var mapHost = el("div", "vv-map-host");
+      board._vehicleSlot.insertBefore(mapHost, board._vehicleSlot.firstChild);
+      mountVehicleMap(mapHost);
+    }
     if (mode === "home") {
       if (!n) board.appendChild(el("p", "dor-also", tx(ui.also)));
       links(board, true);
@@ -1761,10 +2045,18 @@
     var policeP = fetch("data/police_roads_2083-06-09.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("police"); return r.json(); })
       .catch(function () { return null; });
-    Promise.all([roadsP, policeP])
+    var vehicleP = fetch("data/ndrrma_vehicle_2083-06-09.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("vehicle"); return r.json(); })
+      .catch(function () { return null; });
+    var geoP = fetch("data/nepal-districts.geojson?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("geo"); return r.json(); })
+      .catch(function () { return null; });
+    Promise.all([roadsP, policeP, vehicleP, geoP])
       .then(function (pair) {
         data = pair[0];
         police = pair[1];
+        vehicle = pair[2];
+        vehicleGeo = pair[3];
         renderAll();
         if (!refreshTimer) refreshTimer = window.setInterval(refreshRoads, REFRESH_MS);
         if (window.__addLangHook) window.__addLangHook(renderAll);
