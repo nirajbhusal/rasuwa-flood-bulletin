@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-ask-answers";
+  var VER = window.PAGE_VER || "2026-09-25-district-rain";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -969,6 +969,7 @@
   }
   function buildDistrictCard(card) {
     var art = el("article", "wxb-dcard is-" + (card.tone || "medium"));
+    if (card.id) art.id = "wx-d-" + card.id;
     var body = el("div", "wxb-dcard-body");
     var name = el("h3", "wxb-dname", tx(card.name));
     body.appendChild(name);
@@ -1198,7 +1199,6 @@
     });
     var drow = el("div", "wxb-dist-row");
     drow.appendChild(dbtn);
-    drow.appendChild(el("p", "wxb-dist-hint", tx(ui.districts_hint || { ne: "जिल्लाको रेखा खोल्न वा बन्द गर्न सकिन्छ। रङ प्रदेशको चेतावनी हो।", en: "District lines can be turned on or off. Colour is the province warning." })));
     var tools = el("div", "wxb-maptools");
     tools.appendChild(drow);
     tools.appendChild(buildZoom(svg));
@@ -1210,6 +1210,7 @@
     stage.appendChild(mapWrap);
     var call = data.callout || {};
     var aside = el("aside", "wxb-callout");
+    aside.id = "wx-callout";
     var ct = el("p", "wxb-call-t");
     ct.innerHTML = iconPin();
     ct.appendChild(document.createTextNode(" " + tx(call.title)));
@@ -1276,6 +1277,9 @@
     mapPanel.appendChild(sumHost);
     if (mode === "section") mapPanel.appendChild(el("p", "wxb-hint", tx(ui.hint)));
     board.appendChild(mapPanel);
+    var dalertSlot = el("div", "dalert-slot");
+    dalertSlot.setAttribute("data-district-alerts", mode);
+    board.appendChild(dalertSlot);
 
     if (mode === "home") {
       board.appendChild(buildHomeExtras());
@@ -1332,6 +1336,9 @@
     root.appendChild(board);
     paintPressed();
     if (selected) paintPop(root, selected);
+    try {
+      root.dispatchEvent(new CustomEvent("wx-rendered", { bubbles: true }));
+    } catch (err) {}
   }
 
   function paintLive() {
