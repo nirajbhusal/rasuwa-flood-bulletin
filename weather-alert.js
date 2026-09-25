@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-toprain";
+  var VER = window.PAGE_VER || "2026-09-25-menu-left";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
