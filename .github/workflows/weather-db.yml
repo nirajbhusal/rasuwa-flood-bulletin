@@ -1,11 +1,25 @@
-# Hourly weather database. Scheduled workflows are disabled by GitHub after 60 days
-# without repository activity; the data commits from this workflow count as activity.
+# Hourly weather database.
+# GitHub disables a public scheduled workflow after 60 days without repository
+# activity; the data commits from this job count as activity.
+#
+# Schedule registration: workflow 366576849 was added when PR #42 was squash-merged
+# by the Cursor GitHub App (2026-09-25 01:21 UTC). It stayed active on main with
+# this cron and still had zero runs after the 02:17 and 02:35 UTC slots. A content
+# change on the default branch makes Actions re-parse the schedule. The push
+# paths below also run the job once on that commit. workflow_dispatch stays for a
+# token that is allowed to call it (this app integration gets HTTP 403).
 name: weather-db
 on:
   schedule:
     - cron: "17 * * * *"
     - cron: "35 2,4,12 * * *"
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/weather-db.yml
+      - scripts/weather/**
 permissions:
   contents: write
 concurrency:
@@ -14,20 +28,40 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Build weather database
+        timeout-minutes: 8
         run: python scripts/weather/build.py --out data/weather
       - name: Commit data files only
+        timeout-minutes: 3
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/weather
-          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git add -- data/weather
+          if git diff --cached --quiet; then
+            echo "no change"
+            exit 0
+          fi
           git commit -m "weather: snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
-          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep $((i*10)); done
+          for i in 1 2 3 4 5; do
+            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
+              echo "pushed"
+              exit 0
+            fi
+            if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
+              git checkout --theirs -- data/weather || true
+              git add -- data/weather
+              GIT_EDITOR=true git rebase --continue || git rebase --abort
+            fi
+            echo "push failed on attempt $i"
+            sleep $((i * 8))
+          done
           exit 1
