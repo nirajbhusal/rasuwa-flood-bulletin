@@ -5344,35 +5344,9 @@ button,a,.cash-kpi,.kpi,.names-cat-btn,.share-btn,.nav-toggle,.helpline a{
   }
 }
 
-/* Sticky category sub-nav + scroll-spy */
-.home-cat-nav{
-  position:sticky;top:var(--stick,72px);z-index:35;
-  display:flex;flex-wrap:nowrap;gap:var(--space-1);
-  margin:var(--space-2) 0 var(--space-2);
-  padding:8px 0;
-  background:color-mix(in srgb, var(--paper) 92%, transparent);
-  backdrop-filter:blur(8px);
-  overflow-x:auto;-webkit-overflow-scrolling:touch;
-  scrollbar-width:thin;
-  border-bottom:1px solid transparent;
-}
-.home-cat-nav.is-stuck{border-bottom-color:var(--line);box-shadow:var(--shadow-sm)}
-.home-cat-nav a{
-  flex:none;white-space:nowrap;
-  display:inline-flex;align-items:center;
-  padding:10px 14px;min-height:var(--touch);
-  border-radius:var(--radius-pill);
-  border:1px solid var(--line);background:var(--card);color:#334155;
-  font-size:var(--fs-label);font-weight:750;text-decoration:none;line-height:1.2;
-  box-shadow:var(--shadow-sm);
-}
-.home-cat-nav a:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
-.home-cat-nav a.is-active,
-.home-cat-nav a[aria-current="true"]{
-  border-color:var(--teal);background:var(--teal);color:#fff;
-  box-shadow:none;
-}
-.home-cat-head{scroll-margin-top:calc(var(--stick,72px) + 56px)}
+/* Category pill bar removed — headings keep their own offset under the header */
+.home-cat-nav{display:none !important;margin:0;padding:0;height:0;border:0}
+.home-cat-head{scroll-margin-top:var(--stick,72px)}
 
 /* Semantic dots on category heads */
 #cat-human .home-cat-dot{background:var(--sem-human);box-shadow:0 0 0 3px color-mix(in srgb, var(--sem-human) 18%, transparent)}
@@ -9069,7 +9043,7 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   .open-alert-b,.open-alert-s{font-size:14px}
 }
 
-/* 2026-09-25-menu-left — light header, search, menu, alert, ask */
+/* 2026-09-25-no-pills — light header, search, menu, alert, ask */
 .head-stick{
   position:sticky;
   top:0;
@@ -9759,7 +9733,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 .wxb,.dor{overflow:hidden}
 .wxb-mapwrap,.dor-map{overflow:hidden}
 
-/* 2026-09-25-menu-left — search stays closed, alert is a bottom sheet, date contrast, ask link */
+/* 2026-09-25-no-pills — search stays closed, alert is a bottom sheet, date contrast, ask link */
 .head-stick .brand-date,
 .head-stick .brand-date .brand-incident,
 .head-stick .brand-incident{
@@ -9843,7 +9817,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 .wx-toprain-list .wxdb-kicker{margin:0 0 4px;text-align:center}
 
 
-/* 2026-09-25-menu-left — menu sits left of search; one icon; 16px field; list above the keyboard */
+/* 2026-09-25-no-pills — menu sits left of search; one icon; 16px field; list above the keyboard */
 .head-stick .top-search{
   flex:1 1 auto;
   width:auto;
