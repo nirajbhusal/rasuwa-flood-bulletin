@@ -1,10 +1,34 @@
+/* One incident day. The header line and the homepage section date are both built from this. */
+function incidentDay(lang){
+  if (lang === "en") {
+    return { day: "10", month: "Bhadra", year: "2083", gDay: "26", gMonth: "August", gMonthShort: "Aug", gYear: "2026" };
+  }
+  return { day: "१०", month: "भदौ", year: "२०८३", gDay: "२६", gMonth: "अगस्ट", gYear: "२०२६" };
+}
+function incidentLine(lang){
+  var d = incidentDay(lang);
+  var greg = lang === "en"
+    ? (d.gDay + " " + d.gMonthShort + " " + d.gYear)
+    : (d.gDay + " " + d.gMonth + " " + d.gYear);
+  var lead = lang === "en" ? "Incident" : "घटना";
+  return lead + " · " + d.day + " " + d.month + " " + d.year + " (" + greg + ")";
+}
+function incidentTitleDate(lang){
+  var d = incidentDay(lang);
+  if (lang === "en") return d.gDay + " " + d.gMonth + " " + d.gYear;
+  return d.month + " " + d.day + ", " + d.year;
+}
+function incidentSectionTitle(lang){
+  var name = lang === "en" ? "Rasuwa Bhotekoshi Flood" : "रसुवा भोटेकोशी बाढी";
+  return name + " · " + incidentTitleDate(lang);
+}
 window.I18N = {
 "ne": {
 "title": "रसुवा–भोटेकोशी बाढी · २० सेप्टेम्बर २०२६",
 "meta": "२० सेप्टेम्बर २०२६ / ४ असोज २०८३ लाइभ। NDRRMA ४ असोज १९:००: शव १,४५१ · सम्पर्कविहीन करिब ५,७८६ · हाल उपचाररत १५ (५ अस्पताल) · उद्धार १३,७८४। घटना १० भदौ (२६ अगस्ट) रसुवा–भोटेकोशी–त्रिशूली बाढी। सतर्कता, उद्धार र स्रोत।",
 "brand": "रसुवा–भोटेकोशी बाढी",
 "brand_date": "अन्तिम अपडेट · ९ असोज / २५ सेप्टेम्बर",
-"brand_incident": "घटना · १० भदौ २०८३ (२६ अगस्ट २०२६)",
+"brand_incident": incidentLine("ne"),
 "live": "लाइभ",
 "share": "सेयर",
 "share_copied": "लिंक कपी भयो",
@@ -1418,7 +1442,9 @@ window.I18N = {
 "damage_sub": "विदुर GRA_MONIT01 · स्याफ्रुबेँसी · टिमुरे — अलग AOI",
 "supply_title": "एलपीजी आयात · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "supply_meta": "एलपीजी आयात · भन्सार प्रवेश नाका दैनिक सारांश · २०८३/०५/२५–२६। उद्धार १२३४।",
-"overview_h": "मानवीय स्थिति",
+"overview_h": "रसुवा भोटेकोशी बाढी",
+"overview_date": incidentTitleDate("ne"),
+"overview_label": incidentSectionTitle("ne"),
 "overview_sub": "शव · सम्पर्कविहीन · उपचार · उद्धार",
 "home_supply_lead": "दैनिक आयात ▼ ४०.८% · २०८३/०५/२५–२६",
 "home_supply_cta": "पूरा बोर्ड",
@@ -2077,7 +2103,7 @@ window.I18N = {
 "meta": "Live 20 September 2026 / 4 Ashwin 2083. NDRRMA 4 Ashwin 19:00: dead 1,451 · missing around 5,786 · currently in treatment 15 (5 hospitals) · rescued 13,784. Event 10 Bhadra (26 Aug) Rasuwa–Bhotekoshi–Trishuli flood. Alerts, rescue and sources.",
 "brand": "Rasuwa–Bhotekoshi Flood",
 "brand_date": "Last updated · 9 Ashwin / 25 Sep",
-"brand_incident": "Incident · 10 Bhadra 2083 (26 Aug 2026)",
+"brand_incident": incidentLine("en"),
 "live": "Live",
 "share": "Share",
 "share_copied": "Link copied",
@@ -3477,7 +3503,9 @@ window.I18N = {
 "damage_sub": "Bidur GRA_MONIT01 · Syaphrubesi · Timure — separate AOIs",
 "supply_title": "LPG import · Rasuwa–Bhotekoshi flood bulletin",
 "supply_meta": "LPG import · customs entry-point daily summary · BS 2083/05/25–26. Rescue 1234.",
-"overview_h": "Humanitarian situation",
+"overview_h": "Rasuwa Bhotekoshi Flood",
+"overview_date": incidentTitleDate("en"),
+"overview_label": incidentSectionTitle("en"),
 "overview_sub": "Deaths · uncontacted · treatment · rescued",
 "home_supply_lead": "Daily import ▼ 40.8% · BS 2083/05/25–26",
 "home_supply_cta": "Full board",
