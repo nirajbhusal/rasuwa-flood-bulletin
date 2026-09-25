@@ -42,8 +42,8 @@ jobs:
         run: python scripts/weather/build.py --out data/weather
       - name: Commit data files only
         timeout-minutes: 3
-        # Only data/weather. The Pages workflow stamps versions in the deploy
-        # artifact and does not commit, so this push must not include site files.
+        # Only data/weather. A weather-only push must not include site files.
+        # The Pages workflow treats that as data-only and does not commit a stamp.
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
