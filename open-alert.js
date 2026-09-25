@@ -210,6 +210,7 @@
   }
   function render(pack) {
     if (!pack || !pack.id) return;
+    var fresh = !sheet || shownId !== pack.id;
     shownId = pack.id;
     write(window.sessionStorage, SESSION, pack.id);
     write(window.localStorage, SEEN, pack.id);
@@ -269,21 +270,21 @@
     sheet.appendChild(body);
     sheet.appendChild(stayLine());
     sheet.appendChild(row);
-    paused = false;
+    if (fresh) paused = false;
     placeAlert();
     if (reduceMotion()) {
       sheet.classList.add("is-in");
-      arm();
+      if (fresh) arm();
       return;
     }
-    sheet.classList.remove("is-in");
+    if (fresh) sheet.classList.remove("is-in");
     window.requestAnimationFrame(function () {
       window.requestAnimationFrame(function () {
         if (sheet) sheet.classList.add("is-in");
         placeAlert();
       });
     });
-    arm();
+    if (fresh) arm();
   }
   function paint() {
     if (!data) return;
