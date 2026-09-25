@@ -7,7 +7,7 @@
 (function () {
   "use strict";
 
-  var VER = window.PAGE_VER || "2026-09-25-gallery-path";
+  var VER = window.PAGE_VER || "2026-09-25-wx-bydate";
   var HL_ORDER = ["1234", "100", "1148", "1111", "1114", "102", "1144", "1155"];
   var HL_FALLBACK = [
     { tel: "1234", key: "hl_deoc" },
@@ -128,14 +128,21 @@
   }
   function ktmISO(offset) {
     var now = new Date();
-    var utc = now.getTime() + now.getTimezoneOffset() * 60000;
-    var ktm = new Date(utc + (5 * 60 + 45) * 60000);
-    ktm.setDate(ktm.getDate() + (offset || 0));
-    var m = String(ktm.getMonth() + 1);
-    var d = String(ktm.getDate());
-    if (m.length < 2) m = "0" + m;
-    if (d.length < 2) d = "0" + d;
-    return ktm.getFullYear() + "-" + m + "-" + d;
+    if (offset) now = new Date(now.getTime() + offset * 86400000);
+    try {
+      return new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Kathmandu",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).format(now);
+    } catch (e) {
+      var m = String(now.getMonth() + 1);
+      var d = String(now.getDate());
+      if (m.length < 2) m = "0" + m;
+      if (d.length < 2) d = "0" + d;
+      return now.getFullYear() + "-" + m + "-" + d;
+    }
   }
   function has(q, re) { return re.test(q); }
   function includesAny(q, keys) {
@@ -167,6 +174,24 @@
     var days = (wx && wx.warning_days) || [];
     for (var i = 0; i < days.length; i++) if (days[i].date === iso) return days[i];
     return null;
+  }
+  function warningISOList(wx) {
+    var days = (wx && wx.warning_days) || [];
+    var out = [];
+    for (var i = 0; i < days.length; i++) if (days[i] && days[i].date) out.push(days[i].date);
+    out.sort();
+    return out;
+  }
+  function clampWarningISO(wx, iso) {
+    var dates = warningISOList(wx);
+    if (!dates.length) return "";
+    if (!iso || iso < dates[0]) return dates[0];
+    if (iso > dates[dates.length - 1]) return dates[dates.length - 1];
+    for (var i = 0; i < dates.length; i++) if (dates[i] >= iso) return dates[i];
+    return dates[dates.length - 1];
+  }
+  function isTodayQuery(raw) {
+    return /today|\baaja\b|\baaj\b|आज/.test(norm(raw || ""));
   }
   function findDay(raw, wx) {
     if (!wx) return null;
@@ -461,11 +486,16 @@
     if (!wx) return nodata("notices.html#alert", t("ask_go_wx"));
     var ui = wx.ui || {};
     var provinceId = spec.province || null;
+    var raw = (spec && spec.raw) || "";
     var day = spec.day || null;
-    if (!day && spec.raw) day = findDay(spec.raw, wx);
-    if (!day && !provinceId) {
-      var todayIso = ktmISO(0);
-      if (warningDay(wx, todayIso)) day = { date: todayIso, meta: timelineDay(wx, todayIso) };
+    if (!day && raw) day = findDay(raw, wx);
+    var todayQuery = isTodayQuery(raw) || !day;
+    if (day && day.missing && todayQuery) {
+      var clampedToday = clampWarningISO(wx, ktmISO(0));
+      day = clampedToday ? { date: clampedToday, meta: timelineDay(wx, clampedToday) } : null;
+    } else if (!day) {
+      var useToday = clampWarningISO(wx, ktmISO(0));
+      if (useToday) day = { date: useToday, meta: timelineDay(wx, useToday) };
     }
     var lines = [];
     lines.push(line(tx(ui.title)));
@@ -473,13 +503,16 @@
     if (day && day.missing) {
       lines.push(line(t("ask_noday")));
       if (tx(ui.sub)) lines.push(line(tx(ui.sub)));
+      if (provinceId) {
+        var missed = provinceById(wx, provinceId);
+        if (missed && missed.detail) lines.push(line(tx(missed.detail)));
+      }
       day = null;
     }
     if (day && warningDay(wx, day.date)) {
       var wd = warningDay(wx, day.date);
       var when = dayLabel(day.meta || timelineDay(wx, day.date), day.date);
       var ids = provinceId ? [provinceId] : (wx.keyboard_order || []).slice();
-      var focusId = provinceId || wx.focus_province || "bagmati";
       function pushProv(id, withWhen) {
         var cell = wd.provinces && wd.provinces[id];
         var prov = provinceById(wx, id);
@@ -494,32 +527,17 @@
       }
       if (provinceId) {
         pushProv(provinceId, true);
+        var named = provinceById(wx, provinceId);
+        if (named && named.detail) lines.push(line(tx(named.detail)));
       } else {
-        pushProv(focusId, true);
-        var rest = [];
-        ids.forEach(function (id) {
-          if (id === focusId) return;
-          var bit = pushProv(id, false);
-          if (bit) rest.push(bit);
-        });
-        if (rest.length) lines.push(line(rest.join(" · ")));
+        ids.forEach(function (id) { pushProv(id, true); });
       }
     } else if (provinceId) {
       var prov2 = provinceById(wx, provinceId);
-      var peak = prov2 && levelLabel(wx, "levels", prov2.level);
-      var overview = tx(ui.day_overview) || tx(ui.sub);
-      if (prov2 && peak) {
-        lines.push(line((lang() === "en" ? prov2.en : prov2.ne) + " · " + overview + " · " + peak.text, peak.color));
-        if (prov2.detail) lines.push(line(tx(prov2.detail)));
-      }
-    } else {
-      if (tx(ui.sub)) lines.push(line(tx(ui.sub)));
-      (wx.keyboard_order || []).forEach(function (id) {
-        var prov3 = provinceById(wx, id);
-        if (!prov3) return;
-        var peak2 = levelLabel(wx, "levels", prov3.level);
-        lines.push(line((lang() === "en" ? prov3.en : prov3.ne) + " · " + peak2.text, peak2.color));
-      });
+      if (prov2 && prov2.detail) lines.push(line(tx(prov2.detail)));
+      else if (tx(ui.sub)) lines.push(line(tx(ui.sub)));
+    } else if (tx(ui.sub)) {
+      lines.push(line(tx(ui.sub)));
     }
     var showCorridor = !provinceId || provinceId === "bagmati" || provinceId === (wx.focus_province || "bagmati");
     if (showCorridor && wx.callout && tx(wx.callout.body)) {

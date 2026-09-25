@@ -1,3 +1,10 @@
+## 2026-09-25-wx-bydate · Weather map follows one day
+
+- The province map on the homepage and `notices.html#alert` fills each province from `warning_days` for one selected date. It no longer uses the five-day peak in `provinces[].level` for colour. Province names and the five-day detail stay in the popup.
+- The selected date defaults to today in Asia/Kathmandu (`Intl`, time zone `Asia/Kathmandu`). If today is before the window, the first day is selected. If today is after the last day, the last day is selected and that date is shown. Day chips for Asoj 8–12 recolor the map. The selected chip is active, and today's chip keeps the आज / Today marker, on desktop and on a phone.
+- The map heading and legend name the date (असोज ९ · २५ सेप्टेम्बर / Asoj 9 · 25 Sep). A province popup shows that day's level, any other colours on the map, and the province detail. High-alert cards and Ask answers about today use that same day.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-25-wx-bydate`
+
 ## 2026-09-25-gallery-path · Disaster path on the gallery
 
 - `photos.html` keeps the existing photo grid and videos, and adds **विपद्को मार्ग: उद्गमदेखि प्रभावित क्षेत्रसम्म** / Disaster path: source to flood areas from `data/gallery-path.json`. Stage chips filter upstream to downstream. Before/after sliders, YouTube click-to-load, and link cards use only the manifest. Open images sit in `img/gallery-path/`. A Leaflet map plots `map_points` with names in popups.

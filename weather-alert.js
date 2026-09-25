@@ -5,11 +5,11 @@
 
   var data = null;
   var selected = null;
-  var dayMode = "overview";
+  var dayMode = "";
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-gallery-path";
+  var VER = window.PAGE_VER || "2026-09-25-wx-bydate";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -54,8 +54,44 @@
     if (!d) return "";
     return lang() === "en" ? d.en : d.ne;
   }
+  function warningDates() {
+    var days = (data && data.warning_days) || [];
+    var out = [];
+    for (var i = 0; i < days.length; i++) if (days[i] && days[i].date) out.push(days[i].date);
+    out.sort();
+    return out;
+  }
+  function kathmanduToday() {
+    try {
+      return new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Kathmandu",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).format(new Date());
+    } catch (e) {
+      return "";
+    }
+  }
+  function defaultDate() {
+    var dates = warningDates();
+    if (!dates.length) return "";
+    var today = kathmanduToday();
+    if (!today || today < dates[0]) return dates[0];
+    if (today > dates[dates.length - 1]) return dates[dates.length - 1];
+    for (var i = 0; i < dates.length; i++) if (dates[i] >= today) return dates[i];
+    return dates[dates.length - 1];
+  }
+  function ensureDay() {
+    var dates = warningDates();
+    if (!dates.length) {
+      dayMode = "";
+      return;
+    }
+    if (dates.indexOf(dayMode) < 0) dayMode = defaultDate();
+  }
   function activeDay() {
-    if (!data || dayMode === "overview") return null;
+    if (!data || !dayMode) return null;
     var days = data.warning_days || [];
     for (var i = 0; i < days.length; i++) if (days[i].date === dayMode) return days[i];
     return null;
@@ -64,9 +100,6 @@
     var day = activeDay();
     var raw = day && day.provinces && day.provinces[p.id] && day.provinces[p.id].level;
     if (raw === "red" || raw === "orange" || raw === "yellow" || raw === "green") return raw;
-    if (p.level === "very_heavy_extreme") return "red";
-    if (p.level === "heavy_very_heavy") return "orange";
-    if (p.level === "heavy") return "yellow";
     return "green";
   }
   function levelOf(p) {
@@ -90,26 +123,47 @@
     for (var i = 0; i < days.length; i++) if (days[i].date === date) return tx(days[i]);
     return date;
   }
-  function detailText(p) {
-    var day = activeDay();
-    if (!day || !day.provinces || !day.provinces[p.id]) return tx(p.detail);
-    var rec = day.provinces[p.id];
-    var lv = (data.warn_levels && data.warn_levels[rec.level]) || { ne: "", en: "" };
-    var body = fmt(tx(data.ui.day_detail), { when: dayLabel(day.date), name: tx(p), level: tx(lv) });
-    if (rec.also && rec.also.length) {
-      var names = rec.also.map(function (k) {
-        return tx((data.warn_levels && data.warn_levels[k]) || {});
-      }).filter(Boolean).join(", ");
-      if (names) body += fmt(tx(data.ui.day_also), { also: names });
-    }
-    return body;
+  function neDigits(s) {
+    return String(s).replace(/\d/g, function (d) { return "०१२३४५६७८९".charAt(+d); });
   }
-  function kathmanduToday() {
-    try {
-      return new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Kathmandu" });
-    } catch (e) {
-      return "";
+  function shownDateText() {
+    var day = activeDay();
+    if (!day) return "";
+    var meta = null;
+    var days = (data.timeline && data.timeline.days) || [];
+    for (var i = 0; i < days.length; i++) if (days[i].date === day.date) meta = days[i];
+    var parts = String(day.date).split("-");
+    var month = parseInt(parts[1], 10) || 0;
+    var dom = parseInt(parts[2], 10) || 0;
+    var monthsNe = ["", "जनवरी", "फेब्रुअरी", "मार्च", "अप्रिल", "मे", "जुन", "जुलाई", "अगस्ट", "सेप्टेम्बर", "अक्टोबर", "नोभेम्बर", "डिसेम्बर"];
+    var monthsEn = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    if (lang() === "en") return ((meta && meta.en) || day.date) + " · " + dom + " " + (monthsEn[month] || "");
+    return ((meta && meta.ne) || day.date) + " · " + neDigits(dom) + " " + (monthsNe[month] || "");
+  }
+  function alsoLine(p) {
+    var day = activeDay();
+    var rec = day && day.provinces && day.provinces[p.id];
+    if (!rec || !rec.also || !rec.also.length) return "";
+    var names = rec.also.map(function (k) {
+      return tx((data.warn_levels && data.warn_levels[k]) || {});
+    }).filter(Boolean).join(", ");
+    if (!names) return "";
+    return String(fmt(tx(data.ui.day_also), { also: names }) || "").replace(/^\s+/, "");
+  }
+  function detailText(p) {
+    var bits = [];
+    var day = activeDay();
+    if (day && day.provinces && day.provinces[p.id]) {
+      var rec = day.provinces[p.id];
+      var lv = (data.warn_levels && data.warn_levels[rec.level]) || { ne: "", en: "" };
+      var when = shownDateText() || dayLabel(day.date);
+      bits.push(fmt(tx(data.ui.day_detail), { when: when, name: tx(p), level: tx(lv) }));
+      var also = alsoLine(p);
+      if (also) bits.push(also);
     }
+    var detail = tx(p.detail);
+    if (detail) bits.push(detail);
+    return bits.join(" ");
   }
   function order() {
     return (data && data.keyboard_order) || [];
@@ -147,18 +201,27 @@
       row.replaceChildren();
       var sw = el("i", "wxb-sw wxb-sw-" + alertKey(p));
       row.appendChild(sw);
-      row.appendChild(document.createTextNode((lv.ne || "") + " / " + (lv.en || "")));
+      var lvText = (lv.ne || "") + " / " + (lv.en || "");
+      var when = shownDateText();
+      row.appendChild(document.createTextNode(when ? (when + " · " + lvText) : lvText));
     }
-    if (body) body.textContent = distRec ? tx(p) : detailText(p);
+    var also = alsoLine(p);
+    if (body) {
+      body.classList.add("wxb-pop-also");
+      body.hidden = !also;
+      body.textContent = also;
+    }
     if (dist) {
+      var detail = tx(p.detail);
       if (distRec) {
-        dist.hidden = false;
-        dist.textContent = detailText(p);
+        var pname = tx(p);
+        detail = pname ? (detail ? pname + " — " + detail : pname) : detail;
       } else {
         var line = districtLine(p);
-        dist.hidden = !line;
-        dist.textContent = line;
+        if (line) detail = detail ? (detail + " " + line) : line;
       }
+      dist.hidden = !detail;
+      dist.textContent = detail;
     }
     if (x) x.setAttribute("aria-label", tx(data.ui.pop_close));
     pop.hidden = false;
@@ -178,9 +241,12 @@
   function focusBar(bar) {
     if (!bar || !bar.focus) return;
     if (bar.focus === "overview") {
-      if (dayMode !== "overview") justShifted = true;
-      dayMode = "overview";
-      renderAll();
+      var next = defaultDate();
+      if (next && dayMode !== next) {
+        justShifted = true;
+        dayMode = next;
+        renderAll();
+      }
       return;
     }
     select(bar.focus, false);
@@ -450,7 +516,6 @@
         row.setAttribute("role", "button");
         row.classList.add("is-btn");
         if (bar.focus) row.setAttribute("data-focus", bar.focus);
-        if (bar.focus === "overview" && dayMode === "overview") row.classList.add("is-on");
         row.addEventListener("click", function () { focusBar(bar); });
         row.addEventListener("keydown", function (e) {
           if (e.key === "Enter" || e.key === " ") {
@@ -557,7 +622,13 @@
       ["red", "orange", "yellow", "green"].forEach(function (k) {
         path.classList.toggle("wxb-lv-" + k, k === key);
       });
-      path.setAttribute("aria-label", tx(p) + ". " + tx(levelOf(p)) + ". " + detailText(p));
+      path.setAttribute("aria-label", tx(p) + ". " + shownDateText() + ". " + tx(levelOf(p)) + ". " + detailText(p));
+    });
+    svg.querySelectorAll(".wxb-dist").forEach(function (path) {
+      var d = districtById(path.getAttribute("data-id"));
+      var p = d && provinceById(d.province);
+      if (!d || !p) return;
+      path.setAttribute("aria-label", districtLabel(d) + ". " + tx(p) + ". " + shownDateText() + ". " + tx(levelOf(p)));
     });
   }
 
@@ -571,11 +642,16 @@
       b.classList.toggle("is-on", on);
       b.setAttribute("aria-selected", on ? "true" : "false");
     });
-    document.querySelectorAll(".wxb-dayhint").forEach(function (n) {
-      n.textContent = tx(activeDay() ? data.ui.day_method : data.ui.day_switch_hint);
+    document.querySelectorAll(".wxb-shown").forEach(function (n) {
+      n.textContent = shownDateText();
     });
-    document.querySelectorAll(".wxb-gantt-row[data-focus]").forEach(function (row) {
-      row.classList.toggle("is-on", row.getAttribute("data-focus") === "overview" && dayMode === "overview");
+    document.querySelectorAll(".wxb-dayhint").forEach(function (n) {
+      var method = tx(data.ui.day_method);
+      var when = shownDateText();
+      n.textContent = when ? (when + " — " + method) : method;
+    });
+    document.querySelectorAll(".wxb-gantt-row[data-focus='overview']").forEach(function (row) {
+      row.classList.remove("is-on");
     });
     paintHigh();
     document.querySelectorAll("[data-wx-mount]").forEach(function (root) {
@@ -772,21 +848,17 @@
       var ib = ids.indexOf(b.id);
       return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
     });
+    if (!day) return groups;
     list.forEach(function (p) {
-      var key = null;
+      var rec = day.provinces && day.provinces[p.id];
+      if (!rec) return;
+      var key = rec.level;
       var names = [];
-      if (day) {
-        var rec = day.provinces && day.provinces[p.id];
-        if (!rec) return;
-        key = rec.level;
-        if (rec.districts && rec.districts.length) {
-          rec.districts.forEach(function (d) {
-            var label = bothNames(d);
-            if (label) names.push(label);
-          });
-        }
-      } else {
-        key = alertKey(p);
+      if (rec.districts && rec.districts.length) {
+        rec.districts.forEach(function (d) {
+          var label = bothNames(d);
+          if (label) names.push(label);
+        });
       }
       if (key !== "red" && key !== "orange") return;
       if (!names.length) names.push(bothNames(p));
@@ -822,8 +894,9 @@
     head.innerHTML = iconAlert();
     head.appendChild(document.createTextNode(" " + title));
     card.appendChild(head);
-    var day = activeDay();
-    card.appendChild(el("p", "wxb-high-k", tx(day ? ui.high_day : ui.high_lead)));
+    var when = shownDateText();
+    var dayNote = tx(ui.high_day);
+    card.appendChild(el("p", "wxb-high-k", when ? (when + (dayNote ? " · " + dayNote : "")) : dayNote));
     var groups = highAreas();
     ["red", "orange"].forEach(function (key) {
       if (!groups[key].length) return;
@@ -993,6 +1066,7 @@
     mh.innerHTML = iconCloud();
     mh.appendChild(document.createTextNode(" " + tx(ui.map_h)));
     mapPanel.appendChild(mh);
+    mapPanel.appendChild(el("p", "wxb-shown", shownDateText()));
     var svg = svgEl("svg");
     svg.setAttribute("class", "wxb-svg" + (justShifted ? " is-shifting" : ""));
     buildMap(svg);
@@ -1040,13 +1114,15 @@
     var switcher = el("div", "wxb-dayswitch");
     switcher.setAttribute("role", "tablist");
     switcher.setAttribute("aria-label", tx(ui.days_h));
-    function dayChip(id, label, on) {
+    var todayIso = kathmanduToday();
+    function dayChip(id, label, on, isToday) {
       var b = document.createElement("button");
       b.type = "button";
-      b.className = "wxb-chip wxb-chip-" + dayTone(id) + (on ? " is-on" : "");
+      b.className = "wxb-chip wxb-chip-" + dayTone(id) + (on ? " is-on" : "") + (isToday ? " is-today" : "");
       b.setAttribute("role", "tab");
       b.setAttribute("aria-selected", on ? "true" : "false");
-      b.textContent = label;
+      b.appendChild(document.createTextNode(label));
+      if (isToday) b.appendChild(el("em", "wxb-today", tx(ui.today)));
       b.setAttribute("data-day", id);
       b.addEventListener("click", function () {
         if (dayMode === id) return;
@@ -1055,13 +1131,15 @@
       });
       switcher.appendChild(b);
     }
-    dayChip("overview", tx(ui.day_overview), dayMode === "overview");
     ((data.timeline && data.timeline.days) || []).forEach(function (d) {
       var sub = lang() === "en" ? d.dow_en : d.dow_ne;
-      dayChip(d.date, tx(d) + " · " + sub, dayMode === d.date);
+      var isToday = d.date === todayIso;
+      dayChip(d.date, tx(d) + " · " + sub, dayMode === d.date, isToday);
     });
     mapPanel.appendChild(switcher);
-    mapPanel.appendChild(el("p", "wxb-dayhint", tx(activeDay() ? ui.day_method : ui.day_switch_hint)));
+    var method = tx(ui.day_method);
+    var whenShown = shownDateText();
+    mapPanel.appendChild(el("p", "wxb-dayhint", whenShown ? (whenShown + " — " + method) : method));
 
     var legend = el("ul", "wxb-legend");
     ["red", "orange", "yellow", "green"].forEach(function (key) {
@@ -1072,6 +1150,7 @@
       legend.appendChild(li);
     });
     mapPanel.appendChild(el("p", "wxb-tap", tx(ui.tap)));
+    mapPanel.appendChild(el("p", "wxb-shown wxb-legend-date", shownDateText()));
     mapPanel.appendChild(legend);
     mapPanel.appendChild(el("p", "wxb-hint", tx(ui.hint)));
     board.appendChild(mapPanel);
@@ -1204,6 +1283,7 @@
 
   function renderAll() {
     if (!data) return;
+    ensureDay();
     mounts.forEach(renderMount);
     if (justShifted) {
       justShifted = false;
