@@ -1503,6 +1503,7 @@ window.I18N = {
 "cash_mix_note": "नाम-हस्तान्तरण · MoF मौज्दात · NCHL+फोनपे अलग लेबल — एउटै महा-जम्मा छैन। NVIDIA अलग।",
 "cat_human": "मानवीय स्थिति",
 "cat_human_sub": "शव · सम्पर्कविहीन · उपचार · उद्धार · होल्डिङ",
+"incident_date": "घटना मिति: १० भदौ २०८३ (२६ अगस्ट २०२६)",
 "cat_ops": "परिचालन / उडान / होल्डिङ",
 "cat_ops_sub": "जनशक्ति २०,९२९ · उडान आज ३३ · होल्डिङ २० सेन्टर",
 "cat_rahat": "राहत कोष",
@@ -3572,6 +3573,7 @@ window.I18N = {
 "cash_mix_note": "Named handover · MoF stock · NCHL+Fonepay labeled separate — no mega-total. NVIDIA separate.",
 "cat_human": "Human situation",
 "cat_human_sub": "Dead · missing · treated · rescued · holding",
+"incident_date": "Incident date: 26 August 2026 (Bhadra 10, 2083)",
 "cat_ops": "Deploy / flights / holding",
 "cat_ops_sub": "Personnel 20,929 · flights today 33 · holding 20 centers",
 "cat_rahat": "Relief fund",
@@ -5563,52 +5565,6 @@ window.I18N = {
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initLang);
   else initLang();
 
-  /* Live Kathmandu clock under brand H1 */
-  (function brandNowClock(){
-    var MONTHS_NE = ["जनवरी","फेब्रुअरी","मार्च","अप्रिल","मे","जुन","जुलाई","अगस्ट","सेप्टेम्बर","अक्टोबर","नोभेम्बर","डिसेम्बर"];
-    var MONTHS_EN = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    function partsNow(){
-      var d = new Date();
-      var f = new Intl.DateTimeFormat("en-GB", {
-        timeZone: "Asia/Kathmandu",
-        year: "numeric", month: "numeric", day: "numeric",
-        hour: "2-digit", minute: "2-digit", hour12: false
-      });
-      var map = {};
-      f.formatToParts(d).forEach(function(p){ if (p.type !== "literal") map[p.type] = p.value; });
-      return map;
-    }
-    function dig(s){
-      return String(s).replace(/[0-9]/g, function(d){ return DIG[d]; });
-    }
-    function render(){
-      var el = document.getElementById("brand-now");
-      if (!el) return;
-      var p = partsNow();
-      var day = parseInt(p.day, 10);
-      var month = parseInt(p.month, 10) - 1;
-      var year = p.year;
-      var hm = String(p.hour || "00").padStart(2, "0") + ":" + String(p.minute || "00").padStart(2, "0");
-      var iso;
-      try {
-        iso = new Date().toLocaleString("sv-SE", { timeZone: "Asia/Kathmandu" }).replace(" ", "T");
-      } catch (e) { iso = ""; }
-      if (iso) el.setAttribute("datetime", iso);
-      var en = isEn();
-      if (en) {
-        el.textContent = "Today · " + day + " " + MONTHS_EN[month] + " " + year + " · " + hm;
-      } else {
-        el.textContent = "आज · " + dig(day) + " " + MONTHS_NE[month] + " " + dig(year) + " · " + dig(hm);
-      }
-    }
-    function start(){
-      render();
-      if (window.__brandNowTimer) clearInterval(window.__brandNowTimer);
-      window.__brandNowTimer = setInterval(render, 30000);
-    }
-    addLangHook(render);
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
-    else start();
-  })();
+  /* Header clock is npt-clock.js (NPT UTC+5:45 + Bikram Sambat). Do not write #brand-now here. */
 
 })();

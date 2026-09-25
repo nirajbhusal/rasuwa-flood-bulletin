@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var VER = window.PAGE_VER || "2026-09-25-maps-live";
+  var VER = window.PAGE_VER || "2026-09-25-npt-date";
   var home = null;
   var full = null;
   var historyDoc = null;
