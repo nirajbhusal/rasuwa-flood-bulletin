@@ -10739,3 +10739,87 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
   visibility:hidden !important;
   pointer-events:none !important;
 }
+
+/* NDRRMA vehicle movement, Asoj 9–10 */
+.vv-board{margin:0 0 8px}
+.vv-kicker{margin:2px 14px 0;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#c41e3a}
+.vv-title{margin:2px 14px 4px;font-size:22px;line-height:1.25;color:#0c2340}
+.vv-asof{margin:0 14px 10px;font-size:13px;font-weight:700;color:#64748b}
+.vv-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;list-style:none;margin:0 14px 10px;padding:0}
+.vv-stat{margin:0;padding:8px 8px 7px;border-radius:12px;text-align:center;border:1px solid #e2e8f0}
+.vv-stat-n{display:block;font-size:22px;line-height:1.05;font-weight:800}
+.vv-stat-k{display:block;margin-top:2px;font-size:12px;font-weight:800}
+.vv-stat-red{background:#fde8ea;border-color:#f3c1c7}
+.vv-stat-red .vv-stat-n{color:#c41e3a}
+.vv-stat-orange{background:#fff1e6;border-color:#fdba74}
+.vv-stat-orange .vv-stat-n{color:#c2410c}
+.vv-stat-yellow{background:#fffbeb;border-color:#fde047}
+.vv-stat-yellow .vv-stat-n{color:#a16207}
+.vv-pin{display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:calc(100% - 28px);margin:0 14px 10px;padding:10px 12px;border:1px solid #fdba74;border-left:4px solid #e8590c;border-radius:12px;background:#fff7ed;color:#0c2340;font:inherit;text-align:left;cursor:pointer}
+.vv-pin-name{font-size:15px}
+.vv-pin-mean,.vv-pin-note{font-size:12.5px;font-weight:650;line-height:1.4;color:#334155}
+.vv-pin-note{color:#9f1239}
+.vv-legend{list-style:none;margin:0 14px 10px;padding:0;display:flex;flex-direction:column;gap:8px}
+.vv-leg{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.4;color:#0c2340}
+.vv-leg i{flex:0 0 auto;width:14px;height:14px;margin-top:3px;border-radius:4px;border:1px solid #1e293b}
+.vv-leg strong{font-weight:800}
+.vv-leg-red i{background:#c41e3a}
+.vv-leg-orange i{background:#e8590c}
+.vv-leg-yellow i{background:#f5c400}
+.vv-filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 14px 12px}
+.vv-chip{border:1px solid #e2e8f0;border-radius:999px;background:#fff;color:#0c2340;font:inherit;font-size:12.5px;font-weight:800;padding:6px 12px;cursor:pointer}
+.vv-chip.is-on{border-color:#c41e3a;background:#fff5f5;color:#c41e3a}
+.vv-chip:focus-visible,.vv-dist:focus-visible,.vv-pin:focus-visible{outline:2px solid #c41e3a;outline-offset:2px}
+.vv-grid{display:flex;flex-direction:column;gap:12px;margin:0 14px}
+.vv-mapslot,.vv-side{min-width:0}
+.vv-map{position:relative;height:300px;border-radius:14px;background:#f8fafc;border:1px solid #e2e8f0;overflow:hidden}
+.vv-map svg{width:100%;height:100%;display:block;background:#f8fafc;touch-action:none}
+.vv-map .map-ctl{position:absolute;top:10px;right:10px;z-index:2}
+.vv-d{
+  stroke:#1f2937;
+  stroke-opacity:.7;
+  stroke-width:.55px;
+  stroke-linejoin:round;
+  stroke-linecap:round;
+  vector-effect:non-scaling-stroke;
+  cursor:pointer;
+}
+.vv-d[data-level="red"]{fill:#c41e3a}
+.vv-d[data-level="orange"]{fill:#e8590c}
+.vv-d[data-level="yellow"]{fill:#f5c400}
+.vv-d.is-dim{fill:#e2e8f0;stroke:#cbd5e1;stroke-opacity:.7}
+.vv-d.is-rasuwa,
+.vv-d.is-on{
+  stroke:#0c2340;
+  stroke-opacity:1;
+  stroke-width:1.25px;
+}
+.vv-prov-edge{
+  fill:none;
+  stroke:#1f2937;
+  stroke-opacity:.9;
+  stroke-width:1px;
+  stroke-linejoin:round;
+  stroke-linecap:round;
+  pointer-events:none;
+  vector-effect:non-scaling-stroke;
+}
+.vv-stroke{fill:none !important;pointer-events:none}
+.vv-gh{margin:0 0 6px;font-size:15px;color:#0c2340}
+.vv-gn{font-weight:800;color:#9f1239}
+.vv-prov{margin:0 0 8px}
+.vv-ph{margin:0 0 4px;font-size:12px;font-weight:800;color:#64748b}
+.vv-dists{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.vv-dist{border:1px solid #e2e8f0;border-radius:999px;background:#fff;color:#0c2340;font:inherit;font-size:12.5px;font-weight:750;padding:4px 9px;cursor:pointer}
+.vv-dist.is-rasuwa{border-color:#e8590c;background:#fff7ed}
+.vv-dist.is-on{border-color:#c41e3a;background:#fff5f5}
+.vv-group{margin:0 0 12px}
+.vv-src{margin:4px 14px 0;font-size:12.5px;font-weight:700;color:#64748b;text-align:center}
+.vv-src a{font-weight:800;color:#c41e3a}
+.dor-has-vehicle .pr-board{margin-top:14px;padding-top:12px;border-top:1px solid #e2e8f0}
+.vv-map.is-map-fs,.vv-map:fullscreen{position:fixed !important;inset:0 !important;width:100% !important;height:100dvh !important;max-height:100dvh !important;margin:0 !important;z-index:220 !important;border-radius:0 !important;background:#f8fafc !important}
+@media (min-width:1024px){
+  .vv-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:16px;align-items:start}
+  .vv-mapslot{position:sticky;top:88px}
+  .vv-map{height:560px}
+}

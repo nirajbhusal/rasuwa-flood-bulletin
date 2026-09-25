@@ -428,6 +428,7 @@
       wxnow: cache.now,
       roads: cache.roads,
       police: cache.police || null,
+      vehicle: cache.vehicle || null,
       clock: new Date().toISOString(),
       dash: cache.dash,
       gallery: cache.gallery,
@@ -448,7 +449,7 @@
     if (!spec) return false;
     var f = spec.family || spec.type || "";
     if (f === "weather") return (!cache.wx && !failed.wx) || (!cache.now && !failed.now);
-    if (f === "roads" || f === "map") return (!cache.roads && !failed.roads) || (!cache.police && !failed.police);
+    if (f === "roads" || f === "map") return (!cache.roads && !failed.roads) || (!cache.police && !failed.police) || (!cache.vehicle && !failed.vehicle);
     if (f === "rescue") return !cache.dash && !failed.dash;
     if (f === "lpg") return !cache.lpg && !failed.lpg;
     if (f === "cause" || f === "gallery") return !cache.gallery && !failed.gallery;
@@ -479,6 +480,7 @@
       getJSON("data/weather/now.json", "now"),
       getJSON("data/roads-dor.json", "roads"),
       getJSON("data/police_roads_2083-06-09.json", "police"),
+      getJSON("data/ndrrma_vehicle_2083-06-09.json", "vehicle"),
       getJSON("api/dashboard.json", "dash"),
       getJSON("data/gallery-path.json", "gallery"),
       getHTML("supply.html", "lpg", parseSupply),
