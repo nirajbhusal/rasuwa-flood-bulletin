@@ -9043,7 +9043,7 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   .open-alert-b,.open-alert-s{font-size:14px}
 }
 
-/* 2026-09-25-header-art — light header, search, menu, alert, ask */
+/* 2026-09-25-no-contact — light header, search, menu, alert, ask */
 .head-stick{
   position:sticky;
   top:0;
@@ -9745,7 +9745,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 .wxb,.dor{overflow:hidden}
 .wxb-mapwrap,.dor-map{overflow:hidden}
 
-/* 2026-09-25-header-art — search stays closed, alert is a bottom sheet, date contrast, ask link */
+/* 2026-09-25-no-contact — search stays closed, alert is a bottom sheet, date contrast, ask link */
 .head-stick .brand-date,
 .head-stick .brand-date .brand-incident,
 .head-stick .brand-incident{
@@ -9829,7 +9829,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 .wx-toprain-list .wxdb-kicker{margin:0 0 4px;text-align:center}
 
 
-/* 2026-09-25-header-art — menu sits left of search; one icon; 16px field; list above the keyboard */
+/* 2026-09-25-no-contact — menu sits left of search; one icon; 16px field; list above the keyboard */
 .head-stick .top-search{
   flex:1 1 auto;
   width:auto;
