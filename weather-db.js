@@ -1,8 +1,9 @@
 (function () {
   "use strict";
-  var VER = window.PAGE_VER || "2026-09-25-maps-live";
+  var VER = window.PAGE_VER || "2026-09-25-wx-visual";
   var home = null;
   var full = null;
+  var historyDoc = null;
   var geo = null;
   var provinces = null;
   var alertDoc = null;
@@ -581,6 +582,33 @@
     });
   }
 
+  function freshnessChip() {
+    var iso = (full && full.generated_at) || (home && home.generated_at);
+    var hm = clock(iso);
+    if (!hm) return null;
+    var chip = el("p", "wx-fresh");
+    chip.textContent = (lang() === "en" ? "Updated " : "अद्यावधिक ") + hm + " NPT";
+    return chip;
+  }
+  function placeFreshChip() {
+    if (!document.querySelector("[data-wxdb-mode='section']")) return;
+    var head = document.querySelector(".sec-head-wx");
+    if (!head) return;
+    var old = head.querySelector(".wx-fresh");
+    if (old) old.remove();
+    var chip = freshnessChip();
+    if (chip) head.appendChild(chip);
+  }
+  function sourceLabel(src) {
+    if (src === "dhm") return lang() === "en" ? "DHM gauge" : "DHM गेज";
+    if (src === "hydrology") return lang() === "en" ? "hydrology gauge" : "हाइड्रोलोजी गेज";
+    if (src === "model") return lang() === "en" ? "Model · ECMWF" : "मोडेल · ECMWF";
+    return "";
+  }
+  function rainUnit() {
+    return lang() === "en" ? " mm" : " मि.मि.";
+  }
+
   function renderSection(root) {
     root.replaceChildren();
     if (!full) return;
@@ -589,6 +617,7 @@
     wrap.appendChild(renderBulletins());
     wrap.appendChild(renderCities());
     wrap.appendChild(renderRainMap());
+    wrap.appendChild(renderCorridor());
     wrap.appendChild(renderRivers());
     wrap.appendChild(renderOutlook());
     wrap.appendChild(renderMountain());
@@ -598,18 +627,31 @@
   }
 
   function renderGeneral() {
+    var data = full.general_forecast;
+    if (!sourceOk(full, "dhm_country") || !data) return el("section");
     var sec = el("section", "wxdb-block");
     sec.id = "wxdb-general";
     sec.appendChild(h2("सामान्य पूर्वानुमान", "General forecast"));
-    var data = full.general_forecast;
-    if (!sourceOk(full, "dhm_country") || !data) return el("section");
     var src = full.sources.dhm_country || {};
     if (src.issued_at) sec.appendChild(el("p", "wxdb-issued")).textContent = (lang() === "en" ? "Issued " : "जारी ") + formatWhen(src.issued_at, true);
-    if (tx(data.analysis)) sec.appendChild(el("p", "wxdb-copy")).textContent = tx(data.analysis);
+    var lead = tx(data.analysis);
+    if (!lead && data.parts && data.parts[0]) lead = tx(data.parts[0].text);
+    if (lead) {
+      var preview = el("p", "wxdb-leadclamp");
+      preview.textContent = lead;
+      sec.appendChild(preview);
+    }
+    var det = document.createElement("details");
+    det.className = "wxdb-forecast";
+    var sum = document.createElement("summary");
+    sum.textContent = lang() === "en" ? "Read full forecast" : "पूरा पूर्वानुमान पढ्नुहोस्";
+    det.appendChild(sum);
+    if (tx(data.analysis)) det.appendChild(el("p", "wxdb-copy")).textContent = tx(data.analysis);
     (data.parts || []).forEach(function (part) {
-      sec.appendChild(el("h3", "wxdb-subh")).textContent = tx(part.label);
-      sec.appendChild(el("p", "wxdb-copy")).textContent = tx(part.text);
+      if (tx(part.label)) det.appendChild(el("h3", "wxdb-subh")).textContent = tx(part.label);
+      if (tx(part.text)) det.appendChild(el("p", "wxdb-copy")).textContent = tx(part.text);
     });
+    if (det.childNodes.length > 1) sec.appendChild(det);
     return sec;
   }
 
@@ -637,87 +679,140 @@
     return sec;
   }
 
+  function cityPeriod(city, name) {
+    var periods = ((city.dhm_forecast || {}).periods) || [];
+    for (var i = 0; i < periods.length; i++) if (periods[i].period === name) return periods[i];
+    return null;
+  }
+  function leadPeriod(city) {
+    return cityPeriod(city, "today") || cityPeriod(city, "tonight") || cityPeriod(city, "tomorrow") || null;
+  }
+  function periodWord(name) {
+    if (name === "today") return lang() === "en" ? "Today" : "आज";
+    if (name === "tonight") return lang() === "en" ? "Tonight" : "आज राति";
+    if (name === "tomorrow") return lang() === "en" ? "Tomorrow" : "भोलि";
+    return "";
+  }
+  function tempSpan(values) {
+    var nums = values.filter(function (n) { return n != null && isFinite(Number(n)); }).map(Number);
+    if (!nums.length) return null;
+    var lo = Math.min.apply(null, nums);
+    var hi = Math.max.apply(null, nums);
+    if (hi <= lo) hi = lo + 1;
+    return { lo: lo, hi: hi };
+  }
+  function rangeBar(lo, hi, scale) {
+    var track = el("div", "wx-range");
+    track.setAttribute("aria-hidden", "true");
+    if (lo == null || hi == null || !scale) return track;
+    var a = Math.min(Number(lo), Number(hi));
+    var b = Math.max(Number(lo), Number(hi));
+    if (!isFinite(a) || !isFinite(b)) return track;
+    var span = scale.hi - scale.lo || 1;
+    var left = ((a - scale.lo) / span) * 100;
+    var width = Math.max(8, ((b - a) / span) * 100);
+    if (left < 0) left = 0;
+    if (left > 92) left = 92;
+    if (left + width > 100) width = 100 - left;
+    var seg = el("span", "wx-range-seg");
+    seg.style.left = left + "%";
+    seg.style.width = width + "%";
+    track.appendChild(seg);
+    return track;
+  }
+  function chanceBar(prob) {
+    var track = el("div", "wx-chance");
+    track.setAttribute("aria-hidden", "true");
+    if (prob == null || !isFinite(Number(prob))) return track;
+    var fill = el("span", "wx-chance-fill");
+    fill.style.width = Math.max(0, Math.min(100, Number(prob))) + "%";
+    track.appendChild(fill);
+    return track;
+  }
+  function metricLine(label, value) {
+    var row = el("div", "wx-metric");
+    var lab = el("span", "wx-metric-lab");
+    lab.textContent = label;
+    var val = el("span", "wx-metric-val");
+    val.textContent = value;
+    row.appendChild(lab);
+    row.appendChild(val);
+    return row;
+  }
   function renderCities() {
+    if (!sourceOk(full, "dhm_city")) return el("section");
     var sec = el("section", "wxdb-block");
     sec.id = "wxdb-cities";
     sec.appendChild(h2("शहर पूर्वानुमान", "City forecast"));
-    if (!sourceOk(full, "dhm_city")) return el("section");
-    var table = document.createElement("table");
-    table.className = "wxdb-table";
-    var cap = document.createElement("caption");
-    cap.textContent = lang() === "en" ? "DHM city forecast and observed temperature" : "DHM शहर पूर्वानुमान र अवलोकन तापक्रम";
-    table.appendChild(cap);
-    var head = document.createElement("thead");
-    var hr = document.createElement("tr");
-    var labels = lang() === "en"
-      ? ["City", "Tonight", "Tomorrow", "Observed", "Check"]
-      : ["शहर", "आज राति", "भोलि", "अवलोकन", "जाँच"];
-    labels.forEach(function (label) {
-      var th = document.createElement("th");
-      th.scope = "col";
-      th.textContent = label;
-      hr.appendChild(th);
+    var cities = full.cities || [];
+    var samples = [];
+    cities.forEach(function (city) {
+      var period = leadPeriod(city);
+      if (!period) return;
+      if (period.t_from != null) samples.push(period.t_from);
+      if (period.t_to != null) samples.push(period.t_to);
     });
-    head.appendChild(hr);
-    table.appendChild(head);
-    var body = document.createElement("tbody");
-    (full.cities || []).forEach(function (city) {
-      var tr = document.createElement("tr");
-      function td(node) {
-        var cell = document.createElement("td");
-        if (typeof node === "string") cell.textContent = node;
-        else if (node) cell.appendChild(node);
-        tr.appendChild(cell);
-        return cell;
-      }
-      td(tx(city));
-      var periods = ((city.dhm_forecast || {}).periods) || [];
-      function periodCell(name) {
-        var row = periods.filter(function (item) { return item.period === name; })[0];
-        var box = el("div", "wxdb-pcell");
-        if (!row) {
-          box.textContent = "—";
-          return box;
-        }
-        box.appendChild(iconNode(row.icon));
-        var text = el("span");
-        text.textContent = fmt(row.t_from, 0) + "–" + fmt(row.t_to, 0) + "°";
-        if (row.rain_prob != null) text.textContent += " · " + fmt(row.rain_prob, 0) + "%";
-        box.appendChild(text);
-        return box;
-      }
-      td(periodCell("tonight"));
-      td(periodCell("tomorrow"));
-      var obs = city.dhm_observed || {};
-      var obsBox = el("div", "wxdb-pcell");
-      var rainBit = obs.trace ? (lang() === "en" ? "T" : "ट्रेस") : (obs.rain_24h_mm == null ? "—" : fmt(obs.rain_24h_mm, 1));
-      obsBox.textContent = fmt(obs.max_c, 1) + "° / " + fmt(obs.min_c, 1) + "°" + (rainBit ? " · " + rainBit : "");
-      td(obsBox);
-      var state = (city.verify || {}).state;
-      var b = badgeNode(state);
-      if (state === "differs") {
-        b.tabIndex = 0;
-        b.setAttribute("role", "button");
-        var lines = ((city.verify || {}).flags || []).map(flagLine);
-        b.addEventListener("click", function () { openPop(b, tx(city), lines); });
-        b.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openPop(b, tx(city), lines); } });
-      }
-      td(b);
-      body.appendChild(tr);
-    });
-    table.appendChild(body);
-    sec.appendChild(table);
+    var scale = tempSpan(samples);
+    var grid = el("div", "wx-citygrid");
+    cities.forEach(function (city) { grid.appendChild(cityCard(city, scale)); });
+    sec.appendChild(grid);
     return sec;
+  }
+  function cityCard(city, scale) {
+    var card = el("article", "wx-citycard");
+    var period = leadPeriod(city);
+    var top = el("div", "wx-citycard-top");
+    if (period && period.icon) top.appendChild(iconNode(period.icon));
+    var name = el("strong", "wx-citycard-name");
+    name.textContent = tx(city);
+    top.appendChild(name);
+    var state = (city.verify || {}).state;
+    if (state === "differs") {
+      var b = badgeNode(state);
+      b.tabIndex = 0;
+      b.setAttribute("role", "button");
+      var lines = ((city.verify || {}).flags || []).map(flagLine);
+      b.addEventListener("click", function () { openPop(b, tx(city), lines); });
+      b.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openPop(b, tx(city), lines); }
+      });
+      top.appendChild(b);
+    }
+    card.appendChild(top);
+    var when = periodWord(period && period.period);
+    if (when) card.appendChild(el("p", "wx-citycard-when")).textContent = when;
+    if (period && tx(period)) card.appendChild(el("p", "wx-citycard-phrase")).textContent = tx(period);
+    var hi = period ? period.t_to : null;
+    var lo = period ? period.t_from : null;
+    card.appendChild(metricLine(
+      lang() === "en" ? "Max / min" : "अधिकतम / न्यूनतम",
+      fmt(hi, 0) + "° / " + fmt(lo, 0) + "°"
+    ));
+    card.appendChild(rangeBar(lo, hi, scale));
+    var prob = period ? period.rain_prob : null;
+    card.appendChild(metricLine(
+      lang() === "en" ? "Rain chance" : "वर्षाको सम्भावना",
+      prob == null ? "—" : fmt(prob, 0) + "%"
+    ));
+    card.appendChild(chanceBar(prob));
+    var extra = cityPeriod(city, "tonight");
+    if (period && extra && extra !== period) {
+      var bit = periodWord(extra.period);
+      var temps = fmt(extra.t_to, 0) + "° / " + fmt(extra.t_from, 0) + "°";
+      var rain = extra.rain_prob == null ? "—" : fmt(extra.rain_prob, 0) + "%";
+      card.appendChild(el("p", "wx-citycard-next")).textContent = bit + " · " + temps + " · " + rain;
+    }
+    return card;
   }
 
   function renderRainMap() {
     var sec = el("section", "wxdb-block");
     sec.id = "wxdb-rain";
     sec.appendChild(h2("२४ घण्टा वर्षा", "Observed 24 h rain"));
-    var heaviest = buildTopRainList(topRainRows());
-    if (heaviest) sec.appendChild(heaviest);
+    var bars = buildRainBars();
+    if (bars) sec.appendChild(bars);
     if (!sourceOk(full, "hyd_rain") || !geo) {
-      if (heaviest) return sec;
+      if (bars) return sec;
       return el("section");
     }
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -772,6 +867,292 @@
     });
     sec.appendChild(scale);
     return sec;
+  }
+
+  function rainBarRows() {
+    var rows = [];
+    var seen = {};
+    function add(row) {
+      if (!row) return;
+      var key = String(row.source || "") + "|" + String(row.name || "").toLowerCase();
+      if (seen[key]) return;
+      seen[key] = 1;
+      rows.push(row);
+    }
+    topRainRows().forEach(function (row) {
+      add({
+        name: rainPlace(row),
+        rain: row.rain24,
+        source: row.source,
+        obs_at: row.obs_at
+      });
+    });
+    alertRows(null).forEach(function (row) {
+      var obs = row.obs || {};
+      var place = tx(row.place || row);
+      var dist = tx(row);
+      var name = place && dist && place !== dist ? place + ", " + dist : (place || dist);
+      add({
+        name: name,
+        rain: obs.rain24,
+        source: row.source,
+        obs_at: obs.obs_at || row.obs_at
+      });
+    });
+    rows.sort(function (a, b) {
+      var ar = a.rain == null || !isFinite(Number(a.rain)) ? -1 : Number(a.rain);
+      var br = b.rain == null || !isFinite(Number(b.rain)) ? -1 : Number(b.rain);
+      return br - ar;
+    });
+    return rows.slice(0, 8);
+  }
+  function buildRainBars() {
+    var rows = rainBarRows();
+    if (!rows.length) return null;
+    var nums = rows.map(function (row) { return row.rain; }).filter(function (n) { return n != null && isFinite(Number(n)); }).map(Number);
+    var max = nums.length ? Math.max.apply(null, nums) : 0;
+    if (max < 1) max = 1;
+    var box = el("div", "wx-bars");
+    box.setAttribute("role", "list");
+    var anyModel = false;
+    var anyGauge = false;
+    rows.forEach(function (row) {
+      if (row.source === "model") anyModel = true;
+      if (row.source === "dhm" || row.source === "hydrology") anyGauge = true;
+      var item = el("div", "wx-bar" + (row.source === "model" ? " is-model" : ""));
+      item.setAttribute("role", "listitem");
+      var lab = el("div", "wx-bar-lab");
+      var name = el("span", "wx-bar-name");
+      name.textContent = row.name || "—";
+      lab.appendChild(name);
+      var meta = el("span", "wx-bar-meta" + (row.source === "model" ? " is-model" : ""));
+      var bits = [];
+      var src = sourceLabel(row.source);
+      if (src) bits.push(src);
+      var when = rainClock(row.obs_at);
+      if (when) bits.push(when);
+      meta.textContent = bits.join(" · ");
+      lab.appendChild(meta);
+      item.appendChild(lab);
+      var val = el("span", "wx-bar-val");
+      val.textContent = row.rain == null ? "—" : rainAmount(row.rain) + rainUnit();
+      item.appendChild(val);
+      var track = el("span", "wx-bar-track");
+      if (row.rain != null && isFinite(Number(row.rain))) {
+        var fill = el("span", "wx-bar-fill");
+        var pct = Math.max(Number(row.rain) > 0 ? 4 : 0, Math.min(100, (Number(row.rain) / max) * 100));
+        fill.style.width = pct + "%";
+        fill.style.backgroundColor = rainColor(Number(row.rain));
+        track.appendChild(fill);
+      }
+      item.appendChild(track);
+      box.appendChild(item);
+    });
+    if (anyGauge && !anyModel) box.appendChild(topRainSource());
+    return box;
+  }
+
+  var CORRIDOR_DISTS = [
+    { id: "rasuwa", ne: "रसुवा", en: "Rasuwa" },
+    { id: "nuwakot", ne: "नुवाकोट", en: "Nuwakot" },
+    { id: "dhading", ne: "धादिङ", en: "Dhading" },
+    { id: "gorkha", ne: "गोरखा", en: "Gorkha" },
+    { id: "chitwan", ne: "चितवन", en: "Chitwan" }
+  ];
+  function normKey(value) {
+    return String(value || "").toLowerCase().replace(/[^a-z]/g, "");
+  }
+  function realNums(list) {
+    var out = [];
+    (list || []).forEach(function (value) {
+      if (value != null && isFinite(Number(value))) out.push(Number(value));
+    });
+    return out;
+  }
+  function stationIndex() {
+    var map = {};
+    function put(id, meta) {
+      if (id == null || !meta) return;
+      var prev = map[String(id)] || {};
+      map[String(id)] = {
+        ne: meta.ne || prev.ne || "",
+        en: meta.en || prev.en || "",
+        name: meta.name || prev.name || "",
+        district: meta.district || prev.district || ""
+      };
+    }
+    var corridor = (home && home.corridor) || {};
+    (corridor.rivers || []).forEach(function (row) { put(row.id, row); });
+    (corridor.rain || []).forEach(function (row) { put(row.id, row); });
+    rowsOf(full && full.rivers).forEach(function (row) {
+      put(row.id, { name: row.name, district: row.district });
+    });
+    rowsOf(full && full.rain_stations).forEach(function (row) {
+      put(row.id, { name: row.name, district: row.district });
+    });
+    return map;
+  }
+  function historyById() {
+    var out = {};
+    ((historyDoc && historyDoc.runs) || []).forEach(function (run) {
+      (run.corridor || []).forEach(function (item) {
+        if (!item) return;
+        var id = String(item[0]);
+        if (!out[id]) out[id] = { levels: [], rains: [] };
+        out[id].levels.push(item[1]);
+        out[id].rains.push(item[2]);
+      });
+    });
+    return out;
+  }
+  function sparkForDistrict(distId, placeName) {
+    var want = normKey(distId);
+    var place = normKey(placeName);
+    if (!want) return null;
+    var index = stationIndex();
+    var series = historyById();
+    var best = null;
+    Object.keys(series).forEach(function (id) {
+      var meta = index[id];
+      if (!meta || normKey(meta.district) !== want) return;
+      var rains = realNums(series[id].rains);
+      var levels = realNums(series[id].levels);
+      var kind = rains.length >= 2 ? "rain" : (levels.length >= 2 ? "level" : "");
+      if (!kind) return;
+      var label = tx(meta) || meta.name || "";
+      var score = (kind === "rain" ? 100 : 0) + (kind === "rain" ? rains.length : levels.length);
+      if (place && normKey(label).indexOf(place) >= 0) score += 20;
+      if (!best || score > best.score) {
+        best = { score: score, kind: kind, label: label, values: kind === "rain" ? rains : levels };
+      }
+    });
+    return best;
+  }
+  function sparkline(values) {
+    var nums = realNums(values);
+    if (nums.length < 2) return null;
+    var min = Math.min.apply(null, nums);
+    var max = Math.max.apply(null, nums);
+    var w = 88;
+    var h = 26;
+    var pad = 2;
+    var span = (max - min) || 1;
+    var pts = nums.map(function (n, i) {
+      var x = pad + (i * (w - pad * 2) / (nums.length - 1));
+      var y = h - pad - ((n - min) / span) * (h - pad * 2);
+      return x.toFixed(1) + "," + y.toFixed(1);
+    }).join(" ");
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+    svg.setAttribute("class", "wx-spark");
+    svg.setAttribute("aria-hidden", "true");
+    var poly = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+    poly.setAttribute("points", pts);
+    poly.setAttribute("fill", "none");
+    poly.setAttribute("stroke", "#1a4a80");
+    poly.setAttribute("stroke-width", "1.6");
+    poly.setAttribute("stroke-linecap", "round");
+    poly.setAttribute("stroke-linejoin", "round");
+    svg.appendChild(poly);
+    return svg;
+  }
+  function miniBar(label, valueText, pct, color, model) {
+    var row = el("div", "wx-mini" + (model ? " is-model" : ""));
+    var lab = el("span", "wx-mini-lab");
+    lab.textContent = label;
+    row.appendChild(lab);
+    var track = el("span", "wx-mini-track");
+    if (pct != null && isFinite(pct)) {
+      var fill = el("span", "wx-mini-fill");
+      fill.style.width = Math.max(0, Math.min(100, pct)) + "%";
+      if (color) fill.style.backgroundColor = color;
+      track.appendChild(fill);
+    }
+    row.appendChild(track);
+    var val = el("span", "wx-mini-val");
+    val.textContent = valueText;
+    row.appendChild(val);
+    return row;
+  }
+  function renderCorridor() {
+    var catalog = (nepalBlock() && nepalBlock().catalog) || [];
+    if (!catalog.length && !historyDoc) return el("section");
+    var byId = {};
+    catalog.forEach(function (row) { if (row && row.district) byId[row.district] = row; });
+    var rainNums = [];
+    var tempNums = [];
+    CORRIDOR_DISTS.forEach(function (item) {
+      var obs = (byId[item.id] && byId[item.id].obs) || {};
+      if (obs.rain24 != null && isFinite(Number(obs.rain24))) rainNums.push(Number(obs.rain24));
+      var temp = obs.t != null ? obs.t : obs.max;
+      if (temp != null && isFinite(Number(temp))) tempNums.push(Number(temp));
+    });
+    var rainMax = rainNums.length ? Math.max.apply(null, rainNums) : 1;
+    if (rainMax < 1) rainMax = 1;
+    var tempMax = tempNums.length ? Math.max.apply(null, tempNums) : 1;
+    if (tempMax < 1) tempMax = 1;
+    var sec = el("section", "wxdb-block");
+    sec.id = "wxdb-corridor-dists";
+    sec.appendChild(h2("करिडोर जिल्ला", "Corridor districts"));
+    var grid = el("div", "wx-corgrid");
+    CORRIDOR_DISTS.forEach(function (item) {
+      grid.appendChild(corridorCard(byId[item.id], item, rainMax, tempMax));
+    });
+    sec.appendChild(grid);
+    return sec;
+  }
+  function corridorCard(row, item, rainMax, tempMax) {
+    var obs = (row && row.obs) || {};
+    var model = row && row.source === "model";
+    var card = el("article", "wx-corcard" + (model ? " is-model" : ""));
+    var title = el("h3", "wx-cor-name");
+    title.textContent = row ? tx(row) : (lang() === "en" ? item.en : item.ne);
+    card.appendChild(title);
+    var place = row ? tx(row.place || {}) : "";
+    var dist = row ? tx(row) : "";
+    if (place && place !== dist) card.appendChild(el("p", "wx-cor-place")).textContent = place;
+    var station = obs.station ? tx(obs.station) : "";
+    if (station) card.appendChild(el("p", "wx-cor-place")).textContent = station;
+    var rainPct = obs.rain24 == null ? null : (Number(obs.rain24) / rainMax) * 100;
+    card.appendChild(miniBar(
+      lang() === "en" ? "Rain" : "वर्षा",
+      obs.trace ? (lang() === "en" ? "Trace" : "ट्रेस") : (obs.rain24 == null ? "—" : rainAmount(obs.rain24) + rainUnit()),
+      obs.rain24 == null ? null : Math.max(Number(obs.rain24) > 0 ? 4 : 0, rainPct),
+      obs.rain24 == null ? "" : rainColor(Number(obs.rain24)),
+      model
+    ));
+    var temp = obs.t != null ? Number(obs.t) : null;
+    var tempText = "—";
+    if (obs.t != null) tempText = fmt(obs.t, 1) + "°";
+    else if (obs.max != null || obs.min != null) {
+      tempText = fmt(obs.max, 1) + "° / " + fmt(obs.min, 1) + "°";
+      temp = obs.max != null ? Number(obs.max) : Number(obs.min);
+    }
+    card.appendChild(miniBar(
+      lang() === "en" ? "Temp" : "तापक्रम",
+      tempText,
+      temp == null || !isFinite(temp) ? null : Math.max(temp > 0 ? 4 : 0, (temp / tempMax) * 100),
+      "#0f766e",
+      model
+    ));
+    var src = sourceLabel(row && row.source);
+    var when = rainClock(obs.obs_at || (row && row.obs_at));
+    var meta = el("p", "wx-cor-src" + (model ? " is-model" : ""));
+    meta.textContent = [src, when].filter(Boolean).join(" · ") || "—";
+    card.appendChild(meta);
+    var placeEn = (row && row.place && row.place.en) || "";
+    var spark = sparkForDistrict(item.id, placeEn);
+    var line = spark && sparkline(spark.values);
+    if (line) {
+      card.appendChild(line);
+      var cap = el("p", "wx-sparkcap");
+      var what = spark.kind === "rain"
+        ? (lang() === "en" ? "24 h rain" : "२४ घण्टा वर्षा")
+        : (lang() === "en" ? "river level" : "नदीको सतह");
+      cap.textContent = (spark.label || "—") + " · " + what;
+      card.appendChild(cap);
+    }
+    return card;
   }
 
   function renderRivers() {
@@ -1059,6 +1440,7 @@
       if (mode === "home") renderHome(root);
       else renderSection(root);
     });
+    placeFreshChip();
     injectNow();
   }
 
@@ -1097,7 +1479,23 @@
         }).catch(function () {}));
       }
     }
-    Promise.all(jobs).then(renderAll);
+    Promise.all(jobs).then(function () {
+      if (!wantsFull) {
+        renderAll();
+        return;
+      }
+      var iso = (home && home.generated_at) || (full && full.generated_at);
+      var parts = nptParts(iso);
+      if (!parts) {
+        renderAll();
+        return;
+      }
+      var month = parts.m < 10 ? "0" + parts.m : String(parts.m);
+      var day = parts.d < 10 ? "0" + parts.d : String(parts.d);
+      get("data/weather/history/" + parts.y + "-" + month + "-" + day + ".json").then(function (json) {
+        historyDoc = json;
+      }).catch(function () {}).then(renderAll);
+    });
   }
 
   document.addEventListener("keydown", function (e) {

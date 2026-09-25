@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-maps-live";
+  var VER = window.PAGE_VER || "2026-09-25-wx-visual";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -1287,12 +1287,6 @@
     return sec;
   }
 
-  function levelShort(key) {
-    var lv = (data.warn_levels && data.warn_levels[key]) || {};
-    var full = tx(lv);
-    var bit = String(full || "").split("·")[0].trim();
-    return bit || key || "";
-  }
   function colorCounts() {
     var counts = { red: 0, orange: 0, yellow: 0, green: 0 };
     order().forEach(function (id) {
@@ -1370,17 +1364,48 @@
     });
     return ul;
   }
+  var PROV_SHORT = {
+    sudurpaschim: { ne: "सुदूर", en: "Sudur" },
+    karnali: { ne: "कर्णाली", en: "Karnali" },
+    lumbini: { ne: "लुम्बिनी", en: "Lumbini" },
+    gandaki: { ne: "गण्डकी", en: "Gandaki" },
+    bagmati: { ne: "बागमती", en: "Bagmati" },
+    madhesh: { ne: "मधेश", en: "Madhesh" },
+    koshi: { ne: "कोशी", en: "Koshi" }
+  };
+  function shortProv(id, p) {
+    var row = PROV_SHORT[id];
+    if (row) return lang() === "en" ? row.en : row.ne;
+    return tx(p);
+  }
+  function officialLevel(key) {
+    if (key === "red" || key === "orange" || key === "yellow" || key === "green") return key;
+    return "";
+  }
+  function openMatrixDay(date) {
+    if (date && dayMode !== date) {
+      dayMode = date;
+      syncDays();
+    }
+    var map = document.querySelector(".wxb-map-panel");
+    if (map && map.scrollIntoView) map.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
   function buildMatrix() {
     var table = el("table", "wxb-matrix");
-    var cap = el("caption", null, lang() === "en" ? "Five-day warning colours" : "पाँच दिनको चेतावनी रङ");
+    var cap = el("caption", "sr-only", lang() === "en" ? "Five-day warning colours" : "पाँच दिनको चेतावनी रङ");
     table.appendChild(cap);
     var thead = document.createElement("thead");
     var hr = document.createElement("tr");
-    hr.appendChild(el("th", null, lang() === "en" ? "Province" : "प्रदेश"));
+    var corner = el("th");
+    corner.setAttribute("scope", "col");
+    corner.appendChild(el("span", "sr-only", lang() === "en" ? "Province" : "प्रदेश"));
+    hr.appendChild(corner);
     var days = (data.timeline && data.timeline.days) || [];
     days.forEach(function (d) {
-      var th = el("th", d.date === dayMode ? "is-on" : "", tx(d));
+      var label = lang() === "en" ? (d.dow_en || tx(d)) : (d.dow_ne || tx(d));
+      var th = el("th", d.date === dayMode ? "is-on" : "", label);
       th.setAttribute("scope", "col");
+      th.title = tx(d);
       hr.appendChild(th);
     });
     thead.appendChild(hr);
@@ -1390,20 +1415,25 @@
       var p = provinceById(id);
       if (!p) return;
       var tr = document.createElement("tr");
-      var rh = el("th", null, tx(p));
+      var rh = el("th", null, shortProv(id, p));
       rh.setAttribute("scope", "row");
+      rh.title = tx(p);
       tr.appendChild(rh);
       ((data.warning_days) || []).forEach(function (day) {
         var rec = day.provinces && day.provinces[id];
-        var key = (rec && rec.level) || "green";
-        var lv = (data.warn_levels && data.warn_levels[key]) || {};
-        var td = el("td", "wxb-mx wxb-mx-" + key + (day.date === dayMode ? " is-on" : ""));
-        var vis = el("span", "wxb-mx-t", levelShort(key));
-        vis.setAttribute("aria-hidden", "true");
-        td.appendChild(vis);
+        var key = officialLevel(rec && rec.level);
+        var lv = (key && data.warn_levels && data.warn_levels[key]) || {};
+        var td = el("td", "wxb-mx" + (key ? " wxb-mx-" + key : " wxb-mx-none") + (day.date === dayMode ? " is-on" : ""));
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "wxb-mx-btn";
         var when = "";
         for (var i = 0; i < days.length; i++) if (days[i].date === day.date) when = tx(days[i]);
-        td.appendChild(el("span", "sr-only", tx(p) + ", " + (when || day.date) + ", " + (tx(lv) || key)));
+        var spoken = tx(p) + ", " + (when || day.date || "") + ", " + (tx(lv) || "—");
+        btn.setAttribute("aria-label", spoken);
+        btn.appendChild(el("span", "sr-only", spoken));
+        btn.addEventListener("click", function () { openMatrixDay(day.date); });
+        td.appendChild(btn);
         tr.appendChild(td);
       });
       tb.appendChild(tr);
@@ -1583,19 +1613,24 @@
       board.appendChild(buildHomeExtras());
       board.appendChild(sectionLink("wxb-jump", "पूर्ण विवरण", "Full details", "weather.html#warnings"));
     } else {
-      board.appendChild(buildHigh());
-      var listHost = el("section", "wxb-panel wxb-provlist-host");
-      listHost.appendChild(el("h3", "wxb-h", tx(ui.details_h)));
-      var listSlot = el("div", "wxb-provlist-slot");
-      listSlot.appendChild(buildProvList());
-      listHost.appendChild(listSlot);
-      board.appendChild(listHost);
       var matrixHost = el("section", "wxb-panel wxb-matrix-host");
       matrixHost.appendChild(el("h3", "wxb-h", lang() === "en" ? "Five-day colours" : "पाँच दिनको रङ"));
       var matrixSlot = el("div", "wxb-matrix-slot");
       matrixSlot.appendChild(buildMatrix());
       matrixHost.appendChild(matrixSlot);
       board.appendChild(matrixHost);
+      board.appendChild(buildHigh());
+      var listHost = el("section", "wxb-panel wxb-provlist-host");
+      var fold = document.createElement("details");
+      fold.className = "wxb-provfold";
+      var foldSum = document.createElement("summary");
+      foldSum.textContent = tx(ui.details_h);
+      fold.appendChild(foldSum);
+      var listSlot = el("div", "wxb-provlist-slot");
+      listSlot.appendChild(buildProvList());
+      fold.appendChild(listSlot);
+      listHost.appendChild(fold);
+      board.appendChild(listHost);
       var districtBlock = buildDistrictBlock(mode);
       if (districtBlock) board.appendChild(districtBlock);
       var nowBlock = buildNowcast();
