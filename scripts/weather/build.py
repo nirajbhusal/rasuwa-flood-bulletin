@@ -715,7 +715,7 @@ def build_bulletins(page_doc, now):
     out = []
     for row in rows or []:
         tags = [str(tag) for tag in (row.get("tags") or [])]
-        if not any(tag in ("5", "8", "11") for tag in tags):
+        if not any(tag in ("5", "6", "8", "11") for tag in tags):
             continue
         title = row.get("title") or ""
         expires = npt_iso(parse_dt(row.get("expired_at")))
@@ -725,9 +725,9 @@ def build_bulletins(page_doc, now):
             if exp_dt.tzinfo is None:
                 exp_dt = exp_dt.replace(tzinfo=UTC)
             expired = exp_dt < now
-        tag = "5" if "5" in tags else ("8" if "8" in tags else tags[0])
+        tag = "5" if "5" in tags else ("8" if "8" in tags else ("6" if "6" in tags else tags[0]))
         corridor = bool(re.search(r"भोटेकोशी|bhotekoshi|bhote\s*koshi", title, re.I))
-        if tag != "5" and tag != "8":
+        if tag not in ("5", "6", "8"):
             continue
         if expired and not corridor:
             continue
@@ -946,20 +946,50 @@ def verify_point(point, periods, observed, gauge, model_block, model_daily, aler
     return {"state": state, "flags": flags}
 
 
+def obs_is_newer(new_iso, old_iso):
+    new_dt = parse_dt(new_iso)
+    old_dt = parse_dt(old_iso)
+    if new_dt is None:
+        return False
+    if old_dt is None:
+        return True
+    if new_dt.tzinfo is None:
+        new_dt = new_dt.replace(tzinfo=UTC)
+    if old_dt.tzinfo is None:
+        old_dt = old_dt.replace(tzinfo=UTC)
+    return new_dt > old_dt
+
+
+def merge_obs_doc(obs_packs, doc):
+    """Keep the newest DHM issue for each station. An older report must not replace it."""
+    if not isinstance(doc, dict):
+        return
+    issued = npt_iso(parse_dt(doc.get("issue_date")))
+    key = "morning" if is_morning_obs(doc.get("issue_date")) else "evening"
+    for station in doc.get("stations") or []:
+        slot = obs_packs.setdefault(station.get("id"), {})
+        existing = slot.get(key)
+        if existing and not obs_is_newer(issued, existing.get("obs_at")):
+            continue
+        slot[key] = station_obs(station, issued)
+
+
 def obs_public(pack):
     morning = (pack or {}).get("morning")
     evening = (pack or {}).get("evening")
-    if not morning and not evening:
+    slots = [row for row in (morning, evening) if row]
+    if not slots:
         return None
-    rain = morning.get("rain_24h_mm") if morning else None
+    newest = max(slots, key=lambda row: row.get("obs_at") or "")
+    # The newest issue is authoritative, including an explicit null (render as a dash, never 0).
     return {
         "src": "dhm_obs",
-        "max_c": (evening or morning or {}).get("max_c"),
-        "min_c": (morning or evening or {}).get("min_c"),
-        "rain_24h_mm": rain,
-        "trace": bool(morning and morning.get("trace")),
-        "obs_at": (morning or {}).get("obs_at") or (evening or {}).get("obs_at"),
-        "max_at": (evening or {}).get("obs_at"),
+        "max_c": newest.get("max_c"),
+        "min_c": newest.get("min_c"),
+        "rain_24h_mm": newest.get("rain_24h_mm"),
+        "trace": bool(newest.get("trace")),
+        "obs_at": newest.get("obs_at"),
+        "max_at": newest.get("obs_at") if newest.get("max_c") is not None else None,
     }
 
 
@@ -1057,19 +1087,10 @@ def main():
     obs_doc = dhm_obs[0]
     obs_issued = npt_iso(parse_dt((obs_doc or {}).get("issue_date")))
     obs_packs = {}
-    def add_obs(doc):
-        if not isinstance(doc, dict):
-            return
-        issued = npt_iso(parse_dt(doc.get("issue_date")))
-        morning = is_morning_obs(doc.get("issue_date"))
-        for station in doc.get("stations") or []:
-            slot = obs_packs.setdefault(station.get("id"), {})
-            key = "morning" if morning else "evening"
-            slot[key] = station_obs(station, issued)
-    add_obs(obs_doc)
+    merge_obs_doc(obs_packs, obs_doc)
     for report in reports:
         for doc in report.get("manual_observation") or []:
-            add_obs(doc)
+            merge_obs_doc(obs_packs, doc)
 
     country = dhm_country[0] if isinstance(dhm_country[0], dict) else None
     general = None
@@ -1438,6 +1459,16 @@ def main():
         if row.get("corridor"):
             bulletin = {"title": row.get("title"), "url": row.get("url"), "issued_at": row.get("issued_at"), "page_id": row.get("page_id")}
             break
+    forecast = None
+    if isinstance(general, dict) and (general.get("parts") or general.get("analysis")):
+        part = (general.get("parts") or [{}])[0]
+        forecast = {
+            "src": "dhm_country",
+            "issued_at": (sources.get("dhm_country") or {}).get("issued_at"),
+            "label": part.get("label") or {"ne": "आज", "en": "Today"},
+            "analysis": general.get("analysis"),
+            "text": part.get("text") or {"ne": "", "en": ""},
+        }
     short_sources = {}
     for key, meta in sources.items():
         short = {
@@ -1454,6 +1485,7 @@ def main():
         "nepal_now": nepal_now,
         "corridor": {"rivers": home_rivers[:8], "rain": home_rain[:6]},
         "bulletin": bulletin,
+        "forecast": forecast,
         "sources": short_sources,
     }
     now_doc = scrub(now_doc)

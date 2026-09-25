@@ -61,6 +61,43 @@ class RetainTests(unittest.TestCase):
         self.assertEqual(now["t"], 17.5)
 
 
+class ObservationTests(unittest.TestCase):
+    def test_older_report_does_not_replace_this_morning(self):
+        packs = {}
+        today = {
+            "issue_date": "2026-09-25T03:00:00.000Z",
+            "stations": [{"id": 12, "rainfall": 71.2, "max_temperature": 20.2, "min_temperature": 16.2}],
+        }
+        yesterday = {
+            "issue_date": "2026-09-24T03:00:00.000Z",
+            "stations": [{"id": 12, "rainfall": 14.6, "max_temperature": 20.2, "min_temperature": 18.4}],
+        }
+        build.merge_obs_doc(packs, today)
+        build.merge_obs_doc(packs, yesterday)
+        pub = build.obs_public(packs[12])
+        self.assertEqual(pub["rain_24h_mm"], 71.2)
+        self.assertEqual(pub["min_c"], 16.2)
+        self.assertTrue(pub["obs_at"].startswith("2026-09-25T08:45"))
+
+    def test_null_observation_is_not_filled_with_zero(self):
+        packs = {}
+        today = {
+            "issue_date": "2026-09-25T03:00:00.000Z",
+            "stations": [{"id": 16, "rainfall": None, "max_temperature": None, "min_temperature": None}],
+        }
+        evening = {
+            "issue_date": "2026-09-24T12:00:00.000Z",
+            "stations": [{"id": 16, "rainfall": 0, "max_temperature": 17.5, "min_temperature": 5}],
+        }
+        build.merge_obs_doc(packs, today)
+        build.merge_obs_doc(packs, evening)
+        pub = build.obs_public(packs[16])
+        self.assertIsNone(pub["rain_24h_mm"])
+        self.assertIsNone(pub["max_c"])
+        self.assertIsNone(pub["min_c"])
+        self.assertNotEqual(pub["rain_24h_mm"], 0)
+
+
 class FetchDeadlineTests(unittest.TestCase):
     def test_deadline_stops_retries(self):
         calls = []
