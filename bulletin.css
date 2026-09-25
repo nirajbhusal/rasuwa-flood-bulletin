@@ -7379,8 +7379,8 @@ html.damage-page.desk #map{
 .wxb-live-note a{color:inherit}
 
 /* DoR interactive map */
-.dor-map{height:280px;border-radius:14px;border:1px solid #cbd5e1;margin:0 14px 8px;background:#e2e8f0;z-index:0;touch-action:pan-y pinch-zoom}
-.dor-map.leaflet-container{touch-action:pan-y pinch-zoom !important}
+.dor-map{height:280px;border-radius:14px;border:1px solid #cbd5e1;margin:0 14px 8px;background:#e2e8f0;z-index:0;touch-action:none}
+.dor-map.leaflet-container{touch-action:none !important}
 .dor-section .dor-map,.dor-map.is-tall{height:440px}
 .dor-map-tools{margin:0 14px 8px}
 .dor-focus{
@@ -7391,9 +7391,30 @@ html.damage-page.desk #map{
 .dor-map-legend{display:flex;flex-wrap:wrap;gap:8px 14px;list-style:none;margin:0 14px 6px;padding:0}
 .dor-leg{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:#334155}
 .dor-leg i{width:14px;height:14px;border-radius:4px;display:inline-block}
-.dor-leg-closed i{background:#d7191c}
+.dor-leg-closed i,.dor-leg-dao i{background:#d7191c}
 .dor-leg-opened i{background:#1b7f3a}
 .dor-leg-partial i{background:#e65c00}
+.dor-dao-title{font-size:18px;line-height:1.35}
+.dor-dao-counts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.dor-dao-provs{display:grid;gap:10px;margin:0 14px 12px}
+.dor-dao-prov{margin:0}
+.dor-dao-prov-h{margin:0 0 6px;font-size:14px;color:#0c2340}
+.dor-dao-prov-n{font-weight:800;color:#9f1239}
+.dor-dao-chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.dor-dao-chip{
+  appearance:none;border:1px solid #f3c1c1;background:#fde8e8;color:#9f1239;
+  border-radius:999px;min-height:32px;padding:4px 10px;
+  font:inherit;font-size:13.5px;font-weight:800;cursor:pointer;
+}
+.dor-dao-chip.is-on,.dor-dao-chip:hover{background:#d7191c;border-color:#d7191c;color:#fff}
+.dor-dao-chip:focus-visible{outline:3px solid #86efac;outline-offset:2px}
+.dor-dao-fig{display:flex;gap:10px;align-items:flex-start;margin:0 14px 12px}
+.dor-dao-fig img{width:112px;height:auto;border-radius:10px;border:1px solid #e2e8f0;background:#fff}
+.dor-dao-credit{margin:0;font-size:12.5px;font-weight:800;line-height:1.4;color:#334155}
+.dor-dor-asof{margin:0 14px 8px}
+.dor-dao-pop .leaflet-popup-content strong{display:block;font-size:16px;color:#0c2340}
+.dor-dao-pop .leaflet-popup-content span{display:block;font-weight:700;color:#1e293b;margin-top:2px}
+.leaflet-overlay-pane svg path.leaflet-interactive{cursor:pointer}
 .dor-tap{margin:0 14px 8px}
 .dor-map-detail{margin-top:0}
 .dor-live{margin:0 14px 8px;font-size:12.5px;font-weight:800;color:#14532d}

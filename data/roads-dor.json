@@ -1,6 +1,6 @@
 {
   "id": "2026-09-24-dor-navigate",
-  "page_ver": "2026-09-24-map-colors",
+  "page_ver": "2026-09-25-road-notice",
   "as_of": {
     "iso": "2026-09-24T19:33:00+05:45",
     "en": "24 Sep 2026, 19:33 NPT",
@@ -10,6 +10,243 @@
     "name": "Department of Roads NAVIGATE",
     "url": "https://navigate.dor.gov.np/app/dashboard",
     "section": "notices.html#roads"
+  },
+  "dao_notice": {
+    "id": "2026-09-25-ndrrma-dao",
+    "published": {
+      "bs": "२०८३/०६/०९",
+      "iso": "2026-09-25",
+      "posted_iso": "2026-09-25T10:45:00+05:45",
+      "ne": "प्रकाशित मिति २०८३/०६/०९ · २५ सेप्टेम्बर २०२६",
+      "en": "Published 2083/06/09 · 25 Sep 2026"
+    },
+    "when": {
+      "ne": "२०८३/०६/०९ (२५ सेप्टेम्बर २०२६)",
+      "en": "25 Sep 2026 (2083/06/09)"
+    },
+    "heading": {
+      "ne": "जिल्ला प्रशासन कार्यालयहरूबाट प्रकाशित सूचना अनुसार मुख्य सडक बन्द गरिएका जिल्लाहरू",
+      "en": "Districts where main highways/roads are closed per notices issued by District Administration Offices"
+    },
+    "counts": {
+      "districts": 25,
+      "provinces": 6
+    },
+    "labels": {
+      "kicker": {
+        "ne": "NDRRMA · जिप्रका सूचना",
+        "en": "NDRRMA · DAO notices"
+      },
+      "districts": {
+        "ne": "जिल्ला",
+        "en": "Districts"
+      },
+      "provinces": {
+        "ne": "प्रदेश",
+        "en": "Provinces"
+      },
+      "credit": {
+        "ne": "स्रोत: राष्ट्रिय विपद् जोखिम न्यूनीकरण तथा व्यवस्थापन प्राधिकरण",
+        "en": "Source: National Disaster Risk Reduction and Management Authority"
+      },
+      "x": {
+        "ne": "NDRRMA पोस्ट",
+        "en": "NDRRMA post"
+      }
+    },
+    "legend": {
+      "ne": "मुख्य सडक बन्द (जिप्रका सूचना)",
+      "en": "Main road closed (DAO notice)"
+    },
+    "popup_source": {
+      "ne": "NDRRMA · जिल्ला प्रशासन कार्यालयको सूचना",
+      "en": "NDRRMA · District Administration Office notice"
+    },
+    "source": {
+      "name": {
+        "ne": "राष्ट्रिय विपद् जोखिम न्यूनीकरण तथा व्यवस्थापन प्राधिकरण",
+        "en": "National Disaster Risk Reduction and Management Authority"
+      },
+      "via": {
+        "ne": "जिल्ला प्रशासन कार्यालयका सूचना",
+        "en": "District Administration Office notices"
+      },
+      "url": "https://x.com/ndrrma_nepal/status/2103348799527874656",
+      "graphic": "img/ndrrma-road-2083-06-09.jpg",
+      "graphic_alt": {
+        "ne": "NDRRMA को सडक बन्द सूचना, प्रकाशित मिति २०८३/०६/०९",
+        "en": "NDRRMA road-closure notice, published 2083/06/09"
+      }
+    },
+    "provinces": [
+      {
+        "id": "koshi",
+        "en": "Koshi",
+        "ne": "कोशी",
+        "districts": [
+          {
+            "id": "taplejung",
+            "en": "Taplejung",
+            "ne": "ताप्लेजुङ"
+          },
+          {
+            "id": "sankhuwasabha",
+            "en": "Sankhuwasabha",
+            "ne": "संखुवासभा"
+          },
+          {
+            "id": "khotang",
+            "en": "Khotang",
+            "ne": "खोटाङ"
+          },
+          {
+            "id": "bhojpur",
+            "en": "Bhojpur",
+            "ne": "भोजपुर"
+          },
+          {
+            "id": "dhankuta",
+            "en": "Dhankuta",
+            "ne": "धनकुटा"
+          },
+          {
+            "id": "terhathum",
+            "en": "Terhathum",
+            "ne": "तेह्रथुम"
+          },
+          {
+            "id": "panchthar",
+            "en": "Panchthar",
+            "ne": "पाँचथर"
+          },
+          {
+            "id": "ilam",
+            "en": "Ilam",
+            "ne": "इलाम"
+          },
+          {
+            "id": "sunsari",
+            "en": "Sunsari",
+            "ne": "सुनसरी"
+          },
+          {
+            "id": "udayapur",
+            "en": "Udayapur",
+            "ne": "उदयपुर"
+          }
+        ]
+      },
+      {
+        "id": "bagmati",
+        "en": "Bagmati",
+        "ne": "बागमती",
+        "districts": [
+          {
+            "id": "dolakha",
+            "en": "Dolakha",
+            "ne": "दोलखा"
+          },
+          {
+            "id": "sindhupalchok",
+            "en": "Sindhupalchok",
+            "ne": "सिन्धुपाल्चोक"
+          },
+          {
+            "id": "kavrepalanchok",
+            "en": "Kavrepalanchok",
+            "ne": "काभ्रेपलाञ्चोक"
+          },
+          {
+            "id": "nuwakot",
+            "en": "Nuwakot",
+            "ne": "नुवाकोट"
+          },
+          {
+            "id": "dhading",
+            "en": "Dhading",
+            "ne": "धादिङ"
+          },
+          {
+            "id": "lalitpur",
+            "en": "Lalitpur",
+            "ne": "ललितपुर"
+          },
+          {
+            "id": "chitwan",
+            "en": "Chitwan",
+            "ne": "चितवन"
+          }
+        ]
+      },
+      {
+        "id": "gandaki",
+        "en": "Gandaki",
+        "ne": "गण्डकी",
+        "districts": [
+          {
+            "id": "lamjung",
+            "en": "Lamjung",
+            "ne": "लमजुङ"
+          },
+          {
+            "id": "myagdi",
+            "en": "Myagdi",
+            "ne": "म्याग्दी"
+          }
+        ]
+      },
+      {
+        "id": "lumbini",
+        "en": "Lumbini",
+        "ne": "लुम्बिनी",
+        "districts": [
+          {
+            "id": "rolpa",
+            "en": "Rolpa",
+            "ne": "रोल्पा"
+          },
+          {
+            "id": "dang",
+            "en": "Dang",
+            "ne": "दाङ"
+          },
+          {
+            "id": "rukum-east",
+            "en": "Rukum East",
+            "ne": "रुकुम पूर्व"
+          }
+        ]
+      },
+      {
+        "id": "karnali",
+        "en": "Karnali",
+        "ne": "कर्णाली",
+        "districts": [
+          {
+            "id": "rukum-west",
+            "en": "Rukum West",
+            "ne": "रुकुम पश्चिम"
+          }
+        ]
+      },
+      {
+        "id": "sudurpaschim",
+        "en": "Sudurpashchim",
+        "ne": "सुदूरपश्चिम",
+        "districts": [
+          {
+            "id": "bajhang",
+            "en": "Bajhang",
+            "ne": "बझाङ"
+          },
+          {
+            "id": "baitadi",
+            "en": "Baitadi",
+            "ne": "बैतडी"
+          }
+        ]
+      }
+    ]
   },
   "counts": {
     "total": 10,
@@ -182,6 +419,14 @@
     "snapshot": {
       "ne": "२४ सेप्टेम्बर २०२६, १९:३३",
       "en": "24 Sep 2026, 19:33"
+    },
+    "dor_layer": {
+      "ne": "सडक विभाग · NAVIGATE खण्ड",
+      "en": "Department of Roads · NAVIGATE sections"
+    },
+    "tap_dao": {
+      "ne": "रातो जिल्ला वा सडक बिन्दु थिच्नुहोस्",
+      "en": "Tap a red district or a road point"
     }
   },
   "roads": [
@@ -242,7 +487,9 @@
       "ref": "NH17",
       "link": "NH17-002",
       "status": "closed",
-      "lists": ["closed"],
+      "lists": [
+        "closed"
+      ],
       "priority": false,
       "name": {
         "en": "Galchhi–Junction Trisuli bridge",

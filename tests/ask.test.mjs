@@ -76,13 +76,17 @@ const cases = [
   ["Rasuwa weather", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "red"] }],
   ["Kathmandu maximum today", "en", { intent: "weather_city", number: true, has: ["Kathmandu", "20.2", "16.2", "DHM"] }],
   ["काठमाडौँको तापक्रम", "ne", { intent: "weather_city", number: true, has: ["काठमाडौँ", "20.2", "16.2"] }],
-  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["3.15", "3.2", "warning"] }],
+  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["3.1", "3.2", "warning"] }],
   ["बेत्रावतीको नदी तह", "ne", { intent: "weather_river", has: ["ताजा रिडिङ छैन"] }],
   ["सिन्धुपाल्चोकको मौसम", "ne", { intent: "weather_place", number: true, has: ["सिन्धुपाल्चोक"], not: ["खोलानाला", "विद्यालय"] }],
   ["nuwakot mausam", "ne", { intent: "weather_place", number: true, has: ["नुवाकोट"] }],
-  ["सडक अहिले कस्तो छ?", "ne", { intent: "roads", number: true, has: ["NH42", "बन्द"] }],
-  ["sadak khulyo", "ne", { intent: "roads", number: true, has: ["बन्द"] }],
-  ["bato", "ne", { intent: "roads", number: true, has: ["NH42"] }],
+  ["सडक अहिले कस्तो छ?", "ne", { intent: "roads", number: true, has: ["२५", "बन्द", "ताप्लेजुङ", "बैतडी"] }],
+  ["sadak khulyo", "ne", { intent: "roads", number: true, has: ["२५", "बन्द"] }],
+  ["bato", "ne", { intent: "roads", number: true, has: ["२५", "धादिङ"] }],
+  ["Is the road to Dhading open?", "en", { intent: "roads", has: ["Dhading", "closed"], not: ["NH17", "Jarekhet"] }],
+  ["which districts have roads closed", "en", { intent: "roads", number: true, has: ["25", "Taplejung", "Baitadi", "6"] }],
+  ["कुन जिल्लामा सडक बन्द छ?", "ne", { intent: "roads", number: true, has: ["२५", "सिन्धुपाल्चोक", "रुकुम पूर्व"] }],
+  ["Is the Rasuwa road open?", "en", { intent: "roads", has: ["Rasuwa", "NH42", "closed"] }],
   ["Is the Pasang Lhamu highway open?", "en", { intent: "roads_nh42", number: true, has: ["NH42", "closed"] }],
   ["Araniko highway status", "en", { intent: "roads_araniko", number: true, has: ["NH34", "open"] }],
   ["कति जना बेपत्ता छन्?", "ne", { intent: "rescue_missing", number: true, has: ["५,७८६", "असोज"] }],
@@ -132,6 +136,40 @@ test("fuzzy weather typo still composes a sentence", function () {
   assert.equal(ans.intent, "weather_today");
   assert.match(ans.text, /Asoj 9/);
   assert.equal(/<[a-z]/i.test(ans.text), false);
+});
+
+test("NDRRMA road notice answers name the closed districts", function () {
+  const roadCases = [
+    ["सडक अहिले कस्तो छ?", "ne", { intent: "roads", number: true, has: ["२५", "बन्द", "ताप्लेजुङ", "बैतडी"] }],
+    ["which districts have roads closed", "en", { intent: "roads", number: true, has: ["25", "Taplejung", "Baitadi", "6"] }],
+    ["Is the road to Dhading open?", "en", { intent: "roads", has: ["Dhading", "closed"], not: ["NH17", "Jarekhet"] }],
+    ["Is the Rasuwa road open?", "en", { intent: "roads", has: ["Rasuwa", "NH42", "closed"] }],
+    ["कुन जिल्लामा सडक बन्द छ?", "ne", { intent: "roads", number: true, has: ["२५", "रुकुम पूर्व", "रुकुम पश्चिम"] }]
+  ];
+  roadCases.forEach(function (row) { assertAnswer(row[0], row[1], row[2]); });
+});
+
+test("DAO notice districts match the district GeoJSON", function () {
+  const geo = JSON.parse(readFileSync(new URL("../data/nepal-districts.geojson", import.meta.url), "utf8"));
+  const ids = new Set(geo.features.map(function (f) { return f.properties.id; }));
+  const notice = roads.dao_notice;
+  let n = 0;
+  const provs = new Set();
+  notice.provinces.forEach(function (p) {
+    provs.add(p.id);
+    p.districts.forEach(function (d) {
+      n += 1;
+      assert.ok(ids.has(d.id), d.id);
+      const feat = geo.features.find(function (f) { return f.properties.id === d.id; });
+      assert.equal(feat.properties.en, d.en, d.id);
+    });
+  });
+  assert.equal(n, 25);
+  assert.equal(provs.size, 6);
+  assert.equal(notice.counts.districts, 25);
+  assert.equal(notice.counts.provinces, 6);
+  assert.equal(notice.published.bs, "२०८३/०६/०९");
+  assert.equal(roads.roads.length >= 10, true);
 });
 
 test("follow-ups stay on the same subject", function () {

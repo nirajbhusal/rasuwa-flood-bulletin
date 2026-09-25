@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-25-home-fixes";
+  var VER = window.PAGE_VER || "2026-09-25-road-notice";
   var showDistricts = true;
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
@@ -74,6 +74,118 @@
       row.appendChild(li);
     });
     host.appendChild(row);
+  }
+  function notice() {
+    return data && data.dao_notice;
+  }
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c];
+    });
+  }
+  function daoHit(id) {
+    var n = notice();
+    var hit = null;
+    if (!n) return null;
+    (n.provinces || []).forEach(function (p) {
+      (p.districts || []).forEach(function (d) {
+        if (d.id === id) hit = { province: p, district: d };
+      });
+    });
+    return hit;
+  }
+  function districtPopupHtml(id) {
+    var n = notice();
+    var hit = daoHit(id);
+    if (!n || !hit) return "";
+    return "<strong>" + esc(tx(hit.district)) + "</strong><span>" + esc(tx(hit.province)) + "</span><span>" + esc(tx(n.when || n.published)) + "</span><span>" + esc(tx(n.popup_source)) + "</span>";
+  }
+  var pendingDistrict = null;
+  function markDistrictChips(id) {
+    document.querySelectorAll(".dor-dao-chip").forEach(function (b) {
+      b.classList.toggle("is-on", b.getAttribute("data-id") === id);
+    });
+  }
+  function focusDistrict(id) {
+    pendingDistrict = id;
+    markDistrictChips(id);
+    if (!showDistricts) {
+      showDistricts = true;
+      document.querySelectorAll(".dor-dist-toggle").forEach(function (b) {
+        b.classList.add("is-on");
+        b.setAttribute("aria-pressed", "true");
+      });
+      mapInstances.forEach(function (m) {
+        if (m._districtLayer && !m.hasLayer(m._districtLayer)) m._districtLayer.addTo(m);
+      });
+    }
+    mapInstances.forEach(function (map) {
+      var layer = map._daoById && map._daoById[id];
+      if (!layer) return;
+      try {
+        var b = layer.getBounds();
+        if (b && b.isValid()) map.fitBounds(b, { padding: [28, 28], maxZoom: 9, animate: true });
+      } catch (e) {}
+      try { layer.openPopup(); } catch (e2) {}
+    });
+  }
+  function renderDao(board, mode) {
+    var n = notice();
+    var labels = n.labels || {};
+    var head = el("header", "dor-head");
+    head.appendChild(el("p", "dor-kicker", tx(labels.kicker)));
+    head.appendChild(el("p", "dor-asof", tx(n.published)));
+    board.appendChild(head);
+    board.appendChild(el("h2", "dor-title dor-dao-title", tx(n.heading)));
+    var counts = n.counts || {};
+    var row = el("ul", "dor-chips dor-dao-counts");
+    [["districts", counts.districts, "dor-chip-closed"], ["provinces", counts.provinces, "dor-chip-total"]].forEach(function (item) {
+      var li = el("li", "dor-chip " + item[2]);
+      li.appendChild(el("span", "dor-chip-k", tx(labels[item[0]])));
+      li.appendChild(el("strong", "dor-chip-n", num(item[1])));
+      row.appendChild(li);
+    });
+    board.appendChild(row);
+    var groups = el("div", "dor-dao-provs");
+    (n.provinces || []).forEach(function (prov) {
+      var block = el("section", "dor-dao-prov");
+      var h = el("h3", "dor-dao-prov-h");
+      h.appendChild(document.createTextNode(tx(prov)));
+      h.appendChild(el("span", "dor-dao-prov-n", " · " + num((prov.districts || []).length)));
+      block.appendChild(h);
+      var ul = el("ul", "dor-dao-chips");
+      (prov.districts || []).forEach(function (d) {
+        var li = el("li");
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "dor-dao-chip" + (pendingDistrict === d.id ? " is-on" : "");
+        b.setAttribute("data-id", d.id);
+        b.textContent = tx(d);
+        b.addEventListener("click", function () { focusDistrict(d.id); });
+        li.appendChild(b);
+        ul.appendChild(li);
+      });
+      block.appendChild(ul);
+      groups.appendChild(block);
+    });
+    board.appendChild(groups);
+    if (mode === "section" && n.source && n.source.graphic) {
+      var fig = el("figure", "dor-dao-fig");
+      var a = document.createElement("a");
+      a.href = n.source.graphic;
+      a.target = "_blank";
+      a.rel = "noopener";
+      var img = document.createElement("img");
+      img.src = n.source.graphic + "?v=" + encodeURIComponent(VER);
+      img.alt = tx(n.source.graphic_alt || labels.credit);
+      img.width = 960;
+      img.height = 960;
+      img.loading = "lazy";
+      a.appendChild(img);
+      fig.appendChild(a);
+      fig.appendChild(el("figcaption", "dor-dao-credit", tx(labels.credit)));
+      board.appendChild(fig);
+    }
   }
   function fillRoadDetail(box, road) {
     if (!box) return;
@@ -174,6 +286,13 @@
     box.setAttribute("aria-label", tx(ui.map_h));
     host.appendChild(box);
     var legend = el("ul", "dor-map-legend");
+    if (notice() && notice().legend) {
+      var daoLeg = el("li", "dor-leg dor-leg-dao");
+      var daoLab = notice().legend;
+      daoLeg.appendChild(el("i"));
+      daoLeg.appendChild(document.createTextNode((daoLab.ne || "") + " / " + (daoLab.en || "")));
+      legend.appendChild(daoLeg);
+    }
     [["closed", "map_closed"], ["partial", "map_partial"], ["opened", "map_opened"]].forEach(function (item) {
       var li = el("li", "dor-leg dor-leg-" + item[0]);
       var lab = ui[item[1]] || {};
@@ -182,7 +301,7 @@
       legend.appendChild(li);
     });
     host.appendChild(legend);
-    host.appendChild(el("p", "wxb-tap dor-tap", tx(ui.tap_road)));
+    host.appendChild(el("p", "wxb-tap dor-tap", tx(notice() ? (ui.tap_dao || ui.tap_road) : ui.tap_road)));
     var detail = el("div", "dor-map-detail dor-priority");
     detail.setAttribute("role", "region");
     detail.setAttribute("aria-live", "polite");
@@ -193,17 +312,19 @@
       return;
     }
     var token = mapGen;
-    var coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
     var map = window.L.map(box, {
       scrollWheelZoom: false,
-      dragging: !coarse,
+      dragging: true,
       touchZoom: true,
       tap: true,
       zoomControl: true,
       attributionControl: true
     });
     mapInstances.push(map);
-    map.setView([28.15, 85.15], 8);
+    map._daoById = {};
+    var nationalBounds = window.L.latLngBounds([[26.35, 80.05], [30.45, 88.2]]);
+    if (notice()) map.fitBounds(nationalBounds, { padding: [12, 12], maxZoom: 7, animate: false });
+    else map.setView([28.15, 85.15], 8);
     var blankTile = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
     var tileErrors = 0;
     var tilesDead = false;
@@ -227,6 +348,7 @@
     tiles.addTo(map);
     var bounds = [];
     var corridorBounds = null;
+    var districtBounds = null;
     var districtLayer = null;
     function applyDistricts(on) {
       if (!districtLayer) return;
@@ -259,15 +381,44 @@
           map.createPane("districts");
           map.getPane("districts").style.zIndex = 350;
         }
-        districtLayer = window.L.geoJSON(geo, {
+        var closedIds = {};
+        var n = notice();
+        if (n) {
+          (n.provinces || []).forEach(function (p) {
+            (p.districts || []).forEach(function (d) { closedIds[d.id] = true; });
+          });
+        }
+        var features = (geo && geo.features) || [];
+        var collection = n
+          ? { type: "FeatureCollection", features: features.filter(function (f) { return f.properties && closedIds[f.properties.id]; }) }
+          : geo;
+        map._daoById = {};
+        districtLayer = window.L.geoJSON(collection, {
           pane: "districts",
           interactive: true,
-          style: { color: "#0f172a", weight: 1, opacity: 0.5, fillColor: "#0f172a", fillOpacity: 0.04 },
+          bubblingMouseEvents: true,
+          style: function () {
+            if (n) return { color: "#d7191c", weight: 1.25, opacity: 0.95, fillColor: "#d7191c", fillOpacity: 0.42 };
+            return { color: "#1b7f3a", weight: 1, opacity: 0.45, fillColor: "#1b7f3a", fillOpacity: 0.04 };
+          },
           onEachFeature: function (feat, layer) {
             var props = (feat && feat.properties) || {};
-            var name = lang() === "en" ? (props.en || "") : (props.ne || props.en || "");
-            layer.bindPopup(name, { closeButton: true, autoPan: true, autoClose: true });
+            if (n && closedIds[props.id]) {
+              layer.bindPopup(districtPopupHtml(props.id), {
+                closeButton: true,
+                autoPan: true,
+                autoClose: true,
+                maxWidth: 260,
+                className: "dor-dao-pop"
+              });
+              map._daoById[props.id] = layer;
+            } else if (!n) {
+              var name = lang() === "en" ? (props.en || "") : (props.ne || props.en || "");
+              layer.bindPopup(esc(name), { closeButton: true, autoPan: true, autoClose: true });
+            }
             layer.on("click", function (ev) {
+              pendingDistrict = props.id || pendingDistrict;
+              markDistrictChips(props.id);
               try { layer.openPopup(ev && ev.latlng); } catch (err) {}
               if (ev && ev.originalEvent) window.L.DomEvent.stopPropagation(ev);
             });
@@ -275,14 +426,25 @@
         });
         map._districtLayer = districtLayer;
         applyDistricts(showDistricts);
+        try {
+          var db = districtLayer.getBounds();
+          if (db && db.isValid()) districtBounds = db;
+        } catch (e) {}
+        frame(districtBounds || nationalBounds);
+        if (pendingDistrict) focusDistrict(pendingDistrict);
       })
       .catch(function () {});
     function frame(target) {
       if (token !== mapGen) return;
       try { map.invalidateSize(); } catch (e) {}
-      var b = target || corridorBounds;
+      var b = target;
+      if (!b && notice() && districtBounds && districtBounds.isValid && districtBounds.isValid()) b = districtBounds;
+      if (!b && notice()) b = nationalBounds;
+      if (!b) b = corridorBounds;
       if (b && b.isValid && b.isValid()) {
-        map.fitBounds(b, { padding: [36, 36], maxZoom: 9, animate: false });
+        var pad = notice() && b === nationalBounds ? [12, 12] : [28, 28];
+        var zoomCap = notice() && (b === nationalBounds || b === districtBounds) ? 7 : 9;
+        map.fitBounds(b, { padding: pad, maxZoom: zoomCap, animate: false });
       }
       if (selectedId) openRoadPopup(selectedId);
     }
@@ -331,16 +493,16 @@
           if (b && b.isValid()) corridorBounds = b.pad(0.45);
         } catch (e) {}
         try { layer.bringToFront(); } catch (e2) {}
-        frame(corridorBounds);
-        window.setTimeout(function () { frame(corridorBounds); }, 120);
-        window.setTimeout(function () { frame(corridorBounds); }, 420);
+        frame(notice() ? (districtBounds || nationalBounds) : corridorBounds);
+        window.setTimeout(function () { frame(notice() ? (districtBounds || nationalBounds) : corridorBounds); }, 120);
+        window.setTimeout(function () { frame(notice() ? (districtBounds || nationalBounds) : corridorBounds); }, 420);
       })
       .catch(function () {
         if (token !== mapGen) return;
         try { map.invalidateSize(); } catch (e) {}
         map.fitBounds([[26.35, 80.05], [30.45, 88.2]], { padding: [16, 16], maxZoom: 7, animate: false });
       });
-    window.setTimeout(function () { frame(corridorBounds); }, 240);
+    window.setTimeout(function () { frame(notice() ? (districtBounds || nationalBounds) : corridorBounds); }, 240);
   }
   function links(host, withSection) {
     var ui = data.ui;
@@ -353,6 +515,16 @@
       p.appendChild(document.createTextNode(" · "));
     }
     p.appendChild(document.createTextNode(tx(ui.sources_label) + ": "));
+    var n = notice();
+    if (n && n.source && n.source.url) {
+      var post = document.createElement("a");
+      post.href = n.source.url;
+      post.target = "_blank";
+      post.rel = "noopener";
+      post.textContent = tx((n.labels && n.labels.x) || { ne: "NDRRMA", en: "NDRRMA" });
+      p.appendChild(post);
+      p.appendChild(document.createTextNode(" · "));
+    }
     var ext = document.createElement("a");
     ext.href = data.source.url;
     ext.target = "_blank";
@@ -448,27 +620,41 @@
     }, { rootMargin: "240px 0px", threshold: 0.01 });
     io.observe(host);
   }
+  function liveNote() {
+    if (!data.live || data.live.same) return null;
+    var liveKey = data.live.failed ? "live_fail" : "live_diff";
+    return el("p", "dor-live", tx(data.ui[liveKey]));
+  }
   function renderMount(root) {
     var mode = root.getAttribute("data-dor-mode") || "home";
     var ui = data.ui;
+    var n = notice();
     root.replaceChildren();
-    var board = el("article", "dor" + (mode === "section" ? " dor-section" : " dor-home"));
-    var head = el("header", "dor-head");
-    head.appendChild(el("p", "dor-kicker", tx(ui.kicker)));
-    head.appendChild(el("p", "dor-asof", tx(ui.asof) + " " + tx(data.as_of)));
-    board.appendChild(head);
-    var title = el(mode === "section" ? "h2" : "h2", "dor-title", tx(ui.title));
-    board.appendChild(title);
-    chips(board);
-    if (data.live && !data.live.same) {
-      var liveKey = data.live.failed ? "live_fail" : "live_diff";
-      board.appendChild(el("p", "dor-live", tx(ui[liveKey])));
+    var board = el("article", "dor" + (mode === "section" ? " dor-section" : " dor-home") + (n ? " dor-has-dao" : ""));
+    if (n) {
+      renderDao(board, mode);
+    } else {
+      var head = el("header", "dor-head");
+      head.appendChild(el("p", "dor-kicker", tx(ui.kicker)));
+      head.appendChild(el("p", "dor-asof", tx(ui.asof) + " " + tx(data.as_of)));
+      board.appendChild(head);
+      board.appendChild(el("h2", "dor-title", tx(ui.title)));
+      chips(board);
+      var earlyLive = liveNote();
+      if (earlyLive) board.appendChild(earlyLive);
     }
     scheduleDorMap(board, mode);
     if (mode === "home") {
       board.appendChild(el("p", "dor-also", tx(ui.also)));
       links(board, true);
     } else {
+      if (n) {
+        board.appendChild(el("h3", "dor-gh", tx(ui.dor_layer || ui.kicker)));
+        board.appendChild(el("p", "dor-asof dor-dor-asof", tx(ui.asof) + " " + tx(data.as_of)));
+        chips(board);
+        var dorLive = liveNote();
+        if (dorLive) board.appendChild(dorLive);
+      }
       board.appendChild(el("p", "dor-call", tx(ui.nh17)));
       links(board, false);
       group(board, "closed", ui.g_closed);
@@ -589,7 +775,7 @@
   }
   function renderAll() {
     if (!data) return;
-    if (!selectedId) selectedId = data.priority_id;
+    if (!selectedId && !notice()) selectedId = data.priority_id;
     clearMaps();
     mounts.forEach(renderMount);
     if ((location.hash || "") === "#dor-map") {
