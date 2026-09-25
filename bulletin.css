@@ -8748,3 +8748,91 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
 @media (min-width:900px){
   .wxdb-ogrid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+
+/* 2026-09-25-lang-toggle — compact segmented pill, same row as the bell */
+.topbar .top-actions{
+  align-items:center;
+  gap:8px;
+}
+.topbar .lang-switch{
+  position:relative;
+  top:auto;
+  right:auto;
+  z-index:46;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  flex-wrap:nowrap;
+  gap:1px;
+  height:34px;
+  min-height:34px;
+  max-height:34px;
+  width:auto;
+  margin:0;
+  padding:2px;
+  border:1px solid rgba(248,250,252,.55);
+  border-radius:999px;
+  background:
+    linear-gradient(rgba(248,250,252,.8), rgba(248,250,252,.8)) center / 1px 14px no-repeat,
+    rgba(255,255,255,.16);
+  box-shadow:none;
+  white-space:nowrap;
+  overflow:visible;
+  box-sizing:border-box;
+}
+@media (min-width:761px){
+  .topbar .top-actions .lang-switch{
+    position:relative;
+    top:auto;
+    right:auto;
+  }
+}
+.topbar .lang-switch button{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 36px;
+  width:36px;
+  min-width:36px;
+  max-width:36px;
+  height:28px;
+  min-height:0;
+  max-height:28px;
+  margin:0;
+  padding:0;
+  border:0;
+  border-radius:999px;
+  background:transparent;
+  color:#f8fafc;
+  font-size:13px;
+  font-weight:800;
+  line-height:1;
+  letter-spacing:0;
+  white-space:nowrap;
+  overflow:visible;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  box-sizing:border-box;
+}
+.topbar .lang-switch button::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:44px;
+  height:44px;
+  transform:translateY(-50%);
+}
+.topbar .lang-switch button:first-child::after{right:0}
+.topbar .lang-switch button:last-child::after{left:0}
+.topbar .lang-switch button[aria-pressed="true"]{
+  background:#f8fafc;
+  color:#0f172a;
+  z-index:1;
+}
+.topbar .lang-switch button:focus-visible{
+  outline:2px solid #fff;
+  outline-offset:2px;
+  z-index:2;
+}

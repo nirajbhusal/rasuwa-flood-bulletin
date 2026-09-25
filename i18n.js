@@ -65,6 +65,8 @@ window.I18N = {
 "gov_cat_sub": "पुँजी बजार यसै अन्तर्गत",
 "about_ask": "सोध्नुहोस्को प्रश्नसूची (FAQ) बुलेटिन अपडेटसँगै राखिन्छ। मौसम, सडक, उद्धार, नाम र कोषका अंक प्यानलले प्रत्येक पटक ताजा JSON बाट पढ्छ — प्रश्नसूचीमा ती अंक लेखिँदैनन्।",
 "lang_group": "भाषा",
+"lang_ne": "नेपाली",
+"lang_en": "अङ्ग्रेजी",
 "hl_bar": "उद्धार १२३४ · प्रहरी १०० · ११४८ · ११११ · १११४ · एम्बुलेन्स १०२ · NEOC ११४४ · ११५५ · निर्देशिका",
 "msg_me": "मलाई सन्देश",
 "msg_me_aria": "मलाई सन्देश · इमेल",
@@ -2136,6 +2138,8 @@ window.I18N = {
 "gov_cat_sub": "Capital markets sits in this section",
 "about_ask": "The Ask FAQ is maintained with bulletin updates. Weather, roads, rescue, names, and fund figures are read from live JSON each time the panel opens — those numbers are not stored in the FAQ file.",
 "lang_group": "Language",
+"lang_ne": "Nepali",
+"lang_en": "English",
 "hl_bar": "Rescue 1234 · Police 100 · 1148 · 1111 · 1114 · Ambulance 102 · NEOC 1144 · 1155 · directory",
 "msg_me": "Message to me",
 "msg_me_aria": "Message to me by email",
@@ -5391,7 +5395,10 @@ window.I18N = {
   }
   function paintToggle(lang){
     document.querySelectorAll(".lang-switch button[data-lang]").forEach(function(btn){
-      btn.setAttribute("aria-pressed", btn.getAttribute("data-lang") === lang ? "true" : "false");
+      var on = btn.getAttribute("data-lang") === lang;
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      if (on) btn.setAttribute("aria-current", "true");
+      else btn.removeAttribute("aria-current");
     });
   }
   function applyLang(lang, fromUser){
