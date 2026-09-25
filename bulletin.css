@@ -10280,7 +10280,7 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
   .wx-citygrid{grid-template-columns:1fr 1fr 1fr}
 }
 
-/* 2026-09-25-npt-date — NPT clock in the header, incident date under humanitarian */
+/* 2026-09-25-npt-date2 — NPT clock in the header, incident date under humanitarian */
 .head-stick .brand-date{
   color:#1e293b;
   font-weight:700;
@@ -10315,6 +10315,7 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
 }
 .head-stick .npt-hm::after,
 .head-stick .npt-hm-s{grid-area:1 / 1}
+.head-stick .npt-hm-s{justify-self:start;white-space:nowrap}
 .head-stick .npt-hm::after{
   content:attr(data-pad);
   visibility:hidden;
@@ -10342,7 +10343,13 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
     display:inline;
     white-space:nowrap;
   }
-  .head-stick .npt-sep{display:inline}
+  .head-stick .npt-sep{
+    display:inline-block;
+    flex:none;
+    margin:0 .65em;
+    color:#1e293b;
+    font-weight:700;
+  }
 }
 #home .home-cat-head .incident-chip{
   display:flex;

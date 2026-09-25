@@ -76,16 +76,16 @@
     var c = clock(p.hh, p.mm);
     var el = document.getElementById("brand-now");
     if (el && bs) {
-      var neHm = dig(c.h) + ":" + dig(c.mm);
-      var enHm = c.h + ":" + c.mm + " " + c.ap;
-      var ne = WD_NE[p.wd] + ", " + MO_NE[bs.month] + " " + dig(bs.day) + ", " + dig(bs.year) + " · " + neHm + " बजे";
-      var en = WD_EN[p.wd] + ", " + p.d + " " + MO_EN[p.m - 1] + " " + p.y + " · " + enHm + " NPT";
+      var neHm = dig(c.h) + ":" + dig(c.mm) + " बजे";
+      var enHm = c.h + ":" + c.mm + " " + c.ap + " NPT";
+      var ne = WD_NE[p.wd] + ", " + MO_NE[bs.month] + " " + dig(bs.day) + ", " + dig(bs.year) + " · " + neHm;
+      var en = WD_EN[p.wd] + ", " + p.d + " " + MO_EN[p.m - 1] + " " + p.y + " · " + enHm;
       el.innerHTML =
         '<span class="npt-ne" lang="ne">' + WD_NE[p.wd] + ", " + MO_NE[bs.month] + " " + dig(bs.day) + ", " + dig(bs.year) +
-        ' · <span class="npt-hm" data-pad="१२:५९"><span class="npt-hm-s">' + neHm + "</span></span> बजे</span>" +
-        '<span class="npt-sep" aria-hidden="true"> · </span>' +
+        ' · <span class="npt-hm" data-pad="१२:५९ बजे"><span class="npt-hm-s">' + neHm + "</span></span></span>" +
+        '<span class="npt-sep" aria-hidden="true">|</span>' +
         '<span class="npt-en" lang="en">' + WD_EN[p.wd] + ", " + p.d + " " + MO_EN[p.m - 1] + " " + p.y +
-        ' · <span class="npt-hm" data-pad="12:59 PM"><span class="npt-hm-s">' + enHm + "</span></span> NPT</span>";
+        ' · <span class="npt-hm" data-pad="12:59 PM NPT"><span class="npt-hm-s">' + enHm + "</span></span></span>";
       el.setAttribute("datetime",
         p.y + "-" + String(p.m).padStart(2, "0") + "-" + String(p.d).padStart(2, "0") +
         "T" + String(p.hh).padStart(2, "0") + ":" + String(p.mm).padStart(2, "0") + ":00+05:45");
