@@ -1,6 +1,6 @@
 /*! Site rain overlay. Auto while today's DHM warning or a district alert is active. */
 (function () {
-  var VER = window.PAGE_VER || "2026-09-25-police-roads";
+  var VER = window.PAGE_VER || "2026-09-25-dhm-1643";
   var enabled = false;
   var canvas = null;
   var ctx = null;

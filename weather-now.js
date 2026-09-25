@@ -51,10 +51,34 @@
     return null;
   }
 
+  function districtDayLevel(alert, date, districtId) {
+    var days = (alert && alert.warning_days) || [];
+    for (var i = 0; i < days.length; i++) {
+      if (days[i].date !== date) continue;
+      var dists = days[i].districts;
+      if (!dists || !districtId || !dists[districtId]) return null;
+      var cell = dists[districtId];
+      return typeof cell === "string" ? cell : (cell.level || null);
+    }
+    return null;
+  }
+
+  function dayHasDistricts(alert, date) {
+    var days = (alert && alert.warning_days) || [];
+    for (var i = 0; i < days.length; i++) {
+      if (days[i].date === date && days[i].districts && Object.keys(days[i].districts).length) return true;
+    }
+    return false;
+  }
+
   function alertLevel(alert, districtId, province, date, nowIso) {
     var found = [];
-    var dayLevel = warningLevel(alert, date, province);
-    if (LEVEL_RANK[dayLevel]) found.push(dayLevel);
+    var own = districtDayLevel(alert, date, districtId);
+    if (LEVEL_RANK[own]) found.push(own);
+    else if (!dayHasDistricts(alert, date)) {
+      var dayLevel = warningLevel(alert, date, province);
+      if (LEVEL_RANK[dayLevel]) found.push(dayLevel);
+    }
     ((alert && alert.district_warnings) || []).forEach(function (row) {
       if (row.id === districtId && windowOpen(row.window_end, nowIso) && LEVEL_RANK[row.level]) found.push(row.level);
     });
@@ -72,6 +96,7 @@
       if (row && row.district) byId[row.district] = row;
     });
     var redIds = catalog.filter(function (row) {
+      if (dayHasDistricts(alert, date)) return districtDayLevel(alert, date, row.district) === "red";
       return provincesAt(alert, date, "red").indexOf(row.province) >= 0;
     }).sort(function (a, b) {
       return String(a.en || "").localeCompare(String(b.en || ""));
@@ -79,6 +104,9 @@
     var orangeIds = [];
     if (redIds.length < FEW_REDS) {
       orangeIds = catalog.filter(function (row) {
+        if (dayHasDistricts(alert, date)) {
+          return districtDayLevel(alert, date, row.district) === "orange" && redIds.indexOf(row.district) < 0;
+        }
         return provincesAt(alert, date, "orange").indexOf(row.province) >= 0 && redIds.indexOf(row.district) < 0;
       }).sort(function (a, b) {
         return String(a.en || "").localeCompare(String(b.en || ""));

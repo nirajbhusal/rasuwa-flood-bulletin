@@ -556,6 +556,32 @@ def warning_level(alert, date, province):
     return None
 
 
+def district_day_level(alert, date, district_id):
+    """Official colour of one district on one warning day, when the map lists districts."""
+    if not alert or not date or not district_id:
+        return None
+    for day in alert.get("warning_days") or []:
+        if day.get("date") != date:
+            continue
+        dists = day.get("districts") or {}
+        if not isinstance(dists, dict) or district_id not in dists:
+            return None
+        cell = dists.get(district_id)
+        if isinstance(cell, dict):
+            return cell.get("level")
+        if isinstance(cell, str):
+            return cell
+        return None
+    return None
+
+
+def day_has_districts(alert, date):
+    for day in (alert or {}).get("warning_days") or []:
+        if day.get("date") == date and isinstance(day.get("districts"), dict) and day.get("districts"):
+            return True
+    return False
+
+
 LEVEL_RANK = {"red": 4, "orange": 3, "yellow": 2, "green": 1}
 FEW_REDS = 8
 ALERT_CAP = 12
@@ -784,14 +810,23 @@ def select_alert_districts(alert, districts, date, now):
     Rasuwa stays first while bulletin 12307 is active.
     """
     by_id = {row.get("id"): row for row in districts or [] if row.get("id")}
-    red_ids = [row["id"] for row in districts or [] if row.get("province") in provinces_at(alert, date, "red")]
+    if day_has_districts(alert, date):
+        red_ids = [row["id"] for row in districts or [] if district_day_level(alert, date, row.get("id")) == "red"]
+    else:
+        red_ids = [row["id"] for row in districts or [] if row.get("province") in provinces_at(alert, date, "red")]
     red_ids.sort(key=lambda i: (by_id[i].get("en") or i))
     orange_ids = []
     if len(red_ids) < FEW_REDS:
-        orange_ids = [
-            row["id"] for row in districts or []
-            if row.get("province") in provinces_at(alert, date, "orange") and row.get("id") not in red_ids
-        ]
+        if day_has_districts(alert, date):
+            orange_ids = [
+                row["id"] for row in districts or []
+                if district_day_level(alert, date, row.get("id")) == "orange" and row.get("id") not in red_ids
+            ]
+        else:
+            orange_ids = [
+                row["id"] for row in districts or []
+                if row.get("province") in provinces_at(alert, date, "orange") and row.get("id") not in red_ids
+            ]
         orange_ids.sort(key=lambda i: (by_id[i].get("en") or i))
     call = (alert or {}).get("callout") or {}
     call_open = window_open(call.get("window_end"), now)
@@ -817,9 +852,13 @@ def select_alert_districts(alert, districts, date, now):
 
 def alert_level(alert, district_id, province, date, now):
     found = []
-    day_level = warning_level(alert, date, province)
-    if day_level in LEVEL_RANK:
-        found.append(day_level)
+    own = district_day_level(alert, date, district_id)
+    if own in LEVEL_RANK:
+        found.append(own)
+    elif not day_has_districts(alert, date):
+        day_level = warning_level(alert, date, province)
+        if day_level in LEVEL_RANK:
+            found.append(day_level)
     for row in (alert or {}).get("district_warnings") or []:
         if row.get("id") == district_id and window_open(row.get("window_end"), now) and row.get("level") in LEVEL_RANK:
             found.append(row["level"])

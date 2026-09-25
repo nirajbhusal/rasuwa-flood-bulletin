@@ -131,10 +131,13 @@ class AlertPlaceTests(unittest.TestCase):
             ["rasuwa", "nuwakot", "dhading", "gorkha", "chitwan", "sindhupalchok", "baglung", "myagdi"],
         )
         self.assertNotIn("dhanusha", ids)
-        self.assertIn("kathmandu", ids)
-        self.assertEqual(len(ids), 38)
+        self.assertNotIn("kathmandu", ids)
+        self.assertIn("mustang", ids)
+        self.assertEqual(len(ids), 18)
         self.assertEqual(build.alert_level(alert, "rasuwa", "bagmati", "2026-09-25", now), "red")
         self.assertEqual(build.alert_level(alert, "sindhupalchok", "bagmati", "2026-09-25", now), "red")
+        self.assertEqual(build.alert_level(alert, "kathmandu", "bagmati", "2026-09-25", now), "orange")
+        self.assertEqual(build.alert_level(alert, "jhapa", "koshi", "2026-09-25", now), "yellow")
 
     def test_orange_provinces_join_only_when_few_reds(self):
         districts = [

@@ -1,6 +1,6 @@
 /*! District alerts card. Reads data/weather-alert.json and the district shapes. */
 (function () {
-  var VER = window.PAGE_VER || "2026-09-25-map-boards";
+  var VER = window.PAGE_VER || "2026-09-25-dhm-1643";
   var data = null;
   var geo = null;
   var selected = "";

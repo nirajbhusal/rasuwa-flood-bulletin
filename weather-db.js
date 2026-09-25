@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var VER = window.PAGE_VER || "2026-09-25-map-boards";
+  var VER = window.PAGE_VER || "2026-09-25-dhm-1643";
   var home = null;
   var full = null;
   var historyDoc = null;
