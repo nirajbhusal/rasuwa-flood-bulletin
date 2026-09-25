@@ -10379,6 +10379,25 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
   font-weight:800;
 }
 
+/* 2026-09-25-mobile-header-art — phones drop the home icon; ridge band behind the title */
+@media (max-width:767px){
+  .head-stick .head-home{display:none}
+  .head-stick .brand{min-height:44px}
+  .head-stick .header-art{
+    left:50%;
+    right:auto;
+    top:0;
+    width:100%;
+    height:44px;
+    transform:translateX(-50%) scaleX(1.65);
+    transform-origin:center center;
+  }
+  .head-stick.is-scrolled .header-art{
+    opacity:0;
+    transform:translateX(-50%) scaleX(1.65) scale(.94);
+  }
+}
+
 /* 2026-09-25-map-boards — date line, district cards, highway notice */
 .wxb-home .wxb-legend-date{display:none !important}
 .dor-dao{margin:0 0 8px}
