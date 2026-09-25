@@ -1,12 +1,12 @@
-/* रसुवा बाढी · सूचना · SW_VER 2026-09-25-menu-popup */
+/* रसुवा बाढी · सूचना · SW_VER 2026-09-25-title-size */
 const SCOPE = self.registration.scope;
 const LATEST = new URL('latest.json', SCOPE).href;
 const ICON = new URL('icon-192.png', SCOPE).href;
 const SEEN_CACHE = 'rasuwa-seen-v2';
 const MUTE_CACHE = 'rasuwa-mute-v1';
-const STATIC_CACHE = 'rasuwa-static-2026-09-25-menu-popup';
-const SW_VER = '2026-09-25-menu-popup';
-const PAGE_VER = '2026-09-25-menu-popup';
+const STATIC_CACHE = 'rasuwa-static-2026-09-25-title-size';
+const SW_VER = '2026-09-25-title-size';
+const PAGE_VER = '2026-09-25-title-size';
 
 const STATIC_EXT = /\.(?:css|woff2|png|jpg|jpeg|webp|svg|ico|webmanifest)$/i;
 const STATIC_PATH = /\/(?:fonts\.css|bulletin(?:\.min)?\.css|fonts\/|img\/pay\/)/i;
