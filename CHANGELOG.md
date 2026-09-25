@@ -5,6 +5,14 @@
 - `data/weather/*.json` is built by `scripts/weather/build.py` and refreshed by the `weather-db` workflow. Ask answers Kathmandu’s DHM max/min and the Trishuli level at Dhunche from `now.json`.
 - `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-25-weather-db`
 
+## 2026-09-25-district-rain · District alerts and rain theme
+
+- The district-line hint is gone from the weather map (homepage and `notices.html#alert`). The district button stays.
+- **जिल्लागत चेतावनी** / District alerts sits in the homepage weather block and on `notices.html#alert`. It reads `district_warnings` and `callout` from `data/weather-alert.json` and hides a row after `window_end` in Asia/Kathmandu. Sindhupalchok is orange (high impact × medium likelihood on `img/dhm/impact-sindhupalchok.jpg`). Baglung and Myagdi are yellow (medium × medium on `impact-baglung.jpg` and `impact-myagdi.jpg`). Rasuwa, Nuwakot, Dhading, Gorkha and Chitwan follow #12307 isolated heavy, which is yellow in `levels`. Fills use `warn_levels`. The district drawing is `data/nepal-districts-svg.json`.
+- District windows are Asoj 8, 18:00 through Asoj 11, 06:00 (`2026-09-24T18:00:00+05:45` to `2026-09-27T06:00:00+05:45`). The corridor is Asoj 8 night through Asoj 11 morning (`2026-09-24T18:00:00+05:45` to `2026-09-27T09:00:00+05:45`).
+- A rain overlay (`rain-theme.js`) runs while today's `warning_days` include orange or red, or a district alert is still open. The header control is **वर्षा प्रभाव** / Rain effect. Reduced motion stays off until that control is used. The choice is kept in this browser.
+- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-25-district-rain`
+
 ## 2026-09-25-ask-answers · Ask replies in its own words
 
 - Ask no longer pastes page sections. A question in Nepali, English, or Romanized Nepali maps to an intent (weather today or a named day or district, NH42 / Pasang Lhamu and Araniko, missing / rescued / dead, relief totals and how to give, helplines, name search, LPG, the flood’s cause, gallery, about). The reply is one to three sentences filled from the live JSON, then a source line and a details link.

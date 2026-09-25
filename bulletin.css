@@ -7592,7 +7592,6 @@ html.ask-lock body{position:fixed;left:0;right:0;width:100%}
 }
 .wxb-dist-toggle.is-on{background:#166534;color:#fff}
 .wxb-dist-toggle:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
-.wxb-dist-hint{margin:0;font-size:13px;font-weight:750;color:#334155}
 .wxb-dists[hidden]{display:none}
 .wxb-dist{
   fill:rgba(255,255,255,.03);stroke:rgba(15,23,42,.72);stroke-width:0.9;
@@ -7709,7 +7708,6 @@ html.ask-lock body{position:fixed;left:0;right:0;width:100%}
   }
   .wxb-zbtn{min-width:0;width:100%;padding:8px 4px}
   .wxb-dist-toggle{width:100%}
-  .wxb-dist-hint{flex:1 1 100%}
   .wxb-chip{flex:1 1 calc(50% - 8px);text-align:center;white-space:normal}
   .wxb-legend li{flex:1 1 calc(50% - 10px);min-width:0}
   .wxb-mapwrap{padding:6px}

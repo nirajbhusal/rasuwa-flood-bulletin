@@ -1,0 +1,86 @@
+/* District alerts card — official warn colours only, light card */
+.dalert-slot:empty{display:none}
+.dalert{
+  margin:0 12px 12px;
+  padding:12px;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:16px;
+  box-shadow:0 1px 2px rgba(15,23,42,.04);
+  color:#0f172a;
+}
+.dalert-h{
+  margin:0 0 10px;
+  font-size:18px;
+  line-height:1.3;
+  font-weight:800;
+}
+.dalert-layout{display:flex;flex-direction:column;gap:12px}
+.dalert-mapbox{position:relative;min-width:0}
+.dalert-svg{
+  display:block;width:100%;height:auto;
+  background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;
+}
+.dalert-dist{cursor:pointer}
+.dalert-dist:focus{outline:none}
+.dalert-dist:focus-visible{stroke:#0f172a;stroke-width:2.4px}
+.dalert-pop{
+  margin-top:8px;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:10px 36px 10px 12px;
+  box-shadow:0 8px 24px rgba(15,23,42,.12);
+  position:relative;
+}
+.dalert-pop[hidden]{display:none}
+.dalert-x{
+  position:absolute;top:6px;right:6px;
+  width:32px;height:32px;border:0;border-radius:8px;
+  background:transparent;color:#334155;
+  font:inherit;font-size:22px;line-height:1;cursor:pointer;
+}
+.dalert-x:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.dalert-pop p{margin:0 0 4px;font-size:14px;line-height:1.4}
+.dalert-pop-name{font-size:16px;font-weight:800}
+.dalert-pop-lv{font-weight:750}
+.dalert-pop-fore{color:#334155}
+.dalert-list{
+  list-style:none;margin:0;padding:0;
+  display:flex;flex-direction:column;gap:0;
+  min-width:0;
+}
+.dalert-row{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:10px 0;
+  border-bottom:1px solid #f1f5f9;
+}
+.dalert-row:last-child{border-bottom:0;padding-bottom:0}
+.dalert-badge{
+  width:14px;height:14px;border-radius:999px;flex:none;margin-top:4px;
+  box-shadow:inset 0 0 0 1px rgba(15,23,42,.28);
+}
+.dalert-main{min-width:0;flex:1}
+.dalert-name{margin:0;font-size:16px;font-weight:800;line-height:1.3}
+.dalert-risk,.dalert-win,.dalert-remain{
+  margin:2px 0 0;font-size:13px;line-height:1.4;color:#334155;font-weight:650;
+}
+.dalert-track{
+  margin-top:6px;height:5px;border-radius:999px;background:#e2e8f0;overflow:hidden;
+}
+.dalert-fill{display:block;height:100%;border-radius:inherit;width:0}
+.dalert-more{
+  display:inline-flex;align-items:center;min-height:32px;margin-top:4px;
+  font-size:14px;font-weight:800;
+}
+@media (min-width:800px){
+  .dalert-layout{flex-direction:row;align-items:flex-start}
+  .dalert-mapbox{flex:0 0 42%;max-width:420px}
+  .dalert-list{flex:1}
+  .dalert-pop{
+    position:absolute;left:8px;right:8px;bottom:8px;margin:0;
+  }
+}
+@media (max-width:420px){
+  .dalert{margin:0 8px 10px;padding:10px}
+}

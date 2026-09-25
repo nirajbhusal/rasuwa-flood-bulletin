@@ -18,6 +18,8 @@ self.addEventListener('install', (e) => {
       await c.addAll([
         new URL('fonts.css?v=' + PAGE_VER, SCOPE).href,
         new URL('bulletin.css?v=' + PAGE_VER, SCOPE).href,
+        new URL('rain-theme.css?v=' + PAGE_VER, SCOPE).href,
+        new URL('district-alerts.css?v=' + PAGE_VER, SCOPE).href,
         new URL('fonts/mukta-500-deva.woff2', SCOPE).href,
         new URL('fonts/mukta-500-latn.woff2', SCOPE).href,
         new URL('fonts/mukta-700-deva.woff2', SCOPE).href,

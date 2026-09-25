@@ -175,10 +175,6 @@
       "ne": "जिल्ला",
       "en": "Districts"
     },
-    "districts_hint": {
-      "ne": "जिल्लाको रेखा खोल्न वा बन्द गर्न सकिन्छ। रङ प्रदेशको चेतावनी हो। नाम पपअपमा मात्र।",
-      "en": "District lines can be turned on or off. Colour is the province warning. Names stay in the popup."
-    },
     "high_h": {
       "ne": "उच्च सतर्कता जिल्ला र क्षेत्र",
       "en": "High-alert districts and areas"
@@ -298,6 +294,10 @@
   "callout": {
     "province": "bagmati",
     "page_id": 12307,
+    "level": "yellow",
+    "window_start": "2026-09-24T18:00:00+05:45",
+    "window_end": "2026-09-27T09:00:00+05:45",
+    "url": "https://dhm.gov.np/mfd/#/weather/pages/special-weather/12307",
     "title": {
       "ne": "भोटेकोशी करिडोर",
       "en": "Bhotekoshi corridor"
@@ -312,22 +312,27 @@
     },
     "districts": [
       {
+        "id": "rasuwa",
         "ne": "रसुवा",
         "en": "Rasuwa"
       },
       {
+        "id": "nuwakot",
         "ne": "नुवाकोट",
         "en": "Nuwakot"
       },
       {
+        "id": "dhading",
         "ne": "धादिङ",
         "en": "Dhading"
       },
       {
+        "id": "gorkha",
         "ne": "गोरखा",
         "en": "Gorkha"
       },
       {
+        "id": "chitwan",
         "ne": "चितवन",
         "en": "Chitwan"
       }
@@ -338,6 +343,11 @@
       "id": "sindhupalchok",
       "province_id": "bagmati",
       "tone": "high",
+      "impact": "high",
+      "likelihood": "medium",
+      "level": "orange",
+      "window_start": "2026-09-24T18:00:00+05:45",
+      "window_end": "2026-09-27T06:00:00+05:45",
       "name": { "ne": "सिन्धुपाल्चोक", "en": "Sindhupalchok" },
       "province": { "ne": "बागमती", "en": "Bagmati" },
       "risk": { "ne": "उच्च प्रभावको मध्यम सम्भावना", "en": "High impact · medium likelihood" },
@@ -374,6 +384,11 @@
       "id": "baglung",
       "province_id": "gandaki",
       "tone": "medium",
+      "impact": "medium",
+      "likelihood": "medium",
+      "level": "yellow",
+      "window_start": "2026-09-24T18:00:00+05:45",
+      "window_end": "2026-09-27T06:00:00+05:45",
       "name": { "ne": "बागलुङ", "en": "Baglung" },
       "province": { "ne": "गण्डकी", "en": "Gandaki" },
       "risk": { "ne": "मध्यम प्रभावको मध्यम सम्भावना", "en": "Medium impact · medium likelihood" },
@@ -406,6 +421,11 @@
       "id": "myagdi",
       "province_id": "gandaki",
       "tone": "medium",
+      "impact": "medium",
+      "likelihood": "medium",
+      "level": "yellow",
+      "window_start": "2026-09-24T18:00:00+05:45",
+      "window_end": "2026-09-27T06:00:00+05:45",
       "name": { "ne": "म्याग्दी", "en": "Myagdi" },
       "province": { "ne": "गण्डकी", "en": "Gandaki" },
       "risk": { "ne": "मध्यम प्रभावको मध्यम सम्भावना", "en": "Medium impact · medium likelihood" },
@@ -736,6 +756,10 @@
       }
     ]
   },
+  "impact_matrix": [
+    { "impact": "high", "likelihood": "medium", "level": "orange" },
+    { "impact": "medium", "likelihood": "medium", "level": "yellow" }
+  ],
   "warn_levels": {
     "red": {
       "color": "#d7191c",
