@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-25-header-ask";
+  var VER = window.PAGE_VER || "2026-09-25-polish";
   var showDistricts = true;
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
@@ -499,6 +499,10 @@
         map.fitBounds([[26.35, 80.05], [30.45, 88.2]], { padding: [16, 16], maxZoom: 7, animate: false });
       });
     window.setTimeout(function () { frame(notice() ? nationalBounds : corridorBounds); }, 240);
+    window.requestAnimationFrame(function () {
+      try { map.invalidateSize(false); } catch (e) {}
+      frame(notice() ? nationalBounds : corridorBounds);
+    });
   }
   function links(host, withSection) {
     var ui = data.ui;
@@ -572,7 +576,15 @@
   }
   var leafletLoading = false;
   var leafletQueue = [];
+  function ensureLeafletCss() {
+    if (document.querySelector('link[href*="leaflet.css"]')) return;
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "vendor/leaflet/leaflet.css?v=" + encodeURIComponent(VER);
+    document.head.appendChild(link);
+  }
   function ensureLeaflet(cb) {
+    ensureLeafletCss();
     if (window.L) { cb(); return; }
     leafletQueue.push(cb);
     if (leafletLoading) return;
@@ -604,16 +616,20 @@
       afterPaint(start);
       return;
     }
+    var hash = "";
+    try { hash = location.hash || ""; } catch (e) {}
+    if (hash === "#roads" || hash === "#dor-home" || hash === "#dor-map") {
+      afterPaint(start);
+      return;
+    }
     var io = new IntersectionObserver(function (entries) {
       for (var i = 0; i < entries.length; i++) {
         if (!entries[i].isIntersecting) continue;
         io.disconnect();
-        var ric = window.requestIdleCallback;
-        if (typeof ric === "function") ric(function () { start(); }, { timeout: 900 });
-        else afterPaint(start);
+        start();
         return;
       }
-    }, { rootMargin: "240px 0px", threshold: 0.01 });
+    }, { rootMargin: "480px 0px", threshold: 0.01 });
     io.observe(host);
   }
   function liveNote() {

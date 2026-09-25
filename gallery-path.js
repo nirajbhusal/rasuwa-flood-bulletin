@@ -1,5 +1,11 @@
 /* Gallery path · data/gallery-path.json · Nepali first, English via the lang hook */
 (function () {
+  if (!document.querySelector('link[href*="leaflet.css"]')) {
+    var css = document.createElement("link");
+    css.rel = "stylesheet";
+    css.href = "vendor/leaflet/leaflet.css?v=" + encodeURIComponent(window.PAGE_VER || "2026-09-25-polish");
+    document.head.appendChild(css);
+  }
   var root = document.getElementById("gallery-path");
   if (!root) return;
 
