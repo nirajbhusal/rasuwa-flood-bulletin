@@ -9043,7 +9043,7 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   .open-alert-b,.open-alert-s{font-size:14px}
 }
 
-/* 2026-09-25-header-web — light header, search, menu, alert, ask */
+/* 2026-09-25-maps-live — light header, search, menu, alert, ask */
 .head-stick{
   position:sticky;
   top:0;
@@ -9745,7 +9745,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 .wxb,.dor{overflow:hidden}
 .wxb-mapwrap,.dor-map{overflow:hidden}
 
-/* 2026-09-25-header-web — search stays closed, alert is a bottom sheet, date contrast, ask link */
+/* 2026-09-25-maps-live — search stays closed, alert is a bottom sheet, date contrast, ask link */
 .head-stick .brand-date,
 .head-stick .brand-date .brand-incident,
 .head-stick .brand-incident{
@@ -9829,7 +9829,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 .wx-toprain-list .wxdb-kicker{margin:0 0 4px;text-align:center}
 
 
-/* 2026-09-25-header-web — menu sits left of search; one icon; 16px field; list above the keyboard */
+/* 2026-09-25-maps-live — menu sits left of search; one icon; 16px field; list above the keyboard */
 .head-stick .top-search{
   flex:1 1 auto;
   width:auto;
@@ -10078,7 +10078,7 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
   .wxb-mapwrap .wxb-pop:not([hidden]),.dor-map-detail.is-open,.wxb-mapwrap.is-entered,.dor-map.is-entered{animation:none}
 }
 
-/* 2026-09-25-header-web — desktop title row, one toolbar, home button */
+/* 2026-09-25-maps-live — desktop title row, one toolbar, home button */
 .head-stick .head-home{
   display:inline-flex;
   align-items:center;
