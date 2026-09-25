@@ -1455,7 +1455,7 @@
     });
     var jobs = [];
     function get(url) {
-      return fetch(url + "?v=" + encodeURIComponent(VER), { cache: "no-cache" }).then(function (r) {
+      return fetch(url + "?t=" + Date.now(), { cache: "no-store" }).then(function (r) {
         if (!r.ok) throw new Error(url);
         return r.json();
       });

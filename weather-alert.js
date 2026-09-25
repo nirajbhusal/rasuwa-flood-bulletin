@@ -1775,7 +1775,7 @@
     }
     if (districtsLoading) return;
     districtsLoading = true;
-    fetch("data/nepal-districts-svg.json?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+    fetch("data/nepal-districts-svg.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("districts"); return r.json(); })
       .then(function (json) {
         districts = json;
@@ -1822,8 +1822,8 @@
   }
 
   function boot() {
-    var url = "data/weather-alert.json?v=" + encodeURIComponent(VER);
-    fetch(url, { cache: "no-cache" })
+    var url = "data/weather-alert.json?t=" + Date.now();
+    fetch(url, { cache: "no-store" })
       .then(function (r) {
         if (!r.ok) throw new Error("weather-alert");
         return r.json();

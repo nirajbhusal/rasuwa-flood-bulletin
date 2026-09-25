@@ -51,7 +51,7 @@
     if (document.querySelector('link[href*="district-alerts.css"]')) return;
     var link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "district-alerts.css?v=" + encodeURIComponent(VER);
+    link.href = ["district-alerts.css?v", encodeURIComponent(VER)].join("=");
     link.setAttribute("data-district-alerts-css", "");
     document.head.appendChild(link);
   }
@@ -475,11 +475,11 @@
   }
   function boot() {
     ensureCss();
-    var wxUrl = "data/weather-alert.json?v=" + encodeURIComponent(VER);
-    var geoUrl = "data/nepal-districts-svg.json?v=" + encodeURIComponent(VER);
+    var wxUrl = "data/weather-alert.json?t=" + Date.now();
+    var geoUrl = "data/nepal-districts-svg.json?t=" + Date.now();
     Promise.all([
-      fetch(wxUrl, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("wx"); return r.json(); }),
-      fetch(geoUrl, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("geo"); return r.json(); })
+      fetch(wxUrl, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("wx"); return r.json(); }),
+      fetch(geoUrl, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("geo"); return r.json(); })
     ]).then(function (pair) {
       data = pair[0];
       geo = pair[1];

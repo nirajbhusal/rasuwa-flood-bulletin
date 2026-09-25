@@ -347,8 +347,7 @@
   }
   function boot() {
     unlockScroll();
-    var ver = window.PAGE_VER || "";
-    fetch("data/weather-alert.json?v=" + encodeURIComponent(ver), { cache: "no-cache" })
+    fetch("data/weather-alert.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("weather-alert"); return r.json(); })
       .then(function (json) {
         data = json;

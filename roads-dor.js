@@ -590,7 +590,7 @@
         }
       });
     });
-    fetch("data/nepal-districts.geojson?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+    fetch("data/nepal-districts.geojson?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("districts"); return r.json(); })
       .then(function (geo) {
         if (token !== mapGen || !window.L) return;
@@ -816,10 +816,10 @@
     }
     (data.roads || []).forEach(addMarker);
     var corridor = (data.map && data.map.corridor) || "data/nh42-corridor.geojson";
-    var corridorOpts = { cache: "no-cache" };
+    var corridorOpts = { cache: "no-store" };
     var corridorSignal = liveSignal();
     if (corridorSignal) corridorOpts.signal = corridorSignal;
-    fetch(corridor + "?v=" + encodeURIComponent(VER), corridorOpts)
+    fetch(corridor + "?t=" + Date.now(), corridorOpts)
       .then(function (r) { if (!r.ok) throw new Error("nh42"); return r.json(); })
       .then(function (geo) {
         if (token !== mapGen) return;
@@ -923,7 +923,7 @@
     if (document.querySelector('link[href*="leaflet.css"]')) return;
     var link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "vendor/leaflet/leaflet.css?v=" + encodeURIComponent(VER);
+    link.href = ["vendor/leaflet/leaflet.css?v", encodeURIComponent(VER)].join("=");
     document.head.appendChild(link);
   }
   function ensureLeaflet(cb) {
@@ -933,7 +933,7 @@
     if (leafletLoading) return;
     leafletLoading = true;
     var s = document.createElement("script");
-    s.src = "vendor/leaflet/leaflet.js?v=" + encodeURIComponent(VER);
+    s.src = ["vendor/leaflet/leaflet.js?v", encodeURIComponent(VER)].join("=");
     s.async = true;
     function flush() {
       var q = leafletQueue.splice(0);
@@ -1484,7 +1484,7 @@
         fitNational();
       }
     };
-    fetch("data/nepal-districts.geojson?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+    fetch("data/nepal-districts.geojson?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("districts"); return r.json(); })
       .then(function (geo) {
         if (token !== mapGen || !window.L) return;
@@ -1756,9 +1756,9 @@
     afterPaint(checkLive);
   }
   function boot() {
-    var roadsP = fetch("data/roads-dor.json?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+    var roadsP = fetch("data/roads-dor.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("roads"); return r.json(); });
-    var policeP = fetch("data/police_roads_2083-06-09.json?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+    var policeP = fetch("data/police_roads_2083-06-09.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("police"); return r.json(); })
       .catch(function () { return null; });
     Promise.all([roadsP, policeP])

@@ -3,7 +3,7 @@
   if (!document.querySelector('link[href*="leaflet.css"]')) {
     var css = document.createElement("link");
     css.rel = "stylesheet";
-    css.href = "vendor/leaflet/leaflet.css?v=" + encodeURIComponent(window.PAGE_VER || "2026-09-25-police-roads");
+    css.href = ["vendor/leaflet/leaflet.css?v", encodeURIComponent(window.PAGE_VER || "0")].join("=");
     document.head.appendChild(css);
   }
   var root = document.getElementById("gallery-path");
@@ -419,8 +419,7 @@
     root.querySelectorAll("[data-ba-frame]").forEach(layoutClip);
   });
 
-  var ver = window.PAGE_VER || "";
-  fetch("data/gallery-path.json" + (ver ? "?v=" + encodeURIComponent(ver) : ""), { cache: "no-store" })
+  fetch("data/gallery-path.json?t=" + Date.now(), { cache: "no-store" })
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (data) {
       if (!data) return;
