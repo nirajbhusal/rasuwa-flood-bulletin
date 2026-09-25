@@ -9067,7 +9067,7 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   gap:4px 8px;
   text-align:left;
   min-height:0;
-  padding:5px 10px 6px;
+  padding:5px 10px 9px;
   justify-content:stretch;
 }
 .head-stick .brand-row{grid-area:brand;justify-content:flex-start;width:100%;min-width:0;max-width:100%;overflow:hidden}
@@ -10313,9 +10313,10 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
   vertical-align:baseline;
   font-variant-numeric:tabular-nums;
 }
+.head-stick .npt-hm::after,
+.head-stick .npt-hm-s{grid-area:1 / 1}
 .head-stick .npt-hm::after{
   content:attr(data-pad);
-  grid-area:1 / 1;
   visibility:hidden;
   pointer-events:none;
 }

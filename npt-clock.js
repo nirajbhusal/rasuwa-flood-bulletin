@@ -82,10 +82,10 @@
       var en = WD_EN[p.wd] + ", " + p.d + " " + MO_EN[p.m - 1] + " " + p.y + " · " + enHm + " NPT";
       el.innerHTML =
         '<span class="npt-ne" lang="ne">' + WD_NE[p.wd] + ", " + MO_NE[bs.month] + " " + dig(bs.day) + ", " + dig(bs.year) +
-        ' · <span class="npt-hm" data-pad="१२:५९">' + neHm + "</span> बजे</span>" +
+        ' · <span class="npt-hm" data-pad="१२:५९"><span class="npt-hm-s">' + neHm + "</span></span> बजे</span>" +
         '<span class="npt-sep" aria-hidden="true"> · </span>' +
         '<span class="npt-en" lang="en">' + WD_EN[p.wd] + ", " + p.d + " " + MO_EN[p.m - 1] + " " + p.y +
-        ' · <span class="npt-hm" data-pad="12:59 PM">' + enHm + "</span> NPT</span>";
+        ' · <span class="npt-hm" data-pad="12:59 PM"><span class="npt-hm-s">' + enHm + "</span></span> NPT</span>";
       el.setAttribute("datetime",
         p.y + "-" + String(p.m).padStart(2, "0") + "-" + String(p.d).padStart(2, "0") +
         "T" + String(p.hh).padStart(2, "0") + ":" + String(p.mm).padStart(2, "0") + ":00+05:45");

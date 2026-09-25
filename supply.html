@@ -60,12 +60,12 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 .head-stick{position:sticky;top:0;z-index:80;background:#fff}
 .head-stick .topbar{background:#fff;border-bottom:1px solid #e7e5e4;color:#0f172a}
 .head-stick .topbar-art,.head-stick .topbar::before,.head-stick .topbar::after{display:none}
-.head-stick .topbar-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand actions" "date date" "find find";gap:4px 8px;align-items:center;padding:5px 10px 6px}
+.head-stick .topbar-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand actions" "date date" "find find";gap:4px 8px;align-items:center;padding:5px 10px 9px}
 .head-stick .brand-row{grid-area:brand;min-width:0}
 .head-stick .brand{position:relative;min-width:0;min-height:31px}.head-stick .header-art{position:absolute;z-index:0;right:0;top:0;width:min(220px,64%);height:31px;margin:0;pointer-events:none;display:block}
 .head-stick .topbar .brand h1{position:relative;z-index:1;margin:0;color:#c41e3a;font-size:18px;line-height:1.25;font-weight:800}
 .head-stick .brand-date{grid-area:date;margin:0;color:#1e293b;font-size:13px;font-weight:700}
-.head-stick .brand-now{display:flex;flex-direction:column;align-items:center;color:#1e293b;font-weight:700;font-size:12px;line-height:1.15;font-variant-numeric:tabular-nums}.head-stick .npt-ne,.head-stick .npt-en{white-space:nowrap}.head-stick .npt-sep{display:none}.head-stick .npt-hm{display:inline-grid}.head-stick .npt-hm::after{content:attr(data-pad);grid-area:1 / 1;visibility:hidden}.head-stick .brand-updated,.head-stick .brand-incident{display:none}
+.head-stick .brand-now{display:flex;flex-direction:column;align-items:center;color:#1e293b;font-weight:700;font-size:12px;line-height:1.15;font-variant-numeric:tabular-nums}.head-stick .npt-ne,.head-stick .npt-en{white-space:nowrap}.head-stick .npt-sep{display:none}.head-stick .npt-hm{display:inline-grid}.head-stick .npt-hm::after,.head-stick .npt-hm-s{grid-area:1 / 1}.head-stick .npt-hm::after{content:attr(data-pad);visibility:hidden}.head-stick .brand-updated,.head-stick .brand-incident{display:none}
 .head-stick .top-find{grid-area:find;min-width:0;display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
 .head-stick .top-actions{grid-area:actions;display:flex;gap:6px;align-items:center}
 .head-stick .live{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;border-radius:999px;background:#c41e3a;color:#fff;font-weight:800;text-decoration:none}
@@ -105,7 +105,7 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
       </div>
     </div>
     <p class="brand-date brand-date-stack">
-  <time class="brand-now" id="brand-now" data-i18n-skip datetime="2026-09-25T15:54:00+05:45"><span class="npt-ne" lang="ne">शुक्रबार, असोज ९, २०८३ · <span class="npt-hm" data-pad="१२:५९">३:५४</span> बजे</span><span class="npt-sep" aria-hidden="true"> · </span><span class="npt-en" lang="en">Friday, 25 Sep 2026 · <span class="npt-hm" data-pad="12:59 PM">3:54 PM</span> NPT</span></time>
+  <time class="brand-now" id="brand-now" data-i18n-skip datetime="2026-09-25T15:54:00+05:45"><span class="npt-ne" lang="ne">शुक्रबार, असोज ९, २०८३ · <span class="npt-hm" data-pad="१२:५९"><span class="npt-hm-s">३:५४</span></span> बजे</span><span class="npt-sep" aria-hidden="true"> · </span><span class="npt-en" lang="en">Friday, 25 Sep 2026 · <span class="npt-hm" data-pad="12:59 PM"><span class="npt-hm-s">3:54 PM</span></span> NPT</span></time>
 </p>
 <div class="top-find">
   <a class="head-home" href="index.html" aria-label="गृहपृष्ठ" data-i18n-aria="nav_home_aria"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg></a>
