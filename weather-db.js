@@ -249,6 +249,12 @@
     var head = el("h3", "wxdb-h");
     head.textContent = lang() === "en" ? "Nepal now" : "नेपाल अहिले";
     sec.appendChild(head);
+    var forecast = home.forecast || {};
+    if (tx(forecast.text)) {
+      var note = el("p", "wxdb-copy");
+      note.textContent = tx(forecast.text);
+      sec.appendChild(note);
+    }
     var strip = el("div", "wxdb-strip");
     strip.setAttribute("role", "list");
     (home.nepal_now || []).forEach(function (city) {
@@ -264,14 +270,22 @@
       var temps = el("span", "wxdb-city-t");
       temps.textContent = fmt(obs.max, 1) + "° / " + fmt(obs.min, 1) + "°";
       btn.appendChild(temps);
-      if (obs.rain24 != null || obs.trace) {
-        var rain = el("span", "wxdb-rainchip");
-        var dot = el("i", "wxdb-rdot");
-        dot.style.background = rainColor(obs.trace ? 0 : obs.rain24);
-        rain.appendChild(dot);
-        rain.appendChild(document.createTextNode(obs.trace ? (lang() === "en" ? "T" : "ट्रेस") : (fmt(obs.rain24, 1) + (lang() === "en" ? " mm" : " मि.मि."))));
-        btn.appendChild(rain);
+      var rain = el("span", "wxdb-rainchip");
+      var dot = el("i", "wxdb-rdot");
+      var rainText;
+      if (obs.trace) {
+        dot.style.background = rainColor(0);
+        rainText = lang() === "en" ? "T" : "ट्रेस";
+      } else if (obs.rain24 == null) {
+        dot.style.background = "#9aa3ad";
+        rainText = "—";
+      } else {
+        dot.style.background = rainColor(obs.rain24);
+        rainText = fmt(obs.rain24, 1) + (lang() === "en" ? " mm" : " मि.मि.");
       }
+      rain.appendChild(dot);
+      rain.appendChild(document.createTextNode(rainText));
+      btn.appendChild(rain);
       if (city.next) {
         var next = el("span", "wxdb-city-next");
         next.textContent = fmt(city.next.t_from, 0) + "–" + fmt(city.next.t_to, 0) + "°";
@@ -409,7 +423,7 @@
     sec.id = "wxdb-bulletins";
     sec.appendChild(h2("विशेष बुलेटिन", "Special bulletins"));
     if (!sourceOk(full, "dhm_pages")) return el("section");
-    var rows = (full.bulletins || []).filter(function (row) { return !row.expired && row.tag === 5; });
+    var rows = (full.bulletins || []).filter(function (row) { return !row.expired && (row.tag === 5 || row.tag === 6); });
     rows.sort(function (a, b) { return (b.corridor - a.corridor); });
     if (!rows.length) return el("section");
     var list = el("ul", "wxdb-bullist");
@@ -481,7 +495,7 @@
       td(periodCell("tomorrow"));
       var obs = city.dhm_observed || {};
       var obsBox = el("div", "wxdb-pcell");
-      var rainBit = obs.trace ? (lang() === "en" ? "T" : "ट्रेस") : (obs.rain_24h_mm == null ? "" : fmt(obs.rain_24h_mm, 1));
+      var rainBit = obs.trace ? (lang() === "en" ? "T" : "ट्रेस") : (obs.rain_24h_mm == null ? "—" : fmt(obs.rain_24h_mm, 1));
       obsBox.textContent = fmt(obs.max_c, 1) + "° / " + fmt(obs.min_c, 1) + "°" + (rainBit ? " · " + rainBit : "");
       td(obsBox);
       var state = (city.verify || {}).state;
