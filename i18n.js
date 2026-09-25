@@ -5533,6 +5533,7 @@ window.I18N = {
     if (lang === "ne") {
       document.documentElement.lang = "ne";
       paintToggle("ne");
+      hooks.forEach(function(fn){ try { fn("ne"); } catch (e) {} });
       return;
     }
     applyLang(lang, false);

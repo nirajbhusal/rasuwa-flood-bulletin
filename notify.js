@@ -38,7 +38,40 @@
     btn.title = aria;
     btn.disabled = false;
   }
-  function tt(k) { return window.t ? window.t(k) : k; }
+  var COPY = {
+    ne: {
+      notify_aria_on: "सूचना सक्रिय",
+      notify_aria_off: "सूचना बन्द",
+      notify_unsupported: "यो ब्राउजरमा सूचना उपलब्ध छैन",
+      notify_denied: "ब्राउजरले सूचना ब्लक गरेको छ",
+      notify_hint_ua: "यो ब्राउजरमा सूचना चल्दैन। Chrome वा Safari (Home Screen) मा खोल्नुहोस्।",
+      notify_hint_denied: "ब्राउजर सेटिङबाट यो साइटको सूचना अनुमति दिनुहोस्।",
+      notify_hint_blocked: "ब्राउजरले सूचना ब्लक गर्‍यो।",
+      notify_hint_ios: "iPhone मा Share → Add to Home Screen गरेपछि सूचना आउँछ।",
+      notify_hint_fail: "अनुमति माग्न सकिएन। Home Screen बाट खोलेर फेरि प्रयास गर्नुहोस्।"
+    },
+    en: {
+      notify_aria_on: "Notifications on",
+      notify_aria_off: "Notifications off",
+      notify_unsupported: "Notifications are not available in this browser",
+      notify_denied: "The browser has blocked notifications",
+      notify_hint_ua: "Notifications do not work in this browser. Open in Chrome or Safari (Home Screen).",
+      notify_hint_denied: "Allow notifications for this site in browser settings.",
+      notify_hint_blocked: "The browser blocked notifications.",
+      notify_hint_ios: "On iPhone, use Share → Add to Home Screen, then notifications can arrive.",
+      notify_hint_fail: "Could not ask for permission. Open from the Home Screen and try again."
+    }
+  };
+  function keyish(s) { return typeof s === "string" && /^[a-z][a-z0-9_]*$/.test(s); }
+  function tt(k) {
+    if (window.t) {
+      var s = window.t(k);
+      if (s && s !== k && !keyish(s)) return s;
+    }
+    var lang = document.documentElement.lang === "en" ? "en" : "ne";
+    var pack = COPY[lang] || COPY.ne;
+    return pack[k] || COPY.ne[k] || "";
+  }
   function paint() {
     if (!canApi()) {
       setUi("off", tt("notify_unsupported"), false);
