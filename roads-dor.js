@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-25-nepal-now-alert";
+  var VER = window.PAGE_VER || "2026-09-25-home-fixes";
   var showDistricts = true;
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
@@ -402,6 +402,52 @@
     items.forEach(function (r) { ul.appendChild(row(r)); });
     host.appendChild(ul);
   }
+  var leafletLoading = false;
+  var leafletQueue = [];
+  function ensureLeaflet(cb) {
+    if (window.L) { cb(); return; }
+    leafletQueue.push(cb);
+    if (leafletLoading) return;
+    leafletLoading = true;
+    var s = document.createElement("script");
+    s.src = "vendor/leaflet/leaflet.js?v=" + encodeURIComponent(VER);
+    s.async = true;
+    function flush() {
+      var q = leafletQueue.splice(0);
+      leafletLoading = false;
+      q.forEach(function (fn) { try { fn(); } catch (e) {} });
+    }
+    s.onload = flush;
+    s.onerror = flush;
+    document.head.appendChild(s);
+  }
+  function scheduleDorMap(board, mode) {
+    var host = el("div", "dor-map-host");
+    board.appendChild(host);
+    function start() {
+      if (!host.isConnected || host._mounted) return;
+      host._mounted = true;
+      ensureLeaflet(function () {
+        if (!host.isConnected) return;
+        mountMap(host, mode);
+      });
+    }
+    if (typeof IntersectionObserver !== "function") {
+      afterPaint(start);
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!entries[i].isIntersecting) continue;
+        io.disconnect();
+        var ric = window.requestIdleCallback;
+        if (typeof ric === "function") ric(function () { start(); }, { timeout: 900 });
+        else afterPaint(start);
+        return;
+      }
+    }, { rootMargin: "240px 0px", threshold: 0.01 });
+    io.observe(host);
+  }
   function renderMount(root) {
     var mode = root.getAttribute("data-dor-mode") || "home";
     var ui = data.ui;
@@ -418,7 +464,7 @@
       var liveKey = data.live.failed ? "live_fail" : "live_diff";
       board.appendChild(el("p", "dor-live", tx(ui[liveKey])));
     }
-    mountMap(board, mode);
+    scheduleDorMap(board, mode);
     if (mode === "home") {
       board.appendChild(el("p", "dor-also", tx(ui.also)));
       links(board, true);

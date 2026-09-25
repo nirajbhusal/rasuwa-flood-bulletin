@@ -1418,7 +1418,9 @@ window.I18N = {
 "damage_sub": "विदुर GRA_MONIT01 · स्याफ्रुबेँसी · टिमुरे — अलग AOI",
 "supply_title": "एलपीजी आयात · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "supply_meta": "एलपीजी आयात · भन्सार प्रवेश नाका दैनिक सारांश · २०८३/०५/२५–२६। उद्धार १२३४।",
-"overview_h": "मानवीय स्थिति",
+"overview_h": "मानवीय अवस्था",
+"incident_block_h": "रसुवा-भोटेकोशी बाढी",
+"incident_block_d": "भदौ १०, २०८३",
 "overview_sub": "शव · सम्पर्कविहीन · उपचार · उद्धार",
 "home_supply_lead": "दैनिक आयात ▼ ४०.८% · २०८३/०५/२५–२६",
 "home_supply_cta": "पूरा बोर्ड",
@@ -3478,6 +3480,8 @@ window.I18N = {
 "supply_title": "LPG import · Rasuwa–Bhotekoshi flood bulletin",
 "supply_meta": "LPG import · customs entry-point daily summary · BS 2083/05/25–26. Rescue 1234.",
 "overview_h": "Humanitarian situation",
+"incident_block_h": "Rasuwa-Bhotekoshi Flood",
+"incident_block_d": "26 August 2026",
 "overview_sub": "Deaths · uncontacted · treatment · rescued",
 "home_supply_lead": "Daily import ▼ 40.8% · BS 2083/05/25–26",
 "home_supply_cta": "Full board",
@@ -5484,6 +5488,30 @@ window.I18N = {
     var s = document.querySelector(".stick");
     if (s) document.documentElement.style.setProperty("--stick", (s.offsetHeight + 8) + "px");
   }
+  function bindToggle(){
+    var group = document.querySelector(".lang-switch");
+    if (!group || group.__bound) return;
+    group.__bound = true;
+    group.addEventListener("click", function(e){
+      var btn = e.target.closest("button[data-lang]");
+      if (!btn) return;
+      applyLang(btn.getAttribute("data-lang"), true);
+    });
+    group.addEventListener("keydown", function(e){
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight" && e.key !== "Home" && e.key !== "End") return;
+      var btns = group.querySelectorAll("button[data-lang]");
+      var i = Array.prototype.indexOf.call(btns, document.activeElement);
+      if (i < 0) return;
+      var n = i;
+      if (e.key === "ArrowRight") n = Math.min(btns.length - 1, i + 1);
+      if (e.key === "ArrowLeft") n = Math.max(0, i - 1);
+      if (e.key === "Home") n = 0;
+      if (e.key === "End") n = btns.length - 1;
+      btns[n].focus();
+      applyLang(btns[n].getAttribute("data-lang"), true);
+      e.preventDefault();
+    });
+  }
   function initLang(){
     var lang = "ne";
     try {
@@ -5496,35 +5524,22 @@ window.I18N = {
         if (s === "en" || s === "ne") lang = s;
       }
     } catch (e) {}
-    applyLang(lang, false);
-    var group = document.querySelector(".lang-switch");
-    if (group) {
-      group.addEventListener("click", function(e){
-        var btn = e.target.closest("button[data-lang]");
-        if (!btn) return;
-        applyLang(btn.getAttribute("data-lang"), true);
-      });
-      group.addEventListener("keydown", function(e){
-        if (e.key !== "ArrowLeft" && e.key !== "ArrowRight" && e.key !== "Home" && e.key !== "End") return;
-        var btns = group.querySelectorAll("button[data-lang]");
-        var i = Array.prototype.indexOf.call(btns, document.activeElement);
-        if (i < 0) return;
-        var n = i;
-        if (e.key === "ArrowRight") n = Math.min(btns.length - 1, i + 1);
-        if (e.key === "ArrowLeft") n = Math.max(0, i - 1);
-        if (e.key === "Home") n = 0;
-        if (e.key === "End") n = btns.length - 1;
-        btns[n].focus();
-        applyLang(btns[n].getAttribute("data-lang"), true);
-        e.preventDefault();
-      });
+    bindToggle();
+    if (lang === "ne") {
+      document.documentElement.lang = "ne";
+      paintToggle("ne");
+      return;
     }
+    applyLang(lang, false);
   }
   window.t = t;
   window.fmtNum = fmtNum;
   window.applyLang = applyLang;
   window.currentLang = currentLang;
   window.__addLangHook = addLangHook;
+  var queuedHooks = window.__langHookQ || [];
+  window.__langHookQ = [];
+  queuedHooks.forEach(function(fn){ try { addLangHook(fn); } catch (e) {} });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initLang);
   else initLang();
 

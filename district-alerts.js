@@ -1,6 +1,6 @@
 /*! District alerts card. Reads data/weather-alert.json and the district shapes. */
 (function () {
-  var VER = window.PAGE_VER || "2026-09-25-nepal-now-alert";
+  var VER = window.PAGE_VER || "2026-09-25-home-fixes";
   var data = null;
   var geo = null;
   var selected = "";
@@ -212,30 +212,38 @@
     var shapes = (geo.districts || []).slice().sort(function (a, b) {
       return (byId[a.id] ? 1 : 0) - (byId[b.id] ? 1 : 0);
     });
-    shapes.forEach(function (d) {
-      var row = byId[d.id];
-      var path = svgEl("path");
-      path.setAttribute("d", d.d);
-      path.setAttribute("class", row ? "dalert-dist" : "dalert-quiet");
-      path.setAttribute("data-id", d.id);
-      path.setAttribute("vector-effect", "non-scaling-stroke");
-      if (row) {
-        var label = tx(row.name) + ". " + tx((data.warn_levels || {})[row.level]) + ". " + tx(row.window) + ". " + shortForecast(row.forecast);
-        path.setAttribute("fill", colorOf(row.level));
-        path.setAttribute("fill-opacity", "0.92");
-        path.setAttribute("stroke", "#ffffff");
-        path.setAttribute("stroke-width", "1.6");
-        path.setAttribute("role", "button");
-        path.setAttribute("tabindex", "0");
-        path.setAttribute("aria-label", label);
-        path.setAttribute("aria-pressed", row.id === selected ? "true" : "false");
-      } else {
-        path.setAttribute("fill", "#f8fafc");
-        path.setAttribute("stroke", "#cbd5e1");
-        path.setAttribute("stroke-width", "1");
+    var shapeAt = 0;
+    function drawShapeChunk() {
+      if (!svg.isConnected && shapeAt > 0) return;
+      var end = Math.min(shapes.length, shapeAt + 10);
+      for (; shapeAt < end; shapeAt++) {
+        var d = shapes[shapeAt];
+        var row = byId[d.id];
+        var path = svgEl("path");
+        path.setAttribute("d", d.d);
+        path.setAttribute("class", row ? "dalert-dist" : "dalert-quiet");
+        path.setAttribute("data-id", d.id);
+        path.setAttribute("vector-effect", "non-scaling-stroke");
+        if (row) {
+          var label = tx(row.name) + ". " + tx((data.warn_levels || {})[row.level]) + ". " + tx(row.window) + ". " + shortForecast(row.forecast);
+          path.setAttribute("fill", colorOf(row.level));
+          path.setAttribute("fill-opacity", "0.92");
+          path.setAttribute("stroke", "#ffffff");
+          path.setAttribute("stroke-width", "1.6");
+          path.setAttribute("role", "button");
+          path.setAttribute("tabindex", "0");
+          path.setAttribute("aria-label", label);
+          path.setAttribute("aria-pressed", row.id === selected ? "true" : "false");
+        } else {
+          path.setAttribute("fill", "#f8fafc");
+          path.setAttribute("stroke", "#cbd5e1");
+          path.setAttribute("stroke-width", "1");
+        }
+        svg.appendChild(path);
       }
-      svg.appendChild(path);
-    });
+      if (shapeAt < shapes.length) (window.requestAnimationFrame || window.setTimeout)(drawShapeChunk);
+    }
+    drawShapeChunk();
     function open(id) {
       selected = id || "";
       svg.querySelectorAll(".dalert-dist").forEach(function (n) {
@@ -481,6 +489,31 @@
     document.querySelectorAll(".dalert-dist").forEach(function (n) { n.setAttribute("aria-pressed", "false"); });
   });
   if (window.__addLangHook) window.__addLangHook(function () { selected = ""; paintAll(); });
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
-  else boot();
+  function start() {
+    if (start._done || start._watching) return;
+    var node = document.querySelector("[data-district-alerts]");
+    if (!node) return;
+    start._watching = true;
+    function go() {
+      if (start._done) return;
+      start._done = true;
+      boot();
+    }
+    if (typeof IntersectionObserver !== "function") {
+      window.setTimeout(go, 400);
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!entries[i].isIntersecting) continue;
+        io.disconnect();
+        go();
+        return;
+      }
+    }, { rootMargin: "80px 0px", threshold: 0.01 });
+    io.observe(node);
+  }
+  document.addEventListener("wx-rendered", start);
+  if (document.readyState === "complete") start();
+  else window.addEventListener("load", start);
 })();
