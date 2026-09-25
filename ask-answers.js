@@ -241,8 +241,13 @@
     ]),
     roads: follow([
       { ne: "पासाङ ल्हामु राजमार्ग खुल्यो?", en: "Is the Pasang Lhamu highway open?" },
-      { ne: "अरनिको राजमार्गको अवस्था?", en: "What about the Araniko highway?" },
+      { ne: "राति कुन सडक बन्द छ?", en: "Which roads are closed at night?" },
       { ne: "आजको मौसम के छ?", en: "What is today’s weather?" }
+    ]),
+    roads_night: follow([
+      { ne: "रसुवाको बाटो खुल्यो?", en: "Is the Rasuwa road open?" },
+      { ne: "पृथ्वी राजमार्ग खुला छ?", en: "Is the Prithvi highway open?" },
+      { ne: "सडक अहिले कस्तो छ?", en: "What is the road status?" }
     ]),
     roads_nh42: follow([
       { ne: "सडक अहिले कस्तो छ?", en: "What is the road status?" },
@@ -522,6 +527,11 @@
     if (cityRow && (weather || tempWord)) {
       spec.city = cityRow.id;
       spec.intent = "weather_city";
+      return finishSpec(spec);
+    }
+    var nightQ = hit(q, ["at night", "overnight", "night ban", "night", "raati", "ratima", "राति", "रातमा", "रातिको", "रातको समय"]);
+    if ((road || spec.district) && nightQ && !weather) {
+      spec.intent = "roads_night";
       return finishSpec(spec);
     }
     var roadish = road || place || (spec.district && hit(q, ["open", "khula", "khulla", "खुला", "blocked", "closure"]));
@@ -1166,6 +1176,155 @@
     }
     return lead + " सडक विभागको NAVIGATE मा " + (road.ref || "") + (section ? " (" + section + ")" : "") + " " + statusWord(road.status, lang) + " छ" + (dorWhen ? ", " + dorWhen + " सम्म।" : "।");
   }
+  function policeDoc(ctx) {
+    return ctx && ctx.police && ctx.police.rows && ctx.police.rows.length ? ctx.police : null;
+  }
+  function policeWhen(doc, lang) {
+    var as = doc.as_of || {};
+    return lang === "en" ? (as.en || "") : (as.ne || as.en || "");
+  }
+  function policeHay(row) {
+    var bits = [row.highway_en, row.highway_ne, row.location_en, row.location_ne];
+    if (row.district) bits.push(row.district.en, row.district.ne, row.district.id);
+    if (row.aliases) bits = bits.concat(row.aliases);
+    return norm(bits.join(" "));
+  }
+  function policeMatch(spec, doc) {
+    var rows = doc.rows || [];
+    var q = norm(spec.raw || "");
+    var hits = [];
+    function add(r) { if (r && hits.indexOf(r) < 0) hits.push(r); }
+    if (spec.intent === "roads_nh42" || /pasang|lhamu|पासाङ|ल्हामु/.test(q)) {
+      rows.forEach(function (r) { if (r.id === "nuwakot-simtar") add(r); });
+    }
+    rows.forEach(function (r) {
+      var aliases = r.aliases || [];
+      for (var i = 0; i < aliases.length; i++) {
+        var a = norm(aliases[i]);
+        if (a && a.length > 2 && q.indexOf(a) >= 0) add(r);
+      }
+    });
+    if (!hits.length && spec.district) {
+      rows.forEach(function (r) { if (r.district && r.district.id === spec.district) add(r); });
+    }
+    if (!hits.length && spec.province) {
+      rows.forEach(function (r) {
+        if ((r.province && r.province.id === spec.province) || r.group === spec.province) add(r);
+      });
+    }
+    return hits;
+  }
+  function policeSpan(untilEn, untilNe, lang) {
+    var u = lang === "en" ? (untilEn || "") : (untilNe || "");
+    if (!u || /^until further/i.test(u)) {
+      return lang === "en" ? "until further notice" : "अर्को सूचना नभएसम्म";
+    }
+    return u;
+  }
+  function policeNightName(r, lang) {
+    if (lang !== "en") return r.district.ne;
+    if (r.district.en === "Kavrepalanchok") return "Kavre";
+    if (r.district.en === "Nawalparasi East") return "Nawalparasi E";
+    return r.district.en;
+  }
+  function policeDetail(rows, lang, doc) {
+    var when = policeWhen(doc, lang);
+    var bits = rows.slice(0, 3).map(function (r) {
+      var dist = lang === "en" ? r.district.en : r.district.ne;
+      var hwy = lang === "en" ? r.highway_en : r.highway_ne;
+      if (r.prominent) {
+        return lang === "en"
+          ? "Rasuwa's main highways have been fully blocked since 2083/05/10 10:30, until further notice"
+          : "रसुवाका मुख्य राजमार्ग २०८३/०५/१० १०:३० देखि अर्को सूचना नभएसम्म पूर्ण रूपमा अवरोध छन्";
+      }
+      if (r.status_type === "night_ban") {
+        var win = digits((r.night_start || "") + "–" + (r.night_end || ""), lang);
+        var until = policeSpan(r.valid_until_en, r.valid_until_ne, lang);
+        return lang === "en"
+          ? (dist + " · " + hwy + " is barred at night " + win + " (" + until + ")")
+          : (dist + " · " + hwy + " राति " + win + " बन्द (" + until + ")");
+      }
+      if (r.status_type === "one_way") {
+        return lang === "en" ? (dist + " · " + hwy + " is open one way") : (dist + " · " + hwy + " एकतर्फी सुचारु छ");
+      }
+      if (r.status_type === "restricted") {
+        return lang === "en"
+          ? (dist + " · " + hwy + ": small vehicles and motorbikes pass, large vehicles do not")
+          : (dist + " · " + hwy + ": साना सवारी र मोटरसाइकल पास, ठूला सवारी होइन");
+      }
+      var untilF = policeSpan(r.valid_until_en, r.valid_until_ne, lang);
+      return lang === "en"
+        ? (dist + " · " + hwy + " is fully blocked (" + untilF + ")")
+        : (dist + " · " + hwy + " पूर्ण अवरोध (" + untilF + ")");
+    });
+    var lead = lang === "en" ? ("Nepal Police, " + when + ": ") : ("नेपाल प्रहरी, " + when + ": ");
+    var text = lead + bits.join(lang === "en" ? ". " : "। ");
+    if (lang === "en" && !/\.$/.test(text)) text += ".";
+    if (lang === "ne" && !/।$/.test(text)) text += "।";
+    if (rows.length > 3) {
+      text += lang === "en"
+        ? (" " + (rows.length - 3) + " more are on the road board.")
+        : (" थप " + digits(rows.length - 3, "ne") + " सडक बोर्डमा।");
+    }
+    return text;
+  }
+  function policeNight(doc, spec, lang) {
+    var rows = (doc.rows || []).filter(function (r) { return r.status_type === "night_ban"; });
+    if (spec.district) rows = rows.filter(function (r) { return r.district && r.district.id === spec.district; });
+    var when = policeWhen(doc, lang);
+    if (!rows.length) {
+      return lang === "en"
+        ? ("Nepal Police at " + when + " does not list a night ban there.")
+        : ("नेपाल प्रहरीको " + when + " सूचनामा त्यहाँ रात्रिकालीन रोक छैन।");
+    }
+    var groups = [];
+    rows.forEach(function (r) {
+      var key = (r.night_start || "") + "-" + (r.night_end || "") + "|" + (r.valid_until_en || "further");
+      var g = null;
+      for (var i = 0; i < groups.length; i++) if (groups[i].key === key) g = groups[i];
+      if (!g) {
+        g = { key: key, start: r.night_start, end: r.night_end, until_en: r.valid_until_en, until_ne: r.valid_until_ne, en: [], ne: [] };
+        groups.push(g);
+      }
+      var en = policeNightName(r, "en");
+      if (g.en.indexOf(en) < 0) g.en.push(en);
+      if (g.ne.indexOf(r.district.ne) < 0) g.ne.push(r.district.ne);
+    });
+    function hour(hhmm) {
+      var s = String(hhmm || "");
+      var m = s.match(/^(\d+):00$/);
+      if (!m) return s;
+      return m[1].length < 2 ? ("0" + m[1]) : m[1];
+    }
+    function tag(g) {
+      var span = policeSpan(g.until_en, g.until_ne, lang);
+      if (lang === "en") return /^until further/i.test(span) ? "open-ended" : ("to " + span);
+      return span === "अर्को सूचना नभएसम्म" ? "थप सूचनासम्म" : span;
+    }
+    var parts = groups.map(function (g) {
+      var win = digits(hour(g.start) + "–" + hour(g.end), lang);
+      var names = lang === "en" ? g.en.join(", ") : g.ne.join(", ");
+      return win + " " + tag(g) + ": " + names;
+    });
+    var n = rows.length;
+    if (lang === "en") {
+      return "Nepal Police, " + when + ": " + n + " night " + (n === 1 ? "ban" : "bans") + " — " + parts.join("; ") + ".";
+    }
+    return "नेपाल प्रहरी, " + when + ": रात रोक " + digits(n, "ne") + " — " + parts.join("; ") + "।";
+  }
+  function policeOverview(doc, lang) {
+    var c = doc.counts || {};
+    var when = policeWhen(doc, lang);
+    if (lang === "en") {
+      return "Nepal Police at " + when + ": " + c.total + " obstructions, " + c.full_block + " fully blocked, " +
+        c.night_ban + " night bans, " + c.one_way + " one-way and " + c.restricted + " restricted, in " +
+        c.districts + " districts. Rasuwa's main highways are fully blocked until further notice. The earlier NDRRMA notice still lists main roads closed in 25 districts.";
+    }
+    return "नेपाल प्रहरी, " + when + ": " + digits(c.total, "ne") + " अवरोध, " + digits(c.full_block, "ne") +
+      " पूर्ण अवरोध, " + digits(c.night_ban, "ne") + " रात्रिकालीन रोक, " + digits(c.one_way, "ne") +
+      " एकतर्फी र " + digits(c.restricted, "ne") + " सीमित, " + digits(c.districts, "ne") +
+      " जिल्लामा। रसुवाका मुख्य राजमार्ग अर्को सूचना नभएसम्म पूर्ण अवरोध छन्। यसअघिको NDRRMA सूचनामा २५ जिल्ला छन्।";
+  }
   function answerRoads(spec, ctx) {
     var lang = ctx.lang === "en" ? "en" : "ne";
     var data = ctx.roads;
@@ -1174,6 +1333,20 @@
       ? [{ href: "notices.html#dor-map", label: lang === "en" ? "Road map" : "सडक नक्सा" }]
       : [];
     var fu = FOLLOW[spec.intent] || FOLLOW.roads;
+    if (!data && !policeDoc(ctx)) return pack(lang, missingText(lang), "", href, { followups: fu, links: mapLink });
+    var pol = policeDoc(ctx);
+    if (pol && spec.intent === "roads_night") {
+      var srcNight = sourceLine(lang, lang === "en" ? "Nepal Police" : "नेपाल प्रहरी", policeWhen(pol, lang));
+      return pack(lang, policeNight(pol, spec, lang), srcNight, href, { followups: FOLLOW.roads_night || FOLLOW.roads, links: mapLink });
+    }
+    if (pol) {
+      var hits = policeMatch(spec, pol);
+      var specific = hits.length && (spec.district || spec.province || spec.intent === "roads_nh42" || spec.intent === "roads_place" || spec.intent === "roads_code" || /pasang|lhamu|prithvi|highway|राजमार्ग|राजमार्ग|सडक|बाटो|पृथ्वी|कान्ति|मेची|तमोर|महेन्द्र|कालीगण्डकी|राप्ती|तोखा|मुग्लिन/.test(norm(spec.raw || "")));
+      if (specific && spec.intent !== "map" && spec.meta !== "source") {
+        var srcHit = sourceLine(lang, lang === "en" ? "Nepal Police" : "नेपाल प्रहरी", policeWhen(pol, lang));
+        return pack(lang, policeDetail(hits, lang, pol), srcHit, href, { followups: fu, links: mapLink });
+      }
+    }
     if (!data) return pack(lang, missingText(lang), "", href, { followups: fu, links: mapLink });
     var notice = daoNotice(data);
     var when = asOfShort(data, lang);
@@ -1182,7 +1355,11 @@
     var src = sourceLine(lang, srcName, srcWhen);
     if (spec.meta === "source") {
       var srcAns;
-      if (notice) {
+      if (pol) {
+        srcAns = lang === "en"
+          ? "The latest road update is the Nepal Police highway notice of " + policeWhen(pol, "en") + "."
+          : "पछिल्लो सडक अपडेट नेपाल प्रहरीको " + policeWhen(pol, "ne") + " राजमार्ग सूचना हो।";
+      } else if (notice) {
         srcAns = lang === "en"
           ? "The latest road notice is the NDRRMA post of " + daoWhen(notice, "en") + ", drawn from District Administration Office notices."
           : "पछिल्लो सडक सूचना " + daoWhen(notice, "ne") + " को NDRRMA पोस्ट हो, जिल्ला प्रशासन कार्यालयका सूचनाबाट।";
@@ -1208,6 +1385,10 @@
           : "सडक नक्सा सूचना पानामा छ" + (pri ? "। " + (pri.ref || "NH42") + (sec ? " (" + sec + ")" : "") + " " + statusWord(pri.status, lang) + " देखाइएको छ।" : "।");
       }
       return pack(lang, mapText, src, href, { followups: FOLLOW.map });
+    }
+    if (pol && spec.intent === "roads" && !spec.district && !spec.province && spec.meta !== "source") {
+      var srcPol = sourceLine(lang, lang === "en" ? "Nepal Police" : "नेपाल प्रहरी", policeWhen(pol, lang));
+      return pack(lang, policeOverview(pol, lang), srcPol, href, { followups: FOLLOW.roads, links: mapLink });
     }
     if (notice && spec.intent === "roads") {
       var daoText = spec.district ? daoDistrictText(notice, spec, data, lang) : daoListText(notice, lang, spec.province);

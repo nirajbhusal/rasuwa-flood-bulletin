@@ -10,6 +10,9 @@
   var liveState = "idle";
   var VER = window.PAGE_VER || "2026-09-25-map-boards";
   var showDistricts = true;
+  var police = null;
+  var policeFilter = "";
+  var policeNowTimer = 0;
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
 
@@ -978,12 +981,580 @@
     var liveKey = data.live.failed ? "live_fail" : "live_diff";
     return el("p", "dor-live", tx(data.ui[liveKey]));
   }
+  var PR_TONE = { full_block: "#c41e3a", night_ban: "#312e81", one_way: "#d97706", restricted: "#ca8a04" };
+  var PR_RANK = { full_block: 4, night_ban: 3, restricted: 2, one_way: 1 };
+  function prShort(type) {
+    var map = {
+      full_block: { ne: "पूर्ण अवरोध", en: "Full block" },
+      night_ban: { ne: "रात्रिकालीन रोक", en: "Night ban" },
+      one_way: { ne: "एकतर्फी", en: "One way" },
+      restricted: { ne: "सीमित", en: "Restricted" }
+    };
+    return tx(map[type] || { ne: type, en: type });
+  }
+  function prNowWord(state) {
+    var map = {
+      closed: { ne: "अहिले बन्द", en: "Closed now" },
+      open: { ne: "अहिले खुला", en: "Open now" },
+      one_way: { ne: "अहिले एकतर्फी", en: "One way now" },
+      restricted: { ne: "अहिले सीमित", en: "Restricted now" }
+    };
+    return state && map[state] ? tx(map[state]) : "";
+  }
+  function prMinutes(hhmm) {
+    var m = String(hhmm || "").match(/^(\d{1,2}):(\d{2})$/);
+    if (!m) return null;
+    return parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
+  }
+  function nptParts(date) {
+    var d = date || new Date();
+    var bag = { year: "", month: "", day: "", hour: "", minute: "" };
+    try {
+      new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Asia/Kathmandu",
+        year: "numeric", month: "2-digit", day: "2-digit",
+        hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+      }).formatToParts(d).forEach(function (p) {
+        if (bag[p.type] != null) bag[p.type] = p.value;
+      });
+    } catch (e) {}
+    var minutes = (parseInt(bag.hour, 10) || 0) * 60 + (parseInt(bag.minute, 10) || 0);
+    return { minutes: minutes, iso: d.toISOString() };
+  }
+  function prInWindow(row, minutes) {
+    var s = prMinutes(row.night_start);
+    var e = prMinutes(row.night_end);
+    if (s == null || e == null) return false;
+    if (s === e) return false;
+    if (s < e) return minutes >= s && minutes < e;
+    return minutes >= s || minutes < e;
+  }
+  function prExpired(row, now) {
+    if (!row.valid_until_iso) return false;
+    var end = new Date(row.valid_until_iso);
+    if (isNaN(end.getTime())) return false;
+    return now.getTime() > end.getTime();
+  }
+  function prState(row, now) {
+    now = now || new Date();
+    if (prExpired(row, now)) return "";
+    if (row.closed_iso) {
+      var start = new Date(row.closed_iso);
+      if (!isNaN(start.getTime()) && now.getTime() < start.getTime()) return "";
+    }
+    if (row.status_type === "full_block") return "closed";
+    if (row.status_type === "one_way") return "one_way";
+    if (row.status_type === "restricted") return "restricted";
+    if (row.status_type === "night_ban") {
+      var parts = nptParts(now);
+      return prInWindow(row, parts.minutes) ? "closed" : "open";
+    }
+    return "";
+  }
+  function prCauseIcon(kind) {
+    var paths = {
+      flood: '<path d="M4 14c1.5-2 2.2-2 3.5 0s2 2 3.5 0 2-2 3.5 0 2 2 3.5 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 18c1.5-2 2.2-2 3.5 0s2 2 3.5 0 2-2 3.5 0 2 2 3.5 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+      landslide: '<path d="M3 18h18L14 8l-3.2 4.2L8 10z" fill="currentColor"/><path d="M16 6.2 17.4 4l1.6 2.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+      rain: '<path d="M7 15c0-2.5 2-4 5-4s5 1.5 5 4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 17.5v2.2M12 17.5v2.2M15 17.5v2.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>',
+      risk: '<path d="M12 4.2 20 19H4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 10v4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="16.4" r=".8" fill="currentColor"/>',
+      flood_landslide: '<path d="M3 16.5h10L9.2 9.5 7 12.2 5.2 10.6z" fill="currentColor"/><path d="M13 15.5c1.2-1.6 1.8-1.6 3 0s1.6 1.6 3 0 1.6-1.6 3 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>'
+    };
+    var d = paths[kind] || paths.risk;
+    return '<svg class="pr-cause-ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">' + d + '</svg>';
+  }
+  function prMoon() {
+    return '<svg class="pr-moon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M15.2 3.2a8.2 8.2 0 1 0 5.6 12.6A7 7 0 0 1 15.2 3.2z"/></svg>';
+  }
+  function prRow(id) {
+    var list = (police && police.rows) || [];
+    for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
+    return null;
+  }
+  function prRowsFor(districtId) {
+    return ((police && police.rows) || []).filter(function (r) { return r.district && r.district.id === districtId; });
+  }
+  function prWorst(list) {
+    var best = list[0];
+    list.forEach(function (r) {
+      if ((PR_RANK[r.status_type] || 0) > (PR_RANK[best.status_type] || 0)) best = r;
+    });
+    return best;
+  }
+  function prGroupOn(groupId) {
+    return !policeFilter || policeFilter === groupId;
+  }
+  function paintPoliceNow() {
+    document.querySelectorAll("[data-pr-now]").forEach(function (node) {
+      var row = prRow(node.getAttribute("data-pr-now"));
+      if (!row) return;
+      var state = prState(row);
+      node.className = "pr-now" + (state ? " is-" + state : "");
+      node.textContent = prNowWord(state);
+      node.hidden = !state;
+    });
+  }
+  function prHourBar(row) {
+    if (row.status_type !== "night_ban") return null;
+    var s = prMinutes(row.night_start);
+    var e = prMinutes(row.night_end);
+    if (s == null || e == null) return null;
+    var bar = el("div", "pr-hours");
+    bar.setAttribute("aria-hidden", "true");
+    function seg(left, width) {
+      var i = document.createElement("i");
+      i.style.left = left + "%";
+      i.style.width = Math.max(0, width) + "%";
+      bar.appendChild(i);
+    }
+    var sp = (s / 1440) * 100;
+    var ep = (e / 1440) * 100;
+    if (s < e) seg(sp, ep - sp);
+    else { seg(sp, 100 - sp); seg(0, ep); }
+    return bar;
+  }
+  function prCard(row, extra) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "pr-card pr-st-" + row.status_type + (row.prominent ? " is-rasuwa" : "") + (extra || "");
+    b.setAttribute("data-pr-id", row.id);
+    b.setAttribute("data-district", row.district.id);
+    var top = el("span", "pr-card-top");
+    var hwy = el("strong", "pr-hwy", lang() === "en" ? row.highway_en : row.highway_ne);
+    top.appendChild(hwy);
+    var badge = el("span", "pr-badge pr-badge-" + row.status_type, prShort(row.status_type));
+    if (row.status_type === "night_ban") badge.insertAdjacentHTML("afterbegin", prMoon());
+    top.appendChild(badge);
+    b.appendChild(top);
+    var now = el("span", "pr-now");
+    now.setAttribute("data-pr-now", row.id);
+    b.appendChild(now);
+    var place = el("span", "pr-loc");
+    var dname = lang() === "en" ? row.district.en : row.district.ne;
+    var loc = lang() === "en" ? row.location_en : row.location_ne;
+    place.textContent = dname + " · " + loc;
+    b.appendChild(place);
+    var cause = el("span", "pr-cause");
+    cause.insertAdjacentHTML("beforeend", prCauseIcon(row.cause_kind));
+    cause.appendChild(document.createTextNode(lang() === "en" ? row.cause_en : row.cause_ne));
+    b.appendChild(cause);
+    var since = el("span", "pr-since");
+    var when = (row.closed_date || "") + (row.closed_time ? " " + row.closed_time : "");
+    since.textContent = lang() === "en" ? ("Since " + when) : (when + " देखि");
+    b.appendChild(since);
+    var until = row[lang() === "en" ? "valid_until_en" : "valid_until_ne"];
+    if (until) b.appendChild(el("span", "pr-until", until));
+    var hours = prHourBar(row);
+    if (hours) b.appendChild(hours);
+    b.addEventListener("click", function () { focusPolice(row.district.id, row.id); });
+    return b;
+  }
+  function prPopupHtml(rows) {
+    var bits = rows.map(function (r) {
+      var name = lang() === "en" ? r.highway_en : r.highway_ne;
+      var place = lang() === "en" ? r.location_en : r.location_ne;
+      return '<div class="map-pop pr-pop"><strong class="map-pop-name">' + esc(name) + '</strong><span class="map-lv pr-lv-' + r.status_type + '">' + esc(prShort(r.status_type)) + '</span><span class="map-pop-fig">' + esc(place) + '</span></div>';
+    });
+    return bits.join("");
+  }
+  function focusPolice(districtId, rowId) {
+    mapInstances.forEach(function (map) {
+      if (!map._prById) return;
+      var layer = map._prById[districtId];
+      if (layer) {
+        try {
+          var b = layer.getBounds();
+          if (b && b.isValid()) map.fitBounds(b, { padding: [28, 28], maxZoom: 9, animate: true });
+        } catch (e) {}
+        try { layer.openPopup(); } catch (e2) {}
+      }
+      (map._prMarkers || []).forEach(function (m) {
+        if (rowId && m._rowId === rowId) {
+          try { m.openPopup(); } catch (e3) {}
+        }
+      });
+    });
+    document.querySelectorAll(".pr-card").forEach(function (c) {
+      c.classList.toggle("is-on", c.getAttribute("data-pr-id") === rowId);
+    });
+  }
+  function setPoliceFilter(id) {
+    policeFilter = id || "";
+    document.querySelectorAll(".pr-tile").forEach(function (b) {
+      var on = (b.getAttribute("data-group") || "") === policeFilter;
+      b.classList.toggle("is-on", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    document.querySelectorAll(".pr-group").forEach(function (g) {
+      g.hidden = !prGroupOn(g.getAttribute("data-group"));
+    });
+    document.querySelectorAll(".pr-pin").forEach(function (pin) {
+      var row = prRow(pin.getAttribute("data-pr-id"));
+      pin.hidden = !(row && prGroupOn(row.group));
+    });
+    mapInstances.forEach(function (map) {
+      if (typeof map._applyPoliceFilter === "function") map._applyPoliceFilter(policeFilter);
+    });
+  }
+  function renderPolice(board, mode) {
+    var shell = el("section", "pr-board");
+    shell.id = mode === "home" ? "pr-home" : "pr-roads";
+    var kick = el("p", "pr-kicker");
+    kick.textContent = lang() === "en" ? "Nepal Police" : "नेपाल प्रहरी";
+    shell.appendChild(kick);
+    shell.appendChild(el("h2", "pr-title", lang() === "en" ? police.title.en : police.title.ne));
+    shell.appendChild(el("p", "pr-asof", lang() === "en" ? police.as_of.en : police.as_of.ne));
+    var counts = police.counts || {};
+    var sum = el("ul", "pr-sum");
+    [
+      ["total", { ne: "अवरोध", en: "Obstructions" }, "pr-sum-all"],
+      ["full_block", { ne: "पूर्ण अवरोध", en: "Full blocks" }, "pr-sum-full"],
+      ["night_ban", { ne: "रात्रिकालीन", en: "Night bans" }, "pr-sum-night"],
+      ["one_way", { ne: "एकतर्फी", en: "One way" }, "pr-sum-one"],
+      ["restricted", { ne: "सीमित", en: "Restricted" }, "pr-sum-rest"],
+      ["districts", { ne: "जिल्ला", en: "Districts" }, "pr-sum-dist"],
+      ["provinces", { ne: "प्रदेश", en: "Provinces" }, "pr-sum-prov"]
+    ].forEach(function (item) {
+      var li = el("li", "pr-stat " + item[2]);
+      li.appendChild(el("strong", "pr-stat-n", num(counts[item[0]] || 0)));
+      li.appendChild(el("span", "pr-stat-k", tx(item[1])));
+      sum.appendChild(li);
+    });
+    shell.appendChild(sum);
+    var pinHost = el("div", "pr-pin");
+    var ras = prRow("rasuwa-highways");
+    if (ras) {
+      pinHost.appendChild(prCard(ras, ""));
+      pinHost.setAttribute("data-pr-id", ras.id);
+      pinHost.id = "pr-rasuwa";
+      pinHost.hidden = !prGroupOn(ras.group);
+    }
+    shell.appendChild(pinHost);
+    var legend = el("ul", "pr-legend");
+    [
+      ["full_block", false],
+      ["night_ban", true],
+      ["one_way", false],
+      ["restricted", false]
+    ].forEach(function (item) {
+      var li = el("li", "pr-leg pr-leg-" + item[0]);
+      var sw = el("i");
+      if (item[1]) sw.insertAdjacentHTML("beforeend", prMoon());
+      li.appendChild(sw);
+      li.appendChild(document.createTextNode(prShort(item[0])));
+      legend.appendChild(li);
+    });
+    shell.appendChild(legend);
+    var tiles = el("div", "pr-tiles");
+    tiles.setAttribute("role", "group");
+    tiles.setAttribute("aria-label", lang() === "en" ? "Provinces" : "प्रदेश");
+    function tile(id, count, label) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "pr-tile" + (policeFilter === id ? " is-on" : "");
+      b.setAttribute("data-group", id);
+      b.setAttribute("aria-pressed", policeFilter === id ? "true" : "false");
+      b.appendChild(el("span", "pr-tile-n", num(count)));
+      b.appendChild(el("span", "pr-tile-k", label));
+      b.addEventListener("click", function () { setPoliceFilter(id); });
+      tiles.appendChild(b);
+    }
+    tile("", counts.total || 0, lang() === "en" ? "All" : "सबै");
+    (police.groups || []).forEach(function (g) {
+      var n = (police.rows || []).filter(function (r) { return r.group === g.id; }).length;
+      tile(g.id, n, lang() === "en" ? g.en : g.ne);
+    });
+    shell.appendChild(tiles);
+    var grid = el("div", "pr-grid");
+    var slot = el("div", "pr-mapslot");
+    grid.appendChild(slot);
+    var side = el("div", "pr-side");
+    (police.groups || []).forEach(function (g) {
+      var block = el("section", "pr-group");
+      block.setAttribute("data-group", g.id);
+      block.hidden = !prGroupOn(g.id);
+      var items = (police.rows || []).filter(function (r) { return r.group === g.id; });
+      var h = el("h3", "pr-gh");
+      h.appendChild(document.createTextNode(lang() === "en" ? g.en : g.ne));
+      h.appendChild(el("span", "pr-gn", " " + num(items.length)));
+      block.appendChild(h);
+      items.forEach(function (r) { block.appendChild(prCard(r)); });
+      side.appendChild(block);
+    });
+    grid.appendChild(side);
+    shell.appendChild(grid);
+    var src = el("p", "pr-src");
+    if (police.source && police.source.url) {
+      var a = document.createElement("a");
+      a.href = police.source.url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = lang() === "en" ? police.source.name.en : police.source.name.ne;
+      src.appendChild(a);
+    }
+    shell.appendChild(src);
+    board.appendChild(shell);
+    board._policeSlot = slot;
+    paintPoliceNow();
+    if (!policeNowTimer) policeNowTimer = window.setInterval(paintPoliceNow, 30000);
+  }
+  function schedulePoliceMap(board, mode) {
+    var host = el("div", "pr-map-host");
+    if (board._policeSlot) board._policeSlot.appendChild(host);
+    else return;
+    function start() {
+      if (!host.isConnected || host._mounted) return;
+      host._mounted = true;
+      ensureLeaflet(function () {
+        if (!host.isConnected || !window.L) return;
+        mountPoliceMap(host, mode);
+      });
+    }
+    if (typeof IntersectionObserver !== "function") { afterPaint(start); return; }
+    var hash = "";
+    try { hash = location.hash || ""; } catch (e) {}
+    if (hash === "#roads" || hash === "#pr-home" || hash === "#pr-roads" || hash === "#pr-rasuwa") {
+      afterPaint(start);
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!entries[i].isIntersecting) continue;
+        io.disconnect();
+        start();
+        return;
+      }
+    }, { rootMargin: "480px 0px", threshold: 0.01 });
+    io.observe(host);
+  }
+  function mountPoliceMap(host, mode) {
+    var box = el("div", "dor-map pr-map" + (mode === "section" ? " is-tall" : ""));
+    box.setAttribute("role", "region");
+    box.setAttribute("aria-label", lang() === "en" ? police.title.en : police.title.ne);
+    host.appendChild(box);
+    var token = mapGen;
+    var nationalBounds = window.L.latLngBounds([[26.35, 80.05], [30.45, 88.2]]);
+    var nepalMax = window.L.latLngBounds([[25.5, 79.2], [31.05, 88.95]]);
+    var map = window.L.map(box, {
+      scrollWheelZoom: false,
+      dragging: true,
+      touchZoom: true,
+      tap: true,
+      zoomControl: false,
+      attributionControl: true,
+      maxBounds: nepalMax,
+      maxBoundsViscosity: 0.85,
+      minZoom: 6,
+      zoomSnap: 0.25,
+      zoomDelta: 0.5
+    });
+    mapInstances.push(map);
+    map._prById = {};
+    map._prMarkers = [];
+    map.setView([28.25, 84.12], 7);
+    var userMoved = false;
+    map.on("dragstart", function () { userMoved = true; });
+    map.on("zoomstart", function (ev) { if (ev && ev.originalEvent) userMoved = true; });
+    box.tabIndex = 0;
+    function armWheel() { try { map.scrollWheelZoom.enable(); } catch (e) {} }
+    function disarmWheel() { try { map.scrollWheelZoom.disable(); } catch (e) {} }
+    box.addEventListener("focusin", armWheel);
+    box.addEventListener("pointerdown", function (ev) {
+      if (ev.target && ev.target.closest && ev.target.closest(".map-ctl")) return;
+      armWheel();
+    });
+    box.addEventListener("focusout", function (ev) {
+      if (!box.contains(ev.relatedTarget)) disarmWheel();
+    });
+    var blankTile = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+    var tileErrors = 0;
+    var tiles = window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      subdomains: "abc",
+      maxZoom: 19,
+      errorTileUrl: blankTile
+    });
+    tiles.on("tileerror", function () {
+      tileErrors += 1;
+      if (tileErrors >= 4) {
+        try { map.removeLayer(tiles); } catch (e) {}
+        box.classList.add("is-plain");
+      }
+    });
+    tiles.addTo(map);
+    if (window.L.control) {
+      var chrome = window.L.control({ position: "topright" });
+      chrome.onAdd = function () {
+        var bar = window.L.DomUtil.create("div", "map-ctl");
+        function zbtn(key, fb, icon, delta) {
+          var b = window.L.DomUtil.create("button", "map-ctl-btn", bar);
+          b.type = "button";
+          b.setAttribute("aria-label", label(key, fb));
+          b.innerHTML = mapIcon(icon);
+          window.L.DomEvent.on(b, "click", function (ev) {
+            window.L.DomEvent.stop(ev);
+            userMoved = true;
+            map.setZoom(map.getZoom() + delta);
+          });
+        }
+        zbtn("map_zoom_in", lang() === "en" ? "Zoom in" : "ठूलो पार्नुहोस्", "plus", 1);
+        zbtn("map_zoom_out", lang() === "en" ? "Zoom out" : "सानो पार्नुहोस्", "minus", -1);
+        bar.appendChild(bindFullscreen(box, function () {
+          userMoved = false;
+          if (map._applyPoliceFilter) map._applyPoliceFilter(policeFilter);
+        }));
+        window.L.DomEvent.disableClickPropagation(bar);
+        window.L.DomEvent.disableScrollPropagation(bar);
+        return bar;
+      };
+      chrome.addTo(map);
+    }
+    function tone(type) { return PR_TONE[type] || "#c41e3a"; }
+    function addPoint(row) {
+      if (!row.point || !row.point.certain) return;
+      var marker = window.L.marker([row.point.lat, row.point.lng], {
+        icon: window.L.divIcon({
+          className: "leaflet-div-icon pr-dot pr-dot-" + row.status_type + (row.prominent ? " is-rasuwa" : ""),
+          html: "<span></span>",
+          iconSize: row.prominent ? [18, 18] : [14, 14],
+          iconAnchor: row.prominent ? [9, 9] : [7, 7]
+        }),
+        keyboard: true,
+        zIndexOffset: row.prominent ? 500 : 200
+      });
+      marker._rowId = row.id;
+      marker._group = row.group;
+      marker._district = row.district.id;
+      marker.bindPopup(prPopupHtml([row]), { closeButton: true, autoPan: true, maxWidth: 280, className: "map-card-pop" });
+      marker.on("click", function () {
+        document.querySelectorAll(".pr-card").forEach(function (c) {
+          c.classList.toggle("is-on", c.getAttribute("data-pr-id") === row.id);
+        });
+      });
+      marker.addTo(map);
+      map._prMarkers.push(marker);
+    }
+    (police.rows || []).forEach(addPoint);
+    var lastFrame = "";
+    function fitNational() {
+      if (token !== mapGen || userMoved) return;
+      var rect = box.getBoundingClientRect();
+      if (rect.width < 48 || rect.height < 48) return;
+      try { map.invalidateSize(false); } catch (e) {}
+      var key = Math.round(rect.width) + "x" + Math.round(rect.height);
+      if (key === lastFrame) return;
+      map.fitBounds(nationalBounds, { padding: [16, 16], maxZoom: 10, animate: false });
+      lastFrame = key;
+    }
+    map._applyPoliceFilter = function (gid) {
+      var bounds = null;
+      Object.keys(map._prById || {}).forEach(function (id) {
+        var layer = map._prById[id];
+        var on = !gid || layer._group === gid;
+        var worst = layer._worst;
+        var color = tone(worst);
+        layer.setStyle({
+          color: color,
+          weight: on ? 1.4 : 1,
+          opacity: on ? 0.95 : 0.25,
+          fillColor: color,
+          fillOpacity: on ? 0.5 : 0.06
+        });
+        if (on && gid) {
+          try {
+            var b = layer.getBounds();
+            if (b && b.isValid()) bounds = bounds ? bounds.extend(b) : b;
+          } catch (err) {}
+        }
+      });
+      (map._prMarkers || []).forEach(function (m) {
+        var on = !gid || m._group === gid;
+        if (on && !map.hasLayer(m)) m.addTo(map);
+        if (!on && map.hasLayer(m)) map.removeLayer(m);
+      });
+      try { map.invalidateSize(false); } catch (e2) {}
+      if (gid && bounds && bounds.isValid()) {
+        userMoved = true;
+        map.fitBounds(bounds, { padding: [22, 22], maxZoom: 8, animate: true });
+      } else if (!gid) {
+        userMoved = false;
+        lastFrame = "";
+        fitNational();
+      }
+    };
+    fetch("data/nepal-districts.geojson?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("districts"); return r.json(); })
+      .then(function (geo) {
+        if (token !== mapGen || !window.L) return;
+        var byId = {};
+        (police.rows || []).forEach(function (r) {
+          var id = r.district.id;
+          if (!byId[id]) byId[id] = [];
+          byId[id].push(r);
+        });
+        var features = ((geo && geo.features) || []).filter(function (f) {
+          return f.properties && byId[f.properties.id];
+        });
+        if (!map.getPane("districts")) {
+          map.createPane("districts");
+          map.getPane("districts").style.zIndex = 350;
+        }
+        var layer = window.L.geoJSON({ type: "FeatureCollection", features: features }, {
+          pane: "districts",
+          style: function (feat) {
+            var id = feat.properties.id;
+            var worst = prWorst(byId[id]).status_type;
+            var color = tone(worst);
+            return { color: color, weight: 1.4, opacity: 0.95, fillColor: color, fillOpacity: 0.48 };
+          },
+          onEachFeature: function (feat, poly) {
+            var id = feat.properties.id;
+            var rows = byId[id] || [];
+            poly._group = rows[0] ? rows[0].group : "";
+            poly._worst = prWorst(rows).status_type;
+            poly.bindPopup(prPopupHtml(rows), {
+              closeButton: true, autoPan: true, maxWidth: 280, className: "map-card-pop"
+            });
+            map._prById[id] = poly;
+            poly.on("click", function () {
+              document.querySelectorAll(".pr-card").forEach(function (c) {
+                c.classList.toggle("is-on", c.getAttribute("data-district") === id);
+              });
+            });
+          }
+        }).addTo(map);
+        map._prLayer = layer;
+        if (policeFilter && map._applyPoliceFilter) map._applyPoliceFilter(policeFilter);
+        else fitNational();
+      })
+      .catch(function () {});
+    var frameClean = [];
+    function listen(node, type, fn) {
+      node.addEventListener(type, fn);
+      frameClean.push(function () { node.removeEventListener(type, fn); });
+    }
+    function kick() { if (!policeFilter) fitNational(); }
+    listen(window, "resize", kick);
+    listen(window, "orientationchange", kick);
+    if (typeof ResizeObserver === "function") {
+      var ro = new ResizeObserver(function () { kick(); });
+      ro.observe(box);
+      frameClean.push(function () { ro.disconnect(); });
+    }
+    map._unframe = function () {
+      frameClean.forEach(function (fn) { try { fn(); } catch (e) {} });
+    };
+    window.requestAnimationFrame(kick);
+    window.setTimeout(kick, 80);
+    markEntered(box);
+  }
+
   function renderMount(root) {
     var mode = root.getAttribute("data-dor-mode") || "home";
     var ui = data.ui;
     var n = notice();
     root.replaceChildren();
-    var board = el("article", "dor" + (mode === "section" ? " dor-section" : " dor-home") + (n ? " dor-has-dao" : ""));
+    var board = el("article", "dor" + (mode === "section" ? " dor-section" : " dor-home") + (n ? " dor-has-dao" : "") + (police && police.rows ? " dor-has-police" : ""));
+    if (police && police.rows) renderPolice(board, mode);
     if (n) {
       renderDao(board);
     } else {
@@ -997,6 +1568,7 @@
       if (earlyLive) board.appendChild(earlyLive);
     }
     scheduleDorMap(board, mode);
+    if (police && police.rows) schedulePoliceMap(board, mode);
     if (mode === "home") {
       if (!n) board.appendChild(el("p", "dor-also", tx(ui.also)));
       links(board, true);
@@ -1181,10 +1753,15 @@
     afterPaint(checkLive);
   }
   function boot() {
-    fetch("data/roads-dor.json?v=" + encodeURIComponent(VER), { cache: "no-cache" })
-      .then(function (r) { if (!r.ok) throw new Error("roads"); return r.json(); })
-      .then(function (json) {
-        data = json;
+    var roadsP = fetch("data/roads-dor.json?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("roads"); return r.json(); });
+    var policeP = fetch("data/police_roads_2083-06-09.json?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("police"); return r.json(); })
+      .catch(function () { return null; });
+    Promise.all([roadsP, policeP])
+      .then(function (pair) {
+        data = pair[0];
+        police = pair[1];
         renderAll();
         if (!refreshTimer) refreshTimer = window.setInterval(refreshRoads, REFRESH_MS);
         if (window.__addLangHook) window.__addLangHook(renderAll);

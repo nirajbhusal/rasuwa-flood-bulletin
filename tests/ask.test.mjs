@@ -138,6 +138,40 @@ test("fuzzy weather typo still composes a sentence", function () {
   assert.equal(/<[a-z]/i.test(ans.text), false);
 });
 
+test("Nepal Police road notice answers night bans and Rasuwa", function () {
+  const police = JSON.parse(readFileSync(new URL("../data/police_roads_2083-06-09.json", import.meta.url), "utf8"));
+  assert.equal(police.rows.length, 31);
+  assert.equal(police.counts.full_block, 13);
+  assert.equal(police.counts.night_ban, 16);
+  assert.equal(police.counts.one_way, 1);
+  assert.equal(police.counts.restricted, 1);
+  function askPolice(q, lang) {
+    return Ask.answer(q, {
+      lang: lang,
+      now: "2026-09-25",
+      roads: roads,
+      police: police,
+      t: tFor(lang)
+    });
+  }
+  const night = askPolice("which roads are closed at night", "en");
+  assert.equal(night.intent, "roads_night");
+  assert.ok(night.text.length <= 400, night.text.length);
+  ["Solukhumbu", "Bhojpur", "Ilam", "Kavre", "Nuwakot", "Makwanpur", "Sindhuli", "Dolakha", "Sindhupalchok", "Manang", "Kaski", "Mustang", "Parbat", "Myagdi", "Nawalparasi E", "Dang"].forEach(function (name) {
+    assert.ok(night.text.includes(name), name + " missing in " + night.text);
+  });
+  assert.equal(/until Until/.test(night.text), false);
+  const ras = askPolice("Is the Rasuwa road open?", "en");
+  assert.match(ras.text, /fully blocked/);
+  assert.match(ras.text, /2083\/05\/10/);
+  const pasang = askPolice("Is the Pasang Lhamu highway open?", "en");
+  assert.match(pasang.text, /fully blocked/);
+  assert.match(pasang.text, /until further notice/);
+  const still = ask("which districts have roads closed", "en");
+  assert.match(still.text, /Taplejung/);
+  assert.equal(still.text.includes("night bans"), false);
+});
+
 test("NDRRMA road notice answers name the closed districts", function () {
   const roadCases = [
     ["सडक अहिले कस्तो छ?", "ne", { intent: "roads", number: true, has: ["२५", "बन्द", "ताप्लेजुङ", "बैतडी"] }],

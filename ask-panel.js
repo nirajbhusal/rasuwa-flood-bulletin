@@ -380,13 +380,21 @@
       var iso = ktmISO(0);
       today = cache.wx.warning_days.some(function (d) { return d && d.date === iso; });
     }
+    var pRows = cache.police && cache.police.rows;
     var n = cache.roads && cache.roads.dao_notice && cache.roads.dao_notice.counts
       ? cache.roads.dao_notice.counts.districts : null;
-    var roadN = typeof n === "number" ? String(n) : "";
-    if (roadN && !en) roadN = roadN.replace(/[0-9]/g, function (d) { return "०१२३४५६७८९"[d]; });
-    var roadLabel = roadN
-      ? (en ? "Roads closed in " + n + " districts" : roadN + " जिल्लामा सडक बन्द")
-      : (en ? "Roads" : "सडक");
+    var roadLabel;
+    if (pRows && pRows.length) {
+      var pn = String(pRows.length);
+      if (!en) pn = pn.replace(/[0-9]/g, function (d) { return "०१२३४५६७८९"[d]; });
+      roadLabel = en ? (pRows.length + " road obstructions") : (pn + " सडक अवरोध");
+    } else {
+      var roadN = typeof n === "number" ? String(n) : "";
+      if (roadN && !en) roadN = roadN.replace(/[0-9]/g, function (d) { return "०१२३४५६७८९"[d]; });
+      roadLabel = roadN
+        ? (en ? "Roads closed in " + n + " districts" : roadN + " जिल्लामा सडक बन्द")
+        : (en ? "Roads" : "सडक");
+    }
     var rescued = rescuedDisplay();
     return [
       {
@@ -419,6 +427,8 @@
       wx: cache.wx,
       wxnow: cache.now,
       roads: cache.roads,
+      police: cache.police || null,
+      clock: new Date().toISOString(),
       dash: cache.dash,
       gallery: cache.gallery,
       lpg: lpg,
@@ -438,7 +448,7 @@
     if (!spec) return false;
     var f = spec.family || spec.type || "";
     if (f === "weather") return (!cache.wx && !failed.wx) || (!cache.now && !failed.now);
-    if (f === "roads" || f === "map") return !cache.roads && !failed.roads;
+    if (f === "roads" || f === "map") return (!cache.roads && !failed.roads) || (!cache.police && !failed.police);
     if (f === "rescue") return !cache.dash && !failed.dash;
     if (f === "lpg") return !cache.lpg && !failed.lpg;
     if (f === "cause" || f === "gallery") return !cache.gallery && !failed.gallery;
@@ -468,6 +478,7 @@
       getJSON("data/weather-alert.json", "wx"),
       getJSON("data/weather/now.json", "now"),
       getJSON("data/roads-dor.json", "roads"),
+      getJSON("data/police_roads_2083-06-09.json", "police"),
       getJSON("api/dashboard.json", "dash"),
       getJSON("data/gallery-path.json", "gallery"),
       getHTML("supply.html", "lpg", parseSupply),

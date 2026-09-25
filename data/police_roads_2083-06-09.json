@@ -1,0 +1,1439 @@
+{
+  "id": "nepal-police-highways-2083-06-09-1500",
+  "issuer": {
+    "ne": "नेपाल प्रहरी प्रधान कार्यालय",
+    "en": "Nepal Police Headquarters"
+  },
+  "as_of": {
+    "bs": "२०८३/०६/०९",
+    "time": "१५:००",
+    "iso": "2026-09-25T15:00:00+05:45",
+    "ne": "२०८३/०६/०९ १५:०० बजेसम्म",
+    "en": "25 Sep 2026, 15:00 NPT"
+  },
+  "posted": {
+    "iso": "2026-09-25T16:12:00+05:45",
+    "ne": "२५ सेप्टेम्बर २०२६, १६:१२",
+    "en": "25 Sep 2026, 16:12 NPT"
+  },
+  "source": {
+    "name": {
+      "ne": "नेपाल प्रहरी",
+      "en": "Nepal Police"
+    },
+    "url": "https://x.com/NepalPoliceHQ/status/2103431141856518248"
+  },
+  "title": {
+    "ne": "मुख्य राजमार्ग अवरोध",
+    "en": "Main highway obstructions"
+  },
+  "groups": [
+    {
+      "id": "valley",
+      "ne": "उपत्यका",
+      "en": "Valley"
+    },
+    {
+      "id": "koshi",
+      "ne": "कोशी",
+      "en": "Koshi"
+    },
+    {
+      "id": "bagmati",
+      "ne": "बागमती",
+      "en": "Bagmati"
+    },
+    {
+      "id": "gandaki",
+      "ne": "गण्डकी",
+      "en": "Gandaki"
+    },
+    {
+      "id": "lumbini",
+      "ne": "लुम्बिनी",
+      "en": "Lumbini"
+    }
+  ],
+  "counts": {
+    "total": 31,
+    "full_block": 13,
+    "night_ban": 16,
+    "one_way": 1,
+    "restricted": 1,
+    "districts": 24,
+    "provinces": 4
+  },
+  "rows": [
+    {
+      "id": "lalitpur-kantilokpath",
+      "sn": "१",
+      "group": "valley",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "lalitpur",
+        "ne": "ललितपुर",
+        "en": "Lalitpur"
+      },
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/०९",
+      "closed_time": "०६:३०",
+      "closed_iso": "2026-09-25T06:30:00+05:45",
+      "location_ne": "बागमती गा.पा.०३ भट्टेडाडाको पाङदुर, ऐ.ऐ. टाकुर्चे र गोदावरी नगरपालिका ०६ बिर्खधारा",
+      "location_en": "Bagmati GP-3 Bhattedanda Pangdur, Takurche, and Godawari Municipality-6 Birkhadhara",
+      "highway_ne": "कान्तिलोकपथ सडक",
+      "highway_en": "Kantilokpath",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "kantilokpath",
+        "kanti lokpath",
+        "कान्तिलोकपथ",
+        "कान्ति लोकपथ",
+        "godawari",
+        "गोदावरी"
+      ],
+      "flags": [
+        "place reads बिर्खधारा (not बिर्खेधारा); भट्टेडाडाको as printed"
+      ]
+    },
+    {
+      "id": "solukhumbu-siddhicharan",
+      "sn": "१",
+      "group": "koshi",
+      "province": {
+        "id": "koshi",
+        "ne": "कोशी",
+        "en": "Koshi"
+      },
+      "district": {
+        "id": "solukhumbu",
+        "ne": "सोलुखुम्बु",
+        "en": "Solukhumbu"
+      },
+      "cause_ne": "बाढी पहिरोको सम्भावित जोखिम",
+      "cause_en": "Possible flood and landslide risk",
+      "cause_kind": "risk",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "०६:००",
+      "closed_iso": "2026-09-24T06:00:00+05:45",
+      "location_ne": "सोलुखुम्बु जिल्ला भित्र पर्ने सिद्धिचरण लोकमार्ग लगायत अन्य भित्री सडक",
+      "location_en": "Siddhicharan Highway and other inner roads inside Solukhumbu",
+      "highway_ne": "सिद्धिचरण लोकमार्ग",
+      "highway_en": "Siddhicharan Highway",
+      "status_ne": "मिति २०८३/०६/०८ गतेदेखि १२ गतेसम्म भारी वर्षा पूर्व अनुमान रहेको हुनाले बेलुकी ६:०० बजेदेखि बिहान ६:०० बजेसम्मका लागि अत्यावश्यक बाहेकका सम्पूर्ण सवारी साधन तथा पैदल यात्रीहरूको रात्रिकालीन आवतजावतमा पूर्णरूपमा रोक लगाइएको",
+      "status_en": "From 2083/06/08 through the 12th, because heavy rain is expected: from 6:00 in the evening to 6:00 in the morning, all vehicles except essential ones, and pedestrians, are fully barred from moving at night",
+      "status_type": "night_ban",
+      "night_start": "18:00",
+      "night_end": "06:00",
+      "valid_until_bs": "२०८३/०६/१२",
+      "valid_until_iso": "2026-09-28T06:00:00+05:45",
+      "valid_until_ne": "असोज १२",
+      "valid_until_en": "Asoj 12",
+      "aliases": [
+        "siddhicharan",
+        "सिद्धिचरण",
+        "solukhumbu",
+        "सोलुखुम्बु"
+      ],
+      "flags": []
+    },
+    {
+      "id": "panchthar-tamor",
+      "sn": "२",
+      "group": "koshi",
+      "province": {
+        "id": "koshi",
+        "ne": "कोशी",
+        "en": "Koshi"
+      },
+      "district": {
+        "id": "panchthar",
+        "ne": "पाँचथर",
+        "en": "Panchthar"
+      },
+      "cause_ne": "बाढी",
+      "cause_en": "Flood",
+      "cause_kind": "flood",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "०८:०५",
+      "closed_iso": "2026-09-24T08:05:00+05:45",
+      "location_ne": "तुम्बेवा गा.पा.२ नावाखोला",
+      "location_en": "Tumbeba GP-2 Navakhola",
+      "highway_ne": "तमोर-कोरीडोर",
+      "highway_en": "Tamor Corridor",
+      "status_ne": "पूर्ण रूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "tamor",
+        "तमोर",
+        "tamor corridor"
+      ],
+      "flags": [
+        "place name read as तुम्बेवा/तुम्वेवा; recorded तुम्बेवा"
+      ]
+    },
+    {
+      "id": "bhojpur-midhill",
+      "sn": "३",
+      "group": "koshi",
+      "province": {
+        "id": "koshi",
+        "ne": "कोशी",
+        "en": "Koshi"
+      },
+      "district": {
+        "id": "bhojpur",
+        "ne": "भोजपुर",
+        "en": "Bhojpur"
+      },
+      "cause_ne": "सम्भावित क्षति रोकथाम",
+      "cause_en": "To prevent likely damage",
+      "cause_kind": "risk",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१६:४०",
+      "closed_iso": "2026-09-24T16:40:00+05:45",
+      "location_ne": "भोजपुर जिल्ला अन्तर्गतमा पर्ने मध्य पहाडि लोकमार्ग लगाएत",
+      "location_en": "Mid-Hill Highway and connecting roads inside Bhojpur",
+      "highway_ne": "मध्य पहाडि लोकमार्ग लगाएत सम्पूर्ण भित्री सडक",
+      "highway_en": "Mid-Hill Highway and all inner roads",
+      "status_ne": "मिति २०८३/०६/०८ गते बेलुका १९:०० बजेदेखि बिहान ०५:०० बजे सम्म अर्को सूचना जारी नभएसम्मका लागि अत्यावश्यक सवारी साधन एम्बुलेन्स, दमकल, अत्यावश्यक खाद्यान्न बोकेको हकमा नजिकको प्रहरी इकाईसँग समन्वय गरी संचालन गर्न सकिने गरी निर्णय गरिएको",
+      "status_en": "From 19:00 to 05:00, until further notice: ambulances, fire engines, and vehicles carrying essential food may run only in coordination with the nearest police unit",
+      "status_type": "night_ban",
+      "night_start": "19:00",
+      "night_end": "05:00",
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": "अर्को सूचना नभएसम्म",
+      "valid_until_en": "Until further notice",
+      "aliases": [
+        "midhill",
+        "mid-hill",
+        "मध्य पहाड",
+        "मध्यपहाड",
+        "bhojpur",
+        "भोजपुर"
+      ],
+      "flags": [
+        "status year digit on the red cell was faint (२०८२ vs २०८३); closed-since cell is २०८३/०६/०८. खाद्यान्न vowel not fully clear"
+      ]
+    },
+    {
+      "id": "ilam-mechi",
+      "sn": "४",
+      "group": "koshi",
+      "province": {
+        "id": "koshi",
+        "ne": "कोशी",
+        "en": "Koshi"
+      },
+      "district": {
+        "id": "ilam",
+        "ne": "इलाम",
+        "en": "Ilam"
+      },
+      "cause_ne": "सम्भावित बाढी पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१७:००",
+      "closed_iso": "2026-09-24T17:00:00+05:45",
+      "location_ne": "इलाम जिल्लाको सम्पूर्ण बाटोहरु",
+      "location_en": "All roads in Ilam district",
+      "highway_ne": "मेची राजमार्ग, मेची कोरिडोर लगायत इलाम जिल्लाको सम्पूर्ण बाटोहरु",
+      "highway_en": "Mechi Highway, Mechi Corridor, and all roads in Ilam",
+      "status_ne": "मिति २०८३/०६/०८ गते देखि ११ गते सम्म बेलुका १९:०० बजे देखि बिहान ०५:०० बजे सम्म रातको समयमा",
+      "status_en": "From 2083/06/08 through the 11th, at night from 19:00 to 05:00",
+      "status_type": "night_ban",
+      "night_start": "19:00",
+      "night_end": "05:00",
+      "valid_until_bs": "२०८३/०६/११",
+      "valid_until_iso": "2026-09-27T05:00:00+05:45",
+      "valid_until_ne": "असोज ११",
+      "valid_until_en": "Asoj 11",
+      "aliases": [
+        "mechi",
+        "मेची",
+        "ilam",
+        "इलाम"
+      ],
+      "flags": []
+    },
+    {
+      "id": "okhaldhunga-siddhicharan",
+      "sn": "४",
+      "group": "koshi",
+      "province": {
+        "id": "koshi",
+        "ne": "कोशी",
+        "en": "Koshi"
+      },
+      "district": {
+        "id": "okhaldhunga",
+        "ne": "ओखलढुङ्गा",
+        "en": "Okhaldhunga"
+      },
+      "cause_ne": "बाढी",
+      "cause_en": "Flood",
+      "cause_kind": "flood",
+      "closed_date": "२०८३/०६/०९",
+      "closed_time": "०६:१५",
+      "closed_iso": "2026-09-25T06:15:00+05:45",
+      "location_ne": "मानेभञ्ज्याङ गाउँपालिका ०६ र ०७ को सिमाना स्थित पर्ने भँडारे खोलामा",
+      "location_en": "Bhandare Khola on the border of Mane Bhanjyang GP wards 6 and 7",
+      "highway_ne": "सिद्धिचरण लोकमार्ग",
+      "highway_en": "Siddhicharan Highway",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "siddhicharan",
+        "सिद्धिचरण",
+        "mane",
+        "मानेभञ्ज्याङ",
+        "okhaldhunga",
+        "ओखलढुङ्गा"
+      ],
+      "flags": [
+        "serial on the notice is ४, the same number as Ilam"
+      ]
+    },
+    {
+      "id": "kavre-bp",
+      "sn": "१",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "kavrepalanchok",
+        "ne": "काभ्रे",
+        "en": "Kavrepalanchok"
+      },
+      "cause_ne": "सम्भावित बाढी, पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "०६:१५",
+      "closed_iso": "2026-09-24T06:15:00+05:45",
+      "location_ne": "बि.पी राजमार्ग सबै",
+      "location_en": "All of the B.P. Highway",
+      "highway_ne": "बि पी राजमार्ग सबै",
+      "highway_en": "All of the B.P. Highway",
+      "status_ne": "मिति २०८३/०६/०८ गते देखि ऐ. ११ गते सम्म बेलुका १७:०० बजे देखि बिहान ०५ बजेसम्म रातको समयमा सवारी साधन आवागमनमा पूर्णरूपमा रोक लगाइएको",
+      "status_en": "From 2083/06/08 through Asoj 11, vehicles are fully barred at night from 17:00 to 05:00",
+      "status_type": "night_ban",
+      "night_start": "17:00",
+      "night_end": "05:00",
+      "valid_until_bs": "२०८३/०६/११",
+      "valid_until_iso": "2026-09-27T05:00:00+05:45",
+      "valid_until_ne": "असोज ११",
+      "valid_until_en": "Asoj 11",
+      "aliases": [
+        "bp highway",
+        "b.p. highway",
+        "bp rajmarga",
+        "बीपी",
+        "बिपी",
+        "बि.पी",
+        "बि पी",
+        "banepa",
+        "bardibas"
+      ],
+      "flags": []
+    },
+    {
+      "id": "kavre-kimti",
+      "sn": "१",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "kavrepalanchok",
+        "ne": "काभ्रे",
+        "en": "Kavrepalanchok"
+      },
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/०९",
+      "closed_time": "०३:००",
+      "closed_iso": "2026-09-25T03:00:00+05:45",
+      "location_ne": "रोशि गा.पा ८ किम्तिबेसी",
+      "location_en": "Roshi GP-8 Kimtibesi",
+      "highway_ne": "बि.पि राजमार्ग",
+      "highway_en": "B.P. Highway",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "kimti",
+        "किम्ति",
+        "kimtibesi",
+        "रोशी",
+        "रोशि",
+        "bp highway",
+        "बि.पि"
+      ],
+      "flags": [
+        "place prints रोशि (without ी)"
+      ]
+    },
+    {
+      "id": "rasuwa-highways",
+      "sn": "२",
+      "group": "bagmati",
+      "prominent": true,
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "rasuwa",
+        "ne": "रसुवा",
+        "en": "Rasuwa"
+      },
+      "cause_ne": "बाढी",
+      "cause_en": "Flood",
+      "cause_kind": "flood",
+      "closed_date": "२०८३/०५/१०",
+      "closed_time": "१०:३०",
+      "closed_iso": "2026-08-26T10:30:00+05:45",
+      "location_ne": "मुख्य राजमार्ग सबै",
+      "location_en": "All main highways",
+      "highway_ne": "मुख्य राजमार्ग सबै",
+      "highway_en": "All main highways",
+      "status_ne": "पूर्ण रूपमा अवरोध अर्को सूचना नभएसम्मको लागि",
+      "status_en": "Fully blocked until further notice",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": "अर्को सूचना नभएसम्म",
+      "valid_until_en": "Until further notice",
+      "point": {
+        "lat": 28.108,
+        "lng": 85.297,
+        "certain": true
+      },
+      "aliases": [
+        "rasuwa",
+        "रसुवा",
+        "syabrubesi",
+        "स्याफ्रु"
+      ],
+      "flags": []
+    },
+    {
+      "id": "nuwakot-tokha",
+      "sn": "३",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "nuwakot",
+        "ne": "नुवाकोट",
+        "en": "Nuwakot"
+      },
+      "cause_ne": "सम्भावित बाढी, पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०५/०१",
+      "closed_time": "२२:००",
+      "closed_iso": "2026-08-17T22:00:00+05:45",
+      "location_ne": "शिबपुरी गा.पा. ०८ घट्टेखोला",
+      "location_en": "Shivapuri GP-8 Ghattekhola",
+      "highway_ne": "तोखा छहरे सडक खण्ड",
+      "highway_en": "Tokha–Chhahare section",
+      "status_ne": "२०८३/०५/०१ गते राति २२:०० बजे देखि बिहान ०५:०० बजेसम्म अर्को सूचना नभएसम्मको लागि रातको समयमा सवारी साधन संचालनमा रोक लगाइएको",
+      "status_en": "From the night of 2083/05/01, vehicles are barred from 22:00 to 05:00 until further notice",
+      "status_type": "night_ban",
+      "night_start": "22:00",
+      "night_end": "05:00",
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": "अर्को सूचना नभएसम्म",
+      "valid_until_en": "Until further notice",
+      "aliases": [
+        "tokha",
+        "तोखा",
+        "chhahare",
+        "छहरे",
+        "छहारे",
+        "ghatte",
+        "घट्टेखोला"
+      ],
+      "flags": [
+        "closed-since date glyphs read २०८३/०५/०१ (not ०६/०९)"
+      ]
+    },
+    {
+      "id": "nuwakot-simtar",
+      "sn": "३",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "nuwakot",
+        "ne": "नुवाकोट",
+        "en": "Nuwakot"
+      },
+      "cause_ne": "बाढी",
+      "cause_en": "Flood",
+      "cause_kind": "flood",
+      "closed_date": "२०८३/०५/१०",
+      "closed_time": "१०:३०",
+      "closed_iso": "2026-08-26T10:30:00+05:45",
+      "location_ne": "विदुर न.पा. १० सिमटार",
+      "location_en": "Bidur Municipality-10 Simtar",
+      "highway_ne": "पासाङ ल्हामु सडक खण्ड",
+      "highway_en": "Pasang Lhamu road section",
+      "status_ne": "पूर्ण रूपमा अवरोध अर्को सूचना नभएसम्मको लागि",
+      "status_en": "Fully blocked until further notice",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": "अर्को सूचना नभएसम्म",
+      "valid_until_en": "Until further notice",
+      "aliases": [
+        "pasang",
+        "lhamu",
+        "पासाङ",
+        "ल्हामु",
+        "simtar",
+        "सिमटार",
+        "bidur",
+        "विदुर"
+      ],
+      "flags": []
+    },
+    {
+      "id": "dhading-jwang",
+      "sn": "४",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "dhading",
+        "ne": "धादिङ",
+        "en": "Dhading"
+      },
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०५/१६",
+      "closed_time": "१८:००",
+      "closed_iso": "2026-09-01T18:00:00+05:45",
+      "location_ne": "बेनीघाट रोराङ गा.पा. १० ज्वाङखोला",
+      "location_en": "Benighat Rorang GP-10 Jwang Khola",
+      "highway_ne": "पृथ्वीलोकमार्ग",
+      "highway_en": "Prithvi Highway",
+      "status_ne": "एकतर्फी सुचारु",
+      "status_en": "Open one way",
+      "status_type": "one_way",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "point": {
+        "lat": 27.808,
+        "lng": 84.742,
+        "certain": true
+      },
+      "aliases": [
+        "prithvi",
+        "पृथ्वी",
+        "jwang",
+        "ज्वाङखोला",
+        "benighat",
+        "बेनीघाट"
+      ],
+      "flags": []
+    },
+    {
+      "id": "dhading-krishnabhir",
+      "sn": "४",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "dhading",
+        "ne": "धादिङ",
+        "en": "Dhading"
+      },
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "२३:१०",
+      "closed_iso": "2026-09-24T23:10:00+05:45",
+      "location_ne": "बेनीघाट रोराङ गा.पा. वडा न. ०७ कृष्णभिर र वाडा न. १० टिङराङाखानी, गजुरी गा.पा. २ परेवा भीरस्थित",
+      "location_en": "Benighat Rorang ward 7 Krishnabhir and ward 10 Tingrangkakhani, and Gajuri GP-2 Parewa Bhir",
+      "highway_ne": "पृथ्वी राजमार्ग",
+      "highway_en": "Prithvi Highway",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "point": {
+        "lat": 27.77,
+        "lng": 84.88,
+        "certain": true
+      },
+      "aliases": [
+        "prithvi",
+        "पृथ्वी",
+        "krishnabhir",
+        "कृष्णभिर",
+        "कृष्णाभीर",
+        "parewa",
+        "परेवा",
+        "gajuri",
+        "गजुरी",
+        "benighat",
+        "बेनीघाट"
+      ],
+      "flags": [
+        "ward word prints वाडा"
+      ]
+    },
+    {
+      "id": "makwanpur-kanti",
+      "sn": "५",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "makwanpur",
+        "ne": "मकवानपुर",
+        "en": "Makwanpur"
+      },
+      "cause_ne": "सम्भावित बाढी, पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "०६:००",
+      "closed_iso": "2026-09-24T06:00:00+05:45",
+      "location_ne": "मुख्य राजमार्ग सबै",
+      "location_en": "All main highways",
+      "highway_ne": "कान्तिराजमार्ग, भैसे-भिमफेदी-देउराली-कुलेखानी हुँदै काठमाडौं जाने सडक खण्ड",
+      "highway_en": "Kanti Highway: Bhainse–Bhimphedi–Deurali–Kulekhani road to Kathmandu",
+      "status_ne": "मिति २०८३/०६/०९ गते देखि ऐ. ११ गते सम्म बेलुका १९:०० बजे देखि बिहान ०५ बजेसम्म रातको समयमा सवारी साधन आवागमनमा पूर्णरूपमा रोक लगाइएको",
+      "status_en": "From 2083/06/09 through Asoj 11, vehicles are fully barred at night from 19:00 to 05:00",
+      "status_type": "night_ban",
+      "night_start": "19:00",
+      "night_end": "05:00",
+      "valid_until_bs": "२०८३/०६/११",
+      "valid_until_iso": "2026-09-27T05:00:00+05:45",
+      "valid_until_ne": "असोज ११",
+      "valid_until_en": "Asoj 11",
+      "aliases": [
+        "kanti rajmarga",
+        "कान्तिराजमार्ग",
+        "bhimphedi",
+        "भिमफेदी",
+        "kulekhani",
+        "कुलेखानी"
+      ],
+      "flags": [
+        "status start date prints २०८३/०६/०९ while the closed-since cell is २०८३/०६/०८"
+      ]
+    },
+    {
+      "id": "makwanpur-bhimphedi",
+      "sn": "५",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "makwanpur",
+        "ne": "मकवानपुर",
+        "en": "Makwanpur"
+      },
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/०९",
+      "closed_time": "०८:३",
+      "closed_iso": null,
+      "location_ne": "भिमफेदी गा.पा.०८ बगुवा खोला नजिकै खहरे खोल्सा",
+      "location_en": "Near Bagwa Khola, Bhimphedi GP-8, Khahare Kholsa",
+      "highway_ne": "कान्तिलोकपथ सडकखण्ड",
+      "highway_en": "Kantilokpath section",
+      "status_ne": "पूर्ण रूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "kantilokpath",
+        "कान्तिलोकपथ",
+        "bhimphedi",
+        "भिमफेदी",
+        "baguwa",
+        "बगुवा"
+      ],
+      "flags": [
+        "closed time prints ०८:३; the minutes units digit is not visible before the column rule"
+      ]
+    },
+    {
+      "id": "makwanpur-hetauda",
+      "sn": "५",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "makwanpur",
+        "ne": "मकवानपुर",
+        "en": "Makwanpur"
+      },
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/०९",
+      "closed_time": "१३:३०",
+      "closed_iso": "2026-09-25T13:30:00+05:45",
+      "location_ne": "जि.मकवानपुर हेटौडा उ.म.न.पा.१९ नेवारपानी स्थित",
+      "location_en": "Hetauda Sub-Metropolitan City-19, Newarpani, Makwanpur",
+      "highway_ne": "महेन्द्र राजमार्ग",
+      "highway_en": "Mahendra Highway",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "mahendra",
+        "महेन्द्र",
+        "hetauda",
+        "हेटौडा",
+        "east west",
+        "पूर्वपश्चिम"
+      ],
+      "flags": [
+        "place line also prints मिति २०८३/०६/०९ गते अं.१३:३० बजेको समयमा; नेवारपानी spelling"
+      ]
+    },
+    {
+      "id": "sindhuli-bp",
+      "sn": "६",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "sindhuli",
+        "ne": "सिन्धुली",
+        "en": "Sindhuli"
+      },
+      "cause_ne": "सम्भावित बाढी, पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "०६:१५",
+      "closed_iso": "2026-09-24T06:15:00+05:45",
+      "location_ne": "बि पी राजमार्ग सबै",
+      "location_en": "All of the B.P. Highway",
+      "highway_ne": "बि पी राजमार्ग सबै",
+      "highway_en": "All of the B.P. Highway",
+      "status_ne": "मिति २०८३/०६/०८ गते देखि ऐ. ११ गते सम्म बेलुका १:०० बजे देखि बिहान ०५ बजेसम्म रातको समयमा सवारी साधन आवागमनमा पूर्णरूपमा रोक लगाइएको",
+      "status_en": "From 2083/06/08 through Asoj 11, vehicles are fully barred from 1:00 to 05:00",
+      "status_type": "night_ban",
+      "night_start": "01:00",
+      "night_end": "05:00",
+      "valid_until_bs": "२०८३/०६/११",
+      "valid_until_iso": "2026-09-27T05:00:00+05:45",
+      "valid_until_ne": "असोज ११",
+      "valid_until_en": "Asoj 11",
+      "aliases": [
+        "bp highway",
+        "बीपी",
+        "बिपी",
+        "sindhuli",
+        "सिन्धुली"
+      ],
+      "flags": [
+        "status prints बेलुका १:०० (one digit before the colon), not १९:००"
+      ]
+    },
+    {
+      "id": "dolakha-all",
+      "sn": "७",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "dolakha",
+        "ne": "दोलखा",
+        "en": "Dolakha"
+      },
+      "cause_ne": "सम्भावित बाढी, पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१६:३०",
+      "closed_iso": "2026-09-24T16:30:00+05:45",
+      "location_ne": "जिल्ला भरिका सबै सडकखण्ड",
+      "location_en": "All road sections in the district",
+      "highway_ne": "जिल्ला भरिका सबै सडक खण्ड",
+      "highway_en": "All road sections in the district",
+      "status_ne": "मिति २०८३/०६/०८ गते बेलुका १७:०० बजे देखि बिहान ०५:०० बजे सम्म रातको समय मात्र ऐ. १० गते सम्म पूर्ण रोक लगाइएको",
+      "status_en": "Night only, from 17:00 to 05:00, fully barred through Asoj 10",
+      "status_type": "night_ban",
+      "night_start": "17:00",
+      "night_end": "05:00",
+      "valid_until_bs": "२०८३/०६/१०",
+      "valid_until_iso": "2026-09-26T05:00:00+05:45",
+      "valid_until_ne": "असोज १०",
+      "valid_until_en": "Asoj 10",
+      "aliases": [
+        "dolakha",
+        "दोलखा"
+      ],
+      "flags": []
+    },
+    {
+      "id": "sindhupalchok-all",
+      "sn": "८",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "sindhupalchok",
+        "ne": "सिन्धुपाल्चोक",
+        "en": "Sindhupalchok"
+      },
+      "cause_ne": "सम्भावित बाढी, पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "०६:००",
+      "closed_iso": "2026-09-24T06:00:00+05:45",
+      "location_ne": "जिल्ला भरीका सबै सडक खण्ड",
+      "location_en": "All road sections in the district",
+      "highway_ne": "जिल्ला भरीका सबै सडक खण्ड",
+      "highway_en": "All road sections in the district",
+      "status_ne": "मिति २०८३/०६/०८ गते देखि ऐ. ११ गते सम्म बेलुका २०:०० बजे देखि बिहान ०५:०० बजे सम्म रातको समयमा मात्र",
+      "status_en": "From 2083/06/08 through Asoj 11, at night only, from 20:00 to 05:00",
+      "status_type": "night_ban",
+      "night_start": "20:00",
+      "night_end": "05:00",
+      "valid_until_bs": "२०८३/०६/११",
+      "valid_until_iso": "2026-09-27T05:00:00+05:45",
+      "valid_until_ne": "असोज ११",
+      "valid_until_en": "Asoj 11",
+      "note_ne": "२०८३/०६/०९ गते बाट अर्को सूचना जारी नभए सम्म",
+      "note_en": "From 2083/06/09 until a further notice is issued",
+      "aliases": [
+        "sindhupalchok",
+        "सिन्धुपाल्चोक"
+      ],
+      "flags": []
+    },
+    {
+      "id": "chitwan-mugling",
+      "sn": "९",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "chitwan",
+        "ne": "चितवन",
+        "en": "Chitwan"
+      },
+      "cause_ne": "सम्भावित बाढी, पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१४:००",
+      "closed_iso": "2026-09-24T14:00:00+05:45",
+      "location_ne": "चितवन जिल्ला आसपास",
+      "location_en": "In and around Chitwan",
+      "highway_ne": "नारायणगढ - मुग्लिन",
+      "highway_en": "Narayanghat–Mugling",
+      "status_ne": "मिति २०८३/०६/०८ गते देखि जि. चितवन र आसपासका क्षेत्र नारायणगढ-मुग्लिन सडक खण्ड भएर चल्ने सम्पूर्ण सवारी साधनहरु अर्को सूचना प्रकाशित नभएसम्मको लागि आवागमनमा पूर्ण रूपमा रोक लगाइएको",
+      "status_en": "From 2083/06/08, all vehicles using the Narayanghat–Mugling section in and around Chitwan are fully barred until a further notice is published",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": "अर्को सूचना नभएसम्म",
+      "valid_until_en": "Until further notice",
+      "aliases": [
+        "mugling",
+        "मुग्लिन",
+        "muglin",
+        "narayanghat",
+        "narayangadh",
+        "नारायणगढ",
+        "narayangarh"
+      ],
+      "flags": []
+    },
+    {
+      "id": "chitwan-ichhakamana",
+      "sn": "९",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "chitwan",
+        "ne": "चितवन",
+        "en": "Chitwan"
+      },
+      "cause_ne": "अबिरल बर्षा",
+      "cause_en": "Incessant rain",
+      "cause_kind": "rain",
+      "closed_date": "२०८३/०६/०९",
+      "closed_time": "०६:१५",
+      "closed_iso": "2026-09-25T06:15:00+05:45",
+      "location_ne": "इच्छाकामना गा.पा. ४ धारापानी",
+      "location_en": "Ichhakamana GP-4 Dharapani",
+      "highway_ne": "पृथ्वी लोकमार्ग",
+      "highway_en": "Prithvi Highway",
+      "status_ne": "साना सवारी साधन र मो.सा. पास हुने ठुला सवारी साधन पास नहुने",
+      "status_en": "Small vehicles and motorbikes can pass; large vehicles cannot",
+      "status_type": "restricted",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "prithvi",
+        "पृथ्वी",
+        "ichhakamana",
+        "इच्छाकामना",
+        "dharapani",
+        "धारापानी"
+      ],
+      "flags": [
+        "cause prints अबिरल बर्षा"
+      ]
+    },
+    {
+      "id": "manang-besisahar",
+      "sn": "१",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "manang",
+        "ne": "मनाङ",
+        "en": "Manang"
+      },
+      "cause_ne": "सम्भावित बाढी पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१६:००",
+      "closed_iso": "2026-09-24T16:00:00+05:45",
+      "location_ne": "बेशीसहर हुँदै खाङसारसम्म जाने सडक तथा लमजुङको सिमादेखि खाङसारसम्म",
+      "location_en": "The road from Besisahar to Khangsar, and from the Lamjung border to Khangsar",
+      "highway_ne": "बेशीसहर हुँदै खाङसारसम्म जाने सडक तथा लमजुङको सिमादेखि खाङसारसम्म रात्रीकालीन",
+      "highway_en": "Besisahar–Khangsar road, night-time from the Lamjung border to Khangsar",
+      "status_ne": "२०८३/०६/०८ गते जिल्ला प्रशासन जिल्ला सुरक्षा समिति मनाङको बैठक बसी मिति २०८३/०६/०८ गते देखि ऐ.१२ गते सम्मको लागि (साँझ १८:०० बजेदेखि बिहान ६:०० बजेसम्म) सवारीसाधन आवतजावतमा रोक लगाइएको",
+      "status_en": "Manang district security committee: from 2083/06/08 through Asoj 12, vehicles are barred from 18:00 to 06:00",
+      "status_type": "night_ban",
+      "night_start": "18:00",
+      "night_end": "06:00",
+      "valid_until_bs": "२०८३/०६/१२",
+      "valid_until_iso": "2026-09-28T06:00:00+05:45",
+      "valid_until_ne": "असोज १२",
+      "valid_until_en": "Asoj 12",
+      "aliases": [
+        "besisahar",
+        "बेशीसहर",
+        "बेसीसहर",
+        "khangsar",
+        "खाङसार",
+        "manang",
+        "मनाङ"
+      ],
+      "flags": []
+    },
+    {
+      "id": "manang-chame",
+      "sn": "१",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "manang",
+        "ne": "मनाङ",
+        "en": "Manang"
+      },
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/०९",
+      "closed_time": "०६:३०",
+      "closed_iso": "2026-09-25T06:30:00+05:45",
+      "location_ne": "नासो गा.पा.३ खोत्रो स्थित",
+      "location_en": "Naso GP-3, at Khotro",
+      "highway_ne": "चामे-बेशीसहर सडक खण्ड",
+      "highway_en": "Chame–Besisahar section",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "chame",
+        "चामे",
+        "besisahar",
+        "बेशीसहर",
+        "naso",
+        "नासो"
+      ],
+      "flags": [
+        "place reads खोत्रो; खोज्रो was considered and rejected"
+      ]
+    },
+    {
+      "id": "kaski-rural",
+      "sn": "२",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "kaski",
+        "ne": "कास्की",
+        "en": "Kaski"
+      },
+      "cause_ne": "सम्भावित बाढि पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१६:००",
+      "closed_iso": "2026-09-24T16:00:00+05:45",
+      "location_ne": "ग्रामिण भेगका सम्पूर्ण सवारी साधन",
+      "location_en": "All vehicles in rural areas",
+      "highway_ne": "ग्रामिण भेगका सम्पूर्ण सवारी साधन",
+      "highway_en": "All rural roads",
+      "status_ne": "मिति २०८३/०६/०८ गते बेलुका १८:०० बजे देखि ऐ. ०११ गते ०६:०० बजे सम्म रातको समयमा मात्र",
+      "status_en": "At night only, from 18:00 on 2083/06/08 through 06:00 on Asoj 11",
+      "status_type": "night_ban",
+      "night_start": "18:00",
+      "night_end": "06:00",
+      "valid_until_bs": "२०८३/०६/११",
+      "valid_until_iso": "2026-09-27T06:00:00+05:45",
+      "valid_until_ne": "असोज ११",
+      "valid_until_en": "Asoj 11",
+      "aliases": [
+        "kaski",
+        "कास्की",
+        "pokhara",
+        "पोखरा"
+      ],
+      "flags": [
+        "end date prints ऐ. ०११"
+      ]
+    },
+    {
+      "id": "mustang-all",
+      "sn": "३",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "mustang",
+        "ne": "मुस्ताङ",
+        "en": "Mustang"
+      },
+      "cause_ne": "सम्भावित बाढि पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१६:००",
+      "closed_iso": "2026-09-24T16:00:00+05:45",
+      "location_ne": "जिल्ला भित्रका सम्पूर्ण सवारी साधन",
+      "location_en": "All vehicles inside the district",
+      "highway_ne": "जिल्ला भित्रका सम्पूर्ण सवारी साधन",
+      "highway_en": "All roads inside the district",
+      "status_ne": "मिति २०८३/०६/०८ गते बेलुका १८:०० बजे देखि ऐ. ११ गते ०६:०० बजे सम्म रातको समयमा मात्र",
+      "status_en": "At night only, from 18:00 on 2083/06/08 through 06:00 on Asoj 11",
+      "status_type": "night_ban",
+      "night_start": "18:00",
+      "night_end": "06:00",
+      "valid_until_bs": "२०८३/०६/११",
+      "valid_until_iso": "2026-09-27T06:00:00+05:45",
+      "valid_until_ne": "असोज ११",
+      "valid_until_en": "Asoj 11",
+      "aliases": [
+        "mustang",
+        "मुस्ताङ",
+        "mustang"
+      ],
+      "flags": []
+    },
+    {
+      "id": "parbat-all",
+      "sn": "४",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "parbat",
+        "ne": "पर्वत",
+        "en": "Parbat"
+      },
+      "cause_ne": "सम्भावित बाढि पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१६:००",
+      "closed_iso": "2026-09-24T16:00:00+05:45",
+      "location_ne": "जिल्ला भित्रका सम्पूर्ण सवारी साधन",
+      "location_en": "All vehicles inside the district",
+      "highway_ne": "जिल्ला भित्रका सम्पूर्ण सवारी साधन",
+      "highway_en": "All roads inside the district",
+      "status_ne": "मिति २०८३/०६/०८ गते बेलुका १८:०० बजे देखि ऐ. ११ गते ०६:०० बजे सम्म रातको समयमा मात्र",
+      "status_en": "At night only, from 18:00 on 2083/06/08 through 06:00 on Asoj 11",
+      "status_type": "night_ban",
+      "night_start": "18:00",
+      "night_end": "06:00",
+      "valid_until_bs": "२०८३/०६/११",
+      "valid_until_iso": "2026-09-27T06:00:00+05:45",
+      "valid_until_ne": "असोज ११",
+      "valid_until_en": "Asoj 11",
+      "aliases": [
+        "parbat",
+        "पर्वत",
+        "parbat"
+      ],
+      "flags": []
+    },
+    {
+      "id": "myagdi-all",
+      "sn": "५",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "myagdi",
+        "ne": "म्याग्दी",
+        "en": "Myagdi"
+      },
+      "cause_ne": "सम्भावित बाढि पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१६:००",
+      "closed_iso": "2026-09-24T16:00:00+05:45",
+      "location_ne": "जिल्ला भित्रका सम्पूर्ण सवारी साधन",
+      "location_en": "All vehicles inside the district",
+      "highway_ne": "जिल्ला भित्रका सम्पूर्ण सवारी साधन",
+      "highway_en": "All roads inside the district",
+      "status_ne": "मिति २०८३/०६/०८ गते बेलुका १८:०० बजे देखि ऐ. ११ गते ०६:०० बजे सम्म रातको समयमा मात्र",
+      "status_en": "At night only, from 18:00 on 2083/06/08 through 06:00 on Asoj 11",
+      "status_type": "night_ban",
+      "night_start": "18:00",
+      "night_end": "06:00",
+      "valid_until_bs": "२०८३/०६/११",
+      "valid_until_iso": "2026-09-27T06:00:00+05:45",
+      "valid_until_ne": "असोज ११",
+      "valid_until_en": "Asoj 11",
+      "aliases": [
+        "myagdi",
+        "म्याग्दी",
+        "myagdi"
+      ],
+      "flags": []
+    },
+    {
+      "id": "nawalparasi-east-all",
+      "sn": "६",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "nawalparasi-east",
+        "ne": "नवलपरासी पूर्व",
+        "en": "Nawalparasi East"
+      },
+      "cause_ne": "सम्भावित बाढि पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१६:००",
+      "closed_iso": "2026-09-24T16:00:00+05:45",
+      "location_ne": "जिल्ला भित्रका सम्पूर्ण सवारी साधन",
+      "location_en": "All vehicles inside the district",
+      "highway_ne": "जिल्ला भित्रका सम्पूर्ण सवारी साधन",
+      "highway_en": "All roads inside the district",
+      "status_ne": "मिति २०८३/०६/०८ गते बेलुका १८:०० बजे देखि ऐ. ११ गते ०६:०० बजे सम्म रातको समयमा मात्र",
+      "status_en": "At night only, from 18:00 on 2083/06/08 through 06:00 on Asoj 11",
+      "status_type": "night_ban",
+      "night_start": "18:00",
+      "night_end": "06:00",
+      "valid_until_bs": "२०८३/०६/११",
+      "valid_until_iso": "2026-09-27T06:00:00+05:45",
+      "valid_until_ne": "असोज ११",
+      "valid_until_en": "Asoj 11",
+      "aliases": [
+        "nawalparasi-east",
+        "नवलपरासी पूर्व",
+        "nawalparasi east"
+      ],
+      "flags": []
+    },
+    {
+      "id": "dang-rapti",
+      "sn": "१",
+      "group": "lumbini",
+      "province": {
+        "id": "lumbini",
+        "ne": "लुम्बिनी",
+        "en": "Lumbini"
+      },
+      "district": {
+        "id": "dang",
+        "ne": "दाङ",
+        "en": "Dang"
+      },
+      "cause_ne": "सम्भावित बाढी, पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१३:००",
+      "closed_iso": "2026-09-24T13:00:00+05:45",
+      "location_ne": "दाङ जिल्लाका विभिन्न ठाउँ",
+      "location_en": "Various places in Dang",
+      "highway_ne": "राप्ती राजमार्ग अन्तर्गत तुलसीपुर-कपुरकोट सडक खण्ड (भालुवाङ देखि चकचके प्युठान खोलासम्म), शहिद मार्ग अन्तर्गत घोराही-होलेरी सडक खण्ड, घोराही-मुर्कुटी सडक खण्ड",
+      "highway_en": "Rapti Highway Tulsipur–Kapurkot (Bhaluwang to Chakchake, Pyuthan Khola), Shaheed Marg Ghorahi–Holeri, and Ghorahi–Murkuti",
+      "status_ne": "मिति २०८३/०६/०८ गते देखि ऐ. ११ गते सम्म बेलुका १७:०० बजे देखि बिहान ०६ बजेसम्म रातको समयमा सवारी साधन आवागमनमा पूर्णरूपमा रोक लगाइएको",
+      "status_en": "From 2083/06/08 through Asoj 11, vehicles are fully barred at night from 17:00 to 06:00",
+      "status_type": "night_ban",
+      "night_start": "17:00",
+      "night_end": "06:00",
+      "valid_until_bs": "२०८३/०६/११",
+      "valid_until_iso": "2026-09-27T06:00:00+05:45",
+      "valid_until_ne": "असोज ११",
+      "valid_until_en": "Asoj 11",
+      "aliases": [
+        "rapti",
+        "राप्ती",
+        "dang",
+        "दाङ",
+        "ghorahi",
+        "घोराही",
+        "tulsipur",
+        "तुलसीपुर",
+        "shaheed",
+        "शहिद"
+      ],
+      "flags": [
+        "highway cell is dense; segment names follow the clearest reading (चकचके, गनाहा/प्युठान खोला, शहिद मार्ग, मुर्कुटी)"
+      ]
+    },
+    {
+      "id": "rolpa-madan",
+      "sn": "२",
+      "group": "lumbini",
+      "province": {
+        "id": "lumbini",
+        "ne": "लुम्बिनी",
+        "en": "Lumbini"
+      },
+      "district": {
+        "id": "rolpa",
+        "ne": "रोल्पा",
+        "en": "Rolpa"
+      },
+      "cause_ne": "सम्भावित बाढी, पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१२:५०",
+      "closed_iso": "2026-09-24T12:50:00+05:45",
+      "location_ne": "रोल्पा न.पा. ७ माडिचौर",
+      "location_en": "Rolpa Municipality-7 Madichaur",
+      "highway_ne": "मदन भण्डारी राजमार्ग",
+      "highway_en": "Madan Bhandari Highway",
+      "status_ne": "मिति २०८३/०६/०८ गते बिहान १२:५० बजे देखि ऐ.१२ गतेसम्म सवारी साधन आवागमनमा पूर्णरूपमा रोक लगाइएको",
+      "status_en": "Vehicles fully barred from 12:50 on 2083/06/08 through Asoj 12",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": "२०८३/०६/१२",
+      "valid_until_iso": "2026-09-28T23:59:00+05:45",
+      "valid_until_ne": "असोज १२",
+      "valid_until_en": "Asoj 12",
+      "aliases": [
+        "madan",
+        "मदन",
+        "bhandari",
+        "भण्डारी",
+        "rolpa",
+        "रोल्पा",
+        "madichaur",
+        "माडिचौर"
+      ],
+      "flags": []
+    },
+    {
+      "id": "palpa-kaligandaki",
+      "sn": "३",
+      "group": "lumbini",
+      "province": {
+        "id": "lumbini",
+        "ne": "लुम्बिनी",
+        "en": "Lumbini"
+      },
+      "district": {
+        "id": "palpa",
+        "ne": "पाल्पा",
+        "en": "Palpa"
+      },
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/०९",
+      "closed_time": "१३:३०",
+      "closed_iso": "2026-09-25T13:30:00+05:45",
+      "location_ne": "तानसेन न.पा. १३ बैकुण्ठे भिर",
+      "location_en": "Tansen Municipality-13 Baikunthe Bhir",
+      "highway_ne": "कालीगण्डकी करिडोर",
+      "highway_en": "Kaligandaki Corridor",
+      "status_ne": "पूर्ण रूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "kaligandaki",
+        "कालीगण्डकी",
+        "tansen",
+        "तानसेन",
+        "palpa",
+        "पाल्पा",
+        "baikuntha",
+        "बैकुण्ठ"
+      ],
+      "flags": []
+    }
+  ]
+}
