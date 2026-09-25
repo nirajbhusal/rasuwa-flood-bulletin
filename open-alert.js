@@ -5,6 +5,7 @@
   var HOLD = 8000;
   var data = null;
   var sheet = null;
+  var host = null;
   var shownId = "";
   var timer = 0;
   var paused = false;
@@ -145,11 +146,22 @@
     root.classList.add("has-open-alert");
     root.style.setProperty("--open-alert-h", sheet.offsetHeight + "px");
   }
+  function dropHost() {
+    if (host && host.parentNode) host.parentNode.removeChild(host);
+    host = null;
+    sheet = null;
+  }
+  function ensureHost() {
+    if (host && host.parentNode) return host;
+    host = document.createElement("div");
+    host.className = "open-alert-host";
+    document.body.appendChild(host);
+    return host;
+  }
   function dismiss() {
     clearTimer();
     if (shownId) write(window.localStorage, SEEN, shownId);
-    if (sheet && sheet.parentNode) sheet.parentNode.removeChild(sheet);
-    sheet = null;
+    dropHost();
     paused = false;
     placeAlert();
   }
@@ -247,7 +259,7 @@
       sheet.className = "open-alert";
       sheet.setAttribute("role", "status");
       sheet.setAttribute("aria-live", "polite");
-      document.body.appendChild(sheet);
+      ensureHost().appendChild(sheet);
       sheet.addEventListener("pointerenter", function (e) {
         if (e.pointerType && e.pointerType !== "mouse") return;
         pause();
@@ -327,8 +339,7 @@
     if (!data) return;
     var pack = todayPack(data);
     if (!pack) {
-      if (sheet && sheet.parentNode) sheet.parentNode.removeChild(sheet);
-      sheet = null;
+      dropHost();
       placeAlert();
       return;
     }
