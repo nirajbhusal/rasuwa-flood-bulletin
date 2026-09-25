@@ -319,7 +319,9 @@
       attributionControl: true,
       maxBounds: nepalMax,
       maxBoundsViscosity: 0.85,
-      minZoom: 6
+      minZoom: 6,
+      zoomSnap: 0.25,
+      zoomDelta: 0.5
     });
     mapInstances.push(map);
     map._daoById = {};
