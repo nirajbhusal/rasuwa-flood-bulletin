@@ -9064,10 +9064,10 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   grid-template-columns:minmax(0,1fr) auto;
   grid-template-areas:"brand actions" "date date" "find find";
   align-items:center;
-  gap:6px 8px;
+  gap:4px 8px;
   text-align:left;
   min-height:0;
-  padding:8px 10px 10px;
+  padding:5px 10px 9px;
   justify-content:stretch;
 }
 .head-stick .brand-row{grid-area:brand;justify-content:flex-start;width:100%;min-width:0;max-width:100%;overflow:hidden}
@@ -9110,8 +9110,8 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   text-overflow:ellipsis;
   min-width:0;
 }
-.head-stick .brand-now,
-.head-stick .brand-updated{display:none}
+.head-stick .brand-updated,
+.head-stick .brand-incident{display:none}
 .head-stick .top-find{
   grid-area:find;
   width:100%;
@@ -10278,4 +10278,96 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
 }
 @media (min-width:1100px){
   .wx-citygrid{grid-template-columns:1fr 1fr 1fr}
+}
+
+/* 2026-09-25-npt-date — NPT clock in the header, incident date under humanitarian */
+.head-stick .brand-date{
+  color:#1e293b;
+  font-weight:700;
+}
+.head-stick .brand-now{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:0;
+  margin:0;
+  color:#1e293b;
+  font-weight:700;
+  font-size:12px;
+  line-height:1.15;
+  letter-spacing:0;
+  font-variant-numeric:tabular-nums;
+  white-space:normal;
+}
+.head-stick .npt-ne,
+.head-stick .npt-en{
+  display:block;
+  color:#1e293b;
+  font-weight:700;
+  white-space:nowrap;
+}
+.head-stick .npt-sep{display:none}
+.head-stick .npt-hm{
+  display:inline-grid;
+  vertical-align:baseline;
+  font-variant-numeric:tabular-nums;
+}
+.head-stick .npt-hm::after,
+.head-stick .npt-hm-s{grid-area:1 / 1}
+.head-stick .npt-hm::after{
+  content:attr(data-pad);
+  visibility:hidden;
+  pointer-events:none;
+}
+.head-stick .brand-updated,
+.head-stick .brand-incident{display:none !important}
+@media (max-width:767px){
+  .head-stick .brand-date{
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+    text-align:center;
+  }
+}
+@media (min-width:768px){
+  .head-stick .brand-now{
+    flex-direction:row;
+    font-size:13px;
+    line-height:1.3;
+    white-space:nowrap;
+  }
+  .head-stick .npt-ne,
+  .head-stick .npt-en{
+    display:inline;
+    white-space:nowrap;
+  }
+  .head-stick .npt-sep{display:inline}
+}
+#home .home-cat-head .incident-chip{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;
+  width:fit-content;
+  max-width:100%;
+  margin:6px auto 2px;
+  padding:7px 14px;
+  border:1px solid #cbd5e1;
+  border-radius:12px;
+  background:#fff;
+  color:#0f172a;
+  font-size:14px;
+  font-weight:750;
+  line-height:1.35;
+  text-align:center;
+  box-shadow:0 1px 2px rgba(15,23,42,.06);
+}
+#home .home-cat-head .incident-when{
+  color:#0f172a;
+  font-weight:750;
+}
+#home .home-cat-head .incident-day{
+  color:#9f1239;
+  font-weight:800;
 }
