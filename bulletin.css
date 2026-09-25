@@ -9043,7 +9043,7 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   .open-alert-b,.open-alert-s{font-size:14px}
 }
 
-/* 2026-09-25-no-contact — light header, search, menu, alert, ask */
+/* 2026-09-25-header-web — light header, search, menu, alert, ask */
 .head-stick{
   position:sticky;
   top:0;
@@ -9745,7 +9745,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 .wxb,.dor{overflow:hidden}
 .wxb-mapwrap,.dor-map{overflow:hidden}
 
-/* 2026-09-25-no-contact — search stays closed, alert is a bottom sheet, date contrast, ask link */
+/* 2026-09-25-header-web — search stays closed, alert is a bottom sheet, date contrast, ask link */
 .head-stick .brand-date,
 .head-stick .brand-date .brand-incident,
 .head-stick .brand-incident{
@@ -9829,7 +9829,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 .wx-toprain-list .wxdb-kicker{margin:0 0 4px;text-align:center}
 
 
-/* 2026-09-25-no-contact — menu sits left of search; one icon; 16px field; list above the keyboard */
+/* 2026-09-25-header-web — menu sits left of search; one icon; 16px field; list above the keyboard */
 .head-stick .top-search{
   flex:1 1 auto;
   width:auto;
@@ -10076,4 +10076,122 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
   .wxb-prov.is-pulse,.wxb-dist.is-pulse,.dor-dao-shape,.leaflet-div-icon.dor-marker-closed,.map-live-dot{animation:none}
   .wxb-prov.is-pulse,.wxb-dist.is-pulse{stroke:#c41e3a;stroke-opacity:1}
   .wxb-mapwrap .wxb-pop:not([hidden]),.dor-map-detail.is-open,.wxb-mapwrap.is-entered,.dor-map.is-entered{animation:none}
+}
+
+/* 2026-09-25-header-web — desktop title row, one toolbar, home button */
+.head-stick .head-home{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  width:44px;
+  min-width:44px;
+  height:44px;
+  min-height:44px;
+  margin:0;
+  padding:0;
+  border:1px solid #e7e5e4;
+  border-radius:12px;
+  background:#fff;
+  color:#0f172a;
+  text-decoration:none;
+  box-sizing:border-box;
+}
+.head-stick .head-home svg{width:22px;height:22px;display:block}
+.head-stick .head-home:hover{background:#f8fafc}
+.head-stick .head-home:focus-visible{
+  outline:2px solid #c41e3a;
+  outline-offset:2px;
+}
+@media (min-width:768px){
+  .head-stick .topbar-inner{
+    width:min(1180px, calc(100% - 32px));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-areas:"brand brand" "date date" "find actions";
+    align-items:center;
+    justify-content:stretch;
+    gap:6px 12px;
+    padding:12px 0 14px;
+    min-height:0;
+  }
+  .head-stick .brand-row{
+    justify-content:center;
+    overflow:hidden;
+  }
+  .head-stick .brand{
+    min-height:40px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .head-stick .topbar .brand h1{
+    display:block;
+    text-align:center;
+    white-space:nowrap;
+    overflow:visible;
+    text-overflow:clip;
+    -webkit-line-clamp:unset;
+    font-size:26px;
+    line-height:1.2;
+  }
+  .head-stick .brand-date{
+    text-align:center;
+    white-space:nowrap;
+    overflow:visible;
+    text-overflow:clip;
+  }
+  .head-stick .header-art{
+    left:50%;
+    right:auto;
+    width:min(280px,46%);
+    height:100%;
+    transform:translateX(-50%);
+  }
+  .head-stick.is-scrolled .header-art{
+    opacity:0;
+    transform:translateX(-50%) scale(.94);
+  }
+  .head-stick .top-find,
+  .head-stick .top-actions{
+    align-self:center;
+    align-items:center;
+    flex-wrap:nowrap;
+    height:44px;
+  }
+  .head-stick .top-find{min-width:0}
+  .head-stick .top-actions{flex-shrink:0}
+  .head-stick .topbar .lang-switch{align-items:center}
+  .head-stick .top-actions{
+    width:auto;
+    justify-content:flex-end;
+    gap:6px;
+  }
+  .head-stick .top-search{
+    height:44px;
+    min-height:44px;
+    align-self:center;
+  }
+  .head-stick .live{
+    height:44px;
+    min-height:44px;
+    box-sizing:border-box;
+  }
+  .head-stick .topbar .lang-switch,
+  .head-stick .notify-btn,
+  .head-stick .share-btn{
+    height:44px;
+    min-height:44px;
+    max-height:44px;
+    box-sizing:border-box;
+  }
+  .head-stick .share-btn{
+    display:inline-flex;
+    width:44px;
+    min-width:44px;
+  }
+  .head-stick .notify-btn{
+    width:44px;
+    min-width:44px;
+  }
 }
