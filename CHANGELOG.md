@@ -1,3 +1,9 @@
+## 2026-09-25-dhm-12310 · Five-day warning and Bulletin-27
+
+- Lead warning is DHM #12310, issued Asoj 9 at 4:43 PM (25 September 2026). The window is Asoj 9–13 (25–29 September). Maps are `img/dhm/warning-12310-day{1,2,3,4,5}.png`. Each district uses that day’s colour from the official map. Day 5 (Asoj 13) is green in every district.
+- Special Weather Bulletin-27 (#12311), issued Asoj 9 at 5:00 PM, is the Bhotekoshi corridor card on `notices.html#alert`. Past 24 hours: heavy rain in many places around Gorkha, Rasuwa, Nuwakot, Dhading and Chitwan. From the night of Asoj 9 through the morning of Asoj 12, moderate rain is likely in many places of those five districts, and heavy rain is possible in 1–2 places in each. District table: `img/dhm/bulletin-12311-districts.png`.
+- `data/weather-alert.json` `page_ver` is `2026-09-25-dhm-12310`. `latest.json` id matches.
+
 ## 2026-09-25 · Deploy stamp
 
 - Pages publishes from `.github/workflows/pages.yml`. The workflow stamps one build id into asset URLs, `PAGE_VER`, `sw.js`, and `version.json` in the artifact. Do not hand-edit those versions; the next deploy overwrites them.

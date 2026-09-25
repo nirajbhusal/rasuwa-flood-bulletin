@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-25-dhm-1643";
+  var VER = window.PAGE_VER || "2026-09-25-dhm-12310";
   var showDistricts = true;
   var police = null;
   var policeFilter = "";

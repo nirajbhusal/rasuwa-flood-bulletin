@@ -9,7 +9,7 @@
   var LEVEL_RANK = { red: 4, orange: 3, yellow: 2, green: 1 };
   var FEW_REDS = 8;
   var HOME_CAP = 12;
-  var CORRIDOR_PAGE = 12307;
+  var CORRIDOR_PAGE = 12311;
   var CORRIDOR_ORDER = ["rasuwa", "nuwakot", "dhading", "gorkha", "chitwan"];
   var LEVEL_COLOR = { red: "#d7191c", orange: "#e65c00", yellow: "#e6b800", green: "#1b7f3a" };
 

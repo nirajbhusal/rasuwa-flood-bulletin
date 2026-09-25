@@ -585,7 +585,7 @@ def day_has_districts(alert, date):
 LEVEL_RANK = {"red": 4, "orange": 3, "yellow": 2, "green": 1}
 FEW_REDS = 8
 ALERT_CAP = 12
-CORRIDOR_PAGE = 12307
+CORRIDOR_PAGE = 12311
 CORRIDOR_ORDER = ["rasuwa", "nuwakot", "dhading", "gorkha", "chitwan"]
 # Representative place. Coordinates come only from points.json via "point".
 PLACE_OVERRIDES = {
@@ -804,10 +804,10 @@ def provinces_at(alert, date, level):
 
 
 def select_alert_districts(alert, districts, date, now):
-    """Red-province districts, plus impact and #12307 districts while their window is open.
+    """Red-province districts, plus impact and #12311 districts while their window is open.
 
     Orange-province districts are added only when fewer than FEW_REDS districts are red.
-    Rasuwa stays first while bulletin 12307 is active.
+    Rasuwa stays first while bulletin 12311 is active.
     """
     by_id = {row.get("id"): row for row in districts or [] if row.get("id")}
     if day_has_districts(alert, date):

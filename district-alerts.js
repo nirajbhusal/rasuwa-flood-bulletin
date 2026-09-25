@@ -1,6 +1,6 @@
 /*! District alerts card. Reads data/weather-alert.json and the district shapes. */
 (function () {
-  var VER = window.PAGE_VER || "2026-09-25-dhm-1643";
+  var VER = window.PAGE_VER || "2026-09-25-dhm-12310";
   var data = null;
   var geo = null;
   var selected = "";
@@ -11,7 +11,7 @@
   /* Cells read from the NMD impact images (git 1ac09ce):
      impact-sindhupalchok.jpg — high impact × medium likelihood = orange
      impact-baglung.jpg and impact-myagdi.jpg — medium × medium = yellow
-     Corridor #12307 isolated heavy follows levels.heavy = yellow. */
+     Corridor #12311 isolated heavy follows levels.heavy = yellow. */
   var MATRIX = {
     "high|medium": "orange",
     "medium|medium": "yellow"

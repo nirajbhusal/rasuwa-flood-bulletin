@@ -1,0 +1,42 @@
+{
+  "id": "12310",
+  "title": "आगामी पाँच दिनका लागि मौसम चेतावनी (जारी मिति: २०८३-०६-०९ गते अपराह्न ४:४३ बजे)",
+  "thumbnail": null,
+  "description": "",
+  "content": "",
+  "user_id": "81",
+  "create_at": "2026-09-25T05:35:08.882Z",
+  "update_at": "2026-09-25T11:00:43.282Z",
+  "status": "1",
+  "update_by": "79",
+  "expired_at": null,
+  "weather_map_status": true,
+  "issue_date": "2026-09-25T10:58:00.000Z",
+  "weather_map_images": [
+    {
+      "filepath": "weather-map/2026/09/25/warning-map-day-1-1790334044402.png",
+      "weather_type_id": 3,
+      "weather_type_day_id": 1
+    },
+    {
+      "filepath": "weather-map/2026/09/25/warning-map-day-2-1790334047941.png",
+      "weather_type_id": 3,
+      "weather_type_day_id": 2
+    },
+    {
+      "filepath": "weather-map/2026/09/25/warning-map-day-3-1790334051909.png",
+      "weather_type_id": 3,
+      "weather_type_day_id": 3
+    },
+    {
+      "filepath": "weather-map/2026/09/25/warning-map-day-4-1790334056291.png",
+      "weather_type_id": 3,
+      "weather_type_day_id": 4
+    },
+    {
+      "filepath": "weather-map/2026/09/25/warning-map-day-5-1790334060343.png",
+      "weather_type_id": 3,
+      "weather_type_day_id": 5
+    }
+  ]
+}
