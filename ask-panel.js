@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  var VER = window.PAGE_VER || "2026-09-25-road-notice";
+  var VER = window.PAGE_VER || "2026-09-25-header-ask";
   var HL_ORDER = ["1234", "100", "1148", "1111", "1114", "102", "1144", "1155"];
   var HL_FALLBACK = [
     { tel: "1234", key: "hl_deoc" },
@@ -87,13 +87,41 @@
   function lang() {
     return (document.documentElement.getAttribute("lang") || "ne").slice(0, 2) === "en" ? "en" : "ne";
   }
+  var ASK_UI = {
+    ne: {
+      ask_title: "सोध्नुहोस्",
+      ask_sub: "नेपाली वा English · प्रकाशित तथ्यांक",
+      ask_greet: "नमस्ते। आजको मौसम, सडक वा उद्धार सोध्नुहोस्। छोटो उत्तर आउँछ।",
+      ask_send: "सोध्नुहोस्",
+      ask_chips: "छिटो प्रश्न",
+      ask_faq: "अक्सर सोधिने",
+      ask_faq_ph: "FAQ खोज्नुहोस्",
+      ask_faq_empty: "मिल्दो प्रश्न भेटिएन।",
+      ask_follow: "अर्को प्रश्न",
+      ask_err: "तथ्यांक लोड भएन। फेरि प्रयास गर्नुहोस्।"
+    },
+    en: {
+      ask_title: "Ask",
+      ask_sub: "Nepali or English · published figures",
+      ask_greet: "Hello. Ask about today's weather, the roads, or rescue. Answers stay short.",
+      ask_send: "Ask",
+      ask_chips: "Quick asks",
+      ask_faq: "FAQ",
+      ask_faq_ph: "Search FAQ",
+      ask_faq_empty: "No matching question.",
+      ask_follow: "Ask next",
+      ask_err: "Figures did not load. Try again."
+    }
+  };
   function t(key) {
     if (window.t) {
       var s = window.t(key);
       if (s && s !== key) return s;
     }
     var pack = (window.I18N && (window.I18N[lang()] || window.I18N.ne)) || {};
-    return pack[key] != null ? pack[key] : key;
+    if (pack[key] != null) return pack[key];
+    var local = (ASK_UI[lang()] || ASK_UI.ne)[key];
+    return local || key;
   }
   function tx(obj) {
     if (obj == null) return "";
@@ -281,6 +309,53 @@
     return CHIPS.map(function (c) {
       return { id: c.id, label: t(c.key) };
     });
+  }
+  function greetText() {
+    var s = t("ask_greet");
+    if (s && s !== "ask_greet") return s;
+    return lang() === "en"
+      ? "Hello. Ask about today's weather, the roads, or rescue. Answers stay short."
+      : "नमस्ते। आजको मौसम, सडक वा उद्धार सोध्नुहोस्। छोटो उत्तर आउँछ।";
+  }
+  function rescuedDisplay() {
+    var cards = cache.dash && cache.dash.cards;
+    if (!cards) return "";
+    for (var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+      if (card && card.id === "rescued" && card.value_display) return tx(card.value_display) || "";
+    }
+    return "";
+  }
+  function liveChips() {
+    var en = lang() === "en";
+    var today = false;
+    if (cache.wx && cache.wx.warning_days) {
+      var iso = ktmISO(0);
+      today = cache.wx.warning_days.some(function (d) { return d && d.date === iso; });
+    }
+    var n = cache.roads && cache.roads.dao_notice && cache.roads.dao_notice.counts
+      ? cache.roads.dao_notice.counts.districts : null;
+    var roadN = typeof n === "number" ? String(n) : "";
+    if (roadN && !en) roadN = roadN.replace(/[0-9]/g, function (d) { return "०१२३४५६७८९"[d]; });
+    var roadLabel = roadN
+      ? (en ? "Roads closed in " + n + " districts" : roadN + " जिल्लामा सडक बन्द")
+      : (en ? "Roads" : "सडक");
+    var rescued = rescuedDisplay();
+    return [
+      {
+        id: "weather",
+        label: today ? (en ? "Weather alert today" : "आजको मौसम चेतावनी") : (en ? "Weather" : "मौसम"),
+        spec: askSpec("weather", en ? "weather today" : "आजको मौसम")
+      },
+      { id: "roads", label: roadLabel, spec: askSpec("roads", "roads") },
+      { id: "roads", label: en ? "Rasuwa NH42" : "रसुवा NH42", spec: askSpec("roads", "NH42 Rasuwa") },
+      { id: "helpline", label: en ? "Helplines" : "हेल्पलाइन", spec: askSpec("helpline", en ? "helpline" : "हेल्पलाइन") },
+      {
+        id: "rescue",
+        label: rescued ? (en ? "Rescued " + rescued : "उद्धार " + rescued) : (en ? "Rescue figures" : "उद्धार"),
+        spec: askSpec("rescue", en ? "rescue" : "उद्धार")
+      }
+    ];
   }
   function dataCtx() {
     var rows = cache.hl && cache.hl.length ? cache.hl : HL_FALLBACK;
@@ -612,22 +687,12 @@
     }
     if (!thread.length) {
       var greet = el("p", "ask-greet");
-      greet.textContent = t("ask_greet");
+      greet.textContent = greetText();
       log.appendChild(greet);
       var suggest = el("div", "ask-suggest");
-      faqList().forEach(function (entry) {
-        if (!entry.item.featured) return;
+      liveChips().forEach(function (c) {
         var b = el("button", "ask-chip");
-        b.type = "button";
-        var label = tx(entry.item.q);
-        b.textContent = label;
-        b.addEventListener("click", function () {
-          submit(label, askSpec(entry.item.route || entry.topic, label, {
-            static: entry.item.static,
-            topic: entry.item.route || entry.topic,
-            query: (entry.item.route || entry.topic) === "names" ? "" : undefined
-          }));
-        });
+        wireChip(b, c.label, c.spec);
         suggest.appendChild(b);
       });
       if (suggest.childNodes.length) log.appendChild(suggest);
@@ -667,16 +732,18 @@
     });
     renderFaq();
     chips.replaceChildren();
-    var cap = el("p", "ask-chips-h");
-    cap.textContent = t("ask_chips");
-    chips.appendChild(cap);
-    var row = el("div", "ask-chip-row");
-    chipModels().forEach(function (c) {
-      var b = el("button", "ask-chip" + (topicNow && topicNow === c.id ? " is-on" : ""));
-      wireChip(b, c.label, askSpec(c.id, c.label, { topic: c.id, query: c.id === "names" ? "" : undefined }));
-      row.appendChild(b);
-    });
-    chips.appendChild(row);
+    if (thread.length) {
+      var cap = el("p", "ask-chips-h");
+      cap.textContent = t("ask_chips");
+      chips.appendChild(cap);
+      var row = el("div", "ask-chip-row");
+      chipModels().forEach(function (c) {
+        var b = el("button", "ask-chip" + (topicNow && topicNow === c.id ? " is-on" : ""));
+        wireChip(b, c.label, askSpec(c.id, c.label, { topic: c.id, query: c.id === "names" ? "" : undefined }));
+        row.appendChild(b);
+      });
+      chips.appendChild(row);
+    }
     var sheet = document.getElementById("ask-sheet");
     if (sheet) sheet.classList.toggle("is-thread", thread.length > 0);
     var title = document.getElementById("ask-h");
@@ -833,17 +900,15 @@
   function lockPage() {
     if (document.documentElement.classList.contains("ask-lock")) return;
     askScrollY = window.scrollY || document.documentElement.scrollTop || 0;
-    document.body.style.top = "-" + askScrollY + "px";
     document.documentElement.classList.add("ask-lock");
     document.body.classList.add("ask-lock");
   }
   function unlockPage() {
     if (!document.documentElement.classList.contains("ask-lock")) return;
-    var y = askScrollY;
     document.documentElement.classList.remove("ask-lock");
     document.body.classList.remove("ask-lock");
     document.body.style.top = "";
-    window.scrollTo(0, y);
+    document.body.style.position = "";
   }
   function placeSheet() {
     var sheet = document.getElementById("ask-sheet");

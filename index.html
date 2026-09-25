@@ -101,13 +101,13 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="preload" href="fonts/mukta-500-deva.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts.css?v=2026-09-25-road-notice" as="style">
-<link rel="preload" href="bulletin.css?v=2026-09-25-road-notice" as="style">
-<link rel="stylesheet" href="fonts.css?v=2026-09-25-road-notice">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-25-road-notice">
-<link rel="stylesheet" href="rain-theme.css?v=2026-09-25-road-notice">
-<link rel="stylesheet" href="district-alerts.css?v=2026-09-25-road-notice">
-<link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=2026-09-25-road-notice">
+<link rel="preload" href="fonts.css?v=2026-09-25-header-ask" as="style">
+<link rel="preload" href="bulletin.css?v=2026-09-25-header-ask" as="style">
+<link rel="stylesheet" href="fonts.css?v=2026-09-25-header-ask">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-25-header-ask">
+<link rel="stylesheet" href="rain-theme.css?v=2026-09-25-header-ask">
+<link rel="stylesheet" href="district-alerts.css?v=2026-09-25-header-ask">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=2026-09-25-header-ask">
 </head>
 <body>
 <a class="skip-link" href="#main" aria-label="मुख्य सामग्री"></a>
@@ -126,9 +126,9 @@
   <span class="brand-updated" data-i18n="brand_date">अन्तिम अपडेट · ९ असोज / २५ सेप्टेम्बर</span>
 </p>
 <div class="top-find">
-  <form class="top-search" role="search" action="names.html" method="get">
+  <form class="top-search" role="search">
     <label class="sr-only" for="top-names-q" data-i18n="nav_search">नाम खोज्नुहोस्</label>
-    <input id="top-names-q" class="top-names-q" name="q" type="search" placeholder="नाम / ठेगाना / फोन" data-i18n-placeholder="ns_ph" autocomplete="off" enterkeyhint="search" spellcheck="false">
+    <input id="top-names-q" class="top-names-q" name="q" type="search" placeholder="खोज्नुहोस्… सूचना, सडक, मौसम" data-i18n-placeholder="site_q" autocomplete="off" enterkeyhint="search" spellcheck="false">
   </form>
 </div>
 <div class="top-actions">
@@ -1279,7 +1279,7 @@
     if (started) return;
     started = true;
     var s = document.createElement("script");
-    s.src = "i18n.js?v=" + (window.PAGE_VER || "2026-09-25-road-notice");
+    s.src = "i18n.js?v=" + (window.PAGE_VER || "2026-09-25-header-ask");
     s.onload = function(){
       var q = waiters.splice(0);
       q.forEach(function(fn){ try { fn(); } catch (e) {} });
@@ -1306,15 +1306,16 @@
   });
 })();
 </script>
-<script defer src="rain-theme.js?v=2026-09-25-road-notice"></script>
-<script defer src="district-alerts.js?v=2026-09-25-road-notice"></script>
-<script defer src="weather-alert.js?v=2026-09-25-road-notice"></script>
-<script defer src="weather-now.js?v=2026-09-25-road-notice"></script>
-<script defer src="weather-db.js?v=2026-09-25-road-notice"></script>
-<script defer src="roads-dor.js?v=2026-09-25-road-notice"></script>
-<script defer src="open-alert.js?v=2026-09-25-road-notice"></script>
-<script defer src="notify.js?v=2026-09-25-road-notice"></script>
-<script defer src="nav-menu.js?v=2026-09-25-road-notice"></script>
+<script defer src="rain-theme.js?v=2026-09-25-header-ask"></script>
+<script defer src="district-alerts.js?v=2026-09-25-header-ask"></script>
+<script defer src="weather-alert.js?v=2026-09-25-header-ask"></script>
+<script defer src="weather-now.js?v=2026-09-25-header-ask"></script>
+<script defer src="weather-db.js?v=2026-09-25-header-ask"></script>
+<script defer src="roads-dor.js?v=2026-09-25-header-ask"></script>
+<script defer src="open-alert.js?v=2026-09-25-header-ask"></script>
+<script defer src="notify.js?v=2026-09-25-header-ask"></script>
+<script defer src="nav-menu.js?v=2026-09-25-header-ask"></script>
+<script defer src="site-search.js?v=2026-09-25-header-ask"></script>
 
 <script>
 (function(){
@@ -1374,12 +1375,7 @@
     s.onerror=function(){ loading=false; };
     document.head.appendChild(s);
   }
-  document.addEventListener("input",function(e){
-    var t=e.target;
-    if(!t||t.id!=="top-names-q") return;
-    var val=t.value||"";
-    load(function(){ if(window.__openNamesSearch) window.__openNamesSearch(val); });
-  },true);
+
   document.addEventListener("click",function(e){
     var t=e.target.closest("[data-open-names],a[href=\"#search\"],a[href$=\"#search\"]");
     if(!t) return;
@@ -1392,8 +1388,8 @@
   window.__ensureNamesIndex=load;
 })();
 </script>
-<script defer src="ask-answers.js?v=2026-09-25-road-notice"></script>
-<script defer src="ask-panel.js?v=2026-09-25-road-notice"></script>
+<script defer src="ask-answers.js?v=2026-09-25-header-ask"></script>
+<script defer src="ask-panel.js?v=2026-09-25-header-ask"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -1465,8 +1461,8 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-25-road-notice";</script>
-<script src="refresh.js?v=2026-09-25-road-notice"></script>
+<script>window.PAGE_VER="2026-09-25-header-ask";</script>
+<script src="refresh.js?v=2026-09-25-header-ask"></script>
 <script>
 
 (function(){

@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-25-road-notice";
+  var VER = window.PAGE_VER || "2026-09-25-header-ask";
   var showDistricts = true;
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
@@ -132,11 +132,8 @@
   function renderDao(board, mode) {
     var n = notice();
     var labels = n.labels || {};
-    var head = el("header", "dor-head");
-    head.appendChild(el("p", "dor-kicker", tx(labels.kicker)));
-    head.appendChild(el("p", "dor-asof", tx(n.published)));
-    board.appendChild(head);
     board.appendChild(el("h2", "dor-title dor-dao-title", tx(n.heading)));
+    board.appendChild(el("p", "dor-asof dor-dao-date", tx(n.published)));
     var counts = n.counts || {};
     var row = el("ul", "dor-chips dor-dao-counts");
     [["districts", counts.districts, "dor-chip-closed"], ["provinces", counts.provinces, "dor-chip-total"]].forEach(function (item) {
@@ -265,7 +262,6 @@
   }
   function mountMap(host, mode) {
     var ui = data.ui;
-    host.appendChild(el("h3", "dor-gh", tx(ui.map_h)));
     var tools = el("div", "dor-map-tools");
     var focus = document.createElement("button");
     focus.type = "button";
@@ -430,7 +426,7 @@
           var db = districtLayer.getBounds();
           if (db && db.isValid()) districtBounds = db;
         } catch (e) {}
-        frame(districtBounds || nationalBounds);
+        frame(notice() ? nationalBounds : (districtBounds || nationalBounds));
         if (pendingDistrict) focusDistrict(pendingDistrict);
       })
       .catch(function () {});
@@ -442,7 +438,7 @@
       if (!b && notice()) b = nationalBounds;
       if (!b) b = corridorBounds;
       if (b && b.isValid && b.isValid()) {
-        var pad = notice() && b === nationalBounds ? [12, 12] : [28, 28];
+        var pad = notice() && b === nationalBounds ? [20, 20] : [28, 28];
         var zoomCap = notice() && (b === nationalBounds || b === districtBounds) ? 7 : 9;
         map.fitBounds(b, { padding: pad, maxZoom: zoomCap, animate: false });
       }
@@ -493,16 +489,16 @@
           if (b && b.isValid()) corridorBounds = b.pad(0.45);
         } catch (e) {}
         try { layer.bringToFront(); } catch (e2) {}
-        frame(notice() ? (districtBounds || nationalBounds) : corridorBounds);
-        window.setTimeout(function () { frame(notice() ? (districtBounds || nationalBounds) : corridorBounds); }, 120);
-        window.setTimeout(function () { frame(notice() ? (districtBounds || nationalBounds) : corridorBounds); }, 420);
+        frame(notice() ? nationalBounds : corridorBounds);
+        window.setTimeout(function () { frame(notice() ? nationalBounds : corridorBounds); }, 120);
+        window.setTimeout(function () { frame(notice() ? nationalBounds : corridorBounds); }, 420);
       })
       .catch(function () {
         if (token !== mapGen) return;
         try { map.invalidateSize(); } catch (e) {}
         map.fitBounds([[26.35, 80.05], [30.45, 88.2]], { padding: [16, 16], maxZoom: 7, animate: false });
       });
-    window.setTimeout(function () { frame(notice() ? (districtBounds || nationalBounds) : corridorBounds); }, 240);
+    window.setTimeout(function () { frame(notice() ? nationalBounds : corridorBounds); }, 240);
   }
   function links(host, withSection) {
     var ui = data.ui;

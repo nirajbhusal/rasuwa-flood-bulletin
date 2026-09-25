@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-road-notice";
+  var VER = window.PAGE_VER || "2026-09-25-header-ask";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -333,6 +333,84 @@
     }
     chunk();
   }
+  function subpathArea(part) {
+    var tokens = [];
+    var re = /[MmLlHhVvCcSsQqTtAaZz]|-?\d*\.?\d+(?:e[-+]?\d+)?/g;
+    var m;
+    while ((m = re.exec(part))) tokens.push(m[0]);
+    var i = 0;
+    var cmd = "";
+    var x = 0;
+    var y = 0;
+    var minx = Infinity;
+    var miny = Infinity;
+    var maxx = -Infinity;
+    var maxy = -Infinity;
+    var n = 0;
+    function num() { return +tokens[i++]; }
+    function pt(px, py) {
+      if (px < minx) minx = px;
+      if (py < miny) miny = py;
+      if (px > maxx) maxx = px;
+      if (py > maxy) maxy = py;
+      x = px;
+      y = py;
+      n += 1;
+    }
+    while (i < tokens.length) {
+      if (/[A-Za-z]/.test(tokens[i])) cmd = tokens[i++];
+      if (!cmd) break;
+      var rel = cmd === cmd.toLowerCase();
+      var C = cmd.toUpperCase();
+      if (C === "Z") continue;
+      if (C === "M" || C === "L") {
+        var nx = num();
+        var ny = num();
+        pt(rel ? x + nx : nx, rel ? y + ny : ny);
+        if (C === "M") cmd = rel ? "l" : "L";
+        continue;
+      }
+      if (C === "H") { var hx = num(); pt(rel ? x + hx : hx, y); continue; }
+      if (C === "V") { var vy = num(); pt(x, rel ? y + vy : vy); continue; }
+      if (C === "C") {
+        var ox = x;
+        var oy = y;
+        var c1x = num();
+        var c1y = num();
+        var c2x = num();
+        var c2y = num();
+        var ex = num();
+        var ey = num();
+        if (rel) { c1x += ox; c1y += oy; c2x += ox; c2y += oy; ex += ox; ey += oy; }
+        pt(c1x, c1y);
+        pt(c2x, c2y);
+        pt(ex, ey);
+        continue;
+      }
+      break;
+    }
+    if (!n) return 0;
+    return Math.max(0, maxx - minx) * Math.max(0, maxy - miny);
+  }
+  function provinceOutline(d) {
+    var src = String(d || "");
+    var marks = [];
+    var re = /[Mm]/g;
+    var m;
+    while ((m = re.exec(src))) marks.push(m.index);
+    if (marks.length < 2) return src;
+    var parts = [];
+    for (var k = 0; k < marks.length; k++) parts.push(src.slice(marks[k], marks[k + 1]));
+    var best = 0;
+    var bestArea = -1;
+    var areas = parts.map(function (part, idx) {
+      var area = subpathArea(part);
+      if (area > bestArea) { bestArea = area; best = idx; }
+      return area;
+    });
+    var kept = parts.filter(function (part, idx) { return idx === best || areas[idx] >= 400; });
+    return kept.join("");
+  }
   function buildMap(svg) {
     var geo = data.geo || {};
     svg.setAttribute("viewBox", geo.viewBox || "0 0 672.5 391.7");
@@ -342,22 +420,12 @@
     layer.setAttribute("class", "wxb-zoom");
     svg._layer = layer;
     svg.appendChild(layer);
-    var ring = geo.ring;
-    if (ring) {
-      var ell = svgEl("ellipse");
-      ell.setAttribute("cx", ring.cx);
-      ell.setAttribute("cy", ring.cy);
-      ell.setAttribute("rx", ring.rx);
-      ell.setAttribute("ry", ring.ry);
-      ell.setAttribute("class", "wxb-ring");
-      layer.appendChild(ell);
-    }
     (geo.provinces || []).forEach(function (g) {
       var p = provinceById(g.id);
       if (!p) return;
       var key = alertKey(p);
       var path = svgEl("path");
-      path.setAttribute("d", g.d);
+      path.setAttribute("d", provinceOutline(g.d));
       path.setAttribute("class", "wxb-prov wxb-lv-" + key);
       path.setAttribute("data-id", g.id);
       path.setAttribute("data-alert", key);
@@ -1188,10 +1256,6 @@
     board.appendChild(head);
 
     var mapPanel = el("section", "wxb-panel wxb-map-panel");
-    var mapHead = el("div", "wxb-maphead");
-    mapHead.appendChild(el("h3", "wxb-maptitle", outlookTitle()));
-    mapHead.appendChild(el("p", "wxb-shown", shownDateText()));
-    mapPanel.appendChild(mapHead);
     var svg = svgEl("svg");
     svg.setAttribute("class", "wxb-svg" + (justShifted ? " is-shifting" : ""));
     svg.setAttribute("viewBox", (data.geo && data.geo.viewBox) || "-18 -12 880 548");
