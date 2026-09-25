@@ -12,6 +12,7 @@
   var catalog = [];
   var rich = false;
   var outsideBound = false;
+  var blurTimer = 0;
 
   function lang() {
     return document.documentElement.lang === "en" ? "en" : "ne";
@@ -134,7 +135,7 @@
   }
   function matches(q) {
     if (!q) {
-      return catalog.filter(function (row) { return row.kind === "page"; }).slice(0, 8);
+      return catalog.filter(function (row) { return row.kind === "page"; }).slice(0, 4);
     }
     var out = [];
     for (var i = 0; i < catalog.length; i++) {
@@ -167,6 +168,10 @@
     return en() ? "Search names" : "नाम खोज्नुहोस्";
   }
   function paint() {
+    if (document.activeElement !== input) {
+      close();
+      return;
+    }
     ensureList();
     var q = norm(input.value);
     items = matches(q);
@@ -193,15 +198,19 @@
       t.textContent = row.label;
       b.appendChild(k);
       b.appendChild(t);
+      b.addEventListener("pointerdown", function (e) { e.preventDefault(); });
       b.addEventListener("click", function () { go(row); });
       list.appendChild(b);
     });
-    var names = document.createElement("button");
-    names.type = "button";
-    names.className = "site-result site-result-names";
-    names.textContent = namesLabel();
-    names.addEventListener("click", openNames);
-    list.appendChild(names);
+    if (q) {
+      var names = document.createElement("button");
+      names.type = "button";
+      names.className = "site-result site-result-names";
+      names.textContent = namesLabel();
+      names.addEventListener("pointerdown", function (e) { e.preventDefault(); });
+      names.addEventListener("click", openNames);
+      list.appendChild(names);
+    }
     input.setAttribute("aria-expanded", "true");
     if (active >= 0) input.setAttribute("aria-activedescendant", "site-opt-" + active);
     else input.removeAttribute("aria-activedescendant");
@@ -283,8 +292,20 @@
       if (t === input || form.contains(t) || (list && list.contains(t))) return;
       close();
     });
+    document.addEventListener("click", function (e) {
+      if (!open) return;
+      var a = e.target && e.target.closest && e.target.closest("a[href], #nav-toggle, #desk-nav-toggle");
+      if (!a || form.contains(a) || (list && list.contains(a))) return;
+      close();
+    });
     window.addEventListener("resize", place);
-    window.addEventListener("scroll", place, true);
+    window.addEventListener("scroll", function (e) {
+      if (!open) return;
+      var t = e.target;
+      if (list && (t === list || (t && list.contains && list.contains(t)))) return;
+      close();
+    }, true);
+    window.addEventListener("hashchange", function () { if (open) close(); });
     if (window.visualViewport) window.visualViewport.addEventListener("resize", place);
   }
 
@@ -323,10 +344,15 @@
     form.appendChild(clear);
   }
   input.addEventListener("focus", function () {
+    window.clearTimeout(blurTimer);
     seed();
     enrich();
     bindOutside();
     paint();
+  });
+  input.addEventListener("blur", function () {
+    window.clearTimeout(blurTimer);
+    blurTimer = window.setTimeout(close, 160);
   });
   input.addEventListener("input", function () {
     seed();

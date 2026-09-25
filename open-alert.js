@@ -130,12 +130,23 @@
     if (timer) window.clearTimeout(timer);
     timer = 0;
   }
+  function placeAlert() {
+    var root = document.documentElement;
+    if (!sheet) {
+      root.classList.remove("has-open-alert");
+      root.style.removeProperty("--open-alert-h");
+      return;
+    }
+    root.classList.add("has-open-alert");
+    root.style.setProperty("--open-alert-h", sheet.offsetHeight + "px");
+  }
   function dismiss() {
     clearTimer();
     if (shownId) write(window.localStorage, SEEN, shownId);
     if (sheet && sheet.parentNode) sheet.parentNode.removeChild(sheet);
     sheet = null;
     paused = false;
+    placeAlert();
   }
   function fadeOut() {
     if (!sheet || paused) return;
@@ -149,8 +160,11 @@
   }
   function arm() {
     clearTimer();
-    if (paused || !sheet || reduceMotion()) return;
-    timer = window.setTimeout(fadeOut, HOLD);
+    if (paused || !sheet) return;
+    timer = window.setTimeout(function () {
+      if (reduceMotion()) dismiss();
+      else fadeOut();
+    }, HOLD);
   }
   function pause() {
     paused = true;
@@ -205,16 +219,20 @@
       sheet.setAttribute("role", "status");
       sheet.setAttribute("aria-live", "polite");
       document.body.appendChild(sheet);
-      sheet.addEventListener("pointerenter", pause);
-      sheet.addEventListener("pointerleave", resume);
+      sheet.addEventListener("pointerenter", function (e) {
+        if (e.pointerType && e.pointerType !== "mouse") return;
+        pause();
+      });
+      sheet.addEventListener("pointerleave", function (e) {
+        if (e.pointerType && e.pointerType !== "mouse") return;
+        resume();
+      });
       sheet.addEventListener("focusin", pause);
       sheet.addEventListener("focusout", function (e) {
         if (sheet && e.relatedTarget && sheet.contains(e.relatedTarget)) return;
         resume();
       });
-      sheet.addEventListener("touchstart", pause, { passive: true });
-      sheet.addEventListener("touchend", resume, { passive: true });
-      sheet.addEventListener("touchcancel", resume, { passive: true });
+      window.addEventListener("resize", placeAlert);
     }
     sheet.className = "open-alert is-" + pack.level;
     sheet.replaceChildren();
@@ -231,6 +249,7 @@
     x.setAttribute("aria-label", pack.close);
     x.textContent = "×";
     x.addEventListener("click", dismiss);
+    band.appendChild(x);
     var body = document.createElement("p");
     body.className = "open-alert-b";
     body.textContent = pack.expect;
@@ -247,19 +266,21 @@
       sheet.appendChild(kicker);
     }
     sheet.appendChild(band);
-    sheet.appendChild(x);
     sheet.appendChild(body);
     sheet.appendChild(stayLine());
     sheet.appendChild(row);
     paused = false;
+    placeAlert();
     if (reduceMotion()) {
       sheet.classList.add("is-in");
+      arm();
       return;
     }
     sheet.classList.remove("is-in");
     window.requestAnimationFrame(function () {
       window.requestAnimationFrame(function () {
         if (sheet) sheet.classList.add("is-in");
+        placeAlert();
       });
     });
     arm();
@@ -270,6 +291,7 @@
     if (!pack) {
       if (sheet && sheet.parentNode) sheet.parentNode.removeChild(sheet);
       sheet = null;
+      placeAlert();
       return;
     }
     if (!sheet && !shouldShow(pack.id)) return;
