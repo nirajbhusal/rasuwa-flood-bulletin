@@ -1,9 +1,7 @@
 /*! Site rain overlay. Auto while today's DHM warning or a district alert is active. */
 (function () {
-  var VER = window.PAGE_VER || "2026-09-25-wx-card-merge";
-  var KEY = "rasuwa-rain";
+  var VER = window.PAGE_VER || "2026-09-25-header-icons";
   var enabled = false;
-  var userSet = false;
   var canvas = null;
   var ctx = null;
   var parts = [];
@@ -14,20 +12,6 @@
   var h = 0;
   var reduce = false;
 
-  function lang() {
-    return document.documentElement.lang === "en" ? "en" : "ne";
-  }
-  function labelText() {
-    var pack = (window.I18N && window.I18N[lang()]) || {};
-    if (pack.rain_fx) return pack.rain_fx;
-    return lang() === "en" ? "Rain effect" : "वर्षा प्रभाव";
-  }
-  function stored() {
-    try { return localStorage.getItem(KEY); } catch (e) { return null; }
-  }
-  function save(v) {
-    try { localStorage.setItem(KEY, v); } catch (e) {}
-  }
   function kathmanduToday() {
     try {
       return new Intl.DateTimeFormat("en-CA", {
@@ -83,16 +67,6 @@
     for (var w = 0; w < warnings.length; w++) if (open(warnings[w])) return true;
     if (open(json.callout) && json.callout.districts && json.callout.districts.length) return true;
     return false;
-  }
-  function paintButton() {
-    var btn = document.querySelector(".rain-toggle");
-    if (!btn) return;
-    var text = labelText();
-    var span = btn.querySelector(".rain-toggle-t");
-    if (span) span.textContent = text;
-    btn.setAttribute("aria-label", "वर्षा प्रभाव / Rain effect");
-    btn.setAttribute("aria-pressed", enabled ? "true" : "false");
-    btn.classList.toggle("is-on", enabled);
   }
   function resize() {
     if (!canvas) return;
@@ -175,70 +149,27 @@
   }
   function applyState() {
     document.documentElement.classList.toggle("rain-on", enabled);
-    document.documentElement.classList.toggle("rain-user", userSet && enabled);
-    paintButton();
     if (enabled && !document.hidden) startLoop();
     else stopLoop();
   }
-  function setEnabled(on, fromUser) {
-    enabled = !!on;
-    if (fromUser) {
-      userSet = true;
-      save(enabled ? "on" : "off");
-    }
-    applyState();
-  }
-  function mountButton() {
-    if (document.querySelector(".rain-toggle")) return;
-    var actions = document.querySelector(".top-actions");
-    if (!actions) return;
-    var btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "rain-toggle";
-    btn.setAttribute("aria-pressed", "false");
-    btn.setAttribute("aria-label", "वर्षा प्रभाव / Rain effect");
-    btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.2C8 3.2 4.6 6.1 4.2 10h15.6C19.4 6.1 16 3.2 12 3.2z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 10.2v6.4a2.3 2.3 0 0 1-4.5.6"/><path fill="currentColor" d="M17.2 14.2c0 1.5 1.1 2.4 2.3 2.4 1.3 0 2.1-1 2.1-2.3 0-1.6-2.2-3.6-2.2-3.6s-2.2 2-2.2 3.5zM5.2 15.4c0 1.2.9 2 1.9 2 1 0 1.7-.8 1.7-1.9 0-1.3-1.8-3-1.8-3s-1.8 1.7-1.8 2.9z"/></svg><span class="rain-toggle-t"></span>';
-    btn.addEventListener("click", function () {
-      setEnabled(!enabled, true);
-    });
-    var langBtn = actions.querySelector(".lang-switch");
-    if (langBtn) actions.insertBefore(btn, langBtn);
-    else actions.appendChild(btn);
-    paintButton();
-  }
   function decide(json) {
     readReduce();
-    var choice = stored();
-    if (choice === "on" || choice === "off") {
-      userSet = true;
-      enabled = choice === "on";
-    } else {
-      userSet = false;
-      enabled = !reduce && autoOn(json);
-    }
+    enabled = !reduce && autoOn(json);
     applyState();
   }
   function boot() {
     readReduce();
-    mountButton();
-    var choice = stored();
-    if (choice === "on") {
-      userSet = true;
-      enabled = true;
-      applyState();
-    }
     var url = "data/weather-alert.json?v=" + encodeURIComponent(VER);
     fetch(url, { cache: "no-cache" })
       .then(function (r) { if (!r.ok) throw new Error("wx"); return r.json(); })
       .then(decide)
-      .catch(function () { paintButton(); });
+      .catch(function () { applyState(); });
   }
   document.addEventListener("visibilitychange", function () {
     if (!enabled) return;
     if (document.hidden) stopLoop();
     else startLoop();
   });
-  if (window.__addLangHook) window.__addLangHook(paintButton);
   function start() {
     if (document.readyState === "complete") boot();
     else window.addEventListener("load", boot);

@@ -5,32 +5,12 @@
   pointer-events:none;
   transform:translateZ(0);
 }
-.topbar .rain-toggle{
-  appearance:none;-webkit-appearance:none;
-  display:inline-flex;align-items:center;gap:6px;
-  font:inherit;font-weight:800;font-size:13px;letter-spacing:.01em;
-  border:2px solid rgba(248,250,252,.42);
-  background:rgba(255,255,255,.12);color:#f8fafc;
-  padding:6px 10px;border-radius:8px;cursor:pointer;line-height:1.1;
-  min-height:36px;flex:none;
-}
-.topbar .rain-toggle svg{width:16px;height:16px;flex:none}
-.topbar .rain-toggle.is-on,
-.topbar .rain-toggle[aria-pressed="true"]{
-  background:rgba(226,232,240,.28);
-  border-color:rgba(226,232,240,.8);
-}
-.topbar .rain-toggle:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
 html.rain-on .topbar-art{
   filter:grayscale(.35) brightness(.86) saturate(.72);
 }
 html.rain-on .topbar::before{
   background:linear-gradient(180deg,rgba(71,85,105,.55) 0%,rgba(51,65,85,.42) 45%,rgba(30,41,59,.5) 100%);
 }
-@media (max-width:520px){
-  .topbar .rain-toggle{font-size:12px;padding:5px 8px;min-height:34px}
-}
 @media (prefers-reduced-motion:reduce){
   .rain-layer{display:none}
-  html.rain-on.rain-user .rain-layer{display:block}
 }

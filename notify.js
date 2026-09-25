@@ -31,9 +31,7 @@
     hint.textContent = text;
     hint.classList.add("show");
   }
-  function setUi(text, cls, aria, pressed) {
-    var span = btn.querySelector(".notify-label");
-    if (span) span.textContent = text;
+  function setUi(cls, aria, pressed) {
     btn.className = "notify-btn" + (cls ? " " + cls : "");
     btn.setAttribute("aria-label", aria);
     btn.setAttribute("aria-pressed", pressed ? "true" : "false");
@@ -43,23 +41,23 @@
   function tt(k) { return window.t ? window.t(k) : k; }
   function paint() {
     if (!canApi()) {
-      setUi(tt("notify_off_label"), "off", tt("notify_unsupported"), false);
+      setUi("off", tt("notify_unsupported"), false);
       return "unsupported";
     }
     var p = Notification.permission;
     if (p === "denied") {
-      setUi(tt("notify_off_label"), "denied", tt("notify_denied"), false);
+      setUi("denied", tt("notify_denied"), false);
       return "denied";
     }
     if (p === "granted" && wantedOn()) {
-      setUi(tt("notify_on_label"), "on", tt("notify_aria_on"), true);
+      setUi("on", tt("notify_aria_on"), true);
       return "on";
     }
     if (p === "granted") {
-      setUi(tt("notify_off_label"), "off", tt("notify_aria_off"), false);
+      setUi("off", tt("notify_aria_off"), false);
       return "off";
     }
-    setUi(tt("notify_off_label"), "off", tt("notify_aria_off"), false);
+    setUi("off", tt("notify_aria_off"), false);
     return "default";
   }
   function toWorker(msg) {

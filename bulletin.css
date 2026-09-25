@@ -359,20 +359,18 @@ img{max-width:100%;display:block}
 .notify-btn{
   appearance:none;-webkit-appearance:none;
   font:inherit;cursor:pointer;
-  display:inline-flex;align-items:center;gap:6px;
-  min-height:36px;padding:5px 10px;border-radius:8px;
-  border:2px solid #1c1917;background:#fff;color:#1c1917;
-  font-weight:800;font-size:12px;letter-spacing:.02em;line-height:1;
+  display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;min-width:44px;min-height:44px;padding:0;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.7);
+  background:rgba(255,255,255,.94);
+  color:#64748b;
   touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;
 }
-.notify-btn .notify-k{font-weight:800}
-.notify-btn .notify-label{
-  display:inline-block;min-width:2.4em;text-align:center;
-  padding:2px 7px;border-radius:999px;background:#e2e8f0;color:#0f172a;font-size:11px;
-}
-.notify-btn.on{border-color:#166534}
-.notify-btn.on .notify-label{background:#166534;color:#fff}
-.notify-btn.off .notify-label,.notify-btn.denied .notify-label{background:#64748b;color:#fff}
+.notify-btn .notify-bell{width:22px;height:22px;display:none}
+.notify-btn.on{color:#c41e3a}
+.notify-btn.on .notify-bell-on{display:block}
+.notify-btn:not(.on) .notify-bell-off{display:block}
 .notify-btn.denied{cursor:pointer;opacity:.92}
 .notify-btn:disabled{opacity:.7;cursor:default}
 .notify-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
@@ -425,7 +423,6 @@ img{max-width:100%;display:block}
 .wx-table strong{color:#9a3412}
 @media (max-width:760px){
   .wx-maps{grid-template-columns:1fr}
-  .notify-btn .notify-k{display:none}
 }
 
 .share-btn{
@@ -8324,15 +8321,19 @@ main h3,.card h3,.log-item h3,.nig-card h3,.wx-card h3{font-size:var(--fs-h3);li
 /* Ask sheet — assistant, above maps and the sticky header */
 .ask-fab{
   position:fixed;
-  left:max(12px, env(safe-area-inset-left));
-  right:auto;
-  bottom:max(14px, env(safe-area-inset-bottom));
+  left:auto;
+  right:max(16px, env(safe-area-inset-right));
+  bottom:max(16px, env(safe-area-inset-bottom));
   z-index:80;
-  max-width:min(240px, calc(100vw - 96px));
+  max-width:min(220px, calc(100vw - 88px));
   background:var(--crimson);
   border-color:#fff;
   box-shadow:0 8px 22px rgba(196,30,58,.35);
   animation:none;
+}
+.fab-dock{
+  right:max(16px, env(safe-area-inset-right));
+  bottom:calc(max(16px, env(safe-area-inset-bottom)) + 72px);
 }
 .ask-fab[aria-expanded="false"]{animation:none}
 .ask-fab.is-open,.ask-fab[aria-expanded="true"]{background:#9f1239}
@@ -8359,7 +8360,7 @@ main h3,.card h3,.log-item h3,.nig-card h3,.wx-card h3{font-size:var(--fs-h3);li
   display:flex;flex-direction:column;
   min-height:0;overflow:hidden;
   opacity:1;
-  transform:translateY(16px);
+  transform:translateX(28px);
 }
 .ask-sheet.is-open .ask-panel{transform:none}
 .ask-grab{display:none}
