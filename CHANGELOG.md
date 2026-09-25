@@ -23,7 +23,7 @@
 
 - The homepage weather card is a short visualization: the date-based province map, day chips, a colour-count strip for the selected day, compact district chips (Sindhupalchok high, Baglung medium, Myagdi medium) with their window, the Bhotekoshi corridor chip, and a one-line rain-now figure. A **पूर्ण विवरण** / Full details link opens `notices.html#alert`. The card has no photos, map thumbnails, or QR image.
 - `notices.html#alert` keeps the full board as text and SVG: map, day chips, legend, province details for the selected day, a five-day colour table, district warning cards, the corridor districts, the rain-now note, and the bulletin timeline. Official maps are a text link to the DHM page. Impact photos and the nowcast picture are not shown.
-- `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-25-wx-visual`
+- `PAGE_VER` / `?v=` / `sw.js` → `2026-09-25-maps-live` (latest.json id left at `2026-09-25-wx-visual`)
 
 ## 2026-09-25-wx-bydate · Weather map follows one day
 
