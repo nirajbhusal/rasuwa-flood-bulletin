@@ -80,30 +80,33 @@
     var days = json.warning_days || [];
     var day = null;
     for (var i = 0; i < days.length; i++) if (days[i] && days[i].date === iso) day = days[i];
-    if (!day || !day.provinces) return null;
-    var groups = { red: [], orange: [], yellow: [] };
-    (json.provinces || []).forEach(function (p) {
-      var rec = day.provinces[p.id];
-      var level = rec && rec.level;
-      if (groups[level]) groups[level].push(tx(p));
+    if (!day || !day.districts) return null;
+    var en = lang() === "en";
+    var counts = { red: 0, orange: 0, yellow: 0, green: 0 };
+    var dists = day.districts || {};
+    Object.keys(dists).forEach(function (id) {
+      var level = dists[id] && dists[id].level;
+      if (counts[level] != null) counts[level] += 1;
     });
     var levels = json.warn_levels || {};
     var sentences = [];
     var top = "";
     ["red", "orange", "yellow"].forEach(function (key) {
-      if (!groups[key].length) return;
+      var n = counts[key] || 0;
+      if (!n) return;
       if (!top) top = key;
       if (sentences.length >= 2) return;
       var bits = splitLevel(levels[key] || {});
       if (!bits.color) return;
-      var line = joinNames(groups[key]) + ": " + bits.color;
+      var num = en ? String(n) : String(n).replace(/\d/g, function (d) { return "०१२३४५६७८९".charAt(+d); });
+      var word = en ? (n === 1 ? "district" : "districts") : "जिल्ला";
+      var line = num + " " + word + ": " + bits.color;
       if (bits.action) line += " — " + bits.action;
-      line += lang() === "en" ? "." : "।";
+      line += en ? "." : "।";
       sentences.push(line);
     });
     if (!sentences.length || !top) return null;
     var bits = splitLevel(levels[top] || {});
-    var en = lang() === "en";
     var headline = bits.color || (en ? "Weather alert" : "मौसम चेतावनी");
     if (bits.action) headline += " — " + bits.action;
     return {

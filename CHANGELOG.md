@@ -1,7 +1,14 @@
 ## 2026-09-25 · Deploy stamp
 
 - Pages publishes from `.github/workflows/pages.yml`. The workflow stamps one build id into asset URLs, `PAGE_VER`, `sw.js`, and `version.json` in the artifact. Do not hand-edit those versions; the next deploy overwrites them.
-- `latest.json` id → `2026-09-25-site-refresh` so a tab still on the previous script can see the update.
+- `latest.json` id → `2026-09-25-dhm-1643` so a tab still on the previous script reloads when the district map ships. The notice text stays the site-update line.
+
+## 2026-09-25-dhm-1643 · District weather warning
+
+- The homepage and weather maps use DHM’s afternoon warning for Asoj 9–12 (25–28 September), issued 4:43 PM. Each district is coloured from that day’s official map. The colour bar counts districts. Province rows show the highest district colour and the count of each colour.
+- District borders are a dark stroke that stays about 1.15px at rest and thickens as the map is zoomed. Province borders are slightly thicker.
+- A small rain cloud is drawn on districts that carry DHM’s rain symbol for the selected day. The symbol moves unless the browser asks for reduced motion.
+- Asset versions are stamped at deploy. `latest.json` id is `2026-09-25-dhm-1643`.
 
 ## 2026-09-25-weather-db · Nepal weather database
 

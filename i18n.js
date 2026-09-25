@@ -989,7 +989,7 @@ window.I18N = {
 "wx_kicker": "इतिहास · DHM तीन-दिन चेतावनी",
 "wx_h": "अघिल्लो कार्ड · तीन-दिन चेतावनी",
 "wx_issued": "जारी · ७ असोज २०८३ बिहान ८:०० / २३ सेप्टेम्बर ०८:००",
-"wx_lead": "अघिल्लो मुख्य कार्ड। तीन-दिन नक्सा (असोज ७–९, बिहान ८:००) र कोरिडोर बुलेटिन (असोज ७ राति–१० बिहान · रसुवा/नुवाकोट/धादिङ/गोरखा/चितवनमा मध्यम; प्रत्येक जिल्लाका एक-दुई ठाउँ भारी) अभिलेखमा छन्। अहिलेको मुख्य चेतावनी असोज ९ बिहान ८:०० को पाँच दिनको नक्सा हो (असोज ९–१३ / २५–२९ सेप्टेम्बर)।",
+"wx_lead": "अघिल्लो मुख्य कार्ड। तीन-दिन नक्सा (असोज ७–९, बिहान ८:००) र कोरिडोर बुलेटिन (असोज ७ राति–१० बिहान · रसुवा/नुवाकोट/धादिङ/गोरखा/चितवनमा मध्यम; प्रत्येक जिल्लाका एक-दुई ठाउँ भारी) अभिलेखमा छन्। अहिलेको मुख्य चेतावनी असोज ९ अपराह्न ४:४३ को चार दिनको नक्सा हो (असोज ९–१२ / २५–२८ सेप्टेम्बर)।",
 "wx_day1": "दिन १ · ७ असोज / २३ सेप्टेम्बर",
 "wx_day2": "दिन २ · ८ असोज / २४ सेप्टेम्बर",
 "wx_day3": "दिन ३ · ९ असोज / २५ सेप्टेम्बर",
@@ -3061,7 +3061,7 @@ window.I18N = {
 "wx_kicker": "History · DHM three-day warning",
 "wx_h": "Previous card · three-day warning",
 "wx_issued": "Issued · 7 Ashwin 2083 08:00 / 23 September 08:00",
-"wx_lead": "Previous lead card. Three-day maps (Asoj 7–9, 08:00) and the corridor bulletin (Asoj 7 night through Asoj 10 morning · medium rain in Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan; heavy in 1–2 places in each district) stay on file. The live lead is the five-day map warning issued Asoj 9 morning 08:00 (Asoj 9–13 / 25–29 September).",
+"wx_lead": "Previous lead card. Three-day maps (Asoj 7–9, 08:00) and the corridor bulletin (Asoj 7 night through Asoj 10 morning · medium rain in Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan; heavy in 1–2 places in each district) stay on file. The live lead is the four-day map warning issued Asoj 9 at 4:43 PM (Asoj 9–12 / 25–28 September).",
 "wx_day1": "Day 1 · 7 Ashwin / 23 September",
 "wx_day2": "Day 2 · 8 Ashwin / 24 September",
 "wx_day3": "Day 3 · 9 Ashwin / 25 September",
@@ -4416,7 +4416,8 @@ window.I18N = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
-{"h": "DHM update · Asoj 9 morning — five-day weather warning", "p": "DHM five-day weather warning #12309 (08:00 · Asoj 9–13 / 25–29 September) and Bhotekoshi corridor #12307 (17:00 · night of Asoj 8 through morning of Asoj 11 · moderate rain in Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan, heavy in 1–2 places). The official warning page has the maps only. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12309\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "08:00 · 9 Ashwin / 25 Sep"},
+{"h": "DHM update · Asoj 9 afternoon — weather warning", "p": "DHM weather warning (4:43 PM · Asoj 9–12 / 25–28 September). Map colours are by district. The Bhotekoshi corridor stays in force from the night of Asoj 8 through the morning of Asoj 11. Source <a href=\"https://dhm.gov.np/mfd/\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "16:43 · 9 Ashwin / 25 Sep"},
+{"h": "DHM update · Asoj 9 morning — replaced later", "p": "The 08:00 maps were replaced by the 4:43 PM four-day warning. The Bhotekoshi corridor stays in force from the night of Asoj 8 through the morning of Asoj 11. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "08:00 · 9 Ashwin / 25 Sep"},
 {"h": "DHM update · Asoj 8 evening — five-day weather warning", "p": "DHM five-day weather warning #12300 (18:00 · Asoj 8–12 / 24–28 September) and Bhotekoshi corridor #12307 (17:00 · night of Asoj 8 through morning of Asoj 11 · moderate rain in Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan, heavy in 1–2 places). The official warning page has the maps only. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12300\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "18:00 · 8 Ashwin / 24 Sep"},
 {"h": "DHM update · Asoj 8 morning — four-day weather warning", "p": "DHM four-day weather warning (08:00 · Asoj 8–11 / 24–27 September). The official page has the maps only. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12299\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "08:00 · 8 Ashwin / 24 Sep"},
 {"h": "DHM update · Asoj 7 evening — Monsoon Bulletin-3", "p": "DHM Monsoon Special Bulletin-3 update (18:00 · five days · Asoj 7–11): Gandaki and Lumbini heavy to very heavy, extremely heavy in 1–2 places; Koshi, Madhesh, Bagmati and Sudurpaschim heavy to very heavy in a few places; Karnali heavy in a few places. The three-day maps and the corridor bulletin are also on file. Source DHM. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "18:00 · 7 Ashwin / 23 Sep"},

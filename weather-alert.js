@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-map-boards";
+  var VER = window.PAGE_VER || "2026-09-25-dhm-1643";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -109,9 +109,27 @@
     if (raw === "red" || raw === "orange" || raw === "yellow" || raw === "green") return raw;
     return "green";
   }
-  function levelOf(p) {
-    var key = alertKey(p);
+  function levelByKey(key) {
     return (data.warn_levels && data.warn_levels[key]) || { color: "#1b7f3a", ne: "हरियो", en: "Green" };
+  }
+  function levelOf(p) {
+    return levelByKey(alertKey(p));
+  }
+  function districtRec(id) {
+    var day = activeDay();
+    var all = day && day.districts;
+    if (!all || !id) return null;
+    return all[id] || null;
+  }
+  function districtLevel(id) {
+    var rec = districtRec(id);
+    var raw = rec && rec.level;
+    if (raw === "red" || raw === "orange" || raw === "yellow" || raw === "green") return raw;
+    return "";
+  }
+  function districtRain(id) {
+    var rec = districtRec(id);
+    return !!(rec && rec.rain);
   }
   function districtLine(p) {
     var day = activeDay();
@@ -266,15 +284,19 @@
     var dist = pop.querySelector(".wxb-pop-dist");
     var x = pop.querySelector(".wxb-pop-x");
     if (name) name.textContent = distRec ? districtLabel(distRec) : tx(p);
-    var parts = levelParts(p);
-    var fig = parts.fig;
+    var key = distRec ? districtLevel(distRec.id) : alertKey(p);
+    if (key !== "red" && key !== "orange" && key !== "yellow" && key !== "green") key = "green";
+    var text = tx(levelByKey(key));
+    var bits = String(text).split("·");
+    var chip = (bits[0] || text).trim();
+    var fig = shownDateText();
     if (distRec) {
       var pname = tx(p);
       if (pname) fig = pname + " · " + fig;
     }
     if (row) {
       row.replaceChildren();
-      row.appendChild(el("span", "map-lv map-lv-" + alertKey(p), parts.chip));
+      row.appendChild(el("span", "map-lv map-lv-" + key, chip));
     }
     if (body) {
       body.classList.remove("wxb-pop-also");
@@ -372,9 +394,10 @@
         path.setAttribute("data-id", d.id);
         path.setAttribute("data-prov", d.province);
         var p = provinceById(d.province);
-        if (p && alertKey(p) === "red") path.classList.add("is-pulse");
+        var dkey = districtLevel(d.id);
+        if (dkey) path.classList.add("wxb-lv-" + dkey);
         var label = districtLabel(d);
-        if (p) label += ". " + tx(p) + ". " + tx(levelOf(p));
+        if (p) label += ". " + tx(p) + ". " + tx(levelByKey(dkey || "green"));
         path.setAttribute("role", "button");
         path.setAttribute("tabindex", "0");
         path.setAttribute("aria-label", label);
@@ -386,6 +409,8 @@
       }
       g._drawing = false;
       if (!showDistricts) g.setAttribute("hidden", "");
+      paintRain(svg);
+      tuneStrokes(svg);
     }
     chunk();
   }
@@ -500,6 +525,7 @@
       var rect = svg.getBoundingClientRect();
       if (rect.width < 40 || rect.height < 40) return;
       fitNepalSvg(svg);
+      tuneStrokes(svg);
     });
   }
   if (!window.__wxSvgFit) {
@@ -540,7 +566,7 @@
       var key = alertKey(p);
       var path = svgEl("path");
       path.setAttribute("d", provinceOutline(g.d));
-      path.setAttribute("class", "wxb-prov wxb-lv-" + key + (key === "red" ? " is-pulse" : ""));
+      path.setAttribute("class", "wxb-prov wxb-lv-" + key);
       path.setAttribute("data-id", g.id);
       path.setAttribute("data-alert", key);
       path.setAttribute("role", "button");
@@ -553,6 +579,18 @@
     dlayer.setAttribute("class", "wxb-dists");
     if (!showDistricts) dlayer.setAttribute("hidden", "");
     layer.appendChild(dlayer);
+    var edges = svgEl("g");
+    edges.setAttribute("class", "wxb-prov-edges");
+    (geo.provinces || []).forEach(function (g) {
+      var edge = svgEl("path");
+      edge.setAttribute("d", provinceOutline(g.d));
+      edge.setAttribute("class", "wxb-prov-edge");
+      edges.appendChild(edge);
+    });
+    layer.appendChild(edges);
+    var rains = svgEl("g");
+    rains.setAttribute("class", "wxb-rains");
+    layer.appendChild(rains);
     drawDistricts(svg);
     fitNepalSvg(svg);
     function markDistrict(id) {
@@ -790,6 +828,78 @@
     return pop;
   }
 
+  function anchorOf(dAttr) {
+    var nums = String(dAttr || "").match(/-?\d*\.?\d+/g);
+    if (!nums || nums.length < 6) return null;
+    var pts = [];
+    var i;
+    for (i = 0; i + 1 < nums.length; i += 2) pts.push([+nums[i], +nums[i + 1]]);
+    var area = 0;
+    var cx = 0;
+    var cy = 0;
+    for (i = 0; i < pts.length; i++) {
+      var j = (i + 1) % pts.length;
+      var cross = pts[i][0] * pts[j][1] - pts[j][0] * pts[i][1];
+      area += cross;
+      cx += (pts[i][0] + pts[j][0]) * cross;
+      cy += (pts[i][1] + pts[j][1]) * cross;
+    }
+    if (Math.abs(area) < 1) return { x: pts[0][0], y: pts[0][1] };
+    return { x: cx / (3 * area), y: cy / (3 * area) };
+  }
+  function rainMark(x, y) {
+    var g = svgEl("g");
+    g.setAttribute("class", "wxb-rain");
+    g.setAttribute("transform", "translate(" + x + " " + y + ")");
+    g.setAttribute("aria-hidden", "true");
+    var cloud = svgEl("path");
+    cloud.setAttribute("fill", "#f8fafc");
+    cloud.setAttribute("stroke", "#334155");
+    cloud.setAttribute("stroke-width", "0.7");
+    cloud.setAttribute("d", "M-4.2 -1.2a2.7 2.7 0 0 1 5.1-1.1 2.3 2.3 0 0 1 2.2 1.7 2.5 2.5 0 0 1 .1 4.8h-7.6a2.4 2.4 0 0 1 .2-5.4z");
+    g.appendChild(cloud);
+    function drop(dx, cls) {
+      var p = svgEl("path");
+      p.setAttribute("class", "wxb-rain-drop" + (cls ? " " + cls : ""));
+      p.setAttribute("fill", "#0284c7");
+      p.setAttribute("d", "M" + dx + " 5.2c0 1.05.62 1.6.95 1.6s.95-.55.95-1.6c0-.75-.95-1.9-.95-1.9s-.95 1.15-.95 1.9z");
+      g.appendChild(p);
+    }
+    drop(-3.1, "");
+    drop(-0.15, "d2");
+    drop(2.7, "d3");
+    return g;
+  }
+  function paintRain(svg) {
+    var g = svg.querySelector(".wxb-rains");
+    if (!g) return;
+    g.replaceChildren();
+    var list = (districts && districts.districts) || [];
+    list.forEach(function (d) {
+      if (!districtRain(d.id)) return;
+      var at = anchorOf(d.d);
+      if (!at) return;
+      g.appendChild(rainMark(at.x, at.y));
+    });
+  }
+  function tuneStrokes(svg) {
+    if (!svg || svg._userZoom) return;
+    var vb = svg.viewBox && svg.viewBox.baseVal;
+    var rect = svg.getBoundingClientRect();
+    if (!vb || !vb.width || rect.width < 40) return;
+    var unit = rect.width / vb.width;
+    if (!unit) return;
+    var dist = (1.15 / unit).toFixed(3);
+    var edge = (2.15 / unit).toFixed(3);
+    svg.querySelectorAll(".wxb-dist").forEach(function (path) {
+      path.style.strokeWidth = "";
+      path.setAttribute("stroke-width", dist);
+    });
+    svg.querySelectorAll(".wxb-prov-edge").forEach(function (path) {
+      path.style.strokeWidth = "";
+      path.setAttribute("stroke-width", edge);
+    });
+  }
   function applyFills(svg) {
     svg.querySelectorAll(".wxb-prov").forEach(function (path) {
       var p = provinceById(path.getAttribute("data-id"));
@@ -799,16 +909,23 @@
       ["red", "orange", "yellow", "green"].forEach(function (k) {
         path.classList.toggle("wxb-lv-" + k, k === key);
       });
-      path.classList.toggle("is-pulse", key === "red");
+      path.classList.remove("is-pulse");
       path.setAttribute("aria-label", tx(p) + ". " + shownDateText() + ". " + tx(levelOf(p)) + ". " + detailText(p));
     });
     svg.querySelectorAll(".wxb-dist").forEach(function (path) {
       var d = districtById(path.getAttribute("data-id"));
       var p = d && provinceById(d.province);
       if (!d || !p) return;
-      path.setAttribute("aria-label", districtLabel(d) + ". " + tx(p) + ". " + shownDateText() + ". " + tx(levelOf(p)));
-      path.classList.toggle("is-pulse", alertKey(p) === "red");
+      var key = districtLevel(d.id) || "green";
+      path.setAttribute("data-alert", key);
+      ["red", "orange", "yellow", "green"].forEach(function (k) {
+        path.classList.toggle("wxb-lv-" + k, k === key);
+      });
+      path.classList.remove("is-pulse");
+      path.setAttribute("aria-label", districtLabel(d) + ". " + tx(p) + ". " + shownDateText() + ". " + tx(levelByKey(key)));
     });
+    paintRain(svg);
+    tuneStrokes(svg);
   }
 
   function syncDays() {
@@ -1127,29 +1244,14 @@
   function highAreas() {
     var groups = { red: [], orange: [] };
     var day = activeDay();
-    var ids = order();
-    var list = ((data && data.provinces) || []).slice().sort(function (a, b) {
-      var ia = ids.indexOf(a.id);
-      var ib = ids.indexOf(b.id);
-      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
-    });
-    if (!day) return groups;
-    list.forEach(function (p) {
-      var rec = day.provinces && day.provinces[p.id];
-      if (!rec) return;
-      var key = rec.level;
-      var names = [];
-      if (rec.districts && rec.districts.length) {
-        rec.districts.forEach(function (d) {
-          var label = bothNames(d);
-          if (label) names.push(label);
-        });
-      }
+    var list = (districts && districts.districts) || [];
+    if (!day || !day.districts) return groups;
+    list.forEach(function (d) {
+      var rec = day.districts[d.id];
+      var key = rec && rec.level;
       if (key !== "red" && key !== "orange") return;
-      if (!names.length) names.push(bothNames(p));
-      names.forEach(function (name) {
-        if (groups[key].indexOf(name) === -1) groups[key].push(name);
-      });
+      var name = bothNames(d);
+      if (name && groups[key].indexOf(name) === -1) groups[key].push(name);
     });
     return groups;
   }
@@ -1289,10 +1391,11 @@
 
   function colorCounts() {
     var counts = { red: 0, orange: 0, yellow: 0, green: 0 };
-    order().forEach(function (id) {
-      var p = provinceById(id);
-      if (!p) return;
-      var key = alertKey(p);
+    var day = activeDay();
+    var all = day && day.districts;
+    if (!all) return counts;
+    Object.keys(all).forEach(function (id) {
+      var key = all[id] && all[id].level;
       if (counts[key] != null) counts[key] += 1;
     });
     return counts;
@@ -1316,9 +1419,8 @@
       if (!n) return;
       var num = lang() === "en" ? String(n) : neDigits(n);
       var color = levelWord(key);
-      var word = phrase("wx_prov_word", lang() === "en" ? "provinces" : "प्रदेश");
-      if (lang() === "en" && bits.length) bits.push(num + " " + color);
-      else bits.push(num + " " + word + " " + color);
+      var word = lang() === "en" ? (n === 1 ? "district" : "districts") : "जिल्ला";
+      bits.push(num + " " + word + " " + color);
     });
     return bits.join(" · ");
   }
@@ -1355,8 +1457,21 @@
       var top = el("p", "wxb-provtop");
       top.appendChild(el("i", "wxb-sw wxb-sw-" + key));
       top.appendChild(el("strong", null, tx(p)));
-      top.appendChild(document.createTextNode(" · " + tx(levelOf(p))));
+      var highest = lang() === "en" ? "Highest" : "उच्चतम";
+      top.appendChild(document.createTextNode(" · " + highest + " " + tx(levelOf(p))));
       li.appendChild(top);
+      var crec = activeDay() && activeDay().provinces && activeDay().provinces[id];
+      var ccounts = crec && crec.counts;
+      if (ccounts) {
+        var cbits = [];
+        ["red", "orange", "yellow", "green"].forEach(function (ck) {
+          var cn = ccounts[ck] || 0;
+          if (!cn) return;
+          var num = lang() === "en" ? String(cn) : neDigits(cn);
+          cbits.push(num + " " + levelWord(ck));
+        });
+        if (cbits.length) li.appendChild(el("p", "wxb-prov-also", cbits.join(" · ")));
+      }
       var also = alsoLine(p);
       if (also) li.appendChild(el("p", "wxb-prov-also", also));
       if (tx(p.detail)) li.appendChild(el("p", "wxb-prov-detail", tx(p.detail)));
@@ -1392,7 +1507,7 @@
   }
   function buildMatrix() {
     var table = el("table", "wxb-matrix");
-    var cap = el("caption", "sr-only", lang() === "en" ? "Five-day warning colours" : "पाँच दिनको चेतावनी रङ");
+    var cap = el("caption", "sr-only", lang() === "en" ? "Highest district colour by day" : "दिनअनुसार जिल्लाको उच्चतम रङ");
     table.appendChild(cap);
     var thead = document.createElement("thead");
     var hr = document.createElement("tr");
@@ -1614,7 +1729,7 @@
       board.appendChild(sectionLink("wxb-jump", "पूर्ण विवरण", "Full details", "weather.html#warnings"));
     } else {
       var matrixHost = el("section", "wxb-panel wxb-matrix-host");
-      matrixHost.appendChild(el("h3", "wxb-h", lang() === "en" ? "Five-day colours" : "पाँच दिनको रङ"));
+      matrixHost.appendChild(el("h3", "wxb-h", lang() === "en" ? "Highest district colour" : "जिल्लाको उच्चतम रङ"));
       var matrixSlot = el("div", "wxb-matrix-slot");
       matrixSlot.appendChild(buildMatrix());
       matrixHost.appendChild(matrixSlot);
