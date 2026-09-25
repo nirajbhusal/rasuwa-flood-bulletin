@@ -115,6 +115,20 @@ def main() -> int:
         # Archived HTML under data/ is not an app page and must be left as-is.
         if (out / "data" / "dhm.html").read_text(encoding="utf-8") != "<p>?v=</p>":
             raise SystemExit("data html was rewritten")
+        work = root / "work"
+        work.mkdir()
+        (work / "index.html").write_text('<script>window.PAGE_VER="old";</script>\n<link href="a.css?v=old">\n', encoding="utf-8")
+        (work / "sw.js").write_text(
+            "const PAGE_VER = 'old';\nconst SW_VER = PAGE_VER;\n"
+            "const STATIC_CACHE = 'rasuwa-static-' + PAGE_VER;\n"
+            "const RUNTIME_CACHE = 'rasuwa-runtime-' + PAGE_VER;\n",
+            encoding="utf-8",
+        )
+        stamp_build.stamp_in_place(work, build, "2026-09-25T12:00:00Z")
+        if build not in (work / "index.html").read_text(encoding="utf-8"):
+            raise SystemExit("in-place html was not stamped")
+        if json.loads((work / "version.json").read_text(encoding="utf-8"))["build"] != build:
+            raise SystemExit("in-place version.json mismatch")
     print("stamp ok")
     return 0
 

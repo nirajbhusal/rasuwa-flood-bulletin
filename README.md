@@ -15,7 +15,7 @@ When the NDRRMA board updates, refresh `api/dashboard.json` alongside homepage K
 
 ## Deploys and cache
 
-GitHub Pages publishes from `.github/workflows/pages.yml` on every push to `main` (including the hourly weather data commit). The workflow checks out that commit, writes one build id — the short commit SHA plus a UTC timestamp — into the deploy artifact only, and does not commit it back. That id replaces every `?v=` on HTML pages, `window.PAGE_VER`, the service worker version and cache names, and `version.json` (`build`, `built_at`).
+GitHub Pages is published by `.github/workflows/pages.yml` on every push to `main`. The workflow writes one build id — the short commit SHA plus a UTC timestamp — into asset `?v=` URLs, `window.PAGE_VER`, the service worker version and cache names, and `version.json` (`build`, `built_at`). While the repository still deploys from the `main` branch, that same stamp is committed once (`stamp build id`) so visitors receive it; the workflow ignores those commits, and it does not commit a stamp for a weather-only data push. After Pages is switched to GitHub Actions, the stamp stays in the artifact and is not committed.
 
 Do not hand-edit `PAGE_VER`, `?v=`, `sw.js` version constants, or `version.json`. Any value left in the source is overwritten at deploy. A missed bump is how visitors were stuck on stale HTML: Pages sends `cache-control: max-age=600`, and a service worker or an empty `?v=` kept yesterday’s scripts.
 

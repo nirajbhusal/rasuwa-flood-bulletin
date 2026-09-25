@@ -154,31 +154,40 @@ def copy_site(src: Path, dest: Path) -> None:
     shutil.copytree(src, dest, ignore=ignore, symlinks=False)
 
 
-def stamp_tree(src: Path, dest: Path, build: str, built_at: str) -> None:
-    copy_site(src, dest)
-    for path in dest.rglob("*.html"):
+def stamp_files(root: Path, build: str, built_at: str) -> None:
+    for path in root.rglob("*.html"):
         if "/data/" in path.as_posix():
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         stamped = stamp_html(text, build)
         if stamped != text:
             path.write_text(stamped, encoding="utf-8")
-    sw = dest / "sw.js"
+    sw = root / "sw.js"
     if sw.is_file():
         sw.write_text(stamp_sw(sw.read_text(encoding="utf-8"), build), encoding="utf-8")
-    (dest / "version.json").write_text(
+    (root / "version.json").write_text(
         json.dumps({"build": build, "built_at": built_at}, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
-    problems = verify_tree(dest, build)
+    problems = verify_tree(root, build)
     if problems:
         raise SystemExit("stamp verify failed:\n" + "\n".join(problems))
+
+
+def stamp_tree(src: Path, dest: Path, build: str, built_at: str) -> None:
+    copy_site(src, dest)
+    stamp_files(dest, build, built_at)
+
+
+def stamp_in_place(src: Path, build: str, built_at: str) -> None:
+    stamp_files(src, build, built_at)
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Stamp a Pages deploy artifact")
     parser.add_argument("--src", type=Path, default=Path("."))
-    parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--out", type=Path, default=None)
+    parser.add_argument("--in-place", action="store_true")
     parser.add_argument("--sha", default=os.environ.get("BUILD_SHA", "local"))
     parser.add_argument("--build", default="", help="Override the build id (tests)")
     args = parser.parse_args(argv)
@@ -188,7 +197,12 @@ def main(argv: list[str] | None = None) -> int:
         built_at = datetime.now(timezone.utc).replace(microsecond=0).strftime("%Y-%m-%dT%H:%M:%SZ")
     else:
         build, built_at = make_build(args.sha)
-    stamp_tree(src, args.out.resolve(), build, built_at)
+    if args.in_place:
+        stamp_in_place(src, build, built_at)
+    else:
+        if args.out is None:
+            parser.error("--out is required unless --in-place")
+        stamp_tree(src, args.out.resolve(), build, built_at)
     print(build)
     return 0
 

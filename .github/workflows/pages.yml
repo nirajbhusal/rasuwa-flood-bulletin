@@ -1,6 +1,10 @@
-# Publish GitHub Pages from a stamped artifact.
-# The build id is applied only in the artifact. This workflow does not commit,
-# so the hourly weather-db job (which pushes data/weather only) cannot loop.
+# Publish a stamped build.
+# Prefer the Pages artifact. This repo still serves the main branch until an
+# admin switches Pages to GitHub Actions (the workflow token cannot). While
+# that setting is "branch", a content push also commits the stamp so visitors
+# actually receive it. The commit message starts with "stamp build id", and
+# this job ignores those pushes, so it cannot loop. Weather-only commits are
+# not stamped back: the branch publish already has the new JSON.
 name: pages
 on:
   push:
@@ -8,7 +12,7 @@ on:
       - main
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 concurrency:
@@ -16,6 +20,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, 'stamp build id') }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -23,8 +28,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Check the stamper
         run: python3 scripts/test_stamp.py
+      - name: See if this commit is weather data only
+        id: scope
+        run: |
+          if git rev-parse --verify HEAD^ >/dev/null 2>&1; then
+            files=$(git diff --name-only HEAD^ HEAD)
+          else
+            files=$(git ls-files)
+          fi
+          printf '%s\n' "$files"
+          data_only=true
+          if [ -z "$files" ]; then
+            data_only=false
+          fi
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            case "$f" in
+              data/weather/*) ;;
+              *) data_only=false ;;
+            esac
+          done <<< "$files"
+          echo "data_only=$data_only" >> "$GITHUB_OUTPUT"
+      - name: Read how Pages is published
+        id: pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          bt=$(gh api "repos/${{ github.repository }}/pages" --jq .build_type || echo legacy)
+          echo "build_type=$bt" >> "$GITHUB_OUTPUT"
+          echo "Pages build_type=$bt"
       - name: Stamp build id into the deploy artifact
         env:
           BUILD_SHA: ${{ github.sha }}
@@ -35,4 +71,44 @@ jobs:
           path: _site
       - name: Deploy to GitHub Pages
         id: deployment
+        continue-on-error: true
         uses: actions/deploy-pages@v4
+      - name: Commit the stamp when Pages still serves the branch
+        if: steps.pages.outputs.build_type != 'workflow' && steps.scope.outputs.data_only != 'true'
+        run: |
+          python3 - << 'PY'
+          import shutil
+          from pathlib import Path
+          src = Path("_site")
+          dst = Path(".")
+          for path in src.rglob("*.html"):
+              if "/data/" in path.as_posix():
+                  continue
+              rel = path.relative_to(src)
+              target = dst / rel
+              target.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(path, target)
+          shutil.copy2(src / "sw.js", dst / "sw.js")
+          shutil.copy2(src / "version.json", dst / "version.json")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- sw.js version.json
+          git add -- *.html api/*.html embed/*.html
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -m "stamp build id"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
+              echo pushed
+              exit 0
+            fi
+            if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
+              git rebase --abort || true
+            fi
+            echo "push failed on attempt $i"
+            sleep $((i * 8))
+          done
+          exit 1
