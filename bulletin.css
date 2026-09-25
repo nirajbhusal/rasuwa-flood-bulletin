@@ -10499,12 +10499,7 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
   width:100%;
   background:#c41e3a;
   transform-origin:left center;
-  animation:openAlertCount 8s linear forwards;
-}
-.open-alert.is-paused .open-alert-bar > i{animation-play-state:paused}
-@keyframes openAlertCount{
-  from{transform:scaleX(1)}
-  to{transform:scaleX(0)}
+  transform:scaleX(1);
 }
 @media (max-width:759px){
   .open-alert{
@@ -10528,5 +10523,4 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
     transition:none;
   }
   .open-alert.is-out{opacity:0;transform:translateX(-50%);transition:none}
-  .open-alert-bar > i{animation:none}
 }

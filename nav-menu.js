@@ -86,7 +86,7 @@
     if (left + width > window.innerWidth - 8) left = Math.max(8, window.innerWidth - 8 - width);
     if (left < 8) left = 8;
     var top = Math.round(r.bottom + 8);
-    var maxH = Math.max(180, window.innerHeight - top - 12);
+    var maxH = Math.max(180, Math.min(560, Math.round(window.innerHeight * 0.7), window.innerHeight - top - 12));
     inner.style.position = "fixed";
     inner.style.zIndex = "2000";
     inner.style.left = left + "px";

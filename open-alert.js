@@ -152,6 +152,7 @@
   }
   function fadeOut() {
     if (!sheet || paused) return;
+    clearTimer();
     if (reduceMotion()) {
       dismiss();
       return;
@@ -160,25 +161,43 @@
     sheet.classList.add("is-out");
     timer = window.setTimeout(dismiss, 380);
   }
+  function paintBar() {
+    if (!sheet) return;
+    var bar = sheet.querySelector(".open-alert-bar > i");
+    if (!bar) return;
+    var left = remain;
+    if (!paused && startedAt) left = remain - (Date.now() - startedAt);
+    var frac = Math.max(0, Math.min(1, left / HOLD));
+    bar.style.transform = "scaleX(" + frac + ")";
+  }
+  function tick() {
+    if (!sheet || paused) return;
+    var left = remain - (Date.now() - startedAt);
+    paintBar();
+    if (left <= 0) {
+      fadeOut();
+      return;
+    }
+    timer = window.setTimeout(tick, 80);
+  }
   function arm() {
     clearTimer();
-    if (paused || !sheet || !reduceMotion()) return;
+    if (paused || !sheet) return;
     startedAt = Date.now();
-    timer = window.setTimeout(fadeOut, remain);
+    tick();
   }
   function pause() {
-    if (reduceMotion() && timer) {
-      remain = Math.max(0, remain - (Date.now() - startedAt));
-      clearTimer();
-    }
+    if (!paused && startedAt) remain = Math.max(0, remain - (Date.now() - startedAt));
     paused = true;
+    clearTimer();
+    paintBar();
     if (sheet) sheet.classList.add("is-paused");
   }
   function resume() {
     if (!paused) return;
     paused = false;
     if (sheet) sheet.classList.remove("is-paused");
-    if (reduceMotion()) arm();
+    arm();
   }
   function tel(parent, num, label) {
     var a = document.createElement("a");
@@ -282,10 +301,6 @@
     var fill = document.createElement("i");
     bar.appendChild(fill);
     sheet.appendChild(bar);
-    fill.addEventListener("animationend", function () {
-      if (reduceMotion() || paused) return;
-      fadeOut();
-    });
     if (fresh) {
       paused = false;
       remain = HOLD;
