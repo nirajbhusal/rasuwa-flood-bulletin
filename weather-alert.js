@@ -932,11 +932,13 @@
       if (!host.isConnected) return;
       var cur = nativeFs();
       if (cur && cur !== host) return;
-      if (!host._fsActive && cur !== host) return;
-      if (!cur) {
-        host.classList.remove("is-map-fs");
-        host._fsActive = false;
+      // A failed Fullscreen API request must not tear down the CSS fallback.
+      if (cssOn() && cur !== host) {
+        sync();
+        return;
       }
+      if (!host._fsActive && cur !== host) return;
+      if (!cur) host._fsActive = false;
       lockPage(!!nativeFs() || !!document.querySelector(".is-map-fs"));
       sync();
       refit();
