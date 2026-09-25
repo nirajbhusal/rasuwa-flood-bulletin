@@ -1,6 +1,6 @@
 /*! Site rain overlay. Auto while today's DHM warning or a district alert is active. */
 (function () {
-  var VER = window.PAGE_VER || "2026-09-25-weather-db";
+  var VER = window.PAGE_VER || "2026-09-25-wx-card-merge";
   var KEY = "rasuwa-rain";
   var enabled = false;
   var userSet = false;

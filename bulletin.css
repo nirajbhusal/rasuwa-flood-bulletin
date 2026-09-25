@@ -7682,9 +7682,34 @@ html.ask-lock body{position:fixed;left:0;right:0;width:100%}
 
 /* Weather map face · centered outline, controls off the tip */
 .wxb,.wxb-panel,.wxb-stage,.wxb-mapwrap,.wxb-svg,.wxb-gantt{min-width:0;max-width:100%}
+.wxb-maphead{margin:0 0 8px}
+.wxb-maptitle{
+  margin:0 0 2px;
+  font-size:clamp(22px,3vw,30px);
+  line-height:1.2;
+  font-weight:800;
+  color:#0c2340;
+}
+.wxb-maphead .wxb-shown{margin:0}
 .wxb-maptools{
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;
   gap:8px 12px;margin:0 0 10px;
+}
+.wxb-now-host{min-width:0;max-width:100%;margin-top:14px}
+.wxb-nepal-now{
+  min-width:0;max-width:100%;
+  padding-top:12px;border-top:1px solid #e2e8f0;
+}
+.wxb-nepal-now .wxdb-h{margin:0 0 8px;font-size:1.05rem}
+.wxb-nepal-now .wxdb-strip{max-width:100%}
+@media (max-width:420px){
+  .wxb-nepal-now .wxdb-strip{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    overflow:visible;
+    scroll-snap-type:none;
+  }
+  .wxb-nepal-now .wxdb-city{min-width:0;width:auto}
 }
 .wxb-maptools .wxb-dist-row{margin:0;flex:1 1 220px;min-width:0}
 .wxb-mapwrap{
