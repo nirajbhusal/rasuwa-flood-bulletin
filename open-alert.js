@@ -2,12 +2,14 @@
 (function () {
   var SEEN = "rfb-open-alert-id";
   var SESSION = "rfb-open-alert-session";
-  var HOLD = 11000;
+  var HOLD = 8000;
   var data = null;
   var sheet = null;
   var shownId = "";
   var timer = 0;
   var paused = false;
+  var remain = HOLD;
+  var startedAt = 0;
 
   function lang() {
     return document.documentElement.lang === "en" ? "en" : "ne";
@@ -160,19 +162,23 @@
   }
   function arm() {
     clearTimer();
-    if (paused || !sheet) return;
-    timer = window.setTimeout(function () {
-      if (reduceMotion()) dismiss();
-      else fadeOut();
-    }, HOLD);
+    if (paused || !sheet || !reduceMotion()) return;
+    startedAt = Date.now();
+    timer = window.setTimeout(fadeOut, remain);
   }
   function pause() {
+    if (reduceMotion() && timer) {
+      remain = Math.max(0, remain - (Date.now() - startedAt));
+      clearTimer();
+    }
     paused = true;
-    clearTimer();
+    if (sheet) sheet.classList.add("is-paused");
   }
   function resume() {
+    if (!paused) return;
     paused = false;
-    arm();
+    if (sheet) sheet.classList.remove("is-paused");
+    if (reduceMotion()) arm();
   }
   function tel(parent, num, label) {
     var a = document.createElement("a");
@@ -270,7 +276,20 @@
     sheet.appendChild(body);
     sheet.appendChild(stayLine());
     sheet.appendChild(row);
-    if (fresh) paused = false;
+    var bar = document.createElement("div");
+    bar.className = "open-alert-bar";
+    bar.setAttribute("aria-hidden", "true");
+    var fill = document.createElement("i");
+    bar.appendChild(fill);
+    sheet.appendChild(bar);
+    fill.addEventListener("animationend", function () {
+      if (reduceMotion() || paused) return;
+      fadeOut();
+    });
+    if (fresh) {
+      paused = false;
+      remain = HOLD;
+    }
     placeAlert();
     if (reduceMotion()) {
       sheet.classList.add("is-in");
