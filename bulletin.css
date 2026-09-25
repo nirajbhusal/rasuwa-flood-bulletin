@@ -7860,6 +7860,60 @@ html.ask-lock body{position:fixed;left:0;right:0;width:100%}
   background-size:28px 28px;
 }
 
+/* Homepage weather card is a compact day view. The notices section keeps the full text. */
+.wxb-home .wxb-stage{grid-template-columns:minmax(0,1fr)}
+.wxb-sum{margin:10px 0 0}
+.wxb-sum-bar{display:flex;height:34px;border-radius:999px;overflow:hidden;background:#e2e8f0}
+.wxb-sum-seg{
+  display:flex;align-items:center;justify-content:center;min-width:1.6rem;
+  font-size:13px;font-weight:800;color:#fff;
+}
+.wxb-sum-seg.is-zero{display:none}
+.wxb-sum-red{background:#d7191c}
+.wxb-sum-orange{background:#e65c00}
+.wxb-sum-yellow{background:#e6b800;color:#3f2e00}
+.wxb-sum-green{background:#1b7f3a}
+.wxb-minis{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:10px 12px 0;padding:0}
+.wxb-mini{
+  border-radius:14px;padding:8px 12px;font-size:13px;font-weight:800;line-height:1.35;
+  background:#fff;border:1px solid #e2e8f0;color:#0c2340;
+}
+.wxb-mini.is-high{background:#fde8e8;border-color:#f3c1c1;color:#9f1239}
+.wxb-mini.is-medium{background:#fff7ed;border-color:#fdba74;color:#9a3412}
+.wxb-mini.is-corridor{background:#eff6ff;border-color:#bfdbfe;color:#1e3a8a}
+.wxb-nowline{margin:8px 12px 0;font-size:14px;font-weight:800;line-height:1.4;color:#0c2340}
+.wxb-jump,.wxb-official{margin:12px}
+.wxb-jump a,.wxb-official a{
+  display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 16px;
+  border-radius:999px;background:#0c2340;color:#fff;font-weight:800;text-decoration:none;
+}
+.wxb-jump a:hover,.wxb-official a:hover,.wxb-jump a:focus-visible,.wxb-official a:focus-visible{filter:brightness(1.08);color:#fff}
+.wxb-provlist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.wxb-provline{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:8px 10px}
+.wxb-provtop{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0;font-weight:800;color:#0c2340}
+.wxb-prov-also,.wxb-prov-detail{margin:4px 0 0;font-size:13.5px;font-weight:700;line-height:1.45;color:#334155}
+.wxb-prov-also{color:#64748b}
+.wxb-matrix-slot{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.wxb-matrix{width:100%;border-collapse:collapse;font-size:12.5px;min-width:640px}
+.wxb-matrix caption{caption-side:top;text-align:left;font-weight:800;margin:0 0 6px;color:#0c2340}
+.wxb-matrix th,.wxb-matrix td{border:1px solid #e2e8f0;padding:6px 4px;text-align:center;font-weight:800}
+.wxb-matrix tbody th,.wxb-matrix thead th{background:#f8fafc;color:#0c2340}
+.wxb-matrix th.is-on{box-shadow:inset 0 -3px 0 #0b1f4d}
+.wxb-mx.is-on{box-shadow:inset 0 0 0 2px #0b1f4d}
+.wxb-mx-red{background:#d7191c;color:#fff}
+.wxb-mx-orange{background:#e65c00;color:#fff}
+.wxb-mx-yellow{background:#e6b800;color:#3f2e00}
+.wxb-mx-green{background:#1b7f3a;color:#fff}
+.wxb-call-dists{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:8px 0 0;padding:0}
+.wxb-call-dists li{
+  background:#fff;border:1px solid #bfdbfe;border-radius:999px;padding:4px 8px;
+  font-size:12.5px;font-weight:800;color:#1e3a8a;
+}
+@media (max-width:760px){
+  .wxb-minis,.wxb-nowline,.wxb-jump,.wxb-official{margin-left:8px;margin-right:8px}
+  .wxb-matrix{min-width:560px}
+}
+
 /* 2026-09-24 nav + Ask FAQ */
 .chips a.is-parent{box-shadow:inset 0 -3px 0 #1e40af}
 .mkt-parent{margin:0 0 8px;font-weight:800;font-size:14px;color:#1e3a8a}
