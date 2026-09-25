@@ -192,11 +192,6 @@
       var fr = fab.getBoundingClientRect();
       if (fr.width > 0 && fr.height > 0 && fr.top < bottomLimit) bottomLimit = fr.top - 8;
     }
-    var sheet = document.querySelector(".open-alert");
-    if (sheet && !sheet.hidden) {
-      var sr = sheet.getBoundingClientRect();
-      if (sr.width > 0 && sr.height > 0 && sr.top < bottomLimit) bottomLimit = Math.min(bottomLimit, sr.top - 8);
-    }
     var below = bottomLimit - r.bottom - gap;
     var above = r.top - vv.top - gap - 8;
     var flip = below < 120 && above > below;

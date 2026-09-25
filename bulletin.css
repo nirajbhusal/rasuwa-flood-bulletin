@@ -10448,9 +10448,11 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
 }
 .wxb-dist{
   stroke:#1f2937;
-  stroke-opacity:.92;
+  stroke-opacity:.7;
+  stroke-width:.55px;
   stroke-linejoin:round;
   stroke-linecap:round;
+  vector-effect:non-scaling-stroke;
 }
 .wxb-dist.wxb-lv-red,
 .wxb-dist.wxb-lv-red.is-hot,
@@ -10471,11 +10473,13 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
 }
 .wxb-prov-edge{
   fill:none;
-  stroke:#111827;
-  stroke-opacity:.95;
+  stroke:#1f2937;
+  stroke-opacity:.9;
+  stroke-width:1px;
   stroke-linejoin:round;
   stroke-linecap:round;
   pointer-events:none;
+  vector-effect:non-scaling-stroke;
 }
 .wxb-rain{pointer-events:none}
 .wxb-rain-drop{animation:wxb-rain-fall 1.15s linear infinite}
@@ -10695,4 +10699,37 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
     transition:none;
   }
   .open-alert.is-out{opacity:0}
+}
+
+/* Thin map borders stay screen-pixels when the map zooms. Opening alert is retired. */
+.wxb-dist{
+  stroke:#1f2937;
+  stroke-opacity:.7;
+  stroke-width:.55px;
+  stroke-linejoin:round;
+  stroke-linecap:round;
+  vector-effect:non-scaling-stroke;
+}
+.wxb-prov.is-hot,
+.wxb-prov.is-on,
+.wxb-dist.is-hot,
+.wxb-dist.is-on{
+  stroke-width:.7px;
+  vector-effect:non-scaling-stroke;
+}
+.wxb-prov-edge{
+  fill:none;
+  stroke:#1f2937;
+  stroke-opacity:.9;
+  stroke-width:1px;
+  stroke-linejoin:round;
+  stroke-linecap:round;
+  pointer-events:none;
+  vector-effect:non-scaling-stroke;
+}
+.open-alert-host,
+.open-alert{
+  display:none !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
 }
