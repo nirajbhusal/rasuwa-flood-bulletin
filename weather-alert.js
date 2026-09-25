@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-wx-card-merge";
+  var VER = window.PAGE_VER || "2026-09-25-header-icons";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;

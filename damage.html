@@ -54,13 +54,13 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=2026-09-25-wx-card-merge">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=2026-09-25-header-icons">
 <link rel="preload" href="fonts/mukta-500-deva.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts.css?v=2026-09-25-wx-card-merge" as="style">
-<link rel="preload" href="bulletin.css?v=2026-09-25-wx-card-merge" as="style">
-<link rel="stylesheet" href="fonts.css?v=2026-09-25-wx-card-merge">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-25-wx-card-merge">
-<link rel="stylesheet" href="rain-theme.css?v=2026-09-25-wx-card-merge">
+<link rel="preload" href="fonts.css?v=2026-09-25-header-icons" as="style">
+<link rel="preload" href="bulletin.css?v=2026-09-25-header-icons" as="style">
+<link rel="stylesheet" href="fonts.css?v=2026-09-25-header-icons">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-25-header-icons">
+<link rel="stylesheet" href="rain-theme.css?v=2026-09-25-header-icons">
 </head>
 <body class="damage-page">
 <a class="skip-link" href="#main" aria-label="मुख्य सामग्री"></a>
@@ -96,9 +96,9 @@
       </div>
       <div class="notify-slot">
         <p class="notify-hint" id="notify-hint" hidden></p>
-        <button type="button" class="notify-btn" id="notify-btn" aria-pressed="false" aria-label="अपडेट अलर्ट अन गर्नुहोस्" title="अपडेट अलर्ट" data-i18n-aria="notify_aria_off" data-i18n-title="notify_title">
-          <span class="notify-k" data-i18n="notify_title">अपडेट अलर्ट</span>
-          <span class="notify-label" data-i18n="notify_off_label">बन्द</span>
+        <button type="button" class="notify-btn off" id="notify-btn" aria-pressed="false" aria-label="सूचना बन्द" title="सूचना बन्द" data-i18n-aria="notify_aria_off" data-i18n-title="notify_aria_off">
+          <svg class="notify-bell notify-bell-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2a5.6 5.6 0 0 0-5.6 5.6v2.7c0 .8-.3 1.6-.8 2.2L4.2 15.6a1.1 1.1 0 0 0 .9 1.8h13.8a1.1 1.1 0 0 0 .9-1.8l-1.4-1.9c-.5-.6-.8-1.4-.8-2.2V8.8A5.6 5.6 0 0 0 12 3.2z"/><path d="M9.1 18.2a2.9 2.9 0 0 0 5.8 0H9.1z"/></svg>
+          <svg class="notify-bell notify-bell-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.2 4.6A5.6 5.6 0 0 1 17.6 8.8v2.7c0 .8.3 1.6.8 2.2l1.1 1.5"/><path d="M6.4 6.8A5.6 5.6 0 0 0 6.4 8.8v2.7c0 .8-.3 1.6-.8 2.2L4.2 15.6a1.1 1.1 0 0 0 .9 1.8H16"/><path d="M9.1 18.2a2.9 2.9 0 0 0 4.6.9"/><path d="M4 4.2 20 19.8"/></svg>
         </button>
       </div>
   </div>
@@ -880,10 +880,10 @@
   window.__ensureNamesIndex=load;
 })();
 </script>
-<script defer src="i18n.js?v=2026-09-25-wx-card-merge"></script>
-<script defer src="rain-theme.js?v=2026-09-25-wx-card-merge"></script>
-<script defer src="notify.js?v=2026-09-25-wx-card-merge"></script>
-<script defer src="nav-menu.js?v=2026-09-25-wx-card-merge"></script>
+<script defer src="i18n.js?v=2026-09-25-header-icons"></script>
+<script defer src="rain-theme.js?v=2026-09-25-header-icons"></script>
+<script defer src="notify.js?v=2026-09-25-header-icons"></script>
+<script defer src="nav-menu.js?v=2026-09-25-header-icons"></script>
 <script>
 (function(){
   var nav = document.querySelector(".damage-jump");
@@ -984,7 +984,7 @@
     copyUrl();
   });
 })();
-window.PAGE_VER="2026-09-25-wx-card-merge";
+window.PAGE_VER="2026-09-25-header-icons";
 (function(){
   function setStick() {
     var head = document.querySelector(".head-stick");
@@ -1010,7 +1010,7 @@ window.PAGE_VER="2026-09-25-wx-card-merge";
 
 })();
 </script>
-<script src="refresh.js?v=2026-09-25-wx-card-merge"></script>
+<script src="refresh.js?v=2026-09-25-header-icons"></script>
 
 <div class="lb" id="lightbox" hidden>
   <button type="button" class="lb-x" id="lb-close" aria-label="बन्द" data-i18n-aria="close">×</button>
@@ -1240,7 +1240,7 @@ window.PAGE_VER="2026-09-25-wx-card-merge";
 })();
 </script>
 
-<script src="vendor/leaflet/leaflet.js?v=2026-09-25-wx-card-merge"></script>
+<script src="vendor/leaflet/leaflet.js?v=2026-09-25-header-icons"></script>
 <script>
 (function(){
   var el = document.getElementById("flood-map");
