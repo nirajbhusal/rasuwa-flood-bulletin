@@ -84,7 +84,16 @@ TAG_URL = {
 DROP_KEYS = {
     "user", "update_by", "user_id", "signature", "forecaster",
     "updated_by", "created_by", "signature_image", "signature_path",
+    "forecaster_name", "prepared_by", "duty_officer", "meteorologist",
 }
+PERSONAL_KEY = re.compile(
+    r"forecaster|signature|meteorologist|duty_officer|prepared_by|user_id|update_by|^user$",
+    re.I,
+)
+SECRET_IN_URL = re.compile(
+    r"(?:api[_-]?key|access[_-]?token|secret|password|authorization)=",
+    re.I,
+)
 REGION_LABEL = {
     "100": {"ne": "क्षेत्र १००", "en": "Region 100"},
     "010": {"ne": "क्षेत्र ०१०", "en": "Region 010"},
@@ -151,17 +160,48 @@ def num(value):
         return None
 
 
+def personal_key(key):
+    text = str(key)
+    return text in DROP_KEYS or bool(PERSONAL_KEY.search(text))
+
+
 def scrub(obj):
     if isinstance(obj, dict):
         out = {}
         for key, val in obj.items():
-            if key in DROP_KEYS or "signature" in key.lower():
+            if personal_key(key):
                 continue
             out[key] = scrub(val)
         return out
     if isinstance(obj, list):
         return [scrub(item) for item in obj]
     return obj
+
+
+def personal_keys(obj, found=None):
+    found = found if found is not None else []
+    if isinstance(obj, dict):
+        for key, val in obj.items():
+            if personal_key(key):
+                found.append(str(key))
+            else:
+                personal_keys(val, found)
+    elif isinstance(obj, list):
+        for item in obj:
+            personal_keys(item, found)
+    return found
+
+
+def guard_url(url):
+    """DHM's public site JS embeds a key. Never fetch that JS and never send a key."""
+    if not isinstance(url, str) or not url:
+        raise ValueError("empty url")
+    lowered = url.lower()
+    if "dhm.gov.np" in lowered and re.search(r"\.js(?:$|\?)", lowered):
+        raise RuntimeError("refusing DHM public javascript")
+    if SECRET_IN_URL.search(url):
+        raise RuntimeError("refusing credential in request")
+    return url
 
 
 def strip_html(text):
@@ -180,21 +220,31 @@ def hav_km(lat1, lon1, lat2, lon2):
     return 2 * r * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
 
-def fetch_json(url, method="GET", data=None, timeout=30):
-    delays = (0, 5, 20, 60)
+def fetch_json(url, method="GET", data=None, timeout=12, attempts=2, deadline=22):
+    """One source, one deadline. A dead host must not consume the whole job."""
+    url = guard_url(url)
+    delays = (0, 2, 4)
     last = None
     body = data if data is None or isinstance(data, bytes) else data.encode("utf-8")
-    for attempt, delay in enumerate(delays):
+    started = time.monotonic()
+    logged = url.split("?", 1)[0]
+    for attempt in range(attempts):
+        delay = delays[attempt] if attempt < len(delays) else 2
         if delay:
-            time.sleep(delay)
+            time.sleep(min(delay, max(0, deadline - (time.monotonic() - started))))
+        remaining = deadline - (time.monotonic() - started)
+        if remaining <= 1:
+            break
         try:
             req = urllib.request.Request(url, data=body, headers=HEADERS, method=method)
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
+            with urllib.request.urlopen(req, timeout=min(timeout, remaining)) as resp:
                 raw = resp.read().decode("utf-8", "replace")
             return json.loads(raw)
         except Exception as exc:
             last = exc
-            log(f"fetch fail {attempt + 1}/4 {url} {type(exc).__name__}: {exc}")
+            log(f"fetch fail {attempt + 1}/{attempts} {logged} {type(exc).__name__}: {exc}")
+    if last is None:
+        last = TimeoutError(logged)
     raise last
 
 
@@ -707,7 +757,7 @@ def open_meteo(points):
         + "&past_days=1&forecast_days=7&timezone=Asia%2FKathmandu&models=ecmwf_ifs"
     )
     url = "https://api.open-meteo.com/v1/forecast?" + query
-    doc = fetch_json(url, timeout=60)
+    doc = fetch_json(url, timeout=20, attempts=2, deadline=35)
     if isinstance(doc, dict):
         return [doc]
     return doc
@@ -739,11 +789,13 @@ def daily_rows(block, today):
 
 
 def current_of(block):
+    """Open-Meteo fills gaps only. Callers must not copy these numbers into DHM fields."""
     cur = (block or {}).get("current") or {}
     if not cur:
         return None
     return {
         "src": "model",
+        "role": "gap-fill",
         "t": r1(cur.get("temperature_2m")),
         "rain_mm": r1(cur.get("precipitation")),
         "wmo": cur.get("weather_code"),
@@ -752,6 +804,30 @@ def current_of(block):
         "at": local_npt(cur.get("time")),
         "icon": icon_for_wmo(cur.get("weather_code")),
     }
+
+
+def retain_meta(prev_meta, fresh_meta):
+    """Last successful source record, marked stale. Does not invent a fetch time."""
+    retained = dict(prev_meta or {})
+    fresh_meta = fresh_meta or {}
+    retained["status"] = "retained"
+    retained["stale"] = True
+    for key in ("url", "name", "link", "model", "licence", "attribution_html", "issued_at", "role"):
+        if retained.get(key) in (None, "") and fresh_meta.get(key) not in (None, ""):
+            retained[key] = fresh_meta[key]
+    if "fetched_at" not in retained:
+        retained["fetched_at"] = None
+    return retained
+
+
+def restore_city_gaps(city, old, obs_ok, rain_ok):
+    """A failed DHM or gauge source keeps that city's last good block."""
+    old = old or {}
+    if not obs_ok:
+        city["dhm_observed"] = old.get("dhm_observed")
+    if not rain_ok:
+        city["gauge_now"] = old.get("gauge_now")
+    return city
 
 
 def verify_point(point, periods, observed, gauge, model_block, model_daily, alert, today):
@@ -909,7 +985,7 @@ def try_source(label, fn):
 
 def river_fallback():
     url = "https://dhm.gov.np/site/riverWatchTableViewData"
-    doc = fetch_json(url, method="POST", data=b"", timeout=30)
+    doc = fetch_json(url, method="POST", data=b"", timeout=12, attempts=2, deadline=18)
     if isinstance(doc, dict) and isinstance(doc.get("data"), list):
         return doc["data"]
     return as_list(doc)
@@ -949,7 +1025,7 @@ def main():
     mountain, _ = try_source("dhm_mountain", lambda: fetch_json(DHM + "mountain"))
     mountain_info, _ = try_source("dhm_mountain_info", lambda: fetch_json(DHM + "mountain/all-info"))
     pages, _ = try_source("dhm_pages", lambda: fetch_json(DHM + "page"))
-    hydro, hydro_err = try_source("hydrology", lambda: hydrology.fetch(deadline_s=50))
+    hydro, hydro_err = try_source("hydrology", lambda: hydrology.fetch(deadline_s=40, request_timeout=12))
     rivers_raw = as_list((hydro or {}).get("river_test"))
     rain_raw = as_list((hydro or {}).get("rainfall_watch"))
     hydro_status = "ok" if rivers_raw else "retained"
@@ -968,18 +1044,7 @@ def main():
             sources[name] = meta_ok
             return payload_new
         failures.append(name)
-        old = prev_sources.get(name) or {}
-        retained = dict(old)
-        retained["status"] = "retained"
-        if "fetched_at" not in retained:
-            retained["fetched_at"] = None
-        if meta_ok.get("url") and "url" not in retained:
-            retained["url"] = meta_ok.get("url")
-        if meta_ok.get("name") and "name" not in retained:
-            retained["name"] = meta_ok.get("name")
-        if meta_ok.get("link") and "link" not in retained:
-            retained["link"] = meta_ok.get("link")
-        sources[name] = retained
+        sources[name] = retain_meta(prev_sources.get(name), meta_ok)
         return payload_old
 
     city_doc = dhm_city[0]
@@ -1095,27 +1160,23 @@ def main():
     rivers_ok = bool(rivers)
     if not rivers_ok:
         failures.append("hyd_river")
-        old = dict(prev_sources.get("hyd_river") or {})
-        old["status"] = "retained"
-        sources["hyd_river"] = old or hyd_river_meta
-        old_rows = ((prev.get("rivers") or {}).get("rows")) or []
+        sources["hyd_river"] = retain_meta(prev_sources.get("hyd_river"), hyd_river_meta)
         rivers = []
     else:
         sources["hyd_river"] = hyd_river_meta
     rain_ok = bool(rain_raw)
+    rain_meta = source_meta(
+        "जल तथा मौसम विज्ञान विभाग · वर्षा",
+        "DHM rainfall watch",
+        "https://hydrology.gov.np/ (Socket.IO rainfall_watch)",
+        "https://hydrology.gov.np/",
+        None, fetched, "ok",
+    )
     if rain_ok:
-        sources["hyd_rain"] = source_meta(
-            "जल तथा मौसम विज्ञान विभाग · वर्षा",
-            "DHM rainfall watch",
-            "https://hydrology.gov.np/ (Socket.IO rainfall_watch)",
-            "https://hydrology.gov.np/",
-            None, fetched, "ok",
-        )
+        sources["hyd_rain"] = rain_meta
     else:
         failures.append("hyd_rain")
-        old = dict(prev_sources.get("hyd_rain") or {})
-        old["status"] = "retained"
-        sources["hyd_rain"] = old
+        sources["hyd_rain"] = retain_meta(prev_sources.get("hyd_rain"), rain_meta)
 
     model_by_index = {}
     if isinstance(model_doc, list) and len(model_doc) == len(points):
@@ -1128,19 +1189,21 @@ def main():
             None, fetched, "ok",
             {
                 "model": "ecmwf_ifs",
+                "role": "gap-fill",
                 "licence": "CC BY 4.0",
                 "attribution_html": '<a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>',
             },
         )
     else:
         failures.append("model")
-        old = dict(prev_sources.get("model") or {})
-        old["status"] = "retained"
-        if "attribution_html" not in old:
-            old["attribution_html"] = '<a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>'
-        old.setdefault("model", "ecmwf_ifs")
-        old.setdefault("licence", "CC BY 4.0")
-        sources["model"] = old
+        sources["model"] = retain_meta(prev_sources.get("model"), {
+            "model": "ecmwf_ifs",
+            "role": "gap-fill",
+            "licence": "CC BY 4.0",
+            "attribution_html": '<a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>',
+            "url": "https://api.open-meteo.com/v1/forecast",
+            "link": "https://open-meteo.com/",
+        })
 
     prev_cities = {row.get("id"): row for row in (prev.get("cities") or []) if isinstance(row, dict)}
     cities = []
@@ -1187,8 +1250,10 @@ def main():
                 "model_daily": daily,
             }
             city["verify"] = verify_point(point, periods, obs_pack, gauge if rain_ok else None, block, daily, alert, today)
+            restore_city_gaps(city, prev_cities.get(point["id"]), obs_ok, rain_ok)
             cities.append(city)
     else:
+        # DHM city forecast is primary. Do not rebuild the city list from Open-Meteo.
         cities = prev.get("cities") or []
 
     corridor_points = []
@@ -1223,6 +1288,7 @@ def main():
             item["verify"] = old.get("verify") or {"state": "no_ref", "flags": []}
         corridor_points.append(item)
 
+    prev_corridor = prev.get("corridor") or {}
     if rivers_ok:
         river_index = {row["id"]: row for row in rivers}
         corridor_rivers = []
@@ -1244,6 +1310,9 @@ def main():
                 "obs_at": row["obs_at"],
                 "fresh": row["fresh"],
             })
+    else:
+        corridor_rivers = prev_corridor.get("rivers") or []
+    if rain_ok:
         corridor_rain = []
         rain_index = {row["id"]: row for row in rains}
         for rid, names in CORRIDOR_RAIN.items():
@@ -1263,8 +1332,7 @@ def main():
                 "flag": row["flag"],
             })
     else:
-        corridor_rivers = (prev.get("corridor") or {}).get("rivers") or []
-        corridor_rain = (prev.get("corridor") or {}).get("rain") or []
+        corridor_rain = prev_corridor.get("rain") or []
 
     river_cols = ["id", "name", "basin", "district", "lat", "lon", "level_m", "warning_m", "danger_m", "level", "trend", "obs_at"]
     if rivers_ok:
@@ -1310,6 +1378,9 @@ def main():
         "verification": verification,
     }
     current = scrub(current)
+    leaked = personal_keys(current)
+    if leaked:
+        raise RuntimeError("refusing to write personal fields: " + ",".join(sorted(set(leaked))))
 
     home_rivers = []
     by_id = {row.get("id"): row for row in corridor_rivers}
@@ -1369,11 +1440,14 @@ def main():
             break
     short_sources = {}
     for key, meta in sources.items():
-        short_sources[key] = {
+        short = {
             "issued_at": meta.get("issued_at"),
             "fetched_at": meta.get("fetched_at"),
             "status": meta.get("status"),
         }
+        if meta.get("stale"):
+            short["stale"] = True
+        short_sources[key] = short
     now_doc = {
         "schema": "rfb-weather-now/1",
         "generated_at": fetched,
@@ -1383,6 +1457,9 @@ def main():
         "sources": short_sources,
     }
     now_doc = scrub(now_doc)
+    leaked = personal_keys(now_doc)
+    if leaked:
+        raise RuntimeError("refusing to write personal fields: " + ",".join(sorted(set(leaked))))
 
     station_doc = {
         "schema": "rfb-weather-stations/1",
@@ -1417,14 +1494,18 @@ def main():
         ],
         "nearest": [],
     }
-    if rivers_ok or rain_ok:
+    prev_stations = load_json(os.path.join(out_dir, "stations.json")) or {}
+    if not rivers_ok:
+        station_doc["rivers"] = prev_stations.get("rivers") or []
+    if not rain_ok:
+        station_doc["rain"] = prev_stations.get("rain") or []
+    if rain_ok:
         for point in points:
-            gauge, dist = nearest_gauge(point, rains if rain_ok else [], point.get("group") == "corridor")
+            gauge, dist = nearest_gauge(point, rains, point.get("group") == "corridor")
             if gauge:
                 station_doc["nearest"].append({"point_id": point["id"], "station_id": gauge["id"], "dist_km": dist})
     else:
-        station_doc["rivers"] = (load_json(os.path.join(out_dir, "stations.json")) or {}).get("rivers") or []
-        station_doc["rain"] = (load_json(os.path.join(out_dir, "stations.json")) or {}).get("rain") or []
+        station_doc["nearest"] = prev_stations.get("nearest") or []
 
     history_path = os.path.join(out_dir, "history", today + ".json")
     history = load_json(history_path) or {"date": today, "runs": [], "dhm_city": [], "dhm_obs": [], "country": [], "model_issued": []}
@@ -1484,6 +1565,9 @@ def main():
         })
         history["model_issued"] = history["model_issued"][-4:]
     history = scrub(history)
+    leaked = personal_keys(history) + personal_keys(station_doc)
+    if leaked:
+        raise RuntimeError("refusing to write personal fields: " + ",".join(sorted(set(leaked))))
     raw_history = dump(history)
     if len(raw_history.encode("utf-8")) > 120000:
         history["runs"] = history["runs"][-8:]
@@ -1510,6 +1594,7 @@ def main():
     write_if_changed(history_path, history)
     now_size = os.path.getsize(os.path.join(out_dir, "now.json"))
     cur_size = os.path.getsize(os.path.join(out_dir, "current.json"))
+    log("SOURCE_STATUS " + " ".join(f"{key}={meta.get('status')}" for key, meta in sources.items()))
     log(f"sizes now={now_size} current={cur_size} failures={','.join(failures) or 'none'}")
     if now_size > 15000:
         log("warning: now.json over 15 KB")
