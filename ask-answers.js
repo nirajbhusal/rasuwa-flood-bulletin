@@ -834,7 +834,7 @@
     if (!data) return pack(lang, missingText(lang), "", href, { followups: fu, links: mapLink });
     var when = asOfShort(data, lang);
     var srcWhen = when;
-    var src = sourceLine(lang, "NAVIGATE", srcWhen);
+    var src = sourceLine(lang, lang === "en" ? "DoR" : "सडक विभाग", srcWhen);
     if (spec.meta === "source" || spec.intent === "roads" && false) {
       /* source questions use meta */
     }
