@@ -62,20 +62,40 @@
     placeToggle();
   }
 
+  function clearDeskPos() {
+    if (!inner) return;
+    inner.style.left = "";
+    inner.style.right = "";
+    inner.style.top = "";
+    inner.style.width = "";
+    inner.style.maxHeight = "";
+    inner.style.position = "";
+    inner.style.zIndex = "";
+    inner.style.justifyContent = "";
+    inner.style.transform = "";
+  }
   function placePanel() {
     if (!inner) return;
     if (isMobile() || !nav.classList.contains("is-open")) {
-      inner.style.left = "";
-      inner.style.right = "";
-      inner.style.top = "";
+      clearDeskPos();
       return;
     }
     var r = btn.getBoundingClientRect();
-    var host = nav.getBoundingClientRect();
-    var left = Math.max(8, Math.round(r.left - host.left));
+    var width = Math.min(420, Math.max(220, window.innerWidth - 16));
+    var left = Math.round(r.left);
+    if (left + width > window.innerWidth - 8) left = Math.max(8, window.innerWidth - 8 - width);
+    if (left < 8) left = 8;
+    var top = Math.round(r.bottom + 8);
+    var maxH = Math.max(180, Math.min(560, Math.round(window.innerHeight * 0.7), window.innerHeight - top - 12));
+    inner.style.position = "fixed";
+    inner.style.zIndex = "2000";
     inner.style.left = left + "px";
     inner.style.right = "auto";
-    inner.style.top = "8px";
+    inner.style.top = top + "px";
+    inner.style.width = width + "px";
+    inner.style.maxHeight = maxH + "px";
+    inner.style.justifyContent = "flex-start";
+    inner.style.transform = "none";
   }
 
   function ensureDrawerHead() {
@@ -235,9 +255,7 @@
     ensureDrawerHead();
     groupLinks();
     inner.classList.add("nav-drawer-panel");
-    inner.style.left = "";
-    inner.style.right = "";
-    inner.style.top = "";
+    clearDeskPos();
     body.appendChild(inner);
   }
   function portalIn() {
@@ -286,6 +304,7 @@
         body.style.overflow = "";
         floatToggle(false);
         placePanel();
+        if (inner) inner.scrollTop = 0;
       }
       var first = inner && inner.querySelector("a[href]");
       focusEl(first || btn);
@@ -335,7 +354,7 @@
       close();
       return;
     }
-    if (e.key !== "Tab" || !isMobile()) return;
+    if (e.key !== "Tab") return;
     var list = focusables();
     if (!list.length) return;
     var first = list[0];
@@ -398,6 +417,9 @@
     syncStick();
     placePanel();
   });
+  window.addEventListener("scroll", function () {
+    if (nav.classList.contains("is-open") && !isMobile()) placePanel();
+  }, { passive: true });
 
   placeToggle();
   groupLinks();

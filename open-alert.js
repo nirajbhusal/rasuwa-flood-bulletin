@@ -2,12 +2,14 @@
 (function () {
   var SEEN = "rfb-open-alert-id";
   var SESSION = "rfb-open-alert-session";
-  var HOLD = 11000;
+  var HOLD = 8000;
   var data = null;
   var sheet = null;
   var shownId = "";
   var timer = 0;
   var paused = false;
+  var remain = HOLD;
+  var startedAt = 0;
 
   function lang() {
     return document.documentElement.lang === "en" ? "en" : "ne";
@@ -150,6 +152,7 @@
   }
   function fadeOut() {
     if (!sheet || paused) return;
+    clearTimer();
     if (reduceMotion()) {
       dismiss();
       return;
@@ -158,20 +161,42 @@
     sheet.classList.add("is-out");
     timer = window.setTimeout(dismiss, 380);
   }
+  function paintBar() {
+    if (!sheet) return;
+    var bar = sheet.querySelector(".open-alert-bar > i");
+    if (!bar) return;
+    var left = remain;
+    if (!paused && startedAt) left = remain - (Date.now() - startedAt);
+    var frac = Math.max(0, Math.min(1, left / HOLD));
+    bar.style.transform = "scaleX(" + frac + ")";
+  }
+  function tick() {
+    if (!sheet || paused) return;
+    var left = remain - (Date.now() - startedAt);
+    paintBar();
+    if (left <= 0) {
+      fadeOut();
+      return;
+    }
+    timer = window.setTimeout(tick, 80);
+  }
   function arm() {
     clearTimer();
     if (paused || !sheet) return;
-    timer = window.setTimeout(function () {
-      if (reduceMotion()) dismiss();
-      else fadeOut();
-    }, HOLD);
+    startedAt = Date.now();
+    tick();
   }
   function pause() {
+    if (!paused && startedAt) remain = Math.max(0, remain - (Date.now() - startedAt));
     paused = true;
     clearTimer();
+    paintBar();
+    if (sheet) sheet.classList.add("is-paused");
   }
   function resume() {
+    if (!paused) return;
     paused = false;
+    if (sheet) sheet.classList.remove("is-paused");
     arm();
   }
   function tel(parent, num, label) {
@@ -270,7 +295,16 @@
     sheet.appendChild(body);
     sheet.appendChild(stayLine());
     sheet.appendChild(row);
-    if (fresh) paused = false;
+    var bar = document.createElement("div");
+    bar.className = "open-alert-bar";
+    bar.setAttribute("aria-hidden", "true");
+    var fill = document.createElement("i");
+    bar.appendChild(fill);
+    sheet.appendChild(bar);
+    if (fresh) {
+      paused = false;
+      remain = HOLD;
+    }
     placeAlert();
     if (reduceMotion()) {
       sheet.classList.add("is-in");
