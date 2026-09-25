@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var VER = window.PAGE_VER || "2026-09-25-header-icons";
+  var VER = window.PAGE_VER || "2026-09-25-dhm-12309";
   var home = null;
   var full = null;
   var geo = null;
