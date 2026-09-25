@@ -1083,14 +1083,17 @@
   function prGroupOn(groupId) {
     return !policeFilter || policeFilter === groupId;
   }
-  function paintPoliceNow() {
-    document.querySelectorAll("[data-pr-now]").forEach(function (node) {
-      var row = prRow(node.getAttribute("data-pr-now"));
-      if (!row) return;
-      var state = prState(row);
-      node.className = "pr-now" + (state ? " is-" + state : "");
-      node.textContent = prNowWord(state);
-      node.hidden = !state;
+  function paintPoliceNow(scope) {
+    var roots = scope ? [scope] : Array.prototype.slice.call(document.querySelectorAll(".pr-board"));
+    roots.forEach(function (root) {
+      root.querySelectorAll("[data-pr-now]").forEach(function (node) {
+        var row = prRow(node.getAttribute("data-pr-now"));
+        if (!row) return;
+        var state = prState(row);
+        node.className = "pr-now" + (state ? " is-" + state : "");
+        node.textContent = prNowWord(state);
+        node.hidden = !state;
+      });
     });
   }
   function prHourBar(row) {
@@ -1294,7 +1297,7 @@
     shell.appendChild(src);
     board.appendChild(shell);
     board._policeSlot = slot;
-    paintPoliceNow();
+    paintPoliceNow(shell);
     if (!policeNowTimer) policeNowTimer = window.setInterval(paintPoliceNow, 30000);
   }
   function schedulePoliceMap(board, mode) {
