@@ -170,11 +170,8 @@
     return lang() === "en" ? "No fresh reading" : "ताजा रिडिङ छैन";
   }
   function deltaText(row) {
-    if (!row || !row.fresh || row.below_warning_m == null) {
-      var last = row && row.obs_at ? formatWhen(row.obs_at, true) : "";
-      var base = lang() === "en" ? "No fresh reading" : "हालको रिडिङ छैन";
-      return last ? base + " · " + last : base;
-    }
+    if (!row || !row.fresh) return row && row.obs_at ? formatWhen(row.obs_at, true) : "";
+    if (row.below_warning_m == null) return "";
     var n = fmt(Math.abs(row.below_warning_m), 2);
     if (row.below_warning_m >= 0) {
       return lang() === "en" ? n + " m below warning" : "चेतावनीभन्दा " + n + " मि. तल";
@@ -642,7 +639,9 @@
       var td2 = document.createElement("td");
       var level = row.level_m == null ? "—" : fmt(row.level_m, 2);
       var warn = row.warning_m == null ? "—" : fmt(row.warning_m, 2);
-      td2.textContent = level + " / " + warn + " · " + deltaText(row) + (trendMark(row.trend) ? " " + trendMark(row.trend) : "");
+      var extra = deltaText(row);
+      var trend = trendMark(row.trend);
+      td2.textContent = level + " / " + warn + (extra ? " · " + extra : "") + (trend ? " " + trend : "");
       tr.appendChild(td2);
       body.appendChild(tr);
     });
