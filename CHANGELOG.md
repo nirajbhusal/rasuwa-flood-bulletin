@@ -440,7 +440,7 @@ Content freeze: no reader-visible text, figures, labels, caveats, sources, or i1
 - Overflow guard 320–400px
 
 ### Markup fixes
-- `index.html` footer: unescaped `href="tel:+9779851175115"` / `mailto:neerajbhusal@gmail.com` (was broken `href=\"…\"`)
+- `index.html` footer: unescaped tel and mailto hrefs (was broken `href=\"…\"`)
 - `i18n.js` `foot_contact` NE+EN: `\"` is correct JS string escaping → left unchanged (runtime HTML is valid)
 
 ### Deferred
