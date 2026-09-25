@@ -1,3 +1,8 @@
+## 2026-09-25 · Rain GIF on the weather maps
+
+- Districts DHM marks with rain use a small looping cloud-and-rain GIF on the homepage and weather maps. The icon sits inside the district and follows zoom, pan, and full screen. Reduced motion shows a still frame. The per-day counts stay 21 / 24 / 18 / 18.
+- The site-wide falling-rain overlay (`rain-theme.js`) is unchanged. The GIF replaces only the per-district marks inside the map.
+
 ## 2026-09-25-dhm-12310 · Five-day warning and Bulletin-27
 
 - Lead warning is DHM #12310, issued Asoj 9 at 4:43 PM (25 September 2026). The window is Asoj 9–13 (25–29 September). Maps are `img/dhm/warning-12310-day{1,2,3,4,5}.png`. Each district uses that day’s colour from the official map. Day 5 (Asoj 13) is green in every district.

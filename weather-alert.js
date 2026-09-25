@@ -521,11 +521,12 @@
   function kickSvgFits() {
     svgFitters = svgFitters.filter(function (svg) { return svg && svg.isConnected; });
     svgFitters.forEach(function (svg) {
-      if (svg._userZoom) return;
       var rect = svg.getBoundingClientRect();
-      if (rect.width < 40 || rect.height < 40) return;
-      fitNepalSvg(svg);
-      tuneStrokes(svg);
+      if (!svg._userZoom && rect.width >= 40 && rect.height >= 40) {
+        fitNepalSvg(svg);
+        tuneStrokes(svg);
+      }
+      if (svg._placeRain) svg._placeRain();
     });
   }
   if (!window.__wxSvgFit) {
@@ -828,58 +829,187 @@
     return pop;
   }
 
-  function anchorOf(dAttr) {
-    var nums = String(dAttr || "").match(/-?\d*\.?\d+/g);
-    if (!nums || nums.length < 6) return null;
-    var pts = [];
-    var i;
-    for (i = 0; i + 1 < nums.length; i += 2) pts.push([+nums[i], +nums[i + 1]]);
-    var area = 0;
-    var cx = 0;
-    var cy = 0;
-    for (i = 0; i < pts.length; i++) {
-      var j = (i + 1) % pts.length;
-      var cross = pts[i][0] * pts[j][1] - pts[j][0] * pts[i][1];
-      area += cross;
-      cx += (pts[i][0] + pts[j][0]) * cross;
-      cy += (pts[i][1] + pts[j][1]) * cross;
-    }
-    if (Math.abs(area) < 1) return { x: pts[0][0], y: pts[0][1] };
-    return { x: cx / (3 * area), y: cy / (3 * area) };
+  function rainSrc() {
+    var file = prefersStill() ? "img/wx-rain-still.png" : "img/wx-rain.gif";
+    return [file + "?v", encodeURIComponent(VER)].join("=");
   }
-  function rainMark(x, y) {
-    var g = svgEl("g");
-    g.setAttribute("class", "wxb-rain");
-    g.setAttribute("transform", "translate(" + x + " " + y + ")");
-    g.setAttribute("aria-hidden", "true");
-    var cloud = svgEl("path");
-    cloud.setAttribute("fill", "#f8fafc");
-    cloud.setAttribute("stroke", "#334155");
-    cloud.setAttribute("stroke-width", "0.7");
-    cloud.setAttribute("d", "M-4.2 -1.2a2.7 2.7 0 0 1 5.1-1.1 2.3 2.3 0 0 1 2.2 1.7 2.5 2.5 0 0 1 .1 4.8h-7.6a2.4 2.4 0 0 1 .2-5.4z");
-    g.appendChild(cloud);
-    function drop(dx, cls) {
-      var p = svgEl("path");
-      p.setAttribute("class", "wxb-rain-drop" + (cls ? " " + cls : ""));
-      p.setAttribute("fill", "#0284c7");
-      p.setAttribute("d", "M" + dx + " 5.2c0 1.05.62 1.6.95 1.6s.95-.55.95-1.6c0-.75-.95-1.9-.95-1.9s-.95 1.15-.95 1.9z");
-      g.appendChild(p);
+  function rainHost(svg) {
+    var wrap = svg.closest && svg.closest(".wxb-mapwrap");
+    if (!wrap) return null;
+    var layer = wrap.querySelector(":scope > .wxb-rain-layer");
+    if (!layer) {
+      layer = document.createElement("div");
+      layer.className = "wxb-rain-layer";
+      layer.setAttribute("aria-hidden", "true");
+      wrap.appendChild(layer);
     }
-    drop(-3.1, "");
-    drop(-0.15, "d2");
-    drop(2.7, "d3");
-    return g;
+    return layer;
+  }
+  function rainSpot(path) {
+    if (path._rainFit) return path._rainFit;
+    var bb;
+    try { bb = path.getBBox(); } catch (e) { return null; }
+    if (!bb || bb.width < 2 || bb.height < 2) return null;
+    var svg = path.ownerSVGElement;
+    if (!svg || !svg.createSVGPoint) return null;
+    var pt = svg.createSVGPoint();
+    function inside(x, y) {
+      pt.x = x;
+      pt.y = y;
+      try { return path.isPointInFill(pt); } catch (err) { return false; }
+    }
+    function squareInside(x, y, half) {
+      if (!(half > 0)) return inside(x, y);
+      var s = [-1, 0, 1];
+      var i, j;
+      for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+          if (!inside(x + s[i] * half, y + s[j] * half)) return false;
+        }
+      }
+      return true;
+    }
+    function maxHalf(x, y) {
+      if (!inside(x, y)) return 0;
+      var lo = 0;
+      var hi = Math.min(bb.width, bb.height) * 0.5;
+      var k;
+      for (k = 0; k < 6; k++) {
+        var mid = (lo + hi) * 0.5;
+        if (squareInside(x, y, mid)) lo = mid;
+        else hi = mid;
+      }
+      return lo;
+    }
+    var cols = 7;
+    var rows = 7;
+    var best = null;
+    var sx = 0;
+    var sy = 0;
+    var sn = 0;
+    var r, c;
+    for (r = 0; r < rows; r++) {
+      for (c = 0; c < cols; c++) {
+        var x = bb.x + bb.width * ((c + 0.5) / cols);
+        var y = bb.y + bb.height * ((r + 0.5) / rows);
+        if (!inside(x, y)) continue;
+        sx += x;
+        sy += y;
+        sn += 1;
+        var half = maxHalf(x, y);
+        if (!best || half > best.half) best = { x: x, y: y, half: half };
+      }
+    }
+    if (sn) {
+      var ch = maxHalf(sx / sn, sy / sn);
+      if (ch > 0 && (!best || ch >= best.half * 0.94)) best = { x: sx / sn, y: sy / sn, half: ch };
+    }
+    path._rainFit = best && best.half > 0.3 ? best : null;
+    return path._rainFit;
+  }
+  function placeRain(svg) {
+    var layer = rainHost(svg);
+    if (!layer) return;
+    var src = rainSrc();
+    var paths = [];
+    var ids = [];
+    svg.querySelectorAll(".wxb-dist").forEach(function (path) {
+      var id = path.getAttribute("data-id");
+      if (!districtRain(id)) return;
+      ids.push(id);
+      paths.push(path);
+    });
+    ids.sort();
+    var key = ids.join(",") + "|" + src;
+    if (layer._rainKey !== key) {
+      layer._rainKey = key;
+      layer.replaceChildren();
+      paths.forEach(function (path) {
+        var img = document.createElement("img");
+        img.className = "wxb-rain-gif";
+        img.alt = "";
+        img.setAttribute("aria-hidden", "true");
+        img.setAttribute("data-id", path.getAttribute("data-id") || "");
+        img.draggable = false;
+        img.decoding = "async";
+        img.src = src;
+        img._rainPath = path;
+        layer.appendChild(img);
+      });
+    }
+    var box = layer.getBoundingClientRect();
+    var originX = box.left;
+    var originY = box.top;
+    layer.querySelectorAll(".wxb-rain-gif").forEach(function (img) {
+      var path = img._rainPath;
+      var spot = path && rainSpot(path);
+      var ctm = path && path.getScreenCTM && path.getScreenCTM();
+      if (!spot || !ctm || !svg.createSVGPoint) {
+        img.style.visibility = "hidden";
+        return;
+      }
+      var scale = Math.hypot(ctm.a, ctm.b) || 1;
+      var room = spot.half * 2 * scale;
+      var size = Math.min(28, room);
+      var center = svg.createSVGPoint();
+      center.x = spot.x;
+      center.y = spot.y;
+      var screen = center.matrixTransform(ctm);
+      var inv = null;
+      try { inv = ctm.inverse(); } catch (e) { inv = null; }
+      if (inv) {
+        var probe = svg.createSVGPoint();
+        var local = svg.createSVGPoint();
+        function markFits(sz) {
+          var h = sz * 0.5 + 0.75;
+          var offs = [[-1, -1], [1, -1], [-1, 1], [1, 1], [0, -1], [0, 1], [-1, 0], [1, 0]];
+          var i;
+          for (i = 0; i < offs.length; i++) {
+            probe.x = screen.x + offs[i][0] * h;
+            probe.y = screen.y + offs[i][1] * h;
+            var u = probe.matrixTransform(inv);
+            local.x = u.x;
+            local.y = u.y;
+            try {
+              if (!path.isPointInFill(local)) return false;
+            } catch (err) {
+              return false;
+            }
+          }
+          return true;
+        }
+        if (!markFits(size)) {
+          var lo = 4;
+          var hi = size;
+          var k;
+          for (k = 0; k < 7; k++) {
+            var mid = (lo + hi) * 0.5;
+            if (markFits(mid)) lo = mid;
+            else hi = mid;
+          }
+          size = markFits(lo) ? lo : 0;
+        }
+      }
+      if (!(size >= 4)) {
+        img.style.visibility = "hidden";
+        img.style.width = "0px";
+        img.style.height = "0px";
+        return;
+      }
+      img.style.visibility = "visible";
+      img.style.width = size.toFixed(2) + "px";
+      img.style.height = size.toFixed(2) + "px";
+      img.style.left = (screen.x - originX - size * 0.5).toFixed(2) + "px";
+      img.style.top = (screen.y - originY - size * 0.5).toFixed(2) + "px";
+    });
   }
   function paintRain(svg) {
     var g = svg.querySelector(".wxb-rains");
-    if (!g) return;
-    g.replaceChildren();
-    var list = (districts && districts.districts) || [];
-    list.forEach(function (d) {
-      if (!districtRain(d.id)) return;
-      var at = anchorOf(d.d);
-      if (!at) return;
-      g.appendChild(rainMark(at.x, at.y));
+    if (g && g.childNodes.length) g.replaceChildren();
+    svg._placeRain = function () { placeRain(svg); };
+    placeRain(svg);
+    window.requestAnimationFrame(function () {
+      if (svg.isConnected) placeRain(svg);
     });
   }
   function tuneStrokes(svg) {
@@ -1091,6 +1221,7 @@
     var st = { s: 1, x: 0, y: 0 };
     function apply() {
       if (layer) layer.setAttribute("transform", "translate(" + st.x + " " + st.y + ") scale(" + st.s + ")");
+      if (svg._placeRain) svg._placeRain();
     }
     function userBox() {
       var vb = svg.viewBox && svg.viewBox.baseVal;
@@ -1111,7 +1242,16 @@
       apply();
     }
     svg._zoomBy = zoomBy;
-    svg._zoomReset = function () { svg._userZoom = false; st.s = 1; st.x = 0; st.y = 0; apply(); fitNepalSvg(svg); };
+    svg._zoomReset = function () {
+      svg._userZoom = false;
+      st.s = 1;
+      st.x = 0;
+      st.y = 0;
+      apply();
+      fitNepalSvg(svg);
+      tuneStrokes(svg);
+      if (svg._placeRain) svg._placeRain();
+    };
     var ptr = {};
     if (!wrap.hasAttribute("tabindex")) wrap.tabIndex = 0;
     wrap.addEventListener("focusin", function () { wrap._wheelOn = true; });
