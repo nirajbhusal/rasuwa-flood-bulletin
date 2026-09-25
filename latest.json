@@ -1,7 +1,7 @@
 {
-  "id": "2026-09-25-dhm-12310",
+  "id": "2026-09-25-dhm-flood-0800",
   "title": "रसुवा बाढी अपडेट",
-  "body": "DHM पाँच दिनको मौसम चेतावनी (असोज ९, ४:४३) र विशेष बुलेटिन-२७। DHM five-day weather warning (Asoj 9, 4:43 PM) and Special Bulletin-27.",
-  "url": "notices.html#alert",
+  "body": "DHM विशेष बाढी पूर्वानुमान (असोज ९, बिहान ८:००)। पाँच दिनको मौसम चेतावनी र बुलेटिन-२७ यथावत्। DHM special flood forecast (Asoj 9, 08:00). The five-day weather warning and Bulletin-27 stay.",
+  "url": "weather.html#flood-outlook",
   "updated_at": "2026-09-25T17:03:10+05:45"
 }

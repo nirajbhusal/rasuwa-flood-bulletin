@@ -7,6 +7,7 @@ const require = createRequire(import.meta.url);
 const Ask = require("../ask-answers.js");
 
 const wx = JSON.parse(readFileSync(new URL("../data/weather-alert.json", import.meta.url), "utf8"));
+const flood = JSON.parse(readFileSync(new URL("../data/flood-bulletin.json", import.meta.url), "utf8"));
 const wxnow = JSON.parse(readFileSync(new URL("../data/weather/now.json", import.meta.url), "utf8"));
 const roads = JSON.parse(readFileSync(new URL("../data/roads-dor.json", import.meta.url), "utf8"));
 const dash = JSON.parse(readFileSync(new URL("../api/dashboard.json", import.meta.url), "utf8"));
@@ -37,6 +38,7 @@ function ask(q, lang) {
     now: "2026-09-25",
     wx: wx,
     wxnow: wxnow,
+    flood: flood,
     roads: roads,
     dash: dash,
     gallery: gallery,
@@ -74,9 +76,9 @@ const cases = [
   ["भोलिको मौसम?", "ne", { intent: "weather_day", number: true, has: ["असोज १०"] }],
   ["mausam asoj 10", "en", { intent: "weather_day", number: true, has: ["Asoj 10"] }],
   ["Rasuwa weather", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "red"] }],
-  ["Kathmandu maximum today", "en", { intent: "weather_city", number: true, has: ["Kathmandu", "20.2", "16.2", "DHM"] }],
-  ["काठमाडौँको तापक्रम", "ne", { intent: "weather_city", number: true, has: ["काठमाडौँ", "20.2", "16.2"] }],
-  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["3.1", "3.2", "warning"] }],
+  ["Kathmandu maximum today", "en", { intent: "weather_city", number: true, has: ["Kathmandu", "17.8", "16.2", "DHM"] }],
+  ["काठमाडौँको तापक्रम", "ne", { intent: "weather_city", number: true, has: ["काठमाडौँ", "17.8", "16.2"] }],
+  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["3.29", "warning"] }],
   ["बेत्रावतीको नदी तह", "ne", { intent: "weather_river", has: ["ताजा रिडिङ छैन"] }],
   ["सिन्धुपाल्चोकको मौसम", "ne", { intent: "weather_place", number: true, has: ["सिन्धुपाल्चोक"], not: ["खोलानाला", "विद्यालय"] }],
   ["nuwakot mausam", "ne", { intent: "weather_place", number: true, has: ["नुवाकोट"] }],
@@ -237,6 +239,30 @@ test("DAO notice districts match the district GeoJSON", function () {
   assert.equal(notice.counts.provinces, 6);
   assert.equal(notice.published.bs, "२०८३/०६/०९");
   assert.equal(roads.roads.length >= 10, true);
+});
+
+test("special flood forecast answers use the DHM bulletin", function () {
+  assertAnswer("कुन नदी सतर्कता नजिक छ?", "ne", { intent: "flood_rivers", has: ["कोशी", "नारायणी", "बागमती", "कन्काई", "कमला", "पश्चिम राप्ती"] });
+  assertAnswer("Which rivers are near the warning level?", "en", { intent: "flood_rivers", has: ["Koshi", "Narayani", "West Rapti", "Mahakali"] });
+  assertAnswer("रसुवामा आकस्मिक बाढी?", "ne", { intent: "flood_place", has: ["रसुवा", "मध्यम"] });
+  assertAnswer("Rasuwa flash flood tomorrow", "en", { intent: "flood_place", has: ["Rasuwa", "medium"] });
+  assertAnswer("Kaski flash flood today", "en", { intent: "flood_place", has: ["Kaski", "high"] });
+  assertAnswer("त्रिशुली बेत्रावतीको पूर्वानुमान", "ne", { intent: "flood_trishuli", has: ["बेत्रावती", "उल्लेख्य बढ्ने", "सामान्य घटबढ"] });
+  assertAnswer("आज आकस्मिक बाढी कहाँ छ?", "ne", { intent: "flood_flash", has: ["गोरखा", "कैलाली"] });
+  assertAnswer("Trishuli at Dhunche", "en", { intent: "weather_river", has: ["3.29", "warning"] });
+  assertAnswer("Rasuwa weather", "en", { intent: "weather_place", has: ["Rasuwa"] });
+  const today = new Set(flood.flash.today.high.concat(flood.flash.today.medium));
+  const tomorrow = new Set(flood.flash.tomorrow.high.concat(flood.flash.tomorrow.medium));
+  assert.equal(flood.flash.today.high.length, 12);
+  assert.equal(flood.flash.today.medium.length, 65);
+  assert.equal(today.size, 77);
+  assert.equal(flood.flash.tomorrow.high.length, 26);
+  assert.equal(flood.flash.tomorrow.medium.length, 32);
+  assert.equal(tomorrow.size, 58);
+  assert.equal(flood.stations[12].river, "त्रिशुली");
+  assert.deepEqual(flood.stations[12].days, ["Y", "Y", "Gb", "Gd", "Gd"]);
+  assert.equal(flood.rasuwa.today, "medium");
+  assert.equal(flood.rasuwa.tomorrow, "medium");
 });
 
 test("heaviest rain answers from top_rain", function () {

@@ -15,7 +15,9 @@
     "rescue_missing", "rescue_dead", "rescue_rescued", "rescue_overview", "rescue_source",
     "fund", "donate", "fund_source",
     "helpline", "names", "lpg", "lpg_source",
-    "cause", "gallery", "about", "markets", "fallback"
+    "cause", "gallery", "about", "markets",
+    "flood_rivers", "flood_flash", "flood_place", "flood_trishuli",
+    "fallback"
   ];
 
   var DIG = "०१२३४५६७८९";
@@ -81,6 +83,36 @@
     { id: "rukum-west", province: "karnali", en: "Rukum West", ne: "रुकुम पश्चिम", keys: ["rukum west", "rukum paschim", "पश्चिम रुकुम", "रुकुम पश्चिम"] },
     { id: "bajhang", province: "sudurpaschim", en: "Bajhang", ne: "बझाङ", keys: ["bajhang", "बझाङ"] },
     { id: "baitadi", province: "sudurpaschim", en: "Baitadi", ne: "बैतडी", keys: ["baitadi", "बैतडी"] }
+  ];
+  var FLOOD_EXTRA = [
+    { id: "kaski", keys: ["kaski", "कास्की"] },
+    { id: "manang", keys: ["manang", "मनाङ"] },
+    { id: "mustang", keys: ["mustang", "मुस्ताङ"] },
+    { id: "banke", keys: ["banke", "बाँके", "बांके"] },
+    { id: "bardiya", keys: ["bardiya", "bardya", "बर्दिया"] },
+    { id: "surkhet", keys: ["surkhet", "सुर्खेत"] },
+    { id: "dailekh", keys: ["dailekh", "दैलेख"] },
+    { id: "kailali", keys: ["kailali", "कैलाली"] },
+    { id: "kanchanpur", keys: ["kanchanpur", "कन्चनपुर", "कञ्चनपुर"] },
+    { id: "kathmandu", keys: ["kathmandu", "काठमाडौं", "काठमाण्डौं", "काठमाडौँ"] },
+    { id: "bhaktapur", keys: ["bhaktapur", "भक्तपुर"] },
+    { id: "makwanpur", keys: ["makwanpur", "मकवानपुर"] },
+    { id: "nawalparasi-east", keys: ["nawalparasi east", "nawalpur", "नवलपरासी पूर्व"] },
+    { id: "nawalparasi-west", keys: ["nawalparasi west", "parasi", "नवलपरासी पश्चिम"] },
+    { id: "rupandehi", keys: ["rupandehi", "रुपन्देही"] },
+    { id: "kapilbastu", keys: ["kapilvastu", "kapilbastu", "कपिलवस्तु"] },
+    { id: "palpa", keys: ["palpa", "पाल्पा"] },
+    { id: "gulmi", keys: ["gulmi", "गुल्मी"] },
+    { id: "arghakhanchi", keys: ["arghakhanchi", "अर्घाखाँची", "अर्घाखांची"] },
+    { id: "syangja", keys: ["syangja", "स्याङ्जा"] },
+    { id: "tanahu", keys: ["tanahu", "tanahun", "तनहुँ"] },
+    { id: "parbat", keys: ["parbat", "पर्वत"] },
+    { id: "pyuthan", keys: ["pyuthan", "प्युठान"] },
+    { id: "salyan", keys: ["salyan", "सल्यान"] },
+    { id: "doti", keys: ["doti", "डोटी"] },
+    { id: "dadeldhura", keys: ["dadeldhura", "डडेल्धुरा", "डडेलधुरा"] },
+    { id: "jhapa", keys: ["jhapa", "झापा"] },
+    { id: "sindhuli", keys: ["sindhuli", "सिन्धुली"] }
   ];
   var HELPLINES = [
     { tel: "1234", ne: "उद्धार / DEOC", en: "Rescue / DEOC" },
@@ -243,6 +275,26 @@
       { ne: "पासाङ ल्हामु राजमार्ग खुल्यो?", en: "Is the Pasang Lhamu highway open?" },
       { ne: "राति कुन सडक बन्द छ?", en: "Which roads are closed at night?" },
       { ne: "आजको मौसम के छ?", en: "What is today’s weather?" }
+    ]),
+    flood_rivers: follow([
+      { ne: "रसुवामा आकस्मिक बाढी?", en: "Flash-flood risk in Rasuwa?" },
+      { ne: "त्रिशुली बेत्रावतीको पूर्वानुमान?", en: "Trishuli at Betrawati outlook?" },
+      { ne: "आज उच्च बाढी जोखिम कहाँ छ?", en: "Where is high flood risk today?" }
+    ]),
+    flood_flash: follow([
+      { ne: "कुन नदी सतर्कता नजिक छ?", en: "Which rivers are near warning?" },
+      { ne: "त्रिशुली बेत्रावतीको पूर्वानुमान?", en: "Trishuli at Betrawati outlook?" },
+      { ne: "रसुवामा आकस्मिक बाढी?", en: "Flash-flood risk in Rasuwa?" }
+    ]),
+    flood_place: follow([
+      { ne: "आज उच्च बाढी जोखिम कहाँ छ?", en: "Where is high flood risk today?" },
+      { ne: "त्रिशुली बेत्रावतीको पूर्वानुमान?", en: "Trishuli at Betrawati outlook?" },
+      { ne: "कुन नदी सतर्कता नजिक छ?", en: "Which rivers are near warning?" }
+    ]),
+    flood_trishuli: follow([
+      { ne: "रसुवामा आकस्मिक बाढी?", en: "Flash-flood risk in Rasuwa?" },
+      { ne: "कुन नदी सतर्कता नजिक छ?", en: "Which rivers are near warning?" },
+      { ne: "आज उच्च बाढी जोखिम कहाँ छ?", en: "Where is high flood risk today?" }
     ]),
     roads_travel: follow([
       { ne: "रसुवा जान मिल्छ?", en: "Can I travel in Rasuwa?" },
@@ -519,6 +571,7 @@
       spec.intent = "map";
       return finishSpec(spec);
     }
+    if (classifyFlood(q, spec)) return finishSpec(spec);
     var cityRow = findKey(q, CITIES);
     var riverRow = findKey(q, RIVERS);
     var levelWord = hit(q, ["level", "tah", "तह", "river", "khola", "nadi", "खोला", "नदी", "water level", "gauge", "danger level", "warning level"]);
@@ -615,10 +668,40 @@
     return finishSpec(spec);
   }
 
+  function classifyFlood(q, spec) {
+    var flash = hit(q, ["flash flood", "flashflood", "आकस्मिक", "akasmik"]);
+    var bulletin = hit(q, [
+      "flood forecast", "flood outlook", "flood bulletin", "special flood",
+      "बाढी पूर्वानुमान", "नदी र बाढी", "river outlook", "river status",
+      "सतर्कता तह", "सतर्कता नजिक", "near warning", "near the warning"
+    ]);
+    var forecastWord = hit(q, [
+      "forecast", "outlook", "पूर्वानुमान", "बढ्ने", "5-day", "5 day", "five-day", "five day",
+      "पाँच दिन", "५ दिन"
+    ]);
+    var tri = hit(q, ["trishuli", "त्रिशूली", "त्रिशुली", "betrawati", "betravati", "बेत्रावती"]);
+    var gauge = hit(q, ["level", "tah", "तह", "gauge", "water level", "danger level", "warning level"]);
+    if (tri && forecastWord && !(gauge && !hit(q, ["पूर्वानुमान", "forecast", "outlook", "बढ्ने"]))) {
+      spec.intent = "flood_trishuli";
+      return true;
+    }
+    if (!flash && !bulletin) return false;
+    if (!spec.district) {
+      var extra = findKey(q, FLOOD_EXTRA);
+      if (extra) spec.district = extra.id;
+    }
+    if (spec.district) spec.intent = "flood_place";
+    else if (tri) spec.intent = "flood_trishuli";
+    else if (hit(q, ["नदी", "river", "basin", "सतर्कता", "कोशी", "नारायणी", "कन्काई", "कमला", "बागमती"])) spec.intent = "flood_rivers";
+    else spec.intent = "flood_flash";
+    return true;
+  }
+
   function finishSpec(spec) {
     var intent = spec.intent;
     var family = "about";
-    if (intent.indexOf("weather") === 0) family = "weather";
+    if (intent.indexOf("flood") === 0) family = "flood";
+    else if (intent.indexOf("weather") === 0) family = "weather";
     else if (intent.indexOf("roads") === 0) family = "roads";
     else if (intent === "map") family = "map";
     else if (intent.indexOf("rescue") === 0) family = "rescue";
@@ -1866,13 +1949,108 @@
     return pack(lang, text, "", "", { suggest: true, chips: SUGGEST, followups: [] });
   }
 
+  function floodName(doc, id, lang) {
+    var row = doc.catalog && doc.catalog[id];
+    if (!row) return id;
+    return lang === "en" ? (row.en || id) : (row.ne || row.en || id);
+  }
+  function floodRiskId(doc, id, which) {
+    var day = doc.flash && doc.flash[which];
+    if (!day) return "low";
+    if ((day.high || []).indexOf(id) >= 0) return "high";
+    if ((day.medium || []).indexOf(id) >= 0) return "medium";
+    if ((day.very_high || []).indexOf(id) >= 0) return "very_high";
+    return "low";
+  }
+  function floodRiskWord(doc, id, lang) {
+    var scale = (doc.flash && doc.flash.scale) || [];
+    for (var i = 0; i < scale.length; i++) {
+      if (scale[i].id === id) return lang === "en" ? scale[i].en : scale[i].ne;
+    }
+    return id;
+  }
+  function floodWhich(spec) {
+    if (spec.asoj === 11) return "after";
+    if (spec.dayOffset === 1 || spec.asoj === 10) return "tomorrow";
+    return "today";
+  }
+  function floodList(doc, ids, lang) {
+    return (ids || []).map(function (id) { return floodName(doc, id, lang); }).join(", ");
+  }
+  function answerFlood(spec, ctx) {
+    var lang = ctx.lang === "en" ? "en" : "ne";
+    var doc = ctx.flood;
+    var href = "weather.html#flood-outlook";
+    var follow = FOLLOW[spec.intent] || FOLLOW.flood_flash;
+    if (!doc || !doc.flash) {
+      var missing = lang === "en"
+        ? "The special flood forecast is not loaded."
+        : "विशेष बाढी पूर्वानुमान अहिले लोड भएको छैन।";
+      return pack(lang, missing, "", href, { followups: follow });
+    }
+    var issued = tx(doc.source && doc.source.issued, lang);
+    var src = sourceLine(lang, "DHM", issued);
+    var which = floodWhich(spec);
+    var text = "";
+    if (which === "after") {
+      text = tx(doc.day_after, lang);
+    } else if (spec.intent === "flood_trishuli") {
+      var st = null;
+      (doc.stations || []).forEach(function (row) { if (row.highlight) st = row; });
+      if (!st) st = (doc.stations || [])[12];
+      var bits = [];
+      if (st) {
+        (st.days || []).forEach(function (code, i) {
+          var day = (doc.days || [])[i];
+          var lv = (doc.levels || {})[code] || {};
+          bits.push((day ? tx(day, lang) : "") + " " + tx(lv, lang));
+        });
+      }
+      text = lang === "en"
+        ? "Trishuli at Betrawati: " + bits.join(", ") + "."
+        : "त्रिशुली (बेत्रावती): " + bits.join(", ") + "।";
+    } else if (spec.intent === "flood_rivers") {
+      var near = (doc.present.near || []).map(function (r) { return tx(r, lang); }).join(", ");
+      var below = (doc.present.below || []).map(function (r) { return tx(r, lang); }).join(", ");
+      text = lang === "en"
+        ? near + " and their tributaries are near the warning level. " + below + " and their tributaries are below it."
+        : near + " र सहायक नदी सतर्कता तह नजिक छन्। " + below + " र सहायक नदी सतर्कताभन्दा तल छन्।";
+    } else if (spec.intent === "flood_place" && spec.district) {
+      var todayLv = floodRiskWord(doc, floodRiskId(doc, spec.district, "today"), lang);
+      var tomLv = floodRiskWord(doc, floodRiskId(doc, spec.district, "tomorrow"), lang);
+      var nm = floodName(doc, spec.district, lang);
+      if (which === "tomorrow") {
+        text = lang === "en"
+          ? nm + " is at " + tomLv.toLowerCase() + " flash-flood risk tomorrow. Today it is " + todayLv.toLowerCase() + "."
+          : nm + "मा भोलि आकस्मिक बाढीको जोखिम " + tomLv + " छ। आज " + todayLv + " छ।";
+      } else {
+        text = lang === "en"
+          ? nm + " is at " + todayLv.toLowerCase() + " flash-flood risk today, and " + tomLv.toLowerCase() + " tomorrow."
+          : nm + "मा आज आकस्मिक बाढीको जोखिम " + todayLv + " छ, भोलि " + tomLv + "।";
+      }
+    } else {
+      var day = doc.flash[which] || doc.flash.today;
+      var highs = floodList(doc, day.high, lang);
+      var sentence = lang === "en"
+        ? (which === "tomorrow" ? "Tomorrow" : "Today") + ", " + (day.high || []).length + " districts are at high flash-flood risk: " + highs + "."
+        : (which === "tomorrow" ? "भोलि" : "आज") + " " + digits(String((day.high || []).length), lang) + " जिल्लामा उच्च जोखिम छ: " + highs + "।";
+      text = sentence.length > 380
+        ? (lang === "en"
+          ? (which === "tomorrow" ? "Tomorrow" : "Today") + ", " + (day.high || []).length + " districts are at high flash-flood risk and " + (day.medium || []).length + " at medium risk."
+          : (which === "tomorrow" ? "भोलि" : "आज") + " उच्च जोखिम " + digits(String((day.high || []).length), lang) + " जिल्ला र मध्यम जोखिम " + digits(String((day.medium || []).length), lang) + " जिल्लामा छ।")
+        : sentence;
+    }
+    return pack(lang, text, src, href, { followups: follow });
+  }
+
   function compose(spec, ctx) {
     ctx = ctx || {};
     var lang = ctx.lang === "en" ? "en" : "ne";
     if (!spec || spec.intent === "empty") return answerFallback(lang);
     var intent = spec.intent;
     var ans;
-    if (intent.indexOf("weather") === 0) ans = answerWeather(spec, ctx);
+    if (intent.indexOf("flood") === 0) ans = answerFlood(spec, ctx);
+    else if (intent.indexOf("weather") === 0) ans = answerWeather(spec, ctx);
     else if (intent.indexOf("roads") === 0 || intent === "map") ans = answerRoads(spec, ctx);
     else if (intent.indexOf("rescue") === 0) ans = answerRescue(spec, ctx);
     else if (intent === "fund" || intent === "donate" || intent === "fund_source") ans = answerFund(spec, ctx);

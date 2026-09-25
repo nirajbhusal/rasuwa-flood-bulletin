@@ -1,3 +1,8 @@
+## 2026-09-25 · DHM special flood forecast
+
+- The weather page has a river and flood outlook from the DHM special flood forecast issued Asoj 9 at 08:00: rivers near and below warning, the 34-station five-day table with Trishuli at Betrawati marked, a today/tomorrow flash-flood map, and the four advisory cards. The homepage has a short card and the Rasuwa corridor shows that Trishuli row plus Rasuwa’s flash-flood risk. Ask answers river, district, and Trishuli questions from the same file.
+- The five-day weather warning and Bulletin-27 stay as they are. The opening alert stays off, map borders stay thin, and the site-wide rain overlay is unchanged.
+
 ## 2026-09-25 · Rain GIF on the weather maps
 
 - Districts DHM marks with rain use a small looping cloud-and-rain GIF on the homepage and weather maps. The icon sits inside the district and follows zoom, pan, and full screen. Reduced motion shows a still frame. The per-day counts stay 21 / 24 / 18 / 18.
