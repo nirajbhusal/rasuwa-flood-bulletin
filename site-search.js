@@ -335,11 +335,13 @@
     clear.className = "site-search-clear";
     clear.hidden = true;
     clear.textContent = "×";
-    clear.addEventListener("click", function () {
+    clear.addEventListener("pointerdown", function (e) { e.preventDefault(); });
+    clear.addEventListener("click", function (e) {
+      e.preventDefault();
       input.value = "";
       syncClear();
       input.focus();
-      paint();
+      input.dispatchEvent(new Event("input", { bubbles: true }));
     });
     form.appendChild(clear);
   }
@@ -358,6 +360,12 @@
     seed();
     enrich();
     paint();
+  });
+  input.addEventListener("search", function () {
+    if (!input.value) {
+      syncClear();
+      paint();
+    }
   });
   input.addEventListener("keydown", function (e) {
     if (e.key === "ArrowDown") { e.preventDefault(); move(1); }

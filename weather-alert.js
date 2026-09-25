@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-polish2";
+  var VER = window.PAGE_VER || "2026-09-25-polish3";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -411,6 +411,64 @@
     var kept = parts.filter(function (part, idx) { return idx === best || areas[idx] >= 400; });
     return kept.join("");
   }
+  function fitNepalSvg(svg) {
+    if (!svg || svg._userZoom) return false;
+    var paths = svg.querySelectorAll(".wxb-prov");
+    if (!paths.length) return false;
+    var minx = Infinity;
+    var miny = Infinity;
+    var maxx = -Infinity;
+    var maxy = -Infinity;
+    var n = 0;
+    paths.forEach(function (p) {
+      var b;
+      try { b = p.getBBox(); } catch (e) { return; }
+      if (!b || b.width < 1 || b.height < 1) return;
+      n += 1;
+      if (b.x < minx) minx = b.x;
+      if (b.y < miny) miny = b.y;
+      if (b.x + b.width > maxx) maxx = b.x + b.width;
+      if (b.y + b.height > maxy) maxy = b.y + b.height;
+    });
+    if (!n) return false;
+    var dx = (maxx - minx) * 0.04;
+    var dy = (maxy - miny) * 0.05;
+    svg.setAttribute("viewBox", (minx - dx) + " " + (miny - dy) + " " + ((maxx - minx) + dx * 2) + " " + ((maxy - miny) + dy * 2));
+    return true;
+  }
+  var svgFitters = [];
+  function kickSvgFits() {
+    svgFitters = svgFitters.filter(function (svg) { return svg && svg.isConnected; });
+    svgFitters.forEach(function (svg) {
+      if (svg._userZoom) return;
+      var rect = svg.getBoundingClientRect();
+      if (rect.width < 40 || rect.height < 40) return;
+      fitNepalSvg(svg);
+    });
+  }
+  if (!window.__wxSvgFit) {
+    window.__wxSvgFit = true;
+    window.addEventListener("resize", kickSvgFits);
+    window.addEventListener("orientationchange", kickSvgFits);
+  }
+  function watchNepalSvg(svg) {
+    if (!svg || svg._fitWatch) return;
+    svg._fitWatch = true;
+    svgFitters.push(svg);
+    kickSvgFits();
+    window.requestAnimationFrame(kickSvgFits);
+    window.setTimeout(kickSvgFits, 180);
+    if (typeof ResizeObserver === "function") {
+      var ro = new ResizeObserver(kickSvgFits);
+      ro.observe(svg);
+    }
+    if (typeof IntersectionObserver === "function") {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) if (entries[i].isIntersecting) kickSvgFits();
+      }, { threshold: 0.2 });
+      io.observe(svg);
+    }
+  }
   function buildMap(svg) {
     var geo = data.geo || {};
     svg.setAttribute("viewBox", geo.viewBox || "0 0 672.5 391.7");
@@ -440,6 +498,7 @@
     if (!showDistricts) dlayer.setAttribute("hidden", "");
     layer.appendChild(dlayer);
     drawDistricts(svg);
+    fitNepalSvg(svg);
     function markDistrict(id) {
       document.querySelectorAll(".wxb-dist").forEach(function (n) {
         n.classList.toggle("is-on", !!(id && n.getAttribute("data-id") === id));
@@ -790,6 +849,7 @@
       var ly = local ? local.y : (box.y + box.h / 2 - st.y) / st.s;
       var next = Math.max(1, Math.min(4, st.s * factor));
       if (Math.abs(next - st.s) < 0.001) return;
+      svg._userZoom = next > 1.01;
       st.x = st.x + lx * (st.s - next);
       st.y = st.y + ly * (st.s - next);
       st.s = next;
@@ -797,7 +857,7 @@
       apply();
     }
     svg._zoomBy = zoomBy;
-    svg._zoomReset = function () { st.s = 1; st.x = 0; st.y = 0; apply(); };
+    svg._zoomReset = function () { svg._userZoom = false; st.s = 1; st.x = 0; st.y = 0; apply(); fitNepalSvg(svg); };
     var ptr = {};
     wrap.addEventListener("pointerdown", function (e) {
       if (e.target.closest && e.target.closest(".wxb-zoom-ui, .wxb-pop")) return;
@@ -1097,23 +1157,52 @@
     });
     return counts;
   }
+  function phrase(key, fallback) {
+    if (typeof window.t === "function") {
+      var s = window.t(key);
+      if (s && s !== key && !/^[a-z][a-z0-9_]*$/.test(s)) return s;
+    }
+    return fallback;
+  }
+  function levelWord(key) {
+    var ne = { red: "रातो", orange: "सुन्तला", yellow: "पहेँलो", green: "हरियो" };
+    var en = { red: "red", orange: "orange", yellow: "yellow", green: "green" };
+    return phrase("wx_lv_" + key, lang() === "en" ? en[key] : ne[key]);
+  }
+  function countCaption(counts) {
+    var bits = [];
+    ["red", "orange", "yellow", "green"].forEach(function (key) {
+      var n = counts[key];
+      if (!n) return;
+      var num = lang() === "en" ? String(n) : neDigits(n);
+      var color = levelWord(key);
+      var word = phrase("wx_prov_word", lang() === "en" ? "provinces" : "प्रदेश");
+      if (lang() === "en" && bits.length) bits.push(num + " " + color);
+      else bits.push(num + " " + word + " " + color);
+    });
+    return bits.join(" · ");
+  }
   function buildSummary() {
     var counts = colorCounts();
     var wrap = el("div", "wxb-sum");
     var bar = el("div", "wxb-sum-bar");
-    var bits = [];
+    var caption = countCaption(counts);
     ["red", "orange", "yellow", "green"].forEach(function (key) {
       var n = counts[key];
-      var short = levelShort(key);
-      bits.push(short + " " + n);
+      var num = lang() === "en" ? String(n) : neDigits(n);
       var seg = el("span", "wxb-sum-seg wxb-sum-" + key + (n ? "" : " is-zero"));
-      seg.style.flexGrow = String(n);
-      seg.textContent = String(n);
-      seg.setAttribute("aria-label", short + " " + n);
+      seg.style.flexGrow = String(Math.max(n, 0));
+      seg.textContent = n ? num : "";
+      seg.setAttribute("aria-hidden", "true");
       bar.appendChild(seg);
     });
     wrap.appendChild(bar);
-    wrap.setAttribute("aria-label", (shownDateText() ? shownDateText() + " · " : "") + bits.join(", "));
+    if (caption) {
+      var cap = el("p", "wxb-sum-cap", caption);
+      wrap.appendChild(cap);
+    }
+    var when = shownDateText();
+    wrap.setAttribute("aria-label", when ? (when + " · " + caption) : caption);
     return wrap;
   }
   function buildProvList() {
@@ -1444,6 +1533,7 @@
     if (!svg || !svg.isConnected || svg._armed) return;
     svg._armed = true;
     buildMap(svg);
+    watchNepalSvg(svg);
     if (tools && !tools.querySelector(".wxb-zoom-ui")) tools.appendChild(buildZoom(svg));
     bindNav(mapWrap, svg);
     ensureDistricts();

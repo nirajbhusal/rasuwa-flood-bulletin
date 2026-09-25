@@ -8,7 +8,7 @@
   var mapInstances = [];
   var mapGen = 0;
   var liveState = "idle";
-  var VER = window.PAGE_VER || "2026-09-25-polish2";
+  var VER = window.PAGE_VER || "2026-09-25-polish3";
   var showDistricts = true;
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
@@ -308,19 +308,29 @@
       return;
     }
     var token = mapGen;
+    var nationalBounds = window.L.latLngBounds([[26.35, 80.05], [30.45, 88.2]]);
+    var nepalMax = window.L.latLngBounds([[25.5, 79.2], [31.05, 88.95]]);
     var map = window.L.map(box, {
       scrollWheelZoom: false,
       dragging: true,
       touchZoom: true,
       tap: true,
       zoomControl: true,
-      attributionControl: true
+      attributionControl: true,
+      maxBounds: nepalMax,
+      maxBoundsViscosity: 0.85,
+      minZoom: 6,
+      zoomSnap: 0.25,
+      zoomDelta: 0.5
     });
     mapInstances.push(map);
     map._daoById = {};
-    var nationalBounds = window.L.latLngBounds([[26.35, 80.05], [30.45, 88.2]]);
-    if (notice()) map.fitBounds(nationalBounds, { padding: [12, 12], maxZoom: 7, animate: false });
-    else map.setView([28.15, 85.15], 8);
+    map.setView([28.25, 84.12], 7);
+    var userMoved = false;
+    map.on("dragstart", function () { userMoved = true; });
+    map.on("zoomstart", function (ev) {
+      if (ev && ev.originalEvent) userMoved = true;
+    });
     var blankTile = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
     var tileErrors = 0;
     var tilesDead = false;
@@ -426,24 +436,62 @@
           var db = districtLayer.getBounds();
           if (db && db.isValid()) districtBounds = db;
         } catch (e) {}
-        frame(notice() ? nationalBounds : (districtBounds || nationalBounds));
+        kickFrame();
         if (pendingDistrict) focusDistrict(pendingDistrict);
       })
       .catch(function () {});
+    var lastFrame = "";
     function frame(target) {
       if (token !== mapGen) return;
-      try { map.invalidateSize(); } catch (e) {}
+      var rect = box.getBoundingClientRect();
+      if (rect.width < 48 || rect.height < 48) return;
+      try { map.invalidateSize(false); } catch (e) {}
+      if (userMoved) {
+        if (selectedId) openRoadPopup(selectedId);
+        return;
+      }
       var b = target;
-      if (!b && notice() && districtBounds && districtBounds.isValid && districtBounds.isValid()) b = districtBounds;
-      if (!b && notice()) b = nationalBounds;
-      if (!b) b = corridorBounds;
-      if (b && b.isValid && b.isValid()) {
-        var pad = notice() && b === nationalBounds ? [20, 20] : [28, 28];
-        var zoomCap = notice() && (b === nationalBounds || b === districtBounds) ? 7 : 9;
-        map.fitBounds(b, { padding: pad, maxZoom: zoomCap, animate: false });
+      if (notice()) b = nationalBounds;
+      if (!b) b = corridorBounds || nationalBounds;
+      if (!(b && b.isValid && b.isValid())) return;
+      var tag = notice() ? "nepal" : (corridorBounds ? "corridor" : "nepal");
+      var key = Math.round(rect.width) + "x" + Math.round(rect.height) + ":" + tag;
+      if (key !== lastFrame) {
+        map.fitBounds(b, { padding: [16, 16], maxZoom: 10, animate: false });
+        lastFrame = key;
       }
       if (selectedId) openRoadPopup(selectedId);
     }
+    function kickFrame() {
+      frame(notice() ? nationalBounds : corridorBounds);
+    }
+    var frameClean = [];
+    function listenFrame(targetNode, type, fn) {
+      targetNode.addEventListener(type, fn);
+      frameClean.push(function () { targetNode.removeEventListener(type, fn); });
+    }
+    listenFrame(window, "resize", kickFrame);
+    listenFrame(window, "orientationchange", kickFrame);
+    if (typeof ResizeObserver === "function") {
+      var frameRo = new ResizeObserver(function () { kickFrame(); });
+      frameRo.observe(box);
+      frameClean.push(function () { frameRo.disconnect(); });
+    }
+    if (typeof IntersectionObserver === "function") {
+      var frameIo = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) kickFrame();
+        }
+      }, { threshold: [0.05, 0.4] });
+      frameIo.observe(box);
+      frameClean.push(function () { frameIo.disconnect(); });
+    }
+    map._unframe = function () {
+      frameClean.forEach(function (fn) { try { fn(); } catch (e) {} });
+    };
+    window.requestAnimationFrame(kickFrame);
+    window.setTimeout(kickFrame, 80);
+    window.setTimeout(kickFrame, 400);
     function addMarker(road) {
       if (!road.point) return;
       var ll = [road.point.lat, road.point.lng];
@@ -489,20 +537,13 @@
           if (b && b.isValid()) corridorBounds = b.pad(0.45);
         } catch (e) {}
         try { layer.bringToFront(); } catch (e2) {}
-        frame(notice() ? nationalBounds : corridorBounds);
-        window.setTimeout(function () { frame(notice() ? nationalBounds : corridorBounds); }, 120);
-        window.setTimeout(function () { frame(notice() ? nationalBounds : corridorBounds); }, 420);
+        kickFrame();
+        window.setTimeout(kickFrame, 120);
       })
       .catch(function () {
         if (token !== mapGen) return;
-        try { map.invalidateSize(); } catch (e) {}
-        map.fitBounds([[26.35, 80.05], [30.45, 88.2]], { padding: [16, 16], maxZoom: 7, animate: false });
+        kickFrame();
       });
-    window.setTimeout(function () { frame(notice() ? nationalBounds : corridorBounds); }, 240);
-    window.requestAnimationFrame(function () {
-      try { map.invalidateSize(false); } catch (e) {}
-      frame(notice() ? nationalBounds : corridorBounds);
-    });
   }
   function links(host, withSection) {
     var ui = data.ui;
@@ -679,6 +720,7 @@
   function clearMaps() {
     mapGen += 1;
     mapInstances.forEach(function (m) {
+      if (typeof m._unframe === "function") m._unframe();
       try { m.stop(); } catch (e) {}
       try { m.off(); m.remove(); } catch (e2) {}
     });
