@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var VER = window.PAGE_VER || "2026-09-25-lang-toggle";
+  var VER = window.PAGE_VER || "2026-09-25-home-title";
   var home = null;
   var full = null;
   var geo = null;
