@@ -1590,13 +1590,6 @@
       ? "Nepal Police: Rasuwa's main highways are fully blocked until further notice."
       : "नेपाल प्रहरी: रसुवाका मुख्य राजमार्ग अर्को सूचना नभएसम्म पूर्ण अवरोध छन्।";
   }
-  function vvDetail(row) {
-    if (!row) return "";
-    var name = lang() === "en" ? row.en : row.ne;
-    var bits = name + " · " + vvLevelName(row.level) + ". " + vvMeaning(row.level);
-    var note = vvPoliceNote(row);
-    return note ? bits + " " + note : bits;
-  }
   function vvRings(geom) {
     if (!geom) return [];
     if (geom.type === "Polygon") return geom.coordinates;
@@ -1668,11 +1661,6 @@
     shell.appendChild(filters);
     var grid = el("div", "vv-grid");
     var slot = el("div", "vv-mapslot");
-    var detail = el("p", "vv-detail");
-    detail.id = shell.id + "-detail";
-    var picked = vvById(vehiclePick);
-    if (picked && (!vehicleLevel || picked.level === vehicleLevel)) detail.textContent = vvDetail(picked);
-    slot.appendChild(detail);
     grid.appendChild(slot);
     var side = el("div", "vv-side");
     VV_LEVELS.forEach(function (level) {
@@ -1730,8 +1718,87 @@
     document.querySelectorAll(".vv-d").forEach(function (p) {
       p.classList.toggle("is-on", p.getAttribute("data-id") === id);
     });
-    var row = vvById(id);
-    document.querySelectorAll(".vv-detail").forEach(function (n) { n.textContent = vvDetail(row); });
+  }
+  function vvProvinceRings(features) {
+    function q(pt) {
+      return (Math.round(pt[0] * 10000) / 10000) + "," + (Math.round(pt[1] * 10000) / 10000);
+    }
+    function pq(s) {
+      var i = s.indexOf(",");
+      return [parseFloat(s.slice(0, i)), parseFloat(s.slice(i + 1))];
+    }
+    var tally = {};
+    (features || []).forEach(function (f) {
+      var prov = f.properties && f.properties.province;
+      if (!prov) return;
+      vvRings(f.geometry).forEach(function (ring) {
+        for (var i = 0; i < ring.length - 1; i++) {
+          var a = q(ring[i]);
+          var b = q(ring[i + 1]);
+          if (a === b) continue;
+          var key = a < b ? a + "|" + b : b + "|" + a;
+          var e = tally[key];
+          if (!e) tally[key] = e = { a: a, b: b, n: 0, provs: {} };
+          e.n += 1;
+          e.provs[prov] = (e.provs[prov] || 0) + 1;
+        }
+      });
+    });
+    var byProv = {};
+    Object.keys(tally).forEach(function (key) {
+      var e = tally[key];
+      var names = Object.keys(e.provs);
+      if (names.length === 1 && e.n >= 2) return;
+      names.forEach(function (prov) {
+        (byProv[prov] || (byProv[prov] = [])).push(e);
+      });
+    });
+    var out = {};
+    Object.keys(byProv).forEach(function (prov) {
+      var edges = byProv[prov];
+      var adj = {};
+      edges.forEach(function (e, i) {
+        (adj[e.a] || (adj[e.a] = [])).push(i);
+        (adj[e.b] || (adj[e.b] = [])).push(i);
+      });
+      var used = [];
+      var rings = [];
+      function unusedFrom(pt) {
+        var list = adj[pt] || [];
+        for (var i = 0; i < list.length; i++) if (!used[list[i]]) return list[i];
+        return -1;
+      }
+      for (var start = 0; start < edges.length; start++) {
+        if (used[start]) continue;
+        used[start] = true;
+        var path = [edges[start].a, edges[start].b];
+        function grow(atStart) {
+          while (true) {
+            var pt = atStart ? path[0] : path[path.length - 1];
+            var ei = unusedFrom(pt);
+            if (ei < 0) return;
+            used[ei] = true;
+            var e = edges[ei];
+            var nxt = e.a === pt ? e.b : e.a;
+            if (atStart) path.unshift(nxt);
+            else path.push(nxt);
+          }
+        }
+        grow(false);
+        grow(true);
+        var len = 0;
+        for (var i = 0; i < path.length - 1; i++) {
+          var p0 = pq(path[i]);
+          var p1 = pq(path[i + 1]);
+          var dx = p0[0] - p1[0];
+          var dy = p0[1] - p1[1];
+          len += Math.sqrt(dx * dx + dy * dy);
+        }
+        if (len >= 0.4) rings.push(path.map(pq));
+      }
+      if (rings.length) out[prov] = rings;
+    });
+    return out;
   }
   function mountVehicleMap(host) {
     if (!vehicleGeo || !vvDoc()) return;
@@ -1786,6 +1853,30 @@
       path.addEventListener("click", function () { vvSelect(id); });
       svg.appendChild(path);
     });
+    var edges = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    edges.setAttribute("class", "vv-prov-edges");
+    var provRings = vvProvinceRings(vehicleGeo.features || []);
+    Object.keys(provRings).forEach(function (prov) {
+      var d = "";
+      provRings[prov].forEach(function (ring) {
+        ring.forEach(function (pt, i) {
+          var p = xy(pt[0], pt[1]);
+          d += (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1);
+        });
+        d += "Z";
+      });
+      var edge = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      edge.setAttribute("d", d);
+      edge.setAttribute("class", "vv-prov-edge");
+      edges.appendChild(edge);
+    });
+    svg.appendChild(edges);
+    var rasuwaPath = svg.querySelector('.vv-d[data-id="rasuwa"]');
+    if (rasuwaPath) {
+      var hi = rasuwaPath.cloneNode(false);
+      hi.setAttribute("class", "vv-d is-rasuwa vv-stroke" + (vehiclePick === "rasuwa" ? " is-on" : ""));
+      svg.appendChild(hi);
+    }
     var wrap = el("div", "vv-map");
     wrap.appendChild(svg);
     var bar = el("div", "map-ctl");
