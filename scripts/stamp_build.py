@@ -4,6 +4,7 @@
 GitHub Pages serves the artifact produced by .github/workflows/pages.yml.
 Hand-edited PAGE_VER / ?v= values in git are overwritten here, whatever an
 agent left behind.
+A content push publishes a new id; weather-only snapshots do not.
 """
 from __future__ import annotations
 
