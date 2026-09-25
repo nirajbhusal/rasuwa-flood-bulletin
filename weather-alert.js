@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-nepal-now-alert";
+  var VER = window.PAGE_VER || "2026-09-25-home-fixes";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -302,22 +302,36 @@
   function drawDistricts(svg) {
     if (!districts || !svg) return;
     var g = svg.querySelector(".wxb-dists");
-    if (!g || g.childNodes.length) return;
-    (districts.districts || []).forEach(function (d) {
-      var path = svgEl("path");
-      path.setAttribute("d", d.d);
-      path.setAttribute("class", "wxb-dist");
-      path.setAttribute("data-id", d.id);
-      path.setAttribute("data-prov", d.province);
-      var p = provinceById(d.province);
-      var label = districtLabel(d);
-      if (p) label += ". " + tx(p) + ". " + tx(levelOf(p));
-      path.setAttribute("role", "button");
-      path.setAttribute("tabindex", "0");
-      path.setAttribute("aria-label", label);
-      g.appendChild(path);
-    });
-    if (!showDistricts) g.setAttribute("hidden", "");
+    if (!g || g.childNodes.length || g._drawing) return;
+    var list = districts.districts || [];
+    var i = 0;
+    g._drawing = true;
+    function chunk() {
+      if (!g.isConnected) { g._drawing = false; return; }
+      var end = Math.min(list.length, i + 8);
+      for (; i < end; i++) {
+        var d = list[i];
+        var path = svgEl("path");
+        path.setAttribute("d", d.d);
+        path.setAttribute("class", "wxb-dist");
+        path.setAttribute("data-id", d.id);
+        path.setAttribute("data-prov", d.province);
+        var p = provinceById(d.province);
+        var label = districtLabel(d);
+        if (p) label += ". " + tx(p) + ". " + tx(levelOf(p));
+        path.setAttribute("role", "button");
+        path.setAttribute("tabindex", "0");
+        path.setAttribute("aria-label", label);
+        g.appendChild(path);
+      }
+      if (i < list.length) {
+        (window.requestAnimationFrame || window.setTimeout)(chunk);
+        return;
+      }
+      g._drawing = false;
+      if (!showDistricts) g.setAttribute("hidden", "");
+    }
+    chunk();
   }
   function buildMap(svg) {
     var geo = data.geo || {};
@@ -358,33 +372,6 @@
     if (!showDistricts) dlayer.setAttribute("hidden", "");
     layer.appendChild(dlayer);
     drawDistricts(svg);
-    var pin = geo.pin;
-    if (pin) {
-      var line = svgEl("line");
-      var vb = (geo.viewBox || "0 0 836 520").trim().split(/[\s,]+/).map(Number);
-      var vx = vb.length === 4 ? vb[0] : 0;
-      var vy = vb.length === 4 ? vb[1] : 0;
-      var vw = vb.length === 4 ? vb[2] : 836;
-      var vh = vb.length === 4 ? vb[3] : 520;
-      line.setAttribute("x1", pin.x);
-      line.setAttribute("y1", pin.y);
-      line.setAttribute("x2", vx + vw - 12);
-      line.setAttribute("y2", vy + Math.min(88, vh * 0.16));
-      line.setAttribute("class", "wxb-connector");
-      layer.appendChild(line);
-      var mark = svgEl("g");
-      mark.setAttribute("class", "wxb-pin");
-      mark.setAttribute("transform", "translate(" + pin.x + " " + pin.y + ")");
-      mark.setAttribute("aria-hidden", "true");
-      var drop = svgEl("path");
-      drop.setAttribute("d", "M0 0c-6-8-12-14-12-20a12 12 0 1 1 24 0c0 6-6 12-12 20z");
-      var dot = svgEl("circle");
-      dot.setAttribute("cy", "-20");
-      dot.setAttribute("r", "4.2");
-      mark.appendChild(drop);
-      mark.appendChild(dot);
-      layer.appendChild(mark);
-    }
     function markDistrict(id) {
       document.querySelectorAll(".wxb-dist").forEach(function (n) {
         n.classList.toggle("is-on", !!(id && n.getAttribute("data-id") === id));
@@ -1207,14 +1194,12 @@
     mapPanel.appendChild(mapHead);
     var svg = svgEl("svg");
     svg.setAttribute("class", "wxb-svg" + (justShifted ? " is-shifting" : ""));
-    buildMap(svg);
+    svg.setAttribute("viewBox", (data.geo && data.geo.viewBox) || "-18 -12 880 548");
     var tools = el("div", "wxb-maptools");
-    tools.appendChild(buildZoom(svg));
     mapPanel.appendChild(tools);
     var stage = el("div", "wxb-stage");
     var mapWrap = el("div", "wxb-mapwrap");
     mapWrap.appendChild(svg);
-    bindNav(mapWrap, svg);
     stage.appendChild(mapWrap);
     var call = data.callout || {};
     var aside = el("aside", "wxb-callout");
@@ -1345,6 +1330,7 @@
       board.appendChild(sectionLink("wxb-official", "आधिकारिक नक्सा हेर्नुहोस्", "View official map", official));
     }
     root.appendChild(board);
+    whenNear(mapWrap, function () { armMap(svg, tools, mapWrap); });
     paintPressed();
     if (selected) paintPop(root, selected);
     try {
@@ -1389,6 +1375,52 @@
     var raf = window.requestAnimationFrame;
     if (typeof raf === "function") raf(function () { raf(fn); });
     else window.setTimeout(fn, 0);
+  }
+  function armMap(svg, tools, mapWrap) {
+    if (!svg || !svg.isConnected || svg._armed) return;
+    svg._armed = true;
+    buildMap(svg);
+    if (tools && !tools.querySelector(".wxb-zoom-ui")) tools.appendChild(buildZoom(svg));
+    bindNav(mapWrap, svg);
+    ensureDistricts();
+  }
+  function whenNear(node, fn) {
+    if (!node) return;
+    function go() {
+      if (!node.isConnected) return;
+      var ric = window.requestIdleCallback;
+      if (typeof ric === "function") ric(function () { if (node.isConnected) fn(); }, { timeout: 900 });
+      else afterPaint(fn);
+    }
+    if (typeof IntersectionObserver !== "function") {
+      afterPaint(go);
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!entries[i].isIntersecting) continue;
+        io.disconnect();
+        go();
+        return;
+      }
+    }, { rootMargin: "280px 0px", threshold: 0.01 });
+    io.observe(node);
+  }
+  var districtsLoading = false;
+  function ensureDistricts() {
+    if (districts) {
+      document.querySelectorAll(".wxb-svg").forEach(drawDistricts);
+      return;
+    }
+    if (districtsLoading) return;
+    districtsLoading = true;
+    fetch("data/nepal-districts-svg.json?v=" + encodeURIComponent(VER), { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("districts"); return r.json(); })
+      .then(function (json) {
+        districts = json;
+        document.querySelectorAll(".wxb-svg").forEach(drawDistricts);
+      })
+      .catch(function () { districtsLoading = false; });
   }
   function checkLive() {
     if (!data || !data.lead || !data.lead.api) return;
@@ -1460,13 +1492,6 @@
   });
 
   if (window.__addLangHook) window.__addLangHook(renderAll);
-  fetch("data/nepal-districts-svg.json?v=" + encodeURIComponent(VER), { cache: "no-cache" })
-    .then(function (r) { if (!r.ok) throw new Error("districts"); return r.json(); })
-    .then(function (json) {
-      districts = json;
-      document.querySelectorAll(".wxb-svg").forEach(drawDistricts);
-    })
-    .catch(function () {});
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();

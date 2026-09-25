@@ -1,6 +1,6 @@
 /*! Site rain overlay. Auto while today's DHM warning or a district alert is active. */
 (function () {
-  var VER = window.PAGE_VER || "2026-09-25-nepal-now-alert";
+  var VER = window.PAGE_VER || "2026-09-25-home-fixes";
   var enabled = false;
   var canvas = null;
   var ctx = null;
@@ -171,8 +171,13 @@
     else startLoop();
   });
   function start() {
-    if (document.readyState === "complete") boot();
-    else window.addEventListener("load", boot);
+    function go() {
+      var ric = window.requestIdleCallback;
+      if (ric) ric(function () { boot(); }, { timeout: 1600 });
+      else window.setTimeout(boot, 500);
+    }
+    if (document.readyState === "complete") go();
+    else window.addEventListener("load", go);
   }
   start();
 })();

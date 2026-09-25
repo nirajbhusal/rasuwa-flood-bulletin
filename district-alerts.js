@@ -1,6 +1,6 @@
 /*! District alerts card. Reads data/weather-alert.json and the district shapes. */
 (function () {
-  var VER = window.PAGE_VER || "2026-09-25-nepal-now-alert";
+  var VER = window.PAGE_VER || "2026-09-25-home-fixes";
   var data = null;
   var geo = null;
   var selected = "";
@@ -481,6 +481,11 @@
     document.querySelectorAll(".dalert-dist").forEach(function (n) { n.setAttribute("aria-pressed", "false"); });
   });
   if (window.__addLangHook) window.__addLangHook(function () { selected = ""; paintAll(); });
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
-  else boot();
+  function start() {
+    var ric = window.requestIdleCallback;
+    if (ric) ric(function () { boot(); }, { timeout: 1800 });
+    else window.setTimeout(boot, 600);
+  }
+  if (document.readyState === "complete") start();
+  else window.addEventListener("load", start);
 })();
