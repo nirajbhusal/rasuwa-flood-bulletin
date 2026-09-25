@@ -10378,3 +10378,65 @@ html.map-fs-lock,html.map-fs-lock body{overflow:hidden}
   color:#9f1239;
   font-weight:800;
 }
+
+/* 2026-09-25-map-boards — date line, district cards, highway notice */
+.wxb-home .wxb-legend-date{display:none !important}
+.dor-dao{margin:0 0 8px}
+.dor-dao-title{margin:4px 14px 8px;font-size:22px;line-height:1.25}
+.dor-dao-sum{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin:0 14px 12px;
+}
+.dor-dao-stat{
+  margin:0;padding:12px 10px;text-align:center;
+  border:1px solid #f3c1c1;border-radius:14px;background:#fff5f5;
+}
+.dor-dao-num{
+  display:block;font-size:clamp(36px,6vw,52px);line-height:1;font-weight:800;color:#d7191c;
+}
+.dor-dao-lab{display:block;margin-top:4px;font-size:14px;font-weight:800;color:#0c2340}
+.dor-dao-tiles{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;
+  margin:0 14px 12px;
+}
+.dor-dao-tile{
+  position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;
+  min-height:58px;padding:8px 10px 14px;overflow:hidden;
+  border:1px solid #f3c1c1;border-radius:12px;background:#fff;color:#0c2340;
+  font:inherit;text-align:left;cursor:pointer;
+}
+.dor-dao-tile.is-on{border-color:#d7191c;background:#fff5f5}
+.dor-dao-tile:focus-visible{outline:2px solid #c41e3a;outline-offset:2px}
+.dor-dao-tile-n{font-size:22px;font-weight:800;line-height:1;color:#d7191c}
+.dor-dao-tile-k{font-size:13px;font-weight:800;line-height:1.2}
+.dor-dao-bar{
+  position:absolute;left:0;right:auto;bottom:0;height:5px;background:#d7191c;
+}
+.dor-dao-grid{display:flex;flex-direction:column;gap:12px;margin:0 14px}
+.dor-dao-mapslot,.dor-dao-side{min-width:0}
+.dor-dao-mapslot .dor-map-host{min-height:0}
+.dor-dao-mapslot .dor-map-tools,
+.dor-dao-mapslot .dor-map-legend{margin-left:0;margin-right:0}
+.dor-dao-mapslot .dor-map-tools{display:flex;flex-wrap:wrap;gap:8px}
+.dor-dao-mapslot .dor-map,
+.dor-dao-mapslot .dor-map.is-tall{height:300px;width:100%;max-width:100%;margin:0}
+.dor-dao-provs{display:flex;flex-direction:column;gap:8px;margin:0}
+.dor-dao-src{margin:10px 14px 0;font-size:12.5px;font-weight:700;color:#64748b;text-align:center}
+.dor-dao-src a{font-weight:800}
+@media (min-width:720px){
+  .dor-dao-tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (min-width:1024px){
+  .dor-dao-tiles{grid-template-columns:repeat(7,minmax(0,1fr));margin-bottom:14px}
+  .dor-dao-grid{
+    display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);
+    gap:16px;align-items:start;
+  }
+  .dor-dao-mapslot .dor-map,
+  .dor-dao-mapslot .dor-map.is-tall{height:600px}
+}
+@media (min-width:1440px){
+  .dor-dao-grid{grid-template-columns:minmax(0,1.35fr) minmax(340px,.65fr)}
+  .dor-dao-mapslot .dor-map,
+  .dor-dao-mapslot .dor-map.is-tall{height:640px}
+}

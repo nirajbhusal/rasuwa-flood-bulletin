@@ -1,6 +1,6 @@
 /*! District alerts card. Reads data/weather-alert.json and the district shapes. */
 (function () {
-  var VER = window.PAGE_VER || "2026-09-25-npt-date";
+  var VER = window.PAGE_VER || "2026-09-25-map-boards";
   var data = null;
   var geo = null;
   var selected = "";
@@ -161,28 +161,6 @@
         seq: i
       });
     });
-    var call = data.callout;
-    if (call && isCurrent(call, now)) {
-      var level = resolveLevel(call) || "yellow";
-      (call.districts || []).forEach(function (d, i) {
-        var id = shapeId(d);
-        if (!id || seen[id]) return;
-        seen[id] = true;
-        list.push({
-          id: id,
-          name: d,
-          level: level,
-          risk: call.body,
-          window: call.meta,
-          forecast: call.body,
-          start: call.window_start,
-          end: call.window_end,
-          kind: "corridor",
-          url: call.url || "",
-          seq: 100 + i
-        });
-      });
-    }
     list.sort(function (a, b) {
       var ra = RANK[a.level] == null ? 9 : RANK[a.level];
       var rb = RANK[b.level] == null ? 9 : RANK[b.level];
@@ -205,6 +183,7 @@
     var svg = svgEl("svg");
     svg.setAttribute("class", "dalert-svg");
     svg.setAttribute("viewBox", (geo && geo.viewBox) || "-18 -12 880 548");
+    svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
     svg.setAttribute("role", "group");
     svg.setAttribute("aria-label", t("dalert_h", "जिल्लागत चेतावनी"));
     var byId = {};
@@ -317,6 +296,42 @@
     pop.appendChild(el("p", "dalert-pop-fore"));
     return pop;
   }
+  function levelShort(key) {
+    var full = tx((data.warn_levels || {})[key] || {});
+    var bit = String(full || "").split("·")[0].trim();
+    return bit || key || "";
+  }
+  function impactKind(row) {
+    if (row && row.impact) return row.impact;
+    if (row && (row.level === "red" || row.level === "orange")) return "high";
+    return "medium";
+  }
+  function impactLabel(row) {
+    var kind = impactKind(row);
+    if (lang() === "en") return kind === "high" ? "High impact" : "Medium impact";
+    return kind === "high" ? "उच्च प्रभाव" : "मध्यम प्रभाव";
+  }
+  function impactMark(row) {
+    var steps = impactKind(row) === "high" ? 3 : 2;
+    var svg = svgEl("svg");
+    svg.setAttribute("class", "dalert-ico");
+    svg.setAttribute("viewBox", "0 0 18 16");
+    svg.setAttribute("width", "18");
+    svg.setAttribute("height", "16");
+    svg.setAttribute("aria-hidden", "true");
+    var heights = [6, 10, 14];
+    for (var i = 0; i < 3; i++) {
+      var rect = svgEl("rect");
+      rect.setAttribute("x", String(i * 6));
+      rect.setAttribute("y", String(16 - heights[i]));
+      rect.setAttribute("width", "4");
+      rect.setAttribute("height", String(heights[i]));
+      rect.setAttribute("rx", "1");
+      rect.setAttribute("fill", i < steps ? colorOf(row.level) : "#e7e5e4");
+      svg.appendChild(rect);
+    }
+    return svg;
+  }
   function build(mode) {
     var now = Date.now();
     var rows = entries(now);
@@ -337,36 +352,37 @@
     layout.appendChild(mapbox);
     var ul = el("ul", "dalert-list");
     rows.forEach(function (row) {
-      var li = el("li", "dalert-row");
-      var badge = el("span", "dalert-badge");
-      badge.style.background = colorOf(row.level);
-      badge.setAttribute("aria-hidden", "true");
-      li.appendChild(badge);
-      var main = el("div", "dalert-main");
-      var name = el("p", "dalert-name", tx(row.name));
-      main.appendChild(name);
-      if (tx(row.risk)) main.appendChild(el("p", "dalert-risk", tx(row.risk)));
-      if (tx(row.window)) main.appendChild(el("p", "dalert-win", tx(row.window)));
+      var li = el("li", "dalert-card");
+      var top = el("div", "dalert-top");
+      top.appendChild(el("p", "dalert-name", tx(row.name)));
+      var chip = el("span", "dalert-chip dalert-chip-" + (row.level || "yellow"), levelShort(row.level));
+      chip.style.background = colorOf(row.level);
+      chip.style.color = row.level === "yellow" ? "#1a1a1a" : "#fff";
+      top.appendChild(chip);
+      li.appendChild(top);
+      var impact = el("p", "dalert-impact");
+      impact.appendChild(impactMark(row));
+      impact.appendChild(document.createTextNode(impactLabel(row)));
+      li.appendChild(impact);
+      if (tx(row.window)) li.appendChild(el("p", "dalert-win", tx(row.window)));
       var info = remainInfo(row.start, row.end, now);
       var remain = el("p", "dalert-remain", info.text);
       remain.setAttribute("data-start", row.start || "");
       remain.setAttribute("data-end", row.end || "");
-      main.appendChild(remain);
+      li.appendChild(remain);
       var track = el("div", "dalert-track");
+      track.setAttribute("role", "progressbar");
+      track.setAttribute("aria-valuemin", "0");
+      track.setAttribute("aria-valuemax", "100");
+      track.setAttribute("aria-valuenow", String(Math.round(info.pct)));
+      track.setAttribute("aria-valuetext", info.text);
       var fill = el("i", "dalert-fill");
       fill.style.width = info.pct + "%";
       fill.style.background = colorOf(row.level);
       fill.setAttribute("data-start", row.start || "");
       fill.setAttribute("data-end", row.end || "");
-      var bar = el("div");
-      bar.setAttribute("role", "progressbar");
-      bar.setAttribute("aria-valuemin", "0");
-      bar.setAttribute("aria-valuemax", "100");
-      bar.setAttribute("aria-valuenow", String(Math.round(info.pct)));
-      bar.setAttribute("aria-valuetext", info.text);
-      bar.appendChild(track);
       track.appendChild(fill);
-      main.appendChild(bar);
+      li.appendChild(track);
       var a = document.createElement("a");
       a.className = "dalert-more";
       if (row.kind === "corridor" && row.url) {
@@ -377,8 +393,7 @@
         a.href = impactHref(row.id, mode);
       }
       a.textContent = t("dalert_details", lang() === "en" ? "Details" : "विवरण");
-      main.appendChild(a);
-      li.appendChild(main);
+      li.appendChild(a);
       ul.appendChild(li);
     });
     layout.appendChild(ul);

@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-npt-date";
+  var VER = window.PAGE_VER || "2026-09-25-map-boards";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -1596,7 +1596,7 @@
       li.appendChild(document.createTextNode((lv.ne || key) + " / " + (lv.en || key)));
       legend.appendChild(li);
     });
-    mapPanel.appendChild(el("p", "wxb-shown wxb-legend-date", shownDateText()));
+    if (mode !== "home") mapPanel.appendChild(el("p", "wxb-shown wxb-legend-date", shownDateText()));
     mapPanel.appendChild(legend);
     var sumHost = el("div", "wxb-sum-host");
     sumHost.appendChild(buildSummary());
