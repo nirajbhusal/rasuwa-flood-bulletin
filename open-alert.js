@@ -53,7 +53,6 @@
       .replace(/बुलेटिन\s*#\s*[०-९0-9]+/g, "")
       .replace(/bulletin\s*#\s*\d+/ig, "")
       .replace(/\s{2,}/g, " ")
-      .replace(/\s+([·,])/g, "$1")
       .trim();
   }
   function bulletinId(json) {

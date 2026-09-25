@@ -5488,6 +5488,30 @@ window.I18N = {
     var s = document.querySelector(".stick");
     if (s) document.documentElement.style.setProperty("--stick", (s.offsetHeight + 8) + "px");
   }
+  function bindToggle(){
+    var group = document.querySelector(".lang-switch");
+    if (!group || group.__bound) return;
+    group.__bound = true;
+    group.addEventListener("click", function(e){
+      var btn = e.target.closest("button[data-lang]");
+      if (!btn) return;
+      applyLang(btn.getAttribute("data-lang"), true);
+    });
+    group.addEventListener("keydown", function(e){
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight" && e.key !== "Home" && e.key !== "End") return;
+      var btns = group.querySelectorAll("button[data-lang]");
+      var i = Array.prototype.indexOf.call(btns, document.activeElement);
+      if (i < 0) return;
+      var n = i;
+      if (e.key === "ArrowRight") n = Math.min(btns.length - 1, i + 1);
+      if (e.key === "ArrowLeft") n = Math.max(0, i - 1);
+      if (e.key === "Home") n = 0;
+      if (e.key === "End") n = btns.length - 1;
+      btns[n].focus();
+      applyLang(btns[n].getAttribute("data-lang"), true);
+      e.preventDefault();
+    });
+  }
   function initLang(){
     var lang = "ne";
     try {
@@ -5500,35 +5524,22 @@ window.I18N = {
         if (s === "en" || s === "ne") lang = s;
       }
     } catch (e) {}
-    applyLang(lang, false);
-    var group = document.querySelector(".lang-switch");
-    if (group) {
-      group.addEventListener("click", function(e){
-        var btn = e.target.closest("button[data-lang]");
-        if (!btn) return;
-        applyLang(btn.getAttribute("data-lang"), true);
-      });
-      group.addEventListener("keydown", function(e){
-        if (e.key !== "ArrowLeft" && e.key !== "ArrowRight" && e.key !== "Home" && e.key !== "End") return;
-        var btns = group.querySelectorAll("button[data-lang]");
-        var i = Array.prototype.indexOf.call(btns, document.activeElement);
-        if (i < 0) return;
-        var n = i;
-        if (e.key === "ArrowRight") n = Math.min(btns.length - 1, i + 1);
-        if (e.key === "ArrowLeft") n = Math.max(0, i - 1);
-        if (e.key === "Home") n = 0;
-        if (e.key === "End") n = btns.length - 1;
-        btns[n].focus();
-        applyLang(btns[n].getAttribute("data-lang"), true);
-        e.preventDefault();
-      });
+    bindToggle();
+    if (lang === "ne") {
+      document.documentElement.lang = "ne";
+      paintToggle("ne");
+      return;
     }
+    applyLang(lang, false);
   }
   window.t = t;
   window.fmtNum = fmtNum;
   window.applyLang = applyLang;
   window.currentLang = currentLang;
   window.__addLangHook = addLangHook;
+  var queuedHooks = window.__langHookQ || [];
+  window.__langHookQ = [];
+  queuedHooks.forEach(function(fn){ try { addLangHook(fn); } catch (e) {} });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initLang);
   else initLang();
 
