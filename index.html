@@ -101,13 +101,13 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="preload" href="fonts/mukta-500-deva.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts.css?v=2026-09-25-home-fixes" as="style">
-<link rel="preload" href="bulletin.css?v=2026-09-25-home-fixes" as="style">
-<link rel="stylesheet" href="fonts.css?v=2026-09-25-home-fixes">
-<link rel="stylesheet" href="bulletin.css?v=2026-09-25-home-fixes">
-<link rel="stylesheet" href="rain-theme.css?v=2026-09-25-home-fixes">
-<link rel="stylesheet" href="district-alerts.css?v=2026-09-25-home-fixes">
-<link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=2026-09-25-home-fixes">
+<link rel="preload" href="fonts.css?v=2026-09-25-road-notice" as="style">
+<link rel="preload" href="bulletin.css?v=2026-09-25-road-notice" as="style">
+<link rel="stylesheet" href="fonts.css?v=2026-09-25-road-notice">
+<link rel="stylesheet" href="bulletin.css?v=2026-09-25-road-notice">
+<link rel="stylesheet" href="rain-theme.css?v=2026-09-25-road-notice">
+<link rel="stylesheet" href="district-alerts.css?v=2026-09-25-road-notice">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=2026-09-25-road-notice">
 </head>
 <body>
 <a class="skip-link" href="#main" aria-label="मुख्य सामग्री"></a>
@@ -196,10 +196,11 @@
     <div id="wxdb-home" data-wxdb-mount data-wxdb-mode="home"></div>
     <div id="dor-home" class="dor-board" data-dor-mount data-dor-mode="home">
       <article class="dor dor-home">
-        <p class="dor-kicker">सडक विभाग · NAVIGATE</p>
-        <h2 class="dor-title">सडक स्थिति</h2>
-        <p><strong>NH42 बन्द</strong> — गल्छी–त्रिशूली–बेत्रावती–मैलुङ–स्याफ्रुबेँसी–रसुवागढी (चुच्चे नाका)। तिब्बतबाट आएको ठूलो बाढीले नदी किनारको सडक बगाएको। बन्द २६ अगस्ट २०२६।</p>
-        <p class="dor-links"><a href="notices.html#roads">पूर्ण सूची</a> · <a href="https://navigate.dor.gov.np/app/dashboard" target="_blank" rel="noopener">स्रोत: NAVIGATE</a></p>
+        <p class="dor-kicker">NDRRMA · जिप्रका सूचना</p>
+        <h2 class="dor-title">जिल्ला प्रशासन कार्यालयहरूबाट प्रकाशित सूचना अनुसार मुख्य सडक बन्द गरिएका जिल्लाहरू</h2>
+        <p class="dor-asof">प्रकाशित मिति २०८३/०६/०९ · २५ सेप्टेम्बर २०२६</p>
+        <p><strong>२५</strong> जिल्ला · <strong>६</strong> प्रदेश</p>
+        <p class="dor-links"><a href="notices.html#roads">पूर्ण सूची</a> · <a href="https://x.com/ndrrma_nepal/status/2103348799527874656" target="_blank" rel="noopener">NDRRMA पोस्ट</a></p>
       </article>
     </div>
     <div class="cta-pair">
@@ -1278,7 +1279,7 @@
     if (started) return;
     started = true;
     var s = document.createElement("script");
-    s.src = "i18n.js?v=" + (window.PAGE_VER || "2026-09-25-home-fixes");
+    s.src = "i18n.js?v=" + (window.PAGE_VER || "2026-09-25-road-notice");
     s.onload = function(){
       var q = waiters.splice(0);
       q.forEach(function(fn){ try { fn(); } catch (e) {} });
@@ -1305,15 +1306,15 @@
   });
 })();
 </script>
-<script defer src="rain-theme.js?v=2026-09-25-home-fixes"></script>
-<script defer src="district-alerts.js?v=2026-09-25-home-fixes"></script>
-<script defer src="weather-alert.js?v=2026-09-25-home-fixes"></script>
-<script defer src="weather-now.js?v=2026-09-25-home-fixes"></script>
-<script defer src="weather-db.js?v=2026-09-25-home-fixes"></script>
-<script defer src="roads-dor.js?v=2026-09-25-home-fixes"></script>
-<script defer src="open-alert.js?v=2026-09-25-home-fixes"></script>
-<script defer src="notify.js?v=2026-09-25-home-fixes"></script>
-<script defer src="nav-menu.js?v=2026-09-25-home-fixes"></script>
+<script defer src="rain-theme.js?v=2026-09-25-road-notice"></script>
+<script defer src="district-alerts.js?v=2026-09-25-road-notice"></script>
+<script defer src="weather-alert.js?v=2026-09-25-road-notice"></script>
+<script defer src="weather-now.js?v=2026-09-25-road-notice"></script>
+<script defer src="weather-db.js?v=2026-09-25-road-notice"></script>
+<script defer src="roads-dor.js?v=2026-09-25-road-notice"></script>
+<script defer src="open-alert.js?v=2026-09-25-road-notice"></script>
+<script defer src="notify.js?v=2026-09-25-road-notice"></script>
+<script defer src="nav-menu.js?v=2026-09-25-road-notice"></script>
 
 <script>
 (function(){
@@ -1391,8 +1392,8 @@
   window.__ensureNamesIndex=load;
 })();
 </script>
-<script defer src="ask-answers.js?v=2026-09-25-home-fixes"></script>
-<script defer src="ask-panel.js?v=2026-09-25-home-fixes"></script>
+<script defer src="ask-answers.js?v=2026-09-25-road-notice"></script>
+<script defer src="ask-panel.js?v=2026-09-25-road-notice"></script>
 <script>
 (function(){
   var btn = document.getElementById("share-btn");
@@ -1464,8 +1465,8 @@
   });
 })();
 </script>
-<script>window.PAGE_VER="2026-09-25-home-fixes";</script>
-<script src="refresh.js?v=2026-09-25-home-fixes"></script>
+<script>window.PAGE_VER="2026-09-25-road-notice";</script>
+<script src="refresh.js?v=2026-09-25-road-notice"></script>
 <script>
 
 (function(){

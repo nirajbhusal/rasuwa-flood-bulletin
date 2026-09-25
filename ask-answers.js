@@ -53,14 +53,34 @@
     { id: "sudurpaschim", keys: ["sudurpaschim", "sudurpashchim", "sudur paschim", "far west", "farwest", "सुदूरपश्चिम", "सुदुरपश्चिम"] }
   ];
   var DISTRICTS = [
-    { id: "rasuwa", province: "bagmati", corridor: true, keys: ["rasuwa", "रसुवा"] },
-    { id: "sindhupalchok", province: "bagmati", keys: ["sindhupalchok", "sindhupalchowk", "sindupalchok", "सिन्धुपाल्चोक", "सिंधुपाल्चोक"] },
-    { id: "nuwakot", province: "bagmati", corridor: true, keys: ["nuwakot", "नुवाकोट"] },
-    { id: "dhading", province: "bagmati", corridor: true, keys: ["dhading", "धादिङ", "धादिंग"] },
-    { id: "gorkha", province: "gandaki", corridor: true, keys: ["gorkha", "गोरखा"] },
-    { id: "chitwan", province: "bagmati", corridor: true, keys: ["chitwan", "चितवन"] },
-    { id: "baglung", province: "gandaki", keys: ["baglung", "बागलुङ", "बागलुंग"] },
-    { id: "myagdi", province: "gandaki", keys: ["myagdi", "म्याग्दी", "म्यागदी"] }
+    { id: "rasuwa", province: "bagmati", corridor: true, en: "Rasuwa", ne: "रसुवा", keys: ["rasuwa", "रसुवा"] },
+    { id: "sindhupalchok", province: "bagmati", en: "Sindhupalchok", ne: "सिन्धुपाल्चोक", keys: ["sindhupalchok", "sindhupalchowk", "sindupalchok", "सिन्धुपाल्चोक", "सिंधुपाल्चोक"] },
+    { id: "nuwakot", province: "bagmati", corridor: true, en: "Nuwakot", ne: "नुवाकोट", keys: ["nuwakot", "नुवाकोट"] },
+    { id: "dhading", province: "bagmati", corridor: true, en: "Dhading", ne: "धादिङ", keys: ["dhading", "धादिङ", "धादिंग"] },
+    { id: "gorkha", province: "gandaki", corridor: true, en: "Gorkha", ne: "गोरखा", keys: ["gorkha", "गोरखा"] },
+    { id: "chitwan", province: "bagmati", corridor: true, en: "Chitwan", ne: "चितवन", keys: ["chitwan", "चितवन"] },
+    { id: "baglung", province: "gandaki", en: "Baglung", ne: "बागलुङ", keys: ["baglung", "बागलुङ", "बागलुंग"] },
+    { id: "myagdi", province: "gandaki", en: "Myagdi", ne: "म्याग्दी", keys: ["myagdi", "म्याग्दी", "म्यागदी"] },
+    { id: "taplejung", province: "koshi", en: "Taplejung", ne: "ताप्लेजुङ", keys: ["taplejung", "ताप्लेजुङ"] },
+    { id: "sankhuwasabha", province: "koshi", en: "Sankhuwasabha", ne: "संखुवासभा", keys: ["sankhuwasabha", "sankhuwasabha", "संखुवासभा", "सङ्खुवासभा"] },
+    { id: "khotang", province: "koshi", en: "Khotang", ne: "खोटाङ", keys: ["khotang", "खोटाङ"] },
+    { id: "bhojpur", province: "koshi", en: "Bhojpur", ne: "भोजपुर", keys: ["bhojpur", "भोजपुर"] },
+    { id: "dhankuta", province: "koshi", en: "Dhankuta", ne: "धनकुटा", keys: ["dhankuta", "धनकुटा"] },
+    { id: "terhathum", province: "koshi", en: "Terhathum", ne: "तेह्रथुम", keys: ["terhathum", "tehrathum", "terathum", "तेह्रथुम"] },
+    { id: "panchthar", province: "koshi", en: "Panchthar", ne: "पाँचथर", keys: ["panchthar", "panchther", "पाँचथर", "पांचथर"] },
+    { id: "ilam", province: "koshi", en: "Ilam", ne: "इलाम", keys: ["ilam", "इलाम"] },
+    { id: "sunsari", province: "koshi", en: "Sunsari", ne: "सुनसरी", keys: ["sunsari", "सुनसरी"] },
+    { id: "udayapur", province: "koshi", en: "Udayapur", ne: "उदयपुर", keys: ["udayapur", "उदयपुर"] },
+    { id: "dolakha", province: "bagmati", en: "Dolakha", ne: "दोलखा", keys: ["dolakha", "दोलखा"] },
+    { id: "kavrepalanchok", province: "bagmati", en: "Kavrepalanchok", ne: "काभ्रेपलाञ्चोक", keys: ["kavrepalanchok", "kavre", "काभ्रेपलाञ्चोक", "काभ्रे"] },
+    { id: "lalitpur", province: "bagmati", en: "Lalitpur", ne: "ललितपुर", keys: ["lalitpur", "ललितपुर"] },
+    { id: "lamjung", province: "gandaki", en: "Lamjung", ne: "लमजुङ", keys: ["lamjung", "लमजुङ"] },
+    { id: "rolpa", province: "lumbini", en: "Rolpa", ne: "रोल्पा", keys: ["rolpa", "रोल्पा"] },
+    { id: "dang", province: "lumbini", en: "Dang", ne: "दाङ", keys: ["dang", "दाङ"] },
+    { id: "rukum-east", province: "lumbini", en: "Rukum East", ne: "रुकुम पूर्व", keys: ["rukum east", "rukum purba", "पूर्वी रुकुम", "रुकुम पूर्व"] },
+    { id: "rukum-west", province: "karnali", en: "Rukum West", ne: "रुकुम पश्चिम", keys: ["rukum west", "rukum paschim", "पश्चिम रुकुम", "रुकुम पश्चिम"] },
+    { id: "bajhang", province: "sudurpaschim", en: "Bajhang", ne: "बझाङ", keys: ["bajhang", "बझाङ"] },
+    { id: "baitadi", province: "sudurpaschim", en: "Baitadi", ne: "बैतडी", keys: ["baitadi", "बैतडी"] }
   ];
   var HELPLINES = [
     { tel: "1234", ne: "उद्धार / DEOC", en: "Rescue / DEOC" },
@@ -504,7 +524,8 @@
       spec.intent = "weather_city";
       return finishSpec(spec);
     }
-    if ((road || place) && !weather) {
+    var roadish = road || place || (spec.district && hit(q, ["open", "khula", "khulla", "खुला", "blocked", "closure"]));
+    if (roadish && !weather) {
       spec.intent = place ? "roads_place" : "roads";
       if (sourceQ) spec.meta = "source";
       return finishSpec(spec);
@@ -931,6 +952,7 @@
   function districtName(id, lang) {
     for (var i = 0; i < DISTRICTS.length; i++) {
       if (DISTRICTS[i].id === id) {
+        if (DISTRICTS[i][lang]) return DISTRICTS[i][lang];
         var keys = DISTRICTS[i].keys;
         for (var k = 0; k < keys.length; k++) if (/[\u0900-\u097f]/.test(keys[k])) return lang === "en" ? cap(id) : keys[k];
       }
@@ -989,6 +1011,91 @@
     }
     return [];
   }
+  function daoNotice(data) {
+    return data && data.dao_notice;
+  }
+  function daoWhen(notice, lang) {
+    var w = (notice && (notice.when || notice.published)) || {};
+    return w[lang] || w.ne || w.en || "";
+  }
+  function daoRows(notice, provinceId) {
+    var rows = [];
+    ((notice && notice.provinces) || []).forEach(function (p) {
+      if (provinceId && p.id !== provinceId) return;
+      (p.districts || []).forEach(function (d) { rows.push({ province: p, district: d }); });
+    });
+    return rows;
+  }
+  function daoFind(notice, districtId) {
+    var rows = daoRows(notice);
+    for (var i = 0; i < rows.length; i++) if (rows[i].district.id === districtId) return rows[i];
+    return null;
+  }
+  function nameOf(obj, lang) {
+    if (!obj) return "";
+    return obj[lang] || obj.ne || obj.en || "";
+  }
+  function joinNames(list, lang) {
+    if (!list.length) return "";
+    if (list.length === 1) return list[0];
+    var last = lang === "en" ? " and " : " र ";
+    return list.slice(0, -1).join(", ") + last + list[list.length - 1];
+  }
+  function dorInDistrict(data, districtId) {
+    var row = null;
+    for (var i = 0; i < DISTRICTS.length; i++) if (DISTRICTS[i].id === districtId) row = DISTRICTS[i];
+    if (!row) return [];
+    var keys = row.keys.map(norm).filter(Boolean);
+    return ((data && data.roads) || []).filter(function (r) {
+      var hay = roadHay(r);
+      for (var k = 0; k < keys.length; k++) if (hay.indexOf(keys[k]) >= 0) return true;
+      return false;
+    });
+  }
+  function daoListText(notice, lang, provinceId) {
+    var rows = daoRows(notice, provinceId);
+    var names = rows.map(function (r) { return nameOf(r.district, lang); });
+    var when = daoWhen(notice, lang);
+    var n = digits(rows.length, lang);
+    var listed = joinNames(names, lang);
+    if (provinceId && rows.length) {
+      var pname = nameOf(rows[0].province, lang);
+      if (lang === "en") {
+        return "On the NDRRMA notice of " + when + ", main roads are closed in " + n + " " + pname + " district" + (rows.length === 1 ? "" : "s") + ": " + listed + ". The notice does not name a road section.";
+      }
+      return when + " को NDRRMA सूचनाअनुसार " + pname + "का " + n + " जिल्लामा मुख्य सडक बन्द छ: " + listed + "। सूचनाले सडक खण्ड तोकेको छैन।";
+    }
+    var districts = digits((notice.counts && notice.counts.districts) || rows.length, lang);
+    var provinces = digits((notice.counts && notice.counts.provinces) || 0, lang);
+    if (lang === "en") {
+      return "On the NDRRMA notice of " + when + ", main roads are closed in " + districts + " districts across " + provinces + " provinces: " + listed + ".";
+    }
+    return when + " को NDRRMA सूचनाअनुसार " + provinces + " प्रदेशका " + districts + " जिल्लामा मुख्य सडक बन्द छ: " + listed + "।";
+  }
+  function daoDistrictText(notice, spec, data, lang) {
+    var hit = daoFind(notice, spec.district);
+    var place = districtName(spec.district, lang);
+    var when = daoWhen(notice, lang);
+    if (hit) {
+      var pname = nameOf(hit.province, lang);
+      if (lang === "en") {
+        return place + " in " + pname + " is on the NDRRMA notice of " + when + ": main roads in that district are closed. The notice does not name a road section.";
+      }
+      return place + " " + pname + "मा पर्छ। " + when + " को NDRRMA सूचनाअनुसार त्यहाँ मुख्य सडक बन्द छ। सूचनाले सडक खण्ड तोकेको छैन।";
+    }
+    var lead = lang === "en"
+      ? place + " is not listed on the NDRRMA notice of " + when + ", which names " + digits(notice.counts.districts, lang) + " districts where main roads are closed."
+      : place + " " + when + " को NDRRMA सूचनामा छैन। त्यो सूचनाले मुख्य सडक बन्द भएका " + digits(notice.counts.districts, lang) + " जिल्लाको नाम दिन्छ।";
+    var matches = dorInDistrict(data, spec.district).filter(function (r) { return r.status === "closed" || r.status === "partial"; });
+    if (!matches.length) return lead;
+    var road = matches[0];
+    var section = tx(road.section, lang);
+    var dorWhen = asOfShort(data, lang);
+    if (lang === "en") {
+      return lead + " Department of Roads NAVIGATE lists " + (road.ref || "") + (section ? " (" + section + ")" : "") + " as " + statusWord(road.status, lang) + (dorWhen ? ", as of " + dorWhen : "") + ".";
+    }
+    return lead + " सडक विभागको NAVIGATE मा " + (road.ref || "") + (section ? " (" + section + ")" : "") + " " + statusWord(road.status, lang) + " छ" + (dorWhen ? ", " + dorWhen + " सम्म।" : "।");
+  }
   function answerRoads(spec, ctx) {
     var lang = ctx.lang === "en" ? "en" : "ne";
     var data = ctx.roads;
@@ -998,25 +1105,43 @@
       : [];
     var fu = FOLLOW[spec.intent] || FOLLOW.roads;
     if (!data) return pack(lang, missingText(lang), "", href, { followups: fu, links: mapLink });
+    var notice = daoNotice(data);
     var when = asOfShort(data, lang);
-    var srcWhen = when;
-    var src = sourceLine(lang, lang === "en" ? "DoR" : "सडक विभाग", srcWhen);
-    if (spec.meta === "source" || spec.intent === "roads" && false) {
-      /* source questions use meta */
-    }
+    var srcWhen = notice && (spec.intent === "roads" || spec.intent === "map" || spec.meta === "source") ? daoWhen(notice, lang) : when;
+    var srcName = notice && (spec.intent === "roads" || spec.intent === "map" || spec.meta === "source") ? "NDRRMA" : (lang === "en" ? "DoR" : "सडक विभाग");
+    var src = sourceLine(lang, srcName, srcWhen);
     if (spec.meta === "source") {
-      var srcAns = lang === "en"
-        ? "Road status is read from the Department of Roads NAVIGATE list" + (when ? ", as of " + when : "") + "."
-        : "सडकको अवस्था सडक विभागको NAVIGATE सूचीबाट पढिन्छ" + (when ? ", " + when + " सम्म।" : "।");
+      var srcAns;
+      if (notice) {
+        srcAns = lang === "en"
+          ? "The latest road notice is the NDRRMA post of " + daoWhen(notice, "en") + ", drawn from District Administration Office notices."
+          : "पछिल्लो सडक सूचना " + daoWhen(notice, "ne") + " को NDRRMA पोस्ट हो, जिल्ला प्रशासन कार्यालयका सूचनाबाट।";
+      } else {
+        srcAns = lang === "en"
+          ? "Road status is read from the Department of Roads NAVIGATE list" + (when ? ", as of " + when : "") + "."
+          : "सडकको अवस्था सडक विभागको NAVIGATE सूचीबाट पढिन्छ" + (when ? ", " + when + " सम्म।" : "।");
+      }
       return pack(lang, srcAns, src, href, { followups: FOLLOW.roads });
     }
     if (spec.intent === "map") {
       var pri = priorityRoad(data);
       var sec = pri ? tx(pri.section, lang) : "";
-      var mapText = lang === "en"
-        ? "The road map is on the notices page" + (pri ? ". " + (pri.ref || "NH42") + (sec ? " (" + sec + ")" : "") + " is marked " + statusWord(pri.status, lang) : "") + "."
-        : "सडक नक्सा सूचना पानामा छ" + (pri ? "। " + (pri.ref || "NH42") + (sec ? " (" + sec + ")" : "") + " " + statusWord(pri.status, lang) + " देखाइएको छ।" : "।");
+      var mapText;
+      if (notice) {
+        var shaded = digits(notice.counts.districts, lang);
+        mapText = lang === "en"
+          ? "The road map shades " + shaded + " districts where main roads are closed on the NDRRMA notice of " + daoWhen(notice, "en") + "."
+          : "सडक नक्साले " + daoWhen(notice, "ne") + " को NDRRMA सूचनाका " + shaded + " जिल्ला रातो देखाउँछ, जहाँ मुख्य सडक बन्द छ।";
+      } else {
+        mapText = lang === "en"
+          ? "The road map is on the notices page" + (pri ? ". " + (pri.ref || "NH42") + (sec ? " (" + sec + ")" : "") + " is marked " + statusWord(pri.status, lang) : "") + "."
+          : "सडक नक्सा सूचना पानामा छ" + (pri ? "। " + (pri.ref || "NH42") + (sec ? " (" + sec + ")" : "") + " " + statusWord(pri.status, lang) + " देखाइएको छ।" : "।");
+      }
       return pack(lang, mapText, src, href, { followups: FOLLOW.map });
+    }
+    if (notice && spec.intent === "roads") {
+      var daoText = spec.district ? daoDistrictText(notice, spec, data, lang) : daoListText(notice, lang, spec.province);
+      return pack(lang, daoText, src, href, { followups: FOLLOW.roads, links: mapLink });
     }
     var matches = pickRoads(data, spec);
     if (spec.intent === "roads_nh42" || spec.intent === "roads_araniko" || spec.intent === "roads_code" || spec.intent === "roads_place") {
