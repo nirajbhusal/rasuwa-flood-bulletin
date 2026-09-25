@@ -9043,7 +9043,7 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   .open-alert-b,.open-alert-s{font-size:14px}
 }
 
-/* 2026-09-25-no-pills — light header, search, menu, alert, ask */
+/* 2026-09-25-header-art — light header, search, menu, alert, ask */
 .head-stick{
   position:sticky;
   top:0;
@@ -9071,8 +9071,20 @@ html.ask-lock .fab-dock,html.ask-lock .ask-fab{visibility:hidden;pointer-events:
   justify-content:stretch;
 }
 .head-stick .brand-row{grid-area:brand;justify-content:flex-start;width:100%;min-width:0;max-width:100%;overflow:hidden}
-.head-stick .brand{width:100%;max-width:100%;min-width:0;text-align:left;overflow:hidden}
+.head-stick .brand{position:relative;width:100%;max-width:100%;min-width:0;min-height:31px;text-align:left;overflow:hidden}
+.head-stick .header-art{
+  position:absolute;z-index:0;right:0;top:0;
+  width:min(220px,64%);height:100%;margin:0;
+  pointer-events:none;display:block;
+  opacity:1;
+  transition:opacity .18s ease, transform .18s ease;
+}
+.head-stick.is-scrolled .header-art{opacity:0;transform:scale(.94)}
+@media (prefers-reduced-motion:reduce){
+  .head-stick .header-art{transition:none}
+}
 .head-stick .topbar .brand h1{
+  position:relative;z-index:1;
   color:#c41e3a;
   text-shadow:none;
   text-align:left;
@@ -9733,7 +9745,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 .wxb,.dor{overflow:hidden}
 .wxb-mapwrap,.dor-map{overflow:hidden}
 
-/* 2026-09-25-no-pills — search stays closed, alert is a bottom sheet, date contrast, ask link */
+/* 2026-09-25-header-art — search stays closed, alert is a bottom sheet, date contrast, ask link */
 .head-stick .brand-date,
 .head-stick .brand-date .brand-incident,
 .head-stick .brand-incident{
@@ -9817,7 +9829,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 .wx-toprain-list .wxdb-kicker{margin:0 0 4px;text-align:center}
 
 
-/* 2026-09-25-no-pills — menu sits left of search; one icon; 16px field; list above the keyboard */
+/* 2026-09-25-header-art — menu sits left of search; one icon; 16px field; list above the keyboard */
 .head-stick .top-search{
   flex:1 1 auto;
   width:auto;
@@ -9847,3 +9859,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
 }
 .site-results{z-index:1200}
 .head-stick.search-pinned{z-index:80}
+@media (min-width:900px){
+  .head-stick .header-art{width:min(240px,46%)}
+  .head-stick .brand{min-height:34px}
+}

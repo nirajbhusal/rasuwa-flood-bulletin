@@ -1,5 +1,13 @@
 /*! Header menu — one row with the brand, desktop panel, mobile drawer. */
 (function () {
+  var head = document.querySelector(".head-stick");
+  if (head) {
+    var syncArt = function () {
+      head.classList.toggle("is-scrolled", window.scrollY > 8);
+    };
+    window.addEventListener("scroll", syncArt, { passive: true });
+    syncArt();
+  }
   var nav = document.querySelector("nav.chips");
   var btn = document.getElementById("nav-toggle");
   if (!nav || !btn) return;
