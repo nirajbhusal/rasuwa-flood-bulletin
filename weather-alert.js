@@ -9,7 +9,7 @@
   var justShifted = false;
   var liveState = "idle";
   var liveNote = null;
-  var VER = window.PAGE_VER || "2026-09-25-weather-db";
+  var VER = window.PAGE_VER || "2026-09-25-wx-card-merge";
   var districts = null;
   var showDistricts = true;
   var hotDistrict = null;
@@ -25,6 +25,13 @@
     if (node[l] != null) return node[l];
     if (node.ne != null) return node.ne;
     return node.en || "";
+  }
+  function outlookTitle() {
+    if (typeof window.t === "function") {
+      var s = window.t("wx_rain_outlook");
+      if (s && s !== "wx_rain_outlook") return s;
+    }
+    return tx((data && data.ui && data.ui.map_h) || { ne: "वर्षाको सम्भावना", en: "Rainfall outlook" });
   }
   function el(tag, cls, text) {
     var n = document.createElement(tag);
@@ -316,7 +323,7 @@
     var geo = data.geo || {};
     svg.setAttribute("viewBox", geo.viewBox || "0 0 672.5 391.7");
     svg.setAttribute("role", "group");
-    svg.setAttribute("aria-label", tx(data.ui.map_h));
+    svg.setAttribute("aria-label", outlookTitle());
     var layer = svgEl("g");
     layer.setAttribute("class", "wxb-zoom");
     svg._layer = layer;
@@ -1189,35 +1196,14 @@
     board.appendChild(head);
 
     var mapPanel = el("section", "wxb-panel wxb-map-panel");
-    var mh = el("h3", "wxb-h");
-    mh.innerHTML = iconCloud();
-    mh.appendChild(document.createTextNode(" " + tx(ui.map_h)));
-    mapPanel.appendChild(mh);
-    mapPanel.appendChild(el("p", "wxb-shown", shownDateText()));
+    var mapHead = el("div", "wxb-maphead");
+    mapHead.appendChild(el("h3", "wxb-maptitle", outlookTitle()));
+    mapHead.appendChild(el("p", "wxb-shown", shownDateText()));
+    mapPanel.appendChild(mapHead);
     var svg = svgEl("svg");
     svg.setAttribute("class", "wxb-svg" + (justShifted ? " is-shifting" : ""));
     buildMap(svg);
-    var dbtn = document.createElement("button");
-    dbtn.type = "button";
-    dbtn.className = "wxb-dist-toggle" + (showDistricts ? " is-on" : "");
-    dbtn.setAttribute("aria-pressed", showDistricts ? "true" : "false");
-    dbtn.textContent = tx(ui.districts || { ne: "जिल्ला", en: "Districts" });
-    dbtn.addEventListener("click", function () {
-      showDistricts = !showDistricts;
-      document.querySelectorAll(".wxb-dists").forEach(function (g) {
-        if (showDistricts) g.removeAttribute("hidden");
-        else g.setAttribute("hidden", "");
-      });
-      document.querySelectorAll(".wxb-dist-toggle").forEach(function (b) {
-        b.classList.toggle("is-on", showDistricts);
-        b.setAttribute("aria-pressed", showDistricts ? "true" : "false");
-        b.textContent = tx((data.ui && data.ui.districts) || { ne: "जिल्ला", en: "Districts" });
-      });
-    });
-    var drow = el("div", "wxb-dist-row");
-    drow.appendChild(dbtn);
     var tools = el("div", "wxb-maptools");
-    tools.appendChild(drow);
     tools.appendChild(buildZoom(svg));
     mapPanel.appendChild(tools);
     var stage = el("div", "wxb-stage");
@@ -1293,6 +1279,9 @@
     sumHost.appendChild(buildSummary());
     mapPanel.appendChild(sumHost);
     if (mode === "section") mapPanel.appendChild(el("p", "wxb-hint", tx(ui.hint)));
+    var nowHost = el("div", "wxb-now-host");
+    nowHost.setAttribute("data-wx-now-host", "");
+    mapPanel.appendChild(nowHost);
     board.appendChild(mapPanel);
     var dalertSlot = el("div", "dalert-slot");
     dalertSlot.setAttribute("data-district-alerts", mode);
@@ -1454,7 +1443,7 @@
 
   document.addEventListener("pointerdown", function (e) {
     if (!data) return;
-    if (e.target.closest && e.target.closest(".wxb-prov, .wxb-dist, .wxb-dist-toggle, .wxb-pop, .wxb-zoom-ui, .wxb-dayswitch, .wxb-gantt-row")) return;
+    if (e.target.closest && e.target.closest(".wxb-prov, .wxb-dist, .wxb-pop, .wxb-zoom-ui, .wxb-dayswitch, .wxb-gantt-row, .wxb-nepal-now, .wxdb-pop")) return;
     if (!selected) return;
     clearSelect();
   });

@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var VER = window.PAGE_VER || "2026-09-25-weather-db";
+  var VER = window.PAGE_VER || "2026-09-25-wx-card-merge";
   var home = null;
   var full = null;
   var geo = null;
@@ -243,11 +243,12 @@
     return node;
   }
 
-  function renderHome(root) {
-    root.replaceChildren();
-    if (!home) return;
-    var board = el("section", "wxdb wxdb-home");
-    board.appendChild(h2("नेपाल अहिले", "Nepal now"));
+  function buildNepalNow() {
+    if (!home || !(home.nepal_now || []).length) return null;
+    var sec = el("section", "wxb-nepal-now");
+    var head = el("h3", "wxdb-h");
+    head.textContent = lang() === "en" ? "Nepal now" : "नेपाल अहिले";
+    sec.appendChild(head);
     var strip = el("div", "wxdb-strip");
     strip.setAttribute("role", "list");
     (home.nepal_now || []).forEach(function (city) {
@@ -287,8 +288,22 @@
       });
       strip.appendChild(btn);
     });
-    board.appendChild(strip);
+    sec.appendChild(strip);
+    return sec;
+  }
 
+  function injectNow() {
+    document.querySelectorAll("[data-wx-now-host]").forEach(function (host) {
+      host.replaceChildren();
+      var block = buildNepalNow();
+      if (block) host.appendChild(block);
+    });
+  }
+
+  function renderHome(root) {
+    root.replaceChildren();
+    if (!home) return;
+    var board = el("section", "wxdb wxdb-home");
     var corridor = home.corridor || {};
     var panel = el("section", "wxdb-corridor");
     panel.appendChild(h2("रसुवा करिडोर", "Rasuwa corridor"));
@@ -830,6 +845,7 @@
       if (mode === "home") renderHome(root);
       else renderSection(root);
     });
+    injectNow();
   }
 
   function boot() {
@@ -848,7 +864,8 @@
         return r.json();
       });
     }
-    if (wantsHome) jobs.push(get("data/weather/now.json").then(function (json) { home = json; }).catch(function () {}));
+    var wantsNow = wantsHome || !!document.querySelector("[data-wx-mount][data-wx-mode='section']");
+    if (wantsNow) jobs.push(get("data/weather/now.json").then(function (json) { home = json; }).catch(function () {}));
     if (wantsFull) {
       jobs.push(get("data/weather/current.json").then(function (json) { full = json; }).catch(function () {}));
       jobs.push(get("data/weather-alert.json").then(function (json) {
@@ -867,6 +884,7 @@
     if (e.target.closest && e.target.closest(".wxdb-pop, .wxdb-city, .wxdb-badge, .wxdb-gauge")) return;
     closePop();
   });
+  document.addEventListener("wx-rendered", injectNow);
   if (window.__addLangHook) window.__addLangHook(renderAll);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
