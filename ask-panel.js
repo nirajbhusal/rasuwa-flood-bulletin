@@ -805,7 +805,7 @@
       sub.textContent = t("ask_sub") + stamp;
     }
     var input = document.getElementById("ask-q");
-    if (input && document.activeElement !== input) input.setAttribute("placeholder", t("ask_ph"));
+    if (input) input.setAttribute("placeholder", t("ask_ph"));
     var send = document.getElementById("ask-send");
     if (send) send.textContent = t("ask_send");
     var x = document.getElementById("ask-x");

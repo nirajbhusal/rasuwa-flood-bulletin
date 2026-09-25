@@ -9696,7 +9696,7 @@ html.ask-lock body,html.ask-lock body.ask-lock{
     flex-wrap:wrap;
     justify-content:flex-start;
     gap:4px 8px;
-    padding-right:96px;
+    padding-right:128px;
     margin:6px 0 4px;
   }
   .wxb-legend li{flex:0 1 auto !important;font-size:12px;white-space:nowrap}
