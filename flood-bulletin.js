@@ -634,9 +634,10 @@
   var lastLang = lang();
   if (typeof MutationObserver === "function") {
     new MutationObserver(function () {
-      if (lang() === lastLang || !data) return;
-      lastLang = lang();
-      paintAll();
+      var now = lang();
+      if (now === lastLang) return;
+      lastLang = now;
+      if (data) paintAll();
     }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
   }
 })();
