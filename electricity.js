@@ -651,7 +651,7 @@
     g.appendChild(text);
     if (nd.sub) {
       var sub = svgEl("text", { class: "elec-sublab" });
-      placeText(sub, nd, 14);
+      placeText(sub, nd, 22);
       sub.textContent = nd.sub;
       g.appendChild(sub);
     }
@@ -799,7 +799,7 @@
     add({ id: "chilime_hpp", x: 54, y: 176, kind: "bolt", place: "below", card: "chilime_hpp", needAsset: "chilime_hpp", shortKey: "elec_flow_chilime", shortFb: en() ? "Chilime" : "चिलिमे", partAssets: ["chilime_hpp"] });
     add({ id: "chilime_220kv_hub", x: 292, y: 176, kind: "tower", place: "below", card: "chilime_220kv_hub", needAsset: "chilime_220kv_hub", shortKey: "elec_flow_chilime_hub", shortFb: en() ? "Chilime Hub" : "चिलिमे हब", partAssets: ["chilime_220kv_hub"] });
     add({ id: "upper_trishuli_3a", x: 54, y: 274, kind: "bolt", place: "below", card: "upper_trishuli_3a", needAsset: "upper_trishuli_3a", shortKey: "elec_flow_ut3a", shortFb: en() ? "Trishuli 3A" : "त्रिशूली ३ए", partAssets: ["upper_trishuli_3a"] });
-    add({ id: "trishuli_3b_hub", x: 168, y: 372, kind: "tower", place: "above", card: "trishuli_3b_hub", needAsset: "trishuli_3b_hub", shortKey: "elec_flow_3b", shortFb: en() ? "3B Hub" : "३बी हब", partAssets: ["trishuli_3b_hub"] });
+    add({ id: "trishuli_3b_hub", x: 168, y: 372, kind: "tower", place: "below", card: "trishuli_3b_hub", needAsset: "trishuli_3b_hub", shortKey: "elec_flow_3b", shortFb: en() ? "3B Hub" : "३बी हब", partAssets: ["trishuli_3b_hub"] });
     add({
       id: "matatirtha", x: 292, y: 372, kind: "grid", tone: "end", place: "below", card: "line_chilime_3b_matatirtha_220",
       needAsset: "line_chilime_3b_matatirtha_220", shortKey: "elec_flow_matatirtha", shortFb: en() ? "Matatirtha" : "मातातीर्थ",
@@ -853,7 +853,7 @@
     });
     add({
       id: "line_chilime_3b_matatirtha_220", card: "line_chilime_3b_matatirtha_220", needAsset: "line_chilime_3b_matatirtha_220",
-      d: ["M292 214 L248 236 L248 340 L168 356", "M186 372 L270 372"],
+      d: ["M292 214 L248 236 L248 348 L168 360", "M186 372 L270 372"],
       label: t("elec_flow_kv220", en() ? "220 kV" : "२२० केभी"), lx: 200, ly: 292,
       partAssets: ["line_chilime_3b_matatirtha_220"]
     });
