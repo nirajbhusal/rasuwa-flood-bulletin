@@ -11132,9 +11132,10 @@ html[lang="en"] .elec-src-ne{display:none}
     gap:2px;
     min-width:0;
     height:44px;
-    overflow:hidden;
+    overflow:visible;
     flex-wrap:nowrap;
   }
+  .hnav-slot{position:relative;display:flex;align-items:stretch;flex:none}
   .hnav-tab,
   .hnav-more-btn{
     display:inline-flex;
@@ -11160,10 +11161,14 @@ html[lang="en"] .elec-src-ne{display:none}
   }
   .hnav-ico{width:16px;height:16px;flex:none;display:block}
   .hnav-caret{width:14px;height:14px;flex:none;display:block;transition:transform .15s ease}
+  .hnav-slot.is-open > .hnav-parent .hnav-caret,
   .hnav-more.is-open .hnav-caret{transform:rotate(180deg)}
-  .hnav-tabs > .hnav-tab:hover,
+  .hnav-tabs > .hnav-slot > .hnav-tab:hover,
+  .hnav-tabs > .hnav-slot > .hnav-parent:hover,
+  .hnav-slot.is-open > .hnav-parent,
   .hnav-more-btn:hover{color:#c41e3a;background:#fff5f5}
-  .hnav-tabs > .hnav-tab.is-current,
+  .hnav-tabs > .hnav-slot > .hnav-tab.is-current,
+  .hnav-tabs > .hnav-slot > .hnav-parent.is-current,
   .hnav-more-btn.is-current{
     color:#c41e3a;
     background:#fff1f2;
@@ -11181,8 +11186,9 @@ html[lang="en"] .elec-src-ne{display:none}
   .hnav-menu[hidden]{display:none !important}
   .hnav-menu{
     position:absolute;
-    top:calc(100% + 6px);
-    right:0;
+    top:100%;
+    left:0;
+    right:auto;
     z-index:40;
     display:flex;
     flex-direction:column;
@@ -11197,17 +11203,32 @@ html[lang="en"] .elec-src-ne{display:none}
     border-radius:12px;
     box-shadow:0 12px 32px rgba(15,23,42,.14);
   }
+  .hnav-menu.is-flip,
+  .hnav-more > .hnav-menu{left:auto;right:0}
   .hnav-menu .hnav-tab{
     width:100%;
     height:40px;
     border-radius:8px;
     padding:0 10px;
   }
-  .hnav-menu .hnav-tab:hover{color:#c41e3a;background:#fff5f5}
-  .hnav-menu .hnav-tab.is-current{
+  .hnav-menu .hnav-tab:hover,
+  .hnav-menu .hnav-parent:hover{color:#c41e3a;background:#fff5f5}
+  .hnav-menu .hnav-tab.is-current,
+  .hnav-menu > .hnav-slot > .hnav-parent.is-current{
     color:#c41e3a;
     background:#fff1f2;
     box-shadow:none;
+  }
+  .hnav-menu > .hnav-slot{flex-direction:column;width:100%}
+  .hnav-menu > .hnav-slot > .hnav-parent{width:100%;height:40px;border-radius:8px}
+  .hnav-menu > .hnav-slot > .hnav-menu{
+    position:static;
+    min-width:0;
+    margin:0 0 4px;
+    padding:0 0 0 8px;
+    border:0;
+    box-shadow:none;
+    background:transparent;
   }
   #home,#wx-home,#cat-roads,#cat-electricity,#home-response,#cat-rahat,#cat-supply,#cat-markets,#cat-infographics,#cat-gov{
     scroll-margin-top:calc(var(--stick, 160px) + 8px);
