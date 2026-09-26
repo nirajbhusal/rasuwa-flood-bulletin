@@ -78,9 +78,9 @@ const cases = [
   ["Rasuwa weather", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "orange", "Asoj 10"], not: ["red"] }],
   ["Rasuwa weather tomorrow", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "yellow", "Asoj 11"] }],
   ["Gandaki weather today", "en", { intent: "weather_place", number: true, has: ["Gandaki", "red", "Asoj 10"] }],
-  ["Kathmandu maximum today", "en", { intent: "weather_city", number: true, has: ["Kathmandu", "17.8", "16.2", "DHM"] }],
-  ["काठमाडौँको तापक्रम", "ne", { intent: "weather_city", number: true, has: ["काठमाडौँ", "17.8", "16.2"] }],
-  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["2.99", "warning"] }],
+  ["Kathmandu maximum today", "en", { intent: "weather_city", number: true, has: ["Kathmandu", "17.8", "16.5", "DHM"] }],
+  ["काठमाडौँको तापक्रम", "ne", { intent: "weather_city", number: true, has: ["काठमाडौँ", "17.8", "16.5"] }],
+  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["2.68", "warning"] }],
   ["बेत्रावतीको नदी तह", "ne", { intent: "weather_river", has: ["ताजा रिडिङ छैन"] }],
   ["सिन्धुपाल्चोकको मौसम", "ne", { intent: "weather_place", number: true, has: ["सिन्धुपाल्चोक"], not: ["खोलानाला", "विद्यालय"] }],
   ["nuwakot mausam", "ne", { intent: "weather_place", number: true, has: ["नुवाकोट"] }],
@@ -281,7 +281,7 @@ test("flood forecast answers use the DHM bulletin", function () {
   assertAnswer("flash flood Asoj 12", "en", { intent: "flood_flash", has: ["Karnali"] });
   const tomorrowFlash = assertAnswer("flash flood tomorrow", "en", { intent: "flood_flash", has: ["no district is at high", "45"] });
   assert.equal(/0 districts/.test(tomorrowFlash.text), false);
-  assertAnswer("Trishuli at Dhunche", "en", { intent: "weather_river", has: ["2.99", "warning"] });
+  assertAnswer("Trishuli at Dhunche", "en", { intent: "weather_river", has: ["2.68", "warning"] });
   assertAnswer("Rasuwa weather", "en", { intent: "weather_place", has: ["Rasuwa"] });
   const today = new Set(flood.flash.today.high.concat(flood.flash.today.medium));
   const tomorrow = new Set(flood.flash.tomorrow.high.concat(flood.flash.tomorrow.medium));
