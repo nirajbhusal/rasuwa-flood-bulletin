@@ -81,7 +81,15 @@ test("electricity visual is wired to existing NEA ids only", () => {
   assert.match(electricityHtml, /id="elec-kpis"/);
   assert.match(electricityHtml, /id="elec-flow"/);
   assert.match(electricityHtml, /id="elec-map"/);
-  assert.match(indexHtml, /id="elec-home-viz"/);
+  assert.ok(electricityHtml.indexOf('id="assets"') < electricityHtml.indexOf('id="shutdowns"'));
+  assert.ok(electricityHtml.indexOf('id="shutdowns"') < electricityHtml.indexOf('id="statements"'));
+  assert.ok(electricityHtml.indexOf('id="statements"') < electricityHtml.indexOf('id="helplines"'));
+  assert.match(indexHtml, /id="dash-electricity"/);
+  assert.match(indexHtml, /id="elec-dash-kpis"/);
+  assert.match(indexHtml, /id="elec-dash-flow"/);
+  assert.ok(indexHtml.indexOf('id="overview"') < indexHtml.indexOf('id="dash-electricity"'));
+  assert.ok(indexHtml.indexOf('id="dash-electricity"') < indexHtml.indexOf('id="cat-electricity"'));
+  assert.equal(indexHtml.includes('id="elec-home-viz"'), false);
   assert.match(indexHtml, /id="cat-electricity"/);
   assert.equal(electricityHtml.includes("L.marker("), false);
   assert.equal(/\b405\b/.test(electricityJs), false);
