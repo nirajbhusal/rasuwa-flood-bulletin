@@ -1,4 +1,4 @@
-/*! Header menu — mobile drawer below 900px; horizontal section bar at 900px and up. */
+/*! Header menu — mobile drawer below 900px; grouped horizontal bar at 900px and up. */
 (function () {
   var head = document.querySelector(".head-stick");
   if (head) {
@@ -447,8 +447,8 @@
     paintDeskCurrent();
   });
 
-  /* Desktop tabs follow the grouped menu order. Short labels are the same
-     sections, trimmed so the bar stays one row; overflow goes under थप / More. */
+  /* Desktop tabs are the same groups as the mobile drawer. A one-page group
+     is a direct link. Larger groups open a dropdown. Overflow groups go under थप / More. */
   var SHORT = {
     "index.html": { ne: "ड्यासबोर्ड", en: "Dashboard" },
     "notices.html": { ne: "सूचना", en: "Notices" },
@@ -484,9 +484,12 @@
   var deskMore = null;
   var deskMoreBtn = null;
   var deskMenu = null;
-  var deskTabs = [];
+  var deskSlots = [];
+  var deskOpen = null;
   var spyTick = 0;
   var deskLaying = false;
+  var deskFit = -1;
+  var deskRemeasure = true;
 
   function fitTabs(widths, container, moreWidth, gap) {
     gap = gap || 0;
@@ -559,24 +562,99 @@
     if (!id || !document.getElementById(id)) return "";
     return id;
   }
+  function deskGroupPlan(groups) {
+    return groups.map(function (g) {
+      return { key: g.key, menu: g.hrefs.length > 1, hrefs: g.hrefs.slice() };
+    });
+  }
+  function deskIcon(href) {
+    var sample = byHref(href);
+    if (sample && sample.querySelector("svg")) return cloneDeskIcon(sample);
+    var d = ICONS[href] || ICONS[(href || "").split("#")[0]] || "M6 12h12";
+    var node = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    node.setAttribute("viewBox", "0 0 24 24");
+    var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "currentColor");
+    path.setAttribute("stroke-width", "1.8");
+    path.setAttribute("stroke-linejoin", "round");
+    path.setAttribute("stroke-linecap", "round");
+    node.appendChild(path);
+    node.setAttribute("class", "hnav-ico");
+    node.setAttribute("width", "16");
+    node.setAttribute("height", "16");
+    node.setAttribute("aria-hidden", "true");
+    node.setAttribute("focusable", "false");
+    return node;
+  }
+  function deskCaret() {
+    var caret = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    caret.setAttribute("class", "hnav-caret");
+    caret.setAttribute("viewBox", "0 0 24 24");
+    caret.setAttribute("width", "14");
+    caret.setAttribute("height", "14");
+    caret.setAttribute("aria-hidden", "true");
+    caret.setAttribute("focusable", "false");
+    var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", "M6 9l6 6 6-6");
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "currentColor");
+    path.setAttribute("stroke-width", "2");
+    path.setAttribute("stroke-linecap", "round");
+    path.setAttribute("stroke-linejoin", "round");
+    caret.appendChild(path);
+    return caret;
+  }
+  function makeDeskLink(href) {
+    var tab = document.createElement("a");
+    tab.className = "hnav-tab";
+    tab.setAttribute("data-href", href);
+    var section = deskSection(href);
+    if (section) {
+      tab.setAttribute("data-section", section);
+      tab.href = section === "home" ? "#home" : "#" + section;
+    } else {
+      tab.href = href;
+    }
+    tab.style.flex = "none";
+    tab.style.whiteSpace = "nowrap";
+    tab.appendChild(deskIcon(href));
+    var lab = document.createElement("span");
+    lab.className = "hnav-lab";
+    lab.textContent = shortText(href) || href;
+    tab.appendChild(lab);
+    tab.addEventListener("click", onDeskTabClick);
+    return tab;
+  }
   function paintDeskLabels() {
     if (!deskBar) return;
-    deskTabs.forEach(function (tab) {
-      var href = tab.getAttribute("data-href") || "";
-      var lab = tab.querySelector(".hnav-lab");
-      var text = shortText(href);
-      if (lab && text) lab.textContent = text;
+    deskSlots.forEach(function (slot) {
+      var headLab = slot.querySelector(":scope > .hnav-parent .hnav-lab, :scope > a.hnav-tab .hnav-lab");
+      if (headLab) headLab.textContent = en() ? slot.getAttribute("data-en") : slot.getAttribute("data-ne");
+      slot.querySelectorAll(":scope > .hnav-menu a.hnav-tab").forEach(function (tab) {
+        var lab = tab.querySelector(".hnav-lab");
+        var text = shortText(tab.getAttribute("data-href") || "");
+        if (lab && text) lab.textContent = text;
+      });
     });
     var moreLab = deskMoreBtn && deskMoreBtn.querySelector(".hnav-lab");
     if (moreLab) moreLab.textContent = en() ? "More" : "थप";
     if (deskMoreBtn) deskMoreBtn.setAttribute("aria-label", en() ? "More" : "थप");
+    if (deskMore) deskMore._w = 0;
+    deskSlots.forEach(function (slot) { slot._w = 0; });
+    deskRemeasure = true;
     deskBar.setAttribute("aria-label", en() ? "Sections" : "खण्डहरू");
+  }
+  function deskLinks() {
+    if (!deskBar) return [];
+    return Array.prototype.slice.call(deskBar.querySelectorAll("a.hnav-tab"));
   }
   function spyPick() {
     var stick = head ? head.offsetHeight : 0;
     var best = null;
     var bestTop = -1e9;
-    deskTabs.forEach(function (tab) {
+    deskLinks().forEach(function (tab) {
       var id = tab.getAttribute("data-section") || "";
       if (!id || id === "home") return;
       var el = document.getElementById(id);
@@ -588,9 +666,10 @@
       }
     });
     if (best) return best;
+    var links = deskLinks();
     var i;
-    for (i = 0; i < deskTabs.length; i++) {
-      if ((deskTabs[i].getAttribute("data-href") || "") === "index.html") return deskTabs[i];
+    for (i = 0; i < links.length; i++) {
+      if ((links[i].getAttribute("data-href") || "") === "index.html") return links[i];
     }
     return null;
   }
@@ -602,19 +681,28 @@
       current = spyPick();
       if (current && (current.getAttribute("data-section") || "") && current.getAttribute("data-section") !== "home") mode = "location";
     } else {
+      var links = deskLinks();
       var i;
-      for (i = 0; i < deskTabs.length; i++) {
-        if (tabIsCurrent(deskTabs[i].getAttribute("data-href") || "")) {
-          current = deskTabs[i];
+      for (i = 0; i < links.length; i++) {
+        if (tabIsCurrent(links[i].getAttribute("data-href") || "")) {
+          current = links[i];
           break;
         }
       }
     }
-    deskTabs.forEach(function (tab) {
+    deskLinks().forEach(function (tab) {
       var on = tab === current;
       tab.classList.toggle("is-current", on);
       if (on) tab.setAttribute("aria-current", mode);
       else tab.removeAttribute("aria-current");
+    });
+    deskSlots.forEach(function (slot) {
+      var parent = slot.querySelector(":scope > .hnav-parent");
+      if (!parent) return;
+      var on = !!(current && slot.contains(current));
+      parent.classList.toggle("is-current", on);
+      if (on) parent.setAttribute("aria-current", mode);
+      else parent.removeAttribute("aria-current");
     });
     var inMore = !!(current && deskMenu && deskMenu.contains(current));
     if (deskMoreBtn) {
@@ -631,19 +719,75 @@
       paintDeskCurrent();
     });
   }
-  function closeDeskMore() {
+  function closeDeskSlot(slot) {
+    if (!slot) return;
+    if (slot._openT) { clearTimeout(slot._openT); slot._openT = 0; }
+    if (slot._closeT) { clearTimeout(slot._closeT); slot._closeT = 0; }
+    var menu = slot.querySelector(":scope > .hnav-menu");
+    var btn = slot.querySelector(":scope > .hnav-parent");
+    if (menu) menu.hidden = true;
+    slot.classList.remove("is-open");
+    if (btn) btn.setAttribute("aria-expanded", "false");
+    if (deskOpen === slot) deskOpen = null;
+  }
+  function closeOverflow() {
     if (!deskMenu) return;
     deskMenu.hidden = true;
     if (deskMore) deskMore.classList.remove("is-open");
     if (deskMoreBtn) deskMoreBtn.setAttribute("aria-expanded", "false");
   }
-  function openDeskMore() {
+  function closeDeskMenus() {
+    deskSlots.forEach(closeDeskSlot);
+    closeOverflow();
+  }
+  function openDeskSlot(slot, focusFirst) {
+    if (!slot || !isDesk()) return;
+    var menu = slot.querySelector(":scope > .hnav-menu");
+    if (!menu) return;
+    deskSlots.forEach(function (other) { if (other !== slot) closeDeskSlot(other); });
+    if (deskMenu && !deskMenu.contains(slot)) closeOverflow();
+    menu.hidden = false;
+    slot.classList.add("is-open");
+    var btn = slot.querySelector(":scope > .hnav-parent");
+    if (btn) btn.setAttribute("aria-expanded", "true");
+    deskOpen = slot;
+    var rect = slot.getBoundingClientRect();
+    menu.classList.toggle("is-flip", rect.left + 240 > window.innerWidth - 8);
+    if (focusFirst) {
+      var first = menu.querySelector("a.hnav-tab");
+      focusEl(first || btn);
+    }
+  }
+  function openOverflow(focusFirst) {
     if (!deskMenu || !deskMenu.children.length) return;
+    deskSlots.forEach(closeDeskSlot);
     deskMenu.hidden = false;
     if (deskMore) deskMore.classList.add("is-open");
     if (deskMoreBtn) deskMoreBtn.setAttribute("aria-expanded", "true");
-    var first = deskMenu.querySelector("a.hnav-tab");
-    focusEl(first || deskMoreBtn);
+    if (focusFirst) {
+      var first = deskMenu.querySelector(".hnav-parent, a.hnav-tab");
+      focusEl(first || deskMoreBtn);
+    }
+  }
+  function armHover(node, openFn, closeFn) {
+    node.addEventListener("pointerenter", function (e) {
+      if (!isDesk() || (e.pointerType && e.pointerType !== "mouse")) return;
+      if (node._closeT) { clearTimeout(node._closeT); node._closeT = 0; }
+      if (node._openT) clearTimeout(node._openT);
+      node._openT = setTimeout(function () {
+        node._openT = 0;
+        if (isDesk()) openFn();
+      }, 160);
+    });
+    node.addEventListener("pointerleave", function (e) {
+      if (e.pointerType && e.pointerType !== "mouse") return;
+      if (node._openT) { clearTimeout(node._openT); node._openT = 0; }
+      if (node._closeT) clearTimeout(node._closeT);
+      node._closeT = setTimeout(function () {
+        node._closeT = 0;
+        closeFn();
+      }, 220);
+    });
   }
   function scrollDeskSection(id) {
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -664,11 +808,11 @@
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
     var id = tab.getAttribute("data-section") || "";
     if (!id) {
-      closeDeskMore();
+      closeDeskMenus();
       return;
     }
     e.preventDefault();
-    closeDeskMore();
+    closeDeskMenus();
     scrollDeskSection(id);
     try {
       var next = id === "home" ? location.pathname + location.search : "#" + id;
@@ -681,32 +825,46 @@
     if (deskTabsHost.clientWidth < 20) return;
     deskLaying = true;
     try {
-    closeDeskMore();
-    deskTabs.forEach(function (tab) {
-      tab.removeAttribute("role");
-      deskTabsHost.appendChild(tab);
-    });
-    if (deskMore) deskMore.hidden = true;
-    var full = deskTabsHost.clientWidth;
-    var widths = deskTabs.map(function (tab) { return tab.getBoundingClientRect().width; });
-    var moreW = 0;
-    if (deskMore) {
-      deskMore.hidden = false;
-      moreW = deskMore.getBoundingClientRect().width || 0;
-      deskMore.hidden = true;
-    }
-    var count = fitTabs(widths, full, moreW, 2);
-    var i;
-    if (count >= deskTabs.length) {
-      if (deskMore) deskMore.hidden = true;
-    } else {
-      if (deskMore) deskMore.hidden = false;
-      for (i = deskTabs.length - 1; i >= count; i--) {
-        deskTabs[i].setAttribute("role", "menuitem");
-        deskMenu.insertBefore(deskTabs[i], deskMenu.firstChild);
+      var saved = deskSlots.slice();
+      var i;
+      if (deskRemeasure) {
+        for (i = 0; i < saved.length; i++) {
+          saved[i]._w = 0;
+          if (saved[i].parentNode !== deskTabsHost) deskTabsHost.appendChild(saved[i]);
+        }
+        if (deskMore) deskMore._w = 0;
+        deskRemeasure = false;
       }
-    }
-    paintDeskCurrent();
+      if (deskMore) deskMore.hidden = true;
+      var full = deskTabsHost.clientWidth;
+      var widths = saved.map(function (slot) {
+        if (!slot._w) slot._w = slot.getBoundingClientRect().width;
+        return slot._w;
+      });
+      var sum = 0;
+      widths.forEach(function (w, idx) { sum += w; if (idx) sum += 2; });
+      var moreW = 0;
+      if (sum > full + 0.5 && deskMore) {
+        if (!deskMore._w) {
+          deskMore.hidden = false;
+          deskMore._w = deskMore.getBoundingClientRect().width || 72;
+          deskMore.hidden = true;
+        }
+        moreW = deskMore._w;
+      }
+      var count = fitTabs(widths, full, moreW, 2);
+      var moved = false;
+      for (i = 0; i < saved.length; i++) {
+        var dest = (count >= saved.length || i < count || !deskMenu) ? deskTabsHost : deskMenu;
+        if (saved[i].parentNode !== dest) {
+          dest.appendChild(saved[i]);
+          moved = true;
+        }
+      }
+      if (deskMore) deskMore.hidden = !(deskMenu && deskMenu.children.length);
+      if (moved) closeDeskMenus();
+      deskFit = count;
+      paintDeskCurrent();
     } finally {
       deskLaying = false;
     }
@@ -752,24 +910,9 @@
     var moreLab = document.createElement("span");
     moreLab.className = "hnav-lab";
     moreLab.textContent = "थप";
-    var caret = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    caret.setAttribute("class", "hnav-caret");
-    caret.setAttribute("viewBox", "0 0 24 24");
-    caret.setAttribute("width", "14");
-    caret.setAttribute("height", "14");
-    caret.setAttribute("aria-hidden", "true");
-    caret.setAttribute("focusable", "false");
-    var caretPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    caretPath.setAttribute("d", "M6 9l6 6 6-6");
-    caretPath.setAttribute("fill", "none");
-    caretPath.setAttribute("stroke", "currentColor");
-    caretPath.setAttribute("stroke-width", "2");
-    caretPath.setAttribute("stroke-linecap", "round");
-    caretPath.setAttribute("stroke-linejoin", "round");
-    caret.appendChild(caretPath);
     moreBtn.appendChild(moreIco);
     moreBtn.appendChild(moreLab);
-    moreBtn.appendChild(caret);
+    moreBtn.appendChild(deskCaret());
     var menu = document.createElement("div");
     menu.className = "hnav-menu";
     menu.id = "hnav-more-menu";
@@ -784,62 +927,133 @@
     if (nav.parentNode) nav.parentNode.insertBefore(bar, nav);
     else document.body.appendChild(bar);
 
-    var links = inner.querySelectorAll("a[href]");
-    Array.prototype.forEach.call(links, function (a) {
-      var href = a.getAttribute("href") || "";
-      if (!href || href.charAt(0) === "#") return;
-      var tab = document.createElement("a");
-      tab.className = "hnav-tab";
-      tab.setAttribute("data-href", href);
-      var section = deskSection(href);
-      if (section) {
-        tab.setAttribute("data-section", section);
-        tab.href = section === "home" ? "#home" : "#" + section;
+    GROUPS.forEach(function (g) {
+      var hrefs = [];
+      g.hrefs.forEach(function (href) { if (byHref(href)) hrefs.push(href); });
+      if (!hrefs.length) return;
+      var slot = document.createElement("div");
+      slot.className = "hnav-slot";
+      slot.setAttribute("data-group", g.key);
+      slot.setAttribute("data-ne", g.ne);
+      slot.setAttribute("data-en", g.en);
+      if (hrefs.length < 2) {
+        var link = makeDeskLink(hrefs[0]);
+        var direct = link.querySelector(".hnav-lab");
+        if (direct) direct.textContent = g.ne;
+        slot.appendChild(link);
       } else {
-        tab.href = href;
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "hnav-tab hnav-parent";
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-haspopup", "true");
+        var mid = "hnav-menu-" + g.key;
+        btn.setAttribute("aria-controls", mid);
+        btn.appendChild(deskIcon(hrefs[0]));
+        var lab = document.createElement("span");
+        lab.className = "hnav-lab";
+        lab.textContent = g.ne;
+        btn.appendChild(lab);
+        btn.appendChild(deskCaret());
+        var panel = document.createElement("div");
+        panel.className = "hnav-menu";
+        panel.id = mid;
+        panel.setAttribute("role", "menu");
+        panel.hidden = true;
+        hrefs.forEach(function (href) {
+          var item = makeDeskLink(href);
+          item.setAttribute("role", "menuitem");
+          panel.appendChild(item);
+        });
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (slot.classList.contains("is-open")) closeDeskSlot(slot);
+          else openDeskSlot(slot, false);
+        });
+        btn.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowDown") {
+            e.preventDefault();
+            openDeskSlot(slot, true);
+          }
+        });
+        slot.appendChild(btn);
+        slot.appendChild(panel);
+        slot.addEventListener("focusout", function (e) {
+          var next = e.relatedTarget;
+          if (next && slot.contains(next)) return;
+          setTimeout(function () {
+            if (!slot.contains(document.activeElement)) closeDeskSlot(slot);
+          }, 10);
+        });
+        armHover(slot, function () { openDeskSlot(slot, false); }, function () { closeDeskSlot(slot); });
       }
-      tab.style.flex = "none";
-      tab.style.whiteSpace = "nowrap";
-      tab.appendChild(cloneDeskIcon(a));
-      var lab = document.createElement("span");
-      lab.className = "hnav-lab";
-      lab.textContent = shortText(href) || (a.textContent || "").replace(/\s+/g, " ").trim();
-      tab.appendChild(lab);
-      tab.addEventListener("click", onDeskTabClick);
-      host.appendChild(tab);
-      deskTabs.push(tab);
+      host.appendChild(slot);
+      deskSlots.push(slot);
     });
 
     moreBtn.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      if (menu.hidden) openDeskMore();
-      else closeDeskMore();
+      if (more._openT) { clearTimeout(more._openT); more._openT = 0; }
+      if (menu.hidden) openOverflow(false);
+      else closeOverflow();
     });
+    moreBtn.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        openOverflow(true);
+      }
+    });
+    armHover(more, function () { if (!more.hidden) openOverflow(false); }, closeOverflow);
     document.addEventListener("click", function (e) {
-      if (!deskMenu || deskMenu.hidden) return;
       var t = e.target;
-      if (t && deskMore && deskMore.contains(t)) return;
-      closeDeskMore();
+      if (t && bar.contains(t)) return;
+      closeDeskMenus();
     });
     document.addEventListener("keydown", function (e) {
-      if (!deskMenu || deskMenu.hidden) return;
-      if (e.key === "Escape" || e.key === "Esc") {
+      if (e.key !== "Escape" && e.key !== "Esc") return;
+      if (!isDesk()) return;
+      if (deskOpen) {
+        var back = deskOpen.querySelector(":scope > .hnav-parent");
+        var restore = bar.contains(document.activeElement);
+        closeDeskSlot(deskOpen);
+        if (restore) focusEl(back);
         e.preventDefault();
-        closeDeskMore();
+      } else if (deskMenu && !deskMenu.hidden) {
+        closeOverflow();
         focusEl(deskMoreBtn);
+        e.preventDefault();
+      }
+    });
+    bar.addEventListener("keydown", function (e) {
+      var key = e.key;
+      var inMenu = deskOpen && deskOpen.contains(e.target) && e.target !== deskOpen.querySelector(":scope > .hnav-parent");
+      if (inMenu && (key === "ArrowDown" || key === "ArrowUp" || key === "Home" || key === "End")) {
+        var items = deskOpen.querySelectorAll(":scope > .hnav-menu a.hnav-tab");
+        if (!items.length) return;
+        e.preventDefault();
+        var i = Array.prototype.indexOf.call(items, document.activeElement);
+        if (key === "Home") i = 0;
+        else if (key === "End") i = items.length - 1;
+        else if (key === "ArrowDown") i = i < 0 ? 0 : Math.min(items.length - 1, i + 1);
+        else i = i < 0 ? items.length - 1 : Math.max(0, i - 1);
+        focusEl(items[i]);
         return;
       }
-      if (e.key !== "ArrowDown" && e.key !== "ArrowUp" && e.key !== "Home" && e.key !== "End") return;
-      var items = deskMenu.querySelectorAll("a.hnav-tab");
-      if (!items.length) return;
+      if (key !== "ArrowRight" && key !== "ArrowLeft") return;
+      var tops = [];
+      host.querySelectorAll(":scope > .hnav-slot").forEach(function (slot) {
+        var c = slot.querySelector(":scope > .hnav-parent, :scope > a.hnav-tab");
+        if (c) tops.push(c);
+      });
+      if (deskMoreBtn && deskMore && !deskMore.hidden) tops.push(deskMoreBtn);
+      var idx = tops.indexOf(document.activeElement);
+      if (idx < 0) return;
       e.preventDefault();
-      var i = Array.prototype.indexOf.call(items, document.activeElement);
-      if (e.key === "Home") i = 0;
-      else if (e.key === "End") i = items.length - 1;
-      else if (e.key === "ArrowDown") i = i < 0 ? 0 : Math.min(items.length - 1, i + 1);
-      else i = i < 0 ? items.length - 1 : Math.max(0, i - 1);
-      focusEl(items[i]);
+      var n = key === "ArrowRight" ? Math.min(tops.length - 1, idx + 1) : Math.max(0, idx - 1);
+      closeDeskMenus();
+      focusEl(tops[n]);
     });
     if (window.ResizeObserver) {
       var ro = new ResizeObserver(function () {
@@ -857,7 +1071,6 @@
     layoutDeskNav();
     paintDeskCurrent();
   }
-
   placeToggle();
   groupLinks();
   markCurrent();

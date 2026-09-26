@@ -44,6 +44,15 @@ const nav = read("nav-menu.js");
 const css = read("bulletin.css");
 const min = read("bulletin.min.css");
 
+const GROUPS = [
+  ["home", "गृह", "Home", false],
+  ["alerts", "चेतावनी", "Alerts", true],
+  ["people", "मानिस", "People", true],
+  ["gov", "सरकार", "Government", true],
+  ["relief", "राहत", "Relief", true],
+  ["more", "थप", "More", false]
+];
+
 test("desktop tabs follow the existing menu order", () => {
   const groups = nav.slice(nav.indexOf("var GROUPS"), nav.indexOf("var ICONS"));
   const hrefs = [];
@@ -56,6 +65,25 @@ test("desktop tabs follow the existing menu order", () => {
   }
   assert.match(nav, /थप/);
   assert.match(nav, /"More"/);
+});
+
+test("desktop groups mirror the mobile drawer", () => {
+  const src = nav.slice(nav.indexOf("var GROUPS"), nav.indexOf("var ICONS"));
+  const keys = [...src.matchAll(/key:\s*"([^"]+)"/g)].map((m) => m[1]);
+  assert.deepEqual(keys, GROUPS.map((g) => g[0]));
+  GROUPS.forEach((g) => {
+    assert.match(src, new RegExp('key:\\s*"' + g[0] + '",\\s*ne:\\s*"' + g[1] + '",\\s*en:\\s*"' + g[2] + '"'));
+  });
+  const plan = new Function(extractFn(nav, "deskGroupPlan") + "\nreturn deskGroupPlan;")();
+  const built = plan(GROUPS.map((g) => ({ key: g[0], hrefs: g[3] ? ["a.html", "b.html"] : ["a.html"] })));
+  assert.deepEqual(built.map((g) => g.menu), GROUPS.map((g) => g[3]));
+  assert.match(nav, /hnav-slot/);
+  assert.match(nav, /hnav-parent/);
+  assert.match(nav, /aria-haspopup/);
+  assert.match(nav, /pointerenter/);
+  assert.match(nav, /aria-expanded/);
+  assert.match(css, /\.hnav-slot\{position:relative/);
+  assert.match(min, /\.hnav-slot\{position:relative/);
 });
 
 test("homepage scroll targets are real sections, not new pages", () => {
@@ -75,6 +103,7 @@ test("desktop bar is 900px-up and the mobile drawer is still there", () => {
   assert.match(css, /\.hnav\{display:none\}/);
   assert.match(css, /#c41e3a/);
   assert.match(css, /\.hnav-menu/);
+  assert.match(css, /\.hnav-parent\.is-current/);
   assert.match(css, /scroll-margin-top/);
   assert.match(min, /\.hnav\{\s*display:\s*block !important/);
   assert.match(min, /\.head-stick #nav-toggle\{\s*display:\s*none !important/);
