@@ -3,10 +3,13 @@
   "use strict";
 
   var DATA = null;
+  var GEO = null;
   var map = null;
   var markers = {};
   var activeId = "";
+  var activeFeed = "";
   var activeFlow = "";
+  var alertView = null;
   var flowPinned = false;
   var flowIndex = {};
   var filterProv = "all";
@@ -178,15 +181,37 @@
     if (!key) return value;
     return t(key, value);
   }
+  function incident0() {
+    var list = (DATA && DATA.incidents) || [];
+    return list.length ? list[0] : null;
+  }
+  function assetItems() {
+    var inc = incident0();
+    return (inc && inc.damaged_assets && inc.damaged_assets.items) || [];
+  }
+  function stmtItems() {
+    var inc = incident0();
+    return (inc && inc.statements && inc.statements.items) || [];
+  }
   function assetById(id) {
-    var items = (DATA && DATA.damaged_assets && DATA.damaged_assets.items) || [];
+    var items = assetItems();
     for (var i = 0; i < items.length; i++) if (items[i].id === id) return items[i];
     return null;
   }
   function stmtById(id) {
-    var items = (DATA && DATA.statements && DATA.statements.items) || [];
+    var items = stmtItems();
     for (var i = 0; i < items.length; i++) if (items[i].id === id) return items[i];
     return null;
+  }
+  function sourcePasses(src) {
+    var tier = src && src.source_tier;
+    return tier === "nea_official" || tier === "listed_outlet";
+  }
+  function passes(item) {
+    return ((item && item.sources) || []).some(sourcePasses);
+  }
+  function visibleSources(item) {
+    return ((item && item.sources) || []).filter(sourcePasses);
   }
   function fmtNum(n) {
     if (n == null || n === "") return "";
@@ -231,12 +256,21 @@
       return map[k] == null ? "" : String(map[k]);
     });
   }
+  function blockStamp(key) {
+    if (!DATA) return "";
+    if (key === "alert") return (DATA.alert && (DATA.alert.as_of || DATA.alert.checked_at)) || "";
+    if (key === "statements" || key === "damaged_assets") {
+      var inc = incident0();
+      var block = inc && inc[key];
+      return (block && block.checked_at) || "";
+    }
+    var top = DATA[key];
+    return (top && (top.checked_at || top.as_of)) || "";
+  }
   function setChecked() {
     if (!DATA) return;
     document.querySelectorAll(".elec-checked[data-elec-block]").forEach(function (node) {
-      var key = node.getAttribute("data-elec-block");
-      var block = DATA[key];
-      var iso = block && block.checked_at;
+      var iso = blockStamp(node.getAttribute("data-elec-block"));
       node.textContent = iso ? (" · " + fmtChecked(iso)) : "";
     });
   }
@@ -291,29 +325,10 @@
     var block = DATA.planned_shutdowns || {};
     var rows = sortedRows(block.rows || []);
     clear(host);
-    var cover = el("p", "elec-cover");
-    var line = DATA.coverage_line || {};
-    cover.textContent = tx(line.ne, line.en);
-    host.appendChild(cover);
-
     var filters = el("div", "elec-filters");
     filters.appendChild(chipRow(t("elec_filter_prov", en() ? "Province" : "प्रदेश"), unique(rows, "province"), filterProv, "data-elec-prov", function (v) { return officeLabel(v, PROV_KEY); }));
-    filters.appendChild(chipRow(t("elec_filter_dc", en() ? "Distribution centre" : "वितरण केन्द्र"), unique(rows, "distribution_centre"), filterDc, "data-elec-dc", function (v) { return officeLabel(v, DC_KEY); }));
+    filters.appendChild(chipRow(t("elec_filter_dc", en() ? "Distribution centre" : "वितरण केन्द्र"), unique(rows, "distribution_centre"), filterDc, "data-elec-dc", function (v) { return v; }));
     host.appendChild(filters);
-
-    var gaps = block.flood_districts_without_rows || [];
-    if (gaps.length) {
-      var gk = el("p", "elec-gap-k");
-      gk.textContent = t("elec_none_k", en() ? "No NEA-published shutdowns:" : "प्राधिकरणले प्रकाशित नगरेका जिल्ला:");
-      host.appendChild(gk);
-      var grow = el("div", "elec-gap");
-      gaps.forEach(function (name) {
-        var chip = el("span", "elec-muted");
-        chip.textContent = districtLabel(name);
-        grow.appendChild(chip);
-      });
-      host.appendChild(grow);
-    }
 
     var heads = [
       [t("elec_th_dc", en() ? "Distribution centre" : "वितरण केन्द्र"), "dc"],
@@ -340,7 +355,8 @@
       var tr = el("tr", live(row) ? "elec-live" : "elec-past");
       tr.setAttribute("data-prov", row.province || "");
       tr.setAttribute("data-dc", row.distribution_centre || "");
-      tr.appendChild(cell(officeLabel(row.distribution_centre, DC_KEY), heads[0][0]));
+      var dcName = (!en() && row.distribution_centre_ne) ? row.distribution_centre_ne : (row.distribution_centre || "");
+      tr.appendChild(cell(dcName, heads[0][0]));
       tr.appendChild(cell(row.feeder || "", heads[1][0]));
       var area = cell(row.area_ne || "", heads[2][0]);
       area.classList.add("elec-area");
@@ -392,7 +408,7 @@
   function paintStatements() {
     var host = document.getElementById("elec-statements");
     if (!host || !DATA) return;
-    var items = ((DATA.statements && DATA.statements.items) || []).slice().sort(function (a, b) {
+    var items = stmtItems().slice().sort(function (a, b) {
       return String(b.date || "").localeCompare(String(a.date || ""));
     });
     clear(host);
@@ -481,7 +497,7 @@
     }[kind] || "";
     return '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="' + d + '"/></svg>';
   }
-  function bindFullscreen(host) {
+  function bindFullscreen(host, refitFn) {
     var btn = document.createElement("button");
     btn.type = "button";
     btn.className = "map-ctl-btn map-ctl-fs";
@@ -495,6 +511,10 @@
       btn.innerHTML = mapIcon(on ? "compress" : "expand");
     }
     function refit() {
+      if (refitFn) {
+        try { refitFn(); } catch (e0) {}
+        return;
+      }
       if (map) {
         try { map.invalidateSize(); } catch (e) {}
       }
@@ -1083,7 +1103,7 @@
   function paintAssets() {
     var host = document.getElementById("elec-assets");
     if (!host || !DATA) return;
-    var items = (DATA.damaged_assets && DATA.damaged_assets.items) || [];
+    var items = assetItems();
     clear(host);
     items.forEach(function (item) {
       var mapped = item.lat != null && item.lon != null;
@@ -1131,13 +1151,79 @@
     if (activeId) highlight(activeId, false);
   }
 
+  function helplineCard(item) {
+    var card = el("article", "card elec-hl-card");
+    var title = el("h4");
+    title.textContent = tx(item.label_ne, item.label_en);
+    card.appendChild(title);
+    if (item.district) {
+      var dist = el("p", "elec-hl-dist");
+      dist.textContent = districtLabel(item.district);
+      card.appendChild(dist);
+    }
+    var nums = el("p", "elec-hl-nums");
+    (item.numbers || []).forEach(function (num) {
+      var a = el("a");
+      a.href = telHref(num);
+      a.textContent = num;
+      nums.appendChild(a);
+    });
+    card.appendChild(nums);
+    if (item.email) {
+      var mail = el("a", "elec-mail");
+      mail.href = "mailto:" + item.email;
+      mail.textContent = item.email;
+      card.appendChild(mail);
+    }
+    if (item.label_note_ne || item.label_note_en) {
+      var note = el("p", "elec-note");
+      if (item.source_url) note.appendChild(extLink(item.source_url, tx(item.label_note_ne, item.label_note_en)));
+      else note.textContent = tx(item.label_note_ne, item.label_note_en);
+      card.appendChild(note);
+    }
+    if (item.published_on) {
+      var foot = el("p", "elec-hl-foot");
+      foot.appendChild(extLink(item.published_on, t("elec_nea_page", en() ? "NEA page" : "प्राधिकरणको पाना")));
+      card.appendChild(foot);
+    }
+    return card;
+  }
   function paintHelplines() {
     var host = document.getElementById("elec-helplines");
     if (!host || !DATA) return;
     var items = (DATA.helplines && DATA.helplines.items) || [];
     clear(host);
-    var groups = {};
+    var alertOn = !!(DATA.alert && DATA.alert.active);
+    var alertItems = [];
+    var rest = [];
     items.forEach(function (item) {
+      if (alertOn && item.scope === "alert") alertItems.push(item);
+      else rest.push(item);
+    });
+    if (alertItems.length) {
+      var byDist = [];
+      var seen = {};
+      alertItems.forEach(function (item) {
+        var key = item.district || "";
+        if (!seen[key]) {
+          seen[key] = [];
+          byDist.push(key);
+        }
+        seen[key].push(item);
+      });
+      byDist.forEach(function (key) {
+        var sec = el("section", "elec-hl-group");
+        var h = el("h3");
+        h.textContent = key ? districtLabel(key) : tx(seen[key][0].label_ne, seen[key][0].label_en);
+        sec.appendChild(h);
+        var grid = el("div", "elec-hl-grid");
+        seen[key].forEach(function (item) { grid.appendChild(helplineCard(item)); });
+        sec.appendChild(grid);
+        host.appendChild(sec);
+      });
+    }
+    var groups = {};
+    rest.forEach(function (item) {
       var key = item.category || "";
       if (!groups[key]) groups[key] = [];
       groups[key].push(item);
@@ -1152,106 +1238,739 @@
       h.textContent = t(CAT_KEY[key], key);
       sec.appendChild(h);
       var grid = el("div", "elec-hl-grid");
-      groups[key].forEach(function (item) {
-        var card = el("article", "card elec-hl-card");
-        var title = el("h4");
-        title.textContent = tx(item.label_ne, item.label_en);
-        card.appendChild(title);
-        if (item.district) {
-          var dist = el("p", "elec-hl-dist");
-          dist.textContent = districtLabel(item.district);
-          card.appendChild(dist);
-        }
-        var nums = el("p", "elec-hl-nums");
-        (item.numbers || []).forEach(function (num) {
-          var a = el("a");
-          a.href = telHref(num);
-          a.textContent = num;
-          nums.appendChild(a);
-        });
-        card.appendChild(nums);
-        if (item.email) {
-          var mail = el("a", "elec-mail");
-          mail.href = "mailto:" + item.email;
-          mail.textContent = item.email;
-          card.appendChild(mail);
-        }
-        if (item.label_note_ne || item.label_note_en) {
-          var note = el("p", "elec-note");
-          if (item.source_url) note.appendChild(extLink(item.source_url, tx(item.label_note_ne, item.label_note_en)));
-          else note.textContent = tx(item.label_note_ne, item.label_note_en);
-          card.appendChild(note);
-        }
-        if (item.published_on) {
-          var foot = el("p", "elec-hl-foot");
-          foot.appendChild(extLink(item.published_on, t("elec_nea_page", en() ? "NEA page" : "प्राधिकरणको पाना")));
-          card.appendChild(foot);
-        }
-        grid.appendChild(card);
-      });
+      groups[key].forEach(function (item) { grid.appendChild(helplineCard(item)); });
       sec.appendChild(grid);
       host.appendChild(sec);
     });
   }
 
+  var KIND_FB = {
+    reservoir_watch: ["जलाशय निगरानी", "Reservoir watch"],
+    safety_warning_system: ["सुरक्षा चेतावनी", "Safety warning"],
+    preparedness: ["पूर्वतयारी", "Preparedness"],
+    consumer_safety: ["उपभोक्ता सुरक्षा", "Consumer safety"],
+    complaint_line: ["गुनासो", "Complaint line"]
+  };
+  var STATUS_FB = {
+    disrupted: ["अवरुद्ध", "Disrupted"],
+    partly_disrupted: ["आंशिक", "Partly disrupted"],
+    restored: ["सुचारु", "Restored"],
+    generation_only: ["उत्पादन", "Generation only"]
+  };
+  function kindLabel(kind) {
+    var fb = KIND_FB[kind] || ["", ""];
+    return t("elec_kind_" + kind, en() ? fb[1] : fb[0]);
+  }
+  function statusLabel(status) {
+    var fb = STATUS_FB[status] || ["", ""];
+    return t("elec_st_" + status, en() ? fb[1] : fb[0]);
+  }
+  function byId(list, id) {
+    for (var i = 0; i < (list || []).length; i++) if (list[i].id === id) return list[i];
+    return null;
+  }
+  function resolveFeed(entry) {
+    if (!entry || !DATA) return null;
+    var list = entry.ref === "advisories" ? DATA.advisories : DATA.alert_outages;
+    return byId(list, entry.id);
+  }
+  function feedWhen(entry) {
+    if (!entry) return "";
+    if (entry.time) return fmtDate(entry.time, true);
+    return fmtDate(entry.date, false);
+  }
+  function shortAlertName() {
+    var alert = DATA && DATA.alert;
+    var name = alert && alert.name ? tx(alert.name.ne, alert.name.en) : "";
+    var cut = name.indexOf(" · ");
+    return cut >= 0 ? name.slice(0, cut) : name;
+  }
+  function hotlineItem() {
+    var hot = null;
+    ((DATA && DATA.helplines && DATA.helplines.items) || []).forEach(function (item) {
+      if (!hot && item.category === "hotline" && item.numbers && item.numbers.length) hot = item;
+    });
+    return hot;
+  }
+  function applyHotline(node) {
+    var hot = hotlineItem();
+    if (!node || !hot) return;
+    node.href = telHref(hot.numbers[0]);
+    node.textContent = hot.numbers[0];
+    node.setAttribute("aria-label", tx(hot.label_ne, hot.label_en) + " " + hot.numbers[0]);
+  }
+  function quoteBits(sources) {
+    var out = [];
+    (sources || []).forEach(function (src) {
+      if (en()) {
+        if (src.translation_en) out.push({ kind: "tr", text: src.translation_en, name: src.source_name || "" });
+        else if (src.quote_en) out.push({ kind: "q", text: src.quote_en, name: src.source_name || "" });
+      } else if (src.quote_ne) out.push({ kind: "q", text: src.quote_ne, name: src.source_name || "" });
+      else if (src.quote_en) out.push({ kind: "q", text: src.quote_en, name: src.source_name || "" });
+    });
+    return out;
+  }
+  function appendQuotes(parent, sources) {
+    var bits = quoteBits(sources);
+    if (!bits.length) return;
+    var groups = { tr: [], q: [] };
+    bits.forEach(function (bit) { groups[bit.kind].push(bit); });
+    ["q", "tr"].forEach(function (kind) {
+      if (!groups[kind].length) return;
+      var det = el("details", "elec-quote");
+      var sum = el("summary");
+      sum.textContent = kind === "tr" ? t("elec_translation", "Translation") : t("elec_quote", en() ? "Quote" : "उद्धरण");
+      det.appendChild(sum);
+      groups[kind].forEach(function (bit) {
+        var p = el("p");
+        if (bit.name) {
+          var who = el("span", "elec-quote-who");
+          who.textContent = bit.name;
+          p.appendChild(who);
+        }
+        p.appendChild(document.createTextNode(bit.text));
+        det.appendChild(p);
+      });
+      parent.appendChild(det);
+    });
+  }
+  function appendSources(parent, sources) {
+    var row = el("p", "elec-links elec-feed-src");
+    (sources || []).forEach(function (src) {
+      if (!src.source_url || !src.source_name) return;
+      var a = extLink(src.source_url, src.source_name);
+      a.className = "elec-src-link";
+      row.appendChild(a);
+    });
+    if (row.childNodes.length) parent.appendChild(row);
+  }
+  function assetLine(asset) {
+    var parts = [tx(asset.name_ne, asset.name_en)];
+    if (asset.kv != null && asset.kv !== "") parts.push(fmtNum(asset.kv) + " kV");
+    if (asset.mw != null && asset.mw !== "") parts.push(fmtNum(asset.mw) + " " + t("elec_tile_mw", en() ? "MW" : "मेगावाट"));
+    var status = tx(asset.status_ne, asset.status_en);
+    if (status) parts.push(status);
+    return parts.filter(Boolean).join(" · ");
+  }
+  function highlightFeed(id, scroll) {
+    activeFeed = id || "";
+    document.querySelectorAll(".elec-dist, .elec-alert-ico").forEach(function (node) {
+      var ids = (node.getAttribute("data-feed") || "").split(",");
+      node.classList.toggle("is-on", !!(activeFeed && ids.indexOf(activeFeed) >= 0));
+    });
+    document.querySelectorAll(".elec-feed-card").forEach(function (node) {
+      var on = node.getAttribute("data-id") === activeFeed;
+      node.classList.toggle("is-on", on);
+      if (on && scroll && node.scrollIntoView) {
+        try { node.scrollIntoView({ block: "nearest", behavior: "auto" }); } catch (e) {}
+      }
+    });
+  }
+  function pathCentroid(path) {
+    try {
+      var len = path.getTotalLength();
+      if (len) {
+        var n = 32;
+        var x = 0;
+        var y = 0;
+        var i;
+        for (i = 0; i < n; i++) {
+          var p = path.getPointAtLength(len * (i + 0.5) / n);
+          x += p.x;
+          y += p.y;
+        }
+        return { x: x / n, y: y / n };
+      }
+    } catch (e) {}
+    try {
+      var box = path.getBBox();
+      return { x: box.x + box.width / 2, y: box.y + box.height / 2 };
+    } catch (e2) {}
+    return null;
+  }
+  function applyAlertView(svg) {
+    if (!svg || !alertView) return;
+    svg.setAttribute("viewBox", [alertView.x, alertView.y, alertView.w, alertView.h].join(" "));
+  }
+  function zoomAlert(svg, dir) {
+    if (!alertView) return;
+    var cx = alertView.x + alertView.w / 2;
+    var cy = alertView.y + alertView.h / 2;
+    var next = dir > 0 ? 1.35 : 1 / 1.35;
+    var w = alertView.w / next;
+    var h = alertView.h / next;
+    if (w >= alertView.bw) {
+      alertView.x = alertView.bx;
+      alertView.y = alertView.by;
+      alertView.w = alertView.bw;
+      alertView.h = alertView.bh;
+    } else {
+      var minW = alertView.bw / 8;
+      if (w < minW) {
+        h = h * (minW / w);
+        w = minW;
+      }
+      alertView.w = w;
+      alertView.h = h;
+      alertView.x = cx - w / 2;
+      alertView.y = cy - h / 2;
+    }
+    applyAlertView(svg);
+  }
+  function paintAlertMap(host) {
+    if (!GEO || !GEO.districts) return;
+    var panel = el("div", "elec-alert-map");
+    var svg = svgEl("svg", { class: "elec-alert-svg" });
+    var raw = String(GEO.viewBox || "-18 -12 880 548").trim().split(/\s+/).map(Number);
+    alertView = { x: raw[0], y: raw[1], w: raw[2], h: raw[3], bx: raw[0], by: raw[1], bw: raw[2], bh: raw[3] };
+    applyAlertView(svg);
+    svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+    svg.setAttribute("role", "group");
+    var alertName = DATA.alert && DATA.alert.name ? tx(DATA.alert.name.ne, DATA.alert.name.en) : "";
+    if (alertName) svg.setAttribute("aria-label", alertName);
+    var byIdStatus = {};
+    (DATA.alert_district_status || []).forEach(function (row) { byIdStatus[row.district_id] = row; });
+    var shapes = GEO.districts.slice().sort(function (a, b) {
+      return (byIdStatus[a.id] ? 1 : 0) - (byIdStatus[b.id] ? 1 : 0);
+    });
+    shapes.forEach(function (shape) {
+      var row = byIdStatus[shape.id];
+      var path = svgEl("path");
+      path.setAttribute("d", shape.d);
+      path.setAttribute("class", "elec-dist is-" + (row ? row.status : "quiet"));
+      path.setAttribute("data-id", shape.id);
+      path.setAttribute("vector-effect", "non-scaling-stroke");
+      if (row) {
+        path.setAttribute("data-feed", (row.item_ids || []).join(","));
+        path.setAttribute("role", "button");
+        path.setAttribute("tabindex", "0");
+        path.setAttribute("aria-label", tx(row.name_ne, row.name_en));
+      }
+      svg.appendChild(path);
+    });
+    panel.appendChild(svg);
+    host.appendChild(panel);
+    var placed = {};
+    (DATA.alert_outages || []).forEach(function (item) {
+      if (!passes(item)) return;
+      (item.assets || []).forEach(function (asset) {
+        if (asset.lat == null || asset.lon == null) return;
+        var districtId = "";
+        (item.districts || []).forEach(function (d) {
+          if (!districtId && d.district_id) districtId = d.district_id;
+        });
+        if (asset.district_en) {
+          (DATA.alert_district_status || []).forEach(function (row) {
+            if (row.name_en === asset.district_en) districtId = row.district_id;
+          });
+        }
+        var path = districtId ? svg.querySelector('[data-id="' + districtId + '"]') : null;
+        if (!path) return;
+        var at = pathCentroid(path);
+        if (!at) return;
+        var n = placed[districtId] || 0;
+        placed[districtId] = n + 1;
+        var g = svgEl("g", {
+          class: "elec-alert-ico",
+          transform: "translate(" + (at.x + n * 16) + " " + (at.y + n * 16) + ")",
+          role: "button",
+          tabindex: "0",
+          "data-feed": item.id
+        });
+        g.setAttribute("aria-label", tx(asset.name_ne, asset.name_en));
+        g.appendChild(svgEl("circle", { cx: "0", cy: "0", r: "12", class: "elec-alert-ico-bg" }));
+        var glyph = svgEl("g", { transform: "translate(-8 -8)", "aria-hidden": "true" });
+        addGlyph(glyph, iconKind(asset.type), 8, 8);
+        g.appendChild(glyph);
+        svg.appendChild(g);
+      });
+    });
+    var bar = el("div", "map-ctl");
+    function zbtn(key, fb, icon, dir) {
+      var b = el("button", "map-ctl-btn");
+      b.type = "button";
+      b.setAttribute("aria-label", t(key, fb));
+      b.innerHTML = mapIcon(icon);
+      b.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        zoomAlert(svg, dir);
+      });
+      bar.appendChild(b);
+    }
+    zbtn("map_zoom_in", en() ? "Zoom in" : "ठूलो पार्नुहोस्", "plus", 1);
+    zbtn("map_zoom_out", en() ? "Zoom out" : "सानो पार्नुहोस्", "minus", -1);
+    bar.appendChild(bindFullscreen(panel, function () { applyAlertView(svg); }));
+    panel.appendChild(bar);
+    function fromMap(node) {
+      if (!node) return;
+      var ids = (node.getAttribute("data-feed") || "").split(",").filter(Boolean);
+      if (!ids.length) return;
+      highlightFeed(activeFeed === ids[0] ? "" : ids[0], true);
+    }
+    svg.addEventListener("click", function (ev) {
+      var node = ev.target.closest && ev.target.closest(".elec-alert-ico, .elec-dist[data-feed]");
+      if (!node) return;
+      ev.stopPropagation();
+      fromMap(node);
+    });
+    svg.addEventListener("keydown", function (ev) {
+      if (ev.key !== "Enter" && ev.key !== " ") return;
+      var node = ev.target.closest && ev.target.closest(".elec-alert-ico, .elec-dist[data-feed]");
+      if (!node || node !== ev.target) return;
+      ev.preventDefault();
+      fromMap(node);
+    });
+    var legend = el("ul", "elec-dlegend");
+    var seenStatus = {};
+    (DATA.alert_district_status || []).forEach(function (row) {
+      if (!row.status || seenStatus[row.status]) return;
+      seenStatus[row.status] = 1;
+      var li = el("li");
+      var sw = el("i", "is-" + row.status);
+      li.appendChild(sw);
+      var s = el("span");
+      s.textContent = statusLabel(row.status);
+      li.appendChild(s);
+      legend.appendChild(li);
+    });
+    host.appendChild(legend);
+  }
+  function paintFeed(host) {
+    var feed = DATA.alert_feed || [];
+    var wrap = el("div", "elec-feed");
+    var h = el("h3");
+    h.textContent = t("elec_feed_h", en() ? "Latest NEA updates" : "पछिल्ला अद्यावधिक");
+    wrap.appendChild(h);
+    feed.forEach(function (entry) {
+      var item = resolveFeed(entry);
+      if (!item || !passes(item)) return;
+      var card = el("article", "card elec-feed-card");
+      card.id = "feed-" + item.id;
+      card.setAttribute("data-id", item.id);
+      var top = el("div", "elec-feed-top");
+      var time = el("time");
+      time.dateTime = entry.time || entry.date || "";
+      time.textContent = feedWhen(entry);
+      top.appendChild(time);
+      var chip = el("span", "elec-chip is-block");
+      if (entry.ref === "advisories") chip.textContent = kindLabel(item.kind);
+      else chip.textContent = tx(item.status_ne, item.status_en);
+      top.appendChild(chip);
+      card.appendChild(top);
+      if (entry.ref === "advisories" && item.title) {
+        var title = el("p", "elec-feed-title");
+        title.textContent = tx(item.title.ne, item.title.en);
+        card.appendChild(title);
+      }
+      var text = entry.ref === "advisories" ? tx(item.text_ne, item.text_en) : tx(item.summary_ne, item.summary_en);
+      if (text) {
+        var sum = el("p", "elec-sum");
+        sum.textContent = text;
+        card.appendChild(sum);
+      }
+      var speaker = tx(item.speaker_ne, item.speaker_en);
+      if (speaker) {
+        var who = el("p", "elec-speaker");
+        who.textContent = speaker;
+        card.appendChild(who);
+      }
+      var districts = item.districts || (item.district ? [item.district] : []);
+      if (districts.length) {
+        var chips = el("div", "elec-feed-dists");
+        districts.forEach(function (d) {
+          var name = tx(d.name_ne, d.name_en);
+          if (!name) return;
+          var c = el("span", "elec-muted");
+          c.textContent = name;
+          chips.appendChild(c);
+        });
+        if (chips.childNodes.length) card.appendChild(chips);
+      }
+      if (item.assets && item.assets.length) {
+        var list = el("ul", "elec-feed-assets");
+        item.assets.forEach(function (asset) {
+          var li = el("li");
+          li.textContent = assetLine(asset);
+          list.appendChild(li);
+        });
+        card.appendChild(list);
+      }
+      if (item.restoration_eta && (item.restoration_eta.ne || item.restoration_eta.en)) {
+        var eta = el("p", "elec-eta");
+        eta.textContent = tx(item.restoration_eta.ne, item.restoration_eta.en);
+        card.appendChild(eta);
+      }
+      var sources = visibleSources(item);
+      appendSources(card, sources);
+      appendQuotes(card, sources);
+      card.addEventListener("click", function (ev) {
+        if (ev.target.closest && ev.target.closest("a, button, summary, details")) return;
+        highlightFeed(activeFeed === item.id ? "" : item.id, false);
+      });
+      wrap.appendChild(card);
+    });
+    host.appendChild(wrap);
+  }
+  function paintAlert() {
+    var host = document.getElementById("elec-alert");
+    var sec = document.getElementById("power-alert");
+    if (!host || !DATA) return;
+    clear(host);
+    var alert = DATA.alert || {};
+    if (!alert.active) {
+      if (sec) sec.hidden = true;
+      return;
+    }
+    if (sec) sec.hidden = false;
+    var head = el("div", "elec-alert-head");
+    var h = el("h3");
+    h.textContent = tx(alert.name && alert.name.ne, alert.name && alert.name.en);
+    head.appendChild(h);
+    var range = alert.date_range || {};
+    var bs = tx(range.start_bs_label && range.start_bs_label.ne, range.start_bs_label && range.start_bs_label.en);
+    var be = tx(range.end_bs_label && range.end_bs_label.ne, range.end_bs_label && range.end_bs_label.en);
+    var ad = [fmtDate(range.start, false), fmtDate(range.end, false)].filter(Boolean).join(" – ");
+    var line = el("p", "elec-alert-range");
+    line.textContent = [bs && be ? (bs + " – " + be) : (bs || be), ad].filter(Boolean).join(" · ");
+    head.appendChild(line);
+    var ids = (alert.dhm_warning_ids || []).join(" · ");
+    var issuer = tx(alert.issuer && alert.issuer.ne, alert.issuer && alert.issuer.en);
+    if (issuer || ids) {
+      var muted = el("p", "elec-alert-ids");
+      muted.textContent = [issuer, ids].filter(Boolean).join(" · ");
+      head.appendChild(muted);
+    }
+    host.appendChild(head);
+    var cover = DATA.coverage_line || {};
+    if (cover.ne || cover.en) {
+      var cov = el("p", "elec-cover");
+      cov.textContent = tx(cover.ne, cover.en);
+      host.appendChild(cov);
+    }
+    var summary = DATA.alert_summary || {};
+    var tiles = el("div", "elec-kpis elec-alert-kpis");
+    function tile(num, sub) {
+      if (num == null || num === "") return;
+      var node = el("article", "elec-kpi");
+      var n = el("p", "elec-kpi-n");
+      n.textContent = fmtNum(num);
+      node.appendChild(n);
+      var s = el("p", "elec-kpi-sub");
+      s.textContent = sub;
+      node.appendChild(s);
+      tiles.appendChild(node);
+    }
+    tile(summary.outage_items, t("elec_tile_updates", en() ? "Outage updates" : "अद्यावधिक"));
+    tile(summary.districts_supply_affected, t("elec_tile_districts", en() ? "Districts with supply affected" : "आपूर्ति प्रभावित जिल्ला"));
+    tile(summary.assets_listed, t("elec_tile_assets", en() ? "Assets affected" : "प्रभावित संरचना"));
+    tile(summary.assets_damaged, t("elec_tile_damaged_n", en() ? "Damaged" : "क्षति"));
+    tile(summary.assets_restored, t("elec_tile_restored_n", en() ? "Restored" : "सुचारु"));
+    if (summary.generation_mw_stopped_in_items != null) {
+      tile(summary.generation_mw_stopped_in_items, t("elec_tile_mw_updates", en() ? "MW in NEA updates" : "मेगावाट · प्राधिकरणका अद्यावधिकमा"));
+    }
+    host.appendChild(tiles);
+    paintAlertMap(host);
+    paintFeed(host);
+    if (activeFeed) highlightFeed(activeFeed, false);
+  }
+  function sourceLine(blockKey) {
+    var p = el("p", "source elec-src");
+    var ne = el("span", "elec-src-ne");
+    ne.lang = "ne";
+    ne.textContent = "स्रोत: नेपाल विद्युत प्राधिकरण (NEA)";
+    var eng = el("span", "elec-src-en");
+    eng.lang = "en";
+    eng.textContent = "Source: Nepal Electricity Authority (NEA)";
+    var chk = el("span", "elec-checked");
+    chk.setAttribute("data-elec-block", blockKey);
+    p.appendChild(ne);
+    p.appendChild(eng);
+    p.appendChild(chk);
+    return p;
+  }
+  function mountSpecial(card) {
+    var kpis = el("div", "elec-kpis");
+    kpis.id = "elec-kpis";
+    card.appendChild(kpis);
+    var flow = el("div", "elec-flow");
+    flow.id = "elec-flow";
+    card.appendChild(flow);
+    var layout = el("div", "elec-maplayout");
+    layout.id = "assets";
+    var wrap = el("div", "elec-mapwrap");
+    wrap.id = "elec-mapwrap";
+    var box = el("div", "elec-map");
+    box.id = "elec-map";
+    wrap.appendChild(box);
+    layout.appendChild(wrap);
+    var list = el("div", "elec-asset-list");
+    list.id = "elec-assets";
+    layout.appendChild(list);
+    card.appendChild(layout);
+    var attr = el("p", "elec-osm-attr");
+    var osm = extLink("https://www.openstreetmap.org/copyright", "OpenStreetMap");
+    var carto = extLink("https://carto.com/attributions", "CARTO");
+    attr.appendChild(osm);
+    attr.appendChild(document.createTextNode(" · "));
+    attr.appendChild(carto);
+    card.appendChild(attr);
+    card.appendChild(sourceLine("damaged_assets"));
+    var sh = el("div", "sec-head");
+    sh.id = "statements";
+    var dot = el("span", "dot");
+    dot.style.background = "var(--crimson)";
+    var hh = el("h3");
+    hh.textContent = t("h_elec_statements", en() ? "NEA statements" : "प्राधिकरणका भनाइ");
+    sh.appendChild(dot);
+    sh.appendChild(hh);
+    card.appendChild(sh);
+    var st = el("div");
+    st.id = "elec-statements";
+    card.appendChild(st);
+    card.appendChild(sourceLine("statements"));
+  }
+  function mountPlain(card, inc) {
+    var figs = inc.headline_figures || {};
+    var tiles = el("div", "elec-kpis");
+    function tile(num, sub, iso) {
+      if (num == null || num === "") return;
+      var node = el("article", "elec-kpi");
+      var n = el("p", "elec-kpi-n");
+      n.textContent = fmtNum(num) + (String(sub).indexOf("MW") >= 0 || String(sub).indexOf("मेगावाट") >= 0 ? "" : "");
+      node.appendChild(n);
+      var s = el("p", "elec-kpi-sub");
+      s.textContent = sub;
+      node.appendChild(s);
+      if (iso) {
+        var src = el("p", "elec-kpi-src");
+        src.textContent = neaSrc(iso);
+        node.appendChild(src);
+      }
+      tiles.appendChild(node);
+    }
+    var mw = t("elec_tile_mw", en() ? "MW" : "मेगावाट");
+    if (figs.hydro_mw_disrupted != null) tile(figs.hydro_mw_disrupted + " " + mw, t("elec_tile_out", en() ? "disrupted" : "अवरुद्ध"), "");
+    if (figs.solar_mw_disrupted != null) tile(figs.solar_mw_disrupted + " " + mw, t("elec_tile_solar", en() ? "solar" : "सौर्य"), "");
+    if (figs.hydro_projects != null) tile(figs.hydro_projects, t("elec_tile_projects", en() ? "projects" : "आयोजना"), "");
+    if (figs.mw_cannot_be_evacuated != null) tile(figs.mw_cannot_be_evacuated + " " + mw, t("elec_tile_grid", en() ? "cannot reach the grid" : "ग्रिडमा पुग्न सकेन"), "");
+    if (tiles.childNodes.length) card.appendChild(tiles);
+    var items = (inc.statements && inc.statements.items) || [];
+    if (items.length) {
+      var list = el("div", "elec-timeline");
+      items.slice().sort(function (a, b) { return String(b.date || "").localeCompare(String(a.date || "")); }).forEach(function (item) {
+        var art = el("article", "card elec-state");
+        var time = el("time");
+        time.dateTime = item.date || "";
+        time.textContent = fmtDate(item.date, false);
+        art.appendChild(time);
+        var sum = el("p", "elec-sum");
+        sum.textContent = tx(item.summary_ne, item.summary_en);
+        art.appendChild(sum);
+        list.appendChild(art);
+      });
+      card.appendChild(list);
+    }
+    var assets = (inc.damaged_assets && inc.damaged_assets.items) || [];
+    if (assets.length) {
+      var ul = el("ul", "elec-feed-assets");
+      assets.forEach(function (asset) {
+        var li = el("li");
+        li.textContent = tx(asset.name_ne, asset.name_en);
+        ul.appendChild(li);
+      });
+      card.appendChild(ul);
+    }
+  }
+  function paintIncidents() {
+    var host = document.getElementById("elec-incidents");
+    if (!host || !DATA) return;
+    clear(host);
+    (DATA.incidents || []).forEach(function (inc, index) {
+      var card = el("article", "card elec-incident");
+      card.id = "incident-" + (inc.id || index);
+      var h = el("h3");
+      var when = tx(inc.date_bs_label && inc.date_bs_label.ne, inc.date_bs_label && inc.date_bs_label.en);
+      h.textContent = [tx(inc.name && inc.name.ne, inc.name && inc.name.en), when].filter(Boolean).join(" · ");
+      card.appendChild(h);
+      var cover = inc.coverage_line || {};
+      if (cover.ne || cover.en) {
+        var cov = el("p", "elec-cover");
+        cov.textContent = tx(cover.ne, cover.en);
+        card.appendChild(cov);
+      }
+      if (index === 0) {
+        var gaps = (DATA.planned_shutdowns && DATA.planned_shutdowns.flood_districts_without_rows) || [];
+        if (gaps.length) {
+          var gk = el("p", "elec-gap-k");
+          gk.textContent = t("elec_none_k", en() ? "No NEA-published shutdowns:" : "प्राधिकरणले प्रकाशित नगरेका जिल्ला:");
+          card.appendChild(gk);
+          var grow = el("div", "elec-gap");
+          gaps.forEach(function (name) {
+            var chip = el("span", "elec-muted");
+            chip.textContent = districtLabel(name);
+            grow.appendChild(chip);
+          });
+          card.appendChild(grow);
+        }
+        mountSpecial(card);
+      } else mountPlain(card, inc);
+      host.appendChild(card);
+    });
+  }
+  function paintAdvisories() {
+    var host = document.getElementById("elec-advisories");
+    if (!host || !DATA) return;
+    clear(host);
+    var alertOn = !!(DATA.alert && DATA.alert.active);
+    var items = (DATA.advisories || []).filter(function (item) {
+      if (!passes(item)) return false;
+      if (item.scope === "alert") return alertOn;
+      return item.scope === "standing" || !item.scope;
+    });
+    items.sort(function (a, b) {
+      var as = a.scope === "alert" ? 0 : 1;
+      var bs = b.scope === "alert" ? 0 : 1;
+      if (as !== bs) return as - bs;
+      return String(b.date || "").localeCompare(String(a.date || ""));
+    });
+    items.forEach(function (item) {
+      var card = el("article", "card elec-feed-card");
+      card.id = "adv-" + item.id;
+      var top = el("div", "elec-feed-top");
+      var time = el("time");
+      time.dateTime = item.date || "";
+      time.textContent = fmtDate(item.date, false);
+      top.appendChild(time);
+      var chip = el("span", "elec-chip is-block");
+      chip.textContent = kindLabel(item.kind);
+      top.appendChild(chip);
+      card.appendChild(top);
+      if (item.title) {
+        var title = el("p", "elec-feed-title");
+        title.textContent = tx(item.title.ne, item.title.en);
+        card.appendChild(title);
+      }
+      var text = tx(item.text_ne, item.text_en);
+      if (text) {
+        var sum = el("p", "elec-sum");
+        sum.textContent = text;
+        card.appendChild(sum);
+      }
+      var speaker = tx(item.speaker_ne, item.speaker_en);
+      if (speaker) {
+        var who = el("p", "elec-speaker");
+        who.textContent = speaker;
+        card.appendChild(who);
+      }
+      var sources = visibleSources(item);
+      appendSources(card, sources);
+      appendQuotes(card, sources);
+      host.appendChild(card);
+    });
+  }
   function paintPage() {
     if (!document.getElementById("elec-shutdowns")) return;
+    paintAlert();
     paintShutdowns();
-    paintStatements();
+    paintIncidents();
     if (document.getElementById("elec-kpis")) paintKpis("elec-kpis");
     if (document.getElementById("elec-flow")) paintFlow("elec-flow");
     if (document.getElementById("elec-assets")) paintAssets();
+    paintStatements();
+    paintAdvisories();
     if (document.getElementById("elec-helplines")) paintHelplines();
     paintCheckedOnly();
   }
-
+  function fallbackHome(lead, sum) {
+    var rows = (DATA.planned_shutdowns && DATA.planned_shutdowns.rows) || [];
+    var n = rows.filter(live).length;
+    var label = t("elec_home_count", en() ? "upcoming or ongoing" : "आगामी वा चलिरहेको");
+    if (lead) lead.textContent = en() ? (n + " " + label) : (dig(n) + " " + label);
+    var items = stmtItems().slice().sort(function (a, b) {
+      return String(b.date || "").localeCompare(String(a.date || ""));
+    });
+    if (sum && items[0]) sum.textContent = fmtDate(items[0].date, false) + " — " + tx(items[0].summary_ne, items[0].summary_en);
+  }
+  function newestVisibleFeed() {
+    var feed = (DATA && DATA.alert_feed) || [];
+    for (var i = 0; i < feed.length; i++) {
+      var item = resolveFeed(feed[i]);
+      if (item && passes(item)) return { entry: feed[i], item: item };
+    }
+    return null;
+  }
   function paintHome() {
     if (!DATA) return;
-    if (document.getElementById("elec-dash-kpis")) paintKpis("elec-dash-kpis");
-    if (document.getElementById("elec-dash-flow")) paintFlow("elec-dash-flow");
+    var name = document.getElementById("dash-elec-name");
+    var figs = document.getElementById("dash-elec-figs");
+    var dashSum = document.getElementById("dash-elec-sum");
+    var dashTel = document.getElementById("dash-elec-tel");
     var lead = document.getElementById("elec-home-lead");
     var sum = document.getElementById("elec-home-sum");
     var tel = document.getElementById("elec-home-tel");
-    if (!lead && !sum && !tel) return;
-    var rows = (DATA.planned_shutdowns && DATA.planned_shutdowns.rows) || [];
-    var n = rows.filter(live).length;
-    if (lead) {
-      var label = t("elec_home_count", en() ? "upcoming or ongoing" : "आगामी वा चलिरहेको");
-      lead.textContent = en() ? (n + " " + label) : (dig(n) + " " + label);
+    var alert = DATA.alert || {};
+    var summary = DATA.alert_summary || {};
+    applyHotline(dashTel);
+    applyHotline(tel);
+    if (alert.active) {
+      var shortName = shortAlertName();
+      if (name) name.textContent = shortName;
+      if (figs) {
+        clear(figs);
+        function fig(num, label) {
+          if (num == null || num === "") return;
+          var li = el("li");
+          var b = el("b");
+          b.textContent = fmtNum(num);
+          var s = el("span");
+          s.textContent = label;
+          li.appendChild(b);
+          li.appendChild(s);
+          figs.appendChild(li);
+        }
+        fig(summary.districts_supply_affected, t("elec_tile_districts", en() ? "Districts with supply affected" : "आपूर्ति प्रभावित जिल्ला"));
+        fig(summary.assets_listed, t("elec_tile_assets", en() ? "Assets affected" : "प्रभावित संरचना"));
+        fig(summary.generation_mw_stopped_in_items, t("elec_tile_mw_updates", en() ? "MW in NEA updates" : "मेगावाट · प्राधिकरणका अद्यावधिकमा"));
+      }
+      var newest = newestVisibleFeed();
+      var one = "";
+      if (newest) {
+        var body = newest.entry.ref === "advisories" ? tx(newest.item.text_ne, newest.item.text_en) : tx(newest.item.summary_ne, newest.item.summary_en);
+        one = feedWhen(newest.entry) + " — " + body;
+      }
+      if (dashSum) dashSum.textContent = one;
+      if (lead) {
+        var districtN = summary.districts_supply_affected;
+        lead.textContent = districtN == null ? shortName : (shortName + " · " + fmtNum(districtN) + " " + t("elec_tile_districts", en() ? "Districts with supply affected" : "आपूर्ति प्रभावित जिल्ला"));
+      }
+      if (sum) sum.textContent = one;
+      return;
     }
-    var items = ((DATA.statements && DATA.statements.items) || []).slice().sort(function (a, b) {
-      return String(b.date || "").localeCompare(String(a.date || ""));
-    });
-    var latest = items[0];
-    if (sum && latest) {
-      sum.textContent = fmtDate(latest.date, false) + " — " + tx(latest.summary_ne, latest.summary_en);
-    }
-    var hot = null;
-    ((DATA.helplines && DATA.helplines.items) || []).forEach(function (item) {
-      if (!hot && item.category === "hotline") hot = item;
-    });
-    if (tel && hot && hot.numbers && hot.numbers[0]) {
-      tel.href = telHref(hot.numbers[0]);
-      tel.textContent = hot.numbers[0];
-      var note = tx(hot.label_note_ne, hot.label_note_en);
-      if (note) tel.setAttribute("aria-label", tx(hot.label_ne, hot.label_en) + " " + hot.numbers[0]);
-    }
+    if (name) name.textContent = t("nav_electricity", en() ? "Electricity" : "बिजुली");
+    if (figs) clear(figs);
+    fallbackHome(lead, dashSum || sum);
+    if (sum && sum !== dashSum) fallbackHome(null, sum);
   }
-
   function paint() {
     paintPage();
     paintHome();
   }
   function boot() {
     var url = window.ELEC_SRC || "data/nea_electricity.json";
-    fetch(url + (url.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (json) {
-        if (!json) return;
-        DATA = json;
-        paint();
-      })
-      .catch(function () {});
+    var bust = (url.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now();
+    var jobs = [
+      fetch(url + bust, { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; })
+    ];
+    if (document.getElementById("elec-alert")) {
+      jobs.push(fetch("data/nepal-districts-svg.json" + bust, { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }));
+    }
+    Promise.all(jobs).then(function (parts) {
+      if (!parts[0]) return;
+      DATA = parts[0];
+      GEO = parts[1] || null;
+      paint();
+    }).catch(function () {});
   }
   function onLang() { if (DATA) paint(); }
   if (window.__addLangHook) window.__addLangHook(onLang);

@@ -7,8 +7,11 @@ const electricityHtml = readFileSync(new URL("../electricity.html", import.meta.
 const electricityJs = readFileSync(new URL("../electricity.js", import.meta.url), "utf8");
 const indexHtml = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 
+const districts = JSON.parse(readFileSync(new URL("../data/nepal-districts-svg.json", import.meta.url), "utf8"));
+
 const CHECKED = /\+05:45$/;
 const NEPAL = { latMin: 26.3, latMax: 30.5, lonMin: 80, lonMax: 88.3 };
+const incident = data.incidents[0];
 
 function filled(value) {
   return typeof value === "string" && value.trim().length > 0;
@@ -20,11 +23,18 @@ function assertProvenance(item, label) {
   assert.match(String(item.checked_at || ""), CHECKED, label + " checked_at " + item.checked_at);
 }
 
-test("NEA file has the four blocks", () => {
+test("NEA file has the schema v2 blocks", () => {
+  assert.ok(data.alert && typeof data.alert === "object");
+  assert.ok(data.alert_summary && typeof data.alert_summary === "object");
+  assert.ok(Array.isArray(data.alert_outages) && data.alert_outages.length);
+  assert.ok(Array.isArray(data.alert_feed) && data.alert_feed.length);
+  assert.ok(Array.isArray(data.advisories) && data.advisories.length);
   assert.ok(Array.isArray(data.planned_shutdowns.rows) && data.planned_shutdowns.rows.length);
-  assert.ok(Array.isArray(data.statements.items) && data.statements.items.length);
-  assert.ok(Array.isArray(data.damaged_assets.items) && data.damaged_assets.items.length);
+  assert.ok(incident && Array.isArray(incident.statements.items) && incident.statements.items.length);
+  assert.ok(Array.isArray(incident.damaged_assets.items) && incident.damaged_assets.items.length);
   assert.ok(Array.isArray(data.helplines.items) && data.helplines.items.length);
+  assert.equal(data.statements, undefined);
+  assert.equal(data.damaged_assets, undefined);
 });
 
 test("rows, statement sources, assets, and helplines cite a checked source", () => {
@@ -37,16 +47,29 @@ test("rows, statement sources, assets, and helplines cite a checked source", () 
     assert.equal(filled(row.published), true, "row " + i + " published");
     if (row.notice_url != null) assert.equal(row.notice_url.startsWith("https://nea.org.np/"), true, row.notice_url);
   });
-  data.statements.items.forEach((item, i) => {
+  incident.statements.items.forEach((item, i) => {
     assert.ok(Array.isArray(item.sources) && item.sources.length, "statement " + i + " sources");
     item.sources.forEach((src, j) => assertProvenance(src, "statement " + i + " source " + j));
   });
-  data.damaged_assets.items.forEach((item, i) => assertProvenance(item, "asset " + i));
+  incident.damaged_assets.items.forEach((item, i) => assertProvenance(item, "asset " + i));
+  data.alert_outages.forEach((item, i) => {
+    assertProvenance(item, "outage " + i);
+    assert.ok(Array.isArray(item.sources) && item.sources.length, "outage " + i + " sources");
+    item.sources.forEach((src, j) => assertProvenance(src, "outage " + i + " source " + j));
+    item.assets.forEach((asset, j) => {
+      assert.equal(filled(asset.source_url), true, "outage asset " + asset.id + " source_url");
+    });
+  });
+  data.advisories.forEach((item, i) => {
+    assert.ok(Array.isArray(item.sources) && item.sources.length, "advisory " + i + " sources");
+    item.sources.forEach((src, j) => assertProvenance(src, "advisory " + i + " source " + j));
+  });
   data.helplines.items.forEach((item, i) => assertProvenance(item, "helpline " + i));
 });
 
 test("mapped assets stay inside Nepal and null latitudes have null longitudes", () => {
-  data.damaged_assets.items.forEach((item) => {
+  const assets = incident.damaged_assets.items.concat(data.alert_outages.flatMap((item) => item.assets || []));
+  assets.forEach((item) => {
     if (item.lat == null) {
       assert.equal(item.lon, null, item.id + " lon");
       return;
@@ -77,16 +100,38 @@ test("electricity page cites the JSON and both source lines", () => {
   assert.match(electricityHtml, /Source: Nepal Electricity Authority \(NEA\)/);
 });
 
+test("alert feed, districts, and planned rows stay consistent", () => {
+  const districtIds = new Set((districts.districts || []).map((item) => item.id));
+  data.alert_district_status.forEach((row) => {
+    assert.equal(districtIds.has(row.district_id), true, row.district_id);
+  });
+  assert.equal(data.alert_summary.outage_items, data.alert_outages.length);
+  const assetCount = data.alert_outages.reduce((n, item) => n + (item.assets || []).length, 0);
+  assert.equal(data.alert_summary.assets_listed, assetCount);
+  const supply = data.alert_district_status.filter((row) => row.status === "disrupted" || row.status === "partly_disrupted").length;
+  assert.equal(data.alert_summary.districts_supply_affected, supply);
+  const outages = new Set(data.alert_outages.map((item) => item.id));
+  const advisories = new Set(data.advisories.map((item) => item.id));
+  data.alert_feed.forEach((entry) => {
+    const pool = entry.ref === "advisories" ? advisories : outages;
+    assert.equal(pool.has(entry.id), true, entry.id);
+  });
+  data.planned_shutdowns.rows.forEach((row) => {
+    assert.ok(row.status_at_check === "upcoming" || row.status_at_check === "ongoing", row.status_at_check);
+  });
+});
+
 test("electricity visual is wired to existing NEA ids only", () => {
-  assert.match(electricityHtml, /id="elec-kpis"/);
-  assert.match(electricityHtml, /id="elec-flow"/);
-  assert.match(electricityHtml, /id="elec-map"/);
-  assert.ok(electricityHtml.indexOf('id="assets"') < electricityHtml.indexOf('id="shutdowns"'));
-  assert.ok(electricityHtml.indexOf('id="shutdowns"') < electricityHtml.indexOf('id="statements"'));
-  assert.ok(electricityHtml.indexOf('id="statements"') < electricityHtml.indexOf('id="helplines"'));
+  assert.equal((electricityHtml.match(/<title>/g) || []).length, 1);
+  assert.equal((electricityHtml.match(/class="[^"]*elec-pagehead[^"]*"/g) || []).length, 1);
+  assert.match(electricityHtml, /id="power-alert"/);
+  assert.match(electricityHtml, /id="incidents"/);
+  assert.ok(electricityHtml.indexOf('id="power-alert"') < electricityHtml.indexOf('id="shutdowns"'));
+  assert.ok(electricityHtml.indexOf('id="shutdowns"') < electricityHtml.indexOf('id="incidents"'));
+  assert.ok(electricityHtml.indexOf('id="incidents"') < electricityHtml.indexOf('id="helplines"'));
   assert.match(indexHtml, /id="dash-electricity"/);
-  assert.match(indexHtml, /id="elec-dash-kpis"/);
-  assert.match(indexHtml, /id="elec-dash-flow"/);
+  assert.match(indexHtml, /id="dash-elec-figs"/);
+  assert.equal(indexHtml.includes('id="elec-dash-flow"'), false);
   assert.ok(indexHtml.indexOf('id="overview"') < indexHtml.indexOf('id="dash-electricity"'));
   assert.ok(indexHtml.indexOf('id="dash-electricity"') < indexHtml.indexOf('id="cat-electricity"'));
   assert.equal(indexHtml.includes('id="elec-home-viz"'), false);
@@ -94,8 +139,8 @@ test("electricity visual is wired to existing NEA ids only", () => {
   assert.equal(electricityHtml.includes("L.marker("), false);
   assert.equal(/\b405\b/.test(electricityJs), false);
   assert.equal(/176\.1/.test(electricityJs), false);
-  const knownAssets = new Set(data.damaged_assets.items.map((item) => item.id));
-  const knownStatements = new Set(data.statements.items.map((item) => item.id));
+  const knownAssets = new Set(incident.damaged_assets.items.map((item) => item.id));
+  const knownStatements = new Set(incident.statements.items.map((item) => item.id));
   for (const match of electricityJs.matchAll(/needAsset:\s*"([a-z0-9_]+)"/g)) {
     assert.equal(knownAssets.has(match[1]), true, match[1]);
   }

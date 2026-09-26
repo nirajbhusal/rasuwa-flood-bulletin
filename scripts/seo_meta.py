@@ -205,6 +205,9 @@ class Facts:
     nea_projects: str | None = None
     nea_asof: str | None = None
     nea_statement_bs: str | None = None
+    nea_alert_active: bool = False
+    nea_supply_districts: str | None = None
+    nea_mw_updates: str | None = None
     names_count: str | None = None
     names_asof: str | None = None
     donors: str | None = None
@@ -309,7 +312,21 @@ def load_facts(root: Path, when: datetime, built_at: str) -> Facts:
                 facts.nea_asof = f"{bs_label(stamp.date())}, {npt_hm(stamp)}"
             except ValueError:
                 facts.nea_asof = None
-        statements = ((nea.get("statements") or {}).get("items")) or []
+        alert = nea.get("alert") or {}
+        summary = nea.get("alert_summary") or {}
+        if alert.get("active"):
+            facts.nea_alert_active = True
+            facts.nea_supply_districts = _fmt_count(summary.get("districts_supply_affected"))
+            facts.nea_mw_updates = _fmt_count(summary.get("generation_mw_stopped_in_items"))
+            as_of = alert.get("as_of") or summary.get("as_of")
+            if as_of:
+                try:
+                    stamp = parse_when(str(as_of))
+                    facts.nea_asof = f"{bs_label(stamp.date())}, {npt_hm(stamp)}"
+                except ValueError:
+                    pass
+        incident = ((nea.get("incidents") or [None])[0]) or {}
+        statements = ((incident.get("statements") or {}).get("items")) or []
         chosen = None
         for item in statements:
             figures = item.get("figures") or {}
@@ -440,12 +457,18 @@ def page_copies(facts: Facts) -> dict[str, Copy]:
                 weather_desc += extra
 
     elec_bits = []
-    if facts.nea_upcoming is not None:
-        elec_bits.append(f"आगामी कटौती {facts.nea_upcoming}")
-    if facts.nea_mw:
-        projects = f" ({facts.nea_projects} आयोजना)" if facts.nea_projects else ""
-        when = f"{facts.nea_statement_bs} मा " if facts.nea_statement_bs else ""
-        elec_bits.append(f"{when}{facts.nea_mw} मेगावाट अवरुद्ध{projects}")
+    if facts.nea_alert_active and (facts.nea_supply_districts or facts.nea_mw_updates):
+        if facts.nea_supply_districts:
+            elec_bits.append(f"आपूर्ति प्रभावित {facts.nea_supply_districts} जिल्ला")
+        if facts.nea_mw_updates:
+            elec_bits.append(f"प्राधिकरणका अद्यावधिकमा {facts.nea_mw_updates} मेगावाट")
+    else:
+        if facts.nea_upcoming is not None:
+            elec_bits.append(f"आगामी कटौती {facts.nea_upcoming}")
+        if facts.nea_mw:
+            projects = f" ({facts.nea_projects} आयोजना)" if facts.nea_projects else ""
+            when = f"{facts.nea_statement_bs} मा " if facts.nea_statement_bs else ""
+            elec_bits.append(f"{when}{facts.nea_mw} मेगावाट अवरुद्ध{projects}")
     elec_desc = ""
     if elec_bits:
         prefix = "NEA"
@@ -482,8 +505,19 @@ def page_copies(facts: Facts) -> dict[str, Copy]:
         contact_desc = f"{prefix}: {facts.helpline}। आपत्कालीन सहायता र स्थानीय सम्पर्क।"
 
     home_title = _join(["रसुवा–भोटेकोशी बाढी", bs, f"शव {facts.dead}" if facts.dead else ""])
+    home_desc = ndrrma_desc or f"{bs} ({facts.ad})। रसुवा–भोटेकोशी बाढी बुलेटिन।"
+    if facts.nea_alert_active and facts.nea_supply_districts and facts.nea_mw_updates:
+        elec_extra = f" बिजुली: आपूर्ति प्रभावित {facts.nea_supply_districts} जिल्ला · {facts.nea_mw_updates} मेगावाट।"
+        if len(home_desc) + len(elec_extra) <= DESC_LIMIT:
+            home_desc += elec_extra
+    if facts.nea_alert_active and facts.nea_supply_districts:
+        elec_title_extra = f"आपूर्ति प्रभावित {facts.nea_supply_districts}"
+    elif facts.nea_upcoming is not None:
+        elec_title_extra = f"आगामी कटौती {facts.nea_upcoming}"
+    else:
+        elec_title_extra = ""
     specs = {
-        "index.html": Copy(home_title, ndrrma_desc or f"{bs} ({facts.ad})। रसुवा–भोटेकोशी बाढी बुलेटिन।", "गृह"),
+        "index.html": Copy(home_title, home_desc, "गृह"),
         "notices.html": Copy(
             _join(["सडक", bs, f"पूर्ण अवरोध {facts.police_full}" if facts.police_full else ""]),
             road_desc or f"{bs}। सडक स्थिति।",
@@ -498,7 +532,7 @@ def page_copies(facts: Facts) -> dict[str, Copy]:
             "मौसम",
         ),
         "electricity.html": Copy(
-            _join(["बिजुली", bs, f"आगामी कटौती {facts.nea_upcoming}" if facts.nea_upcoming is not None else ""]),
+            _join(["बिजुली", bs, elec_title_extra]),
             elec_desc or f"{bs}। बिजुली।",
             "बिजुली",
         ),
