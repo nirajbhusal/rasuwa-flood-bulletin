@@ -11287,3 +11287,40 @@ html[lang="en"] .elec-src-ne{display:none}
 .dash-elec-tel{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;background:#c41e3a;color:#fff;font-weight:800;font-size:18px;text-decoration:none}
 .dash-elec-tel:hover,.dash-elec-tel:focus-visible{text-decoration:none;background:#9f1239;color:#fff}
 .elec-src-link{font-size:13px}
+.elec-alert-src{margin:4px 0 0;font-size:13px;font-weight:700;color:#64748b}
+@media (min-width:761px) and (max-width:1099px){
+  .elec-kpis.elec-alert-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (min-width:1100px){
+  .elec-kpis.elec-alert-kpis{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .elec-alert-kpis .elec-kpi{padding:10px 8px}
+  .elec-alert-kpis .elec-kpi-n{font-size:clamp(18px,1.6vw,26px)}
+  .elec-alert-kpis .elec-kpi-sub{font-size:12px}
+}
+.dash-elec{
+  background:var(--card,#fff);
+  border:1px solid var(--line,#e7e5e4);
+  border-radius:18px;
+  padding:14px 14px 12px;
+  box-shadow:var(--shadow);
+}
+.dash-elec-figs li{background:#f8fafc}
+.dash-elec-sum{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.dash-elec-when{
+  align-self:flex-start;
+  display:inline-flex;
+  margin:0 0 4px;
+  padding:2px 8px;
+  border-radius:999px;
+  background:#f1f5f9;
+  color:#64748b;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.3;
+}
+.dash-elec-line{align-self:stretch;min-width:0;max-width:100%}
+.dash-elec-tel{gap:8px}
+.dash-elec-tel svg,.dash-elec-phone svg{width:18px;height:18px;flex:none;display:block}
+@media (max-width:760px){
+  .dash-elec-line{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+}

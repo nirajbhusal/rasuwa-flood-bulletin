@@ -152,6 +152,32 @@ test("electricity visual is wired to existing NEA ids only", () => {
   }
 });
 
+test("alert header, feed labels, and home card stay free of plumbing", () => {
+  assert.equal(electricityJs.includes("dhm_warning_ids"), false);
+  assert.equal(electricityJs.includes("DATA.coverage_line"), false);
+  assert.equal(electricityJs.includes("elec-alert-range"), false);
+  assert.match(electricityJs, /function publicSourceName/);
+  assert.match(electricityJs, /translated from RSS/);
+  assert.match(electricityJs, /NEA अद्यावधिक/);
+  assert.match(electricityJs, /Districts with supply affected/);
+  assert.match(electricityJs, /MW generation stopped/);
+  assert.match(electricityJs, /बिजुली गुनासो /);
+  assert.match(electricityJs, /NEA helpline /);
+  assert.match(electricityJs, /dash-elec-when/);
+  assert.match(electricityJs, /function dcChipLabel/);
+  assert.match(electricityJs, /वितरण केन्द्र/);
+  assert.match(indexHtml, /बिजुली गुनासो 1150/);
+  assert.match(indexHtml, /class="dash-elec-phone"/);
+  const css = readFileSync(new URL("../bulletin.css", import.meta.url), "utf8");
+  const min = readFileSync(new URL("../bulletin.min.css", import.meta.url), "utf8");
+  for (const sheet of [css, min]) {
+    assert.match(sheet, /\.elec-kpis\.elec-alert-kpis\{grid-template-columns:repeat\(6,minmax\(0,1fr\)\)\}/);
+    assert.match(sheet, /\.elec-kpis\.elec-alert-kpis\{grid-template-columns:repeat\(3,minmax\(0,1fr\)\)\}/);
+    assert.match(sheet, /-webkit-line-clamp:2/);
+    assert.match(sheet, /\.dash-elec\{[^}]*padding:14px 14px 12px/);
+  }
+});
+
 test("section pages do not draw pin markers or permanent tooltips", () => {
   [electricityHtml, indexHtml].forEach((html) => {
     assert.equal(html.includes("L.marker("), false);

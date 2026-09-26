@@ -327,7 +327,7 @@
     clear(host);
     var filters = el("div", "elec-filters");
     filters.appendChild(chipRow(t("elec_filter_prov", en() ? "Province" : "प्रदेश"), unique(rows, "province"), filterProv, "data-elec-prov", function (v) { return officeLabel(v, PROV_KEY); }));
-    filters.appendChild(chipRow(t("elec_filter_dc", en() ? "Distribution centre" : "वितरण केन्द्र"), unique(rows, "distribution_centre"), filterDc, "data-elec-dc", function (v) { return v; }));
+    filters.appendChild(chipRow(t("elec_filter_dc", en() ? "Distribution centre" : "वितरण केन्द्र"), unique(rows, "distribution_centre"), filterDc, "data-elec-dc", dcChipLabel));
     host.appendChild(filters);
 
     var heads = [
@@ -430,7 +430,7 @@
         links.appendChild(extLink(item.nea_own_post_url, t("elec_nea_post", en() ? "NEA post" : "प्राधिकरणको पोस्ट")));
       }
       (item.sources || []).forEach(function (src) {
-        var name = src.as_quoted_in || src.source_name || "";
+        var name = publicSourceName(src.as_quoted_in || src.source_name || "");
         var label = en()
           ? (t("elec_quoted", "as quoted in") + " " + name)
           : (name + " " + t("elec_quoted", "मा उद्धृत"));
@@ -1292,21 +1292,60 @@
     });
     return hot;
   }
-  function applyHotline(node) {
+  function phoneSvg() {
+    var s = el("span", "dash-elec-phone");
+    s.setAttribute("aria-hidden", "true");
+    s.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.7 3.1h2.1c.5 0 .9.3 1 .8l.7 2.9c.1.5-.1 1-.5 1.3l-1.4 1.1a12.2 12.2 0 0 0 5.2 5.2l1.1-1.4c.3-.4.8-.6 1.3-.5l2.9.7c.5.1.8.5.8 1v2.1c0 .6-.5 1.1-1.1 1.2C10.6 20.4 3.6 13.4 5.5 4.2c.1-.6.6-1.1 1.2-1.1z"/></svg>';
+    return s;
+  }
+  function applyHotline(node, withLabel) {
     var hot = hotlineItem();
     if (!node || !hot) return;
-    node.href = telHref(hot.numbers[0]);
-    node.textContent = hot.numbers[0];
-    node.setAttribute("aria-label", tx(hot.label_ne, hot.label_en) + " " + hot.numbers[0]);
+    var num = hot.numbers[0];
+    node.href = telHref(num);
+    clear(node);
+    if (withLabel) {
+      node.appendChild(phoneSvg());
+      var label = el("span");
+      label.textContent = (en() ? "NEA helpline " : "बिजुली गुनासो ") + num;
+      node.appendChild(label);
+      node.setAttribute("aria-label", label.textContent);
+      return;
+    }
+    node.textContent = num;
+    node.setAttribute("aria-label", tx(hot.label_ne, hot.label_en) + " " + num);
+  }
+  function publicSourceName(name) {
+    var s = String(name || "");
+    s = s.replace(/;\s*translated from RSS/ig, "");
+    s = s.replace(/\btranslated from RSS\b/ig, "");
+    s = s.replace(/\b(RSS|scraped|OSM)\b/ig, "");
+    s = s.replace(/\(\s*\)/g, "");
+    s = s.replace(/\s{2,}/g, " ");
+    s = s.replace(/\s+([,.);])/g, "$1");
+    s = s.replace(/[;,\s]+$/g, "");
+    return s.trim();
+  }
+  function dcChipLabel(enName) {
+    if (en()) return enName || "";
+    var rows = (DATA && DATA.planned_shutdowns && DATA.planned_shutdowns.rows) || [];
+    var ne = "";
+    rows.forEach(function (row) {
+      if (!ne && row.distribution_centre === enName && row.distribution_centre_ne) ne = row.distribution_centre_ne;
+    });
+    if (!ne) return officeLabel(enName, DC_KEY);
+    if (/वितरण/.test(ne)) return ne;
+    if (/Distribution Cent(er|re)$/i.test(enName || "")) return ne + " वितरण केन्द्र";
+    return ne;
   }
   function quoteBits(sources) {
     var out = [];
     (sources || []).forEach(function (src) {
       if (en()) {
-        if (src.translation_en) out.push({ kind: "tr", text: src.translation_en, name: src.source_name || "" });
-        else if (src.quote_en) out.push({ kind: "q", text: src.quote_en, name: src.source_name || "" });
-      } else if (src.quote_ne) out.push({ kind: "q", text: src.quote_ne, name: src.source_name || "" });
-      else if (src.quote_en) out.push({ kind: "q", text: src.quote_en, name: src.source_name || "" });
+        if (src.translation_en) out.push({ kind: "tr", text: src.translation_en, name: publicSourceName(src.source_name) });
+        else if (src.quote_en) out.push({ kind: "q", text: src.quote_en, name: publicSourceName(src.source_name) });
+      } else if (src.quote_ne) out.push({ kind: "q", text: src.quote_ne, name: publicSourceName(src.source_name) });
+      else if (src.quote_en) out.push({ kind: "q", text: src.quote_en, name: publicSourceName(src.source_name) });
     });
     return out;
   }
@@ -1338,7 +1377,7 @@
     var row = el("p", "elec-links elec-feed-src");
     (sources || []).forEach(function (src) {
       if (!src.source_url || !src.source_name) return;
-      var a = extLink(src.source_url, src.source_name);
+      var a = extLink(src.source_url, publicSourceName(src.source_name));
       a.className = "elec-src-link";
       row.appendChild(a);
     });
@@ -1627,27 +1666,13 @@
     var h = el("h3");
     h.textContent = tx(alert.name && alert.name.ne, alert.name && alert.name.en);
     head.appendChild(h);
-    var range = alert.date_range || {};
-    var bs = tx(range.start_bs_label && range.start_bs_label.ne, range.start_bs_label && range.start_bs_label.en);
-    var be = tx(range.end_bs_label && range.end_bs_label.ne, range.end_bs_label && range.end_bs_label.en);
-    var ad = [fmtDate(range.start, false), fmtDate(range.end, false)].filter(Boolean).join(" – ");
-    var line = el("p", "elec-alert-range");
-    line.textContent = [bs && be ? (bs + " – " + be) : (bs || be), ad].filter(Boolean).join(" · ");
-    head.appendChild(line);
-    var ids = (alert.dhm_warning_ids || []).join(" · ");
     var issuer = tx(alert.issuer && alert.issuer.ne, alert.issuer && alert.issuer.en);
-    if (issuer || ids) {
-      var muted = el("p", "elec-alert-ids");
-      muted.textContent = [issuer, ids].filter(Boolean).join(" · ");
+    if (issuer) {
+      var muted = el("p", "elec-alert-src");
+      muted.textContent = (en() ? "Source: " : "स्रोत: ") + issuer;
       head.appendChild(muted);
     }
     host.appendChild(head);
-    var cover = DATA.coverage_line || {};
-    if (cover.ne || cover.en) {
-      var cov = el("p", "elec-cover");
-      cov.textContent = tx(cover.ne, cover.en);
-      host.appendChild(cov);
-    }
     var summary = DATA.alert_summary || {};
     var tiles = el("div", "elec-kpis elec-alert-kpis");
     function tile(num, sub) {
@@ -1661,13 +1686,13 @@
       node.appendChild(s);
       tiles.appendChild(node);
     }
-    tile(summary.outage_items, t("elec_tile_updates", en() ? "Outage updates" : "अद्यावधिक"));
+    tile(summary.outage_items, t("elec_tile_updates", en() ? "NEA updates" : "NEA अद्यावधिक"));
     tile(summary.districts_supply_affected, t("elec_tile_districts", en() ? "Districts with supply affected" : "आपूर्ति प्रभावित जिल्ला"));
     tile(summary.assets_listed, t("elec_tile_assets", en() ? "Assets affected" : "प्रभावित संरचना"));
-    tile(summary.assets_damaged, t("elec_tile_damaged_n", en() ? "Damaged" : "क्षति"));
-    tile(summary.assets_restored, t("elec_tile_restored_n", en() ? "Restored" : "सुचारु"));
+    tile(summary.assets_damaged, t("elec_tile_damaged_n", en() ? "Damaged" : "क्षतिग्रस्त"));
+    tile(summary.assets_restored, t("elec_tile_restored_n", en() ? "Restored" : "पुनः सुचारु"));
     if (summary.generation_mw_stopped_in_items != null) {
-      tile(summary.generation_mw_stopped_in_items, t("elec_tile_mw_updates", en() ? "MW in NEA updates" : "मेगावाट · प्राधिकरणका अद्यावधिकमा"));
+      tile(summary.generation_mw_stopped_in_items, t("elec_tile_mw_updates", en() ? "MW generation stopped" : "मेगावाट उत्पादन बन्द"));
     }
     host.appendChild(tiles);
     paintAlertMap(host);
@@ -1911,7 +1936,7 @@
     var tel = document.getElementById("elec-home-tel");
     var alert = DATA.alert || {};
     var summary = DATA.alert_summary || {};
-    applyHotline(dashTel);
+    applyHotline(dashTel, true);
     applyHotline(tel);
     if (alert.active) {
       var shortName = shortAlertName();
@@ -1931,15 +1956,24 @@
         }
         fig(summary.districts_supply_affected, t("elec_tile_districts", en() ? "Districts with supply affected" : "आपूर्ति प्रभावित जिल्ला"));
         fig(summary.assets_listed, t("elec_tile_assets", en() ? "Assets affected" : "प्रभावित संरचना"));
-        fig(summary.generation_mw_stopped_in_items, t("elec_tile_mw_updates", en() ? "MW in NEA updates" : "मेगावाट · प्राधिकरणका अद्यावधिकमा"));
+        fig(summary.generation_mw_stopped_in_items, t("elec_tile_mw_updates", en() ? "MW generation stopped" : "मेगावाट उत्पादन बन्द"));
       }
       var newest = newestVisibleFeed();
-      var one = "";
-      if (newest) {
-        var body = newest.entry.ref === "advisories" ? tx(newest.item.text_ne, newest.item.text_en) : tx(newest.item.summary_ne, newest.item.summary_en);
-        one = feedWhen(newest.entry) + " — " + body;
+      var body = "";
+      if (newest) body = newest.entry.ref === "advisories" ? tx(newest.item.text_ne, newest.item.text_en) : tx(newest.item.summary_ne, newest.item.summary_en);
+      if (dashSum) {
+        clear(dashSum);
+        if (newest) {
+          var when = el("time", "dash-elec-when");
+          when.dateTime = newest.entry.time || newest.entry.date || "";
+          when.textContent = feedWhen(newest.entry);
+          dashSum.appendChild(when);
+          var line = el("span", "dash-elec-line");
+          line.textContent = body;
+          dashSum.appendChild(line);
+        }
       }
-      if (dashSum) dashSum.textContent = one;
+      var one = body;
       if (lead) {
         var districtN = summary.districts_supply_affected;
         lead.textContent = districtN == null ? shortName : (shortName + " · " + fmtNum(districtN) + " " + t("elec_tile_districts", en() ? "Districts with supply affected" : "आपूर्ति प्रभावित जिल्ला"));
