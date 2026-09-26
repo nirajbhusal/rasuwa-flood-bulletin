@@ -4,6 +4,7 @@ import test from "node:test";
 
 const data = JSON.parse(readFileSync(new URL("../data/nea_electricity.json", import.meta.url), "utf8"));
 const electricityHtml = readFileSync(new URL("../electricity.html", import.meta.url), "utf8");
+const electricityJs = readFileSync(new URL("../electricity.js", import.meta.url), "utf8");
 const indexHtml = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 
 const CHECKED = /\+05:45$/;
@@ -74,6 +75,28 @@ test("electricity page cites the JSON and both source lines", () => {
   assert.match(electricityHtml, /data\/nea_electricity\.json/);
   assert.match(electricityHtml, /स्रोत: नेपाल विद्युत प्राधिकरण \(NEA\)/);
   assert.match(electricityHtml, /Source: Nepal Electricity Authority \(NEA\)/);
+});
+
+test("electricity visual is wired to existing NEA ids only", () => {
+  assert.match(electricityHtml, /id="elec-kpis"/);
+  assert.match(electricityHtml, /id="elec-flow"/);
+  assert.match(electricityHtml, /id="elec-map"/);
+  assert.match(indexHtml, /id="elec-home-viz"/);
+  assert.match(indexHtml, /id="cat-electricity"/);
+  assert.equal(electricityHtml.includes("L.marker("), false);
+  assert.equal(/\b405\b/.test(electricityJs), false);
+  assert.equal(/176\.1/.test(electricityJs), false);
+  const knownAssets = new Set(data.damaged_assets.items.map((item) => item.id));
+  const knownStatements = new Set(data.statements.items.map((item) => item.id));
+  for (const match of electricityJs.matchAll(/needAsset:\s*"([a-z0-9_]+)"/g)) {
+    assert.equal(knownAssets.has(match[1]), true, match[1]);
+  }
+  for (const match of electricityJs.matchAll(/needStmt:\s*"(nea-[0-9-]+)"/g)) {
+    assert.equal(knownStatements.has(match[1]), true, match[1]);
+  }
+  for (const match of electricityJs.matchAll(/stmtById\("(nea-[0-9-]+)"\)/g)) {
+    assert.equal(knownStatements.has(match[1]), true, match[1]);
+  }
 });
 
 test("section pages do not draw pin markers or permanent tooltips", () => {
