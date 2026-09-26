@@ -1,4 +1,4 @@
-/*! Rasuwa flood bulletin · DHM special flood forecast · data/flood-bulletin.json */
+/*! Rasuwa flood bulletin · DHM flood forecast · data/flood-bulletin.json */
 (function () {
   var mounts = document.querySelectorAll("[data-flood-mount]");
   if (!mounts.length) return;
@@ -70,6 +70,7 @@
   }
 
   function chipGroup(title, rows, tone) {
+    if (!rows || !rows.length) return null;
     var box = el("div", "fld-status fld-" + tone);
     box.appendChild(el("p", "fld-status-k", title));
     var ul = el("ul", "fld-chips");
@@ -79,6 +80,19 @@
       ul.appendChild(li);
     });
     box.appendChild(ul);
+    return box;
+  }
+  function statusBoard() {
+    var present = data.present || {};
+    var box = el("div", "fld-statuses");
+    [
+      ["above", lang() === "en" ? "Above warning" : "सतर्कता तह माथि"],
+      ["near", lang() === "en" ? "Near warning" : "सतर्कता नजिक"],
+      ["below", lang() === "en" ? "Below warning" : "सतर्कताभन्दा तल"]
+    ].forEach(function (row) {
+      var group = chipGroup(row[1], present[row[0]] || [], row[0]);
+      if (group) box.appendChild(group);
+    });
     return box;
   }
 
@@ -163,6 +177,17 @@
       ? ras + " flash-flood risk: " + riskWord(ru.today || "medium") + " today, " + riskWord(ru.tomorrow || "medium") + " tomorrow."
       : ras + "मा आकस्मिक बाढीको जोखिम आज " + riskWord(ru.today || "medium") + ", भोलि " + riskWord(ru.tomorrow || "medium") + "।";
     card.appendChild(p);
+    if ((data.corridor || []).length) {
+      var cor = el("div", "fld-cor-days");
+      data.corridor.forEach(function (item) {
+        var tone = item.today === "high" || item.today === "very_high" ? "orange" : (item.today === "medium" ? "yellow" : "green");
+        var cell = el("span", "fld-cell fld-" + tone);
+        cell.appendChild(el("b", null, nameOf(item.id)));
+        cell.appendChild(document.createTextNode(riskWord(item.today) + " · " + riskWord(item.tomorrow)));
+        cor.appendChild(cell);
+      });
+      card.appendChild(cor);
+    }
     if (today && today.valid) {
       card.appendChild(el("p", "fld-valid", tx(today.valid)));
     }
@@ -440,11 +465,13 @@
     return ul;
   }
   function buildHighChips(panel) {
-    var box = el("div", "fld-highs");
     var day = flashDay();
+    var highs = (day && day.high) || [];
+    if (!highs.length) return null;
+    var box = el("div", "fld-highs");
     box.appendChild(el("p", "fld-status-k", lang() === "en" ? "High risk" : "उच्च जोखिम"));
     var ul = el("ul", "fld-chips");
-    (day.high || []).forEach(function (id) {
+    highs.forEach(function (id) {
       var li = document.createElement("li");
       var b = document.createElement("button");
       b.type = "button";
@@ -494,9 +521,8 @@
     var legend = el("div", "fld-legend-host");
     legend.appendChild(buildLegend());
     panel.appendChild(legend);
-    var highs = el("div", "fld-high-host");
-    highs.appendChild(buildHighChips(panel));
-    panel.appendChild(highs);
+    var highs = buildHighChips(panel);
+    if (highs) panel.appendChild(highs);
     panel.appendChild(el("p", "fld-after", tx(data.day_after)));
     return panel;
   }
@@ -524,9 +550,8 @@
     a.href = data.source.url;
     a.target = "_blank";
     a.rel = "noopener";
-    a.textContent = tx(data.source.org) + " · " + tx(data.source.name);
+    a.textContent = tx(data.source.label);
     p.appendChild(a);
-    p.appendChild(document.createTextNode(" · " + tx(data.source.issued)));
     return p;
   }
 
@@ -536,13 +561,10 @@
     board.id = "flood-outlook";
     var head = el("header", "fld-head");
     head.appendChild(el("h2", "fld-title", lang() === "en" ? "River and flood outlook" : "नदी र बाढी पूर्वानुमान"));
-    head.appendChild(el("p", "fld-sub", tx(data.source.issued)));
+    head.appendChild(el("p", "fld-sub", tx(data.source.label)));
     board.appendChild(head);
     board.appendChild(el("p", "fld-lead", tx(data.present.text)));
-    var status = el("div", "fld-statuses");
-    status.appendChild(chipGroup(lang() === "en" ? "Near warning" : "सतर्कता नजिक", data.present.near, "near"));
-    status.appendChild(chipGroup(lang() === "en" ? "Below warning" : "सतर्कताभन्दा तल", data.present.below, "below"));
-    board.appendChild(status);
+    board.appendChild(statusBoard());
     var heat = el("section", "fld-panel");
     heat.appendChild(el("h3", "fld-h", lang() === "en" ? "Five-day station outlook" : "५ दिनको स्टेशन पूर्वानुमान"));
     heat.appendChild(buildHeat());
@@ -558,14 +580,21 @@
     var day = data.flash.today;
     var card = el("article", "fld fld-home");
     card.appendChild(el("h2", "fld-title", lang() === "en" ? "River and flood outlook" : "नदी र बाढी पूर्वानुमान"));
-    card.appendChild(el("p", "fld-sub", tx(data.source.issued)));
+    card.appendChild(el("p", "fld-sub", tx(data.source.label)));
     var n = (day.high || []).length;
     card.appendChild(el("p", "fld-home-n", lang() === "en"
       ? n + " districts are at high flash-flood risk today."
       : "आज " + digits(n) + " जिल्लामा आकस्मिक बाढीको उच्च जोखिम छ।"));
-    card.appendChild(el("p", "fld-home-r", lang() === "en"
-      ? "Near warning: " + data.present.near.map(tx).join(", ") + "."
-      : "सतर्कता नजिक: " + data.present.near.map(tx).join(", ") + "।"));
+    [
+      ["above", "Above warning", "सतर्कता तह माथि"],
+      ["near", "Near warning", "सतर्कता नजिक"]
+    ].forEach(function (row) {
+      var items = (data.present && data.present[row[0]]) || [];
+      if (!items.length) return;
+      card.appendChild(el("p", "fld-home-r", lang() === "en"
+        ? row[1] + ": " + items.map(tx).join(", ") + "."
+        : row[2] + ": " + items.map(tx).join(", ") + "।"));
+    });
     var a = document.createElement("a");
     a.className = "fld-more";
     a.href = "weather.html#flood-outlook";
@@ -576,6 +605,7 @@
   function renderCorridorMount(root) {
     root.replaceChildren();
     var board = el("div", "fld fld-corridor-mount");
+    board.appendChild(el("p", "fld-sub", tx(data.source.label)));
     board.appendChild(buildCorridor());
     root.appendChild(board);
   }
@@ -604,9 +634,10 @@
   var lastLang = lang();
   if (typeof MutationObserver === "function") {
     new MutationObserver(function () {
-      if (lang() === lastLang || !data) return;
-      lastLang = lang();
-      paintAll();
+      var now = lang();
+      if (now === lastLang) return;
+      lastLang = now;
+      if (data) paintAll();
     }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
   }
 })();
