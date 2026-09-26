@@ -31,6 +31,20 @@
     Sindhupalchowk: "सिन्धुपाल्चोक",
     Kavre: "काभ्रे"
   };
+  var PROV_KEY = {
+    "Bagmati Province": "elec_prov_bagmati",
+    "Gandaki Province": "elec_prov_gandaki"
+  };
+  var DC_KEY = {
+    "Ratnapark Distribution Center": "elec_dc_ratnapark",
+    "Pulchowk Distribution Center": "elec_dc_pulchowk",
+    "Tandi Distribution Center": "elec_dc_tandi",
+    "Arughat Distribution Center": "elec_dc_arughat",
+    "Maharajgunj Distribution Center": "elec_dc_maharajgunj",
+    "Baneshwor Distribution Center": "elec_dc_baneshwor",
+    "Lagankhel Distribution Center": "elec_dc_lagankhel",
+    "Hetauda Distribution Center": "elec_dc_hetauda"
+  };
   var CATS = ["hotline", "central", "complaint", "information", "directorate", "dc_chief", "no_light"];
   var CAT_KEY = {
     hotline: "elec_cat_hotline",
@@ -155,6 +169,12 @@
     if (!en() && DIST_NE[name]) return DIST_NE[name];
     return name;
   }
+  function officeLabel(value, keys) {
+    if (!value) return "";
+    var key = keys[value];
+    if (!key) return value;
+    return t(key, value);
+  }
   function colorFor(type) {
     if (type === "hydropower_plant") return { color: "#c41e3a", fill: "#c41e3a" };
     if (type === "substation") return { color: "#334155", fill: "#334155" };
@@ -174,7 +194,11 @@
     setChecked();
   }
 
-  function chipRow(label, values, current, attr) {
+  function chipRow(label, values, current, attr, nameOf) {
+    var block = el("div", "elec-filter");
+    var k = el("p", "elec-filter-k");
+    k.textContent = label;
+    block.appendChild(k);
     var wrap = el("div", "elec-chiprow");
     wrap.setAttribute("role", "group");
     wrap.setAttribute("aria-label", label);
@@ -186,8 +210,9 @@
       wrap.appendChild(b);
     }
     add("all", t("elec_all", en() ? "All" : "सबै"));
-    values.forEach(function (v) { add(v, v); });
-    return wrap;
+    values.forEach(function (v) { add(v, nameOf ? nameOf(v) : v); });
+    block.appendChild(wrap);
+    return block;
   }
   function rowMatches(row) {
     if (filterProv !== "all" && row.province !== filterProv) return false;
@@ -222,8 +247,8 @@
     host.appendChild(cover);
 
     var filters = el("div", "elec-filters");
-    filters.appendChild(chipRow(t("elec_filter_prov", en() ? "Province" : "प्रदेश"), unique(rows, "province"), filterProv, "data-elec-prov"));
-    filters.appendChild(chipRow(t("elec_filter_dc", en() ? "Distribution centre" : "वितरण केन्द्र"), unique(rows, "distribution_centre"), filterDc, "data-elec-dc"));
+    filters.appendChild(chipRow(t("elec_filter_prov", en() ? "Province" : "प्रदेश"), unique(rows, "province"), filterProv, "data-elec-prov", function (v) { return officeLabel(v, PROV_KEY); }));
+    filters.appendChild(chipRow(t("elec_filter_dc", en() ? "Distribution centre" : "वितरण केन्द्र"), unique(rows, "distribution_centre"), filterDc, "data-elec-dc", function (v) { return officeLabel(v, DC_KEY); }));
     host.appendChild(filters);
 
     var gaps = block.flood_districts_without_rows || [];
@@ -265,7 +290,7 @@
       var tr = el("tr", live(row) ? "elec-live" : "elec-past");
       tr.setAttribute("data-prov", row.province || "");
       tr.setAttribute("data-dc", row.distribution_centre || "");
-      tr.appendChild(cell(row.distribution_centre || "", heads[0][0]));
+      tr.appendChild(cell(officeLabel(row.distribution_centre, DC_KEY), heads[0][0]));
       tr.appendChild(cell(row.feeder || "", heads[1][0]));
       var area = cell(row.area_ne || "", heads[2][0]);
       area.classList.add("elec-area");
