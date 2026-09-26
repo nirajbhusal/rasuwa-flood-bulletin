@@ -264,28 +264,58 @@ test("DAO notice districts match the district GeoJSON", function () {
   assert.equal(roads.roads.length >= 10, true);
 });
 
-test("special flood forecast answers use the DHM bulletin", function () {
-  assertAnswer("कुन नदी सतर्कता नजिक छ?", "ne", { intent: "flood_rivers", has: ["कोशी", "नारायणी", "बागमती", "कन्काई", "कमला", "पश्चिम राप्ती"] });
-  assertAnswer("Which rivers are near the warning level?", "en", { intent: "flood_rivers", has: ["Koshi", "Narayani", "West Rapti", "Mahakali"] });
+test("flood forecast answers use the DHM bulletin", function () {
+  assertAnswer("कुन नदी सतर्कता नजिक छ?", "ne", { intent: "flood_rivers", has: ["कोशी", "नारायणी", "बागमती", "पश्चिम राप्ती", "बबई"] });
+  assertAnswer("Which rivers are near the warning level?", "en", { intent: "flood_rivers", has: ["Koshi", "Narayani", "Bagmati", "West Rapti", "Babai"] });
+  assertAnswer("above warning", "en", { intent: "flood_rivers", has: ["Koshi", "Narayani", "above the warning level"] });
+  assertAnswer("सतर्कता तह माथि", "ne", { intent: "flood_rivers", has: ["कोशी", "नारायणी", "सतर्कता तह माथि"] });
+  assertAnswer("पश्चिम राप्ती", "ne", { intent: "flood_rivers", has: ["पश्चिम राप्ती", "बबई"] });
+  assertAnswer("बबई", "ne", { intent: "flood_rivers", has: ["बबई", "बागमती"] });
   assertAnswer("रसुवामा आकस्मिक बाढी?", "ne", { intent: "flood_place", has: ["रसुवा", "मध्यम"] });
   assertAnswer("Rasuwa flash flood tomorrow", "en", { intent: "flood_place", has: ["Rasuwa", "medium"] });
   assertAnswer("Kaski flash flood today", "en", { intent: "flood_place", has: ["Kaski", "high"] });
+  assertAnswer("Humla flash flood today", "en", { intent: "flood_place", has: ["Humla", "high"] });
   assertAnswer("त्रिशुली बेत्रावतीको पूर्वानुमान", "ne", { intent: "flood_trishuli", has: ["बेत्रावती", "उल्लेख्य बढ्ने", "सामान्य घटबढ"] });
   assertAnswer("आज आकस्मिक बाढी कहाँ छ?", "ne", { intent: "flood_flash", has: ["गोरखा", "कैलाली"] });
+  assertAnswer("असोज १२ आकस्मिक बाढी", "ne", { intent: "flood_flash", has: ["कर्णाली"] });
+  assertAnswer("flash flood Asoj 12", "en", { intent: "flood_flash", has: ["Karnali"] });
+  const tomorrowFlash = assertAnswer("flash flood tomorrow", "en", { intent: "flood_flash", has: ["no district is at high", "45"] });
+  assert.equal(/0 districts/.test(tomorrowFlash.text), false);
   assertAnswer("Trishuli at Dhunche", "en", { intent: "weather_river", has: ["2.99", "warning"] });
   assertAnswer("Rasuwa weather", "en", { intent: "weather_place", has: ["Rasuwa"] });
   const today = new Set(flood.flash.today.high.concat(flood.flash.today.medium));
   const tomorrow = new Set(flood.flash.tomorrow.high.concat(flood.flash.tomorrow.medium));
-  assert.equal(flood.flash.today.high.length, 12);
-  assert.equal(flood.flash.today.medium.length, 65);
-  assert.equal(today.size, 77);
-  assert.equal(flood.flash.tomorrow.high.length, 26);
-  assert.equal(flood.flash.tomorrow.medium.length, 32);
-  assert.equal(tomorrow.size, 58);
+  assert.equal(flood.flash.today.high.length, 27);
+  assert.equal(flood.flash.today.medium.length, 31);
+  assert.equal(today.size, 58);
+  assert.equal(flood.flash.tomorrow.high.length, 0);
+  assert.equal(flood.flash.tomorrow.medium.length, 45);
+  assert.equal(flood.flash.tomorrow.text_medium.length, 41);
+  assert.equal(tomorrow.size, 45);
+  assert.equal(flood.stations.length, 36);
   assert.equal(flood.stations[12].river, "त्रिशुली");
+  assert.equal(flood.stations[12].station, "बेत्रावती");
   assert.deepEqual(flood.stations[12].days, ["Y", "Y", "Gb", "Gd", "Gd"]);
+  assert.equal(flood.stations[11].station, "देवघाट");
+  assert.deepEqual(flood.stations[11].days, ["O", "O", "Yb", "Gd", "Gd"]);
+  assert.equal(flood.levels.Yb.tone, "yellow");
+  assert.equal(flood.levels.Yb.ne, "सामान्य बढ्ने");
+  assert.equal(flood.levels.Gn.tone, "green");
+  assert.equal(flood.levels.Gn.ne, "उल्लेख्य बढ्ने");
+  let mismatch = 0;
+  flood.stations.forEach(function (st) {
+    st.days.forEach(function (code) {
+      if (flood.levels[code] && flood.levels[code].mismatch) mismatch += 1;
+    });
+  });
+  assert.equal(mismatch, 9);
   assert.equal(flood.rasuwa.today, "medium");
   assert.equal(flood.rasuwa.tomorrow, "medium");
+  assert.equal(flood.source.label.en, "DHM · Asoj 10, 2083 · 8:00 AM");
+  const unloaded = Ask.answer("कुन नदी सतर्कता नजिक छ?", { lang: "ne", now: "2026-09-26", t: tFor("ne") });
+  assert.equal(unloaded.text, "बाढी पूर्वानुमान अहिले लोड भएको छैन।");
+  const unloadedEn = Ask.answer("Which rivers are near the warning level?", { lang: "en", now: "2026-09-26", t: tFor("en") });
+  assert.equal(unloadedEn.text, "The flood forecast is not loaded.");
 });
 
 test("heaviest rain answers from top_rain", function () {

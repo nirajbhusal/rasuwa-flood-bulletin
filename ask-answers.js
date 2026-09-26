@@ -113,7 +113,8 @@
     { id: "doti", keys: ["doti", "डोटी"] },
     { id: "dadeldhura", keys: ["dadeldhura", "डडेल्धुरा", "डडेलधुरा"] },
     { id: "jhapa", keys: ["jhapa", "झापा"] },
-    { id: "sindhuli", keys: ["sindhuli", "सिन्धुली"] }
+    { id: "sindhuli", keys: ["sindhuli", "सिन्धुली"] },
+    { id: "humla", keys: ["humla", "हुम्ला"] }
   ];
   var HELPLINES = [
     { tel: "1234", ne: "उद्धार / DEOC", en: "Rescue / DEOC" },
@@ -693,7 +694,8 @@
     var bulletin = hit(q, [
       "flood forecast", "flood outlook", "flood bulletin", "special flood",
       "बाढी पूर्वानुमान", "नदी र बाढी", "river outlook", "river status",
-      "सतर्कता तह", "सतर्कता नजिक", "near warning", "near the warning"
+      "सतर्कता तह", "सतर्कता नजिक", "सतर्कता तह माथि", "near warning", "near the warning",
+      "above warning", "पश्चिम राप्ती", "बबई", "राप्ती"
     ]);
     var forecastWord = hit(q, [
       "forecast", "outlook", "पूर्वानुमान", "बढ्ने", "5-day", "5 day", "five-day", "five day",
@@ -712,7 +714,7 @@
     }
     if (spec.district) spec.intent = "flood_place";
     else if (tri) spec.intent = "flood_trishuli";
-    else if (hit(q, ["नदी", "river", "basin", "सतर्कता", "कोशी", "नारायणी", "कन्काई", "कमला", "बागमती"])) spec.intent = "flood_rivers";
+    else if (hit(q, ["नदी", "river", "basin", "सतर्कता", "कोशी", "नारायणी", "कन्काई", "कमला", "बागमती", "above warning", "सतर्कता तह माथि", "पश्चिम राप्ती", "बबई", "राप्ती"])) spec.intent = "flood_rivers";
     else spec.intent = "flood_flash";
     return true;
   }
@@ -1990,9 +1992,28 @@
     }
     return id;
   }
-  function floodWhich(spec) {
-    if (spec.asoj === 11) return "after";
-    if (spec.dayOffset === 1 || spec.asoj === 10) return "tomorrow";
+  function floodAsojNum(day) {
+    if (!day) return null;
+    var label = "";
+    if (typeof day === "string") label = day;
+    else if (day.label) label = day.label.en || day.label.ne || "";
+    else label = day.en || day.ne || "";
+    var m = ascii(label).match(/(\d{1,2})/);
+    return m ? parseInt(m[1], 10) : null;
+  }
+  function floodWhich(spec, doc) {
+    var days = (doc && doc.days) || [];
+    var flash = (doc && doc.flash) || {};
+    var todayN = floodAsojNum(days[0]) || floodAsojNum(flash.today);
+    var tomorrowN = floodAsojNum(days[1]) || floodAsojNum(flash.tomorrow);
+    var afterN = floodAsojNum(days[2]);
+    if (spec.asoj != null) {
+      if (afterN != null && spec.asoj === afterN) return "after";
+      if (tomorrowN != null && spec.asoj === tomorrowN) return "tomorrow";
+      if (todayN != null && spec.asoj === todayN) return "today";
+    }
+    if (spec.dayOffset === 2) return "after";
+    if (spec.dayOffset === 1) return "tomorrow";
     return "today";
   }
   function floodList(doc, ids, lang) {
@@ -2005,13 +2026,13 @@
     var follow = FOLLOW[spec.intent] || FOLLOW.flood_flash;
     if (!doc || !doc.flash) {
       var missing = lang === "en"
-        ? "The special flood forecast is not loaded."
-        : "विशेष बाढी पूर्वानुमान अहिले लोड भएको छैन।";
+        ? "The flood forecast is not loaded."
+        : "बाढी पूर्वानुमान अहिले लोड भएको छैन।";
       return pack(lang, missing, "", href, { followups: follow });
     }
     var issued = tx(doc.source && doc.source.issued, lang);
     var src = sourceLine(lang, "DHM", issued);
-    var which = floodWhich(spec);
+    var which = floodWhich(spec, doc);
     var text = "";
     if (which === "after") {
       text = tx(doc.day_after, lang);
@@ -2031,11 +2052,21 @@
         ? "Trishuli at Betrawati: " + bits.join(", ") + "."
         : "त्रिशुली (बेत्रावती): " + bits.join(", ") + "।";
     } else if (spec.intent === "flood_rivers") {
-      var near = (doc.present.near || []).map(function (r) { return tx(r, lang); }).join(", ");
-      var below = (doc.present.below || []).map(function (r) { return tx(r, lang); }).join(", ");
-      text = lang === "en"
-        ? near + " and their tributaries are near the warning level. " + below + " and their tributaries are below it."
-        : near + " र सहायक नदी सतर्कता तह नजिक छन्। " + below + " र सहायक नदी सतर्कताभन्दा तल छन्।";
+      var present = doc.present || {};
+      var above = (present.above || []).map(function (r) { return tx(r, lang); }).join(", ");
+      var near = (present.near || []).map(function (r) { return tx(r, lang); }).join(", ");
+      var below = (present.below || []).map(function (r) { return tx(r, lang); }).join(", ");
+      var bits = [];
+      if (lang === "en") {
+        if (above) bits.push(above + " and their tributaries are above the warning level.");
+        if (near) bits.push(near + " are near it.");
+        if (below) bits.push(below + " are below it.");
+      } else {
+        if (above) bits.push(above + " र तिनका सहायक नदी सतर्कता तह माथि छन्।");
+        if (near) bits.push(near + " सतर्कता तह नजिक छन्।");
+        if (below) bits.push(below + " सतर्कता तहभन्दा तल छन्।");
+      }
+      text = bits.join(" ");
     } else if (spec.intent === "flood_place" && spec.district) {
       var todayLv = floodRiskWord(doc, floodRiskId(doc, spec.district, "today"), lang);
       var tomLv = floodRiskWord(doc, floodRiskId(doc, spec.district, "tomorrow"), lang);
@@ -2051,15 +2082,25 @@
       }
     } else {
       var day = doc.flash[which] || doc.flash.today;
-      var highs = floodList(doc, day.high, lang);
-      var sentence = lang === "en"
-        ? (which === "tomorrow" ? "Tomorrow" : "Today") + ", " + (day.high || []).length + " districts are at high flash-flood risk: " + highs + "."
-        : (which === "tomorrow" ? "भोलि" : "आज") + " " + digits(String((day.high || []).length), lang) + " जिल्लामा उच्च जोखिम छ: " + highs + "।";
-      text = sentence.length > 380
-        ? (lang === "en"
-          ? (which === "tomorrow" ? "Tomorrow" : "Today") + ", " + (day.high || []).length + " districts are at high flash-flood risk and " + (day.medium || []).length + " at medium risk."
-          : (which === "tomorrow" ? "भोलि" : "आज") + " उच्च जोखिम " + digits(String((day.high || []).length), lang) + " जिल्ला र मध्यम जोखिम " + digits(String((day.medium || []).length), lang) + " जिल्लामा छ।")
-        : sentence;
+      var nHigh = (day.high || []).length;
+      var nMed = (day.medium || []).length;
+      var whenEn = which === "tomorrow" ? "Tomorrow" : "Today";
+      var whenNe = which === "tomorrow" ? "भोलि" : "आज";
+      if (!nHigh) {
+        text = lang === "en"
+          ? whenEn + ", no district is at high flash-flood risk and " + nMed + " are at medium risk."
+          : whenNe + " कुनै जिल्लामा उच्च जोखिम छैन र " + digits(String(nMed), lang) + " जिल्लामा मध्यम जोखिम छ।";
+      } else {
+        var highs = floodList(doc, day.high, lang);
+        var sentence = lang === "en"
+          ? whenEn + ", " + nHigh + " districts are at high flash-flood risk: " + highs + "."
+          : whenNe + " " + digits(String(nHigh), lang) + " जिल्लामा उच्च जोखिम छ: " + highs + "।";
+        text = sentence.length > 380
+          ? (lang === "en"
+            ? whenEn + ", " + nHigh + " districts are at high flash-flood risk and " + nMed + " at medium risk."
+            : whenNe + " उच्च जोखिम " + digits(String(nHigh), lang) + " जिल्ला र मध्यम जोखिम " + digits(String(nMed), lang) + " जिल्लामा छ।")
+          : sentence;
+      }
     }
     return pack(lang, text, src, href, { followups: follow });
   }
