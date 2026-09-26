@@ -30,8 +30,18 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Check the stamper
-        run: python3 scripts/test_stamp.py
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check the stamper and SEO rewriter
+        run: |
+          python scripts/test_stamp.py
+          python scripts/test_seo.py
+      - name: Install Playwright Chromium
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
       - name: See if this commit is weather data only
         id: scope
         run: |
@@ -64,7 +74,7 @@ jobs:
       - name: Stamp build id into the deploy artifact
         env:
           BUILD_SHA: ${{ github.sha }}
-        run: python3 scripts/stamp_build.py --src . --out _site
+        run: python scripts/stamp_build.py --src . --out _site --render-og
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -90,10 +100,14 @@ jobs:
               shutil.copy2(path, target)
           shutil.copy2(src / "sw.js", dst / "sw.js")
           shutil.copy2(src / "version.json", dst / "version.json")
+          for name in ("sitemap.xml", "og-header.png", "robots.txt"):
+              srcf = src / name
+              if srcf.is_file():
+                  shutil.copy2(srcf, dst / name)
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- sw.js version.json
+          git add -- sw.js version.json sitemap.xml og-header.png robots.txt
           git add -- *.html api/*.html embed/*.html
           if git diff --cached --quiet; then
             echo "nothing to commit"
