@@ -1,1577 +1,2251 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-09-26T10:40:00+05:45",
-  "source_line": {
-    "ne": "स्रोत: नेपाल विद्युत प्राधिकरण (NEA)",
-    "en": "Source: Nepal Electricity Authority (NEA)"
+ "schema_version": 2,
+ "generated_at": "2026-09-26T14:05:00+05:45",
+ "source_line": {
+  "ne": "स्रोत: नेपाल विद्युत प्राधिकरण (NEA)",
+  "en": "Source: Nepal Electricity Authority (NEA)"
+ },
+ "coverage_line": {
+  "ne": "मौसमी अवरोधका विवरण प्राधिकरण वा यसका नाम खुलेका अधिकारीले दिएको जानकारीमा आधारित छन्।",
+  "en": "Weather-outage entries come from NEA or named NEA officials."
+ },
+ "alert": {
+  "id": "dhm-2083-asoj-09-14",
+  "active": true,
+  "name": {
+   "ne": "भारी वर्षा चेतावनी · असोज ९–१४, २०८३",
+   "en": "Heavy rain warning · Asoj 9–14, 2083 (25–30 Sep 2026)"
   },
-  "coverage_line": {
+  "issuer": {
+   "ne": "जल तथा मौसम विज्ञान विभाग",
+   "en": "Department of Hydrology and Meteorology (DHM)"
+  },
+  "dhm_warning_ids": [
+   "12310",
+   "12312"
+  ],
+  "date_range": {
+   "start": "2026-09-25",
+   "end": "2026-09-30",
+   "start_bs": "2083-06-09",
+   "end_bs": "2083-06-14",
+   "start_bs_label": {
+    "ne": "असोज ९, २०८३",
+    "en": "Asoj 9, 2083"
+   },
+   "end_bs_label": {
+    "ne": "असोज १४, २०८३",
+    "en": "Asoj 14, 2083"
+   }
+  },
+  "rain_onset": {
+   "start": "2026-09-24",
+   "start_bs": "2083-06-08",
+   "note_en": "Heavy rain, floods and landslides since about Asoj 8–9 (24–25 Sep)."
+  },
+  "district_counts": {
+   "date": "2026-09-26",
+   "date_bs": "2083-06-10",
+   "red": 14,
+   "orange": 34,
+   "yellow": 29,
+   "red_by_province": [
+    {
+     "province_en": "Gandaki",
+     "province_ne": "गण्डकी",
+     "count": 9
+    },
+    {
+     "province_en": "Lumbini",
+     "province_ne": "लुम्बिनी",
+     "count": 5
+    }
+   ]
+  },
+  "meta_source_note": "DHM warning ids and district counts are as supplied in the compiler brief (not NEA data; not re-fetched from DHM in this pass).",
+  "as_of": "2026-09-26T14:00:00+05:45"
+ },
+ "alert_summary": {
+  "as_of": "2026-09-26T14:00:00+05:45",
+  "outage_items": 3,
+  "districts_supply_affected": 3,
+  "districts_supply_affected_list": [
+   {
+    "name_en": "Jajarkot",
+    "name_ne": "जाजरकोट",
+    "status": "partly_disrupted"
+   },
+   {
+    "name_en": "Salyan",
+    "name_ne": "सल्यान",
+    "status": "disrupted"
+   },
+   {
+    "name_en": "Surkhet",
+    "name_ne": "सुर्खेत",
+    "status": "disrupted"
+   }
+  ],
+  "districts_generation_only": [
+   {
+    "name_en": "Syangja",
+    "name_ne": "स्याङ्जा"
+   }
+  ],
+  "districts_with_nea_items": 4,
+  "assets_listed": 10,
+  "assets_by_type": {
+   "distribution_line": 5,
+   "feeder": 2,
+   "hydropower_plant": 1,
+   "substation": 2
+  },
+  "assets_damaged": 2,
+  "assets_restored": 0,
+  "assets_with_coordinates": 1,
+  "generation_mw_stopped_in_items": 144,
+  "nationwide_total_from_nea": null,
+  "note_en": "Counts are derived only from alert_outages items. NEA has not published a nationwide outage or MW-lost total for this alert (as of check)."
+ },
+ "alert_district_status": [
+  {
+   "name_en": "Jajarkot",
+   "name_ne": "जाजरकोट",
+   "province_en": "Karnali Province",
+   "province_ne": "कर्णाली प्रदेश",
+   "status": "partly_disrupted",
+   "item_ids": [
+    "alert-2026-09-26-surkhet"
+   ],
+   "district_id": "jajarkot"
+  },
+  {
+   "name_en": "Salyan",
+   "name_ne": "सल्यान",
+   "province_en": "Karnali Province",
+   "province_ne": "कर्णाली प्रदेश",
+   "status": "disrupted",
+   "item_ids": [
+    "alert-2026-09-26-salyan"
+   ],
+   "district_id": "salyan"
+  },
+  {
+   "name_en": "Surkhet",
+   "name_ne": "सुर्खेत",
+   "province_en": "Karnali Province",
+   "province_ne": "कर्णाली प्रदेश",
+   "status": "disrupted",
+   "item_ids": [
+    "alert-2026-09-26-surkhet"
+   ],
+   "district_id": "surkhet"
+  },
+  {
+   "name_en": "Syangja",
+   "name_ne": "स्याङ्जा",
+   "province_en": "Gandaki Province",
+   "province_ne": "गण्डकी प्रदेश",
+   "status": "generation_only",
+   "item_ids": [
+    "alert-2026-09-25-kaligandaki-a"
+   ],
+   "district_id": "syangja"
+  }
+ ],
+ "alert_outages": [
+  {
+   "id": "alert-2026-09-26-surkhet",
+   "alert_id": "dhm-2083-asoj-09-14",
+   "date": "2026-09-26",
+   "date_bs": {
+    "ne": "असोज १०, २०८३",
+    "en": "Asoj 10, 2083"
+   },
+   "started_at": null,
+   "reported_at": "2026-09-26T12:02:18+05:45",
+   "kind": "supply_disruption",
+   "status": "disrupted",
+   "status_ne": "अवरुद्ध (केही क्षेत्रमा आंशिक)",
+   "status_en": "Disrupted (partly in some areas)",
+   "restoration_eta": null,
+   "restoration_note": {
+    "ne": "प्राधिकरणका अनुसार मर्मतपछि सेवा क्रमशः सुचारु हुनेछ; लम्की–बाबियाचौर लाइन तत्काल सञ्चालन गर्न नसकिने।",
+    "en": "NEA says supply will return gradually after repairs; the Lamki–Babiyachaur line cannot be restored immediately."
+   },
+   "province": {
+    "ne": "कर्णाली प्रदेश",
+    "en": "Karnali Province"
+   },
+   "districts": [
+    {
+     "name_ne": "सुर्खेत",
+     "name_en": "Surkhet",
+     "status": "disrupted",
+     "role": "outage_area",
+     "district_id": "surkhet"
+    },
+    {
+     "name_ne": "जाजरकोट",
+     "name_en": "Jajarkot",
+     "status": "partly_disrupted",
+     "role": "supply_toward_affected",
+     "note_en": "NEA: supply on the line toward Jajarkot affected",
+     "note_ne": "प्राधिकरण: जाजरकोटतर्फको आपूर्ति प्रभावित",
+     "district_id": "jajarkot"
+    }
+   ],
+   "places": [
+    {
+     "ne": "वीरेन्द्रनगर",
+     "en": "Birendranagar"
+    },
+    {
+     "ne": "भेरीगंगा नगरपालिका–११, रामघाट जंगल",
+     "en": "Ramghat forest, Bheriganga Municipality-11"
+    },
+    {
+     "ne": "रामघाट",
+     "en": "Ramghat"
+    },
+    {
+     "ne": "राकम",
+     "en": "Rakam"
+    },
+    {
+     "ne": "बाबियाचौर",
+     "en": "Babiyachaur"
+    },
+    {
+     "ne": "सीतापाइला",
+     "en": "Sitapaila"
+    }
+   ],
+   "assets": [
+    {
+     "id": "line_subbakuna_ramghat_33",
+     "name_ne": "सुब्बाकुना–रामघाट ३३ केभी लाइन",
+     "name_en": "Subbakuna–Ramghat 33 kV line",
+     "type": "distribution_line",
+     "kv": 33,
+     "mw": null,
+     "status": "disrupted",
+     "status_ne": "रुख ढलेर अवरुद्ध; मर्मत जारी",
+     "status_en": "Blocked by a fallen tree; repair under way",
+     "district_en": "Surkhet",
+     "district_ne": "सुर्खेत",
+     "lat": null,
+     "lon": null,
+     "coord_source": null,
+     "coord_note": null,
+     "note_ne": null,
+     "note_en": null,
+     "source_url": "https://www.onlinekhabar.com/2026/09/2026174/continuous-rain-affects-electricity-service-in-surkhet"
+    },
+    {
+     "id": "ramghat_substation",
+     "name_ne": "रामघाट सबस्टेसन",
+     "name_en": "Ramghat substation",
+     "type": "substation",
+     "kv": null,
+     "mw": null,
+     "status": "disrupted",
+     "status_ne": "आपूर्ति प्रभावित",
+     "status_en": "Supply affected",
+     "district_en": null,
+     "district_ne": null,
+     "lat": null,
+     "lon": null,
+     "coord_source": null,
+     "coord_note": null,
+     "note_ne": null,
+     "note_en": null,
+     "source_url": "https://ekantipur.com/karnali-pradesh/2026/09/26/33-kv-line-disrupted-after-tree-falls-ramghat-and-rakam-substations-affected-02-21.html"
+    },
+    {
+     "id": "rakam_substation",
+     "name_ne": "राकम सबस्टेसन",
+     "name_en": "Rakam substation",
+     "type": "substation",
+     "kv": null,
+     "mw": null,
+     "status": "disrupted",
+     "status_ne": "आपूर्ति प्रभावित",
+     "status_en": "Supply affected",
+     "district_en": null,
+     "district_ne": null,
+     "lat": null,
+     "lon": null,
+     "coord_source": null,
+     "coord_note": null,
+     "note_ne": null,
+     "note_en": null,
+     "source_url": "https://ekantipur.com/karnali-pradesh/2026/09/26/33-kv-line-disrupted-after-tree-falls-ramghat-and-rakam-substations-affected-02-21.html"
+    },
+    {
+     "id": "line_toward_jajarkot",
+     "name_ne": "जाजरकोटतर्फको विद्युत् लाइन",
+     "name_en": "Line toward Jajarkot",
+     "type": "distribution_line",
+     "kv": null,
+     "mw": null,
+     "status": "disrupted",
+     "status_ne": "बन्द",
+     "status_en": "Shut",
+     "district_en": null,
+     "district_ne": null,
+     "lat": null,
+     "lon": null,
+     "coord_source": null,
+     "coord_note": null,
+     "note_ne": "नेपाल लाइभमा बन्द भनिएको; कान्तिपुरमा जाजरकोटतर्फको आपूर्ति प्रभावित भनिएको।",
+     "note_en": "Named as shut in the Nepal Live report; Kantipur says supply toward Jajarkot was affected.",
+     "source_url": "https://nepallive.com/story/351073"
+    },
+    {
+     "id": "line_lamki_babiyachaur_33",
+     "name_ne": "लम्की–बाबियाचौर ३३ केभी लाइन",
+     "name_en": "Lamki–Babiyachaur 33 kV line",
+     "type": "distribution_line",
+     "kv": 33,
+     "mw": null,
+     "status": "damaged",
+     "status_ne": "रुख ढलेर ठूलो क्षति; तत्काल सञ्चालन गर्न नसकिने",
+     "status_en": "Heavily damaged by fallen trees; cannot be restored immediately",
+     "district_en": null,
+     "district_ne": null,
+     "lat": null,
+     "lon": null,
+     "coord_source": null,
+     "coord_note": null,
+     "note_ne": null,
+     "note_en": null,
+     "source_url": "https://www.onlinekhabar.com/2026/09/2026174/continuous-rain-affects-electricity-service-in-surkhet"
+    },
+    {
+     "id": "line_surkhet_babiyachaur_33",
+     "name_ne": "सुर्खेत–बाबियाचौर ३३ केभी लाइन",
+     "name_en": "Surkhet–Babiyachaur 33 kV line",
+     "type": "distribution_line",
+     "kv": 33,
+     "mw": null,
+     "status": "disrupted",
+     "status_ne": "फल्ट क्लियर गर्ने प्रयास जारी",
+     "status_en": "Fault clearing under way",
+     "district_en": null,
+     "district_ne": null,
+     "lat": null,
+     "lon": null,
+     "coord_source": null,
+     "coord_note": null,
+     "note_ne": null,
+     "note_en": null,
+     "source_url": "https://www.onlinekhabar.com/2026/09/2026174/continuous-rain-affects-electricity-service-in-surkhet"
+    },
+    {
+     "id": "feeder_birendranagar_bazar_11",
+     "name_ne": "वीरेन्द्रनगर बजार फिडर (११ केभी)",
+     "name_en": "Birendranagar Bazar feeder (11 kV)",
+     "type": "feeder",
+     "kv": 11,
+     "mw": null,
+     "status": "partly_disrupted",
+     "status_ne": "पोल ढल्दा आंशिक सञ्चालन",
+     "status_en": "Partly operating after a pole fell",
+     "district_en": "Surkhet",
+     "district_ne": "सुर्खेत",
+     "lat": null,
+     "lon": null,
+     "coord_source": null,
+     "coord_note": null,
+     "note_ne": null,
+     "note_en": null,
+     "source_url": "https://www.onlinekhabar.com/2026/09/2026174/continuous-rain-affects-electricity-service-in-surkhet"
+    },
+    {
+     "id": "feeder_sitapaila",
+     "name_ne": "सीतापाइला फिडर",
+     "name_en": "Sitapaila feeder",
+     "type": "feeder",
+     "kv": null,
+     "mw": null,
+     "status": "disrupted",
+     "status_ne": "फल्ट खोजी जारी",
+     "status_en": "Fault being traced",
+     "district_en": null,
+     "district_ne": null,
+     "lat": null,
+     "lon": null,
+     "coord_source": null,
+     "coord_note": null,
+     "note_ne": null,
+     "note_en": null,
+     "source_url": "https://www.onlinekhabar.com/2026/09/2026174/continuous-rain-affects-electricity-service-in-surkhet"
+    }
+   ],
+   "figures": {},
+   "summary_ne": "सुर्खेतमा रुख ढलेर सुब्बाकुना–रामघाट ३३ केभी लाइन अवरुद्ध हुँदा रामघाट र राकम सबस्टेसन तथा जाजरकोटतर्फको आपूर्ति प्रभावित भयो; लम्की–बाबियाचौर ३३ केभी लाइनमा ठूलो क्षति छ र वीरेन्द्रनगर बजार फिडर आंशिक मात्र चलेको छ।",
+   "summary_en": "In Surkhet a fallen tree blocked the Subbakuna–Ramghat 33 kV line, cutting supply via the Ramghat and Rakam substations and toward Jajarkot; the Lamki–Babiyachaur 33 kV line is heavily damaged and the Birendranagar Bazar feeder is only partly running.",
+   "speaker_ne": "नेपाल विद्युत् प्राधिकरण, सुर्खेत",
+   "speaker_en": "NEA Surkhet office",
+   "attribution_type": "nea_office_unnamed",
+   "sources": [
+    {
+     "source_url": "https://www.onlinekhabar.com/2026/09/2026174/continuous-rain-affects-electricity-service-in-surkhet",
+     "source_name": "Onlinekhabar (Nepali)",
+     "published": "2026-09-26",
+     "published_time": "2026-09-26T13:34:00+05:45",
+     "quote_ne": "विद्युत् प्राधिकरण सुर्खेतका अनुसार सुब्बाकुना–रामघाट ३३ केभी लाइनमा रुख ढलेर अवरुद्ध भएको छ । … त्यस्तै, लम्की–बाबियाचौर ३३ केभी लाइनमा रुख ढलेर ठूलो क्षति पुगेका कारण तत्काल विद्युत् सेवा सञ्चालन गर्न नसकिने प्राधिकरणले जनाएको छ । … वीरेन्द्रनगर बजार फिडरको ११ केभी लाइनको पोल ढल्दा आंशिक रूपमा मात्रै विद्युत् सेवा सञ्चालनमा रहेको छ ।",
+     "quote_en": null,
+     "translation_en": "According to NEA Surkhet, the Subbakuna–Ramghat 33 kV line is blocked by a fallen tree. … NEA said service cannot be restored immediately on the Lamki–Babiyachaur 33 kV line because fallen trees caused heavy damage. … With a pole down on the 11 kV Birendranagar Bazar feeder, service is only partly running.",
+     "source_tier": "listed_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    },
+    {
+     "source_url": "https://ekantipur.com/karnali-pradesh/2026/09/26/33-kv-line-disrupted-after-tree-falls-ramghat-and-rakam-substations-affected-02-21.html",
+     "source_name": "Kantipur (ekantipur, Karnali)",
+     "published": "2026-09-26",
+     "published_time": "2026-09-26T12:02:18+05:45",
+     "quote_ne": "लाइन बन्द हुँदा रामघाट र राकम सबस्टेसन तथा जाजरकोटतर्फको विद्युत् आपूर्ति प्रभावित भएको छ । मर्मत कार्य सुरु भइसकेको सुर्खेत विद्युत् कार्यालयले जनाएको छ ।",
+     "quote_en": null,
+     "translation_en": "With the line shut, supply via the Ramghat and Rakam substations and toward Jajarkot has been affected. The Surkhet electricity office said repair work has begun.",
+     "source_tier": "listed_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    },
+    {
+     "source_url": "https://nepallive.com/story/351073",
+     "source_name": "Nepal Live",
+     "published": "2026-09-26",
+     "published_time": "2026-09-26T09:18:00+05:45",
+     "quote_ne": "नेपाल विद्युत् प्राधिकरण सुर्खेतका अनुसार वर्षाका कारण ढलेको रुखले ३३ केभी लाइनमा क्षति पुर्याएपछि रामघाट सबस्टेसन, राकम सबस्टेसन तथा जाजरकोटतर्फ जाने विद्युत् लाइनसमेत बन्द भएको हो।",
+     "quote_en": null,
+     "translation_en": "According to NEA Surkhet, after a tree felled by the rain damaged the 33 kV line, the Ramghat substation, Rakam substation and the line toward Jajarkot were shut.",
+     "source_tier": "other_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    }
+   ],
+   "source_url": "https://www.onlinekhabar.com/2026/09/2026174/continuous-rain-affects-electricity-service-in-surkhet",
+   "source_name": "NEA Surkhet, as quoted in Onlinekhabar",
+   "checked_at": "2026-09-26T13:55:00+05:45"
+  },
+  {
+   "id": "alert-2026-09-26-salyan",
+   "alert_id": "dhm-2083-asoj-09-14",
+   "date": "2026-09-26",
+   "date_bs": {
+    "ne": "असोज १०, २०८३",
+    "en": "Asoj 10, 2083"
+   },
+   "started_at": null,
+   "reported_at": null,
+   "kind": "supply_disruption",
+   "status": "disrupted",
+   "status_ne": "जिल्लाभर अवरुद्ध",
+   "status_en": "Disrupted district-wide",
+   "restoration_eta": {
+    "ne": "मर्मतमा शनिबार (असोज १०) दिनभर लाग्न सक्ने",
+    "en": "Repairs may take all of Saturday (26 Sep)",
+    "date": "2026-09-26",
+    "precision": "day"
+   },
+   "province": {
+    "ne": "कर्णाली प्रदेश",
+    "en": "Karnali Province"
+   },
+   "districts": [
+    {
+     "name_ne": "सल्यान",
+     "name_en": "Salyan",
+     "status": "disrupted",
+     "role": "outage_area",
+     "district_id": "salyan"
+    }
+   ],
+   "places": [
+    {
+     "ne": "लुहाम–अरिङ्गालेफेदी (खारखोला) खण्ड",
+     "en": "Luham–Aringalephedi (Kharkhola) section"
+    },
+    {
+     "ne": "कपुरकोट",
+     "en": "Kapurkot"
+    }
+   ],
+   "assets": [
+    {
+     "id": "line_salyan_33_luham_aringalephedi",
+     "name_ne": "३३ केभी प्रसारण लाइन (लुहाम–अरिङ्गालेफेदी खण्ड)",
+     "name_en": "33 kV line (Luham–Aringalephedi section)",
+     "type": "distribution_line",
+     "kv": 33,
+     "mw": null,
+     "status": "damaged",
+     "status_ne": "रुख ढलेर संरचनामा क्षति; मर्मत जारी",
+     "status_en": "Structures damaged by fallen trees; repair under way",
+     "district_en": "Salyan",
+     "district_ne": "सल्यान",
+     "lat": null,
+     "lon": null,
+     "coord_source": null,
+     "coord_note": null,
+     "note_ne": null,
+     "note_en": null,
+     "source_url": "https://gorkhapatraonline.com/news/224333"
+    }
+   ],
+   "figures": {},
+   "summary_ne": "सल्यानमा रुख ढलेर ३३ केभी लाइनको लुहाम–अरिङ्गालेफेदी (खारखोला) खण्डमा क्षति पुग्दा जिल्लाभर बिजुली अवरुद्ध भयो; मर्मतमा शनिबार दिनभर लाग्न सक्ने वितरण केन्द्र प्रमुखले बताए।",
+   "summary_en": "In Salyan, trees falling on the Luham–Aringalephedi (Kharkhola) section of the 33 kV line cut power across the district; the distribution centre chief said repairs may take all of Saturday.",
+   "speaker_ne": "नरेश रावल, प्रमुख, सल्यान वितरण केन्द्र",
+   "speaker_en": "Naresh Rawal, chief, NEA Salyan Distribution Centre",
+   "attribution_type": "named_nea_official",
+   "sources": [
+    {
+     "source_url": "https://gorkhapatraonline.com/news/224333",
+     "source_name": "Gorkhapatra Online",
+     "published": "2026-09-26",
+     "published_time": null,
+     "quote_ne": "सल्यानमा निरन्तरको वर्षा र हुरीबताससँगै विभिन्न ठाउँमा रुख ढल्दा ३३ केभी प्रसारण लाइनमा क्षति पुगेपछि जिल्लाभर विद्युत् सेवा अवरुद्ध भएको छ । नेपाल विद्युत् प्राधिकरण सल्यान वितरण केन्द्रले मर्मत कार्यमा शनिबार दिनभर समय लाग्न सक्ने जनाएको छ । ३३ केभी प्रसारण लाइनअन्तर्गत लुहाम–अरिङ्गालेफेदी (खारखोला) खण्डमा रुख ढलेर प्रसारण लाइनका संरचनामा क्षति पुगेपछि विद्युत् आपूर्ति बन्द भएको हो । गएराति कपुरकोट क्षेत्रमा केही मर्मत गरिए पनि अन्य विभिन्न स्थानमा समस्या देखिएको सल्यान वितरण केन्द्रका प्रमुख नरेश रावलले जानकारी दिनुभयो ।",
+     "quote_en": null,
+     "translation_en": "Power is out across Salyan after trees fell in several places amid continuous rain and wind, damaging the 33 kV line. The NEA Salyan Distribution Centre said repairs may take all of Saturday. Supply stopped after trees fell on the Luham–Aringalephedi (Kharkhola) section. Salyan DC chief Naresh Rawal said some repairs were done in the Kapurkot area last night but problems were found at other places.",
+     "source_tier": "listed_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    }
+   ],
+   "source_url": "https://gorkhapatraonline.com/news/224333",
+   "source_name": "NEA Salyan DC chief, as quoted in Gorkhapatra",
+   "checked_at": "2026-09-26T13:55:00+05:45",
+   "speaker_verification": {
+    "note_en": "NEA contact page lists the Salyan Distribution Center chief as \"Naresh Datta Rawal\".",
+    "source_url": "https://nea.org.np/contact-information-of-dcs/view/294",
+    "checked_at": "2026-09-26T13:50:28+05:45"
+   }
+  },
+  {
+   "id": "alert-2026-09-25-kaligandaki-a",
+   "alert_id": "dhm-2083-asoj-09-14",
+   "date": "2026-09-25",
+   "date_bs": {
+    "ne": "असोज ९, २०८३",
+    "en": "Asoj 9, 2083"
+   },
+   "started_at": "2026-09-25T20:45:00+05:45",
+   "reported_at": null,
+   "kind": "generation_shutdown",
+   "status": "shut_precautionary",
+   "status_ne": "सतर्कताका लागि उत्पादन बन्द",
+   "status_en": "Generation stopped as a precaution",
+   "restoration_eta": {
+    "ne": "नदीको बहाव घटेपछि पुनः उत्पादन",
+    "en": "Will restart when the river flow drops",
+    "date": null,
+    "precision": "condition"
+   },
+   "province": {
+    "ne": "गण्डकी प्रदेश",
+    "en": "Gandaki Province"
+   },
+   "districts": [
+    {
+     "name_ne": "स्याङ्जा",
+     "name_en": "Syangja",
+     "status": "generation_only",
+     "role": "plant_location",
+     "district_id": "syangja"
+    }
+   ],
+   "places": [
+    {
+     "ne": "बेल्टारी",
+     "en": "Beltari"
+    },
+    {
+     "ne": "मिर्मी (बाँध)",
+     "en": "Mirmi (dam)"
+    }
+   ],
+   "assets": [
+    {
+     "id": "kaligandaki_a_hpp",
+     "name_ne": "कालीगण्डकी ‘ए’ जलविद्युत् केन्द्र",
+     "name_en": "Kali Gandaki ‘A’ Hydropower Station",
+     "type": "hydropower_plant",
+     "kv": null,
+     "mw": 144,
+     "status": "shut_precautionary",
+     "status_ne": "उत्पादन बन्द; मिर्मी बाँधका तीनै ढोका खोलिएको",
+     "status_en": "Generation stopped; all three gates of the Mirmi dam opened",
+     "district_en": "Syangja",
+     "district_ne": "स्याङ्जा",
+     "lat": 27.9310015,
+     "lon": 83.615009,
+     "coord_source": "https://www.openstreetmap.org/way/345994524",
+     "coord_note": "OSM feature \"Kaligandaki A Hydropower Plant\" (power=plant, operator Nepal Electricity Authority, 144 MW); area centroid of the powerhouse site, not the Mirmi dam",
+     "note_ne": null,
+     "note_en": null,
+     "source_url": "https://gorkhapatraonline.com/news/224342"
+    }
+   ],
+   "figures": {
+    "mw_generation_stopped": 144
+   },
+   "summary_ne": "नदीको बहाव उच्च भएपछि स्याङ्जाको १४४ मेगावाट कालीगण्डकी ‘ए’ केन्द्रले शुक्रबार राति ८:४५ देखि उत्पादन रोक्यो र मिर्मी बाँधका तीनै ढोका खोल्यो; बहाव घटेपछि पुनः सुरु गरिने केन्द्र प्रमुखले बताए।",
+   "summary_en": "With the river running high, the 144 MW Kali Gandaki ‘A’ station in Syangja stopped generating from 8:45 pm Friday and opened all three Mirmi dam gates; the station chief said it will restart once the flow drops.",
+   "speaker_ne": "आत्मेस पौडेल, प्रमुख, कालीगण्डकी ‘ए’ जलविद्युत् केन्द्र",
+   "speaker_en": "Atmes Paudel, chief, Kali Gandaki ‘A’ Hydropower Station (NEA)",
+   "attribution_type": "named_nea_official",
+   "sources": [
+    {
+     "source_url": "https://gorkhapatraonline.com/news/224342",
+     "source_name": "Gorkhapatra Online (Syangja correspondent)",
+     "published": "2026-09-26",
+     "published_time": null,
+     "quote_ne": "कालीगण्डकी नदीमा पानीको बहाव उच्च भएपछि बेल्टारीबाट उत्पादन हुँदै आएको १४४ मेगावाट विद्युत् उत्पादन बन्द गरिएको हो। … मिर्मीस्थित बाँधका तीनवटै ढोका खोलिएको छ। … शुक्रबार राति ८ः४५ बजेदेखि विद्युत् उत्पादन रोकिएको आयोजनाले जनाएको छ। कालीगण्डकी ‘ए’ जलविद्युत् केन्द्रका प्रमुख आत्मेस पौडेलले नदीमा पानीको बहाव उच्च भएका कारण सम्भावित जोखिम न्यूनीकरणका लागि आयोजना बन्द गरिएको बताउनुभयो। उहाँले नदीमा पानीको बहाव घटेपछि आयोजनाबाट पुनः नियमित रूपमा विद्युत् उत्पादन सुरु गरिने बताउनुभयो।",
+     "quote_en": null,
+     "translation_en": "The 144 MW generated at Beltari was stopped after the Kali Gandaki river ran high. … All three gates of the dam at Mirmi have been opened. … The project said generation stopped from 8:45 pm on Friday. Station chief Atmes Paudel said the plant was shut to reduce possible risk because of the high flow, and that regular generation will resume once the flow drops.",
+     "source_tier": "listed_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    }
+   ],
+   "source_url": "https://gorkhapatraonline.com/news/224342",
+   "source_name": "Kali Gandaki ‘A’ station chief, as quoted in Gorkhapatra",
+   "checked_at": "2026-09-26T13:55:00+05:45"
+  }
+ ],
+ "alert_feed": [
+  {
+   "ref": "alert_outages",
+   "id": "alert-2026-09-26-surkhet",
+   "date": "2026-09-26",
+   "time": "2026-09-26T12:02:18+05:45"
+  },
+  {
+   "ref": "advisories",
+   "id": "adv-2026-09-26-kulekhani-level",
+   "date": "2026-09-26",
+   "time": "2026-09-26T07:41:00+05:45"
+  },
+  {
+   "ref": "alert_outages",
+   "id": "alert-2026-09-26-salyan",
+   "date": "2026-09-26",
+   "time": null
+  },
+  {
+   "ref": "alert_outages",
+   "id": "alert-2026-09-25-kaligandaki-a",
+   "date": "2026-09-25",
+   "time": "2026-09-25T20:45:00+05:45"
+  },
+  {
+   "ref": "advisories",
+   "id": "adv-2026-09-25-gandaki-high-alert",
+   "date": "2026-09-25",
+   "time": "2026-09-25T11:45:00+05:45"
+  },
+  {
+   "ref": "advisories",
+   "id": "adv-2026-09-25-kulekhani-siren",
+   "date": "2026-09-25",
+   "time": null
+  },
+  {
+   "ref": "advisories",
+   "id": "adv-2026-09-23-nea-public-appeal",
+   "date": "2026-09-23",
+   "time": null
+  }
+ ],
+ "advisories": [
+  {
+   "id": "adv-2026-09-26-kulekhani-level",
+   "scope": "alert",
+   "alert_id": "dhm-2083-asoj-09-14",
+   "kind": "reservoir_watch",
+   "date": "2026-09-26",
+   "date_bs": {
+    "ne": "असोज १०, २०८३",
+    "en": "Asoj 10, 2083"
+   },
+   "title": {
+    "ne": "कुलेखानी जलाशय: ढोका खोल्नुपर्ने अवस्था छैन",
+    "en": "Kulekhani reservoir: no need to open gates"
+   },
+   "text_ne": "प्राधिकरणका उप कार्यकारी निर्देशक मदन तिम्सिनाका अनुसार (असोज ९ राति ९ बजे) कुलेखानी जलाशयको सतह १,५२३.६० मिटर पुगेको र बढ्ने दर प्रतिघण्टा करिब ४ सेन्टिमिटरमा झरेकाले ढोका खोल्नुपर्ने वा पानी छोड्नुपर्ने अवस्था छैन; जलाशय बढ्न नदिन कुलेखानी प्रथम केन्द्र पूर्ण क्षमतामा चलाइएको छ।",
+   "text_en": "NEA Deputy Managing Director Madan Timsina said the Kulekhani reservoir stood at 1,523.60 m at 9 pm on 25 Sep, rising about 4 cm an hour, so there is no need to open the gates or release water; Kulekhani I is running at full capacity to hold the level down.",
+   "figures": {
+    "reservoir_level_m": 1523.6,
+    "reservoir_level_time": "2026-09-25T21:00:00+05:45",
+    "rise_cm_per_hour_approx": 4,
+    "max_level_m": 1530
+   },
+   "speaker_ne": "मदन तिम्सिना, उप कार्यकारी निर्देशक, प्राधिकरण",
+   "speaker_en": "Madan Timsina, Deputy Managing Director, NEA",
+   "attribution_type": "named_nea_official",
+   "district": {
+    "name_ne": "मकवानपुर",
+    "name_en": "Makwanpur"
+   },
+   "sources": [
+    {
+     "source_url": "https://himalpress.com/2026/09/rising-water-levels-in-kulekhani-how-much-is-the-risk/",
+     "source_name": "Himal Press (Nepali)",
+     "published": "2026-09-26",
+     "published_time": "2026-09-26T07:41:00+05:45",
+     "quote_ne": "नेपाल विद्युत् प्राधिकरणका उप कार्यकारी निर्देशक मदन तिम्सिनाका अनुसार अहिले जलाशयको पानीको सतह बढ्ने दर प्रतिघण्टा करिब ४ सेन्टिमिटरमा झरेको छ। पानीको सतह बढ्ने क्रम र यसको प्रवृत्तिको पछिल्लो अवस्थाका आधारमा अहिले कुलेखानी बाँधको गेट खोल्नुपर्ने वा पानी छोड्नुपर्ने अवस्था नदेखिएको तिम्सिनाले जनाएका छन्।",
+     "quote_en": null,
+     "translation_en": "According to NEA Deputy Managing Director Madan Timsina, the reservoir is now rising at about 4 cm per hour. Based on the latest trend, Timsina said there is no need to open the Kulekhani dam gate or release water.",
+     "source_tier": "listed_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    }
+   ],
+   "source_url": "https://himalpress.com/2026/09/rising-water-levels-in-kulekhani-how-much-is-the-risk/",
+   "source_name": "NEA DMD, as quoted in Himal Press",
+   "checked_at": "2026-09-26T13:55:00+05:45"
+  },
+  {
+   "id": "adv-2026-09-25-kulekhani-siren",
+   "scope": "alert",
+   "alert_id": "dhm-2083-asoj-09-14",
+   "kind": "safety_warning_system",
+   "date": "2026-09-25",
+   "date_bs": {
+    "ne": "असोज ९, २०८३",
+    "en": "Asoj 9, 2083"
+   },
+   "title": {
+    "ne": "कुलेखानी: साइरन चेतावनी",
+    "en": "Kulekhani: siren warnings"
+   },
+   "text_ne": "कुलेखानी प्रथम जलविद्युत् केन्द्रका अनुसार जलाशय १,५२७ मिटर पुगेमा साइरन बजाइन्छ; एक साइरन पहिलो चेतावनी, दुई साइरन दोस्रो चेतावनी र तीन वा लगातार साइरन आपत्कालीन अवस्था हो — तल्लो तटका बासिन्दा सुरक्षित स्थानमा जानुपर्छ। तीनै केन्द्र (१०६ मेगावाट) पूर्ण क्षमतामा चलाइएको छ।",
+   "text_en": "NEA’s Kulekhani I Hydropower Centre will sound sirens if the reservoir reaches 1,527 m: one siren is the first warning, two the second, three or continuous means emergency — downstream residents should move to safer places. All three cascade plants (106 MW) are running at full capacity.",
+   "figures": {
+    "siren_level_m": 1527,
+    "reservoir_level_m": 1522.75,
+    "reservoir_level_date": "2026-09-25",
+    "cascade_capacity_mw": 106,
+    "generation_mw": [
+     60,
+     32,
+     14
+    ]
+   },
+   "speaker_ne": "प्रल्हाद राउत, प्रमुख, कुलेखानी प्रथम जलविद्युत् केन्द्र; प्राधिकरण",
+   "speaker_en": "Pralhad Raut, chief, Kulekhani I Hydropower Centre; NEA",
+   "attribution_type": "named_nea_official",
+   "district": {
+    "name_ne": "मकवानपुर",
+    "name_en": "Makwanpur"
+   },
+   "sources": [
+    {
+     "source_url": "https://en.himalpress.com/nea-running-three-kulekhani-projects-at-full-capacity/",
+     "source_name": "HimalPress (English; translated from RSS)",
+     "published": "2026-09-25",
+     "published_time": null,
+     "quote_ne": null,
+     "quote_en": "He said a warning system has been put in place to sound a siren when the reservoir’s water level reaches 1,527 meters, to alert local residents to take necessary precautions against potential risks.",
+     "translation_en": null,
+     "source_tier": "listed_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    },
+    {
+     "source_url": "https://english.onlinekhabar.com/kulekhani-dam-not-opened.html",
+     "source_name": "Onlinekhabar (English)",
+     "published": "2026-09-25",
+     "published_time": "2026-09-25T13:38:32+05:45",
+     "quote_ne": null,
+     "quote_en": "According to the authority, one siren means the first warning, two sirens mean the second warning, and three or continuous sirens indicate an emergency. In such a situation, residents in downstream areas have been advised to move to safer locations.",
+     "translation_en": null,
+     "source_tier": "listed_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    }
+   ],
+   "source_url": "https://en.himalpress.com/nea-running-three-kulekhani-projects-at-full-capacity/",
+   "source_name": "NEA Kulekhani I chief, as quoted in HimalPress",
+   "checked_at": "2026-09-26T13:55:00+05:45"
+  },
+  {
+   "id": "adv-2026-09-25-gandaki-high-alert",
+   "scope": "alert",
+   "alert_id": "dhm-2083-asoj-09-14",
+   "kind": "preparedness",
+   "date": "2026-09-25",
+   "date_bs": {
+    "ne": "असोज ९, २०८३",
+    "en": "Asoj 9, 2083"
+   },
+   "title": {
+    "ne": "गण्डकी बेसिनका आयोजना २४ घण्टा उच्च सतर्कतामा",
+    "en": "Gandaki-basin plants on 24-hour high alert"
+   },
+   "text_ne": "प्राधिकरणका कार्यकारी निर्देशक दीर्घायुकुमार श्रेष्ठले गण्डकी बेसिनका सबै जलविद्युत् आयोजनालाई २४सै घण्टा उच्च सतर्कतामा राखिएको बताए।",
+   "text_en": "NEA Managing Director Dirghayu Kumar Shrestha said all hydropower projects in the Gandaki basin are on round-the-clock high alert.",
+   "figures": {},
+   "speaker_ne": "दीर्घायुकुमार श्रेष्ठ, कार्यकारी निर्देशक, प्राधिकरण",
+   "speaker_en": "Dirghayu Kumar Shrestha, Managing Director, NEA",
+   "attribution_type": "named_nea_official",
+   "district": null,
+   "sources": [
+    {
+     "source_url": "https://himalpress.com/2026/09/hydropower-projects-in-gandaki-basin-on-high-alert-after-heavy-rain-forecast/",
+     "source_name": "Himal Press (Nepali)",
+     "published": "2026-09-25",
+     "published_time": "2026-09-25T11:45:00+05:45",
+     "quote_ne": "नेपाल विद्युत प्राधिकरणका कार्यकारी निर्देशक दीर्घायुकुमार श्रेष्ठले गण्डकीका सबै आयोजनालाई २४सै घण्टा उच्च सतर्कतामा राखिएको बताए।",
+     "quote_en": null,
+     "translation_en": null,
+     "source_tier": "listed_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    },
+    {
+     "source_url": "https://english.onlinekhabar.com/high-alert-gandaki-basin.html",
+     "source_name": "Onlinekhabar (English)",
+     "published": "2026-09-25",
+     "published_time": null,
+     "quote_ne": null,
+     "quote_en": "Authority Executive Director Dirghayu Kumar Shrestha said that all projects in the Gandaki basin have been placed under round-the-clock high alert.",
+     "translation_en": null,
+     "source_tier": "listed_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    },
+    {
+     "source_url": "https://myrepublica.nagariknetwork.com/news/heavy-rain-forecast-puts-hydropower-projects-in-gandaki-on-high-alert-49-63.html",
+     "source_name": "Republica",
+     "published": "2026-09-25",
+     "published_time": null,
+     "quote_ne": null,
+     "quote_en": null,
+     "translation_en": null,
+     "source_tier": "listed_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    }
+   ],
+   "source_url": "https://himalpress.com/2026/09/hydropower-projects-in-gandaki-basin-on-high-alert-after-heavy-rain-forecast/",
+   "source_name": "NEA MD, as quoted in Himal Press",
+   "checked_at": "2026-09-26T13:55:00+05:45"
+  },
+  {
+   "id": "adv-2026-09-23-nea-public-appeal",
+   "scope": "alert",
+   "alert_id": "dhm-2083-asoj-09-14",
+   "kind": "consumer_safety",
+   "date": "2026-09-23",
+   "date_bs": {
+    "ne": "असोज ७, २०८३",
+    "en": "Asoj 7, 2083"
+   },
+   "title": {
+    "ne": "असोज ९–११: प्राधिकरणको सतर्कता आग्रह",
+    "en": "Asoj 9–11: NEA safety appeal"
+   },
+   "text_ne": "प्राधिकरणले प्रतिकूल मौसममा सुरक्षित स्थानमै रहन, आकस्मिक अवस्थाबाहेक घरबाहिर ननिस्कन र विद्युतीय उपकरण सावधानीपूर्वक प्रयोग गर्न आग्रह गरेको छ। बिजुली अवरुद्ध भए वा पोल, तार, ट्रान्सफर्मरमा क्षति पुगे नजिकैको वितरण केन्द्र, हटलाइन ११५० वा स्थानीय नो-लाइट नम्बरमा खबर गर्नुहोस्।",
+   "text_en": "NEA asked people to stay in safe places during bad weather, not go out except in emergencies, and use electrical appliances carefully. If power goes out or poles, wires or transformers are damaged, call the nearest distribution centre, the 1150 hotline or the local no-light number.",
+   "figures": {},
+   "speaker_ne": "नेपाल विद्युत प्राधिकरण (सार्वजनिक आग्रह)",
+   "speaker_en": "Nepal Electricity Authority (public appeal)",
+   "attribution_type": "nea_statement_unnamed",
+   "district": null,
+   "nea_own_post_url": null,
+   "verification_note": "Reported by energy-trade outlets only; not found on nea.org.np press-release/notice pages or @Hello_NEA as of check time.",
+   "sources": [
+    {
+     "source_url": "https://www.urjakhabar.com/news/2309766370",
+     "source_name": "Urja Khabar",
+     "published": "2026-09-23",
+     "published_time": null,
+     "quote_ne": "विद्युत सेवा अवरुद्ध भएमा वा विद्युतीय संरचनामा क्षति पुगेमा नजिकैको वितरण केन्द्र, हेल्पलाइन नम्बर ११५० वा स्थानीय 'नो-लाइट' नम्बरमा सम्पर्क गरी तुरुन्त जानकारी गराउन उपभोक्ता वर्गलाई अनुरोधसमेत गरिएको छ ।",
+     "quote_en": null,
+     "translation_en": null,
+     "source_tier": "other_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    },
+    {
+     "source_url": "https://nepalpurbadhar.com/56677/",
+     "source_name": "Nepal Purbadhar",
+     "published": "2026-09-23",
+     "published_time": null,
+     "quote_ne": "प्राधिकरणले प्रतिकूल मौसमका बेला आकस्मिक अवस्थाबाहेक घरबाहिर आवतजावत नगरी सुरक्षित स्थानमा रहन आग्रह गरेको छ। घरमा रहेका विद्युतीय उपकरण प्रयोग गर्दा पनि विशेष सावधानी अपनाउन प्राधिकरणले अनुरोध गरेको छ।",
+     "quote_en": null,
+     "translation_en": null,
+     "source_tier": "other_outlet",
+     "checked_at": "2026-09-26T13:55:00+05:45"
+    }
+   ],
+   "source_url": "https://www.urjakhabar.com/news/2309766370",
+   "source_name": "NEA appeal, as reported by Urja Khabar",
+   "checked_at": "2026-09-26T13:55:00+05:45"
+  },
+  {
+   "id": "adv-nea-hotline-1150",
+   "scope": "standing",
+   "alert_id": null,
+   "kind": "complaint_line",
+   "date": null,
+   "date_bs": null,
+   "title": {
+    "ne": "बिजुली समस्या: हटलाइन ११५०",
+    "en": "Power problems: hotline 1150"
+   },
+   "text_ne": "बिजुली अवरुद्ध भए वा समस्या परे प्राधिकरणको हटलाइन ११५० मा सम्पर्क गर्न सकिन्छ; काठमाडौंको पूर्वनिर्धारित कटौतीबारे ११५० को एक्सटेन्सन ३ मा बुझ्न सकिन्छ।",
+   "text_en": "For outages or problems, call NEA hotline 1150; for Kathmandu planned-shutdown information NEA gives 1150 extension 3.",
+   "figures": {},
+   "speaker_ne": "नेपाल विद्युत प्राधिकरण",
+   "speaker_en": "Nepal Electricity Authority",
+   "attribution_type": "nea_official_document",
+   "district": null,
+   "sources": [
+    {
+     "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+     "source_name": "NEA notice PDF (Teku substation shutdown schedule, published 2026-09-20)",
+     "published": "2026-09-20",
+     "published_time": null,
+     "quote_ne": "थप जानकारीको लागि ने.वि.प्रा. को वेबसाइट www.nea.org.np मा हेर्न या ने. वि.प्रा. को हटलाईन नम्बर ११५० को एक्सटेन्सन नं. ३ मा डायल गरि बुझ्न सकिने छ ।",
+     "quote_en": null,
+     "translation_en": null,
+     "source_tier": "nea_official",
+     "checked_at": "2026-09-26T13:47:00+05:45"
+    },
+    {
+     "source_url": "https://x.com/Hello_NEA/status/2097629497831064053",
+     "source_name": "NEA official X account @Hello_NEA",
+     "published": "2026-09-09",
+     "published_time": "2026-09-09T15:58:39+05:45",
+     "quote_ne": "उक्त गुनासोको आवश्यक कारवाहीको लागि ने.वि.प्रा. हटलाइन ११५० मा फोन गरेर वि.के.को नाम, sc no. र  id सहित विस्तृत जानकारी दिनहुन …",
+     "quote_en": null,
+     "translation_en": null,
+     "source_tier": "nea_official",
+     "checked_at": "2026-09-26T13:41:00+05:45"
+    }
+   ],
+   "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+   "source_name": "NEA notice PDF",
+   "checked_at": "2026-09-26T13:47:00+05:45"
+  }
+ ],
+ "planned_shutdowns": {
+  "source_url": "https://nea.org.np/en/maintenance",
+  "archive_url": "https://nea.org.np/en/maintenancearchived",
+  "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
+  "checked_at": "2026-09-26T13:39:10+05:45",
+  "window": {
+   "rule": "rows that had not ended at check time (2026-09-26 13:39 NPT); past rows dropped",
+   "now": "2026-09-26T13:39:10+05:45"
+  },
+  "note": "Web-table rows copied exactly as published (area_ne, feeder, details). Rows with from=\"notice_pdf\" are transcribed from NEA’s own notice PDF linked from the schedule page; their DC names are printed in Nepali in the PDF (distribution_centre_ne) and mapped to NEA’s English DC names. area_en intentionally null. district/group are compiler classification, not NEA fields.",
+  "rows": [
+   {
+    "province": "Bagmati Province",
+    "distribution_centre": "Ratnapark Distribution Center",
+    "district": null,
+    "group": "kathmandu_valley",
+    "feeder": "भीमसेस्थान",
+    "area_ne": "१२ नं वडा कार्यालय, सरस्वती स्कुल, ब्रम्हटोल, प्लान्चोक भगवती, २१ नं वडा कार्यालय, ह्युमत, जैसिदेवल, चिंकः मुगः, अकोनारायण, भिमसेनस्थान तथा आसपासका क्षेत्रहरु ।",
+    "area_en": null,
+    "start": "2026-09-27T23:00:00+05:45",
+    "end": "2026-09-28T02:00:00+05:45",
+    "reason": null,
+    "details_as_printed": "१२ नं वडा कार्यालय, सरस्वती स्कुल, ब्रम्हटोल, प्लान्चोक भगवती, २१ नं वडा कार्यालय, ह्युमत, जैसिदेवल,...",
+    "published": "2026-09-20",
+    "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "listed_on": "https://nea.org.np/en/maintenance",
+    "source_url": "https://nea.org.np/en/maintenance",
+    "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
+    "checked_at": "2026-09-26T13:39:10+05:45",
+    "status_at_check": "upcoming",
+    "distribution_centre_ne": null,
+    "from": "maintenance_page"
+   },
+   {
+    "province": "Bagmati Province",
+    "distribution_centre": "Ratnapark Distribution Center",
+    "distribution_centre_ne": "रत्नपार्क",
+    "district": null,
+    "group": "kathmandu_valley",
+    "feeder": "त्रिपुरेश्वर",
+    "area_ne": "टेकुसवस्टेसन,बंसिघाट, बिश्वनिकेतन स्कुल, टेकु चोक देखि त्रिपुरेश्वर चोक सम्म तथा आसपासका क्षेत्रहरु",
+    "area_en": null,
+    "start": "2026-09-27T23:00:00+05:45",
+    "end": "2026-09-28T02:00:00+05:45",
+    "reason": "टेकु सबस्टेशनको ११ के.भी. प्यानलमा जडान भएका पुराना रिलेहरू हटाई नयाँ रिले रेट्रोफिट गर्ने,SAS जडान तथा परीक्षण गर्ने कार्य",
+    "details_as_printed": null,
+    "date_bs_as_printed": "२०८३/०६/११",
+    "time_as_printed": "रातको ११:००–१२ गते बिहान २:०० सम्म",
+    "published": "2026-09-20",
+    "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "listed_on": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_name": "Nepal Electricity Authority (NEA) — shutdown notice PDF (Teku substation relay retrofit), linked from the Maintenance Shutdown Schedule",
+    "checked_at": "2026-09-26T13:47:00+05:45",
+    "from": "notice_pdf",
+    "status_at_check": "upcoming"
+   },
+   {
+    "province": "Bagmati Province",
+    "distribution_centre": "Ratnapark Distribution Center",
+    "distribution_centre_ne": "रत्नपार्क",
+    "district": null,
+    "group": "kathmandu_valley",
+    "feeder": "क्षेत्रपाटी",
+    "area_ne": "मयलबारी, पुष्पलाल पार्क, ढल्कु, क्षेत्रपाटी, कालधारा, धोविचौर, पकनाजोल, कुस्ले चौर, Peoples College, Public Youth College, ठहिटी, कुवाहल तथा आसपासका क्षेत्रहरु",
+    "area_en": null,
+    "start": "2026-09-28T02:00:00+05:45",
+    "end": "2026-09-28T05:00:00+05:45",
+    "reason": "टेकु सबस्टेशनको ११ के.भी. प्यानलमा जडान भएका पुराना रिलेहरू हटाई नयाँ रिले रेट्रोफिट गर्ने,SAS जडान तथा परीक्षण गर्ने कार्य",
+    "details_as_printed": null,
+    "date_bs_as_printed": "२०८३/०६/१२",
+    "time_as_printed": "बिहान २:०० – बिहान ५:०० सम्म",
+    "published": "2026-09-20",
+    "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "listed_on": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_name": "Nepal Electricity Authority (NEA) — shutdown notice PDF (Teku substation relay retrofit), linked from the Maintenance Shutdown Schedule",
+    "checked_at": "2026-09-26T13:47:00+05:45",
+    "from": "notice_pdf",
+    "status_at_check": "upcoming"
+   },
+   {
+    "province": "Bagmati Province",
+    "distribution_centre": "Kuleshwor Distribution Center",
+    "distribution_centre_ne": "कुलेश्वर",
+    "district": null,
+    "group": "kathmandu_valley",
+    "feeder": "चःमती",
+    "area_ne": "कालिमाटी पुल, परोपकार, टंकेश्वर, डल्लु, बिजेश्वरी, चःमती, भगवानपाउ, डल्लु आवास, जनसेवा मार्ग आसपासका क्षेत्रहरु",
+    "area_en": null,
+    "start": "2026-09-28T02:00:00+05:45",
+    "end": "2026-09-28T05:00:00+05:45",
+    "reason": "टेकु सबस्टेशनको ११ के.भी. प्यानलमा जडान भएका पुराना रिलेहरू हटाई नयाँ रिले रेट्रोफिट गर्ने,SAS जडान तथा परीक्षण गर्ने कार्य",
+    "details_as_printed": null,
+    "date_bs_as_printed": "२०८३/०६/१२",
+    "time_as_printed": "बिहान ०२:०० – बिहान ५:०० सम्म",
+    "published": "2026-09-20",
+    "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "listed_on": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_name": "Nepal Electricity Authority (NEA) — shutdown notice PDF (Teku substation relay retrofit), linked from the Maintenance Shutdown Schedule",
+    "checked_at": "2026-09-26T13:47:00+05:45",
+    "from": "notice_pdf",
+    "status_at_check": "upcoming"
+   },
+   {
+    "province": "Bagmati Province",
+    "distribution_centre": "Ratnapark Distribution Center",
+    "distribution_centre_ne": "रत्नपार्क",
+    "district": null,
+    "group": "kathmandu_valley",
+    "feeder": "त्रिपुरेश्वर",
+    "area_ne": "टेकुसवस्टेसन,बंसिघाट, बिश्वनिकेतन स्कुल, टेकु चोक देखि त्रिपुरेश्वर चोक सम्म तथा आसपासका क्षेत्रहरु",
+    "area_en": null,
+    "start": "2026-09-28T23:00:00+05:45",
+    "end": "2026-09-29T02:00:00+05:45",
+    "reason": "टेकु सबस्टेशनको ११ के.भी. प्यानलमा जडान भएका पुराना रिलेहरू हटाई नयाँ रिले रेट्रोफिट गर्ने,SAS जडान तथा परीक्षण गर्ने कार्य",
+    "details_as_printed": null,
+    "date_bs_as_printed": "२०८३/०६/१२",
+    "time_as_printed": "रातको ११:००–१३ गते बिहान २:०० सम्म",
+    "published": "2026-09-20",
+    "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "listed_on": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_name": "Nepal Electricity Authority (NEA) — shutdown notice PDF (Teku substation relay retrofit), linked from the Maintenance Shutdown Schedule",
+    "checked_at": "2026-09-26T13:47:00+05:45",
+    "from": "notice_pdf",
+    "status_at_check": "upcoming"
+   },
+   {
+    "province": "Bagmati Province",
+    "distribution_centre": "Kuleshwor Distribution Center",
+    "distribution_centre_ne": "कुलेश्वर",
+    "district": null,
+    "group": "kathmandu_valley",
+    "feeder": "ताहाचल",
+    "area_ne": "कालिमाटी, काराखुसी पुल, कालिमाटी चोक, साल्ट ट्रेडिङ्ग, सीता पेट्रोल पम्प, टंकेश्वर, महेन्द्र रत्न क्याम्पस, चागल, कलश अपार्टमेन्ट आसपासका क्षेत्रहरु",
+    "area_en": null,
+    "start": "2026-09-28T23:00:00+05:45",
+    "end": "2026-09-29T02:00:00+05:45",
+    "reason": "टेकु सबस्टेशनको ११ के.भी. प्यानलमा जडान भएका पुराना रिलेहरू हटाई नयाँ रिले रेट्रोफिट गर्ने,SAS जडान तथा परीक्षण गर्ने कार्य",
+    "details_as_printed": null,
+    "date_bs_as_printed": "२०८३/०६/१२",
+    "time_as_printed": "रातको ११:००–१३ गते बिहान २:०० सम्म",
+    "published": "2026-09-20",
+    "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "listed_on": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_name": "Nepal Electricity Authority (NEA) — shutdown notice PDF (Teku substation relay retrofit), linked from the Maintenance Shutdown Schedule",
+    "checked_at": "2026-09-26T13:47:00+05:45",
+    "from": "notice_pdf",
+    "status_at_check": "upcoming"
+   },
+   {
+    "province": "Bagmati Province",
+    "distribution_centre": "Kuleshwor Distribution Center",
+    "distribution_centre_ne": "कुलेश्वर",
+    "district": null,
+    "group": "kathmandu_valley",
+    "feeder": "चःमती",
+    "area_ne": "कालिमाटी पुल, परोपकार, टंकेश्वर, डल्लु, बिजेश्वरी, चःमती, भगवानपाउ, डल्लु आवास, जनसेवा मार्ग आसपासका क्षेत्रहरु",
+    "area_en": null,
+    "start": "2026-09-29T02:00:00+05:45",
+    "end": "2026-09-29T05:00:00+05:45",
+    "reason": "टेकु सबस्टेशनको ११ के.भी. प्यानलमा जडान भएका पुराना रिलेहरू हटाई नयाँ रिले रेट्रोफिट गर्ने,SAS जडान तथा परीक्षण गर्ने कार्य",
+    "details_as_printed": null,
+    "date_bs_as_printed": "२०८३/०६/१३",
+    "time_as_printed": "बिहान ०२:०० – बिहान ५:०० सम्म",
+    "published": "2026-09-20",
+    "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "listed_on": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_name": "Nepal Electricity Authority (NEA) — shutdown notice PDF (Teku substation relay retrofit), linked from the Maintenance Shutdown Schedule",
+    "checked_at": "2026-09-26T13:47:00+05:45",
+    "from": "notice_pdf",
+    "status_at_check": "upcoming"
+   },
+   {
+    "province": "Bagmati Province",
+    "distribution_centre": "Kirtipur Distribution Center",
+    "distribution_centre_ne": "कीर्तिपुर",
+    "district": null,
+    "group": "kathmandu_valley",
+    "feeder": "कीर्तिपुर",
+    "area_ne": "बयोधा, बल्खु, कुमारी क्लब, चोभार, भाजङ्गल, पाङ्गा शालिक, आदिनाथ, भूतखेल, टौदह, पाण्डेछाप, चारघरे एरिया, त्रि.वि. परिसर",
+    "area_en": null,
+    "start": "2026-09-29T02:00:00+05:45",
+    "end": "2026-09-29T05:00:00+05:45",
+    "reason": "टेकु सबस्टेशनको ११ के.भी. प्यानलमा जडान भएका पुराना रिलेहरू हटाई नयाँ रिले रेट्रोफिट गर्ने,SAS जडान तथा परीक्षण गर्ने कार्य",
+    "details_as_printed": null,
+    "date_bs_as_printed": "२०८३/०६/१३",
+    "time_as_printed": "बिहान २:०० – बिहान ५:०० सम्म",
+    "published": "2026-09-20",
+    "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "listed_on": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_name": "Nepal Electricity Authority (NEA) — shutdown notice PDF (Teku substation relay retrofit), linked from the Maintenance Shutdown Schedule",
+    "checked_at": "2026-09-26T13:47:00+05:45",
+    "from": "notice_pdf",
+    "status_at_check": "upcoming"
+   },
+   {
+    "province": "Bagmati Province",
+    "distribution_centre": "Kuleshwor Distribution Center",
+    "distribution_centre_ne": "कुलेश्वर",
+    "district": null,
+    "group": "kathmandu_valley",
+    "feeder": "ताहाचल",
+    "area_ne": "कालिमाटी, काराखुसी पुल, कालिमाटी चोक, साल्ट ट्रेडिङ्ग, सीता पेट्रोल पम्प, टंकेश्वर, महेन्द्र रत्न क्याम्पस, चागल, कलश अपार्टमेन्ट आसपासका क्षेत्रहरु",
+    "area_en": null,
+    "start": "2026-09-29T23:00:00+05:45",
+    "end": "2026-09-30T02:00:00+05:45",
+    "reason": "टेकु सबस्टेशनको ११ के.भी. प्यानलमा जडान भएका पुराना रिलेहरू हटाई नयाँ रिले रेट्रोफिट गर्ने,SAS जडान तथा परीक्षण गर्ने कार्य",
+    "details_as_printed": null,
+    "date_bs_as_printed": "२०८३/०६/१३",
+    "time_as_printed": "रातको ११:००–१४ गते बिहान २:०० सम्म",
+    "published": "2026-09-20",
+    "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "listed_on": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_name": "Nepal Electricity Authority (NEA) — shutdown notice PDF (Teku substation relay retrofit), linked from the Maintenance Shutdown Schedule",
+    "checked_at": "2026-09-26T13:47:00+05:45",
+    "from": "notice_pdf",
+    "status_at_check": "upcoming"
+   },
+   {
+    "province": "Bagmati Province",
+    "distribution_centre": "Kuleshwor Distribution Center",
+    "distribution_centre_ne": "कुलेश्वर",
+    "district": null,
+    "group": "kathmandu_valley",
+    "feeder": "कुलेश्वर",
+    "area_ne": "प्राधिकरण मार्ग, सुनारगाउँ, माच्छा गेट, रविभवन, सोल्टीमोड, सीता पेट्रोल पम्प, जन प्रभात, सोल्टी पछाडि, छाउनी, टेलिकम, आर्मी हस्पिटल आसपासका क्षेत्रहरु",
+    "area_en": null,
+    "start": "2026-09-29T23:00:00+05:45",
+    "end": "2026-09-30T02:00:00+05:45",
+    "reason": "टेकु सबस्टेशनको ११ के.भी. प्यानलमा जडान भएका पुराना रिलेहरू हटाई नयाँ रिले रेट्रोफिट गर्ने,SAS जडान तथा परीक्षण गर्ने कार्य",
+    "details_as_printed": null,
+    "date_bs_as_printed": "२०८३/०६/१३",
+    "time_as_printed": "रातको ११:०० –१४ बिहान २:०० सम्म",
+    "published": "2026-09-20",
+    "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "listed_on": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_name": "Nepal Electricity Authority (NEA) — shutdown notice PDF (Teku substation relay retrofit), linked from the Maintenance Shutdown Schedule",
+    "checked_at": "2026-09-26T13:47:00+05:45",
+    "from": "notice_pdf",
+    "status_at_check": "upcoming"
+   },
+   {
+    "province": "Bagmati Province",
+    "distribution_centre": "Kirtipur Distribution Center",
+    "distribution_centre_ne": "कीर्तिपुर",
+    "district": null,
+    "group": "kathmandu_valley",
+    "feeder": "कीर्तिपुर",
+    "area_ne": "बयोधा, बल्खु, कुमारी क्लब, चोभार, भाजङ्गल, पाङ्गा शालिक, आदिनाथ, भूतखेल, टौदह, पाण्डेछाप, चारघरे एरिया, त्रि.वि. परिसर",
+    "area_en": null,
+    "start": "2026-09-30T02:00:00+05:45",
+    "end": "2026-09-30T05:00:00+05:45",
+    "reason": "टेकु सबस्टेशनको ११ के.भी. प्यानलमा जडान भएका पुराना रिलेहरू हटाई नयाँ रिले रेट्रोफिट गर्ने,SAS जडान तथा परीक्षण गर्ने कार्य",
+    "details_as_printed": null,
+    "date_bs_as_printed": "२०८३/०६/१४",
+    "time_as_printed": "बिहान ०२:०० – बिहान ५:०० सम्म",
+    "published": "2026-09-20",
+    "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "listed_on": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_name": "Nepal Electricity Authority (NEA) — shutdown notice PDF (Teku substation relay retrofit), linked from the Maintenance Shutdown Schedule",
+    "checked_at": "2026-09-26T13:47:00+05:45",
+    "from": "notice_pdf",
+    "status_at_check": "upcoming"
+   },
+   {
+    "province": "Bagmati Province",
+    "distribution_centre": "Kuleshwor Distribution Center",
+    "distribution_centre_ne": "कुलेश्वर",
+    "district": null,
+    "group": "kathmandu_valley",
+    "feeder": "कुलेश्वर",
+    "area_ne": "प्राधिकरण मार्ग, सुनारगाउँ, माच्छा गेट, रविभवन, सोल्टीमोड, सीता पेट्रोल पम्प, जन प्रभात, सोल्टी पछाडि, छाउनी, टेलिकम, आर्मी हस्पिटल आसपासका क्षेत्रहरु",
+    "area_en": null,
+    "start": "2026-09-30T23:00:00+05:45",
+    "end": "2026-10-01T02:00:00+05:45",
+    "reason": "टेकु सबस्टेशनको ११ के.भी. प्यानलमा जडान भएका पुराना रिलेहरू हटाई नयाँ रिले रेट्रोफिट गर्ने,SAS जडान तथा परीक्षण गर्ने कार्य",
+    "details_as_printed": null,
+    "date_bs_as_printed": "२०८३/०६/१४",
+    "time_as_printed": "रातको ११:०० – १५ बिहान ०२:०० सम्म",
+    "published": "2026-09-20",
+    "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "listed_on": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "source_name": "Nepal Electricity Authority (NEA) — shutdown notice PDF (Teku substation relay retrofit), linked from the Maintenance Shutdown Schedule",
+    "checked_at": "2026-09-26T13:47:00+05:45",
+    "from": "notice_pdf",
+    "status_at_check": "upcoming"
+   }
+  ],
+  "flood_district_coverage": [
+   {
+    "district": "Rasuwa",
+    "rows_in_window": 0,
+    "latest_start_in_nea_archive": null,
+    "latest_dc": null
+   },
+   {
+    "district": "Nuwakot",
+    "rows_in_window": 0,
+    "latest_start_in_nea_archive": "2026-08-22T11:00:00+05:45",
+    "latest_dc": "Nuwakot Distribution Center"
+   },
+   {
+    "district": "Dhading",
+    "rows_in_window": 0,
+    "latest_start_in_nea_archive": null,
+    "latest_dc": null
+   },
+   {
+    "district": "Gorkha",
+    "rows_in_window": 0,
+    "latest_start_in_nea_archive": "2026-09-22T11:00:00+05:45",
+    "latest_dc": "Arughat Distribution Center"
+   },
+   {
+    "district": "Sindhupalchowk",
+    "rows_in_window": 0,
+    "latest_start_in_nea_archive": null,
+    "latest_dc": null
+   },
+   {
+    "district": "Makwanpur",
+    "rows_in_window": 0,
+    "latest_start_in_nea_archive": "2026-09-15T09:30:00+05:45",
+    "latest_dc": "Hetauda Distribution Center"
+   },
+   {
+    "district": "Chitwan",
+    "rows_in_window": 0,
+    "latest_start_in_nea_archive": "2026-09-24T09:00:00+05:45",
+    "latest_dc": "Tandi Distribution Center"
+   },
+   {
+    "district": "Kavre",
+    "rows_in_window": 0,
+    "latest_start_in_nea_archive": null,
+    "latest_dc": null
+   }
+  ],
+  "flood_districts_without_rows": [
+   "Rasuwa",
+   "Nuwakot",
+   "Dhading",
+   "Gorkha",
+   "Sindhupalchowk",
+   "Makwanpur",
+   "Chitwan",
+   "Kavre"
+  ],
+  "valley_dcs_without_rows": [
+   "Baneshwor",
+   "Maharajgunj",
+   "Pulchowk",
+   "Lagankhel",
+   "Bhaktapur",
+   "Thimi",
+   "Jorpati",
+   "Balaju",
+   "Chabahil"
+  ],
+  "site_responded": true,
+  "check_log": [
+   {
+    "url": "https://nea.org.np/maintenance",
+    "result": "HTTP 302 → https://nea.org.np/en/maintenance, HTTP 200; 5 rows (all Ratnapark DC, Teku relay work), same as the 09:27 read",
+    "checked_at": "2026-09-26T13:39:10+05:45"
+   },
+   {
+    "url": "https://nea.org.np/en/maintenancearchived",
+    "result": "HTTP 200; 216 rows, identical to the 09:28 archive read; latest start 2026-09-25 02:00, latest published 2026-09-23; no row ends after check time",
+    "checked_at": "2026-09-26T13:39:10+05:45"
+   },
+   {
+    "url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
+    "result": "NEA notice PDF (3 pages, scanned) read; 11 upcoming feeder slots (Asoj 11–15 / 27 Sep–1 Oct) that are in the notice but not in the web table were added, transcribed from the page images",
+    "checked_at": "2026-09-26T13:47:00+05:45"
+   }
+  ],
+  "dropped_past_rows": 37,
+  "added_rows": 11,
+  "kept_rows_from_web_table": 1
+ },
+ "incidents": [
+  {
+   "id": "bhotekoshi-trishuli-2026-08-26",
+   "name": {
+    "ne": "भोटेकोशी–त्रिशूली बाढी",
+    "en": "Bhotekoshi–Trishuli flood"
+   },
+   "date": "2026-08-26",
+   "date_bs": "2083-05-10",
+   "date_bs_label": {
+    "ne": "भदौ १०, २०८३",
+    "en": "Bhadra 10, 2083"
+   },
+   "status": "recovery",
+   "status_ne": "पुनर्स्थापना जारी",
+   "status_en": "Restoration ongoing",
+   "headline_figures": {
+    "hydro_mw_disrupted": 405,
+    "solar_mw_disrupted": 25,
+    "hydro_projects": 11,
+    "mw_cannot_be_evacuated": 176.1,
+    "source_statement_ids": [
+     "nea-2026-08-26",
+     "nea-2026-09-17"
+    ]
+   },
+   "coverage_line": {
     "ne": "प्राधिकरणले पूर्वनिर्धारित मर्मत बिजुली कटौती मात्र प्रकाशित गर्छ; रसुवाका लागि कुनै प्रकाशित छैन।",
     "en": "NEA publishes planned maintenance shutdowns only, and none for Rasuwa."
-  },
-  "planned_shutdowns": {
-    "source_url": "https://nea.org.np/maintenance",
-    "archive_url": "https://nea.org.np/maintenancearchived",
-    "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-    "checked_at": "2026-09-26T09:28:31+05:45",
-    "window": {
-      "from_start": "2026-09-12T00:00:00+05:45",
-      "rule": "current/upcoming rows plus rows starting within the 14 days before 2026-09-26"
-    },
-    "note": "Rows copied exactly as published (area_ne, feeder, details). reason is null where NEA’s Details column only repeats the area. area_en intentionally null (no faithful transliteration attempted). district/group are compiler classification of the DC, not NEA fields.",
-    "rows": [
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "भीमसेस्थान",
-        "area_ne": "१२ नं वडा कार्यालय, सरस्वती स्कुल, ब्रम्हटोल, प्लान्चोक भगवती, २१ नं वडा कार्यालय, ह्युमत, जैसिदेवल, चिंकः मुगः, अकोनारायण, भिमसेनस्थान तथा आसपासका क्षेत्रहरु ।",
-        "area_en": null,
-        "start": "2026-09-27T23:00:00+05:45",
-        "end": "2026-09-28T02:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "१२ नं वडा कार्यालय, सरस्वती स्कुल, ब्रम्हटोल, प्लान्चोक भगवती, २१ नं वडा कार्यालय, ह्युमत, जैसिदेवल,...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenance",
-        "source_url": "https://nea.org.np/maintenance",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:27:00+05:45",
-        "status_at_check": "upcoming"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "कालिमाटी",
-        "area_ne": "टेकु प्रहरी परिसर, फोहोरमैला, टेकु चोक, परोपकार, रामघाट, कंकेश्वरी, दमाईटोल, ईन्द्रायणी, ताम्सीपाखा, नरदेवी अस्पताल, क्षेत्रपाटी, असन बालकुमारी, ईन्द्रचोक, भेडासिंह, किलागल लगायत आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-26T02:00:00+05:45",
-        "end": "2026-09-26T05:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "टेकु प्रहरी परिसर, फोहोरमैला, टेकु चोक, परोपकार, रामघाट, कंकेश्वरी, दमाईटोल, ईन्द्रायणी, ताम्सीपाखा,...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenance",
-        "source_url": "https://nea.org.np/maintenance",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:27:00+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "क्षेत्रपाटी",
-        "area_ne": "मयलबारी, पुष्पलाल पार्क, ढल्कु, क्षेत्रपाटी, कालधारा, धोविचौर, पकनाजोल, कुस्ले चौर, Peoples College, Public Youth College, ठहिटी, कुवाहल तथा आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-26T02:00:00+05:45",
-        "end": "2026-09-26T05:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "मयलबारी, पुष्पलाल पार्क, ढल्कु, क्षेत्रपाटी, कालधारा, धोविचौर, पकनाजोल, कुस्ले चौर, Peoples College,...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenance",
-        "source_url": "https://nea.org.np/maintenance",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:27:00+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "मिन्ट",
-        "area_ne": "टेकु स्वास्थ्य सेवा विभाग कम्पाउण्ड एरिया",
-        "area_en": null,
-        "start": "2026-09-25T23:00:00+05:45",
-        "end": "2026-09-26T02:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "टेकु स्वास्थ्य सेवा विभाग कम्पाउण्ड एरिया",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenance",
-        "source_url": "https://nea.org.np/maintenance",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:27:00+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "भीमसेस्थान",
-        "area_ne": "१२ नं वडा कार्यालय, सरस्वती स्कुल, ब्रम्हटोल, प्लान्चोक भगवती, २१ नं वडा कार्यालय, ह्युमत, जैसिदेवल, चिंकः मुगः, अकोनारायण, भिमसेनस्थान तथा आसपासका क्षेत्रहरु ।",
-        "area_en": null,
-        "start": "2026-09-25T23:00:00+05:45",
-        "end": "2026-09-26T02:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "१२ नं वडा कार्यालय, सरस्वती स्कुल, ब्रम्हटोल, प्लान्चोक भगवती, २१ नं वडा कार्यालय, ह्युमत, जैसिदेवल,...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenance",
-        "source_url": "https://nea.org.np/maintenance",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:27:00+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "थापाथली",
-        "area_ne": "थापाथली चोक, नर्भिक हस्पिटल, प्रसुती गृह, राष्ट्र बैङ्क, कुरिया गाउँ, बबरमहल तथा आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-25T02:00:00+05:45",
-        "end": "2026-09-25T05:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "थापाथली चोक, नर्भिक हस्पिटल, प्रसुती गृह, राष्ट्र बैङ्क, कुरिया गाउँ, बबरमहल तथा आसपासका क्षेत्रहरु",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "कालिमाटी",
-        "area_ne": "टेकु प्रहरी परिसर, फोहोरमैला, टेकु चोक, परोपकार, रामघाट, कंकेश्वरी, दमाईटोल, ईन्द्रायणी, ताम्सीपाखा, नरदेवी अस्पताल, क्षेत्रपाटी, असन बालकुमारी, ईन्द्रचोक, भेडासिंह, किलागल लगायत आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-25T02:00:00+05:45",
-        "end": "2026-09-25T05:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "टेकु प्रहरी परिसर, फोहोरमैला, टेकु चोक, परोपकार, रामघाट, कंकेश्वरी, दमाईटोल, ईन्द्रायणी, ताम्सीपाखा,...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Pulchowk Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "भैसेपाटी",
-        "area_ne": "गणेश मन्दिर, सिद्धीविनायक टोल, मञ्जुश्री मार्ग आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-24T23:00:00+05:45",
-        "end": "2026-09-25T02:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "गणेश मन्दिर, सिद्धीविनायक टोल, मञ्जुश्री मार्ग आसपासका क्षेत्रहरु",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "मिन्ट",
-        "area_ne": "टेकु स्वास्थ्य सेवा विभाग कम्पाउण्ड एरिया",
-        "area_en": null,
-        "start": "2026-09-24T23:00:00+05:45",
-        "end": "2026-09-25T02:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "टेकु स्वास्थ्य सेवा विभाग कम्पाउण्ड एरिया",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Tandi Distribution Center",
-        "district": "Chitwan",
-        "group": "flood_district",
-        "feeder": "पर्सा ३३ के.भी.सब-स्टेसनबाट संचालनमा रहेको ११ के.भी.चैनपुर-१ फिडर",
-        "area_ne": "इच्छाकामना गाउपलिका वडा नम्बर ७ गर्दास, सयान्ग्दी , भालुमारा, पिपल्टार हुदै सिमलढाप सम्म",
-        "area_en": null,
-        "start": "2026-09-24T09:00:00+05:45",
-        "end": "2026-09-24T18:00:00+05:45",
-        "reason": "इच्छाकामना गाउपलिका वडा नम्बर ७ गर्दास, सयान्ग्दी , भालुमारा, पिपल्टार हुदै सिमलढाप सम्म बाटोक...",
-        "details_as_printed": "इच्छाकामना गाउपलिका वडा नम्बर ७ गर्दास, सयान्ग्दी , भालुमारा, पिपल्टार हुदै सिमलढाप सम्म बाटोक...",
-        "published": "2026-09-23",
-        "notice_url": "https://nea.org.np/uploads/users/27/Maintenance%20Schedule/Tandi8.jpg",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Pulchowk Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "रिंगरोड",
-        "area_ne": "नख्खु चोक, बागडोल, धोविधारा, मलपोखरी, धोबिघाट, नयाँबाटो, सनराइज टावर, आफलडोल",
-        "area_en": null,
-        "start": "2026-09-24T02:00:00+05:45",
-        "end": "2026-09-24T05:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "नख्खु चोक, बागडोल, धोविधारा, मलपोखरी, धोबिघाट, नयाँबाटो, सनराइज टावर, आफलडोल",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "थापाथली",
-        "area_ne": "थापाथली चोक, नर्भिक हस्पिटल, प्रसुती गृह, राष्ट्र बैङ्क, कुरिया गाउँ, बबरमहल तथा आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-24T02:00:00+05:45",
-        "end": "2026-09-24T05:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "थापाथली चोक, नर्भिक हस्पिटल, प्रसुती गृह, राष्ट्र बैङ्क, कुरिया गाउँ, बबरमहल तथा आसपासका क्षेत्रहरु",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Pulchowk Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "बागमती",
-        "area_ne": "सानेपा राम मन्दिर, गुसिङ्गल, एडभान्स कलेज, लीला धर, अमरावती, सानेपा, रेडियण्ट स्कुल आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-23T23:00:00+05:45",
-        "end": "2026-09-24T02:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "सानेपा राम मन्दिर, गुसिङ्गल, एडभान्स कलेज, लीला धर, अमरावती, सानेपा, रेडियण्ट स्कुल आसपासका क्षेत्रह...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Pulchowk Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "भैसेपाटी",
-        "area_ne": "गणेश मन्दिर, सिद्धीविनायक टोल, मञ्जुश्री मार्ग आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-23T23:00:00+05:45",
-        "end": "2026-09-24T02:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "गणेश मन्दिर, सिद्धीविनायक टोल, मञ्जुश्री मार्ग आसपासका क्षेत्रहरु",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Tandi Distribution Center",
-        "district": "Chitwan",
-        "group": "flood_district",
-        "feeder": "पर्सा ३३ के.भी.सब-स्टेसनबाट संचालनमा रहेको ११ के.भी.चैनपुर-१ फिडर",
-        "area_ne": "इच्छाकामना गाउपलिका वडा नम्बर ७ गर्दास, सयान्ग्दी , भालुमारा, पिपल्टार हुदै सिमलढाप सम्म",
-        "area_en": null,
-        "start": "2026-09-23T09:00:00+05:45",
-        "end": "2026-09-23T18:00:00+05:45",
-        "reason": "इच्छाकामना गाउपलिका वडा नम्बर ७ गर्दास, सयान्ग्दी , भालुमारा, पिपल्टार हुदै सिमलढाप सम्म बाटोक...",
-        "details_as_printed": "इच्छाकामना गाउपलिका वडा नम्बर ७ गर्दास, सयान्ग्दी , भालुमारा, पिपल्टार हुदै सिमलढाप सम्म बाटोक...",
-        "published": "2026-09-22",
-        "notice_url": "https://nea.org.np/uploads/users/27/Maintenance%20Schedule/Tandi6.jpg",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Pulchowk Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "रिंगरोड",
-        "area_ne": "नख्खु चोक, बागडोल, धोविधारा, मलपोखरी, धोबिघाट, नयाँबाटो, सनराइज टावर, आफलडोल",
-        "area_en": null,
-        "start": "2026-09-23T02:00:00+05:45",
-        "end": "2026-09-23T05:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "नख्खु चोक, बागडोल, धोविधारा, मलपोखरी, धोबिघाट, नयाँबाटो, सनराइज टावर, आफलडोल",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "सुन्धारा – २",
-        "area_ne": "न्यूरोड, धरहरा, दशरथ रंगशाला, सुन्धारा, भोटेवहाल, दक्षिणकाली मन्दिर, खिचापोखरी, झोंछे, हनुमानढोका, वसन्तपुर, लगन चोक, माथेमा चोक, ओमवहाल तथा आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-23T02:00:00+05:45",
-        "end": "2026-09-23T05:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "न्यूरोड, धरहरा, दशरथ रंगशाला, सुन्धारा, भोटेवहाल, दक्षिणकाली मन्दिर, खिचापोखरी, झोंछे, हनुमानढ...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Pulchowk Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "पुल्चोक",
-        "area_ne": "बल्खु हेल्थ पोष्ट, सानेपा चोक, झम्सीखेल, पुल्चोक, प्रधान सेनापति क्वाटर, ठाडो ढुङ्गा, हरिहर भवन आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-22T23:00:00+05:45",
-        "end": "2026-09-23T02:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "बल्खु हेल्थ पोष्ट, सानेपा चोक, झम्सीखेल, पुल्चोक, प्रधान सेनापति क्वाटर, ठाडो ढुङ्गा, हरिहर भवन आसपा...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Pulchowk Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "बागमती",
-        "area_ne": "सानेपा राम मन्दिर, गुसिङ्गल, एडभान्स कलेज, लीला धर, अमरावती, सानेपा, रेडियण्ट स्कुल आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-22T23:00:00+05:45",
-        "end": "2026-09-23T02:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "सानेपा राम मन्दिर, गुसिङ्गल, एडभान्स कलेज, लीला धर, अमरावती, सानेपा, रेडियण्ट स्कुल आसपासका क्षेत्रह...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Gandaki Province",
-        "distribution_centre": "Arughat Distribution Center",
-        "district": "Gorkha",
-        "group": "flood_district",
-        "feeder": "Aarughat",
-        "area_ne": "काउसेनी, ढकाल गाउँ, सुनार गाउँ",
-        "area_en": null,
-        "start": "2026-09-22T11:00:00+05:45",
-        "end": "2026-09-22T15:00:00+05:45",
-        "reason": "Bush Cutting",
-        "details_as_printed": "Bush Cutting",
-        "published": "2026-09-22",
-        "notice_url": null,
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "सुन्धारा – २",
-        "area_ne": "न्यूरोड, धरहरा, दशरथ रंगशाला, सुन्धारा, भोटेवहाल, दक्षिणकाली मन्दिर, खिचापोखरी, झोंछे, हनुमानढोका, वसन्तपुर, लगन चोक, माथेमा चोक, ओमवहाल तथा आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-22T02:00:00+05:45",
-        "end": "2026-09-22T05:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "न्यूरोड, धरहरा, दशरथ रंगशाला, सुन्धारा, भोटेवहाल, दक्षिणकाली मन्दिर, खिचापोखरी, झोंछे, हनुमानढ...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "सुन्धारा - १",
-        "area_ne": "न्यूरोड, धरहरा, दशरथ रंगशाला, सुन्धारा, भोटेवहाल, दक्षिणकाली मन्दिर, खिचापोखरी, झोंछे, हनुमानढोका, वसन्तपुर, लगन चोक, माथेमा चोक, ओमवहाल तथा आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-21T23:00:00+05:45",
-        "end": "2026-09-22T02:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "न्यूरोड, धरहरा, दशरथ रंगशाला, सुन्धारा, भोटेवहाल, दक्षिणकाली मन्दिर, खिचापोखरी, झोंछे, हनुमानढ...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Pulchowk Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "पुल्चोक",
-        "area_ne": "बल्खु हेल्थ पोष्ट, सानेपा चोक, झम्सीखेल, पुल्चोक, प्रधान सेनापति क्वाटर, ठाडो ढुङ्गा, हरिहर भवन आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-21T23:00:00+05:45",
-        "end": "2026-09-22T02:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "बल्खु हेल्थ पोष्ट, सानेपा चोक, झम्सीखेल, पुल्चोक, प्रधान सेनापति क्वाटर, ठाडो ढुङ्गा, हरिहर भवन आसपा...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Tandi Distribution Center",
-        "district": "Chitwan",
-        "group": "flood_district",
-        "feeder": "हर्दि १३२ के.भी.सब स्टेसनबाट संचालनमा रहेको ११ के.भी. भण्डारा फिडर",
-        "area_ne": "राप्ति नगरपालिकाको मार्तल पुलदेखि लोथर पुलसम्म",
-        "area_en": null,
-        "start": "2026-09-21T09:00:00+05:45",
-        "end": "2026-09-21T17:00:00+05:45",
-        "reason": "मार्तल पुलदेखि लोथर पुलसम्म महेन्द्र राजमार्गको दुवै पट्टि लाइनलाई अबरुद्द गराइ रहेका तथा लाइनमा छुन...",
-        "details_as_printed": "मार्तल पुलदेखि लोथर पुलसम्म महेन्द्र राजमार्गको दुवै पट्टि लाइनलाई अबरुद्द गराइ रहेका तथा लाइनमा छुन...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/27/Maintenance%20Schedule/Tandi4.jpg",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "सुन्धारा - १",
-        "area_ne": "न्यूरोड, धरहरा, दशरथ रंगशाला, सुन्धारा, भोटेवहाल, दक्षिणकाली मन्दिर, खिचापोखरी, झोंछे, हनुमानढोका, वसन्तपुर, लगन चोक, माथेमा चोक, ओमवहाल तथा आसपासका क्षेत्रहरु",
-        "area_en": null,
-        "start": "2026-09-20T23:00:00+05:45",
-        "end": "2026-09-21T02:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "न्यूरोड, धरहरा, दशरथ रंगशाला, सुन्धारा, भोटेवहाल, दक्षिणकाली मन्दिर, खिचापोखरी, झोंछे, हनुमानढ...",
-        "published": "2026-09-20",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/letter%20and%20schedule.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "भोटेवहाल फिडर",
-        "area_ne": "भोटेवहाल पिपलवोट, एङ्गल चोक, लगन चोक, भगवती मन्दीर, दक्षिणकाली मन्दिर तथा आसपासका क्षेत्रहरु ।",
-        "area_en": null,
-        "start": "2026-09-20T11:00:00+05:45",
-        "end": "2026-09-20T16:00:00+05:45",
-        "reason": "Regular Preventive Maintenance तथा Underground Cable Rising, Busbar Arrangement तथा Underground Cabl...",
-        "details_as_printed": "Regular Preventive Maintenance तथा Underground Cable Rising, Busbar Arrangement तथा Underground Cabl...",
-        "published": "2026-09-18",
-        "notice_url": "https://nea.org.np/uploads/users/13/Bagmati%20Provincial%20Office/Shutdown%20Notice/Ratnapark/0604_page002.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Maharajgunj Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "हेपाली फिडर, गणेशथान फिडर, धुम्बाराही फिडर, देविघाट फिडर",
-        "area_ne": "देउराली जनता, धापासी हाईट, नेचर क्लब, कृष्ण मन्दिर, डाँफे कोलोनी, भगवती मन्दिर, कुँवर कोलोनी, शिव मन्दिर, नैनदेवी मन्दिर, च्यासिंग टोल, ग्रिन ल्याण्ड, हात्तिचोक, ईशान केराघारी लगायतका स्थानहरु ।",
-        "area_en": null,
-        "start": "2026-09-20T10:00:00+05:45",
-        "end": "2026-09-20T14:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "देउराली जनता, धापासी हाईट, नेचर क्लब, कृष्ण मन्दिर, डाँफे कोलोनी, भगवती मन्दिर, कुँवर कोलोनी, शिव मन...",
-        "published": "2026-09-18",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/MDC_Shutdown%20notice%20001.jpg",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Baneshwor Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "Sankhamul Feeder",
-        "area_ne": "राेजबड स्कूल, भृगु मार्ग , रूद्रमति मार्ग, BPC एरिया , UN Park पुल अगाडिकाे एरिया",
-        "area_en": null,
-        "start": "2026-09-20T10:00:00+05:45",
-        "end": "2026-09-20T16:00:00+05:45",
-        "reason": "HT/LT भूमिगत सम्बन्धी कार्य ।",
-        "details_as_printed": "HT/LT भूमिगत सम्बन्धी कार्य ।",
-        "published": "2026-09-18",
-        "notice_url": "https://nea.org.np/uploads/users/13/Bagmati%20Provincial%20Office/Shutdown%20Notice/Baneshwor/0604.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Baneshwor Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "शंखमुल फिडर",
-        "area_ne": "रोजबड स्कुल, भृगु मार्ग, रुद्रमति मार्ग एरिया, BPC एरिया, UN park पुल अगाडिको एरिया ।",
-        "area_en": null,
-        "start": "2026-09-20T10:00:00+05:45",
-        "end": "2026-09-20T16:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "रोजबड स्कुल, भृगु मार्ग, रुद्रमति मार्ग एरिया, BPC एरिया, UN park पुल अगाडिको एरिया ।",
-        "published": "2026-09-18",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/IMG_0004%20(1).pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "अनामनगर फिडर",
-        "area_ne": "K3 स.स. को पर्खाल हुंदै अनामनगर पानी ट्यांकी, अनामनगर मोड, पूर्विगेट, हनुमान स्थान, सिंहदरवार दक्षिण गेट हुंदै अन्नपूर्ण न्यूरो हस्पिटल सम्म, अनामनगर भाटभटेनी, धोवीखोला कोरिडोर हुंदै मैतिदेवी सेतो पुलसम्म तथा आसपासका क्षेत्रहरु ।",
-        "area_en": null,
-        "start": "2026-09-19T10:00:00+05:45",
-        "end": "2026-09-19T15:00:00+05:45",
-        "reason": "Regular Preventive Maintenance तथा Underground Cable Rising, Busbar Arrangement तथा Underground Cabl...",
-        "details_as_printed": "Regular Preventive Maintenance तथा Underground Cable Rising, Busbar Arrangement तथा Underground Cabl...",
-        "published": "2026-09-18",
-        "notice_url": "https://nea.org.np/uploads/users/13/Bagmati%20Provincial%20Office/Shutdown%20Notice/Ratnapark/0604_page002.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Ratnapark Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "पुतलीसडक फिडर",
-        "area_ne": "माईतीघर मण्डला, बबरमहल, काठमान्डौ जिल्ला अदालत हुंदै विजुलीवजार पुल, थापाथली API Television तथा आसपासका क्षेत्रहरु ।",
-        "area_en": null,
-        "start": "2026-09-19T10:00:00+05:45",
-        "end": "2026-09-19T15:00:00+05:45",
-        "reason": "Regular Preventive Maintenance तथा Underground Cable Rising, Busbar Arrangement तथा Underground Cabl...",
-        "details_as_printed": "Regular Preventive Maintenance तथा Underground Cable Rising, Busbar Arrangement तथा Underground Cabl...",
-        "published": "2026-09-18",
-        "notice_url": "https://nea.org.np/uploads/users/13/Bagmati%20Provincial%20Office/Shutdown%20Notice/Ratnapark/0604_page002.pdf",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Tandi Distribution Center",
-        "district": "Chitwan",
-        "group": "flood_district",
-        "feeder": "हर्दि १३२ के.भी. सब स्टेसनबाट संचालनमा रहेको ३३ के.भी. हर्दि-पर्सा मुख्य लाइन, ११ के.भी. लोथर , न्यु पर्सा, खैरहनी तथा भण्डारा फिडर र पर्सा ३३ के.भी.सब स्टेसन बाट संचालनमा रहेको ११ के.भी. पदमपुर, टांडी तथा ३३ के.भी. भरतपुर -पर्सा",
-        "area_ne": "टिकौली जंगल लगाएतका क्षेत्र , सिसै , भानु चोक , निपनि , बागमारा ,सौराहा चोक , टांडी चोक, सौराहा पर्यटकीय क्षेत्र , बैरिया , अमेलिया, जिरौना हुदै पदमपुरका सम्पुर्ण क्षेत्र, चैनपुर चोक देखि टांडी चोक सम्म तथा खैरहनी नगरपालिकाका सम्पुर्ण क्षेत्रहरु तथा राप्ति नगरपालिकाका सम्पुर्ण क्षेत्र",
-        "area_en": null,
-        "start": "2026-09-19T09:00:00+05:45",
-        "end": "2026-09-19T17:00:00+05:45",
-        "reason": "महेन्द्र राजमार्गको दुवै पट्टीको लाइनलाई अवरुद्ध गराई रहेका तथा लाइनमा छुने संभाव्य रुख तथा रुखका हा...",
-        "details_as_printed": "महेन्द्र राजमार्गको दुवै पट्टीको लाइनलाई अवरुद्ध गराई रहेका तथा लाइनमा छुने संभाव्य रुख तथा रुखका हा...",
-        "published": "2026-09-18",
-        "notice_url": "https://nea.org.np/uploads/users/27/Maintenance%20Schedule/Tandi2.jpg",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Lagankhel Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "इमाडोल-३, सातदोबाटो, लुभू, ग्वार्को",
-        "area_ne": "शितल हाईट, ओचु हाईट, सेतिपाखा, इमाडोल, कृष्ण मन्दिर, खना गार्मेन्ट, ढुंगे साँगु, बोजेपोखरी, कमल पोखरी, गोलभट्टा",
-        "area_en": null,
-        "start": "2026-09-16T11:00:00+05:45",
-        "end": "2026-09-16T16:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "शितल हाईट, ओचु हाईट, सेतिपाखा, इमाडोल, कृष्ण मन्दिर, खना गार्मेन्ट, ढुंगे साँगु, बोजेपोखरी, कमल पोखर...",
-        "published": "2026-09-10",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/WhatsApp%20Image%202026-09-10%20at%2010-25-50%20AM.jpg",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Lagankhel Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "च्यासल, लोकल पाटन",
-        "area_ne": "पिन्छे, पिलाछे, अग्निसाल, सुन्धारा, बालकुमारी, सरस्वति मन्दिर, बंगलामुखी, च्यासल, टुरिस्ट बसपार्क, भोलढोका, छाबहाल",
-        "area_en": null,
-        "start": "2026-09-15T11:00:00+05:45",
-        "end": "2026-09-15T16:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "पिन्छे, पिलाछे, अग्निसाल, सुन्धारा, बालकुमारी, सरस्वति मन्दिर, बंगलामुखी, च्यासल, टुरिस्ट बसपार्क, भ...",
-        "published": "2026-09-10",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/WhatsApp%20Image%202026-09-10%20at%2010-25-50%20AM.jpg",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Hetauda Distribution Center",
-        "district": "Makwanpur",
-        "group": "flood_district",
-        "feeder": "रङ्गशाला फिडर तथा गढ़ी फिडर",
-        "area_ne": "रङ्गशाला फिडरको चौघडा बजार देखि क्याम्पा डाडा सम्मका भागहरु र गढ़ी फिडरको चुच्चेखोला, गढ़ी गा.पा.को गैरी भन्ज्याङ,बर भन्ज्याङ, धरमपानी,गढ़ी दरबार देखि लेन डाडा सम्मका क्षेत्रहरु लगाएतका ठाउँहरु",
-        "area_en": null,
-        "start": "2026-09-15T09:30:00+05:45",
-        "end": "2026-09-15T18:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "रङ्गशाला फिडरको चौघडा बजार देखि क्याम्पा डाडा सम्मका भागहरु र गढ़ी फिडरको चुच्चेखोला, गढ़ी गा.पा.को गै...",
-        "published": "2026-09-14",
-        "notice_url": "https://nea.org.np/uploads/users/27/Maintenance%20Schedule/hetauda30.jpg",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Lagankhel Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "जावलाखेल",
-        "area_ne": "जावलाखेल, खड्काटोल, मानभवन, AVM चोक",
-        "area_en": null,
-        "start": "2026-09-14T11:00:00+05:45",
-        "end": "2026-09-14T16:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "जावलाखेल, खड्काटोल, मानभवन, AVM चोक",
-        "published": "2026-09-10",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/WhatsApp%20Image%202026-09-10%20at%2010-25-50%20AM.jpg",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Lagankhel Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "रिंगरोड, महालक्ष्मी, मानभवन",
-        "area_ne": "सरकारी स्कुल, कान्तिपुर कोलोनी, शिव चोक, लोहा चोक, मिलन चोक, नःटोल, अग्निसाल, छाबहाल",
-        "area_en": null,
-        "start": "2026-09-13T11:00:00+05:45",
-        "end": "2026-09-13T16:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "सरकारी स्कुल, कान्तिपुर कोलोनी, शिव चोक, लोहा चोक, मिलन चोक, नःटोल, अग्निसाल, छाबहाल",
-        "published": "2026-09-10",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/WhatsApp%20Image%202026-09-10%20at%2010-25-50%20AM.jpg",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      },
-      {
-        "province": "Bagmati Province",
-        "distribution_centre": "Lagankhel Distribution Center",
-        "district": null,
-        "group": "kathmandu_valley",
-        "feeder": "च्यासल",
-        "area_ne": "त्यागल देखि सुन्धारा सम्म एच. टि. लाईन कन्डक्टर अपग्रेड गर्ने कार्य, त्यागल देखि सुन्धारा",
-        "area_en": null,
-        "start": "2026-09-12T11:00:00+05:45",
-        "end": "2026-09-12T16:00:00+05:45",
-        "reason": null,
-        "details_as_printed": "त्यागल देखि सुन्धारा सम्म एच. टि. लाईन कन्डक्टर अपग्रेड गर्ने कार्य, त्यागल देखि सुन्धारा",
-        "published": "2026-09-10",
-        "notice_url": "https://nea.org.np/uploads/users/65/shutdown/WhatsApp%20Image%202026-09-10%20at%2010-25-50%20AM.jpg",
-        "listed_on": "https://nea.org.np/maintenancearchived",
-        "source_url": "https://nea.org.np/maintenancearchived",
-        "source_name": "Nepal Electricity Authority (NEA) — Maintenance Shutdown Schedule",
-        "checked_at": "2026-09-26T09:28:31+05:45",
-        "status_at_check": "past"
-      }
-    ],
-    "flood_district_coverage": [
-      {
-        "district": "Rasuwa",
-        "rows_in_window": 0,
-        "latest_start_in_nea_archive": null,
-        "latest_dc": null
-      },
-      {
-        "district": "Nuwakot",
-        "rows_in_window": 0,
-        "latest_start_in_nea_archive": "2026-08-22T11:00:00+05:45",
-        "latest_dc": "Nuwakot Distribution Center"
-      },
-      {
-        "district": "Dhading",
-        "rows_in_window": 0,
-        "latest_start_in_nea_archive": null,
-        "latest_dc": null
-      },
-      {
-        "district": "Gorkha",
-        "rows_in_window": 1,
-        "latest_start_in_nea_archive": "2026-09-22T11:00:00+05:45",
-        "latest_dc": "Arughat Distribution Center"
-      },
-      {
-        "district": "Sindhupalchowk",
-        "rows_in_window": 0,
-        "latest_start_in_nea_archive": null,
-        "latest_dc": null
-      },
-      {
-        "district": "Makwanpur",
-        "rows_in_window": 1,
-        "latest_start_in_nea_archive": "2026-09-15T09:30:00+05:45",
-        "latest_dc": "Hetauda Distribution Center"
-      },
-      {
-        "district": "Chitwan",
-        "rows_in_window": 4,
-        "latest_start_in_nea_archive": "2026-09-24T09:00:00+05:45",
-        "latest_dc": "Tandi Distribution Center"
-      },
-      {
-        "district": "Kavre",
-        "rows_in_window": 0,
-        "latest_start_in_nea_archive": null,
-        "latest_dc": null
-      }
-    ],
-    "flood_districts_without_rows": [
-      "Rasuwa",
-      "Nuwakot",
-      "Dhading",
-      "Sindhupalchowk",
-      "Kavre"
-    ],
-    "valley_dcs_without_rows": [
-      "Kuleshwor",
-      "Bhaktapur",
-      "Kirtipur",
-      "Thimi",
-      "Jorpati",
-      "Balaju",
-      "Chabahil"
-    ]
-  },
-  "statements": {
+   },
+   "statements": {
     "source_name": "NEA statements as quoted in news outlets (no NEA website/X/Facebook post found for these)",
     "checked_at": "2026-09-26T10:20:00+05:45",
     "items": [
-      {
-        "id": "nea-2026-08-26",
-        "date": "2026-08-26",
-        "speaker_en": "Nepal Electricity Authority (statement)",
-        "speaker_ne": "नेपाल विद्युत प्राधिकरण (विज्ञप्ति/जानकारी)",
-        "summary_en": "NEA said the Bhotekoshi flood disrupted about 405 MW from 11 hydropower projects and 25 MW of solar; it damaged the Rasuwagadhi, Chilime and Trishuli 3A projects, the Trishuli 3B Hub 220 kV substation and the Trishuli and Devighat plants, and blocked the Samundratar–Trishuli 132 kV, Chilime–Trishuli 66 kV, Chilime Hub–Trishuli 3B Hub–Matatirtha 220 kV and Trishuli–Balaju 66 kV lines.",
-        "summary_ne": "प्राधिकरणका अनुसार भोटेकोशी बाढीले ११ जलविद्युत आयोजनाको करिब ४०५ मेगावाट र २५ मेगावाट सौर्य उत्पादन अवरुद्ध गर्‍यो; रसुवागढी, चिलिमे र त्रिशूली ३ए आयोजना, त्रिशूली ३बी हब २२० केभी सबस्टेसन तथा त्रिशूली र देवीघाट केन्द्रमा क्षति पुग्यो, र समुन्द्रटार–त्रिशूली १३२ केभी, चिलिमे–त्रिशूली ६६ केभी, चिलिमे हब–त्रिशूली ३बी हब–मातातीर्थ २२० केभी तथा त्रिशूली–बालाजु ६६ केभी लाइन अवरुद्ध भए।",
-        "figures": {
-          "hydro_mw_disrupted": 405,
-          "hydro_projects": 11,
-          "solar_mw_disrupted": 25
-        },
-        "nea_own_post_url": null,
-        "sources": [
-          {
-            "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
-            "source_name": "HimalPress (English)",
-            "checked_at": "2026-09-26T10:20:00+05:45",
-            "as_quoted_in": "HimalPress",
-            "published": "2026-08-26"
-          },
-          {
-            "source_url": "https://laganinews.com/en/2026/08/26/rasuwa-flood-disrupts-6-transmission-lines-220-kv-substation-of-trishuli-completely-damaged-2/",
-            "source_name": "Lagani News (English)",
-            "checked_at": "2026-09-26T10:20:00+05:45",
-            "as_quoted_in": "Lagani News",
-            "published": "2026-08-26"
-          }
-        ],
+     {
+      "id": "nea-2026-08-26",
+      "date": "2026-08-26",
+      "speaker_en": "Nepal Electricity Authority (statement)",
+      "speaker_ne": "नेपाल विद्युत प्राधिकरण (विज्ञप्ति/जानकारी)",
+      "summary_en": "NEA said the Bhotekoshi flood disrupted about 405 MW from 11 hydropower projects and 25 MW of solar; it damaged the Rasuwagadhi, Chilime and Trishuli 3A projects, the Trishuli 3B Hub 220 kV substation and the Trishuli and Devighat plants, and blocked the Samundratar–Trishuli 132 kV, Chilime–Trishuli 66 kV, Chilime Hub–Trishuli 3B Hub–Matatirtha 220 kV and Trishuli–Balaju 66 kV lines.",
+      "summary_ne": "प्राधिकरणका अनुसार भोटेकोशी बाढीले ११ जलविद्युत आयोजनाको करिब ४०५ मेगावाट र २५ मेगावाट सौर्य उत्पादन अवरुद्ध गर्‍यो; रसुवागढी, चिलिमे र त्रिशूली ३ए आयोजना, त्रिशूली ३बी हब २२० केभी सबस्टेसन तथा त्रिशूली र देवीघाट केन्द्रमा क्षति पुग्यो, र समुन्द्रटार–त्रिशूली १३२ केभी, चिलिमे–त्रिशूली ६६ केभी, चिलिमे हब–त्रिशूली ३बी हब–मातातीर्थ २२० केभी तथा त्रिशूली–बालाजु ६६ केभी लाइन अवरुद्ध भए।",
+      "figures": {
+       "hydro_mw_disrupted": 405,
+       "hydro_projects": 11,
+       "solar_mw_disrupted": 25
+      },
+      "nea_own_post_url": null,
+      "sources": [
+       {
         "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
-        "source_name": "NEA, as quoted in HimalPress",
-        "checked_at": "2026-09-26T10:20:00+05:45"
-      },
-      {
-        "id": "nea-2026-08-27",
-        "date": "2026-08-27",
-        "speaker_en": "Rajan Dhakal, NEA spokesperson",
-        "speaker_ne": "राजन ढकाल, प्रवक्ता, नेपाल विद्युत प्राधिकरण",
-        "summary_en": "NEA restored power to Kharanitar, Samundratar, Chaugada, Likhu, Panchakanya and Bidur in Nuwakot through an alternative line from Sindhupalchok, was charging the Chapali–Devighat and Balaju–Trishuli 66 kV lines at 11 kV, and supplied parts of the Trishuli area via Salyantar substation in Dhading.",
-        "summary_ne": "प्राधिकरणले सिन्धुपाल्चोकतर्फको वैकल्पिक लाइनबाट नुवाकोटका खरानीटार, समुन्द्रटार, चौघडा, लिखु, पञ्चकन्या र विदुरमा बिजुली सुचारु गर्‍यो; चपली–देवीघाट र बालाजु–त्रिशूली ६६ केभी लाइन ११ केभीमा चार्ज गर्ने काम भइरहेको र त्रिशूलीका केही क्षेत्रमा धादिङको सल्यानटार सबस्टेसनबाट आपूर्ति गरिएको जनायो।",
-        "figures": {},
-        "nea_own_post_url": null,
-        "sources": [
-          {
-            "source_url": "https://risingnepaldaily.com/news/85602",
-            "source_name": "The Rising Nepal",
-            "checked_at": "2026-09-26T10:20:00+05:45",
-            "as_quoted_in": "The Rising Nepal",
-            "published": "2026-08-27"
-          },
-          {
-            "source_url": "https://nepalpress.com/2026/08/27/757582/electricity-service-disrupted-by-bhotekoshi-flood-in-nuwakot-restored-through-alternative-line/",
-            "source_name": "Nepal Press (Nepali)",
-            "checked_at": "2026-09-26T10:20:00+05:45",
-            "as_quoted_in": "Nepal Press",
-            "published": "2026-08-27"
-          }
-        ],
+        "source_name": "HimalPress (English)",
+        "checked_at": "2026-09-26T10:20:00+05:45",
+        "as_quoted_in": "HimalPress",
+        "published": "2026-08-26"
+       },
+       {
+        "source_url": "https://laganinews.com/en/2026/08/26/rasuwa-flood-disrupts-6-transmission-lines-220-kv-substation-of-trishuli-completely-damaged-2/",
+        "source_name": "Lagani News (English)",
+        "checked_at": "2026-09-26T10:20:00+05:45",
+        "as_quoted_in": "Lagani News",
+        "published": "2026-08-26"
+       }
+      ],
+      "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
+      "source_name": "NEA, as quoted in HimalPress",
+      "checked_at": "2026-09-26T10:20:00+05:45"
+     },
+     {
+      "id": "nea-2026-08-27",
+      "date": "2026-08-27",
+      "speaker_en": "Rajan Dhakal, NEA spokesperson",
+      "speaker_ne": "राजन ढकाल, प्रवक्ता, नेपाल विद्युत प्राधिकरण",
+      "summary_en": "NEA restored power to Kharanitar, Samundratar, Chaugada, Likhu, Panchakanya and Bidur in Nuwakot through an alternative line from Sindhupalchok, was charging the Chapali–Devighat and Balaju–Trishuli 66 kV lines at 11 kV, and supplied parts of the Trishuli area via Salyantar substation in Dhading.",
+      "summary_ne": "प्राधिकरणले सिन्धुपाल्चोकतर्फको वैकल्पिक लाइनबाट नुवाकोटका खरानीटार, समुन्द्रटार, चौघडा, लिखु, पञ्चकन्या र विदुरमा बिजुली सुचारु गर्‍यो; चपली–देवीघाट र बालाजु–त्रिशूली ६६ केभी लाइन ११ केभीमा चार्ज गर्ने काम भइरहेको र त्रिशूलीका केही क्षेत्रमा धादिङको सल्यानटार सबस्टेसनबाट आपूर्ति गरिएको जनायो।",
+      "figures": {},
+      "nea_own_post_url": null,
+      "sources": [
+       {
         "source_url": "https://risingnepaldaily.com/news/85602",
-        "source_name": "NEA, as quoted in The Rising Nepal",
-        "checked_at": "2026-09-26T10:20:00+05:45"
+        "source_name": "The Rising Nepal",
+        "checked_at": "2026-09-26T10:20:00+05:45",
+        "as_quoted_in": "The Rising Nepal",
+        "published": "2026-08-27"
+       },
+       {
+        "source_url": "https://nepalpress.com/2026/08/27/757582/electricity-service-disrupted-by-bhotekoshi-flood-in-nuwakot-restored-through-alternative-line/",
+        "source_name": "Nepal Press (Nepali)",
+        "checked_at": "2026-09-26T10:20:00+05:45",
+        "as_quoted_in": "Nepal Press",
+        "published": "2026-08-27"
+       }
+      ],
+      "source_url": "https://risingnepaldaily.com/news/85602",
+      "source_name": "NEA, as quoted in The Rising Nepal",
+      "checked_at": "2026-09-26T10:20:00+05:45"
+     },
+     {
+      "id": "nea-2026-09-03",
+      "date": "2026-09-03",
+      "date_bs": "2083-05-18",
+      "speaker_en": "Nepal Electricity Authority",
+      "speaker_ne": "नेपाल विद्युत प्राधिकरण",
+      "summary_en": "NEA said about 90 percent of Nuwakot’s supply had been restored after charging the Chapali–Devighat circuits, with 31 more transformers charged, while parts of Bidur-3, Tarkeshwar-4, Kispang Rural Municipality, Belkotgadhi-8 and Bidur-10 were still awaiting transformer charging.",
+      "summary_ne": "चपली–देवीघाट सर्किट चार्ज गरी नुवाकोटको करिब ९० प्रतिशत क्षेत्रमा विद्युत आपूर्ति पुनःस्थापित भएको र थप ३१ ट्रान्सफर्मर चार्ज भएको प्राधिकरणले जनायो; विदुर–३ को बाँकी आधा क्षेत्र, तारकेश्वर–४, किस्पाङ गाउँपालिका, बेलकोटगढी–८ र विदुर–१० मा ट्रान्सफर्मर चार्ज हुन बाँकी थियो।",
+      "figures": {
+       "nuwakot_restored_pct_approx": 90,
+       "transformers_charged_additional": 31
       },
-      {
-        "id": "nea-2026-09-03",
-        "date": "2026-09-03",
-        "date_bs": "2083-05-18",
-        "speaker_en": "Nepal Electricity Authority",
-        "speaker_ne": "नेपाल विद्युत प्राधिकरण",
-        "summary_en": "NEA said about 90 percent of Nuwakot’s supply had been restored after charging the Chapali–Devighat circuits, with 31 more transformers charged, while parts of Bidur-3, Tarkeshwar-4, Kispang Rural Municipality, Belkotgadhi-8 and Bidur-10 were still awaiting transformer charging.",
-        "summary_ne": "चपली–देवीघाट सर्किट चार्ज गरी नुवाकोटको करिब ९० प्रतिशत क्षेत्रमा विद्युत आपूर्ति पुनःस्थापित भएको र थप ३१ ट्रान्सफर्मर चार्ज भएको प्राधिकरणले जनायो; विदुर–३ को बाँकी आधा क्षेत्र, तारकेश्वर–४, किस्पाङ गाउँपालिका, बेलकोटगढी–८ र विदुर–१० मा ट्रान्सफर्मर चार्ज हुन बाँकी थियो।",
-        "figures": {
-          "nuwakot_restored_pct_approx": 90,
-          "transformers_charged_additional": 31
-        },
-        "nea_own_post_url": null,
-        "sources": [
-          {
-            "source_url": "https://himalpress.com/2026/09/electricity-supplied-through-alternative-methods-to-most-areas-of-flood-affected-nuwakot/",
-            "source_name": "Himal Press (Nepali)",
-            "checked_at": "2026-09-26T10:20:00+05:45",
-            "as_quoted_in": "Himal Press",
-            "published": "2026-09-03 (१८ भदौ २०८३ ६:५१)"
-          }
-        ],
+      "nea_own_post_url": null,
+      "sources": [
+       {
         "source_url": "https://himalpress.com/2026/09/electricity-supplied-through-alternative-methods-to-most-areas-of-flood-affected-nuwakot/",
-        "source_name": "NEA, as quoted in Himal Press",
-        "checked_at": "2026-09-26T10:20:00+05:45"
+        "source_name": "Himal Press (Nepali)",
+        "checked_at": "2026-09-26T10:20:00+05:45",
+        "as_quoted_in": "Himal Press",
+        "published": "2026-09-03 (१८ भदौ २०८३ ६:५१)"
+       }
+      ],
+      "source_url": "https://himalpress.com/2026/09/electricity-supplied-through-alternative-methods-to-most-areas-of-flood-affected-nuwakot/",
+      "source_name": "NEA, as quoted in Himal Press",
+      "checked_at": "2026-09-26T10:20:00+05:45"
+     },
+     {
+      "id": "nea-2026-09-17",
+      "date": "2026-09-17",
+      "speaker_en": "Dirghayu Kumar Shrestha, acting Managing Director, NEA",
+      "speaker_ne": "दीर्घायु कुमार श्रेष्ठ, निमित्त कार्यकारी निर्देशक, नेपाल विद्युत प्राधिकरण",
+      "summary_en": "NEA said the Trishuli 3B Hub substation was swept away, leaving 176.1 MW from plants on the Chilime–Trishuli system unable to reach the national grid; the acting MD said NEA is planning to restore connectivity within six months and NEA Engineering Company is studying a direct Chilime Hub–Matatirtha line.",
+      "summary_ne": "त्रिशूली ३बी हब सबस्टेसन बगेकाले चिलिमे–त्रिशूली प्रणालीमा जोडिएका आयोजनाको १७६.१ मेगावाट राष्ट्रिय प्रणालीमा पठाउन नसकिएको प्राधिकरणले जनायो; छ महिनाभित्र जडान पुनःस्थापना गर्ने योजना रहेको र नेपाल विद्युत प्राधिकरण इन्जिनियरिङ कम्पनीले चिलिमे हब–मातातीर्थ सीधा लाइनको अध्ययन गरिरहेको निमित्त कार्यकारी निर्देशकले बताउनुभयो।",
+      "figures": {
+       "mw_cannot_be_evacuated": 176.1,
+       "restoration_target_months": 6
       },
-      {
-        "id": "nea-2026-09-17",
-        "date": "2026-09-17",
-        "speaker_en": "Dirghayu Kumar Shrestha, acting Managing Director, NEA",
-        "speaker_ne": "दीर्घायु कुमार श्रेष्ठ, निमित्त कार्यकारी निर्देशक, नेपाल विद्युत प्राधिकरण",
-        "summary_en": "NEA said the Trishuli 3B Hub substation was swept away, leaving 176.1 MW from plants on the Chilime–Trishuli system unable to reach the national grid; the acting MD said NEA is planning to restore connectivity within six months and NEA Engineering Company is studying a direct Chilime Hub–Matatirtha line.",
-        "summary_ne": "त्रिशूली ३बी हब सबस्टेसन बगेकाले चिलिमे–त्रिशूली प्रणालीमा जोडिएका आयोजनाको १७६.१ मेगावाट राष्ट्रिय प्रणालीमा पठाउन नसकिएको प्राधिकरणले जनायो; छ महिनाभित्र जडान पुनःस्थापना गर्ने योजना रहेको र नेपाल विद्युत प्राधिकरण इन्जिनियरिङ कम्पनीले चिलिमे हब–मातातीर्थ सीधा लाइनको अध्ययन गरिरहेको निमित्त कार्यकारी निर्देशकले बताउनुभयो।",
-        "figures": {
-          "mw_cannot_be_evacuated": 176.1,
-          "restoration_target_months": 6
-        },
-        "nea_own_post_url": null,
-        "sources": [
-          {
-            "source_url": "https://kathmandupost.com/money/2026/09/17/nuwakot-substation-destruction-disrupts-evacuation-of-176-1-mw",
-            "source_name": "The Kathmandu Post",
-            "checked_at": "2026-09-26T10:20:00+05:45",
-            "as_quoted_in": "The Kathmandu Post",
-            "published": "2026-09-17"
-          }
-        ],
+      "nea_own_post_url": null,
+      "sources": [
+       {
         "source_url": "https://kathmandupost.com/money/2026/09/17/nuwakot-substation-destruction-disrupts-evacuation-of-176-1-mw",
-        "source_name": "NEA, as quoted in The Kathmandu Post",
-        "checked_at": "2026-09-26T10:20:00+05:45"
-      },
-      {
-        "id": "nea-2026-09-22",
-        "date": "2026-09-22",
-        "reported": "2026-09-23",
-        "speaker_en": "NEA meeting chaired by Managing Director Dirghayu Kumar Shrestha",
-        "speaker_ne": "कार्यकारी निर्देशक दीर्घायु कुमार श्रेष्ठको अध्यक्षतामा प्राधिकरणको बैठक",
-        "summary_en": "NEA’s Managing Director said there will be no load-shedding this winter; the meeting formed a five-member committee led by the Bagmati Provincial Office director to report daily on winter supply, and sent a team to study whether the flood-damaged Devighat substation can be brought back into operation.",
-        "summary_ne": "आगामी हिउँदमा लोडसेडिङ नहुने कार्यकारी निर्देशकले बताउनुभयो; बैठकले बागमती प्रदेश कार्यालयका निर्देशकको संयोजकत्वमा दैनिक प्रगति प्रतिवेदन दिने पाँच सदस्यीय समिति बनायो र बाढीले क्षति पुर्‍याएको देवीघाट सबस्टेसन पुनः सञ्चालनको सम्भावना अध्ययन गर्न टोली खटायो।",
-        "figures": {},
-        "nea_own_post_url": null,
-        "outlet_reporting": {
-          "text_en": "The Kathmandu Post reported that more than 256 MW of national generation had been damaged and that NEA was running the 106 MW Kulekhani cascade continuously to offset the shortfall.",
-          "text_ne": "काठमाडौं पोस्टका अनुसार २५६ मेगावाटभन्दा बढी राष्ट्रिय उत्पादन क्षतिग्रस्त भएकाले प्राधिकरणले १०६ मेगावाटको कुलेखानी क्यास्केड निरन्तर चलाइरहेको छ।",
-          "attribution_note": "Stated in the Kathmandu Post article text, not as a direct NEA quote; show as “as reported by The Kathmandu Post”.",
-          "figures": {
-            "mw_generation_damaged_more_than": 256,
-            "kulekhani_cascade_mw": 106
-          },
-          "source": {
-            "source_url": "https://kathmandupost.com/money/2026/09/23/nea-working-on-winter-power-management",
-            "source_name": "The Kathmandu Post",
-            "checked_at": "2026-09-26T10:20:00+05:45"
-          }
-        },
-        "sources": [
-          {
-            "source_url": "https://kathmandupost.com/money/2026/09/23/nea-working-on-winter-power-management",
-            "source_name": "The Kathmandu Post",
-            "checked_at": "2026-09-26T10:20:00+05:45",
-            "as_quoted_in": "The Kathmandu Post",
-            "published": "2026-09-23"
-          },
-          {
-            "source_url": "http://www.nepalenergyforum.com/nea-forms-five-member-committee-to-prepare-for-winter-power-demand-management/",
-            "source_name": "Nepal Energy Forum",
-            "checked_at": "2026-09-26T10:20:00+05:45",
-            "as_quoted_in": "Nepal Energy Forum",
-            "published": "2026-09-23"
-          },
-          {
-            "source_url": "https://myrepublica.nagariknetwork.com/news/nea-claims-no-winter-load-shedding-forms-panel-to-work-on-demand-management-69-10.html",
-            "source_name": "Republica",
-            "checked_at": "2026-09-26T10:20:00+05:45",
-            "as_quoted_in": "Republica",
-            "published": "2026-09-24"
-          }
-        ],
+        "source_name": "The Kathmandu Post",
+        "checked_at": "2026-09-26T10:20:00+05:45",
+        "as_quoted_in": "The Kathmandu Post",
+        "published": "2026-09-17"
+       }
+      ],
+      "source_url": "https://kathmandupost.com/money/2026/09/17/nuwakot-substation-destruction-disrupts-evacuation-of-176-1-mw",
+      "source_name": "NEA, as quoted in The Kathmandu Post",
+      "checked_at": "2026-09-26T10:20:00+05:45"
+     },
+     {
+      "id": "nea-2026-09-22",
+      "date": "2026-09-22",
+      "reported": "2026-09-23",
+      "speaker_en": "NEA meeting chaired by Managing Director Dirghayu Kumar Shrestha",
+      "speaker_ne": "कार्यकारी निर्देशक दीर्घायु कुमार श्रेष्ठको अध्यक्षतामा प्राधिकरणको बैठक",
+      "summary_en": "NEA’s Managing Director said there will be no load-shedding this winter; the meeting formed a five-member committee led by the Bagmati Provincial Office director to report daily on winter supply, and sent a team to study whether the flood-damaged Devighat substation can be brought back into operation.",
+      "summary_ne": "आगामी हिउँदमा लोडसेडिङ नहुने कार्यकारी निर्देशकले बताउनुभयो; बैठकले बागमती प्रदेश कार्यालयका निर्देशकको संयोजकत्वमा दैनिक प्रगति प्रतिवेदन दिने पाँच सदस्यीय समिति बनायो र बाढीले क्षति पुर्‍याएको देवीघाट सबस्टेसन पुनः सञ्चालनको सम्भावना अध्ययन गर्न टोली खटायो।",
+      "figures": {},
+      "nea_own_post_url": null,
+      "outlet_reporting": {
+       "text_en": "The Kathmandu Post reported that more than 256 MW of national generation had been damaged and that NEA was running the 106 MW Kulekhani cascade continuously to offset the shortfall.",
+       "text_ne": "काठमाडौं पोस्टका अनुसार २५६ मेगावाटभन्दा बढी राष्ट्रिय उत्पादन क्षतिग्रस्त भएकाले प्राधिकरणले १०६ मेगावाटको कुलेखानी क्यास्केड निरन्तर चलाइरहेको छ।",
+       "attribution_note": "Stated in the Kathmandu Post article text, not as a direct NEA quote; show as “as reported by The Kathmandu Post”.",
+       "figures": {
+        "mw_generation_damaged_more_than": 256,
+        "kulekhani_cascade_mw": 106
+       },
+       "source": {
         "source_url": "https://kathmandupost.com/money/2026/09/23/nea-working-on-winter-power-management",
-        "source_name": "NEA, as quoted in The Kathmandu Post",
+        "source_name": "The Kathmandu Post",
         "checked_at": "2026-09-26T10:20:00+05:45"
-      }
+       }
+      },
+      "sources": [
+       {
+        "source_url": "https://kathmandupost.com/money/2026/09/23/nea-working-on-winter-power-management",
+        "source_name": "The Kathmandu Post",
+        "checked_at": "2026-09-26T10:20:00+05:45",
+        "as_quoted_in": "The Kathmandu Post",
+        "published": "2026-09-23"
+       },
+       {
+        "source_url": "http://www.nepalenergyforum.com/nea-forms-five-member-committee-to-prepare-for-winter-power-demand-management/",
+        "source_name": "Nepal Energy Forum",
+        "checked_at": "2026-09-26T10:20:00+05:45",
+        "as_quoted_in": "Nepal Energy Forum",
+        "published": "2026-09-23"
+       },
+       {
+        "source_url": "https://myrepublica.nagariknetwork.com/news/nea-claims-no-winter-load-shedding-forms-panel-to-work-on-demand-management-69-10.html",
+        "source_name": "Republica",
+        "checked_at": "2026-09-26T10:20:00+05:45",
+        "as_quoted_in": "Republica",
+        "published": "2026-09-24"
+       }
+      ],
+      "source_url": "https://kathmandupost.com/money/2026/09/23/nea-working-on-winter-power-management",
+      "source_name": "NEA, as quoted in The Kathmandu Post",
+      "checked_at": "2026-09-26T10:20:00+05:45"
+     }
     ]
-  },
-  "damaged_assets": {
+   },
+   "damaged_assets": {
     "note": "Only assets NEA itself named as damaged/disrupted in the statements above. lat/lon null = list only, do not map.",
     "checked_at": "2026-09-26T10:22:00+05:45",
     "items": [
-      {
-        "id": "rasuwagadhi_hpp",
-        "name_ne": "रसुवागढी जलविद्युत आयोजना",
-        "name_en": "Rasuwagadhi Hydropower Project",
-        "type": "hydropower_plant",
-        "status_en": "Damaged by the flood (NEA, 26 Aug)",
-        "status_ne": "बाढीबाट क्षति (प्राधिकरण, भदौ १०)",
-        "statement_ids": [
-          "nea-2026-08-26"
-        ],
-        "statement_date": "2026-08-26",
-        "lat": 28.2736447,
-        "lon": 85.3771186,
-        "coord_source": "https://www.openstreetmap.org/way/1552793903",
-        "coord_note": "OSM feature \"Rasuwagadhi Hydropower Dam\" (headworks/dam, not powerhouse)",
-        "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
-        "source_name": "NEA, as quoted in HimalPress",
-        "checked_at": "2026-09-26T10:22:00+05:45"
-      },
-      {
-        "id": "chilime_hpp",
-        "name_ne": "चिलिमे जलविद्युत केन्द्र",
-        "name_en": "Chilime Hydropower Plant",
-        "type": "hydropower_plant",
-        "status_en": "Damaged by the flood (NEA, 26 Aug)",
-        "status_ne": "बाढीबाट क्षति (प्राधिकरण, भदौ १०)",
-        "statement_ids": [
-          "nea-2026-08-26"
-        ],
-        "statement_date": "2026-08-26",
-        "lat": 28.1794393,
-        "lon": 85.3082649,
-        "coord_source": "https://www.openstreetmap.org/way/1554178917",
-        "coord_note": "OSM feature \"Chilime Hydropower Plant\" (area centroid)",
-        "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
-        "source_name": "NEA, as quoted in HimalPress",
-        "checked_at": "2026-09-26T10:22:00+05:45"
-      },
-      {
-        "id": "upper_trishuli_3a",
-        "name_ne": "माथिल्लो त्रिशूली ३ए जलविद्युत आयोजना",
-        "name_en": "Upper Trishuli 3A Hydropower Project",
-        "type": "hydropower_plant",
-        "status_en": "Damaged by the flood (NEA, 26 Aug; named “Trishuli 3A”)",
-        "status_ne": "बाढीबाट क्षति (प्राधिकरण, भदौ १०)",
-        "statement_ids": [
-          "nea-2026-08-26"
-        ],
-        "statement_date": "2026-08-26",
-        "lat": 28.0269811,
-        "lon": 85.1847729,
-        "coord_source": "https://www.openstreetmap.org/way/1555095822",
-        "coord_note": "OSM feature \"Upper Trishuli 3A Powerhouse\"",
-        "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
-        "source_name": "NEA, as quoted in HimalPress",
-        "checked_at": "2026-09-26T10:22:00+05:45"
-      },
-      {
-        "id": "trishuli_hps",
-        "name_ne": "त्रिशूली जलविद्युत केन्द्र",
-        "name_en": "Trishuli Hydropower Station",
-        "type": "hydropower_plant",
-        "status_en": "Damaged by the flood (NEA, 26 Aug)",
-        "status_ne": "बाढीबाट क्षति (प्राधिकरण, भदौ १०)",
-        "statement_ids": [
-          "nea-2026-08-26"
-        ],
-        "statement_date": "2026-08-26",
-        "lat": 27.9214787,
-        "lon": 85.1459943,
-        "coord_source": "https://www.openstreetmap.org/relation/5143911",
-        "coord_note": "OSM plant relation \"Trishuli Hydropower Station\" (24 MW)",
-        "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
-        "source_name": "NEA, as quoted in HimalPress",
-        "checked_at": "2026-09-26T10:22:00+05:45"
-      },
-      {
-        "id": "devighat_hps",
-        "name_ne": "देवीघाट जलविद्युत केन्द्र",
-        "name_en": "Devighat Hydropower Station",
-        "type": "hydropower_plant",
-        "status_en": "Damaged by the flood (NEA, 26 Aug)",
-        "status_ne": "बाढीबाट क्षति (प्राधिकरण, भदौ १०)",
-        "statement_ids": [
-          "nea-2026-08-26"
-        ],
-        "statement_date": "2026-08-26",
-        "lat": 27.888214,
-        "lon": 85.1340658,
-        "coord_source": "https://www.openstreetmap.org/way/338849229",
-        "coord_note": "OSM way \"Devighat\" tagged destroyed:power=generator, temp:powerhouse=yes, damage:event=2026NepalFlood",
-        "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
-        "source_name": "NEA, as quoted in HimalPress",
-        "checked_at": "2026-09-26T10:22:00+05:45"
-      },
-      {
-        "id": "trishuli_3b_hub",
-        "name_ne": "त्रिशूली ३बी हब २२० केभी सबस्टेसन",
-        "name_en": "Trishuli 3B Hub 220 kV Substation",
-        "type": "substation",
-        "status_en": "Completely damaged (NEA, 26 Aug); “swept away” (acting MD, 17 Sep)",
-        "status_ne": "पूर्ण रूपमा क्षतिग्रस्त (प्राधिकरण, भदौ १०); बगेको (असोज १)",
-        "statement_ids": [
-          "nea-2026-08-26",
-          "nea-2026-09-17"
-        ],
-        "statement_date": "2026-08-26",
-        "lat": null,
-        "lon": null,
-        "coord_source": null,
-        "coord_note": "No named OSM/Wikidata feature found; KP (17 Sep) places it at Pairebesi, Kispang RM, Nuwakot — not mapped",
-        "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
-        "source_name": "NEA, as quoted in HimalPress",
-        "checked_at": "2026-09-26T10:20:00+05:45"
-      },
-      {
-        "id": "devighat_substation",
-        "name_ne": "देवीघाट सबस्टेसन",
-        "name_en": "Devighat Substation",
-        "type": "substation",
-        "status_en": "Flood-damaged; NEA team studying whether it can be brought back into operation (22 Sep)",
-        "status_ne": "बाढीबाट क्षतिग्रस्त; पुनः सञ्चालन सम्भावना अध्ययन गर्न टोली खटिएको (असोज ६)",
-        "statement_ids": [
-          "nea-2026-09-22"
-        ],
-        "statement_date": "2026-09-22",
-        "lat": 27.8890145,
-        "lon": 85.1349958,
-        "coord_source": "https://www.openstreetmap.org/way/826107756",
-        "coord_note": "OSM substation \"Devighat\" (66 kV)",
-        "source_url": "https://kathmandupost.com/money/2026/09/23/nea-working-on-winter-power-management",
-        "source_name": "NEA, as quoted in The Kathmandu Post",
-        "checked_at": "2026-09-26T10:22:00+05:45"
-      },
-      {
-        "id": "chilime_220kv_hub",
-        "name_ne": "चिलिमे २२० केभी हब",
-        "name_en": "Chilime 220 kV Hub (tower)",
-        "type": "substation",
-        "status_en": "Chilime 220 kV hub tower shut down/affected (NEA, 26 Aug)",
-        "status_ne": "चिलिमे २२० केभी हब टावर अवरुद्ध (प्राधिकरण, भदौ १०)",
-        "statement_ids": [
-          "nea-2026-08-26"
-        ],
-        "statement_date": "2026-08-26",
-        "lat": null,
-        "lon": null,
-        "coord_source": null,
-        "coord_note": "OSM has an unnamed substation near Chilime but it cannot be verified as this hub — not mapped",
-        "source_url": "https://laganinews.com/en/2026/08/26/rasuwa-flood-disrupts-6-transmission-lines-220-kv-substation-of-trishuli-completely-damaged-2/",
-        "source_name": "NEA, as quoted in Lagani News",
-        "checked_at": "2026-09-26T10:20:00+05:45"
-      },
-      {
-        "id": "nea_solar_25mw",
-        "name_ne": "२५ मेगावाट सौर्य",
-        "name_en": "25 MW solar (NEA)",
-        "type": "solar_plant",
-        "status_en": "25 MW of solar generation disrupted (NEA, 26 Aug)",
-        "status_ne": "२५ मेगावाट सौर्य उत्पादन अवरुद्ध (प्राधिकरण, भदौ १०)",
-        "statement_ids": [
-          "nea-2026-08-26"
-        ],
-        "statement_date": "2026-08-26",
-        "lat": null,
-        "lon": null,
-        "coord_source": null,
-        "coord_note": "NEA statement gives no plant name/location; OSM solar areas near Devighat are unnamed — not mapped",
-        "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
-        "source_name": "NEA, as quoted in HimalPress",
-        "checked_at": "2026-09-26T10:20:00+05:45"
-      },
-      {
-        "id": "line_samundratar_trishuli_132",
-        "name_ne": "समुन्द्रटार–त्रिशूली १३२ केभी प्रसारण लाइन",
-        "name_en": "Samundratar–Trishuli 132 kV line",
-        "type": "transmission_line",
-        "status_en": "Disrupted (NEA, 26 Aug)",
-        "status_ne": "अवरुद्ध (प्राधिकरण, भदौ १०)",
-        "statement_ids": [
-          "nea-2026-08-26"
-        ],
-        "statement_date": "2026-08-26",
-        "lat": null,
-        "lon": null,
-        "coord_source": null,
-        "coord_note": "Line — not shown as a point",
-        "source_url": "https://laganinews.com/en/2026/08/26/rasuwa-flood-disrupts-6-transmission-lines-220-kv-substation-of-trishuli-completely-damaged-2/",
-        "source_name": "NEA, as quoted in Lagani News",
-        "checked_at": "2026-09-26T10:20:00+05:45"
-      },
-      {
-        "id": "line_chilime_trishuli_66",
-        "name_ne": "चिलिमे–त्रिशूली ६६ केभी प्रसारण लाइन",
-        "name_en": "Chilime–Trishuli 66 kV line",
-        "type": "transmission_line",
-        "status_en": "Blocked (NEA, 26 Aug)",
-        "status_ne": "अवरुद्ध (प्राधिकरण, भदौ १०)",
-        "statement_ids": [
-          "nea-2026-08-26"
-        ],
-        "statement_date": "2026-08-26",
-        "lat": null,
-        "lon": null,
-        "coord_source": null,
-        "coord_note": "Line — not shown as a point",
-        "source_url": "https://laganinews.com/en/2026/08/26/rasuwa-flood-disrupts-6-transmission-lines-220-kv-substation-of-trishuli-completely-damaged-2/",
-        "source_name": "NEA, as quoted in Lagani News",
-        "checked_at": "2026-09-26T10:20:00+05:45"
-      },
-      {
-        "id": "line_chilime_3b_matatirtha_220",
-        "name_ne": "चिलिमे हब–त्रिशूली ३बी हब–मातातीर्थ २२० केभी प्रसारण लाइन",
-        "name_en": "Chilime Hub–Trishuli 3B Hub–Matatirtha 220 kV line",
-        "type": "transmission_line",
-        "status_en": "Blocked (NEA, 26 Aug)",
-        "status_ne": "अवरुद्ध (प्राधिकरण, भदौ १०)",
-        "statement_ids": [
-          "nea-2026-08-26"
-        ],
-        "statement_date": "2026-08-26",
-        "lat": null,
-        "lon": null,
-        "coord_source": null,
-        "coord_note": "Line — not shown as a point",
-        "source_url": "https://laganinews.com/en/2026/08/26/rasuwa-flood-disrupts-6-transmission-lines-220-kv-substation-of-trishuli-completely-damaged-2/",
-        "source_name": "NEA, as quoted in Lagani News",
-        "checked_at": "2026-09-26T10:20:00+05:45"
-      },
-      {
-        "id": "line_trishuli_balaju_66",
-        "name_ne": "त्रिशूली–बालाजु ६६ केभी प्रसारण लाइन",
-        "name_en": "Trishuli–Balaju 66 kV line",
-        "type": "transmission_line",
-        "status_en": "Blocked (NEA, 26 Aug)",
-        "status_ne": "अवरुद्ध (प्राधिकरण, भदौ १०)",
-        "statement_ids": [
-          "nea-2026-08-26"
-        ],
-        "statement_date": "2026-08-26",
-        "lat": null,
-        "lon": null,
-        "coord_source": null,
-        "coord_note": "Line — not shown as a point",
-        "source_url": "https://laganinews.com/en/2026/08/26/rasuwa-flood-disrupts-6-transmission-lines-220-kv-substation-of-trishuli-completely-damaged-2/",
-        "source_name": "NEA, as quoted in Lagani News",
-        "checked_at": "2026-09-26T10:20:00+05:45"
-      }
+     {
+      "id": "rasuwagadhi_hpp",
+      "name_ne": "रसुवागढी जलविद्युत आयोजना",
+      "name_en": "Rasuwagadhi Hydropower Project",
+      "type": "hydropower_plant",
+      "status_en": "Damaged by the flood (NEA, 26 Aug)",
+      "status_ne": "बाढीबाट क्षति (प्राधिकरण, भदौ १०)",
+      "statement_ids": [
+       "nea-2026-08-26"
+      ],
+      "statement_date": "2026-08-26",
+      "lat": 28.2736447,
+      "lon": 85.3771186,
+      "coord_source": "https://www.openstreetmap.org/way/1552793903",
+      "coord_note": "OSM feature \"Rasuwagadhi Hydropower Dam\" (headworks/dam, not powerhouse)",
+      "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
+      "source_name": "NEA, as quoted in HimalPress",
+      "checked_at": "2026-09-26T10:22:00+05:45"
+     },
+     {
+      "id": "chilime_hpp",
+      "name_ne": "चिलिमे जलविद्युत केन्द्र",
+      "name_en": "Chilime Hydropower Plant",
+      "type": "hydropower_plant",
+      "status_en": "Damaged by the flood (NEA, 26 Aug)",
+      "status_ne": "बाढीबाट क्षति (प्राधिकरण, भदौ १०)",
+      "statement_ids": [
+       "nea-2026-08-26"
+      ],
+      "statement_date": "2026-08-26",
+      "lat": 28.1794393,
+      "lon": 85.3082649,
+      "coord_source": "https://www.openstreetmap.org/way/1554178917",
+      "coord_note": "OSM feature \"Chilime Hydropower Plant\" (area centroid)",
+      "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
+      "source_name": "NEA, as quoted in HimalPress",
+      "checked_at": "2026-09-26T10:22:00+05:45"
+     },
+     {
+      "id": "upper_trishuli_3a",
+      "name_ne": "माथिल्लो त्रिशूली ३ए जलविद्युत आयोजना",
+      "name_en": "Upper Trishuli 3A Hydropower Project",
+      "type": "hydropower_plant",
+      "status_en": "Damaged by the flood (NEA, 26 Aug; named “Trishuli 3A”)",
+      "status_ne": "बाढीबाट क्षति (प्राधिकरण, भदौ १०)",
+      "statement_ids": [
+       "nea-2026-08-26"
+      ],
+      "statement_date": "2026-08-26",
+      "lat": 28.0269811,
+      "lon": 85.1847729,
+      "coord_source": "https://www.openstreetmap.org/way/1555095822",
+      "coord_note": "OSM feature \"Upper Trishuli 3A Powerhouse\"",
+      "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
+      "source_name": "NEA, as quoted in HimalPress",
+      "checked_at": "2026-09-26T10:22:00+05:45"
+     },
+     {
+      "id": "trishuli_hps",
+      "name_ne": "त्रिशूली जलविद्युत केन्द्र",
+      "name_en": "Trishuli Hydropower Station",
+      "type": "hydropower_plant",
+      "status_en": "Damaged by the flood (NEA, 26 Aug)",
+      "status_ne": "बाढीबाट क्षति (प्राधिकरण, भदौ १०)",
+      "statement_ids": [
+       "nea-2026-08-26"
+      ],
+      "statement_date": "2026-08-26",
+      "lat": 27.9214787,
+      "lon": 85.1459943,
+      "coord_source": "https://www.openstreetmap.org/relation/5143911",
+      "coord_note": "OSM plant relation \"Trishuli Hydropower Station\" (24 MW)",
+      "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
+      "source_name": "NEA, as quoted in HimalPress",
+      "checked_at": "2026-09-26T10:22:00+05:45"
+     },
+     {
+      "id": "devighat_hps",
+      "name_ne": "देवीघाट जलविद्युत केन्द्र",
+      "name_en": "Devighat Hydropower Station",
+      "type": "hydropower_plant",
+      "status_en": "Damaged by the flood (NEA, 26 Aug)",
+      "status_ne": "बाढीबाट क्षति (प्राधिकरण, भदौ १०)",
+      "statement_ids": [
+       "nea-2026-08-26"
+      ],
+      "statement_date": "2026-08-26",
+      "lat": 27.888214,
+      "lon": 85.1340658,
+      "coord_source": "https://www.openstreetmap.org/way/338849229",
+      "coord_note": "OSM way \"Devighat\" tagged destroyed:power=generator, temp:powerhouse=yes, damage:event=2026NepalFlood",
+      "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
+      "source_name": "NEA, as quoted in HimalPress",
+      "checked_at": "2026-09-26T10:22:00+05:45"
+     },
+     {
+      "id": "trishuli_3b_hub",
+      "name_ne": "त्रिशूली ३बी हब २२० केभी सबस्टेसन",
+      "name_en": "Trishuli 3B Hub 220 kV Substation",
+      "type": "substation",
+      "status_en": "Completely damaged (NEA, 26 Aug); “swept away” (acting MD, 17 Sep)",
+      "status_ne": "पूर्ण रूपमा क्षतिग्रस्त (प्राधिकरण, भदौ १०); बगेको (असोज १)",
+      "statement_ids": [
+       "nea-2026-08-26",
+       "nea-2026-09-17"
+      ],
+      "statement_date": "2026-08-26",
+      "lat": null,
+      "lon": null,
+      "coord_source": null,
+      "coord_note": "No named OSM/Wikidata feature found; KP (17 Sep) places it at Pairebesi, Kispang RM, Nuwakot — not mapped",
+      "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
+      "source_name": "NEA, as quoted in HimalPress",
+      "checked_at": "2026-09-26T10:20:00+05:45"
+     },
+     {
+      "id": "devighat_substation",
+      "name_ne": "देवीघाट सबस्टेसन",
+      "name_en": "Devighat Substation",
+      "type": "substation",
+      "status_en": "Flood-damaged; NEA team studying whether it can be brought back into operation (22 Sep)",
+      "status_ne": "बाढीबाट क्षतिग्रस्त; पुनः सञ्चालन सम्भावना अध्ययन गर्न टोली खटिएको (असोज ६)",
+      "statement_ids": [
+       "nea-2026-09-22"
+      ],
+      "statement_date": "2026-09-22",
+      "lat": 27.8890145,
+      "lon": 85.1349958,
+      "coord_source": "https://www.openstreetmap.org/way/826107756",
+      "coord_note": "OSM substation \"Devighat\" (66 kV)",
+      "source_url": "https://kathmandupost.com/money/2026/09/23/nea-working-on-winter-power-management",
+      "source_name": "NEA, as quoted in The Kathmandu Post",
+      "checked_at": "2026-09-26T10:22:00+05:45"
+     },
+     {
+      "id": "chilime_220kv_hub",
+      "name_ne": "चिलिमे २२० केभी हब",
+      "name_en": "Chilime 220 kV Hub (tower)",
+      "type": "substation",
+      "status_en": "Chilime 220 kV hub tower shut down/affected (NEA, 26 Aug)",
+      "status_ne": "चिलिमे २२० केभी हब टावर अवरुद्ध (प्राधिकरण, भदौ १०)",
+      "statement_ids": [
+       "nea-2026-08-26"
+      ],
+      "statement_date": "2026-08-26",
+      "lat": null,
+      "lon": null,
+      "coord_source": null,
+      "coord_note": "OSM has an unnamed substation near Chilime but it cannot be verified as this hub — not mapped",
+      "source_url": "https://laganinews.com/en/2026/08/26/rasuwa-flood-disrupts-6-transmission-lines-220-kv-substation-of-trishuli-completely-damaged-2/",
+      "source_name": "NEA, as quoted in Lagani News",
+      "checked_at": "2026-09-26T10:20:00+05:45"
+     },
+     {
+      "id": "nea_solar_25mw",
+      "name_ne": "२५ मेगावाट सौर्य",
+      "name_en": "25 MW solar (NEA)",
+      "type": "solar_plant",
+      "status_en": "25 MW of solar generation disrupted (NEA, 26 Aug)",
+      "status_ne": "२५ मेगावाट सौर्य उत्पादन अवरुद्ध (प्राधिकरण, भदौ १०)",
+      "statement_ids": [
+       "nea-2026-08-26"
+      ],
+      "statement_date": "2026-08-26",
+      "lat": null,
+      "lon": null,
+      "coord_source": null,
+      "coord_note": "NEA statement gives no plant name/location; OSM solar areas near Devighat are unnamed — not mapped",
+      "source_url": "https://en.himalpress.com/430-mw-of-generation-disrupted-by-bhotekoshi-floods-nea/",
+      "source_name": "NEA, as quoted in HimalPress",
+      "checked_at": "2026-09-26T10:20:00+05:45"
+     },
+     {
+      "id": "line_samundratar_trishuli_132",
+      "name_ne": "समुन्द्रटार–त्रिशूली १३२ केभी प्रसारण लाइन",
+      "name_en": "Samundratar–Trishuli 132 kV line",
+      "type": "transmission_line",
+      "status_en": "Disrupted (NEA, 26 Aug)",
+      "status_ne": "अवरुद्ध (प्राधिकरण, भदौ १०)",
+      "statement_ids": [
+       "nea-2026-08-26"
+      ],
+      "statement_date": "2026-08-26",
+      "lat": null,
+      "lon": null,
+      "coord_source": null,
+      "coord_note": "Line — not shown as a point",
+      "source_url": "https://laganinews.com/en/2026/08/26/rasuwa-flood-disrupts-6-transmission-lines-220-kv-substation-of-trishuli-completely-damaged-2/",
+      "source_name": "NEA, as quoted in Lagani News",
+      "checked_at": "2026-09-26T10:20:00+05:45"
+     },
+     {
+      "id": "line_chilime_trishuli_66",
+      "name_ne": "चिलिमे–त्रिशूली ६६ केभी प्रसारण लाइन",
+      "name_en": "Chilime–Trishuli 66 kV line",
+      "type": "transmission_line",
+      "status_en": "Blocked (NEA, 26 Aug)",
+      "status_ne": "अवरुद्ध (प्राधिकरण, भदौ १०)",
+      "statement_ids": [
+       "nea-2026-08-26"
+      ],
+      "statement_date": "2026-08-26",
+      "lat": null,
+      "lon": null,
+      "coord_source": null,
+      "coord_note": "Line — not shown as a point",
+      "source_url": "https://laganinews.com/en/2026/08/26/rasuwa-flood-disrupts-6-transmission-lines-220-kv-substation-of-trishuli-completely-damaged-2/",
+      "source_name": "NEA, as quoted in Lagani News",
+      "checked_at": "2026-09-26T10:20:00+05:45"
+     },
+     {
+      "id": "line_chilime_3b_matatirtha_220",
+      "name_ne": "चिलिमे हब–त्रिशूली ३बी हब–मातातीर्थ २२० केभी प्रसारण लाइन",
+      "name_en": "Chilime Hub–Trishuli 3B Hub–Matatirtha 220 kV line",
+      "type": "transmission_line",
+      "status_en": "Blocked (NEA, 26 Aug)",
+      "status_ne": "अवरुद्ध (प्राधिकरण, भदौ १०)",
+      "statement_ids": [
+       "nea-2026-08-26"
+      ],
+      "statement_date": "2026-08-26",
+      "lat": null,
+      "lon": null,
+      "coord_source": null,
+      "coord_note": "Line — not shown as a point",
+      "source_url": "https://laganinews.com/en/2026/08/26/rasuwa-flood-disrupts-6-transmission-lines-220-kv-substation-of-trishuli-completely-damaged-2/",
+      "source_name": "NEA, as quoted in Lagani News",
+      "checked_at": "2026-09-26T10:20:00+05:45"
+     },
+     {
+      "id": "line_trishuli_balaju_66",
+      "name_ne": "त्रिशूली–बालाजु ६६ केभी प्रसारण लाइन",
+      "name_en": "Trishuli–Balaju 66 kV line",
+      "type": "transmission_line",
+      "status_en": "Blocked (NEA, 26 Aug)",
+      "status_ne": "अवरुद्ध (प्राधिकरण, भदौ १०)",
+      "statement_ids": [
+       "nea-2026-08-26"
+      ],
+      "statement_date": "2026-08-26",
+      "lat": null,
+      "lon": null,
+      "coord_source": null,
+      "coord_note": "Line — not shown as a point",
+      "source_url": "https://laganinews.com/en/2026/08/26/rasuwa-flood-disrupts-6-transmission-lines-220-kv-substation-of-trishuli-completely-damaged-2/",
+      "source_name": "NEA, as quoted in Lagani News",
+      "checked_at": "2026-09-26T10:20:00+05:45"
+     }
     ]
-  },
-  "helplines": {
-    "checked_at": "2026-09-26T09:32:01+05:45",
-    "items": [
-      {
-        "category": "central",
-        "label_ne": "केन्द्रीय कार्यालय, दरबारमार्ग",
-        "label_en": "NEA Central Office, Durbarmarg",
-        "numbers": [
-          "977-1-4153051"
-        ],
-        "email": "information@nea.org.np",
-        "published_on": "https://nea.org.np/en",
-        "source_url": "https://nea.org.np/en",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:27:00+05:45",
-        "also_on": "https://nea.org.np/contact-us"
-      },
-      {
-        "category": "complaint",
-        "label_ne": "गुनासो सुन्ने अधिकारी (नोडल अधिकृत)",
-        "label_en": "Complaint Nodal Officer",
-        "numbers": [
-          "9851355696"
-        ],
-        "email": "gunaso@nea.org.np",
-        "published_on": "https://nea.org.np/en",
-        "source_url": "https://nea.org.np/en",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:27:00+05:45",
-        "contact_name": "Ms. Punam Joshi"
-      },
-      {
-        "category": "information",
-        "label_ne": "सूचना अधिकारी",
-        "label_en": "Information Officer",
-        "numbers": [
-          "9851340215"
-        ],
-        "email": "information@nea.org.np",
-        "published_on": "https://nea.org.np/en",
-        "source_url": "https://nea.org.np/en",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:27:00+05:45",
-        "contact_name": "Mr. Sarbjit Kumar Chaudhary"
-      },
-      {
-        "category": "directorate",
-        "label_ne": "वितरण तथा ग्राहक सेवा निर्देशनालय",
-        "label_en": "Distribution & Consumer Services Directorate",
-        "numbers": [
-          "01-4153145"
-        ],
-        "email": "dcs@nea.org.np",
-        "published_on": "https://nea.org.np/contact-us",
-        "source_url": "https://nea.org.np/contact-us",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:32:01+05:45"
-      },
-      {
-        "category": "dc_chief",
-        "label_ne": "रसुवा वितरण केन्द्र (प्रमुख)",
-        "label_en": "Rasuwa Distribution Center (chief)",
-        "numbers": [
-          "9851273720"
-        ],
-        "email": "rasuwadcs@nea.org.np",
-        "published_on": "https://nea.org.np/contact-information-of-dcs/view/289",
-        "source_url": "https://nea.org.np/contact-information-of-dcs/view/289",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:39+05:45",
-        "contact_name": "GunjaMan Tamang",
-        "district": "Rasuwa"
-      },
-      {
-        "category": "dc_chief",
-        "label_ne": "नुवाकोट वितरण केन्द्र (प्रमुख)",
-        "label_en": "Nuwakot Distribution Center (chief)",
-        "numbers": [
-          "9851160177"
-        ],
-        "email": "nuwakot@nea.org.np",
-        "published_on": "https://nea.org.np/contact-information-of-dcs/view/289",
-        "source_url": "https://nea.org.np/contact-information-of-dcs/view/289",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:39+05:45",
-        "contact_name": "Rajkumar Raman",
-        "district": "Nuwakot"
-      },
-      {
-        "category": "dc_chief",
-        "label_ne": "धादिङ वितरण केन्द्र (प्रमुख)",
-        "label_en": "Dhading Distribution Center (chief)",
-        "numbers": [
-          "9851105132"
-        ],
-        "email": "dhading@nea.org.np",
-        "published_on": "https://nea.org.np/contact-information-of-dcs/view/289",
-        "source_url": "https://nea.org.np/contact-information-of-dcs/view/289",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:39+05:45",
-        "contact_name": "Chutun Kumar Srivastav",
-        "district": "Dhading"
-      },
-      {
-        "category": "dc_chief",
-        "label_ne": "सिन्धुपाल्चोक वितरण केन्द्र (प्रमुख)",
-        "label_en": "Sindhupalchowk DCS (chief)",
-        "numbers": [
-          "9851207686"
-        ],
-        "email": "sindhupalchowk@nea.org.np",
-        "published_on": "https://nea.org.np/contact-information-of-dcs/view/289",
-        "source_url": "https://nea.org.np/contact-information-of-dcs/view/289",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:39+05:45",
-        "contact_name": "Netra Mani Neupane",
-        "district": "Sindhupalchowk"
-      },
-      {
-        "category": "dc_chief",
-        "label_ne": "मेलम्ची वितरण केन्द्र (प्रमुख)",
-        "label_en": "Melamchi Distribution Center (chief)",
-        "numbers": [
-          "9851273721"
-        ],
-        "email": "melamchi@nea.org.np",
-        "published_on": "https://nea.org.np/contact-information-of-dcs/view/289",
-        "source_url": "https://nea.org.np/contact-information-of-dcs/view/289",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:39+05:45",
-        "contact_name": "Toyanath Regmi",
-        "district": "Sindhupalchowk"
-      },
-      {
-        "category": "dc_chief",
-        "label_ne": "गोरखा वितरण केन्द्र (प्रमुख)",
-        "label_en": "Gorkha Distribution Center (chief)",
-        "numbers": [
-          "9856043177"
-        ],
-        "email": "gorkha@nea.org.np",
-        "published_on": "https://nea.org.np/contact-information-of-dcs/view/292",
-        "source_url": "https://nea.org.np/contact-information-of-dcs/view/292",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:46+05:45",
-        "contact_name": "Ram ashish Shah",
-        "district": "Gorkha"
-      },
-      {
-        "category": "dc_chief",
-        "label_ne": "आरुघाट वितरण केन्द्र (प्रमुख)",
-        "label_en": "Arughat Distribution Center (chief)",
-        "numbers": [
-          "9856013077"
-        ],
-        "email": "aarughat@nea.org.np",
-        "published_on": "https://nea.org.np/contact-information-of-dcs/view/292",
-        "source_url": "https://nea.org.np/contact-information-of-dcs/view/292",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:46+05:45",
-        "contact_name": "Prakash Kafle",
-        "district": "Gorkha"
-      },
-      {
-        "category": "no_light",
-        "label_ne": "त्रिशूली नो लाइट",
-        "label_en": "Trishuli No Light",
-        "numbers": [
-          "010-560176",
-          "010-560076"
-        ],
-        "email": null,
-        "published_on": "https://nea.org.np/no-light-numbers/view/289",
-        "source_url": "https://nea.org.np/no-light-numbers/view/289",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:15+05:45",
-        "printed_as": "Trishuli No light",
-        "district": "Nuwakot"
-      },
-      {
-        "category": "no_light",
-        "label_ne": "देवीघाट फ्युज सेवा",
-        "label_en": "Devighat fuse service",
-        "numbers": [
-          "9846120480"
-        ],
-        "email": null,
-        "published_on": "https://nea.org.np/no-light-numbers/view/289",
-        "source_url": "https://nea.org.np/no-light-numbers/view/289",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:15+05:45",
-        "printed_as": "Debighat fuse sewa",
-        "district": "Nuwakot"
-      },
-      {
-        "category": "no_light",
-        "label_ne": "धादिङबेसी नो लाइट",
-        "label_en": "Dhading Besi No Light",
-        "numbers": [
-          "010-520252"
-        ],
-        "email": null,
-        "published_on": "https://nea.org.np/no-light-numbers/view/289",
-        "source_url": "https://nea.org.np/no-light-numbers/view/289",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:15+05:45",
-        "printed_as": "Dhading Besi No light",
-        "district": "Dhading"
-      },
-      {
-        "category": "no_light",
-        "label_ne": "गजुरी नो लाइट",
-        "label_en": "Gajuri No Light",
-        "numbers": [
-          "010-402115"
-        ],
-        "email": null,
-        "published_on": "https://nea.org.np/no-light-numbers/view/289",
-        "source_url": "https://nea.org.np/no-light-numbers/view/289",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:15+05:45",
-        "printed_as": "Gajuri No light",
-        "district": "Dhading"
-      },
-      {
-        "category": "no_light",
-        "label_ne": "सल्यानटार नो लाइट",
-        "label_en": "Salyantar No Light",
-        "numbers": [
-          "010-421010"
-        ],
-        "email": null,
-        "published_on": "https://nea.org.np/no-light-numbers/view/289",
-        "source_url": "https://nea.org.np/no-light-numbers/view/289",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:15+05:45",
-        "printed_as": "Salyantar No light",
-        "district": "Dhading"
-      },
-      {
-        "category": "no_light",
-        "label_ne": "मेलम्ची नो लाइट",
-        "label_en": "Melamchi No Light",
-        "numbers": [
-          "011-401040"
-        ],
-        "email": null,
-        "published_on": "https://nea.org.np/no-light-numbers/view/289",
-        "source_url": "https://nea.org.np/no-light-numbers/view/289",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:15+05:45",
-        "printed_as": "Melamchi no light",
-        "district": "Sindhupalchowk"
-      },
-      {
-        "category": "no_light",
-        "label_ne": "गोरखा नो लाइट",
-        "label_en": "Gorkha No Light",
-        "numbers": [
-          "064-420177"
-        ],
-        "email": null,
-        "published_on": "https://nea.org.np/no-light-numbers/view/292",
-        "source_url": "https://nea.org.np/no-light-numbers/view/292",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:53+05:45",
-        "printed_as": "Gorkha No Light",
-        "district": "Gorkha"
-      },
-      {
-        "category": "no_light",
-        "label_ne": "आरुघाट नो लाइट",
-        "label_en": "Arughat No Light",
-        "numbers": [
-          "064-410076"
-        ],
-        "email": null,
-        "published_on": "https://nea.org.np/no-light-numbers/view/292",
-        "source_url": "https://nea.org.np/no-light-numbers/view/292",
-        "source_name": "Nepal Electricity Authority (NEA) website",
-        "checked_at": "2026-09-26T09:31:53+05:45",
-        "printed_as": "Arughat No Light",
-        "district": "Gorkha"
-      },
-      {
-        "category": "hotline",
-        "label_ne": "प्राधिकरण हटलाइन",
-        "label_en": "NEA hotline",
-        "numbers": [
-          "1150"
-        ],
-        "email": null,
-        "published_on": "https://x.com/Hello_NEA/status/2097629497831064053",
-        "source_url": "https://x.com/Hello_NEA/status/2097629497831064053",
-        "source_name": "NEA's official X account @Hello_NEA (reply, 2026-09-09 15:58 NPT)",
-        "checked_at": "2026-09-26T10:05:00+05:45",
-        "label_note_en": "Given by NEA’s official @Hello_NEA account",
-        "label_note_ne": "प्राधिकरणको आधिकारिक @Hello_NEA खाताले दिएको",
-        "not_on_nea_website": true
-      }
-    ]
+   }
   }
+ ],
+ "helplines": {
+  "checked_at": "2026-09-26T13:50:28+05:45",
+  "items": [
+   {
+    "category": "central",
+    "label_ne": "केन्द्रीय कार्यालय, दरबारमार्ग",
+    "label_en": "NEA Central Office, Durbarmarg",
+    "numbers": [
+     "977-1-4153051"
+    ],
+    "email": "information@nea.org.np",
+    "published_on": "https://nea.org.np/en",
+    "source_url": "https://nea.org.np/en",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:27:00+05:45",
+    "also_on": "https://nea.org.np/contact-us",
+    "scope": "standing"
+   },
+   {
+    "category": "complaint",
+    "label_ne": "गुनासो सुन्ने अधिकारी (नोडल अधिकृत)",
+    "label_en": "Complaint Nodal Officer",
+    "numbers": [
+     "9851355696"
+    ],
+    "email": "gunaso@nea.org.np",
+    "published_on": "https://nea.org.np/en",
+    "source_url": "https://nea.org.np/en",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:27:00+05:45",
+    "contact_name": "Ms. Punam Joshi",
+    "scope": "standing"
+   },
+   {
+    "category": "information",
+    "label_ne": "सूचना अधिकारी",
+    "label_en": "Information Officer",
+    "numbers": [
+     "9851340215"
+    ],
+    "email": "information@nea.org.np",
+    "published_on": "https://nea.org.np/en",
+    "source_url": "https://nea.org.np/en",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:27:00+05:45",
+    "contact_name": "Mr. Sarbjit Kumar Chaudhary",
+    "scope": "standing"
+   },
+   {
+    "category": "directorate",
+    "label_ne": "वितरण तथा ग्राहक सेवा निर्देशनालय",
+    "label_en": "Distribution & Consumer Services Directorate",
+    "numbers": [
+     "01-4153145"
+    ],
+    "email": "dcs@nea.org.np",
+    "published_on": "https://nea.org.np/contact-us",
+    "source_url": "https://nea.org.np/contact-us",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:32:01+05:45",
+    "scope": "standing"
+   },
+   {
+    "category": "dc_chief",
+    "label_ne": "रसुवा वितरण केन्द्र (प्रमुख)",
+    "label_en": "Rasuwa Distribution Center (chief)",
+    "numbers": [
+     "9851273720"
+    ],
+    "email": "rasuwadcs@nea.org.np",
+    "published_on": "https://nea.org.np/contact-information-of-dcs/view/289",
+    "source_url": "https://nea.org.np/contact-information-of-dcs/view/289",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:39+05:45",
+    "contact_name": "GunjaMan Tamang",
+    "district": "Rasuwa",
+    "scope": "incident"
+   },
+   {
+    "category": "dc_chief",
+    "label_ne": "नुवाकोट वितरण केन्द्र (प्रमुख)",
+    "label_en": "Nuwakot Distribution Center (chief)",
+    "numbers": [
+     "9851160177"
+    ],
+    "email": "nuwakot@nea.org.np",
+    "published_on": "https://nea.org.np/contact-information-of-dcs/view/289",
+    "source_url": "https://nea.org.np/contact-information-of-dcs/view/289",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:39+05:45",
+    "contact_name": "Rajkumar Raman",
+    "district": "Nuwakot",
+    "scope": "incident"
+   },
+   {
+    "category": "dc_chief",
+    "label_ne": "धादिङ वितरण केन्द्र (प्रमुख)",
+    "label_en": "Dhading Distribution Center (chief)",
+    "numbers": [
+     "9851105132"
+    ],
+    "email": "dhading@nea.org.np",
+    "published_on": "https://nea.org.np/contact-information-of-dcs/view/289",
+    "source_url": "https://nea.org.np/contact-information-of-dcs/view/289",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:39+05:45",
+    "contact_name": "Chutun Kumar Srivastav",
+    "district": "Dhading",
+    "scope": "incident"
+   },
+   {
+    "category": "dc_chief",
+    "label_ne": "सिन्धुपाल्चोक वितरण केन्द्र (प्रमुख)",
+    "label_en": "Sindhupalchowk DCS (chief)",
+    "numbers": [
+     "9851207686"
+    ],
+    "email": "sindhupalchowk@nea.org.np",
+    "published_on": "https://nea.org.np/contact-information-of-dcs/view/289",
+    "source_url": "https://nea.org.np/contact-information-of-dcs/view/289",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:39+05:45",
+    "contact_name": "Netra Mani Neupane",
+    "district": "Sindhupalchowk",
+    "scope": "incident"
+   },
+   {
+    "category": "dc_chief",
+    "label_ne": "मेलम्ची वितरण केन्द्र (प्रमुख)",
+    "label_en": "Melamchi Distribution Center (chief)",
+    "numbers": [
+     "9851273721"
+    ],
+    "email": "melamchi@nea.org.np",
+    "published_on": "https://nea.org.np/contact-information-of-dcs/view/289",
+    "source_url": "https://nea.org.np/contact-information-of-dcs/view/289",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:39+05:45",
+    "contact_name": "Toyanath Regmi",
+    "district": "Sindhupalchowk",
+    "scope": "incident"
+   },
+   {
+    "category": "dc_chief",
+    "label_ne": "गोरखा वितरण केन्द्र (प्रमुख)",
+    "label_en": "Gorkha Distribution Center (chief)",
+    "numbers": [
+     "9856043177"
+    ],
+    "email": "gorkha@nea.org.np",
+    "published_on": "https://nea.org.np/contact-information-of-dcs/view/292",
+    "source_url": "https://nea.org.np/contact-information-of-dcs/view/292",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:46+05:45",
+    "contact_name": "Ram ashish Shah",
+    "district": "Gorkha",
+    "scope": "incident"
+   },
+   {
+    "category": "dc_chief",
+    "label_ne": "आरुघाट वितरण केन्द्र (प्रमुख)",
+    "label_en": "Arughat Distribution Center (chief)",
+    "numbers": [
+     "9856013077"
+    ],
+    "email": "aarughat@nea.org.np",
+    "published_on": "https://nea.org.np/contact-information-of-dcs/view/292",
+    "source_url": "https://nea.org.np/contact-information-of-dcs/view/292",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:46+05:45",
+    "contact_name": "Prakash Kafle",
+    "district": "Gorkha",
+    "scope": "incident"
+   },
+   {
+    "category": "no_light",
+    "label_ne": "त्रिशूली नो लाइट",
+    "label_en": "Trishuli No Light",
+    "numbers": [
+     "010-560176",
+     "010-560076"
+    ],
+    "email": null,
+    "published_on": "https://nea.org.np/no-light-numbers/view/289",
+    "source_url": "https://nea.org.np/no-light-numbers/view/289",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:15+05:45",
+    "printed_as": "Trishuli No light",
+    "district": "Nuwakot",
+    "scope": "incident"
+   },
+   {
+    "category": "no_light",
+    "label_ne": "देवीघाट फ्युज सेवा",
+    "label_en": "Devighat fuse service",
+    "numbers": [
+     "9846120480"
+    ],
+    "email": null,
+    "published_on": "https://nea.org.np/no-light-numbers/view/289",
+    "source_url": "https://nea.org.np/no-light-numbers/view/289",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:15+05:45",
+    "printed_as": "Debighat fuse sewa",
+    "district": "Nuwakot",
+    "scope": "incident"
+   },
+   {
+    "category": "no_light",
+    "label_ne": "धादिङबेसी नो लाइट",
+    "label_en": "Dhading Besi No Light",
+    "numbers": [
+     "010-520252"
+    ],
+    "email": null,
+    "published_on": "https://nea.org.np/no-light-numbers/view/289",
+    "source_url": "https://nea.org.np/no-light-numbers/view/289",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:15+05:45",
+    "printed_as": "Dhading Besi No light",
+    "district": "Dhading",
+    "scope": "incident"
+   },
+   {
+    "category": "no_light",
+    "label_ne": "गजुरी नो लाइट",
+    "label_en": "Gajuri No Light",
+    "numbers": [
+     "010-402115"
+    ],
+    "email": null,
+    "published_on": "https://nea.org.np/no-light-numbers/view/289",
+    "source_url": "https://nea.org.np/no-light-numbers/view/289",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:15+05:45",
+    "printed_as": "Gajuri No light",
+    "district": "Dhading",
+    "scope": "incident"
+   },
+   {
+    "category": "no_light",
+    "label_ne": "सल्यानटार नो लाइट",
+    "label_en": "Salyantar No Light",
+    "numbers": [
+     "010-421010"
+    ],
+    "email": null,
+    "published_on": "https://nea.org.np/no-light-numbers/view/289",
+    "source_url": "https://nea.org.np/no-light-numbers/view/289",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:15+05:45",
+    "printed_as": "Salyantar No light",
+    "district": "Dhading",
+    "scope": "incident"
+   },
+   {
+    "category": "no_light",
+    "label_ne": "मेलम्ची नो लाइट",
+    "label_en": "Melamchi No Light",
+    "numbers": [
+     "011-401040"
+    ],
+    "email": null,
+    "published_on": "https://nea.org.np/no-light-numbers/view/289",
+    "source_url": "https://nea.org.np/no-light-numbers/view/289",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:15+05:45",
+    "printed_as": "Melamchi no light",
+    "district": "Sindhupalchowk",
+    "scope": "incident"
+   },
+   {
+    "category": "no_light",
+    "label_ne": "गोरखा नो लाइट",
+    "label_en": "Gorkha No Light",
+    "numbers": [
+     "064-420177"
+    ],
+    "email": null,
+    "published_on": "https://nea.org.np/no-light-numbers/view/292",
+    "source_url": "https://nea.org.np/no-light-numbers/view/292",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:53+05:45",
+    "printed_as": "Gorkha No Light",
+    "district": "Gorkha",
+    "scope": "incident"
+   },
+   {
+    "category": "no_light",
+    "label_ne": "आरुघाट नो लाइट",
+    "label_en": "Arughat No Light",
+    "numbers": [
+     "064-410076"
+    ],
+    "email": null,
+    "published_on": "https://nea.org.np/no-light-numbers/view/292",
+    "source_url": "https://nea.org.np/no-light-numbers/view/292",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T09:31:53+05:45",
+    "printed_as": "Arughat No Light",
+    "district": "Gorkha",
+    "scope": "incident"
+   },
+   {
+    "category": "hotline",
+    "label_ne": "प्राधिकरण हटलाइन",
+    "label_en": "NEA hotline",
+    "numbers": [
+     "1150"
+    ],
+    "email": null,
+    "published_on": "https://x.com/Hello_NEA/status/2097629497831064053",
+    "source_url": "https://x.com/Hello_NEA/status/2097629497831064053",
+    "source_name": "NEA's official X account @Hello_NEA (reply, 2026-09-09 15:58 NPT)",
+    "checked_at": "2026-09-26T10:05:00+05:45",
+    "label_note_en": "Given by NEA’s official @Hello_NEA account",
+    "label_note_ne": "प्राधिकरणको आधिकारिक @Hello_NEA खाताले दिएको",
+    "not_on_nea_website": true,
+    "scope": "standing"
+   },
+   {
+    "category": "dc_chief",
+    "label_ne": "सुर्खेत वितरण केन्द्र (प्रमुख)",
+    "label_en": "Surkhet Distribution Center (chief)",
+    "numbers": [
+     "9858084600"
+    ],
+    "email": "surkhet@nea.org.np",
+    "published_on": "https://nea.org.np/contact-information-of-dcs/view/294",
+    "source_url": "https://nea.org.np/contact-information-of-dcs/view/294",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T13:50:28+05:45",
+    "contact_name": "Kiran Khanal",
+    "district": "Surkhet",
+    "scope": "alert",
+    "alert_item_ids": [
+     "alert-2026-09-26-surkhet"
+    ]
+   },
+   {
+    "category": "dc_chief",
+    "label_ne": "सल्यान वितरण केन्द्र (प्रमुख)",
+    "label_en": "Salyan Distribution Center (chief)",
+    "numbers": [
+     "9857822930"
+    ],
+    "email": "salyan@nea.org.np",
+    "published_on": "https://nea.org.np/contact-information-of-dcs/view/294",
+    "source_url": "https://nea.org.np/contact-information-of-dcs/view/294",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T13:50:28+05:45",
+    "contact_name": "Naresh Datta Rawal",
+    "district": "Salyan",
+    "scope": "alert",
+    "alert_item_ids": [
+     "alert-2026-09-26-salyan"
+    ]
+   },
+   {
+    "category": "dc_chief",
+    "label_ne": "जाजरकोट वितरण केन्द्र (प्रमुख)",
+    "label_en": "Jajarkot Distribution Center (chief)",
+    "numbers": [
+     "9858080375"
+    ],
+    "email": "jajarkot@nea.org.np",
+    "published_on": "https://nea.org.np/contact-information-of-dcs/view/294",
+    "source_url": "https://nea.org.np/contact-information-of-dcs/view/294",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T13:50:28+05:45",
+    "contact_name": "Rajendra Lal Deu",
+    "district": "Jajarkot",
+    "scope": "alert",
+    "alert_item_ids": [
+     "alert-2026-09-26-surkhet"
+    ]
+   },
+   {
+    "category": "provincial_office",
+    "label_ne": "कर्णाली प्रदेश कार्यालय, सुर्खेत (प्रमुख)",
+    "label_en": "Karnali Provincial Office, Surkhet (chief)",
+    "numbers": [
+     "9858072399"
+    ],
+    "email": "karnali@nea.org.np",
+    "published_on": "https://nea.org.np/contact-information-of-dcs/view/294",
+    "source_url": "https://nea.org.np/contact-information-of-dcs/view/294",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T13:50:28+05:45",
+    "contact_name": "Shashibhusan Shah",
+    "district": null,
+    "scope": "alert"
+   },
+   {
+    "category": "no_light",
+    "label_ne": "सुर्खेत नो लाइट",
+    "label_en": "Surkhet No Light",
+    "numbers": [
+     "9867876935",
+     "083-520267",
+     "083-520265"
+    ],
+    "email": null,
+    "published_on": "https://nea.org.np/no-light-numbers/view/294",
+    "source_url": "https://nea.org.np/no-light-numbers/view/294",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T13:48:00+05:45",
+    "printed_as": "Surkhet No Light",
+    "district": "Surkhet",
+    "scope": "alert"
+   },
+   {
+    "category": "no_light",
+    "label_ne": "बाबियाचौर नो लाइट",
+    "label_en": "Babiyachaur No Light",
+    "numbers": [
+     "9864430922"
+    ],
+    "email": null,
+    "published_on": "https://nea.org.np/no-light-numbers/view/294",
+    "source_url": "https://nea.org.np/no-light-numbers/view/294",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T13:48:00+05:45",
+    "printed_as": "Babiyachaur No Light",
+    "district": "Surkhet",
+    "scope": "alert"
+   },
+   {
+    "category": "no_light",
+    "label_ne": "खलङ्गा नो लाइट (सल्यान)",
+    "label_en": "Khalanga No Light (Salyan)",
+    "numbers": [
+     "9847655222",
+     "088-520050"
+    ],
+    "email": null,
+    "published_on": "https://nea.org.np/no-light-numbers/view/294",
+    "source_url": "https://nea.org.np/no-light-numbers/view/294",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T13:48:00+05:45",
+    "printed_as": "Khalanga No Light ( salyan)",
+    "district": "Salyan",
+    "scope": "alert"
+   },
+   {
+    "category": "no_light",
+    "label_ne": "कपुरकोट नो लाइट",
+    "label_en": "Kapurkot No Light",
+    "numbers": [
+     "9745510494"
+    ],
+    "email": null,
+    "published_on": "https://nea.org.np/no-light-numbers/view/294",
+    "source_url": "https://nea.org.np/no-light-numbers/view/294",
+    "source_name": "Nepal Electricity Authority (NEA) website",
+    "checked_at": "2026-09-26T13:48:00+05:45",
+    "printed_as": "Kapurkot No Light",
+    "district": "Salyan",
+    "scope": "alert",
+    "district_note": "Kapurkot is named in the NEA Salyan statement; listed under Karnali Provincial Office"
+   }
+  ]
+ },
+ "compiler_notes": {
+  "source_tiers": {
+   "nea_official": "nea.org.np pages/PDFs or NEA official social accounts",
+   "listed_outlet": "Kathmandu Post, Kantipur/ekantipur, Setopati, Onlinekhabar, RSS, Republica, HimalPress, Rising Nepal, Gorkhapatra",
+   "other_outlet": "other outlets; kept for reference, do not render alone"
+  },
+  "render_rule": "Render an item only if at least one source has source_tier nea_official or listed_outlet.",
+  "searched_but_not_found": [
+   "No NEA press release/notice about this rain on nea.org.np (press-release list latest 2026-06-15; notices latest 2026-09-24 are tenders).",
+   "No rain-related posts on @Hello_NEA since 2026-09-09.",
+   "No NEA nationwide total (MW lost / districts) for this alert found.",
+   "Palpa outage mentioned by Karobar (Asoj 8) was not NEA-attributed; excluded.",
+   "Arun III dam construction halt (Asoj 9) is SJVN, not NEA; excluded."
+  ]
+ }
 }

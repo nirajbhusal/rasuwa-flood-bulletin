@@ -15,7 +15,7 @@
     "rescue_missing", "rescue_dead", "rescue_rescued", "rescue_overview", "rescue_source",
     "fund", "donate", "fund_source",
     "helpline", "names", "lpg", "lpg_source",
-    "electricity_schedule", "electricity_nolight", "electricity_plants", "electricity_load",
+    "electricity_schedule", "electricity_nolight", "electricity_plants", "electricity_load", "electricity_now", "electricity_kali",
     "cause", "gallery", "about", "markets",
     "flood_rivers", "flood_flash", "flood_place", "flood_trishuli",
     "fallback"
@@ -532,7 +532,10 @@
       "बत्ती छैन", "बत्ति छैन", "कटौती"
     ]);
     if (elec) {
-      if (hit(q, ["load shedding", "loadshedding", "लोडसेडिङ", "लोडसेडिंग", "लोड शेडिङ"])) spec.intent = "electricity_load";
+      var elecPhone = hit(q, ["phone", "hotline", "नम्बर", "नंबर", "1150", "फोन"]);
+      if (hit(q, ["kali gandaki", "kaligandaki", "कालीगण्डकी", "काली गण्डकी"])) spec.intent = "electricity_kali";
+      else if (!elecPhone && hit(q, ["where is power", "power out now", "out now", "अहिले कहाँ", "कहाँ बिजुली छैन", "where is the power out", "power out"])) spec.intent = "electricity_now";
+      else if (hit(q, ["load shedding", "loadshedding", "लोडसेडिङ", "लोडसेडिंग", "लोड शेडिङ"])) spec.intent = "electricity_load";
       else if (hit(q, ["hydropower", "hydro power", "hydroelectric", "जलविद्युत", "जलविद्युत्", "power plant", "क्षतिग्रस्त"])) spec.intent = "electricity_plants";
       else if (hit(q, ["no light", "nolight", "बत्ती छैन", "बत्ति छैन", "बिजुली छैन", "फोन", "phone", "1150", "hotline", "नम्बर", "नंबर"])) spec.intent = "electricity_nolight";
       else spec.intent = "electricity_schedule";
@@ -2154,8 +2157,38 @@
     if (!data) return pack(lang, elecMissing(lang), "", href, { followups: fu });
     var srcName = (data.source_line && (lang === "en" ? data.source_line.en : data.source_line.ne)) || (lang === "en" ? "Source: Nepal Electricity Authority (NEA)" : "स्रोत: नेपाल विद्युत प्राधिकरण (NEA)");
     srcName = srcName.replace(/^स्रोत:\s*/, "").replace(/^Source:\s*/, "");
+    var incident = (data.incidents && data.incidents[0]) || {};
+    if (spec.intent === "electricity_kali") {
+      var kali = null;
+      (data.alert_outages || []).forEach(function (row) {
+        if (kali) return;
+        var bag = (row.id || "") + " " + (row.summary_en || "") + " " + (row.summary_ne || "");
+        if (/kaligandaki|kali gandaki|कालीगण्डकी/i.test(bag)) kali = row;
+      });
+      if (!kali) return pack(lang, elecMissing(lang), "", href + "#power-alert", { followups: fu });
+      var kaliText = lang === "en" ? kali.summary_en : kali.summary_ne;
+      var eta = kali.restoration_eta ? (lang === "en" ? kali.restoration_eta.en : kali.restoration_eta.ne) : "";
+      if (eta) kaliText += " " + eta;
+      return pack(lang, kaliText, sourceLine(lang, srcName, elecWhen(kali.checked_at || kali.date, lang)), href + "#feed-" + kali.id, { followups: fu });
+    }
+    if (spec.intent === "electricity_now") {
+      var supply = (data.alert_summary && data.alert_summary.districts_supply_affected_list) || [];
+      var namesNow = supply.map(function (row) { return lang === "en" ? row.name_en : row.name_ne; }).filter(Boolean);
+      if (!namesNow.length) return pack(lang, elecMissing(lang), "", href + "#power-alert", { followups: fu });
+      var nowText = lang === "en"
+        ? "NEA updates list supply affected in " + namesNow.join(", ") + "."
+        : "प्राधिकरणका अद्यावधिकमा आपूर्ति प्रभावित: " + namesNow.join(", ") + "।";
+      var mwNow = data.alert_summary && data.alert_summary.generation_mw_stopped_in_items;
+      if (mwNow != null) {
+        nowText += lang === "en"
+          ? " " + mwNow + " MW in NEA updates."
+          : " प्राधिकरणका अद्यावधिकमा " + digits(String(mwNow), "ne") + " मेगावाट।";
+      }
+      var asOf = (data.alert && data.alert.as_of) || (data.alert_summary && data.alert_summary.as_of);
+      return pack(lang, nowText, sourceLine(lang, srcName, elecWhen(asOf, lang)), href + "#power-alert", { followups: fu });
+    }
     if (spec.intent === "electricity_load") {
-      var loads = ((data.statements && data.statements.items) || []).filter(function (item) {
+      var loads = (((incident.statements && incident.statements.items) || [])).filter(function (item) {
         var bag = (item.summary_en || "") + " " + (item.summary_ne || "");
         return /load-shedding|load shedding|लोडसेडिङ/i.test(bag);
       }).sort(function (a, b) { return String(b.date).localeCompare(String(a.date)); });
@@ -2165,7 +2198,7 @@
       return pack(lang, loadText, sourceLine(lang, srcName, elecWhen(load.date, lang)), href + "#statements", { followups: fu });
     }
     if (spec.intent === "electricity_plants") {
-      var plants = ((data.damaged_assets && data.damaged_assets.items) || []).filter(function (item) {
+      var plants = (((incident.damaged_assets && incident.damaged_assets.items) || [])).filter(function (item) {
         return item.type === "hydropower_plant";
       });
       if (!plants.length) return pack(lang, elecMissing(lang), "", href + "#assets", { followups: fu });
@@ -2207,7 +2240,7 @@
     var live = rows.filter(function (row) {
       return row.status_at_check === "upcoming" || row.status_at_check === "ongoing";
     }).sort(function (a, b) { return String(a.start).localeCompare(String(b.start)); });
-    var cover = data.coverage_line ? (lang === "en" ? data.coverage_line.en : data.coverage_line.ne) : "";
+    var cover = incident.coverage_line ? (lang === "en" ? incident.coverage_line.en : incident.coverage_line.ne) : "";
     var text;
     if (!live.length) {
       text = cover;

@@ -60,9 +60,11 @@
     },
     "electricity": {
       "label": {"ne": "बिजुली", "en": "Electricity"},
-      "followups": ["elec-when", "elec-light", "elec-plant"],
+      "followups": ["elec-now", "elec-kali", "elec-when", "elec-light", "elec-plant"],
       "faq": [
-        {"id": "elec-when", "featured": true, "route": "electricity", "q": {"ne": "बिजुली कहिले जान्छ?", "en": "When is the power cut?"}},
+        {"id": "elec-now", "featured": true, "route": "electricity", "q": {"ne": "अहिले कहाँ बिजुली छैन?", "en": "Where is power out now?"}},
+        {"id": "elec-kali", "route": "electricity", "q": {"ne": "कालीगण्डकी बन्द किन?", "en": "Why is Kali Gandaki A shut?"}},
+        {"id": "elec-when", "route": "electricity", "q": {"ne": "बिजुली कहिले जान्छ?", "en": "When is the power cut?"}},
         {"id": "elec-light", "route": "electricity", "q": {"ne": "बिजुली छैन, कहाँ फोन गर्ने?", "en": "No light — which number?"}},
         {"id": "elec-plant", "route": "electricity", "q": {"ne": "कुन जलविद्युत आयोजनामा क्षति भयो?", "en": "Which hydropower plants were damaged?"}},
         {"id": "elec-load", "route": "electricity", "q": {"ne": "हिउँदमा लोडसेडिङ हुन्छ?", "en": "Will there be load-shedding?"}}
@@ -109,6 +111,8 @@
     "names": {"route": "names", "q": {"ne": "नाम खोज?", "en": "Search a name?"}},
     "fund": {"route": "fund", "q": {"ne": "राहत कोष?", "en": "Relief fund?"}},
     "lpg": {"route": "lpg", "q": {"ne": "एलपीजी?", "en": "LPG?"}},
+    "elec-now": {"route": "electricity", "q": {"ne": "अहिले कहाँ बिजुली छैन?", "en": "Where is power out now?"}},
+    "elec-kali": {"route": "electricity", "q": {"ne": "कालीगण्डकी बन्द किन?", "en": "Why is Kali Gandaki A shut?"}},
     "elec-when": {"route": "electricity", "q": {"ne": "बिजुली कहिले जान्छ?", "en": "Power cut schedule?"}},
     "elec-light": {"route": "electricity", "q": {"ne": "बत्ती छैन?", "en": "No light number?"}},
     "elec-plant": {"route": "electricity", "q": {"ne": "क्षतिग्रस्त जलविद्युत?", "en": "Damaged hydropower?"}},

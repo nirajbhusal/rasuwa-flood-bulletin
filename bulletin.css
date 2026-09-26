@@ -11237,3 +11237,53 @@ html[lang="en"] .elec-src-ne{display:none}
 @media (min-width:900px) and (prefers-reduced-motion:reduce){
   .hnav-caret{transition:none}
 }
+.elec-alert-head{text-align:center;margin:0 0 10px}
+.elec-alert-head h3{margin:0;font-size:clamp(20px,4.6vw,28px);line-height:1.25;color:#0c2340}
+.elec-alert-range{margin:4px 0 0;font-weight:700;color:#334155}
+.elec-alert-ids{margin:2px 0 0;font-size:13px;font-weight:700;color:#64748b}
+.elec-alert-kpis{margin-top:10px}
+.elec-alert-map{position:relative;margin:12px 0 8px;padding:8px 8px 4px;border-radius:18px;background:#0f172a;box-shadow:inset 0 0 0 1px rgba(245,158,11,.45),0 10px 28px rgba(15,23,42,.14)}
+.elec-alert-svg{display:block;width:100%;height:auto;max-height:460px}
+.elec-dist.is-quiet{fill:#e7e5e4;stroke:#cbd5e1;stroke-width:1}
+.elec-dist.is-disrupted{fill:#b91c1c;stroke:#7f1d1d;stroke-width:1.4;cursor:pointer}
+.elec-dist.is-partly_disrupted{fill:#fbbf24;stroke:#b45309;stroke-width:1.4;cursor:pointer}
+.elec-dist.is-restored{fill:#16a34a;stroke:#14532d;stroke-width:1.4;cursor:pointer}
+.elec-dist.is-generation_only{fill:#f8fafc;stroke:#f59e0b;stroke-width:2.4;cursor:pointer}
+.elec-dist.is-on{stroke:#fff;stroke-width:3.2}
+.elec-alert-ico{color:#fbbf24;cursor:pointer}
+.elec-alert-ico-bg{fill:#0f172a;stroke:#f59e0b;stroke-width:2}
+.elec-alert-ico.is-on .elec-alert-ico-bg{stroke:#fff;stroke-width:3}
+.elec-dlegend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 14px;margin:0 0 12px;padding:0;list-style:none}
+.elec-dlegend li{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:#334155}
+.elec-dlegend i{display:inline-block;width:14px;height:14px;border-radius:4px;flex:none}
+.elec-dlegend i.is-disrupted{background:#b91c1c}
+.elec-dlegend i.is-partly_disrupted{background:#fbbf24}
+.elec-dlegend i.is-restored{background:#16a34a}
+.elec-dlegend i.is-generation_only{background:#f8fafc;box-shadow:inset 0 0 0 2px #f59e0b}
+.elec-feed{display:flex;flex-direction:column;gap:10px}
+.elec-feed > h3{margin:8px 0 0;font-size:20px;color:#0c2340}
+.elec-feed-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.elec-feed-top time{font-weight:800;color:#c41e3a}
+.elec-feed-title{margin:6px 0 0;font-weight:800}
+.elec-feed-dists{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.elec-feed-assets{margin:6px 0 0;padding-left:18px}
+.elec-feed-assets li{font-size:14px;line-height:1.4}
+.elec-eta{margin:6px 0 0;font-size:14px;font-weight:700;color:#9f1239}
+.elec-quote{margin-top:8px}
+.elec-quote summary{cursor:pointer;font-weight:800;color:#c41e3a}
+.elec-quote p{margin:6px 0 0;font-size:14px;line-height:1.45;color:#1e293b}
+.elec-quote-who{display:block;font-size:12px;font-weight:800;color:#64748b}
+.elec-feed-card.is-on{border-color:#c41e3a;box-shadow:inset 3px 0 0 #c41e3a}
+.elec-incident{margin:0 0 14px}
+.elec-incident > h3{margin:0 0 8px;font-size:20px;color:#0c2340}
+.elec-alert-map > .map-ctl{position:absolute;top:10px;right:10px;z-index:6}
+.elec-alert-map.is-map-fs,.elec-alert-map:fullscreen{position:fixed !important;inset:0 !important;z-index:220 !important;width:100% !important;height:100dvh !important;margin:0 !important;border-radius:0 !important;display:flex;align-items:center}
+.elec-alert-map.is-map-fs .elec-alert-svg,.elec-alert-map:fullscreen .elec-alert-svg{max-height:100dvh}
+.dash-elec-figs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px;padding:0;list-style:none}
+.dash-elec-figs li{min-width:0;flex:1 1 30%;background:#fff;border:1px solid #e7e5e4;border-radius:14px;padding:8px 10px}
+.dash-elec-figs b{display:block;font-size:clamp(20px,5vw,26px);line-height:1.1;color:#9f1239}
+.dash-elec-figs span{display:block;font-size:12px;font-weight:700;line-height:1.3;color:#334155}
+.dash-elec-sum{margin:0 0 8px;font-size:14px;font-weight:700;line-height:1.45;color:#334155}
+.dash-elec-tel{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;background:#c41e3a;color:#fff;font-weight:800;font-size:18px;text-decoration:none}
+.dash-elec-tel:hover,.dash-elec-tel:focus-visible{text-decoration:none;background:#9f1239;color:#fff}
+.elec-src-link{font-size:13px}

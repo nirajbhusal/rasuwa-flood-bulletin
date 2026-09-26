@@ -158,6 +158,14 @@ def main() -> int:
     power = copies["electricity.html"]
     if "NEA" not in power.description or "बिजुली" not in power.title:
         raise SystemExit("electricity copy is not about NEA")
+    nea = json.loads((repo / "data" / "nea_electricity.json").read_text(encoding="utf-8"))
+    if (nea.get("alert") or {}).get("active"):
+        if "आपूर्ति प्रभावित" not in power.description or "१४४" not in power.description:
+            raise SystemExit("active-alert electricity description missed supply districts or MW in NEA updates")
+        if "४०५" in power.title or "४०५" in power.description:
+            raise SystemExit("active-alert electricity copy still leads with the flood MW figure")
+        if "बिजुली" not in home.description or "१४४" not in home.description:
+            raise SystemExit("homepage description missed the current electricity alert")
     for rel in ("electricity.html", "weather.html", "notices.html", "names.html", "donate.html"):
         if rel not in copies:
             raise SystemExit(f"missing copy for {rel}")
