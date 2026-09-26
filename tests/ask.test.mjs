@@ -78,7 +78,7 @@ const cases = [
   ["Rasuwa weather", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "red"] }],
   ["Kathmandu maximum today", "en", { intent: "weather_city", number: true, has: ["Kathmandu", "17.8", "16.2", "DHM"] }],
   ["काठमाडौँको तापक्रम", "ne", { intent: "weather_city", number: true, has: ["काठमाडौँ", "17.8", "16.2"] }],
-  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["3.29", "warning"] }],
+  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["2.99", "warning"] }],
   ["बेत्रावतीको नदी तह", "ne", { intent: "weather_river", has: ["ताजा रिडिङ छैन"] }],
   ["सिन्धुपाल्चोकको मौसम", "ne", { intent: "weather_place", number: true, has: ["सिन्धुपाल्चोक"], not: ["खोलानाला", "विद्यालय"] }],
   ["nuwakot mausam", "ne", { intent: "weather_place", number: true, has: ["नुवाकोट"] }],
@@ -141,12 +141,25 @@ test("fuzzy weather typo still composes a sentence", function () {
 });
 
 test("Nepal Police road notice answers night bans and Rasuwa", function () {
-  const police = JSON.parse(readFileSync(new URL("../data/police_roads_2083-06-09.json", import.meta.url), "utf8"));
-  assert.equal(police.rows.length, 31);
-  assert.equal(police.counts.full_block, 13);
-  assert.equal(police.counts.night_ban, 16);
-  assert.equal(police.counts.one_way, 1);
+  const police = JSON.parse(readFileSync(new URL("../data/police_roads_2083-06-10.json", import.meta.url), "utf8"));
+  assert.equal(police.id, "nepal-police-highways-2083-06-10-0700");
+  assert.equal(police.rows.length, 44);
+  assert.equal(police.counts.total, 44);
+  assert.equal(police.counts.full_block, 25);
+  assert.equal(police.counts.night_ban, 18);
+  assert.equal(police.counts.one_way, 0);
   assert.equal(police.counts.restricted, 1);
+  assert.equal(police.counts.districts, 30);
+  assert.equal(police.counts.provinces, 5);
+  assert.equal(police.rows.some(function (r) { return r.id === "dhading-jwang" || r.id === "palpa-kaligandaki"; }), false);
+  const bhim = police.rows.find(function (r) { return r.id === "makwanpur-bhimphedi"; });
+  assert.equal(bhim.closed_time, "०८:३");
+  assert.equal(bhim.closed_iso, null);
+  ["khotang-midhill", "udayapur-katari"].forEach(function (id) {
+    const row = police.rows.find(function (r) { return r.id === id; });
+    assert.equal(row.closed_time, null);
+    assert.equal(row.closed_iso, null);
+  });
   function askPolice(q, lang) {
     return Ask.answer(q, {
       lang: lang,
@@ -158,11 +171,17 @@ test("Nepal Police road notice answers night bans and Rasuwa", function () {
   }
   const night = askPolice("which roads are closed at night", "en");
   assert.equal(night.intent, "roads_night");
-  assert.ok(night.text.length <= 400, night.text.length);
-  ["Solukhumbu", "Bhojpur", "Ilam", "Kavre", "Nuwakot", "Makwanpur", "Sindhuli", "Dolakha", "Sindhupalchok", "Manang", "Kaski", "Mustang", "Parbat", "Myagdi", "Nawalparasi E", "Dang"].forEach(function (name) {
+  assert.ok(night.text.length <= 400, night.text.length + " " + night.text);
+  ["Solukhumbu", "Bhojpur", "Ilam", "Khotang", "Udayapur", "Kavre", "Nuwakot", "Makwanpur", "Sindhuli", "Dolakha", "Sindhupalchok", "Manang", "Kaski", "Mustang", "Parbat", "Myagdi", "Nawalparasi E", "Dang"].forEach(function (name) {
     assert.ok(night.text.includes(name), name + " missing in " + night.text);
   });
   assert.equal(/until Until/.test(night.text), false);
+  assert.ok(night.text.endsWith("."), night.text);
+  const nightNe = askPolice("रातमा कुन सडक बन्द छ", "ne");
+  assert.equal(nightNe.intent, "roads_night");
+  assert.ok(nightNe.text.includes("दाङ"), nightNe.text);
+  assert.ok(nightNe.text.endsWith("।"), nightNe.text);
+  assert.ok(nightNe.text.length <= 400, nightNe.text.length + " " + nightNe.text);
   const ras = askPolice("Is the Rasuwa road open?", "en");
   assert.match(ras.text, /fully blocked/);
   assert.match(ras.text, /2083\/05\/10/);
@@ -176,7 +195,7 @@ test("Nepal Police road notice answers night bans and Rasuwa", function () {
 
 test("NDRRMA vehicle movement answers travel by district", function () {
   const vehicle = JSON.parse(readFileSync(new URL("../data/ndrrma_vehicle_2083-06-09.json", import.meta.url), "utf8"));
-  const police = JSON.parse(readFileSync(new URL("../data/police_roads_2083-06-09.json", import.meta.url), "utf8"));
+  const police = JSON.parse(readFileSync(new URL("../data/police_roads_2083-06-10.json", import.meta.url), "utf8"));
   assert.equal(vehicle.districts.length, 77);
   assert.equal(vehicle.counts.red + vehicle.counts.orange + vehicle.counts.yellow, 77);
   function askVehicle(q, lang) {
@@ -249,7 +268,7 @@ test("special flood forecast answers use the DHM bulletin", function () {
   assertAnswer("Kaski flash flood today", "en", { intent: "flood_place", has: ["Kaski", "high"] });
   assertAnswer("त्रिशुली बेत्रावतीको पूर्वानुमान", "ne", { intent: "flood_trishuli", has: ["बेत्रावती", "उल्लेख्य बढ्ने", "सामान्य घटबढ"] });
   assertAnswer("आज आकस्मिक बाढी कहाँ छ?", "ne", { intent: "flood_flash", has: ["गोरखा", "कैलाली"] });
-  assertAnswer("Trishuli at Dhunche", "en", { intent: "weather_river", has: ["3.29", "warning"] });
+  assertAnswer("Trishuli at Dhunche", "en", { intent: "weather_river", has: ["2.99", "warning"] });
   assertAnswer("Rasuwa weather", "en", { intent: "weather_place", has: ["Rasuwa"] });
   const today = new Set(flood.flash.today.high.concat(flood.flash.today.medium));
   const tomorrow = new Set(flood.flash.tomorrow.high.concat(flood.flash.tomorrow.medium));

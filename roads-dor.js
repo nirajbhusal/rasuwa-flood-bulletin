@@ -1119,6 +1119,11 @@
     else { seg(sp, 100 - sp); seg(0, ep); }
     return bar;
   }
+  function prName(row) {
+    var hwy = lang() === "en" ? row.highway_en : row.highway_ne;
+    if (hwy) return hwy;
+    return (lang() === "en" ? row.location_en : row.location_ne) || "";
+  }
   function prCard(row, extra) {
     var b = document.createElement("button");
     b.type = "button";
@@ -1126,7 +1131,7 @@
     b.setAttribute("data-pr-id", row.id);
     b.setAttribute("data-district", row.district.id);
     var top = el("span", "pr-card-top");
-    var hwy = el("strong", "pr-hwy", lang() === "en" ? row.highway_en : row.highway_ne);
+    var hwy = el("strong", "pr-hwy", prName(row));
     top.appendChild(hwy);
     var badge = el("span", "pr-badge pr-badge-" + row.status_type, prShort(row.status_type));
     if (row.status_type === "night_ban") badge.insertAdjacentHTML("afterbegin", prMoon());
@@ -1157,7 +1162,7 @@
   }
   function prPopupHtml(rows) {
     var bits = rows.map(function (r) {
-      var name = lang() === "en" ? r.highway_en : r.highway_ne;
+      var name = prName(r);
       var place = lang() === "en" ? r.location_en : r.location_ne;
       return '<div class="map-pop pr-pop"><strong class="map-pop-name">' + esc(name) + '</strong><span class="map-lv pr-lv-' + r.status_type + '">' + esc(prShort(r.status_type)) + '</span><span class="map-pop-fig">' + esc(place) + '</span></div>';
     });
@@ -2133,7 +2138,7 @@
   function boot() {
     var roadsP = fetch("data/roads-dor.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("roads"); return r.json(); });
-    var policeP = fetch("data/police_roads_2083-06-09.json?t=" + Date.now(), { cache: "no-store" })
+    var policeP = fetch("data/police_roads_2083-06-10.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("police"); return r.json(); })
       .catch(function () { return null; });
     var vehicleP = fetch("data/ndrrma_vehicle_2083-06-09.json?t=" + Date.now(), { cache: "no-store" })
