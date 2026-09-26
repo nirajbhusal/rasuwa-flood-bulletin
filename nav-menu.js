@@ -123,7 +123,7 @@
 
   var GROUPS = [
     { key: "home", ne: "गृह", en: "Home", hrefs: ["index.html"] },
-    { key: "alerts", ne: "चेतावनी", en: "Alerts", hrefs: ["notices.html", "notices.html#roads", "weather.html", "photos.html"] },
+    { key: "alerts", ne: "चेतावनी", en: "Alerts", hrefs: ["notices.html", "notices.html#roads", "electricity.html", "weather.html", "photos.html"] },
     { key: "people", ne: "मानिस", en: "People", hrefs: ["names.html", "contact.html"] },
     { key: "gov", ne: "सरकार", en: "Government", hrefs: ["gov.html", "markets.html"] },
     { key: "relief", ne: "राहत", en: "Relief", hrefs: ["donate.html", "response.html", "damage.html", "supply.html"] },
@@ -143,6 +143,7 @@
     "photos.html": "M4 7h3l2-2h6l2 2h3v12H4zM12 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6z",
     "damage.html": "M12 3 2 20h20L12 3zm0 6v5m0 3h.01",
     "supply.html": "M8 7h8l1 3H7zm-2 3h12v9H6z",
+    "electricity.html": "M13 2 4 14h7l-1 8 9-12h-7z",
     "about.html": "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0-10v6m0-8h.01"
   };
 
@@ -215,6 +216,12 @@
       var notices = byHref("notices.html");
       if (notices && notices.nextSibling) inner.insertBefore(roads, notices.nextSibling);
       else inner.appendChild(roads);
+    }
+    if (!byHref("electricity.html")) {
+      var elec = makeLink("electricity.html", "nav_electricity", "बिजुली");
+      var afterRoads = byHref("notices.html#roads") || byHref("notices.html");
+      if (afterRoads && afterRoads.nextSibling) inner.insertBefore(elec, afterRoads.nextSibling);
+      else inner.appendChild(elec);
     }
     if (!byHref("markets.html")) {
       var markets = makeLink("markets.html", "nav_markets", "पुँजी बजार");
