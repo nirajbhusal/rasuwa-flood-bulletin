@@ -6,6 +6,10 @@
   var map = null;
   var markers = {};
   var activeId = "";
+  var activeFlow = "";
+  var flowPinned = false;
+  var flowIndex = {};
+  var flowBound = false;
   var filterProv = "all";
   var filterDc = "all";
   var DIG = "०१२३४५६७८९";
@@ -175,11 +179,58 @@
     if (!key) return value;
     return t(key, value);
   }
-  function colorFor(type) {
-    if (type === "hydropower_plant") return { color: "#c41e3a", fill: "#c41e3a" };
-    if (type === "substation") return { color: "#334155", fill: "#334155" };
-    if (type === "solar_plant") return { color: "#b45309", fill: "#d97706" };
-    return { color: "#64748b", fill: "#64748b" };
+  function assetById(id) {
+    var items = (DATA && DATA.damaged_assets && DATA.damaged_assets.items) || [];
+    for (var i = 0; i < items.length; i++) if (items[i].id === id) return items[i];
+    return null;
+  }
+  function stmtById(id) {
+    var items = (DATA && DATA.statements && DATA.statements.items) || [];
+    for (var i = 0; i < items.length; i++) if (items[i].id === id) return items[i];
+    return null;
+  }
+  function fmtNum(n) {
+    if (n == null || n === "") return "";
+    return en() ? String(n) : dig(n);
+  }
+  function neaSrc(iso) {
+    var when = fmtDate(iso, false);
+    var who = t("elec_src_short", en() ? "NEA" : "प्राधिकरण");
+    return when ? (who + " · " + when) : who;
+  }
+  function toneFor(item) {
+    var s = ((item && item.status_en) || "").toLowerCase();
+    if (/damaged|swept/.test(s)) return "bad";
+    return "block";
+  }
+  function chipFor(item) {
+    var s = ((item && item.status_en) || "").toLowerCase();
+    if (/damaged|swept/.test(s)) return { tone: "bad", key: "elec_chip_damaged", fb: en() ? "Damaged" : "क्षति" };
+    if (/blocked/.test(s)) return { tone: "block", key: "elec_chip_blocked", fb: en() ? "Blocked" : "अवरुद्ध" };
+    if (/shut|affect/.test(s)) return { tone: "block", key: "elec_chip_affected", fb: en() ? "Affected" : "अवरुद्ध" };
+    return { tone: "block", key: "elec_chip_disrupted", fb: en() ? "Disrupted" : "अवरुद्ध" };
+  }
+  function iconKind(type) {
+    if (type === "substation") return "tower";
+    if (type === "solar_plant") return "sun";
+    if (type === "transmission_line") return "line";
+    return "bolt";
+  }
+  function htmlIcon(kind) {
+    var paths = {
+      bolt: '<path fill="currentColor" d="M13 2 4.2 13.2h6.2L9.2 22 19.8 10.2H13.2z"/>',
+      tower: '<path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" d="M12 2 4 22h4l4-10 4 10h4L12 2zM8 14h8"/>',
+      plug: '<path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M8 3v6M16 3v6M7 9h10v3a5 5 0 0 1-10 0V9zM12 17v4"/>',
+      sun: '<circle cx="12" cy="12" r="3.2" fill="currentColor"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6"/>',
+      line: '<path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M3 17 8 8l5 7 3-4 5 6"/>',
+      link: '<path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M10 13a5 5 0 0 0 7.2.5l2-2a5 5 0 0 0-7.1-7.1L10.6 6M14 11a5 5 0 0 0-7.2-.5l-2 2a5 5 0 0 0 7.1 7.1L13.4 18"/>'
+    };
+    return '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">' + (paths[kind] || paths.bolt) + "</svg>";
+  }
+  function fillTpl(str, map) {
+    return String(str || "").replace(/\{(\w+)\}/g, function (_, k) {
+      return map[k] == null ? "" : String(map[k]);
+    });
   }
   function setChecked() {
     if (!DATA) return;
@@ -389,27 +440,31 @@
     host.appendChild(list);
   }
 
-  function markerStyle(type, on) {
-    var c = colorFor(type);
-    return {
-      radius: on ? 9 : 6,
-      color: c.color,
-      weight: on ? 2.5 : 1.25,
-      fillColor: c.fill,
-      fillOpacity: on ? 1 : 0.92
-    };
-  }
-  function highlight(id, pan) {
-    activeId = id || "";
+  function syncMarkers() {
     Object.keys(markers).forEach(function (key) {
       var m = markers[key];
-      if (m && m.setStyle) m.setStyle(markerStyle(m.__type, key === activeId));
-      if (key === activeId && m && m.bringToFront) m.bringToFront();
+      var node = m && m.getElement && m.getElement();
+      if (!node) return;
+      var ico = node.querySelector(".elec-mico");
+      if (ico) ico.classList.toggle("is-on", key === activeId);
+      if (key === activeId && m.bringToFront) m.bringToFront();
     });
+  }
+  function markFlow() {
+    document.querySelectorAll("#elec-flow [data-flow]").forEach(function (node) {
+      var card = node.getAttribute("data-elec-card") || "";
+      var id = node.getAttribute("data-flow") || "";
+      node.classList.toggle("is-on", (!!card && card === activeId) || id === activeFlow);
+    });
+  }
+  function highlight(id, pan, scroll) {
+    activeId = id || "";
+    syncMarkers();
+    markFlow();
     document.querySelectorAll(".elec-asset").forEach(function (node) {
       var on = node.getAttribute("data-id") === activeId;
       node.classList.toggle("is-on", on);
-      if (on && node.scrollIntoView) {
+      if (on && scroll && node.scrollIntoView) {
         var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         try { node.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" }); } catch (e) {}
       }
@@ -494,6 +549,462 @@
     sync();
     return btn;
   }
+  function svgEl(name, attrs) {
+    var node = document.createElementNS("http://www.w3.org/2000/svg", name);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (attrs[k] != null) node.setAttribute(k, String(attrs[k]));
+    });
+    return node;
+  }
+  function addGlyph(parent, kind, cx, cy) {
+    var g = svgEl("g", { transform: "translate(" + (cx - 8) + " " + (cy - 8) + ")", "aria-hidden": "true" });
+    var p;
+    if (kind === "bolt") {
+      p = svgEl("path", { d: "M9.2.6 2.4 8.8h4.2L5.4 15.4 13.8 6.4H9.4L9.2.6z", fill: "currentColor" });
+    } else if (kind === "tower") {
+      p = svgEl("path", { d: "M8 .4 1.2 15.6h3.2L8 5.8l3.6 9.8h3.2L8 .4zM3.4 10.2h9.2", fill: "none", stroke: "currentColor", "stroke-width": "1.4", "stroke-linejoin": "round", "stroke-linecap": "round" });
+    } else if (kind === "plug") {
+      p = svgEl("path", { d: "M5 1.2v4.4M11 1.2v4.4M4 5.6h8v2.2a4 4 0 0 1-8 0V5.6zM8 11.6v3", fill: "none", stroke: "currentColor", "stroke-width": "1.4", "stroke-linecap": "round", "stroke-linejoin": "round" });
+    } else {
+      p = svgEl("path", { d: "M8 1.5a6.5 6.5 0 1 0 .01 0zM8 4.6v6.8M4.6 8h6.8", fill: "none", stroke: "currentColor", "stroke-width": "1.4", "stroke-linecap": "round" });
+    }
+    g.appendChild(p);
+    parent.appendChild(g);
+  }
+  function partFromAsset(id) {
+    var a = assetById(id);
+    if (!a) return null;
+    return { text: tx(a.status_ne, a.status_en), date: a.statement_date, name: tx(a.name_ne, a.name_en) };
+  }
+  function nuwakotBits() {
+    var c = stmtById("nea-2026-09-03");
+    if (!c || !c.figures || c.figures.nuwakot_restored_pct_approx == null) return [];
+    var text = fillTpl(t("elec_st_nuwakot", en() ? "About {pct}% of Nuwakot supply restored" : "नुवाकोटको करिब {pct}% क्षेत्रमा आपूर्ति पुनःस्थापित"), { pct: fmtNum(c.figures.nuwakot_restored_pct_approx) });
+    if (c.figures.transformers_charged_additional != null) {
+      text += en() ? ". " : "। ";
+      text += fillTpl(t("elec_st_xf", en() ? "{xf} more transformers charged" : "थप {xf} ट्रान्सफर्मर चार्ज"), { xf: fmtNum(c.figures.transformers_charged_additional) });
+    }
+    return [{ text: text, date: c.date }];
+  }
+  function remember(spec) {
+    if (spec.needAsset && !assetById(spec.needAsset)) return null;
+    if (spec.needStmt && !stmtById(spec.needStmt)) return null;
+    var parts = [];
+    (spec.partAssets || []).forEach(function (id) {
+      var p = partFromAsset(id);
+      if (p) parts.push(p);
+    });
+    (spec.extra || []).forEach(function (ex) {
+      var st = stmtById(ex.stmt);
+      if (!st) return;
+      var text = ex.text();
+      if (text) parts.push({ text: text, date: st.date });
+    });
+    spec.parts = parts;
+    if (spec.needAsset) {
+      var a = assetById(spec.needAsset);
+      if (!spec.popName) spec.popName = tx(a.name_ne, a.name_en);
+      if (!spec.tone) spec.tone = toneFor(a);
+    }
+    if (!spec.popName) spec.popName = t(spec.shortKey, spec.shortFb || "");
+    flowIndex[spec.id] = spec;
+    return spec;
+  }
+  function placeText(text, nd, extra) {
+    if (nd.place === "above") {
+      text.setAttribute("x", nd.x);
+      text.setAttribute("y", nd.y - 22 - (extra || 0));
+      text.setAttribute("text-anchor", "middle");
+    } else if (nd.place === "left") {
+      text.setAttribute("x", nd.x - 20);
+      text.setAttribute("y", nd.y + 4 + (extra || 0));
+      text.setAttribute("text-anchor", "end");
+    } else if (nd.place === "right") {
+      text.setAttribute("x", nd.x + 20);
+      text.setAttribute("y", nd.y + 4 + (extra || 0));
+      text.setAttribute("text-anchor", "start");
+    } else {
+      text.setAttribute("x", nd.x);
+      text.setAttribute("y", nd.y + 28 + (extra || 0));
+      text.setAttribute("text-anchor", "middle");
+    }
+  }
+  function drawNode(nd) {
+    var g = svgEl("g", {
+      class: "elec-node is-" + nd.tone,
+      tabindex: "0",
+      role: "button",
+      "data-flow": nd.id,
+      "data-elec-card": nd.card || ""
+    });
+    var name = t(nd.shortKey, nd.shortFb || "");
+    var aria = name;
+    if (nd.parts && nd.parts[0] && nd.parts[0].text) aria += ". " + nd.parts[0].text;
+    g.setAttribute("aria-label", aria);
+    if (nd.tone === "bad") g.appendChild(svgEl("circle", { class: "elec-halo", cx: nd.x, cy: nd.y, r: 16 }));
+    g.appendChild(svgEl("circle", { class: "elec-hit", cx: nd.x, cy: nd.y, r: 20 }));
+    g.appendChild(svgEl("circle", { class: "elec-core", cx: nd.x, cy: nd.y, r: 14 }));
+    addGlyph(g, nd.kind, nd.x, nd.y);
+    var text = svgEl("text", { class: "elec-lab" });
+    placeText(text, nd, 0);
+    text.textContent = name;
+    g.appendChild(text);
+    if (nd.sub) {
+      var sub = svgEl("text", { class: "elec-sublab" });
+      placeText(sub, nd, 14);
+      sub.textContent = nd.sub;
+      g.appendChild(sub);
+    }
+    return g;
+  }
+  function drawLine(ln) {
+    var g = svgEl("g", {
+      class: "elec-flow-line is-" + ln.tone,
+      tabindex: "0",
+      role: "button",
+      "data-flow": ln.id,
+      "data-elec-card": ln.card || ""
+    });
+    g.setAttribute("aria-label", ln.popName || ln.label || "");
+    (ln.d || []).forEach(function (d) {
+      g.appendChild(svgEl("path", { class: "elec-line-hit", d: d }));
+      g.appendChild(svgEl("path", { class: "elec-line-vis", d: d }));
+    });
+    if (ln.label) {
+      var lab = svgEl("text", { class: "elec-kv is-" + ln.tone, x: ln.lx, y: ln.ly, "text-anchor": "middle" });
+      lab.textContent = ln.label;
+      g.appendChild(lab);
+    }
+    return g;
+  }
+  function hideFlowPop() {
+    var pop = document.querySelector("#elec-flow .elec-pop");
+    if (pop) pop.hidden = true;
+  }
+  function showFlowPop(id, anchor) {
+    var spec = flowIndex[id];
+    var pop = document.querySelector("#elec-flow .elec-pop");
+    if (!spec || !pop || !anchor) return;
+    clear(pop);
+    var name = el("p", "elec-pop-name");
+    name.textContent = spec.popName || "";
+    pop.appendChild(name);
+    (spec.parts || []).forEach(function (p) {
+      var st = el("p", "elec-pop-status");
+      st.textContent = p.text;
+      pop.appendChild(st);
+      if (p.date) {
+        var dt = el("p", "elec-pop-date");
+        dt.textContent = neaSrc(p.date);
+        pop.appendChild(dt);
+      }
+    });
+    pop.hidden = false;
+    var host = pop.parentElement;
+    var hb = host.getBoundingClientRect();
+    var rb = anchor.getBoundingClientRect();
+    var popW = Math.min(280, Math.max(160, hb.width - 16));
+    pop.style.width = popW + "px";
+    var left = rb.left - hb.left + rb.width / 2 - popW / 2;
+    if (left < 8) left = 8;
+    if (left > hb.width - popW - 8) left = Math.max(8, hb.width - popW - 8);
+    var top = rb.bottom - hb.top + 8;
+    pop.style.left = left + "px";
+    pop.style.top = top + "px";
+    var ph = pop.offsetHeight;
+    if (top + ph > hb.height - 8) pop.style.top = Math.max(8, rb.top - hb.top - ph - 8) + "px";
+  }
+  function bindFlow() {
+    var host = document.getElementById("elec-flow");
+    if (!host || flowBound) return;
+    flowBound = true;
+    var popTimer = 0;
+    function cancelHide() { window.clearTimeout(popTimer); }
+    function scheduleHide() {
+      window.clearTimeout(popTimer);
+      popTimer = window.setTimeout(function () {
+        if (flowPinned) return;
+        activeFlow = "";
+        highlight("", false, false);
+        hideFlowPop();
+      }, 200);
+    }
+    host.addEventListener("click", function (ev) {
+      if (ev.target.closest && ev.target.closest(".elec-pop")) return;
+      var node = ev.target.closest && ev.target.closest("[data-flow]");
+      if (!node) {
+        flowPinned = false;
+        activeFlow = "";
+        hideFlowPop();
+        markFlow();
+        return;
+      }
+      var id = node.getAttribute("data-flow");
+      var card = node.getAttribute("data-elec-card") || "";
+      if (flowPinned && activeFlow === id) {
+        flowPinned = false;
+        activeFlow = "";
+        hideFlowPop();
+        markFlow();
+        return;
+      }
+      flowPinned = true;
+      activeFlow = id;
+      highlight(card, false, false);
+      markFlow();
+      showFlowPop(id, node);
+    });
+    host.addEventListener("pointerover", function (ev) {
+      if (ev.pointerType && ev.pointerType !== "mouse") return;
+      if (ev.target.closest && ev.target.closest(".elec-pop")) { cancelHide(); return; }
+      var node = ev.target.closest && ev.target.closest("[data-flow]");
+      if (!node) return;
+      if (flowPinned) return;
+      cancelHide();
+      var card = node.getAttribute("data-elec-card") || "";
+      activeFlow = node.getAttribute("data-flow");
+      highlight(card, false, false);
+      markFlow();
+      showFlowPop(activeFlow, node);
+    });
+    host.addEventListener("pointerout", function (ev) {
+      if (flowPinned) return;
+      if (ev.pointerType && ev.pointerType !== "mouse") return;
+      var rel = ev.relatedTarget;
+      if (rel && rel.closest && (rel.closest("#elec-flow [data-flow]") || rel.closest("#elec-flow .elec-pop"))) return;
+      scheduleHide();
+    });
+    host.addEventListener("keydown", function (ev) {
+      if (ev.key !== "Enter" && ev.key !== " ") return;
+      var node = ev.target.closest && ev.target.closest("[data-flow]");
+      if (!node || node !== ev.target) return;
+      ev.preventDefault();
+      node.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key !== "Escape") return;
+      flowPinned = false;
+      activeFlow = "";
+      hideFlowPop();
+      markFlow();
+    });
+  }
+  function flowNodes() {
+    var out = [];
+    function add(spec) {
+      var row = remember(spec);
+      if (row) out.push(row);
+    }
+    add({ id: "rasuwagadhi_hpp", x: 54, y: 78, kind: "bolt", place: "below", card: "rasuwagadhi_hpp", needAsset: "rasuwagadhi_hpp", shortKey: "elec_flow_rasuwa", shortFb: en() ? "Rasuwagadhi" : "रसुवागढी", partAssets: ["rasuwagadhi_hpp"] });
+    add({ id: "chilime_hpp", x: 54, y: 176, kind: "bolt", place: "below", card: "chilime_hpp", needAsset: "chilime_hpp", shortKey: "elec_flow_chilime", shortFb: en() ? "Chilime" : "चिलिमे", partAssets: ["chilime_hpp"] });
+    add({ id: "chilime_220kv_hub", x: 292, y: 176, kind: "tower", place: "below", card: "chilime_220kv_hub", needAsset: "chilime_220kv_hub", shortKey: "elec_flow_chilime_hub", shortFb: en() ? "Chilime Hub" : "चिलिमे हब", partAssets: ["chilime_220kv_hub"] });
+    add({ id: "upper_trishuli_3a", x: 54, y: 274, kind: "bolt", place: "below", card: "upper_trishuli_3a", needAsset: "upper_trishuli_3a", shortKey: "elec_flow_ut3a", shortFb: en() ? "Trishuli 3A" : "त्रिशूली ३ए", partAssets: ["upper_trishuli_3a"] });
+    add({ id: "trishuli_3b_hub", x: 168, y: 372, kind: "tower", place: "above", card: "trishuli_3b_hub", needAsset: "trishuli_3b_hub", shortKey: "elec_flow_3b", shortFb: en() ? "3B Hub" : "३बी हब", partAssets: ["trishuli_3b_hub"] });
+    add({
+      id: "matatirtha", x: 292, y: 372, kind: "grid", tone: "end", place: "below", card: "line_chilime_3b_matatirtha_220",
+      needAsset: "line_chilime_3b_matatirtha_220", shortKey: "elec_flow_matatirtha", shortFb: en() ? "Matatirtha" : "मातातीर्थ",
+      partAssets: ["line_chilime_3b_matatirtha_220"],
+      extra: [{ stmt: "nea-2026-09-17", text: function () { return t("elec_st_direct", en() ? "Direct Chilime Hub–Matatirtha line under study" : "चिलिमे हब–मातातीर्थ सीधा लाइन अध्ययनमा"); } }]
+    });
+    add({ id: "trishuli_hps", x: 54, y: 488, kind: "bolt", place: "below", card: "trishuli_hps", needAsset: "trishuli_hps", shortKey: "elec_flow_trishuli", shortFb: en() ? "Trishuli" : "त्रिशूली", partAssets: ["trishuli_hps"] });
+    add({
+      id: "samundratar", x: 292, y: 456, kind: "grid", tone: "ok", place: "below", card: "line_samundratar_trishuli_132",
+      needAsset: "line_samundratar_trishuli_132", needStmt: "nea-2026-08-27",
+      shortKey: "elec_flow_samundratar", shortFb: en() ? "Samundratar" : "समुन्द्रटार",
+      partAssets: ["line_samundratar_trishuli_132"],
+      extra: [{ stmt: "nea-2026-08-27", text: function () { return t("elec_st_samun", en() ? "Power restored through an alternative line from Sindhupalchok" : "सिन्धुपाल्चोकतर्फको वैकल्पिक लाइनबाट बिजुली सुचारु"); } }]
+    });
+    add({
+      id: "balaju", x: 292, y: 548, kind: "grid", tone: "end", place: "below", card: "line_trishuli_balaju_66",
+      needAsset: "line_trishuli_balaju_66", shortKey: "elec_flow_balaju", shortFb: en() ? "Balaju" : "बालाजु",
+      partAssets: ["line_trishuli_balaju_66"],
+      extra: [{ stmt: "nea-2026-08-27", text: function () { return t("elec_st_balaju11", en() ? "Balaju–Trishuli 66 kV line being charged at 11 kV" : "बालाजु–त्रिशूली ६६ केभी लाइन ११ केभीमा चार्ज गर्ने काम भइरहेको"); } }]
+    });
+    add({ id: "devighat_hps", x: 54, y: 646, kind: "bolt", place: "below", card: "devighat_hps", needAsset: "devighat_hps", shortKey: "elec_flow_devighat", shortFb: en() ? "Devighat" : "देवीघाट", partAssets: ["devighat_hps"] });
+    add({ id: "devighat_substation", x: 168, y: 734, kind: "tower", place: "left", card: "devighat_substation", needAsset: "devighat_substation", shortKey: "elec_flow_dev_ss", shortFb: en() ? "Devighat SS" : "देवीघाट स.स्टे.", partAssets: ["devighat_substation"] });
+    add({
+      id: "chapali", x: 292, y: 734, kind: "plug", tone: "ok", place: "below", card: "",
+      needStmt: "nea-2026-09-03", shortKey: "elec_flow_chapali", shortFb: en() ? "Chapali" : "चपली",
+      extra: [{ stmt: "nea-2026-09-03", text: function () { return t("elec_st_chapali", en() ? "Chapali–Devighat circuits charged" : "चपली–देवीघाट सर्किट चार्ज"); } }, { stmt: "nea-2026-09-03", text: function () { var bits = nuwakotBits(); return bits[0] ? bits[0].text : ""; } }]
+    });
+    var nw = stmtById("nea-2026-09-03");
+    var nwSub = "";
+    if (nw && nw.figures && nw.figures.nuwakot_restored_pct_approx != null) {
+      nwSub = (en() ? "~" : (t("elec_tile_about", "करिब") + " ")) + fmtNum(nw.figures.nuwakot_restored_pct_approx) + "%";
+    }
+    add({
+      id: "nuwakot", x: 168, y: 824, kind: "plug", tone: "ok", place: "below", card: "", sub: nwSub,
+      needStmt: "nea-2026-09-03", shortKey: "elec_flow_nuwakot", shortFb: en() ? "Nuwakot" : "नुवाकोट",
+      extra: [{ stmt: "nea-2026-09-03", text: function () { var bits = nuwakotBits(); return bits[0] ? bits[0].text : ""; } }]
+    });
+    return out;
+  }
+  function flowLines() {
+    var out = [];
+    function add(spec) {
+      var row = remember(spec);
+      if (row) out.push(row);
+    }
+    var kv66 = t("elec_flow_kv66", en() ? "66 kV" : "६६ केभी");
+    add({
+      id: "line_chilime_trishuli_66", card: "line_chilime_trishuli_66", needAsset: "line_chilime_trishuli_66",
+      d: ["M118 200 L118 310", "M118 358 L118 470"], label: kv66, lx: 118, ly: 336,
+      partAssets: ["line_chilime_trishuli_66"]
+    });
+    add({
+      id: "line_chilime_3b_matatirtha_220", card: "line_chilime_3b_matatirtha_220", needAsset: "line_chilime_3b_matatirtha_220",
+      d: ["M292 214 L248 236 L248 340 L168 356", "M186 372 L270 372"],
+      label: t("elec_flow_kv220", en() ? "220 kV" : "२२० केभी"), lx: 200, ly: 292,
+      partAssets: ["line_chilime_3b_matatirtha_220"]
+    });
+    add({
+      id: "line_samundratar_trishuli_132", card: "line_samundratar_trishuli_132", needAsset: "line_samundratar_trishuli_132",
+      d: ["M270 456 L190 468", "M140 478 L76 488"],
+      label: t("elec_flow_kv132", en() ? "132 kV" : "१३२ केभी"), lx: 214, ly: 448,
+      partAssets: ["line_samundratar_trishuli_132"]
+    });
+    add({
+      id: "line_trishuli_balaju_66", card: "line_trishuli_balaju_66", needAsset: "line_trishuli_balaju_66",
+      d: ["M270 548 L186 524", "M130 506 L76 494"],
+      label: kv66, lx: 214, ly: 556,
+      partAssets: ["line_trishuli_balaju_66"]
+    });
+    add({
+      id: "line_chapali_devighat", card: "", tone: "ok", needStmt: "nea-2026-09-03",
+      shortKey: "elec_flow_chapali_line", shortFb: en() ? "Chapali–Devighat" : "चपली–देवीघाट",
+      d: ["M270 734 L190 734", "M168 756 L168 804"],
+      label: t("elec_flow_chapali_line", en() ? "Chapali–Devighat" : "चपली–देवीघाट"), lx: 230, ly: 708,
+      extra: [{ stmt: "nea-2026-09-03", text: function () { return t("elec_st_chapali", en() ? "Chapali–Devighat circuits charged" : "चपली–देवीघाट सर्किट चार्ज"); } }]
+    });
+    return out;
+  }
+  function paintKpis() {
+    var host = document.getElementById("elec-kpis");
+    if (!host || !DATA) return;
+    clear(host);
+    var a = stmtById("nea-2026-08-26");
+    var b = stmtById("nea-2026-09-17");
+    var c = stmtById("nea-2026-09-03");
+    var d = stmtById("nea-2026-09-22");
+    var dev = assetById("devighat_substation");
+    var mw = t("elec_tile_mw", en() ? "MW" : "मेगावाट");
+    function card(icon, tone, num, sub, iso) {
+      var node = el("article", "elec-kpi");
+      var ico = el("span", "elec-kpi-ico is-" + tone);
+      ico.innerHTML = htmlIcon(icon);
+      node.appendChild(ico);
+      var n = el("p", "elec-kpi-n");
+      n.textContent = num;
+      node.appendChild(n);
+      var s = el("p", "elec-kpi-sub");
+      s.textContent = sub;
+      node.appendChild(s);
+      var src = el("p", "elec-kpi-src");
+      src.textContent = neaSrc(iso);
+      node.appendChild(src);
+      host.appendChild(node);
+    }
+    if (a && a.figures && a.figures.hydro_mw_disrupted != null) {
+      var sub = fmtNum(a.figures.hydro_projects) + " " + t("elec_tile_projects", en() ? "projects" : "आयोजना");
+      if (a.figures.solar_mw_disrupted != null) sub += " · " + fmtNum(a.figures.solar_mw_disrupted) + " " + mw + " " + t("elec_tile_solar", en() ? "solar" : "सौर्य");
+      sub += " " + t("elec_tile_out", en() ? "disrupted" : "अवरुद्ध");
+      card("bolt", "block", fmtNum(a.figures.hydro_mw_disrupted) + " " + mw, sub, a.date);
+    }
+    if (b && b.figures && b.figures.mw_cannot_be_evacuated != null) {
+      card("tower", "bad", fmtNum(b.figures.mw_cannot_be_evacuated) + " " + mw, t("elec_tile_grid", en() ? "cannot reach the grid" : "ग्रिडमा पुग्न सकेन"), b.date);
+    }
+    if (c && c.figures && c.figures.nuwakot_restored_pct_approx != null) {
+      var approx = en() ? "~" : (t("elec_tile_about", "करिब") + " ");
+      card("plug", "ok", approx + fmtNum(c.figures.nuwakot_restored_pct_approx) + "%", t("elec_tile_nuwa", en() ? "of Nuwakot supply restored" : "नुवाकोट आपूर्ति सुचारु"), c.date);
+    }
+    if (d && dev) {
+      card("tower", "bad", t("elec_flow_devighat", en() ? "Devighat" : "देवीघाट"), t("elec_tile_study", en() ? "substation under study" : "सबस्टेसन अध्ययनमा"), d.date);
+    }
+  }
+  function paintFlow() {
+    var host = document.getElementById("elec-flow");
+    if (!host || !DATA) return;
+    clear(host);
+    flowIndex = {};
+    flowPinned = false;
+    activeFlow = "";
+    bindFlow();
+    var svg = svgEl("svg", { class: "elec-flow-svg", viewBox: "0 0 360 900" });
+    svg.setAttribute("lang", en() ? "en" : "ne");
+    var riverD = "M168 44 C180 120 154 180 168 250 C184 330 150 370 168 450 C186 530 148 600 168 680 C182 750 154 800 168 860";
+    svg.appendChild(svgEl("path", { class: "elec-river-glow", d: riverD, fill: "none" }));
+    svg.appendChild(svgEl("path", { class: "elec-river", d: riverD, fill: "none" }));
+    var river = svgEl("text", { class: "elec-river-lab", x: 180, y: 24, "text-anchor": "middle" });
+    river.textContent = t("elec_flow_river", en() ? "Bhotekoshi–Trishuli" : "भोटेकोशी–त्रिशूली");
+    svg.appendChild(river);
+    var linesG = svgEl("g", { class: "elec-lines" });
+    flowLines().forEach(function (ln) { linesG.appendChild(drawLine(ln)); });
+    svg.appendChild(linesG);
+    var nodesG = svgEl("g", { class: "elec-nodes" });
+    flowNodes().forEach(function (nd) { nodesG.appendChild(drawNode(nd)); });
+    svg.appendChild(nodesG);
+    host.appendChild(svg);
+    var legend = el("ul", "elec-legend");
+    [
+      ["bad", "elec_leg_damaged", en() ? "Damaged" : "क्षति"],
+      ["block", "elec_leg_blocked", en() ? "Line blocked" : "लाइन अवरुद्ध"],
+      ["ok", "elec_leg_restored", en() ? "Restored route" : "वैकल्पिक मार्ग"]
+    ].forEach(function (row) {
+      var li = el("li");
+      var sw = el("i", "is-" + row[0]);
+      li.appendChild(sw);
+      var s = el("span");
+      s.textContent = t(row[1], row[2]);
+      li.appendChild(s);
+      legend.appendChild(li);
+    });
+    host.appendChild(legend);
+    var pop = el("div", "elec-pop");
+    pop.hidden = true;
+    host.appendChild(pop);
+    markFlow();
+  }
+  function paintHomeViz() {
+    var host = document.getElementById("elec-home-viz");
+    if (!host || !DATA) return;
+    clear(host);
+    var a = stmtById("nea-2026-08-26");
+    var b = stmtById("nea-2026-09-17");
+    var c = stmtById("nea-2026-09-03");
+    var d = stmtById("nea-2026-09-22");
+    var figs = el("div", "elec-home-figs");
+    function fig(num, label) {
+      var p = el("p", "elec-home-fig");
+      var strong = el("b");
+      strong.textContent = num;
+      p.appendChild(strong);
+      var s = el("span");
+      s.textContent = label;
+      p.appendChild(s);
+      figs.appendChild(p);
+    }
+    var mw = t("elec_tile_mw", en() ? "MW" : "मेगावाट");
+    if (a && a.figures && a.figures.hydro_mw_disrupted != null) fig(fmtNum(a.figures.hydro_mw_disrupted) + " " + mw, t("elec_home_hydro", en() ? "hydro disrupted" : "जलविद्युत अवरुद्ध"));
+    if (b && b.figures && b.figures.mw_cannot_be_evacuated != null) fig(fmtNum(b.figures.mw_cannot_be_evacuated) + " " + mw, t("elec_home_grid", en() ? "cannot reach the grid" : "ग्रिडमा पुगेन"));
+    if (c && c.figures && c.figures.nuwakot_restored_pct_approx != null) {
+      var approx = en() ? "~" : (t("elec_tile_about", "करिब") + " ");
+      fig(approx + fmtNum(c.figures.nuwakot_restored_pct_approx) + "%", t("elec_home_nuwa", en() ? "Nuwakot restored" : "नुवाकोट सुचारु"));
+    }
+    if (d && assetById("devighat_substation")) fig(t("elec_flow_devighat", en() ? "Devighat" : "देवीघाट"), t("elec_home_study", en() ? "under study" : "अध्ययन"));
+    host.appendChild(figs);
+    var spark = svgEl("svg", { class: "elec-home-spark", viewBox: "0 0 56 96", "aria-hidden": "true", focusable: "false" });
+    spark.appendChild(svgEl("path", { class: "elec-river", d: "M22 2 C28 18 16 34 22 50 C28 66 16 78 22 94", fill: "none" }));
+    ["rasuwagadhi_hpp", "chilime_hpp", "upper_trishuli_3a", "trishuli_hps", "devighat_hps"].forEach(function (id, i) {
+      if (!assetById(id)) return;
+      spark.appendChild(svgEl("circle", { class: "is-bad", cx: 16, cy: 14 + i * 14, r: 3.4 }));
+    });
+    if (assetById("trishuli_3b_hub")) spark.appendChild(svgEl("circle", { class: "is-bad", cx: 40, cy: 48, r: 3.4 }));
+    if (stmtById("nea-2026-09-03")) {
+      spark.appendChild(svgEl("path", { class: "elec-home-ok", d: "M22 72 L22 88", fill: "none" }));
+      spark.appendChild(svgEl("circle", { class: "is-ok", cx: 22, cy: 90, r: 3.5 }));
+    }
+    host.appendChild(spark);
+  }
   function paintMap(items) {
     var box = document.getElementById("elec-map");
     var wrap = document.getElementById("elec-mapwrap");
@@ -510,7 +1021,8 @@
       attributionControl: false,
       tap: true
     });
-    window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    window.L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png", {
+      subdomains: "abcd",
       maxZoom: 16,
       attribution: ""
     }).addTo(map);
@@ -518,9 +1030,27 @@
     points.forEach(function (item) {
       var ll = [item.lat, item.lon];
       bounds.push(ll);
-      var marker = window.L.circleMarker(ll, markerStyle(item.type, false));
-      marker.__type = item.type;
-      marker.on("click", function () { highlight(item.id, false); });
+      var icon = window.L.divIcon({
+        className: "elec-mwrap",
+        html: '<span class="elec-mico is-' + toneFor(item) + '">' + htmlIcon(iconKind(item.type)) + "</span>",
+        iconSize: [36, 36],
+        iconAnchor: [18, 18]
+      });
+      var marker = window.L.marker(ll, { icon: icon, keyboard: true, alt: "" });
+      marker.__id = item.id;
+      marker.on("add", function () {
+        var node = marker.getElement();
+        if (!node) return;
+        node.setAttribute("role", "button");
+        node.setAttribute("aria-label", tx(item.name_ne, item.name_en));
+        node.removeAttribute("title");
+      });
+      marker.on("click", function () {
+        activeFlow = "";
+        flowPinned = false;
+        hideFlowPop();
+        highlight(item.id, false, true);
+      });
       marker.addTo(map);
       markers[item.id] = marker;
     });
@@ -557,30 +1087,42 @@
     clear(host);
     items.forEach(function (item) {
       var mapped = item.lat != null && item.lon != null;
+      var chip = chipFor(item);
       var btn = el("button", "elec-asset");
       btn.type = "button";
       btn.setAttribute("data-id", item.id || "");
-      var dot = el("i", "elec-dot");
-      dot.style.background = colorFor(item.type).fill;
-      if (!mapped) dot.classList.add("is-off");
-      btn.appendChild(dot);
+      var ico = el("span", "elec-type-ico is-" + chip.tone);
+      ico.innerHTML = htmlIcon(iconKind(item.type));
+      btn.appendChild(ico);
       var body = el("span", "elec-asset-body");
+      var head = el("span", "elec-asset-head");
       var name = el("strong");
       name.textContent = tx(item.name_ne, item.name_en);
-      body.appendChild(name);
+      head.appendChild(name);
+      var chipEl = el("span", "elec-chip is-" + chip.tone);
+      chipEl.textContent = t(chip.key, chip.fb);
+      head.appendChild(chipEl);
+      body.appendChild(head);
       var status = el("span", "elec-asset-status");
       status.textContent = tx(item.status_ne, item.status_en);
       body.appendChild(status);
       var when = el("span", "elec-asset-date");
-      when.textContent = fmtDate(item.statement_date, false);
+      when.textContent = neaSrc(item.statement_date);
       body.appendChild(when);
       btn.appendChild(body);
-      btn.addEventListener("click", function () { highlight(item.id, mapped); });
+      btn.addEventListener("click", function () {
+        activeFlow = "";
+        flowPinned = false;
+        hideFlowPop();
+        highlight(item.id, mapped, false);
+      });
       var row = el("div", "elec-asset-row");
       row.appendChild(btn);
       if (item.coord_source) {
-        var osm = extLink(item.coord_source, "OSM");
+        var osm = extLink(item.coord_source, "");
         osm.className = "elec-osm";
+        osm.setAttribute("aria-label", "OpenStreetMap");
+        osm.innerHTML = htmlIcon("link");
         row.appendChild(osm);
       }
       host.appendChild(row);
@@ -656,16 +1198,20 @@
     if (!document.getElementById("elec-shutdowns")) return;
     paintShutdowns();
     paintStatements();
+    if (document.getElementById("elec-kpis")) paintKpis();
+    if (document.getElementById("elec-flow")) paintFlow();
     if (document.getElementById("elec-assets")) paintAssets();
     if (document.getElementById("elec-helplines")) paintHelplines();
     paintCheckedOnly();
   }
 
   function paintHome() {
+    if (!DATA) return;
+    paintHomeViz();
     var lead = document.getElementById("elec-home-lead");
     var sum = document.getElementById("elec-home-sum");
     var tel = document.getElementById("elec-home-tel");
-    if (!DATA || (!lead && !sum && !tel)) return;
+    if (!lead && !sum && !tel) return;
     var rows = (DATA.planned_shutdowns && DATA.planned_shutdowns.rows) || [];
     var n = rows.filter(live).length;
     if (lead) {
