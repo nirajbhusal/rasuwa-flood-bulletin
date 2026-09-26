@@ -1,10 +1,10 @@
 {
   "updated_at": "2026-09-24",
   "maintain": {
-    "ne": "FAQ बुलेटिन अपडेटसँगै राखिन्छ। मौसम, सडक, उद्धार, नाम, कोष, हेल्पलाइन र एलपीजीका अंक यहाँ लेखिँदैनन् — सोध्नुहोस् प्यानलले ताजा फाइल पढ्छ।",
-    "en": "This FAQ is maintained with bulletin updates. Weather, road, rescue, name, fund, helpline, and LPG figures are not stored here — Ask reads the latest files."
+    "ne": "FAQ बुलेटिन अपडेटसँगै राखिन्छ। मौसम, सडक, उद्धार, नाम, कोष, हेल्पलाइन, एलपीजी र बिजुलीका अंक यहाँ लेखिँदैनन् — सोध्नुहोस् प्यानलले ताजा फाइल पढ्छ।",
+    "en": "This FAQ is maintained with bulletin updates. Weather, road, rescue, name, fund, helpline, LPG, and electricity figures are not stored here — Ask reads the latest files."
   },
-  "chip_order": ["weather", "roads", "rescue", "names", "fund", "helpline", "lpg", "markets", "about"],
+  "chip_order": ["weather", "roads", "rescue", "names", "fund", "helpline", "electricity", "lpg", "markets", "about"],
   "topics": {
     "weather": {
       "label": {"ne": "आजको मौसम", "en": "Today’s weather"},
@@ -58,6 +58,16 @@
         {"id": "hl-1234", "route": "helpline", "q": {"ne": "उद्धार नम्बर?", "en": "Rescue number?"}}
       ]
     },
+    "electricity": {
+      "label": {"ne": "बिजुली", "en": "Electricity"},
+      "followups": ["elec-when", "elec-light", "elec-plant"],
+      "faq": [
+        {"id": "elec-when", "featured": true, "route": "electricity", "q": {"ne": "बिजुली कहिले जान्छ?", "en": "When is the power cut?"}},
+        {"id": "elec-light", "route": "electricity", "q": {"ne": "बिजुली छैन, कहाँ फोन गर्ने?", "en": "No light — which number?"}},
+        {"id": "elec-plant", "route": "electricity", "q": {"ne": "कुन जलविद्युत आयोजनामा क्षति भयो?", "en": "Which hydropower plants were damaged?"}},
+        {"id": "elec-load", "route": "electricity", "q": {"ne": "हिउँदमा लोडसेडिङ हुन्छ?", "en": "Will there be load-shedding?"}}
+      ]
+    },
     "lpg": {
       "label": {"ne": "एलपीजी", "en": "LPG"},
       "followups": ["roads", "fund", "hl"],
@@ -99,6 +109,9 @@
     "names": {"route": "names", "q": {"ne": "नाम खोज?", "en": "Search a name?"}},
     "fund": {"route": "fund", "q": {"ne": "राहत कोष?", "en": "Relief fund?"}},
     "lpg": {"route": "lpg", "q": {"ne": "एलपीजी?", "en": "LPG?"}},
+    "elec-when": {"route": "electricity", "q": {"ne": "बिजुली कहिले जान्छ?", "en": "Power cut schedule?"}},
+    "elec-light": {"route": "electricity", "q": {"ne": "बत्ती छैन?", "en": "No light number?"}},
+    "elec-plant": {"route": "electricity", "q": {"ne": "क्षतिग्रस्त जलविद्युत?", "en": "Damaged hydropower?"}},
     "markets": {"route": "markets", "q": {"ne": "पुँजी बजार?", "en": "Capital markets?"}},
     "about": {"route": "about", "q": {"ne": "बारेमा?", "en": "About?"}}
   }

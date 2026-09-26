@@ -15,6 +15,7 @@
     "rescue_missing", "rescue_dead", "rescue_rescued", "rescue_overview", "rescue_source",
     "fund", "donate", "fund_source",
     "helpline", "names", "lpg", "lpg_source",
+    "electricity_schedule", "electricity_nolight", "electricity_plants", "electricity_load",
     "cause", "gallery", "about", "markets",
     "flood_rivers", "flood_flash", "flood_place", "flood_trishuli",
     "fallback"
@@ -134,6 +135,7 @@
     fund: "fund",
     helpline: "helpline",
     lpg: "lpg",
+    electricity: "electricity_schedule",
     markets: "markets",
     about: "about",
     gallery: "gallery",
@@ -356,6 +358,11 @@
       { ne: "आजको मौसम के छ?", en: "What is today’s weather?" },
       { ne: "नाम कसरी खोज्ने?", en: "How do I search a name?" }
     ]),
+    electricity: follow([
+      { ne: "बिजुली कहिले जान्छ?", en: "When is the power cut?" },
+      { ne: "बत्ती छैन?", en: "No light number?" },
+      { ne: "क्षतिग्रस्त जलविद्युत?", en: "Damaged hydropower?" }
+    ]),
     names: follow([
       { ne: "कति जना बेपत्ता छन्?", en: "How many people are missing?" },
       { ne: "हेल्पलाइन नम्बर?", en: "Helpline numbers?" },
@@ -517,6 +524,19 @@
     var nh = compact.match(/nh0*(\d{1,3})/);
     if (nh) spec.roadKind = "NH" + String(parseInt(nh[1], 10));
 
+    var elec = hit(q, [
+      "bijuli", "bijulee", "electricity", "power cut", "powercut", "load shedding", "loadshedding",
+      "hydropower", "hydro power", "hydroelectric", "no light", "nolight", "1150",
+      "बिजुली", "विद्युत", "विद्युत्", "लोडसेडिङ", "लोडसेडिंग", "जलविद्युत", "जलविद्युत्",
+      "बत्ती छैन", "बत्ति छैन", "कटौती"
+    ]);
+    if (elec) {
+      if (hit(q, ["load shedding", "loadshedding", "लोडसेडिङ", "लोडसेडिंग", "लोड शेडिङ"])) spec.intent = "electricity_load";
+      else if (hit(q, ["hydropower", "hydro power", "hydroelectric", "जलविद्युत", "जलविद्युत्", "power plant", "क्षतिग्रस्त"])) spec.intent = "electricity_plants";
+      else if (hit(q, ["no light", "nolight", "बत्ती छैन", "बत्ति छैन", "बिजुली छैन", "फोन", "phone", "1150", "hotline", "नम्बर", "नंबर"])) spec.intent = "electricity_nolight";
+      else spec.intent = "electricity_schedule";
+      return finishSpec(spec);
+    }
     var causeStrong = hit(q, ["avalanche", "himpahiro", "हिमपहिरो", "langtang", "lirung", "लिरुङ", "लाङटाङ", "lhende", "लेन्दे", "glof", "हिमताल", "caused", "किन आयो", "kasari aayo", "कसरी आयो"]);
     if ((causeStrong || (cause && !road && !weather && !miss && !dead)) && !fund && !lpg) {
       spec.intent = "cause";
@@ -707,6 +727,7 @@
     else if (intent.indexOf("rescue") === 0) family = "rescue";
     else if (intent === "fund" || intent === "fund_source" || intent === "donate") family = intent === "donate" ? "donate" : "fund";
     else if (intent === "helpline") family = "helpline";
+    else if (intent.indexOf("electricity") === 0) family = "electricity";
     else if (intent === "names") family = "names";
     else if (intent.indexOf("lpg") === 0) family = "lpg";
     else if (intent === "cause") family = "cause";
@@ -2043,6 +2064,123 @@
     return pack(lang, text, src, href, { followups: follow });
   }
 
+  var ELEC_MO_NE = ["बैशाख", "जेठ", "असार", "साउन", "भदौ", "असोज", "कात्तिक", "मंसिर", "पुस", "माघ", "फागुन", "चैत"];
+  var ELEC_MO_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var ELEC_BS = {
+    2083: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30],
+    2084: [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31]
+  };
+  function elecBS(y, m, d) {
+    var delta = Math.round((Date.UTC(y, m - 1, d) - Date.UTC(2026, 3, 14)) / 86400000);
+    var year = 2083;
+    var month = 0;
+    if (delta < 0) return null;
+    while (true) {
+      var len = ELEC_BS[year];
+      if (!len) return null;
+      if (delta < len[month]) break;
+      delta -= len[month];
+      month += 1;
+      if (month > 11) { month = 0; year += 1; }
+    }
+    return { year: year, month: month, day: delta + 1 };
+  }
+  function elecWhen(iso, lang) {
+    var m = String(iso || "").match(/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/);
+    if (!m) return "";
+    var y = +m[1];
+    var mo = +m[2];
+    var d = +m[3];
+    var time = m[4] != null ? (m[4] + ":" + m[5]) : "";
+    if (lang === "en") {
+      var enDate = d + " " + ELEC_MO_EN[mo - 1] + " " + y;
+      return time ? enDate + " " + time : enDate;
+    }
+    var bs = elecBS(y, mo, d);
+    var neDate = bs ? (digits(bs.day, "ne") + " " + ELEC_MO_NE[bs.month] + " " + digits(bs.year, "ne")) : digits(d + " " + mo + " " + y, "ne");
+    return time ? neDate + " " + digits(time, "ne") : neDate;
+  }
+  function elecMissing(lang) {
+    return lang === "en"
+      ? "The NEA electricity file is not loaded."
+      : "प्राधिकरणको बिजुली फाइल अहिले लोड भएको छैन।";
+  }
+  function answerElectricity(spec, ctx) {
+    var lang = ctx.lang === "en" ? "en" : "ne";
+    var data = ctx.nea;
+    var href = "electricity.html";
+    var fu = FOLLOW.electricity;
+    if (!data) return pack(lang, elecMissing(lang), "", href, { followups: fu });
+    var srcName = (data.source_line && (lang === "en" ? data.source_line.en : data.source_line.ne)) || (lang === "en" ? "Source: Nepal Electricity Authority (NEA)" : "स्रोत: नेपाल विद्युत प्राधिकरण (NEA)");
+    srcName = srcName.replace(/^स्रोत:\s*/, "").replace(/^Source:\s*/, "");
+    if (spec.intent === "electricity_load") {
+      var loads = ((data.statements && data.statements.items) || []).filter(function (item) {
+        var bag = (item.summary_en || "") + " " + (item.summary_ne || "");
+        return /load-shedding|load shedding|लोडसेडिङ/i.test(bag);
+      }).sort(function (a, b) { return String(b.date).localeCompare(String(a.date)); });
+      var load = loads[0];
+      if (!load) return pack(lang, elecMissing(lang), "", href + "#statements", { followups: fu });
+      var loadText = lang === "en" ? load.summary_en : load.summary_ne;
+      return pack(lang, loadText, sourceLine(lang, srcName, elecWhen(load.date, lang)), href + "#statements", { followups: fu });
+    }
+    if (spec.intent === "electricity_plants") {
+      var plants = ((data.damaged_assets && data.damaged_assets.items) || []).filter(function (item) {
+        return item.type === "hydropower_plant";
+      });
+      if (!plants.length) return pack(lang, elecMissing(lang), "", href + "#assets", { followups: fu });
+      var names = plants.map(function (item) { return lang === "en" ? item.name_en : item.name_ne; }).join(", ");
+      var plantText = lang === "en"
+        ? "NEA named these hydropower plants as damaged: " + names + "."
+        : "प्राधिकरणले क्षतिग्रस्त भनेका जलविद्युत: " + names + "।";
+      var plantDate = plants[0].statement_date;
+      return pack(lang, plantText, sourceLine(lang, srcName, elecWhen(plantDate, lang)), href + "#assets", { followups: fu });
+    }
+    if (spec.intent === "electricity_nolight") {
+      var helplines = (data.helplines && data.helplines.items) || [];
+      var hot = null;
+      helplines.forEach(function (item) { if (!hot && item.category === "hotline") hot = item; });
+      if (!hot || !hot.numbers || !hot.numbers.length) return pack(lang, elecMissing(lang), "", href + "#helplines", { followups: fu });
+      var num = hot.numbers[0];
+      var label = lang === "en" ? hot.label_en : hot.label_ne;
+      var note = lang === "en" ? hot.label_note_en : hot.label_note_ne;
+      var light = label + " " + digits(num, lang) + (note ? ". " + note : "") + ".";
+      if (spec.district) {
+        var want = {
+          rasuwa: "Rasuwa", nuwakot: "Nuwakot", dhading: "Dhading",
+          sindhupalchok: "Sindhupalchowk", gorkha: "Gorkha", kavrepalanchok: "Kavre"
+        }[spec.district];
+        if (want) {
+          var bits = helplines.filter(function (item) {
+            return item.district === want && item.category === "no_light" && item.numbers && item.numbers.length;
+          }).map(function (item) {
+            var lab = lang === "en" ? item.label_en : item.label_ne;
+            var nums = item.numbers.map(function (n) { return digits(n, lang); }).join(", ");
+            return lab + " " + nums;
+          });
+          if (bits.length && (light + " " + bits.join("; ")).length < 360) light += " " + bits.join("; ") + ".";
+        }
+      }
+      return pack(lang, light, sourceLine(lang, srcName, elecWhen(hot.checked_at, lang)), href + "#helplines", { followups: fu });
+    }
+    var rows = (data.planned_shutdowns && data.planned_shutdowns.rows) || [];
+    var live = rows.filter(function (row) {
+      return row.status_at_check === "upcoming" || row.status_at_check === "ongoing";
+    }).sort(function (a, b) { return String(a.start).localeCompare(String(b.start)); });
+    var cover = data.coverage_line ? (lang === "en" ? data.coverage_line.en : data.coverage_line.ne) : "";
+    var text;
+    if (!live.length) {
+      text = cover;
+    } else {
+      var row = live[0];
+      var win = elecWhen(row.start, lang) + "–" + elecWhen(row.end, lang);
+      text = lang === "en"
+        ? "NEA lists " + live.length + " upcoming or ongoing planned shutdown" + (live.length === 1 ? "" : "s") + ", " + win + " (" + row.distribution_centre + ", " + row.feeder + "). " + cover
+        : "आगामी वा चलिरहेको कटौती " + digits(String(live.length), "ne") + ", " + win + " (" + row.distribution_centre + ", " + row.feeder + ")। " + cover;
+    }
+    var checked = data.planned_shutdowns && data.planned_shutdowns.checked_at;
+    return pack(lang, text, sourceLine(lang, srcName, elecWhen(checked, lang)), href + "#shutdowns", { followups: fu });
+  }
+
   function compose(spec, ctx) {
     ctx = ctx || {};
     var lang = ctx.lang === "en" ? "en" : "ne";
@@ -2055,6 +2193,7 @@
     else if (intent.indexOf("rescue") === 0) ans = answerRescue(spec, ctx);
     else if (intent === "fund" || intent === "donate" || intent === "fund_source") ans = answerFund(spec, ctx);
     else if (intent === "helpline") ans = answerHelpline(spec, ctx);
+    else if (intent.indexOf("electricity") === 0) ans = answerElectricity(spec, ctx);
     else if (intent === "names") ans = answerNames(spec, ctx);
     else if (intent.indexOf("lpg") === 0) ans = answerLpg(spec, ctx);
     else if (intent === "cause") ans = answerCause(ctx);

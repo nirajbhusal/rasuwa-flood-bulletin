@@ -434,6 +434,7 @@
       dash: cache.dash,
       gallery: cache.gallery,
       lpg: lpg,
+      nea: cache.nea || null,
       hl: rows.map(function (row) {
         return { tel: row.tel, name: row.key ? t(row.key) : (row.name || row.tel) };
       }),
@@ -454,6 +455,7 @@
     if (f === "roads" || f === "map") return (!cache.roads && !failed.roads) || (!cache.police && !failed.police) || (!cache.vehicle && !failed.vehicle);
     if (f === "rescue") return !cache.dash && !failed.dash;
     if (f === "lpg") return !cache.lpg && !failed.lpg;
+    if (f === "electricity") return !cache.nea && !failed.nea;
     if (f === "cause" || f === "gallery") return !cache.gallery && !failed.gallery;
     return false;
   }
@@ -486,6 +488,7 @@
       getJSON("data/ndrrma_vehicle_2083-06-09.json", "vehicle"),
       getJSON("api/dashboard.json", "dash"),
       getJSON("data/gallery-path.json", "gallery"),
+      getJSON("data/nea_electricity.json", "nea"),
       getHTML("supply.html", "lpg", parseSupply),
       getHTML("contact.html", "hl", parseHelpline)
     ]).then(function () {

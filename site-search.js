@@ -48,7 +48,8 @@
       ["notices.html#roads", en() ? "Roads" : "सडक"],
       ["weather.html", en() ? "Weather" : "मौसम"],
       ["photos.html", en() ? "Gallery" : "ग्यालरी"],
-      ["contact.html", en() ? "Helpline" : "हेल्पलाइन"]
+      ["contact.html", en() ? "Helpline" : "हेल्पलाइन"],
+      ["electricity.html", en() ? "Electricity" : "बिजुली"]
     ].forEach(function (pair) { add({ label: pair[1], href: pair[0], kind: "page" }); });
     [
       ["1234", en() ? "Rescue helpline" : "उद्धार हेल्पलाइन"],

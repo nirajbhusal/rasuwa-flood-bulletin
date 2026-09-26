@@ -1435,6 +1435,38 @@ window.I18N = {
 "damage_sub": "विदुर GRA_MONIT01 · स्याफ्रुबेँसी · टिमुरे — अलग AOI",
 "supply_title": "एलपीजी आयात · रसुवा–भोटेकोशी बाढी बुलेटिन",
 "supply_meta": "एलपीजी आयात · भन्सार प्रवेश नाका दैनिक सारांश · २०८३/०५/२५–२६। उद्धार १२३४।",
+"elec_title": "बिजुली · रसुवा–भोटेकोशी बाढी बुलेटिन",
+"elec_meta": "पूर्वनिर्धारित बिजुली कटौती, प्राधिकरणका भनाइ, क्षतिग्रस्त संरचना र सम्पर्क। उद्धार १२३४।",
+"elec_sub": "पूर्वनिर्धारित कटौती, भनाइ, क्षति र सम्पर्क",
+"h_elec_shutdown": "पूर्वनिर्धारित बिजुली कटौती",
+"h_elec_statements": "प्राधिकरणका भनाइ",
+"h_elec_assets": "क्षतिग्रस्त विद्युत संरचना",
+"h_elec_helplines": "प्राधिकरणका सम्पर्क नम्बर",
+"elec_th_dc": "वितरण केन्द्र",
+"elec_th_feeder": "फिडर",
+"elec_th_area": "क्षेत्र",
+"elec_th_from": "देखि",
+"elec_th_to": "सम्म",
+"elec_th_reason": "कारण",
+"elec_th_published": "प्रकाशित",
+"elec_th_notice": "सूचना",
+"elec_all": "सबै",
+"elec_filter_prov": "प्रदेश",
+"elec_filter_dc": "वितरण केन्द्र",
+"elec_none_k": "प्राधिकरणले प्रकाशित नगरेका जिल्ला:",
+"elec_quoted": "मा उद्धृत",
+"elec_reported": "काठमाडौं पोस्टका अनुसार",
+"elec_nea_post": "प्राधिकरणको पोस्ट",
+"elec_nea_page": "प्राधिकरणको पाना",
+"elec_home_count": "आगामी वा चलिरहेको",
+"elec_home_cta": "पूरा बोर्ड",
+"elec_cat_hotline": "हटलाइन",
+"elec_cat_central": "केन्द्रीय",
+"elec_cat_complaint": "गुनासो",
+"elec_cat_information": "सूचना",
+"elec_cat_directorate": "निर्देशनालय",
+"elec_cat_dc_chief": "वितरण केन्द्र प्रमुख",
+"elec_cat_no_light": "बत्ती छैन",
 "overview_h": "मानवीय अवस्था",
 "incident_block_h": "रसुवा-भोटेकोशी बाढी",
 "incident_block_d": "भदौ १०, २०८३",
@@ -1522,6 +1554,7 @@ window.I18N = {
 "cat_supply": "एलपीजी आयात",
 "cat_supply_sub": "भन्सार प्रवेश नाका · दैनिक सारांश · २०८३/०५/२५–२६",
 "nav_supply": "एलपीजी आयात",
+"nav_electricity": "बिजुली",
 "nav_markets": "पुँजी बजार",
 "cat_markets": "पुँजी बजार",
 "cat_markets_sub": "अर्थ मन्त्रालय · २०८३।०५।२९ · भोटेकोशी बाढीपछि",
@@ -3512,6 +3545,38 @@ window.I18N = {
 "damage_sub": "Bidur GRA_MONIT01 · Syaphrubesi · Timure — separate AOIs",
 "supply_title": "LPG import · Rasuwa–Bhotekoshi flood bulletin",
 "supply_meta": "LPG import · customs entry-point daily summary · BS 2083/05/25–26. Rescue 1234.",
+"elec_title": "Electricity · Rasuwa–Bhotekoshi flood bulletin",
+"elec_meta": "Planned shutdowns, NEA statements, damaged assets and contacts. Rescue 1234.",
+"elec_sub": "Planned shutdowns, statements, damage and contacts",
+"h_elec_shutdown": "Planned shutdowns",
+"h_elec_statements": "NEA statements",
+"h_elec_assets": "Damaged power assets",
+"h_elec_helplines": "NEA helplines",
+"elec_th_dc": "Distribution centre",
+"elec_th_feeder": "Feeder",
+"elec_th_area": "Area",
+"elec_th_from": "From",
+"elec_th_to": "To",
+"elec_th_reason": "Reason",
+"elec_th_published": "Published",
+"elec_th_notice": "Notice",
+"elec_all": "All",
+"elec_filter_prov": "Province",
+"elec_filter_dc": "Distribution centre",
+"elec_none_k": "No NEA-published shutdowns:",
+"elec_quoted": "as quoted in",
+"elec_reported": "as reported by The Kathmandu Post",
+"elec_nea_post": "NEA post",
+"elec_nea_page": "NEA page",
+"elec_home_count": "upcoming or ongoing",
+"elec_home_cta": "Full board",
+"elec_cat_hotline": "Hotline",
+"elec_cat_central": "Central",
+"elec_cat_complaint": "Complaint",
+"elec_cat_information": "Information",
+"elec_cat_directorate": "Directorate",
+"elec_cat_dc_chief": "Distribution centre chief",
+"elec_cat_no_light": "No light",
 "overview_h": "Humanitarian situation",
 "incident_block_h": "Rasuwa-Bhotekoshi Flood",
 "incident_block_d": "26 August 2026",
@@ -3599,6 +3664,7 @@ window.I18N = {
 "cat_supply": "LPG import",
 "cat_supply_sub": "Customs entry points · daily summary · BS 2083/05/25–26",
 "nav_supply": "LPG import",
+"nav_electricity": "Electricity",
 "nav_markets": "Capital markets",
 "cat_markets": "Capital markets",
 "cat_markets_sub": "Ministry of Finance · 2083-05-29 · after the Bhotekoshi flood",
@@ -5471,6 +5537,7 @@ window.I18N = {
     var supplyPg = file === "supply.html" || document.documentElement.classList.contains("supply-page");
     var marketsPg = file === "markets.html" || document.documentElement.classList.contains("markets-page");
     var weatherPg = file === "weather.html" || document.documentElement.classList.contains("weather-page");
+    var electricityPg = file === "electricity.html" || document.documentElement.classList.contains("electricity-page");
     if (aboutPg) {
       if (p.about_title) document.title = p.about_title;
     } else if (mapPg) {
@@ -5497,6 +5564,8 @@ window.I18N = {
       if (p.markets_title) document.title = p.markets_title;
     } else if (weatherPg) {
       if (p.weather_title) document.title = p.weather_title;
+    } else if (electricityPg) {
+      if (p.elec_title) document.title = p.elec_title;
     } else if (p.title) document.title = p.title;
     var meta = document.querySelector('meta[name="description"]');
     if (meta) {
@@ -5512,6 +5581,7 @@ window.I18N = {
       else if (responsePg && p.response_meta) meta.setAttribute("content", p.response_meta);
       else if (supplyPg && p.supply_meta) meta.setAttribute("content", p.supply_meta);
       else if (marketsPg && p.markets_meta) meta.setAttribute("content", p.markets_meta);
+      else if (electricityPg && p.elec_meta) meta.setAttribute("content", p.elec_meta);
       else if (p.meta) meta.setAttribute("content", p.meta);
     }
     applyKeyed(lang);
