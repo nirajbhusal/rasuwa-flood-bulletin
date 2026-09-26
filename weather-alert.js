@@ -2032,6 +2032,7 @@
       .then(function (json) {
         districts = json;
         document.querySelectorAll(".wxb-svg").forEach(drawDistricts);
+        paintHigh();
       })
       .catch(function () { districtsLoading = false; });
   }
