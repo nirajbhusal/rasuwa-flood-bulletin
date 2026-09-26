@@ -1,4 +1,4 @@
-/*! Header menu — one row with the brand, desktop panel, mobile drawer. */
+/*! Header menu — mobile drawer below 900px; horizontal section bar at 900px and up. */
 (function () {
   var head = document.querySelector(".head-stick");
   if (head) {
@@ -47,7 +47,9 @@
     btn.appendChild(lab);
   }
 
+  var deskMq = window.matchMedia("(min-width:900px)");
   function isMobile() { return mq.matches; }
+  function isDesk() { return !!(deskMq && deskMq.matches); }
   function en() { return document.documentElement.lang === "en"; }
 
   function placeToggle() {
@@ -293,6 +295,7 @@
     return list;
   }
   function setOpen(on) {
+    if (isDesk()) on = false;
     on = !!on;
     var mobile = isMobile();
     nav.classList.toggle("is-open", on);
@@ -328,6 +331,7 @@
   function toggle() { setOpen(!nav.classList.contains("is-open")); }
 
   btn.addEventListener("click", function (e) {
+    if (isDesk()) return;
     e.preventDefault();
     e.stopPropagation();
     toggle();
@@ -400,6 +404,13 @@
   }
 
   function onViewportChange() {
+    if (isDesk()) {
+      if (nav.classList.contains("is-open")) close();
+      ensureDeskNav();
+      layoutDeskNav();
+      syncStick();
+      return;
+    }
     if (nav.classList.contains("is-open")) {
       if (isMobile()) {
         portalOut();
@@ -420,23 +431,459 @@
   }
   if (typeof mq.addEventListener === "function") mq.addEventListener("change", onViewportChange);
   else if (typeof mq.addListener === "function") mq.addListener(onViewportChange);
+  if (typeof deskMq.addEventListener === "function") deskMq.addEventListener("change", onViewportChange);
+  else if (typeof deskMq.addListener === "function") deskMq.addListener(onViewportChange);
   window.addEventListener("resize", function () {
     syncStick();
-    placePanel();
+    if (isDesk()) layoutDeskNav();
+    else placePanel();
   });
   window.addEventListener("scroll", function () {
     if (nav.classList.contains("is-open") && !isMobile()) placePanel();
+    queueDeskSpy();
   }, { passive: true });
+  window.addEventListener("hashchange", function () {
+    markCurrent();
+    paintDeskCurrent();
+  });
+
+  /* Desktop tabs follow the grouped menu order. Short labels are the same
+     sections, trimmed so the bar stays one row; overflow goes under थप / More. */
+  var SHORT = {
+    "index.html": { ne: "ड्यासबोर्ड", en: "Dashboard" },
+    "notices.html": { ne: "सूचना", en: "Notices" },
+    "notices.html#roads": { ne: "सडक", en: "Roads" },
+    "electricity.html": { ne: "बिजुली", en: "Electricity" },
+    "weather.html": { ne: "मौसम", en: "Weather" },
+    "photos.html": { ne: "ग्यालरी", en: "Gallery" },
+    "names.html": { ne: "नामावली", en: "Names" },
+    "contact.html": { ne: "हेल्पलाइन", en: "Helpline" },
+    "gov.html": { ne: "सरकार", en: "Government" },
+    "markets.html": { ne: "बजार", en: "Markets" },
+    "donate.html": { ne: "राहत", en: "Relief" },
+    "response.html": { ne: "प्रतिक्रिया", en: "Response" },
+    "damage.html": { ne: "क्षति", en: "Damage" },
+    "supply.html": { ne: "एलपीजी", en: "LPG" },
+    "about.html": { ne: "बारेमा", en: "About" }
+  };
+  /* Homepage blocks that already mirror a menu page. Missing ids stay page links. */
+  var SECTION = {
+    "index.html": "home",
+    "weather.html": "wx-home",
+    "notices.html#roads": "cat-roads",
+    "electricity.html": "cat-electricity",
+    "response.html": "home-response",
+    "donate.html": "cat-rahat",
+    "supply.html": "cat-supply",
+    "markets.html": "cat-markets",
+    "damage.html": "cat-infographics",
+    "gov.html": "cat-gov"
+  };
+  var deskBar = null;
+  var deskTabsHost = null;
+  var deskMore = null;
+  var deskMoreBtn = null;
+  var deskMenu = null;
+  var deskTabs = [];
+  var spyTick = 0;
+  var deskLaying = false;
+
+  function fitTabs(widths, container, moreWidth, gap) {
+    gap = gap || 0;
+    var n = widths.length;
+    function used(count, withMore) {
+      var w = 0;
+      var i;
+      for (i = 0; i < count; i++) w += widths[i];
+      if (count > 1) w += gap * (count - 1);
+      if (withMore) w += moreWidth;
+      return w;
+    }
+    if (used(n, false) <= container + 0.5) return n;
+    var count = n;
+    while (count > 0 && used(count, true) > container + 0.5) count -= 1;
+    return count;
+  }
+
+  function onHomePage() {
+    var path = location.pathname || "";
+    return /\/$/.test(path) || /\/index\.html$/.test(path);
+  }
+  function tabIsCurrent(href) {
+    var file = (location.pathname || "").split("/").pop() || "index.html";
+    if (!file) file = "index.html";
+    var hash = location.hash || "";
+    href = href || "";
+    var base = href.split("#")[0].split("/").pop();
+    var frag = href.indexOf("#") >= 0 ? "#" + href.split("#")[1] : "";
+    var same = base === file || ((file === "index.html" || file === "") && (base === "index.html" || base === ""));
+    if (!same) return false;
+    if (file === "notices.html" && hash === "#roads") return frag === "#roads";
+    if (frag && frag !== hash) return false;
+    return true;
+  }
+  function shortText(href) {
+    var s = SHORT[href];
+    if (!s) return "";
+    return en() ? s.en : s.ne;
+  }
+  function cloneDeskIcon(a) {
+    var svg = a.querySelector("svg");
+    var node;
+    if (svg) {
+      node = svg.cloneNode(true);
+    } else {
+      var href = a.getAttribute("href") || "";
+      var d = ICONS[href] || ICONS[href.split("#")[0]] || "M6 12h12";
+      node = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      node.setAttribute("viewBox", "0 0 24 24");
+      var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", d);
+      path.setAttribute("fill", "none");
+      path.setAttribute("stroke", "currentColor");
+      path.setAttribute("stroke-width", "1.8");
+      path.setAttribute("stroke-linejoin", "round");
+      path.setAttribute("stroke-linecap", "round");
+      node.appendChild(path);
+    }
+    node.setAttribute("class", "hnav-ico");
+    node.setAttribute("width", "16");
+    node.setAttribute("height", "16");
+    node.setAttribute("aria-hidden", "true");
+    node.setAttribute("focusable", "false");
+    return node;
+  }
+  function deskSection(href) {
+    if (!onHomePage()) return "";
+    var id = SECTION[href];
+    if (!id || !document.getElementById(id)) return "";
+    return id;
+  }
+  function paintDeskLabels() {
+    if (!deskBar) return;
+    deskTabs.forEach(function (tab) {
+      var href = tab.getAttribute("data-href") || "";
+      var lab = tab.querySelector(".hnav-lab");
+      var text = shortText(href);
+      if (lab && text) lab.textContent = text;
+    });
+    var moreLab = deskMoreBtn && deskMoreBtn.querySelector(".hnav-lab");
+    if (moreLab) moreLab.textContent = en() ? "More" : "थप";
+    if (deskMoreBtn) deskMoreBtn.setAttribute("aria-label", en() ? "More" : "थप");
+    deskBar.setAttribute("aria-label", en() ? "Sections" : "खण्डहरू");
+  }
+  function spyPick() {
+    var stick = head ? head.offsetHeight : 0;
+    var best = null;
+    var bestTop = -1e9;
+    deskTabs.forEach(function (tab) {
+      var id = tab.getAttribute("data-section") || "";
+      if (!id || id === "home") return;
+      var el = document.getElementById(id);
+      if (!el) return;
+      var top = el.getBoundingClientRect().top;
+      if (top <= stick + 12 && top > bestTop) {
+        best = tab;
+        bestTop = top;
+      }
+    });
+    if (best) return best;
+    var i;
+    for (i = 0; i < deskTabs.length; i++) {
+      if ((deskTabs[i].getAttribute("data-href") || "") === "index.html") return deskTabs[i];
+    }
+    return null;
+  }
+  function paintDeskCurrent() {
+    if (!deskBar) return;
+    var current = null;
+    var mode = "page";
+    if (onHomePage() && isDesk()) {
+      current = spyPick();
+      if (current && (current.getAttribute("data-section") || "") && current.getAttribute("data-section") !== "home") mode = "location";
+    } else {
+      var i;
+      for (i = 0; i < deskTabs.length; i++) {
+        if (tabIsCurrent(deskTabs[i].getAttribute("data-href") || "")) {
+          current = deskTabs[i];
+          break;
+        }
+      }
+    }
+    deskTabs.forEach(function (tab) {
+      var on = tab === current;
+      tab.classList.toggle("is-current", on);
+      if (on) tab.setAttribute("aria-current", mode);
+      else tab.removeAttribute("aria-current");
+    });
+    var inMore = !!(current && deskMenu && deskMenu.contains(current));
+    if (deskMoreBtn) {
+      deskMoreBtn.classList.toggle("is-current", inMore);
+      if (inMore) deskMoreBtn.setAttribute("aria-current", "true");
+      else deskMoreBtn.removeAttribute("aria-current");
+    }
+  }
+  function queueDeskSpy() {
+    if (!isDesk() || !deskBar) return;
+    if (spyTick) return;
+    spyTick = window.requestAnimationFrame(function () {
+      spyTick = 0;
+      paintDeskCurrent();
+    });
+  }
+  function closeDeskMore() {
+    if (!deskMenu) return;
+    deskMenu.hidden = true;
+    if (deskMore) deskMore.classList.remove("is-open");
+    if (deskMoreBtn) deskMoreBtn.setAttribute("aria-expanded", "false");
+  }
+  function openDeskMore() {
+    if (!deskMenu || !deskMenu.children.length) return;
+    deskMenu.hidden = false;
+    if (deskMore) deskMore.classList.add("is-open");
+    if (deskMoreBtn) deskMoreBtn.setAttribute("aria-expanded", "true");
+    var first = deskMenu.querySelector("a.hnav-tab");
+    focusEl(first || deskMoreBtn);
+  }
+  function scrollDeskSection(id) {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var behavior = reduce ? "auto" : "smooth";
+    if (!id || id === "home") {
+      window.scrollTo({ top: 0, behavior: behavior });
+      return;
+    }
+    var el = document.getElementById(id);
+    if (!el) return;
+    var stick = head ? head.offsetHeight : 0;
+    var top = el.getBoundingClientRect().top + window.scrollY - stick - 6;
+    window.scrollTo({ top: Math.max(0, top), behavior: behavior });
+  }
+  function onDeskTabClick(e) {
+    var tab = e.currentTarget;
+    if (!tab || !isDesk()) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+    var id = tab.getAttribute("data-section") || "";
+    if (!id) {
+      closeDeskMore();
+      return;
+    }
+    e.preventDefault();
+    closeDeskMore();
+    scrollDeskSection(id);
+    try {
+      var next = id === "home" ? location.pathname + location.search : "#" + id;
+      history.replaceState(null, "", next);
+    } catch (err) {}
+    paintDeskCurrent();
+  }
+  function layoutDeskNav() {
+    if (deskLaying || !deskBar || !isDesk() || !deskTabsHost) return;
+    if (deskTabsHost.clientWidth < 20) return;
+    deskLaying = true;
+    try {
+    closeDeskMore();
+    deskTabs.forEach(function (tab) {
+      tab.removeAttribute("role");
+      deskTabsHost.appendChild(tab);
+    });
+    if (deskMore) deskMore.hidden = true;
+    var full = deskTabsHost.clientWidth;
+    var widths = deskTabs.map(function (tab) { return tab.getBoundingClientRect().width; });
+    var moreW = 0;
+    if (deskMore) {
+      deskMore.hidden = false;
+      moreW = deskMore.getBoundingClientRect().width || 0;
+      deskMore.hidden = true;
+    }
+    var count = fitTabs(widths, full, moreW, 2);
+    var i;
+    if (count >= deskTabs.length) {
+      if (deskMore) deskMore.hidden = true;
+    } else {
+      if (deskMore) deskMore.hidden = false;
+      for (i = deskTabs.length - 1; i >= count; i--) {
+        deskTabs[i].setAttribute("role", "menuitem");
+        deskMenu.insertBefore(deskTabs[i], deskMenu.firstChild);
+      }
+    }
+    paintDeskCurrent();
+    } finally {
+      deskLaying = false;
+    }
+  }
+  function ensureDeskNav() {
+    if (deskBar || !inner) return;
+    groupLinks();
+    var bar = document.createElement("nav");
+    bar.className = "hnav";
+    bar.setAttribute("aria-label", "खण्डहरू");
+    bar.setAttribute("data-i18n-aria", "nav_sections");
+    bar.style.display = "none";
+    var wrap = document.createElement("div");
+    wrap.className = "hnav-inner";
+    var row = document.createElement("div");
+    row.className = "hnav-row";
+    var host = document.createElement("div");
+    host.className = "hnav-tabs";
+    var more = document.createElement("div");
+    more.className = "hnav-more";
+    more.hidden = true;
+    var moreBtn = document.createElement("button");
+    moreBtn.type = "button";
+    moreBtn.className = "hnav-more-btn";
+    moreBtn.setAttribute("aria-expanded", "false");
+    moreBtn.setAttribute("aria-haspopup", "true");
+    moreBtn.setAttribute("aria-controls", "hnav-more-menu");
+    moreBtn.setAttribute("aria-label", "थप");
+    var moreIco = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    moreIco.setAttribute("class", "hnav-ico");
+    moreIco.setAttribute("viewBox", "0 0 24 24");
+    moreIco.setAttribute("width", "16");
+    moreIco.setAttribute("height", "16");
+    moreIco.setAttribute("aria-hidden", "true");
+    moreIco.setAttribute("focusable", "false");
+    var morePath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    morePath.setAttribute("d", "M5 12h.01M12 12h.01M18 12h.01");
+    morePath.setAttribute("fill", "none");
+    morePath.setAttribute("stroke", "currentColor");
+    morePath.setAttribute("stroke-width", "2.6");
+    morePath.setAttribute("stroke-linecap", "round");
+    moreIco.appendChild(morePath);
+    var moreLab = document.createElement("span");
+    moreLab.className = "hnav-lab";
+    moreLab.textContent = "थप";
+    var caret = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    caret.setAttribute("class", "hnav-caret");
+    caret.setAttribute("viewBox", "0 0 24 24");
+    caret.setAttribute("width", "14");
+    caret.setAttribute("height", "14");
+    caret.setAttribute("aria-hidden", "true");
+    caret.setAttribute("focusable", "false");
+    var caretPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    caretPath.setAttribute("d", "M6 9l6 6 6-6");
+    caretPath.setAttribute("fill", "none");
+    caretPath.setAttribute("stroke", "currentColor");
+    caretPath.setAttribute("stroke-width", "2");
+    caretPath.setAttribute("stroke-linecap", "round");
+    caretPath.setAttribute("stroke-linejoin", "round");
+    caret.appendChild(caretPath);
+    moreBtn.appendChild(moreIco);
+    moreBtn.appendChild(moreLab);
+    moreBtn.appendChild(caret);
+    var menu = document.createElement("div");
+    menu.className = "hnav-menu";
+    menu.id = "hnav-more-menu";
+    menu.setAttribute("role", "menu");
+    menu.hidden = true;
+    more.appendChild(moreBtn);
+    more.appendChild(menu);
+    row.appendChild(host);
+    row.appendChild(more);
+    wrap.appendChild(row);
+    bar.appendChild(wrap);
+    if (nav.parentNode) nav.parentNode.insertBefore(bar, nav);
+    else document.body.appendChild(bar);
+
+    var links = inner.querySelectorAll("a[href]");
+    Array.prototype.forEach.call(links, function (a) {
+      var href = a.getAttribute("href") || "";
+      if (!href || href.charAt(0) === "#") return;
+      var tab = document.createElement("a");
+      tab.className = "hnav-tab";
+      tab.setAttribute("data-href", href);
+      var section = deskSection(href);
+      if (section) {
+        tab.setAttribute("data-section", section);
+        tab.href = section === "home" ? "#home" : "#" + section;
+      } else {
+        tab.href = href;
+      }
+      tab.style.flex = "none";
+      tab.style.whiteSpace = "nowrap";
+      tab.appendChild(cloneDeskIcon(a));
+      var lab = document.createElement("span");
+      lab.className = "hnav-lab";
+      lab.textContent = shortText(href) || (a.textContent || "").replace(/\s+/g, " ").trim();
+      tab.appendChild(lab);
+      tab.addEventListener("click", onDeskTabClick);
+      host.appendChild(tab);
+      deskTabs.push(tab);
+    });
+
+    moreBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (menu.hidden) openDeskMore();
+      else closeDeskMore();
+    });
+    document.addEventListener("click", function (e) {
+      if (!deskMenu || deskMenu.hidden) return;
+      var t = e.target;
+      if (t && deskMore && deskMore.contains(t)) return;
+      closeDeskMore();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (!deskMenu || deskMenu.hidden) return;
+      if (e.key === "Escape" || e.key === "Esc") {
+        e.preventDefault();
+        closeDeskMore();
+        focusEl(deskMoreBtn);
+        return;
+      }
+      if (e.key !== "ArrowDown" && e.key !== "ArrowUp" && e.key !== "Home" && e.key !== "End") return;
+      var items = deskMenu.querySelectorAll("a.hnav-tab");
+      if (!items.length) return;
+      e.preventDefault();
+      var i = Array.prototype.indexOf.call(items, document.activeElement);
+      if (e.key === "Home") i = 0;
+      else if (e.key === "End") i = items.length - 1;
+      else if (e.key === "ArrowDown") i = i < 0 ? 0 : Math.min(items.length - 1, i + 1);
+      else i = i < 0 ? items.length - 1 : Math.max(0, i - 1);
+      focusEl(items[i]);
+    });
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function () {
+        if (isDesk()) layoutDeskNav();
+      });
+      ro.observe(row);
+    }
+
+    deskBar = bar;
+    deskTabsHost = host;
+    deskMore = more;
+    deskMoreBtn = moreBtn;
+    deskMenu = menu;
+    paintDeskLabels();
+    layoutDeskNav();
+    paintDeskCurrent();
+  }
 
   placeToggle();
   groupLinks();
   markCurrent();
+  ensureDeskNav();
+  layoutDeskNav();
   syncStick();
-  window.addEventListener("load", syncStick);
+  window.addEventListener("load", function () {
+    syncStick();
+    if (isDesk()) layoutDeskNav();
+  });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () {
+      if (isDesk()) {
+        layoutDeskNav();
+        syncStick();
+      }
+    });
+  }
   if (window.__addLangHook) {
     window.__addLangHook(function () {
       paintGroups();
-      window.requestAnimationFrame(syncStick);
+      paintDeskLabels();
+      window.requestAnimationFrame(function () {
+        layoutDeskNav();
+        syncStick();
+      });
     });
   }
 })();

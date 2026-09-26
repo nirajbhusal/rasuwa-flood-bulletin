@@ -11100,3 +11100,119 @@ html[lang="en"] .elec-src-ne{display:none}
   .dash-elec .elec-kpis{grid-template-columns:1fr 1fr;margin:0}
   .elec-flow-dash .elec-flow-svg{width:min(100%,400px)}
 }
+
+
+/* Desktop horizontal section bar (900px and up). Hidden below that so the mobile drawer is unchanged. */
+.hnav{display:none}
+@media (min-width:900px){
+  .head-stick #nav-toggle{display:none !important}
+  .head-stick nav.chips.is-open .chips-inner{display:none !important}
+  .hnav{
+    display:block !important;
+    background:#fff;
+    border-bottom:1px solid #e7e5e4;
+    box-shadow:0 1px 2px rgba(15,23,42,.05);
+  }
+  .hnav-inner{
+    width:min(1180px, calc(100% - 32px));
+    max-width:var(--max);
+    margin:0 auto;
+    height:44px;
+  }
+  .hnav-row{
+    display:flex;
+    align-items:stretch;
+    height:44px;
+    min-width:0;
+  }
+  .hnav-tabs{
+    display:flex;
+    flex:1 1 auto;
+    align-items:stretch;
+    gap:2px;
+    min-width:0;
+    height:44px;
+    overflow:hidden;
+    flex-wrap:nowrap;
+  }
+  .hnav-tab,
+  .hnav-more-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:6px;
+    flex:none;
+    height:44px;
+    margin:0;
+    padding:0 10px;
+    border:0;
+    border-radius:8px 8px 0 0;
+    background:transparent;
+    color:#334155;
+    font:inherit;
+    font-size:14px;
+    font-weight:750;
+    line-height:1;
+    white-space:nowrap;
+    text-decoration:none;
+    cursor:pointer;
+    box-sizing:border-box;
+  }
+  .hnav-ico{width:16px;height:16px;flex:none;display:block}
+  .hnav-caret{width:14px;height:14px;flex:none;display:block;transition:transform .15s ease}
+  .hnav-more.is-open .hnav-caret{transform:rotate(180deg)}
+  .hnav-tabs > .hnav-tab:hover,
+  .hnav-more-btn:hover{color:#c41e3a;background:#fff5f5}
+  .hnav-tabs > .hnav-tab.is-current,
+  .hnav-more-btn.is-current{
+    color:#c41e3a;
+    background:#fff1f2;
+    box-shadow:inset 0 -2px 0 #c41e3a;
+  }
+  .hnav-tab:focus{outline:none}
+  .hnav-tab:focus-visible,
+  .hnav-more-btn:focus-visible{
+    outline:2px solid #c41e3a;
+    outline-offset:-2px;
+    z-index:1;
+  }
+  .hnav-more{position:relative;flex:none;display:flex;align-items:stretch}
+  .hnav-more[hidden],
+  .hnav-menu[hidden]{display:none !important}
+  .hnav-menu{
+    position:absolute;
+    top:calc(100% + 6px);
+    right:0;
+    z-index:40;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    min-width:220px;
+    max-height:min(70vh, 420px);
+    overflow:auto;
+    margin:0;
+    padding:6px;
+    background:#fff;
+    border:1px solid #e7e5e4;
+    border-radius:12px;
+    box-shadow:0 12px 32px rgba(15,23,42,.14);
+  }
+  .hnav-menu .hnav-tab{
+    width:100%;
+    height:40px;
+    border-radius:8px;
+    padding:0 10px;
+  }
+  .hnav-menu .hnav-tab:hover{color:#c41e3a;background:#fff5f5}
+  .hnav-menu .hnav-tab.is-current{
+    color:#c41e3a;
+    background:#fff1f2;
+    box-shadow:none;
+  }
+  #home,#wx-home,#cat-roads,#cat-electricity,#home-response,#cat-rahat,#cat-supply,#cat-markets,#cat-infographics,#cat-gov{
+    scroll-margin-top:calc(var(--stick, 160px) + 8px);
+  }
+}
+@media (min-width:900px) and (prefers-reduced-motion:reduce){
+  .hnav-caret{transition:none}
+}
