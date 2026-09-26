@@ -35,7 +35,7 @@ const lpg = {
 function ask(q, lang) {
   return Ask.answer(q, {
     lang: lang,
-    now: "2026-09-25",
+    now: "2026-09-26",
     wx: wx,
     wxnow: wxnow,
     flood: flood,
@@ -70,12 +70,14 @@ function assertAnswer(q, lang, expect) {
 }
 
 const cases = [
-  ["आजको मौसम के छ?", "ne", { intent: "weather_today", number: true, has: ["असोज ९", "रातो", "बागमती"] }],
-  ["What is today's weather?", "en", { intent: "weather_today", number: true, has: ["Asoj 9", "red", "Bagmati", "Rasuwa"] }],
-  ["aaja mausam", "ne", { intent: "weather_today", number: true, has: ["रातो"] }],
-  ["भोलिको मौसम?", "ne", { intent: "weather_day", number: true, has: ["असोज १०"] }],
-  ["mausam asoj 10", "en", { intent: "weather_day", number: true, has: ["Asoj 10"] }],
-  ["Rasuwa weather", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "red"] }],
+  ["आजको मौसम के छ?", "ne", { intent: "weather_today", number: true, has: ["असोज १०", "सुन्तला", "बागमती"], not: ["रातो"] }],
+  ["What is today's weather?", "en", { intent: "weather_today", number: true, has: ["Asoj 10", "orange", "Bagmati", "Rasuwa"], not: ["red"] }],
+  ["aaja mausam", "ne", { intent: "weather_today", number: true, has: ["सुन्तला", "असोज १०"], not: ["रातो"] }],
+  ["भोलिको मौसम?", "ne", { intent: "weather_day", number: true, has: ["असोज ११", "पहेँलो"] }],
+  ["mausam asoj 10", "en", { intent: "weather_day", number: true, has: ["Asoj 10", "orange"] }],
+  ["Rasuwa weather", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "orange", "Asoj 10"], not: ["red"] }],
+  ["Rasuwa weather tomorrow", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "yellow", "Asoj 11"] }],
+  ["Gandaki weather today", "en", { intent: "weather_place", number: true, has: ["Gandaki", "red", "Asoj 10"] }],
   ["Kathmandu maximum today", "en", { intent: "weather_city", number: true, has: ["Kathmandu", "17.8", "16.2", "DHM"] }],
   ["काठमाडौँको तापक्रम", "ne", { intent: "weather_city", number: true, has: ["काठमाडौँ", "17.8", "16.2"] }],
   ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["2.99", "warning"] }],
@@ -136,7 +138,9 @@ test("missing weather file is stated plainly", function () {
 test("fuzzy weather typo still composes a sentence", function () {
   const ans = ask("wether today", "en");
   assert.equal(ans.intent, "weather_today");
-  assert.match(ans.text, /Asoj 9/);
+  assert.match(ans.text, /Asoj 10/);
+  assert.match(ans.text, /orange/);
+  assert.equal(ans.text.includes("red"), false);
   assert.equal(/<[a-z]/i.test(ans.text), false);
 });
 
