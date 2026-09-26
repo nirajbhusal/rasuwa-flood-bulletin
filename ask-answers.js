@@ -1329,7 +1329,7 @@
     var when = policeWhen(doc, lang);
     var bits = rows.slice(0, 3).map(function (r) {
       var dist = lang === "en" ? r.district.en : r.district.ne;
-      var hwy = lang === "en" ? r.highway_en : r.highway_ne;
+      var hwy = (lang === "en" ? r.highway_en : r.highway_ne) || (lang === "en" ? r.location_en : r.location_ne) || "";
       if (r.prominent) {
         return lang === "en"
           ? "Rasuwa's main highways have been fully blocked since 2083/05/10 10:30, until further notice"
@@ -1396,8 +1396,8 @@
     }
     function tag(g) {
       var span = policeSpan(g.until_en, g.until_ne, lang);
-      if (lang === "en") return /^until further/i.test(span) ? "open-ended" : ("to " + span);
-      return span === "अर्को सूचना नभएसम्म" ? "थप सूचनासम्म" : span;
+      if (lang === "en") return /^until further/i.test(span) ? "ongoing" : span;
+      return span === "अर्को सूचना नभएसम्म" ? "थप सूचना" : span;
     }
     var parts = groups.map(function (g) {
       var win = digits(hour(g.start) + "–" + hour(g.end), lang);
@@ -1408,7 +1408,7 @@
     if (lang === "en") {
       return "Nepal Police, " + when + ": " + n + " night " + (n === 1 ? "ban" : "bans") + " — " + parts.join("; ") + ".";
     }
-    return "नेपाल प्रहरी, " + when + ": रात रोक " + digits(n, "ne") + " — " + parts.join("; ") + "।";
+    return "नेपाल प्रहरी, " + when + ": रात रोक " + digits(n, "ne") + "—" + parts.join("; ") + "।";
   }
   function policeOverview(doc, lang) {
     var c = doc.counts || {};
