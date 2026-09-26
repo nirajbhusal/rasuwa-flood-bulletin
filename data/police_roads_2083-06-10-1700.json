@@ -1,27 +1,27 @@
 {
-  "id": "nepal-police-highways-2083-06-10-0700",
+  "id": "nepal-police-highways-2083-06-10-1700",
   "issuer": {
     "ne": "नेपाल प्रहरी प्रधान कार्यालय",
     "en": "Nepal Police Headquarters"
   },
   "as_of": {
     "bs": "२०८३/०६/१०",
-    "time": "०७:००",
-    "iso": "2026-09-26T07:00:00+05:45",
-    "ne": "२०८३ असोज १०, बिहान ७:०० बजेसम्म",
-    "en": "Asoj 10, 2083, 7:00 AM"
+    "time": "१७:००",
+    "iso": "2026-09-26T17:00:00+05:45",
+    "ne": "२०८३ असोज १०, बेलुका ५:०० बजेसम्म",
+    "en": "Asoj 10, 2083, 5:00 PM"
   },
   "posted": {
-    "iso": "2026-09-26T07:30:00+05:45",
-    "ne": "२६ सेप्टेम्बर २०२६, ०७:३०",
-    "en": "26 Sep 2026, 07:30 NPT"
+    "iso": "2026-09-26T17:33:00+05:45",
+    "ne": "२६ सेप्टेम्बर २०२६, १७:३३",
+    "en": "26 Sep 2026, 17:33 NPT"
   },
   "source": {
     "name": {
-      "ne": "नेपाल प्रहरी, २०८३ असोज १०, बिहान ७:०० बजेसम्म",
-      "en": "Nepal Police, Asoj 10, 2083, 7:00 AM"
+      "ne": "नेपाल प्रहरी",
+      "en": "Nepal Police"
     },
-    "url": "https://x.com/NepalPoliceHQ/status/2103662321185034469"
+    "url": "https://x.com/NepalPoliceHQ/status/2103814019648020668"
   },
   "title": {
     "ne": "मुख्य राजमार्ग अवरोध",
@@ -57,16 +57,21 @@
       "id": "karnali",
       "ne": "कर्णाली",
       "en": "Karnali"
+    },
+    {
+      "id": "sudurpashchim",
+      "ne": "सुदूरपश्चिम",
+      "en": "Sudurpashchim"
     }
   ],
   "counts": {
-    "total": 44,
-    "full_block": 25,
-    "night_ban": 18,
-    "one_way": 0,
+    "total": 51,
+    "full_block": 32,
+    "night_ban": 17,
+    "one_way": 1,
     "restricted": 1,
-    "districts": 30,
-    "provinces": 5
+    "districts": 34,
+    "provinces": 6
   },
   "rows": [
     {
@@ -89,8 +94,8 @@
       "closed_date": "२०८३/०६/०९",
       "closed_time": "०६:३०",
       "closed_iso": "2026-09-25T06:30:00+05:45",
-      "location_ne": "बागमती गा.पा.०३ भट्टेडाडाको पाङदुर, ऐ.ऐ. टाकुर्चे र गोदावरी नगरपालिका ०६ बिर्खेधारा",
-      "location_en": "Bagmati GP-3 Bhattedanda Pangdur, Takurche, and Godawari Municipality-6 Birkhedhara",
+      "location_ne": "बागमती गा.पा.०३ भट्टेडाडाको पाङदुर, ऐ.ऐ. टाकुर्चे",
+      "location_en": "Bagmati GP-3 Bhattedanda Pangdur and Takurche",
       "highway_ne": "कान्तिलोकपथ सडक",
       "highway_en": "Kantilokpath",
       "status_ne": "पूर्णरूपमा अवरोध",
@@ -115,7 +120,7 @@
         "भट्टेडाडा"
       ],
       "flags": [
-        "place reads बिर्खेधारा; भट्टेडाडाको as printed"
+        "place reads भट्टेडाडाको; location no longer lists गोदावरी नगरपालिका ०६ बिर्खेधारा"
       ]
     },
     {
@@ -292,6 +297,55 @@
       ]
     },
     {
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "halesi",
+        "हलेसी",
+        "हलेसीतुवाचुङ",
+        "kaduwa",
+        "कदुवा",
+        "tuwachung",
+        "khotang",
+        "खोटाङ",
+        "midhill",
+        "मध्यपहाड"
+      ],
+      "flags": [
+        "highway prints मध्ये पहाडी; closed time prints ०९;१५"
+      ],
+      "id": "khotang-halesi-kaduwa",
+      "sn": "४",
+      "group": "koshi",
+      "province": {
+        "id": "koshi",
+        "ne": "कोशी",
+        "en": "Koshi"
+      },
+      "district": {
+        "id": "khotang",
+        "ne": "खोटाङ",
+        "en": "Khotang"
+      },
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "०९:१५",
+      "closed_iso": "2026-09-26T09:15:00+05:45",
+      "location_ne": "हलेसीतुवाचुङ नपा १ कदुवा",
+      "location_en": "Halesi Tuwachung Municipality-1, Kaduwa",
+      "highway_ne": "मध्ये पहाडी सडक खण्ड",
+      "highway_en": "Mid-Hill road section",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide"
+    },
+    {
       "id": "udayapur-katari",
       "sn": "५",
       "group": "koshi",
@@ -341,56 +395,8 @@
       ]
     },
     {
-      "id": "okhaldhunga-siddhicharan",
-      "sn": "६",
-      "group": "koshi",
-      "province": {
-        "id": "koshi",
-        "ne": "कोशी",
-        "en": "Koshi"
-      },
-      "district": {
-        "id": "okhaldhunga",
-        "ne": "ओखलढुङ्गा",
-        "en": "Okhaldhunga"
-      },
-      "cause_ne": "बाढी",
-      "cause_en": "Flood",
-      "cause_kind": "flood",
-      "closed_date": "२०८३/०६/०९",
-      "closed_time": "०६:१५",
-      "closed_iso": "2026-09-25T06:15:00+05:45",
-      "location_ne": "मानेभञ्ज्याङ गाउँपालिका ०६ र ०७ को सिमाना स्थित पर्ने भँडारे खोला र सिद्विचरण नपा ५ चित्रे स्थित",
-      "location_en": "Bhandare Khola on the border of Mane Bhanjyang GP wards 6 and 7, and Chitre in Siddhicharan Municipality-5",
-      "highway_ne": "सिद्धिचरण लोकमार्ग",
-      "highway_en": "Siddhicharan Highway",
-      "status_ne": "पूर्णरूपमा अवरोध",
-      "status_en": "Fully blocked",
-      "status_type": "full_block",
-      "night_start": null,
-      "night_end": null,
-      "valid_until_bs": null,
-      "valid_until_iso": null,
-      "valid_until_ne": null,
-      "valid_until_en": null,
-      "aliases": [
-        "siddhicharan",
-        "सिद्धिचरण",
-        "mane",
-        "मानेभञ्ज्याङ",
-        "okhaldhunga",
-        "ओखलढुङ्गा",
-        "chitre",
-        "चित्रे",
-        "siddhicharan nagar"
-      ],
-      "flags": [
-        "location adds सिद्विचरण न.पा.५ चित्रे; closed time prints ०६;१५"
-      ]
-    },
-    {
       "id": "panchthar-tamor",
-      "sn": "७",
+      "sn": "६",
       "group": "koshi",
       "province": {
         "id": "koshi",
@@ -431,12 +437,12 @@
         "नावाखोला"
       ],
       "flags": [
-        "place prints तुम्वेवा; serial ७ is shared with the Yangwarak row"
+        "place prints तुम्वेवा; serial ६ is shared with the Yangwarak row"
       ]
     },
     {
       "id": "panchthar-yangwarak",
-      "sn": "७",
+      "sn": "६",
       "group": "koshi",
       "province": {
         "id": "koshi",
@@ -478,7 +484,7 @@
         "पाँचथर"
       ],
       "flags": [
-        "serial ७ is shared with the Tamor row",
+        "serial ६ is shared with the Tamor row",
         "closed time prints ०८;३०"
       ]
     },
@@ -605,9 +611,9 @@
       "location_en": "Dhulikhel Municipality-8, at Pakucha",
       "highway_ne": "अरनिको राजमार्ग",
       "highway_en": "Araniko Highway",
-      "status_ne": "पूर्णरूपमा अवरोध",
-      "status_en": "Fully blocked",
-      "status_type": "full_block",
+      "status_ne": "एकतर्फी सुचारु",
+      "status_en": "One-way open",
+      "status_type": "one_way",
       "night_start": null,
       "night_end": null,
       "valid_until_bs": null,
@@ -625,7 +631,9 @@
         "kavre",
         "काभ्रे"
       ],
-      "flags": []
+      "flags": [
+        "status cell prints एकतर्फि सुचारु"
+      ]
     },
     {
       "id": "rasuwa-highways",
@@ -931,32 +939,6 @@
       ]
     },
     {
-      "id": "makwanpur-bhimphedi",
-      "sn": "५",
-      "group": "bagmati",
-      "province": {
-        "id": "bagmati",
-        "ne": "बागमती",
-        "en": "Bagmati"
-      },
-      "district": {
-        "id": "makwanpur",
-        "ne": "मकवानपुर",
-        "en": "Makwanpur"
-      },
-      "cause_ne": "पहिरो",
-      "cause_en": "Landslide",
-      "cause_kind": "landslide",
-      "closed_date": "२०८३/०६/०९",
-      "closed_time": "०८:३",
-      "closed_iso": null,
-      "location_ne": "भिमफेदी गा.पा.०८ बगुवा खोला नजिकै खहरे खोल्सा",
-      "location_en": "Near Bagwa Khola, Bhimphedi GP-8, Khahare Kholsa",
-      "highway_ne": "कान्तिलोकपथ सडकखण्ड",
-      "highway_en": "Kantilokpath section",
-      "status_ne": "पूर्ण रूपमा अवरोध",
-      "status_en": "Fully blocked",
-      "status_type": "full_block",
       "night_start": null,
       "night_end": null,
       "valid_until_bs": null,
@@ -964,19 +946,24 @@
       "valid_until_ne": null,
       "valid_until_en": null,
       "aliases": [
-        "kantilokpath",
-        "कान्तिलोकपथ",
+        "indrasarowar",
+        "इन्द्रसरोवर",
+        "ईन्द्रसरोबर",
+        "mahalaxmi",
+        "महालक्ष्मी",
+        "hetauda",
+        "हेटौडा",
+        "bhaise",
+        "भैसे",
         "bhimphedi",
         "भिमफेदी",
-        "baguwa",
-        "बगुवा"
+        "phakhel",
+        "फाखेल"
       ],
       "flags": [
-        "closed time prints ०८:३; the minutes units digit is not visible before the column rule"
-      ]
-    },
-    {
-      "id": "makwanpur-hetauda",
+        "place prints ईन्द्रसरोबर; काठमाण्डौ as printed"
+      ],
+      "id": "makwanpur-indrasarowar",
       "sn": "५",
       "group": "bagmati",
       "province": {
@@ -989,36 +976,19 @@
         "ne": "मकवानपुर",
         "en": "Makwanpur"
       },
-      "cause_ne": "पहिरो",
-      "cause_en": "Landslide",
-      "cause_kind": "landslide",
-      "closed_date": "२०८३/०६/०९",
-      "closed_time": "१३:३०",
-      "closed_iso": "2026-09-25T13:30:00+05:45",
-      "location_ne": "जि.मकवानपुर हेटौडा उ.म.न.पा.१९ नेवारपानि स्थित",
-      "location_en": "Hetauda Sub-Metropolitan City-19, Newarpani, Makwanpur",
-      "highway_ne": "महेन्द्र राजमार्ग",
-      "highway_en": "Mahendra Highway",
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "०७:३५",
+      "closed_iso": "2026-09-26T07:35:00+05:45",
+      "location_ne": "ईन्द्रसरोबर गा.पा.४ महालक्ष्मी खोला नजिकै",
+      "location_en": "Near Mahalaxmi Khola, Indrasarowar RM-4",
+      "highway_ne": "हेटौडा, भैसे, भिमफेदी फाखेल, काठमाण्डौ सडक खण्ड",
+      "highway_en": "Hetauda–Bhaise–Bhimphedi–Phakhel–Kathmandu road",
       "status_ne": "पूर्णरूपमा अवरोध",
       "status_en": "Fully blocked",
       "status_type": "full_block",
-      "night_start": null,
-      "night_end": null,
-      "valid_until_bs": null,
-      "valid_until_iso": null,
-      "valid_until_ne": null,
-      "valid_until_en": null,
-      "aliases": [
-        "mahendra",
-        "महेन्द्र",
-        "hetauda",
-        "हेटौडा",
-        "east west",
-        "पूर्वपश्चिम"
-      ],
-      "flags": [
-        "place line also prints मिति २०८३/०६/०९ गते अं.१३:३० बजेको समयमा; नेवारपानि as printed"
-      ]
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide"
     },
     {
       "id": "sindhuli-bp",
@@ -1060,10 +1030,32 @@
         "sindhuli",
         "सिन्धुली"
       ],
-      "flags": []
+      "flags": [
+        "printed twice on the notice with identical text; stored once"
+      ]
     },
     {
-      "id": "dolakha-all",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "golanjor",
+        "गोलन्जोर",
+        "kudule",
+        "कुडुले",
+        "dolakha",
+        "दोलखा",
+        "midhill",
+        "मध्यपहाडी"
+      ],
+      "flags": [
+        "Golanjor rural municipality is administratively in Sindhuli; the notice prints this row under Dolakha",
+        "highway cell prints मध्यपहाडी लोकमार्गमा"
+      ],
+      "id": "dolakha-golanjor",
       "sn": "७",
       "group": "bagmati",
       "province": {
@@ -1076,30 +1068,19 @@
         "ne": "दोलखा",
         "en": "Dolakha"
       },
-      "cause_ne": "संभावित बाढी, पहिरो",
-      "cause_en": "Possible flood and landslide",
-      "cause_kind": "flood_landslide",
-      "closed_date": "२०८३/०६/०८",
-      "closed_time": "१६:३०",
-      "closed_iso": "2026-09-24T16:30:00+05:45",
-      "location_ne": "जिल्ला भरिका सबै सडकखण्ड",
-      "location_en": "All road sections in the district",
-      "highway_ne": "जिल्ला भरिका सबै सडक खण्ड",
-      "highway_en": "All road sections in the district",
-      "status_ne": "मिति २०८३/०६/०८ गते बेलुका १७:०० बजे देखि बिहान ०५:०० बजे सम्म रातको समय मात्र ऐ. १० गते सम्म पूर्ण रोक लगाइएको",
-      "status_en": "Night only, from 17:00 to 05:00, fully barred through Asoj 10",
-      "status_type": "night_ban",
-      "night_start": "17:00",
-      "night_end": "05:00",
-      "valid_until_bs": "२०८३/०६/१०",
-      "valid_until_iso": "2026-09-26T05:00:00+05:45",
-      "valid_until_ne": "असोज १०",
-      "valid_until_en": "Asoj 10",
-      "aliases": [
-        "dolakha",
-        "दोलखा"
-      ],
-      "flags": []
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "१६:०५",
+      "closed_iso": "2026-09-26T16:05:00+05:45",
+      "location_ne": "गोलन्जोर गा.पा. वडा नं.०१ कुडुले",
+      "location_en": "Golanjor RM-1 Kudule",
+      "highway_ne": "मध्यपहाडी लोकमार्गमा",
+      "highway_en": "Mid-Hill Highway",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide"
     },
     {
       "id": "sindhupalchok-all",
@@ -1123,8 +1104,8 @@
       "closed_iso": "2026-09-24T06:00:00+05:45",
       "location_ne": "जिल्ला भरीका सबै सडक खण्ड",
       "location_en": "All road sections in the district",
-      "highway_ne": null,
-      "highway_en": null,
+      "highway_ne": "जिल्ला भरीका सबै सडक खण्ड",
+      "highway_en": "All road sections in the district",
       "status_ne": "मिति २०८३/०६/०८ गते देखि ऐ. ११ गते सम्म बेलुका २०:०० बजे देखि बिहान ०५:०० बजे सम्म रातको समयमा मात्र",
       "status_en": "From 2083/06/08 through Asoj 11, at night only, from 20:00 to 05:00",
       "status_type": "night_ban",
@@ -1141,8 +1122,8 @@
         "सिन्धुपाल्चोक"
       ],
       "flags": [
-        "highway cell is blank",
-        "closed-since also prints २०८३/०६/०९ until further notice"
+        "closed-since also prints २०८३/०६/०९ until further notice",
+        "highway column is now filled with the same text as the location"
       ]
     },
     {
@@ -1256,8 +1237,8 @@
       "closed_iso": "2026-09-24T16:00:00+05:45",
       "location_ne": "बेशीसहर हुँदै खाङसारसम्म जाने सडक तथा लमजुङको सिमादेखि खाङसारसम्म रात्रीकालीन",
       "location_en": "The road from Besisahar to Khangsar, and at night from the Lamjung border to Khangsar",
-      "highway_ne": null,
-      "highway_en": null,
+      "highway_ne": "बेशीसहर हुदै खाङसारसम्म जाने सडक तथा लमजुङको सिमादेखी खाङसारसम्म रात्रीकालिन",
+      "highway_en": "The road from Besisahar to Khangsar, and at night from the Lamjung border to Khangsar",
       "status_ne": "मिति २०८३/०६/०८ गते देखि ऐ.१२ गते सम्म (बेलुका १८:०० बजेदेखि बिहान ६:०० बजेसम्म)",
       "status_en": "From 2083/06/08 through Asoj 12, from 18:00 until 06:00",
       "status_type": "night_ban",
@@ -1277,7 +1258,7 @@
         "मनाङ"
       ],
       "flags": [
-        "highway cell is blank; रात्रीकालिन is printed in the location cell"
+        "highway column now repeats the location; prints हुदै, सिमादेखी and रात्रीकालिन"
       ]
     },
     {
@@ -1347,8 +1328,8 @@
       "closed_iso": "2026-09-24T16:00:00+05:45",
       "location_ne": "ग्रामिण भेगका सम्पूर्ण सवारी साधन",
       "location_en": "All vehicles in rural areas",
-      "highway_ne": null,
-      "highway_en": null,
+      "highway_ne": "ग्रामिण भेगका सम्पुर्ण सवारी साधन",
+      "highway_en": "All vehicles in rural areas",
       "status_ne": "मिति २०८३/०६/०८ गते देखि ऐ.११ गते सम्म (बेलुका १८:०० बजेदेखि बिहान ६:०० बजेसम्म)",
       "status_en": "From 2083/06/08 through Asoj 11, from 18:00 until 06:00",
       "status_type": "night_ban",
@@ -1365,7 +1346,7 @@
         "पोखरा"
       ],
       "flags": [
-        "highway cell is blank"
+        "highway column now repeats the location; prints सम्पुर्ण"
       ]
     },
     {
@@ -1390,8 +1371,8 @@
       "closed_iso": "2026-09-24T16:00:00+05:45",
       "location_ne": "जिल्ला भित्रका सम्पूर्ण सवारी साधन",
       "location_en": "All vehicles inside the district",
-      "highway_ne": null,
-      "highway_en": null,
+      "highway_ne": "जिल्ला भित्रका सम्पुर्ण सवारी साधन",
+      "highway_en": "All vehicles inside the district",
       "status_ne": "मिति २०८३/०६/०८ गते देखि ऐ.११ गते सम्म (बेलुका १८:०० बजेदेखि बिहान ६:०० बजेसम्म)",
       "status_en": "From 2083/06/08 through Asoj 11, from 18:00 until 06:00",
       "status_type": "night_ban",
@@ -1407,8 +1388,57 @@
         "mustang"
       ],
       "flags": [
-        "highway cell is blank"
+        "highway column now repeats the location; prints सम्पुर्ण"
       ]
+    },
+    {
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "kalobhir",
+        "कालोभिर",
+        "jomsom",
+        "जोमसोम",
+        "korala",
+        "कोरला",
+        "baragung",
+        "वारागुङ",
+        "mustang",
+        "मुस्ताङ"
+      ],
+      "flags": [
+        "place prints मुकतिक्षेत्र; highway prints सडक-खण्डमा; closed time prints ०८;१५"
+      ],
+      "id": "mustang-kalobhir",
+      "sn": "३",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "mustang",
+        "ne": "मुस्ताङ",
+        "en": "Mustang"
+      },
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "०८:१५",
+      "closed_iso": "2026-09-26T08:15:00+05:45",
+      "location_ne": "वारागुङ मुकतिक्षेत्र गा.पा. ०३ कालोभिर",
+      "location_en": "Baragung Muktikshetra RM-3 Kalobhir",
+      "highway_ne": "जोमसोम-कोरला सडक-खण्डमा",
+      "highway_en": "Jomsom–Korala road",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide"
     },
     {
       "id": "parbat-all",
@@ -1460,59 +1490,6 @@
       ]
     },
     {
-      "id": "parbat-pharse",
-      "sn": "४",
-      "group": "gandaki",
-      "province": {
-        "id": "gandaki",
-        "ne": "गण्डकी",
-        "en": "Gandaki"
-      },
-      "district": {
-        "id": "parbat",
-        "ne": "पर्वत",
-        "en": "Parbat"
-      },
-      "cause_ne": "पहिरो",
-      "cause_en": "Landslide",
-      "cause_kind": "landslide",
-      "closed_date": "२०८३/०६/०९",
-      "closed_time": "२२:४०",
-      "closed_iso": "2026-09-25T22:40:00+05:45",
-      "location_ne": "जलजला गा.पा. ८ फर्से र लस्ति",
-      "location_en": "Jaljala GP-8, Pharse and Lasti",
-      "highway_ne": "पोखरा बेनी बागलुङ सडक खण्ड",
-      "highway_en": "Pokhara–Beni–Baglung section",
-      "status_ne": "पूर्णरूपमा अवरोध",
-      "status_en": "Fully blocked",
-      "status_type": "full_block",
-      "night_start": null,
-      "night_end": null,
-      "valid_until_bs": null,
-      "valid_until_iso": null,
-      "valid_until_ne": null,
-      "valid_until_en": null,
-      "aliases": [
-        "pharse",
-        "फर्से",
-        "lasti",
-        "लस्ति",
-        "jaljala",
-        "जलजला",
-        "pokhara",
-        "पोखरा",
-        "beni",
-        "बेनी",
-        "baglung",
-        "बागलुङ",
-        "parbat",
-        "पर्वत"
-      ],
-      "flags": [
-        "closed time prints २२;४०"
-      ]
-    },
-    {
       "id": "myagdi-all",
       "sn": "५",
       "group": "gandaki",
@@ -1534,8 +1511,8 @@
       "closed_iso": "2026-09-24T16:00:00+05:45",
       "location_ne": "जिल्ला भित्रका सम्पूर्ण सवारी साधन",
       "location_en": "All vehicles inside the district",
-      "highway_ne": null,
-      "highway_en": null,
+      "highway_ne": "जिल्ला भित्रका सम्पुर्ण सवारी साधन",
+      "highway_en": "All vehicles inside the district",
       "status_ne": "मिति २०८३/०६/०८ गते देखि ऐ.११ गते सम्म (बेलुका १८:०० बजेदेखि बिहान ६:०० बजेसम्म)",
       "status_en": "From 2083/06/08 through Asoj 11, from 18:00 until 06:00",
       "status_type": "night_ban",
@@ -1551,8 +1528,62 @@
         "myagdi"
       ],
       "flags": [
-        "highway cell is blank"
+        "highway column now repeats the location; prints सम्पुर्ण"
       ]
+    },
+    {
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "beni",
+        "बेनी",
+        "वेनि",
+        "jomsom",
+        "जोमसोम",
+        "baisari",
+        "बैसरी",
+        "sukebagar",
+        "सुकेवगर",
+        "raghuganga",
+        "रघुगंगा",
+        "annapurna",
+        "अन्नपुर्ण",
+        "myagdi",
+        "म्याग्दी"
+      ],
+      "flags": [
+        "place prints बैसरी and अन्नपुर्ण; highway prints वेनि; closed time prints ०५;५०"
+      ],
+      "id": "myagdi-beni-jomsom",
+      "sn": "५",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "myagdi",
+        "ne": "म्याग्दी",
+        "en": "Myagdi"
+      },
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "०५:५०",
+      "closed_iso": "2026-09-26T05:50:00+05:45",
+      "location_ne": "रघुगंगा गा.पा.०२ बैसरी अन्नपुर्ण गा.पा.३ सुकेवगर",
+      "location_en": "Raghuganga RM-2 Baisari and Annapurna RM-3 Sukebagar",
+      "highway_ne": "वेनि जोमसोम सडक खण्ड",
+      "highway_en": "Beni–Jomsom road",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide"
     },
     {
       "id": "nawalparasi-east-all",
@@ -1747,6 +1778,54 @@
       "flags": [
         "one printed row: item 1 Tulsipur–Kapurkot is fully closed until 18:00 on Asoj 11; items 2 and 3 are a night ban 17:00–06:00 until Asoj 11"
       ]
+    },
+    {
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "gwarkhola",
+        "ग्वारखोला",
+        "tulsipur",
+        "तुलसीपुर",
+        "तुल्सीपुर",
+        "ghorahi",
+        "घोराही",
+        "dang",
+        "दाङ"
+      ],
+      "flags": [
+        "place prints तुल्सीपुर; highway prints तुलसीपुर; closed time prints ०७;३०"
+      ],
+      "id": "dang-gwarkhola",
+      "sn": "१",
+      "group": "lumbini",
+      "province": {
+        "id": "lumbini",
+        "ne": "लुम्बिनी",
+        "en": "Lumbini"
+      },
+      "district": {
+        "id": "dang",
+        "ne": "दाङ",
+        "en": "Dang"
+      },
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "०७:३०",
+      "closed_iso": "2026-09-26T07:30:00+05:45",
+      "location_ne": "तुल्सीपुर उपमहानगरपालिका वडा नम्बर १८ ग्वारखोला",
+      "location_en": "Tulsipur Sub-Metropolitan City-18 Gwarkhola",
+      "highway_ne": "तुलसीपुर-घोराही सडक खण्ड",
+      "highway_en": "Tulsipur–Ghorahi road",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide"
     },
     {
       "id": "rolpa-madan",
@@ -2129,6 +2208,287 @@
       "flags": [
         "closed time prints २२;४०"
       ]
+    },
+    {
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "sarkegad",
+        "सर्केगाड",
+        "सर्केगाडँ",
+        "khachcha",
+        "खच्चा",
+        "humla",
+        "हुम्ला",
+        "karnali corridor",
+        "कर्णाली करिडोर"
+      ],
+      "flags": [
+        "place prints सर्केगाडँ and गा पा; highway prints कर्णाली करिडोरमा; closed time prints ०७;००"
+      ],
+      "id": "humla-sarkegad",
+      "sn": "३",
+      "group": "karnali",
+      "province": {
+        "id": "karnali",
+        "ne": "कर्णाली",
+        "en": "Karnali"
+      },
+      "district": {
+        "id": "humla",
+        "ne": "हुम्ला",
+        "en": "Humla"
+      },
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "०७:००",
+      "closed_iso": "2026-09-26T07:00:00+05:45",
+      "location_ne": "सर्केगाडँ गा पा १ खच्चा",
+      "location_en": "Sarkegad RM-1 Khachcha",
+      "highway_ne": "कर्णाली करिडोरमा",
+      "highway_en": "Karnali Corridor",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide"
+    },
+    {
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "nagma",
+        "नाग्म",
+        "gamgadhi",
+        "गमगढी",
+        "talcha",
+        "ताल्चा",
+        "mugu",
+        "मुगु",
+        "chhayanath",
+        "छायाँनाथ",
+        "छाँयानाथ"
+      ],
+      "flags": [
+        "place prints छाँयानाथ and ताल्चामा; closed time prints ०९;५०"
+      ],
+      "id": "mugu-nagma-gamgadhi",
+      "sn": "४",
+      "group": "karnali",
+      "province": {
+        "id": "karnali",
+        "ne": "कर्णाली",
+        "en": "Karnali"
+      },
+      "district": {
+        "id": "mugu",
+        "ne": "मुगु",
+        "en": "Mugu"
+      },
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "०९:५०",
+      "closed_iso": "2026-09-26T09:50:00+05:45",
+      "location_ne": "छाँयानाथ रारा न.पा. ०७ ताल्चामा",
+      "location_en": "Chhayanath Rara Municipality-7 Talcha",
+      "highway_ne": "नाग्म गमगढी सडक खण्ड",
+      "highway_en": "Nagma–Gamgadhi road",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide"
+    },
+    {
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "aulise",
+        "औलिसे",
+        "barahatal",
+        "बराहताल",
+        "surkhet",
+        "सुर्खेत",
+        "karnali",
+        "कर्णाली"
+      ],
+      "flags": [
+        "closed time prints ०९;५०"
+      ],
+      "id": "surkhet-aulise",
+      "sn": "५",
+      "group": "karnali",
+      "province": {
+        "id": "karnali",
+        "ne": "कर्णाली",
+        "en": "Karnali"
+      },
+      "district": {
+        "id": "surkhet",
+        "ne": "सुर्खेत",
+        "en": "Surkhet"
+      },
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "०९:५०",
+      "closed_iso": "2026-09-26T09:50:00+05:45",
+      "location_ne": "बराहताल गा.पा.७ औलिसे",
+      "location_en": "Barahatal RM-7 Aulise",
+      "highway_ne": "कर्णाली राजमार्ग",
+      "highway_en": "Karnali Highway",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide"
+    },
+    {
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "bheriganga",
+        "भेरीगंगा",
+        "भेरिगंगा",
+        "ratna",
+        "रत्न",
+        "रत्नराजमार्ग",
+        "surkhet",
+        "सुर्खेत"
+      ],
+      "flags": [
+        "place prints भेरिगंगा; the ward cell names no further place; closed time prints १०;३०"
+      ],
+      "id": "surkhet-bheriganga",
+      "sn": "५",
+      "group": "karnali",
+      "province": {
+        "id": "karnali",
+        "ne": "कर्णाली",
+        "en": "Karnali"
+      },
+      "district": {
+        "id": "surkhet",
+        "ne": "सुर्खेत",
+        "en": "Surkhet"
+      },
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "१०:३०",
+      "closed_iso": "2026-09-26T10:30:00+05:45",
+      "location_ne": "भेरिगंगा न.पा.५",
+      "location_en": "Bheriganga Municipality-5",
+      "highway_ne": "रत्नराजमार्ग",
+      "highway_en": "Ratna Highway",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide"
+    },
+    {
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": "२०८३/०६/११",
+      "valid_until_iso": "2026-09-27T07:00:00+05:45",
+      "valid_until_ne": "असोज ११, बिहान ०७:००",
+      "valid_until_en": "Asoj 11, 07:00",
+      "aliases": [
+        "doti",
+        "डोटी"
+      ],
+      "flags": [
+        "place prints ठाऊँ; status prints पुर्ण रुपमा; the province header prints सुदुरपश्चिम"
+      ],
+      "id": "doti-district",
+      "sn": "१",
+      "group": "sudurpashchim",
+      "province": {
+        "id": "sudurpashchim",
+        "ne": "सुदूरपश्चिम",
+        "en": "Sudurpashchim"
+      },
+      "district": {
+        "id": "doti",
+        "ne": "डोटी",
+        "en": "Doti"
+      },
+      "cause_ne": "संभावित बाढी, पहिरो",
+      "cause_en": "Possible flood and landslide",
+      "cause_kind": "flood_landslide",
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "०७:००",
+      "closed_iso": "2026-09-26T07:00:00+05:45",
+      "location_ne": "जिल्लाको सबै ठाऊँ",
+      "location_en": "Everywhere in the district",
+      "highway_ne": "जिल्लाको सबै ठाऊँ",
+      "highway_en": "Everywhere in the district",
+      "status_ne": "२०८३।०६।१० गते बिहान ०७:०० बजे देखी मिति २०८३।०६।११ गते बिहान ०७:०० बजे सम्म सवारी साधनको आवागमनमा पूर्णरूपमा रोक लगाइएको",
+      "status_en": "All vehicle movement is fully barred from 07:00 on 2083/06/10 until 07:00 on 2083/06/11",
+      "status_type": "full_block"
+    },
+    {
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "litiri",
+        "लिटिरी",
+        "amargadhi",
+        "अमरगढी",
+        "dadeldhura",
+        "डडेल्धुरा",
+        "ki singh",
+        "केआईसिंह",
+        "सिंह"
+      ],
+      "flags": [
+        "place prints लिटिरी; highway prints के.आइ.सिंह राजमार्गमा; closed time prints ०७;००"
+      ],
+      "id": "dadeldhura-litiri",
+      "sn": "२",
+      "group": "sudurpashchim",
+      "province": {
+        "id": "sudurpashchim",
+        "ne": "सुदूरपश्चिम",
+        "en": "Sudurpashchim"
+      },
+      "district": {
+        "id": "dadeldhura",
+        "ne": "डडेल्धुरा",
+        "en": "Dadeldhura"
+      },
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "०७:००",
+      "closed_iso": "2026-09-26T07:00:00+05:45",
+      "location_ne": "अमरगढी न.पा. वडा नं. ११ लिटिरी",
+      "location_en": "Amargadhi Municipality-11 Litiri",
+      "highway_ne": "के.आइ.सिंह राजमार्गमा",
+      "highway_en": "K.I. Singh Highway",
+      "status_ne": "पूर्णरूपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide"
     }
   ]
 }

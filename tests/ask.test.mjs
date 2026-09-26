@@ -145,24 +145,32 @@ test("fuzzy weather typo still composes a sentence", function () {
 });
 
 test("Nepal Police road notice answers night bans and Rasuwa", function () {
-  const police = JSON.parse(readFileSync(new URL("../data/police_roads_2083-06-10.json", import.meta.url), "utf8"));
-  assert.equal(police.id, "nepal-police-highways-2083-06-10-0700");
-  assert.equal(police.rows.length, 44);
-  assert.equal(police.counts.total, 44);
-  assert.equal(police.counts.full_block, 25);
-  assert.equal(police.counts.night_ban, 18);
-  assert.equal(police.counts.one_way, 0);
+  const police = JSON.parse(readFileSync(new URL("../data/police_roads_2083-06-10-1700.json", import.meta.url), "utf8"));
+  assert.equal(police.id, "nepal-police-highways-2083-06-10-1700");
+  assert.equal(police.rows.length, 51);
+  assert.equal(police.counts.total, 51);
+  assert.equal(police.counts.full_block, 32);
+  assert.equal(police.counts.night_ban, 17);
+  assert.equal(police.counts.one_way, 1);
   assert.equal(police.counts.restricted, 1);
-  assert.equal(police.counts.districts, 30);
-  assert.equal(police.counts.provinces, 5);
-  assert.equal(police.rows.some(function (r) { return r.id === "dhading-jwang" || r.id === "palpa-kaligandaki"; }), false);
-  const bhim = police.rows.find(function (r) { return r.id === "makwanpur-bhimphedi"; });
-  assert.equal(bhim.closed_time, "०८:३");
-  assert.equal(bhim.closed_iso, null);
+  assert.equal(police.counts.districts, 34);
+  assert.equal(police.counts.provinces, 6);
+  assert.equal(police.rows.some(function (r) {
+    return r.id === "dhading-jwang" || r.id === "palpa-kaligandaki" || r.id === "okhaldhunga-siddhicharan" || r.id === "makwanpur-bhimphedi";
+  }), false);
   ["khotang-midhill", "udayapur-katari"].forEach(function (id) {
     const row = police.rows.find(function (r) { return r.id === id; });
     assert.equal(row.closed_time, null);
     assert.equal(row.closed_iso, null);
+  });
+  const araniko = police.rows.find(function (r) { return r.id === "kavre-dhulikhel"; });
+  assert.equal(araniko.status_type, "one_way");
+  assert.equal(araniko.highway_en, "Araniko Highway");
+  ["doti-district", "dadeldhura-litiri"].forEach(function (id) {
+    const row = police.rows.find(function (r) { return r.id === id; });
+    assert.ok(row, id);
+    assert.equal(row.group, "sudurpashchim");
+    assert.equal(row.province.id, "sudurpashchim");
   });
   function askPolice(q, lang) {
     return Ask.answer(q, {
@@ -176,7 +184,7 @@ test("Nepal Police road notice answers night bans and Rasuwa", function () {
   const night = askPolice("which roads are closed at night", "en");
   assert.equal(night.intent, "roads_night");
   assert.ok(night.text.length <= 400, night.text.length + " " + night.text);
-  ["Solukhumbu", "Bhojpur", "Ilam", "Khotang", "Udayapur", "Kavre", "Nuwakot", "Makwanpur", "Sindhuli", "Dolakha", "Sindhupalchok", "Manang", "Kaski", "Mustang", "Parbat", "Myagdi", "Nawalparasi E", "Dang"].forEach(function (name) {
+  ["Solukhumbu", "Bhojpur", "Ilam", "Khotang", "Udayapur", "Kavre", "Nuwakot", "Makwanpur", "Sindhuli", "Sindhupalchok", "Manang", "Kaski", "Mustang", "Parbat", "Myagdi", "Nawalparasi E", "Dang"].forEach(function (name) {
     assert.ok(night.text.includes(name), name + " missing in " + night.text);
   });
   assert.equal(/until Until/.test(night.text), false);
@@ -199,7 +207,7 @@ test("Nepal Police road notice answers night bans and Rasuwa", function () {
 
 test("NDRRMA vehicle movement answers travel by district", function () {
   const vehicle = JSON.parse(readFileSync(new URL("../data/ndrrma_vehicle_2083-06-09.json", import.meta.url), "utf8"));
-  const police = JSON.parse(readFileSync(new URL("../data/police_roads_2083-06-10.json", import.meta.url), "utf8"));
+  const police = JSON.parse(readFileSync(new URL("../data/police_roads_2083-06-10-1700.json", import.meta.url), "utf8"));
   assert.equal(vehicle.districts.length, 77);
   assert.equal(vehicle.counts.red + vehicle.counts.orange + vehicle.counts.yellow, 77);
   function askVehicle(q, lang) {
