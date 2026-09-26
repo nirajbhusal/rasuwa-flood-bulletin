@@ -155,7 +155,12 @@ def copy_site(src: Path, dest: Path) -> None:
     shutil.copytree(src, dest, ignore=ignore, symlinks=False)
 
 
-def stamp_files(root: Path, build: str, built_at: str) -> None:
+def stamp_files(root: Path, build: str, built_at: str, git_root: Path | None = None, render_og: bool = False) -> None:
+    # SEO runs on the deploy copy before ?v= / PAGE_VER stamping, so a publish
+    # refreshes titles without a hand-edited build id.
+    import seo_meta
+
+    seo_meta.apply(root, built_at, git_root=git_root or root, render_og_image=render_og)
     for path in root.rglob("*.html"):
         if "/data/" in path.as_posix():
             continue
@@ -175,13 +180,13 @@ def stamp_files(root: Path, build: str, built_at: str) -> None:
         raise SystemExit("stamp verify failed:\n" + "\n".join(problems))
 
 
-def stamp_tree(src: Path, dest: Path, build: str, built_at: str) -> None:
+def stamp_tree(src: Path, dest: Path, build: str, built_at: str, render_og: bool = False) -> None:
     copy_site(src, dest)
-    stamp_files(dest, build, built_at)
+    stamp_files(dest, build, built_at, git_root=src, render_og=render_og)
 
 
-def stamp_in_place(src: Path, build: str, built_at: str) -> None:
-    stamp_files(src, build, built_at)
+def stamp_in_place(src: Path, build: str, built_at: str, render_og: bool = False) -> None:
+    stamp_files(src, build, built_at, git_root=src, render_og=render_og)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -191,6 +196,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--in-place", action="store_true")
     parser.add_argument("--sha", default=os.environ.get("BUILD_SHA", "local"))
     parser.add_argument("--build", default="", help="Override the build id (tests)")
+    parser.add_argument("--render-og", action="store_true", help="Screenshot og-header.png")
     args = parser.parse_args(argv)
     src = args.src.resolve()
     if args.build:
@@ -199,11 +205,11 @@ def main(argv: list[str] | None = None) -> int:
     else:
         build, built_at = make_build(args.sha)
     if args.in_place:
-        stamp_in_place(src, build, built_at)
+        stamp_in_place(src, build, built_at, render_og=args.render_og)
     else:
         if args.out is None:
             parser.error("--out is required unless --in-place")
-        stamp_tree(src, args.out.resolve(), build, built_at)
+        stamp_tree(src, args.out.resolve(), build, built_at, render_og=args.render_og)
     print(build)
     return 0
 
