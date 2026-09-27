@@ -11412,3 +11412,17 @@ html[lang="en"] .elec-src-ne{display:none}
 .notify-feed[hidden]{display:none !important}
 .notify-feed a{display:block;padding:8px;border-radius:8px;font-weight:750;line-height:1.35;color:#9f1239;text-decoration:none}
 .notify-feed a:hover,.notify-feed a:focus-visible{background:#fff5f5}
+
+/* NEOC blocked highways, Asoj 10, 6:00 PM. Scoped so the Police board is unchanged. */
+.nr-board .pr-card{cursor:default}
+.nr-board .pr-grid{display:block}
+.dor-has-vehicle .nr-board{margin-top:0;padding-top:0;border-top:0}
+.nr-board + .vv-board,
+.nr-board + .pr-board{margin-top:14px;padding-top:12px;border-top:1px solid #e2e8f0}
+@media (min-width:1024px){
+  .nr-board .pr-side{columns:2;column-gap:16px}
+  .nr-board .pr-group{break-inside:avoid}
+}
+@media (min-width:1280px){
+  .nr-board .pr-side{columns:3}
+}

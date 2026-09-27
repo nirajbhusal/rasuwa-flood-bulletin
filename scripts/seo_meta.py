@@ -57,14 +57,14 @@ PAGE_DATA = {
     "index.html": [
         "api/dashboard.json", "api/dashboard.ne.json", "latest.json",
         "data/weather-alert.json", "data/flood-bulletin.json",
-        "data/police_roads_*.json", "data/nea_electricity.json",
+        "data/police_roads_*.json", "data/neoc_roads_*.json", "data/nea_electricity.json",
     ],
     "weather.html": [
         "data/weather-alert.json", "data/dhm-weather-alert.json",
         "data/flood-bulletin.json", "data/weather/current.json", "data/weather/now.json",
     ],
     "notices.html": [
-        "data/police_roads_*.json", "data/roads-dor.json",
+        "data/police_roads_*.json", "data/neoc_roads_*.json", "data/roads-dor.json",
         "data/weather-alert.json", "data/ndrrma_vehicle_*.json",
     ],
     "electricity.html": ["data/nea_electricity.json"],

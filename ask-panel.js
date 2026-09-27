@@ -381,10 +381,16 @@
       today = cache.wx.warning_days.some(function (d) { return d && d.date === iso; });
     }
     var pRows = cache.police && cache.police.rows;
+    var nRows = cache.neoc && cache.neoc.rows;
     var n = cache.roads && cache.roads.dao_notice && cache.roads.dao_notice.counts
       ? cache.roads.dao_notice.counts.districts : null;
     var roadLabel;
-    if (pRows && pRows.length) {
+    if (nRows && nRows.length) {
+      var total = (cache.neoc.counts && cache.neoc.counts.total) || nRows.length;
+      var nn = String(total);
+      if (!en) nn = nn.replace(/[0-9]/g, function (d) { return "०१२३४५६७८९"[d]; });
+      roadLabel = en ? (total + " blocked highways") : (nn + " राजमार्ग अवरुद्ध");
+    } else if (pRows && pRows.length) {
       var pn = String(pRows.length);
       if (!en) pn = pn.replace(/[0-9]/g, function (d) { return "०१२३४५६७८९"[d]; });
       roadLabel = en ? (pRows.length + " road obstructions") : (pn + " सडक अवरोध");
@@ -430,6 +436,7 @@
       ndrrma: cache.ndrrma || null,
       roads: cache.roads,
       police: cache.police || null,
+      neoc: cache.neoc || null,
       vehicle: cache.vehicle || null,
       clock: new Date().toISOString(),
       dash: cache.dash,
@@ -457,7 +464,7 @@
       if (spec.intent === "flood_ndrrma") return !cache.ndrrma && !failed.ndrrma;
       return !cache.flood && !failed.flood;
     }
-    if (f === "roads" || f === "map") return (!cache.roads && !failed.roads) || (!cache.police && !failed.police) || (!cache.vehicle && !failed.vehicle);
+    if (f === "roads" || f === "map") return (!cache.roads && !failed.roads) || (!cache.police && !failed.police) || (!cache.neoc && !failed.neoc) || (!cache.vehicle && !failed.vehicle);
     if (f === "rescue") return !cache.dash && !failed.dash;
     if (f === "lpg") return !cache.lpg && !failed.lpg;
     if (f === "electricity") return (!cache.nea && !failed.nea) || (!cache.nolight && !failed.nolight);
@@ -491,6 +498,7 @@
       getJSON("data/weather/now.json", "now"),
       getJSON("data/roads-dor.json", "roads"),
       getJSON("data/police_roads_2083-06-10-1700.json", "police"),
+      getJSON("data/neoc_roads_2083-06-10-1800.json", "neoc"),
       getJSON("data/ndrrma_vehicle_2083-06-09.json", "vehicle"),
       getJSON("api/dashboard.json", "dash"),
       getJSON("data/gallery-path.json", "gallery"),

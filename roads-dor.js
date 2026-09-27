@@ -13,6 +13,8 @@
   var police = null;
   var policeFilter = "";
   var policeNowTimer = 0;
+  var neoc = null;
+  var neocFilter = "";
   var vehicle = null;
   var vehicleGeo = null;
   var vehicleLevel = "";
@@ -1061,9 +1063,11 @@
       landslide: '<path d="M3 18h18L14 8l-3.2 4.2L8 10z" fill="currentColor"/><path d="M16 6.2 17.4 4l1.6 2.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
       rain: '<path d="M7 15c0-2.5 2-4 5-4s5 1.5 5 4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 17.5v2.2M12 17.5v2.2M15 17.5v2.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>',
       risk: '<path d="M12 4.2 20 19H4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 10v4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="16.4" r=".8" fill="currentColor"/>',
-      flood_landslide: '<path d="M3 16.5h10L9.2 9.5 7 12.2 5.2 10.6z" fill="currentColor"/><path d="M13 15.5c1.2-1.6 1.8-1.6 3 0s1.6 1.6 3 0 1.6-1.6 3 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>'
+      flood_landslide: '<path d="M3 16.5h10L9.2 9.5 7 12.2 5.2 10.6z" fill="currentColor"/><path d="M13 15.5c1.2-1.6 1.8-1.6 3 0s1.6 1.6 3 0 1.6-1.6 3 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+      fallen_tree: '<path d="M12 20.5V12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 14.2 7.2 18.2M12 12.2l5 4.2M12 9.4 7.4 13.2M12 7.2 16.6 11.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="5.2" r="1.5" fill="currentColor"/>'
     };
-    var d = paths[kind] || paths.risk;
+    var alias = { erosion: "flood", debris_flow: "flood_landslide", subsidence: "landslide" };
+    var d = paths[alias[kind] || kind] || paths.risk;
     return '<svg class="pr-cause-ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">' + d + '</svg>';
   }
   function prMoon() {
@@ -1191,17 +1195,20 @@
   }
   function setPoliceFilter(id) {
     policeFilter = id || "";
-    document.querySelectorAll(".pr-tile").forEach(function (b) {
-      var on = (b.getAttribute("data-group") || "") === policeFilter;
-      b.classList.toggle("is-on", on);
-      b.setAttribute("aria-pressed", on ? "true" : "false");
-    });
-    document.querySelectorAll(".pr-group").forEach(function (g) {
-      g.hidden = !prGroupOn(g.getAttribute("data-group"));
-    });
-    document.querySelectorAll(".pr-pin").forEach(function (pin) {
-      var row = prRow(pin.getAttribute("data-pr-id"));
-      pin.hidden = !(row && prGroupOn(row.group));
+    document.querySelectorAll(".pr-board").forEach(function (root) {
+      if (root.classList.contains("nr-board")) return;
+      root.querySelectorAll(".pr-tile").forEach(function (b) {
+        var on = (b.getAttribute("data-group") || "") === policeFilter;
+        b.classList.toggle("is-on", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      root.querySelectorAll(".pr-group").forEach(function (g) {
+        g.hidden = !prGroupOn(g.getAttribute("data-group"));
+      });
+      root.querySelectorAll(".pr-pin").forEach(function (pin) {
+        var row = prRow(pin.getAttribute("data-pr-id"));
+        pin.hidden = !(row && prGroupOn(row.group));
+      });
     });
     mapInstances.forEach(function (map) {
       if (typeof map._applyPoliceFilter === "function") map._applyPoliceFilter(policeFilter);
@@ -1925,12 +1932,129 @@
     svg.addEventListener("pointercancel", endDrag);
     host.appendChild(wrap);
   }
+  function nrGroupOn(groupId) {
+    return !neocFilter || neocFilter === groupId;
+  }
+  function nrCard(row) {
+    var b = el("div", "pr-card pr-st-full_block" + (row.prominent ? " is-rasuwa" : ""));
+    var top = el("span", "pr-card-top");
+    top.appendChild(el("strong", "pr-hwy", prName(row)));
+    top.appendChild(el("span", "pr-badge pr-badge-full_block", lang() === "en" ? row.status_en : row.status_ne));
+    b.appendChild(top);
+    var state = prState(row);
+    var now = el("span", "pr-now" + (state ? " is-" + state : ""));
+    now.textContent = prNowWord(state);
+    now.hidden = !state;
+    b.appendChild(now);
+    var place = el("span", "pr-loc");
+    var dname = lang() === "en" ? row.district.en : row.district.ne;
+    var loc = lang() === "en" ? row.location_en : row.location_ne;
+    place.textContent = dname + " · " + loc;
+    b.appendChild(place);
+    var cause = el("span", "pr-cause");
+    cause.insertAdjacentHTML("beforeend", prCauseIcon(row.cause_kind));
+    cause.appendChild(document.createTextNode(lang() === "en" ? row.cause_en : row.cause_ne));
+    b.appendChild(cause);
+    var since = el("span", "pr-since");
+    since.textContent = lang() === "en" ? ("Since " + (row.closed_date_ascii || "")) : ((row.closed_date || "") + " देखि");
+    b.appendChild(since);
+    return b;
+  }
+  function setNeocFilter(root, id) {
+    neocFilter = id || "";
+    root.querySelectorAll(".pr-tile").forEach(function (b) {
+      var on = (b.getAttribute("data-group") || "") === neocFilter;
+      b.classList.toggle("is-on", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    root.querySelectorAll(".pr-group").forEach(function (g) {
+      g.hidden = !nrGroupOn(g.getAttribute("data-group"));
+    });
+    var pin = root.querySelector(".pr-pin");
+    if (pin) pin.hidden = !nrGroupOn(pin.getAttribute("data-group"));
+  }
+  function renderNeoc(board, mode) {
+    var shell = el("section", "pr-board nr-board");
+    shell.id = mode === "home" ? "nr-home" : "nr-roads";
+    shell.appendChild(el("p", "pr-kicker", lang() === "en" ? "NEOC · Ministry of Home Affairs" : "NEOC · गृह मन्त्रालय"));
+    shell.appendChild(el("h2", "pr-title", lang() === "en" ? "Blocked highways" : "अवरुद्ध राजमार्ग"));
+    shell.appendChild(el("p", "pr-asof", lang() === "en" ? neoc.as_of.en : neoc.as_of.ne));
+    var counts = neoc.counts || {};
+    var sum = el("ul", "pr-sum");
+    [
+      ["total", { ne: "अवरुद्ध", en: "Blocked" }, "pr-sum-full"],
+      ["districts", { ne: "जिल्ला", en: "Districts" }, "pr-sum-dist"],
+      ["provinces", { ne: "प्रदेश", en: "Provinces" }, "pr-sum-prov"]
+    ].forEach(function (item) {
+      var li = el("li", "pr-stat " + item[2]);
+      li.appendChild(el("strong", "pr-stat-n", num(counts[item[0]] || 0)));
+      li.appendChild(el("span", "pr-stat-k", tx(item[1])));
+      sum.appendChild(li);
+    });
+    shell.appendChild(sum);
+    var prominent = (neoc.rows || []).filter(function (r) { return r.prominent; });
+    var pinHost = el("div", "pr-pin");
+    pinHost.id = "nr-rasuwa";
+    var pinGroup = prominent.length && prominent[0].group ? prominent[0].group : "bagmati";
+    pinHost.setAttribute("data-group", pinGroup);
+    prominent.forEach(function (r) { pinHost.appendChild(nrCard(r)); });
+    pinHost.hidden = !nrGroupOn(pinGroup);
+    shell.appendChild(pinHost);
+    var tiles = el("div", "pr-tiles");
+    tiles.setAttribute("role", "group");
+    tiles.setAttribute("aria-label", lang() === "en" ? "Provinces" : "प्रदेश");
+    function tile(id, count, label) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "pr-tile" + (neocFilter === id ? " is-on" : "");
+      b.setAttribute("data-group", id);
+      b.setAttribute("aria-pressed", neocFilter === id ? "true" : "false");
+      b.appendChild(el("span", "pr-tile-n", num(count)));
+      b.appendChild(el("span", "pr-tile-k", label));
+      b.addEventListener("click", function () { setNeocFilter(shell, id); });
+      tiles.appendChild(b);
+    }
+    tile("", counts.total || 0, lang() === "en" ? "All" : "सबै");
+    (neoc.groups || []).forEach(function (g) {
+      var n = (neoc.rows || []).filter(function (r) { return r.group === g.id; }).length;
+      tile(g.id, n, lang() === "en" ? g.en : g.ne);
+    });
+    shell.appendChild(tiles);
+    var grid = el("div", "pr-grid");
+    var side = el("div", "pr-side");
+    (neoc.groups || []).forEach(function (g) {
+      var block = el("section", "pr-group");
+      block.setAttribute("data-group", g.id);
+      block.hidden = !nrGroupOn(g.id);
+      var items = (neoc.rows || []).filter(function (r) { return r.group === g.id; });
+      var h = el("h3", "pr-gh");
+      h.appendChild(document.createTextNode(lang() === "en" ? g.en : g.ne));
+      h.appendChild(el("span", "pr-gn", " " + num(items.length)));
+      block.appendChild(h);
+      items.forEach(function (r) { block.appendChild(nrCard(r)); });
+      side.appendChild(block);
+    });
+    grid.appendChild(side);
+    shell.appendChild(grid);
+    var src = el("p", "pr-src");
+    if (neoc.source && neoc.source.url) {
+      var a = document.createElement("a");
+      a.href = neoc.source.url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = lang() === "en" ? neoc.source.name.en : neoc.source.name.ne;
+      src.appendChild(a);
+    }
+    shell.appendChild(src);
+    board.appendChild(shell);
+  }
   function renderMount(root) {
     var mode = root.getAttribute("data-dor-mode") || "home";
     var ui = data.ui;
     var n = notice();
     root.replaceChildren();
-    var board = el("article", "dor" + (mode === "section" ? " dor-section" : " dor-home") + (n ? " dor-has-dao" : "") + (police && police.rows ? " dor-has-police" : "") + (vvDoc() ? " dor-has-vehicle" : ""));
+    var board = el("article", "dor" + (mode === "section" ? " dor-section" : " dor-home") + (n ? " dor-has-dao" : "") + (neoc && neoc.rows ? " dor-has-neoc" : "") + (police && police.rows ? " dor-has-police" : "") + (vvDoc() ? " dor-has-vehicle" : ""));
+    if (neoc && neoc.rows) renderNeoc(board, mode);
     if (vvDoc()) renderVehicle(board);
     if (police && police.rows) renderPolice(board, mode);
     if (n) {
@@ -2151,12 +2275,16 @@
     var geoP = fetch("data/nepal-districts.geojson?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("geo"); return r.json(); })
       .catch(function () { return null; });
-    Promise.all([roadsP, policeP, vehicleP, geoP])
+    var neocP = fetch("data/neoc_roads_2083-06-10-1800.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("neoc"); return r.json(); })
+      .catch(function () { return null; });
+    Promise.all([roadsP, policeP, vehicleP, geoP, neocP])
       .then(function (pair) {
         data = pair[0];
         police = pair[1];
         vehicle = pair[2];
         vehicleGeo = pair[3];
+        neoc = pair[4];
         renderAll();
         if (!refreshTimer) refreshTimer = window.setInterval(refreshRoads, REFRESH_MS);
         if (window.__addLangHook) window.__addLangHook(renderAll);
