@@ -11,6 +11,7 @@
   var going = false;
   var regPromise = null;
   var toastBuild = "";
+  var fromRestore = false;
 
   function storeGet(key) {
     try { return sessionStorage.getItem(key); } catch (e) { return null; }
@@ -129,6 +130,8 @@
     }).catch(finish);
   }
   function offer(build) {
+    var back = fromRestore;
+    fromRestore = false;
     if (!build || build === pageVer()) {
       cleanUrl();
       if (storeGet(RELOAD_KEY) === build) {
@@ -137,7 +140,8 @@
       hideToast();
       return;
     }
-    if (tried(build) || busy()) {
+    /* A restored page keeps its scroll position. A newer build waits for a tap. */
+    if (tried(build) || busy() || back) {
       showToast(build);
       return;
     }
@@ -188,7 +192,10 @@
     poke();
   });
   window.addEventListener("pageshow", function (ev) {
-    if (ev.persisted) check();
+    if (!ev.persisted) return;
+    try { document.dispatchEvent(new CustomEvent("site-resume")); } catch (e) {}
+    fromRestore = true;
+    check();
   });
 
   if (!navigator.serviceWorker) return;

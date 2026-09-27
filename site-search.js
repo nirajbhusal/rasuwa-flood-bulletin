@@ -272,9 +272,20 @@
       return;
     }
     if (row.href.charAt(0) === "#") {
-      location.hash = row.href;
-      var el = document.getElementById(row.href.slice(1));
-      if (el && el.scrollIntoView) el.scrollIntoView({ block: "start" });
+      var id = row.href.slice(1);
+      var el = document.getElementById(id);
+      try {
+        history.replaceState(null, "", location.pathname + location.search + row.href);
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+      } catch (err) {
+        location.hash = row.href;
+      }
+      if (el) {
+        var bar = document.querySelector(".head-stick");
+        var stick = bar ? bar.offsetHeight : 0;
+        var top = el.getBoundingClientRect().top + window.scrollY - stick - 8;
+        window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+      }
       return;
     }
     location.href = row.href;
