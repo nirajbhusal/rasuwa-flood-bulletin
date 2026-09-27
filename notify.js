@@ -152,6 +152,38 @@
   }
   paint();
 
+  var feed = document.createElement("ul");
+  feed.className = "notify-feed";
+  feed.hidden = true;
+  feed.setAttribute("role", "list");
+  btn.parentNode.appendChild(feed);
+  function feedItem(href, label) {
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+    a.href = href;
+    a.textContent = label;
+    li.appendChild(a);
+    return li;
+  }
+  feed.appendChild(feedItem("weather.html#flood-outlook", "DHM बाढी पूर्वानुमान · DHM flood forecast"));
+  fetch("data/ndrrma_flood_alerts.json", { cache: "no-store" }).then(function (r) {
+    if (!r.ok) throw new Error("ndrrma");
+    return r.json();
+  }).then(function (doc) {
+    var rows = ((doc && doc.alerts) || []).slice().sort(function (a, b) {
+      return String(b.issued_npt || "").localeCompare(String(a.issued_npt || ""));
+    });
+    for (var i = rows.length - 1; i >= 0; i--) {
+      var alert = rows[i];
+      var river = alert.river || {};
+      var label = (alert.title_ne || "विशेष बाढी चेतावनी") + " · " + (alert.title_en || "Special flood alert") + " — " + (river.ne || "नारायणी") + " · " + (river.en || "Narayani");
+      feed.insertBefore(feedItem("weather.html#ndrrma-flood-alert", label), feed.firstChild);
+    }
+  }).catch(function () {});
+  btn.addEventListener("click", function () {
+    feed.hidden = !feed.hidden;
+  });
+
   btn.addEventListener("click", function (ev) {
     ev.preventDefault();
     ev.stopPropagation();

@@ -1,0 +1,32 @@
+{
+  "alerts": [
+    {
+      "id": "narayani-2083-06-11-0800",
+      "issued_npt": "2026-09-27T08:00:00+05:45",
+      "posted_utc": "2026-09-27T03:29:00Z",
+      "river": { "ne": "नारायणी", "en": "Narayani" },
+      "districts": [
+        { "id": "chitwan", "ne": "चितवन", "en": "Chitwan" },
+        { "id": "nawalparasi-east", "ne": "नवलपरासी पूर्व", "en": "Nawalparasi East" },
+        { "id": "nawalparasi-west", "ne": "नवलपरासी पश्चिम", "en": "Nawalparasi West" }
+      ],
+      "current_m": 11,
+      "danger_m": 11,
+      "expected_peak_m": 13.0,
+      "title_ne": "विशेष बाढी चेतावनी",
+      "title_en": "Special flood alert",
+      "lead_ne": "नारायणी नदी खतराको तह पार गरेको छ",
+      "lead_en": "The Narayani River has crossed the danger level.",
+      "issued_ne": "जारी मिति: २०८३/०६/११ गते बिहान ८ बजे",
+      "issued_en": "Issued by NDRRMA, Asoj 11, 8 AM",
+      "text_ne": "विशेष बाढी चेतावनी: नारायणी नदी खतराको तह पार गरेको छ। हालको स्तर ११ मिटर (खतराको तह ११ मिटर); अपेक्षित उच्चतम करिब १३.० मिटर। स्थान: चितवन, नवलपरासी पूर्व, नवलपरासी पश्चिम। तुरुन्तः उच्च तथा सुरक्षित स्थानमा जानुहोस्। किनार र तटिय क्षेत्रबाट टाढा बस्नुहोस्। NDRRMA, असोज ११, बिहान ८ बजे।",
+      "text_en": "Special flood alert: the Narayani River has crossed the danger level. Current level 11 m (danger level 11 m); expected peak about 13.0 m. Areas: Chitwan, Nawalparasi East and Nawalparasi West. Move to high, safe ground now. Stay away from river banks and low-lying areas. Issued by NDRRMA, Asoj 11, 8 AM.",
+      "actions": [
+        { "ne": "तुरुन्तः उच्च तथा सुरक्षित स्थानमा जानुहोस्।", "en": "Move to high, safe ground now." },
+        { "ne": "किनार र तटिय क्षेत्रबाट टाढा बस्नुहोस्।", "en": "Stay away from river banks and low-lying areas." }
+      ],
+      "source_url": "https://x.com/NDRRMA_Nepal/status/2104050743875653646",
+      "image": "img/ndrrma/narayani-2083-06-11-0800.jpg"
+    }
+  ]
+}

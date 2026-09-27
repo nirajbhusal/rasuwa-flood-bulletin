@@ -17,7 +17,7 @@
     "helpline", "names", "lpg", "lpg_source",
     "electricity_schedule", "electricity_nolight", "electricity_plants", "electricity_load", "electricity_now", "electricity_kali",
     "cause", "gallery", "about", "markets",
-    "flood_rivers", "flood_flash", "flood_place", "flood_trishuli",
+    "flood_rivers", "flood_flash", "flood_place", "flood_trishuli", "flood_ndrrma",
     "fallback"
   ];
 
@@ -299,6 +299,11 @@
       { ne: "रसुवामा आकस्मिक बाढी?", en: "Flash-flood risk in Rasuwa?" },
       { ne: "कुन नदी सतर्कता नजिक छ?", en: "Which rivers are near alert?" },
       { ne: "आज उच्च बाढी जोखिम कहाँ छ?", en: "Where is high flood risk today?" }
+    ]),
+    flood_ndrrma: follow([
+      { ne: "नारायणी अहिले कति छ?", en: "What is the Narayani level?" },
+      { ne: "चितवन बाढी?", en: "Chitwan flood?" },
+      { ne: "देवघाटको स्थिति?", en: "Devghat status?" }
     ]),
     roads_travel: follow([
       { ne: "रसुवा जान मिल्छ?", en: "Can I travel in Rasuwa?" },
@@ -596,6 +601,10 @@
       spec.intent = "map";
       return finishSpec(spec);
     }
+    if (ndrrmaQuery(q)) {
+      spec.intent = "flood_ndrrma";
+      return finishSpec(spec);
+    }
     if (classifyFlood(q, spec)) return finishSpec(spec);
     var cityRow = findKey(q, CITIES);
     var riverRow = findKey(q, RIVERS);
@@ -691,6 +700,25 @@
     }
     spec.intent = "fallback";
     return finishSpec(spec);
+  }
+
+  function ndrrmaQuery(q) {
+    var nar = hit(q, ["narayani", "नारायणी"]);
+    var dev = hit(q, ["devghat", "देवघाट"]);
+    var naw = hit(q, ["nawalparasi", "nawal parasi", "नवलपरासी"]);
+    var chitwan = hit(q, ["chitwan", "चितवन"]);
+    var floodWord = hit(q, ["flood", "badi", "badhi", "baadi", "बाढी", "बाढि"]);
+    if (nar) {
+      var bulletinList = hit(q, [
+        "which rivers", "कुन नदी", "near the alert", "near alert", "above the alert", "above alert",
+        "सतर्कता नजिक", "सतर्कता तह माथि", "सतर्कता तहभन्दा", "पश्चिम राप्ती", "बबई"
+      ]);
+      if (!bulletinList) return true;
+    }
+    if (dev) return true;
+    if (naw && !hit(q, ["road", "roads", "highway", "sadak", "सडक", "बाटो", "राजमार्ग"])) return true;
+    if (chitwan && floodWord) return true;
+    return false;
   }
 
   function classifyFlood(q, spec) {
@@ -2023,7 +2051,28 @@
   function floodList(doc, ids, lang) {
     return (ids || []).map(function (id) { return floodName(doc, id, lang); }).join(", ");
   }
+  function answerNdrrm(ctx) {
+    var lang = ctx.lang === "en" ? "en" : "ne";
+    var doc = ctx.ndrrma;
+    var rows = (doc && doc.alerts) || [];
+    var alert = rows.slice().sort(function (a, b) {
+      return String(b.issued_npt || "").localeCompare(String(a.issued_npt || ""));
+    })[0];
+    var href = "weather.html#ndrrma-flood-alert";
+    var fu = FOLLOW.flood_ndrrma || FOLLOW.flood_flash;
+    if (!alert) {
+      var missing = lang === "en"
+        ? "The NDRRMA flood alert is not loaded."
+        : "NDRRMA बाढी चेतावनी अहिले लोड भएको छैन।";
+      return pack(lang, missing, "", href, { followups: fu });
+    }
+    var text = lang === "en" ? alert.text_en : alert.text_ne;
+    var when = lang === "en" ? (alert.issued_en || "") : (alert.issued_ne || "");
+    return pack(lang, text, sourceLine(lang, "NDRRMA", when), href, { followups: fu });
+  }
+
   function answerFlood(spec, ctx) {
+    if (spec.intent === "flood_ndrrma") return answerNdrrm(ctx);
     var lang = ctx.lang === "en" ? "en" : "ne";
     var doc = ctx.flood;
     var href = "weather.html#flood-outlook";

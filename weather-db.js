@@ -7,6 +7,7 @@
   var geo = null;
   var provinces = null;
   var alertDoc = null;
+  var ndrrmaDoc = null;
   var selectedDay = "";
   var popEl = null;
 
@@ -403,6 +404,10 @@
     var sub = el("p", "wxdb-kicker");
     sub.textContent = lang() === "en" ? "High-alert districts" : "उच्च सतर्कताका जिल्ला";
     sec.appendChild(sub);
+    if (!fullList) {
+      var ndrCard = nepalNdrrmCard();
+      if (ndrCard) sec.appendChild(ndrCard);
+    }
     var callout = buildTopRainCallout(topRainRows());
     if (callout) sec.appendChild(callout);
     if (fullList) {
@@ -499,6 +504,14 @@
       sec.appendChild(more);
     }
     return sec;
+  }
+
+  function nepalNdrrmCard() {
+    var api = window.NdrrmFlood;
+    if (!api || !ndrrmaDoc) return null;
+    var alert = api.newest(ndrrmaDoc);
+    if (!alert) return null;
+    return api.renderCard(alert, { live: home, anchor: false, place: "now" });
   }
 
   function injectNow() {
@@ -1463,6 +1476,7 @@
     var wantsNow = wantsHome || !!document.querySelector("[data-wx-mount][data-wx-mode='section']");
     if (wantsNow) {
       jobs.push(get("data/weather/now.json").then(function (json) { home = json; }).catch(function () {}));
+      jobs.push(get("data/ndrrma_flood_alerts.json").then(function (json) { ndrrmaDoc = json; }).catch(function () {}));
       jobs.push(get("data/weather-alert.json").then(function (json) {
         alertDoc = json;
         geo = json.geo || geo;
