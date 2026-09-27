@@ -427,6 +427,7 @@
       wx: cache.wx,
       wxnow: cache.now,
       flood: cache.flood,
+      ndrrma: cache.ndrrma || null,
       roads: cache.roads,
       police: cache.police || null,
       vehicle: cache.vehicle || null,
@@ -452,7 +453,10 @@
     if (!spec) return false;
     var f = spec.family || spec.type || "";
     if (f === "weather") return (!cache.wx && !failed.wx) || (!cache.now && !failed.now);
-    if (f === "flood") return !cache.flood && !failed.flood;
+    if (f === "flood") {
+      if (spec.intent === "flood_ndrrma") return !cache.ndrrma && !failed.ndrrma;
+      return !cache.flood && !failed.flood;
+    }
     if (f === "roads" || f === "map") return (!cache.roads && !failed.roads) || (!cache.police && !failed.police) || (!cache.vehicle && !failed.vehicle);
     if (f === "rescue") return !cache.dash && !failed.dash;
     if (f === "lpg") return !cache.lpg && !failed.lpg;
@@ -483,6 +487,7 @@
       getJSON("data/ask-kb.json", "kb"),
       getJSON("data/weather-alert.json", "wx"),
       getJSON("data/flood-bulletin.json", "flood"),
+      getJSON("data/ndrrma_flood_alerts.json", "ndrrma"),
       getJSON("data/weather/now.json", "now"),
       getJSON("data/roads-dor.json", "roads"),
       getJSON("data/police_roads_2083-06-10-1700.json", "police"),

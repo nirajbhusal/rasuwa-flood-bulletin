@@ -6,6 +6,8 @@
   var VER = window.PAGE_VER || "2026-09-25-dhm-12310";
   var data = null;
   var geo = null;
+  var ndrrmaDoc = null;
+  var liveDoc = null;
   var byId = {};
   var dayKey = "today";
 
@@ -544,6 +546,131 @@
     return sec;
   }
 
+  function newestAlert(doc) {
+    var rows = (doc && doc.alerts) || [];
+    if (!rows.length) return null;
+    return rows.slice().sort(function (a, b) {
+      return String(b.issued_npt || "").localeCompare(String(a.issued_npt || ""));
+    })[0];
+  }
+  function meterLabel(n, forceDecimal) {
+    var num = Number(n);
+    if (!isFinite(num)) return "";
+    var s = forceDecimal ? num.toFixed(1) : (Math.round(num) === num ? String(Math.round(num)) : String(num));
+    return lang() === "en" ? s : digits(s);
+  }
+  function devghatLive(doc) {
+    var rivers = (doc && doc.corridor && doc.corridor.rivers) || [];
+    for (var i = 0; i < rivers.length; i++) {
+      var row = rivers[i];
+      if (row && Number(row.id) === 265 && row.level_m != null && row.fresh) return row;
+    }
+    return null;
+  }
+  function renderCard(alert, opt) {
+    if (!alert) return null;
+    opt = opt || {};
+    var en = lang() === "en";
+    var art = el("article", "ndr-alert" + (opt.place === "now" ? " is-now" : ""));
+    if (opt.anchor !== false) art.id = "ndrrma-flood-alert";
+    art.setAttribute("data-ndrrma", alert.id || "");
+    var title = el("h3", "ndr-title");
+    title.id = opt.anchor === false ? "ndr-h-now" : "ndr-h";
+    var river = alert.river || {};
+    title.textContent = (alert.title_ne || "विशेष बाढी चेतावनी") + " · " + (alert.title_en || "Special flood alert") + " — " + (river.ne || "नारायणी") + " · " + (river.en || "Narayani");
+    art.setAttribute("aria-labelledby", title.id);
+    art.appendChild(title);
+    art.appendChild(el("p", "ndr-lead", en ? (alert.lead_en || "") : (alert.lead_ne || "")));
+    var peak = Number(alert.expected_peak_m);
+    var current = Number(alert.current_m);
+    var danger = Number(alert.danger_m);
+    var scale = peak > 0 ? peak : Math.max(current || 0, danger || 0, 1);
+    function pct(v) {
+      if (!isFinite(v)) return 0;
+      return Math.max(0, Math.min(100, (v / scale) * 100));
+    }
+    var gauge = el("div", "ndr-gauge");
+    var currentTxt = meterLabel(current, false);
+    var dangerTxt = meterLabel(danger, false);
+    var peakTxt = meterLabel(peak, true);
+    var unit = en ? " m" : " मिटर";
+    gauge.setAttribute("role", "img");
+    gauge.setAttribute("aria-label", en
+      ? "Current " + currentTxt + " m, danger " + dangerTxt + " m, expected peak about " + peakTxt + " m"
+      : "हालको स्तर " + currentTxt + " मिटर, खतराको तह " + dangerTxt + " मिटर, अपेक्षित उच्चतम करिब " + peakTxt + " मिटर");
+    var track = el("div", "ndr-track");
+    var fill = el("div", "ndr-fill");
+    fill.style.width = pct(current) + "%";
+    track.appendChild(fill);
+    var mark = el("i", "ndr-mark");
+    mark.style.left = "calc(" + pct(danger) + "% - 1px)";
+    track.appendChild(mark);
+    gauge.appendChild(track);
+    var legend = el("ul", "ndr-legend");
+    [
+      (en ? "Current " : "हालको स्तर ") + currentTxt + unit,
+      (en ? "Danger " : "खतराको तह ") + dangerTxt + unit,
+      (en ? "Expected peak about " : "अपेक्षित उच्चतम करिब ") + peakTxt + unit
+    ].forEach(function (label) {
+      legend.appendChild(el("li", null, label));
+    });
+    gauge.appendChild(legend);
+    art.appendChild(gauge);
+    var chips = el("ul", "ndr-chips");
+    (alert.districts || []).forEach(function (d) {
+      chips.appendChild(el("li", null, en ? (d.en || d.ne || "") : (d.ne || d.en || "")));
+    });
+    art.appendChild(chips);
+    var actions = el("ul", "ndr-actions");
+    (alert.actions || []).forEach(function (row) {
+      var text = en ? (row.en || row.ne || "") : (row.ne || row.en || "");
+      if (text) actions.appendChild(el("li", null, text));
+    });
+    art.appendChild(actions);
+    art.appendChild(el("p", "ndr-issued", en ? (alert.issued_en || "") : (alert.issued_ne || "")));
+    if (alert.source_url) {
+      var src = el("p", "ndr-src");
+      var link = document.createElement("a");
+      link.href = alert.source_url;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = en ? "NDRRMA post" : "NDRRMA पोस्ट";
+      src.appendChild(link);
+      art.appendChild(src);
+    }
+    if (alert.image) {
+      var poster = document.createElement("a");
+      poster.className = "ndr-poster";
+      poster.href = alert.image;
+      poster.target = "_blank";
+      poster.rel = "noopener";
+      poster.setAttribute("aria-label", en ? "Open the full poster" : "पूरा पोस्टर खोल्नुहोस्");
+      var img = document.createElement("img");
+      img.src = alert.image;
+      img.alt = en ? "NDRRMA special flood alert poster" : "विशेष बाढी चेतावनी पोस्टर";
+      img.width = 112;
+      img.height = 158;
+      poster.appendChild(img);
+      art.appendChild(poster);
+    }
+    var live = devghatLive(opt.live);
+    if (live) {
+      var when = "";
+      var stamp = String(live.obs_at || "").match(/^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})/);
+      if (stamp) when = stamp[1] + " " + stamp[2] + " NPT";
+      var line = "hydrology.gov.np live reading · " + live.level_m + " m" + (when ? " · " + when : "");
+      art.appendChild(el("p", "ndr-live", line));
+    }
+    return art;
+  }
+  function mountNdrrm(parent, anchor) {
+    var alert = newestAlert(ndrrmaDoc);
+    if (!alert) return;
+    var card = renderCard(alert, { live: liveDoc, anchor: anchor, place: "flood" });
+    if (card) parent.appendChild(card);
+  }
+  window.NdrrmFlood = { newest: newestAlert, renderCard: renderCard };
+
   function sourceLine() {
     var p = el("p", "fld-src");
     var a = document.createElement("a");
@@ -559,6 +686,7 @@
     root.replaceChildren();
     var board = el("article", "fld fld-section");
     board.id = "flood-outlook";
+    mountNdrrm(board, true);
     var head = el("header", "fld-head");
     head.appendChild(el("h2", "fld-title", lang() === "en" ? "River and flood outlook" : "नदी र बाढी पूर्वानुमान"));
     head.appendChild(el("p", "fld-sub", tx(data.source.label)));
@@ -579,6 +707,7 @@
     root.replaceChildren();
     var day = data.flash.today;
     var card = el("article", "fld fld-home");
+    mountNdrrm(card, true);
     card.appendChild(el("h2", "fld-title", lang() === "en" ? "River and flood outlook" : "नदी र बाढी पूर्वानुमान"));
     card.appendChild(el("p", "fld-sub", tx(data.source.label)));
     var n = (day.high || []).length;
@@ -620,12 +749,22 @@
   }
 
   function boot() {
+    function softJSON(url) {
+      return fetch(bust(url), { cache: "no-store" }).then(function (r) {
+        if (!r.ok) return null;
+        return r.json();
+      }).catch(function () { return null; });
+    }
     Promise.all([
       fetch(bust("data/flood-bulletin.json"), { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("flood"); return r.json(); }),
-      fetch(bust("data/nepal-districts-svg.json"), { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("geo"); return r.json(); })
+      fetch(bust("data/nepal-districts-svg.json"), { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("geo"); return r.json(); }),
+      softJSON("data/ndrrma_flood_alerts.json"),
+      softJSON("data/weather/now.json")
     ]).then(function (pair) {
       data = pair[0];
       geo = pair[1];
+      ndrrmaDoc = pair[2];
+      liveDoc = pair[3];
       (geo.districts || []).forEach(function (d) { byId[d.id] = d; });
       paintAll();
     }).catch(function () {});
