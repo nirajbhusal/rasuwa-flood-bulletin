@@ -2,6 +2,17 @@
   "alerts": [
     {
       "id": "narayani-2083-06-11-0800",
+      "active": true,
+      "popup": true,
+      "popup_headline_ne": "विशेष बाढी चेतावनी — नारायणी नदी खतराको तह पार गरेको छ",
+      "popup_headline_en": "Special flood alert: Narayani River has crossed the danger level",
+      "popup_current_label": "current",
+      "popup_danger_label": "danger",
+      "popup_peak_label": "expected peak",
+      "popup_peak_approx": true,
+      "popup_details_label": "विवरण · Details",
+      "popup_href": "weather.html#ndrrma-flood-alert",
+      "popup_close_label": "बन्द · Close",
       "issued_npt": "2026-09-27T08:00:00+05:45",
       "posted_utc": "2026-09-27T03:29:00Z",
       "river": { "ne": "नारायणी", "en": "Narayani" },

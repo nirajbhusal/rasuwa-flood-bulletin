@@ -1,0 +1,161 @@
+/* NDRRMA flood alert card. Above the header; not the removed open-alert layer. */
+html.flood-popup-open,
+html.flood-popup-open body {
+  overflow: hidden;
+}
+
+.flood-popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding:
+    max(12px, env(safe-area-inset-top))
+    max(12px, env(safe-area-inset-right))
+    max(12px, env(safe-area-inset-bottom))
+    max(12px, env(safe-area-inset-left));
+  background: rgba(15, 23, 42, 0.38);
+  overflow: hidden;
+}
+
+.flood-popup-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: min(440px, 100%);
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  border-top: 4px solid #c41e3a;
+  background: #fff;
+  color: #0f172a;
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.28);
+}
+
+.flood-popup-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: #fff;
+  color: #0f172a;
+  font: 700 28px/1 Mukta, system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.flood-popup-scroll {
+  box-sizing: border-box;
+  overflow: auto;
+  overflow-x: hidden;
+  max-width: 100%;
+  padding: 16px 16px 18px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.flood-popup-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.flood-popup-thumb {
+  flex: none;
+  width: 84px;
+  height: 118px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+
+.flood-popup-copy {
+  flex: 1 1 180px;
+  min-width: 0;
+  max-width: 100%;
+  padding-right: 42px;
+  box-sizing: border-box;
+}
+
+h2.flood-popup-title {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.flood-popup-en,
+.flood-popup-levels,
+.flood-popup-districts,
+.flood-popup-action {
+  margin: 0 0 8px;
+  font-size: 14.5px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.flood-popup-en,
+.flood-popup-districts {
+  color: #334155;
+}
+
+.flood-popup-levels {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.flood-popup-action {
+  color: #9f1239;
+  font-weight: 700;
+}
+
+.flood-popup-details {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-height: 44px;
+  margin-top: 4px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #c41e3a;
+  color: #fff;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.flood-popup-card :focus-visible {
+  outline: 2px solid #0f172a;
+  outline-offset: 2px;
+}
+
+@media (max-width: 420px) {
+  h2.flood-popup-title { font-size: 16.5px; }
+  .flood-popup-thumb { width: 72px; height: 102px; }
+  .flood-popup-details { width: 100%; }
+}
