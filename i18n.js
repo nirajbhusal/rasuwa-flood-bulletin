@@ -3154,8 +3154,8 @@ window.I18N = {
 "notify_hint_blocked": "The browser blocked notifications.",
 "notify_hint_ios": "On iPhone, use Share → Add to Home Screen, then notifications can arrive.",
 "notify_hint_fail": "Could not ask for permission. Open from the Home Screen and try again.",
-"wx_kicker": "History · DHM three-day warning",
-"wx_h": "Previous card · three-day warning",
+"wx_kicker": "History · DHM three-day alert",
+"wx_h": "Previous card · three-day alert",
 "wx_issued": "Issued · 7 Ashwin 2083 08:00 / 23 September 08:00",
 "wx_lead": "Previous lead card. Three-day maps (Asoj 7–9, 08:00) and the corridor bulletin (Asoj 7 night through Asoj 10 morning · medium rain in Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan; heavy in 1–2 places in each district) stay on file. The live lead is #12312 (8:00 AM · Asoj 10–14 / 26–30 September). Special Bulletin-27 runs from the night of Asoj 9 through the morning of Asoj 12.",
 "wx_day1": "Day 1 · 7 Ashwin / 23 September",
@@ -3174,10 +3174,10 @@ window.I18N = {
 "wx_b27_table": "<table class=\"wx-table\"><caption>Light ≤10 mm · medium 10–50 · heavy 50–100</caption><thead><tr><th>District</th><th>9 Ashwin night</th><th>10 Ashwin day</th><th>10 Ashwin night</th><th>11 Ashwin day</th><th>11 Ashwin night</th></tr></thead><tbody><tr><th>Rasuwa</th><td>Many · medium · <strong>1–2 heavy</strong></td><td>Some · medium · <strong>1–2 heavy</strong></td><td>Many · medium · <strong>1–2 heavy</strong></td><td>Some · medium · <strong>1–2 heavy</strong></td><td>Few · medium</td></tr><tr><th>Dhading</th><td>Many · medium · <strong>1–2 heavy</strong></td><td>Some · medium · <strong>1–2 heavy</strong></td><td>Many · medium · <strong>1–2 heavy</strong></td><td>Some · medium · <strong>1–2 heavy</strong></td><td>Few · medium</td></tr><tr><th>Nuwakot</th><td>Some · medium · <strong>1–2 heavy</strong></td><td>Some · medium · <strong>1–2 heavy</strong></td><td>Many · medium · <strong>1–2 heavy</strong></td><td>Some · medium · <strong>1–2 heavy</strong></td><td>Few · medium</td></tr><tr><th>Gorkha</th><td>Many · medium · <strong>1–2 heavy</strong></td><td>Some · medium · <strong>1–2 heavy</strong></td><td>Many · medium · <strong>1–2 heavy</strong></td><td>Some · medium · <strong>1–2 heavy</strong></td><td>Few · medium</td></tr><tr><th>Chitwan</th><td>Many · medium · <strong>1–2 heavy</strong></td><td>Some · medium · <strong>1–2 heavy</strong></td><td>Many · medium · <strong>1–2 heavy</strong></td><td>Some · medium · <strong>1–2 heavy</strong></td><td>Few · medium</td></tr></tbody></table>",
 "wx_b27_src": "Source: <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12311\" target=\"_blank\" rel=\"noopener\">DHM</a>.",
 "wx_src": "Source: <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12294\" target=\"_blank\" rel=\"noopener\">DHM</a> · <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12296\" target=\"_blank\" rel=\"noopener\">DHM</a> · <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12293\" target=\"_blank\" rel=\"noopener\">DHM</a>.",
-"wx_hist_kicker": "History · DHM warning",
-"wx_hist_h": "Previous weather warning · 6 Ashwin",
+"wx_hist_kicker": "History · DHM alert",
+"wx_hist_h": "Previous weather alert · 6 Ashwin",
 "wx_hist_issued": "Issued · 6 Ashwin 2083 08:00 / 22 September 08:00",
-"wx_hist_p": "Previous three-day map and special bulletin (night of 6 Ashwin through morning of 9 Ashwin · medium rain in Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan; heavy in 1–2 places in all five districts). The later card is the three-day map and the corridor bulletin. The live lead is the five-day map warning.",
+"wx_hist_p": "Previous three-day map and special bulletin (night of 6 Ashwin through morning of 9 Ashwin · medium rain in Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan; heavy in 1–2 places in all five districts). The later card is the three-day map and the corridor bulletin. The live lead is the five-day map alert.",
 "wx_hist_day1": "Day 1 · 6 Ashwin / 22 September",
 "wx_hist_day2": "Day 2 · 7 Ashwin / 23 September",
 "wx_hist_day3": "Day 3 · 8 Ashwin / 24 September",
@@ -3195,7 +3195,7 @@ window.I18N = {
 "wx_prov_word": "provinces",
 "wx_forecast_read": "Read forecast",
 "wx_home_h": "Weather Alert · Asoj 8, 6:00 PM",
-"wx_home_sub": "Weather warning (Asoj 8–12). Colours are read from the official maps. Corridor from the night of Asoj 8 through the morning of Asoj 11.",
+"wx_home_sub": "Weather alert (Asoj 8–12). Colours are read from the official maps. Corridor from the night of Asoj 8 through the morning of Asoj 11.",
 "wx_more": "Full bulletin and official maps",
 
 "portal_aria": "Contact · WhatsApp and email",
@@ -3204,14 +3204,14 @@ window.I18N = {
 "washed": "Washed away",
 "silent_gauge": "Gauge silent",
 "danger_level": "Danger",
-"warn_level": "Warning",
+"warn_level": "Alert",
 "falling": "Falling",
 "rising": "Rising",
 "steady": "Steady",
-"below_warn": "Below warning",
+"below_warn": "Below alert",
 "last_not_live": "last reading · not live",
 "silent_after": "silent after this reading",
-"warning": "Warning",
+"warning": "Alert",
 "danger": "Danger",
 "src_word": "Source",
 "dhm_h": "DHM river levels",
@@ -4609,13 +4609,13 @@ window.I18N = {
 ],
 "hist": [
 {"h": "DHM update · Asoj 9 evening — Special Weather Bulletin-27", "p": "Special Weather Bulletin-27 (#12311, 5:00 PM). Past 24 hours: heavy rain in many places around Gorkha, Rasuwa, Nuwakot, Dhading and Chitwan. From the night of Asoj 9 through the morning of Asoj 12, moderate rain in many places of those five districts, and heavy rain in 1–2 places in each. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12311\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "17:00 · 9 Ashwin / 25 Sep"},
-{"h": "DHM update · Asoj 10 morning — five-day weather warning", "p": "DHM five-day weather warning #12312 (8:00 AM · Asoj 10–14 / 26–30 September). Map colours are by district. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12312\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "08:00 · 10 Ashwin / 26 Sep"},
-{"h": "DHM update · Asoj 9 afternoon — five-day weather warning", "p": "DHM five-day weather warning #12310 (4:43 PM · Asoj 9–13 / 25–29 September). Map colours are by district. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12310\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "16:43 · 9 Ashwin / 25 Sep"},
-{"h": "DHM update · Asoj 9 morning — replaced later", "p": "The 08:00 maps were replaced by the 4:43 PM five-day warning. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "08:00 · 9 Ashwin / 25 Sep"},
-{"h": "DHM update · Asoj 8 evening — five-day weather warning", "p": "DHM five-day weather warning #12300 (18:00 · Asoj 8–12 / 24–28 September) and Bhotekoshi corridor #12307 (17:00 · night of Asoj 8 through morning of Asoj 11 · moderate rain in Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan, heavy in 1–2 places). The official warning page has the maps only. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12300\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "18:00 · 8 Ashwin / 24 Sep"},
-{"h": "DHM update · Asoj 8 morning — four-day weather warning", "p": "DHM four-day weather warning (08:00 · Asoj 8–11 / 24–27 September). The official page has the maps only. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12299\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "08:00 · 8 Ashwin / 24 Sep"},
+{"h": "DHM update · Asoj 10 morning — five-day weather alert", "p": "DHM five-day weather alert #12312 (8:00 AM · Asoj 10–14 / 26–30 September). Map colours are by district. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12312\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "08:00 · 10 Ashwin / 26 Sep"},
+{"h": "DHM update · Asoj 9 afternoon — five-day weather alert", "p": "DHM five-day weather alert #12310 (4:43 PM · Asoj 9–13 / 25–29 September). Map colours are by district. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12310\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "16:43 · 9 Ashwin / 25 Sep"},
+{"h": "DHM update · Asoj 9 morning — replaced later", "p": "The 08:00 maps were replaced by the 4:43 PM five-day alert. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "08:00 · 9 Ashwin / 25 Sep"},
+{"h": "DHM update · Asoj 8 evening — five-day weather alert", "p": "DHM five-day weather alert #12300 (18:00 · Asoj 8–12 / 24–28 September) and Bhotekoshi corridor #12307 (17:00 · night of Asoj 8 through morning of Asoj 11 · moderate rain in Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan, heavy in 1–2 places). The official alert page has the maps only. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12300\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "18:00 · 8 Ashwin / 24 Sep"},
+{"h": "DHM update · Asoj 8 morning — four-day weather alert", "p": "DHM four-day weather alert (08:00 · Asoj 8–11 / 24–27 September). The official page has the maps only. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12299\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "08:00 · 8 Ashwin / 24 Sep"},
 {"h": "DHM update · Asoj 7 evening — Monsoon Bulletin-3", "p": "DHM Monsoon Special Bulletin-3 update (18:00 · five days · Asoj 7–11): Gandaki and Lumbini heavy to very heavy, extremely heavy in 1–2 places; Koshi, Madhesh, Bagmati and Sudurpaschim heavy to very heavy in a few places; Karnali heavy in a few places. The three-day maps and the corridor bulletin are also on file. Source DHM. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "18:00 · 7 Ashwin / 23 Sep"},
-{"h": "DHM update · 7 Ashwin — three-day warning and corridor bulletin", "p": "DHM update · 7 Ashwin: three-day warning (08:00 · maps Ashwin 7–9) · corridor bulletin (16:40 · Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan · medium through the morning of 10 Ashwin; heavy in 1–2 places) · Monsoon Bulletin-3 update (Ashwin 9–11 heavy-rain risk countrywide). <a href=\"https://x.com/NDRRMA_Nepal/status/2102614091085107360\" target=\"_blank\" rel=\"noopener\">NDRRMA</a> shared the maps. Source DHM. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">contact</a>.", "when": "16:40 · 7 Ashwin / 23 Sep"},
+{"h": "DHM update · 7 Ashwin — three-day alert and corridor bulletin", "p": "DHM update · 7 Ashwin: three-day alert (08:00 · maps Ashwin 7–9) · corridor bulletin (16:40 · Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan · medium through the morning of 10 Ashwin; heavy in 1–2 places) · Monsoon Bulletin-3 update (Ashwin 9–11 heavy-rain risk countrywide). <a href=\"https://x.com/NDRRMA_Nepal/status/2102614091085107360\" target=\"_blank\" rel=\"noopener\">NDRRMA</a> shared the maps. Source DHM. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">contact</a>.", "when": "16:40 · 7 Ashwin / 23 Sep"},
 {"h": "Fonepay core till date — NPR 2.57 billion · 934,063 txns (yesterday 21 Sep)", "p": "Fonepay CORE CHANNELS till date (board yesterday 21 Sep 2026): total <strong>2,565,077,401</strong> (NPR 2.57 billion) · <strong>934,063</strong> txns (Domestic QR 838,162 / 2,255,745,331 · Bills 64,065 / 205,134,047 · NPCI 24,012 / 62,000,386 · ALIPAY 4,371 / 22,789,669 · IBFT 3,453 / 19,407,969). Yesterday 21 Sep: 760 · 6,523,383 (Domestic QR 278 / 3,027,981 · Bills 403 / 2,783,450 · NPCI 36 / 529,029 · ALIPAY 43 / 182,923 · IBFT 0 / 0). Labeled NCHL+Fonepay <strong>8,999,626,914.61</strong> (9.00bn; NCHL 6.43) — not a mega-total with MoF. MoF / named / NepalPay / NVIDIA separate. Previous Fonepay 2.51bn · 925,407 / 2,507,249,462 is history. Archive img/today-2026-09-21-fonepay-core.jpg. <a href=\"donate.html#nchl-hist\">Relief</a>.", "when": "till date · 5 Ashwin / 21 Sep"},
 {"h": "NCHL 22 Sep 00:00 — NPR 6.43 billion · 272,248 txns", "p": "NCHL channels for PM Disaster Relief Fund at 00:00 22 Sep 2026: total <strong>6,434,549,513.61</strong> (about NPR 6.43 billion) · <strong>272,248</strong> transactions (IPS/Cheque 5,668 · Card-Int’l 103,608 · Online 17,761 · Domestic QR 116,779 · Remittance 27,237 · Int’l QR 730 · Card-Domestic 465). Labeled NCHL+Fonepay <strong>8,941,798,975.61</strong> (8.94bn; Fonepay 2.51bn till date unchanged) — not a mega-total with MoF. Previous NCHL 5.52bn (263,267 · 14 Sep 00:00) is history. Archive img/today-2026-09-22-nchl-0000.jpg. <a href=\"donate.html#nchl\">Relief</a>.", "when": "00:00 · 6 Ashwin / 22 Sep"},
 {"h": "NDRRMA/MoHA 4 Ashwin 19:00 — SitRep #16 · dead 1,451 · rescued 13,784", "p": "NDRRMA / MoHA SitRep #16 19:00 20 Sep 2026: dead <strong>1,451</strong> (Chitwan 367 · Nawal E 232 · West 222 · Nuwakot 236 · Rasuwa 203 · Gorkha 79 · Dhading 72 · Tanahun 38 · Kathmandu during treatment 2). Female 336 · Male 585 · human remains 530. Including unidentified remains. Missing around <strong>5,786</strong> (110 identified bodies deducted, label; do not re-sum splits): Rasuwa locals 1,677 · other districts 1,836 · Nuwakot locals 657 · other districts 1,090 · foreign 636 — no Rasuwa/Nuwakot grand on board; Army/Police/APF/gov/bank labels not printed on this board (SitRep #12 history). Currently in treatment <strong>15</strong> (5 hospitals) · security-agency treatment 10,163; previous in treatment 18 (6 hospitals) / security-agency 10,041 (SitRep #15) · treated 344 / discharged 290 / security-agency 9,820 (SitRep #14) is history. Rescued <strong>13,784</strong>. Army heli flights <strong>today 33</strong> (no cumulative printed on this board) · previous Army 1,692 (41 that day) · APF 320 (total 2,012) is SitRep #15 history. DNA deceased 1,286 · relatives 1,997. Holding <strong>20</strong> centers — Nuwakot 324 · Rasuwa 786 · Dhading 121. Families leaving holding centers: NPR 15,000 (up to 4 members) · NPR 2,000 per extra member · max 6 months · process sent to local governments. Security forces mobilised <strong>20,929</strong> (no agency split on this board; previous 20,935 SitRep #15 · 21,022 is history). Fuel/LPG not on this board — previous SitRep #14 diesel 60,000 · petrol 12,000 · aviation 4,000 · LPG 502 is history. Previous 3 Ashwin 19:00 SitRep #15 dead 1,411 · rescued 13,784 is history. Archive img/today-2026-09-20-ndrrma-sitrep16-1900.jpg. Source: NDRRMA / MoHA.", "when": "19:00 · 4 Ashwin / 20 Sep"},
@@ -4695,7 +4695,7 @@ window.I18N = {
 },
 {
 "h": "DHM gauges live again after silence",
-"p": "Dhunche <strong>2.88</strong> m (rising · below warning 3.2) · Kali Khola <strong>6.30</strong> · Devghat <strong>4.51</strong> — all normal; reporting again at 21:40–21:50 NPT after silence. Betrawati still 26 Aug 09:20. Furke washed. Source: <a href=\"https://www.dhm.gov.np/hydrology/hms-Single/4657\" target=\"_blank\" rel=\"noopener\">DHM HMS</a>."
+"p": "Dhunche <strong>2.88</strong> m (rising · below alert 3.2) · Kali Khola <strong>6.30</strong> · Devghat <strong>4.51</strong> — all normal; reporting again at 21:40–21:50 NPT after silence. Betrawati still 26 Aug 09:20. Furke washed. Source: <a href=\"https://www.dhm.gov.np/hydrology/hms-Single/4657\" target=\"_blank\" rel=\"noopener\">DHM HMS</a>."
 },
 {
 "h": "DHM experts: immediate lake-burst risk low",
@@ -4719,7 +4719,7 @@ window.I18N = {
 },
 {
 "h": "Flood forecast: barrier-lake burst risk remains",
-"p": "Flood Forecasting Division: the barrier lake at the 10 Bhadra flood site is growing; burst risk remains. Bhotekoshi–Trishuli levels are below warning for now, but stay clear of banks until further notice. Source: <a href=\"https://www.onlinekhabar.com/2026/08/2006213/flood-risk-remains-in-bhotekoshi-division-urges-to-pay-attention-to-early-warnings\" target=\"_blank\" rel=\"noopener\">OnlineKhabar</a>."
+"p": "Flood Forecasting Division: the barrier lake at the 10 Bhadra flood site is growing; burst risk remains. Bhotekoshi–Trishuli levels are below alert for now, but stay clear of banks until further notice. Source: <a href=\"https://www.onlinekhabar.com/2026/08/2006213/flood-risk-remains-in-bhotekoshi-division-urges-to-pay-attention-to-early-warnings\" target=\"_blank\" rel=\"noopener\">OnlineKhabar</a>."
 },
 {
 "h": "Gazette: five districts’ local levels crisis zones",
@@ -4993,7 +4993,7 @@ window.I18N = {
 },
 {
 "h": "NESRA FloodWatch · satellite 27 August",
-"p": "Nepal Space Research Association (geospatial / Sentinel-1, not an official warning system) as of 27 August 03:31: post-event Sentinel-1 flood map not yet available (pre-event 24 August). No agency has confirmed a GLOF; Rasuwa CDO: cannot yet say glacial-lake outburst or another cause; ice avalanche is a suspected cause. Trigger on the Tibet side. Department of Roads: Betrawati–Rasuwagadhi about <strong>42 km</strong> damaged (several motorable bridges washed away); open/closed not officially confirmed; repairs started. NESRA’s overnight police 95 / injured 63 is history; this bulletin keeps dead 162. <a href=\"https://nesraspace.org/floodwatch/rasuwa-2026/\" target=\"_blank\" rel=\"noopener\">nesraspace.org/floodwatch/rasuwa-2026</a>."
+"p": "Nepal Space Research Association (geospatial / Sentinel-1, not an official alert system) as of 27 August 03:31: post-event Sentinel-1 flood map not yet available (pre-event 24 August). No agency has confirmed a GLOF; Rasuwa CDO: cannot yet say glacial-lake outburst or another cause; ice avalanche is a suspected cause. Trigger on the Tibet side. Department of Roads: Betrawati–Rasuwagadhi about <strong>42 km</strong> damaged (several motorable bridges washed away); open/closed not officially confirmed; repairs started. NESRA’s overnight police 95 / injured 63 is history; this bulletin keeps dead 162. <a href=\"https://nesraspace.org/floodwatch/rasuwa-2026/\" target=\"_blank\" rel=\"noopener\">nesraspace.org/floodwatch/rasuwa-2026</a>."
 },
 {
 "h": "DHM report · more detail",
@@ -5240,8 +5240,8 @@ window.I18N = {
 "p": "Armed Police spokesperson DIG Netra Bahadur Karki: 4 APF from BOP Timure uncontacted. Flood has passed Adamghat in Dhading. NDRRMA: 3 Army helicopters assigned, 34 private helicopters told not to go elsewhere. Still no official civilian death toll."
 },
 {
-"h": "300+ waiting for rescue in Timure; Furke passed warning",
-"p": "Flood Forecasting Division 11:26: Trishuli passed the warning level at the Furke gauge, still rising. Ward member Pema Dorje Ghale says more than 300 locals in Timure are waiting for rescue. Two motorable bridges washed away in Bidur. Nepal Telecom: 7 towers damaged."
+"h": "300+ waiting for rescue in Timure; Furke passed alert",
+"p": "Flood Forecasting Division 11:26: Trishuli passed the alert level at the Furke gauge, still rising. Ward member Pema Dorje Ghale says more than 300 locals in Timure are waiting for rescue. Two motorable bridges washed away in Bidur. Nepal Telecom: 7 towers damaged."
 },
 {
 "h": "Flood reached Gajuri, near Mugling",
@@ -5269,11 +5269,11 @@ window.I18N = {
 }
 ],
 "alert": [
-"<strong>Flood Forecasting Division · 15 Bhadra 20:40:</strong> At the Bishnumati River <strong>Gongabu</strong> gauge in Kathmandu, the water level is <strong>near the danger mark</strong> and still rising. Residents of the lower riparian area should stay on <strong>high alert until morning</strong>. DHM AWS observation (<a href=\"https://dhm.gov.np/mfd/#/weather/observation/map-view\">map</a> · 21:35): valley 6-hour rain — Nagarkot <strong>49.2</strong> mm · Kapan <strong>37.2</strong> · Sundarijal <strong>29.6</strong> · Thankot <strong>22.6</strong> · Kathmandu airport <strong>21.2</strong>. No rainfall warning in the valley. Gongabu water level is not reported on this weather map. Bagmati at Gaurighat <strong>2.08</strong> m (warning 2.1 · rising · 21:40) — not at danger 2.7.",
+"<strong>Flood Forecasting Division · 15 Bhadra 20:40:</strong> At the Bishnumati River <strong>Gongabu</strong> gauge in Kathmandu, the water level is <strong>near the danger mark</strong> and still rising. Residents of the lower riparian area should stay on <strong>high alert until morning</strong>. DHM AWS observation (<a href=\"https://dhm.gov.np/mfd/#/weather/observation/map-view\">map</a> · 21:35): valley 6-hour rain — Nagarkot <strong>49.2</strong> mm · Kapan <strong>37.2</strong> · Sundarijal <strong>29.6</strong> · Thankot <strong>22.6</strong> · Kathmandu airport <strong>21.2</strong>. No rainfall alert in the valley. Gongabu water level is not reported on this weather map. Bagmati at Gaurighat <strong>2.08</strong> m (alert 2.1 · rising · 21:40) — not at danger 2.7.",
 "<strong>Kathmandu–Mugling / Prithvi reopened:</strong> Nepal Police — Kathmandu–Prithvi open from this morning. About <strong>1 km</strong> one-way at Baireni Bazaar; the rest two-way. Earlier road-closed line is history. Traffic <a href=\"tel:103\">103</a>. Source: <a href=\"https://www.nepalpress.com/2026/08/29/758233/traffic-operation-on-kathmandu-mugling-road-section-after-three-days/\" target=\"_blank\" rel=\"noopener\">Nepal Press</a>.",
 "<strong>China · lake burst risk eased:</strong> Water Resources/CCTV — lake slowly draining, burst threat down (Saturday morning ~99,000 sq m). Nepal Flood Forecasting Division “risk remains” stays separate. Stay off the banks.",
 "<strong>Today 12 Bhadra · Jirong lake burst:</strong> a dammed lake in Tibet burst, sending a second-wave flood to <strong>Syafrubesi</strong>. Flood Forecasting Division: impact may reach <strong>Mugling</strong>. Police: leave the Bhotekoshi–Trishuli banks immediately. Rescuers and dozers pulled from Bidur and Trishuli Bazaar. Source: <a href=\"https://www.ratopati.com/story/588109/floods-that-started-after-a-dam-burst-in-tibet-reach-syafrubesi\" target=\"_blank\" rel=\"noopener\">Ratopati 13:04</a>.",
-"<strong>SitRep-6 lake warning:</strong> temporary lake about <strong>0.11</strong> km² on the Lhende river, about <strong>18</strong> km upstream of Rasuwagadhi, debris dam — high burst-flood risk. Satellite 11:44, 27 August / 11 Bhadra. Cause: about 1 km² ice/glacier collapse on northern Lhende 26 August, seismic 5.2, Bhotekoshi–Trishuli flood. Stay away from the river.",
+"<strong>SitRep-6 lake alert:</strong> temporary lake about <strong>0.11</strong> km² on the Lhende river, about <strong>18</strong> km upstream of Rasuwagadhi, debris dam — high burst-flood risk. Satellite 11:44, 27 August / 11 Bhadra. Cause: about 1 km² ice/glacier collapse on northern Lhende 26 August, seismic 5.2, Bhotekoshi–Trishuli flood. Stay away from the river.",
 "<strong>Do not go to the riverbank to see how big the flood is, and do not film or photograph at the water’s edge. Stay well away from the river, and help anyone who needs it.</strong>",
 "<strong>DHM technical report:</strong> 08:37 earthquake <strong>4.4</strong>. Syaphrubesi last <strong>1.62 m</strong>. SMS <strong>679,295</strong>. Devghat peak <strong>6.57 m</strong> @ 16:00 (the 8 m estimate was not reached); extra about <strong>20</strong> million m³. Kalikhola peak <strong>12.3 m</strong>. Because the dammed site in China is not fully mapped, risk on the Bhotekoshi–Trishuli is not over. High alert on the banks continues. <a href=\"docs/dhm-bhadra10-sitrep.pdf\" target=\"_blank\" rel=\"noopener\">Report PDF</a>.",
 "<strong>Flood Forecasting Division 15:20 high alert:</strong> Bhotekoshi flood reached <strong>Narayani–Devghat</strong>, water still rising. High alert in riverside settlements/bazaars; stay in a safe place. Not Nuwakot Devighat. Flood arrival at Susta is not confirmed.",
@@ -5282,7 +5282,7 @@ window.I18N = {
 "<strong>Roads closed:</strong> Nepal Police — Prithvi Highway and Mugling–Narayangadh closed to vehicles until further notice. Traffic <a href=\"tel:103\">103</a> · Police 100. Public vehicles also stopped on the Pasang Lhamu Highway.",
 "Flood Forecasting Division 10:28: flood reached <strong>Galchhi</strong> in Dhading; will pass Mugling in a few hours. Evacuate settlements/bazaars along the Prithvi and Mugling–Narayangadh highways and the Trishuli banks.",
 "Mugling police: flood reached <strong>Gajuri</strong> in Dhading. Road traffic stopped; people near the river are being moved.",
-"Flood Forecasting Division 11:26: Trishuli passed the warning level at the <strong>Furke gauge</strong>, still rising. High alert in flood-risk areas and for corridor travel.",
+"Flood Forecasting Division 11:26: Trishuli passed the alert level at the <strong>Furke gauge</strong>, still rising. High alert in flood-risk areas and for corridor travel.",
 "Division 11:43: water at Furke passed the <strong>danger level</strong>, rising fast. Riverside/flood-plain residents should move to a safe place at once.",
 "Chitwan CDO Ganesh Aryal: flood <strong>entering Chitwan</strong>. Mugling bazaar, Narayangadh banks, Bharatpur-16, west Chitwan at high risk. Riverside settlements being moved.",
 "CDO Aryal (Onlinekhabar live ~12:58): flood around Chitwan, as far as <strong>before the Fishling area</strong>.",
@@ -5301,7 +5301,7 @@ window.I18N = {
 "Nepal Tourism Board: do not travel rivers/bridges/flat ground in Rasuwa, Nuwakot, Dhading, Gorkha, Chitwan and the Bhotekoshi–Trishuli corridor.",
 "Lumbini Chief Minister Chetanarayan Acharya: <strong>high alert</strong> in the Narayani riverside (including Susta).",
 "Nawalparasi West CDO Dipakraj Nepal: Susta residents being moved, about <strong>70%</strong> in a safe place. Flood has not arrived. Do not fish, extract river material, or go to the river.",
-"Centre for Hydrology and Research (~13:33): risk earlier said as far as Devghat may now remain as far as <strong>Susta</strong>. Flood expert: risk has not fallen; SMS warnings being prepared.",
+"Centre for Hydrology and Research (~13:33): risk earlier said as far as Devghat may now remain as far as <strong>Susta</strong>. Flood expert: risk has not fallen; SMS alerts being prepared.",
 "Disaster Council meeting under the Prime Minister at Singha Durbar ended after a damage briefing; the Army gave details.",
 "Do not believe rumours. Trust official information only."
 ],

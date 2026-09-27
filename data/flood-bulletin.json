@@ -67,7 +67,7 @@
   ],
   "text": {
    "ne": "आज बिहानको मापन अनुसार कोशी, नारायणी, र यी नदीका सहायक नदीहरुमा जलसतह सतर्कता तह माथि रहेको छ। बागमती, पश्चिम राप्ती, बबई र यिनका सहायक नदीहरूको बहाव सतर्कता तह नजिक रहेको छ र देशका अन्य नदीहरुमा जलसतह सतर्कता तह भन्दा तल रहेको छ।",
-   "en": "By this morning’s gauge readings, the Koshi, the Narayani and their tributaries are above the warning level. The Bagmati, West Rapti, Babai and their tributaries are flowing near the warning level, and other rivers in the country are below the warning level."
+   "en": "By this morning’s gauge readings, the Koshi, the Narayani and their tributaries are above the alert level. The Bagmati, West Rapti, Babai and their tributaries are flowing near the alert level, and other rivers in the country are below the alert level."
   }
  },
  "outlook_note": {
@@ -2144,7 +2144,7 @@
    },
    "public": {
     "ne": "नदीको जलसतह बढ्न सक्ने तथा चेतावनी तह नजिक पुग्न सक्ने सम्भावना छ। नदी तटीय तथा होचा भू-भागका बासिन्दाले सतर्क रही अद्यावधिक सूचना प्राप्त गरिरहनुहोस्।",
-    "en": "The river may rise and approach the warning level. People in riverside and low-lying areas should stay alert and follow updates."
+    "en": "The river may rise and approach the alert level. People in riverside and low-lying areas should stay alert and follow updates."
    },
    "agency": {
     "ne": "नदीको अवस्थाको निगरानी बढाउने, स्थानीय तह तथा समुदायलाई सूचित गर्ने र आवश्यक तयारी सुरु गर्ने।",

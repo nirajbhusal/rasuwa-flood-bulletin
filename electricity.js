@@ -1246,7 +1246,7 @@
 
   var KIND_FB = {
     reservoir_watch: ["जलाशय निगरानी", "Reservoir watch"],
-    safety_warning_system: ["सुरक्षा चेतावनी", "Safety warning"],
+    safety_warning_system: ["सुरक्षा चेतावनी", "Safety alert"],
     preparedness: ["पूर्वतयारी", "Preparedness"],
     consumer_safety: ["उपभोक्ता सुरक्षा", "Consumer safety"],
     complaint_line: ["गुनासो", "Complaint line"]
