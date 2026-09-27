@@ -1,5 +1,5 @@
 {
- "id": "2026-09-26-dhm-flood-0800",
+ "id": "2026-09-27-dhm-flood-0800",
  "kind": "dhm-flood-forecast",
  "source": {
   "name": {
@@ -21,16 +21,16 @@
    "बाढी पूर्वानुमान महाशाखा"
   ],
   "number": null,
-  "url": "https://x.com/DHM_FloodEWS/status/2103700677344309528",
-  "issued_at": "2026-09-26T08:00:00+05:45",
-  "posted_at": "2026-09-26T10:03:00+05:45",
+  "url": "https://x.com/DHM_FloodEWS/status/2104055483174969683",
+  "issued_at": "2026-09-27T08:00:00+05:45",
+  "posted_at": "2026-09-27T09:33:00+05:45",
   "issued": {
-   "ne": "२०८३-०६-१० बिहान ०८:००",
-   "en": "Asoj 10, 2083, 8:00 AM (26 September 2026)"
+   "ne": "२०८३-०६-११ बिहान ०८:००",
+   "en": "Asoj 11, 2083, 8:00 AM (27 September 2026)"
   },
   "label": {
-   "ne": "DHM · असोज १०, २०८३ · बिहान ८:००",
-   "en": "DHM · Asoj 10, 2083 · 8:00 AM"
+   "ne": "DHM · असोज ११, २०८३ · बिहान ८:००",
+   "en": "DHM · Asoj 11, 2083 · 8:00 AM"
   }
  },
  "present": {
@@ -76,12 +76,6 @@
  },
  "days": [
   {
-   "id": "2026-09-26",
-   "ne": "असोज १०",
-   "en": "Asoj 10",
-   "bs": "२०८३-०६-१०"
-  },
-  {
    "id": "2026-09-27",
    "ne": "असोज ११",
    "en": "Asoj 11",
@@ -104,6 +98,12 @@
    "ne": "असोज १४",
    "en": "Asoj 14",
    "bs": "२०८३-०६-१४"
+  },
+  {
+   "id": "2026-10-01",
+   "ne": "असोज १५",
+   "en": "Asoj 15",
+   "bs": "२०८३-०६-१५"
   }
  ],
  "levels": {
@@ -114,6 +114,11 @@
   },
   "O": {
    "tone": "orange",
+   "ne": "उल्लेख्य बढ्ने",
+   "en": "Notable rise"
+  },
+  "R": {
+   "tone": "red",
    "ne": "उल्लेख्य बढ्ने",
    "en": "Notable rise"
   },
@@ -151,7 +156,7 @@
    "station": "चतरा",
    "days": [
     "Y",
-    "Gb",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -165,7 +170,8 @@
     },
     {
      "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
+     "text": "उल्लेख्य बढ्ने",
+     "text_bg": "#0BFB0B"
     },
     {
      "bg": "#71FA26",
@@ -192,7 +198,7 @@
    "station": "माझिटार",
    "days": [
     "Y",
-    "Gb",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -206,7 +212,8 @@
     },
     {
      "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
+     "text": "उल्लेख्य बढ्ने",
+     "text_bg": "#0BFB0B"
     },
     {
      "bg": "#71FA26",
@@ -233,7 +240,7 @@
    "station": "त्रिवेणी",
    "days": [
     "Y",
-    "Gb",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -246,7 +253,8 @@
     },
     {
      "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
+     "text": "उल्लेख्य बढ्ने",
+     "text_bg": "#0BFB0B"
     },
     {
      "bg": "#71FA26",
@@ -272,7 +280,7 @@
    "station": "तुर्किघाट",
    "days": [
     "Y",
-    "Gb",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -285,7 +293,8 @@
     },
     {
      "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
+     "text": "उल्लेख्य बढ्ने",
+     "text_bg": "#0BFB0B"
     },
     {
      "bg": "#71FA26",
@@ -311,7 +320,7 @@
    "station": "सिम्ले",
    "days": [
     "Y",
-    "Gb",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -324,7 +333,8 @@
     },
     {
      "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
+     "text": "उल्लेख्य बढ्ने",
+     "text_bg": "#0BFB0B"
     },
     {
      "bg": "#71FA26",
@@ -350,7 +360,7 @@
    "station": "रबुवाबजार",
    "days": [
     "Y",
-    "Gb",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -363,7 +373,8 @@
     },
     {
      "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
+     "text": "उल्लेख्य बढ्ने",
+     "text_bg": "#0BFB0B"
     },
     {
      "bg": "#71FA26",
@@ -378,7 +389,7 @@
      "text": "सामान्य घटबढ"
     }
    ],
-   "flag": "Clearly printed रबुवाबजार in this bulletin (Asoj 9 site showed खुवाबजार)."
+   "flag": "Printed रबुवाबजार."
   },
   {
    "sn": 7,
@@ -390,7 +401,7 @@
    "station": "रस्नालु",
    "days": [
     "Y",
-    "Gb",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -403,7 +414,8 @@
     },
     {
      "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
+     "text": "उल्लेख्य बढ्ने",
+     "text_bg": "#0BFB0B"
     },
     {
      "bg": "#71FA26",
@@ -429,7 +441,7 @@
    "station": "साङ्गुटार",
    "days": [
     "Y",
-    "Gb",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -442,7 +454,8 @@
     },
     {
      "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
+     "text": "उल्लेख्य बढ्ने",
+     "text_bg": "#0BFB0B"
     },
     {
      "bg": "#71FA26",
@@ -469,7 +482,7 @@
    "station": "बुस्ती",
    "days": [
     "Y",
-    "Gb",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -482,7 +495,8 @@
     },
     {
      "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
+     "text": "उल्लेख्य बढ्ने",
+     "text_bg": "#0BFB0B"
     },
     {
      "bg": "#71FA26",
@@ -508,7 +522,7 @@
    "station": "खुर्कोट",
    "days": [
     "Y",
-    "Gb",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -521,7 +535,8 @@
     },
     {
      "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
+     "text": "उल्लेख्य बढ्ने",
+     "text_bg": "#0BFB0B"
     },
     {
      "bg": "#71FA26",
@@ -547,7 +562,7 @@
    "station": "हम्पचुवार",
    "days": [
     "Y",
-    "Gb",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -560,7 +575,8 @@
     },
     {
      "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
+     "text": "उल्लेख्य बढ्ने",
+     "text_bg": "#0BFB0B"
     },
     {
      "bg": "#71FA26",
@@ -585,24 +601,24 @@
    "river": "नारायणी",
    "station": "देवघाट",
    "days": [
-    "O",
-    "O",
-    "Yb",
+    "R",
+    "Y",
+    "Gb",
     "Gd",
     "Gd"
    ],
    "highlight": false,
    "printed": [
     {
-     "bg": "#ED7D31",
-     "text": "उल्लेख्य बढ्ने"
-    },
-    {
-     "bg": "#ED7D31",
+     "bg": "#FE0000",
      "text": "उल्लेख्य बढ्ने"
     },
     {
      "bg": "#FFFF00",
+     "text": "उल्लेख्य बढ्ने"
+    },
+    {
+     "bg": "#71FA26",
      "text": "सामान्य बढ्ने"
     },
     {
@@ -624,7 +640,7 @@
    "river": "त्रिशुली",
    "station": "बेत्रावती",
    "days": [
-    "Y",
+    "R",
     "Y",
     "Gb",
     "Gd",
@@ -633,7 +649,7 @@
    "highlight": true,
    "printed": [
     {
-     "bg": "#FFFF00",
+     "bg": "#FE0000",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -663,7 +679,7 @@
    "river": "बुढीगण्डकी",
    "station": "आरूघाट",
    "days": [
-    "Y",
+    "R",
     "Y",
     "Gb",
     "Gd",
@@ -672,7 +688,7 @@
    "highlight": false,
    "printed": [
     {
-     "bg": "#FFFF00",
+     "bg": "#FE0000",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -702,7 +718,7 @@
    "river": "मर्स्याङदी",
    "station": "भकुन्डेबेसी",
    "days": [
-    "Y",
+    "R",
     "Y",
     "Gb",
     "Gd",
@@ -711,7 +727,7 @@
    "highlight": false,
    "printed": [
     {
-     "bg": "#FFFF00",
+     "bg": "#FE0000",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -741,7 +757,7 @@
    "river": "मर्स्याङदी",
    "station": "विमलनगर",
    "days": [
-    "Y",
+    "R",
     "Y",
     "Gb",
     "Gd",
@@ -750,7 +766,7 @@
    "highlight": false,
    "printed": [
     {
-     "bg": "#FFFF00",
+     "bg": "#FE0000",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -780,7 +796,7 @@
    "river": "सेती",
    "station": "दमौली",
    "days": [
-    "Y",
+    "R",
     "Y",
     "Gb",
     "Gd",
@@ -789,7 +805,7 @@
    "highlight": false,
    "printed": [
     {
-     "bg": "#FFFF00",
+     "bg": "#FE0000",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -819,7 +835,7 @@
    "river": "मादी",
    "station": "सिसाघाट",
    "days": [
-    "Y",
+    "R",
     "Y",
     "Gb",
     "Gd",
@@ -828,7 +844,7 @@
    "highlight": false,
    "printed": [
     {
-     "bg": "#FFFF00",
+     "bg": "#FE0000",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -848,7 +864,7 @@
      "text": "सामान्य घटबढ"
     }
    ],
-   "flag": "New station in this bulletin (not in Asoj 9)."
+   "flag": "Printed “मादी , सिसाघाट” (space before the comma)."
   },
   {
    "sn": 19,
@@ -859,7 +875,7 @@
    "river": "बडिगाड",
    "station": "रुद्रबेनी",
    "days": [
-    "Y",
+    "R",
     "Y",
     "Gb",
     "Gd",
@@ -868,7 +884,7 @@
    "highlight": false,
    "printed": [
     {
-     "bg": "#FFFF00",
+     "bg": "#FE0000",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -898,24 +914,24 @@
    "river": "कालिगण्डकी",
    "station": "कुमालगाउँ",
    "days": [
-    "O",
-    "O",
-    "Yb",
+    "R",
+    "Y",
+    "Gb",
     "Gd",
     "Gd"
    ],
    "highlight": false,
    "printed": [
     {
-     "bg": "#ED7D31",
-     "text": "उल्लेख्य बढ्ने"
-    },
-    {
-     "bg": "#ED7D31",
+     "bg": "#FE0000",
      "text": "उल्लेख्य बढ्ने"
     },
     {
      "bg": "#FFFF00",
+     "text": "उल्लेख्य बढ्ने"
+    },
+    {
+     "bg": "#71FA26",
      "text": "सामान्य बढ्ने"
     },
     {
@@ -938,8 +954,8 @@
    "station": "चिसापानी",
    "days": [
     "Y",
-    "O",
-    "O",
+    "Gn",
+    "Gn",
     "Gb",
     "Gd"
    ],
@@ -950,11 +966,11 @@
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#ED7D31",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#ED7D31",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -977,8 +993,8 @@
    "station": "असाराघाट",
    "days": [
     "Y",
-    "Y",
-    "Y",
+    "Gn",
+    "Gn",
     "Gb",
     "Gd"
    ],
@@ -989,11 +1005,11 @@
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#FFFF00",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#FFFF00",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -1016,8 +1032,8 @@
    "station": "रिम्ना",
    "days": [
     "Y",
-    "O",
-    "Y",
+    "Gn",
+    "Gn",
     "Gb",
     "Gd"
    ],
@@ -1028,11 +1044,11 @@
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#ED7D31",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#FFFF00",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -1055,8 +1071,8 @@
    "station": "समजिघाट",
    "days": [
     "Y",
-    "Y",
-    "Y",
+    "Gn",
+    "Gn",
     "Gb",
     "Gd"
    ],
@@ -1067,11 +1083,11 @@
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#FFFF00",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#FFFF00",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -1093,24 +1109,24 @@
    "river": "पश्चिम सेती",
    "station": "दिपायल",
    "days": [
-    "O",
-    "O",
     "Y",
+    "Gn",
+    "Gn",
     "Gb",
     "Gd"
    ],
    "highlight": false,
    "printed": [
     {
-     "bg": "#ED7D31",
-     "text": "उल्लेख्य बढ्ने"
-    },
-    {
-     "bg": "#ED7D31",
-     "text": "उल्लेख्य बढ्ने"
-    },
-    {
      "bg": "#FFFF00",
+     "text": "उल्लेख्य बढ्ने"
+    },
+    {
+     "bg": "#71FA26",
+     "text": "उल्लेख्य बढ्ने"
+    },
+    {
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -1132,7 +1148,7 @@
    "river": "महाकाली",
    "station": "दत्तु",
    "days": [
-    "Gn",
+    "Y",
     "Gn",
     "Gn",
     "Gb",
@@ -1141,7 +1157,7 @@
    "highlight": false,
    "printed": [
     {
-     "bg": "#71FA26",
+     "bg": "#FFFF00",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -1160,8 +1176,7 @@
      "bg": "#71FA26",
      "text": "सामान्य घटबढ"
     }
-   ],
-   "flag": "New station in this bulletin (not in Asoj 9)."
+   ]
   },
   {
    "sn": 27,
@@ -1172,24 +1187,24 @@
    "river": "महाकाली",
    "station": "पारिगाउँ",
    "days": [
+    "Y",
     "Gn",
-    "Y",
-    "Y",
+    "Gn",
     "Gb",
     "Gd"
    ],
    "highlight": false,
    "printed": [
     {
-     "bg": "#01FF3D",
-     "text": "उल्लेख्य बढ्ने"
-    },
-    {
      "bg": "#FFFF00",
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#FFFF00",
+     "bg": "#71FA26",
+     "text": "उल्लेख्य बढ्ने"
+    },
+    {
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -1240,7 +1255,7 @@
      "text": "सामान्य घटबढ"
     }
    ],
-   "flag": "Clearly printed मैनाचुली (Asoj 9 site showed मेनाचुली)."
+   "flag": "Printed मैनाचुली."
   },
   {
    "sn": 29,
@@ -1250,45 +1265,6 @@
    },
    "river": "कमला नदी",
    "station": "वेलसोत",
-   "days": [
-    "Y",
-    "Gb",
-    "Gb",
-    "Gd",
-    "Gd"
-   ],
-   "highlight": false,
-   "printed": [
-    {
-     "bg": "#FFFF00",
-     "text": "उल्लेख्य बढ्ने"
-    },
-    {
-     "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
-    },
-    {
-     "bg": "#71FA26",
-     "text": "सामान्य बढ्ने"
-    },
-    {
-     "bg": "#71FA26",
-     "text": "सामान्य घटबढ"
-    },
-    {
-     "bg": "#71FA26",
-     "text": "सामान्य घटबढ"
-    }
-   ]
-  },
-  {
-   "sn": 30,
-   "basin": {
-    "ne": "बाग्मती",
-    "en": "Bagmati"
-   },
-   "river": "बाग्मती",
-   "station": "पधेरादोभान",
    "days": [
     "Gn",
     "Gb",
@@ -1321,16 +1297,16 @@
    ]
   },
   {
-   "sn": 31,
+   "sn": 30,
    "basin": {
     "ne": "बाग्मती",
     "en": "Bagmati"
    },
    "river": "बाग्मती",
-   "station": "खोकाना",
+   "station": "पधेरादोभान",
    "days": [
     "Y",
-    "Gb",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -1343,7 +1319,46 @@
     },
     {
      "bg": "#71FA26",
+     "text": "उल्लेख्य बढ्ने"
+    },
+    {
+     "bg": "#71FA26",
      "text": "सामान्य बढ्ने"
+    },
+    {
+     "bg": "#71FA26",
+     "text": "सामान्य घटबढ"
+    },
+    {
+     "bg": "#71FA26",
+     "text": "सामान्य घटबढ"
+    }
+   ]
+  },
+  {
+   "sn": 31,
+   "basin": {
+    "ne": "बाग्मती",
+    "en": "Bagmati"
+   },
+   "river": "बाग्मती",
+   "station": "खोकाना",
+   "days": [
+    "Y",
+    "Gn",
+    "Gb",
+    "Gd",
+    "Gd"
+   ],
+   "highlight": false,
+   "printed": [
+    {
+     "bg": "#FFFF00",
+     "text": "उल्लेख्य बढ्ने"
+    },
+    {
+     "bg": "#71FA26",
+     "text": "उल्लेख्य बढ्ने"
     },
     {
      "bg": "#71FA26",
@@ -1397,7 +1412,7 @@
      "text": "सामान्य घटबढ"
     }
    ],
-   "flag": "राप्ती renders as रासी in the bulletin font; station clearly रजैया (Asoj 9 site showed रजेया)."
+   "flag": "राप्ती renders as रासी in the bulletin font; station printed रजैया."
   },
   {
    "sn": 33,
@@ -1409,7 +1424,7 @@
    "station": "बुटवल",
    "days": [
     "O",
-    "O",
+    "Gn",
     "Gn",
     "Gb",
     "Gd"
@@ -1421,7 +1436,7 @@
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#ED7D31",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -1448,7 +1463,7 @@
    "station": "कपिलवस्तु",
    "days": [
     "Y",
-    "Y",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -1461,7 +1476,7 @@
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#FFFF00",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -1489,7 +1504,7 @@
    "station": "कुसुम",
    "days": [
     "Y",
-    "Y",
+    "Gn",
     "Gb",
     "Gd",
     "Gd"
@@ -1501,7 +1516,7 @@
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#FFFF00",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -1529,8 +1544,8 @@
    "station": "चेपाङ",
    "days": [
     "Y",
-    "O",
-    "Y",
+    "Gn",
+    "Gn",
     "Gb",
     "Gd"
    ],
@@ -1541,11 +1556,11 @@
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#ED7D31",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
-     "bg": "#FFFF00",
+     "bg": "#71FA26",
      "text": "उल्लेख्य बढ्ने"
     },
     {
@@ -1894,88 +1909,10 @@
   ],
   "today": {
    "id": "today",
-   "date": "2026-09-26",
-   "label": {
-    "ne": "आज · असोज १०",
-    "en": "Today · Asoj 10"
-   },
-   "valid": {
-    "ne": "असोज ११ बिहान ८:०० सम्म",
-    "en": "Valid until Asoj 11, 08:00"
-   },
-   "window": {
-    "ne": "असोज १० बिहान ८ बजेदेखि २४ घण्टा",
-    "en": "From Asoj 10, 08:00, for 24 hours"
-   },
-   "high": [
-    "gorkha",
-    "lamjung",
-    "kaski",
-    "manang",
-    "mustang",
-    "nawalparasi-east",
-    "nawalparasi-west",
-    "dolpa",
-    "jajarkot",
-    "rupandehi",
-    "kapilbastu",
-    "myagdi",
-    "baglung",
-    "parbat",
-    "tanahu",
-    "syangja",
-    "palpa",
-    "gulmi",
-    "mugu",
-    "banke",
-    "bardiya",
-    "surkhet",
-    "kailali",
-    "kanchanpur",
-    "doti",
-    "humla",
-    "dadeldhura"
-   ],
-   "medium": [
-    "taplejung",
-    "sankhuwasabha",
-    "solukhumbu",
-    "dolakha",
-    "ramechhap",
-    "sindhupalchok",
-    "kavrepalanchok",
-    "kathmandu",
-    "bhaktapur",
-    "lalitpur",
-    "makwanpur",
-    "parsa",
-    "rasuwa",
-    "nuwakot",
-    "dhading",
-    "chitwan",
-    "dang",
-    "arghakhanchi",
-    "rukum-east",
-    "rukum-west",
-    "pyuthan",
-    "rolpa",
-    "salyan",
-    "jumla",
-    "kalikot",
-    "dailekh",
-    "bajura",
-    "achham",
-    "bajhang",
-    "darchula",
-    "baitadi"
-   ]
-  },
-  "tomorrow": {
-   "id": "tomorrow",
    "date": "2026-09-27",
    "label": {
-    "ne": "भोलि · असोज ११",
-    "en": "Tomorrow · Asoj 11"
+    "ne": "आज · असोज ११",
+    "en": "Today · Asoj 11"
    },
    "valid": {
     "ne": "असोज १२ बिहान ८:०० सम्म",
@@ -1985,133 +1922,134 @@
     "ne": "असोज ११ बिहान ८ बजेदेखि २४ घण्टा",
     "en": "From Asoj 11, 08:00, for 24 hours"
    },
-   "high": [],
+   "very_high": [
+    "chitwan",
+    "nawalparasi-east",
+    "nawalparasi-west",
+    "lamjung",
+    "kaski",
+    "manang",
+    "mustang",
+    "myagdi",
+    "baglung",
+    "parbat",
+    "tanahu",
+    "syangja",
+    "palpa",
+    "gulmi"
+   ],
+   "high": [
+    "rupandehi",
+    "kapilbastu"
+   ],
    "medium": [
+    "bara",
+    "parsa",
+    "rautahat",
+    "sarlahi",
+    "kavrepalanchok",
     "kathmandu",
     "bhaktapur",
     "lalitpur",
+    "makwanpur",
     "rasuwa",
     "nuwakot",
     "dhading",
     "gorkha",
-    "tanahu",
-    "lamjung",
-    "kaski",
-    "parbat",
-    "baglung",
-    "myagdi",
-    "manang",
-    "mustang",
-    "nawalparasi-east",
-    "nawalparasi-west",
-    "palpa",
-    "kapilbastu",
     "arghakhanchi",
-    "gulmi",
     "pyuthan",
+    "dang",
     "rolpa",
-    "rukum-east",
+    "salyan",
     "rukum-west",
     "jajarkot",
     "dailekh",
     "surkhet",
-    "kalikot",
-    "dolpa",
-    "salyan",
-    "jumla",
-    "mugu",
-    "kailali",
-    "kanchanpur",
+    "banke",
+    "bardiya",
     "bajura",
     "achham",
+    "doti",
     "bajhang",
     "darchula",
     "baitadi",
     "dadeldhura",
-    "syangja",
-    "rupandehi",
-    "humla",
-    "doti"
+    "kailali",
+    "kanchanpur"
    ],
-   "text_medium": [
-    "kathmandu",
-    "bhaktapur",
-    "lalitpur",
-    "rasuwa",
-    "nuwakot",
-    "dhading",
-    "gorkha",
-    "tanahu",
-    "lamjung",
-    "kaski",
-    "parbat",
-    "baglung",
-    "myagdi",
-    "manang",
-    "mustang",
+   "text_high": [
+    "rupandehi",
+    "kapilbastu",
+    "chitwan",
     "nawalparasi-east",
     "nawalparasi-west",
+    "lamjung",
+    "kaski",
+    "manang",
+    "mustang",
+    "myagdi",
+    "baglung",
+    "parbat",
+    "tanahu",
+    "syangja",
     "palpa",
-    "kapilbastu",
-    "arghakhanchi",
-    "gulmi",
-    "pyuthan",
-    "rolpa",
-    "rukum-east",
-    "rukum-west",
-    "jajarkot",
-    "dailekh",
-    "surkhet",
-    "kalikot",
-    "dolpa",
-    "salyan",
-    "jumla",
-    "mugu",
+    "gulmi"
+   ]
+  },
+  "tomorrow": {
+   "id": "tomorrow",
+   "date": "2026-09-28",
+   "label": {
+    "ne": "भोलि · असोज १२",
+    "en": "Tomorrow · Asoj 12"
+   },
+   "valid": {
+    "ne": "असोज १३ बिहान ८:०० सम्म",
+    "en": "Valid until Asoj 13, 08:00"
+   },
+   "window": {
+    "ne": "असोज १२ बिहान ८ बजेदेखि २४ घण्टा",
+    "en": "From Asoj 12, 08:00, for 24 hours"
+   },
+   "high": [],
+   "medium": [
     "kailali",
     "kanchanpur",
-    "bajura",
-    "achham",
-    "bajhang",
-    "darchula",
+    "dadeldhura",
     "baitadi",
-    "dadeldhura"
-   ],
-   "map_only_medium": [
-    "syangja",
-    "rupandehi",
-    "humla",
-    "doti"
+    "darchula"
    ]
   }
  },
  "day_after": {
-  "ne": "पर्सी (२०८३-०६-१२) कर्णाली र सुदुरपश्चिम प्रदेश भई बहने केही स-साना नदीहरूमा बहाव आकस्मिक बढ्न सक्नेछ।",
-  "en": "On the day after tomorrow (Asoj 12), flow in some small rivers in Karnali and Sudurpashchim provinces may rise suddenly."
+  "ne": "पर्सी कर्णाली र सुदुरपश्चिम प्रदेश भई बहने केही स-साना नदीहरूमा बहाव आकस्मिक बढ्न सक्नेछ।",
+  "en": "On the day after tomorrow, flow in some small rivers in Karnali and Sudurpashchim provinces may rise suddenly.",
+  "printed_header": "पर्सी (२०८३-०६-१२ गते)"
  },
  "rasuwa": {
   "id": "rasuwa",
   "today": "medium",
-  "tomorrow": "medium"
+  "tomorrow": "low"
  },
  "corridor": [
   {
    "id": "rasuwa",
    "today": "medium",
-   "tomorrow": "medium"
+   "tomorrow": "low"
   },
   {
    "id": "nuwakot",
    "today": "medium",
-   "tomorrow": "medium"
+   "tomorrow": "low"
   },
   {
    "id": "dhading",
    "today": "medium",
-   "tomorrow": "medium"
+   "tomorrow": "low"
   },
   {
    "id": "sindhupalchok",
-   "today": "medium",
+   "today": "low",
    "tomorrow": "low"
   }
  ],
@@ -2230,24 +2168,27 @@
  "flags": [
   "Printed सप्तकोशी renders as ससकोशी in the bulletin font.",
   "District printed as पांचथर.",
-  "Clearly printed रबुवाबजार in this bulletin (Asoj 9 site showed खुवाबजार).",
+  "Printed रबुवाबजार.",
   "Also readable as साङ्गटार.",
-  "New station in this bulletin (not in Asoj 9).",
-  "New station in this bulletin (not in Asoj 9).",
-  "Clearly printed मैनाचुली (Asoj 9 site showed मेनाचुली).",
-  "राप्ती renders as रासी in the bulletin font; station clearly रजैया (Asoj 9 site showed रजेया).",
+  "Printed “मादी , सिसाघाट” (space before the comma).",
+  "Printed मैनाचुली.",
+  "राप्ती renders as रासी in the bulletin font; station printed रजैया.",
   "Basin printed बाणगँगा.",
   "राप्ती renders as रासी in the bulletin font.",
-  "No bulletin number is printed on any page. Title changed from “विशेष बाढी पूर्वानुमान बुलेटिन (Special Flood Forecast Bulletin)” (Asoj 9) to “बाढी पूर्वानुमान बुलेटिन (Flood Forecast Bulletin)”.",
-  "Colour-vs-text mismatches are recorded as printed with codes Yb (yellow cell, text सामान्य बढ्ने) and Gn (green cell, text उल्लेख्य बढ्ने): 12 नारायणी–देवघाट Asoj 12 Yb; 20 कालिगण्डकी–कुमालगाउँ Asoj 12 Yb; 26 महाकाली–दत्तु Asoj 10 Gn; 26 महाकाली–दत्तु Asoj 11 Gn; 26 महाकाली–दत्तु Asoj 12 Gn; 27 महाकाली–पारिगाउँ Asoj 10 Gn; 28 कन्काई–मैनाचुली Asoj 10 Gn; 30 बाग्मती–पधेरादोभान Asoj 10 Gn; 33 दोभान–बुटवल Asoj 12 Gn.",
-  "महाकाली–पारिगाउँ Asoj 10 cell is a brighter green (#01FF3D) than the other green cells (#71FA26); text उल्लेख्य बढ्ने.",
+  "No bulletin number is printed on any page. Title: “बाढी पूर्वानुमान बुलेटिन (Flood Forecast Bulletin)”, जारी मितिः २०८३-०६-११ गते बिहान ०८ बजे.",
+  "Present river status text is word-for-word the same as Asoj 10: कोशी, नारायणी above; बागमती, पश्चिम राप्ती, बबई near; देशका अन्य नदीहरु below.",
+  "Station table: same 36 stations in the same order as Asoj 10; columns २०८३-०६-११ to २०८३-०६-१५.",
+  "New level code R: red cell (#FE0000) printed उल्लेख्य बढ्ने. All nine नारायणी stations (sn 12–20) are R on Asoj 11. No red cell appeared on Asoj 10.",
+  "दोभान–बुटवल (तिनाउ) Asoj 11 is an orange cell (O).",
+  "Colour-vs-text mismatches recorded as printed with code Gn (green cell, text उल्लेख्य बढ्ने), 35 cells, no Yb: 1 सप्तकोशी–चतरा Asoj 12; 2 तमोर–माझिटार Asoj 12; 3 तमोर–त्रिवेणी Asoj 12; 4 अरुण–तुर्किघाट Asoj 12; 5 अरूण–सिम्ले Asoj 12; 6 दुधकोशी–रबुवाबजार Asoj 12; 7 खिम्ती खोला–रस्नालु Asoj 12; 8 लिखु खोला–साङ्गुटार Asoj 12; 9 तामाकोशी–बुस्ती Asoj 12; 10 सुनकोशी–खुर्कोट Asoj 12; 11 सुनकोशी–हम्पचुवार Asoj 12; 21 कर्णाली–चिसापानी Asoj 12; 21 कर्णाली–चिसापानी Asoj 13; 22 कर्णाली–असाराघाट Asoj 12; 22 कर्णाली–असाराघाट Asoj 13; 23 ठुली भेरी–रिम्ना Asoj 12; 23 ठुली भेरी–रिम्ना Asoj 13; 24 भेरी–समजिघाट Asoj 12; 24 भेरी–समजिघाट Asoj 13; 25 पश्चिम सेती–दिपायल Asoj 12; 25 पश्चिम सेती–दिपायल Asoj 13; 26 महाकाली–दत्तु Asoj 12; 26 महाकाली–दत्तु Asoj 13; 27 महाकाली–पारिगाउँ Asoj 12; 27 महाकाली–पारिगाउँ Asoj 13; 28 कन्काई–मैनाचुली Asoj 11; 29 कमला नदी–वेलसोत Asoj 11; 30 बाग्मती–पधेरादोभान Asoj 12; 31 बाग्मती–खोकाना Asoj 12; 33 दोभान–बुटवल Asoj 12; 33 दोभान–बुटवल Asoj 13; 34 बर्दगाघाट–कपिलवस्तु Asoj 12; 35 पश्चिम राप्ती–कुसुम Asoj 12; 36 बबई–चेपाङ Asoj 12; 36 बबई–चेपाङ Asoj 13.",
+  "All 11 कोशी stations on Asoj 12: the cell is the usual green (#71FA26), but the words sit on a brighter green band (#0BFB0B), recorded as printed[].text_bg.",
+  "Flash today (Asoj 11): the text names 33 medium and 16 high (उच्च) districts. In the text, रुपन्देही and कपिलवस्तु are highlighted orange; the other 14 high districts and the word उच्च are highlighted red. The map colours the same 14 red (अति उच्च, very high) and रुपन्देही and कपिलवस्तु orange (उच्च, high); 33 yellow and 28 green match the text. flash.today.very_high/high follow the map; flash.today.text_high keeps the 16-district text list in printed order.",
+  "Flash tomorrow (Asoj 12): text and map agree: medium कैलाली, कंचनपुर, डडेल्धुरा, बैतडी, दार्चुला; no high; 72 low.",
+  "Day-after paragraph heading is printed “पर्सी (२०८३-०६-१२ गते)”, the same date as the भोली heading. By sequence the day after is Asoj 13, but the printed date is 12. The sentence is word-for-word the same as the Asoj 10 day-after sentence. day_after.ne/en omit the date; day_after.printed_header keeps the heading as printed.",
+  "Maps are titled “आकस्मिक बहाव (Flash Flood) जोखिम पूर्वानुमान” with (२०८३ असोज ११ गते बिहान ८ बजे देखि २४ घण्टा) and (२०८३ असोज १२ गते बिहान ८ बजे देखि २४ घण्टा).",
+  "Spellings as printed in the flash text: काठमाण्डौं, कञ्चनपुर (today) / कंचनपुर (tomorrow), डडेलधुरा (today) / डडेल्धुरा (tomorrow), बझांङ, अर्घाखांची, तनहुँ.",
   "सामान्य बढ्ने and सामान्य घटबढ cells are printed in the same green (#71FA26); the site’s mint tone for Gd is a display convention kept from PR #84.",
-  "Present status names no rivers for “below warning”; the bulletin says देशका अन्य नदीहरु (other rivers in the country).",
-  "Today’s text lists and today’s map agree district by district: high 27, medium 31, low 19. The medium and high paragraphs contain stray empty entries (“, ,”) with no district missing.",
-  "Tomorrow (Asoj 11) text names 41 medium districts and no high; the map colours 45 districts medium (yellow) and 32 low (green), none orange or red. Map-only medium: हुम्ला, डोटी, स्याङ्जा, रुपन्देही. flash.tomorrow.medium follows the map; flash.tomorrow.text_medium keeps the text list.",
-  "Tomorrow’s paragraph is headed भोली (२०८३-०६-११ गते) but opens with the word “आज” as printed.",
-  "Day after (Asoj 12): one sentence only, no district list or map.",
-  "Green advisory card is printed “बाढीको जोखिम छैन।” (the Asoj 9 site text said “न्यून छ”; the Asoj 9 print also read छैन).",
+  "Advisory table (four colours) is unchanged from Asoj 10.",
   "The printed header names जल तथा ऊर्जा आयोगको सचिवालय / जल विज्ञान तथा जलस्रोत अनुसन्धान केन्द्र / बाढी पूर्वानुमान महाशाखा; the post is from the DHM Flood EWS account."
  ]
 }

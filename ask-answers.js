@@ -722,7 +722,7 @@
   }
 
   function classifyFlood(q, spec) {
-    var flash = hit(q, ["flash flood", "flashflood", "आकस्मिक", "akasmik"]);
+    var flash = hit(q, ["flash flood", "flashflood", "आकस्मिक", "akasmik", "very high", "अति उच्च"]);
     var bulletin = hit(q, [
       "flood forecast", "flood outlook", "flood bulletin", "special flood",
       "बाढी पूर्वानुमान", "नदी र बाढी", "river outlook", "river status",
@@ -2155,9 +2155,9 @@
   function floodRiskId(doc, id, which) {
     var day = doc.flash && doc.flash[which];
     if (!day) return "low";
+    if ((day.very_high || []).indexOf(id) >= 0) return "very_high";
     if ((day.high || []).indexOf(id) >= 0) return "high";
     if ((day.medium || []).indexOf(id) >= 0) return "medium";
-    if ((day.very_high || []).indexOf(id) >= 0) return "very_high";
     return "low";
   }
   function floodRiskWord(doc, id, lang) {
@@ -2278,16 +2278,62 @@
       }
     } else {
       var day = doc.flash[which] || doc.flash.today;
-      var nHigh = (day.high || []).length;
-      var nMed = (day.medium || []).length;
+      var vhIds = day.very_high || [];
+      var highIds = day.high || [];
+      var medIds = day.medium || [];
+      var nVH = vhIds.length;
+      var nHigh = highIds.length;
+      var nMed = medIds.length;
       var whenEn = which === "tomorrow" ? "Tomorrow" : "Today";
       var whenNe = which === "tomorrow" ? "भोलि" : "आज";
-      if (!nHigh) {
-        text = lang === "en"
+      function nameJoin(ids) {
+        var names = (ids || []).map(function (id) { return floodName(doc, id, lang); });
+        if (names.length < 2) return names.join("");
+        var conj = lang === "en" ? " and " : " र ";
+        if (names.length === 2) return names[0] + conj + names[1];
+        return names.slice(0, -1).join(", ") + conj + names[names.length - 1];
+      }
+      if (nVH) {
+        var vhList = floodList(doc, vhIds, lang);
+        var listed;
+        if (lang === "en") {
+          listed = whenEn + ", " + nVH + " districts are at very high flash-flood risk: " + vhList + ".";
+          if (nHigh === 1) listed += " " + floodName(doc, highIds[0], lang) + " is at high risk.";
+          else if (nHigh > 1) listed += " " + nameJoin(highIds) + " are at high risk.";
+        } else {
+          listed = whenNe + " " + digits(String(nVH), lang) + " जिल्लामा आकस्मिक बाढीको अति उच्च जोखिम छ: " + vhList + "।";
+          if (nHigh) listed += " " + nameJoin(highIds) + "मा उच्च जोखिम छ।";
+        }
+        if (listed.length > 380) {
+          if (lang === "en") {
+            var bits = [nVH + " districts are at very high flash-flood risk"];
+            if (nHigh) bits.push(nHigh + " at high risk");
+            if (nMed) bits.push(nMed + " at medium risk");
+            if (bits.length === 1) text = whenEn + ", " + bits[0] + ".";
+            else if (bits.length === 2) text = whenEn + ", " + bits[0] + " and " + bits[1] + ".";
+            else text = whenEn + ", " + bits[0] + ", " + bits[1] + " and " + bits[2] + ".";
+          } else {
+            var parts = ["अति उच्च जोखिम " + digits(String(nVH), lang) + " जिल्ला"];
+            if (nHigh) parts.push("उच्च जोखिम " + digits(String(nHigh), lang) + " जिल्ला");
+            if (nMed) parts.push("मध्यम जोखिम " + digits(String(nMed), lang) + " जिल्ला");
+            if (parts.length === 1) text = whenNe + " " + parts[0] + "मा छ।";
+            else if (parts.length === 2) text = whenNe + " " + parts[0] + " र " + parts[1] + "मा छ।";
+            else text = whenNe + " " + parts[0] + ", " + parts[1] + " र " + parts[2] + "मा छ।";
+          }
+        } else text = listed;
+      } else if (!nHigh) {
+        var base = lang === "en"
           ? whenEn + ", no district is at high flash-flood risk and " + nMed + " are at medium risk."
           : whenNe + " कुनै जिल्लामा उच्च जोखिम छैन र " + digits(String(nMed), lang) + " जिल्लामा मध्यम जोखिम छ।";
+        var medList = nMed ? floodList(doc, medIds, lang) : "";
+        if (medList) {
+          var withNames = lang === "en"
+            ? base.replace(/\.$/, ": " + medList + ".")
+            : base.replace(/।$/, ": " + medList + "।");
+          text = withNames.length > 380 ? base : withNames;
+        } else text = base;
       } else {
-        var highs = floodList(doc, day.high, lang);
+        var highs = floodList(doc, highIds, lang);
         var sentence = lang === "en"
           ? whenEn + ", " + nHigh + " districts are at high flash-flood risk: " + highs + "."
           : whenNe + " " + digits(String(nHigh), lang) + " जिल्लामा उच्च जोखिम छ: " + highs + "।";

@@ -52,6 +52,7 @@
   function riskOf(id, day) {
     day = day || flashDay();
     if (!day) return "low";
+    if ((day.very_high || []).indexOf(id) >= 0) return "very_high";
     if ((day.high || []).indexOf(id) >= 0) return "high";
     if ((day.medium || []).indexOf(id) >= 0) return "medium";
     return "low";
@@ -182,7 +183,7 @@
     if ((data.corridor || []).length) {
       var cor = el("div", "fld-cor-days");
       data.corridor.forEach(function (item) {
-        var tone = item.today === "high" || item.today === "very_high" ? "orange" : (item.today === "medium" ? "yellow" : "green");
+        var tone = item.today === "very_high" ? "red" : (item.today === "high" ? "orange" : (item.today === "medium" ? "yellow" : "green"));
         var cell = el("span", "fld-cell fld-" + tone);
         cell.appendChild(el("b", null, nameOf(item.id)));
         cell.appendChild(document.createTextNode(riskWord(item.today) + " · " + riskWord(item.tomorrow)));
@@ -466,14 +467,12 @@
     });
     return ul;
   }
-  function buildHighChips(panel) {
-    var day = flashDay();
-    var highs = (day && day.high) || [];
-    if (!highs.length) return null;
+  function buildRiskChips(panel, ids, title) {
+    if (!ids || !ids.length) return null;
     var box = el("div", "fld-highs");
-    box.appendChild(el("p", "fld-status-k", lang() === "en" ? "High risk" : "उच्च जोखिम"));
+    box.appendChild(el("p", "fld-status-k", title));
     var ul = el("ul", "fld-chips");
-    highs.forEach(function (id) {
+    ids.forEach(function (id) {
       var li = document.createElement("li");
       var b = document.createElement("button");
       b.type = "button";
@@ -491,6 +490,16 @@
     });
     box.appendChild(ul);
     return box;
+  }
+  function buildFlashChips(panel) {
+    var day = flashDay() || {};
+    var frag = document.createDocumentFragment();
+    var veryHigh = buildRiskChips(panel, day.very_high || [], lang() === "en" ? "Very high risk" : "अति उच्च जोखिम");
+    var high = buildRiskChips(panel, day.high || [], lang() === "en" ? "High risk" : "उच्च जोखिम");
+    if (veryHigh) frag.appendChild(veryHigh);
+    if (high) frag.appendChild(high);
+    if (!veryHigh && !high) return null;
+    return frag;
   }
 
   function buildMapPanel() {
@@ -523,7 +532,7 @@
     var legend = el("div", "fld-legend-host");
     legend.appendChild(buildLegend());
     panel.appendChild(legend);
-    var highs = buildHighChips(panel);
+    var highs = buildFlashChips(panel);
     if (highs) panel.appendChild(highs);
     panel.appendChild(el("p", "fld-after", tx(data.day_after)));
     return panel;
@@ -710,10 +719,23 @@
     mountNdrrm(card, true);
     card.appendChild(el("h2", "fld-title", lang() === "en" ? "River and flood outlook" : "नदी र बाढी पूर्वानुमान"));
     card.appendChild(el("p", "fld-sub", tx(data.source.label)));
-    var n = (day.high || []).length;
-    card.appendChild(el("p", "fld-home-n", lang() === "en"
-      ? n + " districts are at high flash-flood risk today."
-      : "आज " + digits(n) + " जिल्लामा आकस्मिक बाढीको उच्च जोखिम छ।"));
+    var nVery = ((day && day.very_high) || []).length;
+    var n = ((day && day.high) || []).length;
+    var homeLine = "";
+    if (nVery && n) {
+      homeLine = lang() === "en"
+        ? nVery + " districts are at very high and " + n + " at high flash-flood risk today."
+        : "आज " + digits(nVery) + " जिल्लामा आकस्मिक बाढीको अति उच्च र " + digits(n) + " जिल्लामा उच्च जोखिम छ।";
+    } else if (nVery) {
+      homeLine = lang() === "en"
+        ? nVery + " districts are at very high flash-flood risk today."
+        : "आज " + digits(nVery) + " जिल्लामा आकस्मिक बाढीको अति उच्च जोखिम छ।";
+    } else if (n) {
+      homeLine = lang() === "en"
+        ? n + " districts are at high flash-flood risk today."
+        : "आज " + digits(n) + " जिल्लामा आकस्मिक बाढीको उच्च जोखिम छ।";
+    }
+    if (homeLine) card.appendChild(el("p", "fld-home-n", homeLine));
     [
       ["above", "Above alert", "सतर्कता तह माथि"],
       ["near", "Near alert", "सतर्कता नजिक"]
