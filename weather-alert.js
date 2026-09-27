@@ -2115,6 +2115,9 @@
   });
 
   if (window.__addLangHook) window.__addLangHook(renderAll);
+  document.addEventListener("site-resume", function () {
+    if (data) refreshJson();
+  });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();

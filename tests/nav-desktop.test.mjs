@@ -127,6 +127,36 @@ test("every header page loads the shared menu script", () => {
   }
 });
 
+test("desktop bar hides the extra home tab and centers a larger label", () => {
+  const build = nav.slice(nav.indexOf("function ensureDeskNav"));
+  assert.match(build, /if \(g\.key === "home"\) return;/);
+  assert.match(nav.slice(nav.indexOf("var GROUPS"), nav.indexOf("var ICONS")), /key:\s*"home"/);
+  assert.match(css, /\.hnav-row\{[^}]*justify-content:center/);
+  assert.match(css, /font-size:16px/);
+  assert.match(css, /\.hnav-ico\{width:18px;height:18px/);
+  assert.match(css, /@view-transition\{navigation:auto\}/);
+  assert.match(css, /prefers-reduced-motion:reduce/);
+  assert.match(min, /justify-content:center/);
+  assert.match(min, /font-size:16px/);
+  assert.match(min, /@view-transition\{navigation:auto\}/);
+  assert.match(nav, /history\.scrollRestoration = "auto"/);
+  assert.match(nav, /history\.replaceState/);
+  assert.match(nav, /rel = "prefetch"/);
+  assert.match(nav, /placeDeskMenu/);
+});
+
+test("back-forward cache is not blocked by a no-store document", () => {
+  const sw = read("sw.js");
+  const refresh = read("refresh.js");
+  assert.match(sw, /function networkFirst\(request, passthrough\)/);
+  assert.match(sw, /isNavigation\(e\.request, url\)/);
+  assert.match(sw, /networkFirst\(e\.request, true\)/);
+  assert.doesNotMatch(sw.slice(sw.indexOf("if (passthrough)"), sw.indexOf("try {\n      const headers")), /no-store, no-cache, must-revalidate/);
+  assert.match(refresh, /fromRestore/);
+  assert.match(refresh, /site-resume/);
+  assert.match(refresh, /if \(!ev\.persisted\) return;/);
+});
+
 test("overflow tabs move into More and a short row does not", () => {
   const fitTabs = new Function(extractFn(nav, "fitTabs") + "\nreturn fitTabs;")();
   const widths = [80, 80, 80, 80, 80];

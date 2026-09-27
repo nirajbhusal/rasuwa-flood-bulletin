@@ -293,7 +293,8 @@
   }
 }
 *{box-sizing:border-box}
-html{scroll-behavior:auto;scroll-padding-top:var(--stick, 72px);overflow-x:clip}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--stick, 148px) + 8px);overflow-x:clip}
+:target{scroll-margin-top:calc(var(--stick, 148px) + 8px)}
 body{
   margin:0;
   font-family:Mukta,"Noto Sans Devanagari","Kohinoor Devanagari","Noto Sans",system-ui,sans-serif;
@@ -11104,6 +11105,12 @@ html[lang="en"] .elec-src-ne{display:none}
 
 /* Desktop horizontal section bar (900px and up). Hidden below that so the mobile drawer is unchanged. */
 .hnav{display:none}
+@view-transition{navigation:auto}
+@media (prefers-reduced-motion:reduce){
+  @view-transition{navigation:none}
+}
+::view-transition-old(root){animation-duration:160ms;animation-timing-function:ease}
+::view-transition-new(root){animation-duration:160ms;animation-timing-function:ease}
 @media (min-width:900px){
   .head-stick #nav-toggle{display:none !important}
   .head-stick nav.chips.is-open .chips-inner{display:none !important}
@@ -11112,26 +11119,30 @@ html[lang="en"] .elec-src-ne{display:none}
     background:#fff;
     border-bottom:1px solid #e7e5e4;
     box-shadow:0 1px 2px rgba(15,23,42,.05);
+    max-width:100%;
   }
   .hnav-inner{
     width:min(1180px, calc(100% - 32px));
     max-width:var(--max);
     margin:0 auto;
-    height:44px;
+    height:auto;
   }
   .hnav-row{
     display:flex;
     align-items:stretch;
-    height:44px;
+    justify-content:center;
+    height:50px;
     min-width:0;
   }
   .hnav-tabs{
     display:flex;
-    flex:1 1 auto;
+    flex:0 1 auto;
     align-items:stretch;
-    gap:2px;
+    justify-content:center;
+    gap:4px;
     min-width:0;
-    height:44px;
+    max-width:100%;
+    height:50px;
     overflow:visible;
     flex-wrap:nowrap;
   }
@@ -11141,17 +11152,17 @@ html[lang="en"] .elec-src-ne{display:none}
     display:inline-flex;
     align-items:center;
     justify-content:flex-start;
-    gap:6px;
+    gap:8px;
     flex:none;
-    height:44px;
+    height:50px;
     margin:0;
-    padding:0 10px;
+    padding:0 14px;
     border:0;
     border-radius:8px 8px 0 0;
     background:transparent;
     color:#334155;
     font:inherit;
-    font-size:14px;
+    font-size:16px;
     font-weight:750;
     line-height:1;
     white-space:nowrap;
@@ -11159,8 +11170,8 @@ html[lang="en"] .elec-src-ne{display:none}
     cursor:pointer;
     box-sizing:border-box;
   }
-  .hnav-ico{width:16px;height:16px;flex:none;display:block}
-  .hnav-caret{width:14px;height:14px;flex:none;display:block;transition:transform .15s ease}
+  .hnav-ico{width:18px;height:18px;flex:none;display:block}
+  .hnav-caret{width:16px;height:16px;flex:none;display:block;transition:transform .15s ease}
   .hnav-slot.is-open > .hnav-parent .hnav-caret,
   .hnav-more.is-open .hnav-caret{transform:rotate(180deg)}
   .hnav-tabs > .hnav-slot > .hnav-tab:hover,
@@ -11207,9 +11218,10 @@ html[lang="en"] .elec-src-ne{display:none}
   .hnav-more > .hnav-menu{left:auto;right:0}
   .hnav-menu .hnav-tab{
     width:100%;
-    height:40px;
+    height:44px;
     border-radius:8px;
-    padding:0 10px;
+    padding:0 12px;
+    font-size:16px;
   }
   .hnav-menu .hnav-tab:hover,
   .hnav-menu .hnav-parent:hover{color:#c41e3a;background:#fff5f5}
@@ -11220,7 +11232,7 @@ html[lang="en"] .elec-src-ne{display:none}
     box-shadow:none;
   }
   .hnav-menu > .hnav-slot{flex-direction:column;width:100%}
-  .hnav-menu > .hnav-slot > .hnav-parent{width:100%;height:40px;border-radius:8px}
+  .hnav-menu > .hnav-slot > .hnav-parent{width:100%;height:44px;border-radius:8px}
   .hnav-menu > .hnav-slot > .hnav-menu{
     position:static;
     min-width:0;
@@ -11233,6 +11245,9 @@ html[lang="en"] .elec-src-ne{display:none}
   #home,#wx-home,#cat-roads,#cat-electricity,#home-response,#cat-rahat,#cat-supply,#cat-markets,#cat-infographics,#cat-gov{
     scroll-margin-top:calc(var(--stick, 160px) + 8px);
   }
+}
+#home,#wx-home,#cat-roads,#cat-electricity,#home-response,#cat-rahat,#cat-supply,#cat-markets,#cat-infographics,#cat-gov{
+  scroll-margin-top:calc(var(--stick, 148px) + 8px);
 }
 @media (min-width:900px) and (prefers-reduced-motion:reduce){
   .hnav-caret{transition:none}

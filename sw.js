@@ -88,7 +88,7 @@ self.addEventListener('activate', (e) => {
   })());
 });
 
-async function networkFirst(request) {
+async function networkFirst(request, passthrough) {
   const cache = await caches.open(RUNTIME_CACHE);
   try {
     const res = await fetch(request.url, {
@@ -101,6 +101,19 @@ async function networkFirst(request) {
       try {
         await cache.put(new Request(request.url, { method: 'GET' }), res.clone());
       } catch (err) {}
+    }
+    /* Document responses must not be rewritten to no-store: that blocks the
+       back/forward cache. Live JSON still gets no-store. */
+    if (passthrough) {
+      const cc = res.headers.get('Cache-Control') || '';
+      if (!/no-store/i.test(cc)) return res;
+      const headers = new Headers(res.headers);
+      headers.set('Cache-Control', 'no-cache');
+      return new Response(res.body, {
+        status: res.status,
+        statusText: res.statusText,
+        headers: headers
+      });
     }
     try {
       const headers = new Headers(res.headers);
@@ -145,8 +158,12 @@ self.addEventListener('fetch', (e) => {
   const dest = e.request.destination;
   if (dest === 'video' || dest === 'audio' || e.request.headers.has('range')) return;
 
-  if (isNavigation(e.request, url) || isDataPath(url.pathname)) {
-    e.respondWith(networkFirst(e.request));
+  if (isNavigation(e.request, url)) {
+    e.respondWith(networkFirst(e.request, true));
+    return;
+  }
+  if (isDataPath(url.pathname)) {
+    e.respondWith(networkFirst(e.request, false));
     return;
   }
   if (isVersionedStatic(e.request, url) || (isImmutableAsset(e.request, url) && !isDataPath(url.pathname) && dest !== 'script' && dest !== 'style')) {

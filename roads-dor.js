@@ -2128,9 +2128,13 @@
     clearMaps();
     mounts.forEach(renderMount);
     if ((location.hash || "") === "#dor-map") {
-      var mapEl = document.getElementById("dor-map");
-      if (mapEl) {
-        try { mapEl.scrollIntoView({ block: "start" }); } catch (e) {}
+      var navEntry = null;
+      try { navEntry = performance.getEntriesByType("navigation")[0]; } catch (e) {}
+      if (!(navEntry && navEntry.type === "back_forward")) {
+        var mapEl = document.getElementById("dor-map");
+        if (mapEl) {
+          try { mapEl.scrollIntoView({ block: "start" }); } catch (e) {}
+        }
       }
     }
     afterPaint(checkLive);
@@ -2161,6 +2165,9 @@
         mounts.forEach(function (m) { m.classList.add("dor-fallback"); });
       });
   }
+  document.addEventListener("site-resume", function () {
+    if (data) refreshRoads();
+  });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();
