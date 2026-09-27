@@ -447,7 +447,6 @@
   });
   window.addEventListener("scroll", function () {
     if (nav.classList.contains("is-open") && !isMobile()) placePanel();
-    queueDeskSpy();
   }, { passive: true });
   window.addEventListener("hashchange", function () {
     markCurrent();
@@ -473,19 +472,6 @@
     "supply.html": { ne: "एलपीजी", en: "LPG" },
     "about.html": { ne: "बारेमा", en: "About" }
   };
-  /* Homepage blocks that already mirror a menu page. Missing ids stay page links. */
-  var SECTION = {
-    "index.html": "home",
-    "weather.html": "wx-home",
-    "notices.html#roads": "cat-roads",
-    "electricity.html": "cat-electricity",
-    "response.html": "home-response",
-    "donate.html": "cat-rahat",
-    "supply.html": "cat-supply",
-    "markets.html": "cat-markets",
-    "damage.html": "cat-infographics",
-    "gov.html": "cat-gov"
-  };
   var deskBar = null;
   var deskTabsHost = null;
   var deskMore = null;
@@ -493,7 +479,6 @@
   var deskMenu = null;
   var deskSlots = [];
   var deskOpen = null;
-  var spyTick = 0;
   var deskLaying = false;
   var deskFit = -1;
   var deskRemeasure = true;
@@ -515,10 +500,6 @@
     return count;
   }
 
-  function onHomePage() {
-    var path = location.pathname || "";
-    return /\/$/.test(path) || /\/index\.html$/.test(path);
-  }
   function tabIsCurrent(href) {
     var file = (location.pathname || "").split("/").pop() || "index.html";
     if (!file) file = "index.html";
@@ -562,12 +543,6 @@
     node.setAttribute("aria-hidden", "true");
     node.setAttribute("focusable", "false");
     return node;
-  }
-  function deskSection(href) {
-    if (!onHomePage()) return "";
-    var id = SECTION[href];
-    if (!id || !document.getElementById(id)) return "";
-    return id;
   }
   function deskGroupPlan(groups) {
     return groups.map(function (g) {
@@ -617,13 +592,7 @@
     var tab = document.createElement("a");
     tab.className = "hnav-tab";
     tab.setAttribute("data-href", href);
-    var section = deskSection(href);
-    if (section) {
-      tab.setAttribute("data-section", section);
-      tab.href = section === "home" ? "#home" : "#" + section;
-    } else {
-      tab.href = href;
-    }
+    tab.href = href;
     tab.style.flex = "none";
     tab.style.whiteSpace = "nowrap";
     tab.appendChild(deskIcon(href));
@@ -657,44 +626,16 @@
     if (!deskBar) return [];
     return Array.prototype.slice.call(deskBar.querySelectorAll("a.hnav-tab"));
   }
-  function spyPick() {
-    var stick = head ? head.offsetHeight : 0;
-    var best = null;
-    var bestTop = -1e9;
-    deskLinks().forEach(function (tab) {
-      var id = tab.getAttribute("data-section") || "";
-      if (!id || id === "home") return;
-      var el = document.getElementById(id);
-      if (!el) return;
-      var top = el.getBoundingClientRect().top;
-      if (top <= stick + 12 && top > bestTop) {
-        best = tab;
-        bestTop = top;
-      }
-    });
-    if (best) return best;
-    var links = deskLinks();
-    var i;
-    for (i = 0; i < links.length; i++) {
-      if ((links[i].getAttribute("data-href") || "") === "index.html") return links[i];
-    }
-    return null;
-  }
   function paintDeskCurrent() {
     if (!deskBar) return;
     var current = null;
     var mode = "page";
-    if (onHomePage() && isDesk()) {
-      current = spyPick();
-      if (current && (current.getAttribute("data-section") || "") && current.getAttribute("data-section") !== "home") mode = "location";
-    } else {
-      var links = deskLinks();
-      var i;
-      for (i = 0; i < links.length; i++) {
-        if (tabIsCurrent(links[i].getAttribute("data-href") || "")) {
-          current = links[i];
-          break;
-        }
+    var links = deskLinks();
+    var i;
+    for (i = 0; i < links.length; i++) {
+      if (tabIsCurrent(links[i].getAttribute("data-href") || "")) {
+        current = links[i];
+        break;
       }
     }
     deskLinks().forEach(function (tab) {
@@ -717,14 +658,6 @@
       if (inMore) deskMoreBtn.setAttribute("aria-current", "true");
       else deskMoreBtn.removeAttribute("aria-current");
     }
-  }
-  function queueDeskSpy() {
-    if (!isDesk() || !deskBar) return;
-    if (spyTick) return;
-    spyTick = window.requestAnimationFrame(function () {
-      spyTick = 0;
-      paintDeskCurrent();
-    });
   }
   function closeDeskSlot(slot) {
     if (!slot) return;
@@ -811,36 +744,11 @@
       }, 220);
     });
   }
-  function scrollDeskSection(id) {
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var behavior = reduce ? "auto" : "smooth";
-    if (!id || id === "home") {
-      window.scrollTo({ top: 0, behavior: behavior });
-      return;
-    }
-    var el = document.getElementById(id);
-    if (!el) return;
-    var stick = head ? head.offsetHeight : 0;
-    var top = el.getBoundingClientRect().top + window.scrollY - stick - 6;
-    window.scrollTo({ top: Math.max(0, top), behavior: behavior });
-  }
   function onDeskTabClick(e) {
     var tab = e.currentTarget;
     if (!tab || !isDesk()) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
-    var id = tab.getAttribute("data-section") || "";
-    if (!id) {
-      closeDeskMenus();
-      return;
-    }
-    e.preventDefault();
     closeDeskMenus();
-    scrollDeskSection(id);
-    try {
-      var next = id === "home" ? location.pathname + location.search : "#" + id;
-      history.replaceState(null, "", next);
-    } catch (err) {}
-    paintDeskCurrent();
   }
   function layoutDeskNav() {
     if (deskLaying || !deskBar || !isDesk() || !deskTabsHost) return;

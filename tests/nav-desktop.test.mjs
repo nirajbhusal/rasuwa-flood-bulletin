@@ -86,16 +86,91 @@ test("desktop groups mirror the mobile drawer", () => {
   assert.match(min, /\.hnav-slot\{position:relative/);
 });
 
-test("homepage scroll targets are real sections, not new pages", () => {
+const PAGES = {
+  "notices.html": "सूचना",
+  "notices.html#roads": "सडक",
+  "electricity.html": "बिजुली",
+  "weather.html": "मौसम",
+  "photos.html": "ग्यालरी",
+  "names.html": "नामावली",
+  "contact.html": "हेल्पलाइन",
+  "gov.html": "सरकार",
+  "markets.html": "बजार",
+  "donate.html": "राहत",
+  "response.html": "प्रतिक्रिया",
+  "damage.html": "क्षति",
+  "supply.html": "एलपीजी",
+  "about.html": "थप"
+};
+
+function elementStub() {
+  return {
+    className: "",
+    style: {},
+    attrs: {},
+    children: [],
+    href: "",
+    setAttribute(k, v) { this.attrs[k] = String(v); },
+    getAttribute(k) { return Object.prototype.hasOwnProperty.call(this.attrs, k) ? this.attrs[k] : null; },
+    appendChild(child) { this.children.push(child); return child; },
+    addEventListener() {},
+    querySelector() { return null; }
+  };
+}
+
+test("homepage desktop menu items link to dedicated pages", () => {
   const index = read("index.html");
-  const section = nav.slice(nav.indexOf("var SECTION"), nav.indexOf("var deskBar"));
-  const ids = [...section.matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]).filter((id) => !id.includes("."));
-  assert.ok(ids.includes("home"));
-  assert.ok(ids.includes("wx-home"));
-  assert.ok(ids.includes("cat-electricity"));
-  for (const id of ids) {
-    assert.match(index, new RegExp('id="' + id + '"'));
+  const ids = new Set([...index.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]));
+  const chipStart = index.indexOf('id="nav-chips"');
+  const chipEnd = index.indexOf("</nav>", chipStart);
+  assert.ok(chipStart >= 0 && chipEnd > chipStart);
+  const chipHrefs = [...index.slice(chipStart, chipEnd).matchAll(/href="([^"]+)"/g)].map((m) => m[1]);
+  for (const href of chipHrefs) {
+    assert.equal(href.startsWith("#"), false, "chip " + href);
   }
+  const available = new Set(chipHrefs.concat(["notices.html#roads", "electricity.html", "markets.html"]));
+  const groupsSrc = nav.slice(nav.indexOf("var GROUPS"), nav.indexOf("var ICONS"));
+  const groups = [...groupsSrc.matchAll(/key:\s*"([^"]+)"[\s\S]*?hrefs:\s*\[([^\]]*)\]/g)].map((m) => ({
+    key: m[1],
+    hrefs: [...m[2].matchAll(/"([^"]+)"/g)].map((h) => h[1])
+  }));
+  const desktopHrefs = [];
+  for (const g of groups) {
+    if (g.key === "home") continue;
+    for (const href of g.hrefs) if (available.has(href)) desktopHrefs.push(href);
+  }
+  assert.deepEqual(desktopHrefs, Object.keys(PAGES));
+
+  const helpers = ["onHomePage", "deskSection"].filter((name) => nav.includes("function " + name + "(")).map((name) => extractFn(nav, name)).join("\n");
+  const section = nav.includes("var SECTION =")
+    ? nav.slice(nav.indexOf("var SECTION ="), nav.indexOf("var deskBar"))
+    : "";
+  const makeDeskLink = new Function("document", `
+    var location = { pathname: "/index.html", search: "", hash: "" };
+    function en() { return false; }
+    function isDesk() { return true; }
+    function shortText(href) { return href; }
+    function deskIcon() { return document.createElement("svg"); }
+    function onDeskTabClick() {}
+    ${section}
+    ${helpers}
+    ${extractFn(nav, "makeDeskLink")}
+    return makeDeskLink;
+  `)({
+    getElementById(id) { return ids.has(id) ? { id } : null; },
+    createElement() { return elementStub(); },
+    createElementNS() { return elementStub(); }
+  });
+
+  for (const href of desktopHrefs) {
+    const tab = makeDeskLink(href);
+    assert.equal(tab.className, "hnav-tab");
+    assert.equal(tab.getAttribute("data-href"), href);
+    assert.equal(String(tab.href).startsWith("#"), false, href + " -> " + tab.href);
+    assert.equal(tab.href, href);
+  }
+  assert.doesNotMatch(extractFn(nav, "makeDeskLink"), /tab\.href\s*=\s*["']#/);
+  assert.doesNotMatch(extractFn(nav, "onDeskTabClick"), /preventDefault/);
 });
 
 test("desktop bar is 900px-up and the mobile drawer is still there", () => {
