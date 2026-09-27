@@ -404,3 +404,68 @@ test("follow-ups stay on the same subject", function () {
   const miss = ask("कति जना बेपत्ता छन्?", "ne");
   assert.ok(miss.followups.some(function (f) { return /मृतक|नाम/.test(f.ne); }));
 });
+
+test("NEOC blocked-highway list answers blocked roads", function () {
+  const neoc = JSON.parse(readFileSync(new URL("../data/neoc_roads_2083-06-10-1800.json", import.meta.url), "utf8"));
+  const police = JSON.parse(readFileSync(new URL("../data/police_roads_2083-06-10-1700.json", import.meta.url), "utf8"));
+  const geo = JSON.parse(readFileSync(new URL("../data/nepal-districts.geojson", import.meta.url), "utf8"));
+  const ids = new Set(geo.features.map(function (f) { return f.properties.id; }));
+  const groups = new Set(neoc.groups.map(function (g) { return g.id; }));
+  assert.equal(neoc.id, "neoc-blocked-highways-2083-06-10-1800");
+  assert.equal(neoc.rows.length, 29);
+  assert.equal(neoc.counts.total, 29);
+  assert.equal(neoc.counts.full_block, 29);
+  assert.equal(neoc.counts.districts, 19);
+  assert.equal(neoc.counts.provinces, 5);
+  assert.deepEqual(neoc.counts.by_province, { koshi: 4, bagmati: 15, gandaki: 7, lumbini: 1, karnali: 2 });
+  neoc.rows.forEach(function (r) {
+    assert.equal(r.status_type, "full_block", r.id);
+    assert.equal(r.status_ne, "अवरुद्ध", r.id);
+    assert.ok(groups.has(r.group), r.id + " " + r.group);
+    assert.ok(r.district && ids.has(r.district.id), r.id);
+  });
+  ["rasuwa-pasang-lhamu", "rasuwa-trishuli-rasuwagadhi"].forEach(function (id) {
+    const row = neoc.rows.find(function (r) { return r.id === id; });
+    assert.ok(row, id);
+    assert.equal(row.prominent, true);
+    assert.equal(row.closed_date, "२०८३/०५/१०");
+  });
+  function askNeoc(q, lang) {
+    return Ask.answer(q, {
+      lang: lang,
+      now: "2026-09-26",
+      roads: roads,
+      police: police,
+      neoc: neoc,
+      t: tFor(lang)
+    });
+  }
+  const ras = askNeoc("Is the Rasuwa road open?", "en");
+  assert.ok(ras.text.includes("NEOC"), ras.text);
+  assert.match(ras.text, /blocked/);
+  assert.match(ras.text, /2083\/05\/10/);
+  assert.ok(ras.text.length <= 400, ras.text.length + " " + ras.text);
+  assert.ok(ras.text.endsWith("."), ras.text);
+  assert.equal(/warning/i.test(ras.text), false, ras.text);
+  const rasNe = askNeoc("रसुवाको सडक खुला छ?", "ne");
+  assert.ok(rasNe.text.includes("NEOC"), rasNe.text);
+  assert.ok(rasNe.text.includes("अवरुद्ध"), rasNe.text);
+  assert.ok(rasNe.text.endsWith("।"), rasNe.text);
+  const beni = askNeoc("Is the Beni Jomsom road open?", "en");
+  assert.ok(beni.text.includes("NEOC"), beni.text);
+  assert.ok(beni.text.includes("Myagdi"), beni.text);
+  assert.equal(/warning/i.test(beni.text), false, beni.text);
+  const prithvi = askNeoc("Is the Prithvi highway open?", "en");
+  assert.ok(prithvi.text.includes("NEOC"), prithvi.text);
+  assert.equal(/warning/i.test(prithvi.text), false, prithvi.text);
+  const night = askNeoc("which roads are closed at night", "en");
+  assert.equal(night.intent, "roads_night");
+  assert.ok(night.text.includes("Nepal Police"), night.text);
+  ["Solukhumbu", "Bhojpur", "Ilam", "Khotang", "Udayapur", "Kavre", "Nuwakot", "Makwanpur", "Sindhuli", "Sindhupalchok", "Manang", "Kaski", "Mustang", "Parbat", "Myagdi", "Nawalparasi E", "Dang"].forEach(function (name) {
+    assert.ok(night.text.includes(name), name + " missing in " + night.text);
+  });
+  const doti = askNeoc("Is the road in Doti open?", "en");
+  assert.ok(doti.text.includes("Nepal Police"), doti.text);
+  assert.match(doti.text, /blocked/);
+  assert.equal(/reopen|cleared/i.test(doti.text), false, doti.text);
+});

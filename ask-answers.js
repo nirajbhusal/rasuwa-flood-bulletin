@@ -1478,6 +1478,124 @@
       " एकतर्फी र " + digits(c.restricted, "ne") + " सीमित, " + digits(c.districts, "ne") +
       " जिल्लामा। रसुवाका मुख्य राजमार्ग अर्को सूचना नभएसम्म पूर्ण अवरोध छन्। यसअघिको NDRRMA सूचनामा २५ जिल्ला छन्।";
   }
+  function neocDoc(ctx) {
+    return ctx && ctx.neoc && ctx.neoc.rows && ctx.neoc.rows.length ? ctx.neoc : null;
+  }
+  function neocName(lang) {
+    return lang === "en" ? "NEOC, Ministry of Home Affairs" : "NEOC, गृह मन्त्रालय";
+  }
+  function roadQuerySpecific(spec) {
+    return !!(spec.district || spec.province || spec.intent === "roads_nh42" || spec.intent === "roads_place" || spec.intent === "roads_code" || /pasang|lhamu|prithvi|highway|राजमार्ग|राजमार्ग|सडक|बाटो|पृथ्वी|कान्ति|मेची|तमोर|महेन्द्र|कालीगण्डकी|राप्ती|तोखा|मुग्लिन/.test(norm(spec.raw || "")));
+  }
+  function neocSources(lang, neo, pol, usedPolice) {
+    if (usedPolice && pol) {
+      var policeName = lang === "en" ? "Nepal Police" : "नेपाल प्रहरी";
+      return sourceLine(lang, neocName(lang) + " · " + policeWhen(neo, lang) + "; " + policeName, policeWhen(pol, lang));
+    }
+    return sourceLine(lang, neocName(lang), policeWhen(neo, lang));
+  }
+  function neocRowBit(r, lang) {
+    var dist = lang === "en" ? r.district.en : r.district.ne;
+    var hwy = (lang === "en" ? r.highway_en : r.highway_ne) || (lang === "en" ? r.location_en : r.location_ne) || "";
+    var loc = lang === "en" ? r.location_en : r.location_ne;
+    var cause = lang === "en" ? r.cause_en : r.cause_ne;
+    var date = lang === "en" ? (r.closed_date_ascii || "") : (r.closed_date || "");
+    if (lang === "en") return dist + " · " + hwy + " is blocked at " + loc + " (" + cause + ", since " + date + ")";
+    return dist + " · " + hwy + " " + loc + " मा अवरुद्ध (" + cause + ", " + date + " देखि)";
+  }
+  function neocRasuwaBit(lang) {
+    if (lang === "en") {
+      return "Rasuwa's Pasang Lhamu Highway (Bara Ghumti–Rasuwagadhi) and the Trishuli–Mailung–Rasuwagadhi road are blocked by the flood, since 2083/05/10";
+    }
+    return "रसुवाको पासाङ ल्हामु राजमार्ग (बारा घुम्ती–रसुवागढी) र त्रिशुली–मैलुङ–रसुवागढी सडक बाढीले अवरुद्ध छ, २०८३/०५/१० देखि";
+  }
+  function neocDetail(hits, lang, doc, policeRows, police) {
+    var rasuwaOnly = hits.length && hits.every(function (r) {
+      return r.prominent && r.district && r.district.id === "rasuwa";
+    });
+    var lead = lang === "en"
+      ? ("NEOC, Ministry of Home Affairs, " + policeWhen(doc, lang) + ": ")
+      : ("NEOC, गृह मन्त्रालय, " + policeWhen(doc, lang) + ": ");
+    var usePolice = !!(policeRows && policeRows.length && police);
+    function finish(bits, shown, withMore, withPolice) {
+      var text = lead + bits.join(lang === "en" ? ". " : "। ");
+      if (lang === "en" && !/\.$/.test(text)) text += ".";
+      if (lang === "ne" && !/।$/.test(text)) text += "।";
+      if (withMore && hits.length > shown) {
+        text += lang === "en"
+          ? (" " + (hits.length - shown) + " more are on the road board.")
+          : (" थप " + digits(hits.length - shown, "ne") + " सडक बोर्डमा।");
+      }
+      if (withPolice) text += " " + policeDetail(policeRows, lang, police);
+      return text;
+    }
+    if (rasuwaOnly) {
+      var ras = finish([neocRasuwaBit(lang)], hits.length, false, false);
+      if (usePolice) {
+        var rasPol = finish([neocRasuwaBit(lang)], hits.length, false, true);
+        if (rasPol.length <= 400) return rasPol;
+      }
+      return ras;
+    }
+    function matters(row) {
+      if (!usePolice || !row.district) return false;
+      for (var i = 0; i < policeRows.length; i++) {
+        var p = policeRows[i];
+        if (p.district && p.district.id === row.district.id) return true;
+      }
+      return false;
+    }
+    var chosen = hits.slice(0, 3);
+    var text = finish(chosen.map(function (r) { return neocRowBit(r, lang); }), chosen.length, true, usePolice);
+    while (text.length > 400 && chosen.length > 1) {
+      if (matters(chosen[chosen.length - 1])) chosen = chosen.slice(1);
+      else chosen = chosen.slice(0, chosen.length - 1);
+      text = finish(chosen.map(function (r) { return neocRowBit(r, lang); }), chosen.length, true, usePolice);
+    }
+    if (text.length > 400) text = finish(chosen.map(function (r) { return neocRowBit(r, lang); }), chosen.length, false, usePolice);
+    if (text.length > 400 && usePolice) {
+      var kept = hits.filter(matters).slice(0, 1);
+      if (!kept.length) kept = chosen.slice(0, 1);
+      var tight = finish(kept.map(function (r) { return neocRowBit(r, lang); }), kept.length, false, true);
+      if (tight.length <= 400) return tight;
+    }
+    return text;
+  }
+  function neocOverview(doc, pol, lang) {
+    var c = doc.counts || {};
+    var when = policeWhen(doc, lang);
+    if (lang === "en") {
+      var text = "NEOC, Ministry of Home Affairs, " + when + ": " + c.total + " highway sections blocked in " +
+        c.districts + " districts across " + c.provinces + " provinces. Rasuwa's Pasang Lhamu Highway and Trishuli–Rasuwagadhi road are blocked since 2083/05/10.";
+      if (pol) {
+        var pc = pol.counts || {};
+        text += " Nepal Police, " + policeWhen(pol, "en") + ": " + pc.night_ban + " night bans, " + pc.one_way + " one-way, " + pc.restricted + " restricted.";
+      }
+      return text;
+    }
+    var ne = "NEOC, गृह मन्त्रालय, " + when + ": " + digits(c.total, "ne") + " राजमार्ग खण्ड " +
+      digits(c.districts, "ne") + " जिल्लामा " + digits(c.provinces, "ne") +
+      " प्रदेशभर अवरुद्ध। रसुवाको पासाङ ल्हामु राजमार्ग र त्रिशुली–रसुवागढी सडक २०८३/०५/१० देखि अवरुद्ध।";
+    if (pol) {
+      var pc2 = pol.counts || {};
+      ne += " नेपाल प्रहरी, " + policeWhen(pol, "ne") + ": रात्रिकालीन रोक " + digits(pc2.night_ban, "ne") +
+        ", एकतर्फी " + digits(pc2.one_way, "ne") + ", सीमित " + digits(pc2.restricted, "ne") + "।";
+    }
+    return ne;
+  }
+  function neocSourceAnswer(doc, pol, lang) {
+    var when = policeWhen(doc, lang);
+    if (lang === "en") {
+      var text = "The latest road update is the NEOC (Ministry of Home Affairs) blocked-highway list of " + when;
+      if (pol) text += "; night bans come from the Nepal Police notice of " + policeWhen(pol, "en");
+      if (!/\.$/.test(text)) text += ".";
+      return text;
+    }
+    var ne = "पछिल्लो सडक अपडेट NEOC (गृह मन्त्रालय) को " + when + " को अवरुद्ध राजमार्ग सूची हो";
+    if (pol) ne += "; रात्रिकालीन रोक नेपाल प्रहरीको " + policeWhen(pol, "ne") + " को सूचनाबाट आउँछ";
+    if (!/।$/.test(ne)) ne += "।";
+    return ne;
+  }
   function vehicleDoc(ctx) {
     return ctx && ctx.vehicle && ctx.vehicle.districts && ctx.vehicle.districts.length ? ctx.vehicle : null;
   }
@@ -1564,24 +1682,46 @@
       ? [{ href: "notices.html#dor-map", label: lang === "en" ? "Road map" : "सडक नक्सा" }]
       : [];
     var fu = FOLLOW[spec.intent] || FOLLOW.roads;
-    if (!data && !policeDoc(ctx) && !vehicleDoc(ctx)) return pack(lang, missingText(lang), "", href, { followups: fu, links: mapLink });
+    if (!data && !policeDoc(ctx) && !vehicleDoc(ctx) && !neocDoc(ctx)) return pack(lang, missingText(lang), "", href, { followups: fu, links: mapLink });
     var veh = vehicleDoc(ctx);
     if (veh && spec.intent === "roads_travel") {
       var srcVeh = sourceLine(lang, "NDRRMA", tx(veh.as_of, lang));
       return pack(lang, vehicleText(veh, spec, lang, ctx), srcVeh, href, { followups: FOLLOW.roads_travel, links: mapLink });
     }
     var pol = policeDoc(ctx);
+    var neo = neocDoc(ctx);
     if (pol && spec.intent === "roads_night") {
       var srcNight = sourceLine(lang, lang === "en" ? "Nepal Police" : "नेपाल प्रहरी", policeWhen(pol, lang));
       return pack(lang, policeNight(pol, spec, lang), srcNight, href, { followups: FOLLOW.roads_night || FOLLOW.roads, links: mapLink });
     }
+    if (neo && spec.intent !== "map" && spec.meta !== "source") {
+      var nHits = policeMatch(spec, neo);
+      var roadIntent = spec.intent === "roads" || spec.intent === "roads_nh42" || spec.intent === "roads_place" || spec.intent === "roads_code" || spec.intent === "roads_araniko";
+      if (nHits.length && (roadQuerySpecific(spec) || roadIntent)) {
+        var extra = pol ? policeMatch(spec, pol).filter(function (r) {
+          return r.status_type === "night_ban" || r.status_type === "one_way" || r.status_type === "restricted";
+        }) : [];
+        return pack(lang, neocDetail(nHits, lang, neo, extra, pol), neocSources(lang, neo, pol, extra.length > 0), href, { followups: fu, links: mapLink });
+      }
+    }
     if (pol) {
       var hits = policeMatch(spec, pol);
-      var specific = hits.length && (spec.district || spec.province || spec.intent === "roads_nh42" || spec.intent === "roads_place" || spec.intent === "roads_code" || /pasang|lhamu|prithvi|highway|राजमार्ग|राजमार्ग|सडक|बाटो|पृथ्वी|कान्ति|मेची|तमोर|महेन्द्र|कालीगण्डकी|राप्ती|तोखा|मुग्लिन/.test(norm(spec.raw || "")));
+      var specific = hits.length && roadQuerySpecific(spec);
       if (specific && spec.intent !== "map" && spec.meta !== "source") {
         var srcHit = sourceLine(lang, lang === "en" ? "Nepal Police" : "नेपाल प्रहरी", policeWhen(pol, lang));
         return pack(lang, policeDetail(hits, lang, pol), srcHit, href, { followups: fu, links: mapLink });
       }
+      var namedRoad = spec.intent === "roads" || spec.intent === "roads_nh42" || spec.intent === "roads_place" || spec.intent === "roads_code" || spec.intent === "roads_araniko";
+      if (neo && hits.length && namedRoad && spec.intent !== "map" && spec.meta !== "source") {
+        var srcNamed = sourceLine(lang, lang === "en" ? "Nepal Police" : "नेपाल प्रहरी", policeWhen(pol, lang));
+        return pack(lang, policeDetail(hits, lang, pol), srcNamed, href, { followups: fu, links: mapLink });
+      }
+    }
+    if (neo && spec.meta === "source") {
+      return pack(lang, neocSourceAnswer(neo, pol, lang), neocSources(lang, neo, pol, !!pol), href, { followups: FOLLOW.roads });
+    }
+    if (neo && spec.intent === "roads" && !spec.district && !spec.province && spec.meta !== "source") {
+      return pack(lang, neocOverview(neo, pol, lang), neocSources(lang, neo, pol, !!pol), href, { followups: FOLLOW.roads, links: mapLink });
     }
     if (!data) return pack(lang, missingText(lang), "", href, { followups: fu, links: mapLink });
     var notice = daoNotice(data);
