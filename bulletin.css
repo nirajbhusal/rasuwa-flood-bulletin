@@ -7696,7 +7696,7 @@ html.ask-lock body{position:fixed;left:0;right:0;width:100%}
 }
 .wxb-nepal-now .wxdb-h{margin:0 0 2px;font-size:1.05rem}
 .wxb-nepal-now .wxdb-kicker{margin:0 0 8px;color:#57534e;font-size:.92rem}
-.wxb-nepal-now .wxdb-strip{max-width:100%}
+.wxb-nepal-now .wxdb-strip{max-width:100%;margin:0 0 10px}
 .wxb-nepal-now .wxdb-city{min-width:148px}
 .wxb-nepal-now .wxdb-lv{display:inline-flex;align-items:center;gap:4px;font-size:.75rem;font-weight:800}
 .wxb-nepal-now .wxdb-lv i{width:8px;height:8px;border-radius:99px;display:inline-block}
@@ -11406,8 +11406,7 @@ html[lang="en"] .elec-src-ne{display:none}
 .ndr-actions li{margin:0 0 4px;font-weight:750}
 .ndr-issued,.ndr-src{margin:0 0 6px;font-size:13px;line-height:1.4;color:#334155}
 .ndr-src a{font-weight:800;color:#c41e3a}
-.ndr-poster{display:inline-block;max-width:100%;margin-top:4px}
-.ndr-poster img{display:block;width:112px;max-width:100%;height:auto;border:1px solid #e2e8f0;border-radius:8px}
+.ndr-poster{display:none}
 .ndr-live{margin:8px 0 0;padding-top:8px;border-top:1px solid #fecdd3;font-size:13px;font-weight:750;line-height:1.4;color:#334155}
 .notify-feed{position:absolute;top:calc(100% + 6px);right:0;z-index:70;width:min(260px,calc(100vw - 24px));max-width:calc(100vw - 16px);margin:0;padding:6px;list-style:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 8px 24px rgba(15,23,42,.12)}
 .notify-feed[hidden]{display:none !important}
