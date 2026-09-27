@@ -26,7 +26,7 @@
     red: { en: "heavy to very heavy rain is possible", ne: "भारीदेखि धेरै भारी वर्षा हुन सक्छ" },
     orange: { en: "heavy rain is possible", ne: "भारी वर्षा हुन सक्छ" },
     yellow: { en: "heavy rain is possible in some places", ne: "केही स्थानमा भारी वर्षा हुन सक्छ" },
-    green: { en: "there is no warning", ne: "चेतावनी छैन" }
+    green: { en: "there is no alert", ne: "चेतावनी छैन" }
   };
   var CITIES = [
     { id: "kathmandu", keys: ["kathmandu", "काठमाडौ", "काठमान्डौ"] },
@@ -285,18 +285,18 @@
       { ne: "आज उच्च बाढी जोखिम कहाँ छ?", en: "Where is high flood risk today?" }
     ]),
     flood_flash: follow([
-      { ne: "कुन नदी सतर्कता नजिक छ?", en: "Which rivers are near warning?" },
+      { ne: "कुन नदी सतर्कता नजिक छ?", en: "Which rivers are near alert?" },
       { ne: "त्रिशुली बेत्रावतीको पूर्वानुमान?", en: "Trishuli at Betrawati outlook?" },
       { ne: "रसुवामा आकस्मिक बाढी?", en: "Flash-flood risk in Rasuwa?" }
     ]),
     flood_place: follow([
       { ne: "आज उच्च बाढी जोखिम कहाँ छ?", en: "Where is high flood risk today?" },
       { ne: "त्रिशुली बेत्रावतीको पूर्वानुमान?", en: "Trishuli at Betrawati outlook?" },
-      { ne: "कुन नदी सतर्कता नजिक छ?", en: "Which rivers are near warning?" }
+      { ne: "कुन नदी सतर्कता नजिक छ?", en: "Which rivers are near alert?" }
     ]),
     flood_trishuli: follow([
       { ne: "रसुवामा आकस्मिक बाढी?", en: "Flash-flood risk in Rasuwa?" },
-      { ne: "कुन नदी सतर्कता नजिक छ?", en: "Which rivers are near warning?" },
+      { ne: "कुन नदी सतर्कता नजिक छ?", en: "Which rivers are near alert?" },
       { ne: "आज उच्च बाढी जोखिम कहाँ छ?", en: "Where is high flood risk today?" }
     ]),
     roads_travel: follow([
@@ -598,7 +598,7 @@
     if (classifyFlood(q, spec)) return finishSpec(spec);
     var cityRow = findKey(q, CITIES);
     var riverRow = findKey(q, RIVERS);
-    var levelWord = hit(q, ["level", "tah", "तह", "river", "khola", "nadi", "खोला", "नदी", "water level", "gauge", "danger level", "warning level"]);
+    var levelWord = hit(q, ["level", "tah", "तह", "river", "khola", "nadi", "खोला", "नदी", "water level", "gauge", "danger level", "warning level", "alert level"]);
     var tempWord = hit(q, ["temp", "temperature", "maximum", "minimum", "अधिकतम", "न्यूनतम", "ताप"]);
     var trishuli = hit(q, ["trishuli", "त्रिशूली"]);
     if ((riverRow && (levelWord || trishuli || weather)) || (trishuli && (levelWord || weather || riverRow))) {
@@ -698,14 +698,14 @@
       "flood forecast", "flood outlook", "flood bulletin", "special flood",
       "बाढी पूर्वानुमान", "नदी र बाढी", "river outlook", "river status",
       "सतर्कता तह", "सतर्कता नजिक", "सतर्कता तह माथि", "near warning", "near the warning",
-      "above warning", "पश्चिम राप्ती", "बबई", "राप्ती"
+      "above warning", "near alert", "near the alert", "above alert", "alert level", "पश्चिम राप्ती", "बबई", "राप्ती"
     ]);
     var forecastWord = hit(q, [
       "forecast", "outlook", "पूर्वानुमान", "बढ्ने", "5-day", "5 day", "five-day", "five day",
       "पाँच दिन", "५ दिन"
     ]);
     var tri = hit(q, ["trishuli", "त्रिशूली", "त्रिशुली", "betrawati", "betravati", "बेत्रावती"]);
-    var gauge = hit(q, ["level", "tah", "तह", "gauge", "water level", "danger level", "warning level"]);
+    var gauge = hit(q, ["level", "tah", "तह", "gauge", "water level", "danger level", "warning level", "alert level"]);
     if (tri && forecastWord && !(gauge && !hit(q, ["पूर्वानुमान", "forecast", "outlook", "बढ्ने"]))) {
       spec.intent = "flood_trishuli";
       return true;
@@ -717,7 +717,7 @@
     }
     if (spec.district) spec.intent = "flood_place";
     else if (tri) spec.intent = "flood_trishuli";
-    else if (hit(q, ["नदी", "river", "basin", "सतर्कता", "कोशी", "नारायणी", "कन्काई", "कमला", "बागमती", "above warning", "सतर्कता तह माथि", "पश्चिम राप्ती", "बबई", "राप्ती"])) spec.intent = "flood_rivers";
+    else if (hit(q, ["नदी", "river", "basin", "सतर्कता", "कोशी", "नारायणी", "कन्काई", "कमला", "बागमती", "above warning", "above alert", "near alert", "alert level", "सतर्कता तह माथि", "पश्चिम राप्ती", "बबई", "राप्ती"])) spec.intent = "flood_rivers";
     else spec.intent = "flood_flash";
     return true;
   }
@@ -897,7 +897,7 @@
     var obs = row.obs || {};
     var where = place && dist && place !== dist ? (lang === "en" ? place + " in " + dist : dist + "को " + place) : (dist || place);
     var head = lang === "en"
-      ? where + " is on the high-alert list. DHM's warning is " + color + (when ? " for " + when : "") + "."
+      ? where + " is on the high-alert list. DHM's alert is " + color + (when ? " for " + when : "") + "."
       : where + " उच्च सतर्कताको सूचीमा छ। DHM को चेतावनी " + color + " छ" + (when ? " (" + when + ")" : "") + "।";
     var extra = "";
     if (row.source === "dhm" && (obs.rain24 != null || obs.max != null)) {
@@ -946,11 +946,11 @@
       : name + " " + row.level_m + " मिटर छ।";
     if (row.warning_m != null && row.below_warning_m != null && row.level !== "red" && row.level !== "orange") {
       return lead + (lang === "en"
-        ? " That is " + row.below_warning_m + " m below the warning level of " + row.warning_m + " m."
+        ? " That is " + row.below_warning_m + " m below the alert level of " + row.warning_m + " m."
         : " चेतावनी तह " + row.warning_m + " मिटरभन्दा " + row.below_warning_m + " मिटर तल छ।");
     }
     if (row.level === "red") return lead + (lang === "en" ? " That is danger level." : " यो खतरा तहमा छ।");
-    if (row.level === "orange") return lead + (lang === "en" ? " That is warning level." : " यो चेतावनी तहमा छ।");
+    if (row.level === "orange") return lead + (lang === "en" ? " That is alert level." : " यो चेतावनी तहमा छ।");
     return lead;
   }
 
@@ -1045,9 +1045,9 @@
 
     if (spec.intent === "weather_source") {
       var srcText = lang === "en"
-        ? "Weather answers are read from the published DHM warning file" + (issued ? ", issued " + issued : "") + "."
+        ? "Weather answers are read from the published DHM alert file" + (issued ? ", issued " + issued : "") + "."
         : "मौसमको उत्तर प्रकाशित DHM चेतावनी फाइलबाट पढिन्छ" + (issued ? "। जारी मिति " + issued + " हो।" : "।");
-      if (lang === "en" && issued) srcText = "Weather answers are read from the published DHM warning file, issued " + issued + ".";
+      if (lang === "en" && issued) srcText = "Weather answers are read from the published DHM alert file, issued " + issued + ".";
       return pack(lang, srcText, src, href, { followups: FOLLOW.weather_today });
     }
 
@@ -1068,7 +1068,7 @@
       var forecast = firstSentence(tx(card.forecast, lang));
       var bits = [];
       if (lang === "en") {
-        bits.push(name + " is under DHM’s impact warning" + (risk ? " (" + risk + ")" : "") + (when ? " for " + when : "") + ".");
+        bits.push(name + " is under DHM’s impact alert" + (risk ? " (" + risk + ")" : "") + (when ? " for " + when : "") + ".");
         if (forecast) bits.push(forecast.charAt(0).toUpperCase() + forecast.slice(1).replace(/\.$/, "") + ".");
       } else {
         bits.push(name + " मा DHM को प्रभाव चेतावनी छ" + (risk ? " (" + risk + ")" : "") + (when ? ", " + when + " का लागि" : "") + "।");
@@ -1079,13 +1079,13 @@
 
     if (!when && iso) {
       var outside = lang === "en"
-        ? "The latest DHM file has no warning for " + iso + (span ? ". It covers " + span + "." : ".")
+        ? "The latest DHM file has no alert for " + iso + (span ? ". It covers " + span + "." : ".")
         : "पछिल्लो DHM फाइलमा " + iso + " को चेतावनी छैन" + (span ? "। अवधि " + span + " हो।" : "।");
       return pack(lang, outside, src, href, { followups: FOLLOW.weather_today });
     }
     if (when && !warningDay(wx, iso)) {
       var noday = lang === "en"
-        ? "The latest DHM file has no daily warning for " + when + (span ? ". It covers " + span + "." : ".")
+        ? "The latest DHM file has no daily alert for " + when + (span ? ". It covers " + span + "." : ".")
         : "पछिल्लो DHM फाइलमा " + when + " को दैनिक चेतावनी छैन" + (span ? "। अवधि " + span + " हो।" : "।");
       return pack(lang, noday, src, href, { followups: FOLLOW.weather_day });
     }
@@ -1142,13 +1142,13 @@
     if (spec.district && !districtCard(wx, spec.district)) {
       var whenBitD = lead ? (lang === "en" ? "Today (" + when + ")" : "आज (" + when + ")") : (lang === "en" ? "On " + when : when + " मा");
       if (lang === "en") {
-        return place + " is in " + pname + ". " + whenBitD + " DHM's warning there is " + color + (rain ? ", so " + rain : "") + ".";
+        return place + " is in " + pname + ". " + whenBitD + " DHM's alert there is " + color + (rain ? ", so " + rain : "") + ".";
       }
       return place + " " + pname + "मा पर्छ। " + whenBitD + " त्यहाँ DHM को चेतावनी " + color + " छ" + (rain ? ", त्यसैले " + rain + "।" : "।");
     }
     if (lang === "en") {
       var whenBit = lead ? "Today (" + when + ")" : "On " + when;
-      return whenBit + " DHM's warning is " + color + " for " + pname + (rain ? ", so " + rain + around + "." : ".");
+      return whenBit + " DHM's alert is " + color + " for " + pname + (rain ? ", so " + rain + around + "." : ".");
     }
     var whenNe = lead ? "आज (" + when + ")" : when + "मा";
     return whenNe + " DHM को चेतावनी " + pname + "मा " + color + " छ" + (rain ? ", त्यसैले " + rain + "।" : "।");
@@ -2061,7 +2061,7 @@
       var below = (present.below || []).map(function (r) { return tx(r, lang); }).join(", ");
       var bits = [];
       if (lang === "en") {
-        if (above) bits.push(above + " and their tributaries are above the warning level.");
+        if (above) bits.push(above + " and their tributaries are above the alert level.");
         if (near) bits.push(near + " are near it.");
         if (below) bits.push(below + " are below it.");
       } else {

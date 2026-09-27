@@ -86,9 +86,9 @@
     var present = data.present || {};
     var box = el("div", "fld-statuses");
     [
-      ["above", lang() === "en" ? "Above warning" : "सतर्कता तह माथि"],
-      ["near", lang() === "en" ? "Near warning" : "सतर्कता नजिक"],
-      ["below", lang() === "en" ? "Below warning" : "सतर्कताभन्दा तल"]
+      ["above", lang() === "en" ? "Above alert" : "सतर्कता तह माथि"],
+      ["near", lang() === "en" ? "Near alert" : "सतर्कता नजिक"],
+      ["below", lang() === "en" ? "Below alert" : "सतर्कताभन्दा तल"]
     ].forEach(function (row) {
       var group = chipGroup(row[1], present[row[0]] || [], row[0]);
       if (group) box.appendChild(group);
@@ -586,8 +586,8 @@
       ? n + " districts are at high flash-flood risk today."
       : "आज " + digits(n) + " जिल्लामा आकस्मिक बाढीको उच्च जोखिम छ।"));
     [
-      ["above", "Above warning", "सतर्कता तह माथि"],
-      ["near", "Near warning", "सतर्कता नजिक"]
+      ["above", "Above alert", "सतर्कता तह माथि"],
+      ["near", "Near alert", "सतर्कता नजिक"]
     ].forEach(function (row) {
       var items = (data.present && data.present[row[0]]) || [];
       if (!items.length) return;

@@ -80,7 +80,7 @@ const cases = [
   ["Gandaki weather today", "en", { intent: "weather_place", number: true, has: ["Gandaki", "red", "Asoj 10"] }],
   ["Kathmandu maximum today", "en", { intent: "weather_city", number: true, has: ["Kathmandu", "17.8", "16.5", "DHM"] }],
   ["काठमाडौँको तापक्रम", "ne", { intent: "weather_city", number: true, has: ["काठमाडौँ", "17.8", "16.5"] }],
-  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["2.68", "warning"] }],
+  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["2.68", "alert"] }],
   ["बेत्रावतीको नदी तह", "ne", { intent: "weather_river", has: ["ताजा रिडिङ छैन"] }],
   ["सिन्धुपाल्चोकको मौसम", "ne", { intent: "weather_place", number: true, has: ["सिन्धुपाल्चोक"], not: ["खोलानाला", "विद्यालय"] }],
   ["nuwakot mausam", "ne", { intent: "weather_place", number: true, has: ["नुवाकोट"] }],
@@ -274,8 +274,8 @@ test("DAO notice districts match the district GeoJSON", function () {
 
 test("flood forecast answers use the DHM bulletin", function () {
   assertAnswer("कुन नदी सतर्कता नजिक छ?", "ne", { intent: "flood_rivers", has: ["कोशी", "नारायणी", "बागमती", "पश्चिम राप्ती", "बबई"] });
-  assertAnswer("Which rivers are near the warning level?", "en", { intent: "flood_rivers", has: ["Koshi", "Narayani", "Bagmati", "West Rapti", "Babai"] });
-  assertAnswer("above warning", "en", { intent: "flood_rivers", has: ["Koshi", "Narayani", "above the warning level"] });
+  assertAnswer("Which rivers are near the alert level?", "en", { intent: "flood_rivers", has: ["Koshi", "Narayani", "Bagmati", "West Rapti", "Babai"] });
+  assertAnswer("above alert", "en", { intent: "flood_rivers", has: ["Koshi", "Narayani", "above the alert level"] });
   assertAnswer("सतर्कता तह माथि", "ne", { intent: "flood_rivers", has: ["कोशी", "नारायणी", "सतर्कता तह माथि"] });
   assertAnswer("पश्चिम राप्ती", "ne", { intent: "flood_rivers", has: ["पश्चिम राप्ती", "बबई"] });
   assertAnswer("बबई", "ne", { intent: "flood_rivers", has: ["बबई", "बागमती"] });
@@ -289,7 +289,7 @@ test("flood forecast answers use the DHM bulletin", function () {
   assertAnswer("flash flood Asoj 12", "en", { intent: "flood_flash", has: ["Karnali"] });
   const tomorrowFlash = assertAnswer("flash flood tomorrow", "en", { intent: "flood_flash", has: ["no district is at high", "45"] });
   assert.equal(/0 districts/.test(tomorrowFlash.text), false);
-  assertAnswer("Trishuli at Dhunche", "en", { intent: "weather_river", has: ["2.68", "warning"] });
+  assertAnswer("Trishuli at Dhunche", "en", { intent: "weather_river", has: ["2.68", "alert"] });
   assertAnswer("Rasuwa weather", "en", { intent: "weather_place", has: ["Rasuwa"] });
   const today = new Set(flood.flash.today.high.concat(flood.flash.today.medium));
   const tomorrow = new Set(flood.flash.tomorrow.high.concat(flood.flash.tomorrow.medium));
@@ -322,7 +322,7 @@ test("flood forecast answers use the DHM bulletin", function () {
   assert.equal(flood.source.label.en, "DHM · Asoj 10, 2083 · 8:00 AM");
   const unloaded = Ask.answer("कुन नदी सतर्कता नजिक छ?", { lang: "ne", now: "2026-09-26", t: tFor("ne") });
   assert.equal(unloaded.text, "बाढी पूर्वानुमान अहिले लोड भएको छैन।");
-  const unloadedEn = Ask.answer("Which rivers are near the warning level?", { lang: "en", now: "2026-09-26", t: tFor("en") });
+  const unloadedEn = Ask.answer("Which rivers are near the alert level?", { lang: "en", now: "2026-09-26", t: tFor("en") });
   assert.equal(unloadedEn.text, "The flood forecast is not loaded.");
 });
 

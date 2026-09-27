@@ -168,8 +168,8 @@
   }
   function riverWord(level) {
     if (level === "red") return lang() === "en" ? "Danger" : "खतरा";
-    if (level === "orange") return lang() === "en" ? "Warning" : "चेतावनी";
-    if (level === "green") return lang() === "en" ? "Below warning" : "चेतावनीभन्दा तल";
+    if (level === "orange") return lang() === "en" ? "Alert" : "चेतावनी";
+    if (level === "green") return lang() === "en" ? "Below alert" : "चेतावनीभन्दा तल";
     return lang() === "en" ? "No fresh reading" : "ताजा रिडिङ छैन";
   }
   function deltaText(row) {
@@ -177,9 +177,9 @@
     if (row.below_warning_m == null) return "";
     var n = fmt(Math.abs(row.below_warning_m), 2);
     if (row.below_warning_m >= 0) {
-      return lang() === "en" ? n + " m below warning" : "चेतावनीभन्दा " + n + " मि. तल";
+      return lang() === "en" ? n + " m below alert" : "चेतावनीभन्दा " + n + " मि. तल";
     }
-    return lang() === "en" ? n + " m above warning" : "चेतावनीभन्दा " + n + " मि. माथि";
+    return lang() === "en" ? n + " m above alert" : "चेतावनीभन्दा " + n + " मि. माथि";
   }
   function trendMark(trend) {
     if (trend === "rising") return "▲";
@@ -1201,7 +1201,7 @@
       });
       var alertRows = list.filter(function (row) { return rank(row) < 3; });
       var rest = list.filter(function (row) { return rank(row) >= 3; });
-      host.appendChild(riverTable(alertRows, lang() === "en" ? "Rivers at warning, danger, or on the corridor" : "चेतावनी, खतरा वा करिडोरका नदी"));
+      host.appendChild(riverTable(alertRows, lang() === "en" ? "Rivers at alert, danger, or on the corridor" : "चेतावनी, खतरा वा करिडोरका नदी"));
       if (rest.length) {
         var details = document.createElement("details");
         details.className = "wxdb-morebasins";

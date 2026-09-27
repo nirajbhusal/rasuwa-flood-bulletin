@@ -18,7 +18,7 @@
     "api": "https://dhm.gov.np/mfd/api/page/12312",
     "product": {
       "ne": "आगामी पाँच दिनका लागि मौसम चेतावनी",
-      "en": "Weather warning for the next five days"
+      "en": "Weather alert for the next five days"
     },
     "window": {
       "start": "2026-09-26",
@@ -41,7 +41,7 @@
     },
     "title": {
       "ne": "आगामी पाँच दिनका लागि मौसम चेतावनी",
-      "en": "Weather warning for the next five days"
+      "en": "Weather alert for the next five days"
     },
     "sub": {
       "ne": "असोज १० देखि १४ (२६–३० सेप्टेम्बर २०२६)",
@@ -61,11 +61,11 @@
     },
     "maps_h": {
       "ne": "आधिकारिक चेतावनी नक्सा",
-      "en": "Official warning maps"
+      "en": "Official alert maps"
     },
     "maps_legend": {
       "ne": "DHM नक्सामा रातो = कारबाही गर्नुहोस् · सुन्तला = तयार रहनुहोस् · पहेँलो = अपडेट हुनुहोस् · हरियो = चेतावनी छैन।",
-      "en": "On the DHM maps: red = take action · orange = be prepared · yellow = be updated · green = no warning."
+      "en": "On the DHM maps: red = take action · orange = be prepared · yellow = be updated · green = no alert."
     },
     "more": {
       "ne": "पूर्ण बुलेटिन र आधिकारिक नक्सा",
@@ -97,7 +97,7 @@
     },
     "system": {
       "ne": "DHM ले असोज १० बिहान ८:०० (२६ सेप्टेम्बर २०२६) आगामी पाँच दिनका लागि मौसम चेतावनी जारी गरेको छ। दिनको रङ जिल्लाको आधिकारिक नक्साबाट हो।",
-      "en": "DHM issued a weather warning for the next five days on the morning of 26 September 2026 (Asoj 10, 8:00 AM). Day colours are the district colours on the official maps."
+      "en": "DHM issued a weather alert for the next five days on the morning of 26 September 2026 (Asoj 10, 8:00 AM). Day colours are the district colours on the official maps."
     },
     "impacts_h": {
       "ne": "जोखिम र सतर्कता",
@@ -109,7 +109,7 @@
         "भोटेकोशी करिडोर बुलेटिन-२७ असोज ९ रातिदेखि असोज १२ बिहानसम्म: रसुवा, नुवाकोट, धादिङ, गोरखा र चितवनमा मध्यम वर्षा, प्रत्येक जिल्लाका एक-दुई ठाउँ भारी।"
       ],
       "en": [
-        "Map colours: red = take action, orange = be prepared, yellow = be updated, green = no warning.",
+        "Map colours: red = take action, orange = be prepared, yellow = be updated, green = no alert.",
         "Bhotekoshi corridor Bulletin-27 from the night of Asoj 9 through the morning of Asoj 12: moderate rain in Rasuwa, Nuwakot, Dhading, Gorkha and Chitwan, and heavy rain in 1–2 places in each district."
       ]
     },
@@ -123,11 +123,11 @@
     },
     "day_switch_hint": {
       "ne": "दिन छान्नुहोस्। नक्साको रङ त्यो दिनको जिल्ला चेतावनी हो।",
-      "en": "Pick a day. The map uses that day's district warning colours."
+      "en": "Pick a day. The map uses that day's district alert colours."
     },
     "day_method": {
       "ne": "यो दिनको रङ प्रत्येक जिल्लाको आधिकारिक चेतावनी हो।",
-      "en": "This day's colour is each district's official warning."
+      "en": "This day's colour is each district's official alert."
     },
     "day_detail": {
       "ne": "{when}: {name} को सबैभन्दा माथिल्लो रङ {level} हो।",
@@ -367,7 +367,7 @@
       "image_h": 1200,
       "image_alt": {
         "ne": "सिन्धुपाल्चोक प्रभावमा आधारित मौसम चेतावनी · असोज ८ साँझ",
-        "en": "Sindhupalchok impact-based weather warning · Asoj 8 evening"
+        "en": "Sindhupalchok impact-based weather alert · Asoj 8 evening"
       }
     },
     {
@@ -416,7 +416,7 @@
       "image_h": 1200,
       "image_alt": {
         "ne": "बागलुङ प्रभावमा आधारित मौसम चेतावनी · असोज ८ साँझ",
-        "en": "Baglung impact-based weather warning · Asoj 8 evening"
+        "en": "Baglung impact-based weather alert · Asoj 8 evening"
       }
     },
     {
@@ -465,7 +465,7 @@
       "image_h": 1200,
       "image_alt": {
         "ne": "म्याग्दी प्रभावमा आधारित मौसम चेतावनी · असोज ८ साँझ",
-        "en": "Myagdi impact-based weather warning · Asoj 8 evening"
+        "en": "Myagdi impact-based weather alert · Asoj 8 evening"
       }
     }
   ],
@@ -585,7 +585,7 @@
         "live": false,
         "name": {
           "ne": "पाँच-दिन चेतावनी #12310",
-          "en": "5-day warning #12310"
+          "en": "5-day alert #12310"
         },
         "span": {
           "ne": "असोज ९–१३",
@@ -602,7 +602,7 @@
         "live": true,
         "name": {
           "ne": "पाँच-दिन चेतावनी #12312",
-          "en": "5-day warning #12312"
+          "en": "5-day alert #12312"
         },
         "span": {
           "ne": "असोज १०–१४",
@@ -829,7 +829,7 @@
     "green": {
       "color": "#1b7f3a",
       "ne": "हरियो · चेतावनी छैन",
-      "en": "Green · no warning"
+      "en": "Green · no alert"
     }
   },
   "warning_days": [

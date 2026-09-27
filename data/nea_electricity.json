@@ -14,7 +14,7 @@
   "active": true,
   "name": {
    "ne": "भारी वर्षा चेतावनी · असोज ९–१४, २०८३",
-   "en": "Heavy rain warning · Asoj 9–14, 2083 (25–30 Sep 2026)"
+   "en": "Heavy rain alert · Asoj 9–14, 2083 (25–30 Sep 2026)"
   },
   "issuer": {
    "ne": "जल तथा मौसम विज्ञान विभाग",
@@ -715,10 +715,10 @@
    },
    "title": {
     "ne": "कुलेखानी: साइरन चेतावनी",
-    "en": "Kulekhani: siren warnings"
+    "en": "Kulekhani: siren alerts"
    },
    "text_ne": "कुलेखानी प्रथम जलविद्युत् केन्द्रका अनुसार जलाशय १,५२७ मिटर पुगेमा साइरन बजाइन्छ; एक साइरन पहिलो चेतावनी, दुई साइरन दोस्रो चेतावनी र तीन वा लगातार साइरन आपत्कालीन अवस्था हो — तल्लो तटका बासिन्दा सुरक्षित स्थानमा जानुपर्छ। तीनै केन्द्र (१०६ मेगावाट) पूर्ण क्षमतामा चलाइएको छ।",
-   "text_en": "NEA’s Kulekhani I Hydropower Centre will sound sirens if the reservoir reaches 1,527 m: one siren is the first warning, two the second, three or continuous means emergency — downstream residents should move to safer places. All three cascade plants (106 MW) are running at full capacity.",
+   "text_en": "NEA’s Kulekhani I Hydropower Centre will sound sirens if the reservoir reaches 1,527 m: one siren is the first alert, two the second, three or continuous means emergency — downstream residents should move to safer places. All three cascade plants (106 MW) are running at full capacity.",
    "figures": {
     "siren_level_m": 1527,
     "reservoir_level_m": 1522.75,
@@ -744,7 +744,7 @@
      "published": "2026-09-25",
      "published_time": null,
      "quote_ne": null,
-     "quote_en": "He said a warning system has been put in place to sound a siren when the reservoir’s water level reaches 1,527 meters, to alert local residents to take necessary precautions against potential risks.",
+     "quote_en": "He said an alert system has been put in place to sound a siren when the reservoir’s water level reaches 1,527 meters, to alert local residents to take necessary precautions against potential risks.",
      "translation_en": null,
      "source_tier": "listed_outlet",
      "checked_at": "2026-09-26T13:55:00+05:45"
@@ -755,7 +755,7 @@
      "published": "2026-09-25",
      "published_time": "2026-09-25T13:38:32+05:45",
      "quote_ne": null,
-     "quote_en": "According to the authority, one siren means the first warning, two sirens mean the second warning, and three or continuous sirens indicate an emergency. In such a situation, residents in downstream areas have been advised to move to safer locations.",
+     "quote_en": "According to the authority, one siren means the first alert, two sirens mean the second alert, and three or continuous sirens indicate an emergency. In such a situation, residents in downstream areas have been advised to move to safer locations.",
      "translation_en": null,
      "source_tier": "listed_outlet",
      "checked_at": "2026-09-26T13:55:00+05:45"
