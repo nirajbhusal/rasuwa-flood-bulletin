@@ -11441,8 +11441,7 @@ html[lang="en"] .elec-src-ne{display:none}
 .ava-kpi-n{display:block;font-size:48px;line-height:1;font-weight:800;color:#c41e3a;font-variant-numeric:tabular-nums}
 .ava-kpi-l{display:block;margin-top:2px;font-size:14px;font-weight:800;color:#0f172a}
 .ava-chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:8px 0 0;padding:0;list-style:none;min-width:0}
-.ava-chip{max-width:100%;border:1px solid #e2e8f0;border-radius:999px;background:#f8fafc;padding:4px 10px;font-size:13px;font-weight:750;line-height:1.35;color:#0f172a}
-.ava-dot{color:#64748b;font-weight:800;list-style:none}
+.ava-chip{max-width:100%;border:1px solid #e2e8f0;border-radius:999px;background:#f8fafc;padding:4px 10px;font-size:13px;font-weight:750;line-height:1.35;color:#0f172a;white-space:nowrap}
 .ava-when{margin:8px 0 6px;font-size:13px;font-weight:700;color:#64748b}
 .ava-sum,.ava-resp{margin:0 0 8px;font-size:15px;line-height:1.45}
 .ava-src{margin:6px 0 0;font-size:13px;line-height:1.4;color:#334155}
@@ -11468,7 +11467,6 @@ html[lang="en"] .elec-src-ne{display:none}
 .lb.lb-single .lb-prev,.lb.lb-single .lb-next{display:none}
 @media (max-width:420px){
   .ava-kpi-n{font-size:40px}
-  .ava-chips{flex-direction:column;align-items:flex-start}
   .ava-row{grid-template-columns:minmax(0,1fr)}
   .ava-thumb,.ava-thumb img{width:min(160px,100%)}
 }
