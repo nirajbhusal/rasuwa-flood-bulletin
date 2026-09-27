@@ -19,10 +19,17 @@ const pages = [
 const now = Date.parse("2026-09-27T04:00:00Z");
 const MIN = 60 * 1000;
 
+test("the published Narayani alert stays active with its popup switched off", function () {
+  const live = ndrrma.alerts[0];
+  assert.equal(live.id, "narayani-2083-06-11-0800");
+  assert.equal(live.active, true);
+  assert.equal(live.popup, false);
+  assert.equal(FloodPopup.shouldShow(live, now, null), false);
+  assert.equal(FloodPopup.newestPopup(ndrrma), null);
+});
+
 test("flood popup is suppressed for one hour and only while the alert is active", function () {
-  const alert = ndrrma.alerts[0];
-  assert.equal(alert.active, true);
-  assert.equal(alert.popup, true);
+  const alert = Object.assign({}, ndrrma.alerts[0], { popup: true });
   assert.equal(FloodPopup.shouldShow(alert, now, null), true);
   assert.equal(FloodPopup.shouldShow(alert, now, ""), true);
   assert.equal(FloodPopup.shouldShow(alert, now, String(now - 59 * MIN)), false);
@@ -33,7 +40,7 @@ test("flood popup is suppressed for one hour and only while the alert is active"
 });
 
 test("popup copy comes from the newest active alert", function () {
-  const alert = ndrrma.alerts[0];
+  const alert = Object.assign({}, ndrrma.alerts[0], { popup: true });
   const view = FloodPopup.present(alert);
   const newerOff = {
     id: "later-off",
@@ -41,7 +48,8 @@ test("popup copy comes from the newest active alert", function () {
     popup: true,
     issued_npt: "2026-09-28T08:00:00+05:45"
   };
-  assert.equal(FloodPopup.newestPopup(ndrrma).id, alert.id);
+  const doc = { alerts: [alert] };
+  assert.equal(FloodPopup.newestPopup(doc).id, alert.id);
   assert.equal(FloodPopup.newestPopup({ alerts: [newerOff, alert] }).id, alert.id);
   assert.equal(view.headlineNe, "विशेष बाढी चेतावनी — नारायणी नदी खतराको तह पार गरेको छ");
   assert.equal(view.headlineEn, "Special flood alert: Narayani River has crossed the danger level");
