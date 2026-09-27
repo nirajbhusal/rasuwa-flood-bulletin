@@ -16,7 +16,7 @@
     "fund", "donate", "fund_source",
     "helpline", "names", "lpg", "lpg_source",
     "electricity_schedule", "electricity_nolight", "electricity_plants", "electricity_load", "electricity_now", "electricity_kali",
-    "cause", "gallery", "about", "markets",
+    "cause", "gallery", "about", "markets", "avalanche",
     "flood_rivers", "flood_flash", "flood_place", "flood_trishuli", "flood_ndrrma",
     "fallback"
   ];
@@ -385,6 +385,11 @@
       { ne: "आजको मौसम के छ?", en: "What is today’s weather?" },
       { ne: "यो बुलेटिन के हो?", en: "What is this bulletin?" }
     ]),
+    avalanche: follow([
+      { ne: "मनास्लु हिमपहिरो?", en: "Manaslu avalanche?" },
+      { ne: "हेल्पलाइन नम्बर?", en: "Helpline numbers?" },
+      { ne: "आजको मौसम के छ?", en: "What is today’s weather?" }
+    ]),
     gallery: follow([
       { ne: "बाढी किन आयो?", en: "What caused the flood?" },
       { ne: "यो बुलेटिन के हो?", en: "What is this bulletin?" },
@@ -545,6 +550,11 @@
       else if (hit(q, ["hydropower", "hydro power", "hydroelectric", "जलविद्युत", "जलविद्युत्", "power plant", "क्षतिग्रस्त"])) spec.intent = "electricity_plants";
       else if (hit(q, ["no light", "nolight", "बत्ती छैन", "बत्ति छैन", "बिजुली छैन", "फोन", "phone", "1150", "hotline", "नम्बर", "नंबर", "नो लाइट", "नोलाइट"])) spec.intent = "electricity_nolight";
       else spec.intent = "electricity_schedule";
+      return finishSpec(spec);
+    }
+    if (wantsAvalanche(q)) {
+      spec.intent = "avalanche";
+      if (hit(q, ["manaslu", "मनास्लु"]) && !hit(q, ["himlung", "हिमलुङ", "हिमालुङ"])) spec.meta = "manaslu";
       return finishSpec(spec);
     }
     var causeStrong = hit(q, ["avalanche", "himpahiro", "हिमपहिरो", "langtang", "lirung", "लिरुङ", "लाङटाङ", "lhende", "लेन्दे", "glof", "हिमताल", "caused", "किन आयो", "kasari aayo", "कसरी आयो"]);
@@ -751,6 +761,23 @@
     return true;
   }
 
+  function wantsAvalanche(q) {
+    var himlung = hit(q, ["himlung", "हिमलुङ", "हिमालुङ"]);
+    var manaslu = hit(q, ["manaslu", "मनास्लु"]);
+    var narphu = hit(q, ["nar phu", "narphu", "नार फू", "नार फु", "नारफू"]);
+    var ava = hit(q, ["avalanche", "himpahiro", "हिमपहिरो"]);
+    var snow = hit(q, ["हिमपात", "snow", "snowfall"]);
+    var manang = hit(q, ["manang", "मनाङ"]);
+    var causeWord = hit(q, [
+      "cause", "caused", "why", "किन", "कसरी आयो", "kasari aayo", "trigger",
+      "बाढी", "flood", "langtang", "लाङटाङ", "lirung", "लिरुङ", "lhende", "लेन्दे", "glof", "हिमताल"
+    ]);
+    if (himlung || manaslu || narphu) return true;
+    if (manang && (ava || snow)) return true;
+    if (ava && !causeWord) return true;
+    return false;
+  }
+
   function finishSpec(spec) {
     var intent = spec.intent;
     var family = "about";
@@ -765,6 +792,7 @@
     else if (intent === "names") family = "names";
     else if (intent.indexOf("lpg") === 0) family = "lpg";
     else if (intent === "cause") family = "cause";
+    else if (intent === "avalanche") family = "avalanche";
     else if (intent === "gallery") family = "gallery";
     else if (intent === "markets") family = "markets";
     else if (intent === "about") family = "about";
@@ -2090,6 +2118,40 @@
     if (lang === "en") return bag.origin_summary_en || (g && g.origin_summary_en) || "";
     return bag.origin_summary_ne || (g && g.origin_summary_ne) || "";
   }
+  function answerAvalanche(spec, ctx) {
+    var lang = ctx.lang === "en" ? "en" : "ne";
+    var doc = ctx.avalanche;
+    var href = "notices.html#avalanche";
+    var fu = FOLLOW.avalanche || [];
+    if (!doc) return pack(lang, missingText(lang), "", href, { followups: fu });
+    if (spec.meta === "manaslu") {
+      var row = (doc.season_context || [])[0];
+      if (!row) return pack(lang, missingText(lang), "", href, { followups: fu });
+      var bits = [tx(row.headline, lang), row.when ? tx(row.when, lang) : "", row.status_text ? tx(row.status_text, lang) : ""].filter(Boolean);
+      var src0 = (row.sources || [])[0];
+      var label = src0 ? tx(src0.label, lang) : "";
+      var parts = label.split(" · ");
+      var src = parts.length > 1 ? sourceLine(lang, parts[0], parts.slice(1).join(" · ")) : sourceLine(lang, label, "");
+      return pack(lang, bits.join(" · "), src, href, { followups: fu });
+    }
+    var inc = null;
+    (doc.incidents || []).forEach(function (item) {
+      if (!inc && item && item.status === "ongoing") inc = item;
+    });
+    if (!inc || !inc.figures || inc.figures.unaccounted == null) return pack(lang, missingText(lang), "", href, { followups: fu });
+    var n = inc.figures.unaccounted;
+    var rows = inc.figures.breakdown || [];
+    var a = rows[0] || {};
+    var b = rows[1] || {};
+    var text = lang === "en"
+      ? "An avalanche struck " + tx(inc.peak, "en") + " " + tx(inc.site, "en") + " (" + tx(inc.district, "en") + ") on Sunday morning. " + n + " people are unaccounted for: " + (a.count != null ? a.count : "") + " with " + tx(a.operator, "en") + " and " + (b.count != null ? b.count : "") + " with " + tx(b.operator, "en") + ", according to the Expedition Operators Association Nepal. The Department of Tourism is monitoring search and rescue."
+      : "आइतबार बिहान " + tx(inc.district, "ne") + "को " + tx(inc.peak, "ne") + " " + tx(inc.site, "ne") + "मा हिमपहिरो गएको छ। " + digits(String(n), "ne") + " जना सम्पर्कविहीन छन्: " + tx(a.operator, "ne") + "का " + digits(String(a.count), "ne") + " र " + tx(b.operator, "ne") + "का " + digits(String(b.count), "ne") + ", एक्स्पिडिसन अपरेटर्स एसोसिएसन नेपालका अनुसार। पर्यटन विभागले खोजी तथा उद्धार निगरानी गरिरहेको छ।";
+    var credit = lang === "en"
+      ? "Source: Expedition Operators Association Nepal, via The Kathmandu Post · Asoj 11 · 10:27 AM"
+      : "स्रोत: एक्स्पिडिसन अपरेटर्स एसोसिएसन नेपाल · काठमाडौं पोस्ट · असोज ११ · बिहान १०:२७";
+    return pack(lang, text, credit, href, { followups: fu });
+  }
+
   function answerCause(ctx) {
     var lang = ctx.lang === "en" ? "en" : "ne";
     var summary = originText(ctx.gallery, lang);
@@ -2735,6 +2797,7 @@
     else if (intent === "names") ans = answerNames(spec, ctx);
     else if (intent.indexOf("lpg") === 0) ans = answerLpg(spec, ctx);
     else if (intent === "cause") ans = answerCause(ctx);
+    else if (intent === "avalanche") ans = answerAvalanche(spec, ctx);
     else if (intent === "gallery") ans = answerGallery(ctx);
     else if (intent === "about") ans = answerAbout(ctx);
     else if (intent === "markets") ans = answerMarkets(ctx);

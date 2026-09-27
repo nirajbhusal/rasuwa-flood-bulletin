@@ -222,6 +222,18 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
   </div>
 </section>
 
+<section id="avalanche">
+  <div class="sec-head"><span class="dot" style="background:var(--crimson)"></span><h2 data-i18n="h_avalanche">हिमपहिरो</h2></div>
+  <div id="avalanche-mount" class="ava-board">
+    <article class="ava-card">
+      <h3 class="ava-h">हिमलुङ हिमाल आधार शिविरमा हिमपहिरो — १० जना सम्पर्कविहीन</h3>
+      <p class="ava-kpi"><span class="ava-kpi-n">१०</span> <span class="ava-kpi-l">सम्पर्कविहीन</span></p>
+      <p class="ava-sum">मनाङको नार–फू क्षेत्रमा पर्ने ७,१२६ मिटर अग्लो हिमलुङ हिमालको आधार शिविरमा आइतबार बिहान हिमपहिरो गएको छ।</p>
+      <p class="ava-src">स्रोत: एक्स्पिडिसन अपरेटर्स एसोसिएसन नेपाल · <a href="https://kathmandupost.com/national/2026/09/27/10-missing-after-avalanche-hits-himlung-himal" target="_blank" rel="noopener">काठमाडौं पोस्ट</a> · असोज ११ · बिहान १०:२७</p>
+    </article>
+  </div>
+</section>
+
 <section id="alert">
   <div class="sec-head sec-head-wx"><span class="dot" style="background:var(--crimson)"></span><h2 id="wx-section-title" data-i18n="h_alert">भारी वर्षा चेतावनी</h2></div>
   <div id="wx-alert" class="wx-board" data-wx-mount data-wx-mode="summary">
@@ -393,6 +405,12 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
     <span class="pcount pager-count"></span>
   </div>
   <div class="log" id="history-list" data-i18n-list="hist" data-i18n-kind="hist">
+        <article class="log-item now">
+      <p class="when" data-i18n="hist_ava_when">बिहान · ११ असोज / २७ सेप्टेम्बर</p>
+      <p class="k" data-i18n="hist_ava_k">हिमपहिरो · मनाङ</p>
+      <h3>हिमलुङ हिमाल आधार शिविरमा हिमपहिरो — १० जना सम्पर्कविहीन</h3>
+      <p>मनाङको हिमलुङ हिमाल आधार शिविरमा आइतबार बिहान हिमपहिरो गएको छ। १० जना सम्पर्कविहीन छन् — हिमालयन होलिडेज नेपालका ८ र इम्याजिन नेपालका २। स्रोत: एक्स्पिडिसन अपरेटर्स एसोसिएसन नेपाल · <a href="https://kathmandupost.com/national/2026/09/27/10-missing-after-avalanche-hits-himlung-himal" target="_blank" rel="noopener">काठमाडौं पोस्ट</a> · असोज ११ · बिहान १०:२७। <a href="notices.html#avalanche">विवरण</a>।</p>
+    </article>
         <article class="log-item now">
       <p class="when">१७:०० · ९ असोज / २५ सेप्टेम्बर</p>
       <p class="k" data-i18n="kicker">भोटेकोशी–त्रिशूली आकस्मिक बाढी</p>
@@ -1662,6 +1680,7 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 <script defer src="rain-theme.js?v=1099434-20260927T043539Z"></script>
 <script defer src="district-alerts.js?v=1099434-20260927T043539Z"></script>
 <script defer src="weather-alert.js?v=1099434-20260927T043539Z"></script>
+<script defer src="avalanche.js?v="></script>
 <script>(function(){if(document.querySelector('link[href*="leaflet.css"]'))return;var l=document.createElement("link");l.rel="stylesheet";l.href="vendor/leaflet/leaflet.css?v=1099434-20260927T043539Z";document.head.appendChild(l);})();</script>
 <script defer src="vendor/leaflet/leaflet.js?v=1099434-20260927T043539Z"></script>
 <script defer src="roads-dor.js?v=1099434-20260927T043539Z"></script>

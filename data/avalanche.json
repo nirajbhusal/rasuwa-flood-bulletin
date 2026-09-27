@@ -1,0 +1,418 @@
+{
+  "schema": "avalanche-v1",
+  "id": "2026-09-27-himlung-avalanche",
+  "as_of_npt": "2026-09-27T11:45:00+05:45",
+  "as_of": {
+    "ne": "असोज ११, २०८३ · बिहान ११:४५ सम्म",
+    "en": "As of Asoj 11, 2083 · 11:45 AM"
+  },
+  "title": {
+    "ne": "हिमपहिरो",
+    "en": "Avalanche"
+  },
+  "incidents": [
+    {
+      "id": "himlung-bc-2083-06-11",
+      "status": "ongoing",
+      "headline": {
+        "ne": "हिमलुङ हिमाल आधार शिविरमा हिमपहिरो — १० जना सम्पर्कविहीन",
+        "en": "Avalanche at Himlung Himal base camp: 10 unaccounted for"
+      },
+      "peak": {
+        "ne": "हिमलुङ हिमाल",
+        "en": "Himlung Himal",
+        "elevation_m": 7126
+      },
+      "site": {
+        "ne": "आधार शिविर",
+        "en": "base camp"
+      },
+      "area": {
+        "ne": "नार–फू क्षेत्र",
+        "en": "Nar Phu area"
+      },
+      "district": {
+        "id": "manang",
+        "ne": "मनाङ",
+        "en": "Manang"
+      },
+      "province": {
+        "ne": "गण्डकी प्रदेश",
+        "en": "Gandaki Province"
+      },
+      "municipality_note": "Not stated by any source. Nar and Phu villages are in Narpa Bhumi Rural Municipality (KP 26 Sep names that RM for snowfall in Manang), but no report names the RM for this incident. Do not render.",
+      "when": {
+        "date_npt": "2026-09-27",
+        "time_npt": null,
+        "ne": "आइतबार (असोज ११) बिहान",
+        "en": "Sunday (Asoj 11) morning",
+        "sources_note": "Tourism Times 09:16 NPT: 'early this morning'; Mingma G to Everest Chronicle/ANI: 'Sunday morning'. No exact time published."
+      },
+      "figures": {
+        "unaccounted": 10,
+        "dead": null,
+        "injured": null,
+        "rescued": null,
+        "breakdown": [
+          {
+            "operator": {
+              "ne": "हिमालयन होलिडेज नेपाल",
+              "en": "Himalayan Holidays Nepal"
+            },
+            "count": 8,
+            "who": {
+              "ne": "आरोही तथा सहयोगी कर्मचारी",
+              "en": "climbers and support staff"
+            }
+          },
+          {
+            "operator": {
+              "ne": "इम्याजिन नेपाल",
+              "en": "Imagine Nepal"
+            },
+            "count": 2,
+            "who": {
+              "ne": "भान्सा कर्मचारी",
+              "en": "kitchen staff"
+            }
+          }
+        ],
+        "nationalities": null,
+        "figure_source": "Rishi Bhandari, general secretary, Expedition Operators Association Nepal (EOAN), via The Kathmandu Post (updated 27 Sep 2026 10:27 NPT) and ekantipur (10:15 NPT). Kitchen-staff detail: Mingma G (Imagine Nepal) via Tourism Times 09:16 NPT / Everest Chronicle / ANI.",
+        "figure_source_type": "industry_body_via_media"
+      },
+      "summary": {
+        "ne": "मनाङको नार–फू क्षेत्रमा पर्ने ७,१२६ मिटर अग्लो हिमलुङ हिमालको आधार शिविरमा आइतबार बिहान हिमपहिरो गएको छ। एक्सपिडिसन अपरेटर्स एसोसिएसन नेपालका अनुसार १० जना सम्पर्कविहीन छन् — हिमालयन होलिडेज नेपालका ८ र इम्याजिन नेपालका २। पर्यटन विभागले घटनाको विवरण सङ्कलन र खोजी तथा उद्धारका प्रयास निगरानी गरिरहेको जनाएको छ।",
+        "en": "An avalanche struck the base camp of Himlung Himal (7,126 m) in the Nar Phu area of Manang on Sunday morning. According to the Expedition Operators Association Nepal, 10 people are unaccounted for: 8 with Himalayan Holidays Nepal and 2 with Imagine Nepal. The Department of Tourism says it is monitoring and collecting details on search and rescue efforts."
+      },
+      "official_response": {
+        "ne": "पर्यटन विभागका महानिर्देशक रामकृष्ण लामिछानेका अनुसार विभागले विवरण सङ्कलन र खोजी तथा उद्धारको प्रयास निगरानी गरिरहेको छ।",
+        "en": "Department of Tourism Director General Ram Krishna Lamichhane said the department is monitoring the situation and collecting details on efforts to locate and rescue those unaccounted for.",
+        "source_id": "kp-himlung"
+      },
+      "rescue_status": {
+        "ne": "खोजी तथा उद्धारको विवरण सङ्कलन भइरहेको",
+        "en": "Search and rescue details being collected",
+        "note": "No government agency (NDRRMA, Nepal Police, APF, Nepal Army, DAO Manang) had published a statement or deployment as of 11:45 NPT. Media-reported only: IFMGA guide Abiral Rai (Everest Chronicle) says NNMGA guides are standing by in Samagaon and that rescue-flight permits in the area face 'bureaucratic hurdles'; Himlung requires an additional permit for helicopter flights (Everest Chronicle, ANI). Do not render this note."
+      },
+      "sources": [
+        {
+          "id": "kp-himlung",
+          "primary": true,
+          "label": {
+            "ne": "काठमाडौं पोस्ट · असोज ११ · बिहान १०:२७",
+            "en": "The Kathmandu Post · Asoj 11 · 10:27 AM"
+          },
+          "url": "https://kathmandupost.com/national/2026/09/27/10-missing-after-avalanche-hits-himlung-himal",
+          "published_npt": "2026-09-27T10:27:00+05:45",
+          "type": "media",
+          "quotes": "EOAN gen. sec. Rishi Bhandari (10 unaccounted, 2 Imagine Nepal, 8 Himalayan Holidays Nepal); DoT DG Ram Krishna Lamichhane (monitoring)"
+        },
+        {
+          "id": "ekantipur-himlung",
+          "label": {
+            "ne": "कान्तिपुर · असोज ११ · बिहान १०:१५",
+            "en": "Kantipur · Asoj 11 · 10:15 AM"
+          },
+          "url": "https://www.hamropatro.com/news/detail/2675578541461418-himalungama-himapahiro-10-jana-samparkavihin",
+          "published_npt": "2026-09-27T10:15:42+05:45",
+          "type": "media",
+          "note": "Hamro Patro syndication of ekantipur (04:30:42 GMT). Original ekantipur URL not resolved."
+        },
+        {
+          "id": "thaha-himlung",
+          "label": {
+            "ne": "थाहाखबर · असोज ११ · बिहान १०:२४",
+            "en": "Thaha Khabar · Asoj 11 · 10:24 AM"
+          },
+          "url": "https://www.thahakhabar.com/detail/309401",
+          "published_npt": "2026-09-27T10:24:00+05:45",
+          "type": "media"
+        },
+        {
+          "id": "tt-himlung",
+          "label": {
+            "ne": "टुरिजम टाइम्स · असोज ११ · बिहान ९:१६",
+            "en": "The Tourism Times · Asoj 11 · 9:16 AM"
+          },
+          "url": "https://thetourismtimes.com/news/climbing/breaking-massive-avalanche-strikes-himlung-himal-base-camp-at-least-10-missing",
+          "published_npt": "2026-09-27T09:16:00+05:45",
+          "type": "media",
+          "quotes": "Bibhu Chand Thakur (Himalayan Holidays): at least 8 out of contact; Mingma G (Imagine Nepal): 2 kitchen staff; EOAN: most other teams had descended after weather alerts"
+        },
+        {
+          "id": "ec-himlung",
+          "label": {
+            "ne": "एभरेस्ट क्रोनिकल · असोज ११",
+            "en": "Everest Chronicle · Asoj 11"
+          },
+          "url": "https://everestchronicle.com/ten-high-altitude-workers-missing-after-himlung-himal-avalanche",
+          "posted_npt": "2026-09-27T09:46:38+05:45",
+          "type": "media"
+        },
+        {
+          "id": "ani-himlung",
+          "label": {
+            "ne": "ANI · असोज ११ · बिहान ११:०४",
+            "en": "ANI · Asoj 11 · 11:04 AM"
+          },
+          "url": "https://aninews.in/news/world/asia/avalanche-at-himlung-himal-base-camp-in-nepal-leaves-10-missing20260927104947/",
+          "published_npt": "2026-09-27T11:04:00+05:45",
+          "type": "media",
+          "note": "10:49 IST = 11:04 NPT"
+        }
+      ],
+      "conflicts": [
+        {
+          "field": "unaccounted",
+          "a": {
+            "value": 10,
+            "by": "EOAN (Rishi Bhandari) via KP/ekantipur; operators via Tourism Times, Everest Chronicle, ANI"
+          },
+          "b": {
+            "value": 14,
+            "by": "Luke Smithwick (mountain guide), personal X post 27 Sep 09:20 NPT, 'fourteen people are missing' from a phone call",
+            "url": "https://x.com/lukesmithwick/status/2104052183402778885"
+          },
+          "resolution": "Use 10 (named confirmer). 14 is unverified social media. Do not render."
+        },
+        {
+          "field": "who",
+          "note": "Everest Chronicle URL slug says 'high-altitude workers'; Tourism Times says Himalayan Holidays' 8 are 'climbers and support staff'; KP says 'climbers and support staff'. No source gives nationalities. Do not state whether foreigners are among them."
+        },
+        {
+          "field": "helicopter",
+          "note": "Everest Chronicle and ANI say Himlung needs an additional permit for helicopter flights; no official source on rescue flights yet."
+        }
+      ],
+      "weather_link": {
+        "linked": true,
+        "ne": "बङ्गालको खाडीको मौसम प्रणालीका कारण उच्च हिमाली क्षेत्रमा भारी हिमपातको चेतावनी जारी थियो।",
+        "en": "Official alerts had flagged heavy snowfall in the high Himalaya from the Bay of Bengal weather system.",
+        "note": "DHM special bulletin-3 (Asoj 5) forecast heavy snowfall in high Himalaya Asoj 9-11; KP 26 Sep: snow in upper Manang from Friday; Tourism Times/KP/EC/ANI tie the avalanche to persistent rain and snowfall."
+      },
+      "corridor_link": {
+        "in_rasuwa": false,
+        "in_bhotekoshi_trishuli": false,
+        "note": "Himlung (Manang, Gandaki) is far west of Langtang/Rasuwa and outside the Bhotekoshi-Trishuli corridor."
+      }
+    }
+  ],
+  "official_alerts": [
+    {
+      "id": "ndrrma-2026-09-23-high-alert",
+      "issuer": {
+        "ne": "राष्ट्रिय विपद् जोखिम न्यूनीकरण तथा व्यवस्थापन प्राधिकरण (NDRRMA)",
+        "en": "NDRRMA"
+      },
+      "title": {
+        "ne": "उच्च सतर्कताका लागि अनुरोध",
+        "en": "Request for High Alert"
+      },
+      "issued_npt": "2026-09-23",
+      "posted_npt": "2026-09-23T18:51:16+05:45",
+      "text": {
+        "ne": "मौसम प्रणालीले देशका हिमाली क्षेत्रमा भारी हिमपात ल्याउन सक्ने भएकाले पर्वतारोही र सम्बन्धित सबैलाई उच्च सतर्कता अपनाउन अनुरोध। उच्च हिमाली क्षेत्रमा रहेका यात्री र पदयात्रीलाई सुरक्षित स्थानमा फर्कन र मौसम नसुध्रिएसम्म अनावश्यक यात्रा नगर्न आग्रह।",
+        "en": "The weather system may bring heavy snowfall in the mountainous regions. Mountaineers and all concerned are asked to remain on high alert. Travellers and trekkers in high-altitude areas are advised to return to safer locations and avoid unnecessary travel until conditions improve."
+      },
+      "quote_en_verbatim": "Furthermore, the weather system may bring heavy snowfall in the mountainous regions of the country. Therefore, mountaineers and all concerned are requested to remain highly alert and take necessary precautions.",
+      "signed": "Shanti Mahat, Under Secretary/Spokesperson",
+      "url": "https://x.com/NDRRMA_Nepal/status/2102746369895379026",
+      "image": {
+        "file": "ndrrma_high-alert-2026-09-23_1000w.jpg",
+        "orig": "https://pbs.twimg.com/media/HS50lnHawAARQWO.jpg?name=orig",
+        "repo_path": "img/ndrrma/high-alert-2026-09-23.jpg",
+        "alt": {
+          "ne": "NDRRMA उच्च सतर्कताका लागि अनुरोध · २३ सेप्टेम्बर २०२६",
+          "en": "NDRRMA Request for High Alert · 23 September 2026"
+        },
+        "width": 1000,
+        "height": 1409,
+        "source_file": "ndrrma_2026-09-23_statement_HS50lnHawAARQWO.jpg (1659x2338 original)"
+      },
+      "label": {
+        "ne": "NDRRMA · असोज ७ · साँझ ६:५१",
+        "en": "NDRRMA · Asoj 7 · 6:51 PM"
+      },
+      "type": "official"
+    },
+    {
+      "id": "dhm-special-bulletin-3",
+      "issuer": {
+        "ne": "जल तथा मौसम विज्ञान विभाग · मौसम पूर्वानुमान महाशाखा",
+        "en": "DHM Meteorological Forecasting Division"
+      },
+      "title": {
+        "ne": "विशेष मौसमी बुलेटिन-३",
+        "en": "Special weather bulletin 3"
+      },
+      "issued_npt": "2026-09-21",
+      "text": {
+        "ne": "असोज ९ देखि ११ सम्म देशको उच्च हिमाली भूभागमा भारी हिमपात हुन सक्ने भएकाले पर्वतारोही, पदयात्री र सम्बन्धित निकायलाई उच्च सतर्कता अपनाउन आग्रह।",
+        "en": "Heavy snowfall possible in the high Himalaya from Asoj 9 to 11 (25–27 September); mountaineers, trekkers and agencies asked to stay on high alert."
+      },
+      "source_note": "Reported by Nagarik (published Asoj 5, 18:26). DHM MFD advised suspending Himalayan treks and returning to lower elevations (KP 23 Sep 20:05, meteorologist Hari Prasad Dhakal). Original bulletin URL not captured; use MFD page.",
+      "url": "https://nagariknews.nagariknetwork.com/social-affairs/news-13-10.html",
+      "official_url": "https://dhm.gov.np/mfd/",
+      "label": {
+        "ne": "DHM · असोज ५",
+        "en": "DHM · Asoj 5"
+      },
+      "type": "official_via_media"
+    },
+    {
+      "id": "dot-advisory-asoj-7",
+      "issuer": {
+        "ne": "पर्यटन विभाग",
+        "en": "Department of Tourism"
+      },
+      "title": {
+        "ne": "पदयात्रा र पर्वतारोहणमा उच्च सतर्कता",
+        "en": "High alert for trekking and mountaineering"
+      },
+      "issued_npt": "2026-09-23",
+      "valid": {
+        "ne": "असोज ८–१२",
+        "en": "Asoj 8–12 (24–28 September)"
+      },
+      "text": {
+        "ne": "हिमाली भू-भागमा हिमपात हुन सक्ने भएकाले सम्भव भएसम्म यात्रा नगर्न/नगराउन र यात्रा गर्नैपर्ने भए सुरक्षित तवरले सावधानी अपनाउन अनुरोध।",
+        "en": "With snowfall possible in the Himalaya, avoid trekking and climbing as far as possible; if travel is unavoidable, take full precautions."
+      },
+      "signed": "Suraj Ghimire, information officer (per RSS)",
+      "url": "https://gorkhapatraonline.com/news/223982",
+      "label": {
+        "ne": "पर्यटन विभाग · असोज ७",
+        "en": "Department of Tourism · Asoj 7"
+      },
+      "type": "official_via_media"
+    },
+    {
+      "id": "dao-manang-trek-ban",
+      "issuer": {
+        "ne": "जिल्ला प्रशासन कार्यालय, मनाङ",
+        "en": "District Administration Office, Manang"
+      },
+      "title": {
+        "ne": "उच्च हिमाली क्षेत्रमा पदयात्रा रोक",
+        "en": "High-altitude trekking barred"
+      },
+      "valid": {
+        "ne": "असोज ९–११ (शुक्रबार–आइतबार)",
+        "en": "Asoj 9–11 (Friday–Sunday, 25–27 September)"
+      },
+      "text": {
+        "ne": "तिलिचो ताल, थोराङ ला, आइस लेक, काङ ला र भिमथाङलगायत उच्च हिमाली क्षेत्रमा पदयात्रा रोकिएको; पदमार्गमा रहेका पर्यटकलाई सुरक्षित स्थानमै बस्न आग्रह।",
+        "en": "Trekking barred in high areas including Tilicho Lake, Thorong La, Ice Lake, Kang La and Bhimthang; trekkers already on routes asked to stay in safe locations."
+      },
+      "signed": "Krishna Prasad Paudel, assistant CDO (per KP)",
+      "url": "https://kathmandupost.com/national/2026/09/26/snow-and-rain-disrupt-life-across-nepal-s-highlands",
+      "label": {
+        "ne": "जिप्रका मनाङ · असोज ९–११",
+        "en": "DAO Manang · Asoj 9–11"
+      },
+      "type": "official_via_media",
+      "reported_npt": "2026-09-26T11:18:00+05:45"
+    }
+  ],
+  "season_context": [
+    {
+      "id": "manaslu-c3-2083-06-03",
+      "headline": {
+        "ne": "मनास्लु क्याम्प–३ मा हिमपहिरो — २ जनाको मृत्यु",
+        "en": "Avalanche at Manaslu Camp III: 2 dead"
+      },
+      "district": {
+        "id": "gorkha",
+        "ne": "गोरखा",
+        "en": "Gorkha"
+      },
+      "area": {
+        "ne": "चुमनुब्री गाउँपालिका",
+        "en": "Chumnubri Rural Municipality"
+      },
+      "when": {
+        "ne": "असोज ३ (शनिबार) राति; शव असोज ४ मा फेला",
+        "en": "Night of Asoj 3 (Saturday 19 Sep); bodies found 20 Sep"
+      },
+      "figures": {
+        "dead": 2
+      },
+      "who": {
+        "ne": "जर्मन नागरिक ध्रुवज्योति गुहा (४७) र आरोहण सहयोगी फुर्सेम्बा शेर्पा (४८, संखुवासभा)",
+        "en": "German national Dhruba Jyoti Guha (47) and climbing guide Fursemba Sherpa (48, Sankhuwasabha)"
+      },
+      "status": "closed",
+      "status_text": {
+        "ne": "शव असोज ७ मा काठमाडौं ल्याइयो",
+        "en": "Bodies flown to Kathmandu on 23 Sep"
+      },
+      "sources": [
+        {
+          "label": {
+            "ne": "रेडियो नेपाल · असोज ५",
+            "en": "Radio Nepal · Asoj 5"
+          },
+          "url": "https://radionepalonline.com/2026/09/21/736604.html",
+          "type": "state_media"
+        },
+        {
+          "label": {
+            "ne": "गोरखापत्र · असोज ५",
+            "en": "Gorkhapatra · Asoj 5"
+          },
+          "url": "https://www.gorkhapatraonline.com/news/223600",
+          "type": "state_media"
+        },
+        {
+          "label": {
+            "ne": "टुरिजम टाइम्स · असोज ७ · दिउँसो २:०९ (प्रहरीका अनुसार)",
+            "en": "The Tourism Times · Asoj 7 · 2:09 PM (per police)"
+          },
+          "url": "https://thetourismtimes.com/news/climbing/bodies-of-two-manaslu-avalanche-victims-airlifted-to-kathmandu",
+          "type": "media"
+        }
+      ],
+      "note": "Ages and Sankhuwasabha from Tourism Times citing police; spelling Fursemba/Phursemba varies. Older than 48 h: render as one compact 'earlier this season' line only."
+    }
+  ],
+  "excluded": [
+    {
+      "item": "Yalung Ri / Dolakha avalanche, seven dead (rtwnews dated 25 Sep 2026)",
+      "reason": "That is the November 2025 event (article cites Cyclone Montha); misdated syndication. Kantipath (10 Aug 2026) reports bodies found a year later. Not current."
+    },
+    {
+      "item": "Himalayan Times 'One missing as avalanche hits Himlung expedition'",
+      "reason": "Published 27 Sep 2016, not 2026."
+    },
+    {
+      "item": "Broad Peak (Pakistan) avalanche, 30 Jul 2026",
+      "reason": "Outside Nepal and not current."
+    },
+    {
+      "item": "Langtang avalanche as trigger of the 26 Aug Rasuwa flood",
+      "reason": "Preliminary assessment only (DHM said rainfall was not the cause; scientists suggest an avalanche dammed the Lende; not confirmed). Belongs to the Rasuwa flood story, not this card."
+    },
+    {
+      "item": "Luke Smithwick X post: overnight earthquake and landslide in Samagaon, animals lost",
+      "reason": "Unverified personal post; no official source."
+    }
+  ],
+  "render": {
+    "show_figures": [
+      "unaccounted"
+    ],
+    "never_render": [
+      "municipality_note",
+      "rescue_status.note",
+      "conflicts",
+      "excluded",
+      "figure_source",
+      "figure_source_type",
+      "sources_note",
+      "quote_en_verbatim",
+      "source_note",
+      "note"
+    ]
+  }
+}

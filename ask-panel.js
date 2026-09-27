@@ -441,6 +441,7 @@
       clock: new Date().toISOString(),
       dash: cache.dash,
       gallery: cache.gallery,
+      avalanche: cache.avalanche || null,
       lpg: lpg,
       nea: cache.nea || null,
       nolight: cache.nolight || null,
@@ -469,6 +470,7 @@
     if (f === "lpg") return !cache.lpg && !failed.lpg;
     if (f === "electricity") return (!cache.nea && !failed.nea) || (!cache.nolight && !failed.nolight);
     if (f === "cause" || f === "gallery") return !cache.gallery && !failed.gallery;
+    if (f === "avalanche") return !cache.avalanche && !failed.avalanche;
     return false;
   }
 
@@ -502,6 +504,7 @@
       getJSON("data/ndrrma_vehicle_2083-06-09.json", "vehicle"),
       getJSON("api/dashboard.json", "dash"),
       getJSON("data/gallery-path.json", "gallery"),
+      getJSON("data/avalanche.json", "avalanche"),
       getJSON("data/nea_electricity.json", "nea"),
       getJSON("data/nea_no_light_numbers.json", "nolight"),
       getHTML("supply.html", "lpg", parseSupply),
