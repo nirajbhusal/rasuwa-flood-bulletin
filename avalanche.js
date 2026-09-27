@@ -110,8 +110,7 @@
       kpi.appendChild(el("span", "ava-kpi-n", digits(figs.unaccounted)));
       kpi.appendChild(el("span", "ava-kpi-l", lang() === "en" ? "unaccounted for" : "सम्पर्कविहीन"));
       var chips = el("ul", "ava-chips");
-      (figs.breakdown || []).forEach(function (row, i) {
-        if (i) chips.appendChild(el("li", "ava-dot", "·"));
+      (figs.breakdown || []).forEach(function (row) {
         chips.appendChild(el("li", "ava-chip", tx(row.operator) + " " + digits(row.count)));
       });
       kpi.appendChild(chips);
@@ -122,7 +121,6 @@
     if (inc.when) card.appendChild(el("p", "ava-when", tx(inc.when)));
     if (inc.summary) card.appendChild(el("p", "ava-sum", tx(inc.summary)));
     if (inc.official_response) card.appendChild(el("p", "ava-resp", tx(inc.official_response)));
-    card.appendChild(figureCredit(inc));
     return card;
   }
 
