@@ -32,6 +32,43 @@ const lpg = {
   d26: { mt: "1,822.3", cyl: "128,332", label: "2083/05/26" }
 };
 
+function cityById(id) {
+  const cities = (wxnow.nepal_now && wxnow.nepal_now.cities) || [];
+  return cities.find((row) => row.id === id) || null;
+}
+function riverById(id) {
+  const rivers = (wxnow.corridor && wxnow.corridor.rivers) || [];
+  return rivers.find((row) => row.id === id) || null;
+}
+function hasNumber(bits) {
+  return bits.some((bit) => /\d/.test(bit));
+}
+function cityBits(id, lang) {
+  const row = cityById(id);
+  const obs = row && row.obs;
+  if (!row || !obs || (obs.max == null && obs.min == null)) {
+    return lang === "en" ? ["isn't available"] : ["उपलब्ध छैन"];
+  }
+  const bits = [lang === "en" ? row.en : row.ne];
+  if (obs.max != null) bits.push(String(obs.max));
+  if (obs.min != null) bits.push(String(obs.min));
+  if (lang === "en") bits.push("DHM");
+  return bits;
+}
+function riverBits(id) {
+  const row = riverById(id);
+  if (!row || !row.fresh || row.level_m == null) return ["no fresh reading"];
+  const bits = [String(row.level_m)];
+  if (row.warning_m != null && row.below_warning_m != null && row.level !== "red" && row.level !== "orange") {
+    bits.push(String(row.below_warning_m), String(row.warning_m), "alert");
+  } else if (row.level === "red") bits.push("danger level");
+  else if (row.level === "orange") bits.push("alert level");
+  return bits;
+}
+const ktmEn = cityBits("kathmandu", "en");
+const ktmNe = cityBits("kathmandu", "ne");
+const triBits = riverBits(4657);
+
 function ask(q, lang) {
   return Ask.answer(q, {
     lang: lang,
@@ -78,9 +115,9 @@ const cases = [
   ["Rasuwa weather", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "orange", "Asoj 10"], not: ["red"] }],
   ["Rasuwa weather tomorrow", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "yellow", "Asoj 11"] }],
   ["Gandaki weather today", "en", { intent: "weather_place", number: true, has: ["Gandaki", "red", "Asoj 10"] }],
-  ["Kathmandu maximum today", "en", { intent: "weather_city", number: true, has: ["Kathmandu", "17.8", "16.5", "DHM"] }],
-  ["काठमाडौँको तापक्रम", "ne", { intent: "weather_city", number: true, has: ["काठमाडौँ", "17.8", "16.5"] }],
-  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: true, has: ["2.68", "alert"] }],
+  ["Kathmandu maximum today", "en", { intent: "weather_city", number: hasNumber(ktmEn), has: ktmEn }],
+  ["काठमाडौँको तापक्रम", "ne", { intent: "weather_city", number: hasNumber(ktmNe), has: ktmNe }],
+  ["Trishuli at Dhunche", "en", { intent: "weather_river", number: hasNumber(triBits), has: triBits }],
   ["बेत्रावतीको नदी तह", "ne", { intent: "weather_river", has: ["ताजा रिडिङ छैन"] }],
   ["सिन्धुपाल्चोकको मौसम", "ne", { intent: "weather_place", number: true, has: ["सिन्धुपाल्चोक"], not: ["खोलानाला", "विद्यालय"] }],
   ["nuwakot mausam", "ne", { intent: "weather_place", number: true, has: ["नुवाकोट"] }],
@@ -289,7 +326,7 @@ test("flood forecast answers use the DHM bulletin", function () {
   assertAnswer("flash flood Asoj 12", "en", { intent: "flood_flash", has: ["Karnali"] });
   const tomorrowFlash = assertAnswer("flash flood tomorrow", "en", { intent: "flood_flash", has: ["no district is at high", "45"] });
   assert.equal(/0 districts/.test(tomorrowFlash.text), false);
-  assertAnswer("Trishuli at Dhunche", "en", { intent: "weather_river", has: ["2.68", "alert"] });
+  assertAnswer("Trishuli at Dhunche", "en", { intent: "weather_river", number: hasNumber(triBits), has: triBits });
   assertAnswer("Rasuwa weather", "en", { intent: "weather_place", has: ["Rasuwa"] });
   const today = new Set(flood.flash.today.high.concat(flood.flash.today.medium));
   const tomorrow = new Set(flood.flash.tomorrow.high.concat(flood.flash.tomorrow.medium));
