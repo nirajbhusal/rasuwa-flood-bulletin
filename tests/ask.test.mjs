@@ -72,7 +72,7 @@ const triBits = riverBits(4657);
 function ask(q, lang) {
   return Ask.answer(q, {
     lang: lang,
-    now: "2026-09-26",
+    now: "2026-09-27",
     wx: wx,
     wxnow: wxnow,
     flood: flood,
@@ -107,14 +107,15 @@ function assertAnswer(q, lang, expect) {
 }
 
 const cases = [
-  ["आजको मौसम के छ?", "ne", { intent: "weather_today", number: true, has: ["असोज १०", "सुन्तला", "बागमती"], not: ["रातो"] }],
-  ["What is today's weather?", "en", { intent: "weather_today", number: true, has: ["Asoj 10", "orange", "Bagmati", "Rasuwa"], not: ["red"] }],
-  ["aaja mausam", "ne", { intent: "weather_today", number: true, has: ["सुन्तला", "असोज १०"], not: ["रातो"] }],
-  ["भोलिको मौसम?", "ne", { intent: "weather_day", number: true, has: ["असोज ११", "पहेँलो"] }],
-  ["mausam asoj 10", "en", { intent: "weather_day", number: true, has: ["Asoj 10", "orange"] }],
-  ["Rasuwa weather", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "orange", "Asoj 10"], not: ["red"] }],
-  ["Rasuwa weather tomorrow", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "yellow", "Asoj 11"] }],
-  ["Gandaki weather today", "en", { intent: "weather_place", number: true, has: ["Gandaki", "red", "Asoj 10"] }],
+  ["आजको मौसम के छ?", "ne", { intent: "weather_today", number: true, has: ["असोज ११", "रातो", "बागमती"] }],
+  ["What is today's weather?", "en", { intent: "weather_today", number: true, has: ["Asoj 11", "red", "Bagmati"], not: ["around Rasuwa"] }],
+  ["aaja mausam", "ne", { intent: "weather_today", number: true, has: ["रातो", "असोज ११"] }],
+  ["भोलिको मौसम?", "ne", { intent: "weather_day", number: true, has: ["असोज १२", "हरियो"], not: ["रातो"] }],
+  ["mausam asoj 11", "en", { intent: "weather_day", number: true, has: ["Asoj 11", "red"] }],
+  ["Rasuwa weather", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "yellow", "Asoj 11"], not: ["red"] }],
+  ["Rasuwa weather tomorrow", "en", { intent: "weather_place", number: true, has: ["Rasuwa", "Asoj 12", "yellow"] }],
+  ["Gandaki weather today", "en", { intent: "weather_place", number: true, has: ["Gandaki", "red", "Asoj 11"] }],
+  ["रसुवाको मौसम", "ne", { intent: "weather_place", number: true, has: ["रसुवा", "पहेँलो", "असोज ११"], not: ["रातो"] }],
   ["Kathmandu maximum today", "en", { intent: "weather_city", number: hasNumber(ktmEn), has: ktmEn }],
   ["काठमाडौँको तापक्रम", "ne", { intent: "weather_city", number: hasNumber(ktmNe), has: ktmNe }],
   ["Trishuli at Dhunche", "en", { intent: "weather_river", number: hasNumber(triBits), has: triBits }],
@@ -175,9 +176,8 @@ test("missing weather file is stated plainly", function () {
 test("fuzzy weather typo still composes a sentence", function () {
   const ans = ask("wether today", "en");
   assert.equal(ans.intent, "weather_today");
-  assert.match(ans.text, /Asoj 10/);
-  assert.match(ans.text, /orange/);
-  assert.equal(ans.text.includes("red"), false);
+  assert.match(ans.text, /Asoj 11/);
+  assert.match(ans.text, /red/);
   assert.equal(/<[a-z]/i.test(ans.text), false);
 });
 

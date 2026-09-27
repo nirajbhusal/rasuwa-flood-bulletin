@@ -795,12 +795,22 @@
     var when = periodWord(period && period.period);
     if (when) card.appendChild(el("p", "wx-citycard-when")).textContent = when;
     if (period && tx(period)) card.appendChild(el("p", "wx-citycard-phrase")).textContent = tx(period);
-    var hi = period ? period.t_to : null;
-    var lo = period ? period.t_from : null;
-    card.appendChild(metricLine(
-      lang() === "en" ? "Max / min" : "अधिकतम / न्यूनतम",
-      fmt(hi, 0) + "° / " + fmt(lo, 0) + "°"
-    ));
+    if (period && period.kind === "max") {
+      var maxBody = period.t_to == null
+        ? fmt(period.t_from, 0)
+        : fmt(period.t_from, 0) + "–" + fmt(period.t_to, 0);
+      card.appendChild(metricLine(
+        lang() === "en" ? "Max temp" : "अधिकतम तापक्रम",
+        maxBody + " °C"
+      ));
+    } else {
+      var hi = period ? period.t_to : null;
+      var lo = period ? period.t_from : null;
+      card.appendChild(metricLine(
+        lang() === "en" ? "Max / min" : "अधिकतम / न्यूनतम",
+        fmt(hi, 0) + "° / " + fmt(lo, 0) + "°"
+      ));
+    }
     card.appendChild(rangeBar(lo, hi, scale));
     var prob = period ? period.rain_prob : null;
     card.appendChild(metricLine(
@@ -810,10 +820,14 @@
     card.appendChild(chanceBar(prob));
     var extra = cityPeriod(city, "tonight");
     if (period && extra && extra !== period) {
-      var bit = periodWord(extra.period);
-      var temps = fmt(extra.t_to, 0) + "° / " + fmt(extra.t_from, 0) + "°";
+      var nightBody = extra.t_to == null
+        ? fmt(extra.t_from, 0)
+        : fmt(extra.t_from, 0) + "–" + fmt(extra.t_to, 0);
       var rain = extra.rain_prob == null ? "—" : fmt(extra.rain_prob, 0) + "%";
-      card.appendChild(el("p", "wx-citycard-next")).textContent = bit + " · " + temps + " · " + rain;
+      var nightLine = lang() === "en"
+        ? "Tonight · min " + nightBody + "° · " + rain
+        : "आज राति · न्यूनतम " + nightBody + "° · " + rain;
+      card.appendChild(el("p", "wx-citycard-next")).textContent = nightLine;
     }
     return card;
   }

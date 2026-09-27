@@ -1164,7 +1164,10 @@
     var pname = lang === "en" ? prov.en : prov.ne;
     var around = "";
     if (provId === "bagmati" && !spec.district && rain) {
-      around = lang === "en" ? " around Rasuwa" : "";
+      var rasuwaRec = wd.districts && wd.districts.rasuwa;
+      if (rasuwaRec && rasuwaRec.level === cell.level) {
+        around = lang === "en" ? " around Rasuwa" : "";
+      }
     }
     var place = spec.district ? districtName(spec.district, lang) : pname;
     var lead = spec.dayOffset === 0 || spec.intent === "weather_today" || (spec.intent === "weather_place" && spec.dayOffset == null && spec.asoj == null && !spec.dow);
