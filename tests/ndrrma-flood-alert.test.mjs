@@ -46,7 +46,7 @@ test("NDRRMA Narayani alert file and poster", function () {
   assert.equal(alert.current_m, 11);
   assert.equal(alert.danger_m, 11);
   assert.equal(alert.expected_peak_m, 13);
-  assert.equal(alert.image, "img/ndrrma/narayani-2083-06-11-0800.jpg");
+  assert.equal(Object.prototype.hasOwnProperty.call(alert, "image"), false);
   assert.equal(alert.source_url, "https://x.com/NDRRMA_Nepal/status/2104050743875653646");
   assert.deepEqual(alert.districts.map(function (d) { return d.id; }), ["chitwan", "nawalparasi-east", "nawalparasi-west"]);
   assert.equal(/\bwarning\b/i.test(alert.text_en + " " + alert.title_en + " " + alert.lead_en), false);
@@ -84,8 +84,16 @@ test("bell notification, homepage list, and danger card styling", function () {
   assert.match(notifyJs, /notify-feed/);
   assert.match(floodJs, /ndrrma-flood-alert/);
   assert.match(floodJs, /hydrology\.gov\.np live reading/);
+  assert.equal(floodJs.includes("ndr-poster"), false);
+  assert.equal(floodJs.includes("alert.image"), false);
   assert.match(weatherDb, /nepalNdrrmCard/);
   assert.match(weatherDb, /data\/ndrrma_flood_alerts\.json/);
+  const nowFn = weatherDb.slice(weatherDb.indexOf("function buildNepalNow"), weatherDb.indexOf("function nepalNdrrmCard"));
+  const redAt = nowFn.indexOf('appendStrip(groups.red, "red")');
+  const cardAt = nowFn.indexOf("nepalNdrrmCard()");
+  const orangeAt = nowFn.indexOf('appendStrip(groups.orange, "orange")');
+  const yellowAt = nowFn.indexOf('appendStrip(groups.yellow, "yellow")');
+  assert.ok(redAt >= 0 && cardAt > redAt && orangeAt > cardAt && yellowAt > orangeAt);
   for (const sheet of [css, min]) {
     assert.match(sheet, /\.ndr-alert\{[^}]*border-left:4px solid #c41e3a/);
     assert.match(sheet, /\.notify-feed\[hidden\]\{display:none !important\}/);

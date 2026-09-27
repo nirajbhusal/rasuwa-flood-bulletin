@@ -647,21 +647,6 @@
       src.appendChild(link);
       art.appendChild(src);
     }
-    if (alert.image) {
-      var poster = document.createElement("a");
-      poster.className = "ndr-poster";
-      poster.href = alert.image;
-      poster.target = "_blank";
-      poster.rel = "noopener";
-      poster.setAttribute("aria-label", en ? "Open the full poster" : "पूरा पोस्टर खोल्नुहोस्");
-      var img = document.createElement("img");
-      img.src = alert.image;
-      img.alt = en ? "NDRRMA special flood alert poster" : "विशेष बाढी चेतावनी पोस्टर";
-      img.width = 112;
-      img.height = 158;
-      poster.appendChild(img);
-      art.appendChild(poster);
-    }
     var live = devghatLive(opt.live);
     if (live) {
       var when = "";

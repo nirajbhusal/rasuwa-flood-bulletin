@@ -404,34 +404,17 @@
     var sub = el("p", "wxdb-kicker");
     sub.textContent = lang() === "en" ? "High-alert districts" : "उच्च सतर्कताका जिल्ला";
     sec.appendChild(sub);
-    if (!fullList) {
-      var ndrCard = nepalNdrrmCard();
-      if (ndrCard) sec.appendChild(ndrCard);
-    }
-    var callout = buildTopRainCallout(topRainRows());
-    if (callout) sec.appendChild(callout);
-    if (fullList) {
-      var forecast = (home && home.forecast) || {};
-      var forecastText = tx(forecast.text);
-      if (forecastText) {
-        var det = document.createElement("details");
-        det.className = "wxdb-forecast";
-        var sum = document.createElement("summary");
-        sum.textContent = lang() === "en" ? "Read forecast" : "पूर्वानुमान पढ्नुहोस्";
-        if (typeof window.t === "function") {
-          var label = window.t("wx_forecast_read");
-          if (label && label !== "wx_forecast_read" && !/^[a-z][a-z0-9_]*$/.test(label)) sum.textContent = label;
-        }
-        det.appendChild(sum);
-        var note = el("p", "wxdb-forecast-body");
-        note.textContent = forecastText;
-        det.appendChild(note);
-        sec.appendChild(det);
-      }
-    }
-    var strip = el("div", "wxdb-strip");
-    strip.setAttribute("role", "list");
+    var groups = { red: [], orange: [], yellow: [], rest: [] };
     shown.forEach(function (row) {
+      var bucket = row && groups[row.level] ? row.level : "rest";
+      groups[bucket].push(row);
+    });
+    function appendStrip(list, level) {
+      if (!list || !list.length) return;
+      var strip = el("div", "wxdb-strip");
+      strip.setAttribute("role", "list");
+      if (level) strip.setAttribute("data-level", level);
+      list.forEach(function (row) {
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "wxdb-city" + (row.obs && row.obs.stale ? " is-stale" : "");
@@ -494,8 +477,36 @@
         openPop(btn, tx(place) + (tx(row) && tx(place) !== tx(row) ? " · " + tx(row) : ""), placeLines(row));
       });
       strip.appendChild(btn);
-    });
-    sec.appendChild(strip);
+      });
+      sec.appendChild(strip);
+    }
+    appendStrip(groups.red, "red");
+    var ndrCard = nepalNdrrmCard();
+    if (ndrCard) sec.appendChild(ndrCard);
+    appendStrip(groups.orange, "orange");
+    appendStrip(groups.yellow, "yellow");
+    appendStrip(groups.rest, "");
+    var callout = buildTopRainCallout(topRainRows());
+    if (callout) sec.appendChild(callout);
+    if (fullList) {
+      var forecast = (home && home.forecast) || {};
+      var forecastText = tx(forecast.text);
+      if (forecastText) {
+        var det = document.createElement("details");
+        det.className = "wxdb-forecast";
+        var sum = document.createElement("summary");
+        sum.textContent = lang() === "en" ? "Read forecast" : "पूर्वानुमान पढ्नुहोस्";
+        if (typeof window.t === "function") {
+          var label = window.t("wx_forecast_read");
+          if (label && label !== "wx_forecast_read" && !/^[a-z][a-z0-9_]*$/.test(label)) sum.textContent = label;
+        }
+        det.appendChild(sum);
+        var note = el("p", "wxdb-forecast-body");
+        note.textContent = forecastText;
+        det.appendChild(note);
+        sec.appendChild(det);
+      }
+    }
     if (!fullList && rows.length > shown.length) {
       var more = document.createElement("a");
       more.className = "wxdb-more";
