@@ -51,6 +51,12 @@
       ["contact.html", en() ? "Helpline" : "हेल्पलाइन"],
       ["electricity.html", en() ? "Electricity" : "बिजुली"]
     ].forEach(function (pair) { add({ label: pair[1], href: pair[0], kind: "page" }); });
+    add({
+      label: en() ? "Avalanche" : "हिमपहिरो",
+      href: "notices.html#avalanche",
+      kind: "section",
+      extra: "Himlung हिमलुङ Manang मनाङ Manaslu मनास्लु हिमपात snowfall"
+    });
     [
       ["1234", en() ? "Rescue helpline" : "उद्धार हेल्पलाइन"],
       ["100", en() ? "Police" : "प्रहरी"],

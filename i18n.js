@@ -739,6 +739,9 @@ window.I18N = {
 "h_contacts": "स्थानीय तह सम्पर्क",
 "h_contact_page": "आपत्कालीन सहायता र सम्पर्क",
 "h_alert": "भारी वर्षा चेतावनी",
+"h_avalanche": "हिमपहिरो",
+"hist_ava_k": "हिमपहिरो · मनाङ",
+"hist_ava_when": "बिहान · ११ असोज / २७ सेप्टेम्बर",
 "h_notices": "सूचना",
 "h_gov": "विपद्पछि सरकारबाट सरकारी पहल",
 "h_aid": "वैदेशिक सहयोग",
@@ -2913,6 +2916,9 @@ window.I18N = {
 "h_contacts": "Local government contacts",
 "h_contact_page": "Emergency help and contacts",
 "h_alert": "Heavy Rain Alert",
+"h_avalanche": "Avalanche",
+"hist_ava_k": "Avalanche · Manang",
+"hist_ava_when": "Morning · 11 Asoj / 27 September",
 "h_notices": "Notices",
 "h_gov": "Government action after the disaster",
 "h_aid": "Foreign aid",
@@ -4622,6 +4628,7 @@ window.I18N = {
 "<strong>Ratopati collage</strong>today’s flood coverage"
 ],
 "hist": [
+{"h": "Avalanche at Himlung Himal base camp: 10 unaccounted for", "p": "An avalanche struck Himlung Himal base camp in Manang on Sunday morning. 10 people are unaccounted for: 8 with Himalayan Holidays Nepal and 2 with Imagine Nepal. Source: Expedition Operators Association Nepal, via <a href=\"https://kathmandupost.com/national/2026/09/27/10-missing-after-avalanche-hits-himlung-himal\" target=\"_blank\" rel=\"noopener\">The Kathmandu Post</a> · Asoj 11 · 10:27 AM. <a href=\"notices.html#avalanche\">Details</a>.", "when": "Morning · 11 Asoj / 27 September"},
 {"h": "DHM update · Asoj 9 evening — Special Weather Bulletin-27", "p": "Special Weather Bulletin-27 (#12311, 5:00 PM). Past 24 hours: heavy rain in many places around Gorkha, Rasuwa, Nuwakot, Dhading and Chitwan. From the night of Asoj 9 through the morning of Asoj 12, moderate rain in many places of those five districts, and heavy rain in 1–2 places in each. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12311\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "17:00 · 9 Ashwin / 25 Sep"},
 {"h": "DHM update · Asoj 11 morning — five-day weather alert", "p": "DHM five-day weather alert #12315 (8:00 AM · Asoj 11–15 / 27 September–1 October). Map colours are by district. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12315\" target=\"_blank\" rel=\"noopener\">DHM MFD</a> · <a href=\"https://x.com/NEOCOfficial/status/2104048026990109033\" target=\"_blank\" rel=\"noopener\">NEOC</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "08:00 · 11 Ashwin / 27 Sep"},
 {"h": "DHM update · Asoj 10 morning — five-day weather alert", "p": "DHM five-day weather alert #12312 (8:00 AM · Asoj 10–14 / 26–30 September). Map colours are by district. Source <a href=\"https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12312\" target=\"_blank\" rel=\"noopener\">DHM MFD</a>. <a href=\"notices.html#alert\">Maps</a> · helpline <a href=\"contact.html#helpline\">1155</a>.", "when": "08:00 · 10 Ashwin / 26 Sep"},
