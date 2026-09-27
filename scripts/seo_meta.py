@@ -288,7 +288,7 @@ def load_facts(root: Path, when: datetime, built_at: str) -> Facts:
                 if idx >= len(series):
                     continue
                 seen = True
-                if series[idx] in ("Y", "O"):
+                if series[idx] in ("Y", "O", "R"):
                     notable += 1
             if seen and notable:
                 facts.flood_notable = nep(notable)
