@@ -435,6 +435,7 @@
       gallery: cache.gallery,
       lpg: lpg,
       nea: cache.nea || null,
+      nolight: cache.nolight || null,
       hl: rows.map(function (row) {
         return { tel: row.tel, name: row.key ? t(row.key) : (row.name || row.tel) };
       }),
@@ -455,7 +456,7 @@
     if (f === "roads" || f === "map") return (!cache.roads && !failed.roads) || (!cache.police && !failed.police) || (!cache.vehicle && !failed.vehicle);
     if (f === "rescue") return !cache.dash && !failed.dash;
     if (f === "lpg") return !cache.lpg && !failed.lpg;
-    if (f === "electricity") return !cache.nea && !failed.nea;
+    if (f === "electricity") return (!cache.nea && !failed.nea) || (!cache.nolight && !failed.nolight);
     if (f === "cause" || f === "gallery") return !cache.gallery && !failed.gallery;
     return false;
   }
@@ -489,6 +490,7 @@
       getJSON("api/dashboard.json", "dash"),
       getJSON("data/gallery-path.json", "gallery"),
       getJSON("data/nea_electricity.json", "nea"),
+      getJSON("data/nea_no_light_numbers.json", "nolight"),
       getHTML("supply.html", "lpg", parseSupply),
       getHTML("contact.html", "hl", parseHelpline)
     ]).then(function () {
@@ -607,6 +609,27 @@
     var body = el("p", "ask-answer");
     body.textContent = built.text || "";
     art.appendChild(body);
+    if (built.phones && built.phones.length) {
+      var phones = el("ul", "ask-phones");
+      built.phones.forEach(function (row) {
+        if (!row) return;
+        var li = el("li");
+        if (row.name) {
+          var nm = el("span", "ask-phone-name");
+          nm.textContent = row.name;
+          li.appendChild(nm);
+        }
+        (row.nums || []).forEach(function (n) {
+          if (!n || !n.dial) return;
+          var a = el("a", "ask-tel ask-nl-tel");
+          a.href = "tel:" + n.dial;
+          a.textContent = n.display || n.dial;
+          li.appendChild(a);
+        });
+        phones.appendChild(li);
+      });
+      art.appendChild(phones);
+    }
     if (built.source) {
       var src = el("p", "ask-src");
       src.textContent = built.source;

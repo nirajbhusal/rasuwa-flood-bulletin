@@ -98,6 +98,10 @@ test("electricity page cites the JSON and both source lines", () => {
   assert.match(electricityHtml, /data\/nea_electricity\.json/);
   assert.match(electricityHtml, /स्रोत: नेपाल विद्युत प्राधिकरण \(NEA\)/);
   assert.match(electricityHtml, /Source: Nepal Electricity Authority \(NEA\)/);
+  assert.match(electricityHtml, /id="nolight"/);
+  assert.match(electricityHtml, /नो लाइट टेलिफोन निर्देशिका/);
+  assert.match(electricityJs, /data\/nea_no_light_numbers\.json/);
+  assert.ok(electricityHtml.indexOf('id="helplines"') < electricityHtml.indexOf('id="nolight"'));
 });
 
 test("alert feed, districts, and planned rows stay consistent", () => {
@@ -129,6 +133,9 @@ test("electricity visual is wired to existing NEA ids only", () => {
   assert.ok(electricityHtml.indexOf('id="power-alert"') < electricityHtml.indexOf('id="shutdowns"'));
   assert.ok(electricityHtml.indexOf('id="shutdowns"') < electricityHtml.indexOf('id="incidents"'));
   assert.ok(electricityHtml.indexOf('id="incidents"') < electricityHtml.indexOf('id="helplines"'));
+  assert.ok(electricityHtml.indexOf('id="helplines"') < electricityHtml.indexOf('id="nolight"'));
+  assert.match(electricityHtml, /नो लाइट टेलिफोन निर्देशिका/);
+  assert.match(electricityJs, /nea_no_light_numbers\.json/);
   assert.match(indexHtml, /id="dash-electricity"/);
   assert.match(indexHtml, /id="dash-elec-figs"/);
   assert.equal(indexHtml.includes('id="elec-dash-flow"'), false);

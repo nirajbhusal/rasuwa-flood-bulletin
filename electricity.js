@@ -1894,6 +1894,268 @@
       host.appendChild(card);
     });
   }
+  var NOLIGHT = null;
+  var nlQ = "";
+  var nlProv = "all";
+  var nlOpen = false;
+  var nlStarted = false;
+  var nlShell = false;
+  function nlNorm(s) {
+    return String(s == null ? "" : s).replace(/[०-९]/g, function (d) {
+      return "0123456789"[DIG.indexOf(d)];
+    }).toLowerCase().replace(/[\u200b-\u200d\ufeff]/g, "").replace(/[–—−-]/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function nlFold(s) {
+    return nlNorm(s).replace(/no\s*light/g, " ").replace(/nolight/g, " ").replace(/नो\s*लाइट/g, " ").replace(/नोलाइट/g, " ").replace(/\s+/g, " ").trim();
+  }
+  function nlGhatQuery(q) {
+    var n = nlFold(q);
+    var c = n.replace(/\s+/g, "");
+    return c.indexOf("rasuwaghat") >= 0 || n.indexOf("रसुवाघाट") >= 0;
+  }
+  function nlRasuwaQuery(q) {
+    if (nlGhatQuery(q)) return false;
+    var n = nlFold(q);
+    if (!n) return false;
+    if (/(^| )rasuwa( |$)/.test(n) || n.indexOf("रसुवा") >= 0) return true;
+    if (n.indexOf("dhunche") >= 0 || n.indexOf("धुन्चे") >= 0 || n.indexOf("धुनचे") >= 0) return true;
+    return false;
+  }
+  function nlGhatEntry(entry) {
+    var n = nlFold(entry.name_en || "").replace(/\s+/g, "");
+    if (n.indexOf("rasuwaghat") >= 0) return true;
+    var np = (entry.name_np || "") + " " + (entry.name_np_as_printed || "");
+    return np.indexOf("रसुवाघाट") >= 0;
+  }
+  function nlTitle(entry) {
+    if (en()) return entry.name_en || entry.name_np_as_printed || "";
+    return entry.name_np || entry.name_en || entry.name_np_as_printed || "";
+  }
+  function nlOfficeName(office) {
+    if (!office) return "";
+    if (en()) return office.name_en || "";
+    return office.name_np || office.name_en || "";
+  }
+  function nlPhoneIcon() {
+    var s = document.createElement("span");
+    s.className = "elec-nl-ico";
+    s.setAttribute("aria-hidden", "true");
+    s.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.7 3.1h2.1c.5 0 .9.3 1 .8l.7 2.9c.1.5-.1 1-.5 1.3l-1.4 1.1a12.2 12.2 0 0 0 5.2 5.2l1.1-1.4c.3-.4.8-.6 1.3-.5l2.9.7c.5.1.8.5.8 1v2.1c0 .6-.5 1.1-1.1 1.2C10.6 20.4 3.6 13.4 5.5 4.2c.1-.6.6-1.1 1.2-1.1z"/></svg>';
+    return s;
+  }
+  function nlProvinces() {
+    var out = [];
+    var seen = {};
+    ((NOLIGHT && NOLIGHT.offices) || []).forEach(function (o) {
+      var key = o.province_en || "";
+      if (!key || seen[key]) return;
+      seen[key] = o;
+      out.push(o);
+    });
+    return out;
+  }
+  function nlOfficeMap() {
+    var map = {};
+    var order = {};
+    ((NOLIGHT && NOLIGHT.offices) || []).forEach(function (o, i) {
+      map[o.office_id] = o;
+      order[o.office_id] = i;
+    });
+    return { map: map, order: order };
+  }
+  function nlBlob(entry, office) {
+    return nlFold([
+      entry.name_en, entry.name_np || "", entry.name_np_as_printed || "",
+      office ? office.name_en : "", office ? office.name_np : "",
+      entry.province_en || "", entry.province_np || "",
+      (entry.numbers || []).join(" "), (entry.dial || []).join(" ")
+    ].join(" "));
+  }
+  function nlHit(blob, q) {
+    var n = nlFold(q);
+    if (!n) return true;
+    if (blob.indexOf(n) >= 0) return true;
+    var cq = n.replace(/\s+/g, "");
+    var cb = blob.replace(/\s+/g, "");
+    if (cq && cb.indexOf(cq) >= 0) return true;
+    var digits = n.replace(/\D/g, "");
+    if (digits.length >= 3 && cb.indexOf(digits) >= 0) return true;
+    return false;
+  }
+  function nlMatched() {
+    var idx = nlOfficeMap();
+    var rasuwa = nlRasuwaQuery(nlQ);
+    var rows = ((NOLIGHT && NOLIGHT.entries) || []).filter(function (entry) {
+      if (nlProv !== "all" && entry.province_en !== nlProv) return false;
+      if (rasuwa && nlGhatEntry(entry)) return false;
+      return nlHit(nlBlob(entry, idx.map[entry.office_id]), nlQ);
+    });
+    rows.sort(function (a, b) {
+      var d = (idx.order[a.office_id] || 0) - (idx.order[b.office_id] || 0);
+      if (d) return d;
+      return (a.sn || 0) - (b.sn || 0);
+    });
+    return rows;
+  }
+  function nlCard(entry, office) {
+    var card = el("article", "elec-nl-card");
+    var name = el("h3", "elec-nl-name");
+    name.textContent = nlTitle(entry);
+    card.appendChild(name);
+    var cap = el("p", "elec-nl-off");
+    cap.textContent = nlOfficeName(office);
+    card.appendChild(cap);
+    var nums = el("div", "elec-nl-nums");
+    (entry.numbers || []).forEach(function (num, i) {
+      var dial = entry.dial && entry.dial[i];
+      if (!dial) return;
+      var a = document.createElement("a");
+      a.className = "elec-nl-tel";
+      a.href = "tel:" + dial;
+      a.appendChild(nlPhoneIcon());
+      var s = document.createElement("span");
+      s.textContent = num;
+      a.appendChild(s);
+      nums.appendChild(a);
+    });
+    card.appendChild(nums);
+    return card;
+  }
+  function buildNlShell(host) {
+    host.className = "card elec-nl";
+    var lab = el("label", "sr-only elec-nl-lab");
+    lab.htmlFor = "elec-nl-q";
+    lab.id = "elec-nl-q-lab";
+    host.appendChild(lab);
+    var input = document.createElement("input");
+    input.id = "elec-nl-q";
+    input.className = "elec-nl-q";
+    input.type = "search";
+    input.autocomplete = "off";
+    input.spellcheck = false;
+    input.enterKeyHint = "search";
+    input.setAttribute("aria-labelledby", "elec-nl-q-lab");
+    input.addEventListener("input", function () {
+      nlQ = input.value || "";
+      nlOpen = false;
+      syncNl(host);
+    });
+    host.appendChild(input);
+    var chips = el("div", "elec-chiprow elec-nl-chips");
+    chips.setAttribute("role", "group");
+    host.appendChild(chips);
+    var grid = el("div", "elec-nl-grid");
+    host.appendChild(grid);
+    var empty = el("p", "elec-nl-empty");
+    empty.hidden = true;
+    host.appendChild(empty);
+    var more = document.createElement("button");
+    more.type = "button";
+    more.className = "elec-nl-more";
+    more.hidden = true;
+    more.addEventListener("click", function () {
+      nlOpen = !nlOpen;
+      syncNl(host);
+    });
+    host.appendChild(more);
+    var src = el("p", "source elec-src elec-nl-src");
+    host.appendChild(src);
+    nlShell = true;
+  }
+  function syncNl(host) {
+    if (!NOLIGHT) return;
+    var lab = host.querySelector(".elec-nl-lab");
+    var input = host.querySelector(".elec-nl-q");
+    var placeLabel = t("elec_nl_lab", en() ? "Search place or office" : "ठाउँ वा कार्यालय खोज्नुहोस्");
+    if (lab) lab.textContent = placeLabel;
+    if (input) {
+      input.placeholder = t("elec_nl_ph", en() ? "Search place or office" : "ठाउँ वा कार्यालय खोज्नुहोस्");
+      if (input.value !== nlQ) input.value = nlQ;
+    }
+    var chips = host.querySelector(".elec-nl-chips");
+    if (chips) {
+      chips.setAttribute("aria-label", t("elec_filter_prov", en() ? "Province" : "प्रदेश"));
+      clear(chips);
+      function addChip(value, text) {
+        var b = el("button", "ns-chip" + (value === nlProv ? " on" : ""));
+        b.type = "button";
+        b.setAttribute("aria-pressed", value === nlProv ? "true" : "false");
+        b.textContent = text;
+        b.addEventListener("click", function () {
+          nlProv = value;
+          nlOpen = false;
+          syncNl(host);
+        });
+        chips.appendChild(b);
+      }
+      addChip("all", t("elec_all", en() ? "All" : "सबै"));
+      nlProvinces().forEach(function (o) {
+        addChip(o.province_en, en() ? o.province_en : (o.province_np || o.province_en));
+      });
+    }
+    var matched = nlMatched();
+    var shown = nlOpen ? matched : matched.slice(0, 12);
+    var grid = host.querySelector(".elec-nl-grid");
+    var empty = host.querySelector(".elec-nl-empty");
+    var idx = nlOfficeMap();
+    if (grid) {
+      clear(grid);
+      grid.hidden = !shown.length;
+      shown.forEach(function (entry) { grid.appendChild(nlCard(entry, idx.map[entry.office_id])); });
+    }
+    if (empty) {
+      empty.hidden = !!matched.length;
+      empty.textContent = t("elec_nl_none", en() ? "No match" : "भेटिएन");
+    }
+    var more = host.querySelector(".elec-nl-more");
+    if (more) {
+      if (matched.length > 12) {
+        more.hidden = false;
+        var n = en() ? String(matched.length) : dig(matched.length);
+        more.textContent = nlOpen
+          ? t("elec_nl_less", "कम देखाउनुहोस्")
+          : t("elec_nl_more", en() ? "Show all" : "सबै हेर्नुहोस्") + " (" + n + ")";
+      } else more.hidden = true;
+    }
+    var src = host.querySelector(".elec-nl-src");
+    if (src) {
+      clear(src);
+      var link = extLink(en() ? NOLIGHT.source_url : NOLIGHT.source_url_np, t("elec_nl_src", en() ? "Source: Nepal Electricity Authority (NEA)" : "स्रोत: नेपाल विद्युत प्राधिकरण"));
+      src.appendChild(link);
+    }
+  }
+  function paintNoLight() {
+    var host = document.getElementById("elec-nolight");
+    if (!host || !NOLIGHT) return;
+    host.hidden = false;
+    if (!nlShell) buildNlShell(host);
+    syncNl(host);
+  }
+  function loadNoLight() {
+    var sec = document.getElementById("nolight");
+    if (!sec) return;
+    function go() {
+      if (nlStarted) return;
+      nlStarted = true;
+      var url = "data/nea_no_light_numbers.json";
+      var bust = (url.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now();
+      fetch(url + bust, { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (data) {
+        if (!data || !data.entries) return;
+        NOLIGHT = data;
+        paintNoLight();
+      }).catch(function () {});
+    }
+    if (location.hash === "#nolight" || !("IntersectionObserver" in window)) {
+      go();
+      return;
+    }
+    var io = new IntersectionObserver(function (ents) {
+      for (var i = 0; i < ents.length; i++) {
+        if (ents[i].isIntersecting) { io.disconnect(); go(); return; }
+      }
+    }, { rootMargin: "600px 0px" });
+    io.observe(sec);
+  }
   function paintPage() {
     if (!document.getElementById("elec-shutdowns")) return;
     paintAlert();
@@ -1991,6 +2253,7 @@
     paintHome();
   }
   function boot() {
+    loadNoLight();
     var url = window.ELEC_SRC || "data/nea_electricity.json";
     var bust = (url.indexOf("?") >= 0 ? "&" : "?") + "t=" + Date.now();
     var jobs = [
@@ -2006,7 +2269,7 @@
       paint();
     }).catch(function () {});
   }
-  function onLang() { if (DATA) paint(); }
+  function onLang() { if (DATA) paint(); if (NOLIGHT) paintNoLight(); }
   if (window.__addLangHook) window.__addLangHook(onLang);
   else {
     window.__langHookQ = window.__langHookQ || [];

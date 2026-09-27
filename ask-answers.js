@@ -244,6 +244,7 @@
       chips: extra.chips || [],
       openNames: extra.openNames
     };
+    if (extra.phones && extra.phones.length) out.phones = extra.phones;
     return out;
   }
   function follow(list) { return list.slice(0, 3); }
@@ -529,7 +530,7 @@
       "bijuli", "bijulee", "electricity", "power cut", "powercut", "load shedding", "loadshedding",
       "hydropower", "hydro power", "hydroelectric", "no light", "nolight", "1150",
       "बिजुली", "विद्युत", "विद्युत्", "लोडसेडिङ", "लोडसेडिंग", "जलविद्युत", "जलविद्युत्",
-      "बत्ती छैन", "बत्ति छैन", "कटौती"
+      "बत्ती छैन", "बत्ति छैन", "कटौती", "नो लाइट", "नोलाइट"
     ]);
     if (elec) {
       var elecPhone = hit(q, ["phone", "hotline", "नम्बर", "नंबर", "1150", "फोन"]);
@@ -537,7 +538,7 @@
       else if (!elecPhone && hit(q, ["where is power", "power out now", "out now", "अहिले कहाँ", "कहाँ बिजुली छैन", "where is the power out", "power out"])) spec.intent = "electricity_now";
       else if (hit(q, ["load shedding", "loadshedding", "लोडसेडिङ", "लोडसेडिंग", "लोड शेडिङ"])) spec.intent = "electricity_load";
       else if (hit(q, ["hydropower", "hydro power", "hydroelectric", "जलविद्युत", "जलविद्युत्", "power plant", "क्षतिग्रस्त"])) spec.intent = "electricity_plants";
-      else if (hit(q, ["no light", "nolight", "बत्ती छैन", "बत्ति छैन", "बिजुली छैन", "फोन", "phone", "1150", "hotline", "नम्बर", "नंबर"])) spec.intent = "electricity_nolight";
+      else if (hit(q, ["no light", "nolight", "बत्ती छैन", "बत्ति छैन", "बिजुली छैन", "फोन", "phone", "1150", "hotline", "नम्बर", "नंबर", "नो लाइट", "नोलाइट"])) spec.intent = "electricity_nolight";
       else spec.intent = "electricity_schedule";
       return finishSpec(spec);
     }
@@ -2149,6 +2150,197 @@
       ? "The NEA electricity file is not loaded."
       : "प्राधिकरणको बिजुली फाइल अहिले लोड भएको छैन।";
   }
+  function nolightFold(s) {
+    return norm(s)
+      .replace(/no\s*light/g, " ")
+      .replace(/nolight/g, " ")
+      .replace(/नो\s*लाइट/g, " ")
+      .replace(/नोलाइट/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+  function nolightPlace(raw) {
+    var q = nolightFold(raw);
+    var drop = ["numbers", "number", "nambar", "phones", "phone", "hotline", "helpline", "नम्बर", "नंबर", "फोन", "directory", "निर्देशिका", "टेलिफोन", "telephone", "contact", "सम्पर्क", "please", "what", "where", "which", "for", "from", "near", "the", "bijuli", "electricity", "बिजुली", "power", "complaint", "गुनासो", "outage", "कुन", "के", "हो", "छ"];
+    drop.sort(function (a, b) { return b.length - a.length; });
+    drop.forEach(function (w) {
+      var n = norm(w);
+      if (!n) return;
+      q = q.replace(new RegExp("(^|\\s)" + n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?=\\s|$)", "g"), " ");
+    });
+    var stop = { in: 1, at: 1, of: 1, a: 1, an: 1, is: 1, are: 1, to: 1, and: 1, or: 1, my: 1, me: 1, "को": 1 };
+    q = q.split(/\s+/).map(function (tok) {
+      return tok.replace(/(को|का|की|मा|लाई|ले|बाट)$/, "");
+    }).filter(function (tok) {
+      return tok && !stop[tok];
+    }).join(" ").trim();
+    if (q === "1150") return "";
+    var digitRun = q.replace(/\D/g, "");
+    if (!/[\u0900-\u097F]/.test(q) && digitRun.length < 3 && q.length < 3) return "";
+    return q;
+  }
+  function nolightGhatQuery(q) {
+    var n = norm(q || "");
+    var c = n.replace(/\s+/g, "");
+    return c.indexOf("rasuwaghat") >= 0 || n.indexOf("रसुवाघाट") >= 0;
+  }
+  function nolightRasuwaAsk(spec, place) {
+    var raw = norm((spec && spec.raw) || "");
+    if (nolightGhatQuery(raw) || nolightGhatQuery(place)) return false;
+    if (spec && spec.district === "rasuwa") return true;
+    var bag = raw + " " + norm(place || "");
+    if (bag.indexOf("dhunche") >= 0 || bag.indexOf("धुन्चे") >= 0 || bag.indexOf("धुनचे") >= 0) return true;
+    if (/(^| )rasuwa( |$)/.test(bag) || bag.indexOf("रसुवा") >= 0) return true;
+    return false;
+  }
+  function nolightGhatEntry(entry) {
+    var n = norm(entry.name_en || "").replace(/\s+/g, "");
+    if (n.indexOf("rasuwaghat") >= 0) return true;
+    return ((entry.name_np || "") + (entry.name_np_as_printed || "")).indexOf("रसुवाघाट") >= 0;
+  }
+  function nolightRasuwaPlace(place) {
+    if (nolightGhatQuery(place)) return false;
+    var n = norm(place || "");
+    if (/(^| )rasuwa( |$)/.test(n) || n.indexOf("रसुवा") >= 0) return true;
+    if (n.indexOf("dhunche") >= 0 || n.indexOf("धुन्चे") >= 0 || n.indexOf("धुनचे") >= 0) return true;
+    return false;
+  }
+  function nolightOffice(dir, id) {
+    var offices = (dir && dir.offices) || [];
+    for (var i = 0; i < offices.length; i++) if (offices[i].office_id === id) return offices[i];
+    return null;
+  }
+  function nolightOfficeLabel(office, lang) {
+    if (!office) return "";
+    if (lang === "en") return office.name_en || "";
+    return office.name_np || office.name_en || "";
+  }
+  function nolightPlaceLabel(entry, lang) {
+    if (lang === "en") return entry.name_en || entry.name_np_as_printed || "";
+    return entry.name_np || entry.name_en || entry.name_np_as_printed || "";
+  }
+  function nolightSrc(lang) {
+    return sourceLine(lang, lang === "en" ? "Nepal Electricity Authority (NEA)" : "नेपाल विद्युत प्राधिकरण", "");
+  }
+  function nolightPhones(entry, lang) {
+    return (entry.numbers || []).map(function (n, i) {
+      var dial = (entry.dial && entry.dial[i]) || String(n).replace(/\D/g, "");
+      return { display: lang === "en" ? n : digits(n, lang), dial: dial };
+    }).filter(function (n) { return n.dial; });
+  }
+  function nolightHits(dir, place) {
+    var q = nolightFold(place);
+    if (!q) return [];
+    var cq = q.replace(/\s+/g, "");
+    var digitsQ = q.replace(/\D/g, "");
+    var skipGhat = nolightRasuwaPlace(place);
+    var order = {};
+    (dir.offices || []).forEach(function (o, i) { order[o.office_id] = i; });
+    var nameHits = [];
+    var broad = [];
+    (dir.entries || []).forEach(function (entry) {
+      if (skipGhat && nolightGhatEntry(entry)) return;
+      var names = [entry.name_en, entry.name_np || "", entry.name_np_as_printed || ""].map(nolightFold);
+      var nameBlob = names.join(" ");
+      var nameCompact = nameBlob.replace(/\s+/g, "");
+      if (nameBlob.indexOf(q) >= 0 || (cq && nameCompact.indexOf(cq) >= 0)) {
+        nameHits.push(entry);
+        return;
+      }
+      var office = nolightOffice(dir, entry.office_id);
+      var blob = nolightFold([
+        nameBlob,
+        office ? office.name_en : "",
+        office ? office.name_np : "",
+        entry.province_en || "",
+        entry.province_np || "",
+        (entry.numbers || []).join(" "),
+        (entry.dial || []).join(" ")
+      ].join(" "));
+      var compact = blob.replace(/\s+/g, "");
+      if (blob.indexOf(q) >= 0 || (cq && compact.indexOf(cq) >= 0) || (digitsQ.length >= 3 && compact.indexOf(digitsQ) >= 0)) broad.push(entry);
+    });
+    function sort(rows) {
+      return rows.slice().sort(function (a, b) {
+        var d = (order[a.office_id] || 0) - (order[b.office_id] || 0);
+        if (d) return d;
+        return (a.sn || 0) - (b.sn || 0);
+      });
+    }
+    return nameHits.length ? sort(nameHits) : sort(broad);
+  }
+  function nolightHitsAnswer(dir, hits, lang, fu, href) {
+    var shown = hits.slice(0, 4);
+    var more = hits.length > shown.length;
+    var bits = shown.map(function (entry) {
+      var office = nolightOffice(dir, entry.office_id);
+      var label = nolightPlaceLabel(entry, lang);
+      if ((nolightGhatEntry(entry) || shown.length > 1) && office) label += " (" + nolightOfficeLabel(office, lang) + ")";
+      return label + " " + (entry.numbers || []).map(function (n) { return digits(n, lang); }).join(", ");
+    });
+    var text = bits.join("; ") + ".";
+    if (more) {
+      text += lang === "en"
+        ? " More matches are in the directory on the electricity page."
+        : " अरू मिल्ने प्रविष्टि बिजुली पृष्ठको निर्देशिकामा छन्।";
+    }
+    if (text.length > 380) {
+      text = shown.map(function (entry) { return nolightPlaceLabel(entry, lang); }).join("; ") + ".";
+      if (more) {
+        text += lang === "en"
+          ? " More matches are in the directory on the electricity page."
+          : " अरू मिल्ने प्रविष्टि बिजुली पृष्ठको निर्देशिकामा छन्।";
+      }
+    }
+    var phones = shown.map(function (entry) {
+      var office = nolightOffice(dir, entry.office_id);
+      var name = nolightPlaceLabel(entry, lang);
+      if (nolightGhatEntry(entry) && office) name += " (" + nolightOfficeLabel(office, lang) + ")";
+      return { name: name, nums: nolightPhones(entry, lang) };
+    });
+    return pack(lang, text, nolightSrc(lang), href + "#nolight", { followups: fu, phones: phones });
+  }
+  function rasuwaNoLightAnswer(dir, nea, lang, fu, href) {
+    var office = nolightOffice(dir, 289);
+    var keys = ["trishuli", "debighat", "tupche", "belkot"];
+    var rows = [];
+    keys.forEach(function (key) {
+      (dir.entries || []).forEach(function (entry) {
+        if (entry.office_id !== 289) return;
+        var n = nolightFold(entry.name_en || "");
+        if (n.indexOf(key) === 0 && rows.indexOf(entry) < 0) rows.push(entry);
+      });
+    });
+    var hot = null;
+    (((nea && nea.helplines && nea.helplines.items) || [])).forEach(function (item) {
+      if (!hot && item.category === "hotline" && item.numbers && item.numbers.length) hot = item;
+    });
+    var hotNum = hot ? String(hot.numbers[0]) : "";
+    var officeName = nolightOfficeLabel(office, lang);
+    var parts = rows.map(function (entry) {
+      return nolightPlaceLabel(entry, lang) + " " + (entry.numbers || []).map(function (n) { return digits(n, lang); }).join(", ");
+    });
+    var lead;
+    if (lang === "en") {
+      lead = "NEA's directory has no Rasuwa-specific entry.";
+      if (parts.length) lead += " Nearest listed offices" + (officeName ? " under " + officeName : "") + ": " + parts.join("; ") + ".";
+      if (hotNum) lead += " NEA helpline " + hotNum + ".";
+    } else {
+      lead = "प्राधिकरणको निर्देशिकामा रसुवाको छुट्टै प्रविष्टि छैन।";
+      if (parts.length) lead += " नजिकका सूचीकृत कार्यालय" + (officeName ? ", " + officeName : "") + ": " + parts.join("; ") + "।";
+      if (hotNum) lead += " बिजुली गुनासो " + digits(hotNum, "ne") + "।";
+    }
+    var phones = rows.map(function (entry) {
+      return { name: nolightPlaceLabel(entry, lang), nums: nolightPhones(entry, lang) };
+    });
+    if (hotNum) {
+      phones.push({
+        name: lang === "en" ? "NEA helpline" : "बिजुली गुनासो",
+        nums: [{ display: digits(hotNum, lang), dial: hotNum.replace(/\D/g, "") }]
+      });
+    }
+    return pack(lang, lead, nolightSrc(lang), href + "#nolight", { followups: fu, phones: phones });
+  }
   function answerElectricity(spec, ctx) {
     var lang = ctx.lang === "en" ? "en" : "ne";
     var data = ctx.nea;
@@ -2213,6 +2405,40 @@
       var helplines = (data.helplines && data.helplines.items) || [];
       var hot = null;
       helplines.forEach(function (item) { if (!hot && item.category === "hotline") hot = item; });
+      var dir = ctx.nolight;
+      var place = nolightPlace(spec.raw || "");
+      if (nolightRasuwaAsk(spec, place)) {
+        if (dir) return rasuwaNoLightAnswer(dir, data, lang, fu, href);
+        var rasuwaOnly = lang === "en"
+          ? "NEA's directory has no Rasuwa-specific entry."
+          : "प्राधिकरणको निर्देशिकामा रसुवाको छुट्टै प्रविष्टि छैन।";
+        if (hot && hot.numbers && hot.numbers.length) {
+          rasuwaOnly += lang === "en"
+            ? " NEA helpline " + hot.numbers[0] + "."
+            : " बिजुली गुनासो " + digits(hot.numbers[0], "ne") + "।";
+        }
+        return pack(lang, rasuwaOnly, nolightSrc(lang), href + "#nolight", { followups: fu });
+      }
+      if (place && dir) {
+        var found = nolightHits(dir, place);
+        if (!found.length) {
+          var miss = lang === "en"
+            ? "That place is not in NEA's no-light directory."
+            : "त्यो ठाउँ प्राधिकरणको नो लाइट निर्देशिकामा छैन।";
+          return pack(lang, miss, nolightSrc(lang), href + "#nolight", { followups: fu });
+        }
+        return nolightHitsAnswer(dir, found, lang, fu, href);
+      }
+      if (place && !dir) {
+        var unloaded = lang === "en"
+          ? "The NEA no-light directory is not loaded."
+          : "प्राधिकरणको नो लाइट निर्देशिका अहिले लोड भएको छैन।";
+        if (hot && hot.numbers && hot.numbers.length) {
+          var hotLabel = lang === "en" ? (hot.label_en || "NEA helpline") : (hot.label_ne || "बिजुली गुनासो");
+          unloaded = hotLabel + " " + digits(hot.numbers[0], lang) + ". " + unloaded;
+        }
+        return pack(lang, unloaded, nolightSrc(lang), href + "#nolight", { followups: fu });
+      }
       if (!hot || !hot.numbers || !hot.numbers.length) return pack(lang, elecMissing(lang), "", href + "#helplines", { followups: fu });
       var num = hot.numbers[0];
       var label = lang === "en" ? hot.label_en : hot.label_ne;
