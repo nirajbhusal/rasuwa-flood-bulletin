@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
@@ -190,7 +191,10 @@ def main() -> int:
         (root / "data").mkdir()
         (root / "data" / "dhm.html").write_text("<p>?v=</p>", encoding="utf-8")
         subprocess.check_call(["git", "add", "."], cwd=root)
-        subprocess.check_call(["git", "commit", "-q", "-m", "fixture"], cwd=root)
+        dated = os.environ.copy()
+        dated["GIT_AUTHOR_DATE"] = "2026-09-20T00:00:00"
+        dated["GIT_COMMITTER_DATE"] = "2026-09-20T00:00:00"
+        subprocess.check_call(["git", "commit", "-q", "-m", "fixture"], cwd=root, env=dated)
         subprocess.check_call(["git", "commit", "-q", "--allow-empty", "--date=2026-09-26T00:00:00", "-m", "touch weather"], cwd=root)
         # The empty commit does not touch weather.html, so lastmod stays the fixture commit.
         seo_meta.apply(root, BUILT, when=WHEN)
