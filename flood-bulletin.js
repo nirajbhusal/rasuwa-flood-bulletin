@@ -659,7 +659,7 @@
   }
   function mountNdrrm(parent, anchor) {
     var alert = newestAlert(ndrrmaDoc);
-    if (!alert) return;
+    if (!alert || alert.active !== true) return;
     var card = renderCard(alert, { live: liveDoc, anchor: anchor, place: "flood" });
     if (card) parent.appendChild(card);
   }

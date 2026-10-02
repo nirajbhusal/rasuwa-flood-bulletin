@@ -2089,10 +2089,10 @@ def main():
         "cities": city_cards,
     }
     bulletin = None
-    for row in bulletins or []:
-        if row.get("corridor"):
-            bulletin = {"title": row.get("title"), "url": row.get("url"), "issued_at": row.get("issued_at"), "page_id": row.get("page_id")}
-            break
+    corridor_rows = [row for row in (bulletins or []) if row.get("corridor")]
+    if corridor_rows:
+        row = max(corridor_rows, key=lambda item: (item.get("issued_at") or "", int(item.get("page_id") or 0)))
+        bulletin = {"title": row.get("title"), "url": row.get("url"), "issued_at": row.get("issued_at"), "page_id": row.get("page_id")}
     forecast = None
     if isinstance(general, dict) and (general.get("parts") or general.get("analysis")):
         part = (general.get("parts") or [{}])[0]

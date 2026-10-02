@@ -1,8 +1,8 @@
 {
-  "id": "2026-09-27-dhm-12315",
+  "id": "2026-10-02-dhm-12331",
   "page_ver": "2026-09-25-dhm-12310",
   "source": "DHM Meteorological Forecasting Division",
-  "updated_at": "2026-09-27T09:40:00+05:45",
+  "updated_at": "2026-10-02T20:37:00+05:45",
   "links": {
     "section": "notices.html#alert",
     "helpline": "contact.html#helpline",
@@ -12,19 +12,19 @@
     "qr": "img/dhm/weather-alert-qr.png"
   },
   "lead": {
-    "page_id": 12315,
-    "issued_at": "2026-09-27T08:00:00+05:45",
-    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12315",
-    "api": "https://dhm.gov.np/mfd/api/page/12315",
+    "page_id": 12331,
+    "issued_at": "2026-10-02T18:00:00+05:45",
+    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12331",
+    "api": "https://dhm.gov.np/mfd/api/page/12331",
     "product": {
-      "ne": "आगामी पाँच दिनका लागि मौसम चेतावनी",
-      "en": "Weather alert for the next five days"
+      "ne": "आगामी तीन दिनका लागि मौसम चेतावनी",
+      "en": "Weather alert for the next three days"
     },
     "window": {
-      "start": "2026-09-27",
-      "end": "2026-10-01"
+      "start": "2026-10-02",
+      "end": "2026-10-04"
     },
-    "api_update_at": "2026-09-27T02:32:07.307Z"
+    "api_update_at": "2026-10-02T12:16:05.028Z"
   },
   "ui": {
     "brand": {
@@ -36,16 +36,16 @@
       "en": "Weather Alert"
     },
     "issued": {
-      "ne": "जारी: असोज ११, आइतबार · बिहान ८:०० (२७ सेप्टेम्बर २०२६)",
-      "en": "Issued: Asoj 11, Sunday · 8:00 AM (27 September 2026)"
+      "ne": "जारी: असोज १६, शुक्रबार · साँझ ६:०० (२ अक्टोबर २०२६)",
+      "en": "Issued: Asoj 16, Friday · 6:00 PM (2 October 2026)"
     },
     "title": {
-      "ne": "आगामी पाँच दिनका लागि मौसम चेतावनी",
-      "en": "Weather alert for the next five days"
+      "ne": "आगामी तीन दिनका लागि मौसम चेतावनी",
+      "en": "Weather alert for the next three days"
     },
     "sub": {
-      "ne": "असोज ११ देखि १५ (२७ सेप्टेम्बर – १ अक्टोबर २०२६)",
-      "en": "Asoj 11 to 15 (27 Sep – 1 Oct 2026)"
+      "ne": "असोज १६ देखि १८ (२ – ४ अक्टोबर २०२६)",
+      "en": "Asoj 16 to 18 (2 – 4 Oct 2026)"
     },
     "map_h": {
       "ne": "वर्षाको सम्भावना",
@@ -96,8 +96,8 @@
       "en": "LIVE"
     },
     "system": {
-      "ne": "DHM ले असोज ११ बिहान ८:०० (२७ सेप्टेम्बर २०२६) आगामी पाँच दिनका लागि मौसम चेतावनी जारी गरेको छ। दिनको रङ जिल्लाको आधिकारिक नक्साबाट हो। DHM: \"पहिलो दिनको चेतावनी नक्शा आज मध्यान्न सम्मका लागि मध्यनजर गर्दै जारी भएको ।\"",
-      "en": "DHM issued a weather alert for the next five days on the morning of 27 September 2026 (Asoj 11, 8:00 AM). Day colours are the district colours on the official maps. DHM notes that the Day 1 map was issued with today until noon in view."
+      "ne": "DHM ले असोज १६ साँझ ६:०० (२ अक्टोबर २०२६) आगामी तीन दिनका लागि मौसम चेतावनी जारी गरेको छ। तीनै दिनको आधिकारिक नक्सामा सबै ७७ जिल्ला हरियो (चेतावनी छैन) छन्।",
+      "en": "DHM issued a weather alert for the next three days on the evening of 2 October 2026 (Asoj 16, 6:00 PM). On all three official maps every one of the 77 districts is green (no alert)."
     },
     "impacts_h": {
       "ne": "जोखिम र सतर्कता",
@@ -106,11 +106,11 @@
     "impacts": {
       "ne": [
         "नक्साको रङ: रातो = कारबाही गर्नुहोस्, सुन्तला = तयार रहनुहोस्, पहेँलो = अपडेट हुनुहोस्, हरियो = चेतावनी छैन।",
-        "भोटेकोशी करिडोर बुलेटिन-२७ असोज ९ रातिदेखि असोज १२ बिहानसम्म: रसुवा, नुवाकोट, धादिङ, गोरखा र चितवनमा मध्यम वर्षा, प्रत्येक जिल्लाका एक-दुई ठाउँ भारी।"
+        "भोटेकोशी करिडोर बुलेटिन-३२ असोज १४ रातिदेखि असोज १७ बिहानसम्म: रसुवा, नुवाकोट, धादिङ र गोरखाका थोरै स्थानमा हल्का वर्षा; चितवनमा वर्षाको सम्भावना छैन।"
       ],
       "en": [
         "Map colours: red = take action, orange = be prepared, yellow = be updated, green = no alert.",
-        "Bhotekoshi corridor Bulletin-27 from the night of Asoj 9 through the morning of Asoj 12: moderate rain in Rasuwa, Nuwakot, Dhading, Gorkha and Chitwan, and heavy rain in 1–2 places in each district."
+        "Bhotekoshi corridor Bulletin-32 from the night of Asoj 14 through the morning of Asoj 17: light rain in a few places of Rasuwa, Nuwakot, Dhading and Gorkha; no rain expected in Chitwan."
       ]
     },
     "days_h": {
@@ -118,8 +118,8 @@
       "en": "Which day's map"
     },
     "day_overview": {
-      "ne": "पाँच दिनको उच्चतम",
-      "en": "5-day highest"
+      "ne": "तीन दिनको उच्चतम",
+      "en": "3-day highest"
     },
     "day_switch_hint": {
       "ne": "दिन छान्नुहोस्। नक्साको रङ त्यो दिनको जिल्ला चेतावनी हो।",
@@ -158,8 +158,8 @@
       "en": "High-alert districts and areas"
     },
     "high_lead": {
-      "ne": "पाँच दिन · रातो जिल्ला पहिले",
-      "en": "Five days · red districts first"
+      "ne": "तीन दिन · रातो जिल्ला पहिले",
+      "en": "Three days · red districts first"
     },
     "high_day": {
       "ne": "यो दिन · रातो जिल्ला पहिले, त्यसपछि सुन्तला",
@@ -200,62 +200,62 @@
   "provinces": [
     {
       "id": "sudurpaschim",
-      "level": "heavy_very_heavy",
+      "level": null,
       "ne": "सुदूरपश्चिम",
       "en": "Sudurpaschim",
       "detail": {
-        "ne": "जिल्लाको रङ। उच्चतम सुन्तला। असोज ११: सुन्तला ८, पहेँलो १। असोज १२: हरियो ९। असोज १३: हरियो ९। असोज १४: हरियो ९। असोज १५: हरियो ९।",
-        "en": "District colours. Highest is orange. Asoj 11: 8 orange, 1 yellow. Asoj 12: 9 green. Asoj 13: 9 green. Asoj 14: 9 green. Asoj 15: 9 green."
+        "ne": "जिल्लाको रङ। उच्चतम हरियो। असोज १६: हरियो ९। असोज १७: हरियो ९। असोज १८: हरियो ९।",
+        "en": "District colours. Highest is green. Asoj 16: 9 green. Asoj 17: 9 green. Asoj 18: 9 green."
       }
     },
     {
       "id": "karnali",
-      "level": "heavy",
+      "level": null,
       "ne": "कर्णाली",
       "en": "Karnali",
       "detail": {
-        "ne": "जिल्लाको रङ। उच्चतम पहेँलो। असोज ११: पहेँलो १०। असोज १२: हरियो १०। असोज १३: हरियो १०। असोज १४: हरियो १०। असोज १५: हरियो १०।",
-        "en": "District colours. Highest is yellow. Asoj 11: 10 yellow. Asoj 12: 10 green. Asoj 13: 10 green. Asoj 14: 10 green. Asoj 15: 10 green."
+        "ne": "जिल्लाको रङ। उच्चतम हरियो। असोज १६: हरियो १०। असोज १७: हरियो १०। असोज १८: हरियो १०।",
+        "en": "District colours. Highest is green. Asoj 16: 10 green. Asoj 17: 10 green. Asoj 18: 10 green."
       }
     },
     {
       "id": "lumbini",
-      "level": "very_heavy_extreme",
+      "level": null,
       "ne": "लुम्बिनी",
       "en": "Lumbini",
       "detail": {
-        "ne": "जिल्लाको रङ। उच्चतम रातो। असोज ११: रातो ३, सुन्तला ३, पहेँलो ६। असोज १२: हरियो १२। असोज १३: हरियो १२। असोज १४: हरियो १२। असोज १५: हरियो १२।",
-        "en": "District colours. Highest is red. Asoj 11: 3 red, 3 orange, 6 yellow. Asoj 12: 12 green. Asoj 13: 12 green. Asoj 14: 12 green. Asoj 15: 12 green."
+        "ne": "जिल्लाको रङ। उच्चतम हरियो। असोज १६: हरियो १२। असोज १७: हरियो १२। असोज १८: हरियो १२।",
+        "en": "District colours. Highest is green. Asoj 16: 12 green. Asoj 17: 12 green. Asoj 18: 12 green."
       }
     },
     {
       "id": "gandaki",
-      "level": "very_heavy_extreme",
+      "level": null,
       "ne": "गण्डकी",
       "en": "Gandaki",
       "detail": {
-        "ne": "जिल्लाको रङ। उच्चतम रातो। असोज ११: रातो ३, सुन्तला ८। असोज १२: हरियो ११। असोज १३: हरियो ११। असोज १४: हरियो ११। असोज १५: हरियो ११।",
-        "en": "District colours. Highest is red. Asoj 11: 3 red, 8 orange. Asoj 12: 11 green. Asoj 13: 11 green. Asoj 14: 11 green. Asoj 15: 11 green."
+        "ne": "जिल्लाको रङ। उच्चतम हरियो। असोज १६: हरियो ११। असोज १७: हरियो ११। असोज १८: हरियो ११।",
+        "en": "District colours. Highest is green. Asoj 16: 11 green. Asoj 17: 11 green. Asoj 18: 11 green."
       }
     },
     {
       "id": "bagmati",
-      "level": "very_heavy_extreme",
+      "level": null,
       "ne": "बागमती",
       "en": "Bagmati",
       "detail": {
-        "ne": "जिल्लाको रङ। उच्चतम रातो। असोज ११: रातो १, सुन्तला १, पहेँलो ११। असोज १२: हरियो १३। असोज १३: हरियो १३। असोज १४: हरियो १३। असोज १५: हरियो १३। भोटेकोशी करिडोर बुलेटिन-२७ असोज ९ रातिदेखि असोज १२ बिहानसम्म छुट्टै छ।",
-        "en": "District colours. Highest is red. Asoj 11: 1 red, 1 orange, 11 yellow. Asoj 12: 13 green. Asoj 13: 13 green. Asoj 14: 13 green. Asoj 15: 13 green. Bhotekoshi corridor Bulletin-27 stays separate from the night of Asoj 9 through the morning of Asoj 12."
+        "ne": "जिल्लाको रङ। उच्चतम हरियो। असोज १६: हरियो १३। असोज १७: हरियो १३। असोज १८: हरियो १३। भोटेकोशी करिडोर बुलेटिन-३२ असोज १४ रातिदेखि असोज १७ बिहानसम्म छुट्टै छ।",
+        "en": "District colours. Highest is green. Asoj 16: 13 green. Asoj 17: 13 green. Asoj 18: 13 green. Bhotekoshi corridor Bulletin-32 stays separate from the night of Asoj 14 through the morning of Asoj 17."
       }
     },
     {
       "id": "madhesh",
-      "level": "very_heavy_extreme",
+      "level": null,
       "ne": "मधेश",
       "en": "Madhesh",
       "detail": {
-        "ne": "जिल्लाको रङ। उच्चतम रातो। असोज ११: रातो १, सुन्तला २, पहेँलो ३, हरियो २। असोज १२: हरियो ८। असोज १३: हरियो ८। असोज १४: हरियो ८। असोज १५: हरियो ८।",
-        "en": "District colours. Highest is red. Asoj 11: 1 red, 2 orange, 3 yellow, 2 green. Asoj 12: 8 green. Asoj 13: 8 green. Asoj 14: 8 green. Asoj 15: 8 green."
+        "ne": "जिल्लाको रङ। उच्चतम हरियो। असोज १६: हरियो ८। असोज १७: हरियो ८। असोज १८: हरियो ८।",
+        "en": "District colours. Highest is green. Asoj 16: 8 green. Asoj 17: 8 green. Asoj 18: 8 green."
       }
     },
     {
@@ -264,29 +264,29 @@
       "ne": "कोशी",
       "en": "Koshi",
       "detail": {
-        "ne": "जिल्लाको रङ। उच्चतम हरियो। असोज ११: हरियो १४। असोज १२: हरियो १४। असोज १३: हरियो १४। असोज १४: हरियो १४। असोज १५: हरियो १४।",
-        "en": "District colours. Highest is green. Asoj 11: 14 green. Asoj 12: 14 green. Asoj 13: 14 green. Asoj 14: 14 green. Asoj 15: 14 green."
+        "ne": "जिल्लाको रङ। उच्चतम हरियो। असोज १६: हरियो १४। असोज १७: हरियो १४। असोज १८: हरियो १४।",
+        "en": "District colours. Highest is green. Asoj 16: 14 green. Asoj 17: 14 green. Asoj 18: 14 green."
       }
     }
   ],
   "callout": {
     "province": "bagmati",
-    "page_id": 12311,
-    "level": "yellow",
-    "window_start": "2026-09-25T18:00:00+05:45",
-    "window_end": "2026-09-28T09:00:00+05:45",
-    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12311",
+    "page_id": 12325,
+    "level": "green",
+    "window_start": "2026-09-30T18:00:00+05:45",
+    "window_end": "2026-10-03T09:00:00+05:45",
+    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12325",
     "title": {
       "ne": "भोटेकोशी करिडोर",
       "en": "Bhotekoshi corridor"
     },
     "body": {
-      "ne": "मध्यम वर्षा, एक-दुई ठाउँ भारी",
-      "en": "Moderate rain, isolated heavy"
+      "ne": "थोरै ठाउँमा हल्का वर्षा",
+      "en": "Light rain in a few places"
     },
     "meta": {
-      "ne": "असोज ९ राति देखि असोज १२ बिहान",
-      "en": "Asoj 9 night to Asoj 12 morning"
+      "ne": "असोज १४ राति देखि असोज १७ बिहान",
+      "en": "Asoj 14 night to Asoj 17 morning"
     },
     "districts": [
       {
@@ -308,167 +308,10 @@
         "id": "gorkha",
         "ne": "गोरखा",
         "en": "Gorkha"
-      },
-      {
-        "id": "chitwan",
-        "ne": "चितवन",
-        "en": "Chitwan"
       }
     ]
   },
-  "district_warnings": [
-    {
-      "id": "sindhupalchok",
-      "province_id": "bagmati",
-      "tone": "high",
-      "impact": "high",
-      "likelihood": "medium",
-      "level": "orange",
-      "window_start": "2026-09-24T18:00:00+05:45",
-      "window_end": "2026-09-27T06:00:00+05:45",
-      "name": {
-        "ne": "सिन्धुपाल्चोक",
-        "en": "Sindhupalchok"
-      },
-      "province": {
-        "ne": "बागमती",
-        "en": "Bagmati"
-      },
-      "risk": {
-        "ne": "उच्च प्रभावको मध्यम सम्भावना",
-        "en": "High impact · medium likelihood"
-      },
-      "window": {
-        "ne": "असोज ८ साँझ ६:०० – असोज ११ बिहान ६:००",
-        "en": "Asoj 8, 6:00 PM – Asoj 11, 6:00 AM"
-      },
-      "forecast": {
-        "ne": "केही स्थानमा भारीदेखि धेरै भारी वर्षा, र एक–दुई स्थानमा अति भारी वर्षाको सम्भावना।",
-        "en": "Heavy to very heavy rain in some places, and extremely heavy rain in one or two places."
-      },
-      "impacts": {
-        "ne": [
-          "खोलानाला र खहरेमा बहाव बढ्ने र कटान हुने उच्च सम्भावना।",
-          "घर, विद्यालय, स्वास्थ्य चौकी र अन्य संरचनामा पहिरो तथा ढुङ्गा खसेर क्षति हुने उच्च सम्भावना।",
-          "बालीनाली र कृषि क्षेत्रमा क्षति हुने उच्च सम्भावना।"
-        ],
-        "en": [
-          "High chance that streams and gullies rise and cut their banks.",
-          "High chance of landslide and rockfall damage to houses, schools, health posts and other structures.",
-          "High chance of damage to crops and farmland."
-        ]
-      },
-      "note": {
-        "ne": "भोटेकोशी गाउँपालिका र अरनिको–कोदारी करिडोरका बस्ती समेटिएका छन्।",
-        "en": "Includes settlements in Bhotekoshi rural municipality and along the Araniko–Kodari corridor."
-      },
-      "image": "img/dhm/impact-sindhupalchok.jpg",
-      "image_w": 847,
-      "image_h": 1200,
-      "image_alt": {
-        "ne": "सिन्धुपाल्चोक प्रभावमा आधारित मौसम चेतावनी · असोज ८ साँझ",
-        "en": "Sindhupalchok impact-based weather alert · Asoj 8 evening"
-      }
-    },
-    {
-      "id": "baglung",
-      "province_id": "gandaki",
-      "tone": "medium",
-      "impact": "medium",
-      "likelihood": "medium",
-      "level": "yellow",
-      "window_start": "2026-09-24T18:00:00+05:45",
-      "window_end": "2026-09-27T06:00:00+05:45",
-      "name": {
-        "ne": "बागलुङ",
-        "en": "Baglung"
-      },
-      "province": {
-        "ne": "गण्डकी",
-        "en": "Gandaki"
-      },
-      "risk": {
-        "ne": "मध्यम प्रभावको मध्यम सम्भावना",
-        "en": "Medium impact · medium likelihood"
-      },
-      "window": {
-        "ne": "असोज ८ साँझ ६:०० – असोज ११ बिहान ६:००",
-        "en": "Asoj 8, 6:00 PM – Asoj 11, 6:00 AM"
-      },
-      "forecast": {
-        "ne": "धेरै स्थानमा हल्कादेखि मध्यम वर्षा, थोरै स्थानमा भारी वर्षा, र एक–दुई स्थानमा धेरै भारी वर्षाको सम्भावना।",
-        "en": "Light to moderate rain in many places, heavy rain in a few places, and very heavy rain in one or two places."
-      },
-      "impacts": {
-        "ne": [
-          "विद्युत्, सञ्चार, खानेपानी र सडक केही समय अवरुद्ध हुन सक्ने मध्यम सम्भावना।",
-          "खोलानालामा बहाव बढ्ने, कटान हुने र सडक अवरुद्ध हुन सक्ने मध्यम सम्भावना।",
-          "पहिरो जाने र बालीनालीमा क्षति हुने मध्यम सम्भावना।"
-        ],
-        "en": [
-          "Medium chance that electricity, communications, drinking water and roads are disrupted for some time.",
-          "Medium chance that streams rise, banks are cut, and roads are blocked.",
-          "Medium chance of landslides and damage to crops."
-        ]
-      },
-      "image": "img/dhm/impact-baglung.jpg",
-      "image_w": 1033,
-      "image_h": 1200,
-      "image_alt": {
-        "ne": "बागलुङ प्रभावमा आधारित मौसम चेतावनी · असोज ८ साँझ",
-        "en": "Baglung impact-based weather alert · Asoj 8 evening"
-      }
-    },
-    {
-      "id": "myagdi",
-      "province_id": "gandaki",
-      "tone": "medium",
-      "impact": "medium",
-      "likelihood": "medium",
-      "level": "yellow",
-      "window_start": "2026-09-24T18:00:00+05:45",
-      "window_end": "2026-09-27T06:00:00+05:45",
-      "name": {
-        "ne": "म्याग्दी",
-        "en": "Myagdi"
-      },
-      "province": {
-        "ne": "गण्डकी",
-        "en": "Gandaki"
-      },
-      "risk": {
-        "ne": "मध्यम प्रभावको मध्यम सम्भावना",
-        "en": "Medium impact · medium likelihood"
-      },
-      "window": {
-        "ne": "असोज ८ साँझ ६:०० – असोज ११ बिहान ६:००",
-        "en": "Asoj 8, 6:00 PM – Asoj 11, 6:00 AM"
-      },
-      "forecast": {
-        "ne": "धेरै स्थानमा हल्कादेखि मध्यम वर्षा, थोरै स्थानमा भारी वर्षा, र एक–दुई स्थानमा धेरै भारी वर्षाको सम्भावना।",
-        "en": "Light to moderate rain in many places, heavy rain in a few places, and very heavy rain in one or two places."
-      },
-      "impacts": {
-        "ne": [
-          "विद्युत्, सञ्चार, खानेपानी र सडक केही समय अवरुद्ध हुन सक्ने मध्यम सम्भावना।",
-          "खोलानालामा बहाव बढ्ने, कटान हुने र सडक अवरुद्ध हुन सक्ने मध्यम सम्भावना।",
-          "पहिरो जाने र बालीनालीमा क्षति हुने मध्यम सम्भावना।"
-        ],
-        "en": [
-          "Medium chance that electricity, communications, drinking water and roads are disrupted for some time.",
-          "Medium chance that streams rise, banks are cut, and roads are blocked.",
-          "Medium chance of landslides and damage to crops."
-        ]
-      },
-      "image": "img/dhm/impact-myagdi.jpg",
-      "image_w": 1126,
-      "image_h": 1200,
-      "image_alt": {
-        "ne": "म्याग्दी प्रभावमा आधारित मौसम चेतावनी · असोज ८ साँझ",
-        "en": "Myagdi impact-based weather alert · Asoj 8 evening"
-      }
-    }
-  ],
+  "district_warnings": [],
   "district_cite": [
     {
       "ne": "NMD Weather",
@@ -483,29 +326,29 @@
   ],
   "nowcast": {
     "when": {
-      "ne": "असोज ८ · साँझ ७:४० (२४ सेप्टेम्बर २०२६)",
-      "en": "Asoj 8 · 7:40 PM (24 Sep 2026)"
+      "ne": "असोज १६ · राति ८:३० (२ अक्टोबर २०२६)",
+      "en": "Asoj 16 · 8:30 PM (2 Oct 2026)"
     },
     "body": {
-      "ne": "कोशी, बागमती र लुम्बिनीका केही स्थानमा हल्कादेखि मध्यम वर्षा जारी छ। मधेश, गण्डकी र कर्णालीका थोरै स्थानमा वर्षा छ।",
-      "en": "Light to moderate rain is falling in some places of Koshi, Bagmati and Lumbini. A few places in Madhesh, Gandaki and Karnali have rain."
+      "ne": "हाल कोशी, बागमती, गण्डकी, लुम्बिनी र कर्णाली प्रदेशका एक-दुई स्थानमा हल्का देखि मध्यमसम्मको वर्षा भइरहेको छ।",
+      "en": "Light to moderate rain is falling at one or two places in Koshi, Bagmati, Gandaki, Lumbini and Karnali provinces."
     },
     "max": {
-      "ne": "पछिल्लो १ घण्टाको उच्चतम ९.६ मि.मि. · झापा केचना",
-      "en": "Past hour maximum 9.6 mm · Jhapa Kechana"
+      "ne": "पछिल्लो १ घण्टाको उच्चतम १५.४ मि.मि. · त्रिशूली काली खोला",
+      "en": "Past hour maximum 15.4 mm · Trishuli at Kali Khola"
     },
     "image": "img/dhm/rainfall-now-1h.jpg",
-    "image_w": 1200,
-    "image_h": 614,
+    "image_w": 1338,
+    "image_h": 685,
     "image_alt": {
-      "ne": "पछिल्लो १ घण्टाको वर्षा · उच्चतम ९.६ मि.मि. झापा केचना",
-      "en": "Past 1 hour rainfall · maximum 9.6 mm at Jhapa Kechana"
+      "ne": "पछिल्लो १ घण्टाको वर्षा · उच्चतम १५.४ मि.मि. त्रिशूली काली खोला",
+      "en": "Past 1 hour rainfall · maximum 15.4 mm at Trishuli at Kali Khola"
     },
     "cite": [
       {
         "ne": "NMD Weather",
         "en": "NMD Weather",
-        "url": "https://x.com/NMD_Weather/status/2103121469010235642"
+        "url": "https://x.com/NMD_Weather/status/2106033047741292593"
       },
       {
         "ne": "DHM MFD",
@@ -517,98 +360,82 @@
   "timeline": {
     "days": [
       {
-        "date": "2026-09-27",
-        "ne": "असोज ११",
-        "en": "Asoj 11",
+        "date": "2026-10-02",
+        "ne": "असोज १६",
+        "en": "Asoj 16",
+        "dow_ne": "शुक्र",
+        "dow_en": "Fri",
+        "dom": "2"
+      },
+      {
+        "date": "2026-10-03",
+        "ne": "असोज १७",
+        "en": "Asoj 17",
+        "dow_ne": "शनि",
+        "dow_en": "Sat",
+        "dom": "3"
+      },
+      {
+        "date": "2026-10-04",
+        "ne": "असोज १८",
+        "en": "Asoj 18",
         "dow_ne": "आइत",
         "dow_en": "Sun",
-        "dom": "27"
-      },
-      {
-        "date": "2026-09-28",
-        "ne": "असोज १२",
-        "en": "Asoj 12",
-        "dow_ne": "सोम",
-        "dow_en": "Mon",
-        "dom": "28"
-      },
-      {
-        "date": "2026-09-29",
-        "ne": "असोज १३",
-        "en": "Asoj 13",
-        "dow_ne": "मंगल",
-        "dow_en": "Tue",
-        "dom": "29"
-      },
-      {
-        "date": "2026-09-30",
-        "ne": "असोज १४",
-        "en": "Asoj 14",
-        "dow_ne": "बुध",
-        "dow_en": "Wed",
-        "dom": "30"
-      },
-      {
-        "date": "2026-10-01",
-        "ne": "असोज १५",
-        "en": "Asoj 15",
-        "dow_ne": "बिही",
-        "dow_en": "Thu",
-        "dom": "1"
+        "dom": "4"
       }
     ],
     "bars": [
       {
-        "page_id": 12311,
-        "tone": "blue",
+        "page_id": 12325,
+        "tone": "green",
         "start": 0,
         "end": 1.38,
         "arrows": "end",
         "live": true,
         "name": {
-          "ne": "भोटेकोशी करिडोर #12311",
-          "en": "Bhotekoshi corridor #12311"
+          "ne": "भोटेकोशी करिडोर #12325",
+          "en": "Bhotekoshi corridor #12325"
         },
         "span": {
-          "ne": "असोज ९ राति – १२ बिहान",
-          "en": "Asoj 9 night – 12 morning"
+          "ne": "असोज १४ राति – १७ बिहान",
+          "en": "Asoj 14 night – 17 morning"
         },
-        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12311",
+        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12325",
         "focus": "bagmati"
       },
       {
-        "page_id": 12312,
-        "tone": "red",
+        "page_id": 12330,
+        "tone": "green",
         "start": 0,
-        "end": 3.85,
+        "end": 2.85,
         "arrows": "end",
         "live": false,
         "name": {
-          "ne": "पाँच-दिन चेतावनी #12312",
-          "en": "5-day alert #12312"
+          "ne": "तीन-दिन चेतावनी #12330",
+          "en": "3-day alert #12330"
         },
         "span": {
-          "ne": "असोज १०–१४",
-          "en": "Asoj 10–14"
+          "ne": "असोज १६–१८",
+          "en": "Asoj 16–18"
         },
-        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12312"
+        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12330"
       },
       {
-        "page_id": 12315,
-        "tone": "red",
+        "page_id": 12331,
+        "tone": "green",
         "start": 0,
-        "end": 4.85,
+        "end": 2.85,
         "arrows": "end",
         "live": true,
         "name": {
-          "ne": "पाँच-दिन चेतावनी #12315",
-          "en": "5-day alert #12315"
+          "ne": "तीन-दिन चेतावनी #12331",
+          "en": "3-day alert #12331"
         },
         "span": {
-          "ne": "असोज ११–१५",
-          "en": "Asoj 11–15"
+          "ne": "असोज १६–१८",
+          "en": "Asoj 16–18"
         },
-        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12315",
+        "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12331",
         "focus": "overview"
       }
     ]
@@ -616,52 +443,64 @@
   "maps": [
     {
       "day": 1,
-      "file": "img/dhm/warning-12315-day1.png",
+      "file": "img/dhm/warning-12331-day1.png",
       "w": 1300,
       "h": 800,
-      "ne": "दिन १ · असोज ११ / २७ सेप्टेम्बर",
-      "en": "Day 1 · Asoj 11 / 27 September"
+      "ne": "दिन १ · असोज १६ / २ अक्टोबर",
+      "en": "Day 1 · Asoj 16 / 2 October"
     },
     {
       "day": 2,
-      "file": "img/dhm/warning-12315-day2.png",
+      "file": "img/dhm/warning-12331-day2.png",
       "w": 1300,
       "h": 800,
-      "ne": "दिन २ · असोज १२ / २८ सेप्टेम्बर",
-      "en": "Day 2 · Asoj 12 / 28 September"
+      "ne": "दिन २ · असोज १७ / ३ अक्टोबर",
+      "en": "Day 2 · Asoj 17 / 3 October"
     },
     {
       "day": 3,
-      "file": "img/dhm/warning-12315-day3.png",
+      "file": "img/dhm/warning-12331-day3.png",
       "w": 1300,
       "h": 800,
-      "ne": "दिन ३ · असोज १३ / २९ सेप्टेम्बर",
-      "en": "Day 3 · Asoj 13 / 29 September"
-    },
-    {
-      "day": 4,
-      "file": "img/dhm/warning-12315-day4.png",
-      "w": 1300,
-      "h": 800,
-      "ne": "दिन ४ · असोज १४ / ३० सेप्टेम्बर",
-      "en": "Day 4 · Asoj 14 / 30 September"
-    },
-    {
-      "day": 5,
-      "file": "img/dhm/warning-12315-day5.png",
-      "w": 1300,
-      "h": 800,
-      "ne": "दिन ५ · असोज १५ / १ अक्टोबर",
-      "en": "Day 5 · Asoj 15 / 1 October"
+      "ne": "दिन ३ · असोज १८ / ४ अक्टोबर",
+      "en": "Day 3 · Asoj 18 / 4 October"
     }
   ],
   "history": [
     {
-      "page_id": 12311,
+      "page_id": 12325,
       "role": "active_corridor_companion",
+      "issued_at": "2026-09-30T17:00:00+05:45",
+      "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12325",
+      "note": "Bhotekoshi Flood Affected Area's Special Weather Bulletin-32, issued Asoj 14 evening 17:00. Past 24 hours: no rain measured anywhere around Gorkha, Rasuwa, Nuwakot, Dhading and Chitwan. From the night of Asoj 14 through the morning of Asoj 17, light rain is possible in a few places around Rasuwa, Nuwakot, Dhading and Gorkha; no rain expected in Chitwan. Newest corridor bulletin on the DHM MFD API as of 2 Oct 2026 20:30 NPT (no Bulletin-33 published)."
+    },
+    {
+      "page_id": 12330,
+      "role": "previous_lead",
+      "issued_at": "2026-10-02T08:00:00+05:45",
+      "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12330",
+      "note": "Three-day weather alert issued Asoj 16 morning 08:00 (2 Oct 2026), window Asoj 16–18. All 77 districts green on all three maps. Superseded by #12331 (Asoj 16 evening 18:00)."
+    },
+    {
+      "page_id": 12328,
+      "role": "older_lead",
+      "issued_at": "2026-10-01T18:00:00+05:45",
+      "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12328",
+      "note": "Three-day weather alert issued Asoj 15 evening 18:00 (1 Oct 2026), window Asoj 15–17. All districts green."
+    },
+    {
+      "page_id": 12315,
+      "role": "older_lead",
+      "issued_at": "2026-09-27T08:00:00+05:45",
+      "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12315",
+      "note": "Five-day weather alert issued Asoj 11 morning 08:00 (27 Sep 2026), window Asoj 11–15. Maps archived as img/dhm/warning-12315-day{1,2,3,4,5}.png. Superseded by the three-day alerts #12317 … #12331. Dropped from the live timeline."
+    },
+    {
+      "page_id": 12311,
+      "role": "previous_corridor",
       "issued_at": "2026-09-25T17:00:00+05:45",
       "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12311",
-      "note": "Bhotekoshi Flood Affected Area's Special Weather Bulletin-27, issued Asoj 9 evening 17:00. Past 24 hours: heavy rain in many places around Gorkha, Rasuwa, Nuwakot, Dhading and Chitwan. From the night of Asoj 9 through the morning of Asoj 12, moderate rain is likely in many places of Rasuwa, Nuwakot, Dhading, Gorkha and Chitwan, and heavy rain is possible in 1–2 places in each district. On the timeline and the Bagmati callout."
+      "note": "Bhotekoshi Flood Affected Area's Special Weather Bulletin-27, issued Asoj 9 evening 17:00. Past 24 hours: heavy rain in many places around Gorkha, Rasuwa, Nuwakot, Dhading and Chitwan. From the night of Asoj 9 through the morning of Asoj 12, moderate rain is likely in many places of Rasuwa, Nuwakot, Dhading, Gorkha and Chitwan, and heavy rain is possible in 1–2 places in each district. Superseded as the corridor companion by Bulletin-28 … Bulletin-32 (#12325). Dropped from the live timeline."
     },
     {
       "page_id": 12312,
@@ -848,431 +687,7 @@
   },
   "warning_days": [
     {
-      "date": "2026-09-27",
-      "districts": {
-        "jhapa": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "ilam": {
-          "level": "green",
-          "rain": false
-        },
-        "panchthar": {
-          "level": "green",
-          "rain": false
-        },
-        "taplejung": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "morang": {
-          "level": "green",
-          "rain": false
-        },
-        "sunsari": {
-          "level": "green",
-          "rain": false
-        },
-        "bhojpur": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "dhankuta": {
-          "level": "green",
-          "rain": false
-        },
-        "terhathum": {
-          "level": "green",
-          "rain": false
-        },
-        "sankhuwasabha": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "saptari": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "siraha": {
-          "level": "green",
-          "rain": false
-        },
-        "udayapur": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "khotang": {
-          "level": "green",
-          "rain": false
-        },
-        "okhaldhunga": {
-          "level": "green",
-          "rain": false
-        },
-        "solukhumbu": {
-          "level": "green",
-          "rain": false
-        },
-        "dhanusha": {
-          "level": "yellow",
-          "rain": false
-        },
-        "mahottari": {
-          "level": "yellow",
-          "rain": false
-        },
-        "sarlahi": {
-          "level": "yellow",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "sindhuli": {
-          "level": "yellow",
-          "rain": false
-        },
-        "ramechhap": {
-          "level": "yellow",
-          "rain": false
-        },
-        "dolakha": {
-          "level": "yellow",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "bhaktapur": {
-          "level": "yellow",
-          "rain": false
-        },
-        "dhading": {
-          "level": "yellow",
-          "rain": false
-        },
-        "kathmandu": {
-          "level": "yellow",
-          "rain": false
-        },
-        "kavrepalanchok": {
-          "level": "yellow",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "lalitpur": {
-          "level": "yellow",
-          "rain": false
-        },
-        "nuwakot": {
-          "level": "yellow",
-          "rain": false
-        },
-        "rasuwa": {
-          "level": "yellow",
-          "rain": false
-        },
-        "sindhupalchok": {
-          "level": "yellow",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "bara": {
-          "level": "orange",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "parsa": {
-          "level": "red",
-          "rain": false
-        },
-        "rautahat": {
-          "level": "orange",
-          "rain": false
-        },
-        "chitwan": {
-          "level": "red",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "makwanpur": {
-          "level": "orange",
-          "rain": false
-        },
-        "gorkha": {
-          "level": "orange",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "kaski": {
-          "level": "orange",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "lamjung": {
-          "level": "orange",
-          "rain": false
-        },
-        "syangja": {
-          "level": "red",
-          "rain": false
-        },
-        "tanahu": {
-          "level": "red",
-          "rain": false
-        },
-        "manang": {
-          "level": "orange",
-          "rain": false
-        },
-        "kapilbastu": {
-          "level": "orange",
-          "rain": false
-        },
-        "nawalparasi-east": {
-          "level": "red",
-          "rain": false
-        },
-        "nawalparasi-west": {
-          "level": "red",
-          "rain": false
-        },
-        "rupandehi": {
-          "level": "red",
-          "rain": false
-        },
-        "arghakhanchi": {
-          "level": "orange",
-          "rain": false
-        },
-        "gulmi": {
-          "level": "orange",
-          "rain": false
-        },
-        "palpa": {
-          "level": "red",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "baglung": {
-          "level": "orange",
-          "rain": false
-        },
-        "myagdi": {
-          "level": "orange",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "parbat": {
-          "level": "orange",
-          "rain": false
-        },
-        "mustang": {
-          "level": "orange",
-          "rain": false
-        },
-        "dang": {
-          "level": "yellow",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "pyuthan": {
-          "level": "yellow",
-          "rain": false
-        },
-        "rolpa": {
-          "level": "yellow",
-          "rain": false
-        },
-        "rukum-east": {
-          "level": "yellow",
-          "rain": false
-        },
-        "rukum-west": {
-          "level": "yellow",
-          "rain": false
-        },
-        "salyan": {
-          "level": "yellow",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "dolpa": {
-          "level": "yellow",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "humla": {
-          "level": "yellow",
-          "rain": false
-        },
-        "jumla": {
-          "level": "yellow",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "kalikot": {
-          "level": "yellow",
-          "rain": false
-        },
-        "mugu": {
-          "level": "yellow",
-          "rain": false
-        },
-        "banke": {
-          "level": "yellow",
-          "rain": false
-        },
-        "bardiya": {
-          "level": "yellow",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "surkhet": {
-          "level": "yellow",
-          "rain": false
-        },
-        "dailekh": {
-          "level": "yellow",
-          "rain": false
-        },
-        "jajarkot": {
-          "level": "yellow",
-          "rain": false
-        },
-        "kailali": {
-          "level": "orange",
-          "rain": false
-        },
-        "achham": {
-          "level": "orange",
-          "rain": false
-        },
-        "doti": {
-          "level": "orange",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "bajhang": {
-          "level": "orange",
-          "rain": false
-        },
-        "bajura": {
-          "level": "yellow",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "kanchanpur": {
-          "level": "orange",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        },
-        "dadeldhura": {
-          "level": "orange",
-          "rain": false
-        },
-        "baitadi": {
-          "level": "orange",
-          "rain": false
-        },
-        "darchula": {
-          "level": "orange",
-          "rain": true,
-          "symbol": "cloud_rain_7drops"
-        }
-      },
-      "provinces": {
-        "koshi": {
-          "level": "green",
-          "also": [],
-          "counts": {
-            "red": 0,
-            "orange": 0,
-            "yellow": 0,
-            "green": 14
-          }
-        },
-        "madhesh": {
-          "level": "red",
-          "also": [
-            "orange",
-            "yellow",
-            "green"
-          ],
-          "counts": {
-            "red": 1,
-            "orange": 2,
-            "yellow": 3,
-            "green": 2
-          }
-        },
-        "bagmati": {
-          "level": "red",
-          "also": [
-            "orange",
-            "yellow"
-          ],
-          "counts": {
-            "red": 1,
-            "orange": 1,
-            "yellow": 11,
-            "green": 0
-          }
-        },
-        "gandaki": {
-          "level": "red",
-          "also": [
-            "orange"
-          ],
-          "counts": {
-            "red": 3,
-            "orange": 8,
-            "yellow": 0,
-            "green": 0
-          }
-        },
-        "lumbini": {
-          "level": "red",
-          "also": [
-            "orange",
-            "yellow"
-          ],
-          "counts": {
-            "red": 3,
-            "orange": 3,
-            "yellow": 6,
-            "green": 0
-          }
-        },
-        "karnali": {
-          "level": "yellow",
-          "also": [],
-          "counts": {
-            "red": 0,
-            "orange": 0,
-            "yellow": 10,
-            "green": 0
-          }
-        },
-        "sudurpaschim": {
-          "level": "orange",
-          "also": [
-            "yellow"
-          ],
-          "counts": {
-            "red": 0,
-            "orange": 8,
-            "yellow": 1,
-            "green": 0
-          }
-        }
-      }
-    },
-    {
-      "date": "2026-09-28",
+      "date": "2026-10-02",
       "districts": {
         "jhapa": {
           "level": "green",
@@ -1292,8 +707,7 @@
         },
         "morang": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "sunsari": {
           "level": "green",
@@ -1302,7 +716,7 @@
         "bhojpur": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "dhankuta": {
           "level": "green",
@@ -1314,8 +728,8 @@
         },
         "sankhuwasabha": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false,
+          "symbol": "cloud_snow"
         },
         "saptari": {
           "level": "green",
@@ -1351,8 +765,7 @@
         },
         "sarlahi": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "sindhuli": {
           "level": "green",
@@ -1381,7 +794,7 @@
         "kavrepalanchok": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "lalitpur": {
           "level": "green",
@@ -1397,8 +810,8 @@
         },
         "sindhupalchok": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false,
+          "symbol": "cloud_snow"
         },
         "bara": {
           "level": "green",
@@ -1414,8 +827,7 @@
         },
         "chitwan": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "makwanpur": {
           "level": "green",
@@ -1428,7 +840,7 @@
         "kaski": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "lamjung": {
           "level": "green",
@@ -1444,8 +856,7 @@
         },
         "manang": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "kapilbastu": {
           "level": "green",
@@ -1453,8 +864,7 @@
         },
         "nawalparasi-east": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "nawalparasi-west": {
           "level": "green",
@@ -1466,8 +876,7 @@
         },
         "arghakhanchi": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "gulmi": {
           "level": "green",
@@ -1495,8 +904,7 @@
         },
         "dang": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "pyuthan": {
           "level": "green",
@@ -1508,8 +916,7 @@
         },
         "rukum-east": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "rukum-west": {
           "level": "green",
@@ -1529,8 +936,7 @@
         },
         "jumla": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "kalikot": {
           "level": "green",
@@ -1550,8 +956,7 @@
         },
         "surkhet": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "dailekh": {
           "level": "green",
@@ -1563,8 +968,7 @@
         },
         "kailali": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "achham": {
           "level": "green",
@@ -1572,13 +976,11 @@
         },
         "doti": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "bajhang": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false
         },
         "bajura": {
           "level": "green",
@@ -1675,7 +1077,7 @@
       }
     },
     {
-      "date": "2026-09-29",
+      "date": "2026-10-03",
       "districts": {
         "jhapa": {
           "level": "green",
@@ -1695,7 +1097,8 @@
         },
         "morang": {
           "level": "green",
-          "rain": false
+          "rain": true,
+          "symbol": "cloud_rain"
         },
         "sunsari": {
           "level": "green",
@@ -1704,7 +1107,7 @@
         "bhojpur": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "dhankuta": {
           "level": "green",
@@ -1716,8 +1119,8 @@
         },
         "sankhuwasabha": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false,
+          "symbol": "cloud_snow"
         },
         "saptari": {
           "level": "green",
@@ -1753,7 +1156,8 @@
         },
         "sarlahi": {
           "level": "green",
-          "rain": false
+          "rain": true,
+          "symbol": "cloud_rain"
         },
         "sindhuli": {
           "level": "green",
@@ -1782,7 +1186,7 @@
         "kavrepalanchok": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "lalitpur": {
           "level": "green",
@@ -1798,8 +1202,8 @@
         },
         "sindhupalchok": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false,
+          "symbol": "cloud_snow"
         },
         "bara": {
           "level": "green",
@@ -1815,7 +1219,8 @@
         },
         "chitwan": {
           "level": "green",
-          "rain": false
+          "rain": true,
+          "symbol": "cloud_rain"
         },
         "makwanpur": {
           "level": "green",
@@ -1828,7 +1233,7 @@
         "kaski": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "lamjung": {
           "level": "green",
@@ -1844,8 +1249,8 @@
         },
         "manang": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false,
+          "symbol": "cloud_snow"
         },
         "kapilbastu": {
           "level": "green",
@@ -1866,7 +1271,7 @@
         "arghakhanchi": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "gulmi": {
           "level": "green",
@@ -1907,7 +1312,7 @@
         "rukum-east": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "rukum-west": {
           "level": "green",
@@ -1928,7 +1333,7 @@
         "jumla": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "kalikot": {
           "level": "green",
@@ -1949,7 +1354,7 @@
         "surkhet": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "dailekh": {
           "level": "green",
@@ -1970,12 +1375,12 @@
         "doti": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "bajhang": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "bajura": {
           "level": "green",
@@ -2072,7 +1477,7 @@
       }
     },
     {
-      "date": "2026-09-30",
+      "date": "2026-10-04",
       "districts": {
         "jhapa": {
           "level": "green",
@@ -2092,7 +1497,8 @@
         },
         "morang": {
           "level": "green",
-          "rain": false
+          "rain": true,
+          "symbol": "cloud_rain"
         },
         "sunsari": {
           "level": "green",
@@ -2101,7 +1507,7 @@
         "bhojpur": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "dhankuta": {
           "level": "green",
@@ -2113,8 +1519,8 @@
         },
         "sankhuwasabha": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false,
+          "symbol": "cloud_snow"
         },
         "saptari": {
           "level": "green",
@@ -2150,7 +1556,8 @@
         },
         "sarlahi": {
           "level": "green",
-          "rain": false
+          "rain": true,
+          "symbol": "cloud_rain"
         },
         "sindhuli": {
           "level": "green",
@@ -2179,7 +1586,7 @@
         "kavrepalanchok": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "lalitpur": {
           "level": "green",
@@ -2195,8 +1602,8 @@
         },
         "sindhupalchok": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false,
+          "symbol": "cloud_snow"
         },
         "bara": {
           "level": "green",
@@ -2212,7 +1619,8 @@
         },
         "chitwan": {
           "level": "green",
-          "rain": false
+          "rain": true,
+          "symbol": "cloud_rain"
         },
         "makwanpur": {
           "level": "green",
@@ -2225,7 +1633,7 @@
         "kaski": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "lamjung": {
           "level": "green",
@@ -2241,8 +1649,8 @@
         },
         "manang": {
           "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "rain": false,
+          "symbol": "cloud_snow"
         },
         "kapilbastu": {
           "level": "green",
@@ -2250,7 +1658,8 @@
         },
         "nawalparasi-east": {
           "level": "green",
-          "rain": false
+          "rain": true,
+          "symbol": "cloud_rain"
         },
         "nawalparasi-west": {
           "level": "green",
@@ -2263,7 +1672,7 @@
         "arghakhanchi": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "gulmi": {
           "level": "green",
@@ -2291,7 +1700,8 @@
         },
         "dang": {
           "level": "green",
-          "rain": false
+          "rain": true,
+          "symbol": "cloud_rain"
         },
         "pyuthan": {
           "level": "green",
@@ -2304,7 +1714,7 @@
         "rukum-east": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "rukum-west": {
           "level": "green",
@@ -2325,7 +1735,7 @@
         "jumla": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "kalikot": {
           "level": "green",
@@ -2346,7 +1756,7 @@
         "surkhet": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "dailekh": {
           "level": "green",
@@ -2358,7 +1768,8 @@
         },
         "kailali": {
           "level": "green",
-          "rain": false
+          "rain": true,
+          "symbol": "cloud_rain"
         },
         "achham": {
           "level": "green",
@@ -2367,409 +1778,12 @@
         "doti": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "bajhang": {
           "level": "green",
           "rain": true,
-          "symbol": "cloud_lightning_rain"
-        },
-        "bajura": {
-          "level": "green",
-          "rain": false
-        },
-        "kanchanpur": {
-          "level": "green",
-          "rain": false
-        },
-        "dadeldhura": {
-          "level": "green",
-          "rain": false
-        },
-        "baitadi": {
-          "level": "green",
-          "rain": false
-        },
-        "darchula": {
-          "level": "green",
-          "rain": false
-        }
-      },
-      "provinces": {
-        "koshi": {
-          "level": "green",
-          "also": [],
-          "counts": {
-            "red": 0,
-            "orange": 0,
-            "yellow": 0,
-            "green": 14
-          }
-        },
-        "madhesh": {
-          "level": "green",
-          "also": [],
-          "counts": {
-            "red": 0,
-            "orange": 0,
-            "yellow": 0,
-            "green": 8
-          }
-        },
-        "bagmati": {
-          "level": "green",
-          "also": [],
-          "counts": {
-            "red": 0,
-            "orange": 0,
-            "yellow": 0,
-            "green": 13
-          }
-        },
-        "gandaki": {
-          "level": "green",
-          "also": [],
-          "counts": {
-            "red": 0,
-            "orange": 0,
-            "yellow": 0,
-            "green": 11
-          }
-        },
-        "lumbini": {
-          "level": "green",
-          "also": [],
-          "counts": {
-            "red": 0,
-            "orange": 0,
-            "yellow": 0,
-            "green": 12
-          }
-        },
-        "karnali": {
-          "level": "green",
-          "also": [],
-          "counts": {
-            "red": 0,
-            "orange": 0,
-            "yellow": 0,
-            "green": 10
-          }
-        },
-        "sudurpaschim": {
-          "level": "green",
-          "also": [],
-          "counts": {
-            "red": 0,
-            "orange": 0,
-            "yellow": 0,
-            "green": 9
-          }
-        }
-      }
-    },
-    {
-      "date": "2026-10-01",
-      "districts": {
-        "jhapa": {
-          "level": "green",
-          "rain": false
-        },
-        "ilam": {
-          "level": "green",
-          "rain": false
-        },
-        "panchthar": {
-          "level": "green",
-          "rain": false
-        },
-        "taplejung": {
-          "level": "green",
-          "rain": false
-        },
-        "morang": {
-          "level": "green",
-          "rain": false
-        },
-        "sunsari": {
-          "level": "green",
-          "rain": false
-        },
-        "bhojpur": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
-        },
-        "dhankuta": {
-          "level": "green",
-          "rain": false
-        },
-        "terhathum": {
-          "level": "green",
-          "rain": false
-        },
-        "sankhuwasabha": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
-        },
-        "saptari": {
-          "level": "green",
-          "rain": false
-        },
-        "siraha": {
-          "level": "green",
-          "rain": false
-        },
-        "udayapur": {
-          "level": "green",
-          "rain": false
-        },
-        "khotang": {
-          "level": "green",
-          "rain": false
-        },
-        "okhaldhunga": {
-          "level": "green",
-          "rain": false
-        },
-        "solukhumbu": {
-          "level": "green",
-          "rain": false
-        },
-        "dhanusha": {
-          "level": "green",
-          "rain": false
-        },
-        "mahottari": {
-          "level": "green",
-          "rain": false
-        },
-        "sarlahi": {
-          "level": "green",
-          "rain": false
-        },
-        "sindhuli": {
-          "level": "green",
-          "rain": false
-        },
-        "ramechhap": {
-          "level": "green",
-          "rain": false
-        },
-        "dolakha": {
-          "level": "green",
-          "rain": false
-        },
-        "bhaktapur": {
-          "level": "green",
-          "rain": false
-        },
-        "dhading": {
-          "level": "green",
-          "rain": false
-        },
-        "kathmandu": {
-          "level": "green",
-          "rain": false
-        },
-        "kavrepalanchok": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
-        },
-        "lalitpur": {
-          "level": "green",
-          "rain": false
-        },
-        "nuwakot": {
-          "level": "green",
-          "rain": false
-        },
-        "rasuwa": {
-          "level": "green",
-          "rain": false
-        },
-        "sindhupalchok": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
-        },
-        "bara": {
-          "level": "green",
-          "rain": false
-        },
-        "parsa": {
-          "level": "green",
-          "rain": false
-        },
-        "rautahat": {
-          "level": "green",
-          "rain": false
-        },
-        "chitwan": {
-          "level": "green",
-          "rain": false
-        },
-        "makwanpur": {
-          "level": "green",
-          "rain": false
-        },
-        "gorkha": {
-          "level": "green",
-          "rain": false
-        },
-        "kaski": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
-        },
-        "lamjung": {
-          "level": "green",
-          "rain": false
-        },
-        "syangja": {
-          "level": "green",
-          "rain": false
-        },
-        "tanahu": {
-          "level": "green",
-          "rain": false
-        },
-        "manang": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
-        },
-        "kapilbastu": {
-          "level": "green",
-          "rain": false
-        },
-        "nawalparasi-east": {
-          "level": "green",
-          "rain": false
-        },
-        "nawalparasi-west": {
-          "level": "green",
-          "rain": false
-        },
-        "rupandehi": {
-          "level": "green",
-          "rain": false
-        },
-        "arghakhanchi": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
-        },
-        "gulmi": {
-          "level": "green",
-          "rain": false
-        },
-        "palpa": {
-          "level": "green",
-          "rain": false
-        },
-        "baglung": {
-          "level": "green",
-          "rain": false
-        },
-        "myagdi": {
-          "level": "green",
-          "rain": false
-        },
-        "parbat": {
-          "level": "green",
-          "rain": false
-        },
-        "mustang": {
-          "level": "green",
-          "rain": false
-        },
-        "dang": {
-          "level": "green",
-          "rain": false
-        },
-        "pyuthan": {
-          "level": "green",
-          "rain": false
-        },
-        "rolpa": {
-          "level": "green",
-          "rain": false
-        },
-        "rukum-east": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
-        },
-        "rukum-west": {
-          "level": "green",
-          "rain": false
-        },
-        "salyan": {
-          "level": "green",
-          "rain": false
-        },
-        "dolpa": {
-          "level": "green",
-          "rain": false
-        },
-        "humla": {
-          "level": "green",
-          "rain": false
-        },
-        "jumla": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
-        },
-        "kalikot": {
-          "level": "green",
-          "rain": false
-        },
-        "mugu": {
-          "level": "green",
-          "rain": false
-        },
-        "banke": {
-          "level": "green",
-          "rain": false
-        },
-        "bardiya": {
-          "level": "green",
-          "rain": false
-        },
-        "surkhet": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
-        },
-        "dailekh": {
-          "level": "green",
-          "rain": false
-        },
-        "jajarkot": {
-          "level": "green",
-          "rain": false
-        },
-        "kailali": {
-          "level": "green",
-          "rain": false
-        },
-        "achham": {
-          "level": "green",
-          "rain": false
-        },
-        "doti": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
-        },
-        "bajhang": {
-          "level": "green",
-          "rain": true,
-          "symbol": "cloud_lightning_rain"
+          "symbol": "cloud_rain"
         },
         "bajura": {
           "level": "green",

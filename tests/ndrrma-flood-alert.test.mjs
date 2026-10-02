@@ -21,25 +21,29 @@ function ask(q, lang) {
   return Ask.answer(q, { lang: lang, now: "2026-09-27", ndrrma: ndrrma, t: function () { return ""; } });
 }
 
-const enBits = ["11 m", "13.0", "Chitwan", "Nawalparasi East", "Nawalparasi West", "Move to high, safe ground now", "Stay away from river banks", "NDRRMA", "Asoj 11", "8 AM"];
-const neBits = ["११", "१३.०", "चितवन", "नवलपरासी पूर्व", "नवलपरासी पश्चिम", "उच्च तथा सुरक्षित स्थानमा जानुहोस्", "किनार र तटिय क्षेत्रबाट टाढा बस्नुहोस्", "NDRRMA", "असोज ११", "८"];
+const enBits = ["ended", "2083/06/11", "Devghat", "4.39"];
+const neBits = ["समाप्त", "२०८३/०६/११", "देवघाट", "४.३९"];
 
 function assertAlert(q, lang) {
   const ans = ask(q, lang);
   assert.equal(ans.intent, "flood_ndrrma", q + " → " + ans.intent + " " + ans.text);
   assert.ok(ans.text && ans.text.length <= 400, q + " length " + ans.text.length);
   assert.equal(/<[a-z!/]/i.test(ans.text), false, ans.text);
-  assert.equal(ans.href, "weather.html#ndrrma-flood-alert");
+  assert.equal(ans.href, "notices.html#narayani-ended");
   const bits = lang === "en" ? enBits : neBits;
   bits.forEach(function (bit) {
     assert.ok(ans.text.includes(bit), q + " missing “" + bit + "” in " + ans.text);
   });
   if (lang === "en") assert.equal(/\bwarning\b/i.test(ans.text), false, ans.text);
+  assert.equal(/crossed the danger level|खतराको तह पार/.test(ans.text), false, ans.text);
   return ans;
 }
 
 test("NDRRMA Narayani alert file and poster", function () {
   const alert = ndrrma.alerts[0];
+  assert.equal(alert.active, false);
+  assert.equal(alert.popup, false);
+  assert.equal(alert.ended.evidence[0].level_m, 4.39);
   assert.equal(alert.id, "narayani-2083-06-11-0800");
   assert.equal(alert.issued_npt, "2026-09-27T08:00:00+05:45");
   assert.equal(alert.posted_utc, "2026-09-27T03:29:00Z");
@@ -76,10 +80,12 @@ test("Narayani, Chitwan, Nawalparasi and Devghat questions use the NDRRMA alert"
 });
 
 test("bell notification, homepage list, and danger card styling", function () {
-  assert.equal(latest.id, "2026-09-27-ndrrma-narayani-0800");
-  assert.equal(latest.url, "weather.html#ndrrma-flood-alert");
+  assert.equal(latest.id, "2026-10-02-dhm-12331");
+  assert.equal(latest.url, "weather.html#alert");
   assert.equal(/\bwarning\b/i.test(latest.body), false);
-  assert.match(latest.body, /Special flood alert/);
+  assert.match(latest.body, /no alert/);
+  assert.match(notifyJs, /active !== true/);
+  assert.match(floodJs, /active !== true/);
   assert.match(notifyJs, /weather\.html#ndrrma-flood-alert/);
   assert.match(notifyJs, /notify-feed/);
   assert.match(floodJs, /ndrrma-flood-alert/);

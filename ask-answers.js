@@ -1531,6 +1531,10 @@
     var loc = lang === "en" ? r.location_en : r.location_ne;
     var cause = lang === "en" ? r.cause_en : r.cause_ne;
     var date = lang === "en" ? (r.closed_date_ascii || "") : (r.closed_date || "");
+    if (r.status_type === "open") {
+      if (lang === "en") return dist + " · " + hwy + " is open at " + loc + " (it had been blocked by " + cause.toLowerCase() + " since " + date + ")";
+      return dist + " · " + hwy + " " + loc + " मा सुचारु (यो " + date + " देखि " + cause + "ले अवरुद्ध थियो)";
+    }
     if (lang === "en") return dist + " · " + hwy + " is blocked at " + loc + " (" + cause + ", since " + date + ")";
     return dist + " · " + hwy + " " + loc + " मा अवरुद्ध (" + cause + ", " + date + " देखि)";
   }
@@ -2270,6 +2274,22 @@
         ? "The NDRRMA flood alert is not loaded."
         : "NDRRMA बाढी चेतावनी अहिले लोड भएको छैन।";
       return pack(lang, missing, "", href, { followups: fu });
+    }
+    if (alert.active !== true) {
+      var ended = alert.ended || {};
+      var gauge = null;
+      (ended.evidence || []).forEach(function (row) {
+        if (!gauge && row && row.kind === "hydrology" && row.level_m != null) gauge = row;
+      });
+      var endedText = lang === "en"
+        ? "The NDRRMA Narayani flood alert issued 2083/06/11 has ended."
+        : "NDRRMA नारायणी बाढी चेतावनी (जारी २०८३/०६/११) समाप्त भएको छ।";
+      if (gauge) {
+        endedText += lang === "en"
+          ? " Devghat reads " + gauge.level_m + " m (alert " + gauge.warning_m + " m)."
+          : " देवघाटमा " + digits(String(gauge.level_m), "ne") + " मिटर (सतर्कता " + digits(String(gauge.warning_m), "ne") + " मिटर)।";
+      }
+      return pack(lang, endedText, sourceLine(lang, "NDRRMA", lang === "en" ? "2083/06/11" : "२०८३/०६/११"), "notices.html#narayani-ended", { followups: fu });
     }
     var text = lang === "en" ? alert.text_en : alert.text_ne;
     var when = lang === "en" ? (alert.issued_en || "") : (alert.issued_ne || "");

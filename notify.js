@@ -175,6 +175,7 @@
     });
     for (var i = rows.length - 1; i >= 0; i--) {
       var alert = rows[i];
+      if (!alert || alert.active !== true) continue;
       var river = alert.river || {};
       var label = (alert.title_ne || "विशेष बाढी चेतावनी") + " · " + (alert.title_en || "Special flood alert") + " — " + (river.ne || "नारायणी") + " · " + (river.en || "Narayani");
       feed.insertBefore(feedItem("weather.html#ndrrma-flood-alert", label), feed.firstChild);

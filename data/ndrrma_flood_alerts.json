@@ -2,7 +2,7 @@
   "alerts": [
     {
       "id": "narayani-2083-06-11-0800",
-      "active": true,
+      "active": false,
       "popup": false,
       "popup_headline_ne": "विशेष बाढी चेतावनी — नारायणी नदी खतराको तह पार गरेको छ",
       "popup_headline_en": "Special flood alert: Narayani River has crossed the danger level",
@@ -15,11 +15,26 @@
       "popup_close_label": "बन्द · Close",
       "issued_npt": "2026-09-27T08:00:00+05:45",
       "posted_utc": "2026-09-27T03:29:00Z",
-      "river": { "ne": "नारायणी", "en": "Narayani" },
+      "river": {
+        "ne": "नारायणी",
+        "en": "Narayani"
+      },
       "districts": [
-        { "id": "chitwan", "ne": "चितवन", "en": "Chitwan" },
-        { "id": "nawalparasi-east", "ne": "नवलपरासी पूर्व", "en": "Nawalparasi East" },
-        { "id": "nawalparasi-west", "ne": "नवलपरासी पश्चिम", "en": "Nawalparasi West" }
+        {
+          "id": "chitwan",
+          "ne": "चितवन",
+          "en": "Chitwan"
+        },
+        {
+          "id": "nawalparasi-east",
+          "ne": "नवलपरासी पूर्व",
+          "en": "Nawalparasi East"
+        },
+        {
+          "id": "nawalparasi-west",
+          "ne": "नवलपरासी पश्चिम",
+          "en": "Nawalparasi West"
+        }
       ],
       "current_m": 11,
       "danger_m": 11,
@@ -33,10 +48,51 @@
       "text_ne": "विशेष बाढी चेतावनी: नारायणी नदी खतराको तह पार गरेको छ। हालको स्तर ११ मिटर (खतराको तह ११ मिटर); अपेक्षित उच्चतम करिब १३.० मिटर। स्थान: चितवन, नवलपरासी पूर्व, नवलपरासी पश्चिम। तुरुन्तः उच्च तथा सुरक्षित स्थानमा जानुहोस्। किनार र तटिय क्षेत्रबाट टाढा बस्नुहोस्। NDRRMA, असोज ११, बिहान ८ बजे।",
       "text_en": "Special flood alert: the Narayani River has crossed the danger level. Current level 11 m (danger level 11 m); expected peak about 13.0 m. Areas: Chitwan, Nawalparasi East and Nawalparasi West. Move to high, safe ground now. Stay away from river banks and low-lying areas. Issued by NDRRMA, Asoj 11, 8 AM.",
       "actions": [
-        { "ne": "तुरुन्तः उच्च तथा सुरक्षित स्थानमा जानुहोस्।", "en": "Move to high, safe ground now." },
-        { "ne": "किनार र तटिय क्षेत्रबाट टाढा बस्नुहोस्।", "en": "Stay away from river banks and low-lying areas." }
+        {
+          "ne": "तुरुन्तः उच्च तथा सुरक्षित स्थानमा जानुहोस्।",
+          "en": "Move to high, safe ground now."
+        },
+        {
+          "ne": "किनार र तटिय क्षेत्रबाट टाढा बस्नुहोस्।",
+          "en": "Stay away from river banks and low-lying areas."
+        }
       ],
-      "source_url": "https://x.com/NDRRMA_Nepal/status/2104050743875653646"
+      "source_url": "https://x.com/NDRRMA_Nepal/status/2104050743875653646",
+      "ended": {
+        "as_of_npt": "2026-10-02T20:00:00+05:45",
+        "ne": "नारायणी देवघाटमा जलसतह ४.३९ मिटर (सतर्कता ७.३, खतरा ९.० मिटर), स्थिर · २ अक्टोबर २०:०० NPT। DHM बाढी बुलेटिन (असोज १६ बिहान ८): नारायणी लगायत सबै प्रमुख नदी सतर्कता तहभन्दा तल।",
+        "en": "Narayani at Devghat 4.39 m (alert 7.3 m, danger 9.0 m), steady · 2 Oct 20:00 NPT. DHM flood bulletin (Asoj 16, 8 AM): the Narayani and all other major rivers are below the alert level.",
+        "evidence": [
+          {
+            "kind": "hydrology",
+            "station_id": 265,
+            "station": "Narayani at Devghat",
+            "level_m": 4.39,
+            "warning_m": 7.3,
+            "danger_m": 9.0,
+            "trend": "steady",
+            "obs_at": "2026-10-02T20:00:00+05:45",
+            "url": "https://hydrology.gov.np/"
+          },
+          {
+            "kind": "dhm_flood_bulletin",
+            "issued_at": "2026-10-02T08:00:00+05:45",
+            "url": "https://x.com/DHM_FloodEWS/status/2105846611335397487",
+            "text_ne": "आज बिहानको मापन अनुसार कोशी, नारायणी, बागमती, कर्णाली, महाकाली र यिनका सहायक नदीहरू तथा कन्काई, कमला, बबई, पूर्वी राप्ती र पश्‍चिम राप्ती नदीको बहाव सतर्कता तह भन्दा तल रहेको छ ।"
+          },
+          {
+            "kind": "dhm_flood_bulletin",
+            "issued_at": "2026-09-28T08:00:00+05:45",
+            "url": "https://x.com/DHM_FloodEWS/status/2104412951876870270",
+            "text_ne": "आज बिहानको मापन अनुसार नारायणी नदीमा जलसतह सतर्कता तह भन्दा माथि रहेपनि घट्दो क्रममा छ।"
+          },
+          {
+            "kind": "ndrrma",
+            "note": "No newer NDRRMA special flood alert on @NDRRMA_Nepal between 27 Sep 09:14 NPT and 2 Oct 20:30 NPT.",
+            "url": "https://x.com/NDRRMA_Nepal"
+          }
+        ]
+      }
     }
   ]
 }
