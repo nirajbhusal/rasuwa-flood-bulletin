@@ -521,7 +521,7 @@
     var api = window.NdrrmFlood;
     if (!api || !ndrrmaDoc) return null;
     var alert = api.newest(ndrrmaDoc);
-    if (!alert) return null;
+    if (!alert || alert.active !== true) return null;
     return api.renderCard(alert, { live: home, anchor: false, place: "now" });
   }
 

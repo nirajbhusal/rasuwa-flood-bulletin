@@ -14,7 +14,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import seo_meta  # noqa: E402
 
-WHEN = datetime(2026, 9, 27, 12, 0, tzinfo=seo_meta.NPT)
+WHEN = datetime(2026, 10, 2, 12, 0, tzinfo=seo_meta.NPT)
 BUILT = "2026-09-26T06:15:00Z"
 
 FIXTURE_DASH = {
@@ -140,8 +140,8 @@ def main() -> int:
             raise SystemExit(f"{rel} description too long ({len(copy.description)}): {copy.description}")
         if "२० सेप्टेम्बर" in copy.title:
             raise SystemExit(f"{rel} title still frozen on 20 September: {copy.title}")
-        if "असोज ११" not in copy.title:
-            raise SystemExit(f"{rel} title missing Asoj 11: {copy.title}")
+        if "असोज १६" not in copy.title:
+            raise SystemExit(f"{rel} title missing Asoj 16: {copy.title}")
         for number in _numbers(copy.title + " " + copy.description):
             if number not in allowed:
                 raise SystemExit(f"{rel} uses a number that is not in the data files: {number} in {copy.title} / {copy.description}")
@@ -154,8 +154,8 @@ def main() -> int:
     if "नेपाल प्रहरी" not in roads.description:
         raise SystemExit("roads description missing Nepal Police")
     weather = copies["weather.html"]
-    if "DHM" not in weather.description or "रातो" not in weather.title:
-        raise SystemExit("weather copy is not about the DHM warning")
+    if "DHM" not in weather.description or "रातो ०" not in weather.title:
+        raise SystemExit("weather copy is not about the DHM alert")
     power = copies["electricity.html"]
     if "NEA" not in power.description or "बिजुली" not in power.title:
         raise SystemExit("electricity copy is not about NEA")
@@ -231,7 +231,7 @@ def main() -> int:
         if "NewsArticle" in json.dumps(weather_ld):
             raise SystemExit("section page was marked as the live article")
         redirect = (root / "map.html").read_text(encoding="utf-8")
-        if "असोज ११" not in redirect or "application/ld+json" in redirect:
+        if "असोज १६" not in redirect or "application/ld+json" in redirect:
             raise SystemExit("redirect page was expanded into a full article")
         if (root / "data" / "dhm.html").read_text(encoding="utf-8") != "<p>?v=</p>":
             raise SystemExit("archived data html was rewritten")

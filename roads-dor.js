@@ -1060,6 +1060,7 @@
       var start = new Date(row.closed_iso);
       if (!isNaN(start.getTime()) && now.getTime() < start.getTime()) return "";
     }
+    if (row.status_type === "open") return "open";
     if (row.status_type === "full_block") return "closed";
     if (row.status_type === "one_way") return "one_way";
     if (row.status_type === "restricted") return "restricted";
@@ -1971,10 +1972,11 @@
     return !neocFilter || neocFilter === groupId;
   }
   function nrCard(row) {
-    var b = el("div", "pr-card pr-st-full_block" + (row.prominent ? " is-rasuwa" : ""));
+    var st = row.status_type || "full_block";
+    var b = el("div", "pr-card pr-st-" + st + (row.prominent ? " is-rasuwa" : ""));
     var top = el("span", "pr-card-top");
     top.appendChild(el("strong", "pr-hwy", prName(row)));
-    top.appendChild(el("span", "pr-badge pr-badge-full_block", lang() === "en" ? row.status_en : row.status_ne));
+    top.appendChild(el("span", "pr-badge pr-badge-" + st, lang() === "en" ? row.status_en : row.status_ne));
     b.appendChild(top);
     var state = prState(row);
     var now = el("span", "pr-now" + (state ? " is-" + state : ""));
@@ -2323,7 +2325,7 @@
     var geoP = fetch("data/nepal-districts.geojson?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("geo"); return r.json(); })
       .catch(function () { return null; });
-    var neocP = fetch("data/neoc_roads_2083-06-10-1800.json?t=" + Date.now(), { cache: "no-store" })
+    var neocP = fetch("data/neoc_roads_2083-06-16-1800.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("neoc"); return r.json(); })
       .catch(function () { return null; });
     Promise.all([roadsP, policeP, vehicleP, geoP, neocP])
