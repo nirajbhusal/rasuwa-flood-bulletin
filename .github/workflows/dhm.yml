@@ -1,0 +1,47 @@
+name: DHM river gauges
+
+# GitHub's scheduler has a 5-minute floor and runs late under load, so treat
+# this as "roughly every 10 minutes", not a guarantee. It is still far tighter
+# and far more reliable at 3am than updating the file by hand.
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dhm
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Read gauges
+        id: dhm
+        run: |
+          set -o pipefail
+          # Non-zero means the feed was unreachable or untrustworthy. The step
+          # fails loudly and the committed file is left alone.
+          msg="$(python scripts/update_dhm.py)"
+          echo "msg=$msg" >> "$GITHUB_OUTPUT"
+
+      - name: Commit if changed
+        if: steps.dhm.outputs.msg != 'no change'
+        run: |
+          if git diff --quiet -- dhm-rivers.json; then
+            echo "no diff on disk"; exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dhm-rivers.json
+          git commit -m "Update DHM gauges: ${{ steps.dhm.outputs.msg }}"
+          git push
