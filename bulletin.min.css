@@ -191,3 +191,297 @@
 .notify-feed a:hover,.notify-feed a:focus-visible{background:#fff5f5}
 .nr-board .pr-card{cursor:default}.nr-board .pr-grid{display:block}.dor-has-vehicle .nr-board{margin-top:0;padding-top:0;border-top:0}.nr-board + .vv-board,.nr-board + .pr-board{margin-top:14px;padding-top:12px;border-top:1px solid #e2e8f0}@media (min-width:1024px){.nr-board .pr-side{columns:2;column-gap:16px}.nr-board .pr-group{break-inside:avoid}}@media (min-width:1280px){.nr-board .pr-side{columns:3}}
 #avalanche{scroll-margin-top:var(--stick,96px)}.ava-board{display:flex;flex-direction:column;gap:12px;min-width:0;max-width:100%}.ava-card{margin:0;padding:14px 14px 12px;border-radius:16px;border:1px solid #e2e8f0;border-left:6px solid #c41e3a;background:#fff;color:#0f172a;min-width:0;overflow:hidden}.ava-k{margin:0 0 4px;font-size:12px;font-weight:800;letter-spacing:.02em;color:#9a3412}.ava-h{margin:2px 0 8px;font-size:20px;line-height:1.3;color:#0c2340}.ava-kpi{margin:0 0 10px;min-width:0}.ava-kpi-n{display:block;font-size:48px;line-height:1;font-weight:800;color:#c41e3a;font-variant-numeric:tabular-nums}.ava-kpi-l{display:block;margin-top:2px;font-size:14px;font-weight:800;color:#0f172a}.ava-chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:8px 0 0;padding:0;list-style:none;min-width:0}.ava-chip{max-width:100%;border:1px solid #e2e8f0;border-radius:999px;background:#f8fafc;padding:4px 10px;font-size:13px;font-weight:750;line-height:1.35;color:#0f172a;white-space:nowrap}.ava-when{margin:8px 0 6px;font-size:13px;font-weight:700;color:#64748b}.ava-sum,.ava-resp{margin:0 0 8px;font-size:15px;line-height:1.45}.ava-src{margin:6px 0 0;font-size:13px;line-height:1.4;color:#334155}.ava-src a,.ava-link,.ava-help a{font-weight:800;color:#c41e3a}.ava-sub{margin:4px 0 0;font-size:16px;line-height:1.3;color:#0c2340}.ava-alerts{display:flex;flex-direction:column;gap:8px;min-width:0}.ava-row{display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;align-items:start;padding:10px;border:1px solid #e2e8f0;border-radius:12px;background:#fff;min-width:0}.ava-row-plain{grid-template-columns:minmax(0,1fr)}.ava-row-body{min-width:0}.ava-thumb{display:block;width:88px;max-width:100%}.ava-thumb img{display:block;width:88px;max-width:100%;height:auto;border:1px solid #e2e8f0;border-radius:8px;background:#fff}.ava-issuer{margin:0;font-size:12px;font-weight:800;color:#9a3412}.ava-title{margin:2px 0 4px;font-size:15px;line-height:1.3;color:#0c2340}.ava-valid{margin:0 0 4px;font-size:12px;font-weight:800;color:#64748b}.ava-text{margin:0 0 4px;font-size:14px;line-height:1.45}.ava-link{font-size:13px}.ava-season{margin:0;padding:0;list-style:none;min-width:0}.ava-season li{margin:0 0 6px;font-size:14px;line-height:1.45}.ava-help{margin:2px 0 0}.lb.lb-single .lb-prev,.lb.lb-single .lb-next{display:none}@media (max-width:420px){.ava-kpi-n{font-size:40px}.ava-row{grid-template-columns:minmax(0,1fr)}.ava-thumb,.ava-thumb img{width:min(160px,100%)}}
+/* Homepage rhythm. One spacing scale, one card, one heading. */
+body.home-page #home .wrap{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+body.home-page #home .wrap > *{margin-top:0;margin-bottom:0}
+body.home-page #home .overview{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+body.home-page #home .overview > *{margin-top:0;margin-bottom:0}
+body.home-page #home .incident-block{display:none}
+body.home-page #home .home-cat-dot{display:none}
+body.home-page #home .home-cat-head,
+body.home-page #home .overview-head{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:4px;
+  margin:0;
+  padding:0 0 0 12px;
+  border-left:3px solid #e7e5e4;
+}
+body.home-page #home .home-cat-head h2,
+body.home-page #home .overview-head h2,
+body.home-page #home .fld-title,
+body.home-page #home .dor-title,
+body.home-page #home .pr-title,
+body.home-page #home .vv-title,
+body.home-page #home .wxb-nepal-now .wxdb-h{
+  margin:0;
+  font-size:22px;
+  font-weight:800;
+  line-height:1.3;
+  color:#0f172a;
+  text-align:left;
+}
+body.home-page #home .home-cat-head p,
+body.home-page #home .overview-head p,
+body.home-page #home .wxb-sub,
+body.home-page #home .wxb-issued-meta,
+body.home-page #home .fld-sub,
+body.home-page #home .dor-kicker,
+body.home-page #home .dor-asof,
+body.home-page #home .pr-kicker,
+body.home-page #home .pr-asof,
+body.home-page #home .vv-kicker,
+body.home-page #home .vv-asof,
+body.home-page #home .wxb-nepal-now .wxdb-kicker{
+  margin:0;
+  font-size:14px;
+  font-weight:600;
+  line-height:1.45;
+  color:#64748b;
+  text-align:left;
+}
+body.home-page #home .wxb-title{
+  margin:0 0 4px;
+  font-size:26px;
+  font-weight:800;
+  line-height:1.25;
+  color:#c41e3a;
+  text-align:left;
+}
+body.home-page #home .wxb,
+body.home-page #home .fld,
+body.home-page #home .wxdb-home,
+body.home-page #home .dor,
+body.home-page #home .nig-card,
+body.home-page #home .kpi-box,
+body.home-page #home .roads-snap,
+body.home-page #home .cash-snap,
+body.home-page #home .ems-home,
+body.home-page #home .pmdrf-banner,
+body.home-page #home .dash-elec{
+  background:#fff;
+  border:1px solid #e7e5e4;
+  border-radius:16px;
+  box-shadow:none;
+}
+body.home-page #home .wxb{overflow:visible}
+body.home-page #home .wxb-head{
+  background:transparent;
+  border:0;
+  padding:16px 16px 0;
+  justify-content:flex-start;
+}
+body.home-page #home .wxb-panel{
+  margin:0;
+  padding:12px 16px 16px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+body.home-page #home .wxb-mapwrap{
+  border:0;
+  border-radius:12px;
+  background:#f8fafc;
+}
+body.home-page #home .wxb-legend{
+  margin-top:12px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+}
+body.home-page #home .wxb-nepal-now{
+  padding-top:16px;
+  border-top:0;
+}
+body.home-page #home .fld,
+body.home-page #home .wxdb-home,
+body.home-page #home .dor,
+body.home-page #home .dash-elec{
+  padding:16px;
+}
+body.home-page #home .dor{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+body.home-page #home .dor > *,
+body.home-page #home .fld-title,
+body.home-page #home .fld-sub,
+body.home-page #home .fld-home-n,
+body.home-page #home .fld-home-r,
+body.home-page #home .fld-more,
+body.home-page #home .pr-kicker,
+body.home-page #home .pr-title,
+body.home-page #home .pr-asof,
+body.home-page #home .pr-sum,
+body.home-page #home .pr-pin,
+body.home-page #home .vv-kicker,
+body.home-page #home .vv-title,
+body.home-page #home .vv-asof,
+body.home-page #home .vv-sum,
+body.home-page #home .vv-pin,
+body.home-page #home .dor-links,
+body.home-page #home .dor-home-few,
+body.home-page #home .dor-dao-sum{
+  margin-left:0;
+  margin-right:0;
+}
+body.home-page #home .dor > *{margin-top:0;margin-bottom:0}
+body.home-page #home .nr-board + .pr-board,
+body.home-page #home .dor-has-vehicle .pr-board,
+body.home-page #home .vv-board{
+  border-top:0;
+  padding-top:0;
+}
+body.home-page #home .kpi-row{gap:16px}
+body.home-page #home .kpi-box,
+body.home-page #home .kpi-box[data-tone]{
+  background:#fff;
+  border:1px solid #e7e5e4;
+  border-left:1px solid #e7e5e4;
+  border-radius:16px;
+  box-shadow:none;
+  padding:16px;
+}
+body.home-page #home .kpi-row .kpi{
+  border:0;
+  box-shadow:none;
+  background:transparent;
+  padding:0;
+}
+body.home-page #home .kpi-row .kpi-ico,
+body.home-page #home .kpi-box[data-tone] .kpi-ico{
+  background:#f1f5f9;
+  color:#334155;
+}
+body.home-page #home .kpi-row .kpi strong,
+body.home-page #home .kpi-row .kpi .num,
+body.home-page #home .kpi-box[data-tone] .kpi strong{
+  color:#0f172a;
+  white-space:normal;
+  overflow:visible;
+  text-overflow:unset;
+}
+body.home-page #home .kpi-box[data-tone="dead"] .kpi-split,
+body.home-page #home .kpi-box[data-tone="injured"] .kpi-split,
+body.home-page #home .kpi-box[data-tone="miss"] .kpi-split,
+body.home-page #home .kpi-box[data-tone="police"] .kpi-split,
+body.home-page #home .kpi-box[data-tone="deploy"] .kpi-split,
+body.home-page #home .kpi-mini-chart{display:none}
+body.home-page #home .viz-donut,
+body.home-page #home .vchart{display:none}
+body.home-page #home .viz-pie-dead ~ .ibar-row{display:none}
+body.home-page #home .nig-subh ~ .ibar-row{display:grid}
+body.home-page #home .viz-pie-hold-inline ~ .ibar-row{display:none}
+body.home-page #home .rahat-viz-grid,
+body.home-page #home .cash-mix,
+body.home-page #home .cash-mix-note,
+body.home-page #home .rahat-link-cards,
+body.home-page #home .ems-panels,
+body.home-page #home .ems-home > .chart-h{display:none}
+body.home-page #home .ov-panel:not(:has(.ov-pane.on:not([data-panel="all"]))){display:none}
+body.home-page #home .home-ig-names .nig-cats > .nig-cat:nth-child(n+3){display:none}
+body.home-page #home .home-ig,
+body.home-page #home .home-ops-grid,
+body.home-page #home .hero-cash-kpis,
+body.home-page #home .ems-kpis8{
+  gap:16px;
+  align-items:stretch;
+}
+body.home-page #home .nig-card,
+body.home-page #home .home-ops-card,
+body.home-page #home .roads-snap,
+body.home-page #home .cash-snap{
+  padding:16px;
+}
+body.home-page #home .pr-card{
+  border:1px solid #e7e5e4;
+  border-radius:16px;
+  padding:16px;
+  box-shadow:none;
+}
+body.home-page #home .pr-sum-night,
+body.home-page #home .pr-sum-one,
+body.home-page #home .pr-sum-rest,
+body.home-page #home .pr-sum-dist,
+body.home-page #home .pr-sum-prov,
+body.home-page #home .vv-stat{
+  background:#f8fafc;
+  border-color:#e7e5e4;
+}
+body.home-page #home .pr-sum-night .pr-stat-n,
+body.home-page #home .pr-sum-one .pr-stat-n,
+body.home-page #home .pr-sum-rest .pr-stat-n,
+body.home-page #home .vv-stat-n{color:#0f172a}
+body.home-page #home .rahat-chip,
+body.home-page #home .roads-rt{
+  background:#f8fafc;
+  color:#334155;
+  border:1px solid #e7e5e4;
+  box-shadow:none;
+  font-weight:650;
+}
+body.home-page #home a.see-all,
+body.home-page #home .see-all,
+body.home-page #home .wxdb-more,
+body.home-page #home .fld-more,
+body.home-page #home .wxb-jump a,
+body.home-page #home .roads-cta,
+body.home-page #home .home-ig-cta,
+body.home-page #home .dash-elec-go,
+body.home-page #home .rahat-dash-cta{
+  display:inline;
+  margin:8px 0 0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:#c41e3a;
+  font-size:15px;
+  font-weight:700;
+  line-height:1.4;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  box-shadow:none;
+}
+body.home-page #home .wxdb-city{
+  border:1px solid #e7e5e4;
+  border-radius:16px;
+  padding:12px;
+  box-shadow:none;
+  background:#fff;
+}
+.wxb-now-host,
+.wxb-nepal-now,
+.wxb-nepal-now .wxdb-strip{min-width:0;max-width:100%}
+@media (min-width:701px){
+  .wxb-nepal-now .wxdb-strip{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(168px,1fr));
+    overflow:visible;
+    scroll-snap-type:none;
+    padding-bottom:0;
+  }
+  .wxb-nepal-now .wxdb-city{min-width:0;width:auto;flex:none}
+}
+@media (max-width:700px){
+  .wxb-nepal-now .wxdb-strip{
+    display:flex;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .wxb-nepal-now .wxdb-city{flex:0 0 auto;min-width:148px;width:auto;scroll-snap-align:start}
+}

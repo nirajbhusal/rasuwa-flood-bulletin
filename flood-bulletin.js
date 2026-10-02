@@ -734,7 +734,7 @@
     var a = document.createElement("a");
     a.className = "fld-more";
     a.href = "weather.html#flood-outlook";
-    a.textContent = lang() === "en" ? "River and flood outlook" : "नदी र बाढी पूर्वानुमान";
+    a.textContent = "सबै हेर्नुहोस् · See all";
     card.appendChild(a);
     root.appendChild(card);
   }

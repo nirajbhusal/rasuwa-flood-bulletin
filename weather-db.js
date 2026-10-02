@@ -511,7 +511,7 @@
       var more = document.createElement("a");
       more.className = "wxdb-more";
       more.href = "weather.html#wx-alert";
-      more.textContent = lang() === "en" ? "See all" : "सबै हेर्नुहोस्";
+      more.textContent = "सबै हेर्नुहोस् · See all";
       sec.appendChild(more);
     }
     return sec;
@@ -585,7 +585,7 @@
     var more = document.createElement("a");
     more.className = "wxdb-more";
     more.href = "weather.html";
-    more.textContent = lang() === "en" ? "Full weather" : "पूरा मौसम";
+    more.textContent = "सबै हेर्नुहोस् · See all";
     panel.appendChild(more);
     board.appendChild(panel);
     root.appendChild(board);

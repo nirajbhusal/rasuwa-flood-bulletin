@@ -310,6 +310,17 @@
       sum.appendChild(stat);
     });
     shell.appendChild(sum);
+    if (board.classList.contains("dor-home")) {
+      var few = [];
+      (n.provinces || []).forEach(function (prov) {
+        (prov.districts || []).forEach(function (d) {
+          if (few.length < 4) few.push(tx(d));
+        });
+      });
+      if (few.length) shell.appendChild(el("p", "dor-home-few", few.join(" · ")));
+      board.appendChild(shell);
+      return;
+    }
     var maxN = 1;
     (n.provinces || []).forEach(function (p) { maxN = Math.max(maxN, (p.districts || []).length); });
     var tiles = el("div", "dor-dao-tiles");
@@ -858,8 +869,9 @@
     var p = el("p", "dor-links");
     if (withSection) {
       var more = document.createElement("a");
+      more.className = "see-all";
       more.href = data.source.section;
-      more.textContent = tx(ui.more);
+      more.textContent = "सबै हेर्नुहोस् · See all";
       p.appendChild(more);
       p.appendChild(document.createTextNode(" · "));
     }
@@ -1239,6 +1251,16 @@
       sum.appendChild(li);
     });
     shell.appendChild(sum);
+    if (mode === "home") {
+      var rasHome = prRow("rasuwa-highways");
+      if (rasHome) {
+        var pinHome = el("div", "pr-pin");
+        pinHome.appendChild(prCard(rasHome, ""));
+        shell.appendChild(pinHome);
+      }
+      board.appendChild(shell);
+      return;
+    }
     var pinHost = el("div", "pr-pin");
     var ras = prRow("rasuwa-highways");
     if (ras) {
@@ -1630,6 +1652,19 @@
       sum.appendChild(li);
     });
     shell.appendChild(sum);
+    if (board.classList.contains("dor-home")) {
+      var rasHome = vvById("rasuwa");
+      if (rasHome) {
+        var pinHome = el("div", "vv-pin");
+        pinHome.appendChild(el("strong", "vv-pin-name", (lang() === "en" ? rasHome.en : rasHome.ne) + " · " + vvLevelName(rasHome.level)));
+        pinHome.appendChild(el("span", "vv-pin-mean", vvMeaning(rasHome.level)));
+        var noteHome = vvPoliceNote(rasHome);
+        if (noteHome) pinHome.appendChild(el("span", "vv-pin-note", noteHome));
+        shell.appendChild(pinHome);
+      }
+      board.appendChild(shell);
+      return;
+    }
     var ras = vvById("rasuwa");
     if (ras) {
       var pin = el("button", "vv-pin");
@@ -1992,6 +2027,17 @@
       sum.appendChild(li);
     });
     shell.appendChild(sum);
+    if (mode === "home") {
+      var shown = (neoc.rows || []).filter(function (r) { return r.prominent; }).slice(0, 3);
+      if (!shown.length) shown = (neoc.rows || []).slice(0, 3);
+      if (shown.length) {
+        var pinHome = el("div", "pr-pin");
+        shown.forEach(function (r) { pinHome.appendChild(nrCard(r)); });
+        shell.appendChild(pinHome);
+      }
+      board.appendChild(shell);
+      return;
+    }
     var prominent = (neoc.rows || []).filter(function (r) { return r.prominent; });
     var pinHost = el("div", "pr-pin");
     pinHost.id = "nr-rasuwa";
@@ -2069,12 +2115,14 @@
       var earlyLive = liveNote();
       if (earlyLive) board.appendChild(earlyLive);
     }
-    scheduleDorMap(board, mode);
-    if (police && police.rows) schedulePoliceMap(board, mode);
-    if (vvDoc() && board._vehicleSlot && vehicleGeo) {
-      var mapHost = el("div", "vv-map-host");
-      board._vehicleSlot.insertBefore(mapHost, board._vehicleSlot.firstChild);
-      mountVehicleMap(mapHost);
+    if (mode !== "home") {
+      scheduleDorMap(board, mode);
+      if (police && police.rows) schedulePoliceMap(board, mode);
+      if (vvDoc() && board._vehicleSlot && vehicleGeo) {
+        var mapHost = el("div", "vv-map-host");
+        board._vehicleSlot.insertBefore(mapHost, board._vehicleSlot.firstChild);
+        mountVehicleMap(mapHost);
+      }
     }
     if (mode === "home") {
       if (!n) board.appendChild(el("p", "dor-also", tx(ui.also)));

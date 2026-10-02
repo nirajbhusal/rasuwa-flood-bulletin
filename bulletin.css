@@ -11469,3 +11469,298 @@ html[lang="en"] .elec-src-ne{display:none}
   .ava-row{grid-template-columns:minmax(0,1fr)}
   .ava-thumb,.ava-thumb img{width:min(160px,100%)}
 }
+
+/* Homepage rhythm. One spacing scale, one card, one heading. */
+body.home-page #home .wrap{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+body.home-page #home .wrap > *{margin-top:0;margin-bottom:0}
+body.home-page #home .overview{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+body.home-page #home .overview > *{margin-top:0;margin-bottom:0}
+body.home-page #home .incident-block{display:none}
+body.home-page #home .home-cat-dot{display:none}
+body.home-page #home .home-cat-head,
+body.home-page #home .overview-head{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:4px;
+  margin:0;
+  padding:0 0 0 12px;
+  border-left:3px solid #e7e5e4;
+}
+body.home-page #home .home-cat-head h2,
+body.home-page #home .overview-head h2,
+body.home-page #home .fld-title,
+body.home-page #home .dor-title,
+body.home-page #home .pr-title,
+body.home-page #home .vv-title,
+body.home-page #home .wxb-nepal-now .wxdb-h{
+  margin:0;
+  font-size:22px;
+  font-weight:800;
+  line-height:1.3;
+  color:#0f172a;
+  text-align:left;
+}
+body.home-page #home .home-cat-head p,
+body.home-page #home .overview-head p,
+body.home-page #home .wxb-sub,
+body.home-page #home .wxb-issued-meta,
+body.home-page #home .fld-sub,
+body.home-page #home .dor-kicker,
+body.home-page #home .dor-asof,
+body.home-page #home .pr-kicker,
+body.home-page #home .pr-asof,
+body.home-page #home .vv-kicker,
+body.home-page #home .vv-asof,
+body.home-page #home .wxb-nepal-now .wxdb-kicker{
+  margin:0;
+  font-size:14px;
+  font-weight:600;
+  line-height:1.45;
+  color:#64748b;
+  text-align:left;
+}
+body.home-page #home .wxb-title{
+  margin:0 0 4px;
+  font-size:26px;
+  font-weight:800;
+  line-height:1.25;
+  color:#c41e3a;
+  text-align:left;
+}
+body.home-page #home .wxb,
+body.home-page #home .fld,
+body.home-page #home .wxdb-home,
+body.home-page #home .dor,
+body.home-page #home .nig-card,
+body.home-page #home .kpi-box,
+body.home-page #home .roads-snap,
+body.home-page #home .cash-snap,
+body.home-page #home .ems-home,
+body.home-page #home .pmdrf-banner,
+body.home-page #home .dash-elec{
+  background:#fff;
+  border:1px solid #e7e5e4;
+  border-radius:16px;
+  box-shadow:none;
+}
+body.home-page #home .wxb{overflow:visible}
+body.home-page #home .wxb-head{
+  background:transparent;
+  border:0;
+  padding:16px 16px 0;
+  justify-content:flex-start;
+}
+body.home-page #home .wxb-panel{
+  margin:0;
+  padding:12px 16px 16px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+body.home-page #home .wxb-mapwrap{
+  border:0;
+  border-radius:12px;
+  background:#f8fafc;
+}
+body.home-page #home .wxb-legend{
+  margin-top:12px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+}
+body.home-page #home .wxb-nepal-now{
+  padding-top:16px;
+  border-top:0;
+}
+body.home-page #home .fld,
+body.home-page #home .wxdb-home,
+body.home-page #home .dor,
+body.home-page #home .dash-elec{
+  padding:16px;
+}
+body.home-page #home .dor{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+body.home-page #home .dor > *,
+body.home-page #home .fld-title,
+body.home-page #home .fld-sub,
+body.home-page #home .fld-home-n,
+body.home-page #home .fld-home-r,
+body.home-page #home .fld-more,
+body.home-page #home .pr-kicker,
+body.home-page #home .pr-title,
+body.home-page #home .pr-asof,
+body.home-page #home .pr-sum,
+body.home-page #home .pr-pin,
+body.home-page #home .vv-kicker,
+body.home-page #home .vv-title,
+body.home-page #home .vv-asof,
+body.home-page #home .vv-sum,
+body.home-page #home .vv-pin,
+body.home-page #home .dor-links,
+body.home-page #home .dor-home-few,
+body.home-page #home .dor-dao-sum{
+  margin-left:0;
+  margin-right:0;
+}
+body.home-page #home .dor > *{margin-top:0;margin-bottom:0}
+body.home-page #home .nr-board + .pr-board,
+body.home-page #home .dor-has-vehicle .pr-board,
+body.home-page #home .vv-board{
+  border-top:0;
+  padding-top:0;
+}
+body.home-page #home .kpi-row{gap:16px}
+body.home-page #home .kpi-box,
+body.home-page #home .kpi-box[data-tone]{
+  background:#fff;
+  border:1px solid #e7e5e4;
+  border-left:1px solid #e7e5e4;
+  border-radius:16px;
+  box-shadow:none;
+  padding:16px;
+}
+body.home-page #home .kpi-row .kpi{
+  border:0;
+  box-shadow:none;
+  background:transparent;
+  padding:0;
+}
+body.home-page #home .kpi-row .kpi-ico,
+body.home-page #home .kpi-box[data-tone] .kpi-ico{
+  background:#f1f5f9;
+  color:#334155;
+}
+body.home-page #home .kpi-row .kpi strong,
+body.home-page #home .kpi-row .kpi .num,
+body.home-page #home .kpi-box[data-tone] .kpi strong{
+  color:#0f172a;
+  white-space:normal;
+  overflow:visible;
+  text-overflow:unset;
+}
+body.home-page #home .kpi-box[data-tone="dead"] .kpi-split,
+body.home-page #home .kpi-box[data-tone="injured"] .kpi-split,
+body.home-page #home .kpi-box[data-tone="miss"] .kpi-split,
+body.home-page #home .kpi-box[data-tone="police"] .kpi-split,
+body.home-page #home .kpi-box[data-tone="deploy"] .kpi-split,
+body.home-page #home .kpi-mini-chart{display:none}
+body.home-page #home .viz-donut,
+body.home-page #home .vchart{display:none}
+body.home-page #home .viz-pie-dead ~ .ibar-row{display:none}
+body.home-page #home .nig-subh ~ .ibar-row{display:grid}
+body.home-page #home .viz-pie-hold-inline ~ .ibar-row{display:none}
+body.home-page #home .rahat-viz-grid,
+body.home-page #home .cash-mix,
+body.home-page #home .cash-mix-note,
+body.home-page #home .rahat-link-cards,
+body.home-page #home .ems-panels,
+body.home-page #home .ems-home > .chart-h{display:none}
+body.home-page #home .ov-panel:not(:has(.ov-pane.on:not([data-panel="all"]))){display:none}
+body.home-page #home .home-ig-names .nig-cats > .nig-cat:nth-child(n+3){display:none}
+body.home-page #home .home-ig,
+body.home-page #home .home-ops-grid,
+body.home-page #home .hero-cash-kpis,
+body.home-page #home .ems-kpis8{
+  gap:16px;
+  align-items:stretch;
+}
+body.home-page #home .nig-card,
+body.home-page #home .home-ops-card,
+body.home-page #home .roads-snap,
+body.home-page #home .cash-snap{
+  padding:16px;
+}
+body.home-page #home .pr-card{
+  border:1px solid #e7e5e4;
+  border-radius:16px;
+  padding:16px;
+  box-shadow:none;
+}
+body.home-page #home .pr-sum-night,
+body.home-page #home .pr-sum-one,
+body.home-page #home .pr-sum-rest,
+body.home-page #home .pr-sum-dist,
+body.home-page #home .pr-sum-prov,
+body.home-page #home .vv-stat{
+  background:#f8fafc;
+  border-color:#e7e5e4;
+}
+body.home-page #home .pr-sum-night .pr-stat-n,
+body.home-page #home .pr-sum-one .pr-stat-n,
+body.home-page #home .pr-sum-rest .pr-stat-n,
+body.home-page #home .vv-stat-n{color:#0f172a}
+body.home-page #home .rahat-chip,
+body.home-page #home .roads-rt{
+  background:#f8fafc;
+  color:#334155;
+  border:1px solid #e7e5e4;
+  box-shadow:none;
+  font-weight:650;
+}
+body.home-page #home a.see-all,
+body.home-page #home .see-all,
+body.home-page #home .wxdb-more,
+body.home-page #home .fld-more,
+body.home-page #home .wxb-jump a,
+body.home-page #home .roads-cta,
+body.home-page #home .home-ig-cta,
+body.home-page #home .dash-elec-go,
+body.home-page #home .rahat-dash-cta{
+  display:inline;
+  margin:8px 0 0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:#c41e3a;
+  font-size:15px;
+  font-weight:700;
+  line-height:1.4;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  box-shadow:none;
+}
+body.home-page #home .wxdb-city{
+  border:1px solid #e7e5e4;
+  border-radius:16px;
+  padding:12px;
+  box-shadow:none;
+  background:#fff;
+}
+.wxb-now-host,
+.wxb-nepal-now,
+.wxb-nepal-now .wxdb-strip{min-width:0;max-width:100%}
+@media (min-width:701px){
+  .wxb-nepal-now .wxdb-strip{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(168px,1fr));
+    overflow:visible;
+    scroll-snap-type:none;
+    padding-bottom:0;
+  }
+  .wxb-nepal-now .wxdb-city{min-width:0;width:auto;flex:none}
+}
+@media (max-width:700px){
+  .wxb-nepal-now .wxdb-strip{
+    display:flex;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .wxb-nepal-now .wxdb-city{flex:0 0 auto;min-width:148px;width:auto;scroll-snap-align:start}
+}
