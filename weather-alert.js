@@ -1863,7 +1863,7 @@
 
     if (mode === "home") {
       board.appendChild(buildHomeExtras());
-      board.appendChild(sectionLink("wxb-jump", "पूर्ण विवरण", "Full details", "weather.html#warnings"));
+      board.appendChild(sectionLink("wxb-jump", "सबै हेर्नुहोस् · See all", "सबै हेर्नुहोस् · See all", "weather.html#warnings"));
     } else {
       var matrixHost = el("section", "wxb-panel wxb-matrix-host");
       matrixHost.appendChild(el("h3", "wxb-h", lang() === "en" ? "Highest district colour" : "जिल्लाको उच्चतम रङ"));
