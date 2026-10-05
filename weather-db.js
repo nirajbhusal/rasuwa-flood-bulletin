@@ -8,6 +8,7 @@
   var provinces = null;
   var alertDoc = null;
   var ndrrmaDoc = null;
+  var sitrepDoc = null;
   var selectedDay = "";
   var popEl = null;
 
@@ -367,7 +368,15 @@
   }
   function topRainSource() {
     var src = el("p", "wx-toprain-src");
-    src.textContent = "DHM / hydrology.gov.np gauges";
+    var text = "DHM / hydrology.gov.np gauges";
+    var rain = sitrepDoc && sitrepDoc.rainfall_24h;
+    var row = heavyRainRows(1)[0];
+    var sitrepStation = rain && rain.max_station && (rain.max_station.en || "");
+    var rowStation = row && row.station && (row.station.en || "");
+    if (rain && row && Number(row.rain24) === Number(rain.max_mm) && sitrepStation && rowStation && sitrepStation.toLowerCase().indexOf(rowStation.toLowerCase()) >= 0) {
+      text += " · NDRRMA SitRep #" + (lang() === "en" ? sitrepDoc.number : dev(sitrepDoc.number));
+    }
+    src.textContent = text;
     return src;
   }
   function buildTopRainList(rows) {
@@ -1557,6 +1566,7 @@
         geo = json.geo || geo;
         provinces = json.provinces || provinces;
       }).catch(function () {}));
+      jobs.push(get("data/ndrrma_sitrep_2283.json").then(function (json) { sitrepDoc = json; }).catch(function () {}));
     }
     if (wantsFull) {
       jobs.push(get("data/weather/current.json").then(function (json) { full = json; }).catch(function () {}));

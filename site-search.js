@@ -52,6 +52,12 @@
       ["electricity.html", en() ? "Electricity" : "बिजुली"]
     ].forEach(function (pair) { add({ label: pair[1], href: pair[0], kind: "page" }); });
     add({
+      label: en() ? "Today's disaster situation · SitRep #2283" : "आजको विपद् स्थिति · SitRep #2283",
+      href: "index.html#sitrep-home",
+      kind: "section",
+      extra: "sitrep 2283 ndrrma आजको विपद् daily bulletin"
+    });
+    add({
       label: en() ? "Avalanche" : "हिमपहिरो",
       href: "notices.html#avalanche",
       kind: "section",
