@@ -15,11 +15,17 @@ const css = readFileSync(new URL("../bulletin.css", import.meta.url), "utf8");
 const min = readFileSync(new URL("../bulletin.min.css", import.meta.url), "utf8");
 const search = readFileSync(new URL("../site-search.js", import.meta.url), "utf8");
 
-test("flood casualty board stays on SitRep #16 figures", function () {
+test("flood casualty board is NDRRMA publication 455, not daily SitRep #2283", function () {
   const dead = dash.cards.find(function (card) { return card.id === "dead"; });
+  const miss = dash.cards.find(function (card) { return card.id === "miss"; });
   const rescued = dash.cards.find(function (card) { return card.id === "rescued"; });
-  assert.equal(dead.value, 1451);
-  assert.equal(rescued.value, 13784);
+  const injured = dash.cards.find(function (card) { return card.id === "injured"; });
+  const deploy = dash.cards.find(function (card) { return card.id === "deploy"; });
+  assert.equal(dead.value, 1455);
+  assert.equal(miss.value, 5285);
+  assert.equal(rescued.value, 13795);
+  assert.equal(injured.value, 3);
+  assert.equal(deploy.value, 20477);
   assert.equal(sitrep.number, 2283);
   assert.equal(sitrep.last_24h.incidents, 24);
   assert.equal(sitrep.last_24h.deaths, 0);
@@ -60,7 +66,10 @@ test("notices history leads with SitRep #2283 and English stays aligned", functi
   const histEnd = i18n.indexOf('\n],\n"alert"', histAt);
   const hist = i18n.slice(histAt, histEnd);
   assert.ok(hist.startsWith('"hist": ['));
-  assert.ok(hist.indexOf("SitRep #2283") < hist.indexOf("Asoj 16 evening"));
+  assert.ok(hist.indexOf("SitRep #2283") < hist.indexOf("publication 455"));
+  assert.ok(hist.indexOf("publication 455") < hist.indexOf("Asoj 16 evening"));
+  assert.ok(block.indexOf('id="flood-update-455"') < block.indexOf("असोज १६"));
+  assert.match(notices, /SitRep #16 · शव १,४५१/);
   assert.equal(/\bwarning\b/i.test(hist.slice(0, hist.indexOf("Asoj 16 evening"))), false);
 });
 

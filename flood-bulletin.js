@@ -665,14 +665,42 @@
   }
   window.NdrrmFlood = { newest: newestAlert, renderCard: renderCard };
 
-  function sourceLine() {
-    var p = el("p", "fld-src");
+  function extLink(href, label) {
     var a = document.createElement("a");
-    a.href = data.source.url;
+    a.href = href;
     a.target = "_blank";
     a.rel = "noopener";
-    a.textContent = tx(data.source.label);
-    p.appendChild(a);
+    a.textContent = label;
+    return a;
+  }
+  function sheetLinks() {
+    var sheets = (data.source && data.source.sheets) || [];
+    if (!sheets.length) return null;
+    var box = el("div", "fld-sheets");
+    sheets.forEach(function (href, i) {
+      var n = i + 1;
+      var a = extLink(href, "");
+      a.textContent = "";
+      var img = document.createElement("img");
+      img.src = href;
+      img.loading = "lazy";
+      img.alt = lang() === "en"
+        ? "Flood forecast bulletin, sheet " + n
+        : "बाढी पूर्वानुमान बुलेटिन, पाना " + digits(n);
+      a.appendChild(img);
+      box.appendChild(a);
+    });
+    return box;
+  }
+  function sourceLine() {
+    var p = el("p", "fld-src");
+    var src = data.source || {};
+    if (src.url) p.appendChild(extLink(src.url, tx(src.label)));
+    var x = src.x_url;
+    if (x) {
+      if (p.childNodes.length) p.appendChild(document.createTextNode(" · "));
+      p.appendChild(extLink(x, lang() === "en" ? "FloodEWS post" : "FloodEWS पोस्ट"));
+    }
     return p;
   }
 
@@ -694,6 +722,8 @@
     board.appendChild(buildMapPanel());
     board.appendChild(buildCorridor());
     board.appendChild(buildAdvisory());
+    var sheets = sheetLinks();
+    if (sheets) board.appendChild(sheets);
     board.appendChild(sourceLine());
     root.appendChild(board);
   }
@@ -826,6 +856,9 @@
       blink.textContent = bulletin.title || (lang() === "en" ? "DHM bulletin" : "DHM बुलेटिन");
       card.appendChild(blink);
     }
+    var homeSheets = sheetLinks();
+    if (homeSheets) card.appendChild(homeSheets);
+    card.appendChild(sourceLine());
     var a = document.createElement("a");
     a.className = "fld-more";
     a.href = "weather.html#flood-outlook";

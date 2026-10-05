@@ -1,10 +1,10 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-20T19:00:00+05:45",
+  "updated_at": "2026-10-05T16:25:00+05:45",
   "as_of": {
-    "ne": "२० सेप्टेम्बर / ४ असोज २०८३ · १९:००",
-    "en": "20 September 2026 · 19:00 NPT"
+    "ne": "३ अक्टोबर / १७ असोज २०८३",
+    "en": "3 October 2026 · Asoj 17, 2083"
   },
   "credit": {
     "ne": "निरज भुसाल",
@@ -18,10 +18,10 @@
         "ne": "मृतक संख्या",
         "en": "Deaths count"
       },
-      "value": 1451,
+      "value": 1455,
       "value_display": {
-        "ne": "१,४५१",
-        "en": "1,451"
+        "ne": "१,४५५",
+        "en": "1,455"
       },
       "items": [
         {
@@ -30,10 +30,22 @@
             "ne": "चितवन",
             "en": "Chitwan"
           },
-          "value": 367,
+          "value": 369,
           "value_display": {
-            "ne": "३६७",
-            "en": "367"
+            "ne": "३६९",
+            "en": "369"
+          }
+        },
+        {
+          "id": "rasuwa",
+          "label": {
+            "ne": "रसुवा",
+            "en": "Rasuwa"
+          },
+          "value": 236,
+          "value_display": {
+            "ne": "२३६",
+            "en": "236"
           }
         },
         {
@@ -66,34 +78,10 @@
             "ne": "नुवाकोट",
             "en": "Nuwakot"
           },
-          "value": 236,
+          "value": 204,
           "value_display": {
-            "ne": "२३६",
-            "en": "236"
-          }
-        },
-        {
-          "id": "rasuwa",
-          "label": {
-            "ne": "रसुवा",
-            "en": "Rasuwa"
-          },
-          "value": 203,
-          "value_display": {
-            "ne": "२०३",
-            "en": "203"
-          }
-        },
-        {
-          "id": "handover",
-          "label": {
-            "ne": "हस्तान्तरण (लेबल)",
-            "en": "Handover (labeled)"
-          },
-          "value": 110,
-          "value_display": {
-            "ne": "११०",
-            "en": "110"
+            "ne": "२०४",
+            "en": "204"
           }
         },
         {
@@ -114,22 +102,46 @@
             "ne": "धादिङ",
             "en": "Dhading"
           },
-          "value": 72,
+          "value": 73,
           "value_display": {
-            "ne": "७२",
-            "en": "72"
+            "ne": "७३",
+            "en": "73"
+          }
+        },
+        {
+          "id": "tanahu",
+          "label": {
+            "ne": "तनहुँ",
+            "en": "Tanahun"
+          },
+          "value": 38,
+          "value_display": {
+            "ne": "३८",
+            "en": "38"
+          }
+        },
+        {
+          "id": "ktm_treatment",
+          "label": {
+            "ne": "उपचारको क्रममा काठमाडौँ",
+            "en": "Kathmandu (during treatment)"
+          },
+          "value": 2,
+          "value_display": {
+            "ne": "२",
+            "en": "2"
           }
         },
         {
           "id": "demo",
           "label": {
-            "ne": "महिला / पुरुष / अवशेष",
-            "en": "Female / male / remains"
+            "ne": "महिला / पुरुष / आंशिक अंग",
+            "en": "Female / male / partial remains"
           },
           "value": null,
           "value_display": {
-            "ne": "३३६ · ५८५ · ५३०",
-            "en": "336 · 585 · 530"
+            "ne": "३३६ · ५८५ · ५३३",
+            "en": "336 · 585 · 533"
           }
         },
         {
@@ -140,8 +152,20 @@
           },
           "value": null,
           "value_display": {
-            "ne": "१,२८६ · १,९९७",
-            "en": "1,286 · 1,997"
+            "ne": "१,३३० · २,०६६",
+            "en": "1,330 · 2,066"
+          }
+        },
+        {
+          "id": "identified_subtracted",
+          "label": {
+            "ne": "सनाखत शव (बेपत्ताबाट कट्टी)",
+            "en": "Identified bodies (subtracted from missing)"
+          },
+          "value": 112,
+          "value_display": {
+            "ne": "११२",
+            "en": "112"
           }
         }
       ]
@@ -152,10 +176,10 @@
         "ne": "हाल उपचाररत",
         "en": "Currently in treatment"
       },
-      "value": 15,
+      "value": 3,
       "value_display": {
-        "ne": "१५",
-        "en": "15"
+        "ne": "३",
+        "en": "3"
       },
       "items": [
         {
@@ -164,34 +188,58 @@
             "ne": "सुरक्षा निकाय उपचार",
             "en": "Security-agency treatment"
           },
-          "value": 10163,
+          "value": 11105,
           "value_display": {
-            "ne": "१०,१६३",
-            "en": "10,163"
+            "ne": "११,१०५",
+            "en": "11,105"
           }
         },
         {
           "id": "ndrrma_hosp",
           "label": {
-            "ne": "अस्पताल उपचार (५)",
-            "en": "Hospital treated (5)"
+            "ne": "हाल उपचाररत (अस्पताल)",
+            "en": "Currently in treatment (hospital)"
           },
-          "value": 15,
+          "value": 3,
           "value_display": {
-            "ne": "१५",
-            "en": "15"
+            "ne": "३",
+            "en": "3"
+          }
+        },
+        {
+          "id": "treated_total",
+          "label": {
+            "ne": "अस्पताल उपचार जम्मा (१९)",
+            "en": "Hospital treated total (19)"
+          },
+          "value": 344,
+          "value_display": {
+            "ne": "३४४",
+            "en": "344"
           }
         },
         {
           "id": "discharged",
           "label": {
-            "ne": "डिस्चार्ज (इतिहास)",
-            "en": "Discharged (history)"
+            "ne": "डिस्चार्ज",
+            "en": "Discharged"
           },
-          "value": 290,
+          "value": 305,
           "value_display": {
-            "ne": "२९०",
-            "en": "290"
+            "ne": "३०५",
+            "en": "305"
+          }
+        },
+        {
+          "id": "died_in_treatment",
+          "label": {
+            "ne": "उपचारका क्रममा मृत्यु",
+            "en": "Died during treatment"
+          },
+          "value": 4,
+          "value_display": {
+            "ne": "४",
+            "en": "4"
           }
         },
         {
@@ -200,16 +248,16 @@
             "ne": "अस्पताल संख्या",
             "en": "Hospital count"
           },
-          "value": 5,
+          "value": 19,
           "value_display": {
-            "ne": "५",
-            "en": "5"
+            "ne": "१९",
+            "en": "19"
           }
         }
       ],
       "history_note": {
-        "ne": "अघिल्लो उपचाररत १८ (६ अस्पताल) / सुरक्षा निकाय १०,०४१ (३ असोज SitRep #15) · उपचार ३४४ / डिस्चार्ज २९० / सुरक्षा निकाय ९,८२० (SitRep #14) इतिहास — यस बोर्डमा हाल उपचाररत १५ (५ अस्पताल)।",
-        "en": "Previous in treatment 18 (6 hospitals) / security-agency 10,041 (3 Ashwin SitRep #15) · treated 344 / discharged 290 / security-agency 9,820 (SitRep #14) is history — this board prints currently in treatment 15 (5 hospitals)."
+        "ne": "अघिल्लो हाल उपचाररत १५ (५ अस्पताल) / सुरक्षा निकाय १०,१६३ (४ असोज SitRep #16) इतिहास — यस बोर्डमा हाल उपचाररत ३ · अस्पताल उपचार ३४४ / डिस्चार्ज ३०५ / उपचारक्रम मृत्यु ४ / सुरक्षा निकाय ११,१०५ (१७ असोज बाढी अपडेट)।",
+        "en": "Previous currently in treatment 15 (5 hospitals) / security-agency 10,163 (4 Ashwin SitRep #16) is history — this board prints currently in treatment 3 · hospital treated 344 / discharged 305 / died in treatment 4 / security-agency 11,105 (Asoj 17 flood update)."
       }
     },
     {
@@ -218,10 +266,10 @@
         "ne": "सम्पर्कविहीन करिब",
         "en": "Missing around"
       },
-      "value": 5786,
+      "value": 5285,
       "value_display": {
-        "ne": "५,७८६",
-        "en": "5,786"
+        "ne": "५,२८५",
+        "en": "5,285"
       },
       "items": [
         {
@@ -242,10 +290,10 @@
             "ne": "रसुवा · स्थानीय",
             "en": "Rasuwa · locals"
           },
-          "value": 1677,
+          "value": 1674,
           "value_display": {
-            "ne": "१,६७७",
-            "en": "1,677"
+            "ne": "१,६७४",
+            "en": "1,674"
           }
         },
         {
@@ -254,10 +302,10 @@
             "ne": "रसुवा · अन्य जिल्ला",
             "en": "Rasuwa · other districts"
           },
-          "value": 1836,
+          "value": 1840,
           "value_display": {
-            "ne": "१,८३६",
-            "en": "1,836"
+            "ne": "१,८४०",
+            "en": "1,840"
           }
         },
         {
@@ -278,10 +326,10 @@
             "ne": "नुवाकोट · अन्य जिल्ला",
             "en": "Nuwakot · other districts"
           },
-          "value": 1090,
+          "value": 590,
           "value_display": {
-            "ne": "१,०९०",
-            "en": "1,090"
+            "ne": "५९०",
+            "en": "590"
           }
         },
         {
@@ -290,10 +338,10 @@
             "ne": "होल्डिङ (३ जिल्ला लेबल योग)",
             "en": "Holding (3-district labeled sum)"
           },
-          "value": 1231,
+          "value": 1085,
           "value_display": {
-            "ne": "१,२३१",
-            "en": "1,231"
+            "ne": "१,०८५",
+            "en": "1,085"
           }
         },
         {
@@ -302,10 +350,10 @@
             "ne": "होल्ड · नुवाकोट",
             "en": "Hold · Nuwakot"
           },
-          "value": 324,
+          "value": 121,
           "value_display": {
-            "ne": "३२४",
-            "en": "324"
+            "ne": "१२१",
+            "en": "121"
           }
         },
         {
@@ -314,10 +362,10 @@
             "ne": "होल्ड · रसुवा",
             "en": "Hold · Rasuwa"
           },
-          "value": 786,
+          "value": 843,
           "value_display": {
-            "ne": "७८६",
-            "en": "786"
+            "ne": "८४३",
+            "en": "843"
           }
         },
         {
@@ -338,25 +386,29 @@
             "ne": "होल्डिङ सेन्टर",
             "en": "Holding centers"
           },
-          "value": 20,
+          "value": 17,
           "value_display": {
-            "ne": "२०",
-            "en": "20"
+            "ne": "१७",
+            "en": "17"
           }
         },
         {
-          "id": "handover_deduct",
+          "id": "holding_centers_split",
           "label": {
-            "ne": "पहिचान कट्टी (लेबल)",
-            "en": "Identified deduct (label)"
+            "ne": "सेन्टर · नुवाकोट/रसुवा/धादिङ",
+            "en": "Centers · Nuwakot/Rasuwa/Dhading"
           },
-          "value": 110,
+          "value": null,
           "value_display": {
-            "ne": "११०",
-            "en": "110"
+            "ne": "४ · ९ · ४",
+            "en": "4 · 9 · 4"
           }
         }
-      ]
+      ],
+      "history_note": {
+        "ne": "कुल बेपत्ता ५,२८५ (* हालसम्म सनाखत भएका शव ११२ घटाएको)। विभाजन जोडेर जम्मा नगर्ने। अघिल्लो करिब ५,७८६ (४ असोज SitRep #16) इतिहास।",
+        "en": "Total missing 5,285 (* 112 identified bodies subtracted so far). Do not sum the breakdowns. Previous about 5,786 (4 Ashwin SitRep #16) is history."
+      }
     },
     {
       "id": "rescued",
@@ -364,65 +416,53 @@
         "ne": "हालसम्म उद्धार गरिएको संख्या",
         "en": "Rescued so far"
       },
-      "value": 13784,
+      "value": 13795,
       "value_display": {
-        "ne": "१३,७८४",
-        "en": "13,784"
+        "ne": "१३,७९५",
+        "en": "13,795"
       },
       "items": [
         {
-          "id": "heli_flights",
+          "id": "flights_total",
           "label": {
-            "ne": "सेना हेलि उडान · आज",
-            "en": "Army heli flights · today"
+            "ne": "कुल हवाई उडान",
+            "en": "Total air sorties"
           },
-          "value": 33,
+          "value": 4820,
           "value_display": {
-            "ne": "३३",
-            "en": "33"
+            "ne": "४,८२०",
+            "en": "4,820"
           }
         },
         {
-          "id": "apf_flights",
+          "id": "army_sorties",
           "label": {
-            "ne": "सशस्त्र उडान (इतिहास)",
-            "en": "APF flights (history)"
+            "ne": "नेपाली सेना सर्टिज",
+            "en": "Nepal Army sorties"
           },
-          "value": 320,
+          "value": 2026,
           "value_display": {
-            "ne": "३२०",
-            "en": "320"
+            "ne": "२,०२६",
+            "en": "2,026"
           }
         },
         {
-          "id": "private_ktm",
+          "id": "private_sorties",
           "label": {
-            "ne": "निजी काठमाडौं",
-            "en": "Private Kathmandu"
+            "ne": "निजी सर्टिज",
+            "en": "Private sorties"
           },
-          "value": 129,
+          "value": 2794,
           "value_display": {
-            "ne": "१२९",
-            "en": "129"
-          }
-        },
-        {
-          "id": "heli",
-          "label": {
-            "ne": "हेलिकप्टर",
-            "en": "Helicopters"
-          },
-          "value": 14,
-          "value_display": {
-            "ne": "१४",
-            "en": "14"
+            "ne": "२,७९४",
+            "en": "2,794"
           }
         },
         {
           "id": "tunnel_separate",
           "label": {
-            "ne": "सुरुङ्ग अलग",
-            "en": "Tunnel separate"
+            "ne": "सुरुङ्ग अलग (अघिल्लो लेबल)",
+            "en": "Tunnel separate (prior label)"
           },
           "value": 279,
           "value_display": {
@@ -432,8 +472,8 @@
         }
       ],
       "history_note": {
-        "ne": "यस बोर्डमा सेना हेलि उडान आज ३३ मात्र (संचयी जम्मा छैन)। अघिल्लो सेना १,६९२ (४१ त्यो दिन) · सशस्त्र ३२० (जम्मा २,०१२) SitRep #15 इतिहास।",
-        "en": "This board prints Army heli flights today 33 only (no cumulative). Previous Army 1,692 (41 that day) · APF 320 (total 2,012) is SitRep #15 history."
+        "ne": "यस बोर्डमा कुल उद्धार १३,७९५ · कुल हवाई उडान ४,८२० (सेना २,०२६ · निजी २,७९४)। अघिल्लो उद्धार १३,७८४ / सेना हेलि आज ३३ (४ असोज SitRep #16) इतिहास। सुरुङ्ग २७९ अघिल्लो लेबल यथावत्।",
+        "en": "This board prints rescued 13,795 · total air sorties 4,820 (Army 2,026 · private 2,794). Previous rescued 13,784 / Army heli today 33 (4 Ashwin SitRep #16) is history. Tunnel 279 prior label unchanged."
       }
     },
     {
@@ -622,8 +662,8 @@
         "en": "24 Bhadra 11:00 / 9 September 2026 11:00"
       },
       "history_note": {
-        "ne": "अघिल्लो २३ भदौ २०:००: शव प्रहरी १,३७२ · सम्पर्कविहीन ४,०७९ · DNA २,७११ · शव व्यवस्थापन १,१५३ · udb १,३१२ · जनचेतना १६८/४३,९४३ इतिहास।",
-        "en": "Previous 23 Bhadra 20:00: police dead 1,372 · missing 4,079 · DNA 2,711 · body mgmt 1,153 · udb 1,312 · awareness 168/43,943 is history."
+        "ne": "नेपाल प्रहरी समेकित पाना अझै असोज १७ ०६:४५ / बाढी अपडेट बोर्डमा प्रहरी अलग अंक छैन — यस कार्डका अंक यथावत् (२४ भदौ ११:००)।",
+        "en": "No newer Nepal Police consolidated sheet and no separate police figures on the flood-update board — this card unchanged (24 Bhadra 11:00)."
       }
     },
     {
@@ -686,7 +726,11 @@
             "en": "Rasuwagadhi · Chilime · Langtang"
           }
         }
-      ]
+      ],
+      "history_note": {
+        "ne": "सुरुङ्ग उद्धार लेबल यस बाढी अपडेट बोर्डमा छैन — अघिल्लो २७९ यथावत्।",
+        "en": "Tunnel rescue is not on this flood-update board — prior 279 kept."
+      }
     },
     {
       "id": "deploy",
@@ -694,10 +738,10 @@
         "ne": "खटिएको जनशक्ति",
         "en": "Deployed personnel"
       },
-      "value": 20929,
+      "value": 20477,
       "value_display": {
-        "ne": "२०,९२९",
-        "en": "20,929"
+        "ne": "२०,४७७",
+        "en": "20,477"
       },
       "items": [
         {
@@ -706,88 +750,16 @@
             "ne": "जम्मा",
             "en": "Total"
           },
-          "value": 20929,
+          "value": 20477,
           "value_display": {
-            "ne": "२०,९२९",
-            "en": "20,929"
-          }
-        },
-        {
-          "id": "army",
-          "label": {
-            "ne": "सेना",
-            "en": "Army"
-          },
-          "value": 8844,
-          "value_display": {
-            "ne": "८,८४४",
-            "en": "8,844"
-          }
-        },
-        {
-          "id": "apf",
-          "label": {
-            "ne": "सशस्त्र",
-            "en": "Armed Police"
-          },
-          "value": 4203,
-          "value_display": {
-            "ne": "४,२०३",
-            "en": "4,203"
-          }
-        },
-        {
-          "id": "police",
-          "label": {
-            "ne": "प्रहरी",
-            "en": "Police"
-          },
-          "value": 7975,
-          "value_display": {
-            "ne": "७,९७५",
-            "en": "7,975"
-          }
-        },
-        {
-          "id": "medical",
-          "label": {
-            "ne": "मेडिकल",
-            "en": "Medical"
-          },
-          "value": null,
-          "value_display": {
-            "ne": "२००+",
-            "en": "200+"
-          }
-        },
-        {
-          "id": "surgical",
-          "label": {
-            "ne": "सर्जिकल टोली",
-            "en": "Surgical teams"
-          },
-          "value": 6,
-          "value_display": {
-            "ne": "६",
-            "en": "6"
-          }
-        },
-        {
-          "id": "heli",
-          "label": {
-            "ne": "हेलि",
-            "en": "Heli"
-          },
-          "value": 14,
-          "value_display": {
-            "ne": "१४",
-            "en": "14"
+            "ne": "२०,४७७",
+            "en": "20,477"
           }
         }
       ],
       "history_note": {
-        "ne": "यस बोर्डमा सुरक्षा परिचालन २०,९२९ मात्र (निकाय विभाजन छैन)। अघिल्लो २०,९३५ (३ असोज SitRep #15) · २१,०२२ = सेना ८,८४४ · प्रहरी ७,९७५ · सशस्त्र ४,२०३ (२६ भदौ) इतिहास।",
-        "en": "This board prints security forces 20,929 only (no agency split). Previous 20,935 (3 Ashwin SitRep #15) · 21,022 = Army 8,844 · Police 7,975 · APF 4,203 (26 Bhadra) is history."
+        "ne": "यस बोर्डमा सुरक्षाकर्मी परिचालन २०,४७७ मात्र (निकाय विभाजन छैन)। अघिल्लो २०,९२९ = सेना ८,८४४ · प्रहरी ७,९७५ · सशस्त्र ४,२०३ (४ असोज SitRep #16) इतिहास।",
+        "en": "This board prints security personnel 20,477 only (no agency split). Previous 20,929 = Army 8,844 · Police 7,975 · APF 4,203 (4 Ashwin SitRep #16) is history."
       }
     },
     {
@@ -862,7 +834,11 @@
             "en": "99.8%"
           }
         }
-      ]
+      ],
+      "history_note": {
+        "ne": "सञ्चार/विद्युत % यस बाढी अपडेट बोर्डमा छैन — अघिल्लो अंक यथावत्। NDRRMA प्रतिवेदनमा रसुवा/नुवाकोट जलविद्युत क्षति उल्लेख छ तर NEA स्रोत होइन।",
+        "en": "Comms/power % not on this flood-update board — prior figures kept. NDRRMA report mentions Rasuwa/Nuwakot hydropower damage but that is not an NEA source."
+      }
     }
   ],
   "watermark": {
