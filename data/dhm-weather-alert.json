@@ -1,34 +1,34 @@
 {
-  "id": "2026-10-02-dhm-12331",
+  "id": "2026-10-05-dhm-12337",
   "source": "DHM Meteorological Forecasting Division",
-  "live_lead": 12331,
+  "live_lead": 12337,
   "status": "live",
   "superseded_by": "data/weather-alert.json",
   "warning": {
-    "page_id": 12331,
-    "title_ne": "आगामी तीन दिनका लागि मौसम चेतावनी (जारी मिति: २०८३-०६-१६ गते साँझ ६:०० बजे)",
+    "page_id": 12337,
+    "title_ne": "आगामी तीन दिनका लागि मौसम चेतावनी (जारी मिति: २०८३-०६-१९ गते बिहान ८:०० बजे)",
     "title_en": "Weather alert for the next three days",
-    "issued_at": "2026-10-02T18:00:00+05:45",
-    "issue_date_utc": "2026-10-02T12:15:00.000Z",
+    "issued_at": "2026-10-05T08:00:00+05:45",
+    "issue_date_utc": "2026-10-05T02:15:00.000Z",
     "content": "",
-    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12331",
-    "api": "https://dhm.gov.np/mfd/api/page/12331",
+    "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12337",
+    "api": "https://dhm.gov.np/mfd/api/page/12337",
     "all_districts_green": true,
     "maps": [
       {
         "day": 1,
-        "label": "१६ असोज / 2 Oct",
-        "file": "img/dhm/warning-12331-day1.png"
+        "label": "१९ असोज / 5 Oct",
+        "file": "img/dhm/warning-12337-day1.png"
       },
       {
         "day": 2,
-        "label": "१७ असोज / 3 Oct",
-        "file": "img/dhm/warning-12331-day2.png"
+        "label": "२० असोज / 6 Oct",
+        "file": "img/dhm/warning-12337-day2.png"
       },
       {
         "day": 3,
-        "label": "१८ असोज / 4 Oct",
-        "file": "img/dhm/warning-12331-day3.png"
+        "label": "२१ असोज / 7 Oct",
+        "file": "img/dhm/warning-12337-day3.png"
       }
     ]
   },
@@ -54,6 +54,8 @@
       "light": "≤10",
       "medium": "10–50",
       "heavy": "50–100"
-    }
+    },
+    "expired": true,
+    "window_end": "2026-10-03T09:00:00+05:45"
   }
 }

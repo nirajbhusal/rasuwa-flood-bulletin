@@ -1,0 +1,324 @@
+{
+  "id": "nepal-police-highways-2083-06-17-0645",
+  "issuer": {
+    "ne": "नेपाल प्रहरी प्रधान कार्यालय",
+    "en": "Nepal Police Headquarters"
+  },
+  "as_of": {
+    "bs": "२०८३/०६/१७",
+    "time": "०६:४५",
+    "iso": "2026-10-03T06:45:00+05:45",
+    "ne": "२०८३ असोज १७, बिहान ६:४५ बजेसम्म",
+    "en": "Asoj 17, 2083, 6:45 AM"
+  },
+  "posted": {
+    "iso": "2026-10-03T07:01:00+05:45",
+    "ne": "३ अक्टोबर २०२६, ०७:०१",
+    "en": "3 Oct 2026, 07:01 NPT"
+  },
+  "source": {
+    "name": {
+      "ne": "नेपाल प्रहरी",
+      "en": "Nepal Police"
+    },
+    "url": "https://x.com/NepalPoliceHQ/status/2106191584438186356",
+    "image": "https://pbs.twimg.com/media/HTqyC0lbUAA5HUg.jpg?name=orig"
+  },
+  "title": {
+    "ne": "विपदको कारण मुख्य राजमार्ग अवरोध",
+    "en": "Main highway obstructions due to disaster"
+  },
+  "groups": [
+    {
+      "id": "bagmati",
+      "ne": "बागमती",
+      "en": "Bagmati"
+    },
+    {
+      "id": "gandaki",
+      "ne": "गण्डकी",
+      "en": "Gandaki"
+    },
+    {
+      "id": "karnali",
+      "ne": "कर्णाली",
+      "en": "Karnali"
+    }
+  ],
+  "counts": {
+    "total": 6,
+    "full_block": 4,
+    "night_ban": 0,
+    "one_way": 1,
+    "restricted": 1,
+    "districts": 5,
+    "provinces": 3
+  },
+  "notes": [
+    "Newest consolidated Nepal Police HQ highway sheet found on X as of 5 Oct 2026 16:00 NPT. Prithvi Highway not listed."
+  ],
+  "rows": [
+    {
+      "id": "rasuwa-all-main",
+      "sn": "१",
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "rasuwa",
+        "ne": "रसुवा",
+        "en": "Rasuwa"
+      },
+      "cause_ne": "बाढी",
+      "cause_en": "Flood",
+      "cause_kind": "flood",
+      "closed_date": "२०८३/०५/१०",
+      "closed_time": "१०:३०",
+      "closed_iso": "2026-08-26T10:30:00+05:45",
+      "location_ne": "मुख्य राजमार्ग सबै",
+      "location_en": "All main highways",
+      "highway_ne": "मुख्य राजमार्ग सबै",
+      "highway_en": "All main highways",
+      "status_ne": "पूर्ण रुपमा अवरोध, अर्को सूचना नभएसम्मको लागि",
+      "status_en": "Fully blocked until further notice",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "rasuwa",
+        "रसुवा",
+        "pasang",
+        "पासाङ",
+        "syaphrubesi",
+        "स्याफ्रुबेसी",
+        "rasuwagadhi",
+        "रसुवागढी"
+      ],
+      "prominent": true
+    },
+    {
+      "id": "manang-besisahar-khangsar",
+      "sn": "२",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "manang",
+        "ne": "मनाङ",
+        "en": "Manang"
+      },
+      "cause_ne": "बाढी",
+      "cause_en": "Flood",
+      "cause_kind": "flood",
+      "closed_date": "२०८३/०६/०८",
+      "closed_time": "१६:००",
+      "closed_iso": "2026-09-24T16:00:00+05:45",
+      "location_ne": "बेशीसहर हुँदै खाङसारसम्म जाने सडक",
+      "location_en": "Road via Besisahar to Khangsar",
+      "highway_ne": "बेशीसहर हुँदै खाङसारसम्म जाने सडक",
+      "highway_en": "Besisahar–Khangsar road",
+      "status_ne": "पूर्णरुपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "manang",
+        "मनाङ",
+        "besisahar",
+        "बेशीसहर",
+        "khangsar",
+        "खाङसार"
+      ],
+      "flags": [
+        "DoR NAVIGATE: NH25 Sattale–Chame (Khotro) OPEN 3 Oct 16:00 and Besisahar–Ghermu OPEN 2 Oct 19:00 (after this sheet); NEOC Asoj 18/19 sheets no longer list Manang."
+      ]
+    },
+    {
+      "id": "myagdi-baisari-sukebagar",
+      "sn": "३",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "myagdi",
+        "ne": "म्याग्दी",
+        "en": "Myagdi"
+      },
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "०५:५०",
+      "closed_iso": "2026-09-26T05:50:00+05:45",
+      "location_ne": "रघुगंगा गा.पा.०२ बैसरी, अन्नपुर्ण गा.पा.०३ सुकेबगर",
+      "location_en": "Raghuganga-2 Baisari and Annapurna-3 Sukebagar",
+      "highway_ne": "बेनी जोमसोम सडक खण्ड",
+      "highway_en": "Beni–Jomsom road",
+      "status_ne": "पूर्ण रुपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "myagdi",
+        "म्याग्दी",
+        "beni",
+        "बेनी",
+        "jomsom",
+        "जोमसोम",
+        "baisari",
+        "बैसरी",
+        "sukebagar",
+        "सुकेबगर"
+      ]
+    },
+    {
+      "id": "nawalparasi-east-ghumauri",
+      "sn": "४",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "nawalparasi-east",
+        "ne": "नवलपरासी पूर्व",
+        "en": "Nawalparasi East"
+      },
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/१०",
+      "closed_time": "१९:३०",
+      "closed_iso": "2026-09-26T19:30:00+05:45",
+      "location_ne": "बुलिङटार गा.पा.६ घुमाउरी घाट",
+      "location_en": "Bulingtar-6 Ghumauri Ghat",
+      "highway_ne": "कालीगण्डकी करीडोर",
+      "highway_en": "Kaligandaki Corridor",
+      "status_ne": "एकतर्फि सुचारु",
+      "status_en": "One-way open",
+      "status_type": "one_way",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "bulingtar",
+        "बुलिङटार",
+        "ghumauri",
+        "घुमाउरी",
+        "kaligandaki",
+        "कालीगण्डकी"
+      ]
+    },
+    {
+      "id": "nawalparasi-east-janti",
+      "sn": "५",
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "nawalparasi-east",
+        "ne": "नवलपरासी पूर्व",
+        "en": "Nawalparasi East"
+      },
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/१४",
+      "closed_time": "१६:४५",
+      "closed_iso": "2026-09-30T16:45:00+05:45",
+      "location_ne": "बौदिकाली गा.पा. ३ जन्ती पहिरो",
+      "location_en": "Baudikali-3 Janti landslide",
+      "highway_ne": "कालीगण्डकी कोरिडोर",
+      "highway_en": "Kaligandaki Corridor",
+      "status_ne": "एकतर्फी सुचारु (ठुला गाडी जान नसक्ने)",
+      "status_en": "One-way open (no heavy vehicles)",
+      "status_type": "restricted",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "baudikali",
+        "बौदिकाली",
+        "janti",
+        "जन्ती",
+        "kaligandaki",
+        "कालीगण्डकी"
+      ]
+    },
+    {
+      "id": "humla-simkot-hilsa",
+      "sn": "६",
+      "group": "karnali",
+      "province": {
+        "id": "karnali",
+        "ne": "कर्णाली",
+        "en": "Karnali"
+      },
+      "district": {
+        "id": "humla",
+        "ne": "हुम्ला",
+        "en": "Humla"
+      },
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/१२",
+      "closed_time": "०९:००",
+      "closed_iso": "2026-09-28T09:00:00+05:45",
+      "location_ne": "नाम्खा गा.पा. ४ यालबाङ र सिमकोट गा.पा. ७ ठाडोढुङ्गा",
+      "location_en": "Namkha-4 Yalbang and Simkot-7 Thadodhunga",
+      "highway_ne": "सिमकोट हिल्सा सडक खण्ड",
+      "highway_en": "Simkot–Hilsa road",
+      "status_ne": "पूर्ण रुपमा अवरोध",
+      "status_en": "Fully blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "humla",
+        "हुम्ला",
+        "simkot",
+        "सिमकोट",
+        "hilsa",
+        "हिल्सा"
+      ]
+    }
+  ]
+}

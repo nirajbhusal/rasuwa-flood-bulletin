@@ -84,7 +84,7 @@
     });
     var call = (alert && alert.callout) || {};
     var ids = (call.districts || []).map(function (row) { return row.id; });
-    if (ids.indexOf(districtId) >= 0 && windowOpen(call.window_end, nowIso) && LEVEL_RANK[call.level]) found.push(call.level);
+    if (ids.indexOf(districtId) >= 0 && !call.expired && windowOpen(call.window_end, nowIso) && LEVEL_RANK[call.level]) found.push(call.level);
     if (!found.length) return null;
     return found.sort(function (a, b) { return LEVEL_RANK[b] - LEVEL_RANK[a]; })[0];
   }
@@ -113,7 +113,7 @@
       }).map(function (row) { return row.district; });
     }
     var call = (alert && alert.callout) || {};
-    var callOpen = windowOpen(call.window_end, nowIso);
+    var callOpen = !call.expired && windowOpen(call.window_end, nowIso);
     var pins = callOpen && pageId(call) === CORRIDOR_PAGE ? CORRIDOR_ORDER.slice() : [];
     var extra = callOpen ? (call.districts || []).map(function (row) { return row.id; }) : [];
     var warns = [];

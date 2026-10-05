@@ -1,5 +1,5 @@
 {
-  "id": "2026-10-02-dhm-flood-0800",
+  "id": "2026-10-05-dhm-flood-0800",
   "kind": "dhm-flood-forecast",
   "source": {
     "name": {
@@ -21,16 +21,16 @@
       "बाढी पूर्वानुमान महाशाखा"
     ],
     "number": null,
-    "url": "https://x.com/DHM_FloodEWS/status/2105846611335397487",
-    "issued_at": "2026-10-02T08:00:00+05:45",
-    "posted_at": "2026-10-02T08:10:00+05:45",
+    "url": "https://x.com/DHM_FloodEWS/status/2106939037697359940",
+    "issued_at": "2026-10-05T08:00:00+05:45",
+    "posted_at": "2026-10-05T08:31:00+05:45",
     "issued": {
-      "ne": "२०८३-०६-१६ बिहान ०८:००",
-      "en": "Asoj 16, 2083, 8:00 AM (2 October 2026)"
+      "ne": "२०८३-०६-१९ बिहान ०८:००",
+      "en": "Asoj 19, 2083, 8:00 AM (5 October 2026)"
     },
     "label": {
-      "ne": "DHM · असोज १६, २०८३ · बिहान ८:००",
-      "en": "DHM · Asoj 16, 2083 · 8:00 AM"
+      "ne": "DHM · असोज १९, २०८३ · बिहान ८:००",
+      "en": "DHM · Asoj 19, 2083 · 8:00 AM"
     }
   },
   "present": {
@@ -70,6 +70,14 @@
         "en": "Babai"
       },
       {
+        "ne": "बाणगंगा",
+        "en": "Banganga"
+      },
+      {
+        "ne": "तिनाउ",
+        "en": "Tinau"
+      },
+      {
         "ne": "पूर्वी राप्ती",
         "en": "East Rapti"
       },
@@ -79,8 +87,8 @@
       }
     ],
     "text": {
-      "ne": "आज बिहानको मापन अनुसार कोशी, नारायणी, बागमती, कर्णाली, महाकाली र यिनका सहायक नदीहरू तथा कन्काई, कमला, बबई, पूर्वी राप्ती र पश्चिम राप्ती नदीको बहाव सतर्कता तह भन्दा तल रहेको छ।",
-      "en": "By this morning’s gauge readings, the Koshi, Narayani, Bagmati, Karnali, Mahakali and their tributaries, and the Kankai, Kamala, Babai, East Rapti and West Rapti rivers are flowing below the alert level."
+      "ne": "आज बिहानको मापन अनुसार कोशी, नारायणी, बागमती, कर्णाली, महाकाली र यिनका सहायक नदीहरू तथा कन्काई, कमला, बबई, बाणगँगा, तिनाउ, पूर्वी राप्ती र पश्चिम राप्ती नदीको बहाव सतर्कता तह भन्दा तल रहेको छ।",
+      "en": "By this morning’s gauge readings, the Koshi, Narayani, Bagmati, Karnali, Mahakali and their tributaries, and the Kankai, Kamala, Babai, Banganga, Tinau, East Rapti and West Rapti rivers are flowing below the alert level."
     }
   },
   "outlook_note": {
@@ -88,24 +96,6 @@
     "en": "Five-day water-level/flood outlook, each day from 08:00 for 24 hours."
   },
   "days": [
-    {
-      "id": "2026-10-02",
-      "ne": "असोज १६",
-      "en": "Asoj 16",
-      "bs": "२०८३-०६-१६"
-    },
-    {
-      "id": "2026-10-03",
-      "ne": "असोज १७",
-      "en": "Asoj 17",
-      "bs": "२०८३-०६-१७"
-    },
-    {
-      "id": "2026-10-04",
-      "ne": "असोज १८",
-      "en": "Asoj 18",
-      "bs": "२०८३-०६-१८"
-    },
     {
       "id": "2026-10-05",
       "ne": "असोज १९",
@@ -117,6 +107,24 @@
       "ne": "असोज २०",
       "en": "Asoj 20",
       "bs": "२०८३-०६-२०"
+    },
+    {
+      "id": "2026-10-07",
+      "ne": "असोज २१",
+      "en": "Asoj 21",
+      "bs": "२०८३-०६-२१"
+    },
+    {
+      "id": "2026-10-08",
+      "ne": "असोज २२",
+      "en": "Asoj 22",
+      "bs": "२०८३-०६-२२"
+    },
+    {
+      "id": "2026-10-09",
+      "ne": "असोज २३",
+      "en": "Asoj 23",
+      "bs": "२०८३-०६-२३"
     }
   ],
   "levels": {
@@ -1911,18 +1919,18 @@
     ],
     "today": {
       "id": "today",
-      "date": "2026-10-02",
+      "date": "2026-10-05",
       "label": {
-        "ne": "आज · असोज १६",
-        "en": "Today · Asoj 16"
+        "ne": "आज · असोज १९",
+        "en": "Today · Asoj 19"
       },
       "valid": {
-        "ne": "असोज १७ बिहान ८:०० सम्म",
-        "en": "Valid until Asoj 17, 08:00"
+        "ne": "असोज २० बिहान ८:०० सम्म",
+        "en": "Valid until Asoj 20, 08:00"
       },
       "window": {
-        "ne": "असोज १६ बिहान ८ बजेदेखि २४ घण्टा",
-        "en": "From Asoj 16, 08:00, for 24 hours"
+        "ne": "असोज १९ बिहान ८ बजेदेखि २४ घण्टा",
+        "en": "From Asoj 19, 08:00, for 24 hours"
       },
       "very_high": [],
       "high": [],
@@ -1935,18 +1943,18 @@
     },
     "tomorrow": {
       "id": "tomorrow",
-      "date": "2026-10-03",
+      "date": "2026-10-06",
       "label": {
-        "ne": "भोलि · असोज १७",
-        "en": "Tomorrow · Asoj 17"
+        "ne": "भोलि · असोज २०",
+        "en": "Tomorrow · Asoj 20"
       },
       "valid": {
-        "ne": "असोज १८ बिहान ८:०० सम्म",
-        "en": "Valid until Asoj 18, 08:00"
+        "ne": "असोज २१ बिहान ८:०० सम्म",
+        "en": "Valid until Asoj 21, 08:00"
       },
       "window": {
-        "ne": "असोज १७ बिहान ८ बजेदेखि २४ घण्टा",
-        "en": "From Asoj 17, 08:00, for 24 hours"
+        "ne": "असोज २० बिहान ८ बजेदेखि २४ घण्टा",
+        "en": "From Asoj 20, 08:00, for 24 hours"
       },
       "high": [],
       "medium": [],
@@ -1959,7 +1967,7 @@
   "day_after": {
     "ne": "पर्सी देशभरका अधिकांश नदीहरूमा बहाव सामान्य रहने पूर्वानुमान छ।",
     "en": "On the day after tomorrow, flow in most rivers across the country is forecast to stay normal.",
-    "printed_header": "पर्सी (२०८३-०६-१८ गते)"
+    "printed_header": "पर्सी (२०८३-०६-२१ गते)"
   },
   "rasuwa": {
     "id": "rasuwa",
@@ -2101,12 +2109,10 @@
     ]
   },
   "flags": [
-    "Bulletin posted by @DHM_FloodEWS on 2 Oct 2026 at 08:10 NPT (3 pages). Title: “बाढी पूर्वानुमान बुलेटिन (Flood Forecast Bulletin)”, जारी मितिः २०८३-०६-१६ गते बिहान ०८ बजे. No bulletin number printed.",
-    "Station table: same 36 stations in the same order as Asoj 11; columns २०८३-०६-१६ to २०८३-०६-२०; outlook heading now reads “हरेक दिन बिहान ८ बजे देखि २४ घण्टा” (Asoj 11 printed १० बजे).",
-    "Every one of the 180 cells (36 stations × 5 days) is printed सामान्य घटबढ on the same green (#00D47F). No yellow, orange or red cell.",
-    "Flash-flood maps for Asoj 16 and Asoj 17 (08:00 + 24 h): all 77 districts न्यून जोखिम (low). Text for आज, भोली and पर्सी (२०८३-०६-१८): देशभरका अधिकांश नदीहरूमा बहाव सामान्य रहने पूर्वानुमान छ।",
-    "Advisory table (four colours) unchanged.",
-    "The printed header names जल तथा ऊर्जा आयोगको सचिवालय / जल विज्ञान तथा जलस्रोत अनुसन्धान केन्द्र / बाढी पूर्वानुमान महाशाखा; the post is from the DHM Flood EWS account.",
-    "Station spellings as printed are unchanged from Asoj 11 (सप्तकोशी font, पांचथर, रबुवाबजार, मादी , सिसाघाट, मैनाचुली, रजैया, बाणगँगा)."
+    "Bulletin posted by @DHM_FloodEWS on 5 Oct 2026 at 08:31 NPT (3 pages), “बाढी पूर्वानुमान बुलेटिन (Flood Forecast Bulletin)”, जारी मितिः २०८३-०६-१९ गते बिहान ०८ बजे. No bulletin number printed.",
+    "Station table: 36 stations, columns २०८३-०६-१९ to २०८३-०६-२३; every cell printed सामान्य घटबढ on green. No yellow, orange or red cell.",
+    "Present-status sentence now also names बाणगँगा and तिनाउ.",
+    "Flash-flood maps for Asoj 19 and Asoj 20 (08:00 + 24 h): all districts न्यून जोखिम (low). आज/भोली/पर्सी text: देशभरका अधिकांश नदीहरूमा बहाव सामान्य रहने पूर्वानुमान छ।",
+    "Advisory table unchanged."
   ]
 }
