@@ -521,3 +521,13 @@ body.home-page #home .rescue-banner .pmdrf-banner-k{color:#1a1a1a}
 body.home-page #home .pmdrf-banner .pmdrf-banner-h,
 body.home-page #home .pmdrf-banner strong.pmdrf-banner-h{color:#c41e3a}
 body.home-page #home .pmdrf-banner .pmdrf-banner-sub{display:block !important}
+.sitrep-home:empty{display:none}
+.sitrep-card{margin:12px 0 0;padding:12px 14px;background:#fff;border:1px solid #e7e5e4;border-left:4px solid #c41e3a;border-radius:12px;color:#1a1a1a}
+.sitrep-title{margin:0;font-size:18px;line-height:1.35;color:#1a1a1a}
+.sitrep-window,.sitrep-fy,.sitrep-src{margin:6px 0 0;font-size:14px;line-height:1.45}
+.sitrep-src{color:#64748b}
+.sitrep-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.sitrep-chip{display:inline-flex;gap:4px;align-items:baseline;padding:6px 8px;background:#fafafa;border:1px solid #e7e5e4;border-radius:8px;font-size:13px}
+.sitrep-chip b{font-size:15px;color:#c41e3a}
+.sitrep-links{margin:8px 0 0;font-size:14px}
+.sitrep-links a{color:#c41e3a;font-weight:700}

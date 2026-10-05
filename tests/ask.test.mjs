@@ -12,6 +12,7 @@ const wxnow = JSON.parse(readFileSync(new URL("../data/weather/now.json", import
 const roads = JSON.parse(readFileSync(new URL("../data/roads-dor.json", import.meta.url), "utf8"));
 const dash = JSON.parse(readFileSync(new URL("../api/dashboard.json", import.meta.url), "utf8"));
 const gallery = JSON.parse(readFileSync(new URL("../data/gallery-path.json", import.meta.url), "utf8"));
+const sitrep = JSON.parse(readFileSync(new URL("../data/ndrrma_sitrep_2283.json", import.meta.url), "utf8"));
 const i18n = readFileSync(new URL("../i18n.js", import.meta.url), "utf8");
 const neBlock = i18n.slice(i18n.indexOf('"ne":'), i18n.indexOf('"en":'));
 const enBlock = i18n.slice(i18n.indexOf('"en":'));
@@ -80,6 +81,7 @@ function ask(q, lang) {
     dash: dash,
     gallery: gallery,
     lpg: lpg,
+    sitrep: sitrep,
     t: tFor(lang)
   });
 }
@@ -147,6 +149,9 @@ const cases = [
   ["बाढी किन आयो?", "ne", { intent: "cause", number: true, has: ["लाङटाङ", "लेन्दे"] }],
   ["फोटो कहाँ छन्?", "ne", { intent: "gallery", has: ["ग्यालरी", "लेन्दे"] }],
   ["what is this bulletin", "en", { intent: "about", has: ["Rasuwa"] }],
+  ["sitrep", "en", { intent: "sitrep", number: true, has: ["2283", "24", "2.59", "7,103", "Asoj 19"], not: ["1,451", "warning"] }],
+  ["2283", "ne", { intent: "sitrep", number: true, has: ["२२८३", "२४", "२.५९", "७,१०३"] }],
+  ["आजको विपद्", "ne", { intent: "sitrep", number: true, has: ["घटना", "मृत्यु", "परिवार"] }],
   ["asdf qwerty pizza", "en", { intent: "fallback", has: ["don't have that yet"] }]
 ];
 

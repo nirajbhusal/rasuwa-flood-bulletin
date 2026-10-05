@@ -434,6 +434,7 @@
       wxnow: cache.now,
       flood: cache.flood,
       ndrrma: cache.ndrrma || null,
+      sitrep: cache.sitrep || null,
       roads: cache.roads,
       police: cache.police || null,
       neoc: cache.neoc || null,
@@ -465,6 +466,7 @@
       if (spec.intent === "flood_ndrrma") return !cache.ndrrma && !failed.ndrrma;
       return !cache.flood && !failed.flood;
     }
+    if (spec.intent === "sitrep" || f === "sitrep") return !cache.sitrep && !failed.sitrep;
     if (f === "roads" || f === "map") return (!cache.roads && !failed.roads) || (!cache.police && !failed.police) || (!cache.neoc && !failed.neoc) || (!cache.vehicle && !failed.vehicle);
     if (f === "rescue") return !cache.dash && !failed.dash;
     if (f === "lpg") return !cache.lpg && !failed.lpg;
@@ -497,6 +499,7 @@
       getJSON("data/weather-alert.json", "wx"),
       getJSON("data/flood-bulletin.json", "flood"),
       getJSON("data/ndrrma_flood_alerts.json", "ndrrma"),
+      getJSON("data/ndrrma_sitrep_2283.json", "sitrep"),
       getJSON("data/weather/now.json", "now"),
       getJSON("data/roads-dor.json", "roads"),
       getJSON("data/police_roads_2083-06-17-0645.json", "police"),

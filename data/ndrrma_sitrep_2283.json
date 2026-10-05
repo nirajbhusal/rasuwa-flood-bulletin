@@ -1,0 +1,135 @@
+{
+  "id": "ndrrma-sitrep-2283",
+  "number": 2283,
+  "issued_at": "2026-10-05T12:28:00+05:45",
+  "as_of": {
+    "ne": "१९ असोज २०८३",
+    "en": "Asoj 19, 2083 (5 Oct 2026)"
+  },
+  "source": {
+    "ne": "राष्ट्रिय विपद् जोखिम न्यूनीकरण तथा व्यवस्थापन प्राधिकरण (NDRRMA)",
+    "en": "NDRRMA"
+  },
+  "source_url": "https://ndrrma.gov.np/np/daily-bulletin/2328",
+  "x_url": "https://x.com/NDRRMA_Nepal/status/2106998581672706485",
+  "images": [
+    "img/today-2026-10-05-ndrrma-sitrep2283-p1.jpg",
+    "img/today-2026-10-05-ndrrma-sitrep2283-p2.jpg",
+    "img/today-2026-10-05-ndrrma-sitrep2283-p3.jpg"
+  ],
+  "window": {
+    "ne": "१८ असोज १०:०० देखि १९ असोज १०:०० सम्म",
+    "en": "18 Asoj 10:00 to 19 Asoj 10:00"
+  },
+  "last_24h": {
+    "incidents": 24,
+    "deaths": 0,
+    "missing": 0,
+    "injured": 9,
+    "estimated_loss_npr": 2590000,
+    "road_blockage": 0,
+    "livestock_loss": 25,
+    "districts_affected": 21,
+    "police_mobilized": 133,
+    "rescued": 0,
+    "by_type": [
+      {
+        "type": {
+          "ne": "सर्पदंश",
+          "en": "Snakebite"
+        },
+        "districts": 7,
+        "incidents": 7,
+        "deaths": 0,
+        "missing": 0,
+        "injured": 7,
+        "rescued": 0,
+        "police": 36
+      },
+      {
+        "type": {
+          "ne": "आगलागी",
+          "en": "Fire"
+        },
+        "districts": 9,
+        "incidents": 11,
+        "deaths": 0,
+        "missing": 0,
+        "injured": 0,
+        "rescued": 0,
+        "police": 69
+      },
+      {
+        "type": {
+          "ne": "हुरी बतास",
+          "en": "Windstorm"
+        },
+        "districts": 1,
+        "incidents": 1,
+        "deaths": 0,
+        "missing": 0,
+        "injured": 0,
+        "rescued": 0,
+        "police": 4
+      },
+      {
+        "type": {
+          "ne": "पहिरो",
+          "en": "Landslide"
+        },
+        "districts": 3,
+        "incidents": 4,
+        "deaths": 0,
+        "missing": 0,
+        "injured": 2,
+        "rescued": 0,
+        "police": 21
+      },
+      {
+        "type": {
+          "ne": "जनावर आक्रमण",
+          "en": "Animal attack"
+        },
+        "districts": 1,
+        "incidents": 1,
+        "deaths": 0,
+        "missing": 0,
+        "injured": 0,
+        "rescued": 0,
+        "police": 3
+      }
+    ]
+  },
+  "fy_cumulative": {
+    "from": {
+      "ne": "१ वैशाख २०८३",
+      "en": "1 Baisakh 2083"
+    },
+    "to": {
+      "ne": "१९ असोज २०८३",
+      "en": "19 Asoj 2083"
+    },
+    "incidents": 7103,
+    "deaths": 362,
+    "missing": 11,
+    "injured": 2284,
+    "affected_families": 9056
+  },
+  "rainfall_24h": {
+    "period": {
+      "ne": "१८ असोज ०८:४५ देखि १९ असोज ०८:४५",
+      "en": "18 Asoj 08:45 to 19 Asoj 08:45"
+    },
+    "stations_reporting": 439,
+    "stations_with_rain": 115,
+    "max_mm": 75.4,
+    "max_station": {
+      "ne": "ढकेरी, बाँके",
+      "en": "Dhakeri, Banke"
+    }
+  },
+  "notes": [
+    "This is the national daily SitRep (#2283), NOT the monsoon flood casualty board (SitRep #16 / deaths 1,451). Do not overwrite api/dashboard.json flood people figures with these numbers.",
+    "Rain max 75.4 mm at Dhakeri matches the DHM figure already in the rainy-day package."
+  ]
+}

@@ -18,6 +18,7 @@
     "electricity_schedule", "electricity_nolight", "electricity_plants", "electricity_load", "electricity_now", "electricity_kali",
     "cause", "gallery", "about", "markets", "avalanche",
     "flood_rivers", "flood_flash", "flood_place", "flood_trishuli", "flood_ndrrma",
+    "sitrep",
     "fallback"
   ];
 
@@ -300,6 +301,11 @@
       { ne: "कुन नदी सतर्कता नजिक छ?", en: "Which rivers are near alert?" },
       { ne: "आज उच्च बाढी जोखिम कहाँ छ?", en: "Where is high flood risk today?" }
     ]),
+    sitrep: follow([
+      { ne: "आजको मौसम के छ?", en: "What is today’s weather?" },
+      { ne: "सडक अहिले कस्तो छ?", en: "What is the road status?" },
+      { ne: "कति जना बेपत्ता छन्?", en: "How many people are missing?" }
+    ]),
     flood_ndrrma: follow([
       { ne: "नारायणी अहिले कति छ?", en: "What is the Narayani level?" },
       { ne: "चितवन बाढी?", en: "Chitwan flood?" },
@@ -542,6 +548,10 @@
       "बिजुली", "विद्युत", "विद्युत्", "लोडसेडिङ", "लोडसेडिंग", "जलविद्युत", "जलविद्युत्",
       "बत्ती छैन", "बत्ति छैन", "कटौती", "नो लाइट", "नोलाइट"
     ]);
+    if (dailySitrepQuery(q)) {
+      spec.intent = "sitrep";
+      return finishSpec(spec);
+    }
     if (elec) {
       var elecPhone = hit(q, ["phone", "hotline", "नम्बर", "नंबर", "1150", "फोन"]);
       if (hit(q, ["kali gandaki", "kaligandaki", "कालीगण्डकी", "काली गण्डकी"])) spec.intent = "electricity_kali";
@@ -712,6 +722,17 @@
     return finishSpec(spec);
   }
 
+  function dailySitrepQuery(q) {
+    if (/2283/.test(q)) return true;
+    if (q.indexOf("आजको विपद्") >= 0) return true;
+    if (hit(q, ["aajako bipad", "todays disaster", "today's disaster", "daily sitrep", "daily disaster"])) return true;
+    if (q.indexOf("sitrep") >= 0) {
+      if (/sitrep\s*#?\s*1[0-6]\b/.test(q)) return false;
+      return true;
+    }
+    return false;
+  }
+
   function ndrrmaQuery(q) {
     var nar = hit(q, ["narayani", "नारायणी"]);
     var dev = hit(q, ["devghat", "देवघाट"]);
@@ -796,6 +817,7 @@
     else if (intent === "gallery") family = "gallery";
     else if (intent === "markets") family = "markets";
     else if (intent === "about") family = "about";
+    else if (intent === "sitrep") family = "sitrep";
     else family = "about";
     spec.family = family;
     spec.topic = family === "donate" ? "fund" : (family === "map" ? "roads" : (family === "cause" || family === "gallery" ? "about" : family));
@@ -1060,7 +1082,14 @@
     for (var i = 0; i < rows.length; i++) {
       if (rows[i] && rows[i].source !== "model" && rows[i].rain24 != null) { row = rows[i]; break; }
     }
-    var src = sourceLine(lang, "DHM / hydrology.gov.np gauges", "");
+    var srcName = "DHM / hydrology.gov.np gauges";
+    var rain = ctx.sitrep && ctx.sitrep.rainfall_24h;
+    var sitrepStation = rain && rain.max_station && (rain.max_station.en || "");
+    var rowStation = row && row.station && (row.station.en || "");
+    if (rain && row && Number(row.rain24) === Number(rain.max_mm) && sitrepStation && rowStation && sitrepStation.toLowerCase().indexOf(rowStation.toLowerCase()) >= 0) {
+      srcName += " · NDRRMA SitRep #" + (lang === "en" ? ctx.sitrep.number : digits(String(ctx.sitrep.number), "ne"));
+    }
+    var src = sourceLine(lang, srcName, "");
     if (!row) {
       var missing = lang === "en"
         ? "A fresh 24-hour rainfall reading isn't available."
@@ -2260,6 +2289,48 @@
   function floodList(doc, ids, lang) {
     return (ids || []).map(function (id) { return floodName(doc, id, lang); }).join(", ");
   }
+  function groupThou(n, lang) {
+    var s = String(Math.round(Number(n)));
+    var out = "";
+    while (s.length > 3) {
+      out = "," + s.slice(-3) + out;
+      s = s.slice(0, -3);
+    }
+    return digits(s + out, lang);
+  }
+  function lossMillion(n) {
+    var m = Math.round(Number(n) / 10000) / 100;
+    return m.toFixed(2).replace(/\.00$/, "").replace(/(\.\d)0$/, "$1");
+  }
+  function answerSitrep(ctx) {
+    var lang = ctx.lang === "en" ? "en" : "ne";
+    var doc = ctx.sitrep;
+    var href = "index.html#sitrep-home";
+    var fu = FOLLOW.sitrep;
+    if (!doc || !doc.last_24h || !doc.fy_cumulative) {
+      var missing = lang === "en"
+        ? "The NDRRMA daily SitRep is not loaded."
+        : "NDRRMA को दैनिक SitRep अहिले लोड भएको छैन।";
+      return pack(lang, missing, "", href, { followups: fu });
+    }
+    var h = doc.last_24h;
+    var fy = doc.fy_cumulative;
+    var when = lang === "en"
+      ? ((doc.as_of && doc.as_of.en) || "").split(",")[0]
+      : (function () {
+        var ne = (doc.as_of && doc.as_of.ne) || "";
+        var m = ne.match(/^([०-९0-9]+)\s+असोज/);
+        return m ? "असोज " + digits(ascii(m[1]), "ne") : ne;
+      })();
+    var since = lang === "en"
+      ? ((fy.from && fy.from.en) || "1 Baisakh").replace(/\s+2083$/, "")
+      : ((fy.from && fy.from.ne) || "१ वैशाख");
+    var text = lang === "en"
+      ? "NDRRMA SitRep #" + doc.number + " (" + when + "): in the last 24 hours, " + h.incidents + " incidents, " + h.deaths + " deaths, " + h.injured + " injured, estimated loss NPR " + lossMillion(h.estimated_loss_npr) + " million, and " + h.livestock_loss + " livestock. Since " + since + ": " + groupThou(fy.incidents, lang) + " incidents, " + fy.deaths + " deaths, " + groupThou(fy.injured, lang) + " injured, and " + groupThou(fy.affected_families, lang) + " families."
+      : "NDRRMA SitRep #" + digits(String(doc.number), "ne") + " (" + when + "): पछिल्लो २४ घण्टामा घटना " + digits(String(h.incidents), "ne") + ", मृत्यु " + digits(String(h.deaths), "ne") + ", घाइते " + digits(String(h.injured), "ne") + ", अनुमानित क्षति रु. " + digits(lossMillion(h.estimated_loss_npr), "ne") + " मिलियन, चौपाया " + digits(String(h.livestock_loss), "ne") + "। " + since + " देखि घटना " + groupThou(fy.incidents, "ne") + ", मृत्यु " + digits(String(fy.deaths), "ne") + ", घाइते " + groupThou(fy.injured, "ne") + ", परिवार " + groupThou(fy.affected_families, "ne") + "।";
+    return pack(lang, text, sourceLine(lang, "NDRRMA", when), href, { followups: fu });
+  }
+
   function answerNdrrm(ctx) {
     var lang = ctx.lang === "en" ? "en" : "ne";
     var doc = ctx.ndrrma;
@@ -2821,6 +2892,7 @@
     else if (intent === "gallery") ans = answerGallery(ctx);
     else if (intent === "about") ans = answerAbout(ctx);
     else if (intent === "markets") ans = answerMarkets(ctx);
+    else if (intent === "sitrep") ans = answerSitrep(ctx);
     else ans = answerFallback(lang);
     ans.intent = intent;
     ans.family = spec.family || "";
