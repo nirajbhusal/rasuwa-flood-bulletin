@@ -1,0 +1,467 @@
+{
+  "id": "neoc-blocked-highways-2083-06-19-0700",
+  "issuer": {
+    "ne": "नेपाल सरकार, गृह मन्त्रालय, विपद् प्रतिकार्य समन्वय तथा संस्थागत सुदृढीकरण शाखा (NEOC)",
+    "en": "Government of Nepal, Ministry of Home Affairs, Disaster Response Coordination and Institutional Strengthening Section (NEOC)"
+  },
+  "as_of": {
+    "bs": "२०८३/०६/१९",
+    "time": "०७:००",
+    "iso": "2026-10-05T07:00:00+05:45",
+    "printed": "मिति २०८३।०६।१९ गते बिहान ०७:०० बजे सम्म",
+    "ne": "२०८३ असोज १९, बिहान ७:०० बजेसम्म",
+    "en": "Asoj 19, 2083, 7:00 AM"
+  },
+  "posted": {
+    "iso": "2026-10-05T06:58:00+05:45",
+    "utc": "2026-10-05T01:13:35Z",
+    "ne": "५ अक्टोबर २०२६, ०६:५८",
+    "en": "5 Oct 2026, 06:58 NPT"
+  },
+  "post_text": "मिति २०८३।०६।१९ गते बिहान ०७:०० बजे सम्मको राजमार्ग विवरण ।",
+  "source": {
+    "name": {
+      "ne": "NEOC, गृह मन्त्रालय",
+      "en": "NEOC, Ministry of Home Affairs"
+    },
+    "url": "https://x.com/NEOCOfficial/status/2106915670164459834",
+    "account": "NEOC, MoHA Nepal (@NEOCOfficial)",
+    "images": [
+      "https://pbs.twimg.com/media/HT1EnjIbIAANvrP.jpg?name=orig (1116x424, header + rows 1–7)"
+    ]
+  },
+  "title": {
+    "ne": "अवरुद्ध राजमार्ग",
+    "en": "Blocked highways",
+    "printed": "अवरुद्ध राजमार्गको विवरण"
+  },
+  "columns_printed": [
+    "सि.नं.",
+    "प्रदेश",
+    "मिति",
+    "जिल्ला/स्थान",
+    "राजमार्ग",
+    "कारण",
+    "कैफियत"
+  ],
+  "groups": [
+    {
+      "id": "bagmati",
+      "ne": "बागमती",
+      "en": "Bagmati"
+    },
+    {
+      "id": "gandaki",
+      "ne": "गण्डकी",
+      "en": "Gandaki"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "full_block": 7,
+    "open": 0,
+    "night_ban": 0,
+    "one_way": 0,
+    "restricted": 0,
+    "districts": 5,
+    "provinces": 2,
+    "by_province": {
+      "bagmati": 5,
+      "gandaki": 2
+    },
+    "districts_by_province": {
+      "bagmati": 4,
+      "gandaki": 1
+    },
+    "by_cause": {
+      "flood": 4,
+      "landslide": 3
+    },
+    "by_closed_date": {
+      "2083/05/10": 4,
+      "2083/06/17": 1,
+      "2083/06/11": 1,
+      "2083/06/10": 1
+    }
+  },
+  "notes": [
+    "Sheet prints 7 rows, all अवरुद्ध, no totals.",
+    "Compared with the Asoj 16 18:00 sheet: Manang Naso-3 Khotro (Chame–Besisahar) and Parbat Kushma-1 Nayapul (Mid-Hill, already सुचारु) are no longer listed; DoR NAVIGATE shows NH25 Sattale–Chame (Khotro) OPEN since 3 Oct 16:00. New row: Lalitpur Godawari-6 Tikabhairab (Chapagaun–Kantilokpath), landslide since 2083/06/17.",
+    "Same rows on the Asoj 18 18:00 sheet (https://x.com/NEOCOfficial/status/2106718757523730852).",
+    "flags are internal (JSON only, never shown on the page)."
+  ],
+  "rows": [
+    {
+      "id": "rasuwa-pasang-lhamu",
+      "sn": "१",
+      "sn_n": 1,
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "rasuwa",
+        "ne": "रसुवा",
+        "en": "Rasuwa"
+      },
+      "place_printed": "रसुवा/बारा घुम्ती देखी रसुवागढी सम्म",
+      "cause_ne": "बाढी",
+      "cause_en": "Flood",
+      "cause_kind": "flood",
+      "closed_date": "२०८३/०५/१०",
+      "closed_date_printed": "२०८३।०५।१०",
+      "closed_date_ascii": "2083/05/10",
+      "closed_time": null,
+      "closed_iso": "2026-08-26",
+      "location_ne": "बारा घुम्ती देखी रसुवागढी सम्म",
+      "location_en": "From Bara Ghumti to Rasuwagadhi",
+      "highway_ne": "पासाङल्हामु राजमार्ग",
+      "highway_en": "Pasang Lhamu Highway",
+      "status_ne": "अवरुद्ध",
+      "status_en": "Blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "rasuwa",
+        "रसुवा",
+        "pasang",
+        "lhamu",
+        "पासाङ",
+        "ल्हामु",
+        "bara ghumti",
+        "बारा घुम्ती",
+        "rasuwagadhi",
+        "रसुवागढी",
+        "dhunche",
+        "धुन्चे"
+      ],
+      "flags": [],
+      "prominent": true
+    },
+    {
+      "id": "rasuwa-trishuli-rasuwagadhi",
+      "sn": "२",
+      "sn_n": 2,
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "rasuwa",
+        "ne": "रसुवा",
+        "en": "Rasuwa"
+      },
+      "place_printed": "रसुवा/त्रिशुली-बेत्रावती-खाल्टे-मैलुङ-स्याफ्रुबेशी टिमुरे-रसुवागढी",
+      "cause_ne": "बाढी",
+      "cause_en": "Flood",
+      "cause_kind": "flood",
+      "closed_date": "२०८३/०५/१०",
+      "closed_date_printed": "२०८३।०५।१०",
+      "closed_date_ascii": "2083/05/10",
+      "closed_time": null,
+      "closed_iso": "2026-08-26",
+      "location_ne": "त्रिशुली-बेत्रावती-खाल्टे-मैलुङ-स्याफ्रुबेशी टिमुरे-रसुवागढी",
+      "location_en": "Trishuli–Betrawati–Khalte–Mailung–Syaphrubesi–Timure–Rasuwagadhi",
+      "highway_ne": "त्रिशुली- मैलुङ-रसुवागढी",
+      "highway_en": "Trishuli–Mailung–Rasuwagadhi road",
+      "status_ne": "अवरुद्ध",
+      "status_en": "Blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "rasuwa",
+        "रसुवा",
+        "syabrubesi",
+        "syaphrubesi",
+        "स्याफ्रुबेशी",
+        "स्याफ्रु",
+        "betrawati",
+        "बेत्रावती",
+        "mailung",
+        "मैलुङ",
+        "timure",
+        "टिमुरे",
+        "khalte",
+        "खाल्टे",
+        "rasuwagadhi",
+        "रसुवागढी",
+        "trishuli",
+        "त्रिशुली"
+      ],
+      "flags": [],
+      "prominent": true
+    },
+    {
+      "id": "nuwakot-trishuli-betrawati",
+      "sn": "३",
+      "sn_n": 3,
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "nuwakot",
+        "ne": "नुवाकोट",
+        "en": "Nuwakot"
+      },
+      "place_printed": "नुवाकोट/ त्रिशुली बाट बेत्रावती सम्म",
+      "cause_ne": "बाढी",
+      "cause_en": "Flood",
+      "cause_kind": "flood",
+      "closed_date": "२०८३/०५/१०",
+      "closed_date_printed": "२०८३।०५।१०",
+      "closed_date_ascii": "2083/05/10",
+      "closed_time": null,
+      "closed_iso": "2026-08-26",
+      "location_ne": "त्रिशुली बाट बेत्रावती सम्म",
+      "location_en": "From Trishuli to Betrawati",
+      "highway_ne": "मैलुङ-स्याफ्रुबेशी",
+      "highway_en": "Mailung–Syaphrubesi road",
+      "status_ne": "अवरुद्ध",
+      "status_en": "Blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "trishuli",
+        "त्रिशुली",
+        "betrawati",
+        "बेत्रावती",
+        "mailung",
+        "मैलुङ",
+        "nuwakot",
+        "नुवाकोट",
+        "pasang",
+        "lhamu",
+        "पासाङ",
+        "ल्हामु",
+        "bidur",
+        "विदुर"
+      ],
+      "flags": []
+    },
+    {
+      "id": "dhading-phurkekhola",
+      "sn": "४",
+      "sn_n": 4,
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "dhading",
+        "ne": "धादिङ",
+        "en": "Dhading"
+      },
+      "place_printed": "धादिङ/गजुरी गा.पा. २ फुर्केखोला",
+      "cause_ne": "बाढी",
+      "cause_en": "Flood",
+      "cause_kind": "flood",
+      "closed_date": "२०८३/०५/१०",
+      "closed_date_printed": "२०८३।०५।१०",
+      "closed_date_ascii": "2083/05/10",
+      "closed_time": null,
+      "closed_iso": "2026-08-26",
+      "location_ne": "गजुरी गा.पा. २ फुर्केखोला",
+      "location_en": "Gajuri Rural Municipality-2, Phurkekhola",
+      "highway_ne": "कालुपाण्डे राजमार्ग",
+      "highway_en": "Kalupande Highway",
+      "status_ne": "अवरुद्ध",
+      "status_en": "Blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "phurkekhola",
+        "फुर्केखोला",
+        "kalupande",
+        "कालुपाण्डे",
+        "gajuri",
+        "गजुरी"
+      ],
+      "flags": []
+    },
+    {
+      "id": "lalitpur-tikabhairab",
+      "sn": "५",
+      "sn_n": 5,
+      "group": "bagmati",
+      "province": {
+        "id": "bagmati",
+        "ne": "बागमती",
+        "en": "Bagmati"
+      },
+      "district": {
+        "id": "lalitpur",
+        "ne": "ललितपुर",
+        "en": "Lalitpur"
+      },
+      "place_printed": "ललितपुर/गोदावरी न.पा.- ६ टिकाभैरव",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/१७",
+      "closed_date_printed": "२०८३।०६।१७",
+      "closed_date_ascii": "2083/06/17",
+      "closed_time": null,
+      "closed_iso": "2026-10-03",
+      "location_ne": "गोदावरी न.पा.- ६ टिकाभैरव",
+      "location_en": "Godawari Municipality-6, Tikabhairab",
+      "highway_ne": "चापागाउ – कान्तिलोक पथ",
+      "highway_en": "Chapagaun – Kantilokpath",
+      "status_ne": "अवरुद्ध",
+      "status_en": "Blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "tikabhairab",
+        "टिकाभैरव",
+        "godawari",
+        "गोदावरी",
+        "chapagaun",
+        "चापागाउ",
+        "kantilokpath",
+        "कान्तिलोक"
+      ],
+      "flags": [
+        "New row on the Asoj 19 07:00 sheet. DoR NAVIGATE lists NH37 Bagmati River–Tikabhairab (Chhapeli–Tinpane) CLOSED since 27 Sep 04:00."
+      ]
+    },
+    {
+      "id": "myagdi-sukebagar",
+      "sn": "६",
+      "sn_n": 6,
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "myagdi",
+        "ne": "म्याग्दी",
+        "en": "Myagdi"
+      },
+      "place_printed": "म्याग्दी/अन्नपुर्ण गा.पा.३ सुकेबगर",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/११",
+      "closed_date_printed": "२०८३।०६।११",
+      "closed_date_ascii": "2083/06/11",
+      "closed_time": null,
+      "closed_iso": "2026-09-27",
+      "location_ne": "अन्नपुर्ण गा.पा.३ सुकेवगर",
+      "location_en": "Annapurna Rural Municipality-3, Sukebagar",
+      "highway_ne": "बेनी-जोमसोम खण्ड",
+      "highway_en": "Beni–Jomsom road",
+      "status_ne": "अवरुद्ध",
+      "status_en": "Blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "beni",
+        "बेनी",
+        "jomsom",
+        "जोमसोम",
+        "annapurna",
+        "अन्नपूर्ण",
+        "अन्नपुर्ण",
+        "sukebagar",
+        "सुकेवगर"
+      ],
+      "flags": [
+        "Closed date now printed २०८३।०६।११ (Asoj 10 sheet printed ०६।१०)."
+      ]
+    },
+    {
+      "id": "myagdi-baisari-tilkeni",
+      "sn": "७",
+      "sn_n": 7,
+      "group": "gandaki",
+      "province": {
+        "id": "gandaki",
+        "ne": "गण्डकी",
+        "en": "Gandaki"
+      },
+      "district": {
+        "id": "myagdi",
+        "ne": "म्याग्दी",
+        "en": "Myagdi"
+      },
+      "place_printed": "म्याग्दी/रघुगंगा गा.पा.२ बैसरी, ३ तिल्केनी",
+      "cause_ne": "पहिरो",
+      "cause_en": "Landslide",
+      "cause_kind": "landslide",
+      "closed_date": "२०८३/०६/१०",
+      "closed_date_printed": "२०८३।०६।१०",
+      "closed_date_ascii": "2083/06/10",
+      "closed_time": null,
+      "closed_iso": "2026-09-26",
+      "location_ne": "रघुगंगा गा.पा.२ बैसरी, ३ तिल्केनी",
+      "location_en": "Raghuganga Rural Municipality-2 Baisari and -3 Tilkeni",
+      "highway_ne": "बेनी-जोमसोम खण्ड",
+      "highway_en": "Beni–Jomsom road",
+      "status_ne": "अवरुद्ध",
+      "status_en": "Blocked",
+      "status_type": "full_block",
+      "night_start": null,
+      "night_end": null,
+      "valid_until_bs": null,
+      "valid_until_iso": null,
+      "valid_until_ne": null,
+      "valid_until_en": null,
+      "aliases": [
+        "beni",
+        "बेनी",
+        "jomsom",
+        "जोमसोम",
+        "raghuganga",
+        "रघुगंगा",
+        "baisari",
+        "बैसरी",
+        "tilkeni",
+        "तिल्केनी"
+      ],
+      "flags": [
+        "Tilkeni (Raghuganga-3) added to the Baisari row."
+      ]
+    }
+  ]
+}

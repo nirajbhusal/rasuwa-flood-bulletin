@@ -21,8 +21,8 @@ function ask(q, lang) {
   return Ask.answer(q, { lang: lang, now: "2026-09-27", ndrrma: ndrrma, t: function () { return ""; } });
 }
 
-const enBits = ["ended", "2083/06/11", "Devghat", "4.39"];
-const neBits = ["समाप्त", "२०८३/०६/११", "देवघाट", "४.३९"];
+const enBits = ["ended", "2083/06/11", "Devghat", "4.17"];
+const neBits = ["समाप्त", "२०८३/०६/११", "देवघाट", "४.१७"];
 
 function assertAlert(q, lang) {
   const ans = ask(q, lang);
@@ -43,7 +43,7 @@ test("NDRRMA Narayani alert file and poster", function () {
   const alert = ndrrma.alerts[0];
   assert.equal(alert.active, false);
   assert.equal(alert.popup, false);
-  assert.equal(alert.ended.evidence[0].level_m, 4.39);
+  assert.equal(alert.ended.evidence[0].level_m, 4.17);
   assert.equal(alert.id, "narayani-2083-06-11-0800");
   assert.equal(alert.issued_npt, "2026-09-27T08:00:00+05:45");
   assert.equal(alert.posted_utc, "2026-09-27T03:29:00Z");
@@ -80,7 +80,7 @@ test("Narayani, Chitwan, Nawalparasi and Devghat questions use the NDRRMA alert"
 });
 
 test("bell notification, homepage list, and danger card styling", function () {
-  assert.equal(latest.id, "2026-10-02-dhm-12331");
+  assert.equal(latest.id, "2026-10-05-dhm-12337");
   assert.equal(latest.url, "weather.html#alert");
   assert.equal(/\bwarning\b/i.test(latest.body), false);
   assert.match(latest.body, /no alert/);

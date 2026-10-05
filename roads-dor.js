@@ -1091,6 +1091,19 @@
     for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
     return null;
   }
+  function prRasuwa() {
+    var named = prRow("rasuwa-highways") || prRow("rasuwa-all-main");
+    if (named) return named;
+    var list = (police && police.rows) || [];
+    var i;
+    for (i = 0; i < list.length; i++) {
+      if (list[i].district && list[i].district.id === "rasuwa" && list[i].prominent) return list[i];
+    }
+    for (i = 0; i < list.length; i++) {
+      if (list[i].district && list[i].district.id === "rasuwa") return list[i];
+    }
+    return null;
+  }
   function prRowsFor(districtId) {
     return ((police && police.rows) || []).filter(function (r) { return r.district && r.district.id === districtId; });
   }
@@ -1246,6 +1259,7 @@
       ["districts", { ne: "जिल्ला", en: "Districts" }, "pr-sum-dist"],
       ["provinces", { ne: "प्रदेश", en: "Provinces" }, "pr-sum-prov"]
     ].forEach(function (item) {
+      if (mode === "home" && item[0] !== "total" && !(counts[item[0]] > 0)) return;
       var li = el("li", "pr-stat " + item[2]);
       li.appendChild(el("strong", "pr-stat-n", num(counts[item[0]] || 0)));
       li.appendChild(el("span", "pr-stat-k", tx(item[1])));
@@ -1253,7 +1267,7 @@
     });
     shell.appendChild(sum);
     if (mode === "home") {
-      var rasHome = prRow("rasuwa-highways");
+      var rasHome = prRasuwa();
       if (rasHome) {
         var pinHome = el("div", "pr-pin");
         pinHome.appendChild(prCard(rasHome, ""));
@@ -1263,7 +1277,7 @@
       return;
     }
     var pinHost = el("div", "pr-pin");
-    var ras = prRow("rasuwa-highways");
+    var ras = prRasuwa();
     if (ras) {
       pinHost.appendChild(prCard(ras, ""));
       pinHost.setAttribute("data-pr-id", ras.id);
@@ -1618,7 +1632,7 @@
     if (!row || row.id !== "rasuwa" || !police || !police.rows) return "";
     var hit = null;
     for (var i = 0; i < police.rows.length; i++) {
-      if (police.rows[i].id === "rasuwa-highways") hit = police.rows[i];
+      if (police.rows[i].id === "rasuwa-highways" || police.rows[i].id === "rasuwa-all-main" || (police.rows[i].district && police.rows[i].district.id === "rasuwa" && police.rows[i].prominent)) hit = police.rows[i];
     }
     if (!hit) return "";
     return lang() === "en"
@@ -2096,18 +2110,38 @@
     shell.appendChild(src);
     board.appendChild(shell);
   }
+  var SHEET_FRESH_MS = 72 * 60 * 60 * 1000;
+  function stampMs(value) {
+    if (!value) return NaN;
+    var s = String(value);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return Date.parse(s + "T23:59:59+05:45");
+    return Date.parse(s);
+  }
+  function sheetFresh(value) {
+    var ms = stampMs(value);
+    if (isNaN(ms)) return false;
+    return (Date.now() - ms) <= SHEET_FRESH_MS;
+  }
   function renderMount(root) {
     var mode = root.getAttribute("data-dor-mode") || "home";
+    var homeMode = mode === "home";
     var ui = data.ui;
     var n = notice();
+    var daoStamp = n && n.published && (n.published.posted_iso || n.published.iso);
+    var vehicleStamp = vehicle && vehicle.valid && vehicle.valid.to;
+    var showNeoc = !!(neoc && neoc.rows) && (!homeMode || sheetFresh(neoc.as_of && neoc.as_of.iso));
+    var showVehicle = !!vvDoc() && (!homeMode || sheetFresh(vehicleStamp));
+    var showPolice = !!(police && police.rows) && (!homeMode || sheetFresh(police.as_of && police.as_of.iso));
+    var showDao = !!n && (!homeMode || sheetFresh(daoStamp));
+    var showDor = !homeMode || sheetFresh(data.as_of && data.as_of.iso);
     root.replaceChildren();
-    var board = el("article", "dor" + (mode === "section" ? " dor-section" : " dor-home") + (n ? " dor-has-dao" : "") + (neoc && neoc.rows ? " dor-has-neoc" : "") + (police && police.rows ? " dor-has-police" : "") + (vvDoc() ? " dor-has-vehicle" : ""));
-    if (neoc && neoc.rows) renderNeoc(board, mode);
-    if (vvDoc()) renderVehicle(board);
-    if (police && police.rows) renderPolice(board, mode);
-    if (n) {
+    var board = el("article", "dor" + (mode === "section" ? " dor-section" : " dor-home") + (showDao ? " dor-has-dao" : "") + (showNeoc ? " dor-has-neoc" : "") + (showPolice ? " dor-has-police" : "") + (showVehicle ? " dor-has-vehicle" : ""));
+    if (showNeoc) renderNeoc(board, mode);
+    if (showVehicle) renderVehicle(board);
+    if (showPolice) renderPolice(board, mode);
+    if (showDao) {
       renderDao(board);
-    } else {
+    } else if (showDor) {
       var head = el("header", "dor-head");
       head.appendChild(el("p", "dor-kicker", tx(ui.kicker)));
       head.appendChild(el("p", "dor-asof", tx(ui.asof) + " " + tx(data.as_of)));
@@ -2127,6 +2161,7 @@
       }
     }
     if (mode === "home") {
+      if (!board.childNodes.length) return;
       if (!n) board.appendChild(el("p", "dor-also", tx(ui.also)));
       links(board, true);
     } else {
@@ -2316,7 +2351,7 @@
   function boot() {
     var roadsP = fetch("data/roads-dor.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("roads"); return r.json(); });
-    var policeP = fetch("data/police_roads_2083-06-10-1700.json?t=" + Date.now(), { cache: "no-store" })
+    var policeP = fetch("data/police_roads_2083-06-17-0645.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("police"); return r.json(); })
       .catch(function () { return null; });
     var vehicleP = fetch("data/ndrrma_vehicle_2083-06-09.json?t=" + Date.now(), { cache: "no-store" })
@@ -2325,7 +2360,7 @@
     var geoP = fetch("data/nepal-districts.geojson?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("geo"); return r.json(); })
       .catch(function () { return null; });
-    var neocP = fetch("data/neoc_roads_2083-06-16-1800.json?t=" + Date.now(), { cache: "no-store" })
+    var neocP = fetch("data/neoc_roads_2083-06-19-0700.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("neoc"); return r.json(); })
       .catch(function () { return null; });
     Promise.all([roadsP, policeP, vehicleP, geoP, neocP])

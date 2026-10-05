@@ -1363,6 +1363,15 @@
     }
     return null;
   }
+  function calloutLive() {
+    var call = data && data.callout;
+    if (!call || call.expired) return false;
+    if (window.WeatherNow && typeof window.WeatherNow.windowOpen === "function") {
+      return window.WeatherNow.windowOpen(call.window_end);
+    }
+    var endMs = Date.parse(call.window_end || "");
+    return !isNaN(endMs) && endMs > Date.now();
+  }
   function corridorInFocus() {
     var comp = corridorRecord();
     if (!comp) return false;
@@ -1437,7 +1446,7 @@
       row.appendChild(chips);
       card.appendChild(row);
     });
-    if (corridorInFocus()) {
+    if (calloutLive()) {
       var call = data.callout || {};
       var dists = call.districts || [];
       if (dists.length) {
@@ -1704,19 +1713,36 @@
       li.textContent = bits.join(" · ");
       chips.appendChild(li);
     });
-    if (corridorInFocus()) {
+    if (calloutLive()) {
       var call = data.callout || {};
       var li2 = el("li", "wxb-mini is-corridor");
       li2.textContent = [tx(call.title), tx(call.body), tx(call.meta)].filter(Boolean).join(" · ");
       chips.appendChild(li2);
     }
     wrap.appendChild(chips);
-    var n = data.nowcast;
-    if (n) {
-      var line = [tx(ui.now_h), tx(n.when), tx(n.max)].filter(Boolean).join(" · ");
-      wrap.appendChild(el("p", "wxb-nowline", line));
-    }
     return wrap;
+  }
+  function buildHomeNowcast() {
+    var n = data.nowcast;
+    if (!n) return null;
+    var ui = data.ui || {};
+    var row = el("div", "wxb-nowrow");
+    var line = [tx(ui.now_h), tx(n.when), tx(n.max)].filter(Boolean).join(" · ");
+    if (line) row.appendChild(el("p", "wxb-nowline", line));
+    if (n.image) {
+      var a = document.createElement("a");
+      a.className = "wxb-nowthumb";
+      a.href = "weather.html";
+      var img = document.createElement("img");
+      img.src = n.image;
+      img.alt = tx(n.image_alt) || line || "";
+      img.loading = "lazy";
+      if (n.image_w) img.width = n.image_w;
+      if (n.image_h) img.height = n.image_h;
+      a.appendChild(img);
+      row.appendChild(a);
+    }
+    return row.childNodes.length ? row : null;
   }
   function sectionLink(cls, labelNe, labelEn, href) {
     var p = el("p", cls);
@@ -1788,16 +1814,16 @@
     mapWrap.appendChild(live);
     mapWrap.appendChild(buildPop());
     stage.appendChild(mapWrap);
-    var call = data.callout || {};
-    var aside = el("aside", "wxb-callout");
-    aside.id = "wx-callout";
-    var ct = el("p", "wxb-call-t");
-    ct.innerHTML = iconPin();
-    ct.appendChild(document.createTextNode(" " + tx(call.title)));
-    aside.appendChild(ct);
-    aside.appendChild(el("p", "wxb-call-b", tx(call.body)));
-    aside.appendChild(el("p", "wxb-call-m", tx(call.meta)));
-    if (mode === "section") {
+    if (mode === "section" && calloutLive()) {
+      var call = data.callout || {};
+      var aside = el("aside", "wxb-callout");
+      aside.id = "wx-callout";
+      var ct = el("p", "wxb-call-t");
+      ct.innerHTML = iconPin();
+      ct.appendChild(document.createTextNode(" " + tx(call.title)));
+      aside.appendChild(ct);
+      aside.appendChild(el("p", "wxb-call-b", tx(call.body)));
+      aside.appendChild(el("p", "wxb-call-m", tx(call.meta)));
       var cd = el("ul", "wxb-call-dists");
       (call.districts || []).forEach(function (d) {
         var name = bothNames(d);
@@ -1850,6 +1876,10 @@
     });
     if (mode !== "home") mapPanel.appendChild(el("p", "wxb-shown wxb-legend-date", shownDateText()));
     mapPanel.appendChild(legend);
+    if (mode === "home") {
+      var nowLine = buildHomeNowcast();
+      if (nowLine) mapPanel.appendChild(nowLine);
+    }
     var sumHost = el("div", "wxb-sum-host");
     sumHost.appendChild(buildSummary());
     mapPanel.appendChild(sumHost);

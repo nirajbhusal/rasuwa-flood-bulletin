@@ -323,14 +323,30 @@
     if (station && dist && station !== dist) return station + ", " + dist;
     return station || dist || "";
   }
-  function topRainRows() {
+  function heavyRainRows(limit) {
     var block = nepalBlock();
     var rows = block && block.top_rain;
     if (!Array.isArray(rows)) return [];
     return rows.filter(function (row) {
       return row && row.source !== "model" && row.rain24 != null;
-    }).slice(0, 3);
+    }).slice(0, limit == null ? 5 : limit);
   }
+  function topRainRows() {
+    return heavyRainRows(3);
+  }
+  function bulletinFresh(bulletin, generatedAt) {
+    if (!bulletin || !bulletin.url || !bulletin.issued_at) return false;
+    var issued = Date.parse(bulletin.issued_at);
+    var nowMs = Date.now();
+    if (generatedAt) {
+      var g = Date.parse(generatedAt);
+      if (!isNaN(g)) nowMs = Math.max(nowMs, g);
+    }
+    if (isNaN(issued)) return false;
+    return (nowMs - issued) <= 72 * 60 * 60 * 1000;
+  }
+  window.RasuwaWx = window.RasuwaWx || {};
+  window.RasuwaWx.bulletinFresh = bulletinFresh;
   function fillRainLine(node, row, lead) {
     if (lead) node.appendChild(document.createTextNode(lead));
     var where = rainPlace(row);
@@ -393,8 +409,85 @@
     return wrap;
   }
 
+  function buildCorridorRain() {
+    var rains = (home && home.corridor && home.corridor.rain) || [];
+    if (!rains.length) return null;
+    var box = el("div", "wxdb-quiet-rain");
+    var kick = el("p", "wxdb-kicker");
+    kick.textContent = lang() === "en" ? "Rasuwa corridor rain" : "रसुवा करिडोर वर्षा";
+    box.appendChild(kick);
+    var row = el("div", "wxdb-rainrow");
+    rains.forEach(function (item) {
+      var chip = el("span", "wxdb-rainchip");
+      var dot = el("i", "wxdb-rdot");
+      dot.style.background = item.fresh ? rainColor(item.rain_24h) : "#9aa3ad";
+      chip.appendChild(dot);
+      var amount = item.fresh && item.rain_24h != null ? fmt(item.rain_24h, 1) : "—";
+      chip.appendChild(document.createTextNode(tx(item) + " " + amount + (lang() === "en" ? " mm" : " मि.मि.")));
+      row.appendChild(chip);
+    });
+    box.appendChild(row);
+    return box;
+  }
+  function buildNowcastLine() {
+    var n = alertDoc && alertDoc.nowcast;
+    if (!n) return null;
+    var text = [tx(n.when), tx(n.max)].filter(Boolean).join(" · ");
+    if (!text) return null;
+    var line = el("p", "wxdb-nowline");
+    line.textContent = text;
+    return line;
+  }
+  function forecastLead(text) {
+    if (!text) return "";
+    var cut = lang() === "en" ? text.split(". ")[0] : text.split("।")[0];
+    if (lang() === "en" && cut && !/[.!?…]$/.test(cut)) cut += ".";
+    if (lang() !== "en" && cut && cut.slice(-1) !== "।") cut += "।";
+    return cut;
+  }
+  function buildForecastFold() {
+    var forecast = (home && home.forecast) || {};
+    var forecastText = tx(forecast.text);
+    if (!forecastText) return null;
+    var box = el("div", "wxdb-forecast-box");
+    var lead = forecastLead(forecastText);
+    if (lead) {
+      var line = el("p", "wxdb-forecast-line");
+      line.textContent = lead;
+      box.appendChild(line);
+    }
+    var det = document.createElement("details");
+    det.className = "wxdb-forecast";
+    var sum = document.createElement("summary");
+    sum.textContent = lang() === "en" ? "Read the forecast" : "पूर्वानुमान पढ्नुहोस्";
+    if (typeof window.t === "function") {
+      var label = window.t("wx_forecast_read");
+      if (label && label !== "wx_forecast_read" && !/^[a-z][a-z0-9_]*$/.test(label)) sum.textContent = label;
+    }
+    det.appendChild(sum);
+    var note = el("p", "wxdb-forecast-body");
+    note.textContent = forecastText;
+    det.appendChild(note);
+    box.appendChild(det);
+    return box;
+  }
+  function buildQuietNepal() {
+    var sec = el("section", "wxb-nepal-now is-quiet");
+    var head = el("h3", "wxdb-h");
+    head.textContent = lang() === "en" ? "Nepal now" : "नेपाल अहिले";
+    sec.appendChild(head);
+    var list = buildTopRainList(heavyRainRows(5));
+    if (list) sec.appendChild(list);
+    var nowLine = buildNowcastLine();
+    if (nowLine) sec.appendChild(nowLine);
+    var rain = buildCorridorRain();
+    if (rain) sec.appendChild(rain);
+    var forecast = buildForecastFold();
+    if (forecast) sec.appendChild(forecast);
+    return sec;
+  }
   function buildNepalNow(rows, fullList) {
-    if (!rows || !rows.length) return null;
+    if (!rows || !rows.length) return fullList ? null : buildQuietNepal();
     var cap = (nepalBlock() && nepalBlock().cap) || (window.WeatherNow && window.WeatherNow.HOME_CAP) || 12;
     var shown = fullList ? rows : rows.slice(0, cap);
     var sec = el("section", "wxb-nepal-now" + (fullList ? " is-full" : ""));
@@ -528,66 +621,23 @@
   function injectNow() {
     document.querySelectorAll("[data-wx-now-host]").forEach(function (host) {
       host.replaceChildren();
+      if (host.closest("[data-wx-mode='home']")) return;
       var fullList = !!(host.closest("[data-wx-mode='section']"));
       var block = buildNepalNow(alertRows(host), fullList);
       if (block) host.appendChild(block);
     });
+    if (home) {
+      document.querySelectorAll("[data-wxdb-mount][data-wxdb-mode='home']").forEach(renderHome);
+    }
   }
 
   function renderHome(root) {
     root.replaceChildren();
     if (!home) return;
+    var block = buildNepalNow(alertRows(null), false);
+    if (!block) return;
     var board = el("section", "wxdb wxdb-home");
-    var corridor = home.corridor || {};
-    var panel = el("section", "wxdb-corridor");
-    panel.appendChild(h2("रसुवा करिडोर", "Rasuwa corridor"));
-    var rivers = el("ul", "wxdb-rivers");
-    (corridor.rivers || []).forEach(function (row) {
-      var li = el("li", "wxdb-river");
-      var dot = el("i", "wxdb-rdot wxdb-lv-" + (row.fresh ? row.level : "none"));
-      li.appendChild(dot);
-      var label = el("span", "wxdb-river-name");
-      label.textContent = tx(row);
-      li.appendChild(label);
-      var state = el("span", "wxdb-river-state");
-      state.textContent = riverWord(row.fresh ? row.level : "none");
-      li.appendChild(state);
-      var meta = el("span", "wxdb-river-meta");
-      var trend = trendMark(row.trend);
-      meta.textContent = deltaText(row) + (trend ? " " + trend : "") + (row.fresh && row.obs_at ? " · " + clock(row.obs_at) : "");
-      li.appendChild(meta);
-      rivers.appendChild(li);
-    });
-    panel.appendChild(rivers);
-    var rains = el("div", "wxdb-rainrow");
-    (corridor.rain || []).forEach(function (row) {
-      if (!row.fresh && row.rain_24h == null) return;
-      var chip = el("span", "wxdb-rainchip");
-      var dot = el("i", "wxdb-rdot");
-      dot.style.background = row.fresh ? rainColor(row.rain_24h) : "#9aa3ad";
-      chip.appendChild(dot);
-      chip.appendChild(document.createTextNode(tx(row) + " " + (row.fresh ? fmt(row.rain_24h, 1) : "—")));
-      rains.appendChild(chip);
-    });
-    if (rains.childNodes.length) panel.appendChild(rains);
-    if (home.bulletin && home.bulletin.url) {
-      var a = document.createElement("a");
-      a.className = "wxdb-bull";
-      a.href = home.bulletin.url;
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.textContent = home.bulletin.title || (lang() === "en" ? "DHM bulletin" : "DHM बुलेटिन");
-      panel.appendChild(a);
-    }
-    if (home.generated_at) {
-      panel.appendChild(el("p", "wxdb-updated")).textContent = (lang() === "en" ? "Updated " : "अद्यावधिक ") + formatWhen(home.generated_at, true);
-    }
-    var more = document.createElement("a");
-    more.className = "wxdb-more";
-    more.href = "weather.html";
-    more.textContent = "सबै हेर्नुहोस् · See all";
-    panel.appendChild(more);
-    board.appendChild(panel);
+    board.appendChild(block);
     root.appendChild(board);
   }
 

@@ -697,30 +697,98 @@
     board.appendChild(sourceLine());
     root.appendChild(board);
   }
+  function nptClock(iso) {
+    if (!iso) return "";
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return "";
+    var parts;
+    try {
+      parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kathmandu", hour: "numeric", minute: "2-digit", hourCycle: "h23" }).formatToParts(d);
+    } catch (e) { return ""; }
+    var hh = 0;
+    var mm = "00";
+    parts.forEach(function (p) {
+      if (p.type === "hour") hh = Number(p.value);
+      if (p.type === "minute") mm = p.value;
+    });
+    var h12 = hh % 12;
+    if (h12 === 0) h12 = 12;
+    var hm = h12 + ":" + mm;
+    if (lang() === "en") return hm + (hh >= 12 ? " PM" : " AM");
+    var part = hh < 12 ? "बिहान" : (hh < 17 ? "दिउँसो" : (hh < 20 ? "साँझ" : "राति"));
+    return part + " " + digits(hm);
+  }
+  function gaugeHot(row) {
+    if (!row || !row.fresh) return false;
+    return row.level === "red" || row.level === "orange" || row.level === "yellow";
+  }
+  function bulletinNotNormal() {
+    var present = data && data.present;
+    if (present && (((present.above || []).length) || ((present.near || []).length))) return true;
+    var stations = (data && data.stations) || [];
+    for (var i = 0; i < stations.length; i++) {
+      var days = stations[i].days || [];
+      for (var j = 0; j < days.length; j++) {
+        var tone = (levelMeta(days[j]) || {}).tone;
+        if (tone && tone !== "green" && tone !== "mint") return true;
+      }
+    }
+    return false;
+  }
+  function riversUrgent() {
+    if (bulletinNotNormal()) return true;
+    var rivers = (liveDoc && liveDoc.corridor && liveDoc.corridor.rivers) || [];
+    for (var i = 0; i < rivers.length; i++) if (gaugeHot(rivers[i])) return true;
+    return false;
+  }
+  function placeFloodHome() {
+    var flood = document.getElementById("flood-home");
+    var roads = document.getElementById("dor-home");
+    if (!flood || !roads || !flood.parentNode || flood.parentNode !== roads.parentNode) return;
+    if (riversUrgent()) roads.parentNode.insertBefore(flood, roads);
+    else flood.parentNode.insertBefore(roads, flood);
+  }
+  function gaugeLine(row) {
+    var li = el("li", "fld-gauge" + (row.fresh ? " is-" + (row.level || "none") : " is-off"));
+    li.appendChild(el("i", "fld-dot fld-dot-" + (row.fresh ? (row.level || "none") : "none")));
+    li.appendChild(el("span", "fld-gauge-name", tx(row)));
+    if (row.fresh && row.level_m != null) {
+      li.appendChild(el("span", "fld-gauge-m", meterLabel(row.level_m, false) + (lang() === "en" ? " m" : " मि")));
+      if (row.warning_m != null) {
+        li.appendChild(el("span", "fld-gauge-alert", (lang() === "en" ? "alert " : "सतर्कता ") + meterLabel(row.warning_m, false) + (lang() === "en" ? " m" : " मि")));
+      }
+      var when = nptClock(row.obs_at);
+      if (when) li.appendChild(el("span", "fld-gauge-t", when));
+    }
+    return li;
+  }
+  function buildFlashChips() {
+    var wrap = el("div", "fld-flash");
+    var ru = data.rasuwa || {};
+    var ras = nameOf(ru.id || "rasuwa");
+    wrap.appendChild(el("p", "fld-cor-risk", lang() === "en"
+      ? ras + " flash-flood risk: " + riskWord(ru.today || "low") + " today, " + riskWord(ru.tomorrow || "low") + " tomorrow."
+      : ras + "मा आकस्मिक बाढीको जोखिम आज " + riskWord(ru.today || "low") + ", भोलि " + riskWord(ru.tomorrow || "low") + "।"));
+    if ((data.corridor || []).length) {
+      var cor = el("div", "fld-cor-days");
+      data.corridor.forEach(function (item) {
+        var tone = item.today === "very_high" ? "red" : (item.today === "high" ? "orange" : (item.today === "medium" ? "yellow" : "green"));
+        var cell = el("span", "fld-cell fld-" + tone);
+        cell.appendChild(el("b", null, nameOf(item.id)));
+        cell.appendChild(document.createTextNode(riskWord(item.today) + " · " + riskWord(item.tomorrow)));
+        cor.appendChild(cell);
+      });
+      wrap.appendChild(cor);
+    }
+    return wrap;
+  }
   function renderHome(root) {
     root.replaceChildren();
-    var day = data.flash.today;
     var card = el("article", "fld fld-home");
     mountNdrrm(card, true);
-    card.appendChild(el("h2", "fld-title", lang() === "en" ? "River and flood outlook" : "नदी र बाढी पूर्वानुमान"));
-    card.appendChild(el("p", "fld-sub", tx(data.source.label)));
-    var nVery = ((day && day.very_high) || []).length;
-    var n = ((day && day.high) || []).length;
-    var homeLine = "";
-    if (nVery && n) {
-      homeLine = lang() === "en"
-        ? nVery + " districts are at very high and " + n + " at high flash-flood risk today."
-        : "आज " + digits(nVery) + " जिल्लामा आकस्मिक बाढीको अति उच्च र " + digits(n) + " जिल्लामा उच्च जोखिम छ।";
-    } else if (nVery) {
-      homeLine = lang() === "en"
-        ? nVery + " districts are at very high flash-flood risk today."
-        : "आज " + digits(nVery) + " जिल्लामा आकस्मिक बाढीको अति उच्च जोखिम छ।";
-    } else if (n) {
-      homeLine = lang() === "en"
-        ? n + " districts are at high flash-flood risk today."
-        : "आज " + digits(n) + " जिल्लामा आकस्मिक बाढीको उच्च जोखिम छ।";
-    }
-    if (homeLine) card.appendChild(el("p", "fld-home-n", homeLine));
+    card.appendChild(el("h2", "fld-title", lang() === "en" ? "Rivers and flood" : "नदी र बाढी"));
+    if (data.source && data.source.label) card.appendChild(el("p", "fld-sub", tx(data.source.label)));
+    if (data.present && tx(data.present.text)) card.appendChild(el("p", "fld-lead", tx(data.present.text)));
     [
       ["above", "Above alert", "सतर्कता तह माथि"],
       ["near", "Near alert", "सतर्कता नजिक"]
@@ -731,6 +799,33 @@
         ? row[1] + ": " + items.map(tx).join(", ") + "."
         : row[2] + ": " + items.map(tx).join(", ") + "।"));
     });
+    var rivers = (liveDoc && liveDoc.corridor && liveDoc.corridor.rivers) || [];
+    var fresh = [];
+    var offline = [];
+    rivers.forEach(function (row) {
+      if (row && row.fresh && row.level_m != null) fresh.push(row);
+      else if (row) offline.push(row);
+    });
+    if (fresh.length) {
+      var list = el("ul", "fld-gauges");
+      fresh.forEach(function (row) { list.appendChild(gaugeLine(row)); });
+      card.appendChild(list);
+    }
+    if (offline.length) {
+      card.appendChild(el("p", "fld-offline", (lang() === "en" ? "No fresh reading: " : "ताजा रिडिङ छैन: ") + offline.map(tx).join(", ")));
+    }
+    card.appendChild(buildFlashChips());
+    var bulletin = liveDoc && liveDoc.bulletin;
+    var freshBulletin = window.RasuwaWx && typeof window.RasuwaWx.bulletinFresh === "function" && window.RasuwaWx.bulletinFresh(bulletin, liveDoc && liveDoc.generated_at);
+    if (freshBulletin) {
+      var blink = document.createElement("a");
+      blink.className = "fld-bull";
+      blink.href = bulletin.url;
+      blink.target = "_blank";
+      blink.rel = "noopener";
+      blink.textContent = bulletin.title || (lang() === "en" ? "DHM bulletin" : "DHM बुलेटिन");
+      card.appendChild(blink);
+    }
     var a = document.createElement("a");
     a.className = "fld-more";
     a.href = "weather.html#flood-outlook";
@@ -740,10 +835,6 @@
   }
   function renderCorridorMount(root) {
     root.replaceChildren();
-    var board = el("div", "fld fld-corridor-mount");
-    board.appendChild(el("p", "fld-sub", tx(data.source.label)));
-    board.appendChild(buildCorridor());
-    root.appendChild(board);
   }
   function renderMount(root) {
     var mode = root.getAttribute("data-flood-mode") || "section";
@@ -753,6 +844,7 @@
   }
   function paintAll() {
     mounts.forEach(renderMount);
+    placeFloodHome();
   }
 
   function boot() {

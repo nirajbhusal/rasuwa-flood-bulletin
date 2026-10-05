@@ -485,3 +485,39 @@ body.home-page #home .wxdb-city{
   }
   .wxb-nepal-now .wxdb-city{flex:0 0 auto;min-width:148px;width:auto;scroll-snap-align:start}
 }
+.home-status{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.home-status:empty,#wxdb-home:empty,#flood-home:empty,#flood-corridor:empty,#dor-home:empty{display:none}
+.home-status a{display:flex;flex-direction:column;gap:2px;min-width:0;padding:10px 12px;text-decoration:none;color:#1a1a1a;background:#fff;border:1px solid #e7e5e4;border-left:4px solid #1b7f3a;border-radius:12px}
+.home-status a span{font-size:11px;font-weight:800;letter-spacing:.04em;color:#64748b}
+.home-status a strong{font-size:14px;font-weight:800;line-height:1.35}
+@media(min-width:900px){.home-status{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.wxb-nowrow{margin-top:12px}
+.wxb-nowline,.wxdb-nowline,.wxdb-forecast-line{margin:0;font-size:14px;line-height:1.45;color:#1a1a1a}
+.wxb-nowthumb{display:block;max-width:240px;margin-top:8px}
+.wxb-nowthumb img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid #e7e5e4}
+.wxdb-quiet-rain{margin-top:8px}
+.wxdb-corridor-rain,.wxdb-quiet-rain .wxdb-rainrow{display:flex;flex-wrap:wrap;gap:6px}
+.fld-gauges{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.fld-gauge{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:14px;line-height:1.35;color:#1a1a1a}
+@media(min-width:760px){.fld-gauge{flex-wrap:nowrap}}
+.fld-dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto;background:#9aa3ad}
+.fld-dot-green{background:#1b7f3a}
+.fld-dot-yellow{background:#e6b800}
+.fld-dot-orange{background:#e65c00}
+.fld-dot-red{background:#d7191c}
+.fld-dot-none{background:#9aa3ad}
+.fld-gauge-name{font-weight:800}
+.fld-offline{margin:8px 0 0;color:#64748b;font-size:14px}
+.home-more{display:flex;flex-direction:column;gap:8px}
+.home-more > h2{margin:0;font-size:18px;color:#1a1a1a}
+.home-fold,.home-kpi-more{background:#fff;border:1px solid #e7e5e4;border-radius:12px;padding:10px 14px}
+.home-fold > summary,.home-kpi-more > summary{font-weight:800;cursor:pointer;color:#1a1a1a}
+.home-fold-body{padding-top:12px}
+.home-fold .home-cat-head h2{display:none}
+body.home-page #home .pmdrf-banner .pmdrf-banner-k,
+body.home-page #home .pmdrf-banner .pmdrf-banner-sub,
+body.home-page #home .pmdrf-banner .pay-row-k,
+body.home-page #home .rescue-banner .pmdrf-banner-k{color:#1a1a1a}
+body.home-page #home .pmdrf-banner .pmdrf-banner-h,
+body.home-page #home .pmdrf-banner strong.pmdrf-banner-h{color:#c41e3a}
+body.home-page #home .pmdrf-banner .pmdrf-banner-sub{display:block !important}
