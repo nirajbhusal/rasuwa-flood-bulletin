@@ -1,22 +1,28 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-20T19:00:00+05:45",
-  "as_of": "२० सेप्टेम्बर / ४ असोज २०८३ · १९:००",
+  "updated_at": "2026-10-05T16:25:00+05:45",
+  "as_of": "३ अक्टोबर / १७ असोज २०८३",
   "credit": "निरज भुसाल",
   "link": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
   "cards": [
     {
       "id": "dead",
       "label": "मृतक संख्या",
-      "value": 1451,
-      "value_display": "१,४५१",
+      "value": 1455,
+      "value_display": "१,४५५",
       "items": [
         {
           "id": "chitwan",
           "label": "चितवन",
-          "value": 367,
-          "value_display": "३६७"
+          "value": 369,
+          "value_display": "३६९"
+        },
+        {
+          "id": "rasuwa",
+          "label": "रसुवा",
+          "value": 236,
+          "value_display": "२३६"
         },
         {
           "id": "nawal_e",
@@ -33,20 +39,8 @@
         {
           "id": "nuwakot",
           "label": "नुवाकोट",
-          "value": 236,
-          "value_display": "२३६"
-        },
-        {
-          "id": "rasuwa",
-          "label": "रसुवा",
-          "value": 203,
-          "value_display": "२०३"
-        },
-        {
-          "id": "handover",
-          "label": "हस्तान्तरण (लेबल)",
-          "value": 110,
-          "value_display": "११०"
+          "value": 204,
+          "value_display": "२०४"
         },
         {
           "id": "gorkha",
@@ -57,61 +51,91 @@
         {
           "id": "dhading",
           "label": "धादिङ",
-          "value": 72,
-          "value_display": "७२"
+          "value": 73,
+          "value_display": "७३"
+        },
+        {
+          "id": "tanahu",
+          "label": "तनहुँ",
+          "value": 38,
+          "value_display": "३८"
+        },
+        {
+          "id": "ktm_treatment",
+          "label": "उपचारको क्रममा काठमाडौँ",
+          "value": 2,
+          "value_display": "२"
         },
         {
           "id": "demo",
-          "label": "महिला / पुरुष / अवशेष",
+          "label": "महिला / पुरुष / आंशिक अंग",
           "value": null,
-          "value_display": "३३६ · ५८५ · ५३०"
+          "value_display": "३३६ · ५८५ · ५३३"
         },
         {
           "id": "dna",
           "label": "DNA मृतक / आफन्त",
           "value": null,
-          "value_display": "१,२८६ · १,९९७"
+          "value_display": "१,३३० · २,०६६"
+        },
+        {
+          "id": "identified_subtracted",
+          "label": "सनाखत शव (बेपत्ताबाट कट्टी)",
+          "value": 112,
+          "value_display": "११२"
         }
       ]
     },
     {
       "id": "injured",
       "label": "हाल उपचाररत",
-      "value": 15,
-      "value_display": "१५",
+      "value": 3,
+      "value_display": "३",
       "items": [
         {
           "id": "security",
           "label": "सुरक्षा निकाय उपचार",
-          "value": 10163,
-          "value_display": "१०,१६३"
+          "value": 11105,
+          "value_display": "११,१०५"
         },
         {
           "id": "ndrrma_hosp",
-          "label": "अस्पताल उपचार (५)",
-          "value": 15,
-          "value_display": "१५"
+          "label": "हाल उपचाररत (अस्पताल)",
+          "value": 3,
+          "value_display": "३"
+        },
+        {
+          "id": "treated_total",
+          "label": "अस्पताल उपचार जम्मा (१९)",
+          "value": 344,
+          "value_display": "३४४"
         },
         {
           "id": "discharged",
-          "label": "डिस्चार्ज (इतिहास)",
-          "value": 290,
-          "value_display": "२९०"
+          "label": "डिस्चार्ज",
+          "value": 305,
+          "value_display": "३०५"
+        },
+        {
+          "id": "died_in_treatment",
+          "label": "उपचारका क्रममा मृत्यु",
+          "value": 4,
+          "value_display": "४"
         },
         {
           "id": "hospital_count",
           "label": "अस्पताल संख्या",
-          "value": 5,
-          "value_display": "५"
+          "value": 19,
+          "value_display": "१९"
         }
       ],
-      "history_note": "अघिल्लो उपचाररत १८ (६ अस्पताल) / सुरक्षा निकाय १०,०४१ (३ असोज SitRep #15) · उपचार ३४४ / डिस्चार्ज २९० / सुरक्षा निकाय ९,८२० (SitRep #14) इतिहास — यस बोर्डमा हाल उपचाररत १५ (५ अस्पताल)।"
+      "history_note": "अघिल्लो हाल उपचाररत १५ (५ अस्पताल) / सुरक्षा निकाय १०,१६३ (४ असोज SitRep #16) इतिहास — यस बोर्डमा हाल उपचाररत ३ · अस्पताल उपचार ३४४ / डिस्चार्ज ३०५ / उपचारक्रम मृत्यु ४ / सुरक्षा निकाय ११,१०५ (१७ असोज बाढी अपडेट)।"
     },
     {
       "id": "miss",
       "label": "सम्पर्कविहीन करिब",
-      "value": 5786,
-      "value_display": "५,७८६",
+      "value": 5285,
+      "value_display": "५,२८५",
       "items": [
         {
           "id": "foreign",
@@ -122,14 +146,14 @@
         {
           "id": "ras_local",
           "label": "रसुवा · स्थानीय",
-          "value": 1677,
-          "value_display": "१,६७७"
+          "value": 1674,
+          "value_display": "१,६७४"
         },
         {
           "id": "ras_other",
           "label": "रसुवा · अन्य जिल्ला",
-          "value": 1836,
-          "value_display": "१,८३६"
+          "value": 1840,
+          "value_display": "१,८४०"
         },
         {
           "id": "nuw_local",
@@ -140,26 +164,26 @@
         {
           "id": "nuw_other",
           "label": "नुवाकोट · अन्य जिल्ला",
-          "value": 1090,
-          "value_display": "१,०९०"
+          "value": 590,
+          "value_display": "५९०"
         },
         {
           "id": "holding",
           "label": "होल्डिङ (३ जिल्ला लेबल योग)",
-          "value": 1231,
-          "value_display": "१,२३१"
+          "value": 1085,
+          "value_display": "१,०८५"
         },
         {
           "id": "hold_nuwakot",
           "label": "होल्ड · नुवाकोट",
-          "value": 324,
-          "value_display": "३२४"
+          "value": 121,
+          "value_display": "१२१"
         },
         {
           "id": "hold_rasuwa",
           "label": "होल्ड · रसुवा",
-          "value": 786,
-          "value_display": "७८६"
+          "value": 843,
+          "value_display": "८४३"
         },
         {
           "id": "hold_dhading",
@@ -170,55 +194,50 @@
         {
           "id": "holding_centers",
           "label": "होल्डिङ सेन्टर",
-          "value": 20,
-          "value_display": "२०"
+          "value": 17,
+          "value_display": "१७"
         },
         {
-          "id": "handover_deduct",
-          "label": "पहिचान कट्टी (लेबल)",
-          "value": 110,
-          "value_display": "११०"
+          "id": "holding_centers_split",
+          "label": "सेन्टर · नुवाकोट/रसुवा/धादिङ",
+          "value": null,
+          "value_display": "४ · ९ · ४"
         }
-      ]
+      ],
+      "history_note": "कुल बेपत्ता ५,२८५ (* हालसम्म सनाखत भएका शव ११२ घटाएको)। विभाजन जोडेर जम्मा नगर्ने। अघिल्लो करिब ५,७८६ (४ असोज SitRep #16) इतिहास।"
     },
     {
       "id": "rescued",
       "label": "हालसम्म उद्धार गरिएको संख्या",
-      "value": 13784,
-      "value_display": "१३,७८४",
+      "value": 13795,
+      "value_display": "१३,७९५",
       "items": [
         {
-          "id": "heli_flights",
-          "label": "सेना हेलि उडान · आज",
-          "value": 33,
-          "value_display": "३३"
+          "id": "flights_total",
+          "label": "कुल हवाई उडान",
+          "value": 4820,
+          "value_display": "४,८२०"
         },
         {
-          "id": "apf_flights",
-          "label": "सशस्त्र उडान (इतिहास)",
-          "value": 320,
-          "value_display": "३२०"
+          "id": "army_sorties",
+          "label": "नेपाली सेना सर्टिज",
+          "value": 2026,
+          "value_display": "२,०२६"
         },
         {
-          "id": "private_ktm",
-          "label": "निजी काठमाडौं",
-          "value": 129,
-          "value_display": "१२९"
-        },
-        {
-          "id": "heli",
-          "label": "हेलिकप्टर",
-          "value": 14,
-          "value_display": "१४"
+          "id": "private_sorties",
+          "label": "निजी सर्टिज",
+          "value": 2794,
+          "value_display": "२,७९४"
         },
         {
           "id": "tunnel_separate",
-          "label": "सुरुङ्ग अलग",
+          "label": "सुरुङ्ग अलग (अघिल्लो लेबल)",
           "value": 279,
           "value_display": "२७९"
         }
       ],
-      "history_note": "यस बोर्डमा सेना हेलि उडान आज ३३ मात्र (संचयी जम्मा छैन)। अघिल्लो सेना १,६९२ (४१ त्यो दिन) · सशस्त्र ३२० (जम्मा २,०१२) SitRep #15 इतिहास।"
+      "history_note": "यस बोर्डमा कुल उद्धार १३,७९५ · कुल हवाई उडान ४,८२० (सेना २,०२६ · निजी २,७९४)। अघिल्लो उद्धार १३,७८४ / सेना हेलि आज ३३ (४ असोज SitRep #16) इतिहास। सुरुङ्ग २७९ अघिल्लो लेबल यथावत्।"
     },
     {
       "id": "police",
@@ -311,7 +330,7 @@
           "value_display": "१५८ · ४३,९४३"
         }
       ],
-      "history_note": "अघिल्लो २३ भदौ २०:००: शव प्रहरी १,३७२ · सम्पर्कविहीन ४,०७९ · DNA २,७११ · शव व्यवस्थापन १,१५३ · udb १,३१२ · जनचेतना १६८/४३,९४३ इतिहास।",
+      "history_note": "नेपाल प्रहरी समेकित पाना अझै असोज १७ ०६:४५ / बाढी अपडेट बोर्डमा प्रहरी अलग अंक छैन — यस कार्डका अंक यथावत् (२४ भदौ ११:००)।",
       "as_of": "२४ भदौ ११:०० / ९ सेप्टेम्बर २०२६ ११:००"
     },
     {
@@ -344,58 +363,23 @@
           "value": null,
           "value_display": "रसुवागढी · चिलिमे · लाङटाङ"
         }
-      ]
+      ],
+      "history_note": "सुरुङ्ग उद्धार लेबल यस बाढी अपडेट बोर्डमा छैन — अघिल्लो २७९ यथावत्।"
     },
     {
       "id": "deploy",
       "label": "खटिएको जनशक्ति",
-      "value": 20929,
-      "value_display": "२०,९२९",
+      "value": 20477,
+      "value_display": "२०,४७७",
       "items": [
         {
           "id": "total",
           "label": "जम्मा",
-          "value": 20929,
-          "value_display": "२०,९२९"
-        },
-        {
-          "id": "army",
-          "label": "सेना",
-          "value": 8844,
-          "value_display": "८,८४४"
-        },
-        {
-          "id": "apf",
-          "label": "सशस्त्र",
-          "value": 4203,
-          "value_display": "४,२०३"
-        },
-        {
-          "id": "police",
-          "label": "प्रहरी",
-          "value": 7975,
-          "value_display": "७,९७५"
-        },
-        {
-          "id": "medical",
-          "label": "मेडिकल",
-          "value": null,
-          "value_display": "२००+"
-        },
-        {
-          "id": "surgical",
-          "label": "सर्जिकल टोली",
-          "value": 6,
-          "value_display": "६"
-        },
-        {
-          "id": "heli",
-          "label": "हेलि",
-          "value": 14,
-          "value_display": "१४"
+          "value": 20477,
+          "value_display": "२०,४७७"
         }
       ],
-      "history_note": "यस बोर्डमा सुरक्षा परिचालन २०,९२९ मात्र (निकाय विभाजन छैन)। अघिल्लो २०,९३५ (३ असोज SitRep #15) · २१,०२२ = सेना ८,८४४ · प्रहरी ७,९७५ · सशस्त्र ४,२०३ (२६ भदौ) इतिहास।"
+      "history_note": "यस बोर्डमा सुरक्षाकर्मी परिचालन २०,४७७ मात्र (निकाय विभाजन छैन)। अघिल्लो २०,९२९ = सेना ८,८४४ · प्रहरी ७,९७५ · सशस्त्र ४,२०३ (४ असोज SitRep #16) इतिहास।"
     },
     {
       "id": "comms",
@@ -433,7 +417,8 @@
           "value": null,
           "value_display": "९९.८%"
         }
-      ]
+      ],
+      "history_note": "सञ्चार/विद्युत % यस बाढी अपडेट बोर्डमा छैन — अघिल्लो अंक यथावत्। NDRRMA प्रतिवेदनमा रसुवा/नुवाकोट जलविद्युत क्षति उल्लेख छ तर NEA स्रोत होइन।"
     }
   ],
   "watermark": "स्रोत · निरज भुसाल",

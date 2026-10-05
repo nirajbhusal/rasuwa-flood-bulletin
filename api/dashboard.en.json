@@ -1,22 +1,28 @@
 {
   "schema_version": 3,
   "id": "dashboard",
-  "updated_at": "2026-09-20T19:00:00+05:45",
-  "as_of": "20 September 2026 · 19:00 NPT",
+  "updated_at": "2026-10-05T16:25:00+05:45",
+  "as_of": "3 October 2026 · Asoj 17, 2083",
   "credit": "Niraj Bhusal",
   "link": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/index.html#overview",
   "cards": [
     {
       "id": "dead",
       "label": "Deaths count",
-      "value": 1451,
-      "value_display": "1,451",
+      "value": 1455,
+      "value_display": "1,455",
       "items": [
         {
           "id": "chitwan",
           "label": "Chitwan",
-          "value": 367,
-          "value_display": "367"
+          "value": 369,
+          "value_display": "369"
+        },
+        {
+          "id": "rasuwa",
+          "label": "Rasuwa",
+          "value": 236,
+          "value_display": "236"
         },
         {
           "id": "nawal_e",
@@ -33,20 +39,8 @@
         {
           "id": "nuwakot",
           "label": "Nuwakot",
-          "value": 236,
-          "value_display": "236"
-        },
-        {
-          "id": "rasuwa",
-          "label": "Rasuwa",
-          "value": 203,
-          "value_display": "203"
-        },
-        {
-          "id": "handover",
-          "label": "Handover (labeled)",
-          "value": 110,
-          "value_display": "110"
+          "value": 204,
+          "value_display": "204"
         },
         {
           "id": "gorkha",
@@ -57,61 +51,91 @@
         {
           "id": "dhading",
           "label": "Dhading",
-          "value": 72,
-          "value_display": "72"
+          "value": 73,
+          "value_display": "73"
+        },
+        {
+          "id": "tanahu",
+          "label": "Tanahun",
+          "value": 38,
+          "value_display": "38"
+        },
+        {
+          "id": "ktm_treatment",
+          "label": "Kathmandu (during treatment)",
+          "value": 2,
+          "value_display": "2"
         },
         {
           "id": "demo",
-          "label": "Female / male / remains",
+          "label": "Female / male / partial remains",
           "value": null,
-          "value_display": "336 · 585 · 530"
+          "value_display": "336 · 585 · 533"
         },
         {
           "id": "dna",
           "label": "DNA deceased / relatives",
           "value": null,
-          "value_display": "1,286 · 1,997"
+          "value_display": "1,330 · 2,066"
+        },
+        {
+          "id": "identified_subtracted",
+          "label": "Identified bodies (subtracted from missing)",
+          "value": 112,
+          "value_display": "112"
         }
       ]
     },
     {
       "id": "injured",
       "label": "Currently in treatment",
-      "value": 15,
-      "value_display": "15",
+      "value": 3,
+      "value_display": "3",
       "items": [
         {
           "id": "security",
           "label": "Security-agency treatment",
-          "value": 10163,
-          "value_display": "10,163"
+          "value": 11105,
+          "value_display": "11,105"
         },
         {
           "id": "ndrrma_hosp",
-          "label": "Hospital treated (5)",
-          "value": 15,
-          "value_display": "15"
+          "label": "Currently in treatment (hospital)",
+          "value": 3,
+          "value_display": "3"
+        },
+        {
+          "id": "treated_total",
+          "label": "Hospital treated total (19)",
+          "value": 344,
+          "value_display": "344"
         },
         {
           "id": "discharged",
-          "label": "Discharged (history)",
-          "value": 290,
-          "value_display": "290"
+          "label": "Discharged",
+          "value": 305,
+          "value_display": "305"
+        },
+        {
+          "id": "died_in_treatment",
+          "label": "Died during treatment",
+          "value": 4,
+          "value_display": "4"
         },
         {
           "id": "hospital_count",
           "label": "Hospital count",
-          "value": 5,
-          "value_display": "5"
+          "value": 19,
+          "value_display": "19"
         }
       ],
-      "history_note": "Previous in treatment 18 (6 hospitals) / security-agency 10,041 (3 Ashwin SitRep #15) · treated 344 / discharged 290 / security-agency 9,820 (SitRep #14) is history — this board prints currently in treatment 15 (5 hospitals)."
+      "history_note": "Previous currently in treatment 15 (5 hospitals) / security-agency 10,163 (4 Ashwin SitRep #16) is history — this board prints currently in treatment 3 · hospital treated 344 / discharged 305 / died in treatment 4 / security-agency 11,105 (Asoj 17 flood update)."
     },
     {
       "id": "miss",
       "label": "Missing around",
-      "value": 5786,
-      "value_display": "5,786",
+      "value": 5285,
+      "value_display": "5,285",
       "items": [
         {
           "id": "foreign",
@@ -122,14 +146,14 @@
         {
           "id": "ras_local",
           "label": "Rasuwa · locals",
-          "value": 1677,
-          "value_display": "1,677"
+          "value": 1674,
+          "value_display": "1,674"
         },
         {
           "id": "ras_other",
           "label": "Rasuwa · other districts",
-          "value": 1836,
-          "value_display": "1,836"
+          "value": 1840,
+          "value_display": "1,840"
         },
         {
           "id": "nuw_local",
@@ -140,26 +164,26 @@
         {
           "id": "nuw_other",
           "label": "Nuwakot · other districts",
-          "value": 1090,
-          "value_display": "1,090"
+          "value": 590,
+          "value_display": "590"
         },
         {
           "id": "holding",
           "label": "Holding (3-district labeled sum)",
-          "value": 1231,
-          "value_display": "1,231"
+          "value": 1085,
+          "value_display": "1,085"
         },
         {
           "id": "hold_nuwakot",
           "label": "Hold · Nuwakot",
-          "value": 324,
-          "value_display": "324"
+          "value": 121,
+          "value_display": "121"
         },
         {
           "id": "hold_rasuwa",
           "label": "Hold · Rasuwa",
-          "value": 786,
-          "value_display": "786"
+          "value": 843,
+          "value_display": "843"
         },
         {
           "id": "hold_dhading",
@@ -170,55 +194,50 @@
         {
           "id": "holding_centers",
           "label": "Holding centers",
-          "value": 20,
-          "value_display": "20"
+          "value": 17,
+          "value_display": "17"
         },
         {
-          "id": "handover_deduct",
-          "label": "Identified deduct (label)",
-          "value": 110,
-          "value_display": "110"
+          "id": "holding_centers_split",
+          "label": "Centers · Nuwakot/Rasuwa/Dhading",
+          "value": null,
+          "value_display": "4 · 9 · 4"
         }
-      ]
+      ],
+      "history_note": "Total missing 5,285 (* 112 identified bodies subtracted so far). Do not sum the breakdowns. Previous about 5,786 (4 Ashwin SitRep #16) is history."
     },
     {
       "id": "rescued",
       "label": "Rescued so far",
-      "value": 13784,
-      "value_display": "13,784",
+      "value": 13795,
+      "value_display": "13,795",
       "items": [
         {
-          "id": "heli_flights",
-          "label": "Army heli flights · today",
-          "value": 33,
-          "value_display": "33"
+          "id": "flights_total",
+          "label": "Total air sorties",
+          "value": 4820,
+          "value_display": "4,820"
         },
         {
-          "id": "apf_flights",
-          "label": "APF flights (history)",
-          "value": 320,
-          "value_display": "320"
+          "id": "army_sorties",
+          "label": "Nepal Army sorties",
+          "value": 2026,
+          "value_display": "2,026"
         },
         {
-          "id": "private_ktm",
-          "label": "Private Kathmandu",
-          "value": 129,
-          "value_display": "129"
-        },
-        {
-          "id": "heli",
-          "label": "Helicopters",
-          "value": 14,
-          "value_display": "14"
+          "id": "private_sorties",
+          "label": "Private sorties",
+          "value": 2794,
+          "value_display": "2,794"
         },
         {
           "id": "tunnel_separate",
-          "label": "Tunnel separate",
+          "label": "Tunnel separate (prior label)",
           "value": 279,
           "value_display": "279"
         }
       ],
-      "history_note": "This board prints Army heli flights today 33 only (no cumulative). Previous Army 1,692 (41 that day) · APF 320 (total 2,012) is SitRep #15 history."
+      "history_note": "This board prints rescued 13,795 · total air sorties 4,820 (Army 2,026 · private 2,794). Previous rescued 13,784 / Army heli today 33 (4 Ashwin SitRep #16) is history. Tunnel 279 prior label unchanged."
     },
     {
       "id": "police",
@@ -311,7 +330,7 @@
           "value_display": "158 · 43,943"
         }
       ],
-      "history_note": "Previous 23 Bhadra 20:00: police dead 1,372 · missing 4,079 · DNA 2,711 · body mgmt 1,153 · udb 1,312 · awareness 168/43,943 is history.",
+      "history_note": "No newer Nepal Police consolidated sheet and no separate police figures on the flood-update board — this card unchanged (24 Bhadra 11:00).",
       "as_of": "24 Bhadra 11:00 / 9 September 2026 11:00"
     },
     {
@@ -344,58 +363,23 @@
           "value": null,
           "value_display": "Rasuwagadhi · Chilime · Langtang"
         }
-      ]
+      ],
+      "history_note": "Tunnel rescue is not on this flood-update board — prior 279 kept."
     },
     {
       "id": "deploy",
       "label": "Deployed personnel",
-      "value": 20929,
-      "value_display": "20,929",
+      "value": 20477,
+      "value_display": "20,477",
       "items": [
         {
           "id": "total",
           "label": "Total",
-          "value": 20929,
-          "value_display": "20,929"
-        },
-        {
-          "id": "army",
-          "label": "Army",
-          "value": 8844,
-          "value_display": "8,844"
-        },
-        {
-          "id": "apf",
-          "label": "Armed Police",
-          "value": 4203,
-          "value_display": "4,203"
-        },
-        {
-          "id": "police",
-          "label": "Police",
-          "value": 7975,
-          "value_display": "7,975"
-        },
-        {
-          "id": "medical",
-          "label": "Medical",
-          "value": null,
-          "value_display": "200+"
-        },
-        {
-          "id": "surgical",
-          "label": "Surgical teams",
-          "value": 6,
-          "value_display": "6"
-        },
-        {
-          "id": "heli",
-          "label": "Heli",
-          "value": 14,
-          "value_display": "14"
+          "value": 20477,
+          "value_display": "20,477"
         }
       ],
-      "history_note": "This board prints security forces 20,929 only (no agency split). Previous 20,935 (3 Ashwin SitRep #15) · 21,022 = Army 8,844 · Police 7,975 · APF 4,203 (26 Bhadra) is history."
+      "history_note": "This board prints security personnel 20,477 only (no agency split). Previous 20,929 = Army 8,844 · Police 7,975 · APF 4,203 (4 Ashwin SitRep #16) is history."
     },
     {
       "id": "comms",
@@ -433,7 +417,8 @@
           "value": null,
           "value_display": "99.8%"
         }
-      ]
+      ],
+      "history_note": "Comms/power % not on this flood-update board — prior figures kept. NDRRMA report mentions Rasuwa/Nuwakot hydropower damage but that is not an NEA source."
     }
   ],
   "watermark": "Source · Niraj Bhusal",

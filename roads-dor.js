@@ -19,6 +19,7 @@
   var vehicleGeo = null;
   var vehicleLevel = "";
   var vehiclePick = "rasuwa";
+  var dorRecheck = null;
   var LIVE_MS = 4000;
   var DIGITS = { "0": "०", "1": "१", "2": "२", "3": "३", "4": "४", "5": "५", "6": "६", "7": "७", "8": "८", "9": "९" };
 
@@ -2162,6 +2163,16 @@
     }
     if (mode === "home") {
       if (!board.childNodes.length) return;
+      if (dorRecheck && dorRecheck.counts && dorRecheck.counts.closed != null) {
+        var closedN = Number(dorRecheck.counts.closed);
+        var nh42 = (dorRecheck.closed_scrubbed || []).some(function (row) {
+          return row && row.road_refno === "NH42" && row.closure_type === "CLOSED";
+        });
+        var recheck = lang() === "en"
+          ? "DoR NAVIGATE recheck: " + closedN + " closed" + (nh42 ? ", including NH42" : "")
+          : "DoR NAVIGATE पुनःजाँच: बन्द " + num(closedN) + (nh42 ? " (NH42 सहित)" : "");
+        board.appendChild(el("p", "dor-recheck", recheck));
+      }
       if (!n) board.appendChild(el("p", "dor-also", tx(ui.also)));
       links(board, true);
     } else {
@@ -2363,13 +2374,17 @@
     var neocP = fetch("data/neoc_roads_2083-06-19-0700.json?t=" + Date.now(), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("neoc"); return r.json(); })
       .catch(function () { return null; });
-    Promise.all([roadsP, policeP, vehicleP, geoP, neocP])
+    var recheckP = fetch("data/dor_navigate_recheck_2026-10-05.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("recheck"); return r.json(); })
+      .catch(function () { return null; });
+    Promise.all([roadsP, policeP, vehicleP, geoP, neocP, recheckP])
       .then(function (pair) {
         data = pair[0];
         police = pair[1];
         vehicle = pair[2];
         vehicleGeo = pair[3];
         neoc = pair[4];
+        dorRecheck = pair[5];
         renderAll();
         if (!refreshTimer) refreshTimer = window.setInterval(refreshRoads, REFRESH_MS);
         if (window.__addLangHook) window.__addLangHook(renderAll);

@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "id": "ndrrma-flood-update-2083-06-17",
+  "publication_id": 455,
+  "title": {
+    "ne": "भोटेकोशी-त्रिशुली बाढीसम्बन्धी खोज, उद्धार तथा राहत अपडेट · २०८३ भदौ १० देखि असोज १७ सम्म",
+    "en": "Bhotekoshi–Trishuli flood search, rescue and relief update · Bhadra 10 to Asoj 17, 2083"
+  },
+  "as_of_bs": "2083-06-17",
+  "as_of_ad": "2026-10-03",
+  "published_date": "2026-10-04",
+  "checked_at": "2026-10-05T16:25:00+05:45",
+  "source": {
+    "name": "NDRRMA",
+    "page": "https://ndrrma.gov.np/np/situation-report/455",
+    "api": "https://ndrrma.gov.np/api/v1/publication/publications/455/",
+    "pdf": "https://ndrrma.gov.np/mediafiles/publications/Rasuwa-Bhotekoshi_Flood_Report_2083_Asoj_17.pdf",
+    "x": "https://x.com/NDRRMA_Nepal/status/2106770037885550676"
+  },
+  "files": {
+    "pdf": "img/ndrrma/Rasuwa-Bhotekoshi_Flood_Report_2083_Asoj_17.pdf",
+    "board": "img/ndrrma/flood-update-2083-06-17-board.png",
+    "cover": "img/ndrrma/flood-update-2083-06-17-cover.jpg"
+  },
+  "kpis": {
+    "dead": 1455,
+    "missing": 5285,
+    "missing_identified_subtracted": 112,
+    "rescued": 13795,
+    "in_treatment": 3,
+    "hospital_treated": 344,
+    "hospital_discharged": 305,
+    "died_in_treatment": 4,
+    "hospitals": 19,
+    "security_treated": 11105,
+    "deployed": 20477,
+    "flights_total": 4820,
+    "flights_army": 2026,
+    "flights_private": 2794,
+    "holding_centers": 17,
+    "holding_people": {
+      "nuwakot": 121,
+      "rasuwa": 843,
+      "dhading": 121,
+      "sum": 1085
+    },
+    "holding_center_counts": {
+      "nuwakot": 4,
+      "rasuwa": 9,
+      "dhading": 4
+    },
+    "dna_deceased": 1330,
+    "dna_relatives": 2066,
+    "bodies_female": 336,
+    "bodies_male": 585,
+    "bodies_partial": 533
+  },
+  "dead_by_district": [
+    {
+      "id": "chitwan",
+      "ne": "चितवन",
+      "en": "Chitwan",
+      "value": 369
+    },
+    {
+      "id": "rasuwa",
+      "ne": "रसुवा",
+      "en": "Rasuwa",
+      "value": 236
+    },
+    {
+      "id": "nawal_e",
+      "ne": "नवलपरासी पूर्व",
+      "en": "Nawalparasi East",
+      "value": 232
+    },
+    {
+      "id": "nawal_w",
+      "ne": "नवलपरासी पश्चिम",
+      "en": "Nawalparasi West",
+      "value": 222
+    },
+    {
+      "id": "nuwakot",
+      "ne": "नुवाकोट",
+      "en": "Nuwakot",
+      "value": 204
+    },
+    {
+      "id": "gorkha",
+      "ne": "गोरखा",
+      "en": "Gorkha",
+      "value": 79
+    },
+    {
+      "id": "dhading",
+      "ne": "धादिङ",
+      "en": "Dhading",
+      "value": 73
+    },
+    {
+      "id": "tanahu",
+      "ne": "तनहुँ",
+      "en": "Tanahun",
+      "value": 38
+    },
+    {
+      "id": "ktm_treatment",
+      "ne": "उपचारको क्रममा काठमाडौँ",
+      "en": "Kathmandu (during treatment)",
+      "value": 2
+    }
+  ],
+  "missing_breakdown": [
+    {
+      "id": "foreign",
+      "ne": "विदेशी",
+      "en": "Foreign",
+      "value": 636
+    },
+    {
+      "id": "ras_local",
+      "ne": "रसुवा · स्थानीय",
+      "en": "Rasuwa · locals",
+      "value": 1674
+    },
+    {
+      "id": "ras_other",
+      "ne": "रसुवा · अन्य",
+      "en": "Rasuwa · other",
+      "value": 1840
+    },
+    {
+      "id": "nuw_local",
+      "ne": "नुवाकोट · स्थानीय",
+      "en": "Nuwakot · locals",
+      "value": 657
+    },
+    {
+      "id": "nuw_other",
+      "ne": "नुवाकोट · अन्य",
+      "en": "Nuwakot · other",
+      "value": 590
+    }
+  ],
+  "vs_live_sitrep16": {
+    "dead": "1451 → 1455",
+    "missing": "5786 → 5285 (112 identified subtracted)",
+    "rescued": "13784 → 13795",
+    "in_treatment": "15 → 3",
+    "deployed": "20929 → 20477",
+    "rasuwa_dead": "203 → 236",
+    "nuwakot_dead": "236 → 204",
+    "chitwan_dead": "367 → 369"
+  },
+  "notes": [
+    "This is a flood-specific NDRRMA situation report (publication type Situation Report, id 455), NOT daily SitRep #2283.",
+    "Do not sum missing breakdowns to get 5285.",
+    "Police / tunnel / comms cards have no newer figures in this board — leave prior values.",
+    "NDRRMA text also cites ~431.1 MW generation disrupted at 12 hydropower projects in Rasuwa/Nuwakot — not copied into nea_electricity.json (NEA-only rule)."
+  ]
+}

@@ -328,28 +328,37 @@
   ],
   "nowcast": {
     "when": {
-      "ne": "असोज १९ · दिउँसो ३:३० (५ अक्टोबर २०२६)",
-      "en": "Asoj 19 · 3:30 PM (5 Oct 2026)"
+      "ne": "असोज १९ · दिउँसो २:३५ (५ अक्टोबर २०२६)",
+      "en": "Asoj 19 · 2:35 PM (5 Oct 2026)"
     },
     "body": {
-      "ne": "अहिले कोशी, बागमती, गण्डकी र लुम्बिनीको केही जिल्लाहरूमा पानी परिरहेको छ।",
-      "en": "Rain is falling in some districts of Koshi, Bagmati, Gandaki and Lumbini."
+      "ne": "अहिले कोशी, मधेश, बागमती र लुम्बिनी प्रदेशका केही जिल्लाहरूमा पानी परिरहेको छ।",
+      "en": "Rain is falling in some districts of Koshi, Madhesh, Bagmati and Lumbini."
     },
     "max": {
-      "ne": "पछिल्लो १ घण्टाको उच्चतम १५.६ मि.मि. · उदयपुर गढी",
-      "en": "Past hour maximum 15.6 mm · Udayapur Gadhi"
+      "ne": "पछिल्लो ३ घण्टाको उच्चतम ५१.८ मि.मि. · माइपोखरी, इलाम",
+      "en": "Past 3 hours maximum 51.8 mm · Maipokhari, Ilam"
     },
-    "image": "img/dhm/rainfall-now-1h.jpg",
-    "image_w": 1260,
-    "image_h": 762,
+    "prior": {
+      "ne": "पछिल्लो १ घण्टा (दिउँसो ३:३०) उच्चतम १५.६ मि.मि. · उदयपुर गढी",
+      "en": "Past 1 hour (3:30 PM) maximum 15.6 mm · Udayapur Gadhi"
+    },
+    "image": "img/dhm/rainfall-now-3h-2026-10-05-1435.jpg",
+    "image_w": 1317,
+    "image_h": 800,
     "image_alt": {
-      "ne": "पछिल्लो १ घण्टाको वर्षा · उच्चतम १५.६ मि.मि. उदयपुर गढी",
-      "en": "Past 1 hour rainfall · maximum 15.6 mm at Udayapur Gadhi"
+      "ne": "पछिल्लो ३ घण्टाको वर्षा · उच्चतम ५१.८ मि.मि. माइपोखरी, इलाम",
+      "en": "Past 3 hour rainfall · maximum 51.8 mm at Maipokhari, Ilam"
     },
     "cite": [
       {
-        "ne": "NMD Weather",
-        "en": "NMD Weather",
+        "ne": "NMD · दिउँसो २:३५",
+        "en": "NMD · 2:35 PM",
+        "url": "https://x.com/NMD_Weather/status/2107030728592838988"
+      },
+      {
+        "ne": "NMD · दिउँसो ३:३०",
+        "en": "NMD · 3:30 PM",
         "url": "https://x.com/NMD_Weather/status/2107044867595812948"
       },
       {

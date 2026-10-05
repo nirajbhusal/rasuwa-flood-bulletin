@@ -442,10 +442,20 @@
     var n = alertDoc && alertDoc.nowcast;
     if (!n) return null;
     var text = [tx(n.when), tx(n.max)].filter(Boolean).join(" · ");
-    if (!text) return null;
-    var line = el("p", "wxdb-nowline");
-    line.textContent = text;
-    return line;
+    var prior = tx(n.prior);
+    if (!text && !prior) return null;
+    var box = el("div", "wxdb-nowlines");
+    if (text) {
+      var line = el("p", "wxdb-nowline");
+      line.textContent = text;
+      box.appendChild(line);
+    }
+    if (prior) {
+      var older = el("p", "wxdb-nowline");
+      older.textContent = prior;
+      box.appendChild(older);
+    }
+    return box;
   }
   function forecastLead(text) {
     if (!text) return "";

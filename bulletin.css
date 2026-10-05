@@ -7276,7 +7276,7 @@ html.damage-page.desk #map{
 .dor-pill-closed{background:#b42318}
 .dor-pill-opened{background:#067647}
 .dor-pill-partial{background:#b54708}
-.dor-also,.dor-call,.dor-count,.dor-disc{margin:0 14px 8px;font-size:13.5px;font-weight:700;line-height:1.45;color:#334155}
+.dor-also,.dor-call,.dor-count,.dor-disc,.dor-recheck{margin:0 14px 8px;font-size:13.5px;font-weight:700;line-height:1.45;color:#334155}
 .dor-call{padding:10px 12px;background:#fff7ed;border:1px solid #fdba74;border-radius:12px}
 .dor-disc{color:#64748b;font-size:12.5px}
 .dor-links{margin:0 14px 14px;font-weight:800}
@@ -11776,6 +11776,7 @@ body.home-page #home .wxdb-city{
 @media(min-width:900px){.home-status{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .wxb-nowrow{margin-top:12px}
 .wxb-nowline,.wxdb-nowline,.wxdb-forecast-line{margin:0;font-size:14px;line-height:1.45;color:#1a1a1a}
+.wxdb-nowlines .wxdb-nowline + .wxdb-nowline{margin-top:4px;font-weight:600;color:#334155}
 .wxb-nowthumb{display:block;max-width:240px;margin-top:8px}
 .wxb-nowthumb img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid #e7e5e4}
 .wxdb-quiet-rain{margin-top:8px}
