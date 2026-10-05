@@ -531,3 +531,8 @@ body.home-page #home .pmdrf-banner .pmdrf-banner-sub{display:block !important}
 .sitrep-chip b{font-size:15px;color:#c41e3a}
 .sitrep-links{margin:8px 0 0;font-size:14px}
 .sitrep-links a{color:#c41e3a;font-weight:700}
+.fld-sheets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0 0}
+.fld-sheets a{display:block}
+.fld-sheets img{display:block;width:100%;height:auto;border:1px solid #e7e5e4;border-radius:8px;background:#fff}
+.fld-src{margin:8px 0 0;font-size:14px}
+.fld-src a{color:#c41e3a;font-weight:700}
