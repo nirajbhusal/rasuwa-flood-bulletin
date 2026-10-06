@@ -770,6 +770,7 @@ html.theme-tihar #dor-home .dor-title{background-image:none;padding-left:0;paddi
 .fest-margin,.fest-rule{display:none !important}
 .fest-swag{top:8px;left:8px;right:8px}
 .fest-swag img{width:72px;height:18px}
+.fest-day{grid-template-columns:minmax(148px,220px) minmax(0,1fr)}
 .fest-day-main{min-width:0}
 .fest-day-top{display:flex;gap:10px;align-items:flex-start}
 .fest-day-titles{min-width:0;flex:1}
