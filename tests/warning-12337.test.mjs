@@ -43,16 +43,7 @@ test("DHM #12337 alert days cover every district and are all green", function ()
   const bars = wx.timeline.bars.map(function (b) { return [b.page_id, b.live]; });
   assert.deepEqual(bars, [[12336, false], [12337, true]]);
   assert.equal(wx.callout.expired, true);
-  assert.deepEqual(wx.maps.map(function (m) { return m.file; }), [
-    "img/dhm/warning-12337-day1.png",
-    "img/dhm/warning-12337-day2.png",
-    "img/dhm/warning-12337-day3.png"
-  ]);
-  wx.maps.forEach(function (m) {
-    const buf = readFileSync(new URL("../" + m.file, import.meta.url));
-    assert.equal(buf.readUInt32BE(16), 1300);
-    assert.equal(buf.readUInt32BE(20), 800);
-  });
+  assert.deepEqual(wx.maps, []);
   assert.equal(companion.live_lead, 12337);
   assert.equal(companion.bulletin_32.page_id, 12325);
   assert.equal(raw.id, "12337");

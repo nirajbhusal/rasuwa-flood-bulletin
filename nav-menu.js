@@ -1171,7 +1171,7 @@
   }
   function festFootSvg(tihar) {
     if (tihar) {
-      return '<svg viewBox="0 0 1200 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="tfSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1038"/><stop offset="1" stop-color="#c46a1a"/></linearGradient></defs>' +
+      return '<svg viewBox="0 0 1200 150" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><defs><linearGradient id="tfSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1038"/><stop offset="1" stop-color="#c46a1a"/></linearGradient></defs>' +
         '<rect width="1200" height="150" fill="url(#tfSky)"/>' +
         '<path d="M40 8 q40 28 80 0 q40 28 80 0 q40 28 80 0" fill="none" stroke="#e07a2f" stroke-width="4"/><circle cx="60" cy="22" r="5" fill="#f4c430"/><circle cx="100" cy="18" r="4" fill="#c41e3a"/><circle cx="150" cy="24" r="5" fill="#f4c430"/>' +
         '<path d="M860 8 q40 28 80 0 q40 28 80 0 q40 28 80 0" fill="none" stroke="#e07a2f" stroke-width="4"/><circle cx="900" cy="22" r="5" fill="#f4c430"/><circle cx="980" cy="16" r="4" fill="#c41e3a"/>' +
@@ -1184,7 +1184,7 @@
         '<path d="M1076 100 v14 M1084 100 v14" stroke="#f6d56a" stroke-width="2"/><path d="M1068 114 h24 l-4 8 h-16z" fill="#b5541c"/></g>' +
         '<g transform="translate(560 118)"><circle r="16" fill="none" stroke="#f4c430" stroke-width="2"/><circle r="8" fill="none" stroke="#c41e3a" stroke-width="2"/><circle r="3" fill="#fff"/></g></svg>';
     }
-    return '<svg viewBox="0 0 1200 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="dfSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7eb8e0"/><stop offset=".7" stop-color="#f3d7a4"/><stop offset="1" stop-color="#e7b15a"/></linearGradient></defs>' +
+    return '<svg viewBox="0 0 1200 160" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><defs><linearGradient id="dfSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7eb8e0"/><stop offset=".7" stop-color="#f3d7a4"/><stop offset="1" stop-color="#e7b15a"/></linearGradient></defs>' +
       '<rect width="1200" height="160" fill="url(#dfSky)"/>' +
       '<ellipse cx="160" cy="28" rx="40" ry="12" fill="#fff" opacity=".9"/><ellipse cx="980" cy="24" rx="36" ry="11" fill="#fff" opacity=".85"/>' +
       '<path d="M0 100 L90 62 L150 88 L230 48 L310 86 L400 40 L490 84 L580 52 L680 90 L780 46 L880 86 L980 58 L1200 96 V160 H0Z" fill="#8eafc4"/>' +
@@ -1227,12 +1227,10 @@
       sky.className = "fest-sky";
       sky.setAttribute("aria-hidden", "true");
       if (name === "tihar") {
-        sky.innerHTML = '<span class="fest-swag"><img alt="" src="assets/festival/marigold-garland.svg"><img alt="" src="assets/festival/marigold-garland.svg"></span>' +
-          festBird("b1") + festBird("b2");
+        sky.innerHTML = '<span class="fest-swag"><img alt="" src="assets/festival/marigold-garland.svg"><img alt="" src="assets/festival/marigold-garland.svg"></span>';
       } else {
         sky.innerHTML = '<span class="fest-cloud c1"></span><span class="fest-cloud c2"></span><span class="fest-cloud c3"></span>' +
-          festBird("b1") + festBird("b2") +
-          festKite("k1") + festKite("k2") + festKite("k3") + festKite("k4") + festKite("k5") + festKite("k6") + festKite("k7");
+          festKite("k1") + festKite("k2") + festKite("k3") + festKite("k4") + festKite("k5");
       }
       var hem = document.createElement("div");
       hem.className = "fest-hem" + (name === "tihar" ? " is-diyo" : "");
@@ -1254,15 +1252,6 @@
       band.innerHTML = festFootSvg(name === "tihar");
       foot.insertBefore(band, foot.firstChild);
     }
-    ["l", "r"].forEach(function (side) {
-      var m = document.createElement("div");
-      m.className = "fest-margin fest-margin-" + side;
-      m.setAttribute("aria-hidden", "true");
-      m.innerHTML = name === "tihar"
-        ? '<img alt="" src="assets/festival/diyo.svg">'
-        : '<img alt="" src="assets/festival/kite-changa.svg">';
-      document.body.appendChild(m);
-    });
     function corner(el, file) {
       if (!el) return;
       var c = document.createElement("div");
@@ -1273,17 +1262,6 @@
     }
     corner(document.querySelector("#donate"), name === "tihar" ? "diyo.svg" : "jamara.svg");
     corner(document.querySelector(".about-prose"), name === "tihar" ? "marigold-garland.svg" : "jamara.svg");
-    if (document.body.classList.contains("home-page")) {
-      ["#dor-home", "#cat-electricity", "#cat-rahat"].forEach(function (sel) {
-        var el = document.querySelector(sel);
-        if (!el || !el.parentNode) return;
-        var d = document.createElement("div");
-        d.className = "fest-rule";
-        d.setAttribute("aria-hidden", "true");
-        d.innerHTML = festRuleSvg();
-        el.parentNode.insertBefore(d, el);
-      });
-    }
   }
   festTheme();
 })();

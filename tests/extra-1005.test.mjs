@@ -25,7 +25,9 @@ test("publication 455 is the people board and SitRep #2283 stays a daily bulleti
   assert.match(index, /२०,४७७/);
   assert.equal(index.includes("२०,९२९"), false);
   assert.match(index, /यस बोर्डमा निकाय विभाजन छैन/);
-  assert.equal(existsSync(new URL("img/ndrrma/flood-update-2083-06-17-board.png", root)), true);
+  assert.equal(existsSync(new URL("img/ndrrma/flood-update-2083-06-17-board.png", root)), false);
+  assert.equal(JSON.stringify(flood).includes(".jpg"), false);
+  assert.equal(JSON.stringify(flood).includes(".png"), false);
 });
 
 test("electricity keeps one flood incident and six upcoming Valley shutdowns", function () {

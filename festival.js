@@ -7,7 +7,6 @@
   var TIKA_ID = "vijaya-dashami";
   var TIKA_TIME = "10:26";
   var NOTICE = "https://giwmscdnone.gov.np/media/pdf_upload/Dashain%202083_dzoktsj.pdf";
-  var NOTICE_IMG = "assets/npns-dashain-2083-notice.jpg";
   var RAJPATRA = "https://www.moha.gov.np/page/government-and-public-holidays-in-2083";
   var events = null;
   var songs = null;
@@ -182,7 +181,7 @@
     "jhanda-ferne": svg('<path d="M16 6v52" stroke="#6b3a1a" stroke-width="3"/><path d="M18 8h28l-8 10 8 10H18z" fill="#c41e3a"/>'),
     "pachali-bhairav": svg('<path d="M32 6v34M20 16h24M24 10l8 8 8-8" fill="none" stroke="#7a1028" stroke-width="3" stroke-linecap="round"/><circle cx="32" cy="50" r="8" fill="#f4c430"/><circle cx="32" cy="50" r="3" fill="#c41e3a"/>'),
     "fulpati": svg('<path d="M16 36h32l-4 18H20z" fill="#8c3b12"/><circle cx="24" cy="28" r="6" fill="#e63946"/><circle cx="36" cy="24" r="7" fill="#f4c430"/><circle cx="44" cy="32" r="5" fill="#fff"/><circle cx="28" cy="18" r="4" fill="#f7b4c8"/>'),
-    "maha-ashtami": svg('<path d="M36 10a16 16 0 1 0 0 36 12 12 0 1 1 0-36z" fill="#2a2150"/><circle cx="46" cy="18" r="2" fill="#f4c430"/>'),
+    "maha-ashtami": svg('<path d="M36 10a16 16 0 1 0 0 36 12 12 0 1 1 0-36z" fill="#e6c15a" stroke="#3a2410" stroke-width="2"/><circle cx="46" cy="18" r="2.5" fill="#7a1028"/>'),
     "maha-navami": svg('<path d="M18 50l26-36 4 4L24 52z" fill="#c0c6d0"/><path d="M40 14l8 6-6 2z" fill="#f4c430"/><rect x="14" y="50" width="16" height="6" rx="2" fill="#6b3a1a"/>'),
     "vijaya-dashami": svg('<ellipse cx="32" cy="40" rx="22" ry="8" fill="#e6c15a"/><ellipse cx="32" cy="36" rx="16" ry="6" fill="#fff6e0"/><circle cx="32" cy="34" r="5" fill="#e63946"/><path d="M32 20c-2 6-1 10 0 14" stroke="#d4c25a" stroke-width="2"/>'),
     "ekadashi": svg('<path d="M18 44c8-18 20-18 28 0" fill="#3d8a4a"/><path d="M32 44V18" stroke="#2f6b38" stroke-width="2"/>'),
@@ -191,7 +190,7 @@
     "kag-tihar": svg('<path d="M10 36c8-4 14-2 18 2 2-8 8-14 16-16-2 8 0 14 4 18-8 2-16 8-22 8-6 4-12 2-16-2z" fill="#222"/>'),
     "kukur-tihar": svg('<path d="M12 40c0-10 8-16 16-16s12 4 14 10c6 0 10 4 10 8H12z" fill="#c47a3a"/><circle cx="22" cy="30" r="3" fill="#3a2414"/><path d="M18 18l4 8M30 16l-2 10" stroke="#c47a3a" stroke-width="3"/>'),
     "laxmi-puja": svg('<path d="M20 40h24l-4 12H24z" fill="#b5541c"/><ellipse cx="32" cy="40" rx="8" ry="3" fill="#f4c430"/><path d="M32 38c0-10 8-14 8-20 0 8-4 12-8 14-4-2-8-6-8-14 0 6 8 10 8 20z" fill="#ffb703"/>'),
-    "gai-puja": svg('<path d="M8 36c4-10 14-12 20-8 6-6 16-4 20 4 4 2 6 8 4 12H10c-2-2-2-6-2-8z" fill="#f4f0e6"/><circle cx="18" cy="28" r="2" fill="#333"/><path d="M14 20c2 4 4 6 6 6M40 18c-2 4-2 8-1 10" stroke="#e6d7b8" stroke-width="2"/>'),
+    "gai-puja": svg('<path d="M8 36c4-10 14-12 20-8 6-6 16-4 20 4 4 2 6 8 4 12H10c-2-2-2-6-2-8z" fill="#c4a574" stroke="#3a2414" stroke-width="2"/><circle cx="18" cy="28" r="2" fill="#1a120c"/><path d="M14 20c2 4 4 6 6 6M40 18c-2 4-2 8-1 10" stroke="#3a2414" stroke-width="2.4" stroke-linecap="round"/>'),
     "govardhan-mha-puja": svg('<circle cx="32" cy="32" r="18" fill="none" stroke="#c41e3a" stroke-width="2"/><circle cx="32" cy="32" r="10" fill="none" stroke="#f4c430" stroke-width="2"/><circle cx="32" cy="32" r="3" fill="#7a1028"/>'),
     "bhai-tika": svg('<circle cx="22" cy="24" r="8" fill="#f3c7a5"/><circle cx="42" cy="26" r="7" fill="#e8b48e"/><circle cx="32" cy="40" r="5" fill="#e63946"/><path d="M14 50c4-8 10-10 16-8 4 6 12 6 18-2" fill="none" stroke="#7a1028" stroke-width="2"/>'),
     "chhath": svg('<circle cx="40" cy="22" r="10" fill="#f4c430"/><path d="M14 48c6-8 12-12 18-12h20" fill="none" stroke="#3d7eae" stroke-width="3"/><path d="M22 48l6-14 6 14" fill="#e7f4fb" stroke="#3d7eae"/>')
@@ -199,7 +198,7 @@
   function icon(id) { return '<span class="fest-ico">' + (ICONS[id] || ICONS.ghatasthapana) + "</span>"; }
 
   function sceneSvg() {
-    return '<svg class="fest-scene-svg" viewBox="0 0 960 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">' +
+    return '<svg class="fest-scene-svg" viewBox="0 8 960 268" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">' +
       '<defs><linearGradient id="festSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ec8ea"/><stop offset=".55" stop-color="#f6d7a2"/><stop offset="1" stop-color="#e7b15a"/></linearGradient></defs>' +
       '<rect width="960" height="280" fill="url(#festSky)"/>' +
       '<ellipse cx="140" cy="48" rx="46" ry="16" fill="#fff" opacity=".85"/><ellipse cx="168" cy="46" rx="28" ry="14" fill="#fff"/>' +
@@ -219,15 +218,15 @@
       '</svg>';
   }
   function homeSceneSvg() {
-    return '<svg class="fest-home-svg" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">' +
+    return '<svg class="fest-home-svg" viewBox="10 8 340 168" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">' +
       '<defs><linearGradient id="homeSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ec8ea"/><stop offset=".62" stop-color="#f6d7a2"/><stop offset="1" stop-color="#e7b15a"/></linearGradient></defs>' +
       '<rect width="360" height="180" fill="url(#homeSky)"/>' +
       '<ellipse cx="48" cy="28" rx="28" ry="10" fill="#fff" opacity=".9"/>' +
       '<path d="M0 118 L40 78 L70 100 L110 62 L150 96 L190 58 L230 100 L270 70 L310 104 L360 80 V180 H0Z" fill="#9eb8c9"/>' +
       '<path d="M190 58 l12 22 h-24z" fill="#fff"/>' +
       '<path d="M0 142 C80 128 140 156 220 138 C280 126 320 150 360 136 V180 H0Z" fill="#2f6a3a"/>' +
-      '<g fill="#c41e3a"><path d="M46 34 l10 16 h-20z"/><path d="M120 22 l9 14 h-18z"/><path d="M250 30 l11 16 h-22z"/></g>' +
-      '<g stroke="#6b3a1a" fill="none" stroke-width="1"><path d="M46 50 C36 78 30 100 24 124"/><path d="M120 36 C132 70 138 100 146 126"/><path d="M250 46 C236 80 228 108 220 130"/></g>' +
+      '<g fill="#c41e3a"><path d="M70 48 l10 16 h-20z"/><path d="M150 40 l9 14 h-18z"/><path d="M250 46 l11 16 h-22z"/></g>' +
+      '<g stroke="#6b3a1a" fill="none" stroke-width="1"><path d="M70 64 C60 90 54 110 48 132"/><path d="M150 54 C162 86 168 110 176 134"/><path d="M250 62 C236 92 228 114 220 136"/></g>' +
       '<g><rect x="18" y="132" width="22" height="14" rx="2" fill="#8c3b12"/><path d="M29 132 C28 120 24 112 18 106 M29 132 C30 120 36 112 42 106" stroke="#e6d36a" fill="none" stroke-width="1.4"/><circle cx="29" cy="140" r="2" fill="#e63946"/></g>' +
       '<ellipse cx="300" cy="148" rx="16" ry="5" fill="#e6c15a"/><circle cx="300" cy="144" r="4" fill="#e63946"/>' +
       '</svg>';
@@ -281,8 +280,8 @@
       '</span>';
   }
   function noticeLink() {
-    var label = en() ? "View official notice" : "आधिकारिक सूचना हेर्नुहोस्";
-    return '<a class="fest-notice" href="' + NOTICE_IMG + '" target="_blank" rel="noopener">' + esc(label) + "</a>";
+    var label = en() ? "Source: Nepal Panchang Nirnayak Bikas Samiti" : "स्रोत: नेपाल पञ्चाङ्ग निर्णायक विकास समिति";
+    return '<a class="fest-notice" href="' + NOTICE + '" target="_blank" rel="noopener">' + esc(label) + "</a>";
   }
 
   function viewKey(now) {
@@ -335,7 +334,6 @@
     var tika = homeTikaStrip(now);
     host.innerHTML =
       '<div class="fest-home-card">' +
-        '<div class="fest-home-scene" aria-hidden="true">' + homeSceneSvg() + '</div>' +
         '<div class="fest-home-copy">' +
           '<p class="fest-home-k">' + esc(kicker) + '</p>' +
           '<p class="fest-home-h">' + esc(heroTitle(today)) + '</p>' +
@@ -347,6 +345,7 @@
             '<a class="fest-home-more" href="festival.html">' + esc(see) + '</a>' +
           '</div>' +
         '</div>' +
+        '<div class="fest-home-scene" aria-hidden="true">' + homeSceneSvg() + '</div>' +
       '</div>';
     if (m) fillFlip(countdownParts(atNpt(shown.ad_date, m.time), now));
   }
@@ -394,10 +393,11 @@
       var noteHtml = note ? '<p class="fest-day-note"><span>' + esc(en() ? "Note" : "दृष्टव्य") + "</span> " + esc(note) + "</p>" : "";
       var prasad = (ev.prasad_ne) ? '<p class="fest-prasad">' + esc(en() ? ev.prasad_en : ev.prasad_ne) + "</p>" : "";
       return '<li class="fest-day ' + state + '">' +
-        '<div class="fest-day-when"><strong>' + esc(bsOf(ev)) + '</strong><span class="fest-day-week">' + esc(weekOf(ev)) + '</span><span class="fest-day-ad">· ' + esc(adLabel(ev.ad_date)) + "</span></div>" +
-        icon(ev.id) +
-        '<div class="fest-day-body">' + riteHtml + pending + noteHtml + prasad +
-        "<p>" + esc(en() ? ev.desc_en : ev.desc_ne) + "</p></div></li>";
+        '<div class="fest-day-when"><strong>' + esc(bsOf(ev)) + '</strong><span class="fest-day-week">' + esc(weekOf(ev)) + '</span><span class="fest-day-ad">' + esc(adLabel(ev.ad_date)) + "</span></div>" +
+        '<div class="fest-day-main"><div class="fest-day-top">' + icon(ev.id) +
+        '<div class="fest-day-titles">' + riteHtml + "</div></div>" +
+        '<div class="fest-day-body">' + pending + noteHtml + prasad +
+        "<p>" + esc(en() ? ev.desc_en : ev.desc_ne) + "</p></div></div></li>";
     }).join("");
 
     var ranges = holidayRanges().map(function (r) {
@@ -454,16 +454,37 @@
   function rememberBgm(on) {
     try { sessionStorage.setItem("fest-bgm", on ? "1" : "0"); } catch (e) {}
   }
+  function playerSlot() {
+    return document.querySelector("#festival-home .fest-home-copy") ||
+      document.querySelector("#fest-page .fest-hero-actions") ||
+      null;
+  }
+  function placePlayer(dock) {
+    var slot = playerSlot();
+    if (slot) {
+      dock.classList.add("is-inline");
+      dock.classList.remove("is-dock");
+      slot.appendChild(dock);
+    } else {
+      dock.classList.add("is-dock");
+      dock.classList.remove("is-inline");
+      document.body.appendChild(dock);
+    }
+  }
   function ensureDock() {
     var dock = document.getElementById("fest-bgm-dock");
-    if (dock) return dock;
-    dock = document.createElement("div");
-    dock.id = "fest-bgm-dock";
-    dock.className = "fest-bgm-dock is-collapsed";
-    dock.setAttribute("aria-hidden", "true");
-    dock.innerHTML = '<div class="fest-bgm-bar"><span>♫</span><button type="button" data-fest-bgm-collapse>' +
-      (en() ? "Hide" : "लुकाउनुहोस्") + '</button></div><div id="fest-bgm-mount"></div>';
-    document.body.appendChild(dock);
+    if (!dock) {
+      dock = document.createElement("div");
+      dock.id = "fest-bgm-dock";
+      dock.className = "fest-bgm-player";
+      dock.hidden = true;
+      dock.setAttribute("aria-hidden", "true");
+      dock.innerHTML = '<div class="fest-bgm-bar"><span>♫</span>' +
+        '<button type="button" data-fest-bgm-pause>' + (en() ? "Pause" : "रोक्नुहोस्") + "</button>" +
+        '<button type="button" data-fest-bgm-collapse>' + (en() ? "Close" : "बन्द") + "</button></div>" +
+        '<div id="fest-bgm-mount"></div>';
+    }
+    placePlayer(dock);
     return dock;
   }
   function loadYT(cb) {
@@ -507,6 +528,7 @@
       bgmOn = true;
       bgmWant = true;
       rememberBgm(true);
+      showPlayer(true);
       paintMusic();
       loadYT(function () {
         ytPlayer = new window.YT.Player("fest-bgm-frame", {
@@ -522,8 +544,13 @@
             onStateChange: function (e) {
               var YT = window.YT;
               if (!YT || !YT.PlayerState) return;
-              if (e.data === YT.PlayerState.PLAYING) bgmOn = true;
-              else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) bgmOn = false;
+              if (e.data === YT.PlayerState.PLAYING) {
+                bgmOn = true;
+                showPlayer(true);
+              } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+                bgmOn = false;
+                showPlayer(false);
+              }
               rememberBgm(bgmOn);
               paintMusic();
             }
@@ -535,24 +562,44 @@
     if (bgmOn) {
       try { ytPlayer.pauseVideo(); } catch (e) {}
       bgmOn = false;
+      showPlayer(false);
     } else {
       try { ytPlayer.setVolume(40); ytPlayer.playVideo(); } catch (e2) {}
       bgmOn = true;
+      showPlayer(true);
     }
     bgmWant = bgmOn;
     rememberBgm(bgmOn);
     paintMusic();
   }
-  function toggleDock(open) {
+  function showPlayer(on) {
     var dock = document.getElementById("fest-bgm-dock");
     if (!dock) return;
-    dock.classList.toggle("is-collapsed", !open);
-    dock.setAttribute("aria-hidden", open ? "false" : "true");
+    placePlayer(dock);
+    dock.hidden = !on;
+    dock.classList.toggle("is-on", !!on);
+    dock.setAttribute("aria-hidden", on ? "false" : "true");
+  }
+  function toggleDock(open) {
+    if (!open) {
+      try { if (ytPlayer) ytPlayer.pauseVideo(); } catch (e) {}
+      bgmOn = false;
+      bgmWant = false;
+      rememberBgm(false);
+      paintMusic();
+    }
+    showPlayer(open && bgmOn);
   }
 
   function paint() {
+    var dock = document.getElementById("fest-bgm-dock");
+    if (dock) dock.remove();
     paintHome();
     paintPage();
+    if (dock) {
+      placePlayer(dock);
+      showPlayer(bgmOn && !dock.hidden);
+    }
     paintMusic();
     paintedKey = events ? viewKey(nptNowMs()) : "";
   }
@@ -587,6 +634,11 @@
       e.preventDefault();
       if (!ytPlayer && !document.getElementById("fest-bgm-frame")) toggleMusic();
       toggleDock(true);
+      return;
+    }
+    if (t.closest("[data-fest-bgm-pause]")) {
+      e.preventDefault();
+      if (bgmOn) toggleMusic();
       return;
     }
     if (t.closest("[data-fest-bgm-collapse]")) {

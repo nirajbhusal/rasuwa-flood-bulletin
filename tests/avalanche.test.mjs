@@ -51,9 +51,8 @@ test("avalanche sources are https and the NDRRMA letter is in the repo", functio
   doc.official_alerts.forEach(function (row) {
     assert.equal(row.url.startsWith("https://"), true, row.url);
   });
-  const path = doc.official_alerts[0].image.repo_path;
-  assert.equal(path, "img/ndrrma/high-alert-2026-09-23.jpg");
-  assert.equal(existsSync(new URL(path, root)), true);
+  assert.equal(doc.official_alerts[0].image, undefined);
+  assert.equal(existsSync(new URL("img/ndrrma/high-alert-2026-09-23.jpg", root)), false);
 });
 
 test("no English avalanche string says warning", function () {

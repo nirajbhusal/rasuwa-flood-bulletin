@@ -28,7 +28,7 @@
         "https://www.kathmandupati.com/news/dashain-16/432502/"
       ],
       "verified": true,
-      "notes": "Upcoming (5 days after 2026-10-06). Samiti notice दृष्टव्य is stored in note_ne. Related rites are separate events: Asoj 26 Mon (2026-10-12) झण्डा फेर्ने (पश्चिम मोहडा) 10:17; Asoj 29 Thu (2026-10-15) श्री पचलीभैरव यात्रा (no time).",
+      "notes": "Upcoming (5 days after 2026-10-06). Samiti notice दृष्टव्य is stored in note_ne. Related rites are separate events: Asoj 26 Mon (2026-10-12) झण्डा फेर्ने (पश्चिम मोहडा) 10:07; Asoj 29 Thu (2026-10-15) श्री पचलीभैरव यात्रा (no time).",
       "lines": [
         {
           "ne": "नवरात्रारम्भ, घटस्थापना",
@@ -50,16 +50,16 @@
       "ad_date": "2026-10-12",
       "weekday_ne": "सोमबार",
       "weekday_en": "Monday",
-      "sait_time_24h": "10:17",
-      "sait_label_ne": "झण्डा फेर्ने (पश्चिम मोहडा) — बिहान १०:१७ बजे",
-      "sait_label_en": "Changing the flag (west-facing) — 10:17 AM",
+      "sait_time_24h": "10:07",
+      "sait_label_ne": "झण्डा फेर्ने (पश्चिम मोहडा) — बिहान १०:७ बजे",
+      "sait_label_en": "Changing the flag (west-facing) — 10:07 AM",
       "lines": [
         {
           "ne": "झण्डा फेर्ने (पश्चिम मोहडा)",
           "en": "Changing the flag (west-facing)",
-          "time_24h": "10:17",
-          "time_ne": "बिहान १०:१७ बजे",
-          "time_en": "10:17 AM"
+          "time_24h": "10:07",
+          "time_ne": "बिहान १०:७ बजे",
+          "time_en": "10:07 AM"
         }
       ],
       "public_holiday": false,
@@ -71,7 +71,7 @@
         "https://npns.gov.np/content/20/dashain-2083-subhasaait/"
       ],
       "verified": true,
-      "notes": "Samiti notice dated 2083/06/20. Time is 10:17 NPT (not 10:07)."
+      "notes": "Samiti notice dated 2083/06/20. The notice prints बिहान १०:७ बजे (10:07 NPT)."
     },
     {
       "id": "pachali-bhairav",
@@ -319,7 +319,7 @@
     {
       "id": "kojagrat-purnima",
       "name_ne": "अखिलबलिपूर्ति, कोजाग्रतपूजा",
-      "name_en": "Akhil Balipuri, Kojagrat puja",
+      "name_en": "Akhil Balipurti, Kojagrat puja",
       "bs_date_ne": "२०८३ कात्तिक ८ गते",
       "bs_date_en": "2083 Kartik 8",
       "ad_date": "2026-10-25",
@@ -343,7 +343,7 @@
       "lines": [
         {
           "ne": "अखिलबलिपूर्ति, कोजाग्रतपूजा",
-          "en": "Akhil Balipuri, Kojagrat puja"
+          "en": "Akhil Balipurti, Kojagrat puja"
         }
       ]
     },

@@ -433,32 +433,7 @@
       }
     ]
   },
-  "maps": [
-    {
-      "day": 1,
-      "file": "img/dhm/warning-12337-day1.png",
-      "w": 1300,
-      "h": 800,
-      "ne": "दिन १ · असोज १९ / ५ अक्टोबर",
-      "en": "Day 1 · Asoj 19 / 5 October"
-    },
-    {
-      "day": 2,
-      "file": "img/dhm/warning-12337-day2.png",
-      "w": 1300,
-      "h": 800,
-      "ne": "दिन २ · असोज २० / ६ अक्टोबर",
-      "en": "Day 2 · Asoj 20 / 6 October"
-    },
-    {
-      "day": 3,
-      "file": "img/dhm/warning-12337-day3.png",
-      "w": 1300,
-      "h": 800,
-      "ne": "दिन ३ · असोज २१ / ७ अक्टोबर",
-      "en": "Day 3 · Asoj 21 / 7 October"
-    }
-  ],
+  "maps": [],
   "history": [
     {
       "page_id": 12336,
@@ -528,7 +503,7 @@
       "role": "older_lead",
       "issued_at": "2026-09-27T08:00:00+05:45",
       "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12315",
-      "note": "Five-day weather alert issued Asoj 11 morning 08:00 (27 Sep 2026), window Asoj 11–15. Maps archived as img/dhm/warning-12315-day{1,2,3,4,5}.png. Superseded by the three-day alerts #12317 … #12331. Dropped from the live timeline."
+      "note": "Five-day weather alert issued Asoj 11 morning 08:00 (27 Sep 2026), window Asoj 11–15. Superseded by the three-day alerts #12317 … #12331. Dropped from the live timeline."
     },
     {
       "page_id": 12311,

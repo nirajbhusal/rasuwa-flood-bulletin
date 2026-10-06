@@ -14,23 +14,7 @@
     "url": "https://dhm.gov.np/mfd/#/weather/pages/weather-warning/12337",
     "api": "https://dhm.gov.np/mfd/api/page/12337",
     "all_districts_green": true,
-    "maps": [
-      {
-        "day": 1,
-        "label": "१९ असोज / 5 Oct",
-        "file": "img/dhm/warning-12337-day1.png"
-      },
-      {
-        "day": 2,
-        "label": "२० असोज / 6 Oct",
-        "file": "img/dhm/warning-12337-day2.png"
-      },
-      {
-        "day": 3,
-        "label": "२१ असोज / 7 Oct",
-        "file": "img/dhm/warning-12337-day3.png"
-      }
-    ]
+    "maps": []
   },
   "bulletin_32": {
     "page_id": 12325,

@@ -12240,3 +12240,86 @@ html.theme-tihar #cat-electricity .home-cat-head h2{background:url("assets/festi
   .fest-flip b{min-width:0;width:100%;font-size:22px;padding:3px 2px}
   .fest-flip-cell{flex:1}
 }
+
+/* QA 119: maroon hero, uncropped art, quieter homepage, visible player. */
+html.theme-dashain .head-stick::after,
+html.theme-tihar .head-stick::after{content:none;display:none;height:0}
+html.theme-dashain #festival-home,
+html.theme-tihar #festival-home{background:#6e1224;background-image:none;color:#fff8ea}
+html.theme-tihar #festival-home{background:#2a1458;background-image:none}
+html.theme-dashain .fest-hero{background:#6e1224;color:#fff8ea}
+html.theme-tihar .fest-hero{background:#2a1458;color:#fff8ea}
+html.theme-dashain .fest-hero h1,
+html.theme-dashain .fest-hero .fest-next,
+html.theme-dashain .fest-hero .fest-when,
+html.theme-dashain .fest-hero .fest-kicker,
+html.theme-tihar .fest-hero h1,
+html.theme-tihar .fest-hero .fest-next,
+html.theme-tihar .fest-hero .fest-when,
+html.theme-tihar .fest-hero .fest-kicker{color:#fff8ea}
+html.theme-dashain #home-status .ds-title::before,
+html.theme-dashain #home-status h2::before,
+html.theme-dashain #overview .ds-title::before,
+html.theme-dashain #overview h2::before,
+html.theme-dashain #overview .sec-head h2::before,
+html.theme-tihar #home-status .ds-title::before,
+html.theme-tihar #home-status h2::before,
+html.theme-tihar #overview .ds-title::before,
+html.theme-tihar #overview h2::before,
+html.theme-tihar #overview .sec-head h2::before{content:none;display:none;width:0;height:0;margin:0;background:none;box-shadow:none}
+html.theme-dashain #cat-electricity .home-cat-head h2,
+html.theme-tihar #cat-electricity .home-cat-head h2,
+html.theme-dashain #dor-home .dor-title,
+html.theme-tihar #dor-home .dor-title{background-image:none;padding-left:0;padding-right:0}
+.fest-home-card{grid-template-columns:minmax(0,1fr) minmax(168px,240px);align-items:stretch;min-height:0}
+.fest-home-h{font-size:26px;line-height:1.15}
+.fest-home-name{font-size:21px;line-height:1.25}
+.fest-home-when,.fest-home-tika{font-size:15px;line-height:1.35}
+.fest-flip-cell.is-sec b{min-width:42px;font-size:18px;padding:2px 4px}
+.fest-home-scene{min-height:148px;background:#7eb8e0}
+.fest-scene{height:auto;background:#7eb8e0}
+.fest-scene-svg,.fest-home-svg{width:100%;height:auto;display:block}
+.fest-foot{height:auto;overflow:visible}
+.fest-foot svg{width:100%;height:auto;display:block}
+.fest-margin,.fest-rule{display:none !important}
+.fest-swag{top:8px;left:8px;right:8px}
+.fest-swag img{width:72px;height:18px}
+.fest-day-main{min-width:0}
+.fest-day-top{display:flex;gap:10px;align-items:flex-start}
+.fest-day-titles{min-width:0;flex:1}
+.fest-day-titles h3{margin:0 0 4px}
+.fest-bgm-player{display:none;background:#1a0a10;border:1px solid #e8c15a;border-radius:10px;overflow:hidden}
+.fest-bgm-player.is-on{display:block}
+.fest-bgm-player.is-inline{width:200px;margin-top:8px}
+.fest-bgm-player.is-dock{position:fixed;left:12px;bottom:16px;z-index:60;width:200px;box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.fest-bgm-player iframe{display:block;width:200px;height:113px;border:0;background:#000}
+@media (max-width:760px){
+  .fest-hem{height:8px;background-size:36px 8px}
+  .fest-hem.is-diyo{height:8px}
+  .fest-hem.is-diyo img{width:12px;height:12px}
+  html.theme-dashain .fest-sky,html.theme-tihar .fest-sky{width:100%;overflow:hidden}
+  .fest-swag{display:flex;top:4px}
+  .fest-swag img{width:46px;height:14px}
+  .fest-bgm-player.is-inline,.fest-bgm-player.is-dock{width:160px}
+  .fest-bgm-player iframe{width:160px;height:90px}
+}
+@media (max-width:899px){
+  .fest-home-card{grid-template-columns:minmax(0,1fr) 88px;min-height:0;max-height:none}
+  .fest-home-scene{min-height:0;height:72px;overflow:hidden}
+  .fest-home-copy{padding:6px 8px;gap:1px}
+  .fest-home-k{font-size:10px}
+  .fest-home-h{font-size:18px}
+  .fest-home-name{font-size:15px}
+  .fest-home-when,.fest-home-tika{font-size:12px;padding:1px 4px}
+  .fest-flip{margin:1px 0;gap:3px}
+  .fest-flip b{font-size:16px;min-width:0;padding:1px 3px}
+  .fest-flip-cell.is-sec b{font-size:16px;min-width:0;padding:1px 3px}
+  .fest-flip i{font-size:9px}
+  .fest-home-actions{margin-top:0}
+  .fest-music{min-height:24px;padding:1px 8px}
+}
+@media (max-width:640px){
+  .fest-day{display:flex;flex-direction:column;align-items:stretch;gap:4px}
+  .fest-day-when,.fest-day-body,.fest-day-titles,.fest-day-main,.fest-day-top{width:100%;min-width:0}
+  .fest-day-ad{white-space:normal}
+}
