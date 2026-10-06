@@ -859,8 +859,20 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 <footer>
   <p class="foot-msg"><a class="foot-msg-more" href="contact.html#contacts" data-i18n="nav_helpline">हेल्पलाइन</a></p>
   <p class="foot-about"><a href="about.html" data-i18n="nav_about">हाम्रो बारेमा</a></p>
+
+  <aside class="maintainer" data-i18n-aria="maintainer_h" aria-label="सम्पर्क">
+    <p class="maintainer-k" data-i18n="maintainer_h">सम्पर्क</p>
+    <p class="maintainer-who" data-i18n="maintainer_who">साइट सञ्चालक · निरज भुसाल</p>
+    <p class="maintainer-line" data-i18n="maintainer_line">यो साइटबारे सुझाव, सुधार वा सूचना पठाउन</p>
+    <div class="maintainer-actions">
+      <a class="maintainer-btn" href="https://wa.me/9779701010000" target="_blank" rel="noopener" data-i18n="maintainer_wa">WhatsApp</a>
+      <a class="maintainer-btn" href="tel:+9779701010000" data-i18n="maintainer_call">फोन</a>
+      <a class="maintainer-btn" href="mailto:neerajbhusal@gmail.com" data-i18n="maintainer_mail">इमेल</a>
+    </div>
+    <p class="maintainer-emerg" data-i18n-html="maintainer_emerg">आपत्कालमा आधिकारिक <a href="contact.html#helpline">हेल्पलाइन</a>मा फोन गर्नुहोस्।</p>
+  </aside>
   <span data-i18n-html="footer">Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
-  यो पृष्ठ आज २६ अगस्ट २०२६ / १० भदौ २०८३ को घटनामा मात्र केन्द्रित छ।</span>
+  मनसुन, बाढी र मौसम चेतावनी — जाँचिएको आधिकारिक सूचना।</span>
 </footer>
 </main>
 </div>
@@ -1043,6 +1055,25 @@ window.PAGE_VER="4b1290f-20261005T115813Z";
 })();
 </script>
 <script src="refresh.js?v=4b1290f-20261005T115813Z"></script>
+<script>
+(function(){
+  var pairs = [["ध्वस्त","Destroyed"],["सम्भावित","Possible"],["क्षति","Damaged"],["प्रभावित","Affected"],["किमि","km"],["हे","ha"],["शीर्षकमा छैन","not in the title"]];
+  function apply(){
+    var en = document.documentElement.lang === "en";
+    document.querySelectorAll(".ems-bmeta").forEach(function(el){
+      if (!el.getAttribute("data-ne")) el.setAttribute("data-ne", el.textContent);
+      var src = el.getAttribute("data-ne");
+      if (!en) { el.textContent = src; return; }
+      var out = src;
+      pairs.forEach(function(p){ out = out.split(p[0]).join(p[1]); });
+      el.textContent = out;
+    });
+  }
+  apply();
+  if (window.__addLangHook) window.__addLangHook(apply);
+  new MutationObserver(apply).observe(document.documentElement, {attributes:true, attributeFilter:["lang"]});
+})();
+</script>
 
 <div class="lb" id="lightbox" hidden>
   <button type="button" class="lb-x" id="lb-close" aria-label="बन्द" data-i18n-aria="close">×</button>
@@ -1221,7 +1252,7 @@ window.PAGE_VER="4b1290f-20261005T115813Z";
     }
     var marks = "";
     var en = document.documentElement.lang === "en";
-    if (warn) marks += '<i style="left:' + ((warn/max)*100) + '%">' + tt("warning") + " " + fmtM(warn) + '</i>';
+    if (warn) marks += '<i style="left:' + ((warn/max)*100) + '%">' + (en ? "alert" : "सतर्कता") + " " + fmtM(warn) + '</i>';
     if (danger) marks += '<i style="left:' + ((danger/max)*100) + '%">' + tt("danger") + " " + fmtM(danger) + '</i>';
     var dist = en ? (s.district || s.district_np || "") : (s.district_np || s.district || "");
     var meta = dist + (when ? " · " + when : "");
@@ -1266,7 +1297,9 @@ window.PAGE_VER="4b1290f-20261005T115813Z";
       .then(paint)
       .catch(function(){});
   }
-  if (window.__addLangHook) window.__addLangHook(function(){ paint(lastData); });
+  var onRiverLang = function(){ paint(lastData); };
+  if (window.__addLangHook) window.__addLangHook(onRiverLang);
+  else { window.__langHookQ = window.__langHookQ || []; window.__langHookQ.push(onRiverLang); }
   load();
   setInterval(load, 60000);
 })();
@@ -1359,10 +1392,10 @@ window.PAGE_VER="4b1290f-20261005T115813Z";
     var en = document.documentElement.lang === "en";
     var sname = en ? (s.name || s.name_np) : (s.name_np || s.name);
     if (washed) line = fmtM(level) + " " + tt("meter") + " · " + tt("washed") + " · " + tt("last_not_live") + (when ? " · " + when : "");
-    else if (silent) line = fmtM(level) + " " + tt("meter") + " · " + tt("silent_gauge") + (when ? " · " + when : "") + (warn ? " · " + tt("warning") + " " + fmtM(warn) : "");
+    else if (silent) line = fmtM(level) + " " + tt("meter") + " · " + tt("silent_gauge") + (when ? " · " + when : "") + (warn ? " · " + (en ? "alert" : "सतर्कता") + " " + fmtM(warn) : "");
     else {
       var trend = s.steady === "RISING" ? tt("rising") : (s.steady === "FALLING" ? tt("falling") : tt("steady"));
-      var wd = (warn ? tt("warning") + " " + fmtM(warn) : "") + (danger ? " / " + tt("danger") + " " + fmtM(danger) : "");
+      var wd = (warn ? (en ? "alert" : "सतर्कता") + " " + fmtM(warn) : "") + (danger ? " / " + tt("danger") + " " + fmtM(danger) : "");
       line = fmtM(level) + " " + tt("meter") + " " + trend + (wd ? " · " + wd : "") + (when ? " · " + when : "");
     }
     return "<b>" + sname + "</b><span>" + line + "</span>";
@@ -1421,6 +1454,7 @@ window.PAGE_VER="4b1290f-20261005T115813Z";
     });
   }
   if (window.__addLangHook) window.__addLangHook(refreshMapLang);
+  else { window.__langHookQ = window.__langHookQ || []; window.__langHookQ.push(refreshMapLang); }
   function fix() { map.invalidateSize(); }
   window.__fixFloodMap = fix;
   setTimeout(fix, 0);

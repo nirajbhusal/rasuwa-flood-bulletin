@@ -221,23 +221,15 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 <div class="hero" id="home">
   <div class="wrap">
     <p class="lede sr-only" data-i18n-html="lede">जिरोङ ताल फुट्यो — बाढी स्याफ्रुबेँसी, मुग्लिनसम्म सतर्कता। NDRRMA १७ असोज शव <strong>१,४५५</strong>। हाल उपचाररत (१९ अस्पताल) <strong>३</strong>। सम्पर्कविहीन करिब <strong>५,२८५</strong>। हालसम्म उद्धार <strong>१३,७९५</strong>।</p>
-    <div id="home-status" class="home-status"></div>
-    <div id="wx-home" class="wx-board" data-wx-mount data-wx-mode="home">
+<div id="home-status" class="home-status"></div>
+        <section id="festival-home" class="ds-card fest-card" hidden></section>
+<div id="wx-home" class="wx-board" data-wx-mount data-wx-mode="home">
       <article class="wxb">
         <h2 class="wxb-title">मौसम चेतावनी</h2>
         <p><a href="weather.html">पूर्ण विवरण</a></p>
       </article>
     </div>
     <div id="sitrep-home" class="sitrep-home"></div>
-    <div id="wxdb-home" data-wxdb-mount data-wxdb-mode="home"></div>
-    <div id="dor-home" class="dor-board" data-dor-mount data-dor-mode="home">
-      <article class="dor dor-home">
-        <h2 class="dor-title">अवरुद्ध राजमार्ग</h2>
-        <p class="dor-links"><a href="notices.html#roads">पूर्ण सूची</a></p>
-      </article>
-    </div>
-    <div id="flood-home" data-flood-mount data-flood-mode="home"></div>
-    <div id="flood-corridor" data-flood-mount data-flood-mode="corridor"></div>
     <div class="cta-pair">
     <a class="pmdrf-banner pmdrf-banner-lg rescue-banner" href="https://rescue.opmcm.gov.np/" target="_blank" rel="noopener" id="rescue-banner">
         <span class="pmdrf-banner-copy">
@@ -271,7 +263,16 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
         <span class="pmdrf-banner-cta" data-i18n="pmdrf_banner_cta">आधिकारिक पोर्टलबाट दान गर्नुहोस्</span>
     </a>
     </div>
-    <div class="overview" id="overview">
+<div id="dor-home" class="dor-board" data-dor-mount data-dor-mode="home">
+      <article class="dor dor-home">
+        <h2 class="dor-title">अवरुद्ध राजमार्ग</h2>
+        <p class="dor-links"><a href="notices.html#roads">पूर्ण सूची</a></p>
+      </article>
+    </div>
+    <div id="flood-home" data-flood-mount data-flood-mode="home"></div>
+    <div id="flood-corridor" data-flood-mount data-flood-mode="corridor"></div>
+    <div id="wxdb-home" data-wxdb-mount data-wxdb-mode="home"></div>
+        <div class="overview" id="overview">
       <header class="incident-block">
         <h2 class="incident-title" data-i18n="incident_block_h">रसुवा-भोटेकोशी बाढी</h2>
         <p class="incident-date" data-i18n="incident_block_d">भदौ १०, २०८३</p>
@@ -782,7 +783,7 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
       <section class="dash-elec" id="dash-electricity">
         <div class="dash-elec-head">
           <h2 id="dash-elec-name"></h2>
-          <a class="dash-elec-go see-all" href="electricity.html" data-i18n="elec_home_cta">सबै हेर्नुहोस् · See all</a>
+          <a class="dash-elec-go see-all" href="electricity.html" data-i18n="elec_home_cta">सबै हेर्नुहोस्</a>
         </div>
         <ul class="dash-elec-figs" id="dash-elec-figs"></ul>
         <p class="dash-elec-sum" id="dash-elec-sum"></p>
@@ -1034,12 +1035,24 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 <footer>
   <p class="foot-msg"><a class="foot-msg-more" href="contact.html#contacts" data-i18n="nav_helpline">हेल्पलाइन</a></p>
   <p class="foot-about"><a href="about.html" data-i18n="nav_about">हाम्रो बारेमा</a></p>
+
+  <aside class="maintainer" data-i18n-aria="maintainer_h" aria-label="सम्पर्क">
+    <p class="maintainer-k" data-i18n="maintainer_h">सम्पर्क</p>
+    <p class="maintainer-who" data-i18n="maintainer_who">साइट सञ्चालक · निरज भुसाल</p>
+    <p class="maintainer-line" data-i18n="maintainer_line">यो साइटबारे सुझाव, सुधार वा सूचना पठाउन</p>
+    <div class="maintainer-actions">
+      <a class="maintainer-btn" href="https://wa.me/9779701010000" target="_blank" rel="noopener" data-i18n="maintainer_wa">WhatsApp</a>
+      <a class="maintainer-btn" href="tel:+9779701010000" data-i18n="maintainer_call">फोन</a>
+      <a class="maintainer-btn" href="mailto:neerajbhusal@gmail.com" data-i18n="maintainer_mail">इमेल</a>
+    </div>
+    <p class="maintainer-emerg" data-i18n-html="maintainer_emerg">आपत्कालमा आधिकारिक <a href="contact.html#helpline">हेल्पलाइन</a>मा फोन गर्नुहोस्।</p>
+  </aside>
   <div class="foot-coffee">
         <a href="https://www.buymeacoffee.com/helloniraz" target="_blank" rel="noopener" class="bmc-btn"><span class="bmc-ico" aria-hidden="true">☕</span><span data-i18n="bmc_label">Buy me a coffee</span></a>
     <p class="foot-coffee-note" data-i18n-html="foot_coffee_note">कफी = समय/होस्टिङ · राहत होइन · <a href="donate.html">राहत कोष</a></p>
   </div>
   <span data-i18n-html="footer">Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
- यो पृष्ठ आज २६ अगस्ट २०२६ / १० भदौ २०८३ को घटनामा मात्र केन्द्रित छ।</span>
+ मनसुन, बाढी र मौसम चेतावनी — जाँचिएको आधिकारिक सूचना।</span>
 </footer>
 </main>
 </div>
@@ -1145,6 +1158,7 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 })();
 </script>
 <script defer src="home-status.js"></script>
+<script defer src="festival.js"></script>
 <script defer src="sitrep-home.js"></script>
 <script defer src="district-alerts.js?v=4b1290f-20261005T115813Z"></script>
 <script defer src="weather-alert.js?v=4b1290f-20261005T115813Z"></script>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 110" width="120" height="110" role="img" aria-label="दियो (oil lamp)">
+  <defs><radialGradient id="g" cx="50%" cy="60%" r="50%"><stop offset="0" stop-color="#fff3b0"/><stop offset="0.5" stop-color="#ffb703"/><stop offset="1" stop-color="#fb8500" stop-opacity="0"/></radialGradient></defs>
+  <circle cx="60" cy="38" r="30" fill="url(#g)" opacity="0.6"/>
+  <path d="M60,10 C68,24 70,34 60,48 C50,34 52,24 60,10 Z" fill="#ffb703"/>
+  <path d="M60,22 C64,30 64,36 60,44 C56,36 56,30 60,22 Z" fill="#fff3b0"/>
+  <path d="M14,62 Q60,56 106,62 Q100,96 60,100 Q20,96 14,62 Z" fill="#b5541c" stroke="#6b2d0c" stroke-width="2"/>
+  <path d="M14,62 Q60,72 106,62" fill="none" stroke="#6b2d0c" stroke-width="2"/>
+  <circle cx="40" cy="82" r="3" fill="#e9c46a"/><circle cx="60" cy="86" r="3" fill="#e9c46a"/><circle cx="80" cy="82" r="3" fill="#e9c46a"/>
+</svg>

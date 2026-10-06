@@ -1888,7 +1888,7 @@
       var lv = (data.warn_levels && data.warn_levels[key]) || {};
       var li = el("li");
       li.appendChild(el("i", "wxb-sw wxb-sw-" + key));
-      li.appendChild(document.createTextNode((lv.ne || key) + " / " + (lv.en || key)));
+      li.appendChild(document.createTextNode(lang() === "en" ? (lv.en || key) : (lv.ne || key)));
       legend.appendChild(li);
     });
     if (mode !== "home") mapPanel.appendChild(el("p", "wxb-shown wxb-legend-date", shownDateText()));
@@ -1910,7 +1910,7 @@
 
     if (mode === "home") {
       board.appendChild(buildHomeExtras());
-      board.appendChild(sectionLink("wxb-jump", "सबै हेर्नुहोस् · See all", "सबै हेर्नुहोस् · See all", "weather.html#warnings"));
+      board.appendChild(sectionLink("wxb-jump", "सबै हेर्नुहोस्", "See all", "weather.html#warnings"));
     } else {
       var matrixHost = el("section", "wxb-panel wxb-matrix-host");
       matrixHost.appendChild(el("h3", "wxb-h", lang() === "en" ? "Highest district colour" : "जिल्लाको उच्चतम रङ"));

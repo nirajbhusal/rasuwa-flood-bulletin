@@ -862,7 +862,7 @@
     var a = document.createElement("a");
     a.className = "fld-more";
     a.href = "weather.html#flood-outlook";
-    a.textContent = "सबै हेर्नुहोस् · See all";
+    a.textContent = lang() === "en" ? "See all" : "सबै हेर्नुहोस्";
     card.appendChild(a);
     root.appendChild(card);
   }

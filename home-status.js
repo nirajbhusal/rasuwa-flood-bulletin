@@ -134,12 +134,30 @@
     host.replaceChildren();
     host.className = "home-status";
     var en = lang() === "en";
+    var head = document.createElement("header");
+    head.className = "ds-head ds-head-compact home-status-head";
+    var h = document.createElement("h2");
+    h.className = "ds-title";
+    h.textContent = en ? "Today's status" : "आजको स्थिति";
+    head.appendChild(h);
+    var meta = "";
+    if (alertDoc && alertDoc.lead && alertDoc.lead.issued) meta = tx(alertDoc.lead.issued);
+    if (meta) {
+      var m = document.createElement("p");
+      m.className = "ds-meta";
+      m.textContent = meta;
+      head.appendChild(m);
+    }
+    host.appendChild(head);
+    var grid = document.createElement("div");
+    grid.className = "home-status-grid";
     [
       pill(en ? "Weather" : "मौसम", todayWeather(), "#wx-home"),
       pill(en ? "Rain now" : "अहिले वर्षा", rainNow(), "#wxdb-home"),
       pill(en ? "Highways" : "राजमार्ग", highways(), "#dor-home"),
       pill(en ? "Rivers" : "नदी", rivers(), "#flood-home")
-    ].forEach(function (node) { if (node) host.appendChild(node); });
+    ].forEach(function (node) { if (node) grid.appendChild(node); });
+    host.appendChild(grid);
   }
   function get(url) {
     return fetch(url + "?t=" + Date.now(), { cache: "no-store" }).then(function (r) {

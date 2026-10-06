@@ -872,7 +872,7 @@
       var more = document.createElement("a");
       more.className = "see-all";
       more.href = data.source.section;
-      more.textContent = "सबै हेर्नुहोस् · See all";
+      more.textContent = lang() === "en" ? "See all" : "सबै हेर्नुहोस्";
       p.appendChild(more);
       p.appendChild(document.createTextNode(" · "));
     }
@@ -2045,24 +2045,21 @@
     });
     shell.appendChild(sum);
     if (mode === "home") {
-      var shown = (neoc.rows || []).filter(function (r) { return r.prominent; }).slice(0, 3);
-      if (!shown.length) shown = (neoc.rows || []).slice(0, 3);
+      var shown = (neoc.rows || []).filter(function (r) { return r.prominent; }).slice(0, 2);
+      if (!shown.length) shown = (neoc.rows || []).slice(0, 2);
       if (shown.length) {
         var pinHome = el("div", "pr-pin");
         shown.forEach(function (r) { pinHome.appendChild(nrCard(r)); });
         shell.appendChild(pinHome);
       }
+      var full = document.createElement("a");
+      full.className = "ds-more";
+      full.href = "notices.html#roads";
+      full.textContent = lang() === "en" ? "Full list" : "पूर्ण सूची";
+      shell.appendChild(full);
       board.appendChild(shell);
       return;
     }
-    var prominent = (neoc.rows || []).filter(function (r) { return r.prominent; });
-    var pinHost = el("div", "pr-pin");
-    pinHost.id = "nr-rasuwa";
-    var pinGroup = prominent.length && prominent[0].group ? prominent[0].group : "bagmati";
-    pinHost.setAttribute("data-group", pinGroup);
-    prominent.forEach(function (r) { pinHost.appendChild(nrCard(r)); });
-    pinHost.hidden = !nrGroupOn(pinGroup);
-    shell.appendChild(pinHost);
     var tiles = el("div", "pr-tiles");
     tiles.setAttribute("role", "group");
     tiles.setAttribute("aria-label", lang() === "en" ? "Provinces" : "प्रदेश");

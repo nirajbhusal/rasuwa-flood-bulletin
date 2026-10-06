@@ -178,7 +178,6 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 <section id="response">
   <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_response">मानवीय प्रतिक्रिया · ग्याप / क्लस्टर</h2></div>
   <p class="treat-lead" data-i18n-html="resp_lead">व्यक्तिगत बुलेटिन — आधिकारिक क्लस्टर स्थिति होइन। लेबल गरिएका स्रोतका अंक मात्र। सहायता/ग्याप संख्या अनुमान गरिएको छैन।</p>
-  <p class="treat-note" data-i18n-html="resp_disclaimer">यो पाना निरज भुसालले व्यक्तिगत क्षमतामा चलाएको नागरिक बुलेटिन हो। सरकारी वा UN आधिकारिक स्थिति ड्यासबोर्ड होइन। आधिकारिक अंकका लागि NDRRMA, नेपाल प्रहरी, HCT / OCHA हेर्नुहोस्।</p>
 </section>
 
 <section id="gaps">
@@ -486,8 +485,20 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 <footer>
   <p class="foot-msg"><a class="foot-msg-more" href="contact.html#contacts" data-i18n="nav_helpline">हेल्पलाइन</a></p>
   <p class="foot-about"><a href="about.html" data-i18n="nav_about">हाम्रो बारेमा</a></p>
+
+  <aside class="maintainer" data-i18n-aria="maintainer_h" aria-label="सम्पर्क">
+    <p class="maintainer-k" data-i18n="maintainer_h">सम्पर्क</p>
+    <p class="maintainer-who" data-i18n="maintainer_who">साइट सञ्चालक · निरज भुसाल</p>
+    <p class="maintainer-line" data-i18n="maintainer_line">यो साइटबारे सुझाव, सुधार वा सूचना पठाउन</p>
+    <div class="maintainer-actions">
+      <a class="maintainer-btn" href="https://wa.me/9779701010000" target="_blank" rel="noopener" data-i18n="maintainer_wa">WhatsApp</a>
+      <a class="maintainer-btn" href="tel:+9779701010000" data-i18n="maintainer_call">फोन</a>
+      <a class="maintainer-btn" href="mailto:neerajbhusal@gmail.com" data-i18n="maintainer_mail">इमेल</a>
+    </div>
+    <p class="maintainer-emerg" data-i18n-html="maintainer_emerg">आपत्कालमा आधिकारिक <a href="contact.html#helpline">हेल्पलाइन</a>मा फोन गर्नुहोस्।</p>
+  </aside>
   <span data-i18n-html="footer">Powered by Grok Bot · अपडेट निरन्तर · संख्या प्रारम्भिक<br>
-  यो पृष्ठ आज २६ अगस्ट २०२६ / १० भदौ २०८३ को घटनामा मात्र केन्द्रित छ।</span>
+  मनसुन, बाढी र मौसम चेतावनी — जाँचिएको आधिकारिक सूचना।</span>
 </footer>
 </main>
 </div>
@@ -647,6 +658,21 @@ window.PAGE_VER="4b1290f-20261005T115813Z";
 })();
 </script>
 <script src="refresh.js?v=4b1290f-20261005T115813Z"></script>
+<script>
+(function(){
+  var table = document.getElementById("gaps-table");
+  if (!table) return;
+  function label(){
+    var heads = [].map.call(table.querySelectorAll("thead th"), function(th){ return (th.textContent || "").trim(); });
+    table.querySelectorAll("tbody tr").forEach(function(tr){
+      if (tr.classList.contains("dir-sec")) return;
+      [].forEach.call(tr.children, function(td, i){ td.setAttribute("data-label", heads[i] || ""); });
+    });
+  }
+  label();
+  if (window.__addLangHook) window.__addLangHook(label);
+})();
+</script>
 
 
 

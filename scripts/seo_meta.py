@@ -76,6 +76,7 @@ PAGE_DATA = {
     "contact.html": ["data/weather-alert.json"],
     "photos.html": ["data/gallery-path.json"],
     "about.html": ["data/gallery-path.json"],
+    "festival.html": ["data/festival.json", "data/songs.json"],
     "map.html": ["damage.html", "data/gallery-path.json"],
     "need.html": ["contact.html"],
     "api/index.html": ["api/dashboard.json"],
@@ -570,6 +571,7 @@ def page_copies(facts: Facts) -> dict[str, Copy]:
         "supply.html": Copy(f"एलपीजी · {bs}", f"{bs} ({facts.ad})। एलपीजी आयातको भन्सार दैनिक सारांश।", "एलपीजी"),
         "markets.html": Copy(f"पुँजी बजार · {bs}", f"{bs} ({facts.ad})। पुँजी बजार सुधार एवं पुनरुत्थान कार्ययोजना।", "पुँजी बजार"),
         "about.html": Copy(f"हाम्रो बारेमा · {bs}", f"{bs} ({facts.ad})। रसुवा–भोटेकोशी बाढीको व्यक्तिगत नागरिक बुलेटिन।", "हाम्रो बारेमा"),
+        "festival.html": Copy(f"चाडपर्व · {bs}", f"{bs} ({facts.ad})। दशैं, तिहार र छठका मिति, साइत र सार्वजनिक बिदा।", "चाडपर्व"),
         "map.html": Copy(f"नक्सा · {bs}", f"{bs}। नक्सा र समयरेखा क्षति मूल्यांकनमा छ।", "नक्सा"),
         "need.html": Copy(f"राहत सामग्री · {bs}", f"{bs}। राहत सामग्री र गोदाम सम्पर्क पानामा छ।", "राहत सामग्री"),
         "api/index.html": Copy(
