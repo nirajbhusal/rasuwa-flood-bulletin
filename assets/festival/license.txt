@@ -1,0 +1,34 @@
+ASSET LICENSES — data1006-festival/assets
+=========================================
+
+1) AUDIO (assets/malashree.mp3) — NOT INCLUDED
+   No Malashree / Mangal Dhun recording with a clear, rights-holder-granted reuse
+   license was found (checked 2026-10-06 NPT):
+   - Wikimedia Commons (API search "malashree", "malshree", "mangal dhun",
+     "dashain", "panche baja" in audio files): no Malashree/Mangal Dhun recording.
+   - Internet Archive:
+       * "Malshree_510" (file Vajra-Malshree.mp3) marked CC BY 3.0, but uploaded by
+         a third party ("sarlahiexpress"); it appears to be the band Vajra's
+         commercial recording. License claim not from the rights holder -> REJECTED.
+       * "dashaindhoon_201910" (Sur Sudha, "Dashain Dhoon") marked Public Domain
+         Mark 1.0 by a third-party uploader (rabinsxp). Modern commercial recording
+         by Sur Sudha; it is not in the public domain -> REJECTED.
+       * "Malshree", "MangalDhun_852", "MangalDhun_179", etc.: no license -> REJECTED.
+   - Freesound: no Malashree results (only unrelated Nepal field recordings,
+     one CC BY-NC = not suitable, one CC BY monastery recording = not Malashree).
+   - Pixabay Music: no Malashree / Mangal Dhun track found (only generic
+     "Nepali background music").
+   Recommendation: link to an official YouTube upload instead of hosting audio,
+   or commission/record a performance and license it explicitly.
+
+2) SVG decorations — ORIGINAL WORK, CC0 1.0 (public domain dedication)
+   kite-changa.svg      चङ्गा (kite)
+   diyo.svg             दियो (oil lamp)
+   marigold-garland.svg सयपत्री माला (marigold garland)
+   jamara.svg           जमरा (barley shoots in a pot)
+   Drawn from scratch in code for this package on 2026-10-06; no third-party
+   artwork used. License: CC0 1.0 Universal
+   https://creativecommons.org/publicdomain/zero/1.0/ — no attribution required.
+   (Third-party Commons SVGs were reviewed but none were culturally specific and
+   CC0; e.g. "Marigold icon.svg" is CC BY 4.0, "Oil-lamp.svg" is CC0 but a
+   Western oil lamp, not a diyo.)

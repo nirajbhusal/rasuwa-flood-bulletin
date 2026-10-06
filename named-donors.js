@@ -44,6 +44,7 @@
     return s.indexOf("non") < 0 && s.indexOf("cheque") >= 0;
   }
   function typeLabel(t){
+    if (document.documentElement.lang === "en") return isPersonal(t) ? "Individual" : "Institution";
     return isPersonal(t) ? "व्यक्तिगत" : "संस्था";
   }
   function typeClass(t){
@@ -90,19 +91,20 @@
     var sum = inst + pers || 1;
     var pctI = Math.round((inst / sum) * 1000) / 10;
     var pctP = Math.round((100 - pctI) * 10) / 10;
+    var en = document.documentElement.lang === "en";
     if (donut) {
       donut.style.background = "conic-gradient(#0f766e 0 " + pctI + "%, #f59e0b " + pctI + "% 100%)";
-      donut.setAttribute("aria-label", "संस्था " + pctI + "% · व्यक्तिगत " + pctP + "%");
+      donut.setAttribute("aria-label", (en ? "Institution " : "संस्था ") + pctI + "% · " + (en ? "Individual " : "व्यक्तिगत ") + pctP + "%");
     }
     if (leg) {
       leg.innerHTML =
-        '<div class="nd-leg-row"><i class="nd-swatch nd-swatch-i"></i><span data-i18n="named_filter_inst">संस्था</span>'
+        '<div class="nd-leg-row"><i class="nd-swatch nd-swatch-i"></i><span>' + (en ? "Institution" : "संस्था") + '</span>'
         + '<strong class="num">रु. ' + fmtShort(inst) + '</strong><em>' + pctI + '%</em></div>'
-        + '<div class="nd-leg-row"><i class="nd-swatch nd-swatch-p"></i><span data-i18n="named_filter_pers">व्यक्तिगत</span>'
+        + '<div class="nd-leg-row"><i class="nd-swatch nd-swatch-p"></i><span>' + (en ? "Individual" : "व्यक्तिगत") + '</span>'
         + '<strong class="num">रु. ' + fmtShort(pers) + '</strong><em>' + pctP + '%</em></div>'
-        + '<div class="nd-leg-row nd-leg-total"><span data-i18n="named_split_total">नाम-हस्तान्तरण जम्मा</span>'
-        + '<strong class="num">रु. ' + (totals.label_ne || fmtShort(totals.npr)) + '</strong>'
-        + '<em>' + (totals.donors || all.length) + ' दाता</em></div>';
+        + '<div class="nd-leg-row nd-leg-total"><span>' + (en ? "Named transfers total" : "नाम-हस्तान्तरण जम्मा") + '</span>'
+        + '<strong class="num">रु. ' + (en ? fmtShort(totals.npr) : (totals.label_ne || fmtShort(totals.npr))) + '</strong>'
+        + '<em>' + (totals.donors || all.length) + (en ? " donors" : " दाता") + '</em></div>';
     }
   }
 
@@ -116,13 +118,16 @@
       var amt = d.usd
         ? ("USD " + fmt(d.usd) + (d.npr ? " · रु. " + fmt(d.npr) : ""))
         : ("रु. " + fmt(d.npr));
-      var cheque = isCheque(d.cheque) ? "चेक" : "गैर-चेक";
+      var en = document.documentElement.lang === "en";
+      var cheque = isCheque(d.cheque) ? (en ? "Cheque" : "चेक") : (en ? "Non-cheque" : "गैर-चेक");
+      var when = String(d.date || "");
+      if (en) when = when.replace(/भदौ/g, "Bhadra").replace(/[०-९]/g, function (ch) { return String("०१२३४५६७८९".indexOf(ch)); });
       return '<article class="nd-row">'
         + '<span class="nd-sn">' + (d.sn || "") + '</span>'
         + '<div class="nd-main">'
         +   '<span class="nd-name">' + (d.name || "") + '</span>'
         +   '<span class="nd-meta">'
-        +     '<span class="nd-date">' + (d.date || "") + '</span>'
+        +     '<span class="nd-date">' + when + '</span>'
         +     '<span class="nd-type ' + typeClass(d.type) + '">' + typeLabel(d.type) + '</span>'
         +     '<span class="nd-cheque">' + cheque + '</span>'
         +   '</span>'
@@ -178,6 +183,7 @@
       renderDayChart();
       renderSplit();
       render();
+      if (window.__addLangHook) window.__addLangHook(function(){ renderDayChart(); renderSplit(); render(); });
     })
     .catch(function(){
       body.innerHTML = '<p class="nd-empty">लोड असफल</p>';

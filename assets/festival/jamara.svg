@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="120" height="140" role="img" aria-label="जमरा (jamara)">
+  <g stroke-linecap="round" fill="none" stroke-width="4">
+    <path d="M60,100 C58,70 52,40 44,10" stroke="#d4c25a"/>
+    <path d="M60,100 C60,70 62,40 64,6" stroke="#e9d66b"/>
+    <path d="M60,100 C64,72 72,44 82,14" stroke="#cbb84f"/>
+    <path d="M58,100 C52,76 40,52 26,30" stroke="#e0cf62"/>
+    <path d="M62,100 C68,78 82,56 96,36" stroke="#d9c75c"/>
+    <path d="M60,100 C56,74 48,50 36,22" stroke="#f0e08a"/>
+    <path d="M60,100 C62,74 68,48 74,18" stroke="#efdc7a"/>
+  </g>
+  <path d="M30,98 L90,98 L82,134 L38,134 Z" fill="#b5541c" stroke="#6b2d0c" stroke-width="2"/>
+  <rect x="26" y="94" width="68" height="8" rx="3" fill="#8c3b12"/>
+  <circle cx="60" cy="118" r="6" fill="#e63946"/>
+</svg>

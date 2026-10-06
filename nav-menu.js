@@ -146,7 +146,8 @@
     "damage.html": "M12 3 2 20h20L12 3zm0 6v5m0 3h.01",
     "supply.html": "M8 7h8l1 3H7zm-2 3h12v9H6z",
     "electricity.html": "M13 2 4 14h7l-1 8 9-12h-7z",
-    "about.html": "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0-10v6m0-8h.01"
+    "about.html": "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0-10v6m0-8h.01",
+    "festival.html": "M12 21c4 0 7-3 7-6 0-4-3-6-3-9 0 3-2 4-4 4s-4-1-4-4c0 3-3 5-3 9 0 3 3 6 7 6z"
   };
 
   function byHref(href) {
@@ -466,12 +467,20 @@
     "contact.html": { ne: "हेल्पलाइन", en: "Helpline" },
     "gov.html": { ne: "सरकार", en: "Government" },
     "markets.html": { ne: "बजार", en: "Markets" },
-    "donate.html": { ne: "राहत", en: "Relief" },
+    "donate.html": { ne: "राहत कोष", en: "Relief fund" },
     "response.html": { ne: "प्रतिक्रिया", en: "Response" },
     "damage.html": { ne: "क्षति", en: "Damage" },
     "supply.html": { ne: "एलपीजी", en: "LPG" },
-    "about.html": { ne: "बारेमा", en: "About" }
+    "about.html": { ne: "बारेमा", en: "About" },
+    "festival.html": { ne: "चाडपर्व", en: "Festivals" }
   };
+  var DESK_MORE_EXTRA = [
+    { href: "festival.html", ne: "चाडपर्व", en: "Festivals" }
+  ];
+  var GROUP_ICONS = {
+    alerts: "M6 9a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9M10 21a2 2 0 0 0 4 0"
+  };
+  var MORE_DOTS = "M5 12h.01M12 12h.01M18 12h.01";
   var deskBar = null;
   var deskTabsHost = null;
   var deskMore = null;
@@ -568,6 +577,24 @@
     node.setAttribute("height", "18");
     node.setAttribute("aria-hidden", "true");
     node.setAttribute("focusable", "false");
+    return node;
+  }
+  function pathIcon(d, sw) {
+    var node = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    node.setAttribute("viewBox", "0 0 24 24");
+    node.setAttribute("class", "hnav-ico");
+    node.setAttribute("width", "18");
+    node.setAttribute("height", "18");
+    node.setAttribute("aria-hidden", "true");
+    node.setAttribute("focusable", "false");
+    var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "currentColor");
+    path.setAttribute("stroke-width", sw || "1.8");
+    path.setAttribute("stroke-linejoin", "round");
+    path.setAttribute("stroke-linecap", "round");
+    node.appendChild(path);
     return node;
   }
   function deskCaret() {
@@ -755,45 +782,62 @@
     if (deskTabsHost.clientWidth < 20) return;
     deskLaying = true;
     try {
-      var saved = deskSlots.slice();
+      var moreSlot = null;
+      var others = [];
       var i;
+      for (i = 0; i < deskSlots.length; i++) {
+        if (deskSlots[i].getAttribute("data-group") === "more") moreSlot = deskSlots[i];
+        else others.push(deskSlots[i]);
+      }
+      others.forEach(function (slot) { slot.hidden = false; });
+      if (moreSlot) {
+        var menu = moreSlot.querySelector(":scope > .hnav-menu");
+        if (menu) menu.querySelectorAll(".hnav-overflow, .hnav-sep.is-overflow").forEach(function (n) { n.remove(); });
+      }
       if (deskRemeasure) {
-        for (i = 0; i < saved.length; i++) {
-          saved[i]._w = 0;
-          if (saved[i].parentNode !== deskTabsHost) deskTabsHost.appendChild(saved[i]);
-        }
-        if (deskMore) deskMore._w = 0;
+        others.forEach(function (slot) { slot._w = 0; });
+        if (moreSlot) moreSlot._w = 0;
         deskRemeasure = false;
       }
-      if (deskMore) deskMore.hidden = true;
       var rowEl = deskBar.querySelector(".hnav-row");
       var full = rowEl ? rowEl.clientWidth : deskTabsHost.clientWidth;
-      var widths = saved.map(function (slot) {
+      var widths = others.map(function (slot) {
         if (!slot._w) slot._w = slot.getBoundingClientRect().width;
         return slot._w;
       });
-      var sum = 0;
-      widths.forEach(function (w, idx) { sum += w; if (idx) sum += 4; });
-      var moreW = 0;
-      if (sum > full + 0.5 && deskMore) {
-        if (!deskMore._w) {
-          deskMore.hidden = false;
-          deskMore._w = deskMore.getBoundingClientRect().width || 72;
-          deskMore.hidden = true;
-        }
-        moreW = deskMore._w;
+      var moreTaken = 0;
+      if (moreSlot) {
+        if (!moreSlot._w) moreSlot._w = moreSlot.getBoundingClientRect().width || 96;
+        moreTaken = moreSlot._w + 4;
       }
-      var count = fitTabs(widths, full, moreW, 4);
-      var moved = false;
-      for (i = 0; i < saved.length; i++) {
-        var dest = (count >= saved.length || i < count || !deskMenu) ? deskTabsHost : deskMenu;
-        if (saved[i].parentNode !== dest) {
-          dest.appendChild(saved[i]);
-          moved = true;
+      var count = fitTabs(widths, Math.max(0, full - moreTaken), 0, 4);
+      var overflow = [];
+      for (i = 0; i < others.length; i++) {
+        others[i].hidden = i >= count;
+        if (!others[i].hidden && others[i].parentNode !== deskTabsHost) deskTabsHost.appendChild(others[i]);
+        if (others[i].hidden) {
+          others[i].querySelectorAll("a.hnav-tab:not(.hnav-overflow)").forEach(function (a) {
+            var href = a.getAttribute("data-href");
+            if (href) overflow.push(href);
+          });
         }
       }
-      if (deskMore) deskMore.hidden = !(deskMenu && deskMenu.children.length);
-      if (moved) closeDeskMenus();
+      if (moreSlot && moreSlot.parentNode !== deskTabsHost) deskTabsHost.appendChild(moreSlot);
+      if (moreSlot && overflow.length) {
+        var panel = moreSlot.querySelector(":scope > .hnav-menu");
+        if (panel) {
+          var sep = document.createElement("div");
+          sep.className = "hnav-sep is-overflow";
+          sep.setAttribute("role", "separator");
+          panel.appendChild(sep);
+          overflow.forEach(function (href) {
+            var item = makeDeskLink(href);
+            item.classList.add("hnav-overflow");
+            item.setAttribute("role", "menuitem");
+            panel.appendChild(item);
+          });
+        }
+      }
       deskFit = count;
       paintDeskCurrent();
     } finally {
@@ -814,45 +858,7 @@
     row.className = "hnav-row";
     var host = document.createElement("div");
     host.className = "hnav-tabs";
-    var more = document.createElement("div");
-    more.className = "hnav-more";
-    more.hidden = true;
-    var moreBtn = document.createElement("button");
-    moreBtn.type = "button";
-    moreBtn.className = "hnav-more-btn";
-    moreBtn.setAttribute("aria-expanded", "false");
-    moreBtn.setAttribute("aria-haspopup", "true");
-    moreBtn.setAttribute("aria-controls", "hnav-more-menu");
-    moreBtn.setAttribute("aria-label", "थप");
-    var moreIco = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    moreIco.setAttribute("class", "hnav-ico");
-    moreIco.setAttribute("viewBox", "0 0 24 24");
-    moreIco.setAttribute("width", "18");
-    moreIco.setAttribute("height", "18");
-    moreIco.setAttribute("aria-hidden", "true");
-    moreIco.setAttribute("focusable", "false");
-    var morePath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    morePath.setAttribute("d", "M5 12h.01M12 12h.01M18 12h.01");
-    morePath.setAttribute("fill", "none");
-    morePath.setAttribute("stroke", "currentColor");
-    morePath.setAttribute("stroke-width", "2.6");
-    morePath.setAttribute("stroke-linecap", "round");
-    moreIco.appendChild(morePath);
-    var moreLab = document.createElement("span");
-    moreLab.className = "hnav-lab";
-    moreLab.textContent = "थप";
-    moreBtn.appendChild(moreIco);
-    moreBtn.appendChild(moreLab);
-    moreBtn.appendChild(deskCaret());
-    var menu = document.createElement("div");
-    menu.className = "hnav-menu";
-    menu.id = "hnav-more-menu";
-    menu.setAttribute("role", "menu");
-    menu.hidden = true;
-    more.appendChild(moreBtn);
-    more.appendChild(menu);
     row.appendChild(host);
-    row.appendChild(more);
     wrap.appendChild(row);
     bar.appendChild(wrap);
     if (nav.parentNode) nav.parentNode.insertBefore(bar, nav);
@@ -862,13 +868,18 @@
       if (g.key === "home") return;
       var hrefs = [];
       g.hrefs.forEach(function (href) { if (byHref(href)) hrefs.push(href); });
+      if (g.key === "more") {
+        DESK_MORE_EXTRA.forEach(function (extra) {
+          if (hrefs.indexOf(extra.href) < 0) hrefs.push(extra.href);
+        });
+      }
       if (!hrefs.length) return;
       var slot = document.createElement("div");
       slot.className = "hnav-slot";
       slot.setAttribute("data-group", g.key);
       slot.setAttribute("data-ne", g.ne);
       slot.setAttribute("data-en", g.en);
-      if (hrefs.length < 2) {
+      if (g.key !== "more" && hrefs.length < 2) {
         var link = makeDeskLink(hrefs[0]);
         var direct = link.querySelector(".hnav-lab");
         if (direct) direct.textContent = g.ne;
@@ -878,10 +889,12 @@
         btn.type = "button";
         btn.className = "hnav-tab hnav-parent";
         btn.setAttribute("aria-expanded", "false");
-        btn.setAttribute("aria-haspopup", "true");
+        btn.setAttribute("aria-haspopup", "menu");
         var mid = "hnav-menu-" + g.key;
         btn.setAttribute("aria-controls", mid);
-        btn.appendChild(deskIcon(hrefs[0]));
+        if (g.key === "more") btn.appendChild(pathIcon(MORE_DOTS, "2.6"));
+        else if (GROUP_ICONS[g.key]) btn.appendChild(pathIcon(GROUP_ICONS[g.key], "1.8"));
+        else btn.appendChild(deskIcon(hrefs[0]));
         var lab = document.createElement("span");
         lab.className = "hnav-lab";
         lab.textContent = g.ne;
@@ -904,7 +917,7 @@
           else openDeskSlot(slot, false);
         });
         btn.addEventListener("keydown", function (e) {
-          if (e.key === "ArrowDown") {
+          if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
             e.preventDefault();
             openDeskSlot(slot, true);
           }
@@ -924,20 +937,6 @@
       deskSlots.push(slot);
     });
 
-    moreBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      if (more._openT) { clearTimeout(more._openT); more._openT = 0; }
-      if (menu.hidden) openOverflow(false);
-      else closeOverflow();
-    });
-    moreBtn.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowDown") {
-        e.preventDefault();
-        openOverflow(true);
-      }
-    });
-    armHover(more, function () { if (!more.hidden) openOverflow(false); }, closeOverflow);
     document.addEventListener("click", function (e) {
       var t = e.target;
       if (t && bar.contains(t)) return;
@@ -996,9 +995,9 @@
 
     deskBar = bar;
     deskTabsHost = host;
-    deskMore = more;
-    deskMoreBtn = moreBtn;
-    deskMenu = menu;
+    deskMore = null;
+    deskMoreBtn = null;
+    deskMenu = null;
     paintDeskLabels();
     layoutDeskNav();
     paintDeskCurrent();
@@ -1163,4 +1162,43 @@
       prefetchDoc(a.href);
     });
   }
+
+  function festTheme() {
+    var q = "";
+    try { q = new URLSearchParams(location.search).get("theme") || ""; } catch (e) {}
+    var name = q;
+    if (name !== "dashain" && name !== "tihar" && name !== "off") {
+      var parts = {};
+      try {
+        new Intl.DateTimeFormat("en-CA", {
+          timeZone: "Asia/Kathmandu", year: "numeric", month: "2-digit", day: "2-digit"
+        }).formatToParts(new Date()).forEach(function (p) {
+          if (p.type !== "literal") parts[p.type] = p.value;
+        });
+      } catch (err) { parts = {}; }
+      var key = (parts.year || "2026") + "-" + (parts.month || "10") + "-" + (parts.day || "06");
+      if (key >= "2026-11-12") name = "off";
+      else if (key >= "2026-10-26") name = "tihar";
+      else name = "dashain";
+    }
+    document.documentElement.classList.remove("theme-dashain", "theme-tihar");
+    if (name === "dashain" || name === "tihar") document.documentElement.classList.add("theme-" + name);
+    var old = document.querySelector(".fest-sky");
+    if (old) old.remove();
+    var bar = document.querySelector(".head-stick .topbar");
+    if (!bar || name === "off") return;
+    var sky = document.createElement("div");
+    sky.className = "fest-sky";
+    sky.setAttribute("aria-hidden", "true");
+    if (name === "tihar") {
+      sky.innerHTML = '<img class="fest-diyo k1" alt="" src="assets/festival/diyo.svg"><img class="fest-diyo k2" alt="" src="assets/festival/marigold-garland.svg"><img class="fest-diyo k3" alt="" src="assets/festival/diyo.svg">';
+    } else {
+      sky.innerHTML = '<span class="fest-cloud c1"></span><span class="fest-cloud c2"></span><span class="fest-cloud c3"></span>' +
+        '<img class="fest-kite k1" alt="" src="assets/festival/kite-changa.svg">' +
+        '<img class="fest-kite k2" alt="" src="assets/festival/kite-changa.svg">' +
+        '<img class="fest-kite k3" alt="" src="assets/festival/kite-changa.svg">';
+    }
+    bar.appendChild(sky);
+  }
+  festTheme();
 })();

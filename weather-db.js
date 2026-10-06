@@ -623,7 +623,7 @@
       var more = document.createElement("a");
       more.className = "wxdb-more";
       more.href = "weather.html#wx-alert";
-      more.textContent = "सबै हेर्नुहोस् · See all";
+      more.textContent = lang() === "en" ? "See all" : "सबै हेर्नुहोस्";
       sec.appendChild(more);
     }
     return sec;

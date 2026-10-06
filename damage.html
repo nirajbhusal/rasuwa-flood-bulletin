@@ -1043,6 +1043,25 @@ window.PAGE_VER="4b1290f-20261005T115813Z";
 })();
 </script>
 <script src="refresh.js?v=4b1290f-20261005T115813Z"></script>
+<script>
+(function(){
+  var pairs = [["ध्वस्त","Destroyed"],["सम्भावित","Possible"],["क्षति","Damaged"],["प्रभावित","Affected"],["किमि","km"],["हे","ha"],["शीर्षकमा छैन","not in the title"]];
+  function apply(){
+    var en = document.documentElement.lang === "en";
+    document.querySelectorAll(".ems-bmeta").forEach(function(el){
+      if (!el.getAttribute("data-ne")) el.setAttribute("data-ne", el.textContent);
+      var src = el.getAttribute("data-ne");
+      if (!en) { el.textContent = src; return; }
+      var out = src;
+      pairs.forEach(function(p){ out = out.split(p[0]).join(p[1]); });
+      el.textContent = out;
+    });
+  }
+  apply();
+  if (window.__addLangHook) window.__addLangHook(apply);
+  new MutationObserver(apply).observe(document.documentElement, {attributes:true, attributeFilter:["lang"]});
+})();
+</script>
 
 <div class="lb" id="lightbox" hidden>
   <button type="button" class="lb-x" id="lb-close" aria-label="बन्द" data-i18n-aria="close">×</button>

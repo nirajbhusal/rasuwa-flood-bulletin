@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" width="120" height="160" role="img" aria-label="चङ्गा (kite)">
+  <polygon points="60,4 112,56 60,108 8,56" fill="#e63946" stroke="#7a1d24" stroke-width="2"/>
+  <polygon points="60,4 112,56 60,56" fill="#f4a261"/>
+  <polygon points="8,56 60,108 60,56" fill="#2a9d8f"/>
+  <line x1="60" y1="4" x2="60" y2="108" stroke="#7a1d24" stroke-width="2"/>
+  <line x1="8" y1="56" x2="112" y2="56" stroke="#7a1d24" stroke-width="2"/>
+  <path d="M60,108 C50,122 70,132 58,146 C50,154 62,158 60,160" fill="none" stroke="#444" stroke-width="1.5"/>
+  <polygon points="56,120 64,120 60,128" fill="#e9c46a"/>
+  <polygon points="54,138 62,138 58,146" fill="#e9c46a"/>
+</svg>

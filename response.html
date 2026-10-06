@@ -178,7 +178,6 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 <section id="response">
   <div class="sec-head"><span class="dot" style="background:var(--teal)"></span><h2 data-i18n="h_response">मानवीय प्रतिक्रिया · ग्याप / क्लस्टर</h2></div>
   <p class="treat-lead" data-i18n-html="resp_lead">व्यक्तिगत बुलेटिन — आधिकारिक क्लस्टर स्थिति होइन। लेबल गरिएका स्रोतका अंक मात्र। सहायता/ग्याप संख्या अनुमान गरिएको छैन।</p>
-  <p class="treat-note" data-i18n-html="resp_disclaimer">यो पाना निरज भुसालले व्यक्तिगत क्षमतामा चलाएको नागरिक बुलेटिन हो। सरकारी वा UN आधिकारिक स्थिति ड्यासबोर्ड होइन। आधिकारिक अंकका लागि NDRRMA, नेपाल प्रहरी, HCT / OCHA हेर्नुहोस्।</p>
 </section>
 
 <section id="gaps">
@@ -647,6 +646,21 @@ window.PAGE_VER="4b1290f-20261005T115813Z";
 })();
 </script>
 <script src="refresh.js?v=4b1290f-20261005T115813Z"></script>
+<script>
+(function(){
+  var table = document.getElementById("gaps-table");
+  if (!table) return;
+  function label(){
+    var heads = [].map.call(table.querySelectorAll("thead th"), function(th){ return (th.textContent || "").trim(); });
+    table.querySelectorAll("tbody tr").forEach(function(tr){
+      if (tr.classList.contains("dir-sec")) return;
+      [].forEach.call(tr.children, function(td, i){ td.setAttribute("data-label", heads[i] || ""); });
+    });
+  }
+  label();
+  if (window.__addLangHook) window.__addLangHook(label);
+})();
+</script>
 
 
 

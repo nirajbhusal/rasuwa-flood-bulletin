@@ -96,7 +96,7 @@ const PAGES = {
   "contact.html": "हेल्पलाइन",
   "gov.html": "सरकार",
   "markets.html": "बजार",
-  "donate.html": "राहत",
+  "donate.html": "राहत कोष",
   "response.html": "प्रतिक्रिया",
   "damage.html": "क्षति",
   "supply.html": "एलपीजी",
