@@ -2194,8 +2194,14 @@ window.I18N = {
 "fest_k": "चाडपर्व",
 "fest_h": "दशैं–तिहार",
 "ns_place": "स्थान",
-"about_fix_official": "आधिकारिक अंक र हेल्पलाइन <a href=\"contact.html#helpline\">सम्पर्क पाना</a>मा छन्।",
-"lpg_ask_contact": "सुझाव: आधिकारिक स्रोत र हेल्पलाइन <a href=\"contact.html#helpline\">सम्पर्क पाना</a>मा हेर्नुहोस्।"
+"about_fix_official": "यो साइटको अंक सच्याउन तलको सम्पर्क प्रयोग गर्नुहोस्। आपत्काल र आधिकारिक हेल्पलाइन <a href=\"contact.html#helpline\">सम्पर्क पाना</a>मा छन्।",
+"maintainer_h": "सम्पर्क",
+"maintainer_who": "साइट सञ्चालक · निरज भुसाल",
+"maintainer_line": "यो साइटबारे सुझाव, सुधार वा सूचना पठाउन",
+"maintainer_wa": "WhatsApp",
+"maintainer_call": "फोन",
+"maintainer_mail": "इमेल",
+"maintainer_emerg": "आपत्कालमा आधिकारिक <a href=\"contact.html#helpline\">हेल्पलाइन</a>मा फोन गर्नुहोस्।"
 
 },"en": {
 "title": "Rasuwa–Bhotekoshi Flood · 20 September 2026",
@@ -4378,8 +4384,14 @@ window.I18N = {
 "fest_k": "Festivals",
 "fest_h": "Dashain–Tihar",
 "ns_place": "Place",
-"about_fix_official": "Official figures and helplines are on the <a href=\"contact.html#helpline\">contact page</a>.",
-"lpg_ask_contact": "Tips: official sources and helplines are on the <a href=\"contact.html#helpline\">contact page</a>."
+"about_fix_official": "To correct a figure on this site, use the contact below. Emergencies and official helplines are on the <a href=\"contact.html#helpline\">contact page</a>.",
+"maintainer_h": "Contact",
+"maintainer_who": "Site maintainer · Niraj Bhusal",
+"maintainer_line": "For corrections, suggestions or tips about this site",
+"maintainer_wa": "WhatsApp",
+"maintainer_call": "Call",
+"maintainer_mail": "Email",
+"maintainer_emerg": "In an emergency, call the official <a href=\"contact.html#helpline\">helplines</a>."
 
 }
 };window.I18N_LISTS = {
@@ -5743,6 +5755,13 @@ window.I18N = {
     applyList(lang);
     paintToggle(lang);
     document.querySelectorAll(".num").forEach(function(el){
+      if (el.children.length) {
+        var nodes = [];
+        var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(function(node){ node.nodeValue = fmtNum(node.nodeValue); });
+        return;
+      }
       if (!el.getAttribute("data-raw")) el.setAttribute("data-raw", el.textContent.trim());
       el.textContent = fmtNum(el.getAttribute("data-raw"));
     });

@@ -12036,3 +12036,13 @@ html.theme-dashain .fest-hero{background:linear-gradient(180deg,#e7f4fb,#fff)}
   .fest-home-more{margin-left:0}
   .fest-hero-art img{width:36px;height:36px}
 }
+.maintainer{margin:16px auto;max-width:40rem;padding:14px 14px 12px;border:1px solid var(--c-line,#e7e5e4);border-radius:12px;background:#fff;text-align:center;color:var(--c-ink,#0f172a)}
+.maintainer-k{margin:0;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#c41e3a}
+.maintainer-who{margin:4px 0 0;font-weight:800;color:var(--c-ink,#0f172a)}
+.maintainer-line,.maintainer-emerg{margin:6px 0 0;font-size:13px;line-height:1.5;color:#334155}
+.maintainer-emerg a{color:#c41e3a;font-weight:800}
+.maintainer-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.maintainer-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 16px;border-radius:999px;background:#c41e3a;color:#fff;font-weight:800;text-decoration:none}
+.maintainer-btn:hover{filter:brightness(1.06);color:#fff}
+footer .maintainer{margin:0 auto 16px}
+.about-contact .phones{margin-top:12px}
