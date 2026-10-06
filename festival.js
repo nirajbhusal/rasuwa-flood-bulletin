@@ -102,16 +102,34 @@
   }
   function countdownParts(target, now) {
     var diff = Math.max(0, target - now);
-    var mins = Math.floor(diff / 60000);
+    var totalSec = Math.floor(diff / 1000);
+    var mins = Math.floor(totalSec / 60);
     return {
       days: Math.floor(mins / (60 * 24)),
       hours: Math.floor((mins % (60 * 24)) / 60),
-      minutes: mins % 60
+      minutes: mins % 60,
+      seconds: totalSec % 60,
+      totalSec: totalSec
     };
   }
   function countText(parts) {
+    if (parts.totalSec < 60) {
+      if (parts.totalSec <= 0) return en() ? "Starting shortly" : "अब केही बेरमा";
+      return en() ? (parts.seconds + "s") : (dev(parts.seconds) + " सेकेन्ड");
+    }
     if (en()) return parts.days + "d " + parts.hours + "h " + parts.minutes + "m";
     return dev(parts.days) + " दिन " + dev(parts.hours) + " घण्टा " + dev(parts.minutes) + " मिनेट";
+  }
+  function saitPhrase(ev) {
+    if (!ev || !ev.sait_time_24h) return "";
+    var when = adLabel(ev.ad_date) + " · " + clockLabel(ev.sait_time_24h) + " NPT";
+    if (ev.id === TIKA_ID) return (en() ? "Tika auspicious time" : "टीका साइत") + " · " + when;
+    return (en() ? nameOf(ev) + " auspicious time" : nameOf(ev) + " साइत") + " · " + when;
+  }
+  function homeSaitLine(list, now) {
+    var tika = tikaEvent(list);
+    if (tika && tika.sait_time_24h && atNpt(tika.ad_date, tika.sait_time_24h) > now) return saitPhrase(tika);
+    return saitPhrase(nextWithSait(list, now));
   }
   function tikaEvent(events) {
     var i;
@@ -150,6 +168,14 @@
   var events = null;
   var songs = null;
   var timer = 0;
+  var paintedKey = "";
+
+  function viewKey(now) {
+    var today = nptToday(new Date(now));
+    var sait = nextWithSait(events, now);
+    var upcoming = nextEvent(events, today);
+    return [lang(), today, sait ? sait.id : "", upcoming ? upcoming.id : ""].join("|");
+  }
 
   function paintHome() {
     var host = document.getElementById("festival-home");
@@ -168,22 +194,18 @@
     }
     var now = nptNowMs();
     var sait = nextWithSait(events, now);
-    var tika = tikaEvent(events);
     host.hidden = false;
     var count = "";
     if (sait) count = countText(countdownParts(atNpt(sait.ad_date, sait.sait_time_24h), now));
-    var tikaBits = "";
-    if (tika && tika.sait_time_24h) {
-      tikaBits = (en() ? "Tika साइत" : "टीका साइत") + " · " + adLabel(tika.ad_date) + " · " + clockLabel(tika.sait_time_24h) + " NPT";
-    }
+    var saitBits = homeSaitLine(events, now);
     var see = en() ? "See all" : "सबै हेर्नुहोस्";
     var kicker = en() ? "Festivals" : "चाडपर्व";
     host.innerHTML =
       '<a class="fest-home-row" href="festival.html">' +
         '<span class="fest-home-k">' + esc(kicker) + '</span>' +
         '<span class="fest-home-name">' + esc(nameOf(sait || upcoming)) + '</span>' +
-        (count ? '<span class="fest-home-count">' + esc(count) + '</span>' : '') +
-        (tikaBits ? '<span class="fest-home-tika">' + esc(tikaBits) + '</span>' : '') +
+        (count ? '<span class="fest-home-count" data-fest-count>' + esc(count) + '</span>' : '') +
+        (saitBits ? '<span class="fest-home-tika">' + esc(saitBits) + '</span>' : '') +
         '<span class="fest-home-more">' + esc(see) + '</span>' +
       '</a>';
   }
@@ -214,7 +236,7 @@
     }
     if (tika) {
       hero += '<p class="fest-tika-line"><span class="fest-tika-dot" aria-hidden="true"></span>' +
-        esc((en() ? "Main tika साइत" : "मुख्य टीका साइत") + " · " + nameOf(tika) + " · " + clockLabel(tika.sait_time_24h) + " NPT · " + adLabel(tika.ad_date)) +
+        esc((en() ? "Main Tika auspicious time" : "मुख्य टीका साइत") + " · " + nameOf(tika) + " · " + clockLabel(tika.sait_time_24h) + " NPT · " + adLabel(tika.ad_date)) +
         '</p>';
     }
     hero += '<div class="fest-hero-art" aria-hidden="true">' +
@@ -231,7 +253,7 @@
         : "";
       var saitHtml = saitLine(ev);
       return '<li class="fest-day ' + state + '">' +
-        '<div class="fest-day-when"><strong>' + esc(bsOf(ev)) + '</strong><span>' + esc(weekOf(ev) + " · " + adLabel(ev.ad_date)) + '</span></div>' +
+        '<div class="fest-day-when"><strong>' + esc(bsOf(ev)) + '</strong><span class="fest-day-week">' + esc(weekOf(ev)) + '</span><span class="fest-day-ad">· ' + esc(adLabel(ev.ad_date)) + '</span></div>' +
         '<div class="fest-day-body"><h3>' + esc(nameOf(ev)) + holiday + '</h3>' +
         (saitHtml ? '<p class="fest-sait">' + esc(saitHtml) + '</p>' : '') +
         '<p>' + esc(en() ? ev.desc_en : ev.desc_ne) + '</p></div></li>';
@@ -273,18 +295,22 @@
   function paint() {
     paintHome();
     paintPage();
+    paintedKey = events ? viewKey(nptNowMs()) : "";
   }
   function tick() {
-    var host = document.getElementById("festival-home");
-    var page = document.getElementById("fest-page");
     if (!events) return;
-    if (host && !host.hidden) paintHome();
-    var node = page && page.querySelector("[data-fest-count]");
-    if (node) {
-      var sait = nextWithSait(events, nptNowMs());
-      if (sait) node.textContent = countText(countdownParts(atNpt(sait.ad_date, sait.sait_time_24h), nptNowMs()));
-    } else if (page) {
-      paintPage();
+    var now = nptNowMs();
+    var key = viewKey(now);
+    if (key !== paintedKey) {
+      paint();
+      return;
+    }
+    var sait = nextWithSait(events, now);
+    var text = sait ? countText(countdownParts(atNpt(sait.ad_date, sait.sait_time_24h), now)) : "";
+    var nodes = document.querySelectorAll("[data-fest-count]");
+    var i;
+    for (i = 0; i < nodes.length; i++) {
+      if (nodes[i].textContent !== text) nodes[i].textContent = text;
     }
   }
 

@@ -11850,7 +11850,7 @@ body{background:var(--c-page)}
 }
 .ds-card{padding:var(--s-5) var(--s-6)}
 .ds-card > :last-child{margin-bottom:0}
-.page-main .wrap,.page-body .wrap{max-width:var(--content-max)}
+.page-main .wrap,.page-body .wrap{max-width:var(--content-max);margin-inline:auto}
 .about-prose,.treat-lead,.treat-note{max-width:var(--prose-max)}
 .ds-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:2px var(--s-4);margin:0 0 var(--s-4);text-align:left}
 .ds-eyebrow{grid-column:1;margin:0;font-size:var(--t-xs);font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--c-brand)}
@@ -11926,7 +11926,6 @@ html{scroll-padding-bottom:72px}
   .hnav-tab:focus-visible{outline:2px solid var(--c-focus);outline-offset:2px}
   .pr-side{column-count:2;column-gap:var(--s-4)}
   .pr-group{break-inside:avoid}
-  .wxb-map-panel{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(240px,.8fr);gap:var(--s-4);align-items:start}
   .btn-cta-official,.pmdrf-banner-cta{border-radius:var(--r-md);min-height:44px;max-width:min(100%,420px)}
 }
 @media (max-width:760px){
@@ -11956,7 +11955,7 @@ html{scroll-padding-bottom:72px}
 }
 .fest-home-row{
   display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;
-  padding:10px 14px;text-decoration:none;color:var(--c-ink);min-height:0
+  padding:10px 64px 10px 14px;text-decoration:none;color:var(--c-ink);min-height:0
 }
 .fest-home-k{font-size:var(--t-xs);font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--c-brand)}
 .fest-home-name{font-size:var(--t-md);font-weight:800}
@@ -11979,7 +11978,9 @@ html{scroll-padding-bottom:72px}
 .fest-block{margin:0 0 var(--s-8)}
 .fest-block h2{margin:0 0 var(--s-3);font-size:var(--t-xl);color:var(--c-ink)}
 .fest-timeline,.fest-ranges,.fest-songs{list-style:none;margin:0;padding:0}
-.fest-day{display:grid;grid-template-columns:minmax(140px,200px) 1fr;gap:var(--s-3);padding:var(--s-3) 0;border-bottom:1px solid var(--c-line)}
+.fest-day{display:grid;grid-template-columns:minmax(140px,220px) 1fr;gap:var(--s-3);padding:var(--s-3) 0;border-bottom:1px solid var(--c-line)}
+.fest-day-when{display:flex;flex-direction:column;gap:4px}
+.fest-day-ad{white-space:nowrap}
 .fest-day.is-past{opacity:.55}
 .fest-day.is-today{background:var(--c-brand-soft);border-radius:var(--r-md);padding:var(--s-3)}
 .fest-day.is-tika{box-shadow:inset 3px 0 0 var(--c-brand)}
@@ -12011,10 +12012,11 @@ html.theme-dashain .head-stick::after,html.theme-tihar .head-stick::after{
 .fest-cloud.c1{width:46px;height:16px;top:10px;right:78px}
 .fest-cloud.c2{width:28px;height:12px;top:28px;right:36px}
 .fest-cloud.c3{width:18px;height:8px;top:8px;right:18px}
-.fest-kite{position:absolute;width:28px;height:28px;object-fit:contain}
-.fest-kite.k1{top:6px;right:8px}
+.fest-kite,.fest-diyo{position:absolute;width:32px;height:32px;object-fit:contain}
+.fest-kite.k1,.fest-diyo.k1{top:6px;right:8px}
 .fest-kite.k2{top:22px;right:46px;width:22px;height:22px}
-.fest-kite.k3{top:4px;right:96px;width:18px;height:18px}
+.fest-diyo.k2{top:8px;right:46px;width:64px;height:22px}
+.fest-kite.k3,.fest-diyo.k3{top:4px;right:118px;width:28px;height:28px}
 html.theme-dashain .fest-kite,html.theme-tihar .fest-diyo{animation:fest-drift 9s ease-in-out infinite}
 html.theme-dashain .fest-cloud{animation:fest-cloud 14s linear infinite}
 @keyframes fest-drift{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
@@ -12022,11 +12024,11 @@ html.theme-dashain .fest-cloud{animation:fest-cloud 14s linear infinite}
 @media (prefers-reduced-motion:reduce){
   .fest-kite,.fest-cloud,.fest-diyo{animation:none !important}
 }
-html.theme-dashain .sec-head h2::before,html.theme-dashain .ds-title::before,html.theme-tihar .sec-head h2::before{
+html.theme-dashain .sec-head h2::before,html.theme-dashain .ds-title::before,html.theme-tihar .sec-head h2::before,html.theme-tihar .ds-title::before{
   content:"";display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;
   background:#c41e3a;box-shadow:0 0 0 2px #f4c430;vertical-align:middle
 }
-html.theme-dashain #festival-home,html.theme-tihar #festival-home{background-image:linear-gradient(90deg,rgba(255,255,255,.2),rgba(255,255,255,0)),url("assets/festival/jamara.svg");background-repeat:no-repeat;background-position:right 12px center;background-size:42px}
+html.theme-dashain #festival-home,html.theme-tihar #festival-home{background-image:linear-gradient(90deg,rgba(255,255,255,.2),rgba(255,255,255,0)),url("assets/festival/jamara.svg");background-repeat:no-repeat;background-position:right 12px center;background-size:36px}
 html.theme-tihar #festival-home{background-image:linear-gradient(90deg,rgba(255,255,255,.2),rgba(255,255,255,0)),url("assets/festival/diyo.svg")}
 html.theme-tihar .fest-hero{background:linear-gradient(180deg,#fff6ea,#fff)}
 html.theme-dashain .fest-hero{background:linear-gradient(180deg,#e7f4fb,#fff)}
@@ -12036,6 +12038,11 @@ html.theme-dashain .fest-hero{background:linear-gradient(180deg,#e7f4fb,#fff)}
   .fest-home-more{margin-left:0}
   .fest-hero-art img{width:36px;height:36px}
 }
+@media (max-width:480px){
+  .fest-cloud.c1,.fest-kite.k3,.fest-diyo.k3{display:none}
+  .fest-sky{width:72px}
+}
+html.about-page footer .maintainer,html.supply-page footer .maintainer{display:none}
 .maintainer{margin:16px auto;max-width:40rem;padding:14px 14px 12px;border:1px solid var(--c-line,#e7e5e4);border-radius:12px;background:#fff;text-align:center;color:var(--c-ink,#0f172a)}
 .maintainer-k{margin:0;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#c41e3a}
 .maintainer-who{margin:4px 0 0;font-weight:800;color:var(--c-ink,#0f172a)}
