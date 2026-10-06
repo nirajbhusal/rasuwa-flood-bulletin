@@ -60,8 +60,8 @@ test("notices history leads with SitRep #2283 and English stays aligned", functi
   assert.ok(block.indexOf("SitRep #2283") < block.indexOf("असोज १६"));
   assert.match(block, /घटना २४/);
   assert.match(block, /२५,९०,०००/);
-  assert.match(block, /sitrep2283-p1\.jpg/);
-  assert.match(block, /sitrep2283-p3\.jpg/);
+  assert.equal(block.includes("sitrep2283"), false);
+  assert.match(block, /ndrrma\.gov\.np\/np\/daily-bulletin\/2328/);
   const histAt = i18n.indexOf('"hist": [');
   const histEnd = i18n.indexOf('\n],\n"alert"', histAt);
   const hist = i18n.slice(histAt, histEnd);

@@ -10,7 +10,7 @@
 
 ## 2026-09-25-dhm-12310 · Five-day warning and Bulletin-27
 
-- Lead warning is DHM #12310, issued Asoj 9 at 4:43 PM (25 September 2026). The window is Asoj 9–13 (25–29 September). Maps are `img/dhm/warning-12310-day{1,2,3,4,5}.png`. Each district uses that day’s colour from the official map. Day 5 (Asoj 13) is green in every district.
+- Lead warning is DHM #12310, issued Asoj 9 at 4:43 PM (25 September 2026). The window is Asoj 9–13 (25–29 September). Each district uses that day’s colour from the official map. Day 5 (Asoj 13) is green in every district.
 - Special Weather Bulletin-27 (#12311), issued Asoj 9 at 5:00 PM, is the Bhotekoshi corridor card on `notices.html#alert`. Past 24 hours: heavy rain in many places around Gorkha, Rasuwa, Nuwakot, Dhading and Chitwan. From the night of Asoj 9 through the morning of Asoj 12, moderate rain is likely in many places of those five districts, and heavy rain is possible in 1–2 places in each. District table: `img/dhm/bulletin-12311-districts.png`.
 - `data/weather-alert.json` `page_ver` is `2026-09-25-dhm-12310`. `latest.json` id matches.
 
@@ -93,7 +93,7 @@
 ## 2026-09-24-dhm-12300 · DHM five-day weather warning #12300
 
 - Live lead is DHM **#12300** (issued Asoj 8 / 24 Sep 2026, 18:00 NPT): five-day weather warning for Asoj 8–12. Official page text is empty; the product is the five day maps. Homepage and `notices.html#alert` read `data/weather-alert.json`. No citizen-reprint line and no bulletin-number badge on the live card.
-- Day chips for Asoj 8–12 recolor the map from `img/dhm/warning-12300-day{1,2,3,4,5}.png`. The colour is the highest DHM warning read inside each province. #12299 stays on the timeline as the prior map lead. Corridor companion is Bulletin-26 **#12307** (Asoj 8 night through Asoj 11 morning; Rasuwa, Nuwakot, Dhading, Gorkha, Chitwan). #12296 is off the live timeline. No river gauges.
+- Day chips for Asoj 8–12 recolor the map from that day’s official warning colours. The colour is the highest DHM warning read inside each province. #12299 stays on the timeline as the prior map lead. Corridor companion is Bulletin-26 **#12307** (Asoj 8 night through Asoj 11 morning; Rasuwa, Nuwakot, Dhading, Gorkha, Chitwan). #12296 is off the live timeline. No river gauges.
 - `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-dhm-12300`
 
 ## 2026-09-24-wx-districts-tiles · High-alert areas and OSM roads
@@ -107,7 +107,7 @@
 ## 2026-09-24-dhm-12299 · DHM four-day weather warning #12299
 
 - Live lead is DHM **#12299** (issued Asoj 8 / 24 Sep 2026, 08:00 NPT): four-day weather warning for Asoj 8–11. Official page text is empty; the product is the four day maps. Homepage and `notices.html#alert` read `data/weather-alert.json`. No citizen-reprint line and no `#12299` badge on the live card. Timeline rows cite #12299, #12298, #12297 and #12296.
-- Day chips for Asoj 8–11 recolor the map from `img/dhm/warning-12299-day{1,2,3,4}.png`. The colour is the highest DHM warning read inside each province (red take action, orange be prepared, yellow be updated, green no warning). Other colours are named only when they cover a clear share of that province, not a thin border. No new rainfall millimetres and no river gauges.
+- Day chips for Asoj 8–11 recolor the map from that day’s official warning colours. The colour is the highest DHM warning read inside each province (red take action, orange be prepared, yellow be updated, green no warning). Other colours are named only when they cover a clear share of that province, not a thin border. No new rainfall millimetres and no river gauges.
 - Overview is the highest of those four map readings. #12296 (Bhotekoshi corridor, through the morning of Asoj 10) stays on the timeline and the Bagmati callout. #12297 moves to the timeline as the prior lead, not live. #12298 (three-day map, Asoj 7 evening) is on the timeline for Asoj 8–10; its maps are archived. SitRep and cash boards unchanged.
 - Short notices update and `latest.json` point at `notices.html#alert` with the DHM MFD link.
 - `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-24-dhm-12299`
@@ -130,7 +130,7 @@
 ## 2026-09-24-live-maps · Weather day switcher and DoR map
 
 - Homepage and `notices.html#alert` province map stays on the Friday–Sunday peak outlook by default (Gandaki and Lumbini very heavy with isolated extremely heavy; Koshi, Madhesh, Bagmati and Sudurpaschim heavy to very heavy; Karnali heavy). Provinces are buttons with a clear selected outline. Tapping one updates the detail, including bulletin #12297 and, for Bagmati, corridor #12296.
-- Day chips for Asoj 7–11 recolor the choropleth from the official #12297 day maps (`img/dhm/warning-12297-day1.png` … `day5.png`). The colour is the highest DHM warning read inside each province: red take action, orange be prepared, yellow be updated, green no warning. Mixed provinces name the other colours. No new rainfall millimetres. The Gantt stays; #12297 focuses the peak overview and #12296 focuses Bagmati.
+- Day chips for Asoj 7–11 recolor the choropleth from the official #12297 day maps (official day maps). The colour is the highest DHM warning read inside each province: red take action, orange be prepared, yellow be updated, green no warning. Mixed provinces name the other colours. No new rainfall millimetres. The Gantt stays; #12297 focuses the peak overview and #12296 focuses Bagmati.
 - A quiet check of `https://dhm.gov.np/mfd/api/page/12297` compares `update_at` with the cached stamp. A newer stamp shows a notice and the official link. It does not rewrite the reprint.
 - `notices.html#roads` and the homepage card plot NAVIGATE closures on a map (Leaflet, Carto/OSM tiles). NH42 is the strategic-road line, with NH42-014 (Syaphrubesi–Rasuwagadhi) in red and the closure point from DoR. Closed and recently opened points open reason, times, and contact. Chips stay 9 / 5 closed / 4 opened / 0 partial unless a live recheck of `Dashboard_api/getAggregateData` disagrees, in which case the chips follow the live feed and say so. Ticker partial NH03 has no public coordinate, so it stays in the list only. Snapshot as of 24 Sep 2026, 09:42 NPT. Dashboard: https://navigate.dor.gov.np/app/dashboard
 - Strings for the new controls are Nepali and English in `data/weather-alert.json` and `data/roads-dor.json` and follow the language toggle. SitRep and cash boards unchanged.
@@ -142,7 +142,7 @@
 
 - Live lead is DHM **#12297** Monsoon Special Bulletin-3 UPDATE (issued Asoj 7 / 23 Sep 2026, 18:00 NPT), a five-day warning for Asoj 7–11. Homepage and `notices.html#alert` share one infographic from `data/weather-alert.json`: province choropleth, Bhotekoshi corridor callout (#12296), and the same Gantt timeline in Nepali and English.
 - Province outlook for the Friday–Sunday peak: Gandaki and Lumbini very heavy with isolated extremely heavy; Koshi, Madhesh, Bagmati and Sudurpaschim heavy to very heavy in a few places; Karnali heavy in a few places. No river-gauge figures.
-- Official day maps archived as `img/dhm/warning-12297-day{1,2,3,4,5}.png` and shown on the notices alert section. Short notices update only. Helpline 1155 → `contact.html#helpline`.
+- Official day colours are shown on the notices alert section. Short notices update only. Helpline 1155 → `contact.html#helpline`.
 - Previous live card #12294 / Bulletin-25 #12296 moved to a history card. Both stay on the timeline (#12294 Asoj 7–9, #12296 Asoj 7 night–10 morning). #12293 is superseded for the Friday–Sunday window. #12290 / Bulletin-24 remain the older history card. SitRep KPIs and cash boards unchanged.
 - `index.html#alert`, `#weather` and `#wx` redirect to `notices.html#alert`. Badge is Weather Alert / मौसम चेतावनी. Citizen-bulletin disclaimer stays.
 - Last-updated chip is 8 Asoj / 24 Sep. Issue stamp on the card stays 23 Sep 18:00.
@@ -151,7 +151,7 @@
 
 ## 2026-09-23-weather-12294 · DHM warning #12294 + Bulletin-25
 
-- DHM MFD **मौसम चेतावनी #12294** (7 Ashwin 08:00 / 23 Sep): map-based 3-day warning (Ashwin 7–9); official text empty. Maps archived `img/dhm/warning-12294-day{1,2,3}.png`. Citizen reprint with DHM links. NDRRMA shared the maps.
+- DHM MFD **मौसम चेतावनी #12294** (7 Ashwin 08:00 / 23 Sep): map-based 3-day warning (Ashwin 7–9); official text empty. Citizen reprint with DHM links. NDRRMA shared the maps.
 - Same-day **Special Weather Bulletin-25** (#12296, 16:40): many places medium rain Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan from the night of 7 Ashwin through the morning of 10 Ashwin; **heavy rain possible in 1–2 places in each district**. Past 24h: some medium in those districts; Dhading 1–2 places heavy measured. Official district map `img/dhm/bulletin-12296-districts.png` + day/night table on `notices.html#alert`.
 - Short notices update (not a long post) points at `#alert` and mentions Monsoon Bulletin-3 update **#12293** (Ashwin 9–11 heavy-rain risk). Homepage weather strip updated. Previous #12290 / Bulletin-24 kept as the labeled history card. SitRep KPIs, MoF/NCHL/Fonepay, markets, LPG unchanged.
 - `latest.json` id **2026-09-23-weather-12294** (official DHM only; url `notices.html#alert`). brand_date chip → 7 Ashwin / 23 Sep. No new SitRep figures.
@@ -159,7 +159,7 @@
 
 ## 2026-09-22-weather-12290 · DHM warning #12290 + Bulletin-24
 
-- DHM MFD **मौसम चेतावनी #12290** (6 Ashwin 08:00 / 22 Sep): map-based 3-day warning; official text empty. Maps archived `img/dhm/warning-12290-day{1,2,3}.png`. Citizen reprint with DHM links.
+- DHM MFD **मौसम चेतावनी #12290** (6 Ashwin 08:00 / 22 Sep): map-based 3-day warning; official text empty. Citizen reprint with DHM links.
 - Same-day **Special Weather Bulletin-24** (#12291, 17:00): medium rain possible Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan from night of 6 Ashwin through morning of 9 Ashwin; **heavy rain possible in 1–2 places in all five districts**. Official district map `img/dhm/bulletin-12291-districts.png` + day/night table on `notices.html#alert`. Full text `data/dhm-12291.txt`.
 - Homepage weather strip points to `notices.html#alert` with #12290 / Bulletin-24. Older #12284 / Bulletin-22 kept as a labeled history card. SitRep KPIs, MoF/NCHL/Fonepay, markets, LPG unchanged.
 - `latest.json` id **2026-09-22-weather-12290** (official DHM only; url `notices.html#alert`). brand_incident + notify unchanged.
@@ -171,19 +171,19 @@
 - Yesterday 21 Sep: **760** txns · **Rs. 6,523,383**. Domestic QR 278 / 3,027,981 · Bills 403 / 2,783,450 · NPCI 36 / 529,029 · ALIPAY 43 / 182,923 · IBFT 0 / 0.
 - Labeled NCHL+Fonepay **8,999,626,914.61** (~९.०० अर्ब) = live NCHL **6,434,549,513.61** (22 Sep, unchanged) + new Fonepay till-date **2,565,077,401**. Not a mega-total with MoF. MoF 9.99 / USD 23.4m / available 13.57, named handover 2.74, and NCHL's own total stay separately labeled.
 - The board TOTAL row is **2,565,077,401**. The five channel amounts as printed sum to 2,565,077,402 (1 rupee). The table and headline use the board's printed figures, including that total row.
-- Previous Fonepay (~२.५१ अर्ब · 925,407 / 2,507,249,462) is history. Archive `img/today-2026-09-21-fonepay-core.jpg`. SitRep KPIs, weather, markets, LPG, and named donors unchanged.
+- Previous Fonepay (~२.५१ अर्ब · 925,407 / 2,507,249,462) is history. SitRep KPIs, weather, markets, LPG, and named donors unchanged.
 - `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-22-fonepay-21`
 
 ## 2026-09-22-nchl-0000 · NCHL 22 Sep 00:00
 
 - NCHL channels for the Prime Minister's Disaster Relief Fund at **22 Sep 2026 00:00**: **272,248** txns · **Rs. 6,434,549,513.61** (~६.४३ अर्ब). IPS/Cheque 5,668 / 2,879,233,119.80 · Card-International 103,608 / 1,755,487,707.88 · Online Transfer 17,761 / 1,051,569,724.32 · Domestic QR 116,779 / 425,036,433.55 · Remittance 27,237 / 313,527,437.55 · Int'l QR 730 / 6,380,842.74 · Card-Domestic 465 / 3,314,247.77.
 - Labeled NCHL+Fonepay **8,941,798,975.61** (~८.९४ अर्ब) = new NCHL 6.43 + Fonepay till-date **2.51 unchanged**. Not a mega-total with MoF. MoF 9.99 / USD 23.4m / available 13.57, named handover 2.74, and Fonepay's own total stay separately labeled.
-- Previous NCHL 14 Sep 00:00 (263,267 / 5,521,433,368.22) is history. Archive `img/today-2026-09-22-nchl-0000.jpg`. SitRep KPIs, weather, markets, and LPG unchanged.
+- Previous NCHL 14 Sep 00:00 (263,267 / 5,521,433,368.22) is history. SitRep KPIs, weather, markets, and LPG unchanged.
 - `PAGE_VER` / `?v=` / `sw.js` / `latest.json` → `2026-09-22-nchl-0000`
 
 ## 2026-09-20-weather-12284 · DHM weather warning #12284 + notify
 
-- DHM MFD **मौसम चेतावनी #12284** (4 Ashwin 18:00 / 20 Sep): map-based 3-day warning; official text empty. Maps archived `img/dhm/warning-12284-day{1,2,3}.png`. Citizen reprint with DHM links.
+- DHM MFD **मौसम चेतावनी #12284** (4 Ashwin 18:00 / 20 Sep): map-based 3-day warning; official text empty. Citizen reprint with DHM links.
 - Same-day **Special Weather Bulletin-22** (#12283, 16:30): medium rain possible Rasuwa/Nuwakot/Dhading/Gorkha/Chitwan through 7 Ashwin morning; heavy rain possible 1–2 places in Gorkha/Rasuwa/Nuwakot/Dhading. Official 5-district map `img/dhm/bulletin-12283-districts.png` + day/night table on `notices.html#alert`. Full text `data/dhm12283.txt`.
 - New **मौसम सतर्कता** card at top of `notices.html#alert`; homepage strip links there. Older #alert items stay as history. SitRep #16 KPIs unchanged.
 - Restored discreet header **अपडेट अलर्ट On/Off** (`notify.js` + i18n `notify_*`): Notification permission, SW `{type:'check', welcome:true}`, mute/unmute, periodicsync `rasuwa-updates`.
@@ -192,26 +192,22 @@
 
 ## 2026-09-20-2030 · NDRRMA SitRep #16
 
-- NDRRMA / MoHA SitRep #16 · 4 Ashwin 19:00 / 20 Sep: dead **1,451** · rescued **13,784** · currently in treatment **15** (5 hospitals) · security-agency treatment **10,163** · missing ~**5,786** (do not re-sum; 110 identified handovers deducted). Army heli **today 33** (no cumulative printed) · previous Army **1,692** / APF **320** is SitRep #15 history. Holding **20** centers (Rasuwa 786 · Nuwakot 324 · Dhading 121). Security forces mobilised **20,929** (no agency split on this board). Fuel/LPG not printed — previous SitRep #14 60k/12k/4k · LPG **502** is history. District deaths: Chitwan 367 · Nawal E 232 · West 222 · Nuwakot 236 · Rasuwa 203 · Gorkha 79 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2 (sum 1,451). Female 336 · Male 585 · human remains 530. DNA relatives **1,997**. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member · max 6 months · process sent to local governments. Archive `img/today-2026-09-20-ndrrma-sitrep16-1900.jpg`.
-- Previous SitRep #15 (1,411 / 13,784 / 18 / 1,692 / holding 24 / Nuwakot 427) moved to history. Cash channels (MoF / NCHL / Fonepay / named handover) and markets/LPG/Everest unchanged and separately labeled.
+- NDRRMA / MoHA SitRep #16 · 4 Ashwin 19:00 / 20 Sep: dead **1,451** · rescued **13,784** · currently in treatment **15** (5 hospitals) · security-agency treatment **10,163** · missing ~**5,786** (do not re-sum; 110 identified handovers deducted). Army heli **today 33** (no cumulative printed) · previous Army **1,692** / APF **320** is SitRep #15 history. Holding **20** centers (Rasuwa 786 · Nuwakot 324 · Dhading 121). Security forces mobilised **20,929** (no agency split on this board). Fuel/LPG not printed — previous SitRep #14 60k/12k/4k · LPG **502** is history. District deaths: Chitwan 367 · Nawal E 232 · West 222 · Nuwakot 236 · Rasuwa 203 · Gorkha 79 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2 (sum 1,451). Female 336 · Male 585 · human remains 530. DNA relatives **1,997**. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member · max 6 months · process sent to local governments. - Previous SitRep #15 (1,411 / 13,784 / 18 / 1,692 / holding 24 / Nuwakot 427) moved to history. Cash channels (MoF / NCHL / Fonepay / named handover) and markets/LPG/Everest unchanged and separately labeled.
 - `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-20-2030`
 
 ## 2026-09-19-2130 · NDRRMA SitRep #15
 
-- NDRRMA / MoHA SitRep #15 · 3 Ashwin 19:00 / 19 Sep: dead **1,411** · rescued **13,784** · currently in treatment **18** (6 hospitals) · security-agency treatment **10,041** · missing ~**5,875** (do not re-sum; revised after deducting **110** identified bodies). Army heli **1,692** (41 today) · APF **320**. Holding **24** centers (Nuwakot 427 · Rasuwa 794 · Dhading 121). Security forces mobilised **20,935** (no agency split on this board). Fuel/LPG not printed — previous SitRep #14 60k/12k/4k · LPG **502** is history. District deaths: Chitwan 364 · Nawal E 232 · West 222 · Nuwakot 203 · Rasuwa 199 · Gorkha 79 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2. Female 336 · Male 549 · human remains 526. DNA relatives **1,991**. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member. Header now shows incident date **10 Bhadra / 26 Aug**. Archive `img/today-2026-09-19-ndrrma-sitrep15-1900.jpg`.
-- Previous SitRep #14 (1,410 / 13,756 / 344 / 1,634 / holding 27 / Nuwakot 832) moved to history. Cash channels (MoF / NCHL / Fonepay / named handover) and markets/LPG/Everest unchanged and separately labeled.
+- NDRRMA / MoHA SitRep #15 · 3 Ashwin 19:00 / 19 Sep: dead **1,411** · rescued **13,784** · currently in treatment **18** (6 hospitals) · security-agency treatment **10,041** · missing ~**5,875** (do not re-sum; revised after deducting **110** identified bodies). Army heli **1,692** (41 today) · APF **320**. Holding **24** centers (Nuwakot 427 · Rasuwa 794 · Dhading 121). Security forces mobilised **20,935** (no agency split on this board). Fuel/LPG not printed — previous SitRep #14 60k/12k/4k · LPG **502** is history. District deaths: Chitwan 364 · Nawal E 232 · West 222 · Nuwakot 203 · Rasuwa 199 · Gorkha 79 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2. Female 336 · Male 549 · human remains 526. DNA relatives **1,991**. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member. Header now shows incident date **10 Bhadra / 26 Aug**. - Previous SitRep #14 (1,410 / 13,756 / 344 / 1,634 / holding 27 / Nuwakot 832) moved to history. Cash channels (MoF / NCHL / Fonepay / named handover) and markets/LPG/Everest unchanged and separately labeled.
 - `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-19-2130`
 
 ## 2026-09-17-2000 · NDRRMA SitRep #14
 
-- NDRRMA / MoHA SitRep #14 · 1 Ashwin 19:00 / 17 Sep: dead **1,410** · rescued **13,756** · treated **344** (19 hospitals) · discharged **290** · security-agency treatment **9,820** · missing ~**6,145** (do not re-sum; revised after deducting **110** identified bodies). Army heli **1,634** (31 today) · APF **320**. Holding **27** centers (Nuwakot 832 · Rasuwa 817 · Dhading 94). Fuel 60k/12k/4k · LPG **502**. District deaths: Chitwan 364 · Nawal E 232 · West 222 · Nuwakot 203 · Rasuwa 199 · Gorkha 78 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2. Female 336 · Male 549 · human remains 525. DNA relatives **1,944**. This board prints no Army/Police/APF/gov/bank missing bars (SitRep #12 agency labels history). Acrow bridge Devighat, Nuwakot operational. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member. Archive `img/today-2026-09-17-ndrrma-sitrep14-1900.jpg`.
-- Previous SitRep #13 (1,403 / 13,742 / 344 / 1,603 / holding 29 / Nuwakot 1,185) moved to history. Cash channels (MoF / NCHL / Fonepay / named handover) and markets/LPG/Everest unchanged and separately labeled.
+- NDRRMA / MoHA SitRep #14 · 1 Ashwin 19:00 / 17 Sep: dead **1,410** · rescued **13,756** · treated **344** (19 hospitals) · discharged **290** · security-agency treatment **9,820** · missing ~**6,145** (do not re-sum; revised after deducting **110** identified bodies). Army heli **1,634** (31 today) · APF **320**. Holding **27** centers (Nuwakot 832 · Rasuwa 817 · Dhading 94). Fuel 60k/12k/4k · LPG **502**. District deaths: Chitwan 364 · Nawal E 232 · West 222 · Nuwakot 203 · Rasuwa 199 · Gorkha 78 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2. Female 336 · Male 549 · human remains 525. DNA relatives **1,944**. This board prints no Army/Police/APF/gov/bank missing bars (SitRep #12 agency labels history). Acrow bridge Devighat, Nuwakot operational. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member. - Previous SitRep #13 (1,403 / 13,742 / 344 / 1,603 / holding 29 / Nuwakot 1,185) moved to history. Cash channels (MoF / NCHL / Fonepay / named handover) and markets/LPG/Everest unchanged and separately labeled.
 - `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-17-2000`
 
 ## 2026-09-16-2000 · NDRRMA SitRep #13
 
-- NDRRMA / MoHA SitRep #13 · 31 Bhadra 19:00 / 16 Sep: dead **1,403** · rescued **13,742** · treated **344** (19 hospitals) · discharged **289** · security-agency treatment **9,496** · missing ~**6,150** (do not re-sum; revised after deducting **105** identified bodies). Army heli **1,603** (42 today) · APF **320**. Holding **29** centers (Nuwakot 1,185 · Rasuwa 817 · Dhading 94). Fuel 59k/15k/6k · LPG **502**. District deaths: Chitwan 364 · Nawal E 232 · West 222 · Nuwakot 202 · Rasuwa 193 · Gorkha 78 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2. Female 336 · Male 544 · human remains 523. DNA relatives **1,889**. This board prints no Army/Police/APF/gov/bank missing bars (SitRep #12 agency labels history). Acrow bridge Devighat, Nuwakot operational. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member. Archive `img/today-2026-09-16-ndrrma-sitrep13-1900.jpg`.
-- Previous SitRep #12 (1,395 / 13,737 / 341 / 1,531 / holding 33 / Nuwakot 1,499) moved to history. Cash channels (MoF / NCHL / Fonepay / named handover) and markets/LPG/Everest unchanged and separately labeled.
+- NDRRMA / MoHA SitRep #13 · 31 Bhadra 19:00 / 16 Sep: dead **1,403** · rescued **13,742** · treated **344** (19 hospitals) · discharged **289** · security-agency treatment **9,496** · missing ~**6,150** (do not re-sum; revised after deducting **105** identified bodies). Army heli **1,603** (42 today) · APF **320**. Holding **29** centers (Nuwakot 1,185 · Rasuwa 817 · Dhading 94). Fuel 59k/15k/6k · LPG **502**. District deaths: Chitwan 364 · Nawal E 232 · West 222 · Nuwakot 202 · Rasuwa 193 · Gorkha 78 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2. Female 336 · Male 544 · human remains 523. DNA relatives **1,889**. This board prints no Army/Police/APF/gov/bank missing bars (SitRep #12 agency labels history). Acrow bridge Devighat, Nuwakot operational. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member. - Previous SitRep #12 (1,395 / 13,737 / 341 / 1,531 / holding 33 / Nuwakot 1,499) moved to history. Cash channels (MoF / NCHL / Fonepay / named handover) and markets/LPG/Everest unchanged and separately labeled.
 - `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-16-2000`
 
 ## 2026-09-15-0015 · Rebase onto main (Everest Gas + markets restyle)
@@ -241,8 +237,7 @@
 
 ## 2026-09-14-2015 · NDRRMA SitRep #12
 
-- NDRRMA / MoHA SitRep #12 · 29 Bhadra 19:00 / 14 Sep: dead **1,395** · rescued **13,737** · treated **341** (19 hospitals) · discharged **278** · security-agency treatment **9,358** · missing ~**5,130** (do not re-sum). Army heli **1,531** (15 today) · APF **320**. Holding **33** centers (Nuwakot 1,499 · Rasuwa 825 · Dhading 94). Fuel 47k/16k/11k · LPG **502**. District deaths: Chitwan 364 · Nawal E 232 · West 222 · Nuwakot 202 · Rasuwa 186 · Gorkha 77 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2. Missing labels this board: Army 25 · Police 73 · APF 45 · gov 12 · bank/FI 26. DNA relatives **1,853**. SAR equipment budget (million NPR): Army 90 · Police 60 · APF 60. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member. Archive `img/today-2026-09-14-ndrrma-sitrep12-1900.jpg`.
-- Previous SitRep #11 (1,388 / 13,728 / 339 / 1,516 / Nuwakot holding 1,613) moved to history. Cash channels (MoF / NCHL / Fonepay / named handover) unchanged and separately labeled.
+- NDRRMA / MoHA SitRep #12 · 29 Bhadra 19:00 / 14 Sep: dead **1,395** · rescued **13,737** · treated **341** (19 hospitals) · discharged **278** · security-agency treatment **9,358** · missing ~**5,130** (do not re-sum). Army heli **1,531** (15 today) · APF **320**. Holding **33** centers (Nuwakot 1,499 · Rasuwa 825 · Dhading 94). Fuel 47k/16k/11k · LPG **502**. District deaths: Chitwan 364 · Nawal E 232 · West 222 · Nuwakot 202 · Rasuwa 186 · Gorkha 77 · Dhading 72 · Tanahun 38 · Kathmandu treatment 2. Missing labels this board: Army 25 · Police 73 · APF 45 · gov 12 · bank/FI 26. DNA relatives **1,853**. SAR equipment budget (million NPR): Army 90 · Police 60 · APF 60. Holding-exit cash: NPR 15,000 (≤4) · +2,000/extra member. - Previous SitRep #11 (1,388 / 13,728 / 339 / 1,516 / Nuwakot holding 1,613) moved to history. Cash channels (MoF / NCHL / Fonepay / named handover) unchanged and separately labeled.
 - `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-14-2015`
 
 ## 2026-09-14-1700 · Named handover Excel through Bhadra 28
@@ -262,15 +257,14 @@
 
 ## 2026-09-14-0915 · NDRRMA SitRep #11 + cash boards
 
-- NDRRMA / MoHA SitRep #11 · 28 Bhadra 19:00 / 13 Sep: dead **1,388** · rescued **13,728** · treated **339** (19 hospitals) · discharged **271** · security-agency treatment **9,314** · missing ~**5,130** (do not re-sum). Army heli **1,516** (34 today) · APF **320**. Holding **33** centers (Nuwakot 1,613 · Rasuwa 825 · Dhading 94). Fuel 33k/18k/15k · LPG **502**. Archive `img/today-2026-09-13-ndrrma-sitrep11-1900.jpg`.
-- OPMCM PMDRF 2083/05/28 17:00: 9-bank NPR **9,995,024,994** (~9.99bn) · USD **23,441,854** · equiv NPR **3,576,992,569** @152.59 · available **13,572,017,563** (~13.57bn). Not stacked with NCHL/Fonepay/named.
+- NDRRMA / MoHA SitRep #11 · 28 Bhadra 19:00 / 13 Sep: dead **1,388** · rescued **13,728** · treated **339** (19 hospitals) · discharged **271** · security-agency treatment **9,314** · missing ~**5,130** (do not re-sum). Army heli **1,516** (34 today) · APF **320**. Holding **33** centers (Nuwakot 1,613 · Rasuwa 825 · Dhading 94). Fuel 33k/18k/15k · LPG **502**. - OPMCM PMDRF 2083/05/28 17:00: 9-bank NPR **9,995,024,994** (~9.99bn) · USD **23,441,854** · equiv NPR **3,576,992,569** @152.59 · available **13,572,017,563** (~13.57bn). Not stacked with NCHL/Fonepay/named.
 - NCHL 14 Sep 00:00: **263,267** / **5,521,433,368.22** (~5.52bn).
 - Fonepay CORE till date: **925,407** / **2,507,249,462** (~2.51bn). Yesterday 13 Sep 1,512 / 8,942,981 (subtitle).
 - Labeled NCHL+Fonepay **8,028,682,830.22** (~8.03bn) — not a mega-total with MoF.
 
 ## 2026-09-12-1515 · Nepal Police highway blockages
 
-- `notices.html` `#roads`: prepend Nepal Police main-highway board as of BS 2083/05/27 06:40 (archive `img/today-2026-09-12-nepal-police-highway-0640.jpg`); history log + home roads chips; i18n EN roads/hist.
+- `notices.html` `#roads`: prepend Nepal Police main-highway board as of BS 2083/05/27 06:40 (text record); history log + home roads chips; i18n EN roads/hist.
 
 ## 2026-09-12-1400 · LPG hoarding transparency
 
@@ -392,7 +386,7 @@
 - Homepage `#cat-supply` / `#supply`: LPG import KPI cards (BS 2083/05/25 vs 05/26), entry-point compare bars, Dhangadhi zero-entry note
 - Source: Department of Customs, Ministry of Finance — not merged into NDRRMA fuel stock or cash/PMDRF KPIs
 - Catalog chip + optional nav chip «एलपीजी आयात»; i18n NE+EN
-- Archived source graphics under `img/today-2026-09-12-lpg-*` (not live board embeds)
+- Source figures stay as text (not live board embeds)
 
 ### Version
 - `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-12-0830`
@@ -404,7 +398,7 @@
 - `damage.html#rdna`: full summary table (4 sectors + sub-rows + total), HH strip, source line
 - Figures as printed from RDNA summary table; not merged into NDRRMA casualty KPIs or cash/PMDRF channels
 - Catalog chip + nav chip «इन्फोग्राफिक / RDNA»; i18n NE+EN
-- Archived slides under `img/today-2026-09-11-rdna-*.jpg` (not live board graphics)
+- Source figures stay as text (not live board graphics)
 
 ### Version
 - `PAGE_VER` / `?v=` / `latest.json` / `sw.js` → `2026-09-11-2145`

@@ -18,9 +18,7 @@
     "x": "https://x.com/NDRRMA_Nepal/status/2106770037885550676"
   },
   "files": {
-    "pdf": "img/ndrrma/Rasuwa-Bhotekoshi_Flood_Report_2083_Asoj_17.pdf",
-    "board": "img/ndrrma/flood-update-2083-06-17-board.png",
-    "cover": "img/ndrrma/flood-update-2083-06-17-cover.jpg"
+    "pdf": "img/ndrrma/Rasuwa-Bhotekoshi_Flood_Report_2083_Asoj_17.pdf"
   },
   "kpis": {
     "dead": 1455,

@@ -748,6 +748,11 @@
 
   function buildGallery(host) {
     host.replaceChildren();
+    if (!data.maps || !data.maps.length) {
+      host.hidden = true;
+      return;
+    }
+    host.hidden = false;
     var h = el("h3", "wxb-h", tx(data.ui.maps_h));
     host.appendChild(h);
     var grid = el("div", "wx-maps");

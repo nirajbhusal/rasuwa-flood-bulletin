@@ -1163,6 +1163,42 @@
     });
   }
 
+  function festKite(cls) {
+    return '<span class="fest-kite ' + cls + '"><img alt="" src="assets/festival/kite-changa.svg"><i class="fest-string"></i></span>';
+  }
+  function festBird(cls) {
+    return '<svg class="fest-bird ' + cls + '" viewBox="0 0 36 16" aria-hidden="true"><path d="M2 12 Q10 2 18 9 Q26 2 34 12" fill="none" stroke="#fff8ea" stroke-width="1.6" stroke-linecap="round"/></svg>';
+  }
+  function festFootSvg(tihar) {
+    if (tihar) {
+      return '<svg viewBox="0 0 1200 150" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><defs><linearGradient id="tfSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1038"/><stop offset="1" stop-color="#c46a1a"/></linearGradient></defs>' +
+        '<rect width="1200" height="150" fill="url(#tfSky)"/>' +
+        '<path d="M40 8 q40 28 80 0 q40 28 80 0 q40 28 80 0" fill="none" stroke="#e07a2f" stroke-width="4"/><circle cx="60" cy="22" r="5" fill="#f4c430"/><circle cx="100" cy="18" r="4" fill="#c41e3a"/><circle cx="150" cy="24" r="5" fill="#f4c430"/>' +
+        '<path d="M860 8 q40 28 80 0 q40 28 80 0 q40 28 80 0" fill="none" stroke="#e07a2f" stroke-width="4"/><circle cx="900" cy="22" r="5" fill="#f4c430"/><circle cx="980" cy="16" r="4" fill="#c41e3a"/>' +
+        '<path d="M0 118 C200 96 320 130 520 110 C760 92 900 128 1200 104 V150 H0Z" fill="#241434"/>' +
+        '<g fill="#f4c430"><circle cx="180" cy="96" r="7"/><circle cx="400" cy="88" r="6"/><circle cx="640" cy="98" r="7"/><circle cx="900" cy="86" r="6"/><circle cx="1080" cy="100" r="7"/></g>' +
+        '<g><path d="M176 96 v18 M184 96 v18" stroke="#f6d56a" stroke-width="2"/><path d="M168 114 h24 l-4 10 h-16z" fill="#b5541c"/>' +
+        '<path d="M396 88 v16 M404 88 v16" stroke="#f6d56a" stroke-width="2"/><path d="M388 104 h24 l-4 10 h-16z" fill="#b5541c"/>' +
+        '<path d="M636 98 v16 M644 98 v16" stroke="#f6d56a" stroke-width="2"/><path d="M628 114 h24 l-4 10 h-16z" fill="#b5541c"/>' +
+        '<path d="M896 86 v16 M904 86 v16" stroke="#f6d56a" stroke-width="2"/><path d="M888 102 h24 l-4 10 h-16z" fill="#b5541c"/>' +
+        '<path d="M1076 100 v14 M1084 100 v14" stroke="#f6d56a" stroke-width="2"/><path d="M1068 114 h24 l-4 8 h-16z" fill="#b5541c"/></g>' +
+        '<g transform="translate(560 118)"><circle r="16" fill="none" stroke="#f4c430" stroke-width="2"/><circle r="8" fill="none" stroke="#c41e3a" stroke-width="2"/><circle r="3" fill="#fff"/></g></svg>';
+    }
+    return '<svg viewBox="0 0 1200 160" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><defs><linearGradient id="dfSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7eb8e0"/><stop offset=".7" stop-color="#f3d7a4"/><stop offset="1" stop-color="#e7b15a"/></linearGradient></defs>' +
+      '<rect width="1200" height="160" fill="url(#dfSky)"/>' +
+      '<ellipse cx="160" cy="28" rx="40" ry="12" fill="#fff" opacity=".9"/><ellipse cx="980" cy="24" rx="36" ry="11" fill="#fff" opacity=".85"/>' +
+      '<path d="M0 100 L90 62 L150 88 L230 48 L310 86 L400 40 L490 84 L580 52 L680 90 L780 46 L880 86 L980 58 L1200 96 V160 H0Z" fill="#8eafc4"/>' +
+      '<path d="M400 40 l22 36 h-44z" fill="#fff"/><path d="M780 46 l24 38 h-48z" fill="#fff"/>' +
+      '<path d="M0 128 C180 112 340 146 600 124 C860 104 1000 140 1200 118 V160 H0Z" fill="#2f6a3a"/>' +
+      '<g fill="#c41e3a"><path d="M120 36 l14 22 h-28z"/><path d="M300 22 l12 18 h-24z"/><path d="M860 30 l14 22 h-28z"/><path d="M1040 18 l12 18 h-24z"/></g>' +
+      '<g stroke="#6b3a1a" fill="none" stroke-width="1"><path d="M120 58 C100 90 90 110 80 130"/><path d="M300 40 C320 80 330 110 340 132"/><path d="M860 52 C840 90 830 112 820 134"/><path d="M1040 36 C1060 80 1070 110 1080 130"/></g>' +
+      '<g><rect x="70" y="124" width="28" height="16" rx="2" fill="#8c3b12"/><path d="M84 124 C82 110 76 102 70 96 M84 124 C84 110 90 100 96 94" stroke="#e6d36a" fill="none" stroke-width="1.6"/><circle cx="84" cy="132" r="2.4" fill="#e63946"/></g>' +
+      '<g><rect x="1088" y="118" width="30" height="18" rx="2" fill="#8c3b12"/><path d="M1103 118 C1100 104 1094 96 1086 88 M1103 118 C1106 104 1114 96 1122 90" stroke="#e6d36a" fill="none" stroke-width="1.6"/><circle cx="1103" cy="128" r="2.4" fill="#e63946"/></g>' +
+      '<g stroke="#6b3a1a" stroke-width="2.4" fill="none"><path d="M560 146 V96 H680 V146"/><path d="M590 96 V136"/><path d="M650 96 V136"/><path d="M582 136 h16"/><path d="M642 136 h16"/></g></svg>';
+  }
+  function festRuleSvg() {
+    return '<svg viewBox="0 0 220 22" width="180" height="18" aria-hidden="true"><path d="M8 18 C10 10 8 4 2 1 M16 18 C16 8 22 4 30 1" fill="none" stroke="#d4c25a" stroke-width="1.6" stroke-linecap="round"/><circle cx="110" cy="11" r="3.5" fill="#c41e3a"/><path d="M150 16 l10-14 4 6-8 10z" fill="#c41e3a"/><path d="M168 4 C160 14 156 18 154 20" stroke="#6b3a1a" fill="none"/></svg>';
+  }
   function festTheme() {
     var q = "";
     try { q = new URLSearchParams(location.search).get("theme") || ""; } catch (e) {}
@@ -1182,23 +1218,50 @@
       else name = "dashain";
     }
     document.documentElement.classList.remove("theme-dashain", "theme-tihar");
+    document.querySelectorAll(".fest-sky,.fest-hem,.fest-foot,.fest-margin,.fest-rule,.fest-corner").forEach(function (n) { n.remove(); });
     if (name === "dashain" || name === "tihar") document.documentElement.classList.add("theme-" + name);
-    var old = document.querySelector(".fest-sky");
-    if (old) old.remove();
+    if (name !== "dashain" && name !== "tihar") return;
     var bar = document.querySelector(".head-stick .topbar");
-    if (!bar || name === "off") return;
-    var sky = document.createElement("div");
-    sky.className = "fest-sky";
-    sky.setAttribute("aria-hidden", "true");
-    if (name === "tihar") {
-      sky.innerHTML = '<img class="fest-diyo k1" alt="" src="assets/festival/diyo.svg"><img class="fest-diyo k2" alt="" src="assets/festival/marigold-garland.svg"><img class="fest-diyo k3" alt="" src="assets/festival/diyo.svg">';
-    } else {
-      sky.innerHTML = '<span class="fest-cloud c1"></span><span class="fest-cloud c2"></span><span class="fest-cloud c3"></span>' +
-        '<img class="fest-kite k1" alt="" src="assets/festival/kite-changa.svg">' +
-        '<img class="fest-kite k2" alt="" src="assets/festival/kite-changa.svg">' +
-        '<img class="fest-kite k3" alt="" src="assets/festival/kite-changa.svg">';
+    if (bar) {
+      var sky = document.createElement("div");
+      sky.className = "fest-sky";
+      sky.setAttribute("aria-hidden", "true");
+      if (name === "tihar") {
+        sky.innerHTML = '<span class="fest-swag"><img alt="" src="assets/festival/marigold-garland.svg"><img alt="" src="assets/festival/marigold-garland.svg"></span>';
+      } else {
+        sky.innerHTML = '<span class="fest-cloud c1"></span><span class="fest-cloud c2"></span><span class="fest-cloud c3"></span>' +
+          festKite("k1") + festKite("k2") + festKite("k3") + festKite("k4") + festKite("k5");
+      }
+      var hem = document.createElement("div");
+      hem.className = "fest-hem" + (name === "tihar" ? " is-diyo" : "");
+      hem.setAttribute("aria-hidden", "true");
+      if (name === "tihar") {
+        var lamps = "";
+        var i;
+        for (i = 0; i < 12; i++) lamps += '<img alt="" src="assets/festival/diyo.svg">';
+        hem.innerHTML = lamps;
+      }
+      bar.appendChild(sky);
+      bar.appendChild(hem);
     }
-    bar.appendChild(sky);
+    var foot = document.querySelector("footer");
+    if (foot) {
+      var band = document.createElement("div");
+      band.className = "fest-foot";
+      band.setAttribute("aria-hidden", "true");
+      band.innerHTML = festFootSvg(name === "tihar");
+      foot.insertBefore(band, foot.firstChild);
+    }
+    function corner(el, file) {
+      if (!el) return;
+      var c = document.createElement("div");
+      c.className = "fest-corner";
+      c.setAttribute("aria-hidden", "true");
+      c.innerHTML = '<img alt="" src="assets/festival/' + file + '">';
+      el.insertBefore(c, el.firstChild);
+    }
+    corner(document.querySelector("#donate"), name === "tihar" ? "diyo.svg" : "jamara.svg");
+    corner(document.querySelector(".about-prose"), name === "tihar" ? "marigold-garland.svg" : "jamara.svg");
   }
   festTheme();
 })();

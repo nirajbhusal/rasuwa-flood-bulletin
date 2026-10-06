@@ -1,5 +1,4 @@
 import assert from "node:assert/strict";
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import test from "node:test";
@@ -10,7 +9,6 @@ const Ask = require("../ask-answers.js");
 const ndrrma = JSON.parse(readFileSync(new URL("../data/ndrrma_flood_alerts.json", import.meta.url), "utf8"));
 const latest = JSON.parse(readFileSync(new URL("../latest.json", import.meta.url), "utf8"));
 const now = JSON.parse(readFileSync(new URL("../data/weather/now.json", import.meta.url), "utf8"));
-const poster = readFileSync(new URL("../img/ndrrma/narayani-2083-06-11-0800.jpg", import.meta.url));
 const floodJs = readFileSync(new URL("../flood-bulletin.js", import.meta.url), "utf8");
 const weatherDb = readFileSync(new URL("../weather-db.js", import.meta.url), "utf8");
 const notifyJs = readFileSync(new URL("../notify.js", import.meta.url), "utf8");
@@ -54,10 +52,7 @@ test("NDRRMA Narayani alert file and poster", function () {
   assert.equal(alert.source_url, "https://x.com/NDRRMA_Nepal/status/2104050743875653646");
   assert.deepEqual(alert.districts.map(function (d) { return d.id; }), ["chitwan", "nawalparasi-east", "nawalparasi-west"]);
   assert.equal(/\bwarning\b/i.test(alert.text_en + " " + alert.title_en + " " + alert.lead_en), false);
-  assert.equal(createHash("sha256").update(poster).digest("hex"), "fe948d4102c384ab87aa287f3b273ecb5da1441f8b6a49c7de4a26ed9eb4fab4");
-  assert.equal(poster.length, 323875);
-  assert.equal(poster[0], 0xff);
-  assert.equal(poster[1], 0xd8);
+  assert.equal(JSON.stringify(ndrrma).includes(".jpg"), false);
 });
 
 test("Narayani, Chitwan, Nawalparasi and Devghat questions use the NDRRMA alert", function () {

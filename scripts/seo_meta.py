@@ -26,6 +26,20 @@ BASE = "https://nirajbhusal.github.io/rasuwa-flood-bulletin/"
 SITEMAP_URL = BASE + "sitemap.xml"
 TITLE_LIMIT = 65
 DESC_LIMIT = 160
+DASHAIN_RITES = (
+    "नवरात्रारम्भ, घटस्थापना",
+    "झण्डा फेर्ने (पश्चिम मोहडा)",
+    "श्री पचलीभैरव यात्रा",
+    "फूलपाती, श्री तुलजाभवानी यात्रा",
+    "स्थिरासन",
+    "महाष्टमी, कालरात्रि",
+    "महानवमी",
+    "विजया दशमी, देवी विसर्जन",
+    "टीका (पश्चिम मोहडा, टीका लगाइमाग्ने पश्चिम फर्किने)",
+    "श्री तुलजाभवानी यात्रा",
+    "खड्गयात्रा",
+    "अखिलबलिपूर्ति, कोजाग्रतपूजा",
+)
 
 try:
     NPT = ZoneInfo("Asia/Kathmandu")
@@ -669,7 +683,17 @@ def json_ld(rel: str, copy: Copy, facts: Facts) -> dict:
             {"@type": "ListItem", "position": 2, "name": copy.crumb, "item": url},
         ],
     }
-    return {"@context": "https://schema.org", "@graph": [website, webpage, crumbs]}
+    graph = [website, webpage, crumbs]
+    if rel == "festival.html":
+        graph.append({
+            "@type": "ItemList",
+            "name": "दशैं २०८३",
+            "itemListElement": [
+                {"@type": "ListItem", "position": i + 1, "name": rite}
+                for i, rite in enumerate(DASHAIN_RITES)
+            ],
+        })
+    return {"@context": "https://schema.org", "@graph": graph}
 
 
 def dumps_ld(data: dict) -> str:
