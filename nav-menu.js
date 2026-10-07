@@ -8,18 +8,19 @@
     window.addEventListener("scroll", syncArt, { passive: true });
     syncArt();
   }
-  var homeBtn = document.querySelector(".head-home");
-  if (homeBtn) {
+  function onThisHome() {
     var path = location.pathname || "";
-    var onHome = /\/$/.test(path) || /\/index\.html$/.test(path);
-    if (onHome) {
-      homeBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
-      });
-    }
+    return /\/$/.test(path) || /\/index\.html$/.test(path);
   }
+  function scrollHomeTop(e) {
+    if (!onThisHome()) return;
+    if (e && (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button)) return;
+    if (e) e.preventDefault();
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  }
+  var homeBtn = document.querySelector(".head-home");
+  if (homeBtn) homeBtn.addEventListener("click", scrollHomeTop);
   var nav = document.querySelector("nav.chips");
   var btn = document.getElementById("nav-toggle");
   if (!nav || !btn) return;
@@ -563,6 +564,7 @@
     });
   }
   function deskIcon(href) {
+    if ((href || "").split("#")[0] === "index.html") return pathIcon(ICONS["index.html"] || "M6 12h12");
     var sample = byHref(href);
     if (sample && sample.querySelector("svg")) return cloneDeskIcon(sample);
     var d = ICONS[href] || ICONS[(href || "").split("#")[0]] || "M6 12h12";
@@ -869,19 +871,19 @@
     else document.body.appendChild(bar);
 
     GROUPS.forEach(function (g) {
-      if (g.key === "home") return;
       var hrefs = [];
       g.hrefs.forEach(function (href) { if (byHref(href)) hrefs.push(href); });
       if (!hrefs.length) return;
       var slot = document.createElement("div");
       slot.className = "hnav-slot";
       slot.setAttribute("data-group", g.key);
-      slot.setAttribute("data-ne", g.ne);
+      slot.setAttribute("data-ne", g.key === "home" ? "घर" : g.ne);
       slot.setAttribute("data-en", g.en);
       if (g.key !== "more" && hrefs.length < 2) {
         var link = makeDeskLink(hrefs[0]);
         var direct = link.querySelector(".hnav-lab");
-        if (direct) direct.textContent = g.ne;
+        if (direct) direct.textContent = slot.getAttribute("data-ne");
+        if (g.key === "home") link.addEventListener("click", scrollHomeTop);
         slot.appendChild(link);
       } else {
         var btn = document.createElement("button");

@@ -11116,6 +11116,7 @@ html[lang="en"] .elec-src-ne{display:none}
 ::view-transition-new(root){animation-duration:160ms;animation-timing-function:ease}
 @media (min-width:900px){
   .head-stick #nav-toggle{display:none !important}
+  .head-stick .head-home{display:none !important}
   .head-stick nav.chips.is-open .chips-inner{display:none !important}
   .hnav{
     display:block !important;
