@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 
 const root = new URL("../", import.meta.url);
 function read(rel) {
@@ -39,6 +40,8 @@ test("festival travel card is a short guide with a few links", function () {
   assert.match(travel, /two drivers/);
   assert.match(travel, /call 103 or 100/);
   assert.match(travel, /Going home for Dashain/);
+  assert.match(travel, /दशैंमा घर जाँदै/);
+  assert.doesNotMatch(travel, /दसैं|दसैँ|दसौं/);
   assert.match(travel, /festival\.html#yatra/);
   assert.match(travel, /id="yatra"/);
   assert.doesNotMatch(travel, /सरकारी आदेश होइन/);
@@ -69,10 +72,36 @@ test("share thumbnail is the 1200×630 Dashain header", function () {
   const png = readFileSync(new URL("og-header.png", root));
   assert.equal(png.readUInt32BE(16), 1200);
   assert.equal(png.readUInt32BE(20), 630);
+  assert.ok(png.length > 200000, "og-header.png is still the small casualty card");
   const share = readFileSync(new URL("img/share/share-og-1200x630.png", root));
   assert.equal(Buffer.compare(png, share), 0);
   const index = read("index.html");
-  assert.match(index, /og-header\.png\?v=dashain/);
-  assert.match(index, /og:image:alt" content="रसुवा–भोटेकोशी बाढी बुलेटिन · दसैं"/);
-  assert.doesNotMatch(index, /og-header\.png"/);
+  assert.match(index, /og-header\.png\?v=dashain-sh/);
+  assert.match(index, /og:image:alt" content="रसुवा–भोटेकोशी बाढी बुलेटिन · दशैं"/);
+  assert.match(index, /twitter:image:alt" content="रसुवा–भोटेकोशी बाढी बुलेटिन · दशैं"/);
+  assert.doesNotMatch(index, /दसैं|दसैँ|दसौं/);
+  const header = read("scripts/og-header.html");
+  assert.match(header, /दशैं · Dashain/);
+  assert.deepEqual(
+    [..."दशैं"].map((ch) => ch.codePointAt(0)),
+    [0x0926, 0x0936, 0x0948, 0x0902]
+  );
+  assert.equal(header.includes("दशैं"), true);
+  assert.doesNotMatch(header, /दसैं|दसैँ|दसौं/);
+  const bad = /दसैं|दसैँ|दसौं/;
+  for (const name of readdirSync(fileURLToPath(root))) {
+    if (!name.endsWith(".html")) continue;
+    const html = read(name);
+    assert.doesNotMatch(html, bad, name);
+    if (!html.includes('property="og:image"')) continue;
+    assert.match(html, /og-header\.png\?v=dashain-sh/, name);
+    assert.match(html, /og:image:alt" content="[^"]*दशैं"/, name);
+    assert.match(html, /twitter:image:alt" content="[^"]*दशैं"/, name);
+  }
+  assert.doesNotMatch(read("festival.js"), bad);
+  assert.doesNotMatch(read("embed/dashboard.html"), bad);
+  assert.doesNotMatch(read("api/index.html"), bad);
+  const pages = read(".github/workflows/pages.yml");
+  assert.match(pages, /python scripts\/stamp_build\.py --src \. --out _site\n/);
+  assert.doesNotMatch(pages, /stamp_build\.py[^\n]*--render-og/);
 });
