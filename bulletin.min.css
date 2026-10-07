@@ -1026,3 +1026,70 @@ html.theme-tihar .fest-hero .fest-tika-line{
   #festival-home .fest-travel-tease{padding:10px 16px 12px}
   #festival-home .fest-travel-tease span{margin-left:0}
 }
+
+/* Dashain Tika local times abroad. Text and table only. */
+#tika-abroad{scroll-margin-top:var(--stick,148px)}
+.fest-abroad{
+  margin:0 0 28px;
+  padding:22px 26px 18px;
+  max-width:100%;
+  box-sizing:border-box;
+  overflow-x:clip;
+  border:1px solid #e4c56a;
+  border-radius:16px;
+  background:#fff6ea;
+  color:#3a1020;
+  box-shadow:0 10px 28px rgba(90,40,20,.08);
+}
+.fest-abroad h2{margin:0 0 8px;color:#6e1224;font-size:clamp(22px,4.6vw,28px);line-height:1.25}
+.fest-abroad-en{display:block;margin-top:4px;color:#7a2410;font-size:16px;font-weight:800;line-height:1.3}
+.fest-abroad-note{margin:0 0 12px;font-size:16px;line-height:1.45}
+.fest-abroad-find{display:block;margin:0 0 14px}
+.fest-abroad-q{
+  display:block;
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  min-height:44px;
+  margin:0;
+  padding:8px 12px;
+  border:1px solid #e4c56a;
+  border-radius:12px;
+  background:#fffaf3;
+  color:#3a1020;
+  font:inherit;
+  font-size:16px;
+}
+.fest-abroad-q:focus{outline:2px solid #c41e3a;outline-offset:2px}
+.fest-abroad-group{margin:0 0 16px;min-width:0}
+.fest-abroad-group h3{margin:0 0 8px;color:#6e1224;font-size:17px;line-height:1.35}
+.fest-abroad-group h3 span[lang="en"]{color:#7a2410;font-weight:800}
+.fest-abroad-table{width:100%;border-collapse:collapse;table-layout:fixed}
+.fest-abroad-table th,.fest-abroad-table td{
+  padding:8px 10px;
+  text-align:left;
+  vertical-align:baseline;
+  overflow-wrap:anywhere;
+}
+.fest-abroad-table th{color:#7a2410;font-size:13px;font-weight:800}
+.fest-abroad-table th:first-child,.fest-abroad-table td:first-child{width:54%}
+.fest-abroad-table tbody tr{background:#fffaf3;box-shadow:inset 0 -2px 0 #e4c56a}
+.fest-abroad-place{font-weight:800;line-height:1.35}
+.fest-abroad-place span[lang="en"]{color:#7a2410;font-weight:700}
+.fest-abroad-time{font-weight:800;color:#6e1224;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fest-abroad-date{color:#4a2c28;font-variant-numeric:tabular-nums}
+.fest-abroad-empty{margin:0;font-weight:700;color:#6e1224}
+.fest-abroad-group.is-out,.fest-abroad-table tr.is-out,.fest-abroad-empty[hidden]{display:none !important}
+#festival-home .fest-home-abroad-line{margin:0}
+#festival-home .fest-home-abroad{color:#7a1028;font-size:14px;font-weight:800;line-height:1.35;text-decoration:none}
+#festival-home .fest-home-abroad:hover{text-decoration:underline}
+@media (max-width:640px){
+  .fest-abroad{padding:16px 14px 12px}
+  .fest-abroad-table,.fest-abroad-table tbody,.fest-abroad-table tr,.fest-abroad-table td{display:block;width:auto}
+  .fest-abroad-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+  .fest-abroad-table tr{margin:0 0 8px;padding:8px 10px;border-radius:10px}
+  .fest-abroad-table td,.fest-abroad-table td:first-child{padding:0;border:0;display:block;width:auto}
+  .fest-abroad-table td.fest-abroad-time,.fest-abroad-table td.fest-abroad-date{display:inline;white-space:normal}
+  .fest-abroad-table td.fest-abroad-time::after{content:" · ";color:#a16207;font-weight:700}
+  .fest-abroad-table tr.is-out{display:none !important}
+}
