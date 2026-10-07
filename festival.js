@@ -378,8 +378,7 @@
     var stamp = en() ? "Sources checked 7 Oct 2026 / Asoj 2083" : "स्रोत जाँच: ७ अक्टोबर २०२६ / असोज २०८३";
     var sources = en() ? "Sources" : "स्रोत";
     return '<section class="fest-travel" id="yatra">' +
-      '<p class="fest-travel-k">यात्रा / Festival Travel</p>' +
-      '<h2>' + esc(en() ? "Festival Travel" : "यात्रा") + "</h2>" +
+      '<h2><span lang="ne">यात्रा</span> <span class="fest-travel-en" lang="en">/ Festival Travel</span></h2>' +
       "<ul>" + facts + "</ul>" +
       '<div class="fest-travel-advice"><h3>' + esc(advice) + "</h3><ul>" + tips + "</ul></div>" +
       "<p class=\"fest-travel-src\"><strong>" + esc(sources) + "</strong></p>" +
