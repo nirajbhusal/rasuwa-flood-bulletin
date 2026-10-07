@@ -12324,3 +12324,165 @@ html.theme-tihar #dor-home .dor-title{background-image:none;padding-left:0;paddi
   .fest-day-when,.fest-day-body,.fest-day-titles,.fest-day-main,.fest-day-top{width:100%;min-width:0}
   .fest-day-ad{white-space:normal}
 }
+
+/* Soft open cards: homepage #festival-home and festival.html hero only. */
+html.theme-dashain #festival-home,
+html.theme-tihar #festival-home,
+html.theme-dashain .fest-hero,
+html.theme-tihar .fest-hero{
+  background:#fff6ea;
+  background-image:none;
+  color:#3a1020;
+  border:1px solid #e4c56a;
+  box-shadow:0 10px 28px rgba(90,40,20,.08);
+  padding:0;
+}
+#festival-home .fest-home-card{
+  display:block;
+  position:relative;
+  min-height:0;
+  background:transparent;
+}
+#festival-home .fest-home-scene,
+.fest-hero .fest-scene{
+  position:absolute;
+  right:0;
+  top:0;
+  bottom:0;
+  width:min(48%,420px);
+  height:auto;
+  min-height:0;
+  margin:0;
+  background:transparent;
+  opacity:.42;
+  pointer-events:none;
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 62%);
+  mask-image:linear-gradient(90deg,transparent 0%,#000 62%);
+}
+#festival-home .fest-home-svg,
+.fest-hero .fest-scene-svg{width:100%;height:100%;display:block}
+#festival-home .fest-home-copy,
+.fest-hero .fest-hero-copy{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+  max-width:none;
+  padding:28px 32px;
+}
+#festival-home .fest-home-k,
+html.theme-dashain .fest-hero .fest-kicker,
+html.theme-tihar .fest-hero .fest-kicker{
+  margin:0;
+  color:#7a2410;
+  font-size:13px;
+  letter-spacing:.06em;
+}
+#festival-home .fest-home-h,
+html.theme-dashain .fest-hero h1,
+html.theme-tihar .fest-hero h1{
+  margin:0;
+  color:#6e1224;
+  font-size:30px;
+  line-height:1.2;
+}
+#festival-home .fest-home-name,
+html.theme-dashain .fest-hero .fest-next,
+html.theme-tihar .fest-hero .fest-next{
+  margin:0;
+  color:#3a1020;
+  font-size:21px;
+  line-height:1.35;
+}
+#festival-home .fest-home-when,
+html.theme-dashain .fest-hero .fest-when,
+html.theme-tihar .fest-hero .fest-when{
+  margin:0;
+  padding:0;
+  background:none;
+  color:#4a2c28;
+  font-size:16px;
+  line-height:1.45;
+}
+#festival-home .fest-home-tika,
+html.theme-dashain .fest-hero .fest-tika-line,
+html.theme-tihar .fest-hero .fest-tika-line{
+  display:inline-flex;
+  align-items:center;
+  align-self:flex-start;
+  margin:0;
+  padding:6px 12px;
+  border-radius:999px;
+  background:#fff1dc;
+  color:#6e1224;
+  box-shadow:inset 0 -2px 0 #e4c56a;
+  font-size:15px;
+  line-height:1.4;
+  font-weight:800;
+}
+.fest-hero .fest-prasad{
+  margin:0;
+  padding:0;
+  border-radius:0;
+  background:transparent;
+  color:#6e1224;
+  font-weight:700;
+  box-shadow:inset 0 -2px 0 #e4c56a;
+}
+#festival-home .fest-flip,
+.fest-hero .fest-flip{gap:10px;margin:2px 0}
+#festival-home .fest-flip b,
+.fest-hero .fest-flip b,
+#festival-home .fest-flip-cell.is-sec b,
+.fest-hero .fest-flip-cell.is-sec b{
+  min-width:52px;
+  padding:6px 10px;
+  border-radius:10px;
+  border:1px solid #e4c56a;
+  background:#fffaf3;
+  color:#6e1224;
+  font-size:22px;
+  line-height:1.1;
+  box-shadow:none;
+}
+#festival-home .fest-flip i,
+.fest-hero .fest-flip i{color:#7a2410;font-size:12px}
+#festival-home .fest-home-actions,
+.fest-hero .fest-hero-actions{gap:10px 14px;margin-top:4px}
+#festival-home .fest-home-more,
+.fest-hero .fest-notice,
+#festival-home .fest-music-credit a,
+.fest-hero .fest-music-credit a{color:#7a1028}
+#festival-home .fest-music,
+.fest-hero .fest-music{
+  min-height:36px;
+  padding:6px 14px;
+  background:#fffaf3;
+  color:#6e1224;
+  border:1px solid #e4c56a;
+}
+@media (max-width:899px){
+  #festival-home .fest-home-copy,
+  .fest-hero .fest-hero-copy{padding:20px 22px;gap:8px}
+  #festival-home .fest-home-scene,
+  .fest-hero .fest-scene{width:52%;opacity:.4}
+  #festival-home .fest-home-h,
+  html.theme-dashain .fest-hero h1,
+  html.theme-tihar .fest-hero h1{font-size:26px}
+  #festival-home .fest-home-name,
+  html.theme-dashain .fest-hero .fest-next,
+  html.theme-tihar .fest-hero .fest-next{font-size:20px}
+  #festival-home .fest-home-when,
+  html.theme-dashain .fest-hero .fest-when,
+  html.theme-tihar .fest-hero .fest-when,
+  #festival-home .fest-home-tika,
+  html.theme-dashain .fest-hero .fest-tika-line,
+  html.theme-tihar .fest-hero .fest-tika-line{font-size:15px}
+  #festival-home .fest-flip b,
+  .fest-hero .fest-flip b,
+  #festival-home .fest-flip-cell.is-sec b,
+  .fest-hero .fest-flip-cell.is-sec b{min-width:46px;font-size:20px;padding:7px 8px}
+}
