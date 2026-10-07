@@ -202,16 +202,20 @@ test("every header page loads the shared menu script", () => {
   for (const name of headerPages) {
     const html = read(name);
     assert.match(html, /nav-menu\.js/);
-    assert.match(html, /line-height:1\.3\}\}@media\(min-width:900px\)\{\.head-stick #nav-toggle\{display:none\}\}/);
+    assert.match(html, /line-height:1\.3\}\}@media\(min-width:900px\)\{\.head-stick #nav-toggle\{display:none\}\.head-stick \.head-home\{display:none\}\}/);
     assert.match(html, /id="nav-chips"/);
     assert.match(html, /href="festival\.html"[^>]*data-i18n="nav_festival">चाडपर्व</);
   }
 });
 
-test("desktop bar hides the extra home tab and centers a larger label", () => {
+test("desktop bar leads with home and hides the header icon", () => {
   const build = nav.slice(nav.indexOf("function ensureDeskNav"));
-  assert.match(build, /if \(g\.key === "home"\) return;/);
+  assert.doesNotMatch(build, /if \(g\.key === "home"\) return;/);
+  assert.match(build, /g\.key === "home" \? "घर" : g\.ne/);
+  assert.match(build, /link\.addEventListener\("click", scrollHomeTop\)/);
   assert.match(nav.slice(nav.indexOf("var GROUPS"), nav.indexOf("var ICONS")), /key:\s*"home"/);
+  assert.match(css, /@media \(min-width:900px\)\{\s*\.head-stick #nav-toggle\{display:none !important\}\s*\.head-stick \.head-home\{display:none !important\}/);
+  assert.match(min, /\.head-stick #nav-toggle\{display:none !important\}\.head-stick \.head-home\{display:none !important\}/);
   assert.match(css, /\.hnav-row\{[^}]*justify-content:center/);
   assert.match(css, /font-size:16px/);
   assert.match(css, /\.hnav-ico\{width:18px;height:18px/);
