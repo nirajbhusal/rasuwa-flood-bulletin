@@ -126,10 +126,11 @@
   var GROUPS = [
     { key: "home", ne: "गृह", en: "Home", hrefs: ["index.html"] },
     { key: "alerts", ne: "चेतावनी", en: "Alerts", hrefs: ["notices.html", "notices.html#roads", "electricity.html", "weather.html", "photos.html"] },
+    { key: "festival", ne: "चाडपर्व", en: "Festival", hrefs: ["festival.html"] },
     { key: "people", ne: "मानिस", en: "People", hrefs: ["names.html", "contact.html"] },
     { key: "gov", ne: "सरकार", en: "Government", hrefs: ["gov.html", "markets.html"] },
     { key: "relief", ne: "राहत", en: "Relief", hrefs: ["donate.html", "response.html", "damage.html", "supply.html"] },
-    { key: "more", ne: "थप", en: "More", hrefs: ["about.html", "festival.html"] }
+    { key: "more", ne: "थप", en: "More", hrefs: ["about.html"] }
   ];
   var ICONS = {
     "index.html": "M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z",
@@ -234,8 +235,8 @@
     }
     if (!byHref("festival.html")) {
       var fest = makeLink("festival.html", "nav_festival", "चाडपर्व");
-      var about = byHref("about.html");
-      if (about && about.nextSibling) inner.insertBefore(fest, about.nextSibling);
+      var weather = byHref("weather.html");
+      if (weather && weather.nextSibling) inner.insertBefore(fest, weather.nextSibling);
       else inner.appendChild(fest);
     }
     var head = inner.querySelector(".nav-drawer-head");
@@ -480,9 +481,6 @@
     "about.html": { ne: "बारेमा", en: "About" },
     "festival.html": { ne: "चाडपर्व", en: "Festival" }
   };
-  var DESK_MORE_EXTRA = [
-    { href: "festival.html", ne: "चाडपर्व", en: "Festival" }
-  ];
   var GROUP_ICONS = {
     alerts: "M6 9a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9M10 21a2 2 0 0 0 4 0"
   };
@@ -874,11 +872,6 @@
       if (g.key === "home") return;
       var hrefs = [];
       g.hrefs.forEach(function (href) { if (byHref(href)) hrefs.push(href); });
-      if (g.key === "more") {
-        DESK_MORE_EXTRA.forEach(function (extra) {
-          if (hrefs.indexOf(extra.href) < 0) hrefs.push(extra.href);
-        });
-      }
       if (!hrefs.length) return;
       var slot = document.createElement("div");
       slot.className = "hnav-slot";
