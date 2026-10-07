@@ -96,10 +96,10 @@ test("ask routes Himlung and Manaslu to avalanche and leaves flood cause alone",
   assert.equal(ask("हिमपहिरोले बाढी किन आयो", "ne").intent, "cause");
 });
 
-test("nav GROUPS stay the same six groups and hrefs", function () {
+test("nav GROUPS keep the section pages and a top-level festival tab", function () {
   const src = nav.slice(nav.indexOf("var GROUPS"), nav.indexOf("var ICONS"));
   const keys = [...src.matchAll(/key:\s*"([^"]+)"/g)].map(function (m) { return m[1]; });
-  assert.deepEqual(keys, ["home", "alerts", "people", "gov", "relief", "more"]);
+  assert.deepEqual(keys, ["home", "alerts", "festival", "people", "gov", "relief", "more"]);
   const hrefs = [];
   for (const m of src.matchAll(/hrefs:\s*\[([^\]]*)\]/g)) {
     for (const h of m[1].matchAll(/"([^"]+)"/g)) hrefs.push(h[1]);
@@ -111,6 +111,7 @@ test("nav GROUPS stay the same six groups and hrefs", function () {
     "electricity.html",
     "weather.html",
     "photos.html",
+    "festival.html",
     "names.html",
     "contact.html",
     "gov.html",

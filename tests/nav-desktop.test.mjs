@@ -14,6 +14,7 @@ const ORDER = [
   "electricity.html",
   "weather.html",
   "photos.html",
+  "festival.html",
   "names.html",
   "contact.html",
   "gov.html",
@@ -22,8 +23,7 @@ const ORDER = [
   "response.html",
   "damage.html",
   "supply.html",
-  "about.html",
-  "festival.html"
+  "about.html"
 ];
 
 function extractFn(src, name) {
@@ -48,6 +48,7 @@ const min = read("bulletin.min.css");
 const GROUPS = [
   ["home", "गृह", "Home", false],
   ["alerts", "चेतावनी", "Alerts", true],
+  ["festival", "चाडपर्व", "Festival", false],
   ["people", "मानिस", "People", true],
   ["gov", "सरकार", "Government", true],
   ["relief", "राहत", "Relief", true],
@@ -95,6 +96,7 @@ const PAGES = {
   "electricity.html": "बिजुली",
   "weather.html": "मौसम",
   "photos.html": "ग्यालरी",
+  "festival.html": "चाडपर्व",
   "names.html": "नामावली",
   "contact.html": "हेल्पलाइन",
   "gov.html": "सरकार",
@@ -202,6 +204,7 @@ test("every header page loads the shared menu script", () => {
     assert.match(html, /nav-menu\.js/);
     assert.match(html, /line-height:1\.3\}\}@media\(min-width:900px\)\{\.head-stick #nav-toggle\{display:none\}\}/);
     assert.match(html, /id="nav-chips"/);
+    assert.match(html, /href="festival\.html"[^>]*data-i18n="nav_festival">चाडपर्व</);
   }
 });
 
