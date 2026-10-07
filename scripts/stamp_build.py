@@ -196,7 +196,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--in-place", action="store_true")
     parser.add_argument("--sha", default=os.environ.get("BUILD_SHA", "local"))
     parser.add_argument("--build", default="", help="Override the build id (tests)")
-    parser.add_argument("--render-og", action="store_true", help="Screenshot og-header.png")
+    parser.add_argument("--render-og", action="store_true", help="Screenshot the Dashain header to og-header.png")
     args = parser.parse_args(argv)
     src = args.src.resolve()
     if args.build:

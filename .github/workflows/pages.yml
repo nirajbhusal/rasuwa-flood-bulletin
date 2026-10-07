@@ -71,10 +71,13 @@ jobs:
           bt=$(gh api "repos/${{ github.repository }}/pages" --jq .build_type || echo legacy)
           echo "build_type=$bt" >> "$GITHUB_OUTPUT"
           echo "Pages build_type=$bt"
+      # Leave og-header.png as committed. --render-og used to redraw the
+      # casualty card and the stamp commit put that ~42KB file back on main.
+      # The share image is scripts/og-header.html, rendered into og-header.png.
       - name: Stamp build id into the deploy artifact
         env:
           BUILD_SHA: ${{ github.sha }}
-        run: python scripts/stamp_build.py --src . --out _site --render-og
+        run: python scripts/stamp_build.py --src . --out _site
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

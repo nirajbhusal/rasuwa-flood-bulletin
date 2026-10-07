@@ -362,7 +362,7 @@
     var items = travelItems().map(function (line) { return "<li>" + line + "</li>"; }).join("");
     var lead = en()
       ? "Going home for Dashain? Keep this short guide with you."
-      : "दसैंमा घर जाँदै हुनुहुन्छ भने यो छोटो गाइड साथ राख्नुहोस्।";
+      : "दशैंमा घर जाँदै हुनुहुन्छ भने यो छोटो गाइड साथ राख्नुहोस्।";
     var sources = en() ? "Sources" : "स्रोत";
     return '<section class="fest-travel" id="yatra">' +
       '<h2><span lang="ne">यात्रा</span> <span class="fest-travel-en" lang="en">/ Festival Travel</span></h2>' +

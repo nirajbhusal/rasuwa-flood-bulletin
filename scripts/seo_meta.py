@@ -638,7 +638,7 @@ def json_ld(rel: str, copy: Copy, facts: Facts) -> dict:
     }
     image = {
         "@type": "ImageObject",
-        "url": BASE + "og-header.png",
+        "url": BASE + "og-header.png?v=dashain-sh",
         "width": 1200,
         "height": 630,
     }
@@ -944,20 +944,37 @@ h1{margin:0;color:#c41e3a;font-size:76px;font-weight:800;line-height:1.12;letter
 
 
 def render_og(root: Path, facts: Facts, dest: Path) -> None:
+    """Screenshot scripts/og-header.html, the Dashain sky/kites share card.
+
+    Live casualty figures stay off the thumbnail. `facts` remains in the
+    signature so the stamp can keep calling this the same way.
+    """
+    del facts
     import tempfile
 
     from playwright.sync_api import sync_playwright
 
-    html_text = og_card_html(root, facts)
+    source = root / "scripts" / "og-header.html"
+    if not source.is_file():
+        raise SystemExit("scripts/og-header.html is missing; cannot render the share image")
+    html_text = source.read_text(encoding="utf-8")
+    fonts_uri = (root / "fonts").resolve().as_uri().rstrip("/")
+    assets_uri = (root / "assets").resolve().as_uri().rstrip("/")
+    html_text = html_text.replace("../fonts/", fonts_uri + "/")
+    html_text = html_text.replace("../assets/", assets_uri + "/")
+    # Festival kicker uses द + श + ै + ं (U+0926 U+0936 U+0948 U+0902).
+    if "\u0926\u0936\u0948\u0902" not in html_text or "\u0926\u0938\u0948\u0902" in html_text:
+        raise SystemExit("share image kicker must spell Dashain as दशैं")
     with tempfile.TemporaryDirectory() as tmp:
-        card = Path(tmp) / "og-card.html"
+        card = Path(tmp) / "og-header.html"
         card.write_text(html_text, encoding="utf-8")
         with sync_playwright() as pw:
             errors: list[str] = []
             browser = None
+            launch_args = ["--disable-dev-shm-usage", "--no-sandbox", "--disable-gpu"]
             for kwargs in ({"channel": "chrome"}, {}):
                 try:
-                    browser = pw.chromium.launch(args=["--disable-dev-shm-usage"], **kwargs)
+                    browser = pw.chromium.launch(args=launch_args, **kwargs)
                     break
                 except Exception as exc:  # noqa: BLE001 - try the next browser
                     errors.append(str(exc))
@@ -966,8 +983,9 @@ def render_og(root: Path, facts: Facts, dest: Path) -> None:
             page = browser.new_page(viewport={"width": 1200, "height": 630}, device_scale_factor=1)
             page.goto(card.resolve().as_uri())
             page.evaluate("() => document.fonts.ready")
-            loaded = page.evaluate("() => document.fonts.check('80px Mukta', 'रसुवा')")
-            if not loaded:
+            loaded = page.evaluate("() => document.fonts.check('800 28px Mukta', '\\u0926\\u0936\\u0948\\u0902')")
+            kicker = page.locator(".kicker").inner_text()
+            if not loaded or "\u0926\u0936\u0948\u0902" not in kicker or "\u0926\u0938\u0948\u0902" in kicker:
                 browser.close()
                 raise SystemExit("Devanagari font did not load for the share image")
             page.screenshot(
@@ -979,6 +997,8 @@ def render_og(root: Path, facts: Facts, dest: Path) -> None:
     data = dest.read_bytes()
     if data[:8] != b"\x89PNG\r\n\x1a\n" or int.from_bytes(data[16:20], "big") != 1200 or int.from_bytes(data[20:24], "big") != 630:
         raise SystemExit("share image is not a 1200x630 PNG")
+    if len(data) < 200_000:
+        raise SystemExit("share image is the small casualty card, not the Dashain header")
 
 
 def apply(root: Path, built_at: str, git_root: Path | None = None, render_og_image: bool = False, when: datetime | None = None) -> Facts:
