@@ -22,7 +22,8 @@ const ORDER = [
   "response.html",
   "damage.html",
   "supply.html",
-  "about.html"
+  "about.html",
+  "festival.html"
 ];
 
 function extractFn(src, name) {
@@ -65,6 +66,8 @@ test("desktop tabs follow the existing menu order", () => {
   }
   assert.match(nav, /थप/);
   assert.match(nav, /"More"/);
+  assert.match(nav, /nav_festival/);
+  assert.match(nav, /चाडपर्व/);
 });
 
 test("desktop groups mirror the mobile drawer", () => {

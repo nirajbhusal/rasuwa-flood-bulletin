@@ -1536,21 +1536,7 @@
     if (tx(n.body)) sec.appendChild(el("p", "wxb-dfore", tx(n.body)));
     if (tx(n.max)) sec.appendChild(el("p", "wxb-dmax", tx(n.max)));
     if (tx(n.prior)) sec.appendChild(el("p", "wxb-dfore", tx(n.prior)));
-    if (n.image) {
-      var a = document.createElement("a");
-      a.className = "wxb-nowthumb";
-      a.href = n.image;
-      a.target = "_blank";
-      a.rel = "noopener";
-      var img = document.createElement("img");
-      img.src = n.image;
-      img.alt = tx(n.image_alt) || tx(n.max) || "";
-      img.loading = "lazy";
-      if (n.image_w) img.width = n.image_w;
-      if (n.image_h) img.height = n.image_h;
-      a.appendChild(img);
-      sec.appendChild(a);
-    }
+    /* Notice scans stay off this card. Ignore nowcast.image / image_alt if they return. */
     var cite = buildCite(n.cite);
     if (cite) sec.appendChild(cite);
     return sec;
@@ -1750,20 +1736,11 @@
     var row = el("div", "wxb-nowrow");
     var line = [tx(ui.now_h), tx(n.when), tx(n.max)].filter(Boolean).join(" · ");
     if (line) row.appendChild(el("p", "wxb-nowline", line));
+    if (tx(n.body)) row.appendChild(el("p", "wxb-nowline", tx(n.body)));
     if (tx(n.prior)) row.appendChild(el("p", "wxb-nowline", tx(n.prior)));
-    if (n.image) {
-      var a = document.createElement("a");
-      a.className = "wxb-nowthumb";
-      a.href = "weather.html";
-      var img = document.createElement("img");
-      img.src = n.image;
-      img.alt = tx(n.image_alt) || line || "";
-      img.loading = "lazy";
-      if (n.image_w) img.width = n.image_w;
-      if (n.image_h) img.height = n.image_h;
-      a.appendChild(img);
-      row.appendChild(a);
-    }
+    /* Notice scans stay off the homepage row too. Text and cite links only. */
+    var cite = buildCite(n.cite);
+    if (cite) row.appendChild(cite);
     return row.childNodes.length ? row : null;
   }
   function sectionLink(cls, labelNe, labelEn, href) {

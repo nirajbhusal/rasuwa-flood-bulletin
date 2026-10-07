@@ -309,6 +309,97 @@
     if (en()) return "Main Tika auspicious time · Vijaya Dashami (Dashain Tika) · " + when;
     return "मुख्य टीका साइत · विजया दशमी (दशैंको टीका) · " + when;
   }
+  function extLink(url, label) {
+    return '<a href="' + url + '" target="_blank" rel="noopener">' + esc(label) + "</a>";
+  }
+  function travelFacts() {
+    if (en()) {
+      return [
+        "From Asoj 23 (9 October 2026), advance booking of public-transport tickets is open for Dashain, Tihar and Chhath (after the DoTM meeting).",
+        "Road permits are open from Ghatasthapana through Kojagrat Purnima; passenger vehicles have priority.",
+        "New Bus Park (Gongabu) is the main point. Passenger help is at Gongabu, Koteshwor and Balkhu. Buy only at official counters. Do not pay more than the set fare.",
+        "Online: BusSewa and GoMyGo. Sajha Yatayat runs a limited set of long routes.",
+        "A passenger help desk opened at New Bus Park (Gongabu) on Asoj 16. Desks are to be placed at 15 Valley spots: New Bus Park, Machhapokhari, Tokha, Tinpiple, Bhimdhunga, Nanglebhar, Kalanki, Balkhu, Nagdhunga, Koteshwor, Chabahil, Pharping, Sankhu, Chapagaun and Jagati. They take complaints and check fares and tickets.",
+        "The Department of Transport Management decided to set up passenger help desks at 15 Kathmandu places, with NADA, and to write to Nepal Telecom and Ncell about the New Bus Park mobile network.",
+        "Roads change daily — check Nepal Police and the Department of Roads. The Rasuwa–Nuwakot Pasang Lhamu highway can stay blocked after the flood; alternate routes are in police notices.",
+        "Long-distance night buses: two drivers are required.",
+        "Flights: Buddha Air, Yeti Airlines, Shree Airlines and Nepal Airlines — official sites only."
+      ];
+    }
+    return [
+      "असोज २३ (९ अक्टोबर २०२६) देखि दसैं/तिहार/छठका लागि सार्वजनिक यातायातको अग्रिम टिकट बुकिङ खुला (DoTM बैठकपछि)।",
+      "घटस्थापनादेखि कोजाग्रत पूर्णिमासम्म बाटो इजाजत खुला; यात्री सवारीलाई प्राथमिकता।",
+      "नयाँ बसपार्क (गोंगबु) मुख्य। गोंगबु/कोटेश्वर/बल्खुमा यात्रु सहायता। आधिकारिक काउन्टरबाट मात्र। तोकिएको भन्दा बढी भाडा नतिर्नुहोस्।",
+      "अनलाइन: BusSewa, GoMyGo। Sajha Yatayat सीमित लामो रुट।",
+      "यात्रु सहायता कक्ष नयाँ बसपार्क (गोंगबु) मा असोज १६ देखि सुरु। राखिने १५ स्थान: नयाँ बसपार्क, माछापोखरी, टोखा, तीनपिप्ले, भीमढुङ्गा, नाङ्लेभार, कलंकी, बल्खु, नागढुङ्गा, कोटेश्वर, चावहिल, फर्पिङ, साँखु, चापागाउँ, जगाती। गुनासो, भाडा र टिकट जाँच।",
+      "यातायात व्यवस्था विभागले काठमाडौंका १५ स्थानमा यात्रु सहायता कक्ष (नाडासँग) राख्ने, र नयाँ बसपार्कको मोबाइल नेटवर्क सुधार्न टेलिकम तथा एनसेललाई पत्राचार गर्ने निर्णय।",
+      "बाटो दैनिक बदलिन्छ — नेपाल प्रहरी/DoR हेर्नुहोस्। रसुवा–नुवाकोट पासाङ ल्हामु मुख्य सडक बाढीपछि अवरुद्ध हुन सक्छ; वैकल्पिक बाटो प्रहरी सूचनामा।",
+      "लामो दूरी रात्री बस: दुई चालक नियम।",
+      "उडान: Buddha Air, Yeti, Shree, Nepal Airlines — आधिकारिक साइट मात्र।"
+    ];
+  }
+  function travelTips() {
+    if (en()) {
+      return [
+        "Book early.",
+        "Prefer daytime travel on hill roads after rain.",
+        "Carry an identity document.",
+        "Report overcharging to 103 or 100."
+      ];
+    }
+    return [
+      "चाँडै बुक गर्नुहोस्।",
+      "पानीपछि पहाडी बाटोमा दिउँसोको यात्रा रोज्नुहोस्।",
+      "परिचयपत्र साथ राख्नुहोस्।",
+      "बढी भाडा लिए १०३ वा १०० मा खबर गर्नुहोस्।"
+    ];
+  }
+  function travelLinks() {
+    var rows = [
+      ["https://kathmandupost.com/national/2026/10/06/dashain-bus-ticket-bookings-to-open-on-october-9", "काठमाडौं पोस्ट", "Kathmandu Post"],
+      ["https://english.onlinekhabar.com/dashain-advance-ticket-booking-to-open-from-october-9-two-drivers-mandatory-on-long-routes.html", "अनलाइनखबर", "Onlinekhabar"],
+      ["https://ktmvalley.nepalpolice.gov.np/news/1068/", "काठमाडौं उपत्यका प्रहरी", "Kathmandu Valley Police"],
+      ["https://www.nepalpolice.gov.np/notices/1141/", "रसुवा–नुवाकोट सडक · प्रहरी", "Rasuwa–Nuwakot road · Nepal Police"],
+      ["https://www.nepalpolice.gov.np/", "प्रहरी सूचना", "Nepal Police notices"],
+      ["https://navigate.dor.gov.np/app/road-closure-report", "सडक विभाग · बन्द सडक", "DoR road closures"],
+      ["https://bussewa.com.np/", "BusSewa", "BusSewa"],
+      ["https://gomygo.com/", "GoMyGo", "GoMyGo"],
+      ["https://sajhayatayat.com.np/", "साझा यातायात", "Sajha Yatayat"],
+      ["https://dotm.gov.np/", "यातायात व्यवस्था विभाग", "DoTM"],
+      ["https://www.techpana.com/2026/159445/dashain-travel-helpdesks-in-15-locations-in-kathmandu", "टेकपाना", "Techpana"],
+      ["https://xraynepal.com/content/4846", "एक्सरे नेपाल", "Xray Nepal"],
+      ["https://bizpati.com/2026/10/222266/", "बिजपाटी", "Bizpati"],
+      ["https://buddhaair.com/", "Buddha Air", "Buddha Air"],
+      ["https://yetiairlines.com/", "Yeti Airlines", "Yeti Airlines"],
+      ["https://shreeairlines.com/", "Shree Airlines", "Shree Airlines"],
+      ["https://nepalairlines.com.np/domestic", "नेपाल वायुसेवा · आन्तरिक", "Nepal Airlines domestic"]
+    ];
+    return "<ul class=\"fest-travel-links\">" + rows.map(function (row) {
+      return "<li>" + extLink(row[0], en() ? row[2] : row[1]) + "</li>";
+    }).join("") + "</ul>";
+  }
+  function travelHtml() {
+    var facts = travelFacts().map(function (line) { return "<li>" + esc(line) + "</li>"; }).join("");
+    var tips = travelTips().map(function (line) { return "<li>" + esc(line) + "</li>"; }).join("");
+    var advice = en() ? "General advice — not a government order" : "सामान्य सल्लाह — सरकारी आदेश होइन";
+    var stamp = en() ? "Sources checked 7 Oct 2026 / Asoj 2083" : "स्रोत जाँच: ७ अक्टोबर २०२६ / असोज २०८३";
+    var sources = en() ? "Sources" : "स्रोत";
+    return '<section class="fest-travel" id="yatra">' +
+      '<h2><span lang="ne">यात्रा</span> <span class="fest-travel-en" lang="en">/ Festival Travel</span></h2>' +
+      "<ul>" + facts + "</ul>" +
+      '<div class="fest-travel-advice"><h3>' + esc(advice) + "</h3><ul>" + tips + "</ul></div>" +
+      "<p class=\"fest-travel-src\"><strong>" + esc(sources) + "</strong></p>" +
+      travelLinks() +
+      '<p class="fest-travel-stamp">' + esc(stamp) + "</p></section>";
+  }
+  function travelTeaser() {
+    var line = en()
+      ? "Advance tickets open 9 Oct (Asoj 23). Check the road each day."
+      : "अग्रिम टिकट असोज २३ (९ अक्टोबर) देखि। बाटो दैनिक जाँच गर्नुहोस्।";
+    var go = en() ? "Festival Travel" : "यात्रा";
+    return '<a class="fest-travel-tease" href="festival.html#yatra"><strong>यात्रा / Festival Travel</strong> ' +
+      esc(line) + "<span>" + esc(go) + " →</span></a>";
+  }
   function paintHome() {
     var host = document.getElementById("festival-home");
     if (!host || !events) return;
@@ -346,7 +437,7 @@
           '</div>' +
         '</div>' +
         '<div class="fest-home-scene" aria-hidden="true">' + homeSceneSvg() + '</div>' +
-      '</div>';
+      '</div>' + travelTeaser();
     if (m) fillFlip(countdownParts(atNpt(shown.ad_date, m.time), now));
   }
 
@@ -411,6 +502,7 @@
     }).join("");
 
     root.innerHTML = hero +
+      travelHtml() +
       dividerSvg() +
       '<section class="fest-block"><h2>' + esc(en() ? "Day by day" : "दिनदिनको तालिका") + "</h2>" +
       '<ol class="fest-timeline">' + rows + "</ol></section>" +

@@ -129,7 +129,7 @@
     { key: "people", ne: "मानिस", en: "People", hrefs: ["names.html", "contact.html"] },
     { key: "gov", ne: "सरकार", en: "Government", hrefs: ["gov.html", "markets.html"] },
     { key: "relief", ne: "राहत", en: "Relief", hrefs: ["donate.html", "response.html", "damage.html", "supply.html"] },
-    { key: "more", ne: "थप", en: "More", hrefs: ["about.html"] }
+    { key: "more", ne: "थप", en: "More", hrefs: ["about.html", "festival.html"] }
   ];
   var ICONS = {
     "index.html": "M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z",
@@ -231,6 +231,12 @@
       var gov = byHref("gov.html");
       if (gov && gov.nextSibling) inner.insertBefore(markets, gov.nextSibling);
       else inner.appendChild(markets);
+    }
+    if (!byHref("festival.html")) {
+      var fest = makeLink("festival.html", "nav_festival", "चाडपर्व");
+      var about = byHref("about.html");
+      if (about && about.nextSibling) inner.insertBefore(fest, about.nextSibling);
+      else inner.appendChild(fest);
     }
     var head = inner.querySelector(".nav-drawer-head");
     GROUPS.forEach(function (g) {
@@ -472,10 +478,10 @@
     "damage.html": { ne: "क्षति", en: "Damage" },
     "supply.html": { ne: "एलपीजी", en: "LPG" },
     "about.html": { ne: "बारेमा", en: "About" },
-    "festival.html": { ne: "चाडपर्व", en: "Festivals" }
+    "festival.html": { ne: "चाडपर्व", en: "Festival" }
   };
   var DESK_MORE_EXTRA = [
-    { href: "festival.html", ne: "चाडपर्व", en: "Festivals" }
+    { href: "festival.html", ne: "चाडपर्व", en: "Festival" }
   ];
   var GROUP_ICONS = {
     alerts: "M6 9a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9M10 21a2 2 0 0 0 4 0"
