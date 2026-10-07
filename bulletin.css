@@ -11175,6 +11175,8 @@ html[lang="en"] .elec-src-ne{display:none}
     box-sizing:border-box;
   }
   .hnav-ico{width:18px;height:18px;flex:none;display:block}
+  .hnav-tabs > .hnav-slot > a.hnav-home{justify-content:center}
+  .hnav-tabs > .hnav-slot > a.hnav-home .hnav-lab{display:none}
   .hnav-caret{width:16px;height:16px;flex:none;display:block;transition:transform .15s ease}
   .hnav-slot.is-open > .hnav-parent .hnav-caret,
   .hnav-more.is-open .hnav-caret{transform:rotate(180deg)}
