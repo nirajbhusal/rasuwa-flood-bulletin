@@ -319,6 +319,8 @@
         "Road permits are open from Ghatasthapana through Kojagrat Purnima; passenger vehicles have priority.",
         "New Bus Park (Gongabu) is the main point. Passenger help is at Gongabu, Koteshwor and Balkhu. Buy only at official counters. Do not pay more than the set fare.",
         "Online: BusSewa and GoMyGo. Sajha Yatayat runs a limited set of long routes.",
+        "A passenger help desk opened at New Bus Park (Gongabu) on Asoj 16. Desks are to be placed at 15 Valley spots: New Bus Park, Machhapokhari, Tokha, Tinpiple, Bhimdhunga, Nanglebhar, Kalanki, Balkhu, Nagdhunga, Koteshwor, Chabahil, Pharping, Sankhu, Chapagaun and Jagati. They take complaints and check fares and tickets.",
+        "The Department of Transport Management decided to set up passenger help desks at 15 Kathmandu places, with NADA, and to write to Nepal Telecom and Ncell about the New Bus Park mobile network.",
         "Roads change daily — check Nepal Police and the Department of Roads. The Rasuwa–Nuwakot Pasang Lhamu highway can stay blocked after the flood; alternate routes are in police notices.",
         "Long-distance night buses: two drivers are required.",
         "Flights: Buddha Air, Yeti Airlines, Shree Airlines and Nepal Airlines — official sites only."
@@ -329,6 +331,8 @@
       "घटस्थापनादेखि कोजाग्रत पूर्णिमासम्म बाटो इजाजत खुला; यात्री सवारीलाई प्राथमिकता।",
       "नयाँ बसपार्क (गोंगबु) मुख्य। गोंगबु/कोटेश्वर/बल्खुमा यात्रु सहायता। आधिकारिक काउन्टरबाट मात्र। तोकिएको भन्दा बढी भाडा नतिर्नुहोस्।",
       "अनलाइन: BusSewa, GoMyGo। Sajha Yatayat सीमित लामो रुट।",
+      "यात्रु सहायता कक्ष नयाँ बसपार्क (गोंगबु) मा असोज १६ देखि सुरु। राखिने १५ स्थान: नयाँ बसपार्क, माछापोखरी, टोखा, तीनपिप्ले, भीमढुङ्गा, नाङ्लेभार, कलंकी, बल्खु, नागढुङ्गा, कोटेश्वर, चावहिल, फर्पिङ, साँखु, चापागाउँ, जगाती। गुनासो, भाडा र टिकट जाँच।",
+      "यातायात व्यवस्था विभागले काठमाडौंका १५ स्थानमा यात्रु सहायता कक्ष (नाडासँग) राख्ने, र नयाँ बसपार्कको मोबाइल नेटवर्क सुधार्न टेलिकम तथा एनसेललाई पत्राचार गर्ने निर्णय।",
       "बाटो दैनिक बदलिन्छ — नेपाल प्रहरी/DoR हेर्नुहोस्। रसुवा–नुवाकोट पासाङ ल्हामु मुख्य सडक बाढीपछि अवरुद्ध हुन सक्छ; वैकल्पिक बाटो प्रहरी सूचनामा।",
       "लामो दूरी रात्री बस: दुई चालक नियम।",
       "उडान: Buddha Air, Yeti, Shree, Nepal Airlines — आधिकारिक साइट मात्र।"
@@ -362,6 +366,9 @@
       ["https://gomygo.com/", "GoMyGo", "GoMyGo"],
       ["https://sajhayatayat.com.np/", "साझा यातायात", "Sajha Yatayat"],
       ["https://dotm.gov.np/", "यातायात व्यवस्था विभाग", "DoTM"],
+      ["https://www.techpana.com/2026/159445/dashain-travel-helpdesks-in-15-locations-in-kathmandu", "टेकपाना", "Techpana"],
+      ["https://xraynepal.com/content/4846", "एक्सरे नेपाल", "Xray Nepal"],
+      ["https://bizpati.com/2026/10/222266/", "बिजपाटी", "Bizpati"],
       ["https://buddhaair.com/", "Buddha Air", "Buddha Air"],
       ["https://yetiairlines.com/", "Yeti Airlines", "Yeti Airlines"],
       ["https://shreeairlines.com/", "Shree Airlines", "Shree Airlines"],

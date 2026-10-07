@@ -18,6 +18,9 @@ const URLS = [
   "https://gomygo.com/",
   "https://sajhayatayat.com.np/",
   "https://dotm.gov.np/",
+  "https://www.techpana.com/2026/159445/dashain-travel-helpdesks-in-15-locations-in-kathmandu",
+  "https://xraynepal.com/content/4846",
+  "https://bizpati.com/2026/10/222266/",
   "https://buddhaair.com/",
   "https://yetiairlines.com/",
   "https://shreeairlines.com/",
@@ -36,6 +39,10 @@ test("festival travel card keeps the checked facts and plain links", function ()
   assert.match(travel, /घटस्थापनादेखि कोजाग्रत पूर्णिमासम्म/);
   assert.match(travel, /नयाँ बसपार्क \(गोंगबु\)/);
   assert.match(travel, /दुई चालक/);
+  assert.match(travel, /नाङ्लेभार/);
+  assert.match(travel, /टेलिकम तथा एनसेल/);
+  assert.match(travel, /Nanglebhar/);
+  assert.match(travel, /Nepal Telecom and Ncell/);
   assert.match(travel, /9 October 2026/);
   assert.match(travel, /Ghatasthapana through Kojagrat Purnima/);
   assert.match(travel, /two drivers are required/);
