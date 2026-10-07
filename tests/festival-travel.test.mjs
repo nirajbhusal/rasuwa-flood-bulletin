@@ -8,49 +8,50 @@ function read(rel) {
 }
 
 const URLS = [
-  "https://kathmandupost.com/national/2026/10/06/dashain-bus-ticket-bookings-to-open-on-october-9",
-  "https://english.onlinekhabar.com/dashain-advance-ticket-booking-to-open-from-october-9-two-drivers-mandatory-on-long-routes.html",
   "https://ktmvalley.nepalpolice.gov.np/news/1068/",
   "https://www.nepalpolice.gov.np/notices/1141/",
-  "https://www.nepalpolice.gov.np/",
   "https://navigate.dor.gov.np/app/road-closure-report",
   "https://bussewa.com.np/",
   "https://gomygo.com/",
-  "https://sajhayatayat.com.np/",
   "https://dotm.gov.np/",
   "https://www.techpana.com/2026/159445/dashain-travel-helpdesks-in-15-locations-in-kathmandu",
-  "https://xraynepal.com/content/4846",
-  "https://bizpati.com/2026/10/222266/",
   "https://buddhaair.com/",
   "https://yetiairlines.com/",
   "https://shreeairlines.com/",
   "https://nepalairlines.com.np/domestic"
 ];
 
-test("festival travel card keeps the checked facts and plain links", function () {
+test("festival travel card is a short guide with a few links", function () {
   const js = read("festival.js");
   const css = read("bulletin.css");
   const min = read("bulletin.min.css");
-  const start = js.indexOf("function travelFacts(");
+  const start = js.indexOf("function travelPlaces(");
   const end = js.indexOf("function paintHome(");
   const travel = js.slice(start, end);
   assert.ok(start >= 0 && end > start);
-  assert.match(travel, /असोज २३ \(९ अक्टोबर २०२६\)/);
-  assert.match(travel, /घटस्थापनादेखि कोजाग्रत पूर्णिमासम्म/);
-  assert.match(travel, /नयाँ बसपार्क \(गोंगबु\)/);
+  assert.match(travel, /असोज २३ \(९ अक्टोबर\)/);
+  assert.match(travel, /नालेभार/);
+  assert.match(travel, /नयाँ बसपार्क \(गोंगबु\) खुलिसकेको छ/);
   assert.match(travel, /दुई चालक/);
-  assert.match(travel, /नाङ्लेभार/);
-  assert.match(travel, /टेलिकम तथा एनसेल/);
-  assert.match(travel, /Nanglebhar/);
-  assert.match(travel, /Nepal Telecom and Ncell/);
-  assert.match(travel, /9 October 2026/);
-  assert.match(travel, /Ghatasthapana through Kojagrat Purnima/);
-  assert.match(travel, /two drivers are required/);
-  assert.match(travel, /General advice — not a government order/);
-  assert.match(travel, /सामान्य सल्लाह — सरकारी आदेश होइन/);
-  assert.match(travel, /Sources checked 7 Oct 2026 \/ Asoj 2083/);
+  assert.match(travel, /१०३ वा १००/);
+  assert.match(travel, /Nalebhar/);
+  assert.match(travel, /Asoj 23 \(9 October\)/);
+  assert.match(travel, /two drivers/);
+  assert.match(travel, /call 103 or 100/);
+  assert.match(travel, /Going home for Dashain/);
   assert.match(travel, /festival\.html#yatra/);
   assert.match(travel, /id="yatra"/);
+  assert.doesNotMatch(travel, /सरकारी आदेश होइन/);
+  assert.doesNotMatch(travel, /General advice/);
+  assert.doesNotMatch(travel, /Sources checked/);
+  assert.doesNotMatch(travel, /स्रोत जाँच/);
+  assert.doesNotMatch(travel, /बैठक/);
+  assert.doesNotMatch(travel, /Reported plan/);
+  assert.doesNotMatch(travel, /रिपोर्ट गरिएको/);
+  assert.doesNotMatch(travel, /kathmandupost\.com/);
+  assert.doesNotMatch(travel, /onlinekhabar\.com/);
+  assert.doesNotMatch(travel, /xraynepal\.com/);
+  assert.doesNotMatch(travel, /bizpati\.com/);
   assert.doesNotMatch(travel, /softwarica/i);
   assert.doesNotMatch(travel, /\bwarning\b/i);
   assert.doesNotMatch(travel, /Rs\.?\s*\d/);
@@ -58,5 +59,8 @@ test("festival travel card keeps the checked facts and plain links", function ()
   for (const url of URLS) assert.ok(travel.includes(url), url);
   assert.match(css, /\.fest-travel\{[^}]*background:#fff6ea/);
   assert.match(min, /\.fest-travel\{[^}]*background:#fff6ea/);
+  assert.match(css, /\.fest-travel-lead\{/);
+  assert.match(min, /\.fest-travel-lead\{/);
   assert.equal(read("festival.html").includes("कोजाग्रत पूर्णिमा"), false);
+  assert.equal(read("festival.html").includes("सरकारी आदेश होइन"), false);
 });
