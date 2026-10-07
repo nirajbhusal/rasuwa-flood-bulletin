@@ -639,8 +639,16 @@
   function paintDeskLabels() {
     if (!deskBar) return;
     deskSlots.forEach(function (slot) {
+      var name = en() ? slot.getAttribute("data-en") : slot.getAttribute("data-ne");
       var headLab = slot.querySelector(":scope > .hnav-parent .hnav-lab, :scope > a.hnav-tab .hnav-lab");
-      if (headLab) headLab.textContent = en() ? slot.getAttribute("data-en") : slot.getAttribute("data-ne");
+      if (slot.getAttribute("data-group") === "home") {
+        var homeTab = slot.querySelector(":scope > a.hnav-tab");
+        if (homeTab && name) {
+          homeTab.setAttribute("aria-label", name);
+          homeTab.setAttribute("title", name);
+        }
+        if (headLab) headLab.textContent = "";
+      } else if (headLab) headLab.textContent = name;
       slot.querySelectorAll(":scope > .hnav-menu a.hnav-tab").forEach(function (tab) {
         var lab = tab.querySelector(".hnav-lab");
         var text = shortText(tab.getAttribute("data-href") || "");
@@ -882,8 +890,16 @@
       if (g.key !== "more" && hrefs.length < 2) {
         var link = makeDeskLink(hrefs[0]);
         var direct = link.querySelector(".hnav-lab");
-        if (direct) direct.textContent = slot.getAttribute("data-ne");
-        if (g.key === "home") link.addEventListener("click", scrollHomeTop);
+        if (g.key === "home") {
+          link.classList.add("hnav-home");
+          if (direct) {
+            direct.textContent = "";
+            direct.setAttribute("aria-hidden", "true");
+          }
+          link.setAttribute("aria-label", slot.getAttribute("data-ne"));
+          link.setAttribute("title", slot.getAttribute("data-ne"));
+          link.addEventListener("click", scrollHomeTop);
+        } else if (direct) direct.textContent = slot.getAttribute("data-ne");
         slot.appendChild(link);
       } else {
         var btn = document.createElement("button");
