@@ -11,6 +11,7 @@
   var events = null;
   var songs = null;
   var bgm = null;
+  var abroadQuery = "";
   var timer = 0;
   var paintedKey = "";
   var ytPlayer = null;
@@ -358,6 +359,111 @@
       return "<li>" + extLink(row[0], en() ? row[2] : row[1]) + "</li>";
     }).join("") + "</ul>";
   }
+  var TIKA_ABROAD = [
+    ["दक्षिण एसिया", "South Asia", [
+      ["नेपाल", "Nepal", "10:26 AM", "Kartik 04 / Oct 21"],
+      ["दिल्ली, भारत", "Delhi, India", "09:11 AM", "Oct 21"],
+      ["थिम्पू, भुटान", "Thimphu, Bhutan", "10:14 AM", "Oct 21"]
+    ]],
+    ["पूर्वी तथा दक्षिणपूर्वी एसिया", "East/Southeast Asia", [
+      ["टोकियो, जापान", "Tokyo, Japan", "10:17 AM", "Oct 21"],
+      ["क्वालालम्पुर, मलेसिया", "Kuala Lumpur, Malaysia", "10:47 AM", "Oct 21"],
+      ["बैंकक, थाइल्यान्ड", "Bangkok, Thailand", "10:07 AM", "Oct 21"],
+      ["सियोल, दक्षिण कोरिया", "Seoul, South Korea", "11:13 AM", "Oct 21"],
+      ["सिङ्गापुर", "Singapore", "10:31 AM", "Oct 21"],
+      ["हङकङ", "Hong Kong", "10:27 AM", "Oct 21"],
+      ["याङ्गुन, म्यानमार", "Yangon, Myanmar", "09:57 AM", "Oct 21"]
+    ]],
+    ["मध्यपूर्व", "Middle East", [
+      ["अबुधाबी, युएई", "Abu Dhabi, UAE", "10:31 AM", "Oct 21"],
+      ["दोहा, कतार", "Doha, Qatar", "09:41 AM", "Oct 21"],
+      ["तेल अबिब, इजरायल", "Tel Aviv, Israel", "11:13 AM", "Oct 20"],
+      ["साउदी अरब", "Saudi Arabia", "10:01 AM", "Oct 21"]
+    ]],
+    ["अस्ट्रेलिया तथा न्युजिल्यान्ड", "Australia & NZ", [
+      ["सिड्नी, अस्ट्रेलिया", "Sydney, Australia", "09:21 AM", "Oct 21"],
+      ["मेलबर्न, अस्ट्रेलिया", "Melbourne, Australia", "09:30 AM", "Oct 21"],
+      ["ब्रिस्बेन, अस्ट्रेलिया", "Brisbane, Australia", "08:25 AM", "Oct 21"],
+      ["एडिलेड, अस्ट्रेलिया", "Adelaide, Australia", "09:15 AM", "Oct 21"],
+      ["क्यानबेरा, अस्ट्रेलिया", "Canberra, Australia", "09:07 AM", "Oct 21"],
+      ["तास्मानिया, अस्ट्रेलिया", "Tasmania, Australia", "08:55 AM", "Oct 21"],
+      ["पर्थ, अस्ट्रेलिया", "Perth, Australia", "08:54 AM", "Oct 21"],
+      ["डार्विन, अस्ट्रेलिया", "Darwin, Australia", "09:31 AM", "Oct 21"],
+      ["वेलिङ्टन, न्युजिल्यान्ड", "Wellington, New Zealand", "09:23 AM", "Oct 21"]
+    ]],
+    ["युरोप", "Europe", [
+      ["लिस्बन, पोर्चुगल", "Lisbon, Portugal", "09:41 AM", "Oct 20"],
+      ["लन्डन, बेलायत", "London, UK", "10:55 AM", "Oct 20"],
+      ["पेरिस, फ्रान्स", "Paris, France", "11:31 AM", "Oct 20"],
+      ["ओस्लो, नर्वे", "Oslo, Norway", "11:50 AM", "Oct 20"],
+      ["जेनेभा, स्विट्जरल्यान्ड", "Geneva, Switzerland", "10:31 AM", "Oct 20"]
+    ]],
+    ["उत्तर अमेरिका", "North America", [
+      ["न्यूयोर्क, अमेरिका", "New York, USA", "10:11 AM", "Oct 20"],
+      ["फ्र्याङ्कफोर्ट, केन्टकी, अमेरिका", "Frankfort, Kentucky, USA", "10:47 AM", "Oct 20"],
+      ["ओवेन्सबोरो, केन्टकी, अमेरिका", "Owensboro, Kentucky, USA", "11:45 AM", "Oct 20"],
+      ["टेक्सास, अमेरिका", "Texas, USA", "10:27 AM", "Oct 20"],
+      ["वासिङ्टन डीसी, अमेरिका", "Washington DC, USA", "10:21 AM", "Oct 20"],
+      ["क्यालिफोर्निया, अमेरिका", "California, USA", "09:51 AM", "Oct 20"],
+      ["टोरन्टो, क्यानडा", "Toronto, Canada", "10:41 AM", "Oct 20"],
+      ["भ्यानकुभर, क्यानडा", "Vancouver, Canada", "10:55 AM", "Oct 20"]
+    ]]
+  ];
+  function abroadNote() {
+    return en()
+      ? "Times are the local auspicious time in each place. Dates vary because of time zones."
+      : "यी प्रत्येक ठाउँको स्थानीय साइत हुन्। समय क्षेत्र फरक भएकाले मिति फरक पर्छ।";
+  }
+  function abroadHtml() {
+    var headPlace = en() ? "Place" : "ठाउँ";
+    var headTime = en() ? "Local time" : "स्थानीय समय";
+    var headDate = en() ? "Date" : "मिति";
+    var groups = TIKA_ABROAD.map(function (g) {
+      var rows = g[2].map(function (r) {
+        var hay = [r[0], r[1], r[2], r[3], g[0], g[1]].join(" ");
+        return '<tr data-abroad-row data-abroad-hay="' + esc(hay) + '">' +
+          '<td class="fest-abroad-place"><span lang="ne">' + esc(r[0]) + '</span> <span lang="en">' + esc(r[1]) + "</span></td>" +
+          '<td class="fest-abroad-time">' + esc(r[2]) + "</td>" +
+          '<td class="fest-abroad-date">' + esc(r[3]) + "</td></tr>";
+      }).join("");
+      return '<div class="fest-abroad-group" data-abroad-group>' +
+        '<h3><span lang="ne">' + esc(g[0]) + '</span> <span lang="en">/ ' + esc(g[1]) + "</span></h3>" +
+        '<table class="fest-abroad-table"><thead><tr>' +
+        '<th scope="col">' + esc(headPlace) + "</th>" +
+        '<th scope="col">' + esc(headTime) + "</th>" +
+        '<th scope="col">' + esc(headDate) + "</th></tr></thead><tbody>" +
+        rows + "</tbody></table></div>";
+    }).join("");
+    var ph = en() ? "Search a place" : "ठाउँ खोज्नुहोस्";
+    return '<section class="fest-abroad" id="tika-abroad">' +
+      '<h2><span lang="ne">विदेशमा बस्नुहुनेहरूका लागि दशैं टीका साइत</span> ' +
+      '<span class="fest-abroad-en" lang="en">/ Dashain Tika time abroad</span></h2>' +
+      '<p class="fest-abroad-note">' + esc(abroadNote()) + "</p>" +
+      '<label class="fest-abroad-find"><span class="sr-only">' + esc(ph) + "</span>" +
+      '<input class="fest-abroad-q" type="search" data-tika-abroad-q enterkeyhint="search" autocomplete="off" spellcheck="false" placeholder="' +
+      esc(ph) + '" value="' + esc(abroadQuery) + '"></label>' +
+      groups +
+      '<p class="fest-abroad-empty" data-abroad-empty hidden>' +
+      esc(en() ? "No place matches." : "कुनै ठाउँ भेटिएन।") + "</p></section>";
+  }
+  function filterAbroad(q) {
+    var root = document.getElementById("tika-abroad");
+    if (!root) return;
+    var needle = String(q || "").trim().toLowerCase();
+    root.querySelectorAll("[data-abroad-row]").forEach(function (row) {
+      var hay = (row.getAttribute("data-abroad-hay") || "").toLowerCase();
+      row.classList.toggle("is-out", !!(needle && hay.indexOf(needle) < 0));
+    });
+    root.querySelectorAll("[data-abroad-group]").forEach(function (g) {
+      var any = false;
+      g.querySelectorAll("[data-abroad-row]").forEach(function (row) {
+        if (!row.classList.contains("is-out")) any = true;
+      });
+      g.classList.toggle("is-out", !any);
+    });
+    var empty = root.querySelector("[data-abroad-empty]");
+    if (empty) empty.hidden = !!root.querySelector("[data-abroad-row]:not(.is-out)");
+  }
   function travelHtml() {
     var items = travelItems().map(function (line) { return "<li>" + line + "</li>"; }).join("");
     var lead = en()
@@ -400,6 +506,7 @@
     var hm = m ? m.time : (shown.sait_time_24h || "");
     host.hidden = false;
     var see = en() ? "See all →" : "सबै हेर्नुहोस् →";
+    var abroadGo = en() ? "Tika time abroad →" : "विदेशमा टीका साइत →";
     var kicker = en() ? "Dashain · Tihar · Chhath 2083" : "दशैं · तिहार · छठ २०८३";
     var tika = homeTikaStrip(now);
     host.innerHTML =
@@ -411,6 +518,7 @@
           (m ? flipHtml() : '') +
           (hm ? '<p class="fest-home-when">' + esc(homeWhen(shown, hm)) + '</p>' : '') +
           (tika ? '<p class="fest-home-tika">' + esc(tika) + '</p>' : '') +
+          '<p class="fest-home-abroad-line"><a class="fest-home-abroad" href="festival.html#tika-abroad">' + esc(abroadGo) + '</a></p>' +
           '<div class="fest-home-actions">' + musicBtn("home") +
             '<a class="fest-home-more" href="festival.html">' + esc(see) + '</a>' +
           '</div>' +
@@ -481,6 +589,7 @@
     }).join("");
 
     root.innerHTML = hero +
+      abroadHtml() +
       travelHtml() +
       dividerSvg() +
       '<section class="fest-block"><h2>' + esc(en() ? "Day by day" : "दिनदिनको तालिका") + "</h2>" +
@@ -507,6 +616,7 @@
           : ' बिदा: <a href="' + RAJPATRA + '" target="_blank" rel="noopener">नेपाल राजपत्र</a> (गृह मन्त्रालय)। सबै समय नेपाल समय (UTC+५:४५)।') +
       "</p></footer>";
     if (m && parts) fillFlip(parts);
+    filterAbroad(abroadQuery);
   }
 
   function paintMusic() {
@@ -696,6 +806,13 @@
     if (timer) clearInterval(timer);
     timer = setInterval(tick, 1000);
   }
+
+  document.addEventListener("input", function (e) {
+    var t = e.target;
+    if (!t || !t.matches || !t.matches("[data-tika-abroad-q]")) return;
+    abroadQuery = t.value;
+    filterAbroad(abroadQuery);
+  });
 
   document.addEventListener("click", function (e) {
     var t = e.target;
