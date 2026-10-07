@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="utf-8">
+<title>OG header</title>
+<style>
+@font-face{font-family:Mukta;font-weight:500;src:url("../fonts/mukta-500-deva.woff2") format("woff2");unicode-range:U+0900-097F,U+200C-200D,U+25CC}
+@font-face{font-family:Mukta;font-weight:700;src:url("../fonts/mukta-700-deva.woff2") format("woff2");unicode-range:U+0900-097F,U+200C-200D,U+25CC}
+@font-face{font-family:Mukta;font-weight:800;src:url("../fonts/mukta-800-deva.woff2") format("woff2");unicode-range:U+0900-097F,U+200C-200D,U+25CC}
+@font-face{font-family:Mukta;font-weight:500;src:url("../fonts/mukta-500-latn.woff2") format("woff2");unicode-range:U+0000-00FF}
+@font-face{font-family:Mukta;font-weight:700;src:url("../fonts/mukta-700-latn.woff2") format("woff2");unicode-range:U+0000-00FF}
+@font-face{font-family:Mukta;font-weight:800;src:url("../fonts/mukta-800-latn.woff2") format("woff2");unicode-range:U+0000-00FF}
+*{box-sizing:border-box}
+html,body{margin:0;width:1200px;height:630px;overflow:hidden}
+body{
+  position:relative;
+  font-family:Mukta,system-ui,sans-serif;
+  color:#fff8ea;
+  background:
+    radial-gradient(78% 90% at 88% 8%, rgba(168,214,236,.95) 0%, rgba(126,184,224,.35) 28%, rgba(126,184,224,0) 52%),
+    linear-gradient(108deg, #4a0c18 0%, #7a1426 38%, #a33b16 68%, #e2a31a 100%);
+}
+.sky{position:absolute;inset:0;pointer-events:none}
+.cloud{position:absolute;background:#fff;border-radius:999px;opacity:.88}
+.cloud::before,.cloud::after{content:"";position:absolute;background:#fff;border-radius:999px}
+.cloud.c1{width:150px;height:42px;top:54px;left:430px}
+.cloud.c1::before{width:70px;height:46px;left:28px;top:-24px}
+.cloud.c1::after{width:54px;height:36px;left:78px;top:-16px}
+.cloud.c2{width:96px;height:28px;top:118px;right:250px;opacity:.75}
+.cloud.c2::before{width:42px;height:30px;left:16px;top:-16px}
+.cloud.c3{width:70px;height:22px;top:36px;right:86px;opacity:.7}
+.cloud.c3::before{width:32px;height:22px;left:12px;top:-12px}
+.kite{position:absolute;display:block}
+.kite img{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 10px rgba(40,0,8,.28))}
+.k1{width:168px;top:36px;right:72px;transform:rotate(8deg)}
+.k2{width:118px;top:210px;right:210px;transform:rotate(-12deg)}
+.k3{width:92px;top:78px;right:280px;transform:rotate(14deg)}
+.k4{width:74px;top:300px;right:86px;transform:rotate(-6deg)}
+.copy{position:relative;z-index:2;padding:86px 80px 0;max-width:760px}
+.kicker{display:flex;align-items:center;gap:14px;margin:0 0 18px;font-size:28px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#ffe08a}
+.tika{width:22px;height:22px;border-radius:50%;background:#c41e3a;box-shadow:0 0 0 5px #f4c430;flex:none}
+h1{margin:0;font-size:78px;line-height:1.08;font-weight:800;letter-spacing:-.01em;text-shadow:0 2px 0 rgba(40,0,8,.28),0 10px 28px rgba(40,0,8,.28)}
+.sub{margin:18px 0 0;font-size:36px;font-weight:700;color:#fff6e4;text-shadow:0 2px 8px rgba(40,0,8,.35)}
+.en{margin:8px 0 0;font-size:28px;font-weight:700;color:#ffe8c2}
+.live{display:inline-flex;align-items:center;gap:10px;margin-top:36px;min-height:52px;padding:0 22px;border-radius:999px;background:#c41e3a;color:#fff;font-size:26px;font-weight:800;box-shadow:0 8px 18px rgba(40,0,8,.22)}
+.live i{width:12px;height:12px;border-radius:50%;background:#fff}
+.hem{position:absolute;left:0;right:0;bottom:0;height:22px;background:linear-gradient(90deg,#c41e3a 0%,#f4c430 48%,#c41e3a 100%)}
+.garland{position:absolute;left:0;right:0;bottom:8px;height:92px;width:100%;object-fit:cover;object-position:center bottom;opacity:.95;pointer-events:none}
+.jamara{position:absolute;left:64px;bottom:28px;width:86px;height:100px;object-fit:contain;pointer-events:none;filter:drop-shadow(0 6px 8px rgba(40,0,8,.25))}
+</style>
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <span class="cloud c1"></span>
+    <span class="cloud c2"></span>
+    <span class="cloud c3"></span>
+    <span class="kite k1"><img src="../assets/festival/kite-changa.svg" alt=""></span>
+    <span class="kite k2"><img src="../assets/festival/kite-changa.svg" alt=""></span>
+    <span class="kite k3"><img src="../assets/festival/kite-changa.svg" alt=""></span>
+    <span class="kite k4"><img src="../assets/festival/kite-changa.svg" alt=""></span>
+  </div>
+  <div class="copy">
+    <p class="kicker"><span class="tika"></span>दसैं · Dashain</p>
+    <h1>रसुवा–भोटेकोशी बाढी</h1>
+    <p class="sub">लाइभ बुलेटिन</p>
+    <p class="en">Rasuwa–Bhotekoshi Flood Bulletin</p>
+    <span class="live"><i></i>लाइभ</span>
+  </div>
+  <img class="garland" src="../assets/festival/marigold-garland.svg" alt="">
+  <img class="jamara" src="../assets/festival/jamara.svg" alt="">
+  <div class="hem"></div>
+</body>
+</html>

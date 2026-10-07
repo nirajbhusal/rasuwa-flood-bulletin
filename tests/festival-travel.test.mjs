@@ -64,3 +64,15 @@ test("festival travel card is a short guide with a few links", function () {
   assert.equal(read("festival.html").includes("कोजाग्रत पूर्णिमा"), false);
   assert.equal(read("festival.html").includes("सरकारी आदेश होइन"), false);
 });
+
+test("share thumbnail is the 1200×630 Dashain header", function () {
+  const png = readFileSync(new URL("og-header.png", root));
+  assert.equal(png.readUInt32BE(16), 1200);
+  assert.equal(png.readUInt32BE(20), 630);
+  const share = readFileSync(new URL("img/share/share-og-1200x630.png", root));
+  assert.equal(Buffer.compare(png, share), 0);
+  const index = read("index.html");
+  assert.match(index, /og-header\.png\?v=dashain/);
+  assert.match(index, /og:image:alt" content="रसुवा–भोटेकोशी बाढी बुलेटिन · दसैं"/);
+  assert.doesNotMatch(index, /og-header\.png"/);
+});
