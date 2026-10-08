@@ -202,7 +202,7 @@ test("every header page loads the shared menu script", () => {
   for (const name of headerPages) {
     const html = read(name);
     assert.match(html, /nav-menu\.js/);
-    assert.match(html, /line-height:1\.3\}\}@media\(min-width:900px\)\{\.head-stick #nav-toggle\{display:none\}\.head-stick \.head-home\{display:none\}\}/);
+    assert.match(html, /line-height:1\.5\}\}@media\(min-width:900px\)\{\.head-stick #nav-toggle\{display:none\}\.head-stick \.head-home\{display:none\}\}/);
     assert.match(html, /id="nav-chips"/);
     assert.match(html, /href="festival\.html"[^>]*data-i18n="nav_festival">चाडपर्व</);
   }
@@ -256,6 +256,20 @@ test("overflow tabs move into More and a short row does not", () => {
   assert.equal(fitTabs(widths, 300, 70, 2), 2);
   assert.equal(fitTabs(widths, 60, 70, 2), 0);
   assert.equal(fitTabs([40, 40], 200, 90, 2), 2);
+});
+
+test("header text is not clipped by a tight line box", () => {
+  assert.match(css, /\.head-stick \.topbar \.brand h1\{[^}]*line-height:1\.5/);
+  assert.match(css, /\.head-stick \.topbar \.brand h1\{[^}]*overflow:visible/);
+  assert.match(css, /\.head-stick \.live\{[^}]*line-height:1\.5/);
+  assert.match(css, /\.hnav-tab,\s*\.hnav-more-btn\{[^}]*line-height:1\.5/);
+  assert.match(min, /\.head-stick \.topbar \.brand h1\{[^}]*line-height:1\.5/);
+  assert.match(min, /line-height:1\.5/);
+  assert.doesNotMatch(css, /\.head-stick \.topbar \.brand h1\{[^}]*-webkit-line-clamp:2/);
+  const index = read("index.html");
+  assert.match(index, /\.head-stick \.topbar \.brand h1\{[^}]*line-height:1\.5/);
+  assert.match(index, /font-size:36px;line-height:1\.5/);
+  assert.match(index, /font-size:25px;line-height:1\.5/);
 });
 
 test("header padding leaves room above the title and keeps the safe area", () => {
