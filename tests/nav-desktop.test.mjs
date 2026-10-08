@@ -257,3 +257,15 @@ test("overflow tabs move into More and a short row does not", () => {
   assert.equal(fitTabs(widths, 60, 70, 2), 0);
   assert.equal(fitTabs([40, 40], 200, 90, 2), 2);
 });
+
+test("header padding leaves room above the title and keeps the safe area", () => {
+  const mobile = /padding:calc\(18px \+ env\(safe-area-inset-top, 0px\)\) 10px 14px/;
+  const desk = /padding:calc\(22px \+ env\(safe-area-inset-top, 0px\)\) 0 14px/g;
+  assert.match(css, mobile);
+  assert.match(css, /padding:calc\(22px \+ env\(safe-area-inset-top, 0px\)\) 0 14px/);
+  assert.match(min, mobile);
+  assert.equal((min.match(desk) || []).length, 2);
+  const index = read("index.html");
+  assert.match(index, mobile);
+  assert.match(index, /padding:calc\(22px \+ env\(safe-area-inset-top, 0px\)\) 0 14px;gap:10px 12px/);
+});
