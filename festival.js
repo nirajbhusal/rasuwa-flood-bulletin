@@ -319,6 +319,12 @@
     }
     return "नयाँ बसपार्क (गोंगबु), माछापोखरी, टोखा, तीनपिप्ले, भीमढुङ्गा, नालेभार, कलंकी, बल्खु, नागढुङ्गा, कोटेश्वर, चावहिल, फर्पिङ, साँखु, चापागाउँ, जगाती";
   }
+  function travelClosureLine() {
+    if (en()) {
+      return "The Prithvi Highway (Mugling–Kathmandu) is closed at Galaudi, so check before you leave and do not head to the bus park until it reopens. If your bus is cancelled, ask the operator about rebooking or a refund. Some long-distance routes can use other highways, for example the BP Highway via Sindhuli for the east — check with your operator or traffic police. Today's status of the Kathmandu–Hetauda alternate roads (Kanti Lokpath, Kulekhani–Bhimphedi) is not confirmed — ask traffic police on 103 before you leave. The Tribhuvan Rajpath is a very long, narrow mountain road, so it is not a good choice for buses at night.";
+    }
+    return "पृथ्वी राजमार्ग (मुग्लिन–काठमाडौं) गलौदीमा बन्द छ। निस्कनुअघि बाटो हेर्नुहोस् र नखुलेसम्म बसपार्क नजानुहोस्। बस रद्द भए अपरेटरसँग पुनः बुकिङ वा फिर्ता सोध्नुहोस्। कतिपय लामो दूरीका रुटले अर्को राजमार्ग प्रयोग गर्न सक्छन्, जस्तै पूर्वतर्फ सिन्धुली हुँदै बी.पी. राजमार्ग — अपरेटर वा ट्राफिक प्रहरीसँग सोध्नुहोस्। काठमाडौं–हेटौँडा वैकल्पिक सडक (कान्ति लोकपथ, कुलेखानी–भीमफेदी) को आजको अवस्था पुष्टि भएको छैन — निस्कनुअघि ट्राफिक प्रहरी १०३ मा सोध्नुहोस्। त्रिभुवन राजपथ धेरै लामो र साँघुरो पहाडी बाटो हो, रातिको बसका लागि राम्रो विकल्प होइन।";
+  }
   function travelItems() {
     var airlines = [
       ["https://buddhaair.com/", "Buddha Air"],
@@ -328,6 +334,7 @@
     ].map(function (row) { return extLink(row[0], row[1]); }).join(", ");
     if (en()) {
       return [
+        esc(travelClosureLine()),
         esc("Advance bus tickets open on Asoj 23 (9 October). Book early at an authorized counter, or on BusSewa, GoMyGo, or Sajha where they run."),
         esc("Help desks for fares, tickets, and complaints are at about 15 Valley spots. The New Bus Park (Gongabu) desk is already open: ") + esc(travelPlaces()) + ".",
         esc("Check the road before you leave. The Rasuwa–Nuwakot highway may still be blocked — take the alternate route in the police notice."),
@@ -337,6 +344,7 @@
       ];
     }
     return [
+      esc(travelClosureLine()),
       esc("असोज २३ (९ अक्टोबर) देखि बसको अग्रिम टिकट खुल्छ। चाँडै बुक गर्नुहोस् — आधिकारिक काउन्टरबाट, वा BusSewa, GoMyGo र Sajha जहाँ चल्छ।"),
       esc("भाडा, टिकट र गुनासोका लागि यात्रु सहायता कक्ष उपत्यकाका करिब १५ ठाउँमा छन्। नयाँ बसपार्क (गोंगबु) खुलिसकेको छ: ") + esc(travelPlaces()) + "।",
       esc("हिँड्नुअघि बाटो हेर्नुहोस्। रसुवा–नुवाकोटको मुख्य सडक अझै बन्द हुन सक्छ — प्रहरीको सूचनामा भएको वैकल्पिक बाटो लिनुहोस्।"),
@@ -478,9 +486,9 @@
       travelLinks() + "</section>";
   }
   function travelTeaser() {
-    var line = en()
-      ? "Advance bus tickets from Asoj 23. Check the road before you leave."
-      : "बसको अग्रिम टिकट असोज २३ देखि। हिँड्नुअघि बाटो हेर्नुहोस्।";
+    var line = (en()
+      ? "Advance bus tickets from Asoj 23. "
+      : "बसको अग्रिम टिकट असोज २३ देखि। ") + travelClosureLine();
     var go = en() ? "Festival Travel" : "यात्रा";
     return '<a class="fest-travel-tease" href="festival.html#yatra"><strong>यात्रा / Festival Travel</strong> ' +
       esc(line) + "<span>" + esc(go) + " →</span></a>";

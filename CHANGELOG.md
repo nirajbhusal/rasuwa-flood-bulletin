@@ -1,3 +1,9 @@
+## 2026-10-09 · Prithvi Highway closed at Galaudi
+
+- Homepage has a red in-page alert for the Galaudi subsidence on the Prithvi Highway (Mugling–Kathmandu fully blocked) and the Machhedi gas-bullet block near Galchhi. Saturday evening is a reopen target, not a confirmation.
+- `notices.html#galaudi` is the newest roads item: location, cause, full closure, reopen target, the unconfirmed Kathmandu–Hetauda alternates, and plain source links. Older board counts are left as published.
+- The roads maps gain closed-style point markers at the OpenStreetMap Gajuri village and Galchhi town points. Festival travel adds one line: check before leaving, stay away from the bus park until it reopens, and ask the operator or traffic police.
+
 ## 2026-09-25 · DHM special flood forecast
 
 - The weather page has a river and flood outlook from the DHM special flood forecast issued Asoj 9 at 08:00: rivers near and below warning, the 34-station five-day table with Trishuli at Betrawati marked, a today/tomorrow flash-flood map, and the four advisory cards. The homepage has a short card and the Rasuwa corridor shows that Trishuli row plus Rasuwa’s flash-flood risk. Ask answers river, district, and Trishuli questions from the same file.
