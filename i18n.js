@@ -2202,7 +2202,16 @@ window.I18N = {
 "maintainer_wa": "WhatsApp",
 "maintainer_call": "फोन",
 "maintainer_mail": "इमेल",
-"maintainer_emerg": "आपत्कालमा आधिकारिक <a href=\"contact.html#helpline\">हेल्पलाइन</a>मा फोन गर्नुहोस्।"
+"maintainer_emerg": "आपत्कालमा आधिकारिक <a href=\"contact.html#helpline\">हेल्पलाइन</a>मा फोन गर्नुहोस्।",
+"prithvi_alert_k": "सडक अलर्ट",
+"prithvi_alert_h": "पृथ्वी राजमार्ग बन्द: धादिङको गलौदीमा सडक भासियो — मुग्लिन–काठमाडौं आवागमन पूर्ण रूपमा ठप्प",
+"prithvi_alert_s": "शनिबार साँझसम्म खोल्ने लक्ष्य — पुष्टि भएपछि मात्र यात्रा",
+"prithvi_alert_m": "गल्छी नजिक मच्छेडीमा पनि बन्द छ। शुक्रबार ग्यास बुलेट पल्टिएर ग्यास चुहियो, त्यसैले गलौदी पुग्ने टोली ढिलो भएको छ।",
+"prithvi_alert_more": "सडक पृष्ठ",
+"galaudi_when": "असोज २३, साँझ · NPT",
+"galaudi_h": "गलौदी, गजुरी–५, धादिङ · पृथ्वी राजमार्ग",
+"galaudi_body": "<p><strong>स्थान।</strong> गलौदी, गजुरी–५, गजुरी नजिक, धादिङ — पृथ्वी राजमार्ग।</p><p><strong>के भयो।</strong> सडक भासियो। धादिङ ट्राफिक प्रहरी प्रमुख शिशिर थापा (नेपाल लाइभ / कान्तिपुर): करिब १०० मिटर चिरा परेको र करिब २० मिटर भासिएको। सडक विभागका महानिर्देशक विजय जैशी: समस्याको खण्ड ७० मिटर। चिरा सडकको छेउसम्म पुगेकाले थप भासिने वा पहिरो जाने सम्भावना देखेर प्रहरीले दुवै दिशा रोकेको। कारण (सडक विभाग): भदौ १० को भोटेकोशी बाढीपछि त्रिशूलीले तलबाट कटान गरेको — अघिल्लो कृष्णभीर भासिएजस्तै।</p><p><strong>स्थिति।</strong> मुग्लिन–काठमाडौं खण्ड दुवै दिशामा पूर्ण रूपमा ठप्प।</p><p><strong>खोल्ने लक्ष्य।</strong> टोली शुक्रबार राति स्थल पुग्छ। पर्खाल काट्ने काम शनिबार करिब बिहान ४ बजे सुरु हुन्छ। सवारी शनिबार (असोज २४) साँझसम्म खोल्ने लक्ष्य। यो लक्ष्य हो, पुष्टि होइन।</p><p><strong>मच्छेडी।</strong> गल्छी नजिक मच्छेडीमा पनि पृथ्वी राजमार्ग बन्द छ। शुक्रबार ग्यास बुलेट (एलपीजी ट्याङ्कर) पल्टिएर ग्यास चुहियो। यसले गलौदी पुग्ने मेशिन र टोली ढिलो भएको छ।</p><p>काठमाडौं–हेटौँडा वैकल्पिक सडक (कान्ति लोकपथ, कुलेखानी–भीमफेदी) को आजको अवस्था पुष्टि भएको छैन — निस्कनुअघि ट्राफिक प्रहरी १०३ मा सोध्नुहोस्। त्रिभुवन राजपथ धेरै लामो र साँघुरो पहाडी बाटो हो, रातिको बसका लागि राम्रो विकल्प होइन।</p><p class=\"home-road-alert-note\">तलका अवरुद्ध-राजमार्ग अङ्क पुराना बोर्डका हुन्। यो असोज २३ साँझको थप पूर्ण बन्द तिनमा जोडिएको छैन।</p>",
+"galaudi_src": "स्रोत: <a href=\"https://ekantipur.com/bagmati-pradesh/2026/10/09/road-in-dhadings-galaudi-flooded-vehicular-movement-on-prithvi-highway-halted-45-15.html\" target=\"_blank\" rel=\"noopener\">कान्तिपुर</a> · <a href=\"https://ekantipur.com/business/2026/10/09/preparations-to-open-collapsed-road-in-galaudi-on-saturday-by-cutting-through-wall-53-03.html\" target=\"_blank\" rel=\"noopener\">कान्तिपुर · खोल्ने तयारी</a> · <a href=\"https://nepallive.com/story/351784\" target=\"_blank\" rel=\"noopener\">नेपाल लाइभ</a> · <a href=\"https://english.onlinekhabar.com/prithvi-highway-closed.html\" target=\"_blank\" rel=\"noopener\">OnlineKhabar</a>"
 
 },"en": {
 "title": "Rasuwa–Bhotekoshi Flood · 20 September 2026",
@@ -4393,7 +4402,16 @@ window.I18N = {
 "maintainer_wa": "WhatsApp",
 "maintainer_call": "Call",
 "maintainer_mail": "Email",
-"maintainer_emerg": "In an emergency, call the official <a href=\"contact.html#helpline\">helplines</a>."
+"maintainer_emerg": "In an emergency, call the official <a href=\"contact.html#helpline\">helplines</a>.",
+"prithvi_alert_k": "Road alert",
+"prithvi_alert_h": "Prithvi Highway closed: road subsided at Galaudi, Dhading; Mugling–Kathmandu fully blocked.",
+"prithvi_alert_s": "Target to reopen by Saturday evening — travel only after that is confirmed.",
+"prithvi_alert_m": "Also blocked near Machhedi, by Galchhi, after a gas bullet overturned and leaked gas on Friday. Crews heading to Galaudi are slowed.",
+"prithvi_alert_more": "Roads page",
+"galaudi_when": "Asoj 23, evening NPT",
+"galaudi_h": "Galaudi, Gajuri-5, Dhading · Prithvi Highway",
+"galaudi_body": "<p><strong>Location.</strong> Galaudi, Gajuri-5, near Gajuri, Dhading — Prithvi Highway.</p><p><strong>What happened.</strong> The road subsided. Dhading traffic police chief Shishir Thapa (Nepal Live / Kantipur): about 100 m cracked and about 20 m sank. Department of Roads director general Bijay Jaisi: the problem section is 70 m. Police stopped both directions because the crack runs to the road edge and more subsidence or a landslide is possible. Cause, per the Department of Roads: the Trishuli eroded the road from below after the Bhadau 10 Bhotekoshi flood — the same kind of failure as the earlier Krishnabhir subsidence.</p><p><strong>Status.</strong> Fully closed. Mugling–Kathmandu traffic is stopped in both directions.</p><p><strong>Reopen target.</strong> The team reaches the site Friday night. Wall and hill-cut work starts Saturday at about 4 AM. They aim to reopen to vehicles by Saturday evening (Asoj 24). This is a target, not a confirmation.</p><p><strong>Machhedi.</strong> The Prithvi Highway is also blocked near Machhedi, close to Galchhi, where a gas bullet (LPG tanker) overturned and leaked gas on Friday, 9 October. That is slowing crews and machines on the way to Galaudi.</p><p>Today's status of the Kathmandu–Hetauda alternate roads (Kanti Lokpath, Kulekhani–Bhimphedi) is not confirmed — ask traffic police on 103 before you leave. The Tribhuvan Rajpath is a very long, narrow mountain road, so it is not a good choice for buses at night.</p><p class=\"home-road-alert-note\">The blocked-highway counts below are from earlier boards. This extra full closure from the evening of Asoj 23 is not added into those totals.</p>",
+"galaudi_src": "Sources: <a href=\"https://ekantipur.com/bagmati-pradesh/2026/10/09/road-in-dhadings-galaudi-flooded-vehicular-movement-on-prithvi-highway-halted-45-15.html\" target=\"_blank\" rel=\"noopener\">Kantipur</a> · <a href=\"https://ekantipur.com/business/2026/10/09/preparations-to-open-collapsed-road-in-galaudi-on-saturday-by-cutting-through-wall-53-03.html\" target=\"_blank\" rel=\"noopener\">Kantipur · reopening plan</a> · <a href=\"https://nepallive.com/story/351784\" target=\"_blank\" rel=\"noopener\">Nepal Live</a> · <a href=\"https://english.onlinekhabar.com/prithvi-highway-closed.html\" target=\"_blank\" rel=\"noopener\">OnlineKhabar</a>"
 
 }
 };window.I18N_LISTS = {

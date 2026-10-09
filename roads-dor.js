@@ -191,6 +191,62 @@
     for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
     return null;
   }
+  function manualClosures() {
+    return [
+      {
+        id: "galaudi-2026-10-09",
+        ref: "NH17",
+        link: "",
+        status: "closed",
+        lists: ["news"],
+        manual: true,
+        priority: false,
+        name: { en: "Prithvi Highway", ne: "पृथ्वी राजमार्ग" },
+        section: { en: "Galaudi, Gajuri-5", ne: "गलौदी, गजुरी–५" },
+        reason: { en: "Road subsided", ne: "सडक भासियो" },
+        district: { en: "Dhading", ne: "धादिङ" },
+        place: { en: "Near Gajuri", ne: "गजुरी नजिक" },
+        contact: "",
+        closed: { iso: "2026-10-09T18:00:00+05:45", en: "9 Oct 2026, evening NPT", ne: "९ अक्टोबर २०२६, साँझ NPT" },
+        opened: null,
+        estimate: null,
+        note: {
+          en: "Asoj 23 evening news pin, not a NAVIGATE row. OpenStreetMap Gajuri village (27.805, 84.877). Galaudi has no separate public pin. Mugling–Kathmandu fully closed. Reopen by Saturday evening is a target, not a confirmation.",
+          ne: "असोज २३ साँझको समाचार चिन्ह, NAVIGATE पंक्ति होइन। OpenStreetMap को गजुरी बस्ती (२७.८०५, ८४.८७७)। गलौदीको छुट्टै सार्वजनिक बिन्दु छैन। मुग्लिन–काठमाडौं पूर्ण बन्द। शनिबार साँझ खोल्ने लक्ष्य हो, पुष्टि होइन।"
+        },
+        point: { lat: 27.8046804, lng: 84.8771186, lock: true, source: "OSM node 279374584 Gajuri village" }
+      },
+      {
+        id: "machhedi-2026-10-09",
+        ref: "NH17",
+        link: "",
+        status: "closed",
+        lists: ["news"],
+        manual: true,
+        priority: false,
+        name: { en: "Prithvi Highway", ne: "पृथ्वी राजमार्ग" },
+        section: { en: "Machhedi, near Galchhi", ne: "मच्छेडी, गल्छी नजिक" },
+        reason: { en: "LPG tanker overturned", ne: "ग्यास बुलेट पल्टियो" },
+        district: { en: "Dhading", ne: "धादिङ" },
+        place: { en: "Galchhi town pin", ne: "गल्छी बजारको बिन्दु" },
+        contact: "",
+        closed: { iso: "2026-10-09T12:00:00+05:45", en: "9 Oct 2026, Friday", ne: "९ अक्टोबर २०२६, शुक्रबार" },
+        opened: null,
+        estimate: null,
+        note: {
+          en: "Asoj 23 news pin, not a NAVIGATE row. OpenStreetMap Galchhi town (27.797, 85.000). Machhedi has no separate public pin. A gas bullet overturned and leaked; crews heading to Galaudi are slowed.",
+          ne: "असोज २३ को समाचार चिन्ह, NAVIGATE पंक्ति होइन। OpenStreetMap को गल्छी बजार (२७.७९७, ८५.०००)। मच्छेडीको छुट्टै सार्वजनिक बिन्दु छैन। ग्यास बुलेट पल्टिएर ग्यास चुहियो; गलौदी जाने टोली ढिलो छ।"
+        },
+        point: { lat: 27.7973963, lng: 85.0004606, lock: true, source: "OSM node 279374592 Galchhi town" }
+      }
+    ];
+  }
+  function ensureManualRoads() {
+    if (!data || !data.roads) return;
+    manualClosures().forEach(function (road) {
+      if (!roadById(road.id)) data.roads.unshift(road);
+    });
+  }
   function inList(road, name) {
     return road.lists && road.lists.indexOf(name) !== -1;
   }
@@ -812,7 +868,7 @@
         icon: markerIcon(road),
         keyboard: true,
         alt: road.ref + " " + tx(road.section),
-        zIndexOffset: road.id === data.priority_id ? 400 : 0
+        zIndexOffset: road.manual ? 650 : (road.id === data.priority_id ? 400 : 0)
       });
       marker._roadId = road.id;
       marker.bindPopup(popupHtml(road), { closeButton: true, autoPan: true, maxWidth: 280, className: "map-card-pop" });
@@ -1491,6 +1547,20 @@
       map._prMarkers.push(marker);
     }
     (police.rows || []).forEach(addPoint);
+    manualClosures().forEach(function (road) {
+      addPoint({
+        id: road.id,
+        status_type: "full_block",
+        prominent: road.id.indexOf("galaudi") === 0,
+        group: "bagmati",
+        district: road.district,
+        highway_ne: road.name.ne + " · " + road.section.ne,
+        highway_en: road.name.en + " · " + road.section.en,
+        location_ne: road.place.ne,
+        location_en: road.place.en,
+        point: { lat: road.point.lat, lng: road.point.lng, certain: true }
+      });
+    });
     var lastFrame = "";
     function fitNational() {
       if (token !== mapGen || userMoved) return;
@@ -2335,6 +2405,7 @@
         if (!json || !json.roads) return;
         var keep = selectedId;
         data = json;
+        ensureManualRoads();
         selectedId = keep;
         recolorRoads();
       })
@@ -2342,6 +2413,7 @@
   }
   function renderAll() {
     if (!data) return;
+    ensureManualRoads();
     clearMaps();
     mounts.forEach(renderMount);
     if ((location.hash || "") === "#dor-map") {

@@ -1093,3 +1093,15 @@ html.theme-tihar .fest-hero .fest-tika-line{
   .fest-abroad-table td.fest-abroad-time::after{content:" · ";color:#a16207;font-weight:700}
   .fest-abroad-table tr.is-out{display:none !important}
 }
+.home-road-alert{margin:0 0 16px;padding:14px 16px 12px;background:#fff;color:#0f172a;border:1px solid #fecdd3;border-left:4px solid #c41e3a;border-radius:12px;box-shadow:0 1px 2px rgba(15,23,42,.06);scroll-margin-top:var(--stick,148px)}
+#prithvi-alert{scroll-margin-top:var(--stick,148px)}
+.home-road-alert-k{margin:0 0 4px;font-size:12px;font-weight:800;letter-spacing:.04em;color:#c41e3a}
+.home-road-alert-h{margin:0 0 8px;font-size:clamp(18px,2.4vw,22px);line-height:1.35;font-weight:800;color:#9f1239}
+.home-road-alert p{margin:0 0 8px;font-size:16px;line-height:1.5}
+.home-road-alert-s{font-weight:800}
+.home-road-alert-note{color:#334155;font-size:14px}
+.home-road-alert-src{margin:4px 0 0;font-size:14px}
+.home-road-alert a{color:#9f1239;font-weight:800}
+.home-road-alert-more{display:inline-block;margin-top:2px;font-weight:800;color:#c41e3a;text-decoration:none}
+.home-road-alert-more:hover{text-decoration:underline}
+#home .home-road-alert{margin:0 0 12px}
