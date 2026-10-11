@@ -9,10 +9,10 @@ The homepage shows a category grid. Contacts with `"home": true` appear there (1
 Add an object to `rescue_update`. The page adds the `count` values for “Rescued so far” and groups them by agency. Do not add that count to `missing.count`.
 
 ```json
-{"time_ne": "करिब ०९:५०", "time_en": "About 9:50 AM", "agency_ne": "नेपाली सेना", "agency_en": "Nepali Army", "count": 6, "place_ne": "जगत", "place_en": "Jagat", "method_ne": "सेनाको हेलिकप्टर", "method_en": "Army helicopter", "source_name_ne": "RONB", "source_name_en": "RONB", "source_url": "https://example.com/report"}
+{"time_ne": "१०:०७", "time_en": "10:07 AM", "agency_ne": "नेपाली सेना", "agency_en": "Nepali Army", "count": 6, "place_ne": "जगत", "place_en": "Jagat", "method_ne": "हवाई उद्धार", "method_en": "Air rescue", "source_name_ne": "नेपाली सेना", "source_name_en": "Nepali Army", "source_url": "https://x.com/NepaliArmyHQ/status/2109137523494510845"}
 ```
 
-Extra links for the same rescue go in `sources` as `{"name_ne": "", "name_en": "", "url": ""}` so the people are not counted twice.
+Extra links for the same rescue go in `sources` as `{"name_ne": "", "name_en": "", "url": ""}` so the people are not counted twice. A count needs the Nepali Army, NDRRMA, the Gorkha DAO, or police. If those accounts have not said it, use at least two independent outlets that name their source and set `label_en` to `reported · sources`. One outlet with no official source does not go on the page. Hamro Patro is an aggregator, so cite the underlying outlet.
 
 ## New river reading
 
