@@ -88,6 +88,58 @@
   function head(icon, ne, en) {
     return '<p class="bg-card-k">' + ico(icon) + esc(t(ne, en)) + "</p>";
   }
+  function unit(ne, en) {
+    var word = t(ne, en);
+    return word ? " <span>" + esc(word) + "</span>" : "";
+  }
+  function rescueTotal(list) {
+    return list.reduce(function (sum, item) { return sum + Number(item.count || 0); }, 0);
+  }
+  function rescueSources(item) {
+    var links = [];
+    if (item.source_url) {
+      links.push('<a href="' + esc(item.source_url) + '" target="_blank" rel="noopener">' + esc(t(item.source_name_ne || item.source_name, item.source_name_en || item.source_name)) + "</a>");
+    }
+    (item.sources || []).forEach(function (s) {
+      links.push('<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(t(s.name_ne, s.name_en)) + "</a>");
+    });
+    return links.join(" · ");
+  }
+  function agencyLines(list) {
+    var order = [];
+    var map = {};
+    list.forEach(function (item) {
+      var key = (item.agency_ne || "") + "\n" + (item.agency_en || "");
+      if (!map[key]) {
+        map[key] = 0;
+        order.push(key);
+      }
+      map[key] += Number(item.count || 0);
+    });
+    return order.map(function (key) {
+      var parts = key.split("\n");
+      return "<li>" + esc(t(parts[0], parts[1])) + ": <strong>" + esc(digits(String(map[key]))) + "</strong></li>";
+    }).join("");
+  }
+  function rescueUpdateHtml(d) {
+    var list = d.rescue_update || [];
+    var missing = d.missing || { count: 0, label_en: "out of contact" };
+    var rows = list.map(function (item) {
+      return "<li><strong>" + esc(digits(t(item.time_ne, item.time_en))) + "</strong> · " +
+        esc(t(item.place_ne, item.place_en)) + " · " +
+        esc(t(item.method_ne, item.method_en)) + " · " +
+        esc(digits(String(item.count))) +
+        " · " + rescueSources(item) + "</li>";
+    }).join("");
+    return '<div class="bg-glance">' +
+      '<div class="bg-glance-ok"><p class="bg-glance-k">' + esc(t("हालसम्म उद्धार", "Rescued so far")) + "</p>" +
+      '<p class="bg-glance-n"><strong>' + esc(digits(String(rescueTotal(list)))) + "</strong>" + unit("जना", "") + "</p></div>" +
+      '<div class="bg-glance-miss"><p class="bg-glance-k">' + esc(t("सम्पर्कविहीन", "Missing")) + "</p>" +
+      '<p class="bg-glance-n"><strong>' + esc(digits(String(missing.count))) + "</strong>" + unit("जना", missing.label_en || "out of contact") + "</p></div>" +
+      "</div>" +
+      '<ul class="bg-agency">' + agencyLines(list) + "</ul>" +
+      '<ul class="bg-rescue-log">' + rows + "</ul>";
+  }
   function impactLi(item) {
     var text = esc(t(item.ne, item.en));
     if (item.prominent) text = "<strong>" + text + "</strong>";
@@ -124,6 +176,9 @@
       downRows(d) + "</article>" +
       '<article class="bg-card">' + head("M4 20V10l8-6 8 6v10M9 20v-6h6v6", "क्षति (प्रारम्भिक)", "Impact (reported)") +
       "<ul>" + impact + "</ul></article>" +
+      '<article class="bg-card bg-rescue">' + head("M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM12 11v4M12 8h.01", "उद्धार अपडेट", "Rescue update") +
+      rescueUpdateHtml(d) +
+      '<a class="bg-see-all" href="budhi-gandaki.html#rescue-update">' + esc(t("सबै हेर्नुहोस् →", "See all →")) + "</a></article>" +
       '<article class="bg-card">' + head("M12 3v6M8 9h8l2 4H6l2-4zM7 13v6M17 13v6M5 19h14", "उद्धार र राहत", "Rescue & relief") +
       "<ul>" + rescue + "</ul></article>" +
       '<article class="bg-card">' + head("M12 19V5M6 11l6-6 6 6", "सुरक्षित स्थानमा जानुहोस्", "Who should move") +
@@ -193,6 +248,8 @@
       downRows(d) + "</article>" +
       '<article class="bg-card" id="impact"><p class="bg-card-k">' + esc(t("प्रारम्भिक विवरण", "Reported so far")) + "</p>" +
       "<p>" + esc(t(d.impact_note_ne, d.impact_note_en)) + "</p><ul>" + impact + "</ul></article>" +
+      '<article class="bg-card bg-rescue" id="rescue-update"><p class="bg-card-k">' + esc(t("उद्धार अपडेट", "Rescue update")) + "</p>" +
+      rescueUpdateHtml(d) + "</article>" +
       '<article class="bg-card" id="rescue"><p class="bg-card-k">' + esc(t("उद्धार र राहत", "Rescue and relief")) + "</p>" +
       "<ul>" + rescue + "</ul></article>" +
       '<article class="bg-card" id="act"><p class="bg-card-k">' + esc(t("अहिले कसले के गर्ने", "Who should act now")) + "</p>" +
