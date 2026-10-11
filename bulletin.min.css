@@ -1105,3 +1105,16 @@ html.theme-tihar .fest-hero .fest-tika-line{
 .home-road-alert-more{display:inline-block;margin-top:2px;font-weight:800;color:#c41e3a;text-decoration:none}
 .home-road-alert-more:hover{text-decoration:underline}
 #home .home-road-alert{margin:0 0 12px}
+.home-flood-alert{margin:0 0 12px;padding:14px 16px 12px;background:#c41e3a;color:#fff;border-radius:12px;box-shadow:0 1px 2px rgba(15,23,42,.12);scroll-margin-top:var(--stick,148px)}
+.home-flood-alert-k{margin:0 0 4px;font-size:12px;font-weight:800;letter-spacing:.04em;color:#ffe4e6}
+.home-flood-alert-h{margin:0 0 8px;font-size:clamp(18px,2.4vw,22px);line-height:1.4;font-weight:800}
+.home-flood-alert-h a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.home-flood-alert p{margin:0 0 8px;font-size:16px;line-height:1.45}
+.home-flood-alert-s{font-weight:800}
+.home-flood-alert-t{font-size:14px;font-weight:800;color:#ffe4e6}
+.home-flood-alert-phones{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.home-flood-alert-phones a{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;border-radius:999px;background:#fff;color:#9f1239;font-weight:800;text-decoration:none}
+.home-flood-alert-phones a:hover{text-decoration:underline}
+.map-pin.alert,.map-legend .pin.alert{background:#c41e3a}
+#budhi-gandaki{scroll-margin-top:var(--stick,148px)}
+.home-road-alert .phones a{background:#c41e3a;color:#fff}

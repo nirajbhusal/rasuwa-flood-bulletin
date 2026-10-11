@@ -816,6 +816,7 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
       <span><i class="pin hit"></i><span data-i18n="map_reached">पुगेको</span></span>
       <span><i class="pin risk"></i><span data-i18n="map_est">अनुमान</span></span>
       <span><i class="pin gauge"></i><span data-i18n="map_gauge">DHM गेज</span></span>
+      <span><i class="pin alert"></i><span data-i18n="map_budhi">बुढीगण्डकी · असोज २५</span></span>
     </div>
     <p class="map-note" data-i18n-html="map_note">बिन्दुहरू बजार/पुलका अनुमानित स्थान हुन्, नदीको ठीक बीच होइन। DHM प्रतिवेदन: देवघाट उच्चिष्ठ ६.५७ मि @ १६:००। महाशाखा: SMS ६.८ लाख; देवघाट extra ~२० मिलियन घनमिटर। सुस्ता सारिँदै (करिब ७०%), बाढी पुगेको पुष्टि छैन। नुवाकोट देवीघाट ≠ चितवन देवघाट। © OpenStreetMap</p>
   </div>
@@ -1328,6 +1329,10 @@ window.PAGE_VER="cab7702-20261009T163024Z";
   var risk = [
     {name:"सुस्ता", name_en:"Susta", t:"~१५:४५", t_en:"~15:45", note:"करिब ७०% सारिए · बाढी पुगेको होइन", note_en:"About 70% moved · flood has not arrived", lat:27.452, lng:83.909, kind:"risk"}
   ];
+  var budhi = [
+    {name:"चुमनुब्री / लोकपा", name_en:"Chumnubri / Lokpa", t:"असोज २५ · ६:४०", t_en:"Asoj 25 · 6:40 AM", note:"बुढीगण्डकी थुनिएको · चुमनुब्री–६, लोकपा–चुमलिङ", note_en:"Budhi Gandaki blockage · Chumnubri-6, Lokpa–Chumling", lat:28.441949, lng:84.9177789, kind:"alert"},
+    {name:"बेनीघाट दोभान", name_en:"Benighat confluence", t:"त्रिशूली", t_en:"Trishuli", note:"बुढीगण्डकी–त्रिशूली दोभान", note_en:"Budhi Gandaki–Trishuli confluence", lat:27.81427, lng:84.78218, kind:"alert"}
+  ];
   var map = L.map(el, {scrollWheelZoom:false, tap:true});
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 16,
@@ -1363,7 +1368,8 @@ window.PAGE_VER="cab7702-20261009T163024Z";
   }
   confirmed.forEach(function(p, i){ pin(p, i + 1); });
   risk.forEach(function(p, i){ pin(p, confirmed.length + i + 1); });
-  map.fitBounds(confLatLng.concat(risk.map(function(p){ return [p.lat, p.lng]; })), {padding: [28, 28], maxZoom: 10});
+  budhi.forEach(function(p, i){ pin(p, i === 0 ? "ल" : "ब"); });
+  map.fitBounds(confLatLng.concat(risk.map(function(p){ return [p.lat, p.lng]; })).concat(budhi.map(function(p){ return [p.lat, p.lng]; })), {padding: [28, 28], maxZoom: 10});
   var GAUGE_XY = {
     4657: [28.098163, 85.318589],
     52: [27.97, 85.18],
