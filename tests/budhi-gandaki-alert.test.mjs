@@ -75,8 +75,17 @@ test("readings, timeline, impact, contacts and photos live in one JSON file", fu
   assert.equal(data.aarughat.warning_m, 4.5);
   assert.equal(data.aarughat.latest.trend, "RISING");
   assert.equal(data.aarughat.history[0].level_m, 5.01);
+  assert.equal(data.aarughat.latest.note_en, "No new reading from the Aarughat station since 8:40 AM");
+  assert.deepEqual(data.downstream.map(function (s) { return s.level_m; }), [3.95, 3.85, 3.34]);
+  assert.deepEqual(data.downstream.map(function (s) { return s.trend; }), ["STEADY", "STEADY", "STEADY"]);
   assert.equal(data.downstream.length, 3);
   assert.deepEqual(data.downstream.map(function (s) { return s.status; }), ["BELOW", "BELOW", "BELOW"]);
+  assert.match(data.impact[0].ne, /४ जना सम्पर्कविहीन/);
+  assert.equal(data.impact[0].prominent, true);
+  assert.doesNotMatch(data.impact.map(function (item) { return item.en; }).join(" "), /\bdead\b|\bkilled\b/i);
+  assert.match(data.rescue.map(function (item) { return item.en; }).join(" "), /Sudan Gurung/);
+  assert.ok(data.sources.some(function (s) { return s.href.indexOf("ehimalayatimes.com/2026/10/489376") >= 0; }));
+  assert.equal(JSON.stringify(data).indexOf("20-22"), -1);
   assert.equal(data.photos.length, 3);
   for (const photo of data.photos) {
     assert.match(photo.src, /^img\/budhi\/aerial-[123]\.webp$/);
@@ -86,7 +95,7 @@ test("readings, timeline, impact, contacts and photos live in one JSON file", fu
   assert.ok(data.timeline.length >= 7);
   assert.match(data.impact.map(function (item) { return item.en; }).join(" "), /No official casualty figure yet/);
   assert.deepEqual(data.contacts.filter(function (c) { return c.home; }).map(function (c) { return c.num; }), ["1234", "102", "100", "9856061190", "9856057777"]);
-  assert.equal(data.rescue.length, 2);
+  assert.equal(data.rescue.length, 3);
   assert.match(js, /Current status/);
   assert.match(js, /See all →/);
   assert.match(js, /तल्लोतटीय नदी/);
