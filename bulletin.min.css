@@ -1223,3 +1223,5 @@ html.theme-tihar .fest-hero .fest-tika-line{
 .bg-agency li{margin:0 0 4px;font-weight:700}
 .bg-rescue-log li{margin:0 0 8px}
 .bg-rescue-log a,.bg-rescue .bg-see-all{color:#115e59;font-weight:800}
+.bg-video{display:block;width:100%;height:auto;border-radius:12px;background:#0f172a}
+.bg-cap{margin:8px 0 0;font-size:15px;line-height:1.45}

@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-11T11:00:00+05:45",
-  "updated_ne": "पछिल्लो अपडेट: असोज २५, ११:०० NPT",
-  "updated_en": "Last updated: Asoj 25, 11:00 AM NPT",
+  "updated_at": "2026-10-11T11:20:00+05:45",
+  "updated_ne": "पछिल्लो अपडेट: असोज २५, ११:२० NPT",
+  "updated_en": "Last updated: Asoj 25, 11:20 AM NPT",
   "title_ne": "बुढीगण्डकी बाढी अपडेट",
   "title_en": "Budhi Gandaki Flood Update",
   "kicker_ne": "बाढी अलर्ट",
@@ -317,6 +317,18 @@
       "alt_en": "Helicopter view of a riverside settlement above a muddy flood-filled Budhi Gandaki gorge"
     }
   ],
+  "media": [
+    {
+      "type": "video",
+      "src": "img/budhi-gandaki/ndrrma-aerial-2026-10-11.mp4",
+      "poster": "img/budhi-gandaki/ndrrma-aerial-2026-10-11.jpg",
+      "w": 406,
+      "h": 720,
+      "caption_ne": "बुढीगण्डकीमा आएको बाढीबाट प्रभावित केही क्षेत्रको हेलिकोप्टरबाट लिइएको भिडियो। भिडियो स्रोतःनेपाली सेना",
+      "caption_en": "Aerial view of flood-affected areas along the Budhi Gandaki, filmed from a helicopter. Video: Nepali Army, shared by NDRRMA.",
+      "source_url": "https://www.instagram.com/reel/DeV01BhMQ3F/"
+    }
+  ],
   "photo_caption_ne": "हेलिकप्टरबाट लिइएको तस्विर",
   "photo_caption_en": "Helicopter photo",
   "photo_credit": "https://x.com/ndrrma_nepal/status/2109113480993526254",
@@ -451,6 +463,11 @@
       "href": "https://x.com/ndrrma_nepal/status/2109113480993526254",
       "ne": "@ndrrma_nepal · हवाई तस्विर",
       "en": "@ndrrma_nepal · aerial photos"
+    },
+    {
+      "href": "https://www.instagram.com/reel/DeV01BhMQ3F/",
+      "ne": "NDRRMA · हेलिकप्टर भिडियो",
+      "en": "NDRRMA · helicopter video"
     },
     {
       "href": "https://www.ratopati.com/story/598741/flood-in-budhigandaki-35-houses-in-chumanubri-washed-away",

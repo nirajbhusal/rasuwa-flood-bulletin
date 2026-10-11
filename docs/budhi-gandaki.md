@@ -30,4 +30,4 @@ Add an object to the end of `timeline`:
 
 Add `"href"` only when there is a link. Keep each sentence short.
 
-Photos belong in `photos` and must be real flood photographs, not screenshots. Put optimized WebP files in `img/budhi/`.
+Photos belong in `photos` and must be real flood photographs, not screenshots. Put optimized WebP files in `img/budhi/`. A helicopter video belongs in `media` with `"type": "video"`, plus `src`, `poster`, `caption_ne`, `caption_en` and `source_url`.
