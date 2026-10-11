@@ -1112,9 +1112,14 @@ html.theme-tihar .fest-hero .fest-tika-line{
 .home-flood-alert p{margin:0 0 8px;font-size:16px;line-height:1.45}
 .home-flood-alert-s{font-weight:800}
 .home-flood-alert-t{font-size:14px;font-weight:800;color:#ffe4e6}
-.home-flood-alert-phones{display:flex;flex-wrap:wrap;gap:8px;margin:0}
-.home-flood-alert-phones a{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;border-radius:999px;background:#fff;color:#9f1239;font-weight:800;text-decoration:none}
+.home-flood-alert-phones{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.home-flood-alert-phones a{display:inline-flex;align-items:center;justify-content:flex-start;box-sizing:border-box;max-width:100%;min-height:44px;padding:8px 12px;border-radius:12px;background:#fff;color:#9f1239;font-weight:800;font-size:15px;line-height:1.35;text-align:left;text-decoration:none;white-space:normal;overflow-wrap:anywhere}
 .home-flood-alert-phones a:hover{text-decoration:underline}
+.budhi-contact-src{margin:8px 0 0;font-size:14px;line-height:1.4;font-weight:700;overflow-wrap:anywhere}
+.home-flood-alert .budhi-contact-src a{color:#fff;font-weight:700}
+.home-road-alert .budhi-phones{display:flex;flex-wrap:wrap;gap:8px}
+.home-road-alert .budhi-phones a{display:inline-flex;align-items:center;justify-content:flex-start;box-sizing:border-box;max-width:100%;min-height:44px;padding:8px 12px;border-radius:12px;background:#c41e3a;color:#fff;font-size:15px;line-height:1.35;text-align:left;white-space:normal;overflow-wrap:anywhere}
+.home-road-alert .budhi-contact-src a{color:#9f1239;font-weight:800}
 .map-pin.alert,.map-legend .pin.alert{background:#c41e3a}
 #budhi-gandaki{scroll-margin-top:var(--stick,148px)}
 .home-road-alert .phones a{background:#c41e3a;color:#fff}

@@ -33,6 +33,14 @@ test("homepage red alert sits above the Prithvi card and links to the river page
   assert.match(index, /चुमनुब्रीमा ३५ घर बगाएको समाचार छ/);
   assert.match(index, /DHM · असोज २५, बिहान ६:४०/);
   const card = sliceBetween(index, 'id="budhi-alert"', 'id="prithvi-alert"');
+  assert.match(card, /बुढीगण्डकी प्रभावित क्षेत्रमा उद्धार, राहत र सुरक्षित स्थानान्तरणका लागि हेलिकप्टर परिचालन गरिएका छन्।/);
+  assert.match(card, /href="tel:1234"/);
+  assert.match(card, /href="tel:102"/);
+  assert.match(card, /href="tel:100"/);
+  assert.match(card, /href="tel:\+9779856061190"/);
+  assert.match(card, /href="tel:\+9779856057778"/);
+  assert.match(card, /https:\/\/nepalpolice\.gov\.np\/about-us\/information-officer\//);
+  assert.doesNotMatch(card, /9867173694|9856057777|9856057780/);
   assert.doesNotMatch(card, /<img/i);
   assert.doesNotMatch(card, /open-alert/);
 });
@@ -55,13 +63,20 @@ test("alerts page and river outlook lead with the full Budhi Gandaki item", func
     assert.match(html, /https:\/\/nagariknews\.nagariknetwork\.com\/social-affairs\/flood-in-budhigandaki-35-houses-in-chumanubri-washed-away-62-56\.html/);
     assert.match(html, /https:\/\/www\.onlinekhabar\.com\/2026\/10\/2036590\/chumanumbri-administrative-officer-says-the-situation-is-chaotic-the-flood-keeps-coming-and-going/);
     assert.match(html, /https:\/\/x\.com\/DHM_FloodEWS\/status\/2109094184741372357/);
-    assert.doesNotMatch(sliceBetween(html, 'id="budhi-gandaki"', "</article>"), /<img/i);
+    const item = sliceBetween(html, 'id="budhi-gandaki"', "</article>");
+    assert.match(item, /बुढीगण्डकी प्रभावित क्षेत्रमा उद्धार, राहत र सुरक्षित स्थानान्तरणका लागि हेलिकप्टर परिचालन गरिएका छन्।/);
+    assert.match(item, /href="tel:\+9779867173694"/);
+    assert.match(item, /href="tel:\+9779856057777"/);
+    assert.match(item, /href="tel:\+9779856057780"/);
+    assert.match(item, /https:\/\/nepalpolice\.gov\.np\/about-us\/information-officer\//);
+    assert.doesNotMatch(item, /<img/i);
   }
 });
 
 test("English uses alert, and the flood map gains Lokpa and Benighat pins", function () {
   assert.ok(i18n.includes(enHeadline));
   const enBlock = i18n.slice(i18n.indexOf('"budhi_k": "Flood alert"'), i18n.indexOf("};window.I18N_LISTS"));
+  assert.match(i18n, /Helicopters deployed for rescue, relief and evacuation in Budhi Gandaki-affected areas\./);
   assert.equal(/\bwarning\b/i.test(enBlock), false);
   assert.match(damage, /lat:28\.441949, lng:84\.9177789, kind:"alert"/);
   assert.match(damage, /lat:27\.81427, lng:84\.78218, kind:"alert"/);
