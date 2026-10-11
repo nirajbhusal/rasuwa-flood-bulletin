@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-11T11:20:00+05:45",
-  "updated_ne": "पछिल्लो अपडेट: असोज २५, ११:२० NPT",
-  "updated_en": "Last updated: Asoj 25, 11:20 AM NPT",
+  "updated_at": "2026-10-11T11:26:00+05:45",
+  "updated_ne": "पछिल्लो अपडेट: असोज २५, ११:२६ NPT",
+  "updated_en": "Last updated: Asoj 25, 11:26 AM NPT",
   "title_ne": "बुढीगण्डकी बाढी अपडेट",
   "title_en": "Budhi Gandaki Flood Update",
   "kicker_ne": "बाढी अलर्ट",
@@ -11,8 +11,8 @@
   "guidance_ne": "बाढी पास नहुँदासम्म बेनीघाटको त्रिशूली दोभानसम्म नदी छेउछाउ नजानुहोस्। उच्च स्थानमा बस्नुहोस्। NDRRMA (०९:४२): बेनीघाटसम्म अति उच्च जोखिम, मुग्लिङसम्म उच्च सतर्कता। चितवन र नवलपरासी मध्यम जोखिम।",
   "guidance_en": "Stay away from the river down to the Trishuli confluence at Benighat until it passes, and move to high ground. NDRRMA at 9:42 AM: very high risk down to Benighat, high alert up to Mugling. Medium risk along the river in Chitwan and Nawalparasi.",
   "source": "https://www.hydrology.gov.np/",
-  "feed_label_ne": "DHM hydrology.gov.np · १०:२०–१०:४० NPT",
-  "feed_label_en": "DHM hydrology.gov.np · 10:20–10:40 AM NPT",
+  "feed_label_ne": "DHM hydrology.gov.np · ११:००–११:२० NPT",
+  "feed_label_en": "DHM hydrology.gov.np · 11:00–11:20 AM NPT",
   "scale_max_m": 10,
   "aarughat": {
     "station_index": "445",
@@ -60,30 +60,30 @@
       "danger_m": 9.0,
       "trend": "STEADY",
       "status": "BELOW",
-      "time_ne": "१०:२०",
-      "time_en": "10:20 AM"
+      "time_ne": "११:००",
+      "time_en": "11:00 AM"
     },
     {
       "name_ne": "काली खोला · त्रिशूली",
       "name_en": "Trishuli at Kali Khola",
-      "level_m": 4.09,
+      "level_m": 4.5,
       "warning_m": 10.8,
       "danger_m": 12.1,
       "trend": "RISING",
       "status": "BELOW",
-      "time_ne": "१०:४०",
-      "time_en": "10:40 AM"
+      "time_ne": "११:२०",
+      "time_en": "11:20 AM"
     },
     {
       "name_ne": "भोर्ले · त्रिशूली",
       "name_en": "Trishuli at Bhorle",
-      "level_m": 3.33,
+      "level_m": 3.32,
       "warning_m": 9.5,
       "danger_m": null,
       "trend": "STEADY",
       "status": "BELOW",
-      "time_ne": "१०:४०",
-      "time_en": "10:40 AM"
+      "time_ne": "११:२०",
+      "time_en": "11:20 AM"
     }
   ],
   "home_facts": [
@@ -446,6 +446,23 @@
       "href": "https://x.com/NepaliArmyHQ/status/2109137523494510845",
       "by_ne": "नेपाली सेना",
       "by_en": "Nepali Army"
+    },
+    {
+      "time_ne": "११:०१",
+      "time_en": "11:01 AM",
+      "ne": "NDRRMA: कार्यकारी प्रमुख डा. धर्मराज उप्रेतीको अध्यक्षतामा मनसुन प्रतिकार्य कमाण्ड पोस्टको बैठक बिहानदेखि जारी छ। बाढीको निरन्तर निगरानी, विश्लेषण र निकायलाई सूचना तथा निर्देशन बैठकमैं दिइँदै छ।",
+      "en": "NDRRMA: a monsoon response command-post meeting chaired by Executive Chief Dr. Dharmaraj Upreti has been underway since morning. The river is being watched continuously, and agencies are being briefed and directed during the meeting.",
+      "href": "https://x.com/NDRRMA_Nepal/status/2109151062607450204",
+      "by_ne": "NDRRMA",
+      "by_en": "NDRRMA"
+    },
+    {
+      "time_ne": "११:००–११:२०",
+      "time_en": "11:00–11:20 AM",
+      "ne": "DHM: देवघाट ३.९७ मि. (स्थिर), काली खोला ४.५० मि. (बढ्दो), भोर्ले ३.३२ मि. (स्थिर)। तीनैवटा अलर्ट तहभन्दा तल। आरुघाटमा ०८:४० पछि नयाँ रिडिङ छैन: ८.४३ मि., खतरा, बढ्दो।",
+      "en": "DHM: Devghat 3.97 m (steady), Kali Khola 4.50 m (rising), Bhorle 3.32 m (steady). All three are below the alert level. No new Aarughat reading since 8:40 AM: 8.43 m, danger, rising.",
+      "by_ne": "DHM hydrology.gov.np",
+      "by_en": "DHM hydrology.gov.np"
     }
   ],
   "sources": [
@@ -538,6 +555,11 @@
       "href": "https://x.com/NDRRMA_Nepal/status/2109131243778658697",
       "ne": "NDRRMA · ०९:४२",
       "en": "NDRRMA · 9:42 AM"
+    },
+    {
+      "href": "https://x.com/NDRRMA_Nepal/status/2109151062607450204",
+      "ne": "NDRRMA · ११:०१ बैठक",
+      "en": "NDRRMA · 11:01 AM meeting"
     }
   ]
 }
