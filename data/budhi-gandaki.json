@@ -97,6 +97,10 @@
     {"ne": "न्याकचेट–फिलिम पुल बगेको छ। घट्टेखोलाका घरमा लेदो पानी पसेको छ।", "en": "The Nyakchet–Philim bridge is gone. Muddy water entered houses in Ghattekhola.", "by_ne": "मकालु खबर", "by_en": "Makalu Khabar"},
     {"ne": "आधिकारिक मृत्युको अङ्क अहिलेसम्म आएको छैन।", "en": "No official casualty figure yet.", "by_ne": "अहिलेसम्म सार्वजनिक भएको छैन", "by_en": "Not published yet"}
   ],
+  "rescue": [
+    {"ne": "उद्धार, राहत र सुरक्षित स्थानान्तरणका लागि हेलिकप्टर खटिएका छन्।", "en": "Helicopters are deployed for rescue, relief and evacuation.", "by_ne": "NDRRMA", "by_en": "NDRRMA"},
+    {"ne": "उद्धारका लागि सुरक्षाकर्मी खटिएका छन्।", "en": "Security forces are deployed for rescue.", "by_ne": "मकालु खबर", "by_en": "Makalu Khabar"}
+  ],
   "evacuate_ne": "खोर्लाबेसी, मच्छेखोला, सोती, आर्खेत र आरुघाट (सिर्दिबास र धार्चे)।",
   "evacuate_en": "Khorlabesi, Machhakhola, Soti, Arkhet and Arughat, in Siridibas and Dharche.",
   "evacuate_by_ne": "गोरखा जिल्ला प्रहरी, निरीक्षक आकाश कँडेल · रातोपाटी",
@@ -112,12 +116,12 @@
   ],
   "contacts": [
     {"home": true, "tel": "tel:1234", "ne": "उद्धार / DEOC Gorkha", "en": "Rescue / DEOC Gorkha", "num": "1234"},
-    {"home": false, "tel": "tel:102", "ne": "एम्बुलेन्स", "en": "Ambulance", "num": "102"},
+    {"home": true, "tel": "tel:102", "ne": "एम्बुलेन्स", "en": "Ambulance", "num": "102"},
     {"home": true, "tel": "tel:100", "ne": "प्रहरी", "en": "Police", "num": "100"},
     {"home": true, "tel": "tel:+9779856061190", "ne": "जिल्ला प्रहरी कार्यालय गोरखा", "en": "District Police Office Gorkha", "num": "9856061190"},
     {"home": false, "tel": "tel:+9779856057778", "ne": "जिल्ला प्रशासन कार्यालय गोरखा (सहायक प्रमुख जिल्ला अधिकारी)", "en": "DAO Gorkha (Asst. CDO)", "num": "9856057778"},
     {"home": false, "tel": "tel:+9779867173694", "ne": "DEOC गोरखा", "en": "DEOC Gorkha", "num": "9867173694"},
-    {"home": false, "tel": "tel:+9779856057777", "ne": "जिल्ला प्रशासन कार्यालय गोरखा", "en": "DAO Gorkha", "num": "9856057777"},
+    {"home": true, "tel": "tel:+9779856057777", "ne": "जिल्ला प्रशासन कार्यालय गोरखा", "en": "DAO Gorkha", "num": "9856057777"},
     {"home": false, "tel": "tel:+9779856057780", "ne": "जिल्ला प्रशासन कार्यालय गोरखा", "en": "DAO Gorkha", "num": "9856057780"}
   ],
   "contact_source": "https://nepalpolice.gov.np/about-us/information-officer/",

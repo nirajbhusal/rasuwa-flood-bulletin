@@ -1,6 +1,8 @@
 # Budhi Gandaki flood update
 
-The homepage card and `budhi-gandaki.html` both render from `data/budhi-gandaki.json`. A manual update is an edit to that file. There is no automatic fetch.
+The homepage section and `budhi-gandaki.html` both render from `data/budhi-gandaki.json`. A manual update is an edit to that file. There is no automatic fetch.
+
+The homepage shows a category grid. Contacts with `"home": true` appear there (1234, 102, 100, District Police, and DAO Gorkha). The rescue lines live in `rescue`. The homepage timeline shows the latest four `timeline` entries.
 
 ## New river reading
 

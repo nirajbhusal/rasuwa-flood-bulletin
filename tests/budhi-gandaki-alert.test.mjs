@@ -32,6 +32,7 @@ test("homepage card is a light summary that renders from the data file", functio
   assert.match(card, /data-budhi-home/);
   assert.match(card, /data-budhi-slot/);
   assert.match(card, /data-budhi-updated/);
+  assert.match(card, /data-budhi-guide/);
   assert.match(card, /data-i18n="budhi_k">बाढी अलर्ट/);
   assert.match(card, /href="budhi-gandaki\.html"[^>]*data-i18n="budhi_h">बुढीगण्डकी बाढी अपडेट/);
   assert.match(index, /budhi-gandaki\.js/);
@@ -84,7 +85,11 @@ test("readings, timeline, impact, contacts and photos live in one JSON file", fu
   }
   assert.ok(data.timeline.length >= 7);
   assert.match(data.impact.map(function (item) { return item.en; }).join(" "), /No official casualty figure yet/);
-  assert.equal(data.contacts.filter(function (c) { return c.home; }).length, 3);
+  assert.deepEqual(data.contacts.filter(function (c) { return c.home; }).map(function (c) { return c.num; }), ["1234", "102", "100", "9856061190", "9856057777"]);
+  assert.equal(data.rescue.length, 2);
+  assert.match(js, /Current status/);
+  assert.match(js, /See all →/);
+  assert.match(js, /तल्लोतटीय नदी/);
   assert.match(data.contact_source, /nepalpolice\.gov\.np\/about-us\/information-officer/);
   assert.match(js, /data\/budhi-gandaki\.json/);
   assert.match(js, /data-budhi-page/);
