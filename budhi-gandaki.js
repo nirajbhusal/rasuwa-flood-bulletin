@@ -41,14 +41,6 @@
       return '<a href="' + esc(c.tel) + '"><span>' + esc(name) + "</span><strong>" + esc(c.num) + "</strong></a>";
     }).join("") + "</div>";
   }
-  function bar(level, danger, max) {
-    var fill = Math.max(0, Math.min(100, level / max * 100));
-    var mark = Math.max(0, Math.min(100, danger / max * 100));
-    return '<div class="bg-bar" role="img" aria-label="' + esc(lvl(level) + " m, danger " + thr(danger) + " m") + '">' +
-      '<div class="bg-bar-track"><span class="bg-bar-zone" style="left:' + mark + '%"></span>' +
-      '<span class="bg-bar-fill" style="width:' + fill + '%"></span>' +
-      '<i class="bg-bar-mark" style="left:' + mark + '%"></i></div></div>';
-  }
   function hydroSvg(d, compact) {
     var a = d.aarughat;
     var chart = a.chart || [];
