@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-10-11T09:43:00+05:45",
-  "updated_ne": "पछिल्लो अपडेट: असोज २५, ०९:४३ NPT",
-  "updated_en": "Last updated: Asoj 25, 9:43 AM NPT",
+  "updated_at": "2026-10-11T09:49:00+05:45",
+  "updated_ne": "पछिल्लो अपडेट: असोज २५, ०९:४९ NPT",
+  "updated_en": "Last updated: Asoj 25, 9:49 AM NPT",
   "title_ne": "बुढीगण्डकी बाढी अपडेट",
   "title_en": "Budhi Gandaki Flood Update",
   "kicker_ne": "बाढी अलर्ट",
   "kicker_en": "Flood alert",
   "status_ne": "खतरा तहभन्दा माथि · बढ्दो",
   "status_en": "Above the danger level · rising",
-  "guidance_ne": "बाढी पास नहुँदासम्म बेनीघाटको त्रिशूली दोभानसम्म नदी छेउछाउ नजानुहोस्। उच्च स्थानमा बस्नुहोस्।",
-  "guidance_en": "Stay away from the river down to the Trishuli confluence at Benighat until it passes, and move to high ground.",
+  "guidance_ne": "बाढी पास नहुँदासम्म बेनीघाटको त्रिशूली दोभानसम्म नदी छेउछाउ नजानुहोस्। उच्च स्थानमा बस्नुहोस्। NDRRMA (०९:०६): गोरखा, धादिङ, तनहुँ र चितवनका नदी किनार सतर्क रहनुहोस्।",
+  "guidance_en": "Stay away from the river down to the Trishuli confluence at Benighat until it passes, and move to high ground. NDRRMA at 9:06 AM: stay alert along the river in Gorkha, Dhading, Tanahun and Chitwan.",
   "source": "https://www.hydrology.gov.np/",
   "feed_label_ne": "DHM hydrology.gov.np · ०९:१०–०९:३० NPT",
   "feed_label_en": "DHM hydrology.gov.np · 9:10–9:30 AM NPT",
@@ -183,8 +183,8 @@
   "evacuate_en": "Khorlabesi, Machhakhola, Soti, Arkhet and Arughat, in Siridibas and Dharche.",
   "evacuate_by_ne": "गोरखा जिल्ला प्रहरी, निरीक्षक आकाश कँडेल · रातोपाटी",
   "evacuate_by_en": "Gorkha District Police, Inspector Akash Kandel · Ratopati",
-  "districts_ne": "गोरखा, तनहुँ, चितवन, नवलपरासी पूर्व र पश्चिमका नदी किनार।",
-  "districts_en": "River banks in Gorkha, Tanahun, Chitwan, Nawalparasi East and West.",
+  "districts_ne": "गोरखा, धादिङ, तनहुँ, चितवन, नवलपरासी पूर्व र पश्चिमका नदी किनार।",
+  "districts_en": "River banks in Gorkha, Dhading, Tanahun, Chitwan, and Nawalparasi East and West.",
   "dos": [
     {
       "ne": "नदी वा पुल नकाट्नुहोस्।",
@@ -370,6 +370,15 @@
       "href": "https://ehimalayatimes.com/2026/10/489376/",
       "by_ne": "नेत्रप्रसाद शर्मा · हिमालय टाइम्स",
       "by_en": "Netra Prasad Sharma · Himalaya Times"
+    },
+    {
+      "time_ne": "०९:०६",
+      "time_en": "9:06 AM",
+      "ne": "NDRRMA: आरुघाटमा नदीको सतह खतराको तहभन्दा धेरै माथि छ। गोरखा, धादिङ, तनहुँ र चितवनका तल्लो तटीय क्षेत्र सतर्क रहनुहोस्।",
+      "en": "NDRRMA: the river at Aarughat is well above the danger level. Everyone in downstream riverside areas of Gorkha, Dhading, Tanahun and Chitwan should stay alert.",
+      "href": "https://x.com/ndrrma_nepal/status/2109122186552496251",
+      "by_ne": "NDRRMA",
+      "by_en": "NDRRMA"
     }
   ],
   "sources": [
@@ -437,6 +446,11 @@
       "href": "https://www.onlinepana.com/content/417490/",
       "ne": "अनलाइनपाना · गृहमन्त्री",
       "en": "OnlinePana · Home Minister"
+    },
+    {
+      "href": "https://x.com/ndrrma_nepal/status/2109122186552496251",
+      "ne": "NDRRMA · ०९:०६",
+      "en": "NDRRMA · 9:06 AM"
     }
   ]
 }
