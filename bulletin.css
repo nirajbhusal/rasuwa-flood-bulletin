@@ -12856,3 +12856,11 @@ html.theme-tihar .fest-hero .fest-tika-line{
 .bg-rescue-log a,.bg-rescue .bg-see-all{color:#115e59;font-weight:800}
 .bg-video{display:block;width:100%;height:auto;border-radius:12px;background:#0f172a}
 .bg-cap{margin:8px 0 0;font-size:15px;line-height:1.45}
+.bg-alert-line{margin:0 0 16px;padding:14px 16px;border-radius:14px;background:#fff7ed;border:1px solid #fdba74;color:#7c2d12;font-size:18px;line-height:1.5;font-weight:800}
+.home-flood-alert-s{font-size:18px;line-height:1.5}
+.bg-safety{margin:0 0 12px;padding:12px 14px;border-radius:12px;background:#fff7ed;border:1px solid #fdba74;font-weight:700}
+.bg-cause{margin:8px 0 12px}
+.bg-hydro{display:block;width:100%;height:auto}
+.bg-legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:8px 0 0;padding:0;list-style:none}
+.bg-legend li{margin:0;font-size:15px;line-height:1.4;font-weight:700}
+.bg-card .bg-legend{padding-left:0}
