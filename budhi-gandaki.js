@@ -174,12 +174,26 @@
     });
     return links.join(" · ");
   }
+  function deployedHtml(d) {
+    var p = d.deployed;
+    if (!p) return "";
+    return '<div class="bg-deployed"><p class="bg-glance-k">' + esc(t("खटिएको", "Deployed")) + "</p>" +
+      "<p><strong>" + esc(digits(String(p.total))) + "</strong> " + esc(t("सुरक्षाकर्मी", "personnel")) +
+      " · " + esc(t("सेना", "Army")) + " " + esc(digits(String(p.army))) +
+      " / " + esc(t("प्रहरी", "Police")) + " " + esc(digits(String(p.police))) +
+      " / " + esc(t("सशस्त्र", "APF")) + " " + esc(digits(String(p.apf))) + "</p>" +
+      "<p>" + esc(digits(String(p.helicopters))) + " " + esc(t("हेलिकप्टर", "helicopters")) +
+      " · " + esc(digits(String(p.responders))) + " " + esc(t("प्रतिकार्यकर्तालाई सूचना", "responders alerted")) + "</p></div>";
+  }
   function rescueUpdateHtml(d) {
     var list = d.rescue_update || [];
     var missing = d.missing || { count: 0, label_en: "out of contact" };
     var cards = list.map(function (item) {
-      return '<div class="bg-glance-ok"><p class="bg-glance-k">' + esc(t(item.agency_ne, item.agency_en)) + "</p>" +
+      var klass = "bg-glance-ok" + (item.headline ? " bg-glance-lead" : "");
+      var tag = item.reported ? '<p class="bg-reported">' + esc(t("प्रहरीको विवरण", "Police-reported")) + "</p>" : "";
+      return '<div class="' + klass + '"><p class="bg-glance-k">' + esc(t(item.agency_ne, item.agency_en)) + "</p>" +
         '<p class="bg-glance-n"><strong>' + esc(digits(String(item.count))) + "</strong>" + unit("जना", "people") + "</p>" +
+        tag +
         '<p class="bg-glance-src">' + esc(digits(t(item.time_ne, item.time_en))) + " · " + esc(t(item.source_name_ne, item.source_name_en)) + "</p></div>";
     }).join("");
     var rows = list.map(function (item) {
@@ -192,11 +206,26 @@
     var note = (d.rescue_note_ne || d.rescue_note_en)
       ? '<p class="bg-overlap">' + esc(t(d.rescue_note_ne, d.rescue_note_en)) + "</p>"
       : "";
+    var detail = (missing.detail_ne || missing.detail_en)
+      ? '<p class="bg-glance-src">' + esc(t(missing.detail_ne, missing.detail_en)) + "</p>"
+      : "";
     return '<div class="bg-glance">' + cards +
       '<div class="bg-glance-miss"><p class="bg-glance-k">' + esc(t("सम्पर्कविहीन", "Out of contact")) + "</p>" +
-      '<p class="bg-glance-n"><strong>' + esc(digits(String(missing.count))) + "</strong>" + unit("जना", "people") + "</p></div>" +
-      "</div>" + note +
+      '<p class="bg-glance-n"><strong>' + esc(digits(String(missing.count))) + "</strong>" + unit("जना", "people") + "</p>" +
+      detail + "</div>" +
+      "</div>" + note + deployedHtml(d) +
       '<ul class="bg-rescue-log">' + rows + "</ul>";
+  }
+  function impactHtml(d) {
+    var official = [];
+    var earlier = [];
+    (d.impact || []).forEach(function (item) {
+      (item.earlier ? earlier : official).push(impactLi(item));
+    });
+    var old = earlier.length
+      ? '<details class="bg-earlier"><summary>' + esc(t("अघिल्ला विवरण", "Earlier reports")) + "</summary><ul>" + earlier.join("") + "</ul></details>"
+      : "";
+    return "<ul>" + official.join("") + "</ul>" + old;
   }
   function impactLi(item) {
     var text = esc(t(item.ne, item.en));
@@ -220,7 +249,6 @@
   function homeHtml(d) {
     var a = d.aarughat;
     var latest = a.latest;
-    var impact = (d.impact || []).map(impactLi).join("");
     var rescue = (d.rescue || []).map(function (item) {
       return "<li>" + esc(t(item.ne, item.en)) + ' <span class="bg-tag">' + esc(t(item.by_ne, item.by_en)) + "</span></li>";
     }).join("");
@@ -245,8 +273,8 @@
       hydroSvg(d, true) + hydroLegend(d) + hydroCaption() + "</article>" +
       '<article class="bg-card">' + head("M3 8c2 2 4 2 6 0s4-2 6 0 4 2 6 0M3 14c2 2 4 2 6 0s4-2 6 0 4 2 6 0", "तल्लोतटीय नदी", "Downstream rivers") +
       downRows(d) + "</article>" +
-      '<article class="bg-card">' + head("M4 20V10l8-6 8 6v10M9 20v-6h6v6", "क्षति (प्रारम्भिक)", "Impact (reported)") +
-      "<ul>" + impact + "</ul></article>" +
+      '<article class="bg-card">' + head("M4 20V10l8-6 8 6v10M9 20v-6h6v6", "क्षति", "Damage") +
+      impactHtml(d) + "</article>" +
       '<article class="bg-card bg-rescue">' + head("M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM12 11v4M12 8h.01", "उद्धार अपडेट", "Rescue update") +
       rescueUpdateHtml(d) +
       '<a class="bg-see-all" href="budhi-gandaki.html#rescue-update">' + esc(t("सबै हेर्नुहोस् →", "See all →")) + "</a></article>" +
@@ -281,7 +309,6 @@
   function pageHtml(d) {
     var a = d.aarughat;
     var latest = a.latest;
-    var impact = (d.impact || []).map(impactLi).join("");
     var rescue = (d.rescue || []).map(function (item) {
       return "<li>" + esc(t(item.ne, item.en)) + ' <span class="bg-tag">' + esc(t(item.by_ne, item.by_en)) + "</span></li>";
     }).join("");
@@ -323,8 +350,8 @@
       '<article class="bg-card" id="downstream"><p class="bg-card-k">' + esc(t("तल्लो तटीय निगरानी", "Downstream watch")) + "</p>" +
       "<p class=\"bg-feed\">" + esc(t(d.feed_label_ne, d.feed_label_en)) + "</p>" +
       downRows(d) + "</article>" +
-      '<article class="bg-card" id="impact"><p class="bg-card-k">' + esc(t("प्रारम्भिक विवरण", "Reported so far")) + "</p>" +
-      "<p>" + esc(t(d.impact_note_ne, d.impact_note_en)) + "</p><ul>" + impact + "</ul></article>" +
+      '<article class="bg-card" id="impact"><p class="bg-card-k">' + esc(t("क्षति", "Damage")) + "</p>" +
+      "<p>" + esc(t(d.impact_note_ne, d.impact_note_en)) + "</p>" + impactHtml(d) + "</article>" +
       '<article class="bg-card bg-rescue" id="rescue-update"><p class="bg-card-k">' + esc(t("उद्धार अपडेट", "Rescue update")) + "</p>" +
       rescueUpdateHtml(d) + "</article>" +
       '<article class="bg-card" id="rescue"><p class="bg-card-k">' + esc(t("उद्धार र राहत", "Rescue and relief")) + "</p>" +
