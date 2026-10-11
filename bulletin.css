@@ -1857,8 +1857,23 @@ footer{
   margin-top:12px;padding:28px 16px 96px;text-align:center;color:var(--muted);
   border-top:1px solid var(--line);font-size:14px;
 }
+footer .foot-quote{
+  margin:0 auto 14px;max-width:36rem;padding:0 4px;
+  font-style:italic;font-weight:500;font-size:13px;line-height:1.5;
+  color:var(--muted);text-wrap:balance;
+}
+.pull-quote{
+  margin:2px 0 22px;padding:1px 0 1px 14px;
+  border-left:2px solid var(--teal);max-width:40rem;quotes:none;
+}
+.pull-quote::before,.pull-quote::after{content:none}
+.pull-quote p{
+  margin:0;font-style:italic;font-weight:500;
+  font-size:clamp(17px,2vw,20px);line-height:1.55;color:var(--ink);text-wrap:pretty;
+}
 @media (max-width:959px){
   footer{margin-top:8px;padding:16px 12px 96px;font-size:13px}
+  footer .foot-quote{font-size:12.5px;line-height:1.45;margin-bottom:12px}
 }
 footer .foot-contact{margin:0 0 14px;color:var(--ink);font-size:15px;line-height:1.55}
 footer .foot-contact a{color:var(--teal);font-weight:800;text-decoration:none}
