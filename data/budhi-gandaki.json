@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-10-11T15:15:00+05:45",
-  "updated_ne": "पछिल्लो अपडेट: असोज २५, दिउँसो ३:१५ NPT",
-  "updated_en": "Last updated: Asoj 25, 3:15 PM NPT",
+  "updated_at": "2026-10-11T15:23:00+05:45",
+  "updated_ne": "पछिल्लो अपडेट: असोज २५, दिउँसो ३:२३ NPT",
+  "updated_en": "Last updated: Asoj 25, 3:23 PM NPT",
   "title_ne": "बुढीगण्डकी बाढी अपडेट",
   "title_en": "Budhi Gandaki Flood Update",
   "kicker_ne": "बाढी अलर्ट",
   "kicker_en": "Flood alert",
   "status_ne": "स्टेसन बग्नुअघिको अन्तिम रिडिङ",
   "status_en": "Last reading before the station was lost",
-  "guidance_ne": "नदी किनार र तल्लो तटीय बासिन्दा आज साँझसम्म नदी र जोखिमयुक्त बस्तीबाट टाढा, सुरक्षित ठाउँमै बस्नुहोस्। बहाव घटेको देखिए पनि जोखिम सकियो भन्ने नठान्नुहोस्। पुल नकाट्नुहोस् र जोखिमयुक्त सडक प्रयोग नगर्नुहोस्। स्थानीय प्रशासन र सुरक्षा निकायको सूचना पालना गर्नुहोस्। थप विश्लेषण DHM ले सार्वजनिक गर्नेछ।",
-  "guidance_en": "Residents on the riverbank and downstream should stay in safe places, away from the river and risky settlements, until this evening. Do not assume the risk is over even if the flow looks lower. Do not cross bridges or use risky roads. Follow the local administration and security agencies. DHM will publish more analysis.",
-  "origin_ne": "स्रोत: गोरखाको चुमनुब्री गाउँपालिका–६, तुम्जेमा बुढीगण्डकीको सहायक नदीबाट आकस्मिक बाढी। DHM लाई पहिलो जानकारी बिहान ६:०० बजे भयो।",
-  "origin_en": "Origin: a flash flood from a tributary of the Budhi Gandaki at Tumje, Chumnubri Rural Municipality-6, Gorkha. DHM first got word at 6:00 AM.",
-  "cause_label_ne": "सम्भावित कारण (DHM प्रारम्भिक)",
-  "cause_label_en": "Probable cause (DHM preliminary)",
-  "cause_ne": "पछिल्लो २४ घण्टामा छिटपुट वर्षा मात्र भएकोले वर्षा कारण हुने सम्भावना कम छ। प्रारम्भिक विवरण र उपग्रह तस्विरले पहिरोले नदी थुनेर फुटेको देखाउँछ। विस्तृत प्राविधिक विश्लेषण जारी छ।",
-  "cause_en": "Only scattered rain fell in the past 24 hours, so rain is unlikely to be the cause. Initial reports and satellite images suggest a landslide blocked the river and then burst. Detailed technical analysis is still going on.",
-  "alerts_ne": "एसएमएस १ (६:३०): बेनीघाटसम्म नदी किनारका सबैलाई। एसएमएस २ (९:२५): सुरक्षित ठाउँमा जानुहोस् र अर्को सूचना नआउञ्जेल त्यहीँ बस्नुहोस्। दुई चरणमा करिब २ लाख एसएमएस।",
-  "alerts_en": "SMS #1 at 6:30 AM went to everyone along the river down to Benighat. SMS #2 at 9:25 AM said to move to a safe place and stay there until further notice. About 200,000 messages across the two rounds.",
+  "guidance_ne": "बुढीगण्डकी नदीको तटीय बासिन्दा आज साँझसम्म नदी किनार र जोखिमयुक्त बस्तीबाट टाढा, सुरक्षित स्थानमा रहनुहोस्। जोखिमयुक्त पुल र सडकबाट आवतजावत नगर्नुहोस्। स्थानीय प्रशासन तथा सुरक्षा निकायको निर्देशन पालना गर्नुहोस्।",
+  "guidance_en": "Residents on the Budhi Gandaki riverside should stay in safe places, away from the river and risky settlements, until this evening. Avoid risky bridges and roads. Follow the local administration and security agencies.",
+  "origin_ne": "आज बिहान (असोज २५) चुमनुब्री गाउँपालिका–६, लोक्पा र चुम्लिङ बीच ठूलो पहिरोले बुढीगण्डकी थुनियो। थुनिएको भाग फुटेर लेदोसहितको ठूलो बाढी आयो र भौतिक क्षति भयो।",
+  "origin_en": "This morning (Asoj 25) a big landslide between Lokpa and Chumling in Chumnubri Rural Municipality-6 blocked the Budhi Gandaki. The blockage burst into a large debris flood and caused physical damage.",
+  "cause_label_ne": "के भयो (NDRRMA)",
+  "cause_label_en": "What happened (NDRRMA)",
+  "cause_ne": "प्रेस नोट २०८३/०६/२५ (आइतबार), प्रवक्ता तथा उपसचिव शान्ति महत। लोक्पा–चुम्लिङ पहिरोले नदी थुनिएर फुट्यो।",
+  "cause_en": "Press note dated 2083-06-25 (Sunday), signed by spokesperson and Under Secretary Shanti Mahat. The Lokpa–Chumling landslide blocked the river, and the blockage burst.",
+  "alerts_ne": "एसएमएस १ (६:३०): बेनीघाटसम्म नदी किनारका सबैलाई। एसएमएस २ (९:२५): सुरक्षित ठाउँमा जानुहोस् र अर्को सूचना नआउञ्जेल त्यहीँ बस्नुहोस्। दुई चरणमा करिब २ लाख एसएमएस। बिहान ६:०० मा NDRRMA ले गोरखा, धादिङ, तनहुँ, चितवन, नवलपरासी पूर्व र पश्चिम तथा केन्द्रका २२१ प्रतिकार्यकर्तालाई पनि एसएमएस पठायो।",
+  "alerts_en": "SMS #1 at 6:30 AM went to everyone along the river down to Benighat. SMS #2 at 9:25 AM said to move to a safe place and stay there until further notice. About 200,000 messages across the two rounds. At 6:00 AM NDRRMA also texted 221 responders in Gorkha, Dhading, Tanahun, Chitwan, Nawalparasi East and West, and the centre.",
   "source": "https://www.hydrology.gov.np/",
   "feed_label_ne": "DHM hydrology.gov.np · २:३०–३:०० NPT",
   "feed_label_en": "DHM hydrology.gov.np · 2:30–3:00 PM NPT",
@@ -141,8 +141,8 @@
   ],
   "home_facts": [
     {
-      "ne": "चुमनुब्रीमा ३५ घर बगाएको समाचार छ।",
-      "en": "35 houses swept away in Chumnubri, as reported."
+      "ne": "सेनाको हेलिकप्टरबाट ४७ जनाको उद्धार।",
+      "en": "47 people rescued by Army helicopter."
     },
     {
       "ne": "उद्धारका लागि हेलिकप्टर खटिएका छन्।",
@@ -153,33 +153,69 @@
       "en": "Downstream districts should stay alert."
     }
   ],
-  "impact_note_ne": "समाचारमा आएको विवरण। आधिकारिक अन्तिम अङ्क होइन।",
-  "impact_note_en": "As reported. Not a final official count.",
+  "impact_note_ne": "NDRRMA प्रेस नोट, असोज २५। अघिल्ला विवरण तल छन्।",
+  "impact_note_en": "NDRRMA press note, Asoj 25. Earlier reports are below.",
   "impact": [
     {
       "prominent": true,
-      "ne": "४ जना सम्पर्कविहीन। उङगिलुङ खोला किनारमा पशु हेर्दै गरेका चार जनाको सम्पर्क छैन। चार गोठ र १५ याक/नाक बगेका छन्।",
-      "en": "4 people out of contact. Four people tending livestock along the Ungilung Khola are out of contact. Four sheds and 15 yaks and naks were swept away.",
-      "by_ne": "समाचार अनुसार · सहायक प्रमुख जिल्ला अधिकारी नेत्रप्रसाद शर्मा, हिमालय टाइम्स",
-      "by_en": "reported · Asst. CDO Netra Prasad Sharma, Himalaya Times"
+      "ne": "५ जना सम्पर्कविहीन। चुमनुब्री–६ चुम्चेत, उङ्गिलुङको भेडीगोठमा रहेका २ महिला र ३ पुरुष।",
+      "en": "5 people are out of contact: 2 women and 3 men, from a sheep shed in Ungilung, Chumchet, Chumnubri-6.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
     },
     {
-      "ne": "पैयु र बगरका ३५ घर बगाएको छ।",
-      "en": "35 houses in Paiyu and Bagar were swept away.",
-      "by_ne": "लक्ष्मी गुरुङ, चुमनुब्री उपाध्यक्ष · रासस, रातोपाटी",
-      "by_en": "Laxmi Gurung, Chumnubri vice-chair · RSS, Ratopati"
+      "ne": "न्याकचेट (चुमनुब्री–३) मा न्याकचेट–सिर्दिबास जोड्ने पुरानो झोलुङ्गे पुल बग्यो।",
+      "en": "The old suspension bridge linking Nyakchet and Sirdibas, at Nyakchet in Chumnubri-3, was swept away.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
     },
     {
-      "ne": "जगत (चुमनुब्री–६) मा ७ घर बगेका छन्। त्यहाँ मानवीय क्षति छैन। बासिन्दा सुरक्षित स्थानमा सरेका थिए।",
-      "en": "7 houses at Jagat (Chumnubri-6) were swept away. No human casualties there. Residents had moved to safety.",
-      "by_ne": "समाचार अनुसार · प्रहरी, बिजमाण्डु",
-      "by_en": "reported · police, Bizmandu"
+      "ne": "सोही ठाउँमा १ घर बग्यो र १ घरमा बाढी पस्यो।",
+      "en": "At the same place, 1 house was swept away and floodwater entered 1 house.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
     },
     {
-      "ne": "माछीखोला बजारमा क्षति भएको छ।",
-      "en": "Machhikhola market is damaged.",
-      "by_ne": "समाचार अनुसार · सहायक प्रमुख जिल्ला अधिकारी नेत्रप्रसाद शर्मा, हिमालय टाइम्स",
-      "by_en": "reported · Asst. CDO Netra Prasad Sharma, Himalaya Times"
+      "ne": "माछीखोला–केरौँजा जोड्ने झोलुङ्गे पुल (धार्चे–५) बग्यो।",
+      "en": "The suspension bridge linking Machhikhola and Kerauja, Dharche-5, was swept away.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "सल्लेरी (धार्चे–३) मा निर्माणाधीन टाइम्स इनर्जी आयोजना नजिकका ७ देखि ८ घर बगे।",
+      "en": "7 to 8 houses near the under-construction Times Energy project at Salleri, Dharche-3, were swept away.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "नयाँपुल (आरुघाट–९): आरुघाट (गोरखा) र धादिङ जोड्ने पक्की पुलका तीन भागमध्ये गोरखातर्फको भाग बग्यो र क्षति भयो।",
+      "en": "Of the three spans of the concrete bridge linking Aarughat (Gorkha) and Dhading at Nayapul, Aarughat-9, the Gorkha-side span was swept away and damaged.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "माछीखोलाको तल्लो बस्तीमा बाढी पस्यो। २० देखि २२ घर जोखिममा छन्।",
+      "en": "Floodwater entered the lower settlement of Machhikhola, and 20 to 22 houses are at risk.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "सोतीमा आरुघाट–२ र ३ जोड्ने फलामे पक्की पुल बग्यो।",
+      "en": "The concrete bridge at Soti linking Aarughat-2 and 3 was swept away.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "बुढीगण्डकी (३४१ मेगावाट) आयोजनाको मुख्य क्याम्प र केही निर्माण उपकरण बगे।",
+      "en": "The main camp of the Budhi Gandaki (341 MW) project and some construction equipment were swept away.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "२ वटा टेलिफोन टावर र ५० वटा बिजुलीका पोलमा क्षति।",
+      "en": "2 telephone towers and 50 electricity poles were damaged.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
     },
     {
       "ne": "आरुघाट मापन केन्द्र र पुल।",
@@ -188,122 +224,171 @@
       "by_en": "DHM press release"
     },
     {
-      "ne": "तीनवटा पुल बगेका छन्: न्याकचेट–सिर्दिबासको पुरानो झोलुङ्गे पुल (चुमनुब्री–३), माछीखोला–केरौँजाको झोलुङ्गे पुल (धार्चे–५), र सोतीमा आरुघाट–२ र ३ जोड्ने फलामे पक्की पुल (सोती–मान्बु)।",
-      "en": "Three bridges are gone: the old suspension bridge linking Nyakchet and Sirdibas (Chumnubri-3), the suspension bridge linking Machhikhola and Kerauja (Dharche-5), and the iron motorable bridge at Soti linking Arughat-2 and 3 (Soti–Manbu).",
-      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय · अनलाइनखबर ०८:४० · सहायक प्रमुख जिल्ला अधिकारी, हिमालय टाइम्स",
-      "by_en": "Nepal Police HQ · OnlineKhabar 8:40 AM · Asst. CDO, Himalaya Times"
-    },
-    {
-      "ne": "सिर्दिबास (चुमनुब्री–३): रामबहादुर गुरुङको एउटा कच्ची घर बग्यो। अर्को घरमा बाढी पस्यो।",
-      "en": "Sirdibas (Chumnubri-3): one mud house of Ram Bahadur Gurung was swept away, and floodwater entered another of his houses.",
-      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
-      "by_en": "Nepal Police HQ"
-    },
-    {
-      "ne": "माछीखोला (धार्चे–५) तल्लो बस्तीका ५ देखि ७ घर र ५ देखि ७ टहरामा बाढी पस्यो।",
-      "en": "Floodwater entered 5 to 7 houses and 5 to 7 sheds in the lower settlement at Machhikhola (Dharche-5).",
-      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
-      "by_en": "Nepal Police HQ"
-    },
-    {
-      "ne": "सल्लेरी (चुमनुब्री–३) का २० देखि २२ घर जोखिममा छन्।",
-      "en": "20 to 22 houses at Salleri (Chumnubri-3) are at risk.",
-      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
-      "by_en": "Nepal Police HQ"
-    },
-    {
-      "ne": "सल्लेरी (चुमनुब्री–३): निर्माणाधीन सहज ऊर्जाको पावर हाउस र आसपासका ७ देखि ८ घर बगे।",
-      "en": "Salleri (Chumnubri-3): the under-construction Sahas Urja power house and 7 to 8 nearby houses were swept away.",
-      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
-      "by_en": "Nepal Police HQ"
-    },
-    {
-      "ne": "नयाँपुल (आरुघाट–९): गोरखाको आरुघाटबाट धादिङ जोड्ने तीन भागको पक्की पुलको गोरखातर्फको एक भाग बग्यो। सडक पूर्ण रूपमा अवरुद्ध छ।",
-      "en": "Nayapul (Arughat-9): the Gorkha side of the three-part concrete bridge linking Arughat in Gorkha to Dhading was swept away. The road is fully blocked.",
-      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
-      "by_en": "Nepal Police HQ"
-    },
-    {
-      "ne": "सोती (आरुघाट–३): करिब १४ देखि १५ घरमा बाढी पस्यो।",
-      "en": "Soti (Arughat-3): floodwater entered about 14 to 15 houses.",
-      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
-      "by_en": "Nepal Police HQ"
-    },
-    {
-      "ne": "गृहमन्त्री सुदन गुरुङ: न्याकचेट–फिलिम पुल बगेको र घट्टेखोलाका केही घरमा लेदो पसेको समाचार आएको छ।",
-      "en": "Home Minister Sudan Gurung said reports reached him that the Nyakchet–Philim bridge is gone and muddy water entered some houses in Ghattekhola.",
-      "by_ne": "गृहमन्त्रीको भनाइ · रातोपाटी",
-      "by_en": "Home Minister, quoted by Ratopati"
-    },
-    {
-      "ne": "दोभान, घट्टेखोला, जगत र सल्लेरीमा व्यापक क्षति।",
-      "en": "Wide damage at Dobhan, Ghattekhola, Jagat and Salleri.",
-      "by_ne": "लक्ष्मी गुरुङ, चुमनुब्री उपाध्यक्ष · रासस, रातोपाटी",
-      "by_en": "Laxmi Gurung, Chumnubri vice-chair · RSS, Ratopati"
-    },
-    {
       "ne": "आधिकारिक मृत्युको अङ्क अहिलेसम्म आएको छैन।",
       "en": "No official casualty figure yet.",
-      "by_ne": "अहिलेसम्म सार्वजनिक भएको छैन",
-      "by_en": "Not published yet"
+      "by_ne": "NDRRMA प्रेस नोटमा मृत्युको अङ्क छैन",
+      "by_en": "The NDRRMA press note gives no death figure"
+    },
+    {
+      "earlier": true,
+      "ne": "पैयु र बगरका ३५ घर बगाएको छ।",
+      "en": "35 houses in Paiyu and Bagar were swept away.",
+      "by_ne": "अघिल्लो विवरण · लक्ष्मी गुरुङ, चुमनुब्री उपाध्यक्ष · रासस, रातोपाटी",
+      "by_en": "Earlier report · Laxmi Gurung, Chumnubri vice-chair · RSS, Ratopati"
+    },
+    {
+      "earlier": true,
+      "ne": "जगत (चुमनुब्री–६) मा ७ घर बगेका छन्। त्यहाँ मानवीय क्षति छैन भनिएको थियो।",
+      "en": "7 houses at Jagat (Chumnubri-6) were swept away. That report said there were no human casualties there.",
+      "by_ne": "अघिल्लो विवरण · प्रहरी, बिजमाण्डु",
+      "by_en": "Earlier report · police, Bizmandu"
+    },
+    {
+      "earlier": true,
+      "ne": "माछीखोला बजारमा क्षति भएको छ।",
+      "en": "Machhikhola market is damaged.",
+      "by_ne": "अघिल्लो विवरण · सहायक प्रमुख जिल्ला अधिकारी नेत्रप्रसाद शर्मा, हिमालय टाइम्स",
+      "by_en": "Earlier report · Asst. CDO Netra Prasad Sharma, Himalaya Times"
+    },
+    {
+      "earlier": true,
+      "ne": "अघिल्लो विवरण: चार गोठ र १५ याक/नाक बगेका छन्।",
+      "en": "Earlier reports also said 4 sheds and 15 yaks and naks were swept away.",
+      "by_ne": "अघिल्लो विवरण · हिमालय टाइम्स",
+      "by_en": "Earlier report · Himalaya Times"
+    },
+    {
+      "earlier": true,
+      "ne": "प्रहरीले सिर्दिबासको बगेको घर रामबहादुर गुरुङको कच्ची घर भनेको थियो।",
+      "en": "Police had named the swept house at Sirdibas as Ram Bahadur Gurung’s mud house.",
+      "by_ne": "अघिल्लो विवरण · नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Earlier report · Nepal Police HQ"
+    },
+    {
+      "earlier": true,
+      "ne": "प्रहरी: सोती (आरुघाट–३) का करिब १४ देखि १५ घरमा बाढी पसेको थियो।",
+      "en": "Police had said floodwater entered about 14 to 15 houses at Soti (Arughat-3).",
+      "by_ne": "अघिल्लो विवरण · नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Earlier report · Nepal Police HQ"
+    },
+    {
+      "earlier": true,
+      "ne": "गृहमन्त्री सुदन गुरुङ: न्याकचेट–फिलिम पुल बगेको र घट्टेखोलाका केही घरमा लेदो पसेको समाचार आएको छ।",
+      "en": "Home Minister Sudan Gurung said reports reached him that the Nyakchet–Philim bridge is gone and muddy water entered some houses in Ghattekhola.",
+      "by_ne": "अघिल्लो विवरण · रातोपाटी",
+      "by_en": "Earlier report · Ratopati"
+    },
+    {
+      "earlier": true,
+      "ne": "दोभान, घट्टेखोला, जगत र सल्लेरीमा व्यापक क्षति।",
+      "en": "Wide damage at Dobhan, Ghattekhola, Jagat and Salleri.",
+      "by_ne": "अघिल्लो विवरण · लक्ष्मी गुरुङ, चुमनुब्री उपाध्यक्ष · रासस, रातोपाटी",
+      "by_en": "Earlier report · Laxmi Gurung, Chumnubri vice-chair · RSS, Ratopati"
     }
   ],
   "rescue": [
     {
-      "ne": "उद्धार, राहत र सुरक्षित स्थानान्तरणका लागि हेलिकप्टर खटिएका छन्।",
-      "en": "Helicopters are deployed for rescue, relief and evacuation.",
-      "by_ne": "गृहमन्त्री सुदन गुरुङ · रातोपाटी",
-      "by_en": "Home Minister Sudan Gurung · Ratopati"
+      "ne": "इलाका प्रहरी कार्यालय आरुघाटको २५ जनाको टोलीले नदी किनारका बासिन्दालाई सूचना दिई सुरक्षित स्थानमा सार्यो।",
+      "en": "A 25-member police team from Area Police Office Aarughat told riverside residents and moved them to safety.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
     },
     {
-      "ne": "नेपाल प्रहरी, सशस्त्र प्रहरी र स्थानीय प्रशासन उद्धारका लागि खटिएका छन्।",
-      "en": "Nepal Police, the Armed Police Force and local officials are deployed for rescue.",
-      "by_ne": "गृहमन्त्री सुदन गुरुङ · रातोपाटी",
-      "by_en": "Home Minister Sudan Gurung · Ratopati"
+      "ne": "सल्लेरीस्थित टाइम्स इनर्जी प्रा.लि. का १२ जना कर्मचारी सुरक्षित स्थानमा सारिए।",
+      "en": "12 staff of Times Energy Pvt. Ltd. at Salleri were moved to safety.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
     },
     {
-      "ne": "गृहमन्त्री सुदन गुरुङ प्रभावित क्षेत्रको अवस्था बुझ्न त्यसतर्फ जाने भएका छन्।",
-      "en": "Home Minister Sudan Gurung is going to the affected area to see the situation.",
-      "by_ne": "रातोपाटी, अनलाइनपाना",
-      "by_en": "Ratopati, OnlinePana"
+      "ne": "बाढी पूर्वानुमान महाशाखा (DHM) लाई बिहान ६:०० मा सूचना आयो। गोरखा, धादिङ र चितवनको बेनीघाटसम्म सर्वसाधारणलाई एसएमएस पठाइयो।",
+      "en": "DHM's Flood Forecasting Division got word at 6:00 AM and sent SMS alerts to the public in Gorkha, Dhading and Chitwan, down to Benighat.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
     },
     {
-      "ne": "नेपाली सेनाको टोली हवाई र स्थलमार्गबाट प्रभावित क्षेत्रमा छ। काठमाडौंको द्रुत प्रतिक्रिया टोली पनि हवाई मार्गबाट पठाइएको छ।",
-      "en": "Nepali Army teams are in the affected area by air and by land. A quick reaction team from Kathmandu has been flown in.",
-      "by_ne": "नेपाली सेना",
-      "by_en": "Nepali Army"
+      "ne": "NDRRMA लाई बिहान ६:०० मा सूचना आयो। गोरखा, धादिङ, तनहुँ, चितवन, नवलपरासी पूर्व र पश्चिम तथा केन्द्रका २२१ प्रतिकार्यकर्तालाई तुरुन्त खटिन एसएमएस पठाइयो।",
+      "en": "NDRRMA got word at 6:00 AM and sent SMS to 221 responders in Gorkha, Dhading, Tanahun, Chitwan, Nawalparasi East and West, and the centre, to deploy at once.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "बिहान करिब ६:३० देखि कार्यकारी प्रमुख डा. धर्मराज उप्रेतीको अध्यक्षतामा मनसुन प्रतिकार्य कमाण्ड पोस्टको बैठक निरन्तर चलिरहेको छ।",
+      "en": "A monsoon response command-post meeting has been running continuously since about 6:30 AM, chaired by Executive Chief Dr. Dharmaraj Upreti.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "४३७ सुरक्षाकर्मी खटिएका छन्: नेपाली सेना १२७ (३ विशेष दस्तासहित), नेपाल प्रहरी १३३, सशस्त्र प्रहरी १७७। विपद् प्रतिकार्य तथा तालिम केन्द्रमा नेपाल प्रहरीको ५० जनाको टोली तयारी अवस्थामा छ।",
+      "en": "437 security personnel are deployed: Nepali Army 127 (including 3 Special Force teams), Nepal Police 133, and the Armed Police Force 177. A 50-member Nepal Police team is on standby at the Disaster Response and Training Centre.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "खोज तथा उद्धारका लागि नेपाली सेनाका ४ हेलिकप्टर खटिएका छन्। हालसम्म सेनाको हेलिकप्टरबाट ४७ जनाको उद्धार भई सुरक्षित स्थानमा सारिएको छ।",
+      "en": "4 Nepali Army helicopters are deployed for search and rescue. 47 people have been rescued by Army helicopter and moved to safety so far.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "अत्यावश्यक राहत सडक र हेलिकप्टरबाट लगिँदै छ।",
+      "en": "Urgent relief supplies are being carried by road and helicopter.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "कारण पत्ता लगाउन ड्रोन र भूगर्भविद्सहितको ३ जनाको टोली पठाइएको छ।",
+      "en": "A 3-member team with drones and geologists has been sent to find the cause.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "सडक विभागका महानिर्देशक र स्थानीय पूर्वाधार विकास विभाग (DoLIDAR) को टोली सडक सञ्चालन र बेलिब्रिजको सम्भाव्यता अध्ययनका लागि खटिएको छ।",
+      "en": "A team led by the Director General of the Department of Roads (DoR) and DoLIDAR has been sent for road operation and a Bailey bridge feasibility study.",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "गोरखा, लमजुङ र तनहुँका जिल्ला द्रुत प्रतिकार्य टोली, र गोरखा, तनहुँ तथा लमजुङका प्रदेश अस्पतालका चिकित्सकीय द्रुत प्रतिकार्य टोली तयारी अवस्थामा छन् (MoHFS, MoH, गण्डकी प्रदेश)।",
+      "en": "District rapid response teams in Gorkha, Lamjung and Tanahun, and medical rapid response teams at the provincial hospitals in Gorkha, Tanahun and Lamjung, are on standby (MoHFS, MoH, Gandaki Province).",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
     }
   ],
   "missing": {
-    "count": 4,
+    "count": 5,
     "label_ne": "सम्पर्कविहीन",
-    "label_en": "out of contact"
+    "label_en": "out of contact",
+    "detail_ne": "२ महिला र ३ पुरुष, चुम्चेत उङ्गिलुङको भेडीगोठ",
+    "detail_en": "2 women and 3 men, sheep shed in Ungilung, Chumchet"
   },
   "rescue_note_ne": "निकायगत तथ्याङ्क दोहोरिन सक्छ; आधिकारिक कुल संख्या आएको छैन",
   "rescue_note_en": "Agency figures may overlap; no official combined total yet",
+  "deployed": {
+    "total": 437,
+    "army": 127,
+    "police": 133,
+    "apf": 177,
+    "helicopters": 4,
+    "responders": 221
+  },
   "rescue_update": [
     {
-      "time_ne": "१०:०७",
-      "time_en": "10:07 AM",
-      "agency_ne": "नेपाली सेना",
-      "agency_en": "Nepali Army",
-      "count": 6,
-      "place_ne": "जगत",
-      "place_en": "Jagat",
-      "method_ne": "हवाई उद्धार",
-      "method_en": "Air rescue",
-      "source_name_ne": "नेपाली सेना",
-      "source_name_en": "Nepali Army",
-      "source_url": "https://x.com/NepaliArmyHQ/status/2109137523494510845",
-      "sources": [
-        {
-          "name_ne": "रातोपाटी · सेनाको जनसम्पर्क",
-          "name_en": "Ratopati · Army public relations",
-          "url": "https://www.ratopati.com/story/598766/budhigandaki-flood-nepali-sana-rescue-team-reaches-affected-area"
-        }
-      ]
+      "headline": true,
+      "time_ne": "असोज २५",
+      "time_en": "Asoj 25",
+      "agency_ne": "सेनाको हेलिकप्टरबाट उद्धार",
+      "agency_en": "Rescued by Army helicopter",
+      "count": 47,
+      "place_ne": "प्रभावित क्षेत्र",
+      "place_en": "the affected area",
+      "method_ne": "नेपाली सेनाको हेलिकप्टर",
+      "method_en": "Nepali Army helicopter",
+      "source_name_ne": "NDRRMA",
+      "source_name_en": "NDRRMA",
+      "source_url": "https://ndrrma.gov.np/np/pressnote/66"
     },
     {
+      "reported": true,
       "time_ne": "दिउँसो",
       "time_en": "Afternoon",
       "agency_ne": "नेपाल प्रहरी",
@@ -322,8 +407,8 @@
   "evacuate_en": "Khorlabesi, Machhakhola, Soti, Arkhet and Arughat, in Siridibas and Dharche.",
   "evacuate_by_ne": "गोरखा जिल्ला प्रहरी, निरीक्षक आकाश कँडेल · रातोपाटी",
   "evacuate_by_en": "Gorkha District Police, Inspector Akash Kandel · Ratopati",
-  "districts_ne": "गोरखा, धादिङ, तनहुँ, चितवन र नवलपरासीका नदी किनार। बेनीघाटसम्म अति उच्च जोखिम। मुग्लिङसम्म उच्च सतर्कता।",
-  "districts_en": "River banks in Gorkha, Dhading, Tanahun, Chitwan and Nawalparasi. Very high risk down to Benighat. High alert up to Mugling.",
+  "districts_ne": "गोरखा, धादिङ, तनहुँ, चितवन, नवलपरासी पूर्व र पश्चिमका नदी किनार। बेनीघाटसम्म अति उच्च जोखिम। मुग्लिङसम्म उच्च सतर्कता।",
+  "districts_en": "River banks in Gorkha, Dhading, Tanahun, Chitwan, and Nawalparasi East and West. Very high risk down to Benighat. High alert up to Mugling.",
   "dos": [
     {
       "ne": "आज साँझसम्म नदी र जोखिमयुक्त बस्तीबाट टाढा बस्नुहोस्।",
@@ -335,7 +420,7 @@
     },
     {
       "ne": "पुल नकाट्नुहोस् र जोखिमयुक्त सडक प्रयोग नगर्नुहोस्।",
-      "en": "Do not cross bridges or use risky roads."
+      "en": "Avoid risky bridges and roads."
     },
     {
       "ne": "बाढी हेर्न नजानुहोस्।",
@@ -454,6 +539,15 @@
   "photo_credit_label": "NDRRMA",
   "timeline": [
     {
+      "time_ne": "बिहान",
+      "time_en": "Dawn",
+      "ne": "NDRRMA: चुमनुब्री–६, लोक्पा र चुम्लिङ बीच ठूलो पहिरोले बुढीगण्डकी थुनियो। थुनिएको भाग फुटेर लेदोसहितको ठूलो बाढी आयो र भौतिक क्षति भयो।",
+      "en": "NDRRMA: a big landslide between Lokpa and Chumling in Chumnubri-6 blocked the Budhi Gandaki. The blockage burst into a large debris flood and caused physical damage.",
+      "href": "https://ndrrma.gov.np/np/pressnote/66",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
+    },
+    {
       "time_ne": "०५:३०",
       "time_en": "5:30 AM",
       "ne": "नेपाल प्रहरी: सिरिङ्गे हिमाल (चुमनुब्री–६, लोक्पा र चुम्लिङ बीच) मा हिमपहिरोले स्थानीय उइनगुलुङ खोला थुनियो। त्यसपछि बुढीगण्डकीमा ठूलो बाढी आयो।",
@@ -470,6 +564,15 @@
       "href": "https://x.com/DHM_FloodEWS/status/2109167177526116425",
       "by_ne": "DHM प्रेस विज्ञप्ति",
       "by_en": "DHM press release"
+    },
+    {
+      "time_ne": "०६:००",
+      "time_en": "6:00 AM",
+      "ne": "NDRRMA: सूचना आउनासाथ गोरखा, धादिङ, तनहुँ, चितवन, नवलपरासी पूर्व र पश्चिम तथा केन्द्रका २२१ प्रतिकार्यकर्तालाई तुरुन्त खटिन एसएमएस। DHM को बाढी पूर्वानुमान महाशाखाले गोरखा, धादिङ र चितवनको बेनीघाटसम्म सर्वसाधारणलाई एसएमएस पठायो।",
+      "en": "NDRRMA: as soon as word came in, SMS went to 221 responders in Gorkha, Dhading, Tanahun, Chitwan, Nawalparasi East and West, and the centre, telling them to deploy at once. DHM's Flood Forecasting Division sent SMS alerts to the public in Gorkha, Dhading and Chitwan, down to Benighat.",
+      "href": "https://ndrrma.gov.np/np/pressnote/66",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
     },
     {
       "time_ne": "बिहान",
@@ -495,6 +598,15 @@
       "href": "https://x.com/DHM_FloodEWS/status/2109167177526116425",
       "by_ne": "DHM प्रेस विज्ञप्ति",
       "by_en": "DHM press release"
+    },
+    {
+      "time_ne": "करिब ०६:३०",
+      "time_en": "About 6:30 AM",
+      "ne": "NDRRMA: कार्यकारी प्रमुख डा. धर्मराज उप्रेतीको अध्यक्षतामा मनसुन प्रतिकार्य कमाण्ड पोस्टको बैठक निरन्तर चलिरहेको छ।",
+      "en": "NDRRMA: a monsoon response command-post meeting chaired by Executive Chief Dr. Dharmaraj Upreti has been running continuously since about this time.",
+      "href": "https://ndrrma.gov.np/np/pressnote/66",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
     },
     {
       "time_ne": "०६:४०",
@@ -589,8 +701,8 @@
     {
       "time_ne": "बिहान",
       "time_en": "Morning",
-      "ne": "उङगिलुङ खोला किनारमा पशु हेर्दै गरेका चार जना सम्पर्कविहीन छन्। चार गोठ र १५ याक/नाक बगेका छन्।",
-      "en": "Four people tending livestock along the Ungilung Khola are out of contact. Four sheds and 15 yaks and naks were swept away.",
+      "ne": "अघिल्ला विवरणले ४ जना सम्पर्कविहीन भनेका थिए। NDRRMA को प्रेस नोटले अहिले ५ जना भन्छ।",
+      "en": "Earlier reports said 4 people were out of contact. NDRRMA's press note now says 5.",
       "href": "https://ehimalayatimes.com/2026/10/489376/",
       "by_ne": "नेत्रप्रसाद शर्मा · हिमालय टाइम्स",
       "by_en": "Netra Prasad Sharma · Himalaya Times"
@@ -708,6 +820,15 @@
       "en": "DHM: Devghat 4.14 m (steady, 2:30 PM), Kali Khola 4.46 m (falling, 3:00 PM), Bhorle 4.15 m (rising, 3:00 PM). All three are below the alert level. Aarughat’s 8.43 m remains the last reading.",
       "by_ne": "DHM hydrology.gov.np",
       "by_en": "DHM hydrology.gov.np"
+    },
+    {
+      "time_ne": "प्रेस नोट",
+      "time_en": "Press note",
+      "ne": "NDRRMA, शान्ति महत (प्रवक्ता/उपसचिव), २०८३/०६/२५: सेनाको हेलिकप्टरबाट ४७ जनाको उद्धार। सम्पर्कविहीन ५ (२ महिला, ३ पुरुष)। खटिएका सुरक्षाकर्मी ४३७ (सेना १२७, प्रहरी १३३, सशस्त्र १७७)। हेलिकप्टर ४। प्रतिकार्यकर्ता २२१ लाई एसएमएस।",
+      "en": "NDRRMA, Shanti Mahat, spokesperson and Under Secretary, 2083-06-25: 47 people rescued by Army helicopter. 5 people out of contact (2 women, 3 men). 437 security personnel deployed (Army 127, Police 133, APF 177). 4 helicopters. SMS to 221 responders.",
+      "href": "https://ndrrma.gov.np/np/pressnote/66",
+      "by_ne": "NDRRMA प्रेस नोट",
+      "by_en": "NDRRMA press note"
     }
   ],
   "sources": [
@@ -820,6 +941,16 @@
       "href": "https://www.facebook.com/NepalPolicePHQ/posts/pfbid0ywVVYgJTpjUeMGitGPVik1ERHhHbv95qeZEm2mhuYfmJwy36o4xnoays5uPg6kUQl",
       "ne": "नेपाल प्रहरी प्रधान कार्यालय · दिउँसोको अपडेट",
       "en": "Nepal Police HQ · afternoon update"
+    },
+    {
+      "href": "https://ndrrma.gov.np/np/pressnote/66",
+      "ne": "NDRRMA · गोरखा-बुढीगण्डकी बाढी प्रेस नोट",
+      "en": "NDRRMA · Gorkha-Budhi Gandaki flood press note"
+    },
+    {
+      "href": "https://ndrrma.gov.np/mediafiles/pressnotenews/pressnote/%E0%A4%97%E0%A4%B0%E0%A4%96_%E0%A4%AC%E0%A4%A2%E0%A4%97%E0%A4%A3%E0%A4%A1%E0%A4%95_%E0%A4%AC%E0%A4%A2_%E0%A4%AA%E0%A4%B0%E0%A4%B8_%E0%A4%B5%E0%A4%9C%E0%A4%9E%E0%A4%AA%E0%A4%A4.pdf",
+      "ne": "NDRRMA · प्रेस नोट PDF",
+      "en": "NDRRMA · press note PDF"
     }
   ]
 }
