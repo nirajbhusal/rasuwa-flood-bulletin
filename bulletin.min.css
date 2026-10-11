@@ -1219,6 +1219,9 @@ html.theme-tihar .fest-hero .fest-tika-line{
 .bg-glance-n strong{font-size:clamp(32px,5vw,42px);line-height:1;color:#115e59}
 .bg-glance-miss .bg-glance-n strong{color:#0f172a}
 .bg-glance-n span{font-size:15px;font-weight:700;color:#334155}
+.bg-glance-miss{grid-column:1 / -1}
+.bg-glance-src{margin:6px 0 0;font-size:13px;font-weight:700;line-height:1.35;color:#0f766e}
+.bg-overlap{margin:0 0 12px;font-size:14px;font-weight:700;line-height:1.45;color:#334155}
 .bg-card .bg-agency,.bg-card .bg-rescue-log{list-style:none;margin:0 0 8px;padding:0}
 .bg-agency li{margin:0 0 4px;font-weight:700}
 .bg-rescue-log li{margin:0 0 8px}

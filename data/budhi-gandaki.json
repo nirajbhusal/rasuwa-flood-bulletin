@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-11T13:06:00+05:45",
-  "updated_ne": "पछिल्लो अपडेट: असोज २५, दिउँसो १:०६ NPT",
-  "updated_en": "Last updated: Asoj 25, 1:06 PM NPT",
+  "updated_at": "2026-10-11T15:15:00+05:45",
+  "updated_ne": "पछिल्लो अपडेट: असोज २५, दिउँसो ३:१५ NPT",
+  "updated_en": "Last updated: Asoj 25, 3:15 PM NPT",
   "title_ne": "बुढीगण्डकी बाढी अपडेट",
   "title_en": "Budhi Gandaki Flood Update",
   "kicker_ne": "बाढी अलर्ट",
@@ -19,8 +19,8 @@
   "alerts_ne": "एसएमएस १ (६:३०): बेनीघाटसम्म नदी किनारका सबैलाई। एसएमएस २ (९:२५): सुरक्षित ठाउँमा जानुहोस् र अर्को सूचना नआउञ्जेल त्यहीँ बस्नुहोस्। दुई चरणमा करिब २ लाख एसएमएस।",
   "alerts_en": "SMS #1 at 6:30 AM went to everyone along the river down to Benighat. SMS #2 at 9:25 AM said to move to a safe place and stay there until further notice. About 200,000 messages across the two rounds.",
   "source": "https://www.hydrology.gov.np/",
-  "feed_label_ne": "DHM hydrology.gov.np · १२:३०–१२:५० NPT",
-  "feed_label_en": "DHM hydrology.gov.np · 12:30–12:50 PM NPT",
+  "feed_label_ne": "DHM hydrology.gov.np · २:३०–३:०० NPT",
+  "feed_label_en": "DHM hydrology.gov.np · 2:30–3:00 PM NPT",
   "scale_max_m": 10,
   "aarughat": {
     "station_index": "445",
@@ -108,35 +108,35 @@
     {
       "name_ne": "देवघाट · नारायणी",
       "name_en": "Narayani at Devghat",
-      "level_m": 4.03,
+      "level_m": 4.14,
       "warning_m": 7.3,
       "danger_m": 9.0,
       "trend": "STEADY",
       "status": "BELOW",
-      "time_ne": "१२:३०",
-      "time_en": "12:30 PM"
+      "time_ne": "२:३०",
+      "time_en": "2:30 PM"
     },
     {
       "name_ne": "काली खोला · त्रिशूली",
       "name_en": "Trishuli at Kali Khola",
-      "level_m": 4.39,
+      "level_m": 4.46,
       "warning_m": 10.8,
       "danger_m": 12.1,
       "trend": "FALLING",
       "status": "BELOW",
-      "time_ne": "१२:५०",
-      "time_en": "12:50 PM"
+      "time_ne": "३:००",
+      "time_en": "3:00 PM"
     },
     {
       "name_ne": "भोर्ले · त्रिशूली",
       "name_en": "Trishuli at Bhorle",
-      "level_m": 3.92,
+      "level_m": 4.15,
       "warning_m": 9.5,
       "danger_m": null,
       "trend": "RISING",
       "status": "BELOW",
-      "time_ne": "१२:४०",
-      "time_en": "12:40 PM"
+      "time_ne": "३:००",
+      "time_en": "3:00 PM"
     }
   ],
   "home_facts": [
@@ -190,8 +190,44 @@
     {
       "ne": "तीनवटा पुल बगेका छन्: न्याकचेट–सिर्दिबासको पुरानो झोलुङ्गे पुल (चुमनुब्री–३), माछीखोला–केरौँजाको झोलुङ्गे पुल (धार्चे–५), र सोतीमा आरुघाट–२ र ३ जोड्ने फलामे पक्की पुल (सोती–मान्बु)।",
       "en": "Three bridges are gone: the old suspension bridge linking Nyakchet and Sirdibas (Chumnubri-3), the suspension bridge linking Machhikhola and Kerauja (Dharche-5), and the iron motorable bridge at Soti linking Arughat-2 and 3 (Soti–Manbu).",
-      "by_ne": "प्रहरी · अनलाइनखबर ०८:४० · सहायक प्रमुख जिल्ला अधिकारी, हिमालय टाइम्स",
-      "by_en": "police · OnlineKhabar 8:40 AM · Asst. CDO, Himalaya Times"
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय · अनलाइनखबर ०८:४० · सहायक प्रमुख जिल्ला अधिकारी, हिमालय टाइम्स",
+      "by_en": "Nepal Police HQ · OnlineKhabar 8:40 AM · Asst. CDO, Himalaya Times"
+    },
+    {
+      "ne": "सिर्दिबास (चुमनुब्री–३): रामबहादुर गुरुङको एउटा कच्ची घर बग्यो। अर्को घरमा बाढी पस्यो।",
+      "en": "Sirdibas (Chumnubri-3): one mud house of Ram Bahadur Gurung was swept away, and floodwater entered another of his houses.",
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Nepal Police HQ"
+    },
+    {
+      "ne": "माछीखोला (धार्चे–५) तल्लो बस्तीका ५ देखि ७ घर र ५ देखि ७ टहरामा बाढी पस्यो।",
+      "en": "Floodwater entered 5 to 7 houses and 5 to 7 sheds in the lower settlement at Machhikhola (Dharche-5).",
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Nepal Police HQ"
+    },
+    {
+      "ne": "सल्लेरी (चुमनुब्री–३) का २० देखि २२ घर जोखिममा छन्।",
+      "en": "20 to 22 houses at Salleri (Chumnubri-3) are at risk.",
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Nepal Police HQ"
+    },
+    {
+      "ne": "सल्लेरी (चुमनुब्री–३): निर्माणाधीन सहज ऊर्जाको पावर हाउस र आसपासका ७ देखि ८ घर बगे।",
+      "en": "Salleri (Chumnubri-3): the under-construction Sahas Urja power house and 7 to 8 nearby houses were swept away.",
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Nepal Police HQ"
+    },
+    {
+      "ne": "नयाँपुल (आरुघाट–९): गोरखाको आरुघाटबाट धादिङ जोड्ने तीन भागको पक्की पुलको गोरखातर्फको एक भाग बग्यो। सडक पूर्ण रूपमा अवरुद्ध छ।",
+      "en": "Nayapul (Arughat-9): the Gorkha side of the three-part concrete bridge linking Arughat in Gorkha to Dhading was swept away. The road is fully blocked.",
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Nepal Police HQ"
+    },
+    {
+      "ne": "सोती (आरुघाट–३): करिब १४ देखि १५ घरमा बाढी पस्यो।",
+      "en": "Soti (Arughat-3): floodwater entered about 14 to 15 houses.",
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Nepal Police HQ"
     },
     {
       "ne": "गृहमन्त्री सुदन गुरुङ: न्याकचेट–फिलिम पुल बगेको र घट्टेखोलाका केही घरमा लेदो पसेको समाचार आएको छ।",
@@ -243,6 +279,8 @@
     "label_ne": "सम्पर्कविहीन",
     "label_en": "out of contact"
   },
+  "rescue_note_ne": "निकायगत तथ्याङ्क दोहोरिन सक्छ; आधिकारिक कुल संख्या आएको छैन",
+  "rescue_note_en": "Agency figures may overlap; no official combined total yet",
   "rescue_update": [
     {
       "time_ne": "१०:०७",
@@ -264,6 +302,20 @@
           "url": "https://www.ratopati.com/story/598766/budhigandaki-flood-nepali-sana-rescue-team-reaches-affected-area"
         }
       ]
+    },
+    {
+      "time_ne": "दिउँसो",
+      "time_en": "Afternoon",
+      "agency_ne": "नेपाल प्रहरी",
+      "agency_en": "Nepal Police",
+      "count": 18,
+      "place_ne": "यारुबगर, धार्चे–१",
+      "place_en": "Yarubagar, Dharche-1",
+      "method_ne": "नेपाली सेनाको हेलिकप्टर",
+      "method_en": "Nepali Army helicopter",
+      "source_name_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "source_name_en": "Nepal Police HQ",
+      "source_url": "https://www.facebook.com/NepalPolicePHQ/posts/pfbid0ywVVYgJTpjUeMGitGPVik1ERHhHbv95qeZEm2mhuYfmJwy36o4xnoays5uPg6kUQl"
     }
   ],
   "evacuate_ne": "खोर्लाबेसी, मच्छेखोला, सोती, आर्खेत र आरुघाट (सिर्दिबास र धार्चे)।",
@@ -402,6 +454,15 @@
   "photo_credit_label": "NDRRMA",
   "timeline": [
     {
+      "time_ne": "०५:३०",
+      "time_en": "5:30 AM",
+      "ne": "नेपाल प्रहरी: सिरिङ्गे हिमाल (चुमनुब्री–६, लोक्पा र चुम्लिङ बीच) मा हिमपहिरोले स्थानीय उइनगुलुङ खोला थुनियो। त्यसपछि बुढीगण्डकीमा ठूलो बाढी आयो।",
+      "en": "Nepal Police: a snow avalanche on Siringe Himal, between Lokpa and Chumling in Chumnubri-6, blocked the local Uingulung Khola. A large flood then came down the Budhi Gandaki.",
+      "href": "https://www.facebook.com/NepalPolicePHQ/posts/pfbid0ywVVYgJTpjUeMGitGPVik1ERHhHbv95qeZEm2mhuYfmJwy36o4xnoays5uPg6kUQl",
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Nepal Police HQ"
+    },
+    {
       "time_ne": "०६:००",
       "time_en": "6:00 AM",
       "ne": "DHM: चुमनुब्री–६ तुम्जेमा बुढीगण्डकीको सहायक नदीबाट आकस्मिक बाढी। पहिलो जानकारी यही बेला। आरुघाट २.२८ मि.।",
@@ -445,6 +506,15 @@
       "by_en": "@DHM_FloodEWS"
     },
     {
+      "time_ne": "०७:४५",
+      "time_en": "7:45 AM",
+      "ne": "नेपाली सेनाको हेलिकप्टर सिर्दिबास (चुमनुब्री–३) मा ओर्लियो। अनुगमन सकेर ८:०५ मा जगततर्फ फर्कियो।",
+      "en": "A Nepali Army helicopter landed at Sirdibas (Chumnubri-3). After monitoring, it turned back toward Jagat at 8:05 AM.",
+      "href": "https://www.facebook.com/NepalPolicePHQ/posts/pfbid0ywVVYgJTpjUeMGitGPVik1ERHhHbv95qeZEm2mhuYfmJwy36o4xnoays5uPg6kUQl",
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Nepal Police HQ"
+    },
+    {
       "time_ne": "०७:५०",
       "time_en": "7:50 AM",
       "ne": "आरुघाट ५.०१ मि., खतरा तह ५.०० मि. पार।",
@@ -470,6 +540,15 @@
       "href": "https://x.com/DHM_FloodEWS/status/2109167177526116425",
       "by_ne": "DHM प्रेस विज्ञप्ति",
       "by_en": "DHM press release"
+    },
+    {
+      "time_ne": "०८:०० / ०८:५५",
+      "time_en": "8:00 / 8:55 AM",
+      "ne": "नेपाल प्रहरी: बाढी आरुघाट ८:०० बजे र घ्यालचोक ८:५५ बजे पुग्यो।",
+      "en": "Nepal Police: the flood reached Arughat at 8:00 AM and Ghyalchok at 8:55 AM.",
+      "href": "https://www.facebook.com/NepalPolicePHQ/posts/pfbid0ywVVYgJTpjUeMGitGPVik1ERHhHbv95qeZEm2mhuYfmJwy36o4xnoays5uPg6kUQl",
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Nepal Police HQ"
     },
     {
       "time_ne": "०८:३०",
@@ -524,6 +603,15 @@
       "href": "https://x.com/ndrrma_nepal/status/2109122186552496251",
       "by_ne": "NDRRMA",
       "by_en": "NDRRMA"
+    },
+    {
+      "time_ne": "०९:२०",
+      "time_en": "9:20 AM",
+      "ne": "प्रमुख जिल्ला अधिकारी धर्मेन्द्रकुमार मिश्रको समन्वयमा आरुघाटतर्फ थप टोली: नेपाली सेना ३० (प्रमुख सेनानी विरोध रिजाल, रुद्रध्वज गण, नाम्जाली डाँडा, ठिमुरेश्वरा), नेपाल प्रहरी ५० (प्रहरी उपरीक्षक अनिलकुमार खड्का), सशस्त्र प्रहरी ९ (नायब उपरीक्षक सुदीप रेग्मी, गुल्म नं. २९)। सवारी: जिल्ला प्रहरी कार्यालय गोरखाको GWAA ४८३५। क्षतिको थप संकलन जारी छ।",
+      "en": "CDO Dharmendra Kumar Mishra coordinated more teams toward Arughat: Nepali Army 30 (Major Birodh Rijal, Rudradhwaj battalion, Namjali Danda barracks, Thimureshwor), Nepal Police 50 (SP Anil Kumar Khadka, DPO Gorkha), and Armed Police Force 9 (DSP Sudip Regmi, No. 29 battalion HQ, Gorkha). They used DPO Gorkha vehicle GWAA 4835. Further damage collection is ongoing.",
+      "href": "https://www.facebook.com/NepalPolicePHQ/posts/pfbid0ywVVYgJTpjUeMGitGPVik1ERHhHbv95qeZEm2mhuYfmJwy36o4xnoays5uPg6kUQl",
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Nepal Police HQ"
     },
     {
       "time_ne": "०९:२५",
@@ -592,6 +680,32 @@
       "time_en": "12:30–12:50 PM",
       "ne": "DHM: देवघाट ४.०३ मि. (स्थिर), काली खोला ४.३९ मि. (घट्दो), भोर्ले ३.९२ मि. (बढ्दो)। तीनैवटा अलर्ट तहभन्दा तल।",
       "en": "DHM: Devghat 4.03 m (steady), Kali Khola 4.39 m (falling), Bhorle 3.92 m (rising). All three are below the alert level.",
+      "by_ne": "DHM hydrology.gov.np",
+      "by_en": "DHM hydrology.gov.np"
+    },
+    {
+      "time_ne": "दिउँसो",
+      "time_en": "Afternoon",
+      "ne": "नेपाल प्रहरी: धार्चे–१ यारुबगरमा अलपत्र १८ जना (स्थानीय र जलविद्युत्का कामदार) लाई नेपाली सेनाको हेलिकप्टरले सुरक्षित स्थानमा पुर्‍यायो।",
+      "en": "Nepal Police: an Army helicopter moved 18 people, locals and hydropower workers stranded at Yarubagar, Dharche-1, to safety.",
+      "href": "https://www.facebook.com/NepalPolicePHQ/posts/pfbid0ywVVYgJTpjUeMGitGPVik1ERHhHbv95qeZEm2mhuYfmJwy36o4xnoays5uPg6kUQl",
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Nepal Police HQ"
+    },
+    {
+      "time_ne": "दिउँसो",
+      "time_en": "Afternoon",
+      "ne": "नेपाल प्रहरी: नयाँपुल (आरुघाट–९) मा गोरखातर्फको पक्की पुलको भाग बग्यो, सडक पूर्ण अवरुद्ध। सल्लेरीमा निर्माणाधीन सहज ऊर्जाको पावर हाउस र नजिकका ७ देखि ८ घर बगे। सिर्दिबासमा रामबहादुर गुरुङको कच्ची घर बग्यो। माछीखोला तल्लो बस्तीका ५ देखि ७ घर र टहरामा बाढी पस्यो। सोती (आरुघाट–३) का करिब १४ देखि १५ घरमा बाढी पस्यो। सल्लेरी (चुमनुब्री–३) का २० देखि २२ घर जोखिममा।",
+      "en": "Nepal Police: the Gorkha side of the concrete bridge at Nayapul (Arughat-9) was swept away and the road is fully blocked. At Salleri the under-construction Sahas Urja power house and 7 to 8 nearby houses were swept away. At Sirdibas, Ram Bahadur Gurung’s mud house was swept away. Floodwater entered 5 to 7 houses and sheds in the lower settlement at Machhikhola. Floodwater entered about 14 to 15 houses at Soti (Arughat-3). 20 to 22 houses at Salleri (Chumnubri-3) are at risk.",
+      "href": "https://www.facebook.com/NepalPolicePHQ/posts/pfbid0ywVVYgJTpjUeMGitGPVik1ERHhHbv95qeZEm2mhuYfmJwy36o4xnoays5uPg6kUQl",
+      "by_ne": "नेपाल प्रहरी प्रधान कार्यालय",
+      "by_en": "Nepal Police HQ"
+    },
+    {
+      "time_ne": "२:३०–३:००",
+      "time_en": "2:30–3:00 PM",
+      "ne": "DHM: देवघाट ४.१४ मि. (स्थिर, २:३०), काली खोला ४.४६ मि. (घट्दो, ३:००), भोर्ले ४.१५ मि. (बढ्दो, ३:००)। तीनैवटा अलर्ट तहभन्दा तल। आरुघाटको ८.४३ मि. अन्तिम रिडिङ हो।",
+      "en": "DHM: Devghat 4.14 m (steady, 2:30 PM), Kali Khola 4.46 m (falling, 3:00 PM), Bhorle 4.15 m (rising, 3:00 PM). All three are below the alert level. Aarughat’s 8.43 m remains the last reading.",
       "by_ne": "DHM hydrology.gov.np",
       "by_en": "DHM hydrology.gov.np"
     }
@@ -701,6 +815,11 @@
       "href": "https://x.com/DHM_FloodEWS/status/2109176165432983559",
       "ne": "DHM · १२:४० जलरेखा",
       "en": "DHM · 12:40 PM hydrograph"
+    },
+    {
+      "href": "https://www.facebook.com/NepalPolicePHQ/posts/pfbid0ywVVYgJTpjUeMGitGPVik1ERHhHbv95qeZEm2mhuYfmJwy36o4xnoays5uPg6kUQl",
+      "ne": "नेपाल प्रहरी प्रधान कार्यालय · दिउँसोको अपडेट",
+      "en": "Nepal Police HQ · afternoon update"
     }
   ]
 }

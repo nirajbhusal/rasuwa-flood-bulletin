@@ -164,9 +164,6 @@
     var word = t(ne, en);
     return word ? " <span>" + esc(word) + "</span>" : "";
   }
-  function rescueTotal(list) {
-    return list.reduce(function (sum, item) { return sum + Number(item.count || 0); }, 0);
-  }
   function rescueSources(item) {
     var links = [];
     if (item.source_url) {
@@ -177,25 +174,14 @@
     });
     return links.join(" · ");
   }
-  function agencyLines(list) {
-    var order = [];
-    var map = {};
-    list.forEach(function (item) {
-      var key = (item.agency_ne || "") + "\n" + (item.agency_en || "");
-      if (!map[key]) {
-        map[key] = 0;
-        order.push(key);
-      }
-      map[key] += Number(item.count || 0);
-    });
-    return order.map(function (key) {
-      var parts = key.split("\n");
-      return "<li>" + esc(t(parts[0], parts[1])) + ": <strong>" + esc(digits(String(map[key]))) + "</strong></li>";
-    }).join("");
-  }
   function rescueUpdateHtml(d) {
     var list = d.rescue_update || [];
     var missing = d.missing || { count: 0, label_en: "out of contact" };
+    var cards = list.map(function (item) {
+      return '<div class="bg-glance-ok"><p class="bg-glance-k">' + esc(t(item.agency_ne, item.agency_en)) + "</p>" +
+        '<p class="bg-glance-n"><strong>' + esc(digits(String(item.count))) + "</strong>" + unit("जना", "people") + "</p>" +
+        '<p class="bg-glance-src">' + esc(digits(t(item.time_ne, item.time_en))) + " · " + esc(t(item.source_name_ne, item.source_name_en)) + "</p></div>";
+    }).join("");
     var rows = list.map(function (item) {
       return "<li><strong>" + esc(digits(t(item.time_ne, item.time_en))) + "</strong> · " +
         esc(t(item.place_ne, item.place_en)) + " · " +
@@ -203,13 +189,13 @@
         esc(digits(String(item.count))) +
         " · " + rescueSources(item) + "</li>";
     }).join("");
-    return '<div class="bg-glance">' +
-      '<div class="bg-glance-ok"><p class="bg-glance-k">' + esc(t("हालसम्म उद्धार", "Rescued so far")) + "</p>" +
-      '<p class="bg-glance-n"><strong>' + esc(digits(String(rescueTotal(list)))) + "</strong>" + unit("जना", "") + "</p></div>" +
-      '<div class="bg-glance-miss"><p class="bg-glance-k">' + esc(t("सम्पर्कविहीन", "Missing")) + "</p>" +
-      '<p class="bg-glance-n"><strong>' + esc(digits(String(missing.count))) + "</strong>" + unit("जना", missing.label_en || "out of contact") + "</p></div>" +
-      "</div>" +
-      '<ul class="bg-agency">' + agencyLines(list) + "</ul>" +
+    var note = (d.rescue_note_ne || d.rescue_note_en)
+      ? '<p class="bg-overlap">' + esc(t(d.rescue_note_ne, d.rescue_note_en)) + "</p>"
+      : "";
+    return '<div class="bg-glance">' + cards +
+      '<div class="bg-glance-miss"><p class="bg-glance-k">' + esc(t("सम्पर्कविहीन", "Out of contact")) + "</p>" +
+      '<p class="bg-glance-n"><strong>' + esc(digits(String(missing.count))) + "</strong>" + unit("जना", "people") + "</p></div>" +
+      "</div>" + note +
       '<ul class="bg-rescue-log">' + rows + "</ul>";
   }
   function impactLi(item) {
