@@ -82,27 +82,53 @@
       '<text x="' + x2 + '" y="140" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="700">' + esc(digits(t(p2.time_ne, p2.time_en))) + "</text>" +
       "</svg>";
   }
+  function ico(d) {
+    return '<svg class="bg-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="' + d + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
+  function head(icon, ne, en) {
+    return '<p class="bg-card-k">' + ico(icon) + esc(t(ne, en)) + "</p>";
+  }
   function homeHtml(d) {
     var a = d.aarughat;
     var latest = a.latest;
-    var facts = (d.home_facts || []).map(function (f) {
-      return "<li>" + esc(t(f.ne, f.en)) + "</li>";
+    var impact = (d.impact || []).slice(0, 4).map(function (item) {
+      return "<li>" + esc(t(item.ne, item.en)) + ' <span class="bg-tag">' + esc(t(item.by_ne, item.by_en)) + "</span></li>";
+    }).join("");
+    var rescue = (d.rescue || []).map(function (item) {
+      return "<li>" + esc(t(item.ne, item.en)) + ' <span class="bg-tag">' + esc(t(item.by_ne, item.by_en)) + "</span></li>";
+    }).join("");
+    var times = (d.timeline || []).slice(-4).map(function (item) {
+      return '<div class="bg-tl"><time>' + esc(digits(t(item.time_ne, item.time_en))) + "</time><p>" + esc(t(item.ne, item.en)) + "</p></div>";
+    }).join("");
+    var pics = (d.photos || []).slice(0, 3).map(function (p) {
+      return '<a href="budhi-gandaki.html#photos"><img src="' + esc(p.src) + '" width="' + p.w + '" height="' + p.h + '" alt="' + esc(t(p.alt_ne, p.alt_en)) + '" loading="lazy" decoding="async"></a>';
     }).join("");
     var calls = phones((d.contacts || []).filter(function (c) { return c.home; }));
-    var photo = (d.photos || [])[0];
-    var pic = photo
-      ? '<a class="bg-home-photo" href="budhi-gandaki.html#photos"><img src="' + esc(photo.src) + '" width="' + photo.w + '" height="' + photo.h + '" alt="' + esc(t(photo.alt_ne, photo.alt_en)) + '" loading="eager" decoding="async"></a>'
-      : "";
-    return '<p class="bg-pill">' + esc(t(d.status_ne, d.status_en)) + "</p>" +
-      bar(latest.level_m, a.danger_m, d.scale_max_m || 10) +
-      '<p class="home-flood-alert-read"><strong>' + esc(digits(lvl(latest.level_m))) + "</strong> " + esc(t("मि.", "m")) +
-      " · " + esc(t("खतरा", "danger")) + " " + esc(digits(thr(a.danger_m))) +
+    return '<div class="bg-grid bg-home-grid">' +
+      '<article class="bg-card">' + head("M12 3v18M8 7h8M7 12h10M8 17h8", "अहिलेको अवस्था", "Current status") +
+      '<p class="bg-pill">' + esc(t(d.status_ne, d.status_en)) + "</p>" +
+      '<p class="bg-big"><strong>' + esc(digits(lvl(latest.level_m))) + "</strong> <span>" + esc(t("मि.", "m")) + "</span></p>" +
+      "<p>" + esc(t("खतरा", "danger")) + " <strong>" + esc(digits(thr(a.danger_m))) + "</strong> " + esc(t("मि.", "m")) +
       " · " + arrow(latest.trend) + " " + esc(trendWord(latest.trend)) +
       " · " + esc(digits(t(latest.time_ne, latest.time_en))) + "</p>" +
-      '<p class="home-flood-alert-s">' + esc(t(d.guidance_ne, d.guidance_en)) + "</p>" +
-      pic +
-      '<ul class="bg-home-facts">' + facts + "</ul>" +
-      calls +
+      bar(latest.level_m, a.danger_m, d.scale_max_m || 10) + "</article>" +
+      '<article class="bg-card">' + head("M3 8c2 2 4 2 6 0s4-2 6 0 4 2 6 0M3 14c2 2 4 2 6 0s4-2 6 0 4 2 6 0", "तल्लोतटीय नदी", "Downstream rivers") +
+      downRows(d) + "</article>" +
+      '<article class="bg-card">' + head("M4 20V10l8-6 8 6v10M9 20v-6h6v6", "क्षति (प्रारम्भिक)", "Impact (reported)") +
+      "<ul>" + impact + "</ul></article>" +
+      '<article class="bg-card">' + head("M12 3v6M8 9h8l2 4H6l2-4zM7 13v6M17 13v6M5 19h14", "उद्धार र राहत", "Rescue & relief") +
+      "<ul>" + rescue + "</ul></article>" +
+      '<article class="bg-card">' + head("M12 19V5M6 11l6-6 6 6", "सुरक्षित स्थानमा जानुहोस्", "Who should move") +
+      "<p>" + esc(t(d.evacuate_ne, d.evacuate_en)) + "</p>" +
+      '<p class="bg-tag">' + esc(t(d.evacuate_by_ne, d.evacuate_by_en)) + "</p>" +
+      "<p>" + esc(t(d.districts_ne, d.districts_en)) + "</p></article>" +
+      '<article class="bg-card">' + head("M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z", "समयरेखा", "Timeline") +
+      times +
+      '<a class="bg-see-all" href="budhi-gandaki.html#today">' + esc(t("सबै हेर्नुहोस् →", "See all →")) + "</a></article>" +
+      '<article class="bg-card">' + head("M4 6h16v12H4zM8 18l3-3 2 2 3-4 4 5", "तस्विर", "Photos") +
+      '<div class="bg-home-thumbs">' + pics + "</div></article>" +
+      '<article class="bg-card">' + head("M7 3h4l1 3h5v14H7zM10 11h4M12 9v4", "सम्पर्क", "Contacts") +
+      calls + "</article></div>" +
       '<a class="bg-home-more" href="budhi-gandaki.html">' + esc(t("पूरा विवरण →", "Full details →")) + "</a>";
   }
   function downRows(d) {
@@ -183,6 +209,9 @@
     });
     document.querySelectorAll("[data-budhi-updated]").forEach(function (el) {
       el.textContent = t(pack.updated_ne, pack.updated_en);
+    });
+    document.querySelectorAll("[data-budhi-guide]").forEach(function (el) {
+      el.textContent = t(pack.guidance_ne, pack.guidance_en);
     });
   }
   function boot() {
