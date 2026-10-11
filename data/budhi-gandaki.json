@@ -1,18 +1,26 @@
 {
-  "updated_at": "2026-10-11T11:26:00+05:45",
-  "updated_ne": "पछिल्लो अपडेट: असोज २५, ११:२६ NPT",
-  "updated_en": "Last updated: Asoj 25, 11:26 AM NPT",
+  "updated_at": "2026-10-11T13:06:00+05:45",
+  "updated_ne": "पछिल्लो अपडेट: असोज २५, दिउँसो १:०६ NPT",
+  "updated_en": "Last updated: Asoj 25, 1:06 PM NPT",
   "title_ne": "बुढीगण्डकी बाढी अपडेट",
   "title_en": "Budhi Gandaki Flood Update",
   "kicker_ne": "बाढी अलर्ट",
   "kicker_en": "Flood alert",
-  "status_ne": "खतरा तहभन्दा माथि · बढ्दो",
-  "status_en": "Above the danger level · rising",
-  "guidance_ne": "बाढी पास नहुँदासम्म बेनीघाटको त्रिशूली दोभानसम्म नदी छेउछाउ नजानुहोस्। उच्च स्थानमा बस्नुहोस्। NDRRMA (०९:४२): बेनीघाटसम्म अति उच्च जोखिम, मुग्लिङसम्म उच्च सतर्कता। चितवन र नवलपरासी मध्यम जोखिम।",
-  "guidance_en": "Stay away from the river down to the Trishuli confluence at Benighat until it passes, and move to high ground. NDRRMA at 9:42 AM: very high risk down to Benighat, high alert up to Mugling. Medium risk along the river in Chitwan and Nawalparasi.",
+  "status_ne": "स्टेसन बग्नुअघिको अन्तिम रिडिङ",
+  "status_en": "Last reading before the station was lost",
+  "guidance_ne": "नदी किनार र तल्लो तटीय बासिन्दा आज साँझसम्म नदी र जोखिमयुक्त बस्तीबाट टाढा, सुरक्षित ठाउँमै बस्नुहोस्। बहाव घटेको देखिए पनि जोखिम सकियो भन्ने नठान्नुहोस्। पुल नकाट्नुहोस् र जोखिमयुक्त सडक प्रयोग नगर्नुहोस्। स्थानीय प्रशासन र सुरक्षा निकायको सूचना पालना गर्नुहोस्। थप विश्लेषण DHM ले सार्वजनिक गर्नेछ।",
+  "guidance_en": "Residents on the riverbank and downstream should stay in safe places, away from the river and risky settlements, until this evening. Do not assume the risk is over even if the flow looks lower. Do not cross bridges or use risky roads. Follow the local administration and security agencies. DHM will publish more analysis.",
+  "origin_ne": "स्रोत: गोरखाको चुमनुब्री गाउँपालिका–६, तुम्जेमा बुढीगण्डकीको सहायक नदीबाट आकस्मिक बाढी। DHM लाई पहिलो जानकारी बिहान ६:०० बजे भयो।",
+  "origin_en": "Origin: a flash flood from a tributary of the Budhi Gandaki at Tumje, Chumnubri Rural Municipality-6, Gorkha. DHM first got word at 6:00 AM.",
+  "cause_label_ne": "सम्भावित कारण (DHM प्रारम्भिक)",
+  "cause_label_en": "Probable cause (DHM preliminary)",
+  "cause_ne": "पछिल्लो २४ घण्टामा छिटपुट वर्षा मात्र भएकोले वर्षा कारण हुने सम्भावना कम छ। प्रारम्भिक विवरण र उपग्रह तस्विरले पहिरोले नदी थुनेर फुटेको देखाउँछ। विस्तृत प्राविधिक विश्लेषण जारी छ।",
+  "cause_en": "Only scattered rain fell in the past 24 hours, so rain is unlikely to be the cause. Initial reports and satellite images suggest a landslide blocked the river and then burst. Detailed technical analysis is still going on.",
+  "alerts_ne": "एसएमएस १ (६:३०): बेनीघाटसम्म नदी किनारका सबैलाई। एसएमएस २ (९:२५): सुरक्षित ठाउँमा जानुहोस् र अर्को सूचना नआउञ्जेल त्यहीँ बस्नुहोस्। दुई चरणमा करिब २ लाख एसएमएस।",
+  "alerts_en": "SMS #1 at 6:30 AM went to everyone along the river down to Benighat. SMS #2 at 9:25 AM said to move to a safe place and stay there until further notice. About 200,000 messages across the two rounds.",
   "source": "https://www.hydrology.gov.np/",
-  "feed_label_ne": "DHM hydrology.gov.np · ११:००–११:२० NPT",
-  "feed_label_en": "DHM hydrology.gov.np · 11:00–11:20 AM NPT",
+  "feed_label_ne": "DHM hydrology.gov.np · १२:३०–१२:५० NPT",
+  "feed_label_en": "DHM hydrology.gov.np · 12:30–12:50 PM NPT",
   "scale_max_m": 10,
   "aarughat": {
     "station_index": "445",
@@ -27,18 +35,54 @@
       "at": "2026-10-11T08:40:00+05:45",
       "time_ne": "०८:४०",
       "time_en": "8:40 AM",
-      "note_ne": "अरुघाट स्टेसनबाट ०८:४० पछि नयाँ रिडिङ आएको छैन",
-      "note_en": "No new reading from the Aarughat station since 8:40 AM"
+      "note_ne": "करिब ८:४० बजे बाढीले पुलसहित आरुघाट मापन केन्द्र बगाएकोले थप रिडिङ उपलब्ध छैन (DHM)",
+      "note_en": "The flood swept away the Aarughat gauging station and bridge at about 8:40 AM, so there are no more readings (DHM)"
     },
     "history": [
+      {
+        "level_m": 2.28,
+        "trend": "STEADY",
+        "status": "BELOW",
+        "time_ne": "०६:००",
+        "time_en": "6:00 AM",
+        "note_ne": "DHM लाई पहिलो जानकारी",
+        "note_en": "DHM first got word"
+      },
+      {
+        "level_m": 3.66,
+        "trend": "RISING",
+        "status": "BELOW",
+        "time_ne": "०६:३०",
+        "time_en": "6:30 AM",
+        "note_ne": "एसएमएस १",
+        "note_en": "SMS #1"
+      },
       {
         "level_m": 5.01,
         "trend": "RISING",
         "status": "DANGER",
         "time_ne": "०७:५०",
         "time_en": "7:50 AM",
-        "note_ne": "DHM River Watch, NDRRMA ले ०८:०० मा सेयर",
-        "note_en": "DHM River Watch, shared by NDRRMA at 8:00 AM"
+        "note_ne": "खतरा तह पार",
+        "note_en": "Crossed the danger level"
+      },
+      {
+        "level_m": 4.5,
+        "trend": "FALLING",
+        "status": "WARN",
+        "time_ne": "०८:००",
+        "time_en": "8:00 AM",
+        "note_ne": "फेसबुक लाइभ: खाली गर्न आग्रह",
+        "note_en": "Facebook Live evacuation call"
+      },
+      {
+        "level_m": 6.22,
+        "trend": "RISING",
+        "status": "DANGER",
+        "time_ne": "०८:३०",
+        "time_en": "8:30 AM",
+        "note_ne": "DHM",
+        "note_en": "DHM"
       },
       {
         "level_m": 8.43,
@@ -46,44 +90,53 @@
         "status": "DANGER",
         "time_ne": "०८:४०",
         "time_en": "8:40 AM",
-        "note_ne": "DHM hydrology.gov.np को लाइभ रिडिङ",
-        "note_en": "Live DHM hydrology.gov.np reading"
+        "note_ne": "स्टेसन बग्नुअघिको अन्तिम रिडिङ",
+        "note_en": "Last reading before the station was lost"
       }
+    ],
+    "chart": [
+      {"min": 0, "level_m": 2.28, "time_ne": "६:००", "time_en": "6:00"},
+      {"min": 30, "level_m": 3.66, "time_ne": "६:३०", "time_en": "6:30", "mark_ne": "एसएमएस १", "mark_en": "SMS #1"},
+      {"min": 110, "level_m": 5.01, "time_ne": "७:५०", "time_en": "7:50", "mark_ne": "खतरा पार", "mark_en": "Danger crossed"},
+      {"min": 120, "level_m": 4.5, "time_ne": "८:००", "time_en": "8:00", "mark_ne": "फेसबुक लाइभ", "mark_en": "Facebook Live"},
+      {"min": 150, "level_m": 6.22, "time_ne": "८:३०", "time_en": "8:30"},
+      {"min": 160, "level_m": 8.43, "time_ne": "८:४०", "time_en": "8:40", "end": true, "mark_ne": "स्टेसन र पुल बग्यो", "mark_en": "Station + bridge lost"},
+      {"min": 205, "level_m": null, "time_ne": "९:२५", "time_en": "9:25", "axis_only": true, "mark_ne": "एसएमएस २", "mark_en": "SMS #2"}
     ]
   },
   "downstream": [
     {
       "name_ne": "देवघाट · नारायणी",
       "name_en": "Narayani at Devghat",
-      "level_m": 3.97,
+      "level_m": 4.03,
       "warning_m": 7.3,
       "danger_m": 9.0,
       "trend": "STEADY",
       "status": "BELOW",
-      "time_ne": "११:००",
-      "time_en": "11:00 AM"
+      "time_ne": "१२:३०",
+      "time_en": "12:30 PM"
     },
     {
       "name_ne": "काली खोला · त्रिशूली",
       "name_en": "Trishuli at Kali Khola",
-      "level_m": 4.5,
+      "level_m": 4.39,
       "warning_m": 10.8,
       "danger_m": 12.1,
-      "trend": "RISING",
+      "trend": "FALLING",
       "status": "BELOW",
-      "time_ne": "११:२०",
-      "time_en": "11:20 AM"
+      "time_ne": "१२:५०",
+      "time_en": "12:50 PM"
     },
     {
       "name_ne": "भोर्ले · त्रिशूली",
       "name_en": "Trishuli at Bhorle",
-      "level_m": 3.32,
+      "level_m": 3.92,
       "warning_m": 9.5,
       "danger_m": null,
-      "trend": "STEADY",
+      "trend": "RISING",
       "status": "BELOW",
-      "time_ne": "११:२०",
-      "time_en": "11:20 AM"
+      "time_ne": "१२:४०",
+      "time_en": "12:40 PM"
     }
   ],
   "home_facts": [
@@ -127,6 +180,12 @@
       "en": "Machhikhola market is damaged.",
       "by_ne": "समाचार अनुसार · सहायक प्रमुख जिल्ला अधिकारी नेत्रप्रसाद शर्मा, हिमालय टाइम्स",
       "by_en": "reported · Asst. CDO Netra Prasad Sharma, Himalaya Times"
+    },
+    {
+      "ne": "आरुघाट मापन केन्द्र र पुल।",
+      "en": "Aarughat gauging station + bridge.",
+      "by_ne": "DHM · प्रेस विज्ञप्ति",
+      "by_en": "DHM press release"
     },
     {
       "ne": "तीनवटा पुल बगेका छन्: न्याकचेट–सिर्दिबासको पुरानो झोलुङ्गे पुल (चुमनुब्री–३), माछीखोला–केरौँजाको झोलुङ्गे पुल (धार्चे–५), र सोतीमा आरुघाट–२ र ३ जोड्ने फलामे पक्की पुल (सोती–मान्बु)।",
@@ -215,8 +274,16 @@
   "districts_en": "River banks in Gorkha, Dhading, Tanahun, Chitwan and Nawalparasi. Very high risk down to Benighat. High alert up to Mugling.",
   "dos": [
     {
-      "ne": "नदी वा पुल नकाट्नुहोस्।",
-      "en": "Do not cross rivers or bridges."
+      "ne": "आज साँझसम्म नदी र जोखिमयुक्त बस्तीबाट टाढा बस्नुहोस्।",
+      "en": "Stay away from the river and risky settlements until this evening."
+    },
+    {
+      "ne": "बहाव घटेको देखिए पनि जोखिम सकियो भन्ने नठान्नुहोस्।",
+      "en": "Do not assume the risk is over even if the flow looks lower."
+    },
+    {
+      "ne": "पुल नकाट्नुहोस् र जोखिमयुक्त सडक प्रयोग नगर्नुहोस्।",
+      "en": "Do not cross bridges or use risky roads."
     },
     {
       "ne": "बाढी हेर्न नजानुहोस्।",
@@ -335,6 +402,15 @@
   "photo_credit_label": "NDRRMA",
   "timeline": [
     {
+      "time_ne": "०६:००",
+      "time_en": "6:00 AM",
+      "ne": "DHM: चुमनुब्री–६ तुम्जेमा बुढीगण्डकीको सहायक नदीबाट आकस्मिक बाढी। पहिलो जानकारी यही बेला। आरुघाट २.२८ मि.।",
+      "en": "DHM: a flash flood from a tributary of the Budhi Gandaki at Tumje, Chumnubri-6. This is when DHM first got word. Aarughat 2.28 m.",
+      "href": "https://x.com/DHM_FloodEWS/status/2109167177526116425",
+      "by_ne": "DHM प्रेस विज्ञप्ति",
+      "by_en": "DHM press release"
+    },
+    {
       "time_ne": "बिहान",
       "time_en": "Morning",
       "ne": "प्रहरी: चुमनुब्री–६ को लोक्पा र चुम्लिङ बीच पहिरोले बुढीगण्डकी थुनियो।",
@@ -351,6 +427,15 @@
       "by_en": "Ratopati"
     },
     {
+      "time_ne": "०६:३०",
+      "time_en": "6:30 AM",
+      "ne": "एसएमएस १: बेनीघाटसम्म नदी किनारका सबैलाई। आरुघाट ३.६६ मि.।",
+      "en": "SMS #1 to everyone along the river down to Benighat. Aarughat 3.66 m.",
+      "href": "https://x.com/DHM_FloodEWS/status/2109167177526116425",
+      "by_ne": "DHM प्रेस विज्ञप्ति",
+      "by_en": "DHM press release"
+    },
+    {
       "time_ne": "०६:४०",
       "time_en": "6:40 AM",
       "ne": "महाशाखाको एसएमएस: चुमनुम्वी–६ बाट ठूलो बाढी। त्रिशूली दोभानसम्म नदी छेउछाउ नजानुहोस्।",
@@ -362,10 +447,11 @@
     {
       "time_ne": "०७:५०",
       "time_en": "7:50 AM",
-      "ne": "आरुघाट ५.०१ मि., खतरा तह ५.० मि. पार, बढ्दो।",
-      "en": "Aarughat 5.01 m, above the 5.0 m danger level, rising.",
-      "by_ne": "DHM River Watch",
-      "by_en": "DHM River Watch"
+      "ne": "आरुघाट ५.०१ मि., खतरा तह ५.०० मि. पार।",
+      "en": "Aarughat 5.01 m, crossed the 5.00 m danger level.",
+      "href": "https://x.com/DHM_FloodEWS/status/2109167177526116425",
+      "by_ne": "DHM प्रेस विज्ञप्ति",
+      "by_en": "DHM press release"
     },
     {
       "time_ne": "०८:००",
@@ -377,12 +463,31 @@
       "by_en": "@ndrrma_nepal"
     },
     {
+      "time_ne": "०८:००",
+      "time_en": "8:00 AM",
+      "ne": "आरुघाट ४.५० मि.। फेसबुक लाइभ: बुढीगण्डकी किनारदेखि बेनीघाटसम्म जोखिमयुक्त बस्ती खाली गर्न, आवश्यक भए राजमार्ग र करिडोरको यातायात बन्द गर्न, मुग्लिङसम्म उच्च सतर्कता, र तनहुँ, चितवन तथा नवलपरासीमा सतर्कता।",
+      "en": "Aarughat 4.50 m. Facebook Live: evacuate risky settlements from the Budhi Gandaki riverside to Benighat, close highway and corridor traffic if needed, keep high alert down to Mugling, and take precautions in Tanahun, Chitwan and Nawalparasi.",
+      "href": "https://x.com/DHM_FloodEWS/status/2109167177526116425",
+      "by_ne": "DHM प्रेस विज्ञप्ति",
+      "by_en": "DHM press release"
+    },
+    {
+      "time_ne": "०८:३०",
+      "time_en": "8:30 AM",
+      "ne": "आरुघाट ६.२२ मि.।",
+      "en": "Aarughat 6.22 m.",
+      "href": "https://x.com/DHM_FloodEWS/status/2109167177526116425",
+      "by_ne": "DHM प्रेस विज्ञप्ति",
+      "by_en": "DHM press release"
+    },
+    {
       "time_ne": "०८:४०",
       "time_en": "8:40 AM",
-      "ne": "आरुघाट ८.४३ मि., बढ्दो, खतरा।",
-      "en": "Aarughat 8.43 m, rising, danger.",
-      "by_ne": "DHM hydrology.gov.np",
-      "by_en": "DHM hydrology.gov.np"
+      "ne": "आरुघाट ८.४३ मि., स्टेसन हराउनुअघिको अन्तिम रिडिङ। करिब ८:४० बजे बाढीले पुलसहित मापन केन्द्र बगायो। थप रिडिङ छैन।",
+      "en": "Aarughat 8.43 m, the last reading before the station was lost. At about 8:40 AM the flood swept away the gauging station and the bridge. There are no further readings.",
+      "href": "https://x.com/DHM_FloodEWS/status/2109167177526116425",
+      "by_ne": "DHM प्रेस विज्ञप्ति",
+      "by_en": "DHM press release"
     },
     {
       "time_ne": "हेलिकप्टर",
@@ -419,6 +524,15 @@
       "href": "https://x.com/ndrrma_nepal/status/2109122186552496251",
       "by_ne": "NDRRMA",
       "by_en": "NDRRMA"
+    },
+    {
+      "time_ne": "०९:२५",
+      "time_en": "9:25 AM",
+      "ne": "एसएमएस २: सुरक्षित ठाउँमा जानुहोस् र अर्को सूचना नआउञ्जेल त्यहीँ बस्नुहोस्। दुई चरणमा करिब २ लाख एसएमएस।",
+      "en": "SMS #2: move to a safe place and stay there until further notice. About 200,000 text messages across the two rounds.",
+      "href": "https://x.com/DHM_FloodEWS/status/2109167177526116425",
+      "by_ne": "DHM प्रेस विज्ञप्ति",
+      "by_en": "DHM press release"
     },
     {
       "time_ne": "०९:४२",
@@ -459,8 +573,25 @@
     {
       "time_ne": "११:००–११:२०",
       "time_en": "11:00–11:20 AM",
-      "ne": "DHM: देवघाट ३.९७ मि. (स्थिर), काली खोला ४.५० मि. (बढ्दो), भोर्ले ३.३२ मि. (स्थिर)। तीनैवटा अलर्ट तहभन्दा तल। आरुघाटमा ०८:४० पछि नयाँ रिडिङ छैन: ८.४३ मि., खतरा, बढ्दो।",
-      "en": "DHM: Devghat 3.97 m (steady), Kali Khola 4.50 m (rising), Bhorle 3.32 m (steady). All three are below the alert level. No new Aarughat reading since 8:40 AM: 8.43 m, danger, rising.",
+      "ne": "DHM: देवघाट ३.९७ मि. (स्थिर), काली खोला ४.५० मि. (बढ्दो), भोर्ले ३.३२ मि. (स्थिर)। तीनैवटा अलर्ट तहभन्दा तल। आरुघाटको ८.४३ मि. अन्तिम रिडिङ हो। मापन केन्द्र बगिसकेको थियो।",
+      "en": "DHM: Devghat 3.97 m (steady), Kali Khola 4.50 m (rising), Bhorle 3.32 m (steady). All three were below the alert level. Aarughat’s 8.43 m was already the last reading. The gauging station had been swept away.",
+      "by_ne": "DHM hydrology.gov.np",
+      "by_en": "DHM hydrology.gov.np"
+    },
+    {
+      "time_ne": "१२:०५",
+      "time_en": "12:05 PM",
+      "ne": "DHM प्रेस विज्ञप्ति, डा. राजन भट्टराई (उप-कार्यकारी निर्देशक तथा प्रवक्ता): सम्भावित कारण प्रारम्भिक हो। छिटपुट वर्षा मात्र भएकोले वर्षा कारण हुने सम्भावना कम छ। प्रारम्भिक विवरण र उपग्रह तस्विरले पहिरोले थुनेर फुटेको देखाउँछ। विस्तृत विश्लेषण जारी छ। साँझसम्म नदीबाट टाढा बस्नुहोस्।",
+      "en": "DHM press release, Dr. Rajan Bhattarai, Deputy Executive Director and spokesperson: the probable cause is preliminary. Only scattered rain fell, so rain is unlikely to be the cause. Initial reports and satellite images suggest a landslide blocked the river and then burst. Detailed analysis is ongoing. Stay away from the river until this evening.",
+      "href": "https://x.com/DHM_FloodEWS/status/2109167177526116425",
+      "by_ne": "DHM",
+      "by_en": "DHM"
+    },
+    {
+      "time_ne": "१२:३०–१२:५०",
+      "time_en": "12:30–12:50 PM",
+      "ne": "DHM: देवघाट ४.०३ मि. (स्थिर), काली खोला ४.३९ मि. (घट्दो), भोर्ले ३.९२ मि. (बढ्दो)। तीनैवटा अलर्ट तहभन्दा तल।",
+      "en": "DHM: Devghat 4.03 m (steady), Kali Khola 4.39 m (falling), Bhorle 3.92 m (rising). All three are below the alert level.",
       "by_ne": "DHM hydrology.gov.np",
       "by_en": "DHM hydrology.gov.np"
     }
@@ -560,6 +691,16 @@
       "href": "https://x.com/NDRRMA_Nepal/status/2109151062607450204",
       "ne": "NDRRMA · ११:०१ बैठक",
       "en": "NDRRMA · 11:01 AM meeting"
+    },
+    {
+      "href": "https://x.com/DHM_FloodEWS/status/2109167177526116425",
+      "ne": "DHM · १२:०५ प्रेस विज्ञप्ति",
+      "en": "DHM · 12:05 PM press release"
+    },
+    {
+      "href": "https://x.com/DHM_FloodEWS/status/2109176165432983559",
+      "ne": "DHM · १२:४० जलरेखा",
+      "en": "DHM · 12:40 PM hydrograph"
     }
   ]
 }

@@ -49,38 +49,93 @@
       '<span class="bg-bar-fill" style="width:' + fill + '%"></span>' +
       '<i class="bg-bar-mark" style="left:' + mark + '%"></i></div></div>';
   }
-  function gaugeSvg(a, max) {
-    var latest = a.latest.level_m;
-    var y = function (m) { return 300 - (m / max) * 272; };
-    var top = y(latest);
-    var hist = a.history || [];
-    var x1 = 48;
-    var x2 = 300;
-    var sy = function (m) { return 110 - ((m - 4) / 6) * 80; };
-    var p1 = hist[0] || { level_m: latest, time_ne: "", time_en: "" };
-    var p2 = hist[hist.length - 1] || p1;
-    var y1 = sy(p1.level_m);
-    var y2 = sy(p2.level_m);
-    return '<svg class="bg-gauge" viewBox="0 0 280 320" role="img" aria-label="' + esc(lvl(latest) + " m") + '">' +
-      '<defs><clipPath id="bg-tube"><rect x="78" y="24" width="48" height="272" rx="10"/></clipPath></defs>' +
-      '<rect x="78" y="24" width="48" height="272" rx="10" fill="#f8fafc" stroke="#e7e5e4"/>' +
-      '<g clip-path="url(#bg-tube)">' +
-      '<rect x="78" y="24" width="48" height="' + (y(a.danger_m) - 24).toFixed(1) + '" fill="#fee2e2"/>' +
-      '<rect x="78" y="' + top.toFixed(1) + '" width="48" height="' + (296 - top).toFixed(1) + '" fill="#c41e3a"/>' +
-      "</g>" +
-      '<line x1="66" y1="' + y(a.danger_m).toFixed(1) + '" x2="138" y2="' + y(a.danger_m).toFixed(1) + '" stroke="#c41e3a" stroke-width="2"/>' +
-      '<line x1="66" y1="' + y(a.warning_m).toFixed(1) + '" x2="138" y2="' + y(a.warning_m).toFixed(1) + '" stroke="#d97706" stroke-width="2" stroke-dasharray="4 3"/>' +
-      '<text x="148" y="' + (top + 6).toFixed(1) + '" fill="#9f1239" font-size="15" font-weight="700">' + esc(digits(lvl(latest))) + "</text>" +
-      '<text x="58" y="' + (y(a.danger_m) - 2).toFixed(1) + '" text-anchor="end" fill="#9f1239" font-size="13">' + esc(digits(thr(a.danger_m))) + "</text>" +
-      '<text x="58" y="' + (y(a.warning_m) + 16).toFixed(1) + '" text-anchor="end" fill="#9a3412" font-size="13">' + esc(digits(thr(a.warning_m))) + "</text>" +
-      "</svg>" +
-      '<svg class="bg-spark" viewBox="0 0 360 150" role="img" aria-label="readings">' +
-      '<line x1="' + x1 + '" y1="' + y1.toFixed(1) + '" x2="' + x2 + '" y2="' + y2.toFixed(1) + '" stroke="#c41e3a" stroke-width="4" stroke-linecap="round"/>' +
-      '<circle cx="' + x1 + '" cy="' + y1.toFixed(1) + '" r="6" fill="#c41e3a"/>' +
-      '<circle cx="' + x2 + '" cy="' + y2.toFixed(1) + '" r="7" fill="#c41e3a"/>' +
-      '<text x="' + x1 + '" y="140" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="700">' + esc(digits(t(p1.time_ne, p1.time_en))) + "</text>" +
-      '<text x="' + x2 + '" y="140" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="700">' + esc(digits(t(p2.time_ne, p2.time_en))) + "</text>" +
-      "</svg>";
+  function hydroSvg(d, compact) {
+    var a = d.aarughat;
+    var chart = a.chart || [];
+    var W = compact ? 360 : 880;
+    var H = compact ? 214 : 430;
+    var x0 = compact ? 40 : 68;
+    var x1 = W - (compact ? 12 : 16);
+    var yTop = compact ? 18 : 28;
+    var yBase = compact ? 156 : 292;
+    var yMax = 9.5;
+    var tMax = 205;
+    function X(min) { return x0 + (min / tMax) * (x1 - x0); }
+    function Y(level) { return yBase - (level / yMax) * (yBase - yTop); }
+    var font = ' font-family="Mukta, Noto Sans Devanagari, sans-serif"';
+    var svg = ['<svg class="bg-hydro' + (compact ? " is-compact" : "") + '" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' +
+      esc(t("आरुघाट जलरेखा, ६:०० देखि ८:४०, त्यसपछि स्टेसन बग्यो", "Aarughat hydrograph from 6:00 to 8:40, when the station was lost")) + '">'];
+    var g;
+    for (g = 0; g <= 9; g += 3) {
+      var gy = Y(g);
+      svg.push('<line x1="' + x0 + '" y1="' + gy.toFixed(1) + '" x2="' + x1 + '" y2="' + gy.toFixed(1) + '" stroke="#e7e5e4"/>');
+      svg.push('<text x="' + (x0 - 8) + '" y="' + (gy + 4).toFixed(1) + '" text-anchor="end" fill="#64748b" font-size="' + (compact ? 12 : 13) + '" font-weight="700"' + font + ">" + esc(digits(String(g))) + "</text>");
+    }
+    function rule(level, color, side) {
+      var yy = Y(level);
+      svg.push('<line x1="' + x0 + '" y1="' + yy.toFixed(1) + '" x2="' + x1 + '" y2="' + yy.toFixed(1) + '" stroke="' + color + '" stroke-width="1.5" stroke-dasharray="6 4"/>');
+      var tx = side === "left" ? x0 + 6 : x1 - 4;
+      svg.push('<text x="' + tx + '" y="' + (yy - 5).toFixed(1) + '" text-anchor="' + (side === "left" ? "start" : "end") + '" fill="' + color + '" font-size="' + (compact ? 12 : 14) + '" font-weight="800"' + font + ">" + esc(digits(Number(level).toFixed(2))) + "</text>");
+    }
+    rule(a.warning_m, "#d97706", "left");
+    rule(a.danger_m, "#c41e3a", "right");
+    var pts = chart.filter(function (p) { return p.level_m != null; });
+    var line = pts.map(function (p, i) { return (i ? "L" : "M") + X(p.min).toFixed(1) + " " + Y(p.level_m).toFixed(1); }).join("");
+    svg.push('<path d="' + line + '" fill="none" stroke="#c41e3a" stroke-width="' + (compact ? 2.5 : 3) + '" stroke-linejoin="round" stroke-linecap="round"/>');
+    chart.forEach(function (p) {
+      var x = X(p.min);
+      var time = digits(t(p.time_ne, p.time_en));
+      var mark = p.mark_en ? digits(t(p.mark_ne, p.mark_en)) : "";
+      if (p.axis_only) {
+        svg.push('<line x1="' + x.toFixed(1) + '" y1="' + (yBase - 8) + '" x2="' + x.toFixed(1) + '" y2="' + (yBase + 5) + '" stroke="#0f172a" stroke-width="2"/>');
+        svg.push('<circle cx="' + x.toFixed(1) + '" cy="' + yBase + '" r="3.5" fill="#0f172a"/>');
+        svg.push('<text x="' + x.toFixed(1) + '" y="' + (yBase + (compact ? 22 : 24)) + '" text-anchor="end" fill="#0f172a" font-size="' + (compact ? 12 : 14) + '" font-weight="800"' + font + ">" + esc(time) + "</text>");
+        if (!compact && mark) svg.push('<text x="' + x.toFixed(1) + '" y="' + (yBase + 44) + '" text-anchor="end" fill="#0f172a" font-size="13" font-weight="800"' + font + ">" + esc(mark) + "</text>");
+        return;
+      }
+      var y = Y(p.level_m);
+      if (p.end) {
+        var s = compact ? 6 : 8;
+        svg.push('<line x1="' + (x - s).toFixed(1) + '" y1="' + (y - s).toFixed(1) + '" x2="' + (x + s).toFixed(1) + '" y2="' + (y + s).toFixed(1) + '" stroke="#9f1239" stroke-width="2.5"/>');
+        svg.push('<line x1="' + (x - s).toFixed(1) + '" y1="' + (y + s).toFixed(1) + '" x2="' + (x + s).toFixed(1) + '" y2="' + (y - s).toFixed(1) + '" stroke="#9f1239" stroke-width="2.5"/>');
+      } else {
+        svg.push('<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (compact ? 4 : 5) + '" fill="#fff" stroke="#c41e3a" stroke-width="2.5"/>');
+      }
+      var below = p.time_en === "8:00";
+      var showLevel = !compact || p.time_en === "6:00" || p.time_en === "7:50" || p.end;
+      if (showLevel) {
+        var levelY = below ? y + 18 : y - (compact ? 10 : 14);
+        var anchor = p.end ? "end" : "middle";
+        var lx = p.end ? x - (compact ? 10 : 14) : x;
+        svg.push('<text x="' + lx.toFixed(1) + '" y="' + levelY.toFixed(1) + '" text-anchor="' + anchor + '" fill="#9f1239" font-size="' + (compact ? 12 : 13) + '" font-weight="800"' + font + ">" + esc(digits(lvl(p.level_m))) + "</text>");
+      }
+      if (!compact && mark) {
+        var my = p.end ? y - 30 : (below ? y + 36 : y - 32);
+        var mx = p.end ? x - 14 : x;
+        svg.push('<text x="' + mx.toFixed(1) + '" y="' + my.toFixed(1) + '" text-anchor="' + (p.end ? "end" : "middle") + '" fill="#0f172a" font-size="13" font-weight="800"' + font + ">" + esc(mark) + "</text>");
+      }
+      var showTime = !compact || p.time_en === "6:00" || p.end;
+      if (showTime) {
+        var timeAnchor = "middle";
+        if (!compact && p.time_en === "7:50") timeAnchor = "end";
+        if (!compact && (p.time_en === "8:00" || p.time_en === "8:40")) timeAnchor = "start";
+        svg.push('<text x="' + x.toFixed(1) + '" y="' + (yBase + (compact ? 22 : 24)) + '" text-anchor="' + timeAnchor + '" fill="#334155" font-size="' + (compact ? 12 : 14) + '" font-weight="800"' + font + ">" + esc(time) + "</text>");
+      }
+    });
+    svg.push("</svg>");
+    return svg.join("");
+  }
+  function hydroLegend(d) {
+    var items = (d.aarughat.chart || []).filter(function (p) { return p.mark_en; });
+    return '<ul class="bg-legend">' + items.map(function (p) {
+      return "<li><strong>" + esc(digits(t(p.time_ne, p.time_en))) + "</strong> " + esc(digits(t(p.mark_ne, p.mark_en))) + "</li>";
+    }).join("") + "</ul>";
+  }
+  function hydroCaption() {
+    return '<p class="bg-cap">' + esc(t(
+      "DHM को १२:४० को जलरेखाबाट बनाइएको रेखाचित्र।",
+      "Chart drawn from the DHM hydrograph posted at 12:40 PM."
+    )) + ' <a href="https://x.com/DHM_FloodEWS/status/2109176165432983559" target="_blank" rel="noopener">DHM</a></p>';
   }
   function ico(d) {
     return '<svg class="bg-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="' + d + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -177,14 +232,14 @@
       }).join("") + "</div>";
     var calls = phones((d.contacts || []).filter(function (c) { return c.home; }));
     return '<div class="bg-grid bg-home-grid">' +
-      '<article class="bg-card">' + head("M12 3v18M8 7h8M7 12h10M8 17h8", "अहिलेको अवस्था", "Current status") +
+      '<article class="bg-card bg-span">' + head("M12 3v18M8 7h8M7 12h10M8 17h8", "अहिलेको अवस्था", "Current status") +
       '<p class="bg-pill">' + esc(t(d.status_ne, d.status_en)) + "</p>" +
       '<p class="bg-big"><strong>' + esc(digits(lvl(latest.level_m))) + "</strong> <span>" + esc(t("मि.", "m")) + "</span></p>" +
       "<p>" + esc(t("खतरा", "danger")) + " <strong>" + esc(digits(thr(a.danger_m))) + "</strong> " + esc(t("मि.", "m")) +
-      " · " + arrow(latest.trend) + " " + esc(trendWord(latest.trend)) +
+      " · " + esc(t("सतर्कता", "Alert level")) + " <strong>" + esc(digits(thr(a.warning_m))) + "</strong> " + esc(t("मि.", "m")) +
       " · " + esc(digits(t(latest.time_ne, latest.time_en))) + "</p>" +
       staleNote(latest) +
-      bar(latest.level_m, a.danger_m, d.scale_max_m || 10) + "</article>" +
+      hydroSvg(d, true) + hydroLegend(d) + hydroCaption() + "</article>" +
       '<article class="bg-card">' + head("M3 8c2 2 4 2 6 0s4-2 6 0 4 2 6 0M3 14c2 2 4 2 6 0s4-2 6 0 4 2 6 0", "तल्लोतटीय नदी", "Downstream rivers") +
       downRows(d) + "</article>" +
       '<article class="bg-card">' + head("M4 20V10l8-6 8 6v10M9 20v-6h6v6", "क्षति (प्रारम्भिक)", "Impact (reported)") +
@@ -195,6 +250,7 @@
       '<article class="bg-card">' + head("M12 3v6M8 9h8l2 4H6l2-4zM7 13v6M17 13v6M5 19h14", "उद्धार र राहत", "Rescue & relief") +
       "<ul>" + rescue + "</ul></article>" +
       '<article class="bg-card">' + head("M12 19V5M6 11l6-6 6 6", "सुरक्षित स्थानमा जानुहोस्", "Who should move") +
+      '<p class="bg-safety">' + esc(t(d.guidance_ne, d.guidance_en)) + "</p>" +
       "<p>" + esc(t(d.evacuate_ne, d.evacuate_en)) + "</p>" +
       '<p class="bg-tag">' + esc(t(d.evacuate_by_ne, d.evacuate_by_en)) + "</p>" +
       "<p>" + esc(t(d.districts_ne, d.districts_en)) + "</p></article>" +
@@ -243,19 +299,24 @@
         " · " + arrow(h.trend) + " " + esc(trendWord(h.trend)) + " · " + esc(t(h.note_ne, h.note_en)) + "</li>";
     }).join("");
     return '<div class="bg-grid">' +
-      '<article class="bg-card"><p class="bg-card-k">' + esc(t("स्थिति", "Status")) + "</p>" +
+      '<article class="bg-card bg-span" id="status"><p class="bg-card-k">' + esc(t("अहिलेको अवस्था", "Current status")) + "</p>" +
       '<p class="bg-pill">' + esc(t(d.status_ne, d.status_en)) + "</p>" +
       '<p class="bg-big"><strong>' + esc(digits(lvl(latest.level_m))) + "</strong> <span>" + esc(t("मि.", "m")) + "</span></p>" +
       "<p>" + esc(t("खतरा", "danger")) + " <strong>" + esc(digits(thr(a.danger_m))) + "</strong> " + esc(t("मि.", "m")) +
-      " · " + arrow(latest.trend) + " " + esc(trendWord(latest.trend)) + "</p>" +
+      " · " + esc(t("सतर्कता", "Alert level")) + " <strong>" + esc(digits(thr(a.warning_m))) + "</strong> " + esc(t("मि.", "m")) + "</p>" +
       "<p>" + esc(t(a.name_ne, a.name_en)) + " · " + esc(t("स्टेसन", "station")) + " " + esc(digits(a.station_index)) +
       " · " + esc(digits(t(latest.time_ne, latest.time_en))) + "</p>" +
       staleNote(latest) +
-      "<p>" + esc(t(d.guidance_ne, d.guidance_en)) + "</p></article>" +
-      '<article class="bg-card" id="level"><p class="bg-card-k">' + esc(t("नदीको सतह", "River level")) + "</p>" +
-      gaugeSvg(a, d.scale_max_m || 10) +
-      "<ul class=\"bg-reads\">" + reads + "</ul>" +
-      "<p>" + esc(t("रातो क्षेत्र खतरा तहभन्दा माथि। पहेँलो धर्को सतर्कता तह।", "Red is above the danger level. The amber line is the alert level.")) + "</p></article>" +
+      "<p>" + esc(t(d.origin_ne, d.origin_en)) + "</p>" +
+      '<p class="bg-cause"><strong>' + esc(t(d.cause_label_ne, d.cause_label_en)) + ".</strong> " + esc(t(d.cause_ne, d.cause_en)) + "</p>" +
+      hydroSvg(d, false) + hydroCaption() +
+      "<p>" + esc(t(
+        "पहेँलो धर्को सतर्कता तह, ४.५० मि.। रातो धर्को खतरा तह, ५.०० मि.। रेखा ८:४० मा रोकिएको छ, त्यतिखेर मापन केन्द्र बग्यो।",
+        "The amber dashed line is the alert level, 4.50 m. The red dashed line is the danger level, 5.00 m. The line stops at 8:40 AM, when the gauging station was lost."
+      )) + "</p>" +
+      "<p>" + esc(t(d.alerts_ne, d.alerts_en)) + "</p></article>" +
+      '<article class="bg-card" id="level"><p class="bg-card-k">' + esc(t("आरुघाटका रिडिङ", "Aarughat readings")) + "</p>" +
+      "<ul class=\"bg-reads\">" + reads + "</ul></article>" +
       '<article class="bg-card" id="downstream"><p class="bg-card-k">' + esc(t("तल्लो तटीय निगरानी", "Downstream watch")) + "</p>" +
       "<p class=\"bg-feed\">" + esc(t(d.feed_label_ne, d.feed_label_en)) + "</p>" +
       downRows(d) + "</article>" +
@@ -266,6 +327,7 @@
       '<article class="bg-card" id="rescue"><p class="bg-card-k">' + esc(t("उद्धार र राहत", "Rescue and relief")) + "</p>" +
       "<ul>" + rescue + "</ul></article>" +
       '<article class="bg-card" id="act"><p class="bg-card-k">' + esc(t("अहिले कसले के गर्ने", "Who should act now")) + "</p>" +
+      '<p class="bg-safety">' + esc(t(d.guidance_ne, d.guidance_en)) + "</p>" +
       "<h3>" + esc(t("सुरक्षित ठाउँमा सर्नुहोस्", "Move to a safe place")) + "</h3><p>" + esc(t(d.evacuate_ne, d.evacuate_en)) + "</p>" +
       '<p class="bg-tag">' + esc(t(d.evacuate_by_ne, d.evacuate_by_en)) + "</p>" +
       "<h3>" + esc(t("नदी किनार सतर्क", "Stay alert downstream")) + "</h3><p>" + esc(t(d.districts_ne, d.districts_en)) + "</p>" +
