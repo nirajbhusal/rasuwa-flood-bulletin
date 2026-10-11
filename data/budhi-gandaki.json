@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-11T09:49:00+05:45",
-  "updated_ne": "पछिल्लो अपडेट: असोज २५, ०९:४९ NPT",
-  "updated_en": "Last updated: Asoj 25, 9:49 AM NPT",
+  "updated_at": "2026-10-11T10:46:00+05:45",
+  "updated_ne": "पछिल्लो अपडेट: असोज २५, १०:४६ NPT",
+  "updated_en": "Last updated: Asoj 25, 10:46 AM NPT",
   "title_ne": "बुढीगण्डकी बाढी अपडेट",
   "title_en": "Budhi Gandaki Flood Update",
   "kicker_ne": "बाढी अलर्ट",
@@ -11,8 +11,8 @@
   "guidance_ne": "बाढी पास नहुँदासम्म बेनीघाटको त्रिशूली दोभानसम्म नदी छेउछाउ नजानुहोस्। उच्च स्थानमा बस्नुहोस्। NDRRMA (०९:०६): गोरखा, धादिङ, तनहुँ र चितवनका नदी किनार सतर्क रहनुहोस्।",
   "guidance_en": "Stay away from the river down to the Trishuli confluence at Benighat until it passes, and move to high ground. NDRRMA at 9:06 AM: stay alert along the river in Gorkha, Dhading, Tanahun and Chitwan.",
   "source": "https://www.hydrology.gov.np/",
-  "feed_label_ne": "DHM hydrology.gov.np · ०९:१०–०९:३० NPT",
-  "feed_label_en": "DHM hydrology.gov.np · 9:10–9:30 AM NPT",
+  "feed_label_ne": "DHM hydrology.gov.np · १०:२०–१०:४० NPT",
+  "feed_label_en": "DHM hydrology.gov.np · 10:20–10:40 AM NPT",
   "scale_max_m": 10,
   "aarughat": {
     "station_index": "445",
@@ -55,35 +55,35 @@
     {
       "name_ne": "देवघाट · नारायणी",
       "name_en": "Narayani at Devghat",
-      "level_m": 3.95,
+      "level_m": 3.97,
       "warning_m": 7.3,
       "danger_m": 9.0,
       "trend": "STEADY",
       "status": "BELOW",
-      "time_ne": "०९:१०–०९:३०",
-      "time_en": "9:10–9:30 AM"
+      "time_ne": "१०:२०",
+      "time_en": "10:20 AM"
     },
     {
       "name_ne": "काली खोला · त्रिशूली",
       "name_en": "Trishuli at Kali Khola",
-      "level_m": 3.85,
+      "level_m": 4.09,
       "warning_m": 10.8,
       "danger_m": 12.1,
-      "trend": "STEADY",
+      "trend": "RISING",
       "status": "BELOW",
-      "time_ne": "०९:१०–०९:३०",
-      "time_en": "9:10–9:30 AM"
+      "time_ne": "१०:४०",
+      "time_en": "10:40 AM"
     },
     {
       "name_ne": "भोर्ले · त्रिशूली",
       "name_en": "Trishuli at Bhorle",
-      "level_m": 3.34,
+      "level_m": 3.33,
       "warning_m": 9.5,
       "danger_m": null,
       "trend": "STEADY",
       "status": "BELOW",
-      "time_ne": "०९:१०–०९:३०",
-      "time_en": "9:10–9:30 AM"
+      "time_ne": "१०:४०",
+      "time_en": "10:40 AM"
     }
   ],
   "home_facts": [
@@ -177,6 +177,45 @@
       "en": "Home Minister Sudan Gurung is heading to the affected area.",
       "by_ne": "अनलाइनपाना",
       "by_en": "OnlinePana"
+    },
+    {
+      "ne": "नेपाली सेनाको उद्धार टोली प्रभावित क्षेत्रमा पुगेको छ।",
+      "en": "A Nepali Army rescue team has reached the affected area.",
+      "by_ne": "नागरिक",
+      "by_en": "Nagarik"
+    }
+  ],
+  "missing": {
+    "count": 4,
+    "label_ne": "सम्पर्कविहीन",
+    "label_en": "out of contact"
+  },
+  "rescue_update": [
+    {
+      "time_ne": "करिब ०९:५०",
+      "time_en": "About 9:50 AM",
+      "agency_ne": "नेपाली सेना",
+      "agency_en": "Nepali Army",
+      "count": 6,
+      "place_ne": "जगत",
+      "place_en": "Jagat",
+      "method_ne": "सेनाको हेलिकप्टर",
+      "method_en": "Army helicopter",
+      "source_name_ne": "RONB",
+      "source_name_en": "RONB",
+      "source_url": "https://x.com/ronbupdates/status/2109135770334507446",
+      "sources": [
+        {
+          "name_ne": "हाम्रो पात्रो",
+          "name_en": "Hamro Patro",
+          "url": "https://www.hamropatro.com/news/detail/3883377649510907-budhigandaki-badhi-senako-helikaptaramarphat-6-janako-sakushal-uddhar"
+        },
+        {
+          "name_ne": "हाम्रो पात्रो",
+          "name_en": "Hamro Patro",
+          "url": "https://www.hamropatro.com/news/detail/3882783152988765-budhigandakima-akasmik-badhi-jagatabat-6-janako-uddhar"
+        }
+      ]
     }
   ],
   "evacuate_ne": "खोर्लाबेसी, मच्छेखोला, सोती, आर्खेत र आरुघाट (सिर्दिबास र धार्चे)।",
@@ -379,6 +418,15 @@
       "href": "https://x.com/ndrrma_nepal/status/2109122186552496251",
       "by_ne": "NDRRMA",
       "by_en": "NDRRMA"
+    },
+    {
+      "time_ne": "करिब ०९:५०",
+      "time_en": "About 9:50 AM",
+      "ne": "नेपाली सेनाको हेलिकप्टरले जगतबाट ६ जनालाई सुरक्षित उद्धार गर्यो।",
+      "en": "A Nepali Army helicopter rescued 6 people safely from Jagat.",
+      "href": "https://x.com/ronbupdates/status/2109135770334507446",
+      "by_ne": "RONB",
+      "by_en": "RONB"
     }
   ],
   "sources": [
@@ -451,6 +499,26 @@
       "href": "https://x.com/ndrrma_nepal/status/2109122186552496251",
       "ne": "NDRRMA · ०९:०६",
       "en": "NDRRMA · 9:06 AM"
+    },
+    {
+      "href": "https://x.com/ronbupdates/status/2109135770334507446",
+      "ne": "RONB · जगतबाट ६ जनाको उद्धार",
+      "en": "RONB · 6 rescued from Jagat"
+    },
+    {
+      "href": "https://www.hamropatro.com/news/detail/3883377649510907-budhigandaki-badhi-senako-helikaptaramarphat-6-janako-sakushal-uddhar",
+      "ne": "हाम्रो पात्रो · सेनाको हेलिकप्टर",
+      "en": "Hamro Patro · Army helicopter"
+    },
+    {
+      "href": "https://www.hamropatro.com/news/detail/3882783152988765-budhigandakima-akasmik-badhi-jagatabat-6-janako-uddhar",
+      "ne": "हाम्रो पात्रो · जगत",
+      "en": "Hamro Patro · Jagat"
+    },
+    {
+      "href": "https://nagariknews.nagariknetwork.com/social-affairs/budhigandaki-flood-nepali-sana-rescue-team-reaches-affected-area-83-66.html",
+      "ne": "नागरिक · सेनाको उद्धार टोली",
+      "en": "Nagarik · Army rescue team"
     }
   ]
 }

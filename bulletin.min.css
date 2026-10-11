@@ -1207,3 +1207,19 @@ html.theme-tihar .fest-hero .fest-tika-line{
 .home-flood-alert .bg-mini-row{margin:0 0 12px}
 .home-flood-alert .bg-mini-row h3{margin:0;font-size:16px;line-height:1.3}
 .bg-row-top{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.bg-rescue{border-color:#99f6e4;box-shadow:inset 4px 0 0 #0f766e}
+.bg-rescue .bg-card-k{color:#0f766e}
+.bg-glance{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 12px}
+.bg-glance-ok,.bg-glance-miss{border-radius:12px;padding:10px 12px}
+.bg-glance-ok{background:#f0fdfa;border:1px solid #99f6e4}
+.bg-glance-miss{background:#f8fafc;border:1px solid #e2e8f0}
+.bg-glance-k{margin:0;font-size:14px;font-weight:800;line-height:1.35;color:#115e59}
+.bg-glance-miss .bg-glance-k{color:#334155}
+.bg-glance-n{margin:2px 0 0;line-height:1}
+.bg-glance-n strong{font-size:clamp(32px,5vw,42px);line-height:1;color:#115e59}
+.bg-glance-miss .bg-glance-n strong{color:#0f172a}
+.bg-glance-n span{font-size:15px;font-weight:700;color:#334155}
+.bg-card .bg-agency,.bg-card .bg-rescue-log{list-style:none;margin:0 0 8px;padding:0}
+.bg-agency li{margin:0 0 4px;font-weight:700}
+.bg-rescue-log li{margin:0 0 8px}
+.bg-rescue-log a,.bg-rescue .bg-see-all{color:#115e59;font-weight:800}
