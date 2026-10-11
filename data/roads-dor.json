@@ -328,12 +328,12 @@
       "en": "Chips are the NAVIGATE totals (10 total / 6 closed / 4 opened / 0 partial) at 19:33 on 24 Sep. The closed feed repeats NH08, so five unique closures are listed. New closure: NH17 Jarekhet (Galchhi–Trisuli bridge), landslide, 18:30. The partial chip is 0; the ticker still carries an NH03 partial-open record. The opened chip is four recently opened sections."
     },
     "nh17": {
-      "ne": "२४ सेप्टेम्बर १८:३० देखि NH17 जरेखेत (गल्छी–जंक्शन त्रिशूली पुल, NH17-002) पहिरोले बन्द छ। अनुमानित २०:३३; अभिलेखमा २१:३७ को अन्त्य छाप पनि छ र बन्द फिडमै छ। सम्पर्क रामेश भण्डारी ९८०२८७७३०३ वा ९८०२८७७३०५, रामेश थापा। शीतल बजार (चेनेज ४६+७४०) अझै बन्द — अनुमानित खुल्ने २५ सेप्टेम्बर १६:००।",
-      "en": "From 18:30 on 24 Sep, NH17 at Jarekhet (Galchhi–Junction Trisuli bridge, NH17-002) is closed by a landslide. Estimate 20:33; the record also carries a 21:37 end stamp and is still on the closed feed. Contact Ramesh Bhandari 9802877303 or 9802877305, Ramesh Thapa. Shital Bazaar (chainage 46+740) is still closed — estimated open 25 Sep, 16:00."
+      "ne": "२४ सेप्टेम्बर १८:३० को NH17 जरेखेत (गल्छी–जंक्शन त्रिशूली पुल) पुरानो बन्द अभिलेख हो। शीतल बजार (काठमाडौँ–गजुरी–मुग्लिङ) असोज २५, दिउँसो ४:४५ NPT मा दुवैतर्फी (two-way) खुलेको।",
+      "en": "The 24 Sep 18:30 NH17 Jarekhet (Galchhi–Junction Trisuli bridge) line is an older closure record. Shital Bazaar, on Kathmandu–Gajuri–Mugling, is open (two-way) as of Asoj 25, 4:45 PM NPT."
     },
     "also": {
-      "ne": "अन्य बन्द: NH17 जरेखेत (२४ सेप्टेम्बर १८:३०, पहिरो), NH17 शीतल बजार (अनुमानित २५ सेप्टेम्बर १६:००), NH08 कोशी, NH02 मेची।",
-      "en": "Also closed: NH17 Jarekhet (24 Sep 18:30, landslide), NH17 Shital Bazaar (est. 25 Sep, 16:00), NH08 Koshi, NH02 Mechi."
+      "ne": "अन्य पुराना बन्द: NH17 जरेखेत, NH08 कोशी, NH02 मेची। काठमाडौँ–गजुरी–मुग्लिङ, मुग्लिङ–पोखरा र नारायणघाट–बुटवल असोज २५, दिउँसो ४:४५ NPT मा खुला।",
+      "en": "Other older closures: NH17 Jarekhet, NH08 Koshi, NH02 Mechi. Kathmandu–Gajuri–Mugling, Mugling–Pokhara, and Narayanghat–Butwal are open as of Asoj 25, 4:45 PM NPT."
     },
     "g_closed": {
       "ne": "अहिले बन्द",
@@ -528,9 +528,9 @@
       "id": "894",
       "ref": "NH17",
       "link": "NH17-003",
-      "status": "closed",
+      "status": "opened",
       "lists": [
-        "closed"
+        "opened"
       ],
       "priority": false,
       "name": {
@@ -559,15 +559,19 @@
         "en": "30 Aug 2026, 17:00",
         "ne": "३० अगस्ट २०२६, १७:००"
       },
-      "opened": null,
+      "opened": {
+        "iso": "2026-10-11T16:45:00+05:45",
+        "en": "Asoj 25, 4:45 PM NPT",
+        "ne": "असोज २५, दिउँसो ४:४५ NPT"
+      },
       "estimate": {
         "iso": "2026-09-25T16:00:00+05:45",
         "en": "25 Sep 2026, 16:00",
         "ne": "२५ सेप्टेम्बर २०२६, १६:००"
       },
       "note": {
-        "en": "Still closed on the live map. The ticker line that NH17 “has opened” is a different, already cleared blockage — not this section. Blasting of hillside rock is noted on the record (Nepal Army).",
-        "ne": "लाइभ नक्सामा अझै बन्द। टिकरको “NH17 खुल्यो” अर्को, पहिले नै खोलिएको अवरोध हो — यो खण्ड होइन। अभिलेखमा पहाडतिरको चट्टान ब्लास्टिङ (नेपाली सेना) उल्लेख छ।"
+        "en": "Open as of Asoj 25, 4:45 PM NPT. Kathmandu–Gajuri–Mugling is open (two-way). Earlier: closed at Galaudi.",
+        "ne": "असोज २५, दिउँसो ४:४५ NPT मा खुला। काठमाडौँ–गजुरी–मुग्लिङ दुवैतर्फी (two-way) खुलेको। अघि: गलौदीमा बन्द थियो।"
       },
       "point": {
         "lat": 27.8097,

@@ -321,9 +321,9 @@
   }
   function travelClosureLine() {
     if (en()) {
-      return "The Prithvi Highway (Mugling–Kathmandu) is closed at Galaudi, so check before you leave and do not head to the bus park until it reopens. If your bus is cancelled, ask the operator about rebooking or a refund. Some long-distance routes can use other highways, for example the BP Highway via Sindhuli for the east — check with your operator or traffic police. Today's status of the Kathmandu–Hetauda alternate roads (Kanti Lokpath, Kulekhani–Bhimphedi) is not confirmed — ask traffic police on 103 before you leave. The Tribhuvan Rajpath is a very long, narrow mountain road, so it is not a good choice for buses at night.";
+      return "The Kathmandu–Mugling road is open again (two-way), as of Asoj 25, 4:45 PM NPT. The Kathmandu–Hetauda alternate is no longer needed. If your bus is cancelled, ask the operator about rebooking or a refund. Some long-distance routes can use other highways, for example the BP Highway via Sindhuli for the east — check with your operator or traffic police.";
     }
-    return "पृथ्वी राजमार्ग (मुग्लिन–काठमाडौं) गलौदीमा बन्द छ। निस्कनुअघि बाटो हेर्नुहोस् र नखुलेसम्म बसपार्क नजानुहोस्। बस रद्द भए अपरेटरसँग पुनः बुकिङ वा फिर्ता सोध्नुहोस्। कतिपय लामो दूरीका रुटले अर्को राजमार्ग प्रयोग गर्न सक्छन्, जस्तै पूर्वतर्फ सिन्धुली हुँदै बी.पी. राजमार्ग — अपरेटर वा ट्राफिक प्रहरीसँग सोध्नुहोस्। काठमाडौं–हेटौँडा वैकल्पिक सडक (कान्ति लोकपथ, कुलेखानी–भीमफेदी) को आजको अवस्था पुष्टि भएको छैन — निस्कनुअघि ट्राफिक प्रहरी १०३ मा सोध्नुहोस्। त्रिभुवन राजपथ धेरै लामो र साँघुरो पहाडी बाटो हो, रातिको बसका लागि राम्रो विकल्प होइन।";
+    return "काठमाडौँ–मुग्लिङ सडक फेरि खुलेको छ, दुवैतर्फी (two-way), असोज २५, दिउँसो ४:४५ NPT। काठमाडौं–हेटौँडा वैकल्पिक बाटो अब आवश्यक छैन। बस रद्द भए अपरेटरसँग पुनः बुकिङ वा फिर्ता सोध्नुहोस्। कतिपय लामो दूरीका रुटले अर्को राजमार्ग प्रयोग गर्न सक्छन्, जस्तै पूर्वतर्फ सिन्धुली हुँदै बी.पी. राजमार्ग — अपरेटर वा ट्राफिक प्रहरीसँग सोध्नुहोस्।";
   }
   function travelItems() {
     var airlines = [

@@ -197,47 +197,64 @@
         id: "galaudi-2026-10-09",
         ref: "NH17",
         link: "",
-        status: "closed",
-        lists: ["news"],
+        status: "opened",
+        lists: ["opened"],
         manual: true,
         priority: false,
-        name: { en: "Prithvi Highway", ne: "पृथ्वी राजमार्ग" },
-        section: { en: "Galaudi, Gajuri-5", ne: "गलौदी, गजुरी–५" },
-        reason: { en: "Road subsided", ne: "सडक भासियो" },
+        name: { en: "Kathmandu – Gajuri – Mugling", ne: "काठमाडौँ–गजुरी–मुग्लिङ" },
+        section: { en: "Prithvi Highway · open (two-way)", ne: "पृथ्वी राजमार्ग · दुवैतर्फी (two-way) खुलेको" },
+        reason: { en: "Open", ne: "खुला" },
         district: { en: "Dhading", ne: "धादिङ" },
-        place: { en: "Near Gajuri", ne: "गजुरी नजिक" },
+        place: { en: "Galaudi, near Gajuri", ne: "गलौदी, गजुरी नजिक" },
         contact: "",
-        closed: { iso: "2026-10-09T18:00:00+05:45", en: "9 Oct 2026, evening NPT", ne: "९ अक्टोबर २०२६, साँझ NPT" },
-        opened: null,
+        closed: null,
+        opened: { iso: "2026-10-11T16:45:00+05:45", en: "Asoj 25, 4:45 PM NPT", ne: "असोज २५, दिउँसो ४:४५ NPT" },
         estimate: null,
         note: {
-          en: "Asoj 23 evening news pin, not a NAVIGATE row. OpenStreetMap Gajuri village (27.805, 84.877). Galaudi has no separate public pin. Mugling–Kathmandu fully closed. Reopen by Saturday evening is a target, not a confirmation.",
-          ne: "असोज २३ साँझको समाचार चिन्ह, NAVIGATE पंक्ति होइन। OpenStreetMap को गजुरी बस्ती (२७.८०५, ८४.८७७)। गलौदीको छुट्टै सार्वजनिक बिन्दु छैन। मुग्लिन–काठमाडौं पूर्ण बन्द। शनिबार साँझ खोल्ने लक्ष्य हो, पुष्टि होइन।"
+          en: "Open (two-way) as of Asoj 25, 4:45 PM NPT. Earlier: closed at Galaudi.",
+          ne: "असोज २५, दिउँसो ४:४५ NPT मा दुवैतर्फी (two-way) खुलेको। अघि: गलौदीमा बन्द थियो।"
         },
         point: { lat: 27.8046804, lng: 84.8771186, lock: true, source: "OSM node 279374584 Gajuri village" }
       },
       {
-        id: "machhedi-2026-10-09",
+        id: "mugling-pokhara-2026-10-11",
         ref: "NH17",
         link: "",
-        status: "closed",
-        lists: ["news"],
+        status: "opened",
+        lists: ["opened"],
         manual: true,
         priority: false,
-        name: { en: "Prithvi Highway", ne: "पृथ्वी राजमार्ग" },
-        section: { en: "Machhedi, near Galchhi", ne: "मच्छेडी, गल्छी नजिक" },
-        reason: { en: "LPG tanker overturned", ne: "ग्यास बुलेट पल्टियो" },
-        district: { en: "Dhading", ne: "धादिङ" },
-        place: { en: "Galchhi town pin", ne: "गल्छी बजारको बिन्दु" },
+        name: { en: "Mugling – Pokhara", ne: "मुग्लिङ–पोखरा" },
+        section: { en: "Open", ne: "खुला" },
+        reason: { en: "Open", ne: "खुला" },
+        district: { en: "Tanahun", ne: "तनहुँ" },
+        place: { en: "Mugling", ne: "मुग्लिङ" },
         contact: "",
-        closed: { iso: "2026-10-09T12:00:00+05:45", en: "9 Oct 2026, Friday", ne: "९ अक्टोबर २०२६, शुक्रबार" },
-        opened: null,
+        closed: null,
+        opened: { iso: "2026-10-11T16:45:00+05:45", en: "Asoj 25, 4:45 PM NPT", ne: "असोज २५, दिउँसो ४:४५ NPT" },
         estimate: null,
-        note: {
-          en: "Asoj 23 news pin, not a NAVIGATE row. OpenStreetMap Galchhi town (27.797, 85.000). Machhedi has no separate public pin. A gas bullet overturned and leaked; crews heading to Galaudi are slowed.",
-          ne: "असोज २३ को समाचार चिन्ह, NAVIGATE पंक्ति होइन। OpenStreetMap को गल्छी बजार (२७.७९७, ८५.०००)। मच्छेडीको छुट्टै सार्वजनिक बिन्दु छैन। ग्यास बुलेट पल्टिएर ग्यास चुहियो; गलौदी जाने टोली ढिलो छ।"
-        },
-        point: { lat: 27.7973963, lng: 85.0004606, lock: true, source: "OSM node 279374592 Galchhi town" }
+        note: { en: "Open as of Asoj 25, 4:45 PM NPT.", ne: "असोज २५, दिउँसो ४:४५ NPT मा खुला।" },
+        point: { lat: 27.8564, lng: 84.5566, lock: true, source: "Mugling bazaar" }
+      },
+      {
+        id: "narayanghat-butwal-2026-10-11",
+        ref: "NH01",
+        link: "",
+        status: "opened",
+        lists: ["opened"],
+        manual: true,
+        priority: false,
+        name: { en: "Narayanghat – Butwal", ne: "नारायणघाट–बुटवल" },
+        section: { en: "Open", ne: "खुला" },
+        reason: { en: "Open", ne: "खुला" },
+        district: { en: "Chitwan", ne: "चितवन" },
+        place: { en: "Narayanghat", ne: "नारायणघाट" },
+        contact: "",
+        closed: null,
+        opened: { iso: "2026-10-11T16:45:00+05:45", en: "Asoj 25, 4:45 PM NPT", ne: "असोज २५, दिउँसो ४:४५ NPT" },
+        estimate: null,
+        note: { en: "Open as of Asoj 25, 4:45 PM NPT.", ne: "असोज २५, दिउँसो ४:४५ NPT मा खुला।" },
+        point: { lat: 27.6996, lng: 84.4296, lock: true, source: "Narayanghat" }
       }
     ];
   }
@@ -1063,7 +1080,8 @@
       full_block: { ne: "पूर्ण अवरोध", en: "Full block" },
       night_ban: { ne: "रात्रिकालीन रोक", en: "Night ban" },
       one_way: { ne: "एकतर्फी", en: "One way" },
-      restricted: { ne: "सीमित", en: "Restricted" }
+      restricted: { ne: "सीमित", en: "Restricted" },
+      open: { ne: "खुला", en: "Open" }
     };
     return tx(map[type] || { ne: type, en: type });
   }
@@ -1550,8 +1568,8 @@
     manualClosures().forEach(function (road) {
       addPoint({
         id: road.id,
-        status_type: "full_block",
-        prominent: road.id.indexOf("galaudi") === 0,
+        status_type: road.status === "opened" ? "open" : "full_block",
+        prominent: false,
         group: "bagmati",
         district: road.district,
         highway_ne: road.name.ne + " · " + road.section.ne,
