@@ -149,6 +149,16 @@
     if (!latest || (!latest.note_ne && !latest.note_en)) return "";
     return '<p class="bg-note">' + esc(t(latest.note_ne, latest.note_en)) + "</p>";
   }
+  function firstVideo(d) {
+    var list = d.media || [];
+    for (var i = 0; i < list.length; i++) if (list[i].type === "video") return list[i];
+    return null;
+  }
+  function videoBlock(item) {
+    return '<video class="bg-video" controls playsinline preload="metadata" poster="' + esc(item.poster) + '" width="' + item.w + '" height="' + item.h + '" src="' + esc(item.src) + '"></video>' +
+      '<p class="bg-cap">' + esc(t(item.caption_ne, item.caption_en)) + "</p>" +
+      '<p class="bg-src-line"><a href="' + esc(item.source_url) + '" target="_blank" rel="noopener">' + esc(item.source_url) + "</a></p>";
+  }
   function homeHtml(d) {
     var a = d.aarughat;
     var latest = a.latest;
@@ -159,9 +169,12 @@
     var times = (d.timeline || []).slice(-4).map(function (item) {
       return '<div class="bg-tl"><time>' + esc(digits(t(item.time_ne, item.time_en))) + "</time><p>" + esc(t(item.ne, item.en)) + "</p></div>";
     }).join("");
-    var pics = (d.photos || []).slice(0, 3).map(function (p) {
-      return '<a href="budhi-gandaki.html#photos"><img src="' + esc(p.src) + '" width="' + p.w + '" height="' + p.h + '" alt="' + esc(t(p.alt_ne, p.alt_en)) + '" loading="lazy" decoding="async"></a>';
-    }).join("");
+    var clip = firstVideo(d);
+    var homeMedia = clip
+      ? videoBlock(clip) + '<a class="bg-see-all" href="budhi-gandaki.html#photos">' + esc(t("थप तस्विर →", "More photos →")) + "</a>"
+      : '<div class="bg-home-thumbs">' + (d.photos || []).slice(0, 3).map(function (p) {
+        return '<a href="budhi-gandaki.html#photos"><img src="' + esc(p.src) + '" width="' + p.w + '" height="' + p.h + '" alt="' + esc(t(p.alt_ne, p.alt_en)) + '" loading="lazy" decoding="async"></a>';
+      }).join("") + "</div>";
     var calls = phones((d.contacts || []).filter(function (c) { return c.home; }));
     return '<div class="bg-grid bg-home-grid">' +
       '<article class="bg-card">' + head("M12 3v18M8 7h8M7 12h10M8 17h8", "अहिलेको अवस्था", "Current status") +
@@ -188,8 +201,8 @@
       '<article class="bg-card">' + head("M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z", "समयरेखा", "Timeline") +
       times +
       '<a class="bg-see-all" href="budhi-gandaki.html#today">' + esc(t("सबै हेर्नुहोस् →", "See all →")) + "</a></article>" +
-      '<article class="bg-card">' + head("M4 6h16v12H4zM8 18l3-3 2 2 3-4 4 5", "तस्विर", "Photos") +
-      '<div class="bg-home-thumbs">' + pics + "</div></article>" +
+      '<article class="bg-card">' + head("M4 6h16v12H4zM8 18l3-3 2 2 3-4 4 5", "भिडियो", "Video") +
+      homeMedia + "</article>" +
       '<article class="bg-card">' + head("M7 3h4l1 3h5v14H7zM10 11h4M12 9v4", "सम्पर्क", "Contacts") +
       calls + "</article></div>" +
       '<a class="bg-home-more" href="budhi-gandaki.html">' + esc(t("पूरा विवरण →", "Full details →")) + "</a>";
@@ -260,6 +273,12 @@
       '<article class="bg-card bg-span" id="contacts"><p class="bg-card-k">' + esc(t("आपत्कालीन सम्पर्क", "Emergency contacts")) + "</p>" +
       phones(d.contacts || []) +
       '<p class="bg-src-line"><a href="' + esc(d.contact_source) + '">' + esc(d.contact_source) + "</a></p></article>" +
+      (function () {
+        var clip = firstVideo(d);
+        return clip
+          ? '<article class="bg-card bg-span" id="video"><p class="bg-card-k">' + esc(t("भिडियो", "Video")) + "</p>" + videoBlock(clip) + "</article>"
+          : "";
+      })() +
       '<article class="bg-card bg-span" id="photos"><p class="bg-card-k">' + esc(t("तस्विर", "Photos")) + "</p>" +
       '<div class="bg-gallery">' + pics + "</div></article>" +
       '<article class="bg-card bg-span" id="today"><p class="bg-card-k">' + esc(t("आजको क्रम", "Today")) + "</p>" +

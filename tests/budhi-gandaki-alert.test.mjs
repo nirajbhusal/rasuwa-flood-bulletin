@@ -101,6 +101,18 @@ test("readings, timeline, impact, contacts and photos live in one JSON file", fu
   assert.ok(data.sources.some(function (s) { return s.href.indexOf("ehimalayatimes.com/2026/10/489376") >= 0; }));
   assert.equal(JSON.stringify(data).indexOf("20-22"), -1);
   assert.equal(data.photos.length, 3);
+  assert.equal(data.media[0].type, "video");
+  assert.equal(data.media[0].src, "img/budhi-gandaki/ndrrma-aerial-2026-10-11.mp4");
+  assert.equal(data.media[0].source_url, "https://www.instagram.com/reel/DeV01BhMQ3F/");
+  assert.match(data.media[0].caption_ne, /भिडियो स्रोतःनेपाली सेना/);
+  assert.match(data.media[0].caption_en, /Video: Nepali Army, shared by NDRRMA/);
+  assert.equal(/\bwarning\b/i.test(data.media[0].caption_en), false);
+  const videoFile = new URL("../" + data.media[0].src, import.meta.url);
+  assert.ok(statSync(videoFile).size < 3 * 1024 * 1024);
+  assert.ok(statSync(new URL("../" + data.media[0].poster, import.meta.url)).size > 1000);
+  assert.match(js, /controls playsinline preload="metadata"/);
+  assert.doesNotMatch(js, /autoplay|loop|muted/);
+  assert.match(js, /More photos →/);
   for (const photo of data.photos) {
     assert.match(photo.src, /^img\/budhi\/aerial-[123]\.webp$/);
     const file = new URL("../" + photo.src, import.meta.url);
