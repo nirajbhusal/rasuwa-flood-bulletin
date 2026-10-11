@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-10-11T10:46:00+05:45",
-  "updated_ne": "पछिल्लो अपडेट: असोज २५, १०:४६ NPT",
-  "updated_en": "Last updated: Asoj 25, 10:46 AM NPT",
+  "updated_at": "2026-10-11T11:00:00+05:45",
+  "updated_ne": "पछिल्लो अपडेट: असोज २५, ११:०० NPT",
+  "updated_en": "Last updated: Asoj 25, 11:00 AM NPT",
   "title_ne": "बुढीगण्डकी बाढी अपडेट",
   "title_en": "Budhi Gandaki Flood Update",
   "kicker_ne": "बाढी अलर्ट",
   "kicker_en": "Flood alert",
   "status_ne": "खतरा तहभन्दा माथि · बढ्दो",
   "status_en": "Above the danger level · rising",
-  "guidance_ne": "बाढी पास नहुँदासम्म बेनीघाटको त्रिशूली दोभानसम्म नदी छेउछाउ नजानुहोस्। उच्च स्थानमा बस्नुहोस्। NDRRMA (०९:०६): गोरखा, धादिङ, तनहुँ र चितवनका नदी किनार सतर्क रहनुहोस्।",
-  "guidance_en": "Stay away from the river down to the Trishuli confluence at Benighat until it passes, and move to high ground. NDRRMA at 9:06 AM: stay alert along the river in Gorkha, Dhading, Tanahun and Chitwan.",
+  "guidance_ne": "बाढी पास नहुँदासम्म बेनीघाटको त्रिशूली दोभानसम्म नदी छेउछाउ नजानुहोस्। उच्च स्थानमा बस्नुहोस्। NDRRMA (०९:४२): बेनीघाटसम्म अति उच्च जोखिम, मुग्लिङसम्म उच्च सतर्कता। चितवन र नवलपरासी मध्यम जोखिम।",
+  "guidance_en": "Stay away from the river down to the Trishuli confluence at Benighat until it passes, and move to high ground. NDRRMA at 9:42 AM: very high risk down to Benighat, high alert up to Mugling. Medium risk along the river in Chitwan and Nawalparasi.",
   "source": "https://www.hydrology.gov.np/",
   "feed_label_ne": "DHM hydrology.gov.np · १०:२०–१०:४० NPT",
   "feed_label_en": "DHM hydrology.gov.np · 10:20–10:40 AM NPT",
@@ -113,18 +113,12 @@
     {
       "ne": "पैयु र बगरका ३५ घर बगाएको छ।",
       "en": "35 houses in Paiyu and Bagar were swept away.",
-      "by_ne": "समाचार अनुसार · लक्ष्मी गुरुङ, चुमनुब्री · रातोपाटी, नागरिक, अनलाइनखबर",
-      "by_en": "reported · Laxmi Gurung, Chumnubri · Ratopati, Nagarik, OnlineKhabar"
+      "by_ne": "लक्ष्मी गुरुङ, चुमनुब्री उपाध्यक्ष · रासस, रातोपाटी",
+      "by_en": "Laxmi Gurung, Chumnubri vice-chair · RSS, Ratopati"
     },
     {
       "ne": "जगत (चुमनुब्री–६) मा ७ घर बगेका छन्। त्यहाँ मानवीय क्षति छैन। बासिन्दा सुरक्षित स्थानमा सरेका थिए।",
       "en": "7 houses at Jagat (Chumnubri-6) were swept away. No human casualties there. Residents had moved to safety.",
-      "by_ne": "समाचार अनुसार · प्रहरी, बिजमाण्डु",
-      "by_en": "reported · police, Bizmandu"
-    },
-    {
-      "ne": "माछीखोलामा २ घर बगेका छन्।",
-      "en": "2 houses at Machhikhola were swept away.",
       "by_ne": "समाचार अनुसार · प्रहरी, बिजमाण्डु",
       "by_en": "reported · police, Bizmandu"
     },
@@ -137,20 +131,20 @@
     {
       "ne": "तीनवटा पुल बगेका छन्: न्याकचेट–सिर्दिबासको पुरानो झोलुङ्गे पुल (चुमनुब्री–३), माछीखोला–केरौँजाको झोलुङ्गे पुल (धार्चे–५), र सोतीमा आरुघाट–२ र ३ जोड्ने फलामे पक्की पुल (सोती–मान्बु)।",
       "en": "Three bridges are gone: the old suspension bridge linking Nyakchet and Sirdibas (Chumnubri-3), the suspension bridge linking Machhikhola and Kerauja (Dharche-5), and the iron motorable bridge at Soti linking Arughat-2 and 3 (Soti–Manbu).",
-      "by_ne": "समाचार अनुसार · प्रहरी, अनलाइनखबर ०८:४० · हिमालय टाइम्स · कान्तिपुर",
-      "by_en": "reported · police, OnlineKhabar 8:40 AM · Himalaya Times · Kantipur"
+      "by_ne": "प्रहरी · अनलाइनखबर ०८:४० · सहायक प्रमुख जिल्ला अधिकारी, हिमालय टाइम्स",
+      "by_en": "police · OnlineKhabar 8:40 AM · Asst. CDO, Himalaya Times"
     },
     {
-      "ne": "न्याकचेट–फिलिम पुल बगेको छ। घट्टेखोलाका घरमा लेदो पानी पसेको छ।",
-      "en": "The Nyakchet–Philim bridge is gone. Muddy water entered houses in Ghattekhola.",
-      "by_ne": "समाचार अनुसार · मकालु खबर, अनलाइनपाना",
-      "by_en": "reported · Makalu Khabar, OnlinePana"
+      "ne": "गृहमन्त्री सुदन गुरुङ: न्याकचेट–फिलिम पुल बगेको र घट्टेखोलाका केही घरमा लेदो पसेको समाचार आएको छ।",
+      "en": "Home Minister Sudan Gurung said reports reached him that the Nyakchet–Philim bridge is gone and muddy water entered some houses in Ghattekhola.",
+      "by_ne": "गृहमन्त्रीको भनाइ · रातोपाटी",
+      "by_en": "Home Minister, quoted by Ratopati"
     },
     {
       "ne": "दोभान, घट्टेखोला, जगत र सल्लेरीमा व्यापक क्षति।",
       "en": "Wide damage at Dobhan, Ghattekhola, Jagat and Salleri.",
-      "by_ne": "समाचार अनुसार · रातोपाटी, नागरिक, अनलाइनखबर",
-      "by_en": "reported · Ratopati, Nagarik, OnlineKhabar"
+      "by_ne": "लक्ष्मी गुरुङ, चुमनुब्री उपाध्यक्ष · रासस, रातोपाटी",
+      "by_en": "Laxmi Gurung, Chumnubri vice-chair · RSS, Ratopati"
     },
     {
       "ne": "आधिकारिक मृत्युको अङ्क अहिलेसम्म आएको छैन।",
@@ -163,26 +157,26 @@
     {
       "ne": "उद्धार, राहत र सुरक्षित स्थानान्तरणका लागि हेलिकप्टर खटिएका छन्।",
       "en": "Helicopters are deployed for rescue, relief and evacuation.",
-      "by_ne": "NDRRMA",
-      "by_en": "NDRRMA"
+      "by_ne": "गृहमन्त्री सुदन गुरुङ · रातोपाटी",
+      "by_en": "Home Minister Sudan Gurung · Ratopati"
     },
     {
-      "ne": "उद्धारका लागि सुरक्षाकर्मी खटिएका छन्।",
-      "en": "Security forces are deployed for rescue.",
-      "by_ne": "मकालु खबर",
-      "by_en": "Makalu Khabar"
+      "ne": "नेपाल प्रहरी, सशस्त्र प्रहरी र स्थानीय प्रशासन उद्धारका लागि खटिएका छन्।",
+      "en": "Nepal Police, the Armed Police Force and local officials are deployed for rescue.",
+      "by_ne": "गृहमन्त्री सुदन गुरुङ · रातोपाटी",
+      "by_en": "Home Minister Sudan Gurung · Ratopati"
     },
     {
-      "ne": "गृहमन्त्री सुदन गुरुङ प्रभावित क्षेत्रतर्फ जाँदै हुनुहुन्छ।",
-      "en": "Home Minister Sudan Gurung is heading to the affected area.",
-      "by_ne": "अनलाइनपाना",
-      "by_en": "OnlinePana"
+      "ne": "गृहमन्त्री सुदन गुरुङ प्रभावित क्षेत्रको अवस्था बुझ्न त्यसतर्फ जाने भएका छन्।",
+      "en": "Home Minister Sudan Gurung is going to the affected area to see the situation.",
+      "by_ne": "रातोपाटी, अनलाइनपाना",
+      "by_en": "Ratopati, OnlinePana"
     },
     {
-      "ne": "नेपाली सेनाको उद्धार टोली प्रभावित क्षेत्रमा पुगेको छ।",
-      "en": "A Nepali Army rescue team has reached the affected area.",
-      "by_ne": "नागरिक",
-      "by_en": "Nagarik"
+      "ne": "नेपाली सेनाको टोली हवाई र स्थलमार्गबाट प्रभावित क्षेत्रमा छ। काठमाडौंको द्रुत प्रतिक्रिया टोली पनि हवाई मार्गबाट पठाइएको छ।",
+      "en": "Nepali Army teams are in the affected area by air and by land. A quick reaction team from Kathmandu has been flown in.",
+      "by_ne": "नेपाली सेना",
+      "by_en": "Nepali Army"
     }
   ],
   "missing": {
@@ -192,28 +186,23 @@
   },
   "rescue_update": [
     {
-      "time_ne": "करिब ०९:५०",
-      "time_en": "About 9:50 AM",
+      "time_ne": "१०:०७",
+      "time_en": "10:07 AM",
       "agency_ne": "नेपाली सेना",
       "agency_en": "Nepali Army",
       "count": 6,
       "place_ne": "जगत",
       "place_en": "Jagat",
-      "method_ne": "सेनाको हेलिकप्टर",
-      "method_en": "Army helicopter",
-      "source_name_ne": "RONB",
-      "source_name_en": "RONB",
-      "source_url": "https://x.com/ronbupdates/status/2109135770334507446",
+      "method_ne": "हवाई उद्धार",
+      "method_en": "Air rescue",
+      "source_name_ne": "नेपाली सेना",
+      "source_name_en": "Nepali Army",
+      "source_url": "https://x.com/NepaliArmyHQ/status/2109137523494510845",
       "sources": [
         {
-          "name_ne": "हाम्रो पात्रो",
-          "name_en": "Hamro Patro",
-          "url": "https://www.hamropatro.com/news/detail/3883377649510907-budhigandaki-badhi-senako-helikaptaramarphat-6-janako-sakushal-uddhar"
-        },
-        {
-          "name_ne": "हाम्रो पात्रो",
-          "name_en": "Hamro Patro",
-          "url": "https://www.hamropatro.com/news/detail/3882783152988765-budhigandakima-akasmik-badhi-jagatabat-6-janako-uddhar"
+          "name_ne": "रातोपाटी · सेनाको जनसम्पर्क",
+          "name_en": "Ratopati · Army public relations",
+          "url": "https://www.ratopati.com/story/598766/budhigandaki-flood-nepali-sana-rescue-team-reaches-affected-area"
         }
       ]
     }
@@ -222,8 +211,8 @@
   "evacuate_en": "Khorlabesi, Machhakhola, Soti, Arkhet and Arughat, in Siridibas and Dharche.",
   "evacuate_by_ne": "गोरखा जिल्ला प्रहरी, निरीक्षक आकाश कँडेल · रातोपाटी",
   "evacuate_by_en": "Gorkha District Police, Inspector Akash Kandel · Ratopati",
-  "districts_ne": "गोरखा, धादिङ, तनहुँ, चितवन, नवलपरासी पूर्व र पश्चिमका नदी किनार।",
-  "districts_en": "River banks in Gorkha, Dhading, Tanahun, Chitwan, and Nawalparasi East and West.",
+  "districts_ne": "गोरखा, धादिङ, तनहुँ, चितवन र नवलपरासीका नदी किनार। बेनीघाटसम्म अति उच्च जोखिम। मुग्लिङसम्म उच्च सतर्कता।",
+  "districts_en": "River banks in Gorkha, Dhading, Tanahun, Chitwan and Nawalparasi. Very high risk down to Benighat. High alert up to Mugling.",
   "dos": [
     {
       "ne": "नदी वा पुल नकाट्नुहोस्।",
@@ -334,12 +323,12 @@
   "photo_credit_label": "NDRRMA",
   "timeline": [
     {
-      "time_ne": "करिब ०४:००",
-      "time_en": "About 4:00 AM",
-      "ne": "सुक्खा पहिरोले चुमनुब्री–६ मा लोकपा र चुमलिङ बीच नदी थुनियो। थुनिने र फुट्ने क्रम दोहोरियो।",
-      "en": "A dry landslide blocked the river between Lokpa and Chumling, Chumnubri-6. It kept blocking and bursting.",
-      "by_ne": "रातोपाटी, EverestToday",
-      "by_en": "Ratopati, EverestToday"
+      "time_ne": "बिहान",
+      "time_en": "Morning",
+      "ne": "प्रहरी: चुमनुब्री–६ को लोक्पा र चुम्लिङ बीच पहिरोले बुढीगण्डकी थुनियो।",
+      "en": "Police: a landslide between Lokpa and Chumling, Chumnubri-6, blocked the Budhi Gandaki.",
+      "by_ne": "प्रहरी · बिजमाण्डु, रातोपाटी",
+      "by_en": "Police · Bizmandu, Ratopati"
     },
     {
       "time_ne": "करिब ०६:१५",
@@ -420,13 +409,31 @@
       "by_en": "NDRRMA"
     },
     {
-      "time_ne": "करिब ०९:५०",
-      "time_en": "About 9:50 AM",
-      "ne": "नेपाली सेनाको हेलिकप्टरले जगतबाट ६ जनालाई सुरक्षित उद्धार गर्यो।",
-      "en": "A Nepali Army helicopter rescued 6 people safely from Jagat.",
-      "href": "https://x.com/ronbupdates/status/2109135770334507446",
-      "by_ne": "RONB",
-      "by_en": "RONB"
+      "time_ne": "०९:४२",
+      "time_en": "9:42 AM",
+      "ne": "NDRRMA: बेनीघाटसम्म अति उच्च जोखिम, उच्च स्थानमा जानुहोस्। मुग्लिङसम्म उच्च सतर्कता।",
+      "en": "NDRRMA: very high risk down to Benighat, so move to high ground. High alert up to Mugling.",
+      "href": "https://x.com/NDRRMA_Nepal/status/2109131243778658697",
+      "by_ne": "NDRRMA",
+      "by_en": "NDRRMA"
+    },
+    {
+      "time_ne": "०९:४२",
+      "time_en": "9:42 AM",
+      "ne": "NDRRMA: चितवन र नवलपरासीका नदी किनार मध्यम जोखिम।",
+      "en": "NDRRMA: medium risk along the river in Chitwan and Nawalparasi.",
+      "href": "https://x.com/NDRRMA_Nepal/status/2109131280139034659",
+      "by_ne": "NDRRMA",
+      "by_en": "NDRRMA"
+    },
+    {
+      "time_ne": "१०:०७",
+      "time_en": "10:07 AM",
+      "ne": "नेपाली सेना: जगतबाट ६ जनाको हवाई उद्धार। हवाई र स्थलमार्गबाट टोली खटिएको छ।",
+      "en": "Nepali Army: 6 people air-rescued from Jagat. Teams went in by air and by land.",
+      "href": "https://x.com/NepaliArmyHQ/status/2109137523494510845",
+      "by_ne": "नेपाली सेना",
+      "by_en": "Nepali Army"
     }
   ],
   "sources": [
@@ -501,24 +508,19 @@
       "en": "NDRRMA · 9:06 AM"
     },
     {
-      "href": "https://x.com/ronbupdates/status/2109135770334507446",
-      "ne": "RONB · जगतबाट ६ जनाको उद्धार",
-      "en": "RONB · 6 rescued from Jagat"
+      "href": "https://x.com/NepaliArmyHQ/status/2109137523494510845",
+      "ne": "नेपाली सेना · जगतबाट ६ जना",
+      "en": "Nepali Army · 6 from Jagat"
     },
     {
-      "href": "https://www.hamropatro.com/news/detail/3883377649510907-budhigandaki-badhi-senako-helikaptaramarphat-6-janako-sakushal-uddhar",
-      "ne": "हाम्रो पात्रो · सेनाको हेलिकप्टर",
-      "en": "Hamro Patro · Army helicopter"
+      "href": "https://www.ratopati.com/story/598766/budhigandaki-flood-nepali-sana-rescue-team-reaches-affected-area",
+      "ne": "रातोपाटी · सेनाको जनसम्पर्क",
+      "en": "Ratopati · Army public relations"
     },
     {
-      "href": "https://www.hamropatro.com/news/detail/3882783152988765-budhigandakima-akasmik-badhi-jagatabat-6-janako-uddhar",
-      "ne": "हाम्रो पात्रो · जगत",
-      "en": "Hamro Patro · Jagat"
-    },
-    {
-      "href": "https://nagariknews.nagariknetwork.com/social-affairs/budhigandaki-flood-nepali-sana-rescue-team-reaches-affected-area-83-66.html",
-      "ne": "नागरिक · सेनाको उद्धार टोली",
-      "en": "Nagarik · Army rescue team"
+      "href": "https://x.com/NDRRMA_Nepal/status/2109131243778658697",
+      "ne": "NDRRMA · ०९:४२",
+      "en": "NDRRMA · 9:42 AM"
     }
   ]
 }

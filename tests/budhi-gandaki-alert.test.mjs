@@ -88,11 +88,14 @@ test("readings, timeline, impact, contacts and photos live in one JSON file", fu
   assert.doesNotMatch(data.impact.map(function (item) { return item.en; }).join(" "), /\bdead\b|\bkilled\b/i);
   assert.match(data.rescue.map(function (item) { return item.en; }).join(" "), /Sudan Gurung/);
   assert.match(data.rescue.map(function (item) { return item.en; }).join(" "), /Helicopters are deployed/);
-  assert.match(data.rescue.map(function (item) { return item.en; }).join(" "), /Security forces are deployed/);
+  assert.doesNotMatch(data.impact.map(function (item) { return item.en; }).join(" "), /2 houses at Machhikhola/);
+  assert.match(data.rescue.map(function (item) { return item.en; }).join(" "), /Armed Police Force/);
   assert.equal(data.missing.count, 4);
   assert.equal(data.rescue_update.reduce(function (sum, item) { return sum + item.count; }, 0), 6);
   assert.equal(data.rescue_update[0].agency_en, "Nepali Army");
-  assert.equal(data.rescue_update[0].source_url, "https://x.com/ronbupdates/status/2109135770334507446");
+  assert.equal(data.rescue_update[0].source_url, "https://x.com/NepaliArmyHQ/status/2109137523494510845");
+  assert.equal(JSON.stringify(data).indexOf("hamropatro.com"), -1);
+  assert.equal(JSON.stringify(data).indexOf("2 houses at Machhikhola"), -1);
   assert.ok(data.timeline.some(function (item) { return item.href === data.rescue_update[0].source_url; }));
   assert.equal(/\bwarning\b/i.test(data.rescue_update.map(function (item) { return item.method_en + " " + item.agency_en; }).join(" ")), false);
   assert.ok(data.sources.some(function (s) { return s.href.indexOf("ehimalayatimes.com/2026/10/489376") >= 0; }));
