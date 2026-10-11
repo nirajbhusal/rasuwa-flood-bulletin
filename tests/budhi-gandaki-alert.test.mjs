@@ -79,7 +79,8 @@ test("readings, timeline, impact, contacts and photos live in one JSON file", fu
   assert.equal(data.aarughat.latest.trend, "RISING");
   assert.equal(data.aarughat.history[0].level_m, 5.01);
   assert.equal(data.aarughat.latest.note_en, "No new reading from the Aarughat station since 8:40 AM");
-  assert.deepEqual(data.downstream.map(function (s) { return s.level_m; }), [3.97, 4.09, 3.33]);
+  assert.deepEqual(data.downstream.map(function (s) { return s.level_m; }), [3.97, 4.5, 3.32]);
+  assert.ok(data.timeline.some(function (item) { return item.href === "https://x.com/NDRRMA_Nepal/status/2109151062607450204"; }));
   assert.deepEqual(data.downstream.map(function (s) { return s.trend; }), ["STEADY", "RISING", "STEADY"]);
   assert.equal(data.downstream.length, 3);
   assert.deepEqual(data.downstream.map(function (s) { return s.status; }), ["BELOW", "BELOW", "BELOW"]);
