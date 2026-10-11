@@ -45,29 +45,38 @@
     var a = d.aarughat;
     var chart = a.chart || [];
     var W = compact ? 360 : 880;
-    var H = compact ? 214 : 430;
-    var x0 = compact ? 40 : 68;
-    var x1 = W - (compact ? 12 : 16);
-    var yTop = compact ? 18 : 28;
-    var yBase = compact ? 156 : 292;
+    var H = compact ? 228 : 448;
+    var x0 = compact ? 48 : 84;
+    var x1 = W - (compact ? 28 : 36);
+    var yTop = compact ? 20 : 36;
+    var yBase = compact ? 158 : 300;
     var yMax = 9.5;
     var tMax = 205;
     function X(min) { return x0 + (min / tMax) * (x1 - x0); }
     function Y(level) { return yBase - (level / yMax) * (yBase - yTop); }
     var font = ' font-family="Mukta, Noto Sans Devanagari, sans-serif"';
+    function label(x, y, text, opt) {
+      var halo = opt.halo ? ' stroke="#fff" stroke-width="' + (compact ? 5 : 6) + '" stroke-linejoin="round" paint-order="stroke"' : "";
+      return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + (opt.anchor || "middle") + '" fill="' + opt.fill + '" font-size="' + opt.size + '" font-weight="800"' + font + halo + ">" + esc(text) + "</text>";
+    }
     var svg = ['<svg class="bg-hydro' + (compact ? " is-compact" : "") + '" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' +
       esc(t("आरुघाट जलरेखा, ६:०० देखि ८:४०, त्यसपछि स्टेसन बग्यो", "Aarughat hydrograph from 6:00 to 8:40, when the station was lost")) + '">'];
     var g;
     for (g = 0; g <= 9; g += 3) {
       var gy = Y(g);
       svg.push('<line x1="' + x0 + '" y1="' + gy.toFixed(1) + '" x2="' + x1 + '" y2="' + gy.toFixed(1) + '" stroke="#e7e5e4"/>');
-      svg.push('<text x="' + (x0 - 8) + '" y="' + (gy + 4).toFixed(1) + '" text-anchor="end" fill="#64748b" font-size="' + (compact ? 12 : 13) + '" font-weight="700"' + font + ">" + esc(digits(String(g))) + "</text>");
+      svg.push(label(x0 - 10, gy + 4, digits(String(g)), { anchor: "end", fill: "#64748b", size: compact ? 12 : 13 }));
     }
+    svg.push('<line x1="' + x0 + '" y1="' + yBase + '" x2="' + x1 + '" y2="' + yBase + '" stroke="#94a3b8" stroke-width="1.5"/>');
     function rule(level, color, side) {
       var yy = Y(level);
       svg.push('<line x1="' + x0 + '" y1="' + yy.toFixed(1) + '" x2="' + x1 + '" y2="' + yy.toFixed(1) + '" stroke="' + color + '" stroke-width="1.5" stroke-dasharray="6 4"/>');
-      var tx = side === "left" ? x0 + 6 : x1 - 4;
-      svg.push('<text x="' + tx + '" y="' + (yy - 5).toFixed(1) + '" text-anchor="' + (side === "left" ? "start" : "end") + '" fill="' + color + '" font-size="' + (compact ? 12 : 14) + '" font-weight="800"' + font + ">" + esc(digits(Number(level).toFixed(2))) + "</text>");
+      svg.push(label(side === "left" ? x0 + 8 : x1 - 6, yy - 7, digits(Number(level).toFixed(2)), {
+        anchor: side === "left" ? "start" : "end",
+        fill: color,
+        size: compact ? 12 : 14,
+        halo: true
+      }));
     }
     rule(a.warning_m, "#d97706", "left");
     rule(a.danger_m, "#c41e3a", "right");
@@ -78,40 +87,56 @@
       var x = X(p.min);
       var time = digits(t(p.time_ne, p.time_en));
       var mark = p.mark_en ? digits(t(p.mark_ne, p.mark_en)) : "";
+      svg.push('<line x1="' + x.toFixed(1) + '" y1="' + yBase + '" x2="' + x.toFixed(1) + '" y2="' + (yBase + 6) + '" stroke="#64748b" stroke-width="1.5"/>');
       if (p.axis_only) {
-        svg.push('<line x1="' + x.toFixed(1) + '" y1="' + (yBase - 8) + '" x2="' + x.toFixed(1) + '" y2="' + (yBase + 5) + '" stroke="#0f172a" stroke-width="2"/>');
         svg.push('<circle cx="' + x.toFixed(1) + '" cy="' + yBase + '" r="3.5" fill="#0f172a"/>');
-        svg.push('<text x="' + x.toFixed(1) + '" y="' + (yBase + (compact ? 22 : 24)) + '" text-anchor="end" fill="#0f172a" font-size="' + (compact ? 12 : 14) + '" font-weight="800"' + font + ">" + esc(time) + "</text>");
-        if (!compact && mark) svg.push('<text x="' + x.toFixed(1) + '" y="' + (yBase + 44) + '" text-anchor="end" fill="#0f172a" font-size="13" font-weight="800"' + font + ">" + esc(mark) + "</text>");
+        svg.push(label(x, yBase + 22, time, { fill: "#0f172a", size: compact ? 12 : 14 }));
+        if (!compact && mark) svg.push(label(x, yBase + 42, mark, { fill: "#0f172a", size: 13, halo: true }));
         return;
       }
       var y = Y(p.level_m);
       if (p.end) {
         var s = compact ? 6 : 8;
-        svg.push('<line x1="' + (x - s).toFixed(1) + '" y1="' + (y - s).toFixed(1) + '" x2="' + (x + s).toFixed(1) + '" y2="' + (y + s).toFixed(1) + '" stroke="#9f1239" stroke-width="2.5"/>');
-        svg.push('<line x1="' + (x - s).toFixed(1) + '" y1="' + (y + s).toFixed(1) + '" x2="' + (x + s).toFixed(1) + '" y2="' + (y - s).toFixed(1) + '" stroke="#9f1239" stroke-width="2.5"/>');
+        svg.push('<line x1="' + (x - s).toFixed(1) + '" y1="' + (y - s).toFixed(1) + '" x2="' + (x + s).toFixed(1) + '" y2="' + (y + s).toFixed(1) + '" stroke="#9f1239" stroke-width="2.5" stroke-linecap="round"/>');
+        svg.push('<line x1="' + (x - s).toFixed(1) + '" y1="' + (y + s).toFixed(1) + '" x2="' + (x + s).toFixed(1) + '" y2="' + (y - s).toFixed(1) + '" stroke="#9f1239" stroke-width="2.5" stroke-linecap="round"/>');
       } else {
         svg.push('<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (compact ? 4 : 5) + '" fill="#fff" stroke="#c41e3a" stroke-width="2.5"/>');
       }
-      var below = p.time_en === "8:00";
       var showLevel = !compact || p.time_en === "6:00" || p.time_en === "7:50" || p.end;
       if (showLevel) {
-        var levelY = below ? y + 18 : y - (compact ? 10 : 14);
-        var anchor = p.end ? "end" : "middle";
-        var lx = p.end ? x - (compact ? 10 : 14) : x;
-        svg.push('<text x="' + lx.toFixed(1) + '" y="' + levelY.toFixed(1) + '" text-anchor="' + anchor + '" fill="#9f1239" font-size="' + (compact ? 12 : 13) + '" font-weight="800"' + font + ">" + esc(digits(lvl(p.level_m))) + "</text>");
+        var lx = x;
+        var levelY = y - (compact ? 12 : 16);
+        var levelAnchor = "middle";
+        if (p.time_en === "6:00") {
+          lx = x + 9;
+          levelY = y + (compact ? 16 : 18);
+          levelAnchor = "start";
+        } else if (p.time_en === "8:00") {
+          levelY = y + (compact ? 16 : 18);
+        } else if (p.end) {
+          lx = x - (compact ? 10 : 12);
+          levelY = y + 4;
+          levelAnchor = "end";
+        }
+        svg.push(label(lx, levelY, digits(lvl(p.level_m)), { anchor: levelAnchor, fill: "#9f1239", size: compact ? 12 : 13, halo: true }));
       }
-      if (!compact && mark) {
-        var my = p.end ? y - 30 : (below ? y + 36 : y - 32);
-        var mx = p.end ? x - 14 : x;
-        svg.push('<text x="' + mx.toFixed(1) + '" y="' + my.toFixed(1) + '" text-anchor="' + (p.end ? "end" : "middle") + '" fill="#0f172a" font-size="13" font-weight="800"' + font + ">" + esc(mark) + "</text>");
+      if (mark && !p.axis_only) {
+        var mx = x;
+        var my = y - (compact ? 28 : 34);
+        var markAnchor = "middle";
+        if (p.time_en === "6:30") my = y + (compact ? 16 : 20);
+        else if (p.time_en === "8:00") my = y + (compact ? 32 : 38);
+        else if (p.end) {
+          mx = x - (compact ? 10 : 12);
+          my = y - (compact ? 14 : 18);
+          markAnchor = "end";
+        }
+        if (!compact) svg.push(label(mx, my, mark, { anchor: markAnchor, fill: "#0f172a", size: 13, halo: true }));
       }
       var showTime = !compact || p.time_en === "6:00" || p.end;
       if (showTime) {
-        var timeAnchor = "middle";
-        if (!compact && p.time_en === "7:50") timeAnchor = "end";
-        if (!compact && (p.time_en === "8:00" || p.time_en === "8:40")) timeAnchor = "start";
-        svg.push('<text x="' + x.toFixed(1) + '" y="' + (yBase + (compact ? 22 : 24)) + '" text-anchor="' + timeAnchor + '" fill="#334155" font-size="' + (compact ? 12 : 14) + '" font-weight="800"' + font + ">" + esc(time) + "</text>");
+        var row = !compact && (p.time_en === "7:50" || p.time_en === "8:30") ? 42 : 22;
+        svg.push(label(x, yBase + row, time, { fill: "#334155", size: compact ? 12 : 14 }));
       }
     });
     svg.push("</svg>");
