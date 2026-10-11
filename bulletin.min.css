@@ -1112,6 +1112,14 @@ html.theme-tihar .fest-hero .fest-tika-line{
 .home-flood-alert p{margin:0 0 8px;font-size:16px;line-height:1.45}
 .home-flood-alert-s{font-weight:800}
 .home-flood-alert-t{font-size:14px;font-weight:800;color:#ffe4e6}
+.home-flood-alert-read{font-weight:800}
+.home-flood-alert-earlier{font-size:14px;line-height:1.4;color:#ffe4e6}
+.home-flood-alert-fig{margin:0 0 8px}
+.home-flood-alert-fig a{display:block}
+.home-flood-alert-fig img{display:block;width:100%;height:auto;border-radius:12px}
+.home-flood-alert-fig figcaption{margin:6px 0 0;font-size:13px;line-height:1.4;font-weight:700;color:#ffe4e6}
+.home-flood-alert-fig figcaption a{color:#fff;font-weight:800}
+.budhi-0800{margin:0 0 10px;font-size:16px;line-height:1.45;font-weight:700}
 .home-flood-alert-phones{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
 .home-flood-alert-phones a{display:inline-flex;align-items:center;justify-content:flex-start;box-sizing:border-box;max-width:100%;min-height:44px;padding:8px 12px;border-radius:12px;background:#fff;color:#9f1239;font-weight:800;font-size:15px;line-height:1.35;text-align:left;text-decoration:none;white-space:normal;overflow-wrap:anywhere}
 .home-flood-alert-phones a:hover{text-decoration:underline}

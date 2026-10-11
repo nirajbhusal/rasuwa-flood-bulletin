@@ -1239,7 +1239,7 @@ window.PAGE_VER="8f175c1-20261011T024144Z";
     var danger = Number(s.danger_m);
     var washed = !!s.washed;
     var silent = !!s.silent;
-    if (!washed && !silent && s.observed_at) {
+    if (!washed && !silent && s.observed_at && !(danger && level >= danger)) {
       silent = (Date.now() - new Date(s.observed_at).getTime()) > 30 * 60 * 1000;
     }
     var b = badgeOf(s.steady, level, warn, danger, silent, washed);
