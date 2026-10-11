@@ -106,6 +106,7 @@ test("nav GROUPS keep the section pages and a top-level festival tab", function 
   }
   assert.deepEqual(hrefs, [
     "index.html",
+    "budhi-gandaki.html",
     "notices.html",
     "notices.html#roads",
     "electricity.html",

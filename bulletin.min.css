@@ -1105,11 +1105,11 @@ html.theme-tihar .fest-hero .fest-tika-line{
 .home-road-alert-more{display:inline-block;margin-top:2px;font-weight:800;color:#c41e3a;text-decoration:none}
 .home-road-alert-more:hover{text-decoration:underline}
 #home .home-road-alert{margin:0 0 12px}
-.home-flood-alert{margin:0 0 12px;padding:14px 16px 12px;background:#c41e3a;color:#fff;border-radius:12px;box-shadow:0 1px 2px rgba(15,23,42,.12);scroll-margin-top:var(--stick,148px)}
-.home-flood-alert-k{margin:0 0 4px;font-size:12px;font-weight:800;letter-spacing:.04em;color:#ffe4e6}
-.home-flood-alert-h{margin:0 0 8px;font-size:clamp(18px,2.4vw,22px);line-height:1.4;font-weight:800}
-.home-flood-alert-h a{color:#fff;text-decoration:underline;text-underline-offset:3px}
-.home-flood-alert p{margin:0 0 8px;font-size:16px;line-height:1.45}
+.home-flood-alert{margin:0 0 16px;padding:20px 18px 18px;background:#c41e3a;color:#fff;border-radius:16px;box-shadow:0 1px 2px rgba(15,23,42,.12);scroll-margin-top:var(--stick,148px)}
+.home-flood-alert-k{margin:0 0 6px;font-size:13px;font-weight:800;letter-spacing:.04em;color:#ffe4e6}
+.home-flood-alert-h{margin:0 0 14px;font-size:clamp(24px,3.2vw,30px);line-height:1.3;font-weight:800}
+.home-flood-alert-h a{color:#fff;text-decoration:none}
+.home-flood-alert p{margin:0 0 12px;font-size:17px;line-height:1.55}
 .home-flood-alert-s{font-weight:800}
 .home-flood-alert-t{font-size:14px;font-weight:800;color:#ffe4e6}
 .home-flood-alert-read{font-weight:800}
@@ -1131,3 +1131,67 @@ html.theme-tihar .fest-hero .fest-tika-line{
 .map-pin.alert,.map-legend .pin.alert{background:#c41e3a}
 #budhi-gandaki{scroll-margin-top:var(--stick,148px)}
 .home-road-alert .phones a{background:#c41e3a;color:#fff}
+.bg-bar{margin:0 0 12px}.bg-bar-track{position:relative;height:18px;border-radius:999px;background:rgba(255,255,255,.28);overflow:hidden}.bg-bar-zone{position:absolute;top:0;bottom:0;right:0;background:rgba(127,29,29,.45)}.bg-bar-fill{position:absolute;left:0;top:0;bottom:0;background:#fff;border-radius:999px}.bg-bar-mark{position:absolute;top:-4px;bottom:-4px;width:3px;margin-left:-1px;background:#1e293b;border-radius:2px}
+.bg-home-facts{margin:0 0 14px;padding:0 0 0 1.15em;font-size:17px;line-height:1.5}.bg-home-facts li{margin:0 0 8px}.bg-home-photo{display:block;margin:0 0 14px}.bg-home-photo img{display:block;width:100%;height:190px;object-fit:cover;object-position:center;border-radius:12px}.bg-home-more{display:flex;align-items:center;justify-content:center;min-height:48px;padding:10px 16px;border-radius:12px;background:#fff;color:#9f1239;font-weight:800;font-size:18px;line-height:1.3;text-decoration:none}
+.bg-page{max-width:760px}.bg-hero{background:#c41e3a;color:#fff;border-radius:16px;padding:22px 20px 20px;margin:8px 0 28px}.bg-kicker{margin:0 0 6px;font-size:13px;font-weight:800;letter-spacing:.04em;color:#ffe4e6}.bg-hero h1{margin:0 0 10px;font-size:clamp(28px,4vw,36px);line-height:1.25;font-weight:800}.bg-status{margin:0 0 8px;font-size:clamp(20px,2.6vw,24px);line-height:1.35;font-weight:800}.bg-read{margin:0 0 12px;font-size:18px;line-height:1.45;font-weight:800}.bg-guide{margin:0;font-size:18px;line-height:1.55}
+.bg-block{margin:0 0 32px}.bg-block h2{margin:0 0 12px;font-size:22px;line-height:1.35}.bg-block h3{margin:16px 0 8px;font-size:18px;line-height:1.4}.bg-block p,.bg-block li{font-size:17px;line-height:1.6}.bg-block ul,.bg-block ol{margin:0;padding-left:1.2em}.bg-block li{margin:0 0 10px}
+.bg-viz{display:grid;gap:16px}.bg-gauge-card,.bg-spark-card,.bg-row{background:#fff;border:1px solid #e7e5e4;border-radius:16px;padding:16px}.bg-gauge{display:block;width:min(100%,280px);height:auto;margin:0 auto}.bg-gauge-card figcaption p{margin:0 0 6px}.bg-spark{display:block;width:100%;height:auto}.bg-reads{margin:8px 0 0;padding-left:1.2em}.bg-feed{font-weight:800}.bg-rows{display:grid;gap:12px}.bg-row-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}.bg-row h3{margin:0;font-size:17px}.bg-row strong{font-size:22px;white-space:nowrap}.bg-mini{height:10px;margin:8px 0;border-radius:999px;background:#e2e8f0;overflow:hidden}.bg-mini span{display:block;height:100%;background:#0f766e;border-radius:999px}
+.bg-note{color:#475569}.bg-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 14px}.bg-stats article{background:#fff;border:1px solid #e7e5e4;border-radius:16px;padding:14px}.bg-stats strong{display:block;font-size:32px;line-height:1.1;color:#c41e3a}.bg-stats span{display:block;margin-top:4px;font-size:16px;line-height:1.4}
+.bg-phones{display:grid;gap:10px}.bg-phones a{display:flex;flex-direction:column;justify-content:center;min-height:64px;padding:12px 14px;border-radius:14px;background:#c41e3a;color:#fff;text-decoration:none}.bg-phones span{font-size:15px;line-height:1.35}.bg-phones strong{font-size:22px;line-height:1.2}.bg-src-line{margin:12px 0 0;font-size:15px;overflow-wrap:anywhere}
+.bg-gallery{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}.bg-gallery figure{flex:0 0 86%;scroll-snap-align:center;margin:0}.bg-gallery img{display:block;width:100%;height:auto;border-radius:12px}.bg-gallery figcaption{margin:8px 0 0;font-size:15px;line-height:1.4}.bg-sources a{overflow-wrap:anywhere}
+@media(min-width:900px){.bg-viz{grid-template-columns:280px 1fr;align-items:start}.bg-gallery{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible}.bg-gallery figure{flex:none}.bg-phones{grid-template-columns:1fr 1fr}}
+/* Budhi Gandaki section: light cards. Red is the accent, the status pill, and the danger zone. */
+.home-flood-alert{
+  background:#fffaf5;
+  color:#0f172a;
+  border:1px solid #eadfd4;
+  border-left:6px solid #c41e3a;
+}
+.home-flood-alert-k{
+  display:inline-flex;
+  align-items:center;
+  margin:0 0 10px;
+  padding:4px 10px;
+  border-radius:999px;
+  background:#c41e3a;
+  color:#fff;
+}
+.home-flood-alert-h a{color:#0f172a}
+.home-flood-alert-h a:hover{text-decoration:underline}
+.bg-updated{margin:0 0 10px;font-size:15px;line-height:1.4;font-weight:700;color:#475569}
+.bg-pill{display:inline-flex;align-items:center;margin:0 0 12px;padding:4px 12px;border-radius:999px;background:#c41e3a;color:#fff;font-size:15px;font-weight:800;line-height:1.35}
+.bg-bar-track{background:#f1f5f9}
+.bg-bar-zone{background:#fee2e2}
+.bg-bar-fill{background:#c41e3a}
+.bg-bar-mark{background:#9f1239}
+.bg-home-more{margin-top:4px;background:#c41e3a;color:#fff}
+.bg-home-more:hover{text-decoration:none}
+.bg-page{max-width:1100px}
+.bg-page > .bg-section-h{margin:0 0 18px;font-size:clamp(28px,4vw,36px);line-height:1.25;font-weight:800;color:#0f172a}
+.bg-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.bg-card{background:#fff;color:#0f172a;border:1px solid #eadfd4;border-radius:16px;padding:18px 18px 16px}
+.bg-card p,.bg-card li{font-size:17px;line-height:1.55}
+.bg-card ul{margin:8px 0 0;padding-left:1.15em}
+.bg-card li{margin:0 0 10px}
+.bg-card h3{margin:14px 0 6px;font-size:18px;line-height:1.35}
+.bg-card-k{margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.04em;color:#9f1239}
+.bg-span{grid-column:1 / -1}
+.bg-big{margin:2px 0 8px}
+.bg-big strong{font-size:clamp(36px,6vw,44px);line-height:1.05;color:#9f1239}
+.bg-big span{font-size:18px;font-weight:700}
+.bg-chip{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:13px;font-weight:800;line-height:1.35;white-space:nowrap}
+.bg-chip.danger{background:#c41e3a;color:#fff}
+.bg-chip.warn{background:#fff7ed;color:#9a3412;border:1px solid #fdba74}
+.bg-chip.ok{background:#f0fdf4;color:#14532d;border:1px solid #86efac}
+.bg-tl{display:grid;grid-template-columns:7.6em 1fr;gap:6px 14px;margin:0 0 14px}
+.bg-tl time{font-weight:800;font-size:16px;line-height:1.4}
+.bg-tl p{margin:0}
+.bg-tag{color:#475569;font-size:14px;font-weight:700}
+.bg-src-line a{color:#9f1239;font-weight:700}
+.bg-reads li{margin:0 0 8px}
+@media (min-width:720px){
+  .bg-grid{grid-template-columns:1fr 1fr}
+}
+@media (min-width:1100px){
+  .bg-grid{grid-template-columns:1fr 1fr 1fr}
+}
