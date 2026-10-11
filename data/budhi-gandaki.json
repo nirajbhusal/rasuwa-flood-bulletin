@@ -1,0 +1,152 @@
+{
+  "updated_at": "2026-10-11T09:21:00+05:45",
+  "updated_ne": "पछिल्लो अपडेट: असोज २५, ०९:२१ NPT",
+  "updated_en": "Last updated: Asoj 25, 9:21 AM NPT",
+  "title_ne": "बुढीगण्डकी बाढी अपडेट",
+  "title_en": "Budhi Gandaki Flood Update",
+  "kicker_ne": "बाढी अलर्ट",
+  "kicker_en": "Flood alert",
+  "status_ne": "खतरा तहभन्दा माथि · बढ्दो",
+  "status_en": "Above the danger level · rising",
+  "guidance_ne": "बाढी पास नहुँदासम्म बेनीघाटको त्रिशूली दोभानसम्म नदी छेउछाउ नजानुहोस्। उच्च स्थानमा बस्नुहोस्।",
+  "guidance_en": "Stay away from the river down to the Trishuli confluence at Benighat until it passes, and move to high ground.",
+  "source": "https://www.hydrology.gov.np/",
+  "feed_label_ne": "DHM hydrology.gov.np · ०९:१० NPT",
+  "feed_label_en": "DHM hydrology.gov.np · 9:10 AM NPT",
+  "scale_max_m": 10,
+  "aarughat": {
+    "station_index": "445",
+    "name_ne": "आरुघाट · बुढीगण्डकी",
+    "name_en": "Budhi Gandaki at Aarughat",
+    "warning_m": 4.5,
+    "danger_m": 5.0,
+    "latest": {
+      "level_m": 8.43,
+      "trend": "RISING",
+      "status": "DANGER",
+      "at": "2026-10-11T08:40:00+05:45",
+      "time_ne": "०८:४०",
+      "time_en": "8:40 AM"
+    },
+    "history": [
+      {
+        "level_m": 5.01,
+        "trend": "RISING",
+        "status": "DANGER",
+        "time_ne": "०७:५०",
+        "time_en": "7:50 AM",
+        "note_ne": "DHM River Watch, NDRRMA ले ०८:०० मा सेयर",
+        "note_en": "DHM River Watch, shared by NDRRMA at 8:00 AM"
+      },
+      {
+        "level_m": 8.43,
+        "trend": "RISING",
+        "status": "DANGER",
+        "time_ne": "०८:४०",
+        "time_en": "8:40 AM",
+        "note_ne": "DHM hydrology.gov.np को लाइभ रिडिङ",
+        "note_en": "Live DHM hydrology.gov.np reading"
+      }
+    ]
+  },
+  "downstream": [
+    {
+      "name_ne": "देवघाट · नारायणी",
+      "name_en": "Narayani at Devghat",
+      "level_m": 4.0,
+      "warning_m": 7.3,
+      "danger_m": 9.0,
+      "trend": "STEADY",
+      "status": "BELOW",
+      "time_ne": "०८:४०",
+      "time_en": "8:40 AM"
+    },
+    {
+      "name_ne": "काली खोला · त्रिशूली",
+      "name_en": "Trishuli at Kali Khola",
+      "level_m": 3.82,
+      "warning_m": 10.8,
+      "danger_m": 12.1,
+      "trend": "STEADY",
+      "status": "BELOW",
+      "time_ne": "०९:१०",
+      "time_en": "9:10 AM"
+    },
+    {
+      "name_ne": "भोर्ले · त्रिशूली",
+      "name_en": "Trishuli at Bhorle",
+      "level_m": 3.38,
+      "warning_m": 9.5,
+      "danger_m": null,
+      "trend": "RISING",
+      "status": "BELOW",
+      "time_ne": "०९:००",
+      "time_en": "9:00 AM"
+    }
+  ],
+  "home_facts": [
+    {"ne": "चुमनुब्रीमा ३५ घर बगाएको समाचार छ।", "en": "35 houses swept away in Chumnubri, as reported."},
+    {"ne": "उद्धारका लागि हेलिकप्टर खटिएका छन्।", "en": "Helicopters are out for rescue."},
+    {"ne": "तल्लो तटीय जिल्ला सतर्क रहनुहोस्।", "en": "Downstream districts should stay alert."}
+  ],
+  "impact_note_ne": "समाचारमा आएको विवरण। आधिकारिक अन्तिम अङ्क होइन।",
+  "impact_note_en": "As reported. Not a final official count.",
+  "impact": [
+    {"ne": "पैयु र बगरका ३५ घर बगाएको छ।", "en": "35 houses in Paiyu and Bagar were swept away.", "by_ne": "लक्ष्मी गुरुङ, चुमनुब्री · रातोपाटी, नागरिक, अनलाइनखबर", "by_en": "Laxmi Gurung, Chumnubri · Ratopati, Nagarik, OnlineKhabar"},
+    {"ne": "दोभान, घट्टेखोला, जगत र सल्लेरीमा व्यापक क्षति।", "en": "Wide damage at Dobhan, Ghattekhola, Jagat and Salleri.", "by_ne": "रातोपाटी, नागरिक, अनलाइनखबर", "by_en": "Ratopati, Nagarik, OnlineKhabar"},
+    {"ne": "न्याकचेट–फिलिम पुल बगेको छ। घट्टेखोलाका घरमा लेदो पानी पसेको छ।", "en": "The Nyakchet–Philim bridge is gone. Muddy water entered houses in Ghattekhola.", "by_ne": "मकालु खबर", "by_en": "Makalu Khabar"},
+    {"ne": "आधिकारिक मृत्युको अङ्क अहिलेसम्म आएको छैन।", "en": "No official casualty figure yet.", "by_ne": "अहिलेसम्म सार्वजनिक भएको छैन", "by_en": "Not published yet"}
+  ],
+  "evacuate_ne": "खोर्लाबेसी, मच्छेखोला, सोती, आर्खेत र आरुघाट (सिर्दिबास र धार्चे)।",
+  "evacuate_en": "Khorlabesi, Machhakhola, Soti, Arkhet and Arughat, in Siridibas and Dharche.",
+  "evacuate_by_ne": "गोरखा जिल्ला प्रहरी, निरीक्षक आकाश कँडेल · रातोपाटी",
+  "evacuate_by_en": "Gorkha District Police, Inspector Akash Kandel · Ratopati",
+  "districts_ne": "गोरखा, तनहुँ, चितवन, नवलपरासी पूर्व र पश्चिमका नदी किनार।",
+  "districts_en": "River banks in Gorkha, Tanahun, Chitwan, Nawalparasi East and West.",
+  "dos": [
+    {"ne": "नदी वा पुल नकाट्नुहोस्।", "en": "Do not cross rivers or bridges."},
+    {"ne": "बाढी हेर्न नजानुहोस्।", "en": "Do not go to watch the flood."},
+    {"ne": "गाईवस्तु र सामान माथि सार्नुहोस्।", "en": "Move livestock and valuables up early."},
+    {"ne": "फोन चार्ज राख्नुहोस्।", "en": "Keep phones charged."},
+    {"ne": "प्रहरी र स्थानीय सूचना पालना गर्नुहोस्।", "en": "Follow police and local announcements."}
+  ],
+  "contacts": [
+    {"home": true, "tel": "tel:1234", "ne": "उद्धार / DEOC Gorkha", "en": "Rescue / DEOC Gorkha", "num": "1234"},
+    {"home": false, "tel": "tel:102", "ne": "एम्बुलेन्स", "en": "Ambulance", "num": "102"},
+    {"home": true, "tel": "tel:100", "ne": "प्रहरी", "en": "Police", "num": "100"},
+    {"home": true, "tel": "tel:+9779856061190", "ne": "जिल्ला प्रहरी कार्यालय गोरखा", "en": "District Police Office Gorkha", "num": "9856061190"},
+    {"home": false, "tel": "tel:+9779856057778", "ne": "जिल्ला प्रशासन कार्यालय गोरखा (सहायक प्रमुख जिल्ला अधिकारी)", "en": "DAO Gorkha (Asst. CDO)", "num": "9856057778"},
+    {"home": false, "tel": "tel:+9779867173694", "ne": "DEOC गोरखा", "en": "DEOC Gorkha", "num": "9867173694"},
+    {"home": false, "tel": "tel:+9779856057777", "ne": "जिल्ला प्रशासन कार्यालय गोरखा", "en": "DAO Gorkha", "num": "9856057777"},
+    {"home": false, "tel": "tel:+9779856057780", "ne": "जिल्ला प्रशासन कार्यालय गोरखा", "en": "DAO Gorkha", "num": "9856057780"}
+  ],
+  "contact_source": "https://nepalpolice.gov.np/about-us/information-officer/",
+  "photos": [
+    {"src": "img/budhi/aerial-1.webp", "w": 960, "h": 1280, "alt_ne": "हेलिकप्टरबाट देखिएको बुढीगण्डकीको खोंच, लेदो बाढीले भरिएको नदी र हरियो भिर", "alt_en": "Helicopter view of muddy brown floodwater filling a steep green Budhi Gandaki gorge"},
+    {"src": "img/budhi/aerial-2.webp", "w": 960, "h": 1280, "alt_ne": "हेलिकप्टरबाट देखिएको साँघुरो खोंचमा लेदो बाढी", "alt_en": "Helicopter view of muddy floodwater in a narrow Budhi Gandaki gorge with steep rocky walls"},
+    {"src": "img/budhi/aerial-3.webp", "w": 960, "h": 1280, "alt_ne": "हेलिकप्टरबाट देखिएको बस्ती, तल लेदोले भरिएको नदी", "alt_en": "Helicopter view of a riverside settlement above a muddy flood-filled Budhi Gandaki gorge"}
+  ],
+  "photo_caption_ne": "हेलिकप्टरबाट लिइएको तस्विर",
+  "photo_caption_en": "Helicopter photo",
+  "photo_credit": "https://x.com/ndrrma_nepal/status/2109113480993526254",
+  "photo_credit_label": "NDRRMA",
+  "timeline": [
+    {"time_ne": "करिब ०४:००", "time_en": "About 4:00 AM", "ne": "सुक्खा पहिरोले चुमनुब्री–६ मा लोकपा र चुमलिङ बीच नदी थुनियो। थुनिने र फुट्ने क्रम दोहोरियो।", "en": "A dry landslide blocked the river between Lokpa and Chumling, Chumnubri-6. It kept blocking and bursting.", "by_ne": "रातोपाटी, EverestToday", "by_en": "Ratopati, EverestToday"},
+    {"time_ne": "करिब ०६:१५", "time_en": "About 6:15 AM", "ne": "थुनिएको ठाउँबाट पानी बग्न थाल्यो। प्रहरीले ठूलो बाढी आउँदै छ भने।", "en": "Water started flowing from the blockage. Police said a big flood was coming.", "by_ne": "रातोपाटी", "by_en": "Ratopati"},
+    {"time_ne": "०६:४०", "time_en": "6:40 AM", "ne": "महाशाखाको एसएमएस: चुमनुम्वी–६ बाट ठूलो बाढी। त्रिशूली दोभानसम्म नदी छेउछाउ नजानुहोस्।", "en": "DHM SMS: big flood from Chumnubri-6. Stay off the river down to the Trishuli confluence.", "href": "https://x.com/DHM_FloodEWS/status/2109094184741372357", "by_ne": "@DHM_FloodEWS", "by_en": "@DHM_FloodEWS"},
+    {"time_ne": "०७:५०", "time_en": "7:50 AM", "ne": "आरुघाट ५.०१ मि., खतरा तह ५.० मि. पार, बढ्दो।", "en": "Aarughat 5.01 m, above the 5.0 m danger level, rising.", "by_ne": "DHM River Watch", "by_en": "DHM River Watch"},
+    {"time_ne": "०८:००", "time_en": "8:00 AM", "ne": "NDRRMA: आरुघाटमा खतरा तह पार, बढ्दो।", "en": "NDRRMA: Aarughat is above the danger level and rising.", "href": "https://x.com/ndrrma_nepal/status/2109108937933152746", "by_ne": "@ndrrma_nepal", "by_en": "@ndrrma_nepal"},
+    {"time_ne": "०८:४०", "time_en": "8:40 AM", "ne": "आरुघाट ८.४३ मि., बढ्दो, खतरा।", "en": "Aarughat 8.43 m, rising, danger.", "by_ne": "DHM hydrology.gov.np", "by_en": "DHM hydrology.gov.np"},
+    {"time_ne": "हेलिकप्टर", "time_en": "Helicopters", "ne": "उद्धार, राहत र सुरक्षित स्थानान्तरणका लागि हेलिकप्टर खटिए।", "en": "Helicopters deployed for rescue, relief and evacuation.", "href": "https://x.com/ndrrma_nepal/status/2109113480993526254", "by_ne": "@ndrrma_nepal", "by_en": "@ndrrma_nepal"}
+  ],
+  "sources": [
+    {"href": "https://x.com/DHM_FloodEWS/status/2109094184741372357", "ne": "@DHM_FloodEWS · ०६:४०", "en": "@DHM_FloodEWS · 6:40 AM"},
+    {"href": "https://x.com/ndrrma_nepal/status/2109108937933152746", "ne": "@ndrrma_nepal · ०८:००", "en": "@ndrrma_nepal · 8:00 AM"},
+    {"href": "https://x.com/ndrrma_nepal/status/2109113480993526254", "ne": "@ndrrma_nepal · हवाई तस्विर", "en": "@ndrrma_nepal · aerial photos"},
+    {"href": "https://www.ratopati.com/story/598741/flood-in-budhigandaki-35-houses-in-chumanubri-washed-away", "ne": "रातोपाटी", "en": "Ratopati"},
+    {"href": "https://nagariknews.nagariknetwork.com/social-affairs/flood-in-budhigandaki-35-houses-in-chumanubri-washed-away-62-56.html", "ne": "नागरिक", "en": "Nagarik"},
+    {"href": "https://www.onlinekhabar.com/2026/10/2036590/chumanumbri-administrative-officer-says-the-situation-is-chaotic-the-flood-keeps-coming-and-going", "ne": "अनलाइनखबर", "en": "OnlineKhabar"},
+    {"href": "https://nepalpolice.gov.np/about-us/information-officer/", "ne": "नेपाल प्रहरी · सम्पर्क", "en": "Nepal Police contacts"},
+    {"href": "https://www.hydrology.gov.np/", "ne": "DHM hydrology.gov.np", "en": "DHM hydrology.gov.np"}
+  ]
+}

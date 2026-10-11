@@ -9,6 +9,7 @@ function read(name) {
 
 const ORDER = [
   "index.html",
+  "budhi-gandaki.html",
   "notices.html",
   "notices.html#roads",
   "electricity.html",
@@ -91,6 +92,7 @@ test("desktop groups mirror the mobile drawer", () => {
 });
 
 const PAGES = {
+  "budhi-gandaki.html": "बुढीगण्डकी बाढी अपडेट",
   "notices.html": "सूचना",
   "notices.html#roads": "सडक",
   "electricity.html": "बिजुली",

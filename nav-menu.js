@@ -126,7 +126,7 @@
 
   var GROUPS = [
     { key: "home", ne: "गृह", en: "Home", hrefs: ["index.html"] },
-    { key: "alerts", ne: "चेतावनी", en: "Alerts", hrefs: ["notices.html", "notices.html#roads", "electricity.html", "weather.html", "photos.html"] },
+    { key: "alerts", ne: "चेतावनी", en: "Alerts", hrefs: ["budhi-gandaki.html", "notices.html", "notices.html#roads", "electricity.html", "weather.html", "photos.html"] },
     { key: "festival", ne: "चाडपर्व", en: "Festival", hrefs: ["festival.html"] },
     { key: "people", ne: "मानिस", en: "People", hrefs: ["names.html", "contact.html"] },
     { key: "gov", ne: "सरकार", en: "Government", hrefs: ["gov.html", "markets.html"] },
@@ -137,6 +137,7 @@
     "index.html": "M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z",
     "names.html": "M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm8 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM3 19c.4-2.4 2.4-4 5-4s4.6 1.6 5 4H3zm10 .1c.3-1.6 1.4-2.9 3-3.6 1.6.4 2.8 1.5 3.2 3.5H13z",
     "donate.html": "M12 21s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z",
+    "budhi-gandaki.html": "M4 16c2-4 4-4 6 0s4 4 6 0 4-4 6 0",
     "notices.html": "M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm8 1.5V9h4.5",
     "notices.html#roads": "M4 17h16M6 17V8l6-3 6 3v9",
     "weather.html": "M7 16h10a3.5 3.5 0 0 0 .4-7 5 5 0 0 0-9.7 1.5A3 3 0 0 0 7 16z",
@@ -215,6 +216,12 @@
     if (!inner || inner.getAttribute("data-grouped") === "1") {
       paintGroups();
       return;
+    }
+    if (!byHref("budhi-gandaki.html")) {
+      var budhiNav = makeLink("budhi-gandaki.html", "nav_budhi", "बुढीगण्डकी बाढी अपडेट");
+      var noticesFirst = byHref("notices.html");
+      if (noticesFirst) inner.insertBefore(budhiNav, noticesFirst);
+      else inner.appendChild(budhiNav);
     }
     if (!byHref("notices.html#roads")) {
       var roads = makeLink("notices.html#roads", "nav_roads", "सडक");
@@ -466,6 +473,7 @@
      is a direct link. Larger groups open a dropdown. Overflow groups go under थप / More. */
   var SHORT = {
     "index.html": { ne: "ड्यासबोर्ड", en: "Dashboard" },
+    "budhi-gandaki.html": { ne: "बुढीगण्डकी बाढी अपडेट", en: "Budhi Gandaki Flood Update" },
     "notices.html": { ne: "सूचना", en: "Notices" },
     "notices.html#roads": { ne: "सडक", en: "Roads" },
     "electricity.html": { ne: "बिजुली", en: "Electricity" },

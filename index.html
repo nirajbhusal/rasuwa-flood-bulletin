@@ -200,6 +200,7 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
     <a class="home-btn" href="index.html" aria-label="ड्यासबोर्ड" title="ड्यासबोर्ड" data-i18n-aria="nav_dash" data-i18n-title="nav_dash"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.2 3 11h2.5v9h5.2v-6.2h2.6V20h5.2v-9H21z"/></svg><span class="nav-dash-label" data-i18n="nav_dash">ड्यासबोर्ड</span></a>
     <a href="names.html" class="nav-names" data-i18n="nav_names">उद्धार / बेपत्ता नामावली</a>
     <a href="donate.html" data-i18n="nav_donate">राहत कोष</a>
+    <a href="budhi-gandaki.html" data-i18n="nav_budhi">बुढीगण्डकी बाढी अपडेट</a>
     <a href="notices.html" data-i18n="nav_notices">सूचना</a>
     <a href="weather.html" data-i18n="nav_weather">मौसम</a>
     <a href="festival.html" data-i18n="nav_festival">चाडपर्व</a>
@@ -222,29 +223,11 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 <div class="hero" id="home">
   <div class="wrap">
     <p class="lede sr-only" data-i18n-html="lede">जिरोङ ताल फुट्यो — बाढी स्याफ्रुबेँसी, मुग्लिनसम्म सतर्कता। NDRRMA १७ असोज शव <strong>१,४५५</strong>। हाल उपचाररत (१९ अस्पताल) <strong>३</strong>। सम्पर्कविहीन करिब <strong>५,२८५</strong>। हालसम्म उद्धार <strong>१३,७९५</strong>।</p>
-<article class="home-flood-alert" id="budhi-alert">
+<article class="home-flood-alert" id="budhi-alert" data-budhi-home>
+  <p class="bg-updated" data-budhi-updated></p>
   <p class="home-flood-alert-k" data-i18n="budhi_k">बाढी अलर्ट</p>
-  <h2 class="home-flood-alert-h"><a href="weather.html#budhi-gandaki" data-i18n="budhi_h">बुढीगण्डकी आरुघाटमा खतरा तह पार र बढ्दो — बाढी पास नहुँदासम्म त्रिशूली दोभानसम्म नदी छेउछाउ नजानुहोस्, उच्च स्थानमा बस्नुहोस्।</a></h2>
-  <p class="home-flood-alert-read" data-i18n="budhi_read">Aarughat ५.०१ मि. (खतरा ५.० मि.) · बढ्दो · ७:५० बिहान</p>
-  <figure class="home-flood-alert-fig">
-    <a href="img/alerts/budhi-gandaki-aarughat-0750.webp">
-      <img src="img/alerts/budhi-gandaki-aarughat-0750.webp" width="1170" height="671" alt="DHM River Watch: Budhi Gandaki at Aarughat 5.01 m, danger level 5.0 m, rising, 7:50 AM 11 Oct 2026" loading="eager" decoding="async">
-    </a>
-    <figcaption>DHM River Watch · <a href="https://x.com/ndrrma_nepal/status/2109108937933152746" target="_blank" rel="noopener">NDRRMA</a></figcaption>
-  </figure>
-  <p class="home-flood-alert-t" data-i18n="budhi_t">DHM / NDRRMA · असोज २५, बिहान ८:००</p>
-  <p class="home-flood-alert-earlier" data-i18n="budhi_640">असोज २५, बिहान ६:४०: बुढीगण्डकी नदीको चुमनुम्वी गा.पा.–६ बाट ठूलो बाढी आइरहेकोले बाढी पास नहुँदासम्म त्रिशूली दोभानसम्म नदी छेउछाउ नजानुहोस्। उच्च स्थानमा बस्नुहोस्।</p>
-  <p class="home-flood-alert-s" data-i18n="budhi_s">गोरखा, तनहुँ, चितवन, नवलपरासी पूर्व/पश्चिमका नदी किनारका बासिन्दा सतर्क रहनुहोस्</p>
-  <p class="home-flood-alert-m" data-i18n="budhi_m">चुमनुब्रीमा ३५ घर बगाएको समाचार छ।</p>
-  <p class="home-flood-alert-m" data-i18n="budhi_heli">बुढीगण्डकी प्रभावित क्षेत्रमा उद्धार, राहत र सुरक्षित स्थानान्तरणका लागि हेलिकप्टर परिचालन गरिएका छन्।</p>
-  <p class="home-flood-alert-phones">
-    <a href="tel:1234">उद्धार / DEOC Gorkha: 1234</a>
-    <a href="tel:102">एम्बुलेन्स / Ambulance: 102</a>
-    <a href="tel:100">प्रहरी / Police: 100</a>
-    <a href="tel:+9779856061190">जिल्ला प्रहरी कार्यालय गोरखा / District Police Office Gorkha: 9856061190</a>
-    <a href="tel:+9779856057778">जिल्ला प्रशासन कार्यालय गोरखा (सहायक प्रमुख जिल्ला अधिकारी) / District Administration Office Gorkha (Asst. CDO): 9856057778</a>
-  </p>
-  <p class="budhi-contact-src"><a href="https://nepalpolice.gov.np/about-us/information-officer/" target="_blank" rel="noopener">https://nepalpolice.gov.np/about-us/information-officer/</a></p>
+  <h2 class="home-flood-alert-h"><a href="budhi-gandaki.html" data-i18n="budhi_h">बुढीगण्डकी बाढी अपडेट</a></h2>
+  <div data-budhi-slot></div>
 </article>
 <article class="home-road-alert" id="prithvi-alert">
   <p class="home-road-alert-k" data-i18n="prithvi_alert_k">सडक अलर्ट</p>
@@ -1200,6 +1183,7 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 <script defer src="roads-dor.js?v=b625075-20261011T030318Z"></script>
 <script defer src="notify.js?v=b625075-20261011T030318Z"></script>
 <script defer src="flood-popup.js?v=b625075-20261011T030318Z"></script>
+<script defer src="budhi-gandaki.js?v=b625075-20261011T030318Z"></script>
 <script defer src="nav-menu.js?v=b625075-20261011T030318Z"></script>
 <script defer src="npt-clock.js?v=b625075-20261011T030318Z"></script>
 <script defer src="electricity.js?v=b625075-20261011T030318Z"></script>
