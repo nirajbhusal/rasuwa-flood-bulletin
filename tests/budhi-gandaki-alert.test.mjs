@@ -71,6 +71,9 @@ test("the update page is a section under the site header and has no screenshots"
 
 test("readings, timeline, impact, contacts and photos live in one JSON file", function () {
   assert.equal(data.aarughat.latest.level_m, 8.43);
+  assert.match(data.districts_en, /Dhading/);
+  assert.match(data.districts_en, /Nawalparasi/);
+  assert.ok(data.timeline.some(function (item) { return item.href === "https://x.com/ndrrma_nepal/status/2109122186552496251"; }));
   assert.equal(data.aarughat.danger_m, 5);
   assert.equal(data.aarughat.warning_m, 4.5);
   assert.equal(data.aarughat.latest.trend, "RISING");
