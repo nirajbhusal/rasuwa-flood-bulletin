@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-11T15:23:00+05:45",
-  "updated_ne": "पछिल्लो अपडेट: असोज २५, दिउँसो ३:२३ NPT",
-  "updated_en": "Last updated: Asoj 25, 3:23 PM NPT",
+  "updated_at": "2026-10-12T11:24:00+05:45",
+  "updated_ne": "पछिल्लो अपडेट: असोज २६, बिहान ११:२४ NPT",
+  "updated_en": "Last updated: Asoj 26, 11:24 AM NPT",
   "title_ne": "बुढीगण्डकी बाढी अपडेट",
   "title_en": "Budhi Gandaki Flood Update",
   "kicker_ne": "बाढी अलर्ट",
@@ -19,8 +19,8 @@
   "alerts_ne": "एसएमएस १ (६:३०): बेनीघाटसम्म नदी किनारका सबैलाई। एसएमएस २ (९:२५): सुरक्षित ठाउँमा जानुहोस् र अर्को सूचना नआउञ्जेल त्यहीँ बस्नुहोस्। दुई चरणमा करिब २ लाख एसएमएस। बिहान ६:०० मा NDRRMA ले गोरखा, धादिङ, तनहुँ, चितवन, नवलपरासी पूर्व र पश्चिम तथा केन्द्रका २२१ प्रतिकार्यकर्तालाई पनि एसएमएस पठायो।",
   "alerts_en": "SMS #1 at 6:30 AM went to everyone along the river down to Benighat. SMS #2 at 9:25 AM said to move to a safe place and stay there until further notice. About 200,000 messages across the two rounds. At 6:00 AM NDRRMA also texted 221 responders in Gorkha, Dhading, Tanahun, Chitwan, Nawalparasi East and West, and the centre.",
   "source": "https://www.hydrology.gov.np/",
-  "feed_label_ne": "DHM hydrology.gov.np · २:३०–३:०० NPT",
-  "feed_label_en": "DHM hydrology.gov.np · 2:30–3:00 PM NPT",
+  "feed_label_ne": "DHM hydrology.gov.np · ११:००–११:२० NPT",
+  "feed_label_en": "DHM hydrology.gov.np · 11:00–11:20 AM NPT",
   "scale_max_m": 10,
   "aarughat": {
     "station_index": "445",
@@ -108,35 +108,35 @@
     {
       "name_ne": "देवघाट · नारायणी",
       "name_en": "Narayani at Devghat",
-      "level_m": 4.14,
+      "level_m": 3.69,
       "warning_m": 7.3,
       "danger_m": 9.0,
       "trend": "STEADY",
       "status": "BELOW",
-      "time_ne": "२:३०",
-      "time_en": "2:30 PM"
+      "time_ne": "११:००",
+      "time_en": "11:00 AM"
     },
     {
       "name_ne": "काली खोला · त्रिशूली",
       "name_en": "Trishuli at Kali Khola",
-      "level_m": 4.46,
+      "level_m": 4.11,
       "warning_m": 10.8,
       "danger_m": 12.1,
-      "trend": "FALLING",
+      "trend": "STEADY",
       "status": "BELOW",
-      "time_ne": "३:००",
-      "time_en": "3:00 PM"
+      "time_ne": "११:२०",
+      "time_en": "11:20 AM"
     },
     {
       "name_ne": "भोर्ले · त्रिशूली",
       "name_en": "Trishuli at Bhorle",
-      "level_m": 4.15,
+      "level_m": 3.44,
       "warning_m": 9.5,
       "danger_m": null,
-      "trend": "RISING",
+      "trend": "STEADY",
       "status": "BELOW",
-      "time_ne": "३:००",
-      "time_en": "3:00 PM"
+      "time_ne": "११:२०",
+      "time_en": "11:20 AM"
     }
   ],
   "home_facts": [
@@ -153,8 +153,22 @@
       "en": "Downstream districts should stay alert."
     }
   ],
-  "impact_note_ne": "NDRRMA प्रेस नोट, असोज २५। अघिल्ला विवरण तल छन्।",
-  "impact_note_en": "NDRRMA press note, Asoj 25. Earlier reports are below.",
+  "impact_note_ne": "१३६ घर लोक्पा–चुम्लिङ, धार्चे–५ को BIPAD गणना हो। तल NDRRMA प्रेस नोटको विवरण छ। सल्लेरीका ७ देखि ८ घर लगायत साना घर-संख्या स्थानको विवरण हुन्।",
+  "impact_note_en": "The 136 is BIPAD’s count for Lokpa to Chumling, Dharche-5. The NDRRMA press-note list is below. Smaller house counts there, including 7 to 8 at Salleri, are location details.",
+  "impact_head": [
+    {
+      "label_ne": "घर नष्ट",
+      "label_en": "Houses destroyed",
+      "count": 136,
+      "asof_ne": "BIPAD, असोज २६, बिहान ११:२१",
+      "asof_en": "BIPAD, as of Asoj 26, 11:21 AM"
+    },
+    {
+      "label_ne": "सम्पर्कविहीन",
+      "label_en": "Missing",
+      "count": 5
+    }
+  ],
   "impact": [
     {
       "prominent": true,
@@ -162,6 +176,12 @@
       "en": "5 people are out of contact: 2 women and 3 men, from a sheep shed in Ungilung, Chumchet, Chumnubri-6.",
       "by_ne": "NDRRMA प्रेस नोट",
       "by_en": "NDRRMA press note"
+    },
+    {
+      "ne": "उङ्गिलुङ (BIPAD को हिज्जे Uingurlung) मा १४० पशुधन नोक्सान। BIPAD ले यसलाई हिमपहिरोका रूपमा राखेको छ। NDRRMA ले सम्पर्कविहीन ५ जनाको भेडीगोठ यही ठाउँमा भनेको छ।",
+      "en": "140 livestock lost at Ungilung (BIPAD spells it Uingurlung). BIPAD records this as an avalanche. NDRRMA had named a sheep shed here for the 5 people out of contact.",
+      "by_ne": "BIPAD",
+      "by_en": "BIPAD"
     },
     {
       "ne": "न्याकचेट (चुमनुब्री–३) मा न्याकचेट–सिर्दिबास जोड्ने पुरानो झोलुङ्गे पुल बग्यो।",
@@ -352,6 +372,12 @@
       "en": "District rapid response teams in Gorkha, Lamjung and Tanahun, and medical rapid response teams at the provincial hospitals in Gorkha, Tanahun and Lamjung, are on standby (MoHFS, MoH, Gandaki Province).",
       "by_ne": "NDRRMA प्रेस नोट",
       "by_en": "NDRRMA press note"
+    }
+  ],
+  "nearby": [
+    {
+      "ne": "धादिङ: नेत्रावती डबजोङ–१, विशालनगरमा बाढी। ६५ घर नष्ट र ६५ परिवार प्रभावित (BIPAD)।",
+      "en": "Dhading: flood at Bishalnagar, Netrawati Dabjong-1, with 65 houses destroyed and 65 families affected (BIPAD)."
     }
   ],
   "missing": {
@@ -829,6 +855,24 @@
       "href": "https://ndrrma.gov.np/np/pressnote/66",
       "by_ne": "NDRRMA प्रेस नोट",
       "by_en": "NDRRMA press note"
+    },
+    {
+      "time_ne": "असोज २६, ११:००–११:२०",
+      "time_en": "Asoj 26, 11:00–11:20 AM",
+      "ne": "DHM: देवघाट ३.६९ मि. (स्थिर, ११:००), काली खोला ४.११ मि. (स्थिर, ११:२०), भोर्ले ३.४४ मि. (स्थिर, ११:२०)। तीनैवटा अलर्ट तहभन्दा तल। आरुघाटको ८.४३ मि. अन्तिम रिडिङ हो।",
+      "en": "DHM: Devghat 3.69 m (steady, 11:00 AM), Kali Khola 4.11 m (steady, 11:20 AM), Bhorle 3.44 m (steady, 11:20 AM). All three are below the alert level. Aarughat’s 8.43 m remains the last reading.",
+      "href": "https://www.hydrology.gov.np/",
+      "by_ne": "DHM hydrology.gov.np",
+      "by_en": "DHM hydrology.gov.np"
+    },
+    {
+      "time_ne": "असोज २६, ११:२१",
+      "time_en": "Asoj 26, 11:21 AM",
+      "ne": "BIPAD: लोक्पा–चुम्लिङ, धार्चे–५ को बाढीमा १३६ घर नष्ट र ५ जना सम्पर्कविहीन। उङ्गिलुङमा १४० पशुधन नोक्सान, हिमपहिरोका रूपमा दर्ता। धादिङको विशालनगर, नेत्रावती डबजोङ–१ मा ६५ घर नष्ट र ६५ परिवार प्रभावित।",
+      "en": "BIPAD: 136 houses destroyed and 5 people missing on the flood from Lokpa to Chumling, Dharche-5. 140 livestock lost at Ungilung, recorded as an avalanche. In Dhading, 65 houses destroyed and 65 families affected at Bishalnagar, Netrawati Dabjong-1.",
+      "href": "https://bipadportal.gov.np/",
+      "by_ne": "BIPAD",
+      "by_en": "BIPAD"
     }
   ],
   "sources": [
@@ -951,6 +995,11 @@
       "href": "https://ndrrma.gov.np/mediafiles/pressnotenews/pressnote/%E0%A4%97%E0%A4%B0%E0%A4%96_%E0%A4%AC%E0%A4%A2%E0%A4%97%E0%A4%A3%E0%A4%A1%E0%A4%95_%E0%A4%AC%E0%A4%A2_%E0%A4%AA%E0%A4%B0%E0%A4%B8_%E0%A4%B5%E0%A4%9C%E0%A4%9E%E0%A4%AA%E0%A4%A4.pdf",
       "ne": "NDRRMA · प्रेस नोट PDF",
       "en": "NDRRMA · press note PDF"
+    },
+    {
+      "href": "https://bipadportal.gov.np/",
+      "ne": "BIPAD · विपद् पोर्टल",
+      "en": "BIPAD portal"
     }
   ]
 }
