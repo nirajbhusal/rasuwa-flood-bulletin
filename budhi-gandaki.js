@@ -308,6 +308,38 @@
   function splitList(items, keep) {
     return { top: items.slice(0, keep).join(""), rest: items.slice(keep).join("") };
   }
+  // Flood path from upstream to Aarughat. Each stop quotes an existing verified entry.
+  function routeStops(d) {
+    function find(list, word) {
+      list = list || [];
+      for (var i = 0; i < list.length; i++) if (list[i].en && list[i].en.indexOf(word) >= 0) return list[i];
+      return null;
+    }
+    var a = d.aarughat;
+    var stops = [
+      { ne: "तुम्जे · चुमनुब्री–६", en: "Tumje · Chumnubri-6", item: find(d.timeline, "Tumje") },
+      { ne: "जगत", en: "Jagat", item: find(d.timeline, "air-rescued from Jagat") },
+      { ne: "माछीखोला", en: "Machhikhola", item: find(d.impact, "Machhikhola and Kerauja") },
+      { ne: "सोती", en: "Soti", item: find(d.impact, "concrete bridge at Soti") },
+      { ne: "आरुघाट", en: "Aarughat", item: a.latest ? { ne: a.latest.note_ne, en: a.latest.note_en, by_ne: "DHM", by_en: "DHM" } : null, end: true }
+    ];
+    return stops.filter(function (s) { return s.item; });
+  }
+  function routeHtml(d) {
+    var stops = routeStops(d);
+    if (!stops.length) return "";
+    return '<div class="bg-route"><p class="bg-vis-k">' + esc(t("बाढीको बाटो (माथिदेखि तल)", "Flood path (upstream to downstream)")) + "</p>" +
+      '<ol class="bg-route-list">' + stops.map(function (s) {
+        return '<li class="bg-route-stop' + (s.end ? " is-end" : "") + '"><span class="bg-route-dot" aria-hidden="true"></span>' +
+          '<strong class="bg-route-place">' + esc(t(s.ne, s.en)) + "</strong>" +
+          '<span class="bg-route-text">' + esc(digits(t(s.item.ne, s.item.en))) + "</span>" +
+          ((s.item.by_ne || s.item.by_en) ? '<span class="bg-tag">' + esc(t(s.item.by_ne, s.item.by_en)) + "</span>" : "") + "</li>";
+      }).join("") + "</ol></div>";
+  }
+  function visualHtml(d) {
+    return '<div class="bg-visual"><div class="bg-vis-chart"><p class="bg-vis-k">' + esc(t("आरुघाट नदी सतह, असोज २५ बिहान", "Aarughat river level, Asoj 25 morning")) + "</p>" +
+      hydroSvg(d, true) + hydroLegend(d) + hydroCaption() + "</div>" + routeHtml(d) + "</div>";
+  }
   function homeHtml(d) {
     var a = d.aarughat;
     var latest = a.latest;
@@ -338,9 +370,8 @@
       "<p>" + esc(t("नदी सतह", "River level")) + " <strong>" + esc(digits(lvl(latest.level_m))) + "</strong> " + esc(t("मि.", "m")) + " · " + esc(t("खतरा", "danger")) + " <strong>" + esc(digits(thr(a.danger_m))) + "</strong> " + esc(t("मि.", "m")) +
       " · " + esc(t("सतर्कता", "Alert level")) + " <strong>" + esc(digits(thr(a.warning_m))) + "</strong> " + esc(t("मि.", "m")) +
       " · " + esc(digits(t(latest.time_ne, latest.time_en))) + "</p>" +
-      staleNote(latest) +
-      more('<div class="bg-chart-wrap">' + hydroSvg(d, true) + hydroLegend(d) + hydroCaption() + "</div>" +
-        '<p class="bg-cat-sub">' + esc(t("सुरक्षित स्थानमा जानुहोस्", "Who should move")) + "</p>" +
+      
+      more('<p class="bg-cat-sub">' + esc(t("सुरक्षित स्थानमा जानुहोस्", "Who should move")) + "</p>" +
         "<p>" + esc(t(d.evacuate_ne, d.evacuate_en)) + "</p>" +
         '<p class="bg-tag">' + esc(t(d.evacuate_by_ne, d.evacuate_by_en)) + "</p>" +
         "<p>" + esc(t(d.districts_ne, d.districts_en)) + "</p>" +
@@ -359,7 +390,7 @@
     var timeline = cat("timeline", "M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z", "समयरेखा", "Timeline",
       tlx.top + more(tlx.rest) +
       '<a class="bg-see-all" href="budhi-gandaki.html#today">' + esc(t("सबै हेर्नुहोस् →", "See all →")) + "</a>");
-    return statRow(d) +
+    return statRow(d) + visualHtml(d) +
       '<div class="bg-cats">' + status + impact + rescue + response + contacts + media + timeline + "</div>" +
       '<a class="bg-home-more" href="budhi-gandaki.html">' + esc(t("पूरा विवरण →", "Full details →")) + "</a>";
   }
