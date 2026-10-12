@@ -27,8 +27,9 @@ test("homepage card is a light summary that renders from the data file", functio
   const budhi = index.indexOf('id="budhi-alert"');
   const prithvi = index.indexOf('id="prithvi-alert"');
   const festival = index.indexOf('id="festival-home"');
-  assert.ok(budhi > 0 && budhi < prithvi && prithvi < festival);
-  const card = sliceBetween(index, 'id="budhi-alert"', 'id="prithvi-alert"');
+  // Roads first (intentional, Asoj 26), then Budhi Gandaki, then the festival card.
+  assert.ok(prithvi > 0 && prithvi < budhi && budhi < festival);
+  const card = sliceBetween(index, 'id="budhi-alert"', 'id="home-status"');
   assert.match(card, /data-budhi-home/);
   assert.match(card, /data-budhi-slot/);
   assert.match(card, /data-budhi-updated/);
