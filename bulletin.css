@@ -13125,3 +13125,23 @@ button.ftl-cell{width:100%;border:0;margin:0;padding:0;font:inherit;cursor:point
 }
 
 .home-road-sched{padding:8px 10px;border-radius:10px;background:#fff7ed;box-shadow:0 0 0 1px rgba(234,88,12,.35);margin:0 0 6px;line-height:1.55}.home-road-rep{display:inline-block;padding:0 7px;border-radius:999px;background:#ffedd5;color:#9a3412;font-size:12px;font-weight:800}
+
+/* Road status schematic */
+.rv{margin:10px 0 12px;padding:12px 14px;border-radius:14px;background:#fff;box-shadow:0 0 0 1px rgba(15,23,42,.1)}
+.rv-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 4px}
+.rv-k{font-size:13px;font-weight:800;color:#14532d}
+.rv-flag{padding:2px 10px;border-radius:999px;font-size:12.5px;font-weight:800}
+.rv-flag.rv-night{background:#fef3c7;color:#92400e}
+.rv-flag.rv-closed{background:#fee2e2;color:#991b1b}
+.rv-svg{display:block;width:100%;max-width:620px;height:auto;margin:0 auto;overflow:visible}
+.rv-lab{font-size:14px;font-weight:700;fill:#1e293b;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+.rv-seg{cursor:pointer;outline:none}
+.rv-seg:focus-visible .rv-line,.rv-seg.is-picked .rv-line{stroke-width:11}
+.rv-seg:focus-visible{outline:none}
+.rv-seg:hover .rv-line{stroke-width:10}
+.rv-legend{list-style:none;margin:6px 0 8px;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px}
+.rv-legend li{display:flex;align-items:center;gap:6px;font-size:13px;color:#334155}
+.rv-detail{margin:0 0 6px;padding:8px 10px;border-radius:10px;background:#f8fafc;font-size:13.5px;line-height:1.55;color:#1e293b}
+.rv-asof{margin:0;font-size:12px;color:#64748b}
+@media (max-width:640px){.rv{padding:10px 10px}.rv-lab{font-size:15px}}
+@media (prefers-reduced-motion:reduce){.rv-line{transition:none}}
