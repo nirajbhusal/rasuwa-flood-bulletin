@@ -532,8 +532,62 @@
           '</div>' +
         '</div>' +
         '<div class="fest-home-scene" aria-hidden="true">' + homeSceneSvg() + '</div>' +
-      '</div>' + travelTeaser();
+      '</div>' + stripHtml(today, true) + travelTeaser();
     if (m) fillFlip(countdownParts(atNpt(shown.ad_date, m.time), now));
+  }
+
+
+  // Patro strip: one tile per festival date, a rail with a progress marker.
+  function bsBits(ev) {
+    var parts = String(bsOf(ev) || "").replace(/\s*गते\s*$/, "").split(/\s+/);
+    return { month: parts[1] || "", day: parts[2] || "" };
+  }
+  function stripHtml(today, compact) {
+    var days = [];
+    events.forEach(function (ev) {
+      var last = days[days.length - 1];
+      if (last && last.ad === ev.ad_date) { last.evs.push(ev); return; }
+      days.push({ ad: ev.ad_date, evs: [ev] });
+    });
+    if (!days.length) return "";
+    var next = null;
+    days.forEach(function (d) { if (!next && d.ad >= today) next = d; });
+    var prevMonth = "";
+    var cells = days.map(function (d, i) {
+      var ev = d.evs[0];
+      var b = bsBits(ev);
+      var cls = "ftl-cell";
+      if (d.ad < today) cls += " is-past";
+      if (d.ad === today) cls += " is-today";
+      if (next === d) cls += " is-next";
+      if (d.evs.some(function (e) { return e.id === TIKA_ID; })) cls += " is-tika";
+      var month = b.month !== prevMonth ? b.month : "";
+      prevMonth = b.month;
+      var names = d.evs.map(nameOf).join(" · ");
+      var label = bsOf(ev) + " · " + weekOf(ev) + " · " + names;
+      var holiday = d.evs.some(function (e) { return e.public_holiday; });
+      var href = (compact ? "festival.html" : "") + "#fd-" + ev.id;
+      var li = "ftl-day" + (i < days.length - 1 && days[i + 1].ad <= today ? " is-done" : "") + (d.ad <= today ? " is-reached" : "");
+      var here = d.ad <= today && (i === days.length - 1 || days[i + 1].ad > today);
+      return '<li class="' + li + '"><a class="' + cls + '" href="' + href + '" aria-label="' + esc(label) + '" title="' + esc(names) + '">' +
+        '<span class="ftl-cell-month" aria-hidden="true">' + esc(month) + '</span>' +
+        '<span class="ftl-cell-day" aria-hidden="true">' + esc(b.day) + '</span>' +
+        '<span class="ftl-cell-mark' + (holiday ? " is-holiday" : "") + '" aria-hidden="true"></span>' +
+        (d.ad === today ? '<span class="ftl-cell-today" aria-hidden="true">' + esc(en() ? "Today" : "आज") + '</span>' : "") +
+        "</a>" + '<span class="' + (here ? "ftl-kite" : "ftl-node") + '" aria-hidden="true"></span></li>';
+    }).join("");
+    return '<nav class="ftl' + (compact ? " ftl--compact" : "") + '" aria-label="' + esc(en() ? "Festival calendar" : "चाडपर्व पात्रो") + '">' +
+      '<ol class="ftl-strip">' + cells + "</ol></nav>";
+  }
+
+  function centerStrips() {
+    var strips = document.querySelectorAll(".ftl-strip");
+    for (var i = 0; i < strips.length; i++) {
+      var el = strips[i], cur = el.querySelector(".is-today, .is-next");
+      if (!cur || el.scrollWidth <= el.clientWidth) continue;
+      var li = cur.parentNode;
+      el.scrollLeft = Math.max(0, li.offsetLeft - (el.clientWidth - li.offsetWidth) / 2);
+    }
   }
 
   function paintPage() {
@@ -578,7 +632,7 @@
       var note = en() ? ev.note_en : ev.note_ne;
       var noteHtml = note ? '<p class="fest-day-note"><span>' + esc(en() ? "Note" : "दृष्टव्य") + "</span> " + esc(note) + "</p>" : "";
       var prasad = (ev.prasad_ne) ? '<p class="fest-prasad">' + esc(en() ? ev.prasad_en : ev.prasad_ne) + "</p>" : "";
-      return '<li class="fest-day ' + state + '">' +
+      return '<li class="fest-day ' + state + '" id="fd-' + esc(ev.id) + '">' +
         '<div class="fest-day-when"><strong>' + esc(bsOf(ev)) + '</strong><span class="fest-day-week">' + esc(weekOf(ev)) + '</span><span class="fest-day-ad">' + esc(adLabel(ev.ad_date)) + "</span></div>" +
         '<div class="fest-day-main"><div class="fest-day-top">' + icon(ev.id) +
         '<div class="fest-day-titles">' + riteHtml + "</div></div>" +
@@ -601,6 +655,7 @@
       travelHtml() +
       dividerSvg() +
       '<section class="fest-block"><h2>' + esc(en() ? "Day by day" : "दिनदिनको तालिका") + "</h2>" +
+      stripHtml(today, false) +
       '<ol class="fest-timeline">' + rows + "</ol></section>" +
       dividerSvg() +
       '<section class="fest-block"><h2>' + esc(en() ? "Official holidays" : "आधिकारिक बिदा") + "</h2>" +
@@ -785,6 +840,7 @@
     if (dock) dock.remove();
     paintHome();
     paintPage();
+    centerStrips();
     if (dock) {
       placePlayer(dock);
       showPlayer(bgmOn && !dock.hidden);
