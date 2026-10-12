@@ -14,15 +14,18 @@
     if (now >= CLOSE_FROM) return "closed";
     return "night";
   }
+  // Landscape schematic: west (Pokhara) left, east (Kathmandu) right, Narayanghat/Butwal below.
   var N = {
-    pokhara: { x: 40, y: 48, ne: "पोखरा", en: "Pokhara", ly: -14 },
-    mugling: { x: 175, y: 48, ne: "मुग्लिङ", en: "Mugling", ly: -14 },
-    galaudi: { x: 255, y: 48, ne: "गलौँदी (गजुरी)", en: "Galaudi (Gajuri)", ly: 26 },
-    ktm: { x: 330, y: 48, ne: "काठमाडौँ", en: "Kathmandu", ly: -14 },
-    narayanghat: { x: 175, y: 140, ne: "नारायणघाट", en: "Narayanghat", ly: 26 },
-    butwal: { x: 40, y: 140, ne: "बुटवल", en: "Butwal", ly: 26 }
+    pokhara: { x: 80, y: 120, ne: "पोखरा", en: "Pokhara" },
+    mugling: { x: 330, y: 120, ne: "मुग्लिङ", en: "Mugling" },
+    galaudi: { x: 500, y: 120, ne: "गलौँदी (गजुरी)", en: "Galaudi (Gajuri)" },
+    ktm: { x: 750, y: 120, ne: "काठमाडौँ", en: "Kathmandu" },
+    narayanghat: { x: 330, y: 280, ne: "नारायणघाट", en: "Narayanghat" },
+    butwal: { x: 80, y: 280, ne: "बुटवल", en: "Butwal" }
   };
-  var COLORS = { open: "#15803d", night: "#d97706", closed: "#dc2626", none: "#94a3b8" };
+  var COLORS = { open: "#15803d", night: "#b45309", closed: "#b91c1c", none: "#94a3b8" };
+  var SOFT = { open: "#dcfce7", night: "#fef3c7", closed: "#fee2e2", none: "#f1f5f9" };
+  var MARK = { open: "✔", night: "◷", closed: "✕", none: "?" };
   function words(st) {
     if (st === "open") return t("खुला", "Open");
     if (st === "night") return t("आज राति बन्द", "Closed tonight");
@@ -44,39 +47,86 @@
       { id: "narayanghat-butwal", a: "narayanghat", b: "butwal", st: "open", name: t("नारायणघाट–बुटवल", "Narayanghat–Butwal"), note: t("खुला · ", "Open · ") + conf }
     ];
   }
-  function icon(st, x, y) {
-    var c = COLORS[st];
-    var g = '<circle cx="' + x + '" cy="' + y + '" r="9" fill="#fff" stroke="' + c + '" stroke-width="2.5"/>';
-    if (st === "open") g += '<path d="M' + (x - 4) + " " + y + " l3 3 l5 -6" + '" fill="none" stroke="' + c + '" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>';
-    else if (st === "night") g += '<path d="M' + x + " " + (y - 5) + " v5 l3.5 2" + '" fill="none" stroke="' + c + '" stroke-width="2.2" stroke-linecap="round"/>';
-    else if (st === "closed") g += '<path d="M' + (x - 4) + " " + (y - 4) + " l8 8 M" + (x + 4) + " " + (y - 4) + " l-8 8" + '" stroke="' + c + '" stroke-width="2.4" stroke-linecap="round"/>';
-    else g += '<text x="' + x + '" y="' + (y + 4) + '" text-anchor="middle" font-size="11" font-weight="800" fill="' + c + '">?</text>';
+  function icon(st, x, y, r) {
+    r = r || 11;
+    var c = COLORS[st], k = r / 11;
+    var g = '<circle cx="' + x + '" cy="' + y + '" r="' + r + '" fill="#fff" stroke="' + c + '" stroke-width="3"/>';
+    if (st === "open") g += '<path d="M' + (x - 5 * k) + " " + y + " l" + 3.5 * k + " " + 3.5 * k + " l" + 6.5 * k + " " + (-7.5 * k) + '" fill="none" stroke="' + c + '" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>';
+    else if (st === "night") g += '<path d="M' + x + " " + (y - 6 * k) + " v" + 6 * k + " l" + 4 * k + " " + 2.5 * k + '" fill="none" stroke="' + c + '" stroke-width="2.8" stroke-linecap="round"/>';
+    else if (st === "closed") g += '<path d="M' + (x - 5 * k) + " " + (y - 5 * k) + " l" + 10 * k + " " + 10 * k + " M" + (x + 5 * k) + " " + (y - 5 * k) + " l" + (-10 * k) + " " + 10 * k + '" stroke="' + c + '" stroke-width="3" stroke-linecap="round"/>';
+    else g += '<text x="' + x + '" y="' + (y + 5 * k) + '" text-anchor="middle" font-size="' + 14 * k + '" font-weight="800" fill="' + c + '">?</text>';
     return g;
   }
+  function textW(str, size) {
+    var n = 0;
+    for (var i = 0; i < str.length; i++) {
+      var c = str.charCodeAt(i);
+      if (c >= 0x0900 && c <= 0x097f) { if (!/[\u093e-\u094d\u0901-\u0903\u0962\u0963]/.test(str[i])) n += 0.62; }
+      else n += 0.56;
+    }
+    return n * size;
+  }
+  function pill(x, y, s, small) {
+    var size = small ? 13 : 15;
+    var label = s.name + "  " + MARK[s.st] + " " + words(s.st);
+    var w = Math.round(textW(label, size) + 26), h = small ? 26 : 30;
+    return '<g class="rv-pill' + (small ? " is-quiet" : "") + '"><rect x="' + (x - w / 2) + '" y="' + (y - h / 2) + '" width="' + w + '" height="' + h + '" rx="' + h / 2 + '" fill="' + SOFT[s.st] + '" stroke="' + COLORS[s.st] + '" stroke-width="' + (small ? 1.5 : 2) + '"/>' +
+      '<text x="' + x + '" y="' + (y + size * 0.36) + '" text-anchor="middle" font-size="' + size + '" font-weight="800" fill="' + (s.st === "none" ? "#475569" : COLORS[s.st]) + '">' + esc(label) + "</text></g>";
+  }
+  var PILL_AT = {
+    "ktm-galaudi": [640, 28], "galaudi-mugling": [415, 70], "mugling-pokhara": [205, 70],
+    "mugling-narayanghat": [480, 200], "narayanghat-butwal": [205, 236]
+  };
   function svg(list) {
-    var out = ['<svg class="rv-svg" viewBox="0 0 370 180" role="img" aria-label="' + esc(t("राजमार्ग स्थितिको नक्सा", "Highway status map")) + '">'];
+    var out = ['<svg class="rv-svg" viewBox="0 0 830 330" role="img" aria-label="' + esc(t("राजमार्ग स्थितिको नक्सा", "Highway status map")) + '">'];
     list.forEach(function (s) {
       var A = N[s.a], B = N[s.b];
-      var dash = s.st === "none" ? ' stroke-dasharray="6 6"' : (s.st === "night" ? ' stroke-dasharray="14 5"' : "");
-      out.push('<g class="rv-seg" data-seg="' + s.id + '" tabindex="0" role="button" aria-label="' + esc(s.name + ": " + words(s.st)) + '">' +
+      var quiet = s.st === "none";
+      var dash = quiet ? ' stroke-dasharray="4 10"' : (s.st === "night" ? ' stroke-dasharray="18 7"' : "");
+      out.push('<g class="rv-seg' + (quiet ? " is-quiet" : "") + '" data-seg="' + s.id + '" tabindex="0" role="button" aria-label="' + esc(s.name + ": " + words(s.st)) + '">' +
         "<title>" + esc(s.name + " · " + words(s.st)) + "</title>" +
-        '<line x1="' + A.x + '" y1="' + A.y + '" x2="' + B.x + '" y2="' + B.y + '" stroke="transparent" stroke-width="26"/>' +
-        '<line class="rv-line" x1="' + A.x + '" y1="' + A.y + '" x2="' + B.x + '" y2="' + B.y + '" stroke="' + COLORS[s.st] + '" stroke-width="8" stroke-linecap="round"' + dash + "/>" +
-        icon(s.st, (A.x + B.x) / 2, (A.y + B.y) / 2) + "</g>");
+        '<line x1="' + A.x + '" y1="' + A.y + '" x2="' + B.x + '" y2="' + B.y + '" stroke="transparent" stroke-width="34"/>' +
+        '<line class="rv-line" x1="' + A.x + '" y1="' + A.y + '" x2="' + B.x + '" y2="' + B.y + '" stroke="' + COLORS[s.st] + '" stroke-width="' + (quiet ? 5 : 10) + '" stroke-linecap="round"' + dash + "/>" +
+        icon(s.st, (A.x + B.x) / 2, (A.y + B.y) / 2, quiet ? 9 : 12) +
+        pill(PILL_AT[s.id][0], PILL_AT[s.id][1], s, quiet) + "</g>");
     });
     Object.keys(N).forEach(function (k) {
       var n = N[k];
-      out.push('<circle cx="' + n.x + '" cy="' + n.y + '" r="7" fill="#fff" stroke="#1e293b" stroke-width="3"/>' +
-        '<text class="rv-lab" x="' + n.x + '" y="' + (n.y + n.ly) + '" text-anchor="middle">' + esc(t(n.ne, n.en)) + "</text>");
+      out.push('<circle cx="' + n.x + '" cy="' + n.y + '" r="9" fill="#fff" stroke="#0f172a" stroke-width="4"/>' +
+        '<text class="rv-lab" x="' + n.x + '" y="' + (n.y + 38) + '" text-anchor="middle">' + esc(t(n.ne, n.en)) + "</text>");
     });
+    out.push('<g class="rv-compass" aria-hidden="true"><text x="18" y="322" font-size="13" font-weight="800" fill="#64748b">' + esc(t("← पश्चिम", "← West")) + '</text>' +
+      '<text x="812" y="322" text-anchor="end" font-size="13" font-weight="800" fill="#64748b">' + esc(t("पूर्व →", "East →")) + "</text></g>");
     out.push("</svg>");
     return out.join("");
   }
+  // Mobile: one row per route, top (east) to bottom, so nothing has to shrink.
+  function rows(list) {
+    return '<ol class="rv-rows">' + list.map(function (s) {
+      return '<li class="rv-row rv-' + s.st + '"><button type="button" class="rv-seg rv-row-btn" data-seg="' + s.id + '">' +
+        '<span class="rv-row-bar" aria-hidden="true"></span>' +
+        '<span class="rv-row-name">' + esc(s.name) + "</span>" +
+        '<span class="rv-row-pill"><span aria-hidden="true">' + MARK[s.st] + "</span> " + esc(words(s.st)) + "</span></button></li>";
+    }).join("") + "</ol>";
+  }
   function legend() {
     return '<ul class="rv-legend">' + ["open", "night", "closed", "none"].map(function (st) {
-      return '<li><svg viewBox="0 0 40 20" width="40" height="20" aria-hidden="true"><line x1="2" y1="10" x2="38" y2="10" stroke="' + COLORS[st] + '" stroke-width="6" stroke-linecap="round"' +
-        (st === "none" ? ' stroke-dasharray="5 5"' : st === "night" ? ' stroke-dasharray="10 4"' : "") + "/>" + icon(st, 20, 10).replace(/r="9"/, 'r="7"') + "</svg><span>" + esc(words(st)) + "</span></li>";
+      return '<li class="rv-lg-' + st + '"><svg viewBox="0 0 46 24" width="46" height="24" aria-hidden="true"><line x1="3" y1="12" x2="43" y2="12" stroke="' + COLORS[st] + '" stroke-width="' + (st === "none" ? 4 : 8) + '" stroke-linecap="round"' +
+        (st === "none" ? ' stroke-dasharray="3 7"' : st === "night" ? ' stroke-dasharray="12 5"' : "") + "/>" + icon(st, 23, 12, 9) + "</svg><span>" + esc(words(st)) + "</span></li>";
     }).join("") + "</ul>";
+  }
+  function summary(g) {
+    if (g === "night") return t("तीन मुख्य मार्ग खुला · गलौँदी आज राति ११ बजेदेखि बिहान ५ बजेसम्म बन्द", "Three main routes are open · Galaudi closes tonight from 11 PM to 5 AM");
+    if (g === "closed") return t("गलौँदी (काठमाडौँ–मुग्लिङ) अहिले बन्द, बिहान ५ बजेसम्म · अरू दुई मार्ग खुला", "Galaudi (Kathmandu–Mugling) is closed now until 5 AM · the other two routes are open");
+    return t("तीन मुख्य मार्ग खुला", "Three main routes are open");
+  }
+  function banner(g) {
+    if (g === "open") return "";
+    var big = g === "night"
+      ? t("गलौँदी: आज राति बन्द · राति ११ बजे – बिहान ५ बजे", "Galaudi: closed tonight · 11 PM – 5 AM")
+      : t("गलौँदी: अहिले बन्द · बिहान ५ बजे खुल्ने", "Galaudi: closed now · reopens 5 AM");
+    return '<div class="rv-banner rv-' + g + '" role="status"><svg viewBox="0 0 28 28" width="28" height="28" aria-hidden="true">' + icon(g, 14, 14, 11) + "</svg>" +
+      '<div><strong>' + esc(big) + "</strong><span>" + esc(t("असोज २६ राति ११ बजे – असोज २७ बिहान ५ बजे NPT · मर्मत · रिपोर्ट गरिएको", "Asoj 26, 11 PM – Asoj 27, 5 AM NPT · repairs · reported")) + "</span></div></div>";
   }
   var picked = "";
   function render(root) {
@@ -87,9 +137,8 @@
     list.forEach(function (s) { if (s.id === picked) cur = s; });
     if (!cur) cur = list[0];
     root.innerHTML =
-      '<div class="rv-head"><span class="rv-k">' + esc(t("मार्ग नक्सा", "Route map")) + '</span>' +
-      (g !== "open" ? '<span class="rv-flag rv-' + g + '">' + esc(t("गलौँदी", "Galaudi") + ": " + words(g)) + "</span>" : "") + "</div>" +
-      svg(list) + legend() +
+      '<p class="rv-summary">' + esc(summary(g)) + "</p>" + banner(g) +
+      '<div class="rv-map">' + svg(list) + "</div>" + rows(list) + legend() +
       '<p class="rv-detail" aria-live="polite"><strong>' + esc(cur.name) + " · " + esc(words(cur.st)) + "</strong><br>" + esc(cur.note) + "</p>" +
       '<p class="rv-asof">' + esc(t("स्थिति: असोज २५, दिउँसो ४:४५ NPT · पछिल्लो जाँच असोज २६, बिहान ८:२० · गलौँदी बन्द: रिपोर्ट गरिएको", "As of Asoj 25, 4:45 PM NPT · last checked Asoj 26, 8:20 AM · Galaudi closure: reported")) + "</p>";
     root.querySelectorAll(".rv-seg").forEach(function (el) {
