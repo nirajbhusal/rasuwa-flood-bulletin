@@ -537,21 +537,49 @@
   }
 
 
-  // Patro strip: one tile per festival date, a rail with a progress marker.
+  // Patro strip: one tile per festival date, a line with a progress marker.
+  // Tiles are buttons. On the homepage a tap selects a day in place; on
+  // festival.html it scrolls to that day's card. Neither ever navigates.
+  var ftlPick = "";
   function bsBits(ev) {
     var parts = String(bsOf(ev) || "").replace(/\s*गते\s*$/, "").split(/\s+/);
     return { month: parts[1] || "", day: parts[2] || "" };
   }
-  function stripHtml(today, compact) {
+  function stripDays() {
     var days = [];
     events.forEach(function (ev) {
       var last = days[days.length - 1];
       if (last && last.ad === ev.ad_date) { last.evs.push(ev); return; }
       days.push({ ad: ev.ad_date, evs: [ev] });
     });
+    return days;
+  }
+  function ftlDayTitle(d) { return bsOf(d.evs[0]) + " · " + weekOf(d.evs[0]); }
+  function ftlDetailHtml(d) {
+    if (!d) return "";
+    var ev = d.evs[0];
+    var rows = d.evs.map(function (e) {
+      var rites = ritesOf(e).map(function (ln) {
+        var when = riteWhen(ln);
+        return '<li><strong>' + esc(riteName(ln)) + '</strong>' +
+          (when ? ' <span class="ftl-detail-sait">' + esc("साइत " + when) + '</span>' : "") + "</li>";
+      }).join("");
+      var pend = (PENDING[e.id] && !e.sait_time_24h) ? '<p class="ftl-detail-pending">' + esc(pendingText()) + "</p>" : "";
+      return '<ul class="ftl-detail-rites">' + rites + "</ul>" + pend +
+        '<p class="ftl-detail-text">' + esc(en() ? e.desc_en : e.desc_ne) + "</p>";
+    }).join("");
+    return '<p class="ftl-detail-when">' + esc(adLabel(ev.ad_date)) + "</p>" + rows;
+  }
+  function stripHtml(today, compact) {
+    var days = stripDays();
     if (!days.length) return "";
     var next = null;
     days.forEach(function (d) { if (!next && d.ad >= today) next = d; });
+    var picked = null;
+    if (compact) {
+      days.forEach(function (d) { if (d.ad === ftlPick) picked = d; });
+      if (!picked) picked = next || days[days.length - 1];
+    }
     var prevMonth = "";
     var cells = days.map(function (d, i) {
       var ev = d.evs[0];
@@ -559,26 +587,82 @@
       var cls = "ftl-cell";
       if (d.ad < today) cls += " is-past";
       if (d.ad === today) cls += " is-today";
-      if (next === d) cls += " is-next";
+      if (compact ? picked === d : next === d) cls += " is-next";
       if (d.evs.some(function (e) { return e.id === TIKA_ID; })) cls += " is-tika";
       var month = b.month !== prevMonth ? b.month : "";
       prevMonth = b.month;
       var names = d.evs.map(nameOf).join(" · ");
       var label = bsOf(ev) + " · " + weekOf(ev) + " · " + names;
       var holiday = d.evs.some(function (e) { return e.public_holiday; });
-      var href = (compact ? "festival.html" : "") + "#fd-" + ev.id;
       var li = "ftl-day" + (i < days.length - 1 && days[i + 1].ad <= today ? " is-done" : "") + (d.ad <= today ? " is-reached" : "");
       var here = d.ad <= today && (i === days.length - 1 || days[i + 1].ad > today);
-      return '<li class="' + li + '"><a class="' + cls + '" href="' + href + '" aria-label="' + esc(label) + '" title="' + esc(names) + '">' +
+      return '<li class="' + li + '"><button type="button" class="' + cls + '" data-ftl-ad="' + esc(d.ad) + '" data-ftl-id="' + esc(ev.id) + '"' +
+        (compact ? ' aria-pressed="' + (picked === d ? "true" : "false") + '"' : "") +
+        ' aria-label="' + esc(label) + '" title="' + esc(names) + '">' +
         '<span class="ftl-cell-month" aria-hidden="true">' + esc(month) + '</span>' +
         '<span class="ftl-cell-day" aria-hidden="true">' + esc(b.day) + '</span>' +
         '<span class="ftl-cell-mark' + (holiday ? " is-holiday" : "") + '" aria-hidden="true"></span>' +
         (d.ad === today ? '<span class="ftl-cell-today" aria-hidden="true">' + esc(en() ? "Today" : "आज") + '</span>' : "") +
-        "</a>" + '<span class="' + (here ? "ftl-kite" : "ftl-node") + '" aria-hidden="true"></span></li>';
+        "</button>" + '<span class="' + (here ? "ftl-kite" : "ftl-node") + '" aria-hidden="true"></span></li>';
     }).join("");
-    return '<nav class="ftl' + (compact ? " ftl--compact" : "") + '" aria-label="' + esc(en() ? "Festival calendar" : "चाडपर्व पात्रो") + '">' +
-      '<ol class="ftl-strip">' + cells + "</ol></nav>";
+    var detail = compact
+      ? '<div class="ftl-detail" data-ftl-detail aria-live="polite"><p class="ftl-detail-name">' + esc(ftlDayTitle(picked)) + "</p>" +
+        ftlDetailHtml(picked) + '<a class="ftl-detail-more" href="festival.html">' + esc(en() ? "Full festival calendar →" : "पूरा चाडपर्व पात्रो →") + "</a></div>"
+      : "";
+    return '<div class="ftl' + (compact ? " ftl--compact" : "") + '" role="group" aria-label="' + esc(en() ? "Festival calendar" : "चाडपर्व पात्रो") + '">' +
+      '<ol class="ftl-strip">' + cells + "</ol>" + detail + "</div>";
   }
+  function ftlSelect(btn) {
+    var wrap = btn.closest(".ftl");
+    if (!wrap) return;
+    var ad = btn.getAttribute("data-ftl-ad");
+    if (wrap.classList.contains("ftl--compact")) {
+      ftlPick = ad;
+      var day = null;
+      stripDays().forEach(function (d) { if (d.ad === ad) day = d; });
+      var cells = wrap.querySelectorAll(".ftl-cell");
+      for (var i = 0; i < cells.length; i++) {
+        var on = cells[i] === btn;
+        cells[i].classList.toggle("is-next", on);
+        cells[i].setAttribute("aria-pressed", on ? "true" : "false");
+      }
+      var box = wrap.querySelector("[data-ftl-detail]");
+      if (box && day) {
+        box.querySelector(".ftl-detail-name").textContent = ftlDayTitle(day);
+        var more = box.querySelector(".ftl-detail-more");
+        var tmp = document.createElement("div");
+        tmp.innerHTML = ftlDetailHtml(day);
+        while (box.childNodes.length > 1 && box.childNodes[1] !== more) box.removeChild(box.childNodes[1]);
+        while (tmp.firstChild) box.insertBefore(tmp.firstChild, more);
+      }
+      return;
+    }
+    var card = document.getElementById("fd-" + btn.getAttribute("data-ftl-id"));
+    if (!card) return;
+    var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    card.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
+    var cards = document.querySelectorAll(".fest-day.is-picked");
+    for (var j = 0; j < cards.length; j++) cards[j].classList.remove("is-picked");
+    card.classList.add("is-picked");
+  }
+  // A drag or swipe on the strip must never count as a tap.
+  var ftlDrag = null;
+  document.addEventListener("pointerdown", function (e) {
+    var strip = e.target.closest && e.target.closest(".ftl-strip");
+    ftlDrag = strip ? { x: e.clientX, y: e.clientY, sl: strip.scrollLeft, strip: strip, moved: false } : null;
+  }, true);
+  document.addEventListener("pointermove", function (e) {
+    if (ftlDrag && (Math.abs(e.clientX - ftlDrag.x) > 8 || Math.abs(e.clientY - ftlDrag.y) > 8)) ftlDrag.moved = true;
+  }, true);
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest && e.target.closest(".ftl-cell");
+    if (!btn) return;
+    e.preventDefault();
+    var d = ftlDrag;
+    ftlDrag = null;
+    if (d && (d.moved || Math.abs(d.strip.scrollLeft - d.sl) > 4)) { e.stopPropagation(); return; }
+    ftlSelect(btn);
+  }, true);
 
   function centerStrips() {
     var strips = document.querySelectorAll(".ftl-strip");
