@@ -512,6 +512,26 @@
     var m = nextMoment(events, now);
     var shown = m ? m.ev : upcoming;
     var hm = m ? m.time : (shown.sait_time_24h || "");
+    var pickedDay = null;
+    if (ftlPick) stripDays(today).forEach(function (d) { if (d.ad === ftlPick) pickedDay = d; });
+    var picked = pickedDay ? dayMoment(pickedDay, now) : null;
+    var nameLine = homeEventName(m, upcoming);
+    var showFlip = !!m;
+    var past = false;
+    homeTargetMs = m ? atNpt(shown.ad_date, m.time) : 0;
+    if (pickedDay) {
+      if (!pickedDay.evs.length) {
+        nameLine = en() ? "No festival rite listed for this day" : "यो दिन कुनै पर्व सूचीमा छैन";
+        showFlip = false; hm = ""; homeTargetMs = 0;
+      } else {
+        shown = pickedDay.evs[0];
+        hm = picked ? picked.time : (shown.sait_time_24h || "");
+        nameLine = picked ? momentName(picked) : nameOf(shown);
+        homeTargetMs = hm ? atNpt(shown.ad_date, hm) : atNpt(shown.ad_date, "00:00");
+        past = homeTargetMs <= now;
+        showFlip = !past;
+      }
+    }
     host.hidden = false;
     var see = en() ? "See all →" : "सबै हेर्नुहोस् →";
     var abroadGo = en() ? "Tika time abroad →" : "विदेशमा टीका साइत →";
@@ -522,9 +542,12 @@
         '<div class="fest-home-copy">' +
           '<p class="fest-home-k">' + esc(kicker) + '</p>' +
           '<p class="fest-home-h">' + esc(heroTitle(today)) + '</p>' +
-          '<p class="fest-home-name">' + esc(homeEventName(m, upcoming)) + '</p>' +
-          (m ? flipHtml() : '') +
-          (hm ? '<p class="fest-home-when">' + esc(homeWhen(shown, hm)) + '</p>' : '') +
+          '<p class="fest-home-name">' + esc(nameLine) + '</p>' +
+          (showFlip ? flipHtml() : '') +
+          (past ? '<p class="fest-home-past">' + esc(en() ? "This day has passed." : "यो दिन बितिसक्यो।") + '</p>' : '') +
+          ((pickedDay ? pickedDay.evs.length : true) ? '<p class="fest-home-when"><span class="fest-home-lab">' + esc(en() ? "Festival date" : "पर्वको मिति") + '</span> ' +
+            esc(hm ? homeWhen(shown, hm) : (bsOf(shown) + " · " + weekOf(shown) + " · " + adLabel(shown.ad_date))) + '</p>' : '') +
+          '<p class="fest-home-now"><span class="fest-home-lab">' + esc(en() ? "Today" : "आज") + '</span> <span data-fest-now>' + esc(nowLine(now)) + '</span></p>' +
           (tika ? '<p class="fest-home-tika">' + esc(tika) + '</p>' : '') +
           '<p class="fest-home-abroad-line"><a class="fest-home-abroad" href="festival.html#tika-abroad">' + esc(abroadGo) + '</a></p>' +
           '<div class="fest-home-actions">' + musicBtn("home") +
@@ -533,7 +556,36 @@
         '</div>' +
         '<div class="fest-home-scene" aria-hidden="true">' + homeSceneSvg() + '</div>' +
       '</div>' + stripHtml(today, true) + travelTeaser();
-    if (m) fillFlip(countdownParts(atNpt(shown.ad_date, m.time), now));
+    if (showFlip && homeTargetMs) fillFlip(countdownParts(homeTargetMs, now));
+  }
+  var homeTargetMs = 0;
+  var BS_MO_NE = ["बैशाख", "जेठ", "असार", "साउन", "भदौ", "असोज", "कात्तिक", "मंसिर", "पुस", "माघ", "फागुन", "चैत"];
+  var BS_MO_EN = ["Baisakh", "Jestha", "Asar", "Shrawan", "Bhadra", "Asoj", "Kartik", "Mangsir", "Poush", "Magh", "Falgun", "Chaitra"];
+  var WD_NE = ["आइतबार", "सोमबार", "मंगलबार", "बुधबार", "बिहिबार", "शुक्रबार", "शनिबार"];
+  var WD_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  // Today's BS date from the site's own converter (npt-clock.js).
+  function bsOfIso(iso) {
+    var p = iso.split("-").map(Number);
+    var b = window.__nptToBS ? window.__nptToBS(p[0], p[1], p[2]) : null;
+    return b;
+  }
+  function nowLine(now) {
+    var p = nptParts(new Date(now));
+    var iso = p.year + "-" + p.month + "-" + p.day;
+    var b = bsOfIso(iso);
+    var wd = new Date(Date.UTC(+p.year, +p.month - 1, +p.day)).getUTCDay();
+    var hh = +p.hour % 24, mm = p.minute;
+    var h12 = hh % 12 || 12;
+    if (en()) {
+      return WD_EN[wd] + (b ? ", " + BS_MO_EN[b.month] + " " + b.day + " " + b.year : "") + " · " + adLabel(iso) + " · " + h12 + ":" + mm + " " + (hh < 12 ? "AM" : "PM") + " NPT";
+    }
+    return WD_NE[wd] + (b ? ", " + dev(b.year) + " " + BS_MO_NE[b.month] + " " + dev(b.day) + " गते" : "") + " · " + adLabel(iso) + " · " + dev(h12) + ":" + dev(mm) + " बजे NPT";
+  }
+  function dayMoment(day, now) {
+    var list = moments(day.evs);
+    var i;
+    for (i = 0; i < list.length; i++) if (atNpt(list[i].ev.ad_date, list[i].time) > now) return list[i];
+    return list[0] || null;
   }
 
 
@@ -545,18 +597,33 @@
     var parts = String(bsOf(ev) || "").replace(/\s*गते\s*$/, "").split(/\s+/);
     return { month: parts[1] || "", day: parts[2] || "" };
   }
-  function stripDays() {
+  function stripDays(today) {
     var days = [];
     events.forEach(function (ev) {
       var last = days[days.length - 1];
       if (last && last.ad === ev.ad_date) { last.evs.push(ev); return; }
       days.push({ ad: ev.ad_date, evs: [ev] });
     });
+    if (today && days.length && today > days[0].ad && today < days[days.length - 1].ad &&
+        !days.some(function (d) { return d.ad === today; })) {
+      days.push({ ad: today, evs: [] });
+      days.sort(function (a, b) { return a.ad < b.ad ? -1 : 1; });
+    }
     return days;
   }
-  function ftlDayTitle(d) { return bsOf(d.evs[0]) + " · " + weekOf(d.evs[0]); }
+  function dayBits(d) {
+    if (d.evs.length) return bsBits(d.evs[0]);
+    var b = bsOfIso(d.ad);
+    if (!b) return { month: "", day: "" };
+    return en() ? { month: BS_MO_EN[b.month], day: String(b.day) } : { month: BS_MO_NE[b.month], day: dev(b.day) };
+  }
+  function ftlDayTitle(d) {
+    if (!d.evs.length) { var b = dayBits(d); return (en() ? "Today · " : "आज · ") + b.month + " " + b.day; }
+    return bsOf(d.evs[0]) + " · " + weekOf(d.evs[0]);
+  }
   function ftlDetailHtml(d) {
     if (!d) return "";
+    if (!d.evs.length) return '<p class="ftl-detail-when">' + esc(adLabel(d.ad)) + '</p><p class="ftl-detail-text">' + esc(en() ? "No festival rite is listed for this day." : "यो दिनका लागि कुनै पर्व सूचीमा छैन।") + "</p>";
     var ev = d.evs[0];
     var rows = d.evs.map(function (e) {
       var rites = ritesOf(e).map(function (ln) {
@@ -571,7 +638,7 @@
     return '<p class="ftl-detail-when">' + esc(adLabel(ev.ad_date)) + "</p>" + rows;
   }
   function stripHtml(today, compact) {
-    var days = stripDays();
+    var days = stripDays(compact ? today : "");
     if (!days.length) return "";
     var next = null;
     days.forEach(function (d) { if (!next && d.ad >= today) next = d; });
@@ -583,7 +650,7 @@
     var prevMonth = "";
     var cells = days.map(function (d, i) {
       var ev = d.evs[0];
-      var b = bsBits(ev);
+      var b = dayBits(d);
       var cls = "ftl-cell";
       if (d.ad < today) cls += " is-past";
       if (d.ad === today) cls += " is-today";
@@ -591,12 +658,12 @@
       if (d.evs.some(function (e) { return e.id === TIKA_ID; })) cls += " is-tika";
       var month = b.month !== prevMonth ? b.month : "";
       prevMonth = b.month;
-      var names = d.evs.map(nameOf).join(" · ");
-      var label = bsOf(ev) + " · " + weekOf(ev) + " · " + names;
+      var names = d.evs.length ? d.evs.map(nameOf).join(" · ") : (en() ? "Today" : "आज");
+      var label = d.evs.length ? bsOf(ev) + " · " + weekOf(ev) + " · " + names : names + " · " + b.month + " " + b.day;
       var holiday = d.evs.some(function (e) { return e.public_holiday; });
       var li = "ftl-day" + (i < days.length - 1 && days[i + 1].ad <= today ? " is-done" : "") + (d.ad <= today ? " is-reached" : "");
       var here = d.ad <= today && (i === days.length - 1 || days[i + 1].ad > today);
-      return '<li class="' + li + '"><button type="button" class="' + cls + '" data-ftl-ad="' + esc(d.ad) + '" data-ftl-id="' + esc(ev.id) + '"' +
+      return '<li class="' + li + '"><button type="button" class="' + cls + '" data-ftl-ad="' + esc(d.ad) + '" data-ftl-id="' + esc(ev ? ev.id : "") + '"' +
         (compact ? ' aria-pressed="' + (picked === d ? "true" : "false") + '"' : "") +
         ' aria-label="' + esc(label) + '" title="' + esc(names) + '">' +
         '<span class="ftl-cell-month" aria-hidden="true">' + esc(month) + '</span>' +
@@ -617,24 +684,13 @@
     if (!wrap) return;
     var ad = btn.getAttribute("data-ftl-ad");
     if (wrap.classList.contains("ftl--compact")) {
-      ftlPick = ad;
-      var day = null;
-      stripDays().forEach(function (d) { if (d.ad === ad) day = d; });
-      var cells = wrap.querySelectorAll(".ftl-cell");
-      for (var i = 0; i < cells.length; i++) {
-        var on = cells[i] === btn;
-        cells[i].classList.toggle("is-next", on);
-        cells[i].setAttribute("aria-pressed", on ? "true" : "false");
-      }
-      var box = wrap.querySelector("[data-ftl-detail]");
-      if (box && day) {
-        box.querySelector(".ftl-detail-name").textContent = ftlDayTitle(day);
-        var more = box.querySelector(".ftl-detail-more");
-        var tmp = document.createElement("div");
-        tmp.innerHTML = ftlDetailHtml(day);
-        while (box.childNodes.length > 1 && box.childNodes[1] !== more) box.removeChild(box.childNodes[1]);
-        while (tmp.firstChild) box.insertBefore(tmp.firstChild, more);
-      }
+      ftlPick = btn.getAttribute("data-ftl-ad");
+      var keep = wrap.querySelector(".ftl-strip").scrollLeft;
+      paintHome();
+      var strip = document.querySelector("#festival-home .ftl-strip");
+      if (strip) strip.scrollLeft = keep;
+      var again = document.querySelector('#festival-home .ftl-cell[data-ftl-ad="' + ftlPick + '"]');
+      if (again) again.focus({ preventScroll: true });
       return;
     }
     var card = document.getElementById("fd-" + btn.getAttribute("data-ftl-id"));
@@ -937,6 +993,9 @@
     var now = nptNowMs();
     var key = viewKey(now);
     if (key !== paintedKey) { paint(); return; }
+    var nowEl = document.querySelectorAll("[data-fest-now]");
+    for (var i = 0; i < nowEl.length; i++) { var txt = nowLine(now); if (nowEl[i].textContent !== txt) nowEl[i].textContent = txt; }
+    if (homeTargetMs && document.getElementById("festival-home")) { fillFlip(countdownParts(homeTargetMs, now)); return; }
     var m = nextMoment(events, now);
     if (!m) return;
     fillFlip(countdownParts(atNpt(m.ev.ad_date, m.time), now));
