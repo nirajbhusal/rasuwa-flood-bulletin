@@ -13187,3 +13187,23 @@ button.ftl-cell{width:100%;border:0;margin:0;padding:0;font:inherit;cursor:point
   .rv-map{display:none}
   .rv-rows{display:flex}
 }
+
+/* Road map v3: network schematic first; rows on all sizes */
+.rv{margin:0 0 14px}
+.rv-map{overflow-x:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;margin:0 0 10px}
+.rv-map .rv-svg{max-width:1060px;min-width:0}
+.rv-lab{font-size:17px}
+.rv-lab.is-cap{font-size:19px}
+.rv-seg.is-quiet{opacity:.8}
+.rv-seg:focus-visible .rv-line,.rv-seg.is-picked .rv-line{stroke-width:13}
+.rv-seg.is-quiet.is-picked .rv-line{stroke-width:7}
+.rv-rows{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.rv-oneway .rv-row-bar{background:#1d4ed8}
+.rv-oneway .rv-row-pill{background:#dbeafe;color:#1e3a8a;border-color:#1d4ed8}
+.rv-src{font-size:13px}
+.rv-src a{font-weight:700}
+@media (max-width:640px){
+  .rv-map{display:block;margin:0 -12px 10px;padding:0 12px}
+  .rv-map .rv-svg{min-width:720px}
+  .rv-rows{grid-template-columns:1fr}
+}
