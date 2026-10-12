@@ -216,6 +216,25 @@
       "</div>" + note + deployedHtml(d) +
       '<ul class="bg-rescue-log">' + rows + "</ul>";
   }
+  function impactHead(d) {
+    var rows = d.impact_head || [];
+    if (!rows.length) return "";
+    var bits = rows.map(function (row) {
+      var asof = (row.asof_ne || row.asof_en)
+        ? ' <span class="bg-tag">(' + esc(t(row.asof_ne, row.asof_en)) + ")</span>"
+        : "";
+      return '<p class="bg-impact-kpi"><span class="bg-impact-k">' + esc(t(row.label_ne, row.label_en)) + "</span> <strong>" + esc(digits(String(row.count))) + "</strong>" + asof + "</p>";
+    }).join("");
+    return '<div class="bg-impact-head">' + bits +
+      '<p class="bg-src-line"><a href="https://bipadportal.gov.np/" target="_blank" rel="noopener">https://bipadportal.gov.np/</a></p></div>';
+  }
+  function nearbyHtml(d) {
+    var rows = d.nearby || [];
+    if (!rows.length) return "";
+    return '<aside class="bg-nearby"><p class="bg-glance-k">' + esc(t("उही दिन, नजिकै", "Same day, nearby")) + "</p><ul>" +
+      rows.map(function (item) { return "<li>" + esc(t(item.ne, item.en)) + "</li>"; }).join("") +
+      "</ul></aside>";
+  }
   function impactHtml(d) {
     var official = [];
     var earlier = [];
@@ -274,7 +293,7 @@
       '<article class="bg-card">' + head("M3 8c2 2 4 2 6 0s4-2 6 0 4 2 6 0M3 14c2 2 4 2 6 0s4-2 6 0 4 2 6 0", "तल्लोतटीय नदी", "Downstream rivers") +
       downRows(d) + "</article>" +
       '<article class="bg-card">' + head("M4 20V10l8-6 8 6v10M9 20v-6h6v6", "क्षति", "Damage") +
-      impactHtml(d) + "</article>" +
+      impactHead(d) + "<p>" + esc(t(d.impact_note_ne, d.impact_note_en)) + "</p>" + impactHtml(d) + nearbyHtml(d) + "</article>" +
       '<article class="bg-card bg-rescue">' + head("M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM12 11v4M12 8h.01", "उद्धार अपडेट", "Rescue update") +
       rescueUpdateHtml(d) +
       '<a class="bg-see-all" href="budhi-gandaki.html#rescue-update">' + esc(t("सबै हेर्नुहोस् →", "See all →")) + "</a></article>" +
@@ -351,7 +370,7 @@
       "<p class=\"bg-feed\">" + esc(t(d.feed_label_ne, d.feed_label_en)) + "</p>" +
       downRows(d) + "</article>" +
       '<article class="bg-card" id="impact"><p class="bg-card-k">' + esc(t("क्षति", "Damage")) + "</p>" +
-      "<p>" + esc(t(d.impact_note_ne, d.impact_note_en)) + "</p>" + impactHtml(d) + "</article>" +
+      impactHead(d) + "<p>" + esc(t(d.impact_note_ne, d.impact_note_en)) + "</p>" + impactHtml(d) + nearbyHtml(d) + "</article>" +
       '<article class="bg-card bg-rescue" id="rescue-update"><p class="bg-card-k">' + esc(t("उद्धार अपडेट", "Rescue update")) + "</p>" +
       rescueUpdateHtml(d) + "</article>" +
       '<article class="bg-card" id="rescue"><p class="bg-card-k">' + esc(t("उद्धार र राहत", "Rescue and relief")) + "</p>" +

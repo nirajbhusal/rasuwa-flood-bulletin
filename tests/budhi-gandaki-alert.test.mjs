@@ -88,9 +88,9 @@ test("readings, timeline, impact, contacts and photos live in one JSON file", fu
   assert.equal(data.aarughat.chart.filter(function (p) { return p.level_m != null; }).length, 6);
   assert.ok(data.aarughat.chart.some(function (p) { return p.axis_only && p.time_en === "9:25"; }));
   assert.match(js, /bg-hydro/);
-  assert.deepEqual(data.downstream.map(function (s) { return s.level_m; }), [4.14, 4.46, 4.15]);
+  assert.deepEqual(data.downstream.map(function (s) { return s.level_m; }), [3.69, 4.11, 3.44]);
   assert.ok(data.timeline.some(function (item) { return item.href === "https://x.com/NDRRMA_Nepal/status/2109151062607450204"; }));
-  assert.deepEqual(data.downstream.map(function (s) { return s.trend; }), ["STEADY", "FALLING", "RISING"]);
+  assert.deepEqual(data.downstream.map(function (s) { return s.trend; }), ["STEADY", "STEADY", "STEADY"]);
   assert.equal(data.downstream.length, 3);
   assert.deepEqual(data.downstream.map(function (s) { return s.status; }), ["BELOW", "BELOW", "BELOW"]);
   assert.match(data.impact[0].ne, /५ जना सम्पर्कविहीन/);
@@ -101,6 +101,16 @@ test("readings, timeline, impact, contacts and photos live in one JSON file", fu
   assert.match(data.rescue.map(function (item) { return item.en; }).join(" "), /Nawalparasi East and West/);
   assert.doesNotMatch(data.impact.map(function (item) { return item.en; }).join(" "), /2 houses at Machhikhola/);
   assert.match(data.rescue.map(function (item) { return item.en; }).join(" "), /Armed Police Force/);
+  assert.equal(data.impact_head[0].count, 136);
+  assert.equal(data.impact_head[0].label_en, "Houses destroyed");
+  assert.match(data.impact_head[0].asof_en, /Asoj 26, 11:21 AM/);
+  assert.equal(data.impact_head[1].count, 5);
+  assert.equal(data.impact_head[1].label_en, "Missing");
+  assert.match(data.nearby[0].en, /65 houses destroyed and 65 families affected/);
+  assert.doesNotMatch(data.nearby[0].en, /136/);
+  assert.ok(data.impact.some(function (item) { return /140 livestock/.test(item.en) && /avalanche/.test(item.en); }));
+  assert.match(js, /bipadportal\.gov\.np/);
+  assert.match(js, /Same day, nearby/);
   assert.equal(data.missing.count, 5);
   assert.equal(data.rescue_update[0].count, 47);
   assert.equal(data.rescue_update[0].headline, true);
