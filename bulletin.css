@@ -13099,3 +13099,29 @@ button.ftl-cell{width:100%;border:0;margin:0;padding:0;font:inherit;cursor:point
 #budhi-alert .bg-cat .bg-phones{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}#budhi-alert .bg-cat .bg-phones a{min-height:0;padding:8px 10px;border-radius:10px}#budhi-alert .bg-cat .bg-phones span{font-size:13px}#budhi-alert .bg-cat .bg-phones strong{font-size:18px}#budhi-alert .bg-cat .bg-tl{grid-template-columns:1fr;gap:2px;margin:0 0 10px}#budhi-alert .bg-cat .bg-tl time{font-size:13px;color:#7a1028}#budhi-alert .bg-cat .bg-tl p{line-height:1.55}#budhi-alert .bg-cat .bg-impact-head{margin:0 0 8px}@media (max-width:640px){#budhi-alert .bg-stat-s{font-size:11px}#budhi-alert .bg-stat{gap:1px}}
 
 #budhi-alert .bg-cat-h{margin-bottom:8px}#budhi-alert .bg-cat>ul li{margin-bottom:4px}@media (max-width:640px){#budhi-alert .bg-cat{padding:12px 14px}#budhi-alert .bg-more{margin-top:8px;padding-top:4px}}
+
+/* Homepage Budhi Gandaki visual: hydrograph + flood path */
+.bg-visual{display:grid;grid-template-columns:1fr;gap:12px;margin:0 0 14px}
+.bg-vis-chart,.bg-route{padding:12px 14px;border-radius:14px;background:#fff;box-shadow:0 0 0 1px rgba(15,23,42,.08);min-width:0}
+.bg-vis-k{margin:0 0 6px;font-size:13px;font-weight:800;color:#7a1028}
+.bg-vis-chart .bg-hydro{max-width:560px;margin:0 auto}
+.bg-vis-chart .bg-legend{margin-top:4px}
+.bg-route-list{list-style:none;margin:0;padding:0;position:relative}
+.bg-route-stop{position:relative;display:flex;flex-direction:column;gap:2px;padding:0 0 12px 22px}
+.bg-route-stop::before{content:"";position:absolute;left:5px;top:12px;bottom:-2px;width:2px;background:linear-gradient(#60a5fa,#c41e3a)}
+.bg-route-stop:last-child::before{display:none}
+.bg-route-dot{position:absolute;left:0;top:5px;width:12px;height:12px;border-radius:50%;background:#2563eb;box-shadow:0 0 0 3px #dbeafe}
+.bg-route-stop.is-end .bg-route-dot{background:#c41e3a;box-shadow:0 0 0 3px #fee2e2}
+.bg-route-place{font-size:15px;line-height:1.35;color:#1a1a1a}
+.bg-route-text{font-size:13px;line-height:1.5;color:#334155}
+@media (min-width:900px){
+  .bg-visual{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:start}
+}
+@media (max-width:640px){
+  .bg-route-list{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 2px 8px;touch-action:pan-x pan-y}
+  .bg-route-stop{flex:0 0 74%;scroll-snap-align:start;padding:10px 12px 10px 12px;border-radius:12px;background:#f8fafc;box-shadow:0 0 0 1px rgba(15,23,42,.08)}
+  .bg-route-stop::before{left:auto;right:-10px;top:22px;bottom:auto;width:10px;height:2px}
+  .bg-route-dot{position:static;margin:0 0 4px}
+}
+
+.home-road-sched{padding:8px 10px;border-radius:10px;background:#fff7ed;box-shadow:0 0 0 1px rgba(234,88,12,.35);margin:0 0 6px;line-height:1.55}.home-road-rep{display:inline-block;padding:0 7px;border-radius:999px;background:#ffedd5;color:#9a3412;font-size:12px;font-weight:800}
