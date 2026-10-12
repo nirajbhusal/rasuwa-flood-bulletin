@@ -95,7 +95,7 @@
       out.push('<circle cx="' + n.x + '" cy="' + n.y + '" r="9" fill="#fff" stroke="#0f172a" stroke-width="4"/>' +
         '<text class="rv-lab" x="' + n.x + '" y="' + (n.y + 38) + '" text-anchor="middle">' + esc(t(n.ne, n.en)) + "</text>");
     });
-    out.push('<g class="rv-compass" aria-hidden="true"><text x="18" y="322" font-size="13" font-weight="800" fill="#64748b">' + esc(t("← पश्चिम", "← West")) + '</text>' +
+    out.push('<g class="rv-compass" aria-hidden="true"><text x="18" y="28" font-size="13" font-weight="800" fill="#64748b">' + esc(t("← पश्चिम", "← West")) + '</text>' +
       '<text x="812" y="322" text-anchor="end" font-size="13" font-weight="800" fill="#64748b">' + esc(t("पूर्व →", "East →")) + "</text></g>");
     out.push("</svg>");
     return out.join("");
