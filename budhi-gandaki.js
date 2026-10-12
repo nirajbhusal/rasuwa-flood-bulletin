@@ -451,7 +451,16 @@
     if (!pack) return;
     document.querySelectorAll("[data-budhi-home]").forEach(function (root) {
       var slot = root.querySelector("[data-budhi-slot]");
-      if (slot) slot.innerHTML = homeHtml(pack);
+      if (!slot) return;
+      // Repaints (language hook, refresh) must not collapse what the reader opened.
+      var html = homeHtml(pack);
+      if (slot.__bgHtml === html) return;
+      var open = [];
+      slot.querySelectorAll("details").forEach(function (d, i) { if (d.open) open.push(i); });
+      slot.innerHTML = html;
+      slot.__bgHtml = html;
+      var all = slot.querySelectorAll("details");
+      open.forEach(function (i) { if (all[i]) all[i].open = true; });
     });
     document.querySelectorAll("[data-budhi-page]").forEach(function (root) {
       root.innerHTML = pageHtml(pack);
