@@ -321,9 +321,9 @@
   }
   function travelClosureLine() {
     if (en()) {
-      return "The Kathmandu–Mugling road is open again (two-way), as of Asoj 25, 4:45 PM NPT. The Kathmandu–Hetauda alternate is no longer needed. If your bus is cancelled, ask the operator about rebooking or a refund. Some long-distance routes can use other highways, for example the BP Highway via Sindhuli for the east — check with your operator or traffic police.";
+      return "The Kathmandu–Mugling road is open again (two-way), as of Asoj 25, 4:45 PM NPT. Last checked Asoj 26, 8:20 AM NPT. The Kathmandu–Hetauda alternate is no longer needed. If your bus is cancelled, ask the operator about rebooking or a refund. Some long-distance routes can use other highways, for example the BP Highway via Sindhuli for the east — check with your operator or traffic police.";
     }
-    return "काठमाडौँ–मुग्लिङ सडक फेरि खुलेको छ, दुवैतर्फी (two-way), असोज २५, दिउँसो ४:४५ NPT। काठमाडौं–हेटौँडा वैकल्पिक बाटो अब आवश्यक छैन। बस रद्द भए अपरेटरसँग पुनः बुकिङ वा फिर्ता सोध्नुहोस्। कतिपय लामो दूरीका रुटले अर्को राजमार्ग प्रयोग गर्न सक्छन्, जस्तै पूर्वतर्फ सिन्धुली हुँदै बी.पी. राजमार्ग — अपरेटर वा ट्राफिक प्रहरीसँग सोध्नुहोस्।";
+    return "काठमाडौँ–मुग्लिङ सडक फेरि खुलेको छ, दुवैतर्फी (two-way), असोज २५, दिउँसो ४:४५ NPT। पछिल्लो जाँच असोज २६, बिहान ८:२० NPT। काठमाडौं–हेटौँडा वैकल्पिक बाटो अब आवश्यक छैन। बस रद्द भए अपरेटरसँग पुनः बुकिङ वा फिर्ता सोध्नुहोस्। कतिपय लामो दूरीका रुटले अर्को राजमार्ग प्रयोग गर्न सक्छन्, जस्तै पूर्वतर्फ सिन्धुली हुँदै बी.पी. राजमार्ग — अपरेटर वा ट्राफिक प्रहरीसँग सोध्नुहोस्।";
   }
   function travelItems() {
     var airlines = [

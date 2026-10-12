@@ -185,15 +185,37 @@ body{margin:0;font-family:Mukta,system-ui,sans-serif;background:#f6f7f4;color:#0
 </article>
 <section id="roads">
   <div class="sec-head"><span class="dot" style="background:var(--saffron)"></span><h2 data-i18n="h_roads">सडक</h2></div>
-  <article class="home-road-open" id="galaudi">
-    <p class="home-road-open-k" data-i18n="galaudi_when">असोज २५, दिउँसो ४:४५ NPT</p>
-    <h3 class="home-road-open-h" data-i18n="galaudi_h">काठमाडौँ–मुग्लिङ / गलौदी · पृथ्वी राजमार्ग</h3>
+  <article class="home-road-open hw-board" id="galaudi">
+    <p class="home-road-open-k" data-i18n="galaudi_when">पछिल्लो जाँच: असोज २६, बिहान ८:२० NPT</p>
+    <h3 class="home-road-open-h" data-i18n="galaudi_h">राजमार्ग स्थिति</h3>
     <div data-i18n-html="galaudi_body">
-      <p><strong>काठमाडौँ–गजुरी–मुग्लिङ।</strong> दुवैतर्फी (two-way) खुलेको।</p>
-      <p><strong>मुग्लिङ–पोखरा।</strong> खुला।</p>
-      <p><strong>नारायणघाट–बुटवल।</strong> खुला।</p>
+      <table class="hw-table">
+        <thead>
+          <tr><th>मार्ग</th><th>स्थिति</th><th>समय</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hw-group"><th colspan="3">पश्चिम</th></tr>
+          <tr>
+            <td>मुग्लिङ–पोखरा</td>
+            <td><span class="hw-open">खुला</span></td>
+            <td>असोज २५, दिउँसो ४:४५</td>
+          </tr>
+          <tr>
+            <td>नारायणघाट–बुटवल</td>
+            <td><span class="hw-open">खुला</span></td>
+            <td>असोज २५, दिउँसो ४:४५</td>
+          </tr>
+          <tr class="hw-group"><th colspan="3">मध्य</th></tr>
+          <tr>
+            <td>काठमाडौँ–गजुरी–मुग्लिङ</td>
+            <td><span class="hw-open">दुवैतर्फी (two-way) खुलेको</span></td>
+            <td>असोज २५, दिउँसो ४:४५</td>
+          </tr>
+        </tbody>
+      </table>
       <p>काठमाडौं–हेटौँडा वैकल्पिक बाटो अब आवश्यक छैन।</p>
       <p class="home-road-open-note">अघि: गलौदीमा बन्द थियो।</p>
+      <p class="home-road-open-help">थप जानकारी: ट्राफिक प्रहरी <a href="tel:103">१०३</a> · नेपाल प्रहरी <a href="tel:100">१००</a></p>
     </div>
   </article>
   <div id="dor-roads" class="dor-board" data-dor-mount data-dor-mode="section">
