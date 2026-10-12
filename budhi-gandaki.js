@@ -265,15 +265,58 @@
       '<p class="bg-cap">' + esc(t(item.caption_ne, item.caption_en)) + "</p>" +
       '<p class="bg-src-line"><a href="' + esc(item.source_url) + '" target="_blank" rel="noopener">' + esc(item.source_url) + "</a></p>";
   }
+  function more(inner, label) {
+    if (!inner) return "";
+    return '<details class="bg-more"><summary>' + esc(label || t("थप हेर्नुहोस्", "See more")) + "</summary>" + inner + "</details>";
+  }
+  function cat(id, icon, ne, en, body) {
+    return '<div role="region" class="bg-cat" id="bg-cat-' + id + '" aria-labelledby="bg-cat-' + id + '-h">' +
+      '<h3 class="bg-cat-h" id="bg-cat-' + id + '-h">' + ico(icon) + "<span>" + esc(t(ne, en)) + "</span></h3>" + body + "</div>";
+  }
+  function stat(k, n, u, sub, klass) {
+    return '<li class="bg-stat' + (klass ? " " + klass : "") + '"><span class="bg-stat-k">' + esc(k) + "</span>" +
+      '<span class="bg-stat-n"><strong>' + esc(n) + "</strong>" + (u ? " <span>" + esc(u) + "</span>" : "") + "</span>" +
+      (sub ? '<span class="bg-stat-s">' + sub + "</span>" : "") + "</li>";
+  }
+  function statRow(d) {
+    var a = d.aarughat, latest = a.latest;
+    var cells = [stat(t("आरुघाट नदी सतह", "Aarughat river level"), digits(lvl(latest.level_m)), t("मि.", "m"),
+      esc(t("खतरा", "danger")) + " " + esc(digits(thr(a.danger_m))) + " · " + esc(digits(t(latest.time_ne, latest.time_en))), "is-alert")];
+    (d.impact_head || []).forEach(function (row) {
+      cells.push(stat(t(row.label_ne, row.label_en), digits(String(row.count)), "",
+        (row.asof_ne || row.asof_en) ? esc(t(row.asof_ne, row.asof_en)) : ""));
+    });
+    (d.rescue_update || []).forEach(function (item) {
+      cells.push(stat(t(item.agency_ne, item.agency_en), digits(String(item.count)), t("जना", "people"),
+        (item.reported ? esc(t("प्रहरीको विवरण", "Police-reported")) + " · " : "") + esc(t(item.source_name_ne, item.source_name_en))));
+    });
+    return '<ul class="bg-stats">' + cells.join("") + "</ul>";
+  }
+  function rescueHomeHtml(d) {
+    // Same pieces as rescueUpdateHtml; agency counts are already in the stat row,
+    // so the per-agency cards and the log fold under "see more".
+    var full = rescueUpdateHtml(d);
+    var holder = document.createElement("div");
+    holder.innerHTML = full;
+    var glance = holder.querySelector(".bg-glance");
+    var note = holder.querySelector(".bg-overlap");
+    var dep = holder.querySelector(".bg-deployed");
+    var log = holder.querySelector(".bg-rescue-log");
+    var html = function (n) { return n ? n.outerHTML : ""; };
+    return html(note) + html(dep) + more(html(glance) + html(log));
+  }
+  function splitList(items, keep) {
+    return { top: items.slice(0, keep).join(""), rest: items.slice(keep).join("") };
+  }
   function homeHtml(d) {
     var a = d.aarughat;
     var latest = a.latest;
-    var rescue = (d.rescue || []).map(function (item) {
+    var rescueLis = (d.rescue || []).map(function (item) {
       return "<li>" + esc(t(item.ne, item.en)) + ' <span class="bg-tag">' + esc(t(item.by_ne, item.by_en)) + "</span></li>";
-    }).join("");
-    var times = (d.timeline || []).slice(-4).map(function (item) {
+    });
+    var tl = (d.timeline || []).slice(-4).reverse().map(function (item) {
       return '<div class="bg-tl"><time>' + esc(digits(t(item.time_ne, item.time_en))) + "</time><p>" + esc(t(item.ne, item.en)) + "</p></div>";
-    }).join("");
+    });
     var clip = firstVideo(d);
     var homeMedia = clip
       ? videoBlock(clip) + '<a class="bg-see-all" href="budhi-gandaki.html#photos">' + esc(t("थप तस्विर →", "More photos →")) + "</a>"
@@ -281,36 +324,43 @@
         return '<a href="budhi-gandaki.html#photos"><img src="' + esc(p.src) + '" width="' + p.w + '" height="' + p.h + '" alt="' + esc(t(p.alt_ne, p.alt_en)) + '" loading="lazy" decoding="async"></a>';
       }).join("") + "</div>";
     var calls = phones((d.contacts || []).filter(function (c) { return c.home; }));
-    return '<div class="bg-grid bg-home-grid">' +
-      '<article class="bg-card bg-span">' + head("M12 3v18M8 7h8M7 12h10M8 17h8", "अहिलेको अवस्था", "Current status") +
+    var official = [], earlier = [];
+    (d.impact || []).forEach(function (item) { (item.earlier ? earlier : official).push(impactLi(item)); });
+    var imp = splitList(official, 2);
+    var oldImpact = earlier.length
+      ? '<details class="bg-earlier"><summary>' + esc(t("अघिल्ला विवरण", "Earlier reports")) + "</summary><ul>" + earlier.join("") + "</ul></details>"
+      : "";
+    var rel = splitList(rescueLis, 2);
+    var tlx = splitList(tl, 2);
+
+    var status = cat("status", "M12 3v18M8 7h8M7 12h10M8 17h8", "अहिलेको अवस्था", "Current status",
       '<p class="bg-pill">' + esc(t(d.status_ne, d.status_en)) + "</p>" +
-      '<p class="bg-big"><strong>' + esc(digits(lvl(latest.level_m))) + "</strong> <span>" + esc(t("मि.", "m")) + "</span></p>" +
-      "<p>" + esc(t("खतरा", "danger")) + " <strong>" + esc(digits(thr(a.danger_m))) + "</strong> " + esc(t("मि.", "m")) +
+      "<p>" + esc(t("नदी सतह", "River level")) + " <strong>" + esc(digits(lvl(latest.level_m))) + "</strong> " + esc(t("मि.", "m")) + " · " + esc(t("खतरा", "danger")) + " <strong>" + esc(digits(thr(a.danger_m))) + "</strong> " + esc(t("मि.", "m")) +
       " · " + esc(t("सतर्कता", "Alert level")) + " <strong>" + esc(digits(thr(a.warning_m))) + "</strong> " + esc(t("मि.", "m")) +
       " · " + esc(digits(t(latest.time_ne, latest.time_en))) + "</p>" +
       staleNote(latest) +
-      hydroSvg(d, true) + hydroLegend(d) + hydroCaption() + "</article>" +
-      '<article class="bg-card">' + head("M3 8c2 2 4 2 6 0s4-2 6 0 4 2 6 0M3 14c2 2 4 2 6 0s4-2 6 0 4 2 6 0", "तल्लोतटीय नदी", "Downstream rivers") +
-      downRows(d) + "</article>" +
-      '<article class="bg-card">' + head("M4 20V10l8-6 8 6v10M9 20v-6h6v6", "क्षति", "Damage") +
-      impactHead(d) + "<p>" + esc(t(d.impact_note_ne, d.impact_note_en)) + "</p>" + impactHtml(d) + nearbyHtml(d) + "</article>" +
-      '<article class="bg-card bg-rescue">' + head("M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM12 11v4M12 8h.01", "उद्धार अपडेट", "Rescue update") +
-      rescueUpdateHtml(d) +
-      '<a class="bg-see-all" href="budhi-gandaki.html#rescue-update">' + esc(t("सबै हेर्नुहोस् →", "See all →")) + "</a></article>" +
-      '<article class="bg-card">' + head("M12 3v6M8 9h8l2 4H6l2-4zM7 13v6M17 13v6M5 19h14", "उद्धार र राहत", "Rescue & relief") +
-      "<ul>" + rescue + "</ul></article>" +
-      '<article class="bg-card">' + head("M12 19V5M6 11l6-6 6 6", "सुरक्षित स्थानमा जानुहोस्", "Who should move") +
-      '<p class="bg-safety">' + esc(t(d.guidance_ne, d.guidance_en)) + "</p>" +
-      "<p>" + esc(t(d.evacuate_ne, d.evacuate_en)) + "</p>" +
-      '<p class="bg-tag">' + esc(t(d.evacuate_by_ne, d.evacuate_by_en)) + "</p>" +
-      "<p>" + esc(t(d.districts_ne, d.districts_en)) + "</p></article>" +
-      '<article class="bg-card">' + head("M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z", "समयरेखा", "Timeline") +
-      times +
-      '<a class="bg-see-all" href="budhi-gandaki.html#today">' + esc(t("सबै हेर्नुहोस् →", "See all →")) + "</a></article>" +
-      '<article class="bg-card">' + head("M4 6h16v12H4zM8 18l3-3 2 2 3-4 4 5", "भिडियो", "Video") +
-      homeMedia + "</article>" +
-      '<article class="bg-card">' + head("M7 3h4l1 3h5v14H7zM10 11h4M12 9v4", "सम्पर्क", "Contacts") +
-      calls + "</article></div>" +
+      more('<div class="bg-chart-wrap">' + hydroSvg(d, true) + hydroLegend(d) + hydroCaption() + "</div>" +
+        '<p class="bg-cat-sub">' + esc(t("सुरक्षित स्थानमा जानुहोस्", "Who should move")) + "</p>" +
+        "<p>" + esc(t(d.evacuate_ne, d.evacuate_en)) + "</p>" +
+        '<p class="bg-tag">' + esc(t(d.evacuate_by_ne, d.evacuate_by_en)) + "</p>" +
+        "<p>" + esc(t(d.districts_ne, d.districts_en)) + "</p>" +
+        '<p class="bg-cat-sub">' + esc(t("तल्लोतटीय नदी", "Downstream rivers")) + "</p>" + downRows(d)));
+    var impact = cat("impact", "M4 20V10l8-6 8 6v10M9 20v-6h6v6", "क्षति", "Damage",
+      "<ul>" + imp.top + "</ul>" +
+      more(impactHead(d) + "<p>" + esc(t(d.impact_note_ne, d.impact_note_en)) + "</p>" + (imp.rest ? "<ul>" + imp.rest + "</ul>" : "") + oldImpact + nearbyHtml(d)));
+    var rescue = cat("rescue", "M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM12 11v4M12 8h.01", "उद्धार अपडेट", "Rescue update",
+      rescueHomeHtml(d) +
+      '<a class="bg-see-all" href="budhi-gandaki.html#rescue-update">' + esc(t("सबै हेर्नुहोस् →", "See all →")) + "</a>");
+    var response = cat("response", "M12 3v6M8 9h8l2 4H6l2-4zM7 13v6M17 13v6M5 19h14", "उद्धार र राहत", "Rescue & relief",
+      "<ul>" + rel.top + "</ul>" + more(rel.rest ? "<ul>" + rel.rest + "</ul>" : ""));
+    var contacts = cat("contacts", "M7 3h4l1 3h5v14H7zM10 11h4M12 9v4", "सम्पर्क", "Contacts", calls);
+    var media = cat("media", "M4 6h16v12H4zM8 18l3-3 2 2 3-4 4 5", "भिडियो", "Video",
+      more(homeMedia, t("भिडियो हेर्नुहोस्", "Watch video")));
+    var timeline = cat("timeline", "M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z", "समयरेखा", "Timeline",
+      tlx.top + more(tlx.rest) +
+      '<a class="bg-see-all" href="budhi-gandaki.html#today">' + esc(t("सबै हेर्नुहोस् →", "See all →")) + "</a>");
+    return statRow(d) +
+      '<div class="bg-cats">' + status + impact + rescue + response + contacts + media + timeline + "</div>" +
       '<a class="bg-home-more" href="budhi-gandaki.html">' + esc(t("पूरा विवरण →", "Full details →")) + "</a>";
   }
   function downRows(d) {
