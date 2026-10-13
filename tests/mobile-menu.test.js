@@ -13,3 +13,9 @@ test('nav-menu.js wires toggle, drawer class and close',()=>{
   const js=fs.readFileSync(path.join(__dirname,'..','nav-menu.js'),'utf8');
   for (const k of ['nav-toggle','nav-drawer-panel','aria-expanded','nav-drawer-open']) assert.ok(js.includes(k),k);
 });
+for (const f of ['bulletin.css','bulletin.min.css']) {
+  test(`${f}: mobile drawer content starts at top`,()=>{
+    const css=fs.readFileSync(path.join(__dirname,'..',f),'utf8');
+    assert.match(css,/\.chips-inner\.nav-drawer-panel\s*\{[^}]*justify-content\s*:\s*flex-start\s*!important/);
+  });
+}

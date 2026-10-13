@@ -13213,3 +13213,6 @@ button.ftl-cell{width:100%;border:0;margin:0;padding:0;font:inherit;cursor:point
 
 /* Festival page calendar starts on today */
 .ftl:not(.ftl--compact) .ftl-strip>li{scroll-snap-align:start;scroll-margin-left:12px}
+/* Mobile drawer: always start at top (center overflowed the header/✕ above the viewport) */
+body > .chips-inner.nav-drawer-panel,
+.chips-inner.nav-drawer-panel{justify-content:flex-start !important;align-content:stretch}
