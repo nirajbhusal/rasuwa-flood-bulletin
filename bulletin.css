@@ -13207,3 +13207,9 @@ button.ftl-cell{width:100%;border:0;margin:0;padding:0;font:inherit;cursor:point
   .rv-map .rv-svg{min-width:720px}
   .rv-rows{grid-template-columns:1fr}
 }
+
+/* Festival calendar subtitle */
+.fest-patro-sub{margin:-4px 0 12px;font-size:15px;font-weight:600;color:#475569}
+
+/* Festival page calendar starts on today */
+.ftl:not(.ftl--compact) .ftl-strip>li{scroll-snap-align:start;scroll-margin-left:12px}
