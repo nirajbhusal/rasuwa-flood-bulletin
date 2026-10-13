@@ -638,7 +638,7 @@
     return '<p class="ftl-detail-when">' + esc(adLabel(ev.ad_date)) + "</p>" + rows;
   }
   function stripHtml(today, compact) {
-    var days = stripDays(compact ? today : "");
+    var days = stripDays(today);
     if (!days.length) return "";
     var next = null;
     days.forEach(function (d) { if (!next && d.ad >= today) next = d; });
@@ -674,7 +674,7 @@
     }).join("");
     var detail = compact
       ? '<div class="ftl-detail" data-ftl-detail aria-live="polite"><p class="ftl-detail-name">' + esc(ftlDayTitle(picked)) + "</p>" +
-        ftlDetailHtml(picked) + '<a class="ftl-detail-more" href="festival.html">' + esc(en() ? "Full festival calendar →" : "पूरा चाडपर्व पात्रो →") + "</a></div>"
+        ftlDetailHtml(picked) + '<a class="ftl-detail-more" href="festival.html#parva-patro">' + esc(en() ? "Full festival calendar →" : "पूरा चाडपर्व पात्रो →") + "</a></div>"
       : "";
     return '<div class="ftl' + (compact ? " ftl--compact" : "") + '" role="group" aria-label="' + esc(en() ? "Festival calendar" : "चाडपर्व पात्रो") + '">' +
       '<ol class="ftl-strip">' + cells + "</ol>" + detail + "</div>";
@@ -726,7 +726,10 @@
       var el = strips[i], cur = el.querySelector(".is-today, .is-next");
       if (!cur || el.scrollWidth <= el.clientWidth) continue;
       var li = cur.parentNode;
-      el.scrollLeft = Math.max(0, li.offsetLeft - (el.clientWidth - li.offsetWidth) / 2);
+      // Festival page: the calendar starts on today. Homepage card: centre it.
+      var atStart = !el.closest(".ftl--compact") && cur.classList.contains("is-today");
+      if (atStart) { el.scrollLeft = 0; el.scrollLeft = Math.max(0, cur.getBoundingClientRect().left - el.getBoundingClientRect().left - 12); }
+      else el.scrollLeft = Math.max(0, li.offsetLeft - (el.clientWidth - li.offsetWidth) / 2);
     }
   }
 
@@ -791,12 +794,13 @@
     }).join("");
 
     root.innerHTML = hero +
-      abroadHtml() +
-      travelHtml() +
-      dividerSvg() +
-      '<section class="fest-block"><h2>' + esc(en() ? "Day by day" : "दिनदिनको तालिका") + "</h2>" +
+      '<section class="fest-block fest-patro" id="parva-patro"><h2>' + esc(en() ? "Festival Calendar" : "पर्व पात्रो") + "</h2>" +
+      '<p class="fest-patro-sub">' + esc(en() ? "Main days and साइत of Dashain, Tihar and Chhath" : "दशैं–तिहार–छठका मुख्य दिन र साइत") + "</p>" +
       stripHtml(today, false) +
       '<ol class="fest-timeline">' + rows + "</ol></section>" +
+      dividerSvg() +
+      abroadHtml() +
+      travelHtml() +
       dividerSvg() +
       '<section class="fest-block"><h2>' + esc(en() ? "Official holidays" : "आधिकारिक बिदा") + "</h2>" +
       '<ul class="fest-ranges">' + ranges + "</ul>" +
