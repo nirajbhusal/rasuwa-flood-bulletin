@@ -1,7 +1,7 @@
 /* Schematic road status map for the homepage roads card (v3).
    Roughly geographic network schematic. A route is coloured only when its status
    is verified (official source, or 2+ outlets marked reported); otherwise it is
-   grey dashed "स्थिति पुष्टि भएन". Checked Asoj 27, 11:45 AM NPT. */
+   grey dashed "स्थिति पुष्टि भएन". Checked Asoj 27, 12:45 PM NPT. */
 (function () {
   "use strict";
   var DIG = "०१२३४५६७८९";
@@ -15,6 +15,7 @@
     nepalgunj: { x: 170, y: 250, lx: 170, ly: 284, an: "middle", ne: "नेपालगन्ज", en: "Nepalgunj" },
     butwal: { x: 300, y: 330, lx: 300, ly: 364, an: "middle", ne: "बुटवल", en: "Butwal" },
     baglung: { x: 270, y: 110, lx: 270, ly: 86, an: "middle", ne: "बागलुङ", en: "Baglung" },
+    palpa: { x: 310, y: 255, lx: 324, ly: 262, an: "start", ne: "पाल्पा (तानसेन)", en: "Palpa (Tansen)" },
     pokhara: { x: 380, y: 170, lx: 380, ly: 146, an: "middle", ne: "पोखरा", en: "Pokhara" },
     mugling: { x: 500, y: 230, lx: 486, ly: 264, an: "end", ne: "मुग्लिङ", en: "Mugling" },
     narayanghat: { x: 500, y: 330, lx: 500, ly: 364, an: "middle", ne: "नारायणघाट", en: "Narayanghat" },
@@ -44,12 +45,17 @@
     rp: { ne: "रातोपाटी: संघीय सडक सुपरिवेक्षण तथा अनुगमन कार्यालय, काठमाडौँ (असोज २७)", en: "Ratopati: Federal Road Supervision and Monitoring Office, Kathmandu (Oct 13)", u: "https://english.ratopati.com/story/83506/travelers-have-started-leaving-for-dashain-what-is-the-condition-of-which-roads" },
     ok: { ne: "अनलाइनखबर (असोज २७, बिहान ९:२४; प्रहरीको बिहान ६ बजेको विवरण)", en: "Onlinekhabar (Oct 13, 9:24 AM; Nepal Police 6 AM notice)", u: "https://english.onlinekhabar.com/flood-disrupts-highways-five-districts.html" },
     op: { ne: "अनलाइनपाना (प्रहरीको बिहान ६ बजेको विवरण)", en: "Onlinepana (Nepal Police 6 AM notice)", u: "https://www.onlinepana.com/content/417910/" },
+    ronb: { ne: "RONB राजमार्ग अपडेट, असोज २७ बिहान ११:३०", en: "RONB highway update, 11:30 AM Oct 13", u: "https://x.com/RONBupdates/status/2109897561758982575" },
     eco: { ne: "Ecosphere News: असोज २६ बिहान ७:२० को राजमार्ग अपडेट", en: "Ecosphere News: 7:20 AM highway update, Oct 12", u: "https://www.ecospherenews.com/detail/2603" },
     dor: { ne: "सडक विभाग NAVIGATE", en: "DoR NAVIGATE", u: "https://navigate.dor.gov.np/dashboard" }
   };
   function openNote(what) {
     return t("खुला · रिपोर्ट गरिएको: असोज २६ बिहान ७:२० को अपडेटमा " + what + " खुला भनिएको, र नेपाल प्रहरीको असोज २७ बिहान ११:२० सम्मको अवरोध सूचीमा यो सडक छैन (त्यहाँ आरुघाट मात्र अवरुद्ध)।",
       "Open · reported: listed open (" + what + ") in the 7:20 AM Oct 12 update, and not on Nepal Police's blockage notice to 11:20 AM Asoj 27 (only Aarughat is listed).");
+  }
+  function ronbNote(what) {
+    return t("खुला · रिपोर्ट गरिएको: RONB को असोज २७ बिहान ११:३० को राजमार्ग अपडेटमा " + what + " खुला भनिएको, र नेपाल प्रहरीको असोज २७ बिहान ११:२० सम्मको अवरोध सूचीमा यो सडक छैन।",
+      "Open · reported: listed open (" + what + ") in RONB's 11:30 AM Oct 13 highway update, and not on Nepal Police's blockage notice to 11:20 AM Asoj 27.");
   }
   function todayNote(what) {
     return t("दुवैतर्फी खुला · रिपोर्ट गरिएको: संघीय सडक सुपरिवेक्षण तथा अनुगमन कार्यालय, काठमाडौँका प्रमुखका अनुसार " + what + " दुवैतर्फी चलिरहेको (रातोपाटी, असोज २७), र नेपाल प्रहरीको असोज २७ बिहान ११:२० सम्मको अवरोध सूचीमा छैन।",
@@ -61,21 +67,22 @@
   function routes() {
     return [
       { id: "prithvi", segs: [["ktm", "galaudi"], ["galaudi", "mugling"]], st: "open", name: t("काठमाडौँ–गजुरी–मुग्लिङ (पृथ्वी)", "Kathmandu–Gajuri–Mugling (Prithvi)"),
-        note: todayNote(t("नागढुङ्गा–नौबिसे", "Nagdhunga–Naubise")) + " " + t("गलौँदीको असोज २६–२७ को रात्रि बन्द सकियो।", "The Galaudi night closure of Asoj 26–27 is over."), src: ["rp", "pol"] },
-      { id: "mugling-pokhara", segs: [["mugling", "pokhara"]], st: "open", name: t("मुग्लिङ–पोखरा", "Mugling–Pokhara"), note: openNote("Mugling–Pokhara–Kushma"), src: ["eco", "pol"] },
-      { id: "mugling-narayanghat", segs: [["mugling", "narayanghat"]], st: "open", name: t("मुग्लिङ–नारायणघाट", "Mugling–Narayanghat"), note: todayNote(t("मुग्लिन–नारायणगढ", "Muglin–Narayangadh")), src: ["rp", "pol"] },
-      { id: "narayanghat-butwal", segs: [["narayanghat", "butwal"]], st: "open", name: t("नारायणघाट–बुटवल", "Narayanghat–Butwal"), note: openNote("Narayangarh–Butwal"), src: ["eco", "pol"] },
+        note: todayNote(t("नागढुङ्गा–नौबिसे", "Nagdhunga–Naubise")) + " " + t("गलौँदीको असोज २६–२७ को रात्रि बन्द सकियो।", "The Galaudi night closure of Asoj 26–27 is over."), src: ["rp", "ronb", "pol"] },
+      { id: "mugling-pokhara", segs: [["mugling", "pokhara"]], st: "open", name: t("मुग्लिङ–पोखरा", "Mugling–Pokhara"), note: ronbNote("मुग्लिङ–पोखरा–बागलुङ"), src: ["ronb", "eco", "pol"] },
+      { id: "mugling-narayanghat", segs: [["mugling", "narayanghat"]], st: "open", name: t("मुग्लिङ–नारायणघाट", "Mugling–Narayanghat"), note: todayNote(t("मुग्लिन–नारायणगढ", "Muglin–Narayangadh")), src: ["rp", "ronb", "pol"] },
+      { id: "narayanghat-butwal", segs: [["narayanghat", "butwal"]], st: "open", name: t("नारायणघाट–बुटवल", "Narayanghat–Butwal"), note: ronbNote("नारायणगढ–बुटवल"), src: ["ronb", "eco", "pol"] },
       { id: "ktm-hetauda", segs: [["ktm", "hetauda"]], st: "oneway", name: t("काठमाडौँ–हेटौँडा (त्रिभुवन राजपथ)", "Kathmandu–Hetauda (Tribhuvan Rajpath)"),
-        note: t("एकतर्फी · रिपोर्ट गरिएको: धुनिबेँसी–९ खत्रीपौवाको पहिरोका कारण राजपथ एकतर्फी (नेपाल प्रहरीको असोज २७ बिहान ६ बजेको विवरण उद्धृत गर्दै अनलाइनखबर, अनलाइनपाना)। कान्ति लोकपथ दुवैतर्फी चलिरहेको (रातोपाटी, संघीय सडक कार्यालय)।",
-          "One-way · reported: Rajpath one-way after the landslide at Khatripauwa, Dhunibesi-9 (Onlinekhabar, Onlinepana citing Nepal Police's 6 AM Oct 13 notice). Kanti Lokpath is running two-way (Ratopati, federal road office)."), src: ["ok", "op", "rp"] },
+        note: t("एकतर्फी · रिपोर्ट गरिएको: धुनिबेँसी–९ खत्रीपौवाको पहिरोका कारण राजपथ एकतर्फी (नेपाल प्रहरीको असोज २७ बिहान ६ बजेको विवरण उद्धृत गर्दै अनलाइनखबर, अनलाइनपाना)। काठमाडौँ–कुलेखानी–हेटौँडा मार्ग खुला · रिपोर्ट गरिएको (RONB असोज २७ बिहान ११:३०; प्रहरी अवरोध सूचीमा छैन)। कान्ति लोकपथ दुवैतर्फी चलिरहेको (रातोपाटी, संघीय सडक कार्यालय)।",
+          "One-way · reported: Rajpath one-way after the landslide at Khatripauwa, Dhunibesi-9 (Onlinekhabar, Onlinepana citing Nepal Police's 6 AM Oct 13 notice). The Kathmandu–Kulekhani–Hetauda route is open · reported (RONB 11:30 AM Oct 13; not on the police blockage notice). Kanti Lokpath is running two-way (Ratopati, federal road office)."), src: ["ok", "op", "ronb", "rp"] },
       { id: "bp", segs: [["ktm", "sindhuli"], ["sindhuli", "bardibas"]], st: "open", name: t("काठमाडौँ–सिन्धुली–बर्दिबास (बीपी)", "Kathmandu–Sindhuli–Bardibas (BP)"), note: todayNote(t("बीपी राजमार्ग", "the BP Highway")), src: ["rp", "pol"] },
       { id: "narayanghat-hetauda", segs: [["narayanghat", "hetauda"]], st: "none", name: t("नारायणघाट–हेटौँडा", "Narayanghat–Hetauda"), note: UNV(""), src: [] },
       { id: "hetauda-pathlaiya", segs: [["hetauda", "pathlaiya"]], st: "open", name: t("हेटौँडा–पथलैया", "Hetauda–Pathlaiya"), note: openNote("Hetauda–Pathlaiya–Janakpur"), src: ["eco", "pol"] },
       { id: "pasang-lhamu", segs: [["ktm", "dhunche"]], st: "none", name: t("काठमाडौँ–धुन्चे (पासाङ ल्हामु)", "Kathmandu–Dhunche (Pasang Lhamu)"), note: UNV(t("सडक विभाग NAVIGATE: NH42 (गल्छी–त्रिशूली–रसुवागढी) भदौ १० देखि बन्द देखाउँछ।", "DoR NAVIGATE lists NH42 (Galchi–Trishuli–Rasuwagadhi) closed since Aug 26.")), src: ["dor"] },
       { id: "araniko", segs: [["ktm", "kodari"]], st: "none", name: t("काठमाडौँ–कोदारी (अरनिको)", "Kathmandu–Kodari (Araniko)"), note: UNV(""), src: [] },
-      { id: "pokhara-baglung", segs: [["pokhara", "baglung"]], st: "none", name: t("पोखरा–बागलुङ", "Pokhara–Baglung"), note: UNV(t("(यो खण्डभन्दा पर बेनी–जोमसोम बैसारीमा र कालीगण्डकी करिडोर जन्तीमा एकतर्फी।)", "(Beyond this stretch, Beni–Jomsom at Baisari and the Kaligandaki Corridor at Janti are one-way.)")), src: ["ok"] },
-      { id: "butwal-nepalgunj", segs: [["butwal", "nepalgunj"]], st: "open", name: t("बुटवल–नेपालगन्ज (पूर्व–पश्चिम)", "Butwal–Nepalgunj (East–West)"), note: openNote("Butwal–Nepalgunj"), src: ["eco", "pol"] },
-      { id: "nepalgunj-dhangadhi", segs: [["nepalgunj", "dhangadhi"]], st: "open", name: t("नेपालगन्ज–धनगढी (पूर्व–पश्चिम)", "Nepalgunj–Dhangadhi (East–West)"), note: openNote("Nepalgunj–Dhangadhi"), src: ["eco", "pol"] },
+      { id: "pokhara-baglung", segs: [["pokhara", "baglung"]], st: "open", name: t("पोखरा–बागलुङ", "Pokhara–Baglung"), note: ronbNote("मुग्लिङ–पोखरा–बागलुङ") + " " + t("(यो खण्डभन्दा पर बेनी–जोमसोम बैसारीमा र कालीगण्डकी करिडोर जन्तीमा एकतर्फी।)", "(Beyond this stretch, Beni–Jomsom at Baisari and the Kaligandaki Corridor at Janti are one-way.)"), src: ["ronb", "pol", "ok"] },
+      { id: "butwal-palpa", segs: [["butwal", "palpa"]], st: "open", name: t("बुटवल–पाल्पा (सिद्धार्थ)", "Butwal–Palpa (Siddhartha)"), note: ronbNote("बुटवल–पाल्पा"), src: ["ronb", "pol"] },
+      { id: "butwal-nepalgunj", segs: [["butwal", "nepalgunj"]], st: "open", name: t("बुटवल–नेपालगन्ज (पूर्व–पश्चिम)", "Butwal–Nepalgunj (East–West)"), note: ronbNote("बुटवल–नेपालगन्ज"), src: ["ronb", "eco", "pol"] },
+      { id: "nepalgunj-dhangadhi", segs: [["nepalgunj", "dhangadhi"]], st: "open", name: t("नेपालगन्ज–धनगढी (पूर्व–पश्चिम)", "Nepalgunj–Dhangadhi (East–West)"), note: ronbNote("नेपालगन्ज–धनगढी"), src: ["ronb", "eco", "pol"] },
       { id: "pathlaiya-bardibas", segs: [["pathlaiya", "bardibas"]], st: "open", name: t("पथलैया–बर्दिबास (पूर्व–पश्चिम)", "Pathlaiya–Bardibas (East–West)"), note: openNote("Hetauda–Pathlaiya–Janakpur"), src: ["eco", "pol"] },
       { id: "bardibas-itahari", segs: [["bardibas", "itahari"]], st: "open", name: t("बर्दिबास–इटहरी (पूर्व–पश्चिम)", "Bardibas–Itahari (East–West)"), note: openNote("Bardibas–Koshi Barrage–Itahari"), src: ["eco", "pol"] },
       { id: "itahari-kakarbhitta", segs: [["itahari", "kakarbhitta"]], st: "open", name: t("इटहरी–काँकडभिट्टा (पूर्व–पश्चिम)", "Itahari–Kakarbhitta (East–West)"), note: openNote("Itahari–Damak–Kakarbhitta"), src: ["eco", "pol"] }
@@ -154,7 +161,7 @@
       '<p class="rv-summary">' + esc(summary(list)) + "</p>" +
       '<p class="rv-detail" aria-live="polite"><strong>' + esc(cur.name) + " · " + esc(words(cur.st)) + "</strong><br>" + esc(cur.note) + "<br>" + srcHtml(cur.src) + "</p>" +
       legend() + rows(list) +
-      '<p class="rv-asof">' + esc(t("नक्सा जाँच: असोज २७, बिहान ११:४५ NPT · रङ भएका मार्ग मात्र पुष्टि भएका", "Map checked Asoj 27, 11:45 AM NPT · only coloured routes are verified")) + "</p>";
+      '<p class="rv-asof">' + esc(t("नक्सा जाँच: असोज २७, दिउँसो १२:४५ NPT · रङ भएका मार्ग मात्र पुष्टि भएका", "Map checked Asoj 27, 12:45 PM NPT · only coloured routes are verified")) + "</p>";
     root.querySelectorAll(".rv-seg").forEach(function (el) {
       if (el.getAttribute("data-seg") === cur.id) el.classList.add("is-picked");
     });
