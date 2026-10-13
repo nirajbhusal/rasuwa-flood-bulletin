@@ -310,6 +310,13 @@
     if (btn && list.indexOf(btn) < 0) list.unshift(btn);
     return list;
   }
+  function resetPanelScroll() {
+    if (!inner) return;
+    inner.scrollTop = 0;
+    var raf = window.requestAnimationFrame || function (f) { return setTimeout(f, 16); };
+    raf(function () { inner.scrollTop = 0; raf(function () { inner.scrollTop = 0; }); });
+    setTimeout(function () { if (inner) inner.scrollTop = 0; }, 260);
+  }
   function setOpen(on) {
     if (isDesk()) on = false;
     on = !!on;
@@ -334,6 +341,7 @@
       }
       var first = inner && inner.querySelector("a[href]");
       focusEl(first || btn);
+      resetPanelScroll();
     } else {
       portalIn();
       floatToggle(false);
