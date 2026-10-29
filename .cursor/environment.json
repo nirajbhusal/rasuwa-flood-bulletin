@@ -1,0 +1,13 @@
+{
+  "name": "Rasuwa Flood Bulletin (static site)",
+  "ports": [
+    { "name": "static site", "port": 8000 }
+  ],
+  "terminals": [
+    {
+      "name": "static-server",
+      "command": "python3 -m http.server 8000 --bind 0.0.0.0",
+      "description": "Serves the static bulletin site over HTTP on port 8000. Required because pages fetch local JSON/CSV and register a service worker, which do not work over file://. Open http://localhost:8000/ to view."
+    }
+  ]
+}
